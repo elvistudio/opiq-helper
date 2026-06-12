@@ -17,30 +17,35 @@ The extension scrapes structured Opiq book/chapter data from the active browser 
 
 ## Current Export Format
 
-The current extension exports the legacy raw archive format:
+The extension now exports compact v2 archives for ChatGPT Project usage:
+
+- `index.json`
+- `opiq_lookup.md`
+- `opiq_lookup.jsonl`
+- `topic_map.json`
+- `raw/Opiq-DB/index.json`
+- `raw/Opiq-DB/books/<bookId>.json`
+- `raw/Opiq-DB/chapters/<bookId>/<chapterId>.json`
+
+The root lookup files are intended for fast ChatGPT retrieval. The `raw/` folder is kept as fallback material for later AI-assisted cleanup, debugging, or reprocessing.
+
+The previous legacy raw archive format was:
 
 - `Opiq-DB/index.json`
 - `Opiq-DB/books/<bookId>.json`
 - `Opiq-DB/chapters/<bookId>/<chapterId>.json`
 
-This is the format used by the current source archives.
+## Compact v2 Rules
 
-## Notes For Next Version
-
-The next extension version should export compact v2 lookup files directly:
-
-- `opiq_lookup.md`
-- `opiq_lookup.jsonl`
-- `topic_map.json`
-- `index.json`
-
-The compact v2 format should keep multilingual topic fields separate:
+The compact v2 format keeps multilingual topic fields separate:
 
 - `topics_et`: Estonian-only topics
 - `topics_ru`: Russian-only topics
 - `topics_en`: English-only topics
 
-It should also keep full cleaned headings for every page and avoid exporting image URLs, repeated Opiq UI text, empty task text, and other noisy content.
+It keeps full cleaned headings for every page and avoids exporting image URLs, repeated Opiq UI text, empty task text, and other noisy content in the root lookup files.
+
+The extension deliberately does not generate AI summaries. If summaries or deeper semantic enrichment are needed later, the exported files can be provided to an AI workflow outside the extension.
 
 ## Security Check
 
