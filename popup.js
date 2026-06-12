@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         statusEl.textContent = '⚠️ База пуста'; return;
       }
       buildAndDownloadZip(db);
-      statusEl.textContent = '💾 Скачиваю Opiq-DB.zip...';
+      statusEl.textContent = '💾 Скачиваю compact v2 ZIP...';
     });
   });
 
@@ -138,12 +138,49 @@ document.addEventListener('DOMContentLoaded', () => {
     stopBtn.style.display  = running ? 'block' : 'none';
   }
 
+  const NOISE_PHRASES = [
+    'Õpetaja lisatud materjal', 'Minu lisatud materjal', 'Seotud sisu',
+    'Previous', 'Next', 'Kontrolli vastust', 'Alusta uuesti', 'Muuda vastust',
+    'Näita õiget vastust', 'Näita minu vastust', 'Õpilaste statistika',
+    'Õigesti vastatud', 'Valesti vastatud', 'Учитель добавил материал',
+    'Мой добавленный материал', 'Связанное содержание', 'Проверить ответ',
+    'Начать заново', 'Изменить ответ', 'Показать правильный ответ',
+    'Показать мой ответ', 'Статистика учеников'
+  ];
+
+  const NOISE_KEYWORDS = new Set([
+    'õpetaja', 'lisatud', 'materjal', 'minu', 'seotud', 'sisu',
+    'ülesanne', 'ülesanded', 'задание', 'задания'
+  ]);
+
+  const ALIASES = [
+    { et: ['liitmine', 'liida', 'summa', 'kokku'], ru: ['сложение', 'сложи', 'сумма'], en: ['addition', 'add', 'sum'] },
+    { et: ['lahutamine', 'lahuta', 'vahe'], ru: ['вычитание', 'вычти', 'разность'], en: ['subtraction', 'subtract', 'difference'] },
+    { et: ['korrutamine', 'korruta', 'korrutis', 'korda'], ru: ['умножение', 'умножь', 'произведение'], en: ['multiplication', 'multiply', 'product'] },
+    { et: ['jagamine', 'jaga', 'jagatis', 'pool'], ru: ['деление', 'раздели', 'частное', 'половина'], en: ['division', 'divide', 'quotient', 'half'] },
+    { et: ['arv', 'arvud', 'arvu', 'numbrid'], ru: ['число', 'числа', 'цифры'], en: ['number', 'numbers', 'digits'] },
+    { et: ['võrdlemine', 'võrdle', 'suurem', 'väiksem'], ru: ['сравнение', 'сравни', 'больше', 'меньше'], en: ['comparison', 'compare', 'greater', 'less'] },
+    { et: ['geomeetria', 'kujund', 'kujundid', 'sirge', 'lõik'], ru: ['геометрия', 'фигура', 'фигуры', 'прямая', 'отрезок'], en: ['geometry', 'shape', 'shapes', 'line', 'segment'] },
+    { et: ['mõõtmine', 'mõõtühik', 'pikkus', 'mass', 'maht'], ru: ['измерение', 'единица измерения', 'длина', 'масса', 'объём'], en: ['measurement', 'unit', 'length', 'mass', 'volume'] },
+    { et: ['aeg', 'kell', 'kalender'], ru: ['время', 'часы', 'календарь'], en: ['time', 'clock', 'calendar'] },
+    { et: ['raha', 'euro', 'sent'], ru: ['деньги', 'евро', 'цент'], en: ['money', 'euro', 'cent'] },
+    { et: ['kordamine', 'korda', 'harjutan'], ru: ['повторение', 'повтори', 'тренировка'], en: ['revision', 'review', 'practice'] },
+    { et: ['loodus', 'loodusõpetus', 'keskkond'], ru: ['природа', 'природоведение', 'окружающая среда'], en: ['nature', 'science', 'environment'] },
+    { et: ['taim', 'taimed', 'puu', 'lill'], ru: ['растение', 'растения', 'дерево', 'цветок'], en: ['plant', 'plants', 'tree', 'flower'] },
+    { et: ['loom', 'loomad', 'linnud', 'putukad'], ru: ['животное', 'животные', 'птицы', 'насекомые'], en: ['animal', 'animals', 'birds', 'insects'] },
+    { et: ['aastaajad', 'kevad', 'suvi', 'sügis', 'talv'], ru: ['времена года', 'весна', 'лето', 'осень', 'зима'], en: ['seasons', 'spring', 'summer', 'autumn', 'winter'] },
+    { et: ['vesi', 'veeohutus', 'veekogu'], ru: ['вода', 'безопасность на воде', 'водоём'], en: ['water', 'water safety', 'body of water'] },
+    { et: ['inimene', 'keha', 'meeled', 'tervis'], ru: ['человек', 'тело', 'чувства', 'здоровье'], en: ['human', 'body', 'senses', 'health'] }
+  ];
+
+  const ENGLISH_TOPIC_TERMS = new Set(ALIASES.flatMap(group => group.en).map(term => term.toLowerCase()));
+
   // ── ZIP builder (no external library needed) ──────────────────────────────
   function buildAndDownloadZip(db) {
     const files = [];
-
-    // index.json
-    const index = {
+    const records = buildCompactRecords(db);
+    const topicMap = buildTopicMap(records);
+    const rawIndex = {
       generatedAt: new Date().toISOString(),
       books: Object.values(db.books).map(b => ({
         id: b.id, title: b.title, publisher: b.publisher,
@@ -151,12 +188,33 @@ document.addEventListener('DOMContentLoaded', () => {
         chapterCount: db.chapters[b.id] ? Object.keys(db.chapters[b.id]).length : 0,
       }))
     };
-    files.push({ path: 'Opiq-DB/index.json', content: JSON.stringify(index, null, 2) });
+
+    // index.json
+    const index = {
+      formatVersion: '2.0',
+      generatedAt: rawIndex.generatedAt,
+      source: 'opiq-helper-extension',
+      recordCount: records.length,
+      supportedQueryLanguages: ['et', 'ru', 'en'],
+      compactFiles: ['opiq_lookup.md', 'opiq_lookup.jsonl', 'topic_map.json', 'index.json'],
+      rawArchiveIncluded: true,
+      books: rawIndex.books
+    };
+    files.push({ path: 'index.json', content: JSON.stringify(index, null, 2) });
+    files.push({ path: 'opiq_lookup.md', content: records.map(markdownRecord).join('\n\n') + '\n' });
+    files.push({
+      path: 'opiq_lookup.jsonl',
+      content: records.map(record => JSON.stringify(record)).join('\n') + '\n'
+    });
+    files.push({ path: 'topic_map.json', content: JSON.stringify(topicMap, null, 2) });
+
+    // Keep legacy raw data as fallback for AI/post-processing outside the extension.
+    files.push({ path: 'raw/Opiq-DB/index.json', content: JSON.stringify(rawIndex, null, 2) });
 
     // books/bookId.json
     Object.values(db.books).forEach(book => {
       files.push({
-        path: `Opiq-DB/books/${book.id}.json`,
+        path: `raw/Opiq-DB/books/${book.id}.json`,
         content: JSON.stringify(book, null, 2)
       });
     });
@@ -166,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.entries(chapters).forEach(([chapterId, chapter]) => {
         const safeId = chapterId.replace(/[^a-zA-Z0-9._-]/g, '_');
         files.push({
-          path: `Opiq-DB/chapters/${bookId}/${safeId}.json`,
+          path: `raw/Opiq-DB/chapters/${bookId}/${safeId}.json`,
           content: JSON.stringify(chapter, null, 2)
         });
       });
@@ -175,7 +233,181 @@ document.addEventListener('DOMContentLoaded', () => {
     const zip = createZip(files);
     const blob = new Blob([zip], { type: 'application/zip' });
     const url  = URL.createObjectURL(blob);
-    chrome.downloads.download({ url, filename: 'Opiq-DB.zip', saveAs: false });
+    chrome.downloads.download({ url, filename: `${buildExportBaseName(db)}.zip`, saveAs: false });
+  }
+
+  function buildCompactRecords(db) {
+    const records = [];
+    Object.entries(db.chapters || {}).forEach(([bookId, chapters]) => {
+      const book = (db.books || {})[bookId] || {};
+      Object.values(chapters || {}).forEach(chapter => {
+        const title = normalizeSpace(chapter.chapterTitle || '');
+        const headings = unique((chapter.headings || [])
+          .map(h => h.text || '')
+          .filter(text => text && !isTaskHeading(normalizeSpace(text))));
+        const sourceKeywords = unique((chapter.keywords || [])
+          .filter(keyword => keyword && !NOISE_KEYWORDS.has(keyword.toLowerCase())));
+        const subject = inferSubject(book, title);
+        const topics = buildTopicAliases(sourceKeywords, title, headings, subject);
+        const taskExamples = [];
+        (chapter.tasks || []).forEach(task => {
+          if (taskExamples.length >= 2) return;
+          const text = normalizeSpace(task.text || '');
+          if (text.length >= 20 && !/Õigesti vastatud|Valesti vastatud|Показать|Статистика/.test(text)) {
+            taskExamples.push(text.slice(0, 220));
+          }
+        });
+
+        records.push({
+          title,
+          url: chapter.url || '',
+          book: book.title || bookId,
+          book_id: bookId,
+          chapter_id: chapter.chapterId || '',
+          grade: book.grade || null,
+          subject_et: subject.et,
+          subject_ru: subject.ru,
+          subject_en: subject.en,
+          language: detectLanguage([title, book.title || '', ...headings, ...sourceKeywords].join(' ')),
+          publisher: book.publisher || '',
+          topics_et: topics.et,
+          topics_ru: topics.ru,
+          topics_en: topics.en,
+          headings,
+          task_examples: taskExamples
+        });
+      });
+    });
+    return records;
+  }
+
+  function buildTopicAliases(sourceTerms, title, headings, subject) {
+    const text = [title, ...headings, ...sourceTerms].join(' ').toLowerCase();
+    const topics = { et: [subject.et], ru: [subject.ru], en: [subject.en] };
+
+    ALIASES.forEach(group => {
+      const matched = [...group.et, ...group.ru, ...group.en].some(term => text.includes(term.toLowerCase()));
+      if (!matched) return;
+      topics.et.push(...group.et);
+      topics.ru.push(...group.ru);
+      topics.en.push(...group.en);
+    });
+
+    sourceTerms.forEach(term => {
+      const clean = normalizeSpace(term);
+      if (!clean || NOISE_KEYWORDS.has(clean.toLowerCase())) return;
+      const lang = detectLanguage(clean);
+      if (isValidTopicForLanguage(clean, lang)) topics[lang].push(clean);
+    });
+
+    return {
+      et: unique(topics.et.filter(term => isValidTopicForLanguage(term, 'et'))).slice(0, 40),
+      ru: unique(topics.ru.filter(term => isValidTopicForLanguage(term, 'ru'))).slice(0, 40),
+      en: unique(topics.en.filter(term => isValidTopicForLanguage(term, 'en'))).slice(0, 40)
+    };
+  }
+
+  function markdownRecord(record) {
+    const lines = [
+      `## ${record.title || 'Untitled page'}`,
+      `URL: ${record.url}`,
+      `Book: ${record.book}`,
+      `Class: ${record.grade || ''}`,
+      `Subject: ${record.subject_en} / ${record.subject_et} / ${record.subject_ru}`,
+      `Language: ${record.language}`,
+      `Publisher: ${record.publisher}`,
+      `Book ID: ${record.book_id}`,
+      `Chapter ID: ${record.chapter_id}`,
+      `Topics ET: ${record.topics_et.join(', ')}`,
+      `Topics RU: ${record.topics_ru.join(', ')}`,
+      `Topics EN: ${record.topics_en.join(', ')}`
+    ];
+    if (record.headings.length) lines.push(`Headings: ${record.headings.join('; ')}`);
+    if (record.task_examples.length) lines.push(`Task examples: ${record.task_examples.join('; ')}`);
+    return lines.join('\n');
+  }
+
+  function buildTopicMap(records) {
+    const map = {};
+    records.forEach(record => {
+      [...record.topics_et, ...record.topics_ru, ...record.topics_en, record.title].forEach(topic => {
+        const key = normalizeSpace(topic).toLowerCase();
+        if (key.length < 3) return;
+        if (!map[key]) map[key] = [];
+        const entry = {
+          title: record.title,
+          url: record.url,
+          language: record.language,
+          grade: record.grade,
+          subject: record.subject_en
+        };
+        if (!map[key].some(existing => existing.url === entry.url)) map[key].push(entry);
+      });
+    });
+    Object.keys(map).forEach(key => { map[key] = map[key].slice(0, 30); });
+    return map;
+  }
+
+  function buildExportBaseName(db) {
+    const books = Object.values(db.books || {});
+    const first = books[0] || {};
+    const grade = first.grade ? `${first.grade}klass` : 'opiq';
+    const subject = slugify(first.subject || first.title || 'lookup');
+    return `opiq_${grade}_${subject}_v2`;
+  }
+
+  function inferSubject(book, title) {
+    const blob = `${book.subject || ''} ${book.id || ''} ${book.title || ''} ${title || ''}`.toLowerCase();
+    if (blob.includes('loodus') || blob.includes('planeet') || blob.includes('veeohutus')) {
+      return { et: 'loodusõpetus', ru: 'природоведение', en: 'science' };
+    }
+    return { et: 'matemaatika', ru: 'математика', en: 'mathematics' };
+  }
+
+  function normalizeSpace(value) {
+    let text = value || '';
+    NOISE_PHRASES.forEach(phrase => { text = text.split(phrase).join(' '); });
+    return text.replace(/\s+/g, ' ').trim();
+  }
+
+  function unique(values) {
+    const seen = new Set();
+    const result = [];
+    values.forEach(value => {
+      const clean = normalizeSpace(value);
+      const key = clean.toLowerCase();
+      if (!clean || seen.has(key)) return;
+      seen.add(key);
+      result.push(clean);
+    });
+    return result;
+  }
+
+  function isTaskHeading(value) {
+    return /^(Ülesanne|Задание)\s*[\wА-Яа-я-]*$/i.test(value || '');
+  }
+
+  function detectLanguage(text) {
+    if (/[А-Яа-яЁё]/.test(text)) return 'ru';
+    const lower = (text || '').toLowerCase();
+    if (ENGLISH_TOPIC_TERMS.has(lower) || /\b(the|and|of|with|number|addition|multiplication)\b/i.test(text || '')) return 'en';
+    return 'et';
+  }
+
+  function isValidTopicForLanguage(term, language) {
+    if (language === 'ru') return !/[A-Za-zÕÄÖÜŠŽõäöüšž]/.test(term);
+    if (language === 'en') return !/[А-Яа-яЁёÕÄÖÜŠŽõäöüšž]/.test(term);
+    return !/[А-Яа-яЁё]/.test(term);
+  }
+
+  function slugify(value) {
+    return (value || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '')
+      .slice(0, 48) || 'lookup';
   }
 
   // Minimal ZIP implementation (store, no compression)
