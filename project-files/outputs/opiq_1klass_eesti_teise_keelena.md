@@ -13,7 +13,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Books: 2
 - Page records included: 150
 - Cover/detail records excluded: 2
-- Notes: Source archive had automatic subject labels from detected page keywords; this project file normalizes the subject to Estonian as a second language while keeping concrete page themes such as letters, colors, nature, numbers, and comparison.
+- Notes: Source archive had automatic subject labels from detected page keywords; this project file normalizes the subject to Estonian as a second language while keeping concrete page themes. Audited kit 537 is not included because this route's registered archive contains only kits 554 and 538; see `docs/audits/grade-1-estonian-subject-separation.md`.
 
 ## Books
 - KORDAME TÄHTI; publisher Avita; grade 1; language et; id 1k_eesti_keel_esiopetus_avita_est

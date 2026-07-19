@@ -149,3 +149,24 @@ cases:
     status: present
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
     evidence: "Selgrootud loomad and multiple invertebrate groups are explicit headings."
+
+  # Route-boundary cases may use expected_source_ids/expected_md_paths for both
+  # canonical routes and negative_expectation for content forbidden in one path.
+  - id: grade-1-estonian-subject-separation
+    grade: 1
+    subject: estonian
+    related_subject: estonian_second_language
+    topic: "eesti keel and eesti keel teise keelena are separate routes"
+    status: present
+    expected_source_ids:
+      - grade-1-estonian
+      - grade-1-estonian-second-language
+    expected_md_paths:
+      - project-files/outputs/opiq_1klass_eesti_keel.md
+      - project-files/outputs/opiq_1klass_eesti_teise_keelena.md
+    negative_expectation:
+      kind: book_id_absent_from_path
+      book_id: 1k_eesti_teise_keelena_avita_est
+      kit_id: "537"
+      md_path: project-files/outputs/opiq_1klass_eesti_keel.md
+    evidence: "docs/audits/grade-1-estonian-subject-separation.md classifies all 26 kit 537 records and documents why the second-language book must not be returned through the first-language index."
