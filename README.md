@@ -24,7 +24,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `project-files/outputs/opiq_*klass_*.md` contains the canonical Markdown lookup indexes.
 - `project-files/inputs/final-zips/` contains available source archives.
 - `project-files/outputs/*_qa.json` contains available static QA snapshots.
-- `evaluations/known-topic-checks.yaml` records a small regression set for known topic risks; it is not a curriculum map.
+- `evaluations/known-topic-checks.yaml` records machine-checked representative topic and routing regressions; it is not a curriculum map.
 
 The legacy `opiq_compact_all_index.json`, `opiq_lookup_all.*`, `topic_map_all.json`, and `opiq-compact-all*` files form an older, partial aggregate. They are not the canonical repository manifest.
 
@@ -93,3 +93,15 @@ Routes may opt into exact canonical URL uniqueness with `canonical_url_policy.re
 A route-specific `canonical_subject_policy` requires every canonical record to use the declared Subject. For grade 3 mathematics, two audited `Kaitseme loodust` source records are normalized from science to mathematics because their learner tasks are computational. Environmental keywords remain valid thematic context; the subject policy checks the Subject field, not topic keywords.
 
 Regression topics are promoted to `present` only from explicit headings or tasks that demonstrate the requested learning objective. Automatically generated topic keywords, generic greater/less comparisons, or material from another grade are not sufficient evidence.
+
+## Known-topic regressions
+
+The schema, assertion kinds, route coverage gates, and safe update process are documented in [`docs/known-topic-regressions.md`](docs/known-topic-regressions.md). Install the locked YAML parser and run the unit and repository checks with:
+
+```sh
+npm ci --ignore-scripts --no-audit --no-fund
+npm run test:topics
+npm run check:topics
+```
+
+The regression set checks representative positive evidence and wrong-route boundaries for every manifest source. It remains distinct from a curriculum map and does not prove complete programme coverage.
