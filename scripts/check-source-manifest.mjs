@@ -308,9 +308,16 @@ async function validateQaSnapshot(
       'records_without_headings',
       'missing_urls',
       'source_provenance',
-      'topic_audit',
       'kits',
     ];
+    if (source.id === 'grade-1-mathematics') derivedRequiredFields.push('topic_audit');
+    if (source.id === 'grade-3-mathematics') {
+      derivedRequiredFields.push(
+        'subject_normalization_audit',
+        'source_subject_counts',
+        'canonical_subject_counts',
+      );
+    }
     derivedRequiredFields.forEach((field) => {
       if (!Object.hasOwn(qa, field)) fail(`${sourceLabel}: missing derived QA field ${field}.`);
     });
@@ -330,6 +337,12 @@ async function validateQaSnapshot(
       fail(
         `${sourceLabel}: included and excluded QA counters account for ${accountedSourceRecords} source records, expected ${qa.source_records}.`,
       );
+    }
+    if (Object.hasOwn(qa, 'source_subject_counts')) {
+      validateCountMap(qa, sourceLabel, 'source_subject_counts', qa.source_records);
+    }
+    if (Object.hasOwn(qa, 'canonical_subject_counts')) {
+      validateCountMap(qa, sourceLabel, 'canonical_subject_counts', qa.page_records_included);
     }
   }
 
@@ -410,6 +423,25 @@ function validateCanonicalUrlPolicy(source, sourceLabel) {
   }
   if (typeof policy.require_unique !== 'boolean') {
     fail(`${sourceLabel}: canonical_url_policy.require_unique must be a boolean.`);
+  }
+}
+
+function validateCanonicalSubjectPolicy(source, sourceLabel) {
+  if (!Object.hasOwn(source, 'canonical_subject_policy')) return;
+
+  const policy = source.canonical_subject_policy;
+  if (!isPlainObject(policy)) {
+    fail(`${sourceLabel}: canonical_subject_policy must be an object.`);
+    return;
+  }
+  if (!isPlainObject(policy.required_subject)) {
+    fail(`${sourceLabel}: canonical_subject_policy.required_subject must be an object.`);
+    return;
+  }
+  for (const language of ['en', 'et', 'ru']) {
+    if (!isNonEmptyString(policy.required_subject[language])) {
+      fail(`${sourceLabel}: canonical_subject_policy.required_subject.${language} must be a non-empty string.`);
+    }
   }
 }
 
@@ -594,6 +626,15 @@ function validateMarkdown(source, markdown, allowedLanguages) {
     const subjectMatch = record.match(/^(?:-\s+)?Subject(?:\s+ET)?:\s*(.+?)\s*$/mi);
     if (!subjectMatch || !subjectMatch[1].trim()) {
       fail(`${recordLabel}: subject is empty.`);
+    } else if (source.canonical_subject_policy?.required_subject) {
+      const required = source.canonical_subject_policy.required_subject;
+      const expectedSubject = `${required.en} / ${required.et} / ${required.ru}`;
+      const actualSubject = subjectMatch[1].trim();
+      if (actualSubject !== expectedSubject) {
+        fail(
+          `${recordLabel}: URL ${urlMatch?.[1] || '<missing>'} has Subject "${actualSubject}"; expected "${expectedSubject}" from canonical_subject_policy.`,
+        );
+      }
     }
 
     const languageMatch = record.match(/^(?:-\s+)?Language:\s*(.*?)\s*$/mi);
@@ -622,7 +663,6 @@ if (!manifest) {
   const routes = new Set();
   const criticalQualityMarkers = new Map([
     ['grade-1-science', 'needs_review'],
-    ['grade-3-mathematics', 'needs_review'],
   ]);
 
   for (const [index, source] of (manifest.sources || []).entries()) {
@@ -678,6 +718,7 @@ if (!manifest) {
 
     await validateSubjectBoundaryConfig(source, label);
     validateCanonicalUrlPolicy(source, label);
+    validateCanonicalSubjectPolicy(source, label);
 
     const route = `${source.grade}\u0000${source.subject}\u0000${source.md_path}`;
     if (routes.has(route)) {

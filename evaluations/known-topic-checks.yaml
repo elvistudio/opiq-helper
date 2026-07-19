@@ -150,6 +150,26 @@ cases:
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
     evidence: "Selgrootud loomad and multiple invertebrate groups are explicit headings."
 
+  # Subject-routing cases may declare exact URLs, the canonical Subject, and
+  # forbidden subjects/paths. These are regression guards, not a curriculum map.
+  - id: grade-3-mathematics-kaitseme-loodust-subject
+    grade: 3
+    subject: mathematics
+    topic: "Kaitseme loodust pages with computational learning tasks"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_matemaatika.md
+    expected_urls:
+      - https://www.opiq.ee/kit/531/chapter/29334
+      - https://www.opiq.ee/kit/54/chapter/2701
+    expected_subject: "mathematics / matemaatika / математика"
+    forbidden_subjects:
+      - science
+      - loodusõpetus
+      - природоведение
+    forbidden_md_paths:
+      - project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "docs/audits/grade-3-mathematics-source-and-subjects.md documents both exact records. The pages belong to grade 3 mathematics books and ask pupils to read a diagram, count responses, calculate gift prices, and calculate saved electricity hours. Environmental protection remains thematic context and does not change the instructional subject."
+
   # Route-boundary cases may use expected_source_ids/expected_md_paths for both
   # canonical routes and negative_expectation for content forbidden in one path.
   - id: grade-1-estonian-subject-separation

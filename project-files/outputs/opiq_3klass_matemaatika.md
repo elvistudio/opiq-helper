@@ -1,3 +1,29 @@
+# Opiq lookup: grade 3 mathematics
+
+Source summary:
+- Provenance: derived compact snapshot `project-files/outputs/3klass-matem-compact.zip`; the declared original export `3klass-matem.zip` is unavailable.
+- Source records: 637.
+- Canonical records: 634.
+- Languages: et (430), ru (199), en (5).
+- Kits: 54 (142), 92 (137), 134 (62), 308 (62), 497 (26), 498 (16), 499 (24), 500 (23), 531 (142).
+- Duplicate exclusions: 3 repeated kit detail records (kits 497, 498, and 500); the stable first occurrence is retained.
+- Subject normalizations: 2 `Kaitseme loodust` records retain their environmental context but use the mathematics subject because their tasks are computational.
+- Cover/detail records present: 9; excluded as duplicates: 3.
+- Administrative records present: 6; excluded: 0.
+
+Books:
+- `3k_matem_avita_2023_est` — kit 531, Avita, et/en, 142 canonical records, standard curriculum.
+- `3k_matem_avita_2_est` — kit 54, Avita, et/en, 142 canonical records, standard curriculum.
+- `3k_matem_avita_est` — kit 92, Avita, ru, 137 canonical records, standard curriculum.
+- `3k_matem_koolibri_est` — kit 134, Koolibri, et, 62 canonical records, standard curriculum.
+- `3k_matem_koolibri_rus` — kit 308, Koolibri, ru, 62 canonical records, standard curriculum.
+- `3k_matem_osa1_est` — kit 497, et, 26 canonical records, simplified curriculum.
+- `3k_matem_osa2_est` — kit 498, et/en, 16 canonical records, simplified curriculum.
+- `3k_matem_osa3_est` — kit 499, et, 24 canonical records, simplified curriculum.
+- `3k_matem_osa4_est` — kit 500, et, 23 canonical records, simplified curriculum.
+
+Notes: The compact snapshot is a derived source, not the original export. This index is structurally verified but is not evidence of complete curriculum coverage or pedagogical readiness.
+
 ## Arvutamise algus
 URL: https://www.opiq.ee/kit/531/chapter/29290
 Book: Arvutamise algus
@@ -868,14 +894,14 @@ Task examples: Leia puuduvad arvud.; Lahenda tekstülesanded. Ülesanne 2c Ott j
 URL: https://www.opiq.ee/kit/531/chapter/29334
 Book: Arvutamise algus
 Class: 3
-Subject: science / loodusõpetus / природоведение
+Subject: mathematics / matemaatika / математика
 Language: et
 Publisher: Avita
 Book ID: 3k_matem_avita_2023_est
 Chapter ID: 3.16
-Topics ET: loodusõpetus, loodus, keskkond, kaitseme, loodust, lugu, prügist, pakenditest, uuring, loodushoiu, kohta
-Topics RU: природоведение, природа, окружающая среда
-Topics EN: science, nature, environment
+Topics ET: matemaatika, loodus, keskkond, kaitseme, loodust, lugu, prügist, pakenditest, uuring, loodushoiu, kohta
+Topics RU: математика, природа, окружающая среда
+Topics EN: mathematics, nature, environment
 Headings: Kaitseme loodust; Lugu prügist ja pakenditest; Uuring loodushoiu kohta; Mõtle; Vanaema jõulusokid; Mida saab prügist teha?; Mitme tunni jagu säästad elektrit?
 Task examples: Vaata diagrammi ja leia, kui palju inimesi vastas oma tegevuse kohta, et nad teevad seda sageli.; Vaata pilti ja arvuta, mitu eurot oleks vanaema pidanud poes selliste kingituste eest maksma.
 
@@ -2991,14 +3017,14 @@ Task examples: Leia puuduvad arvud.; Mitu liitrit mahla mahub viide kannu?
 URL: https://www.opiq.ee/kit/54/chapter/2701
 Book: Arvutamise algus
 Class: 3
-Subject: science / loodusõpetus / природоведение
+Subject: mathematics / matemaatika / математика
 Language: et
 Publisher: Avita
 Book ID: 3k_matem_avita_2_est
 Chapter ID: 3.16
-Topics ET: loodusõpetus, loodus, keskkond, kaitseme, loodust, uuring, loodushoiu, kohta, mõtle, lugu, prügist
-Topics RU: природоведение, природа, окружающая среда
-Topics EN: science, nature, environment
+Topics ET: matemaatika, loodus, keskkond, kaitseme, loodust, uuring, loodushoiu, kohta, mõtle, lugu, prügist
+Topics RU: математика, природа, окружающая среда
+Topics EN: mathematics, nature, environment
 Headings: Kaitseme loodust; Uuring loodushoiu kohta; Mõtle; Lugu prügist ja pakenditest; Vanaema jõulusokid; Mida saab prügist teha?; Mitme tunni jagu säästad elektrit?
 Task examples: Vaata diagrammi ja leia, kui palju inimesi vastas oma tegevuse kohta, et nad teevad seda sageli.; Vaata pilti ja arvuta, mitu eurot oleks vanaema pidanud poes selliste kingituste eest maksma.
 
@@ -8326,19 +8352,6 @@ Topics ET: matemaatika, klassile, lihtsustatud, õppekava, opiq
 Topics RU: математика
 Topics EN: mathematics
 
-## Matemaatika 3. klassile, I osa. Lihtsustatud õppekava – Opiq
-URL: https://www.opiq.ee/Kit/Details/497
-Book: Matemaatika 3. klassile, I osa. Lihtsustatud õppekava – Opiq
-Class: 3
-Subject: mathematics / matemaatika / математика
-Language: et
-Publisher: 
-Book ID: 3k_matem_osa1_est
-Chapter ID: 291
-Topics ET: matemaatika, klassile, lihtsustatud, õppekava, opiq
-Topics RU: математика
-Topics EN: mathematics
-
 ## Rahaühikud
 URL: https://www.opiq.ee/kit/497/chapter/27301
 Book: Matemaatika 3. klassile, I osa. Lihtsustatud õppekava – Opiq
@@ -8642,19 +8655,6 @@ Language: et
 Publisher: 
 Book ID: 3k_matem_osa2_est
 Chapter ID: 248
-Topics ET: matemaatika, klassile, lihtsustatud, õppekava, opiq
-Topics RU: математика
-Topics EN: mathematics
-
-## Matemaatika 3. klassile, II osa. Lihtsustatud õppekava – Opiq
-URL: https://www.opiq.ee/Kit/Details/498
-Book: Matemaatika 3. klassile, II osa. Lihtsustatud õppekava – Opiq
-Class: 3
-Subject: mathematics / matemaatika / математика
-Language: et
-Publisher: 
-Book ID: 3k_matem_osa2_est
-Chapter ID: 264
 Topics ET: matemaatika, klassile, lihtsustatud, õppekava, opiq
 Topics RU: математика
 Topics EN: mathematics
@@ -9213,19 +9213,6 @@ Language: et
 Publisher: 
 Book ID: 3k_matem_osa4_est
 Chapter ID: 200
-Topics ET: matemaatika, klassile, lihtsustatud, õppekava, opiq
-Topics RU: математика
-Topics EN: mathematics
-
-## Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava – Opiq
-URL: https://www.opiq.ee/Kit/Details/500
-Book: Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava – Opiq
-Class: 3
-Subject: mathematics / matemaatika / математика
-Language: et
-Publisher: 
-Book ID: 3k_matem_osa4_est
-Chapter ID: 223
 Topics ET: matemaatika, klassile, lihtsustatud, õppekava, opiq
 Topics RU: математика
 Topics EN: mathematics
