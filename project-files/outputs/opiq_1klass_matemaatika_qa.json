@@ -1,0 +1,228 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-1-mathematics",
+  "source_archive": "project-files/outputs/1klass-matem-compact.zip",
+  "output_file": "project-files/outputs/opiq_1klass_matemaatika.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-19T20:06:00.679Z",
+    "generator": "scripts/generate-grade-1-mathematics-qa.mjs",
+    "generator_version": "1.0",
+    "note": "Generated from the committed derived compact snapshot; the declared original export 1klass-matem.zip was not available."
+  },
+  "checksums": {
+    "source_archive_sha256": "e2d23a95adb4721cb81b96d55cdb7051c38526769448890025294a34285741ba",
+    "output_file_sha256": "cbbf7df73fb3c05f3e30e1919eaf5885ca59724ca589763a56c11b971aa4b88f"
+  },
+  "source_records": 339,
+  "page_records_included": 338,
+  "cover_detail_records_present": 4,
+  "cover_detail_records_excluded": 0,
+  "administrative_records_present": 2,
+  "administrative_records_excluded": 0,
+  "duplicate_records_excluded": 1,
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 1,
+    "source_duplicate_records": 1,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/266",
+        "kit_id": "266",
+        "source_positions": [
+          219,
+          220
+        ],
+        "titles": [
+          "МАТЕМАТИКА 1 класс – Opiq"
+        ],
+        "book_ids": [
+          "1k_math_koolibri"
+        ],
+        "chapter_ids": [
+          "104",
+          "170"
+        ],
+        "languages": [
+          "ru"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "remove_duplicate",
+        "retained_source_position": 219,
+        "excluded_source_positions": [
+          220
+        ],
+        "reason": "The source rows are the same kit detail page and differ only in synthetic chapter_id; the first occurrence is retained."
+      }
+    ]
+  },
+  "grades": {
+    "1": 338
+  },
+  "languages": {
+    "en": 1,
+    "et": 168,
+    "ru": 169
+  },
+  "books": {
+    "1k_math_avita": 103,
+    "1k_math_avita_est": 103,
+    "1k_math_koolibri": 66,
+    "1k_math_koolibri_est": 66
+  },
+  "kits": {
+    "112": 103,
+    "158": 66,
+    "266": 66,
+    "539": 103
+  },
+  "records_without_headings": 4,
+  "missing_urls": 0,
+  "source_provenance": {
+    "kind": "derived_compact_snapshot",
+    "archive_path": "project-files/outputs/1klass-matem-compact.zip",
+    "declared_original_archive": "1klass-matem.zip",
+    "compact_generated_at": "2026-06-12T14:08:30.811862+00:00",
+    "original_archive_available": false,
+    "required_members": [
+      "index.json",
+      "opiq_lookup.jsonl",
+      "opiq_lookup.md",
+      "topic_map.json"
+    ],
+    "limitations": "The original export is unavailable; this route is reproducibly validated against the committed compact snapshot."
+  },
+  "topic_audit": {
+    "vorra_rohkem": {
+      "status": "ambiguous",
+      "searched_fields": [
+        "title",
+        "headings",
+        "task_examples"
+      ],
+      "exact_non_topic_matches": 0,
+      "topics_used_as_evidence": false,
+      "external_grades_used": false,
+      "generic_comparison_material": [
+        {
+          "url": "https://www.opiq.ee/kit/539/chapter/29819",
+          "kit_id": "539",
+          "chapter_id": "1.4",
+          "title": "Длиннее, короче. Больше, меньше"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/539/chapter/29821",
+          "kit_id": "539",
+          "chapter_id": "1.6",
+          "title": "Больше, меньше, равно"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/112/chapter/5424",
+          "kit_id": "112",
+          "chapter_id": "1.4",
+          "title": "PIKEM, LÜHEM. SUUREM, VÄIKSEM"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/112/chapter/5426",
+          "kit_id": "112",
+          "chapter_id": "1.6",
+          "title": "SUUREM, VÄIKSEM, VÕRDNE"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/266/chapter/15145",
+          "kit_id": "266",
+          "chapter_id": "2.2",
+          "title": "БОЛЬШЕ И МЕНЬШЕ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/158/chapter/8915",
+          "kit_id": "158",
+          "chapter_id": "2.2",
+          "title": "SUUREM JA VÄIKSEM"
+        }
+      ],
+      "difference_task_evidence": [
+        {
+          "url": "https://www.opiq.ee/kit/539/chapter/29907",
+          "kit_id": "539",
+          "chapter_id": "9.6",
+          "title": "Метр и сантиметр (3)"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/112/chapter/6527",
+          "kit_id": "112",
+          "chapter_id": "9.6",
+          "title": "Meeter ja sentimeeter (3)"
+        }
+      ],
+      "conclusion": "Generic greater/less comparison pages and one depth-difference task exist, but no explicit more-by learning objective is present."
+    },
+    "vorra_vahem": {
+      "status": "ambiguous",
+      "searched_fields": [
+        "title",
+        "headings",
+        "task_examples"
+      ],
+      "exact_non_topic_matches": 0,
+      "topics_used_as_evidence": false,
+      "external_grades_used": false,
+      "generic_comparison_material": [
+        {
+          "url": "https://www.opiq.ee/kit/539/chapter/29819",
+          "kit_id": "539",
+          "chapter_id": "1.4",
+          "title": "Длиннее, короче. Больше, меньше"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/539/chapter/29821",
+          "kit_id": "539",
+          "chapter_id": "1.6",
+          "title": "Больше, меньше, равно"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/112/chapter/5424",
+          "kit_id": "112",
+          "chapter_id": "1.4",
+          "title": "PIKEM, LÜHEM. SUUREM, VÄIKSEM"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/112/chapter/5426",
+          "kit_id": "112",
+          "chapter_id": "1.6",
+          "title": "SUUREM, VÄIKSEM, VÕRDNE"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/266/chapter/15145",
+          "kit_id": "266",
+          "chapter_id": "2.2",
+          "title": "БОЛЬШЕ И МЕНЬШЕ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/158/chapter/8915",
+          "kit_id": "158",
+          "chapter_id": "2.2",
+          "title": "SUUREM JA VÄIKSEM"
+        }
+      ],
+      "difference_task_evidence": [
+        {
+          "url": "https://www.opiq.ee/kit/539/chapter/29907",
+          "kit_id": "539",
+          "chapter_id": "9.6",
+          "title": "Метр и сантиметр (3)"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/112/chapter/6527",
+          "kit_id": "112",
+          "chapter_id": "9.6",
+          "title": "Meeter ja sentimeeter (3)"
+        }
+      ],
+      "conclusion": "Generic greater/less comparison pages and one depth-difference task exist, but no explicit less-by learning objective is present."
+    }
+  }
+}

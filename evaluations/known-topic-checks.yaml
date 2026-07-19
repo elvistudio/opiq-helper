@@ -12,7 +12,7 @@ cases:
     topic: "võrra rohkem"
     status: ambiguous
     expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
-    evidence: "Generic more/less and comparison material exists, but the exact learning objective is not sufficiently confirmed."
+    evidence: "Audit of canonical headings, task examples, and compact JSONL found no explicit võrra rohkem / mitme võrra rohkem / на сколько больше task. Generic comparison exists at kit 112 chapter 1.6 (https://www.opiq.ee/kit/112/chapter/5426) and kit 539 chapter 1.6 (https://www.opiq.ee/kit/539/chapter/29821). Kit 112 chapter 9.6 (https://www.opiq.ee/kit/112/chapter/6527) asks for a depth difference, but this single contextual task does not establish the distinct more-by learning objective. Topics-only matches were not used."
 
   - id: grade-1-mathematics-vorra-vahem
     grade: 1
@@ -20,7 +20,7 @@ cases:
     topic: "võrra vähem"
     status: ambiguous
     expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
-    evidence: "Generic more/less and comparison material exists, but the exact learning objective is not sufficiently confirmed."
+    evidence: "Audit of canonical headings, task examples, and compact JSONL found no explicit võrra vähem / mitme võrra vähem / на сколько меньше task. Generic comparison exists at kit 158 chapter 2.2 (https://www.opiq.ee/kit/158/chapter/8915) and kit 266 chapter 2.2 (https://www.opiq.ee/kit/266/chapter/15145). Kit 112 chapter 9.6 (https://www.opiq.ee/kit/112/chapter/6527) asks for a depth difference, but this single contextual task does not establish the distinct less-by learning objective. Topics-only matches were not used."
 
   - id: grade-1-mathematics-within-100
     grade: 1

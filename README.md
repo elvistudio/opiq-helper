@@ -67,3 +67,20 @@ node scripts/check-source-manifest.mjs
 ```
 
 Snapshots marked `legacy_migrated` preserve historical diagnostics, but their original generation timestamp, generator name, and generator version were not recorded and are therefore left `null`. A QA snapshot verifies structural metadata and checksums; it is not evidence of curriculum completeness or pedagogical readiness.
+
+### Derived compact sources
+
+A manifest entry with `source_provenance.kind: derived_compact_snapshot` uses a committed compact ZIP because the original export is unavailable. It must not be described as an original archive. The manifest checker reads these ZIPs with the Node.js standard library, validates their CRCs, required members, `index.json`, JSONL record count, declared original filename, format version, generation timestamp, and supported languages.
+
+Grade 1 mathematics QA is reproducibly generated and checked with:
+
+```sh
+node scripts/generate-grade-1-mathematics-qa.mjs
+node scripts/generate-grade-1-mathematics-qa.mjs --check
+```
+
+The generator preserves its initial `generated_at` value on ordinary reruns and verifies the canonical Markdown field by field against the compact JSONL. Run the general refresh and manifest checks afterward.
+
+Routes may opt into exact canonical URL uniqueness with `canonical_url_policy.require_unique: true`. The policy is intentionally route-specific because other known duplicate routes are handled by their own audits.
+
+Regression topics are promoted to `present` only from explicit headings or tasks that demonstrate the requested learning objective. Automatically generated topic keywords, generic greater/less comparisons, or material from another grade are not sufficient evidence.

@@ -1,3 +1,30 @@
+# Opiq lookup: 1. klass matemaatika
+
+Use this file to answer grade 1 mathematics requests only. Match queries against titles, topics, headings, task examples, books, and subject fields. Return direct Opiq page links.
+
+Source summary:
+- Source archive: `project-files/outputs/1klass-matem-compact.zip`
+- Source provenance: derived compact snapshot; declared original archive `1klass-matem.zip` is unavailable
+- Format version: 2.0
+- Class: 1
+- Subject ET: matemaatika
+- Supported query languages: Estonian, Russian, English
+- Books: 4
+- Source records: 339
+- Page records included: 338
+- Cover/detail records present: 4
+- Cover/detail records excluded: 0
+- Administrative records present: 2
+- Administrative records excluded: 0
+- Duplicate URL records excluded: 1
+- Notes: The canonical records are verified against the committed compact JSONL. The second occurrence of `https://www.opiq.ee/Kit/Details/266` was removed as a duplicate detail record; this index does not claim complete curriculum coverage.
+
+Books:
+- `1k_math_avita`: Математика вокруг нас; Avita; language ru; kit 539
+- `1k_math_avita_est`: MATEMAATIKA MEIE ÜMBER; Avita; language et; kit 112
+- `1k_math_koolibri`: МАТЕМАТИКА 1 класс – Opiq; publisher missing in compact metadata; language ru; kit 266
+- `1k_math_koolibri_est`: KUJUNDID; Koolibri; language et; kit 158
+
 ## Математика вокруг нас
 URL: https://www.opiq.ee/kit/539/chapter/29816
 Book: Математика вокруг нас
@@ -3264,19 +3291,6 @@ Language: ru
 Publisher: 
 Book ID: 1k_math_koolibri
 Chapter ID: 104
-Topics ET: matemaatika, opiq
-Topics RU: математика, класс
-Topics EN: mathematics
-
-## МАТЕМАТИКА 1 класс – Opiq
-URL: https://www.opiq.ee/Kit/Details/266
-Book: МАТЕМАТИКА 1 класс – Opiq
-Class: 1
-Subject: mathematics / matemaatika / математика
-Language: ru
-Publisher: 
-Book ID: 1k_math_koolibri
-Chapter ID: 170
 Topics ET: matemaatika, opiq
 Topics RU: математика, класс
 Topics EN: mathematics

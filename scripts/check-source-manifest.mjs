@@ -6,6 +6,8 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
+import { readCompactZip, readZipText, requireZipMember } from './lib/compact-zip.mjs';
+
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
@@ -16,6 +18,7 @@ let checkedQaSnapshotCount = 0;
 const legacyGenerationNote = 'Original generation metadata was not recorded.';
 const sha256Pattern = /^[0-9a-f]{64}$/;
 const isoUtcPattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
+const isoTimestampWithZonePattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
 
 function fail(message) {
   errors.push(message);
@@ -163,7 +166,14 @@ function validateCountMap(qa, sourceLabel, field, expectedCount) {
   }
 }
 
-async function validateQaSnapshot(source, qa, archivePath, outputPath, allowedLanguages) {
+async function validateQaSnapshot(
+  source,
+  qa,
+  archivePath,
+  outputPath,
+  allowedLanguages,
+  compactMetadata = null,
+) {
   const sourceLabel = source.id;
   if (!isPlainObject(qa)) {
     fail(`${sourceLabel}: qa_path root must be a JSON object.`);
@@ -240,6 +250,8 @@ async function validateQaSnapshot(source, qa, archivePath, outputPath, allowedLa
     }
     if (!isNonEmptyString(generation.generator)) {
       fail(`${sourceLabel}: generation.generator must be a non-empty string for generated snapshots.`);
+    } else {
+      await requireFile(generation.generator, `${sourceLabel} generation.generator`);
     }
     if (!isNonEmptyString(generation.generator_version)) {
       fail(`${sourceLabel}: generation.generator_version must be a non-empty string for generated snapshots.`);
@@ -287,9 +299,44 @@ async function validateQaSnapshot(source, qa, archivePath, outputPath, allowedLa
     );
   }
 
+  if (compactMetadata) {
+    const derivedRequiredFields = [
+      'cover_detail_records_excluded',
+      'administrative_records_excluded',
+      'duplicate_records_excluded',
+      'duplicate_url_audit',
+      'records_without_headings',
+      'missing_urls',
+      'source_provenance',
+      'topic_audit',
+      'kits',
+    ];
+    derivedRequiredFields.forEach((field) => {
+      if (!Object.hasOwn(qa, field)) fail(`${sourceLabel}: missing derived QA field ${field}.`);
+    });
+    if (qa.source_records !== compactMetadata.recordCount) {
+      fail(
+        `${sourceLabel}: source_records is ${qa.source_records}, expected compact index recordCount ${compactMetadata.recordCount}.`,
+      );
+    }
+    if (JSON.stringify(qa.source_provenance) !== JSON.stringify(source.source_provenance)) {
+      fail(`${sourceLabel}: source_provenance must exactly match the manifest declaration.`);
+    }
+    const accountedSourceRecords = qa.page_records_included
+      + qa.cover_detail_records_excluded
+      + qa.administrative_records_excluded
+      + qa.duplicate_records_excluded;
+    if (accountedSourceRecords !== qa.source_records) {
+      fail(
+        `${sourceLabel}: included and excluded QA counters account for ${accountedSourceRecords} source records, expected ${qa.source_records}.`,
+      );
+    }
+  }
+
   validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'languages', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'books', qa.page_records_included);
+  if (Object.hasOwn(qa, 'kits')) validateCountMap(qa, sourceLabel, 'kits', qa.page_records_included);
 
   if (isPlainObject(qa.languages)) {
     Object.keys(qa.languages).forEach((language) => {
@@ -353,9 +400,156 @@ async function validateSubjectBoundaryConfig(source, sourceLabel) {
   await requireFile(boundary.audit_path, `${sourceLabel} subject_boundary.audit_path`);
 }
 
+function validateCanonicalUrlPolicy(source, sourceLabel) {
+  if (!Object.hasOwn(source, 'canonical_url_policy')) return;
+
+  const policy = source.canonical_url_policy;
+  if (!isPlainObject(policy)) {
+    fail(`${sourceLabel}: canonical_url_policy must be an object.`);
+    return;
+  }
+  if (typeof policy.require_unique !== 'boolean') {
+    fail(`${sourceLabel}: canonical_url_policy.require_unique must be a boolean.`);
+  }
+}
+
+async function validateSourceProvenance(source, sourceLabel, archivePath, allowedLanguages) {
+  if (!Object.hasOwn(source, 'source_provenance')) return null;
+
+  const provenance = source.source_provenance;
+  if (!isPlainObject(provenance)) {
+    fail(`${sourceLabel}: source_provenance must be an object.`);
+    return null;
+  }
+  findAbsoluteFilePaths(provenance).forEach(({ field, value }) => {
+    fail(`${sourceLabel}: source_provenance.${field} contains an absolute file path: ${value}`);
+  });
+
+  if (provenance.kind !== 'derived_compact_snapshot') {
+    fail(`${sourceLabel}: source_provenance.kind must be "derived_compact_snapshot".`);
+  }
+  validateQaRepositoryPath(provenance.archive_path, sourceLabel, 'source_provenance.archive_path');
+  if (provenance.archive_path !== source.source_archive) {
+    fail(`${sourceLabel}: source_provenance.archive_path must equal source_archive.`);
+  }
+  if (
+    !isNonEmptyString(provenance.declared_original_archive)
+    || path.basename(provenance.declared_original_archive) !== provenance.declared_original_archive
+    || !provenance.declared_original_archive.toLowerCase().endsWith('.zip')
+  ) {
+    fail(`${sourceLabel}: source_provenance.declared_original_archive must be a ZIP base name.`);
+  }
+  if (
+    !isNonEmptyString(provenance.compact_generated_at)
+    || !isoTimestampWithZonePattern.test(provenance.compact_generated_at)
+    || Number.isNaN(Date.parse(provenance.compact_generated_at))
+  ) {
+    fail(`${sourceLabel}: source_provenance.compact_generated_at must be an ISO 8601 timestamp with a time zone.`);
+  }
+  if (provenance.original_archive_available !== false) {
+    fail(`${sourceLabel}: source_provenance.original_archive_available must be false for a derived compact snapshot.`);
+  }
+  if (!isNonEmptyString(provenance.limitations)) {
+    fail(`${sourceLabel}: source_provenance.limitations must be a non-empty string.`);
+  }
+
+  const mandatoryMembers = ['index.json', 'opiq_lookup.jsonl', 'opiq_lookup.md', 'topic_map.json'];
+  if (!Array.isArray(provenance.required_members) || provenance.required_members.length === 0) {
+    fail(`${sourceLabel}: source_provenance.required_members must be a non-empty array.`);
+    return null;
+  }
+  const requiredMembers = new Set();
+  provenance.required_members.forEach((name, index) => {
+    if (!isNonEmptyString(name)) {
+      fail(`${sourceLabel}: source_provenance.required_members[${index}] must be a non-empty string.`);
+    } else if (requiredMembers.has(name)) {
+      fail(`${sourceLabel}: source_provenance.required_members contains duplicate member ${name}.`);
+    } else {
+      requiredMembers.add(name);
+    }
+  });
+  mandatoryMembers.forEach((name) => {
+    if (!requiredMembers.has(name)) {
+      fail(`${sourceLabel}: source_provenance.required_members is missing ${name}.`);
+    }
+  });
+  if (!archivePath) return null;
+
+  try {
+    const archive = await readCompactZip(archivePath);
+    for (const name of requiredMembers) requireZipMember(archive, name);
+
+    const index = JSON.parse(readZipText(archive, 'index.json'));
+    if (!isPlainObject(index)) throw new Error('index.json root must be an object.');
+    if (index.formatVersion !== source.format_version) {
+      fail(`${sourceLabel}: compact index.json formatVersion must equal manifest format_version.`);
+    }
+    if (index.generatedAt !== provenance.compact_generated_at) {
+      fail(`${sourceLabel}: compact index.json generatedAt must equal source_provenance.compact_generated_at.`);
+    }
+    if (index.sourceArchive !== provenance.declared_original_archive) {
+      fail(`${sourceLabel}: compact index.json sourceArchive must equal source_provenance.declared_original_archive.`);
+    }
+    if (!Number.isInteger(index.recordCount) || index.recordCount < 1) {
+      fail(`${sourceLabel}: compact index.json recordCount must be a positive integer.`);
+    }
+    if (!Array.isArray(index.files)) {
+      fail(`${sourceLabel}: compact index.json files must be an array.`);
+    } else {
+      mandatoryMembers.forEach((name) => {
+        if (!index.files.includes(name)) fail(`${sourceLabel}: compact index.json files is missing ${name}.`);
+      });
+      index.files.forEach((name) => {
+        if (!archive.entries.has(name)) fail(`${sourceLabel}: compact index.json lists missing ZIP member ${name}.`);
+      });
+    }
+
+    if (!Array.isArray(index.supportedQueryLanguages)) {
+      fail(`${sourceLabel}: compact index.json supportedQueryLanguages must be an array.`);
+    } else {
+      const compactLanguages = [...new Set(index.supportedQueryLanguages.map(normalizeLanguage))].sort();
+      if (JSON.stringify(compactLanguages) !== JSON.stringify([...allowedLanguages].sort())) {
+        fail(`${sourceLabel}: compact index.json supportedQueryLanguages must match manifest languages.`);
+      }
+    }
+
+    const jsonlLines = readZipText(archive, 'opiq_lookup.jsonl')
+      .split(/\r?\n/)
+      .filter((line) => line.trim());
+    jsonlLines.forEach((line, index) => {
+      let record;
+      try {
+        record = JSON.parse(line);
+      } catch (error) {
+        throw new Error(`opiq_lookup.jsonl line ${index + 1} is invalid JSON: ${error.message}`);
+      }
+      if (!isPlainObject(record)) throw new Error(`opiq_lookup.jsonl line ${index + 1} must be an object.`);
+      if (!isNonEmptyString(record.url) || !/^https:\/\/(?:www\.)?opiq\.ee\//i.test(record.url)) {
+        throw new Error(`opiq_lookup.jsonl line ${index + 1} has an invalid URL.`);
+      }
+    });
+    if (jsonlLines.length !== index.recordCount) {
+      fail(
+        `${sourceLabel}: compact index.json recordCount is ${index.recordCount}, but opiq_lookup.jsonl contains ${jsonlLines.length} records.`,
+      );
+    }
+    if (!readZipText(archive, 'opiq_lookup.md').trim()) {
+      fail(`${sourceLabel}: compact opiq_lookup.md must not be empty.`);
+    }
+    const topicMap = JSON.parse(readZipText(archive, 'topic_map.json'));
+    if (!isPlainObject(topicMap)) fail(`${sourceLabel}: compact topic_map.json root must be an object.`);
+
+    return { recordCount: index.recordCount };
+  } catch (error) {
+    fail(`${sourceLabel}: source_provenance compact archive validation failed: ${error.message}`);
+    return null;
+  }
+}
+
 function validateMarkdown(source, markdown, allowedLanguages) {
   const records = splitMarkdownRecords(markdown);
   const forbiddenBookIds = new Set(source.subject_boundary?.forbidden_book_ids || []);
+  const seenUrls = new Map();
   if (records.length !== source.record_count) {
     fail(
       `${source.id}: record_count is ${source.record_count}, but ${source.md_path} contains ${records.length} records.`,
@@ -369,6 +563,15 @@ function validateMarkdown(source, markdown, allowedLanguages) {
     const urlMatch = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/(?:www\.)?opiq\.ee\/\S+)\s*$/mi);
     if (!urlMatch) {
       fail(`${recordLabel}: missing a direct Opiq URL.`);
+    } else if (source.canonical_url_policy?.require_unique === true) {
+      const previousRecordNumber = seenUrls.get(urlMatch[1]);
+      if (previousRecordNumber) {
+        fail(
+          `${source.id}: duplicate canonical URL ${urlMatch[1]} appears in records ${previousRecordNumber} and ${recordNumber}.`,
+        );
+      } else {
+        seenUrls.set(urlMatch[1], recordNumber);
+      }
     }
 
     if (forbiddenBookIds.size > 0) {
@@ -418,7 +621,6 @@ if (!manifest) {
   const ids = new Set();
   const routes = new Set();
   const criticalQualityMarkers = new Map([
-    ['grade-1-mathematics', 'needs_review'],
     ['grade-1-science', 'needs_review'],
     ['grade-3-mathematics', 'needs_review'],
   ]);
@@ -475,6 +677,7 @@ if (!manifest) {
     }
 
     await validateSubjectBoundaryConfig(source, label);
+    validateCanonicalUrlPolicy(source, label);
 
     const route = `${source.grade}\u0000${source.subject}\u0000${source.md_path}`;
     if (routes.has(route)) {
@@ -498,6 +701,12 @@ if (!manifest) {
     } else if (source.source_archive !== null) {
       fail(`${label}: source_archive must be a path or null.`);
     }
+    const compactMetadata = await validateSourceProvenance(
+      source,
+      label,
+      archivePath,
+      normalizedSourceLanguages,
+    );
     let qaPath = null;
     if (isNonEmptyString(source.qa_path)) {
       qaPath = await requireFile(source.qa_path, `${label} qa_path`);
@@ -522,6 +731,7 @@ if (!manifest) {
           archivePath,
           mdPath,
           normalizedSourceLanguages,
+          compactMetadata,
         );
         checkedQaSnapshotCount += 1;
       }
