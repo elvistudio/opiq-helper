@@ -50,3 +50,20 @@ node scripts/check-source-manifest.mjs
 ```
 
 GitHub Actions runs the same structural integrity check automatically for relevant pull requests and pushes to `main`. A successful run reports the number of validated routes and Markdown records. This check validates the manifest and its related files; it does not assess curriculum completeness or the pedagogical quality of the material.
+
+## QA snapshots
+
+The portable QA snapshot schema is documented in [`docs/qa-snapshot-schema.md`](docs/qa-snapshot-schema.md). Refresh manifest-controlled metadata and SHA-256 checksums with:
+
+```sh
+node scripts/refresh-qa-snapshot-metadata.mjs
+```
+
+Verify committed QA metadata and the related manifest structure with:
+
+```sh
+node scripts/refresh-qa-snapshot-metadata.mjs --check
+node scripts/check-source-manifest.mjs
+```
+
+Snapshots marked `legacy_migrated` preserve historical diagnostics, but their original generation timestamp, generator name, and generator version were not recorded and are therefore left `null`. A QA snapshot verifies structural metadata and checksums; it is not evidence of curriculum completeness or pedagogical readiness.
