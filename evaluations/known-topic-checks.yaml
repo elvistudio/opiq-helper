@@ -1,0 +1,151 @@
+version: "1.0"
+scope: "Regression cases for previously identified topic-retrieval risks. This file is not a complete curriculum map."
+allowed_statuses:
+  - present
+  - ambiguous
+  - missing
+  - not_verified
+cases:
+  - id: grade-1-mathematics-vorra-rohkem
+    grade: 1
+    subject: mathematics
+    topic: "võrra rohkem"
+    status: ambiguous
+    expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
+    evidence: "Generic more/less and comparison material exists, but the exact learning objective is not sufficiently confirmed."
+
+  - id: grade-1-mathematics-vorra-vahem
+    grade: 1
+    subject: mathematics
+    topic: "võrra vähem"
+    status: ambiguous
+    expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
+    evidence: "Generic more/less and comparison material exists, but the exact learning objective is not sufficiently confirmed."
+
+  - id: grade-1-mathematics-within-100
+    grade: 1
+    subject: mathematics
+    topic: "вычисления в пределах 100"
+    status: present
+    expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
+    evidence: "Liitmine 100 piires, Lahutamine 100 piires, and Arvud 1–100 are explicit headings."
+
+  - id: grade-1-mathematics-geometric-shapes
+    grade: 1
+    subject: mathematics
+    topic: "геометрические фигуры"
+    status: present
+    expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
+    evidence: "Geomeetrilised kujundid and individual shape pages are explicit headings."
+
+  - id: grade-1-science-migratory-and-resident-birds
+    grade: 1
+    subject: science
+    topic: "перелётные и оседлые птицы"
+    status: present
+    expected_md_path: project-files/outputs/opiq_1klass_loodusopetus.md
+    evidence: "Rändlinnud ja paigalinnud is an explicit heading, with Estonian and Russian variants."
+
+  - id: grade-1-science-estonian-national-symbols
+    grade: 1
+    subject: science
+    topic: "национальные символы Эстонии"
+    status: present
+    expected_md_path: project-files/outputs/opiq_1klass_loodusopetus.md
+    evidence: "Eesti sümbolid is an explicit heading in the Estonia section."
+
+  - id: grade-3-science-map
+    grade: 3
+    subject: science
+    topic: "карта"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Kaart, Eesti kaart, and Kuidas kaarti lugeda are explicit headings."
+
+  - id: grade-3-science-plan
+    grade: 3
+    subject: science
+    topic: "план"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Foto, joonistus, plaan and Plaan ja kaart are explicit headings."
+
+  - id: grade-3-science-cardinal-directions
+    grade: 3
+    subject: science
+    topic: "стороны света"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Ilmakaared and Põhi- ja vaheilmakaared are explicit headings."
+
+  - id: grade-3-science-magnets
+    grade: 3
+    subject: science
+    topic: "магниты"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Magnet ja kompass and Magnetnähtused are explicit headings."
+
+  - id: grade-3-science-electricity
+    grade: 3
+    subject: science
+    topic: "электричество"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Elekter ja elektrivool and Elekter meie ümber are explicit headings."
+
+  - id: grade-3-science-electric-circuit
+    grade: 3
+    subject: science
+    topic: "электрическая цепь"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Vooluallikas ja vooluring and Vooluring are explicit headings."
+
+  - id: grade-3-science-food-chain
+    grade: 3
+    subject: science
+    topic: "пищевая цепь"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Toiduahel is an explicit heading."
+
+  - id: grade-3-science-food-web
+    grade: 3
+    subject: science
+    topic: "пищевая сеть"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Toiduvõrk is an explicit heading."
+
+  - id: grade-3-science-fungi
+    grade: 3
+    subject: science
+    topic: "грибы"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Seened is an explicit page and heading."
+
+  - id: grade-3-science-bacteria
+    grade: 3
+    subject: science
+    topic: "бактерии"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Bakterid is an explicit page and heading."
+
+  - id: grade-3-science-vertebrates
+    grade: 3
+    subject: science
+    topic: "позвоночные"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Selgroogsed and comparison with invertebrates are explicit headings."
+
+  - id: grade-3-science-invertebrates
+    grade: 3
+    subject: science
+    topic: "беспозвоночные"
+    status: present
+    expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
+    evidence: "Selgrootud loomad and multiple invertebrate groups are explicit headings."
