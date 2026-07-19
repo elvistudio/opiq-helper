@@ -1,0 +1,39 @@
+name: Validate source manifest
+
+on:
+  pull_request:
+    paths:
+      - source-manifest.json
+      - scripts/**
+      - project-files/**
+      - .github/workflows/validate-source-manifest.yml
+  push:
+    branches:
+      - main
+    paths:
+      - source-manifest.json
+      - scripts/**
+      - project-files/**
+      - .github/workflows/validate-source-manifest.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate manifest and source records
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Validate source manifest
+        run: node scripts/check-source-manifest.mjs
