@@ -82,19 +82,35 @@
       "subject_et": "matemaatika",
       "languages": ["et", "ru", "en"],
       "md_path": "project-files/outputs/opiq_1klass_matemaatika.md",
-      "source_archive": null,
-      "qa_path": null,
-      "record_count": 339,
+      "source_archive": "project-files/outputs/1klass-matem-compact.zip",
+      "qa_path": "project-files/outputs/opiq_1klass_matemaatika_qa.json",
+      "record_count": 338,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
-      "quality_status": "needs_review",
+      "quality_status": "qa_snapshot_available",
       "known_issues": [
-        "No source archive is stored under project-files/inputs/final-zips.",
-        "No QA snapshot is committed.",
-        "The Markdown index contains one duplicate URL occurrence.",
+        "The original export 1klass-matem.zip is unavailable; the route is validated against a committed derived compact snapshot.",
+        "Publisher metadata is empty for book ID 1k_math_koolibri in the compact snapshot.",
         "The topics võrra rohkem and võrra vähem remain ambiguous in the regression set."
       ],
-      "notes": "A derived compact ZIP exists at project-files/outputs/1klass-matem-compact.zip."
+      "source_provenance": {
+        "kind": "derived_compact_snapshot",
+        "archive_path": "project-files/outputs/1klass-matem-compact.zip",
+        "declared_original_archive": "1klass-matem.zip",
+        "compact_generated_at": "2026-06-12T14:08:30.811862+00:00",
+        "original_archive_available": false,
+        "required_members": [
+          "index.json",
+          "opiq_lookup.jsonl",
+          "opiq_lookup.md",
+          "topic_map.json"
+        ],
+        "limitations": "The original export is unavailable; this route is reproducibly validated against the committed compact snapshot."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "notes": "The derived compact snapshot contains 339 source records. One repeated kit 266 detail URL is excluded from the 338-record canonical index; this route is not curriculum-verified."
     },
     {
       "id": "grade-2-estonian",
