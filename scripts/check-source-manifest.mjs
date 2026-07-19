@@ -9,6 +9,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const errors = [];
+let checkedRecordCount = 0;
 
 function fail(message) {
   errors.push(message);
@@ -16,6 +17,10 @@ function fail(message) {
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function normalizeLanguage(value) {
+  return value.replace(/\s+/g, '').toLowerCase();
 }
 
 async function readJson(filePath) {
@@ -71,7 +76,7 @@ function splitMarkdownRecords(markdown) {
   });
 }
 
-function validateMarkdown(source, markdown) {
+function validateMarkdown(source, markdown, allowedLanguages) {
   const records = splitMarkdownRecords(markdown);
   if (records.length !== source.record_count) {
     fail(
@@ -95,7 +100,19 @@ function validateMarkdown(source, markdown) {
     if (!subjectMatch || !subjectMatch[1].trim()) {
       fail(`${recordLabel}: subject is empty.`);
     }
+
+    const languageMatch = record.match(/^(?:-\s+)?Language:\s*(.*?)\s*$/mi);
+    const foundLanguage = languageMatch
+      ? normalizeLanguage(languageMatch[1])
+      : '';
+    if (!foundLanguage || !allowedLanguages.includes(foundLanguage)) {
+      fail(
+        `${recordLabel}: found language "${foundLanguage || '<missing>'}"; allowed languages: ${allowedLanguages.join(', ') || '<none>'}.`,
+      );
+    }
   });
+
+  return records.length;
 }
 
 const manifest = await readJson(manifestPath);
@@ -135,8 +152,29 @@ if (!manifest) {
     if (!isNonEmptyString(source.subject_et)) {
       fail(`${label}: subject_et is empty.`);
     }
+    const normalizedSourceLanguages = [];
+    const seenSourceLanguages = new Set();
     if (!Array.isArray(source.languages) || source.languages.length === 0) {
       fail(`${label}: languages must be a non-empty array.`);
+    } else {
+      source.languages.forEach((language, languageIndex) => {
+        if (!isNonEmptyString(language)) {
+          fail(`${label}: languages[${languageIndex}] must be a non-empty string.`);
+          return;
+        }
+
+        const normalizedLanguage = normalizeLanguage(language);
+        if (language !== language.toLowerCase()) {
+          fail(`${label}: language "${language}" must be lowercase.`);
+        }
+        if (seenSourceLanguages.has(normalizedLanguage)) {
+          fail(`${label}: duplicate language "${normalizedLanguage}".`);
+          return;
+        }
+
+        seenSourceLanguages.add(normalizedLanguage);
+        normalizedSourceLanguages.push(normalizedLanguage);
+      });
     }
     if (!Number.isInteger(source.record_count) || source.record_count < 1) {
       fail(`${label}: record_count must be a positive integer.`);
@@ -173,7 +211,11 @@ if (!manifest) {
     }
 
     if (mdPath) {
-      validateMarkdown(source, await readFile(mdPath, 'utf8'));
+      checkedRecordCount += validateMarkdown(
+        source,
+        await readFile(mdPath, 'utf8'),
+        normalizedSourceLanguages,
+      );
     }
   }
 
@@ -191,5 +233,7 @@ if (errors.length > 0) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exitCode = 1;
 } else {
-  console.log(`Source manifest check passed: ${manifest.sources.length} routes validated.`);
+  console.log(
+    `Source manifest check passed: ${manifest.sources.length} routes and ${checkedRecordCount} Markdown records validated.`,
+  );
 }
