@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { createHash } from 'node:crypto';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
@@ -10,6 +11,11 @@ const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const errors = [];
 let checkedRecordCount = 0;
+let checkedQaSnapshotCount = 0;
+
+const legacyGenerationNote = 'Original generation metadata was not recorded.';
+const sha256Pattern = /^[0-9a-f]{64}$/;
+const isoUtcPattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
 
 function fail(message) {
   errors.push(message);
@@ -17,6 +23,10 @@ function fail(message) {
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
 function normalizeLanguage(value) {
@@ -38,6 +48,11 @@ async function requireFile(relativePath, label) {
     return null;
   }
 
+  if (path.isAbsolute(relativePath)) {
+    fail(`${label} must be repository-relative: ${relativePath}`);
+    return null;
+  }
+
   const absolutePath = path.resolve(repositoryRoot, relativePath);
   if (absolutePath !== repositoryRoot && !absolutePath.startsWith(`${repositoryRoot}${path.sep}`)) {
     fail(`${label} points outside the repository: ${relativePath}`);
@@ -54,6 +69,237 @@ async function requireFile(relativePath, label) {
   } catch {
     fail(`${label} does not exist: ${relativePath}`);
     return null;
+  }
+}
+
+async function readQaJson(filePath, label) {
+  try {
+    return {
+      ok: true,
+      value: JSON.parse(await readFile(filePath, 'utf8')),
+    };
+  } catch (error) {
+    fail(`${label}: qa_path contains invalid JSON: ${error.message}`);
+    return { ok: false, value: null };
+  }
+}
+
+async function sha256(filePath) {
+  return createHash('sha256').update(await readFile(filePath)).digest('hex');
+}
+
+function validateQaRepositoryPath(value, sourceLabel, field) {
+  if (!isNonEmptyString(value)) {
+    fail(`${sourceLabel}: ${field} must be a non-empty repository-relative path.`);
+    return;
+  }
+  if (path.isAbsolute(value)) {
+    fail(`${sourceLabel}: ${field} must be repository-relative: ${value}`);
+    return;
+  }
+
+  const absolutePath = path.resolve(repositoryRoot, value);
+  if (absolutePath === repositoryRoot || !absolutePath.startsWith(`${repositoryRoot}${path.sep}`)) {
+    fail(`${sourceLabel}: ${field} points outside the repository: ${value}`);
+  }
+}
+
+function findAbsoluteFilePaths(value, field = '<root>', results = []) {
+  if (typeof value === 'string') {
+    const windowsAbsolutePath = /^[A-Za-z]:[\\/]/.test(value) || /^\\\\/.test(value);
+    if (path.isAbsolute(value) || windowsAbsolutePath) {
+      results.push({ field, value });
+    }
+    return results;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) => findAbsoluteFilePaths(entry, `${field}[${index}]`, results));
+    return results;
+  }
+  if (isPlainObject(value)) {
+    Object.entries(value).forEach(([key, entry]) => {
+      findAbsoluteFilePaths(entry, field === '<root>' ? key : `${field}.${key}`, results);
+    });
+  }
+  return results;
+}
+
+function validateNumericCounters(value, sourceLabel, field = '<root>') {
+  if (typeof value === 'number') {
+    if (!Number.isInteger(value) || value < 0) {
+      fail(`${sourceLabel}: ${field} must be a non-negative integer.`);
+    }
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) => validateNumericCounters(entry, sourceLabel, `${field}[${index}]`));
+    return;
+  }
+  if (isPlainObject(value)) {
+    Object.entries(value).forEach(([key, entry]) => {
+      validateNumericCounters(entry, sourceLabel, field === '<root>' ? key : `${field}.${key}`);
+    });
+  }
+}
+
+function validateCountMap(qa, sourceLabel, field, expectedCount) {
+  const countMap = qa[field];
+  if (!isPlainObject(countMap)) {
+    fail(`${sourceLabel}: ${field} must be an object.`);
+    return;
+  }
+
+  let total = 0;
+  for (const [key, value] of Object.entries(countMap)) {
+    if (!Number.isInteger(value) || value < 0) {
+      fail(`${sourceLabel}: ${field}.${key} must be a non-negative integer.`);
+      continue;
+    }
+    total += value;
+  }
+
+  if (Number.isInteger(expectedCount) && total !== expectedCount) {
+    fail(`${sourceLabel}: sum of ${field} is ${total}, expected ${expectedCount}.`);
+  }
+}
+
+async function validateQaSnapshot(source, qa, archivePath, outputPath, allowedLanguages) {
+  const sourceLabel = source.id;
+  if (!isPlainObject(qa)) {
+    fail(`${sourceLabel}: qa_path root must be a JSON object.`);
+    return;
+  }
+
+  const requiredFields = [
+    'qa_schema_version',
+    'source_id',
+    'source_archive',
+    'output_file',
+    'format_version',
+    'generation',
+    'checksums',
+    'source_records',
+    'page_records_included',
+    'grades',
+    'languages',
+    'books',
+  ];
+  requiredFields.forEach((field) => {
+    if (!Object.hasOwn(qa, field)) {
+      fail(`${sourceLabel}: missing required field ${field}.`);
+    }
+  });
+
+  if (qa.qa_schema_version !== '1.0') {
+    fail(`${sourceLabel}: qa_schema_version must be "1.0".`);
+  }
+  if (qa.source_id !== source.id) {
+    fail(`${sourceLabel}: source_id must equal manifest id "${source.id}".`);
+  }
+  if (qa.source_archive !== source.source_archive) {
+    fail(`${sourceLabel}: source_archive must equal manifest source_archive "${source.source_archive}".`);
+  }
+  if (qa.output_file !== source.md_path) {
+    fail(`${sourceLabel}: output_file must equal manifest md_path "${source.md_path}".`);
+  }
+  if (qa.format_version !== source.format_version) {
+    fail(`${sourceLabel}: format_version must equal manifest format_version "${source.format_version}".`);
+  }
+
+  validateQaRepositoryPath(qa.source_archive, sourceLabel, 'source_archive');
+  validateQaRepositoryPath(qa.output_file, sourceLabel, 'output_file');
+  findAbsoluteFilePaths(qa).forEach(({ field, value }) => {
+    fail(`${sourceLabel}: ${field} contains an absolute file path: ${value}`);
+  });
+
+  const generation = qa.generation;
+  if (!isPlainObject(generation)) {
+    fail(`${sourceLabel}: generation must be an object.`);
+  } else if (!['legacy_migrated', 'generated'].includes(generation.status)) {
+    fail(`${sourceLabel}: generation.status must be "legacy_migrated" or "generated".`);
+  } else if (generation.status === 'legacy_migrated') {
+    if (generation.generated_at !== null) {
+      fail(`${sourceLabel}: generation.generated_at must be null for legacy_migrated snapshots.`);
+    }
+    if (generation.generator !== null) {
+      fail(`${sourceLabel}: generation.generator must be null for legacy_migrated snapshots.`);
+    }
+    if (generation.generator_version !== null) {
+      fail(`${sourceLabel}: generation.generator_version must be null for legacy_migrated snapshots.`);
+    }
+    if (generation.note !== legacyGenerationNote) {
+      fail(`${sourceLabel}: generation.note must document missing original generation metadata.`);
+    }
+  } else {
+    if (
+      !isNonEmptyString(generation.generated_at)
+      || !isoUtcPattern.test(generation.generated_at)
+      || Number.isNaN(Date.parse(generation.generated_at))
+    ) {
+      fail(`${sourceLabel}: generation.generated_at must be a valid ISO 8601 UTC timestamp.`);
+    }
+    if (!isNonEmptyString(generation.generator)) {
+      fail(`${sourceLabel}: generation.generator must be a non-empty string for generated snapshots.`);
+    }
+    if (!isNonEmptyString(generation.generator_version)) {
+      fail(`${sourceLabel}: generation.generator_version must be a non-empty string for generated snapshots.`);
+    }
+    if (!Object.hasOwn(generation, 'note') || (generation.note !== null && typeof generation.note !== 'string')) {
+      fail(`${sourceLabel}: generation.note must be a string or null for generated snapshots.`);
+    }
+  }
+
+  const checksums = qa.checksums;
+  if (!isPlainObject(checksums)) {
+    fail(`${sourceLabel}: checksums must be an object.`);
+  } else {
+    for (const field of ['source_archive_sha256', 'output_file_sha256']) {
+      if (!sha256Pattern.test(checksums[field] || '')) {
+        fail(`${sourceLabel}: checksums.${field} must be 64 lowercase hexadecimal characters.`);
+      }
+    }
+
+    if (archivePath) {
+      const actualArchiveChecksum = await sha256(archivePath);
+      if (checksums.source_archive_sha256 !== actualArchiveChecksum) {
+        fail(`${sourceLabel}: checksums.source_archive_sha256 does not match source_archive.`);
+      }
+    }
+    if (outputPath) {
+      const actualOutputChecksum = await sha256(outputPath);
+      if (checksums.output_file_sha256 !== actualOutputChecksum) {
+        fail(`${sourceLabel}: checksums.output_file_sha256 does not match output_file.`);
+      }
+    }
+  }
+
+  validateNumericCounters(qa, sourceLabel);
+
+  for (const field of ['source_records', 'page_records_included']) {
+    if (!Number.isInteger(qa[field]) || qa[field] < 0) {
+      fail(`${sourceLabel}: ${field} must be a non-negative integer.`);
+    }
+  }
+
+  if (qa.page_records_included !== source.record_count) {
+    fail(
+      `${sourceLabel}: page_records_included is ${qa.page_records_included}, expected manifest record_count ${source.record_count}.`,
+    );
+  }
+
+  validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
+  validateCountMap(qa, sourceLabel, 'languages', qa.page_records_included);
+  validateCountMap(qa, sourceLabel, 'books', qa.page_records_included);
+
+  if (isPlainObject(qa.languages)) {
+    Object.keys(qa.languages).forEach((language) => {
+      const normalizedLanguage = normalizeLanguage(language);
+      if (!allowedLanguages.includes(normalizedLanguage)) {
+        fail(
+          `${sourceLabel}: languages.${language} is not included in manifest languages (${allowedLanguages.join(', ')}).`,
+        );
+      }
+    });
   }
 }
 
@@ -199,13 +445,15 @@ if (!manifest) {
     }
 
     const mdPath = await requireFile(source.md_path, `${label} md_path`);
+    let archivePath = null;
     if (isNonEmptyString(source.source_archive)) {
-      await requireFile(source.source_archive, `${label} source_archive`);
+      archivePath = await requireFile(source.source_archive, `${label} source_archive`);
     } else if (source.source_archive !== null) {
       fail(`${label}: source_archive must be a path or null.`);
     }
+    let qaPath = null;
     if (isNonEmptyString(source.qa_path)) {
-      await requireFile(source.qa_path, `${label} qa_path`);
+      qaPath = await requireFile(source.qa_path, `${label} qa_path`);
     } else if (source.qa_path !== null) {
       fail(`${label}: qa_path must be a path or null.`);
     }
@@ -216,6 +464,20 @@ if (!manifest) {
         await readFile(mdPath, 'utf8'),
         normalizedSourceLanguages,
       );
+    }
+
+    if (qaPath) {
+      const qaResult = await readQaJson(qaPath, label);
+      if (qaResult.ok) {
+        await validateQaSnapshot(
+          source,
+          qaResult.value,
+          archivePath,
+          mdPath,
+          normalizedSourceLanguages,
+        );
+        checkedQaSnapshotCount += 1;
+      }
     }
   }
 
@@ -236,4 +498,5 @@ if (errors.length > 0) {
   console.log(
     `Source manifest check passed: ${manifest.sources.length} routes and ${checkedRecordCount} Markdown records validated.`,
   );
+  console.log(`QA snapshots validated: ${checkedQaSnapshotCount}.`);
 }
