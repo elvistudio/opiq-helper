@@ -38,5 +38,8 @@ jobs:
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
 
+      - name: Verify generated grade 3 mathematics QA
+        run: node scripts/generate-grade-3-mathematics-qa.mjs --check
+
       - name: Validate source manifest
         run: node scripts/check-source-manifest.mjs

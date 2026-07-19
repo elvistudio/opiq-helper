@@ -213,19 +213,42 @@
       "subject_et": "matemaatika",
       "languages": ["et", "ru", "en"],
       "md_path": "project-files/outputs/opiq_3klass_matemaatika.md",
-      "source_archive": null,
-      "qa_path": null,
-      "record_count": 637,
+      "source_archive": "project-files/outputs/3klass-matem-compact.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_matemaatika_qa.json",
+      "record_count": 634,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
-      "quality_status": "needs_review",
+      "quality_status": "qa_snapshot_available",
       "known_issues": [
-        "No source archive is stored under project-files/inputs/final-zips.",
-        "No QA snapshot is committed.",
-        "The Markdown index contains three duplicate URL occurrences.",
-        "Two records in the mathematics index are labelled as science."
+        "The original export 3klass-matem.zip is unavailable; the route is validated against a committed derived compact snapshot.",
+        "Publisher metadata is empty for the four simplified-curriculum book IDs in the compact snapshot.",
+        "Six administrative Impressum records and nine unique kit detail records remain in the canonical index."
       ],
-      "notes": "A derived compact ZIP exists at project-files/outputs/3klass-matem-compact.zip."
+      "source_provenance": {
+        "kind": "derived_compact_snapshot",
+        "archive_path": "project-files/outputs/3klass-matem-compact.zip",
+        "declared_original_archive": "3klass-matem.zip",
+        "compact_generated_at": "2026-06-12T14:08:30.147803+00:00",
+        "original_archive_available": false,
+        "required_members": [
+          "index.json",
+          "opiq_lookup.jsonl",
+          "opiq_lookup.md",
+          "topic_map.json"
+        ],
+        "limitations": "The original export is unavailable; this route is reproducibly validated against the committed compact snapshot."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "mathematics",
+          "et": "matemaatika",
+          "ru": "математика"
+        }
+      },
+      "notes": "The derived compact snapshot contains 637 source records. Three repeated kit detail rows are excluded from the 634-record canonical index. Two audited Kaitseme loodust records remain in mathematics because their learning tasks are computational; environmental keywords are retained as context. This route is not curriculum-verified."
     },
     {
       "id": "grade-5-science",

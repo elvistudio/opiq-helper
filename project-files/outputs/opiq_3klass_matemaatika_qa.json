@@ -1,0 +1,407 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-3-mathematics",
+  "source_archive": "project-files/outputs/3klass-matem-compact.zip",
+  "output_file": "project-files/outputs/opiq_3klass_matemaatika.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-19T20:40:24.946Z",
+    "generator": "scripts/generate-grade-3-mathematics-qa.mjs",
+    "generator_version": "1.0",
+    "note": "Generated from the committed derived compact snapshot; the declared original export 3klass-matem.zip was not available."
+  },
+  "checksums": {
+    "source_archive_sha256": "15d1dea7d6c935df484387aaa38a7b4965ac87f7f1b5356d53542a5019440f11",
+    "output_file_sha256": "9271abb60ddecf3d34172c5ca4d1c107ab81a6eb64539cd663d5185d4041a9ab"
+  },
+  "source_records": 637,
+  "page_records_included": 634,
+  "grades": {
+    "3": 634
+  },
+  "languages": {
+    "en": 5,
+    "et": 430,
+    "ru": 199
+  },
+  "books": {
+    "3k_matem_avita_2_est": 142,
+    "3k_matem_avita_2023_est": 142,
+    "3k_matem_avita_est": 137,
+    "3k_matem_koolibri_est": 62,
+    "3k_matem_koolibri_rus": 62,
+    "3k_matem_osa1_est": 26,
+    "3k_matem_osa2_est": 16,
+    "3k_matem_osa3_est": 24,
+    "3k_matem_osa4_est": 23
+  },
+  "kits": {
+    "54": 142,
+    "92": 137,
+    "134": 62,
+    "308": 62,
+    "497": 26,
+    "498": 16,
+    "499": 24,
+    "500": 23,
+    "531": 142
+  },
+  "source_provenance": {
+    "kind": "derived_compact_snapshot",
+    "archive_path": "project-files/outputs/3klass-matem-compact.zip",
+    "declared_original_archive": "3klass-matem.zip",
+    "compact_generated_at": "2026-06-12T14:08:30.147803+00:00",
+    "original_archive_available": false,
+    "required_members": [
+      "index.json",
+      "opiq_lookup.jsonl",
+      "opiq_lookup.md",
+      "topic_map.json"
+    ],
+    "limitations": "The original export is unavailable; this route is reproducibly validated against the committed compact snapshot."
+  },
+  "cover_detail_records_present": 9,
+  "cover_detail_records_excluded": 0,
+  "administrative_records_present": 6,
+  "administrative_records_excluded": 0,
+  "duplicate_records_excluded": 3,
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 3,
+    "source_duplicate_records": 3,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/497",
+        "kit_id": "497",
+        "source_positions": [
+          561,
+          562
+        ],
+        "title": "Matemaatika 3. klassile, I osa. Lihtsustatud õppekava – Opiq",
+        "book_id": "3k_matem_osa1_est",
+        "chapter_ids": [
+          "265",
+          "291"
+        ],
+        "language": "et",
+        "headings": [],
+        "task_examples": [],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "remove_duplicate",
+        "retained_source_position": 561,
+        "excluded_source_positions": [
+          562
+        ],
+        "reason": "The source rows are the same kit detail page and differ only in synthetic chapter_id; the stable first occurrence is retained."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/498",
+        "kit_id": "498",
+        "source_positions": [
+          584,
+          585
+        ],
+        "title": "Matemaatika 3. klassile, II osa. Lihtsustatud õppekava – Opiq",
+        "book_id": "3k_matem_osa2_est",
+        "chapter_ids": [
+          "248",
+          "264"
+        ],
+        "language": "et",
+        "headings": [],
+        "task_examples": [],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "remove_duplicate",
+        "retained_source_position": 584,
+        "excluded_source_positions": [
+          585
+        ],
+        "reason": "The source rows are the same kit detail page and differ only in synthetic chapter_id; the stable first occurrence is retained."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/500",
+        "kit_id": "500",
+        "source_positions": [
+          625,
+          626
+        ],
+        "title": "Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava – Opiq",
+        "book_id": "3k_matem_osa4_est",
+        "chapter_ids": [
+          "200",
+          "223"
+        ],
+        "language": "et",
+        "headings": [],
+        "task_examples": [],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "remove_duplicate",
+        "retained_source_position": 625,
+        "excluded_source_positions": [
+          626
+        ],
+        "reason": "The source rows are the same kit detail page and differ only in synthetic chapter_id; the stable first occurrence is retained."
+      }
+    ]
+  },
+  "subject_normalization_audit": [
+    {
+      "url": "https://www.opiq.ee/kit/531/chapter/29334",
+      "source_position": 59,
+      "book_id": "3k_matem_avita_2023_est",
+      "kit_id": "531",
+      "chapter_id": "3.16",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "mathematics / matemaatika / математика",
+      "decision": "correct_to_mathematics",
+      "evidence_summary": "The page is chapter 3.16 inside a mathematics book and asks pupils to read a response diagram, calculate gift costs, and calculate electricity hours; environmental protection is the task context."
+    },
+    {
+      "url": "https://www.opiq.ee/kit/54/chapter/2701",
+      "source_position": 201,
+      "book_id": "3k_matem_avita_2_est",
+      "kit_id": "54",
+      "chapter_id": "3.16",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "mathematics / matemaatika / математика",
+      "decision": "correct_to_mathematics",
+      "evidence_summary": "The page is chapter 3.16 inside a mathematics book and asks pupils to read a response diagram, calculate gift costs, and calculate electricity hours; environmental protection is the task context."
+    }
+  ],
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 635,
+    "science / loodusõpetus / природоведение": 2
+  },
+  "canonical_subject_counts": {
+    "mathematics / matemaatika / математика": 634
+  },
+  "records_without_headings": 9,
+  "missing_urls": 0,
+  "book_metadata_audit": {
+    "3k_matem_avita_2023_est": {
+      "titles": [
+        "Arvutamise algus"
+      ],
+      "detail_titles": [
+        "Matemaatika 3. klassile 2023 ÕK – Opiq"
+      ],
+      "publishers": [
+        "Avita"
+      ],
+      "kit_ids": [
+        "531"
+      ],
+      "languages": [
+        "en",
+        "et"
+      ],
+      "source_records": 142,
+      "canonical_records": 142,
+      "curriculum": "standard",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 1,
+      "metadata_anomalies": []
+    },
+    "3k_matem_avita_2_est": {
+      "titles": [
+        "Arvutamise algus"
+      ],
+      "detail_titles": [
+        "Matemaatika 3. klassile – Opiq"
+      ],
+      "publishers": [
+        "Avita"
+      ],
+      "kit_ids": [
+        "54"
+      ],
+      "languages": [
+        "en",
+        "et"
+      ],
+      "source_records": 142,
+      "canonical_records": 142,
+      "curriculum": "standard",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 1,
+      "metadata_anomalies": []
+    },
+    "3k_matem_avita_est": {
+      "titles": [
+        "Как появился счёт?"
+      ],
+      "detail_titles": [
+        "Математика для 3 класса – Opiq"
+      ],
+      "publishers": [
+        "Avita"
+      ],
+      "kit_ids": [
+        "92"
+      ],
+      "languages": [
+        "ru"
+      ],
+      "source_records": 137,
+      "canonical_records": 137,
+      "curriculum": "standard",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 0,
+      "metadata_anomalies": []
+    },
+    "3k_matem_koolibri_est": {
+      "titles": [
+        "KORDAMINE"
+      ],
+      "detail_titles": [
+        "MATEMAATIKA 3. klassile – Opiq"
+      ],
+      "publishers": [
+        "Koolibri"
+      ],
+      "kit_ids": [
+        "134"
+      ],
+      "languages": [
+        "et"
+      ],
+      "source_records": 62,
+      "canonical_records": 62,
+      "curriculum": "standard",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 0,
+      "metadata_anomalies": []
+    },
+    "3k_matem_koolibri_rus": {
+      "titles": [
+        "ПОВТОРЕНИЕ"
+      ],
+      "detail_titles": [
+        "МАТЕМАТИКА 3 класс – Opiq"
+      ],
+      "publishers": [
+        "Koolibri"
+      ],
+      "kit_ids": [
+        "308"
+      ],
+      "languages": [
+        "ru"
+      ],
+      "source_records": 62,
+      "canonical_records": 62,
+      "curriculum": "standard",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 0,
+      "metadata_anomalies": []
+    },
+    "3k_matem_osa1_est": {
+      "titles": [
+        "Matemaatika 3. klassile, I osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "detail_titles": [
+        "Matemaatika 3. klassile, I osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "publishers": [
+        ""
+      ],
+      "kit_ids": [
+        "497"
+      ],
+      "languages": [
+        "et"
+      ],
+      "source_records": 27,
+      "canonical_records": 26,
+      "curriculum": "simplified",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 1,
+      "metadata_anomalies": [
+        "publisher is empty"
+      ]
+    },
+    "3k_matem_osa2_est": {
+      "titles": [
+        "Matemaatika 3. klassile, II osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "detail_titles": [
+        "Matemaatika 3. klassile, II osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "publishers": [
+        ""
+      ],
+      "kit_ids": [
+        "498"
+      ],
+      "languages": [
+        "en",
+        "et"
+      ],
+      "source_records": 17,
+      "canonical_records": 16,
+      "curriculum": "simplified",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 1,
+      "metadata_anomalies": [
+        "publisher is empty"
+      ]
+    },
+    "3k_matem_osa3_est": {
+      "titles": [
+        "Kordamine"
+      ],
+      "detail_titles": [
+        "Matemaatika 3. klassile, III osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "publishers": [
+        ""
+      ],
+      "kit_ids": [
+        "499"
+      ],
+      "languages": [
+        "et"
+      ],
+      "source_records": 24,
+      "canonical_records": 24,
+      "curriculum": "simplified",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 1,
+      "metadata_anomalies": [
+        "publisher is empty"
+      ]
+    },
+    "3k_matem_osa4_est": {
+      "titles": [
+        "Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "detail_titles": [
+        "Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava – Opiq"
+      ],
+      "publishers": [
+        ""
+      ],
+      "kit_ids": [
+        "500"
+      ],
+      "languages": [
+        "et"
+      ],
+      "source_records": 24,
+      "canonical_records": 23,
+      "curriculum": "simplified",
+      "cover_detail_records_present": 1,
+      "administrative_records_present": 1,
+      "metadata_anomalies": [
+        "publisher is empty"
+      ]
+    }
+  }
+}

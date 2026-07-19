@@ -79,8 +79,17 @@ node scripts/generate-grade-1-mathematics-qa.mjs
 node scripts/generate-grade-1-mathematics-qa.mjs --check
 ```
 
+Grade 3 mathematics uses the same derived-provenance model and has its own audited generator:
+
+```sh
+node scripts/generate-grade-3-mathematics-qa.mjs
+node scripts/generate-grade-3-mathematics-qa.mjs --check
+```
+
 The generator preserves its initial `generated_at` value on ordinary reruns and verifies the canonical Markdown field by field against the compact JSONL. Run the general refresh and manifest checks afterward.
 
 Routes may opt into exact canonical URL uniqueness with `canonical_url_policy.require_unique: true`. The policy is intentionally route-specific because other known duplicate routes are handled by their own audits.
+
+A route-specific `canonical_subject_policy` requires every canonical record to use the declared Subject. For grade 3 mathematics, two audited `Kaitseme loodust` source records are normalized from science to mathematics because their learner tasks are computational. Environmental keywords remain valid thematic context; the subject policy checks the Subject field, not topic keywords.
 
 Regression topics are promoted to `present` only from explicit headings or tasks that demonstrate the requested learning objective. Automatically generated topic keywords, generic greater/less comparisons, or material from another grade are not sufficient evidence.
