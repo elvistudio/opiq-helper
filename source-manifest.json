@@ -1,0 +1,291 @@
+{
+  "manifest_version": "1.0",
+  "repository": "elvistudio/opiq-helper",
+  "canonical": true,
+  "scope": "Currently available Opiq Markdown indexes; this manifest does not claim complete coverage of grades 1-7 or of the official curriculum.",
+  "routing_order": [
+    "grade",
+    "subject",
+    "languages",
+    "md_path"
+  ],
+  "sources": [
+    {
+      "id": "grade-1-estonian",
+      "grade": 1,
+      "grade_group": "1-4",
+      "subject": "estonian",
+      "subject_et": "eesti keel",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_1klass_eesti_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_1klass_eesti_keel.zip",
+      "qa_path": "project-files/outputs/opiq_1klass_eesti_keel_qa.json",
+      "record_count": 522,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "needs_review",
+      "known_issues": [
+        "The canonical index contains 26 records from a book id containing eesti_teise_keelena; subject separation needs review."
+      ],
+      "notes": "Use for first-language Estonian queries only; do not treat it as interchangeable with Estonian as a second language."
+    },
+    {
+      "id": "grade-1-estonian-second-language",
+      "grade": 1,
+      "grade_group": "1-4",
+      "subject": "estonian_second_language",
+      "subject_et": "eesti keel teise keelena",
+      "languages": ["et", "ru", "en"],
+      "md_path": "project-files/outputs/opiq_1klass_eesti_teise_keelena.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_eesti_teise_keelena.zip",
+      "qa_path": "project-files/outputs/opiq_1klass_eesti_teise_keelena_qa.json",
+      "record_count": 150,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [],
+      "notes": "Page language is recorded per entry; keep this subject separate from first-language Estonian."
+    },
+    {
+      "id": "grade-1-science",
+      "grade": 1,
+      "grade_group": "1-4",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru", "en"],
+      "md_path": "project-files/outputs/opiq_1klass_loodusopetus.md",
+      "source_archive": null,
+      "qa_path": null,
+      "record_count": 472,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "needs_review",
+      "known_issues": [
+        "No source archive is stored under project-files/inputs/final-zips.",
+        "No QA snapshot is committed.",
+        "The Markdown index contains two duplicate URL occurrences."
+      ],
+      "notes": "A derived compact ZIP exists at project-files/outputs/1klass-loodusõpetus-compact.zip."
+    },
+    {
+      "id": "grade-1-mathematics",
+      "grade": 1,
+      "grade_group": "1-4",
+      "subject": "mathematics",
+      "subject_et": "matemaatika",
+      "languages": ["et", "ru", "en"],
+      "md_path": "project-files/outputs/opiq_1klass_matemaatika.md",
+      "source_archive": null,
+      "qa_path": null,
+      "record_count": 339,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "needs_review",
+      "known_issues": [
+        "No source archive is stored under project-files/inputs/final-zips.",
+        "No QA snapshot is committed.",
+        "The Markdown index contains one duplicate URL occurrence.",
+        "The topics võrra rohkem and võrra vähem remain ambiguous in the regression set."
+      ],
+      "notes": "A derived compact ZIP exists at project-files/outputs/1klass-matem-compact.zip."
+    },
+    {
+      "id": "grade-2-estonian",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "estonian",
+      "subject_et": "eesti keel",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_2klass_eesti_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_eesti_keel_qa.json",
+      "record_count": 444,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The source archive contains automatic subject labels; the canonical Markdown index is normalized."
+      ],
+      "notes": "Route first-language Estonian queries here."
+    },
+    {
+      "id": "grade-2-human-studies",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "human_studies",
+      "subject_et": "inimeseõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_2klass_inimeseopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_inimeseopetus_algklassidele_i_osa_2023_ok_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_inimeseopetus_qa.json",
+      "record_count": 243,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The source archive contains automatic subject labels; the canonical Markdown index is normalized."
+      ],
+      "notes": "The source collection includes a combined loodus- ja inimeseõpetus book, while the canonical route is human studies."
+    },
+    {
+      "id": "grade-2-russian",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "russian",
+      "subject_et": "vene keel",
+      "languages": ["ru"],
+      "md_path": "project-files/outputs/opiq_2klass_vene_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_vene_keel_qa.json",
+      "record_count": 373,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "Duplicate legacy chapter records are present in the source archive and excluded from the canonical Markdown index."
+      ],
+      "notes": "Use for Russian-language subject queries, not for Russian translations of other subjects."
+    },
+    {
+      "id": "grade-3-human-studies",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "human_studies",
+      "subject_et": "inimeseõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_3klass_inimeseopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_opiq_minu_valimus_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_inimeseopetus_qa.json",
+      "record_count": 190,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The source archive has mixed grade metadata; the canonical Markdown index is normalized to grade 3."
+      ],
+      "notes": "Use the canonical Markdown metadata rather than the raw archive grade labels."
+    },
+    {
+      "id": "grade-3-science",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_3klass_loodusopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_sissejuhatus_kaardiopetus_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_loodusopetus_qa.json",
+      "record_count": 314,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [],
+      "notes": "Includes map skills, living nature, electricity, and magnetism topics; this is not evidence of complete curriculum coverage."
+    },
+    {
+      "id": "grade-3-mathematics",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "mathematics",
+      "subject_et": "matemaatika",
+      "languages": ["et", "ru", "en"],
+      "md_path": "project-files/outputs/opiq_3klass_matemaatika.md",
+      "source_archive": null,
+      "qa_path": null,
+      "record_count": 637,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "needs_review",
+      "known_issues": [
+        "No source archive is stored under project-files/inputs/final-zips.",
+        "No QA snapshot is committed.",
+        "The Markdown index contains three duplicate URL occurrences.",
+        "Two records in the mathematics index are labelled as science."
+      ],
+      "notes": "A derived compact ZIP exists at project-files/outputs/3klass-matem-compact.zip."
+    },
+    {
+      "id": "grade-5-science",
+      "grade": 5,
+      "grade_group": "5-7",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_5klass_loodusopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_5klass_loodusopetus_qa.json",
+      "record_count": 316,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "One Russian-language source book has cover metadata only and contributes no canonical page records."
+      ],
+      "notes": "Available Russian records come from another included source book."
+    },
+    {
+      "id": "grade-6-science",
+      "grade": 6,
+      "grade_group": "5-7",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_6klass_loodusopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip",
+      "qa_path": "project-files/outputs/opiq_6klass_loodusopetus_qa.json",
+      "record_count": 436,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The source archive has grade 5 and 6 metadata; the canonical Markdown index is normalized to grade 6."
+      ],
+      "notes": "Use the canonical Markdown metadata rather than the raw archive grade labels."
+    },
+    {
+      "id": "grade-7-geography",
+      "grade": 7,
+      "grade_group": "5-7",
+      "subject": "geography",
+      "subject_et": "geograafia",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_7klass_geograafia.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip",
+      "qa_path": "project-files/outputs/opiq_7klass_geograafia_qa.json",
+      "record_count": 178,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The source archive contains automatic subject labels; the canonical Markdown index is normalized to geography."
+      ],
+      "notes": "Route geography queries here rather than to grade 7 science."
+    },
+    {
+      "id": "grade-7-science",
+      "grade": 7,
+      "grade_group": "5-7",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_7klass_loodusopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_7klass_loodusteadused_v2.zip",
+      "qa_path": "project-files/outputs/opiq_7klass_loodusopetus_qa.json",
+      "record_count": 314,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [],
+      "notes": "Route general grade 7 science queries here rather than to geography."
+    }
+  ],
+  "missing_coverage": [
+    {
+      "grade": 4,
+      "grade_group": "1-4",
+      "coverage_status": "missing",
+      "subjects": "all",
+      "notes": "No canonical Markdown index, source archive, or QA snapshot for grade 4 is currently registered."
+    }
+  ]
+}
