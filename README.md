@@ -48,3 +48,5 @@ Validate routing metadata with:
 ```sh
 node scripts/check-source-manifest.mjs
 ```
+
+GitHub Actions runs the same structural integrity check automatically for relevant pull requests and pushes to `main`. A successful run reports the number of validated routes and Markdown records. This check validates the manifest and its related files; it does not assess curriculum completeness or the pedagogical quality of the material.
