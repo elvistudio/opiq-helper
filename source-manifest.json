@@ -20,14 +20,19 @@
       "md_path": "project-files/outputs/opiq_1klass_eesti_keel.md",
       "source_archive": "project-files/inputs/final-zips/opiq_1klass_eesti_keel.zip",
       "qa_path": "project-files/outputs/opiq_1klass_eesti_keel_qa.json",
-      "record_count": 522,
+      "record_count": 496,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
-      "quality_status": "needs_review",
-      "known_issues": [
-        "The canonical index contains 26 records from a book id containing eesti_teise_keelena; subject separation needs review."
-      ],
-      "notes": "Use for first-language Estonian queries only; do not treat it as interchangeable with Estonian as a second language."
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "1k_eesti_teise_keelena_avita_est"
+        ],
+        "audit_path": "docs/audits/grade-1-estonian-subject-separation.md",
+        "reason": "Kit 537 was audited as Estonian-as-a-second-language content and must not re-enter the first-language route."
+      },
+      "notes": "Use for first-language Estonian queries only. All 26 audited kit 537 records were removed; the route is protected from that second-language book by a CI-validated subject boundary."
     },
     {
       "id": "grade-1-estonian-second-language",
@@ -43,8 +48,10 @@
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
       "quality_status": "qa_snapshot_available",
-      "known_issues": [],
-      "notes": "Page language is recorded per entry; keep this subject separate from first-language Estonian."
+      "known_issues": [
+        "Twenty-five audited instructional pages from second-language kit 537 are not included because this route's registered archive contains only kits 554 and 538 and the current QA provenance model registers one archive per route."
+      ],
+      "notes": "Page language is recorded per entry; keep this subject separate from first-language Estonian. Kit 537 remains excluded until it can be represented without misstating archive provenance; see docs/audits/grade-1-estonian-subject-separation.md."
     },
     {
       "id": "grade-1-science",

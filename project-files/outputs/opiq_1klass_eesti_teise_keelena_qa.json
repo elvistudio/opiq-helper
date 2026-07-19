@@ -13,7 +13,7 @@
   },
   "checksums": {
     "source_archive_sha256": "60dac41857db8c60f1f418228a5d8fe0f0e6117b90d4d3f4536fbf7cbfbc6232",
-    "output_file_sha256": "f935e68351e235e81d43e0ddea6a3ca8c9e6775650f3d3addab7c2c274503756"
+    "output_file_sha256": "22762bc049eca674599b1b8cc0375a624d18414ea69046a7c386e175c20922c9"
   },
   "source_records": 152,
   "page_records_included": 150,
@@ -40,5 +40,12 @@
     "1k_eesti_keel_esiopetus_avita_est": 75,
     "1k_eesti_keel_esiopetus_tooraamat_avita_est": 75
   },
-  "records_without_headings": 0
+  "records_without_headings": 0,
+  "subject_boundary_audit": {
+    "report": "docs/audits/grade-1-estonian-subject-separation.md",
+    "kit_id": "537",
+    "records_reviewed": 26,
+    "records_added": 0,
+    "reason": "Kit 537 is second-language content but is absent from this route's registered source archive, so its records were not added under false provenance."
+  }
 }

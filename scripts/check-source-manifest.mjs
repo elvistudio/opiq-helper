@@ -322,8 +322,40 @@ function splitMarkdownRecords(markdown) {
   });
 }
 
+async function validateSubjectBoundaryConfig(source, sourceLabel) {
+  if (!Object.hasOwn(source, 'subject_boundary')) return;
+
+  const boundary = source.subject_boundary;
+  if (!isPlainObject(boundary)) {
+    fail(`${sourceLabel}: subject_boundary must be an object.`);
+    return;
+  }
+
+  if (!Array.isArray(boundary.forbidden_book_ids) || boundary.forbidden_book_ids.length === 0) {
+    fail(`${sourceLabel}: subject_boundary.forbidden_book_ids must be a non-empty array.`);
+  } else {
+    const seenBookIds = new Set();
+    boundary.forbidden_book_ids.forEach((bookId, index) => {
+      if (!isNonEmptyString(bookId)) {
+        fail(`${sourceLabel}: subject_boundary.forbidden_book_ids[${index}] must be a non-empty string.`);
+      } else if (seenBookIds.has(bookId)) {
+        fail(`${sourceLabel}: subject_boundary.forbidden_book_ids contains duplicate book ID "${bookId}".`);
+      } else {
+        seenBookIds.add(bookId);
+      }
+    });
+  }
+
+  if (!isNonEmptyString(boundary.reason)) {
+    fail(`${sourceLabel}: subject_boundary.reason must be a non-empty string.`);
+  }
+
+  await requireFile(boundary.audit_path, `${sourceLabel} subject_boundary.audit_path`);
+}
+
 function validateMarkdown(source, markdown, allowedLanguages) {
   const records = splitMarkdownRecords(markdown);
+  const forbiddenBookIds = new Set(source.subject_boundary?.forbidden_book_ids || []);
   if (records.length !== source.record_count) {
     fail(
       `${source.id}: record_count is ${source.record_count}, but ${source.md_path} contains ${records.length} records.`,
@@ -331,10 +363,24 @@ function validateMarkdown(source, markdown, allowedLanguages) {
   }
 
   records.forEach((record, index) => {
-    const recordLabel = `${source.id} record ${index + 1}`;
+    const headingRecordNumber = record.match(/^###\s+(\d+)\.\s+/m)?.[1];
+    const recordNumber = headingRecordNumber || String(index + 1);
+    const recordLabel = `${source.id} record ${recordNumber}`;
     const urlMatch = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/(?:www\.)?opiq\.ee\/\S+)\s*$/mi);
     if (!urlMatch) {
       fail(`${recordLabel}: missing a direct Opiq URL.`);
+    }
+
+    if (forbiddenBookIds.size > 0) {
+      const bookIdMatch = record.match(/^(?:-\s+)?Book ID:\s*(.+?)\s*$/mi);
+      const bookId = bookIdMatch?.[1].trim();
+      if (!bookId) {
+        fail(`${recordLabel}: missing Book ID required by subject_boundary.`);
+      } else if (forbiddenBookIds.has(bookId)) {
+        fail(
+          `${recordLabel}: URL ${urlMatch?.[1] || '<missing>'} has forbidden Book ID "${bookId}" from subject_boundary.forbidden_book_ids.`,
+        );
+      }
     }
 
     const classMatch = record.match(/^(?:-\s+)?Class:\s*(.+?)\s*$/mi);
@@ -372,7 +418,6 @@ if (!manifest) {
   const ids = new Set();
   const routes = new Set();
   const criticalQualityMarkers = new Map([
-    ['grade-1-estonian', 'needs_review'],
     ['grade-1-mathematics', 'needs_review'],
     ['grade-1-science', 'needs_review'],
     ['grade-3-mathematics', 'needs_review'],
@@ -428,6 +473,8 @@ if (!manifest) {
     if (!isNonEmptyString(source.quality_status)) {
       fail(`${label}: quality_status is empty.`);
     }
+
+    await validateSubjectBoundaryConfig(source, label);
 
     const route = `${source.grade}\u0000${source.subject}\u0000${source.md_path}`;
     if (routes.has(route)) {
