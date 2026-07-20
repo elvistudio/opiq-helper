@@ -74,11 +74,18 @@ function assertWarnsWithoutErrors(repository, pattern) {
   assert.match(diagnosticText(foundWarnings), pattern);
 }
 
-test('valid complete golden lesson and production repository pass without warnings', () => {
+test('valid complete golden lesson and production repository pass with documented recycling warnings', () => {
   const result = validation(cloneRepository());
-  assert.deepEqual(result.diagnostics, []);
+  const foundErrors = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'error');
+  const foundWarnings = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'warning');
+  assert.deepEqual(foundErrors, [], diagnosticText(foundErrors));
+  assert.equal(foundWarnings.length, 5, diagnosticText(foundWarnings));
+  for (const term of ['lahus', 'termomeeter', 'jäätumine', 'aurustumine', 'olekumuutus']) {
+    assert.match(diagnosticText(foundWarnings), new RegExp(`term ${term} .* not recycled in a later lesson`, 'u'));
+  }
   assert.equal(result.summary.lessons, 4);
   assert.equal(result.summary.pageReferences, 19);
+  assert.equal(result.summary.warnings, 5);
 });
 
 test('valid four-lesson thematic plan links order, count, duration, and glossary', () => {
@@ -123,6 +130,73 @@ test('new and recycled vocabulary are structurally distinct', () => {
     assert.equal([...fresh].some((term) => recycled.has(term)), false);
   }
   assert.deepEqual(errors(repository), []);
+});
+
+test('a cumulative term recycled in a strictly later lesson passes', () => {
+  const repository = cloneRepository();
+  const entry = thematic(repository).cumulative_glossary.find((item) => item.term_et === 'temperatuur');
+  assert.deepEqual(entry.recycled_in_lessons, ['grade-5-water-04-changes-review']);
+  assert.ok(lesson(repository, 4).language_load.recycled_terms_et
+    .some((item) => item.term_et === 'temperatuur'));
+  assert.deepEqual(errors(repository), []);
+});
+
+test('same-lesson thematic recycling is rejected', () => {
+  const repository = cloneRepository();
+  const entry = thematic(repository).cumulative_glossary.find((item) => item.term_et === 'lahus');
+  entry.recycled_in_lessons = [entry.introduced_in_lesson];
+  assertFailsWith(repository, /term lahus cannot be recycled in its introduction lesson grade-5-water-01-properties/u);
+});
+
+test('earlier-lesson thematic recycling is rejected', () => {
+  const repository = cloneRepository();
+  const entry = thematic(repository).cumulative_glossary.find((item) => item.term_et === 'temperatuur');
+  entry.recycled_in_lessons = ['grade-5-water-02-states'];
+  assertFailsWith(repository, /recycling lesson grade-5-water-02-states must follow introduction lesson grade-5-water-03-melting-condensation/u);
+});
+
+test('an explicit empty thematic recycling list is structurally valid', () => {
+  const repository = cloneRepository();
+  const entry = thematic(repository).cumulative_glossary.find((item) => item.term_et === 'lahus');
+  assert.deepEqual(entry.recycled_in_lessons, []);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('an explicit empty thematic recycling list produces a pedagogical warning', () => {
+  const repository = cloneRepository();
+  assertWarnsWithoutErrors(
+    repository,
+    /term lahus is introduced in lesson 1 but is not recycled in a later lesson of the unit/u,
+  );
+});
+
+test('claimed thematic recycling must use recycled_terms_et in the later lesson', () => {
+  const repository = cloneRepository();
+  const entry = thematic(repository).cumulative_glossary.find((item) => item.term_et === 'termomeeter');
+  entry.recycled_in_lessons = ['grade-5-water-04-changes-review'];
+  assertFailsWith(repository, /recycling lesson grade-5-water-04-changes-review does not list term termomeeter in recycled_terms_et/u);
+});
+
+test('a later new_terms_et occurrence does not satisfy thematic recycling', () => {
+  const repository = cloneRepository();
+  const target = lesson(repository, 4);
+  const repeatedTerm = structuredClone(lesson(repository, 3).language_load.new_terms_et
+    .find((item) => item.term_et === 'termomeeter'));
+  repeatedTerm.first_use_stage = 'add-final-terms-et';
+  repeatedTerm.reuse_stage_refs = ['revision-stations', 'separate-unit-assessment'];
+  target.language_load.new_terms_et.push(repeatedTerm);
+  target.cognitive_load.new_estonian_terms += 1;
+  target.stages.find((stage) => stage.stage_id === 'add-final-terms-et')
+    .new_language_items.push('termomeeter');
+  thematic(repository).vocabulary_by_lesson
+    .find((entry) => entry.lesson_id === target.lesson_id)
+    .introduced.push('termomeeter');
+  thematic(repository).cumulative_glossary
+    .find((entry) => entry.term_et === 'termomeeter')
+    .recycled_in_lessons = [target.lesson_id];
+  const found = errors(repository);
+  assert.match(diagnosticText(found), /term termomeeter is introduced by multiple linked lessons/u);
+  assert.match(diagnosticText(found), /does not list term termomeeter in recycled_terms_et/u);
 });
 
 test('every production lesson has explicit scaffold release', () => {
@@ -303,7 +377,7 @@ test('unused glossary term fails', () => {
     term_et: 'kasutamata',
     equivalent_ru: 'неиспользованный',
     introduced_in_lesson: 'grade-5-water-01-properties',
-    recycled_in_lessons: ['grade-5-water-01-properties'],
+    recycled_in_lessons: [],
   });
   assertFailsWith(repository, /glossary term is not introduced by a linked lesson/u);
 });
@@ -348,7 +422,7 @@ test('missing vocabulary recycling emits a warning', () => {
     .find((entry) => entry.lesson_id === target.lesson_id);
   progression.recycled = [];
   const aine = thematic(repository).cumulative_glossary.find((entry) => entry.term_et === 'aine');
-  aine.recycled_in_lessons = ['grade-5-water-01-properties'];
+  aine.recycled_in_lessons = [];
   assertWarnsWithoutErrors(repository, /has no recycled Estonian term/u);
 });
 

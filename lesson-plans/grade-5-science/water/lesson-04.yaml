@@ -237,6 +237,10 @@ language_load:
       equivalent_ru: конденсация
       source_lesson_id: grade-5-water-03-melting-condensation
       reuse_stage_refs: [retrieve-water-unit, add-final-terms-et, revision-stations, separate-unit-assessment]
+    - term_et: temperatuur
+      equivalent_ru: температура
+      source_lesson_id: grade-5-water-03-melting-condensation
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
   new_instruction_verbs_et:
     - verb_et: selgita
       equivalent_ru: объясни
@@ -291,6 +295,7 @@ language_load:
     - Soojenemisel jää sulab.
     - Jahtumisel veeaur veeldub.
     - Vesi jäätub või aurustub.
+    - Temperatuur tõuseb või langeb.
   expected_independent_productive_language_et:
     - Jää sulab ja muutub veeks.
   full_expected_answer_ru: >-
@@ -425,13 +430,13 @@ stages:
     duration_minutes: 15
     stage_type: revision
     content_purpose_ru: Применить модель к данным, примерам, причинным объяснениям и различению вывода.
-    language_purpose_et: Переработать знакомые термины и инструкции в четырёх коротких форматах.
+    language_purpose_et: Переработать знакомые термины, включая temperatuur, и инструкции в четырёх коротких форматах.
     teacher_action_ru: Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов.
     pupil_action_ru: Решают задания, объясняют предметные решения по-русски и репетируют короткий эстонский ответ.
     teacher_language: [ru, et]
     expected_pupil_language:
       ru: [Наблюдение показывает переход воды в другое состояние]
-      et: [Liigita, võrdle, selgita, Vesi jäätub]
+      et: [Liigita, võrdle, selgita, Vesi jäätub, Temperatuur tõuseb või langeb]
     material_refs: [unit-revision-stations, water-changes-koolibri]
     provenance_refs: [unit-revision-stations, water-changes-koolibri]
     scaffold_refs: [cumulative-word-bank, revision-pair-rehearsal]

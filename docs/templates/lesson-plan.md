@@ -16,7 +16,7 @@ Use `schemas/lesson-plan.schema.json` as the machine-readable authority. Start f
 - Write at least one observable Russian content objective and one measurable Estonian objective.
 - Record a deliberate language path; do not switch languages without a stated purpose.
 - Separate new/recycled terms and new/recycled instruction verbs.
-- Give every new term a Russian equivalent, simple Estonian definition, provenance, first-use stage, and later reuse stage.
+- Give every new term a Russian equivalent, simple Estonian definition, provenance, first-use stage, and later reuse stage. `reuse_stage_refs` means later practice within this lesson; it does not count as thematic recycling.
 - Keep a full expected answer in Russian and a short expected oral answer in Estonian.
 - Count simultaneous novelty in `cognitive_load`.
 

@@ -8,7 +8,7 @@ Use `schemas/annual-course.schema.json` as the machine-readable authority. Issue
 - Order only verified topic-inventory IDs. Link a thematic plan only when that artifact exists.
 - Record lesson estimates, audited books, and deduplication decisions.
 - Plan Russian explanation coverage and Estonian vocabulary, instruction-language, sentence, and oral-answer progression by unit.
-- Give vocabulary a later recycling interval and purpose.
+- Give vocabulary a later-unit recycling interval and purpose in `planned_vocabulary_recycling_intervals`; this is separate from within-unit `recycled_in_lessons`.
 - Maintain separate practical, revision, subject-assessment, and language-assessment calendars.
 - Record outcome coverage, known gaps, and provenance.
 - For an excerpt, keep `scope: small_annual_course_excerpt`, `status: incomplete`, `declared_complete: false`, and a real `deferred_to_issue`.

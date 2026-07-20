@@ -673,30 +673,82 @@ function validateUnitProgressions(diagnostics, artifact, lessonsById) {
   const unit = artifact.data;
   const lessonIds = unit.lesson_ids ?? [];
   const lessonIdSet = new Set(lessonIds);
+  const lessonOrder = new Map((unit.recommended_lesson_sequence ?? [])
+    .map((entry, index) => [entry.lesson_id, index]));
   const glossary = unit.cumulative_glossary ?? [];
   addDuplicateDiagnostics(diagnostics, glossary.map((entry) => normalize(entry.term_et)), {
     file: artifact.file, field: '/cumulative_glossary', label: 'glossary term',
   });
   const glossaryByTerm = new Map(glossary.map((entry) => [normalize(entry.term_et), entry]));
-  const allNewTerms = new Map();
+  const introductionsByTerm = new Map();
   for (const lessonId of lessonIds) {
     const lesson = lessonsById.get(lessonId)?.data;
-    for (const term of lesson?.language_load?.new_terms_et ?? []) allNewTerms.set(normalize(term.term_et), lessonId);
+    for (const term of lesson?.language_load?.new_terms_et ?? []) {
+      const termName = normalize(term.term_et);
+      const introductionLessons = introductionsByTerm.get(termName) ?? new Set();
+      introductionLessons.add(lessonId);
+      introductionsByTerm.set(termName, introductionLessons);
+    }
   }
-  for (const [term, lessonId] of allNewTerms) {
+  for (const [term, introductionLessons] of introductionsByTerm) {
     const entry = glossaryByTerm.get(term);
     if (!entry) diagnostics.push(makeDiagnostic('error', artifact.file, '/cumulative_glossary', `new lesson term is missing from glossary: ${term}`));
-    else if (entry.introduced_in_lesson !== lessonId) diagnostics.push(makeDiagnostic('error', artifact.file, '/cumulative_glossary', `term ${term} must be introduced in ${lessonId}`));
+    const uniqueIntroductionLessons = [...introductionLessons];
+    if (uniqueIntroductionLessons.length > 1) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/cumulative_glossary', `term ${term} is introduced by multiple linked lessons: ${uniqueIntroductionLessons.join(', ')}`));
+    } else if (entry && entry.introduced_in_lesson !== uniqueIntroductionLessons[0]) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/cumulative_glossary', `term ${term} must be introduced in ${uniqueIntroductionLessons[0]}`));
+    }
   }
-  for (const [term, entry] of glossaryByTerm) {
-    if (!allNewTerms.has(term)) diagnostics.push(makeDiagnostic('error', artifact.file, '/cumulative_glossary', `glossary term is not introduced by a linked lesson: ${entry.term_et}`));
-    for (const lessonId of entry.recycled_in_lessons ?? []) {
+  for (const [index, entry] of glossary.entries()) {
+    const term = normalize(entry.term_et);
+    const field = `/cumulative_glossary/${index}`;
+    const introductionLessonId = entry.introduced_in_lesson;
+    const introductionOrder = lessonOrder.get(introductionLessonId);
+    const introductionLessons = introductionsByTerm.get(term);
+    if (!lessonIdSet.has(introductionLessonId)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/introduced_in_lesson`, `introduction lesson ${introductionLessonId} is not linked to the thematic plan`));
+    }
+    if (!introductionLessons) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, field, `glossary term is not introduced by a linked lesson: ${entry.term_et}`));
+    }
+    const recyclingLessonIds = entry.recycled_in_lessons ?? [];
+    addDuplicateDiagnostics(diagnostics, recyclingLessonIds, {
+      file: artifact.file, field: `${field}/recycled_in_lessons`, label: `recycling lesson for term ${entry.term_et}`,
+    });
+    if (
+      recyclingLessonIds.length === 0
+      && introductionOrder !== undefined
+      && introductionLessons?.has(introductionLessonId)
+    ) {
+      diagnostics.push(makeDiagnostic(
+        'warning',
+        artifact.file,
+        `${field}/recycled_in_lessons`,
+        `term ${entry.term_et} is introduced in lesson ${introductionOrder + 1} but is not recycled in a later lesson of the unit`,
+      ));
+    }
+    for (const lessonId of recyclingLessonIds) {
+      if (!lessonIdSet.has(lessonId)) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/recycled_in_lessons`, `recycling lesson ${lessonId} is not linked to the thematic plan`));
+        continue;
+      }
+      if (lessonId === introductionLessonId) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/recycled_in_lessons`, `term ${entry.term_et} cannot be recycled in its introduction lesson ${lessonId}`));
+        continue;
+      }
+      const recyclingOrder = lessonOrder.get(lessonId);
+      if (introductionOrder !== undefined && recyclingOrder !== undefined && recyclingOrder < introductionOrder) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/recycled_in_lessons`, `recycling lesson ${lessonId} must follow introduction lesson ${introductionLessonId} for term ${entry.term_et}`));
+        continue;
+      }
       const lesson = lessonsById.get(lessonId)?.data;
-      const used = [
-        ...(lesson?.language_load?.new_terms_et ?? []).map((item) => normalize(item.term_et)),
-        ...(lesson?.language_load?.recycled_terms_et ?? []).map((item) => normalize(item.term_et)),
-      ];
-      if (!used.includes(term)) diagnostics.push(makeDiagnostic('error', artifact.file, '/cumulative_glossary', `term ${entry.term_et} is not used in declared recycling lesson ${lessonId}`));
+      if (!lesson) continue;
+      const recycledTerms = (lesson.language_load?.recycled_terms_et ?? [])
+        .map((item) => normalize(item.term_et));
+      if (!recycledTerms.includes(term)) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/recycled_in_lessons`, `recycling lesson ${lessonId} does not list term ${entry.term_et} in recycled_terms_et`));
+      }
     }
   }
   const progressionGroups = [

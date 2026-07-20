@@ -157,10 +157,13 @@
         "properties": {
           "term_et": { "type": "string", "minLength": 1 },
           "equivalent_ru": { "type": "string", "minLength": 1 },
-          "introduced_in_lesson": { "$ref": "#/$defs/slug" },
+          "introduced_in_lesson": {
+            "description": "Linked lesson where the term first appears in new_terms_et.",
+            "$ref": "#/$defs/slug"
+          },
           "recycled_in_lessons": {
+            "description": "Explicit list of strictly later linked lessons where the term appears in recycled_terms_et; an empty list is allowed and produces a pedagogical warning.",
             "type": "array",
-            "minItems": 1,
             "uniqueItems": true,
             "items": { "$ref": "#/$defs/slug" }
           }

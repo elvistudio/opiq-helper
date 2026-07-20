@@ -69,6 +69,14 @@ scaffold_release:
 
 Russian explanation, bilingual glossaries, visuals, modelling, worked examples, sentence frames, word banks, partner rehearsal, model answers, partially completed tables, and reduced-choice tasks are supported. A global, unlinked scaffold list is not valid.
 
+## Vocabulary reuse semantics
+
+Vocabulary planning distinguishes three time scales. In a lesson’s `new_terms_et`, `first_use_stage` records the first introduction and `reuse_stage_refs` records later practice stages in that same lesson. This within-lesson practice is useful, but it is not thematic-plan recycling.
+
+In a thematic plan, `cumulative_glossary[].recycled_in_lessons` may name only linked lessons that occur strictly after `introduced_in_lesson`. Each named lesson must list the term in its own `recycled_terms_et`; another occurrence in `new_terms_et` is a duplicate introduction, not recycling. The field is required, but `recycled_in_lessons: []` is valid when the short unit has no suitable later use. The validator deterministically warns once for every cumulative glossary term with an empty list.
+
+Recycling in a later thematic unit is planned separately through the annual course’s `planned_vocabulary_recycling_intervals`; it does not retroactively satisfy the thematic-plan field.
+
 ## Language profiles and cognitive load
 
 `lesson-plans/language-profiles.yaml` contains defaults rather than fixed learner facts:
@@ -85,7 +93,7 @@ The initial warning thresholds are configurable per profile:
 | Grade 6 science | 6 | 2 | 3 | 3 |
 | Grade 7 geography | 7 | 3 | 3 | 4 |
 
-Exceeding a threshold is a warning, not an automatic error. Missing vocabulary recycling after lesson 1, no independent Estonian output, and no scaffold release are also warnings. Structural contradictions, unknown references, unsafe omissions, and unsupported source claims remain errors.
+Exceeding a threshold is a warning, not an automatic error. A lesson after position 1 with no `recycled_terms_et`, a cumulative glossary term with no later-lesson recycling, no independent Estonian output, and no scaffold release are also warnings. Structural contradictions, unknown references, unsafe omissions, and unsupported source claims remain errors.
 
 ## Evidence, roles, and provenance
 
@@ -134,6 +142,8 @@ expected_total_duration_minutes: 180
 
 The validator compares order, count, duration, route, outcomes, selected sources, glossary coverage, lesson-by-lesson introduction and recycling, instruction verbs, sentence frames, scaffold release, practical work, revision, and assessment points. Both official outcomes remain `partial`: they are school-stage outcomes, and the water unit covers only part of their scope.
 
+The production plan genuinely recycles `temperatuur` from lesson 3 in lesson 4. It intentionally reports five warnings for terms without a later lesson in this short unit: `lahus`, `termomeeter`, `jäätumine`, `aurustumine`, and `olekumuutus`. Their within-lesson `reuse_stage_refs` remain valid practice; later-unit recycling, where planned, belongs to the annual-course intervals.
+
 ## Annual-course excerpt
 
 The annual schema is reusable, but issue #10 intentionally provides only a small excerpt. It places the water unit between the verified topic-inventory groups `rivers-and-lakes` and `water-use-protection-and-cycle`. The latter recycles `aurustumine` and `veeldumine` into the water-cycle context.
@@ -168,7 +178,7 @@ For a new lesson:
 6. Resolve every stage material and provenance reference.
 7. Reconcile stage timing and keep content/language assessment separate.
 
-For a thematic plan, link complete lesson artifacts and make the glossary and progression match those lessons exactly. For an annual plan, use verified topic IDs, link only existing thematic plans, distinguish publisher and curated sequences, and declare gaps honestly.
+For a thematic plan, link complete lesson artifacts, make the glossary and progression match those lessons exactly, and list only strictly later lessons in `recycled_in_lessons`. Use an explicit empty list when no suitable later lesson exists. For an annual plan, use verified topic IDs, link only existing thematic plans, distinguish publisher and curated sequences, and declare gaps honestly.
 
 Run:
 
