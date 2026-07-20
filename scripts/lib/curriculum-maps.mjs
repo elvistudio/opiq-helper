@@ -16,12 +16,12 @@ function normalizeText(value) {
   return String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim();
 }
 
-function relativeDisplay(rootDir, filePath) {
+export function relativeDisplay(rootDir, filePath) {
   const relative = path.relative(rootDir, filePath);
   return relative && !relative.startsWith('..') ? relative.split(path.sep).join('/') : filePath;
 }
 
-function safeRepositoryPath(rootDir, repositoryPath, label) {
+export function safeRepositoryPath(rootDir, repositoryPath, label) {
   if (
     typeof repositoryPath !== 'string'
     || path.isAbsolute(repositoryPath)
@@ -38,7 +38,7 @@ function safeRepositoryPath(rootDir, repositoryPath, label) {
   return resolved;
 }
 
-async function listYamlFiles(directory) {
+export async function listYamlFiles(directory) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
   const files = [];
   for (const entry of entries.sort((left, right) => left.name.localeCompare(right.name))) {
@@ -87,6 +87,7 @@ export async function loadCurriculumMapRepository({
   mapsPath = 'curriculum-maps',
   curriculumSchemaPath = 'schemas/curriculum-map.schema.json',
   courseSchemaPath = 'schemas/course-map.schema.json',
+  additionalSourceIds = [],
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
   const manifestFile = safeRepositoryPath(absoluteRoot, manifestPath, 'manifest path');
@@ -107,12 +108,13 @@ export async function loadCurriculumMapRepository({
     artifacts.push({ file, data: parseStrictCurriculumYaml(await fs.readFile(yamlFile, 'utf8'), file) });
   }
 
-  const courseSourceIds = new Set(
-    artifacts
+  const courseSourceIds = new Set([
+    ...additionalSourceIds,
+    ...artifacts
       .filter((artifact) => courseArtifactTypes.has(artifact.data.artifact_type))
       .map((artifact) => artifact.data.canonical_route?.source_id)
       .filter(Boolean),
-  );
+  ]);
   const routes = {};
   for (const sourceId of [...courseSourceIds].sort()) {
     const source = manifest.sources?.find((candidate) => candidate.id === sourceId);
@@ -171,7 +173,7 @@ function schemaReason(error) {
   return error.message ?? `failed ${error.keyword}`;
 }
 
-function makeDiagnostic(severity, file, field, reason) {
+export function makeDiagnostic(severity, file, field, reason) {
   return { severity, file, field: field || '/', reason };
 }
 
@@ -248,7 +250,7 @@ function validateOfficialArtifact(diagnostics, artifact, context) {
   }
 }
 
-function validateCanonicalRoute(diagnostics, artifact, context) {
+export function validateCanonicalRoute(diagnostics, artifact, context) {
   const data = artifact.data;
   const declared = data.canonical_route;
   const source = context.manifest.sources?.find((candidate) => candidate.id === declared?.source_id);
@@ -377,7 +379,7 @@ function collectPageReferences(artifact) {
   return refs;
 }
 
-function provenanceMatchesProgramme(programmeType, category) {
+export function provenanceMatchesProgramme(programmeType, category) {
   const expected = {
     ordinary: 'opiq_textbook',
     simplified_curriculum: 'opiq_simplified_curriculum',
@@ -387,10 +389,17 @@ function provenanceMatchesProgramme(programmeType, category) {
   return programmeType === 'unknown' || expected[programmeType] === category;
 }
 
-function validatePageReferences(diagnostics, artifact, routeData, bookInventory) {
+export function validatePageReferences(
+  diagnostics,
+  artifact,
+  routeData,
+  bookInventory,
+  references = collectPageReferences(artifact),
+  { allowSimplifiedSelection = false } = {},
+) {
   if (!routeData || !bookInventory) return;
   const booksById = new Map((bookInventory.books ?? []).map((book) => [book.book_id, book]));
-  for (const ref of collectPageReferences(artifact)) {
+  for (const ref of references) {
     const { record, field } = ref;
     const matches = routeData.records.filter((candidate) => candidate.url === record.canonical_url);
     if (record.canonical_source_id !== routeData.source.id) {
@@ -433,7 +442,13 @@ function validatePageReferences(diagnostics, artifact, routeData, bookInventory)
     if (!provenanceMatchesProgramme(record.programme_type, record.provenance?.category)) {
       diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/provenance/category`, `provenance does not match programme type ${record.programme_type}`));
     }
-    if (ref.selected && ['simplified_curriculum', 'unknown'].includes(record.programme_type)) {
+    if (
+      ref.selected
+      && (
+        record.programme_type === 'unknown'
+        || (record.programme_type === 'simplified_curriculum' && !allowSimplifiedSelection)
+      )
+    ) {
       diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/programme_type`, 'default selected records cannot silently use simplified or unknown programme material'));
     }
     if (ref.rejected && !record.rejection_reason) {
