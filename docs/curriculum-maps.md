@@ -4,7 +4,7 @@
 
 The curriculum-map files provide a machine-readable bridge between official Estonian curriculum evidence, registered Opiq sources, and a curated bilingual course for Russian-speaking pupils. They do not replace `source-manifest.json`, the known-topic regression set, or a complete curriculum map.
 
-The first pilot is in `curriculum-maps/grade-5-science/` and reads only the canonical `grade-5-science` route. It contains a source audit, a deduplicated topic inventory, and one complete thematic teaching example. It is not the annual grade-5 course tracked by issue #18.
+The grade-5 evidence set is in `curriculum-maps/grade-5-science/` and reads only the canonical `grade-5-science` route. It contains a source audit, a deduplicated topic inventory, one complete thematic teaching example, and verified official school-stage evidence used by the issue #18 annual architecture.
 
 ## Four evidence layers
 
@@ -87,7 +87,7 @@ The registered archive contains 322 source records across six books. The canonic
 
 The ordinary Avita and Koolibri books provide overlapping material on water, freshwater ecosystems, air, weather, and the Baltic Sea. Koolibri also provides settlement, relief/map, and bog pages, but those themes have no registered Russian page-level counterpart. The HARNO book is explicitly simplified curriculum and is audited without being promoted into the ordinary course.
 
-`topic-inventory.yaml` records ten deduplicated thematic groups. It identifies the strongest available Russian explanation, Estonian terminology or visuals, practice, practical work, and assessment evidence for each group. The inventory is evidence for later assembly, not a final annual order.
+`topic-inventory.yaml` records ten deduplicated thematic groups. It identifies the strongest available Russian explanation, Estonian terminology or visuals, practice, practical work, and assessment evidence for each group. The inventory remains source evidence; the recommended order and role-level choices live in `annual-courses/grade-5-science/`.
 
 ## Golden bilingual unit excerpt
 
@@ -136,4 +136,4 @@ Tests use the production pilot as a valid baseline and mutate in-memory copies. 
 7. Keep unknown or incomplete evidence `partial`, `missing`, or `ambiguous`.
 8. Run the curriculum tests, production validator, existing regressions, QA checks, and manifest checker.
 
-Issue #18 will assemble the full grade-5 science course on this schema. Issues #19 and #20 will apply the reusable model to grade-6 science and grade-7 geography. Those follow-ups must perform their own route-specific audits and official-evidence mapping; this pilot does not pre-authorize using their materials.
+Issue #18 now has a complete grade-5 annual architecture on this evidence, while detailed implementation remains limited to the water unit. Issues #19 and #20 will apply the reusable model to grade-6 science and grade-7 geography. Those follow-ups must perform their own route-specific audits and official-evidence mapping; this grade-5 work does not pre-authorize using their materials.

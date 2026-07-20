@@ -1,0 +1,462 @@
+schema_version: "1.0"
+artifact_type: annual_source_selection_matrix
+artifact_id: grade-5-science-source-selection
+course_ref: grade-5-science-annual-architecture
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+eligible_book_ids:
+  - 5k_loodusõpetus_avita_2024_est
+  - 5k_loodusõpetus_avita_est
+  - 5k_loodusõpetus_avita_rus
+  - 5k_loodusõpetus_koolibri_est
+excluded_books:
+  - book_id: 5k_loodusõpetus_harno_est
+    reason: Audited simplified-curriculum material is forbidden as ordinary default course evidence.
+  - book_id: 5k_loodusõpetus_koolibri_rus
+    reason: The registered archive contains only a cover record and no canonical page-level evidence.
+units:
+  - unit_id: grade-5-landforms-map
+    topic_inventory_refs: [landforms-and-map-reading]
+    selected_sources:
+      - record_id: landforms-map-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6309
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, map_skill, data_interpretation, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: landforms-map-et-koolibri, notes: Ordinary Koolibri page selected from the verified topic inventory.}
+        selection_rationale: Strongest ordinary page for relief representation, map reading, terminology, and a visual bridge.
+    role_matrix:
+      core_explanation_ru: {status: author_created_required, record_ids: [], notes: No ordinary Russian page-level evidence exists in this route.}
+      core_source_et: {status: selected, record_ids: [landforms-map-et-koolibri], notes: The selected Koolibri page is the Estonian core.}
+      visual_or_diagram: {status: selected, record_ids: [landforms-map-et-koolibri], notes: Relief representation and map symbols provide the visual role.}
+      practical_or_experiment: {status: author_created_required, record_ids: [], notes: The safe relief model is author-created and cites this page.}
+      practice_ru: {status: author_created_required, record_ids: [], notes: Russian practice must accompany the author bridge.}
+      practice_et: {status: selected, record_ids: [landforms-map-et-koolibri], notes: Short map-reading tasks support Estonian practice.}
+      revision: {status: author_created_required, record_ids: [], notes: Cumulative map revision is planned in the annual artifact.}
+      assessment: {status: author_created_required, record_ids: [], notes: A concise map-model checklist must be authored.}
+      optional_extension: {status: not_needed, record_ids: [], notes: No extension is selected before core Russian evidence is reviewed.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The current Avita volume has no landform or relief page in this route."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The older Avita volume has no landform page in this route."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The Russian Avita volume has no landform page in this route."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [landforms-map-et-koolibri], selected_record_ids: [landforms-map-et-koolibri], decision: selected, reason: "This is the only ordinary page-level landform candidate and has clear map value."}
+    rejected_duplicates:
+      - record_id: rejected-landforms-simplified-map
+        canonical_url: https://www.opiq.ee/kit/275/chapter/15534
+        book_id: 5k_loodusõpetus_harno_est
+        rejection_reason: Simplified-curriculum relief material requires explicit learner-specific authorisation and cannot be an ordinary default.
+        provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/15534, notes: Rejected canonical candidate remains auditable and is not selected.}
+    unavailable_roles:
+      - {role: core_explanation_ru, reason: No ordinary Russian page-level landform explanation is registered.}
+      - {role: practice_ru, reason: Russian practice must be created with the reviewed author bridge.}
+    teacher_review_required: true
+  - unit_id: grade-5-rivers-lakes
+    topic_inventory_refs: [rivers-and-lakes]
+    selected_sources:
+      - record_id: rivers-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/755
+        instructional_roles: [core_explanation_ru, practice_ru, map_skill]
+        provenance: {category: opiq_textbook, source_reference: rivers-ru-avita, notes: Ordinary Russian Avita river page selected from the topic inventory.}
+        selection_rationale: Best Russian core explanation for river structure and flow.
+      - record_id: lakes-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/759
+        instructional_roles: [core_explanation_ru, practice_ru, map_skill]
+        provenance: {category: opiq_textbook, source_reference: lakes-ru-avita, notes: Ordinary Russian Avita lake page selected from the topic inventory.}
+        selection_rationale: Completes Russian core coverage for lakes without substituting Estonian-only evidence.
+      - record_id: rivers-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29222
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: rivers-et-avita-2024, notes: Current ordinary Estonian Avita river page.}
+        selection_rationale: Best current Estonian terminology and river-map practice.
+      - record_id: lakes-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6269
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, map_skill, data_interpretation, assessment]
+        provenance: {category: opiq_textbook, source_reference: lakes-et-koolibri, notes: Ordinary Koolibri lake page selected for distinct map and assessment roles.}
+        selection_rationale: Adds lake visuals, map reading, and data interpretation not duplicated by the river page.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [rivers-ru-avita, lakes-ru-avita], notes: Separate river and lake pages provide complete Russian concept coverage.}
+      core_source_et: {status: selected, record_ids: [rivers-et-avita-2024, lakes-et-koolibri], notes: Current river and complementary lake pages carry Estonian support.}
+      visual_or_diagram: {status: selected, record_ids: [lakes-et-koolibri], notes: Koolibri provides the clearest distinct lake and map visual role.}
+      practical_or_experiment: {status: selected, record_ids: [lakes-et-koolibri], notes: Map and data work use the selected lake source as evidence.}
+      practice_ru: {status: selected, record_ids: [rivers-ru-avita, lakes-ru-avita], notes: Both Russian pages provide topic-aligned practice.}
+      practice_et: {status: selected, record_ids: [rivers-et-avita-2024, lakes-et-koolibri], notes: Estonian work is split between river and lake map tasks.}
+      revision: {status: author_created_required, record_ids: [], notes: Annual cumulative revision combines map and water-body vocabulary.}
+      assessment: {status: selected, record_ids: [lakes-et-koolibri], notes: Koolibri provides the strongest page-level assessment prompts.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Extra publisher traversal would add overlap rather than a distinct role.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [rivers-et-avita-2024], selected_record_ids: [rivers-et-avita-2024], decision: selected, reason: "Current Estonian river terminology and map practice have a distinct role."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-rivers-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older river explanation overlaps with current and Russian selections without a distinct annual role."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [rivers-ru-avita, lakes-ru-avita], selected_record_ids: [rivers-ru-avita, lakes-ru-avita], decision: selected, reason: "Two pages are needed for direct Russian river and lake explanations."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [lakes-et-koolibri], selected_record_ids: [lakes-et-koolibri], decision: selected, reason: "The lake map and visual role complements rather than repeats the river page."}
+    rejected_duplicates:
+      - record_id: rejected-rivers-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/371
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older Estonian river explanation overlaps selected current Estonian and Russian pages and adds no distinct role.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/371, notes: Rejected ordinary canonical duplicate retained for auditability.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-water-four-lesson-plan
+    topic_inventory_refs: [water-properties-and-states]
+    selected_sources:
+      - record_id: water-properties-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/747
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance: {category: opiq_textbook, source_reference: water-properties-ru-avita, notes: Existing validated Russian water-properties source.}
+        selection_rationale: Preserved as the Russian properties explanation used by the production unit.
+      - record_id: water-states-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/748
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance: {category: opiq_textbook, source_reference: water-states-ru-avita, notes: Existing validated Russian water-states source.}
+        selection_rationale: Preserved as the Russian states and changes explanation.
+      - record_id: water-properties-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29514
+        instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: water-properties-et-avita-2024, notes: Existing current Estonian properties source.}
+        selection_rationale: Preserved for current terminology, definitions, and short output.
+      - record_id: water-states-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+        instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: water-states-et-avita-2024, notes: Existing current Estonian state-change source.}
+        selection_rationale: Preserved for state terminology and model sentences.
+      - record_id: water-states-et-koolibri-practical
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+        instructional_roles: [bilingual_visual, experiment, practice_et, revision, assessment, data_interpretation]
+        provenance: {category: opiq_textbook, source_reference: water-states-et-koolibri-practical, notes: Existing validated Koolibri practical source.}
+        selection_rationale: Preserved for visuals, practical work, and assessment.
+      - record_id: water-changes-et-koolibri-practical
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+        instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et, data_interpretation]
+        provenance: {category: opiq_textbook, source_reference: water-changes-et-koolibri-practical, notes: Existing validated state-change practical source.}
+        selection_rationale: Preserved for safe observation, revision, and short conclusions.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [water-properties-ru-avita, water-states-ru-avita], notes: The two Russian pages divide properties from state changes.}
+      core_source_et: {status: selected, record_ids: [water-properties-et-avita-2024, water-states-et-avita-2024], notes: Current Estonian pages carry terminology and definitions.}
+      visual_or_diagram: {status: selected, record_ids: [water-states-et-koolibri-practical], notes: Koolibri gives a complementary state visual.}
+      practical_or_experiment: {status: selected, record_ids: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical], notes: Both pages support the existing safe observation sequence.}
+      practice_ru: {status: selected, record_ids: [water-properties-ru-avita, water-states-ru-avita], notes: Russian practice remains tied to full subject answers.}
+      practice_et: {status: selected, record_ids: [water-properties-et-avita-2024, water-states-et-avita-2024], notes: Current Estonian pages provide small supported tasks.}
+      revision: {status: selected, record_ids: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical], notes: Koolibri sources support the production revision stations.}
+      assessment: {status: selected, record_ids: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical], notes: Existing unit assessment prompts use these sources.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Older and simplified duplicates are intentionally excluded.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [water-properties-et-avita-2024, water-states-et-avita-2024], selected_record_ids: [water-properties-et-avita-2024, water-states-et-avita-2024], decision: selected, reason: "Current Estonian terminology and definitions are distinct and already validated."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-water-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older properties page duplicates the selected current page without a necessary role."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [water-properties-ru-avita, water-states-ru-avita], selected_record_ids: [water-properties-ru-avita, water-states-ru-avita], decision: selected, reason: "Russian concept formation requires both properties and state-change pages."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical], selected_record_ids: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical], decision: selected, reason: "Practical, visual, revision, and assessment roles are not duplicated by Avita."}
+    rejected_duplicates:
+      - record_id: rejected-water-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/363
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older ordinary Estonian explanation duplicates the current Avita properties page without a distinct annual role.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/363, notes: Rejected canonical duplicate retained for auditability.}
+      - record_id: rejected-water-simplified
+        canonical_url: https://www.opiq.ee/kit/275/chapter/15515
+        book_id: 5k_loodusõpetus_harno_est
+        rejection_reason: Simplified-curriculum material is not an ordinary default and requires learner-specific opt-in.
+        provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/15515, notes: Rejected simplified candidate remains explicit.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-water-use-cycle
+    topic_inventory_refs: [water-use-protection-and-cycle]
+    selected_sources:
+      - record_id: groundwater-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/753
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance: {category: opiq_textbook, source_reference: groundwater-ru-avita, notes: Ordinary Russian groundwater page from the topic inventory.}
+        selection_rationale: Best direct Russian groundwater explanation.
+      - record_id: water-use-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/754
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance: {category: opiq_textbook, source_reference: water-use-ru-avita, notes: Ordinary Russian water-use page from the topic inventory.}
+        selection_rationale: Adds Russian use and conservation context not present in the groundwater page.
+      - record_id: water-pollution-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29520
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment, oral_answer_et, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: water-pollution-et-avita-2024, notes: Current Estonian pollution page from the topic inventory.}
+        selection_rationale: Best current Estonian protection terminology and assessment source.
+      - record_id: water-cycle-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6297
+        instructional_roles: [core_source_et, bilingual_visual, practice_et, experiment, revision, data_interpretation]
+        provenance: {category: opiq_textbook, source_reference: water-cycle-et-koolibri, notes: Ordinary Koolibri water-cycle page from the topic inventory.}
+        selection_rationale: Best cycle visual and practical bridge for cross-unit state-change recycling.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [groundwater-ru-avita, water-use-ru-avita], notes: Russian coverage is direct for groundwater and use but partial for the whole unit.}
+      core_source_et: {status: selected, record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Pollution and cycle pages carry distinct Estonian concepts.}
+      visual_or_diagram: {status: selected, record_ids: [water-cycle-et-koolibri], notes: The cycle diagram anchors sequencing and recycled process terms.}
+      practical_or_experiment: {status: selected, record_ids: [water-cycle-et-koolibri], notes: The selected page supports the author-created safe filter and model work.}
+      practice_ru: {status: selected, record_ids: [groundwater-ru-avita, water-use-ru-avita], notes: Russian tasks accompany concept formation.}
+      practice_et: {status: selected, record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Short Estonian tasks cover protection and cycle order.}
+      revision: {status: selected, record_ids: [water-use-ru-avita, water-cycle-et-koolibri], notes: The pair revisits use and cycle concepts.}
+      assessment: {status: selected, record_ids: [water-pollution-et-avita-2024], notes: Pollution decisions provide the strongest assessment role.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Older groundwater duplication is rejected.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [water-pollution-et-avita-2024], selected_record_ids: [water-pollution-et-avita-2024], decision: selected, reason: "Current pollution and protection language has a distinct role."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-groundwater-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older groundwater page adds no distinct role beyond selected Russian and current evidence."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [groundwater-ru-avita, water-use-ru-avita], selected_record_ids: [groundwater-ru-avita, water-use-ru-avita], decision: selected, reason: "Both direct Russian explanation strands are required."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [water-cycle-et-koolibri], selected_record_ids: [water-cycle-et-koolibri], decision: selected, reason: "The cycle visual and sequence role is unique."}
+    rejected_duplicates:
+      - record_id: rejected-groundwater-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/369
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older Estonian groundwater explanation overlaps selected evidence and has no separate role.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/369, notes: Rejected ordinary canonical duplicate retained for auditability.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-freshwater-ecosystems
+    topic_inventory_refs: [freshwater-ecosystems]
+    selected_sources:
+      - record_id: freshwater-community-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/764
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance: {category: opiq_textbook, source_reference: freshwater-community-ru-avita, notes: Ordinary Russian freshwater-community page.}
+        selection_rationale: Best direct Russian explanation for community structure.
+      - record_id: freshwater-community-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29229
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: freshwater-community-et-avita-2024, notes: Current Estonian freshwater-community page.}
+        selection_rationale: Best current Estonian terminology and community overview.
+      - record_id: food-chains-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6276
+        instructional_roles: [practice_et, revision, assessment, oral_answer_et, bilingual_visual, data_interpretation]
+        provenance: {category: opiq_textbook, source_reference: food-chains-et-koolibri, notes: Ordinary Koolibri food-chain page.}
+        selection_rationale: Adds food-chain visual, revision, and assessment roles.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [freshwater-community-ru-avita], notes: One Russian overview carries primary concept formation.}
+      core_source_et: {status: selected, record_ids: [freshwater-community-et-avita-2024], notes: Current Estonian overview supplies terminology.}
+      visual_or_diagram: {status: selected, record_ids: [freshwater-community-et-avita-2024, food-chains-et-koolibri], notes: Community and food-chain visuals are complementary.}
+      practical_or_experiment: {status: selected, record_ids: [food-chains-et-koolibri], notes: The food-chain source supports the card-model activity.}
+      practice_ru: {status: selected, record_ids: [freshwater-community-ru-avita], notes: Russian practice is aligned with full explanations.}
+      practice_et: {status: selected, record_ids: [freshwater-community-et-avita-2024, food-chains-et-koolibri], notes: Estonian practice advances from terms to food-chain labels.}
+      revision: {status: selected, record_ids: [food-chains-et-koolibri], notes: Food relationships anchor cumulative revision.}
+      assessment: {status: selected, record_ids: [food-chains-et-koolibri], notes: This is the strongest selected assessment source.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Species-by-species traversal is deferred and not required for the architecture.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [freshwater-community-et-avita-2024], selected_record_ids: [freshwater-community-et-avita-2024], decision: selected, reason: "Current Estonian overview and terminology have a distinct role."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-freshwater-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older community page duplicates the current overview without a distinct role."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [freshwater-community-ru-avita], selected_record_ids: [freshwater-community-ru-avita], decision: selected, reason: "It is the strongest direct Russian community explanation."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [food-chains-et-koolibri], selected_record_ids: [food-chains-et-koolibri], decision: selected, reason: "Food-chain visual and assessment roles are distinct."}
+    rejected_duplicates:
+      - record_id: rejected-freshwater-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/380
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older community overview overlaps the selected current Estonian and Russian explanations.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/380, notes: Rejected ordinary canonical duplicate retained for auditability.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-air-properties
+    topic_inventory_refs: [air-properties-and-protection]
+    selected_sources:
+      - record_id: air-composition-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/771
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance: {category: opiq_textbook, source_reference: air-composition-ru-avita, notes: Ordinary Russian air-composition page.}
+        selection_rationale: Best direct Russian explanation for air composition.
+      - record_id: air-protection-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/778
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance: {category: opiq_textbook, source_reference: air-protection-ru-avita, notes: Ordinary Russian air-protection page.}
+        selection_rationale: Adds Russian pollution and protection explanation.
+      - record_id: air-composition-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30585
+        instructional_roles: [core_source_et, terminology_et, practice_et, bilingual_visual, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: air-composition-et-avita-2024, notes: Current Estonian air-composition page.}
+        selection_rationale: Best current Estonian terminology and visual source.
+      - record_id: air-pollution-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30591
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment, oral_answer_et]
+        provenance: {category: opiq_textbook, source_reference: air-pollution-et-avita-2024, notes: Current Estonian air-pollution page.}
+        selection_rationale: Adds protection terminology and assessment prompts.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [air-composition-ru-avita, air-protection-ru-avita], notes: Composition and protection are separate Russian strands.}
+      core_source_et: {status: selected, record_ids: [air-composition-et-avita-2024, air-pollution-et-avita-2024], notes: Current Estonian pages mirror the two strands without replacing Russian explanation.}
+      visual_or_diagram: {status: selected, record_ids: [air-composition-et-avita-2024], notes: Composition visual supports terminology.}
+      practical_or_experiment: {status: author_created_required, record_ids: [], notes: The air-space model is author-created and uses the selected composition page only as concept evidence.}
+      practice_ru: {status: selected, record_ids: [air-composition-ru-avita, air-protection-ru-avita], notes: Russian practice spans properties and protection.}
+      practice_et: {status: selected, record_ids: [air-composition-et-avita-2024, air-pollution-et-avita-2024], notes: Estonian tasks remain short and concept-linked.}
+      revision: {status: selected, record_ids: [air-protection-ru-avita], notes: Protection page supports end-unit application.}
+      assessment: {status: selected, record_ids: [air-pollution-et-avita-2024], notes: Pollution decisions provide the clearest assessment role.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Older duplicated composition is rejected.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [air-composition-et-avita-2024, air-pollution-et-avita-2024], selected_record_ids: [air-composition-et-avita-2024, air-pollution-et-avita-2024], decision: selected, reason: "Current Estonian composition and protection pages have distinct roles."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-air-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older composition page overlaps selected current and Russian evidence."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [air-composition-ru-avita, air-protection-ru-avita], selected_record_ids: [air-composition-ru-avita, air-protection-ru-avita], decision: selected, reason: "Direct Russian explanation is required for both core and protection concepts."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The registered Koolibri volume has no air page in this route."}
+    rejected_duplicates:
+      - record_id: rejected-air-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/387
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older Estonian composition explanation overlaps the current page and adds no distinct role.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/387, notes: Rejected ordinary canonical duplicate retained for auditability.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-weather-climate
+    topic_inventory_refs: [weather-and-climate]
+    selected_sources:
+      - record_id: weather-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/779
+        instructional_roles: [core_explanation_ru, practice_ru, map_skill]
+        provenance: {category: opiq_textbook, source_reference: weather-ru-avita, notes: Ordinary Russian weather page.}
+        selection_rationale: Best Russian overview of weather elements.
+      - record_id: climate-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/784
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance: {category: opiq_textbook, source_reference: climate-ru-avita, notes: Ordinary Russian climate page.}
+        selection_rationale: Provides the distinct Russian weather-versus-climate explanation.
+      - record_id: weather-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30592
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill, data_interpretation, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: weather-et-avita-2024, notes: Current Estonian weather page.}
+        selection_rationale: Best current Estonian weather terminology and data language.
+      - record_id: climate-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30597
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment, oral_answer_et]
+        provenance: {category: opiq_textbook, source_reference: climate-et-avita-2024, notes: Current Estonian climate page.}
+        selection_rationale: Adds climate and human-impact vocabulary and assessment.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [weather-ru-avita, climate-ru-avita], notes: Russian pages separate immediate weather from climate.}
+      core_source_et: {status: selected, record_ids: [weather-et-avita-2024, climate-et-avita-2024], notes: Current Estonian pages support the same progression in small language steps.}
+      visual_or_diagram: {status: selected, record_ids: [weather-et-avita-2024], notes: Weather data and map cues provide the principal visual role.}
+      practical_or_experiment: {status: selected, record_ids: [weather-et-avita-2024], notes: The repeated author weather log is linked to this page.}
+      practice_ru: {status: selected, record_ids: [weather-ru-avita, climate-ru-avita], notes: Russian practice supports full comparison answers.}
+      practice_et: {status: selected, record_ids: [weather-et-avita-2024, climate-et-avita-2024], notes: Estonian practice progresses from reporting to a short comparison.}
+      revision: {status: selected, record_ids: [climate-ru-avita], notes: Russian climate page supports cumulative conceptual review.}
+      assessment: {status: selected, record_ids: [climate-et-avita-2024], notes: Current climate page provides the strongest assessment role.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Older weather overview is rejected as duplicate.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [weather-et-avita-2024, climate-et-avita-2024], selected_record_ids: [weather-et-avita-2024, climate-et-avita-2024], decision: selected, reason: "Current weather and climate pages have distinct terminology and assessment roles."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-weather-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older general weather page adds no distinct role."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [weather-ru-avita, climate-ru-avita], selected_record_ids: [weather-ru-avita, climate-ru-avita], decision: selected, reason: "Direct Russian weather and climate explanations are both needed."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The registered Koolibri volume has no weather page in this route."}
+    rejected_duplicates:
+      - record_id: rejected-weather-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/395
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older general weather explanation overlaps selected current and Russian pages without a distinct role.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/395, notes: Rejected ordinary canonical duplicate retained for auditability.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-baltic-sea
+    topic_inventory_refs: [baltic-sea]
+    selected_sources:
+      - record_id: baltic-sea-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/785
+        instructional_roles: [core_explanation_ru, practice_ru, map_skill]
+        provenance: {category: opiq_textbook, source_reference: baltic-sea-ru-avita, notes: Ordinary Russian Baltic core page.}
+        selection_rationale: Best Russian core explanation of Baltic location and characteristics.
+      - record_id: baltic-protection-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/794
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance: {category: opiq_textbook, source_reference: baltic-protection-ru-avita, notes: Ordinary Russian Baltic protection page.}
+        selection_rationale: Adds distinct Russian pollution and protection explanation.
+      - record_id: baltic-sea-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30598
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill, bilingual_visual, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: baltic-sea-et-avita-2024, notes: Current Estonian Baltic core page.}
+        selection_rationale: Best current Estonian terminology, map, and visual source.
+      - record_id: baltic-protection-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30606
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment, oral_answer_et]
+        provenance: {category: opiq_textbook, source_reference: baltic-protection-et-avita-2024, notes: Current Estonian Baltic protection page.}
+        selection_rationale: Adds protection language and assessment roles.
+    role_matrix:
+      core_explanation_ru: {status: selected, record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita], notes: Russian core and protection explanations are complementary.}
+      core_source_et: {status: selected, record_ids: [baltic-sea-et-avita-2024, baltic-protection-et-avita-2024], notes: Current Estonian pages carry terminology and short output.}
+      visual_or_diagram: {status: selected, record_ids: [baltic-sea-et-avita-2024], notes: Map and Baltic visual anchor location and salinity.}
+      practical_or_experiment: {status: author_created_required, record_ids: [], notes: The safe salinity model is author-created and uses the selected core page only as concept evidence.}
+      practice_ru: {status: selected, record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita], notes: Russian practice covers properties and protection.}
+      practice_et: {status: selected, record_ids: [baltic-sea-et-avita-2024, baltic-protection-et-avita-2024], notes: Estonian tasks progress from map labels to a protection statement.}
+      revision: {status: selected, record_ids: [baltic-protection-ru-avita], notes: Protection source revisits ecosystem and human-impact concepts.}
+      assessment: {status: selected, record_ids: [baltic-protection-et-avita-2024], notes: Current protection page provides the strongest assessment role.}
+      optional_extension: {status: not_needed, record_ids: [], notes: Older Baltic overview is rejected as duplicate.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [baltic-sea-et-avita-2024, baltic-protection-et-avita-2024], selected_record_ids: [baltic-sea-et-avita-2024, baltic-protection-et-avita-2024], decision: selected, reason: "Current Estonian core and protection roles are distinct."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-baltic-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older Baltic overview adds no distinct role beyond selected current and Russian evidence."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita], selected_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita], decision: selected, reason: "Direct Russian core and protection explanations are required."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The registered Koolibri volume has no Baltic Sea page in this route."}
+    rejected_duplicates:
+      - record_id: rejected-baltic-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/401
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older Estonian Baltic overview overlaps selected current and Russian pages without a distinct role.
+        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/401, notes: Rejected ordinary canonical duplicate retained for auditability.}
+    unavailable_roles: []
+    teacher_review_required: false
+  - unit_id: grade-5-settlements
+    topic_inventory_refs: [settlements]
+    selected_sources:
+      - record_id: settlements-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6300
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill, fieldwork, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: settlements-et-koolibri, notes: Sole ordinary Estonian settlement page selected by the topic inventory.}
+        selection_rationale: Provides verified settlement terminology and map context while Russian explanation is explicitly author-created.
+    role_matrix:
+      core_explanation_ru: {status: author_created_required, record_ids: [], notes: No ordinary Russian page-level settlement explanation exists.}
+      core_source_et: {status: selected, record_ids: [settlements-et-koolibri], notes: Koolibri supplies the only ordinary Estonian core candidate.}
+      visual_or_diagram: {status: selected, record_ids: [settlements-et-koolibri], notes: Settlement types and map context provide the visual bridge.}
+      practical_or_experiment: {status: selected, record_ids: [settlements-et-koolibri], notes: The author local audit is linked to this source.}
+      practice_ru: {status: author_created_required, record_ids: [], notes: Russian practice must accompany the full author explanation.}
+      practice_et: {status: selected, record_ids: [settlements-et-koolibri], notes: Short classification and map tasks support Estonian practice.}
+      revision: {status: author_created_required, record_ids: [], notes: Cumulative environment revision is planned in the annual artifact.}
+      assessment: {status: author_created_required, record_ids: [], notes: Local-audit rubric must be authored and teacher-reviewed.}
+      optional_extension: {status: not_needed, record_ids: [], notes: No optional page is selected before core Russian coverage is resolved.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The current Avita volume has no settlement page in this route."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The older Avita volume has no settlement page in this route."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The Russian Avita volume has no settlement page in this route."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [settlements-et-koolibri], selected_record_ids: [settlements-et-koolibri], decision: selected, reason: "This is the only ordinary page-level settlement candidate."}
+    rejected_duplicates:
+      - record_id: rejected-settlements-simplified
+        canonical_url: https://www.opiq.ee/kit/275/chapter/16756
+        book_id: 5k_loodusõpetus_harno_est
+        rejection_reason: Simplified-curriculum settlement material cannot be selected as an ordinary default.
+        provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/16756, notes: Rejected simplified canonical candidate remains explicit.}
+    unavailable_roles:
+      - {role: core_explanation_ru, reason: No ordinary Russian settlement page is registered.}
+      - {role: practice_ru, reason: Russian practice must be authored with the full explanation.}
+    teacher_review_required: true
+  - unit_id: grade-5-bog-ecosystem
+    topic_inventory_refs: [bog-ecosystem]
+    selected_sources:
+      - record_id: bog-conditions-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6316
+        instructional_roles: [core_source_et, terminology_et, practice_et, experiment, map_skill, bilingual_visual, data_interpretation, estonian_instruction_training]
+        provenance: {category: opiq_textbook, source_reference: bog-conditions-et-koolibri, notes: Sole ordinary Estonian bog core page selected by the topic inventory.}
+        selection_rationale: Strongest ordinary bog-formation and condition evidence; Russian explanation remains explicit author work.
+    role_matrix:
+      core_explanation_ru: {status: author_created_required, record_ids: [], notes: No ordinary Russian page-level bog explanation exists.}
+      core_source_et: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: Koolibri supplies the only ordinary Estonian core candidate.}
+      visual_or_diagram: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: Formation and condition visuals support the concept bridge.}
+      practical_or_experiment: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: The safe water-retention model is linked to this source.}
+      practice_ru: {status: author_created_required, record_ids: [], notes: Russian practice must follow a reviewed full explanation.}
+      practice_et: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: Estonian terminology and short condition tasks are supported.}
+      revision: {status: author_created_required, record_ids: [], notes: Final cumulative environment revision is author-created.}
+      assessment: {status: author_created_required, record_ids: [], notes: Bog synthesis rubric requires teacher review.}
+      optional_extension: {status: not_needed, record_ids: [], notes: No optional page is selected before core Russian coverage is resolved.}
+    book_decisions:
+      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The current Avita volume has no bog page in this route."}
+      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The older Avita volume has no bog page in this route."}
+      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [], selected_record_ids: [], decision: no_topic_evidence, reason: "The Russian Avita volume has no bog page in this route."}
+      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [bog-conditions-et-koolibri], selected_record_ids: [bog-conditions-et-koolibri], decision: selected, reason: "This is the only ordinary page-level bog core candidate."}
+    rejected_duplicates:
+      - record_id: rejected-bog-simplified
+        canonical_url: https://www.opiq.ee/kit/275/chapter/15580
+        book_id: 5k_loodusõpetus_harno_est
+        rejection_reason: Simplified-curriculum bog material cannot be selected as an ordinary default.
+        provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/15580, notes: Rejected simplified canonical candidate remains explicit.}
+    unavailable_roles:
+      - {role: core_explanation_ru, reason: No ordinary Russian bog page is registered.}
+      - {role: practice_ru, reason: Russian practice must be authored with the full explanation.}
+    teacher_review_required: true
+provenance:
+  category: author_created_bridge
+  source_reference: issue 18 grade-5-science source-selection matrix
+  notes: >-
+    Annual selections resolve through verified topic records and the canonical grade-5-science
+    route; rejected ordinary duplicates and excluded programme types remain explicit.

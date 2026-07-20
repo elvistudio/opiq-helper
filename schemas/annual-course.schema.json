@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json",
-  "title": "Opiq Helper bilingual annual-course plan",
+  "title": "Opiq Helper bilingual annual-course architecture",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -13,29 +13,29 @@
     "subject_et",
     "instruction_language",
     "subject_support_language",
+    "methodology_model",
+    "learner_language_profile_ref",
     "canonical_route",
     "official_curriculum_references",
     "sequence_policy",
+    "source_selection_matrix_ref",
+    "implementation_roadmap_ref",
+    "language_progression_ref",
+    "teaching_calendars_ref",
+    "topic_architecture_decisions",
     "ordered_units",
     "lesson_estimate",
+    "lesson_budget",
     "selected_source_books",
     "deduplication_decisions",
-    "russian_explanation_coverage",
-    "estonian_vocabulary_progression",
-    "estonian_instruction_language_progression",
-    "sentence_and_oral_answer_progression",
-    "planned_vocabulary_recycling_intervals",
-    "practical_work_calendar",
-    "revision_calendar",
-    "subject_assessment_calendar",
-    "language_assessment_calendar",
     "outcome_coverage",
+    "teacher_review_decisions",
     "known_gaps",
     "completeness",
     "provenance"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "2.0" },
     "artifact_type": { "const": "annual_course_plan" },
     "course_id": { "$ref": "#/$defs/slug" },
     "grade": { "type": "integer", "minimum": 1 },
@@ -43,6 +43,8 @@
     "subject_et": { "type": "string", "minLength": 1 },
     "instruction_language": { "const": "ru" },
     "subject_support_language": { "const": "et" },
+    "methodology_model": { "const": "russian_primary_estonian_supported" },
+    "learner_language_profile_ref": { "$ref": "#/$defs/slug" },
     "canonical_route": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/canonicalRoute" },
     "official_curriculum_references": {
       "type": "array",
@@ -53,12 +55,7 @@
         "required": ["curriculum_map_id", "outcome_ids", "official_scope", "exact_grade_claimed", "notes"],
         "properties": {
           "curriculum_map_id": { "$ref": "#/$defs/slug" },
-          "outcome_ids": {
-            "type": "array",
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": { "$ref": "#/$defs/slug" }
-          },
+          "outcome_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
           "official_scope": { "enum": ["exact_grade", "school_stage_1", "school_stage_2", "school_stage_3"] },
           "exact_grade_claimed": { "type": "boolean" },
           "notes": { "type": "string", "minLength": 10 }
@@ -68,12 +65,22 @@
     "sequence_policy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["publisher_sequence", "curated_sequence", "relationship"],
+      "required": ["publisher_sequence", "curriculum_logic", "curated_sequence", "relationship"],
       "properties": {
         "publisher_sequence": { "type": "string", "minLength": 10 },
+        "curriculum_logic": { "type": "string", "minLength": 10 },
         "curated_sequence": { "type": "string", "minLength": 10 },
         "relationship": { "const": "publisher_evidence_informs_but_does_not_define_curated_order" }
       }
+    },
+    "source_selection_matrix_ref": { "$ref": "#/$defs/artifactReference" },
+    "implementation_roadmap_ref": { "$ref": "#/$defs/artifactReference" },
+    "language_progression_ref": { "$ref": "#/$defs/artifactReference" },
+    "teaching_calendars_ref": { "$ref": "#/$defs/artifactReference" },
+    "topic_architecture_decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/topicArchitectureDecision" }
     },
     "ordered_units": {
       "type": "array",
@@ -83,14 +90,16 @@
     "lesson_estimate": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["represented_lessons", "estimated_planned_lessons", "full_course_estimate_known", "notes"],
+      "required": ["represented_lessons", "estimated_planned_lessons", "full_course_estimate_known", "estimate_basis", "notes"],
       "properties": {
         "represented_lessons": { "type": "integer", "minimum": 0 },
         "estimated_planned_lessons": { "type": "integer", "minimum": 1 },
         "full_course_estimate_known": { "type": "boolean" },
+        "estimate_basis": { "enum": ["curated_unit_architecture", "school_specific_timetable"] },
         "notes": { "type": "string", "minLength": 10 }
       }
     },
+    "lesson_budget": { "$ref": "#/$defs/lessonBudget" },
     "selected_source_books": {
       "type": "array",
       "minItems": 1,
@@ -126,59 +135,368 @@
         }
       }
     },
-    "russian_explanation_coverage": { "$ref": "#/$defs/unitCoverageProgression" },
-    "estonian_vocabulary_progression": { "$ref": "#/$defs/unitStringProgression" },
-    "estonian_instruction_language_progression": { "$ref": "#/$defs/unitStringProgression" },
-    "sentence_and_oral_answer_progression": { "$ref": "#/$defs/unitStringProgression" },
-    "planned_vocabulary_recycling_intervals": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["term_et", "introduced_in_unit", "recycled_in_unit", "interval_units", "planned_use"],
-        "properties": {
-          "term_et": { "type": "string", "minLength": 1 },
-          "introduced_in_unit": { "$ref": "#/$defs/slug" },
-          "recycled_in_unit": { "$ref": "#/$defs/slug" },
-          "interval_units": { "type": "integer", "minimum": 1 },
-          "planned_use": { "type": "string", "minLength": 10 }
-        }
-      }
-    },
-    "practical_work_calendar": { "$ref": "#/$defs/calendar" },
-    "revision_calendar": { "$ref": "#/$defs/calendar" },
-    "subject_assessment_calendar": { "$ref": "#/$defs/calendar" },
-    "language_assessment_calendar": { "$ref": "#/$defs/calendar" },
     "outcome_coverage": {
       "type": "array",
       "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["outcome_id", "coverage_status", "unit_ids", "official_scope", "notes"],
-        "properties": {
-          "outcome_id": { "$ref": "#/$defs/slug" },
-          "coverage_status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" },
-          "unit_ids": {
-            "type": "array",
-            "minItems": 1,
-            "uniqueItems": true,
-            "items": { "$ref": "#/$defs/slug" }
-          },
-          "official_scope": { "enum": ["exact_grade", "school_stage_1", "school_stage_2", "school_stage_3"] },
-          "notes": { "type": "string", "minLength": 10 }
+      "items": { "$ref": "#/$defs/outcomeCoverage" }
+    },
+    "teacher_review_decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/teacherReview" }
+    },
+    "known_gaps": { "$ref": "#/$defs/nonEmptyStringArray" },
+    "completeness": { "$ref": "#/$defs/completeness" },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },
+    "nonEmptyStringArray": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/nonEmptyStringArray" },
+    "slugArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" }
+    },
+    "nonEmptySlugArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" }
+    },
+    "artifactReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "path"],
+      "properties": {
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+\\.ya?ml$"
         }
       }
     },
-    "known_gaps": { "$ref": "#/$defs/nonEmptyStringArray" },
+    "topicArchitectureDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["old_topic_ids", "new_unit_id", "decision", "reason", "affected_record_ids", "deduplication_decision", "annual_sequence_effect"],
+      "properties": {
+        "old_topic_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "new_unit_id": { "$ref": "#/$defs/slug" },
+        "decision": { "enum": ["preserve", "merge", "split", "rename", "optional_extension", "insufficient_evidence"] },
+        "reason": { "type": "string", "minLength": 10 },
+        "affected_record_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "deduplication_decision": { "type": "string", "minLength": 10 },
+        "annual_sequence_effect": { "type": "string", "minLength": 10 }
+      }
+    },
+    "orderedUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "order", "unit_id", "topic_inventory_refs", "title_ru", "title_et", "scope_ru",
+        "main_concepts", "prerequisite_unit_ids", "estimated_lessons", "lesson_allocation",
+        "mandatory_status", "linked_official_outcomes", "coverage_status", "source_book_ids",
+        "selected_source_record_ids", "russian_explanation_status", "estonian_source_status",
+        "practical_work_potential", "assessment_potential", "recommended_period",
+        "placement_reason", "later_reuse_unit_ids", "thematic_plan_ref",
+        "full_thematic_plan_exists", "implementation_status", "teacher_review_status",
+        "estimate_basis"
+      ],
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "topic_inventory_refs": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "title_ru": { "type": "string", "minLength": 1 },
+        "title_et": { "type": "string", "minLength": 1 },
+        "scope_ru": { "type": "string", "minLength": 20 },
+        "main_concepts": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "prerequisite_unit_ids": { "$ref": "#/$defs/slugArray" },
+        "estimated_lessons": { "type": "integer", "minimum": 1 },
+        "lesson_allocation": { "$ref": "#/$defs/lessonAllocation" },
+        "mandatory_status": { "enum": ["curated_core", "optional_extension"] },
+        "linked_official_outcomes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["outcome_id", "coverage_status"],
+            "properties": {
+              "outcome_id": { "$ref": "#/$defs/slug" },
+              "coverage_status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" }
+            }
+          }
+        },
+        "coverage_status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" },
+        "source_book_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "selected_source_record_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "russian_explanation_status": { "$ref": "#/$defs/russianStatus" },
+        "estonian_source_status": { "enum": ["direct_opiq_et", "partial_opiq_et", "not_yet_verified"] },
+        "practical_work_potential": { "enum": ["planned", "possible_needs_design", "not_identified"] },
+        "assessment_potential": { "enum": ["planned", "possible_needs_design", "not_identified"] },
+        "recommended_period": { "type": "string", "minLength": 5 },
+        "placement_reason": { "type": "string", "minLength": 20 },
+        "later_reuse_unit_ids": { "$ref": "#/$defs/slugArray" },
+        "thematic_plan_ref": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/slug" }
+          ]
+        },
+        "full_thematic_plan_exists": { "type": "boolean" },
+        "implementation_status": {
+          "enum": [
+            "validated_production_unit",
+            "annual_architecture_only",
+            "needs_source_review",
+            "needs_russian_bridge",
+            "optional_extension",
+            "blocked_by_missing_evidence"
+          ]
+        },
+        "teacher_review_status": { "enum": ["not_required", "pending", "approved", "blocked"] },
+        "estimate_basis": { "type": "string", "minLength": 10 }
+      }
+    },
+    "lessonAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["core_instruction", "practical_work", "revision", "subject_assessment", "language_assessment"],
+      "properties": {
+        "core_instruction": { "type": "integer", "minimum": 0 },
+        "practical_work": { "type": "integer", "minimum": 0 },
+        "revision": { "type": "integer", "minimum": 0 },
+        "subject_assessment": { "type": "integer", "minimum": 0 },
+        "language_assessment": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "lessonBudget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basis", "recommended_baseline_scenario_id", "unit_estimate_total", "planned_breakdown", "assumptions", "scenarios"],
+      "properties": {
+        "basis": { "const": "scenario" },
+        "recommended_baseline_scenario_id": { "$ref": "#/$defs/slug" },
+        "unit_estimate_total": { "type": "integer", "minimum": 1 },
+        "planned_breakdown": { "$ref": "#/$defs/lessonAllocation" },
+        "assumptions": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "scenarios": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["scenario_id", "teaching_weeks", "lessons_per_week", "available_lessons", "architecture_requirement_lessons", "reserve_lessons", "school_specific_or_lost_lessons", "shortfall_lessons", "architecture_fits", "notes"],
+            "properties": {
+              "scenario_id": { "$ref": "#/$defs/slug" },
+              "teaching_weeks": { "type": "integer", "minimum": 1 },
+              "lessons_per_week": { "type": "number", "exclusiveMinimum": 0 },
+              "available_lessons": { "type": "integer", "minimum": 1 },
+              "architecture_requirement_lessons": { "type": "integer", "minimum": 1 },
+              "reserve_lessons": { "type": "integer", "minimum": 0 },
+              "school_specific_or_lost_lessons": { "type": "integer", "minimum": 0 },
+              "shortfall_lessons": { "type": "integer", "minimum": 0 },
+              "architecture_fits": { "type": "boolean" },
+              "notes": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      }
+    },
+    "russianStatus": {
+      "enum": [
+        "direct_opiq_ru",
+        "partial_opiq_ru",
+        "author_bridge_required",
+        "author_full_explanation_required",
+        "not_yet_verified"
+      ]
+    },
+    "russianCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit_id", "status", "available_record_ids", "concepts_covered", "concepts_missing", "author_response", "teacher_review_required", "notes"],
+      "properties": {
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "status": { "$ref": "#/$defs/russianStatus" },
+        "available_record_ids": { "$ref": "#/$defs/slugArray" },
+        "concepts_covered": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "concepts_missing": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "author_response": { "enum": ["none", "bridge_sufficient", "full_explanation_required", "pending_review"] },
+        "teacher_review_required": { "type": "boolean" },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "languageProgression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id", "learner_language_level", "new_terms_et", "recycled_terms_et",
+        "new_instruction_verbs_et", "recycled_instruction_verbs_et", "sentence_frames_et",
+        "language_functions", "expected_receptive_output_et", "expected_supported_output_et",
+        "expected_independent_output_et", "short_oral_answer_target_et", "planned_scaffolding_level",
+        "progression_stage", "cognitive_load_note"
+      ],
+      "properties": {
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "learner_language_level": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel" },
+        "new_terms_et": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "recycled_terms_et": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "new_instruction_verbs_et": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "recycled_instruction_verbs_et": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "sentence_frames_et": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "language_functions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/languageFunction" }
+        },
+        "expected_receptive_output_et": { "type": "string", "minLength": 10 },
+        "expected_supported_output_et": { "type": "string", "minLength": 10 },
+        "expected_independent_output_et": { "type": "string", "minLength": 10 },
+        "short_oral_answer_target_et": { "type": "string", "minLength": 3 },
+        "planned_scaffolding_level": { "enum": ["high", "moderate", "light"] },
+        "progression_stage": { "enum": ["recognise_and_name", "label_and_classify", "describe_properties", "sequence", "compare", "cause_and_result", "conclude_from_observation"] },
+        "cognitive_load_note": { "type": "string", "minLength": 10 }
+      }
+    },
+    "recyclingInterval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["term_et", "introduced_in_unit", "recycled_in_unit", "interval_units", "disposition", "reuse_context", "expected_pupil_output", "rationale"],
+      "properties": {
+        "term_et": { "type": "string", "minLength": 1 },
+        "introduced_in_unit": { "$ref": "#/$defs/slug" },
+        "recycled_in_unit": { "$ref": "#/$defs/slug" },
+        "interval_units": { "type": "integer", "minimum": 1 },
+        "disposition": { "enum": ["specific_later_unit", "cumulative_revision", "practical_work_instructions"] },
+        "reuse_context": { "type": "string", "minLength": 10 },
+        "expected_pupil_output": { "type": "string", "minLength": 5 },
+        "rationale": { "type": "string", "minLength": 10 }
+      }
+    },
+    "practicalActivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["activity_id", "unit_id", "title_ru", "title_et", "activity_type", "selected_opiq_record_ids", "expected_observations_or_data_ru", "equipment", "safety_considerations", "teacher_controlled_steps", "estimated_minutes", "subject_skill", "estonian_language_function", "assessment_role", "provenance", "implementation_status"],
+      "properties": {
+        "activity_id": { "$ref": "#/$defs/slug" },
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "title_ru": { "type": "string", "minLength": 3 },
+        "title_et": { "type": "string", "minLength": 3 },
+        "activity_type": { "enum": ["observation", "measurement", "classification", "model", "experiment", "fieldwork", "table_or_graph_interpretation", "simple_research_task"] },
+        "selected_opiq_record_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "expected_observations_or_data_ru": { "type": "string", "minLength": 10 },
+        "equipment": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "safety_considerations": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "teacher_controlled_steps": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "estimated_minutes": { "type": "integer", "minimum": 5, "maximum": 90 },
+        "subject_skill": { "type": "string", "minLength": 5 },
+        "estonian_language_function": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/languageFunction" },
+        "assessment_role": { "enum": ["formative_subject", "summative_subject", "practical_skill", "language_evidence", "not_assessed"] },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "implementation_status": { "enum": ["validated_production_activity", "architecture_only", "needs_teacher_review"] }
+      }
+    },
+    "revisionPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision_id", "after_unit_id", "unit_ids", "approximate_timing", "subject_focus_ru", "estonian_focus_et", "evidence", "provenance", "implementation_status"],
+      "properties": {
+        "revision_id": { "$ref": "#/$defs/slug" },
+        "after_unit_id": { "$ref": "#/$defs/slug" },
+        "unit_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "approximate_timing": { "type": "string", "minLength": 5 },
+        "subject_focus_ru": { "type": "string", "minLength": 10 },
+        "estonian_focus_et": { "type": "string", "minLength": 5 },
+        "evidence": { "type": "string", "minLength": 10 },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "implementation_status": { "enum": ["validated_production_revision", "architecture_only"] }
+      }
+    },
+    "assessmentPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessment_id", "unit_id", "approximate_timing", "domains", "evidence", "purpose", "source_or_author_artifact", "assessment_mode", "expected_follow_up", "provenance", "implementation_status"],
+      "properties": {
+        "assessment_id": { "$ref": "#/$defs/slug" },
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "approximate_timing": { "type": "string", "minLength": 5 },
+        "domains": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["subject_understanding", "practical_skill", "estonian_terminology_recognition", "supported_estonian_production", "independent_estonian_production"] }
+        },
+        "evidence": { "type": "string", "minLength": 10 },
+        "purpose": { "type": "string", "minLength": 10 },
+        "source_or_author_artifact": { "type": "string", "minLength": 3 },
+        "assessment_mode": { "enum": ["formative", "summative"] },
+        "expected_follow_up": { "type": "string", "minLength": 10 },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "implementation_status": { "enum": ["validated_production_assessment", "architecture_only"] }
+      }
+    },
+    "outcomeCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome_id", "coverage_status", "unit_ids", "official_scope", "notes"],
+      "properties": {
+        "outcome_id": { "$ref": "#/$defs/slug" },
+        "coverage_status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" },
+        "unit_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "official_scope": { "enum": ["exact_grade", "school_stage_1", "school_stage_2", "school_stage_3"] },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "teacherReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "unit_ids", "status", "reason", "required_action"],
+      "properties": {
+        "decision_id": { "$ref": "#/$defs/slug" },
+        "unit_ids": { "$ref": "#/$defs/slugArray" },
+        "status": { "enum": ["pending", "approved", "resolved", "blocked"] },
+        "reason": { "type": "string", "minLength": 10 },
+        "required_action": { "type": "string", "minLength": 10 }
+      }
+    },
     "completeness": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["scope", "status", "declared_complete", "deferred_to_issue", "notes"],
+      "required": ["scope", "architecture_complete", "all_units_sequenced", "all_sources_selected", "official_curriculum_coverage_complete", "all_thematic_plans_authored", "all_lessons_authored", "implementation_status", "declared_complete", "deferred_to_issue", "notes"],
       "properties": {
-        "scope": { "enum": ["small_annual_course_excerpt", "full_annual_course"] },
-        "status": { "enum": ["complete", "incomplete"] },
+        "scope": { "enum": ["complete_annual_architecture", "fully_authored_annual_course"] },
+        "architecture_complete": { "type": "boolean" },
+        "all_units_sequenced": { "type": "boolean" },
+        "all_sources_selected": { "type": "boolean" },
+        "official_curriculum_coverage_complete": { "type": "boolean" },
+        "all_thematic_plans_authored": { "type": "boolean" },
+        "all_lessons_authored": { "type": "boolean" },
+        "implementation_status": { "enum": ["architecture_complete_partial_implementation", "fully_authored"] },
         "declared_complete": { "type": "boolean" },
         "deferred_to_issue": {
           "oneOf": [
@@ -190,138 +508,35 @@
       },
       "allOf": [
         {
-          "if": {
-            "properties": { "scope": { "const": "small_annual_course_excerpt" } },
-            "required": ["scope"]
-          },
+          "if": { "properties": { "implementation_status": { "const": "fully_authored" } }, "required": ["implementation_status"] },
           "then": {
             "properties": {
-              "status": { "const": "incomplete" },
-              "declared_complete": { "const": false },
-              "deferred_to_issue": { "type": "integer", "minimum": 1 }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": { "status": { "const": "complete" } },
-            "required": ["status"]
-          },
-          "then": {
-            "properties": {
-              "scope": { "const": "full_annual_course" },
+              "scope": { "const": "fully_authored_annual_course" },
+              "architecture_complete": { "const": true },
+              "all_units_sequenced": { "const": true },
+              "all_sources_selected": { "const": true },
+              "official_curriculum_coverage_complete": { "const": true },
+              "all_thematic_plans_authored": { "const": true },
+              "all_lessons_authored": { "const": true },
               "declared_complete": { "const": true },
               "deferred_to_issue": { "type": "null" }
             }
           }
+        },
+        {
+          "if": { "properties": { "scope": { "const": "complete_annual_architecture" } }, "required": ["scope"] },
+          "then": {
+            "properties": {
+              "architecture_complete": { "const": true },
+              "all_units_sequenced": { "const": true },
+              "all_sources_selected": { "const": true },
+              "implementation_status": { "const": "architecture_complete_partial_implementation" },
+              "declared_complete": { "const": false },
+              "deferred_to_issue": { "type": "integer", "minimum": 1 }
+            }
+          }
         }
       ]
-    },
-    "provenance": { "$ref": "#/$defs/provenance" }
-  },
-  "$defs": {
-    "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
-    "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },
-    "nonEmptyStringArray": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/nonEmptyStringArray" },
-    "orderedUnit": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "order",
-        "unit_id",
-        "topic_id",
-        "title_ru",
-        "title_et",
-        "status",
-        "thematic_plan_ref",
-        "estimated_lessons",
-        "selected_book_ids",
-        "curriculum_outcome_ids",
-        "publisher_sequence_note",
-        "curated_sequence_reason"
-      ],
-      "properties": {
-        "order": { "type": "integer", "minimum": 1 },
-        "unit_id": { "$ref": "#/$defs/slug" },
-        "topic_id": { "$ref": "#/$defs/slug" },
-        "title_ru": { "type": "string", "minLength": 1 },
-        "title_et": { "type": "string", "minLength": 1 },
-        "status": { "enum": ["represented_by_thematic_plan", "topic_inventory_only"] },
-        "thematic_plan_ref": {
-          "oneOf": [
-            { "type": "null" },
-            { "$ref": "#/$defs/slug" }
-          ]
-        },
-        "estimated_lessons": { "type": "integer", "minimum": 1 },
-        "selected_book_ids": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 }
-        },
-        "curriculum_outcome_ids": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "$ref": "#/$defs/slug" }
-        },
-        "publisher_sequence_note": { "type": "string", "minLength": 10 },
-        "curated_sequence_reason": { "type": "string", "minLength": 10 }
-      }
-    },
-    "unitCoverageProgression": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["unit_id", "status", "source_or_bridge", "notes"],
-        "properties": {
-          "unit_id": { "$ref": "#/$defs/slug" },
-          "status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" },
-          "source_or_bridge": { "enum": ["canonical_opiq_ru", "author_created_bridge_required", "not_yet_verified"] },
-          "notes": { "type": "string", "minLength": 10 }
-        }
-      }
-    },
-    "unitStringProgression": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["unit_id", "introduced", "recycled", "expected_output"],
-        "properties": {
-          "unit_id": { "$ref": "#/$defs/slug" },
-          "introduced": {
-            "type": "array",
-            "uniqueItems": true,
-            "items": { "type": "string", "minLength": 1 }
-          },
-          "recycled": {
-            "type": "array",
-            "uniqueItems": true,
-            "items": { "type": "string", "minLength": 1 }
-          },
-          "expected_output": { "type": "string", "minLength": 5 }
-        }
-      }
-    },
-    "calendar": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["calendar_id", "unit_id", "timing", "description_ru", "status"],
-        "properties": {
-          "calendar_id": { "$ref": "#/$defs/slug" },
-          "unit_id": { "$ref": "#/$defs/slug" },
-          "timing": { "type": "string", "minLength": 3 },
-          "description_ru": { "type": "string", "minLength": 10 },
-          "status": { "enum": ["planned", "placeholder_not_verified"] }
-        }
-      }
     }
   }
 }

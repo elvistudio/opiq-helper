@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import fsSync from 'node:fs';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import {
@@ -15,6 +16,10 @@ import {
 const lessonArtifactType = 'bilingual_lesson';
 const unitArtifactType = 'bilingual_thematic_plan';
 const courseArtifactType = 'annual_course_plan';
+const sourceMatrixArtifactType = 'annual_source_selection_matrix';
+const roadmapArtifactType = 'annual_implementation_roadmap';
+const languageProgressionArtifactType = 'annual_language_progression';
+const teachingCalendarsArtifactType = 'annual_teaching_calendars';
 const profileArtifactType = 'learner_language_profiles';
 const requiredApproaches = new Set([
   'content_language_dual_objectives',
@@ -72,6 +77,14 @@ function artifactId(artifact) {
   if (artifact.data.artifact_type === lessonArtifactType) return artifact.data.lesson_id;
   if (artifact.data.artifact_type === unitArtifactType) return artifact.data.unit_id;
   if (artifact.data.artifact_type === courseArtifactType) return artifact.data.course_id;
+  if ([
+    sourceMatrixArtifactType,
+    roadmapArtifactType,
+    languageProgressionArtifactType,
+    teachingCalendarsArtifactType,
+  ].includes(artifact.data.artifact_type)) {
+    return artifact.data.artifact_id;
+  }
   return null;
 }
 
@@ -95,6 +108,7 @@ export async function loadLessonPlanRepository({
   lessonSchemaPath = 'schemas/lesson-plan.schema.json',
   thematicSchemaPath = 'schemas/thematic-plan.schema.json',
   annualSchemaPath = 'schemas/annual-course.schema.json',
+  annualComponentsSchemaPath = 'schemas/annual-course-components.schema.json',
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
   const [lessonFiles, annualFiles] = await Promise.all([
@@ -111,6 +125,7 @@ export async function loadLessonPlanRepository({
     lesson: lessonSchemaPath,
     thematic: thematicSchemaPath,
     annual: annualSchemaPath,
+    annualComponents: annualComponentsSchemaPath,
   };
   const schemaEntries = await Promise.all(Object.entries(schemaPaths).map(async ([name, schemaPath]) => {
     const schemaFile = safeRepositoryPath(absoluteRoot, schemaPath, `${name} schema path`);
@@ -132,11 +147,13 @@ function createValidators(context) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
   ajv.addSchema(context.curriculum.schemas.course);
   ajv.addSchema(context.schemas.common);
+  ajv.addSchema(context.schemas.annual);
   return {
     profiles: ajv.compile(context.schemas.profiles),
     lesson: ajv.compile(context.schemas.lesson),
     thematic: ajv.compile(context.schemas.thematic),
-    annual: ajv.compile(context.schemas.annual),
+    annual: ajv.getSchema(context.schemas.annual.$id),
+    annualComponents: ajv.compile(context.schemas.annualComponents),
   };
 }
 
@@ -809,9 +826,266 @@ function validateUnitProgressions(diagnostics, artifact, lessonsById) {
   if (unit.completeness?.declared_complete && [...classified.values()].some((status) => status !== 'verified')) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'unit cannot declare complete while outcomes are partial, missing, or ambiguous'));
 }
 
-function validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById) {
-  const course = artifact.data;
+function topicRecordIndex(topicInventory) {
+  const byId = new Map();
+  for (const topic of topicInventory?.topics ?? []) {
+    for (const kind of ['selected_records', 'alternative_records', 'rejected_records']) {
+      for (const record of topic[kind] ?? []) byId.set(record.record_id, { record, topicId: topic.topic_id });
+    }
+  }
+  return byId;
+}
+
+function validateAnnualComponentIdentity(diagnostics, artifact, courseArtifact, context) {
   validateCanonicalRoute(diagnostics, artifact, context.curriculum);
+  const course = courseArtifact?.data;
+  if (!course) return;
+  for (const field of ['grade', 'subject', 'subject_et', 'instruction_language', 'subject_support_language']) {
+    if (artifact.data[field] !== course[field]) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `/${field}`, `must match linked annual course ${course.course_id}`));
+    }
+  }
+  if (artifact.data.course_ref !== course.course_id) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/course_ref', `expected ${course.course_id}`));
+  }
+  if (artifact.data.canonical_route?.source_id !== course.canonical_route?.source_id) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/canonical_route/source_id', 'component route must match its annual course'));
+  }
+}
+
+function validateSourceSelectionMatrix(diagnostics, artifact, courseArtifact, context, indexes) {
+  validateAnnualComponentIdentity(diagnostics, artifact, courseArtifact, context);
+  const course = courseArtifact?.data;
+  if (!course) return { selectedById: new Map(), selectedCount: 0, teacherReviewUnitIds: new Set() };
+  const sourceId = artifact.data.canonical_route?.source_id;
+  const routeData = context.curriculum.routes[sourceId];
+  const topicInventory = indexes.topicsBySource.get(sourceId);
+  const bookInventory = indexes.booksBySource.get(sourceId);
+  const topicRecords = topicRecordIndex(topicInventory);
+  const books = new Map((bookInventory?.books ?? []).map((book) => [book.book_id, book]));
+  const eligibleBookIds = (bookInventory?.books ?? [])
+    .filter((book) => book.programme_type === 'ordinary' && book.eligible_for_ordinary_course && book.page_evidence === 'page_records')
+    .map((book) => book.book_id);
+  const excludedBookIds = (bookInventory?.books ?? [])
+    .filter((book) => !eligibleBookIds.includes(book.book_id))
+    .map((book) => book.book_id);
+  if (!sameSet(artifact.data.eligible_book_ids, eligibleBookIds)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/eligible_book_ids', 'must exactly match audited ordinary books with page evidence'));
+  }
+  if (!sameSet((artifact.data.excluded_books ?? []).map((entry) => entry.book_id), excludedBookIds)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/excluded_books', 'must exactly list audited books excluded from ordinary page selection'));
+  }
+  const mainUnits = new Map((course.ordered_units ?? []).map((unit) => [unit.unit_id, unit]));
+  const componentUnits = artifact.data.units ?? [];
+  if (!sameSet(componentUnits.map((unit) => unit.unit_id), [...mainUnits.keys()])) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/units', 'source matrix must contain each annual unit exactly once'));
+  }
+  addDuplicateDiagnostics(diagnostics, componentUnits.map((unit) => unit.unit_id), {
+    file: artifact.file, field: '/units', label: 'source-matrix unit ID',
+  });
+  const selectedById = new Map();
+  const selectedUrls = [];
+  const rejectedUrls = [];
+  const allRecordIds = [];
+  for (const [unitIndex, unit] of componentUnits.entries()) {
+    const field = `/units/${unitIndex}`;
+    const mainUnit = mainUnits.get(unit.unit_id);
+    if (!mainUnit) continue;
+    if (!sameSet(unit.topic_inventory_refs, mainUnit.topic_inventory_refs)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/topic_inventory_refs`, 'must match the annual unit topic references'));
+    }
+    const selectedIds = (unit.selected_sources ?? []).map((selection) => selection.record_id);
+    if (!sameSet(selectedIds, mainUnit.selected_source_record_ids)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/selected_sources`, 'selected record IDs must exactly match the annual unit'));
+    }
+    addDuplicateDiagnostics(diagnostics, selectedIds, { file: artifact.file, field: `${field}/selected_sources`, label: 'selected record ID' });
+    const resolvedReferences = [];
+    for (const [selectionIndex, selection] of (unit.selected_sources ?? []).entries()) {
+      const selectionField = `${field}/selected_sources/${selectionIndex}`;
+      const indexed = topicRecords.get(selection.record_id);
+      if (!indexed || !(unit.topic_inventory_refs ?? []).includes(indexed.topicId)) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${selectionField}/record_id`, `unknown record ${selection.record_id} for mapped topic inventory groups`));
+        continue;
+      }
+      if (selection.canonical_url !== indexed.record.canonical_url) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${selectionField}/canonical_url`, `expected ${indexed.record.canonical_url}`));
+      }
+      const resolved = {
+        ...indexed.record,
+        instructional_roles: selection.instructional_roles,
+        provenance: selection.provenance,
+        selection_rationale: selection.selection_rationale,
+      };
+      resolvedReferences.push({ record: resolved, field: selectionField, selected: true, rejected: false });
+      selectedById.set(selection.record_id, { record: resolved, unitId: unit.unit_id });
+      selectedUrls.push(selection.canonical_url);
+      allRecordIds.push(selection.record_id);
+    }
+    validatePageReferences(diagnostics, artifact, routeData, bookInventory, resolvedReferences);
+
+    const rejectedById = new Map();
+    const rejectedReferences = [];
+    for (const [rejectedIndex, rejected] of (unit.rejected_duplicates ?? []).entries()) {
+      const rejectedField = `${field}/rejected_duplicates/${rejectedIndex}`;
+      const matches = routeData?.records.filter((record) => record.url === rejected.canonical_url) ?? [];
+      const canonical = matches[0];
+      if (matches.length !== 1) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${rejectedField}/canonical_url`, `rejected candidate URL must occur exactly once in the canonical route; found ${matches.length}`));
+        continue;
+      }
+      if (canonical.book_id !== rejected.book_id) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${rejectedField}/book_id`, `expected ${canonical.book_id}`));
+      }
+      const book = books.get(rejected.book_id);
+      const resolved = {
+        record_id: rejected.record_id,
+        canonical_url: rejected.canonical_url,
+        canonical_source_id: sourceId,
+        book_id: rejected.book_id,
+        title: canonical.title,
+        language: canonical.language,
+        programme_type: book?.programme_type ?? 'unknown',
+        instructional_roles: ['optional_extension'],
+        provenance: rejected.provenance,
+        selection_rationale: `Rejected annual candidate: ${rejected.rejection_reason}`,
+        rejection_reason: rejected.rejection_reason,
+      };
+      rejectedReferences.push({ record: resolved, field: rejectedField, selected: false, rejected: true });
+      rejectedById.set(rejected.record_id, resolved);
+      rejectedUrls.push(rejected.canonical_url);
+      allRecordIds.push(rejected.record_id);
+    }
+    validatePageReferences(diagnostics, artifact, routeData, bookInventory, rejectedReferences);
+    const selectedIdSet = new Set(selectedIds);
+    const rejectedIdSet = new Set(rejectedById.keys());
+    const roleRecordIds = new Set();
+    const acceptedSourceRoles = {
+      core_explanation_ru: ['core_explanation_ru'],
+      core_source_et: ['core_source_et'],
+      visual_or_diagram: ['bilingual_visual', 'map_skill', 'data_interpretation', 'digital_map'],
+      practical_or_experiment: ['experiment', 'fieldwork', 'data_interpretation'],
+      practice_ru: ['practice_ru'],
+      practice_et: ['practice_et'],
+      revision: ['revision'],
+      assessment: ['assessment'],
+      optional_extension: ['optional_extension'],
+    };
+    for (const [role, decision] of Object.entries(unit.role_matrix ?? {})) {
+      if (decision.status === 'selected' && (decision.record_ids ?? []).length === 0) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/role_matrix/${role}`, 'selected role requires at least one selected record'));
+      }
+      if (decision.status !== 'selected' && (decision.record_ids ?? []).length > 0) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/role_matrix/${role}`, `${decision.status} role cannot name selected records`));
+      }
+      for (const recordId of decision.record_ids ?? []) {
+        roleRecordIds.add(recordId);
+        const selected = unit.selected_sources?.find((entry) => entry.record_id === recordId);
+        if (!selectedIdSet.has(recordId)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/role_matrix/${role}/record_ids`, `unknown selected record ${recordId}`));
+        else if (!(acceptedSourceRoles[role] ?? []).some((candidate) => selected.instructional_roles?.includes(candidate))) {
+          diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/role_matrix/${role}/record_ids`, `${recordId} has no instructional role supporting ${role}`));
+        }
+      }
+    }
+    for (const recordId of selectedIdSet) {
+      if (!roleRecordIds.has(recordId)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/role_matrix`, `selected record ${recordId} has no best-source role decision`));
+    }
+    const bookDecisions = unit.book_decisions ?? [];
+    if (!sameSet(bookDecisions.map((entry) => entry.book_id), eligibleBookIds)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/book_decisions`, 'must contain every eligible audited book exactly once'));
+    }
+    addDuplicateDiagnostics(diagnostics, bookDecisions.map((entry) => entry.book_id), { file: artifact.file, field: `${field}/book_decisions`, label: 'book decision' });
+    for (const [decisionIndex, decision] of bookDecisions.entries()) {
+      const decisionField = `${field}/book_decisions/${decisionIndex}`;
+      const candidateIds = new Set([...(decision.candidate_record_ids ?? []), ...(decision.selected_record_ids ?? [])]);
+      for (const recordId of candidateIds) {
+        const selected = unit.selected_sources?.find((entry) => entry.record_id === recordId);
+        const rejected = rejectedById.get(recordId);
+        const resolved = selected ? topicRecords.get(recordId)?.record : rejected;
+        if (!resolved) diagnostics.push(makeDiagnostic('error', artifact.file, `${decisionField}/candidate_record_ids`, `unknown unit candidate ${recordId}`));
+        else if (resolved.book_id !== decision.book_id) diagnostics.push(makeDiagnostic('error', artifact.file, `${decisionField}/book_id`, `candidate ${recordId} belongs to ${resolved.book_id}`));
+      }
+      for (const recordId of decision.selected_record_ids ?? []) {
+        if (!selectedIdSet.has(recordId)) diagnostics.push(makeDiagnostic('error', artifact.file, `${decisionField}/selected_record_ids`, `unknown selected record ${recordId}`));
+      }
+      const hasSelected = (decision.selected_record_ids ?? []).length > 0;
+      if ((decision.decision === 'selected') !== hasSelected) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${decisionField}/decision`, 'selected decision must correspond exactly to non-empty selected_record_ids'));
+      }
+      for (const recordId of decision.candidate_record_ids ?? []) {
+        if (!selectedIdSet.has(recordId) && !rejectedIdSet.has(recordId)) {
+          diagnostics.push(makeDiagnostic('error', artifact.file, `${decisionField}/candidate_record_ids`, `candidate ${recordId} is neither selected nor explicitly rejected`));
+        }
+      }
+    }
+  }
+  addDuplicateDiagnostics(diagnostics, allRecordIds, { file: artifact.file, field: '/units', label: 'annual source record ID' });
+  addDuplicateDiagnostics(diagnostics, selectedUrls, { file: artifact.file, field: '/units', label: 'selected canonical URL' });
+  addDuplicateDiagnostics(diagnostics, rejectedUrls, { file: artifact.file, field: '/units', label: 'rejected canonical URL' });
+  for (const url of selectedUrls) {
+    if (rejectedUrls.includes(url)) diagnostics.push(makeDiagnostic('error', artifact.file, '/units', `canonical URL is both selected and rejected: ${url}`));
+  }
+  return {
+    selectedById,
+    selectedCount: selectedUrls.length,
+    teacherReviewUnitIds: new Set(componentUnits
+      .filter((unit) => unit.teacher_review_required)
+      .map((unit) => unit.unit_id)),
+  };
+}
+
+function validateImplementationRoadmap(diagnostics, artifact, courseArtifact, context) {
+  validateAnnualComponentIdentity(diagnostics, artifact, courseArtifact, context);
+  const course = courseArtifact?.data;
+  if (!course) return;
+  const mainUnits = new Map((course.ordered_units ?? []).map((unit) => [unit.unit_id, unit]));
+  const roadmapUnits = artifact.data.units ?? [];
+  if (!sameSet(roadmapUnits.map((unit) => unit.unit_id), [...mainUnits.keys()])) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/units', 'roadmap must contain each annual unit exactly once'));
+  }
+  addDuplicateDiagnostics(diagnostics, roadmapUnits.map((unit) => unit.unit_id), { file: artifact.file, field: '/units', label: 'roadmap unit ID' });
+  addDuplicateDiagnostics(diagnostics, roadmapUnits.map((unit) => unit.implementation_order), { file: artifact.file, field: '/units', label: 'implementation order' });
+  const orderedImplementation = [...roadmapUnits].sort((left, right) => left.implementation_order - right.implementation_order);
+  for (const [index, unit] of orderedImplementation.entries()) {
+    if (unit.implementation_order !== index) diagnostics.push(makeDiagnostic('error', artifact.file, '/units', `implementation order must be contiguous from 0; expected ${index}`));
+  }
+  const phases = artifact.data.phases ?? [];
+  addDuplicateDiagnostics(diagnostics, phases.map((phase) => phase.phase_id), { file: artifact.file, field: '/phases', label: 'roadmap phase ID' });
+  const phaseIds = new Set(phases.map((phase) => phase.phase_id));
+  const phaseUnitIds = phases.flatMap((phase) => phase.unit_ids ?? []);
+  if (!sameSet(phaseUnitIds, [...mainUnits.keys()])) diagnostics.push(makeDiagnostic('error', artifact.file, '/phases', 'roadmap phases must partition every annual unit'));
+  addDuplicateDiagnostics(diagnostics, phaseUnitIds, { file: artifact.file, field: '/phases', label: 'phase unit ID' });
+  for (const [index, phase] of phases.entries()) {
+    if (phase.order !== index + 1) diagnostics.push(makeDiagnostic('error', artifact.file, `/phases/${index}/order`, `expected phase order ${index + 1}`));
+  }
+  for (const [index, unit] of roadmapUnits.entries()) {
+    const field = `/units/${index}`;
+    const mainUnit = mainUnits.get(unit.unit_id);
+    if (!mainUnit) continue;
+    if (!phaseIds.has(unit.issue_18_phase)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/issue_18_phase`, `unknown roadmap phase ${unit.issue_18_phase}`));
+    if (!(phases.find((phase) => phase.phase_id === unit.issue_18_phase)?.unit_ids ?? []).includes(unit.unit_id)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/issue_18_phase`, 'unit is absent from its declared phase'));
+    }
+    if (unit.approximate_lesson_count !== mainUnit.estimated_lessons) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/approximate_lesson_count`, `expected ${mainUnit.estimated_lessons}`));
+    for (const dependency of unit.dependencies ?? []) if (!mainUnits.has(dependency)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/dependencies`, `unknown unit ${dependency}`));
+    if (unit.implementation_status === 'validated_production_unit') {
+      const expectedPath = safeRepositoryPath(context.rootDir, unit.expected_thematic_plan_path, `${unit.unit_id} thematic plan path`);
+      if (!fsSync.existsSync(expectedPath)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/expected_thematic_plan_path`, 'validated production thematic plan does not exist'));
+    }
+  }
+}
+
+function validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById, componentsById, profiles, sourceValidation) {
+  const course = artifact.data;
+  const languageArtifact = componentsById.get(course.language_progression_ref?.artifact_id);
+  const calendarArtifact = componentsById.get(course.teaching_calendars_ref?.artifact_id);
+  const language = languageArtifact?.data ?? {};
+  const calendars = calendarArtifact?.data ?? {};
+  const languageFile = languageArtifact?.file ?? artifact.file;
+  const calendarFile = calendarArtifact?.file ?? artifact.file;
+  validateCanonicalRoute(diagnostics, artifact, context.curriculum);
+  if (!profiles.has(course.learner_language_profile_ref)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/learner_language_profile_ref', `unknown language profile ${course.learner_language_profile_ref}`));
+  }
   const sourceId = course.canonical_route?.source_id;
   const topicInventory = indexes.topicsBySource.get(sourceId);
   const bookInventory = indexes.booksBySource.get(sourceId);
@@ -826,86 +1100,249 @@ function validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById
       if (reference.official_scope !== expectedScope || reference.exact_grade_claimed !== false) diagnostics.push(makeDiagnostic('error', artifact.file, `/official_curriculum_references/${index}`, 'school-stage outcome cannot be represented as exact grade 5'));
     }
   }
+  addDuplicateDiagnostics(diagnostics, officialOutcomeIds, { file: artifact.file, field: '/official_curriculum_references', label: 'official outcome reference' });
   const topics = new Map((topicInventory?.topics ?? []).map((topic) => [topic.topic_id, topic]));
   const books = new Map((bookInventory?.books ?? []).map((book) => [book.book_id, book]));
   const units = course.ordered_units ?? [];
   const unitIds = units.map((unit) => unit.unit_id);
+  const knownUnitIds = new Set(unitIds);
+  const orderById = new Map(units.map((unit, index) => [unit.unit_id, index]));
   addDuplicateDiagnostics(diagnostics, unitIds, { file: artifact.file, field: '/ordered_units', label: 'annual unit ID' });
   let estimatedLessons = 0;
   let representedLessons = 0;
+  const allocationTotals = { core_instruction: 0, practical_work: 0, revision: 0, subject_assessment: 0, language_assessment: 0 };
   for (const [index, unit] of units.entries()) {
-    if (unit.order !== index + 1) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/order`, `expected order ${index + 1}`));
+    const field = `/ordered_units/${index}`;
+    if (unit.order !== index + 1) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/order`, `expected order ${index + 1}`));
     estimatedLessons += unit.estimated_lessons ?? 0;
-    const topic = topics.get(unit.topic_id);
-    if (!topic) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/topic_id`, `unknown verified topic inventory ID ${unit.topic_id}`));
-    else if (topic.title_ru !== unit.title_ru || topic.title_et !== unit.title_et) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}`, 'unit titles must match the verified topic inventory'));
-    for (const bookId of unit.selected_book_ids ?? []) {
-      if (!books.has(bookId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/selected_book_ids`, `unknown audited book ${bookId}`));
-      if (topic && !(topic.books_covering ?? []).includes(bookId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/selected_book_ids`, `book ${bookId} is not registered for topic ${unit.topic_id}`));
+    for (const key of Object.keys(allocationTotals)) allocationTotals[key] += unit.lesson_allocation?.[key] ?? 0;
+    const allocation = Object.values(unit.lesson_allocation ?? {}).reduce((sum, value) => sum + value, 0);
+    if (allocation !== unit.estimated_lessons) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/lesson_allocation`, `allocation ${allocation} must equal estimated lessons ${unit.estimated_lessons}`));
+    const mappedTopics = (unit.topic_inventory_refs ?? []).map((topicId) => topics.get(topicId));
+    for (const [topicIndex, topicId] of (unit.topic_inventory_refs ?? []).entries()) {
+      if (!topics.has(topicId)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/topic_inventory_refs/${topicIndex}`, `unknown verified topic inventory ID ${topicId}`));
     }
-    for (const outcomeId of unit.curriculum_outcome_ids ?? []) {
-      if (!officialOutcomeIds.includes(outcomeId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/curriculum_outcome_ids`, `unknown course outcome ${outcomeId}`));
+    if (mappedTopics.length === 1 && mappedTopics[0] && (mappedTopics[0].title_ru !== unit.title_ru || mappedTopics[0].title_et !== unit.title_et)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, field, 'preserved unit titles must match the verified topic inventory'));
     }
-    if (unit.status === 'represented_by_thematic_plan') {
+    for (const bookId of unit.source_book_ids ?? []) {
+      const book = books.get(bookId);
+      if (!book) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/source_book_ids`, `unknown audited book ${bookId}`));
+      else if (book.programme_type !== 'ordinary' || !book.eligible_for_ordinary_course || book.page_evidence !== 'page_records') {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/source_book_ids`, `book ${bookId} is not eligible ordinary page evidence`));
+      }
+    }
+    for (const mapping of unit.linked_official_outcomes ?? []) {
+      if (!officialOutcomeIds.includes(mapping.outcome_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/linked_official_outcomes`, `unknown course outcome ${mapping.outcome_id}`));
+    }
+    for (const prerequisite of unit.prerequisite_unit_ids ?? []) {
+      const prerequisiteOrder = orderById.get(prerequisite);
+      if (prerequisiteOrder === undefined) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/prerequisite_unit_ids`, `unknown prerequisite unit ${prerequisite}`));
+      else if (prerequisiteOrder >= index) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/prerequisite_unit_ids`, `prerequisite unit ${prerequisite} must occur earlier`));
+    }
+    for (const later of unit.later_reuse_unit_ids ?? []) {
+      const laterOrder = orderById.get(later);
+      if (laterOrder === undefined) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/later_reuse_unit_ids`, `unknown reuse unit ${later}`));
+      else if (laterOrder <= index) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/later_reuse_unit_ids`, `reuse unit ${later} must occur later`));
+    }
+    if (unit.full_thematic_plan_exists) {
       const linked = unitsById.get(unit.thematic_plan_ref);
-      if (!linked) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/thematic_plan_ref`, `unknown unit reference ${unit.thematic_plan_ref}`));
+      if (!linked) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/thematic_plan_ref`, `unknown unit reference ${unit.thematic_plan_ref}`));
       else {
         representedLessons += linked.data.lesson_count ?? 0;
-        if (linked.data.unit_id !== unit.unit_id || linked.data.grade !== course.grade || linked.data.subject !== course.subject) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/thematic_plan_ref`, 'linked thematic plan ID, grade, and subject must match annual unit'));
+        if (linked.data.unit_id !== unit.unit_id || linked.data.grade !== course.grade || linked.data.subject !== course.subject) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/thematic_plan_ref`, 'linked thematic plan ID, grade, and subject must match annual unit'));
       }
-    } else if (unit.thematic_plan_ref !== null) diagnostics.push(makeDiagnostic('error', artifact.file, `/ordered_units/${index}/thematic_plan_ref`, 'topic-inventory-only unit cannot claim a thematic plan'));
+    } else if (unit.thematic_plan_ref !== null) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/thematic_plan_ref`, 'unit without a full thematic plan must use null'));
+    }
   }
   if (course.lesson_estimate?.estimated_planned_lessons !== estimatedLessons) diagnostics.push(makeDiagnostic('error', artifact.file, '/lesson_estimate/estimated_planned_lessons', `expected ordered-unit estimate ${estimatedLessons}`));
   if (course.lesson_estimate?.represented_lessons !== representedLessons) diagnostics.push(makeDiagnostic('error', artifact.file, '/lesson_estimate/represented_lessons', `expected linked lesson count ${representedLessons}`));
+  const budget = course.lesson_budget ?? {};
+  if (budget.unit_estimate_total !== estimatedLessons) diagnostics.push(makeDiagnostic('error', artifact.file, '/lesson_budget/unit_estimate_total', `expected ${estimatedLessons}`));
+  for (const key of Object.keys(allocationTotals)) {
+    if (budget.planned_breakdown?.[key] !== allocationTotals[key]) diagnostics.push(makeDiagnostic('error', artifact.file, `/lesson_budget/planned_breakdown/${key}`, `expected ${allocationTotals[key]}`));
+  }
+  const scenarios = budget.scenarios ?? [];
+  addDuplicateDiagnostics(diagnostics, scenarios.map((scenario) => scenario.scenario_id), { file: artifact.file, field: '/lesson_budget/scenarios', label: 'lesson-budget scenario ID' });
+  const baseline = scenarios.find((scenario) => scenario.scenario_id === budget.recommended_baseline_scenario_id);
+  if (!baseline) diagnostics.push(makeDiagnostic('error', artifact.file, '/lesson_budget/recommended_baseline_scenario_id', 'recommended baseline must reference a scenario'));
+  else if (!baseline.architecture_fits || baseline.shortfall_lessons !== 0) diagnostics.push(makeDiagnostic('error', artifact.file, '/lesson_budget/recommended_baseline_scenario_id', 'recommended baseline must fit the architecture without a shortfall'));
+  for (const [index, scenario] of scenarios.entries()) {
+    const expectedAvailable = scenario.teaching_weeks * scenario.lessons_per_week;
+    if (scenario.available_lessons !== expectedAvailable) diagnostics.push(makeDiagnostic('error', artifact.file, `/lesson_budget/scenarios/${index}/available_lessons`, `expected ${expectedAvailable}`));
+    if (scenario.architecture_requirement_lessons !== estimatedLessons) diagnostics.push(makeDiagnostic('error', artifact.file, `/lesson_budget/scenarios/${index}/architecture_requirement_lessons`, `expected ${estimatedLessons}`));
+    const left = scenario.available_lessons + scenario.shortfall_lessons;
+    const right = estimatedLessons + scenario.reserve_lessons + scenario.school_specific_or_lost_lessons;
+    if (left !== right) diagnostics.push(makeDiagnostic('error', artifact.file, `/lesson_budget/scenarios/${index}`, `budget does not reconcile: ${left} versus ${right}`));
+    if (scenario.architecture_fits !== (scenario.shortfall_lessons === 0)) diagnostics.push(makeDiagnostic('error', artifact.file, `/lesson_budget/scenarios/${index}/architecture_fits`, 'architecture_fits must match whether shortfall is zero'));
+    if (!scenario.architecture_fits) diagnostics.push(makeDiagnostic('warning', artifact.file, `/lesson_budget/scenarios/${index}`, `scenario ${scenario.scenario_id} has a ${scenario.shortfall_lessons}-lesson shortfall and cannot carry the full architecture`));
+  }
+  if (baseline && baseline.reserve_lessons / baseline.available_lessons < 0.1) diagnostics.push(makeDiagnostic('warning', artifact.file, '/lesson_budget/recommended_baseline_scenario_id', 'recommended baseline reserves less than 10% of available lessons'));
+
   addDuplicateDiagnostics(diagnostics, (course.selected_source_books ?? []).map((entry) => entry.book_id), { file: artifact.file, field: '/selected_source_books', label: 'selected book ID' });
   for (const [index, entry] of (course.selected_source_books ?? []).entries()) {
     const book = books.get(entry.book_id);
     if (!book) diagnostics.push(makeDiagnostic('error', artifact.file, `/selected_source_books/${index}/book_id`, `unknown audited book ${entry.book_id}`));
     else {
       if (book.language !== entry.language) diagnostics.push(makeDiagnostic('error', artifact.file, `/selected_source_books/${index}/language`, `expected ${book.language}`));
-      if (book.programme_type !== 'ordinary' || !book.eligible_for_ordinary_course) diagnostics.push(makeDiagnostic('error', artifact.file, `/selected_source_books/${index}/book_id`, 'annual default sources must be eligible ordinary-programme books'));
+      if (book.programme_type !== 'ordinary' || !book.eligible_for_ordinary_course || book.page_evidence !== 'page_records') diagnostics.push(makeDiagnostic('error', artifact.file, `/selected_source_books/${index}/book_id`, 'annual default sources must be eligible ordinary-programme books with page evidence'));
     }
   }
-  const knownUnitIds = new Set(unitIds);
-  for (const field of [
-    'russian_explanation_coverage',
-    'estonian_vocabulary_progression',
-    'estonian_instruction_language_progression',
-    'sentence_and_oral_answer_progression',
-  ]) {
-    const entries = course[field] ?? [];
-    if (!sameSet(entries.map((entry) => entry.unit_id), unitIds)) diagnostics.push(makeDiagnostic('error', artifact.file, `/${field}`, 'annual progression must contain each excerpt unit exactly once'));
-  }
-  const orderById = new Map(units.map((unit, index) => [unit.unit_id, index]));
-  for (const [index, interval] of (course.planned_vocabulary_recycling_intervals ?? []).entries()) {
-    const introduced = orderById.get(interval.introduced_in_unit);
-    const recycled = orderById.get(interval.recycled_in_unit);
-    if (introduced === undefined || recycled === undefined) diagnostics.push(makeDiagnostic('error', artifact.file, `/planned_vocabulary_recycling_intervals/${index}`, 'vocabulary interval references an unknown unit'));
-    else if (recycled <= introduced || interval.interval_units !== recycled - introduced) diagnostics.push(makeDiagnostic('error', artifact.file, `/planned_vocabulary_recycling_intervals/${index}`, 'recycling unit must follow introduction and interval_units must match the order distance'));
-  }
-  for (const field of ['practical_work_calendar', 'revision_calendar', 'subject_assessment_calendar', 'language_assessment_calendar']) {
-    addDuplicateDiagnostics(diagnostics, (course[field] ?? []).map((entry) => entry.calendar_id), { file: artifact.file, field: `/${field}`, label: 'calendar ID' });
-    for (const [index, entry] of (course[field] ?? []).entries()) if (!knownUnitIds.has(entry.unit_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `/${field}/${index}/unit_id`, `unknown unit ${entry.unit_id}`));
+  for (const [index, decision] of (course.topic_architecture_decisions ?? []).entries()) {
+    if (!knownUnitIds.has(decision.new_unit_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `/topic_architecture_decisions/${index}/new_unit_id`, `unknown annual unit ${decision.new_unit_id}`));
+    for (const topicId of decision.old_topic_ids ?? []) if (!topics.has(topicId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/topic_architecture_decisions/${index}/old_topic_ids`, `unknown topic ${topicId}`));
   }
   for (const [index, decision] of (course.deduplication_decisions ?? []).entries()) {
     if (!topics.has(decision.topic_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `/deduplication_decisions/${index}/topic_id`, `unknown topic ${decision.topic_id}`));
   }
+
+  for (const field of ['russian_explanation_coverage', 'estonian_language_progression']) {
+    const entries = language[field] ?? [];
+    if (!sameSet(entries.map((entry) => entry.unit_id), unitIds)) diagnostics.push(makeDiagnostic('error', languageFile, `/${field}`, 'annual progression must contain each annual unit exactly once'));
+  }
+  const selectedById = sourceValidation?.selectedById ?? new Map();
+  for (const [index, coverage] of (language.russian_explanation_coverage ?? []).entries()) {
+    const unit = units.find((candidate) => candidate.unit_id === coverage.unit_id);
+    if (unit && coverage.status !== unit.russian_explanation_status) diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}/status`, `expected ${unit.russian_explanation_status}`));
+    for (const recordId of coverage.available_record_ids ?? []) {
+      const selected = selectedById.get(recordId);
+      if (!selected || selected.unitId !== coverage.unit_id) diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}/available_record_ids`, `unknown selected record ${recordId}`));
+      else if (selected.record.language !== 'ru') diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}/available_record_ids`, `${recordId} is not Russian-language evidence`));
+    }
+    if (coverage.status === 'direct_opiq_ru' && (coverage.available_record_ids ?? []).length === 0) diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}`, 'direct_opiq_ru requires a selected Russian record'));
+    if ((coverage.available_record_ids ?? []).length === 0) diagnostics.push(makeDiagnostic('warning', languageFile, `/russian_explanation_coverage/${index}`, `unit ${coverage.unit_id} has no direct Russian Opiq explanation; ${coverage.status}`));
+  }
+  const progressionByUnit = new Map((language.estonian_language_progression ?? []).map((entry) => [entry.unit_id, entry]));
+  const introducedTerms = new Map();
+  for (const [index, progression] of (language.estonian_language_progression ?? []).entries()) {
+    const newTerms = (progression.new_terms_et ?? []).map(normalize);
+    const recycledTerms = (progression.recycled_terms_et ?? []).map(normalize);
+    for (const term of newTerms) {
+      if (introducedTerms.has(term)) diagnostics.push(makeDiagnostic('error', languageFile, `/estonian_language_progression/${index}/new_terms_et`, `term ${term} is introduced in more than one annual unit`));
+      introducedTerms.set(term, progression.unit_id);
+      if (recycledTerms.includes(term)) diagnostics.push(makeDiagnostic('error', languageFile, `/estonian_language_progression/${index}`, `term cannot be both new and recycled in one unit: ${term}`));
+    }
+    const unit = units.find((candidate) => candidate.unit_id === progression.unit_id);
+    if (unit && newTerms.length > unit.estimated_lessons * 4) diagnostics.push(makeDiagnostic('warning', languageFile, `/estonian_language_progression/${index}/new_terms_et`, `unit ${progression.unit_id} introduces ${newTerms.length} terms across ${unit.estimated_lessons} estimated lessons`));
+  }
+  const intervalKeys = [];
+  for (const [index, interval] of (language.planned_vocabulary_recycling_intervals ?? []).entries()) {
+    const introduced = orderById.get(interval.introduced_in_unit);
+    const recycled = orderById.get(interval.recycled_in_unit);
+    intervalKeys.push(`${normalize(interval.term_et)}|${interval.recycled_in_unit}`);
+    if (introduced === undefined || recycled === undefined) diagnostics.push(makeDiagnostic('error', languageFile, `/planned_vocabulary_recycling_intervals/${index}`, 'vocabulary interval references an unknown unit'));
+    else if (recycled <= introduced || interval.interval_units !== recycled - introduced) diagnostics.push(makeDiagnostic('error', languageFile, `/planned_vocabulary_recycling_intervals/${index}`, 'recycling unit must follow introduction and interval_units must match the order distance'));
+    const introduction = progressionByUnit.get(interval.introduced_in_unit);
+    const recycling = progressionByUnit.get(interval.recycled_in_unit);
+    if (!(introduction?.new_terms_et ?? []).map(normalize).includes(normalize(interval.term_et))) diagnostics.push(makeDiagnostic('error', languageFile, `/planned_vocabulary_recycling_intervals/${index}/term_et`, `term ${interval.term_et} is not introduced in ${interval.introduced_in_unit}`));
+    if (!(recycling?.recycled_terms_et ?? []).map(normalize).includes(normalize(interval.term_et))) diagnostics.push(makeDiagnostic('error', languageFile, `/planned_vocabulary_recycling_intervals/${index}/term_et`, `term ${interval.term_et} is not recycled in ${interval.recycled_in_unit}`));
+  }
+  addDuplicateDiagnostics(diagnostics, intervalKeys, { file: languageFile, field: '/planned_vocabulary_recycling_intervals', label: 'term/recycling-unit interval' });
+  for (const term of ['lahus', 'termomeeter', 'jäätumine', 'aurustumine', 'olekumuutus']) {
+    if (!(language.planned_vocabulary_recycling_intervals ?? []).some((interval) => normalize(interval.term_et) === term)) diagnostics.push(makeDiagnostic('warning', languageFile, '/planned_vocabulary_recycling_intervals', `important water-unit term ${term} has no later thematic-unit recycling plan`));
+  }
+
+  addDuplicateDiagnostics(diagnostics, (calendars.practical_work_calendar ?? []).map((entry) => entry.activity_id), { file: calendarFile, field: '/practical_work_calendar', label: 'practical activity ID' });
+  const practicalUnits = new Set();
+  for (const [index, activity] of (calendars.practical_work_calendar ?? []).entries()) {
+    practicalUnits.add(activity.unit_id);
+    const unit = units.find((candidate) => candidate.unit_id === activity.unit_id);
+    if (!unit) diagnostics.push(makeDiagnostic('error', calendarFile, `/practical_work_calendar/${index}/unit_id`, `unknown unit ${activity.unit_id}`));
+    for (const recordId of activity.selected_opiq_record_ids ?? []) if (!unit?.selected_source_record_ids?.includes(recordId)) diagnostics.push(makeDiagnostic('error', calendarFile, `/practical_work_calendar/${index}/selected_opiq_record_ids`, `record ${recordId} is not selected for ${activity.unit_id}`));
+  }
+  for (const unit of units.filter((candidate) => candidate.mandatory_status === 'curated_core')) {
+    if (!practicalUnits.has(unit.unit_id)) diagnostics.push(makeDiagnostic('warning', calendarFile, '/practical_work_calendar', `mandatory unit ${unit.unit_id} has no planned practical activity`));
+  }
+  addDuplicateDiagnostics(diagnostics, (calendars.revision_calendar ?? []).map((entry) => entry.revision_id), { file: calendarFile, field: '/revision_calendar', label: 'revision ID' });
+  const revisedUnits = new Set();
+  for (const [index, revision] of (calendars.revision_calendar ?? []).entries()) {
+    const afterOrder = orderById.get(revision.after_unit_id);
+    if (afterOrder === undefined) diagnostics.push(makeDiagnostic('error', calendarFile, `/revision_calendar/${index}/after_unit_id`, `unknown unit ${revision.after_unit_id}`));
+    for (const unitId of revision.unit_ids ?? []) {
+      revisedUnits.add(unitId);
+      const unitOrder = orderById.get(unitId);
+      if (unitOrder === undefined) diagnostics.push(makeDiagnostic('error', calendarFile, `/revision_calendar/${index}/unit_ids`, `unknown unit ${unitId}`));
+      else if (afterOrder !== undefined && unitOrder > afterOrder) diagnostics.push(makeDiagnostic('error', calendarFile, `/revision_calendar/${index}/unit_ids`, `revision after ${revision.after_unit_id} cannot cover later unit ${unitId}`));
+    }
+  }
+  for (const unit of units.filter((candidate) => candidate.mandatory_status === 'curated_core')) if (!revisedUnits.has(unit.unit_id)) diagnostics.push(makeDiagnostic('warning', calendarFile, '/revision_calendar', `mandatory unit ${unit.unit_id} has no cumulative revision link`));
+  const assessmentIds = [
+    ...(calendars.subject_assessment_calendar ?? []).map((entry) => entry.assessment_id),
+    ...(calendars.language_assessment_calendar ?? []).map((entry) => entry.assessment_id),
+  ];
+  addDuplicateDiagnostics(diagnostics, assessmentIds, { file: calendarFile, field: '/subject_assessment_calendar', label: 'assessment ID' });
+  for (const [field, allowed] of [
+    ['subject_assessment_calendar', new Set(['subject_understanding', 'practical_skill'])],
+    ['language_assessment_calendar', new Set(['estonian_terminology_recognition', 'supported_estonian_production', 'independent_estonian_production'])],
+  ]) {
+    for (const [index, assessment] of (calendars[field] ?? []).entries()) {
+      if (!knownUnitIds.has(assessment.unit_id)) diagnostics.push(makeDiagnostic('error', calendarFile, `/${field}/${index}/unit_id`, `unknown unit ${assessment.unit_id}`));
+      for (const domain of assessment.domains ?? []) if (!allowed.has(domain)) diagnostics.push(makeDiagnostic('error', calendarFile, `/${field}/${index}/domains`, `${domain} belongs in the other assessment calendar`));
+    }
+  }
+  const summativeOrders = (calendars.subject_assessment_calendar ?? [])
+    .filter((entry) => entry.assessment_mode === 'summative')
+    .map((entry) => orderById.get(entry.unit_id))
+    .filter(Number.isInteger)
+    .sort((left, right) => left - right);
+  for (let index = 2; index < summativeOrders.length; index += 1) {
+    if (summativeOrders[index] - summativeOrders[index - 2] <= 2) {
+      diagnostics.push(makeDiagnostic('warning', calendarFile, '/subject_assessment_calendar', 'three summative subject assessments are clustered within three consecutive units'));
+      break;
+    }
+  }
+  const courseCoverage = new Map((course.outcome_coverage ?? []).map((entry) => [entry.outcome_id, entry]));
+  addDuplicateDiagnostics(diagnostics, [...courseCoverage.keys()], { file: artifact.file, field: '/outcome_coverage', label: 'outcome coverage ID' });
+  if (!sameSet([...courseCoverage.keys()], officialOutcomeIds)) diagnostics.push(makeDiagnostic('error', artifact.file, '/outcome_coverage', 'every referenced official outcome must appear exactly once in annual coverage'));
   for (const [index, coverage] of (course.outcome_coverage ?? []).entries()) {
     if (!officialOutcomeIds.includes(coverage.outcome_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `/outcome_coverage/${index}/outcome_id`, `unknown official outcome ${coverage.outcome_id}`));
-    for (const unitId of coverage.unit_ids ?? []) if (!knownUnitIds.has(unitId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/outcome_coverage/${index}/unit_ids`, `unknown unit ${unitId}`));
-    if (coverage.official_scope.startsWith('school_stage_') && course.completeness?.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'annual excerpt cannot claim complete exact-grade coverage from school-stage evidence'));
+    for (const unitId of coverage.unit_ids ?? []) {
+      const unit = units.find((candidate) => candidate.unit_id === unitId);
+      if (!unit) diagnostics.push(makeDiagnostic('error', artifact.file, `/outcome_coverage/${index}/unit_ids`, `unknown unit ${unitId}`));
+      else if (!(unit.linked_official_outcomes ?? []).some((mapping) => mapping.outcome_id === coverage.outcome_id && mapping.coverage_status === coverage.coverage_status)) diagnostics.push(makeDiagnostic('error', artifact.file, `/outcome_coverage/${index}`, `unit ${unitId} does not declare matching ${coverage.coverage_status} coverage`));
+    }
+    if (coverage.official_scope.startsWith('school_stage_') && course.completeness?.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'school-stage evidence cannot establish official exact-grade completeness'));
+    if (coverage.coverage_status === 'ambiguous') diagnostics.push(makeDiagnostic('warning', artifact.file, `/outcome_coverage/${index}`, `official outcome ${coverage.outcome_id} remains ambiguous`));
   }
-  if (
-    course.completeness?.scope === 'small_annual_course_excerpt'
-    && (course.completeness.declared_complete || course.completeness.status !== 'incomplete')
-  ) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'annual excerpt must remain explicitly incomplete'));
-  if (
-    course.completeness?.declared_complete
-    && (
-      (course.outcome_coverage ?? []).some((coverage) => coverage.coverage_status !== 'verified')
-      || (course.known_gaps ?? []).length > 0
-    )
-  ) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'full annual course cannot declare complete while outcomes are unresolved or known gaps remain'));
+  addDuplicateDiagnostics(diagnostics, (course.teacher_review_decisions ?? []).map((entry) => entry.decision_id), { file: artifact.file, field: '/teacher_review_decisions', label: 'teacher-review decision ID' });
+  const pendingTeacherReviewUnits = new Set();
+  for (const [index, decision] of (course.teacher_review_decisions ?? []).entries()) {
+    for (const unitId of decision.unit_ids ?? []) if (!knownUnitIds.has(unitId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/teacher_review_decisions/${index}/unit_ids`, `unknown unit ${unitId}`));
+    if (decision.status === 'pending' || decision.status === 'blocked') {
+      for (const unitId of decision.unit_ids ?? []) pendingTeacherReviewUnits.add(unitId);
+      diagnostics.push(makeDiagnostic('warning', artifact.file, `/teacher_review_decisions/${index}`, `teacher review ${decision.decision_id} is ${decision.status}: ${decision.reason}`));
+    }
+  }
+  for (const unitId of sourceValidation?.teacherReviewUnitIds ?? []) {
+    if (!pendingTeacherReviewUnits.has(unitId)) diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_review_decisions', `source selection for ${unitId} requires a pending or blocked teacher-review decision`));
+  }
+  const completeness = course.completeness ?? {};
+  const fullyImplementedUnits = units.every((unit) => unit.full_thematic_plan_exists);
+  if (completeness.all_thematic_plans_authored !== fullyImplementedUnits) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness/all_thematic_plans_authored', `expected ${fullyImplementedUnits}`));
+  if (completeness.declared_complete && (
+    !completeness.architecture_complete
+    || !completeness.all_units_sequenced
+    || !completeness.all_sources_selected
+    || !completeness.official_curriculum_coverage_complete
+    || !completeness.all_thematic_plans_authored
+    || !completeness.all_lessons_authored
+    || (course.outcome_coverage ?? []).some((coverage) => coverage.coverage_status !== 'verified')
+    || (course.known_gaps ?? []).length > 0
+  )) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'annual course cannot declare fully authored completion while implementation, coverage, or known gaps remain'));
+  if (completeness.scope === 'complete_annual_architecture' && completeness.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'complete architecture is not the same as a fully authored annual course'));
+
+  for (const [field, expectedType] of [
+    ['source_selection_matrix_ref', sourceMatrixArtifactType],
+    ['implementation_roadmap_ref', roadmapArtifactType],
+    ['language_progression_ref', languageProgressionArtifactType],
+    ['teaching_calendars_ref', teachingCalendarsArtifactType],
+  ]) {
+    const reference = course[field];
+    const component = componentsById.get(reference?.artifact_id);
+    if (!component || component.data.artifact_type !== expectedType) diagnostics.push(makeDiagnostic('error', artifact.file, `/${field}/artifact_id`, `unknown ${expectedType} ${reference?.artifact_id ?? '<missing>'}`));
+    else if (component.file !== reference.path) diagnostics.push(makeDiagnostic('error', artifact.file, `/${field}/path`, `expected ${component.file}`));
+  }
 }
 
 export function validateLessonPlanRepository(context) {
@@ -916,7 +1353,26 @@ export function validateLessonPlanRepository(context) {
   const lessonArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === lessonArtifactType);
   const unitArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === unitArtifactType);
   const courseArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === courseArtifactType);
-  const knownTypes = new Set([profileArtifactType, lessonArtifactType, unitArtifactType, courseArtifactType]);
+  const sourceMatrixArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === sourceMatrixArtifactType);
+  const roadmapArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === roadmapArtifactType);
+  const languageProgressionArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === languageProgressionArtifactType);
+  const teachingCalendarsArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === teachingCalendarsArtifactType);
+  const componentArtifacts = [
+    ...sourceMatrixArtifacts,
+    ...roadmapArtifacts,
+    ...languageProgressionArtifacts,
+    ...teachingCalendarsArtifacts,
+  ];
+  const knownTypes = new Set([
+    profileArtifactType,
+    lessonArtifactType,
+    unitArtifactType,
+    courseArtifactType,
+    sourceMatrixArtifactType,
+    roadmapArtifactType,
+    languageProgressionArtifactType,
+    teachingCalendarsArtifactType,
+  ]);
   for (const artifact of context.artifacts) {
     const type = artifact.data.artifact_type;
     if (!knownTypes.has(type)) diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_type', `unknown plan artifact type ${type ?? '<missing>'}`));
@@ -929,16 +1385,45 @@ export function validateLessonPlanRepository(context) {
   for (const artifact of lessonArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.lesson);
   for (const artifact of unitArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.thematic);
   for (const artifact of courseArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.annual);
-  addDuplicateDiagnostics(diagnostics, [...lessonArtifacts, ...unitArtifacts, ...courseArtifacts].map(artifactId), {
+  for (const artifact of componentArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.annualComponents);
+  addDuplicateDiagnostics(diagnostics, [...lessonArtifacts, ...unitArtifacts, ...courseArtifacts, ...componentArtifacts].map(artifactId), {
     file: 'teaching plans', field: '/', label: 'artifact ID',
   });
   const profiles = new Map((profilesArtifacts[0]?.data.profiles ?? []).map((profile) => [profile.profile_id, profile]));
   for (const artifact of profilesArtifacts) validateProfileArtifact(diagnostics, artifact);
   const lessonsById = new Map(lessonArtifacts.map((artifact) => [artifact.data.lesson_id, artifact]));
   const unitsById = new Map(unitArtifacts.map((artifact) => [artifact.data.unit_id, artifact]));
+  const coursesById = new Map(courseArtifacts.map((artifact) => [artifact.data.course_id, artifact]));
+  const componentsById = new Map(componentArtifacts.map((artifact) => [artifact.data.artifact_id, artifact]));
   for (const artifact of lessonArtifacts) validateLesson(diagnostics, artifact, context, indexes, profiles);
   for (const artifact of unitArtifacts) validateUnit(diagnostics, artifact, context, indexes, lessonsById);
-  for (const artifact of courseArtifacts) validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById);
+  const sourceValidationByCourse = new Map();
+  for (const artifact of sourceMatrixArtifacts) {
+    const course = coursesById.get(artifact.data.course_ref);
+    if (!course) diagnostics.push(makeDiagnostic('error', artifact.file, '/course_ref', `unknown annual course ${artifact.data.course_ref ?? '<missing>'}`));
+    const result = validateSourceSelectionMatrix(diagnostics, artifact, course, context, indexes);
+    if (course) sourceValidationByCourse.set(course.data.course_id, result);
+  }
+  for (const artifact of roadmapArtifacts) {
+    const course = coursesById.get(artifact.data.course_ref);
+    if (!course) diagnostics.push(makeDiagnostic('error', artifact.file, '/course_ref', `unknown annual course ${artifact.data.course_ref ?? '<missing>'}`));
+    validateImplementationRoadmap(diagnostics, artifact, course, context);
+  }
+  for (const artifact of [...languageProgressionArtifacts, ...teachingCalendarsArtifacts]) {
+    const course = coursesById.get(artifact.data.course_ref);
+    if (!course) diagnostics.push(makeDiagnostic('error', artifact.file, '/course_ref', `unknown annual course ${artifact.data.course_ref ?? '<missing>'}`));
+    validateAnnualComponentIdentity(diagnostics, artifact, course, context);
+  }
+  for (const artifact of courseArtifacts) validateAnnualCourse(
+    diagnostics,
+    artifact,
+    context,
+    indexes,
+    unitsById,
+    componentsById,
+    profiles,
+    sourceValidationByCourse.get(artifact.data.course_id),
+  );
   const errors = diagnostics.filter((diagnostic) => diagnostic.severity === 'error').length;
   const warnings = diagnostics.filter((diagnostic) => diagnostic.severity === 'warning').length;
   return {
@@ -948,8 +1433,12 @@ export function validateLessonPlanRepository(context) {
       lessons: lessonArtifacts.length,
       units: unitArtifacts.length,
       annualCourses: courseArtifacts.length,
+      annualComponents: componentArtifacts.length,
+      annualUnits: courseArtifacts.reduce((sum, artifact) => sum + (artifact.data.ordered_units?.length ?? 0), 0),
+      annualSelectedPages: [...sourceValidationByCourse.values()].reduce((sum, result) => sum + result.selectedCount, 0),
       pageReferences: lessonArtifacts.reduce((sum, artifact) => sum + (artifact.data.evidence_linkage?.opiq_records?.length ?? 0), 0)
-        + unitArtifacts.reduce((sum, artifact) => sum + (artifact.data.selected_opiq_sources?.length ?? 0), 0),
+        + unitArtifacts.reduce((sum, artifact) => sum + (artifact.data.selected_opiq_sources?.length ?? 0), 0)
+        + [...sourceValidationByCourse.values()].reduce((sum, result) => sum + result.selectedCount, 0),
       errors,
       warnings,
     },

@@ -1,17 +1,19 @@
 # Annual-course plan checklist
 
-Use `schemas/annual-course.schema.json` as the machine-readable authority. Issue #10’s production file is an excerpt; issue #18 will build the complete grade-5 course.
+Use `schemas/annual-course.schema.json` and `schemas/annual-course-components.schema.json` as the machine-readable authorities. The grade-5 production artifact demonstrates a complete annual architecture with partial thematic implementation; it is not a fully authored annual course.
 
 - Assign a unique course ID, grade/subject, languages, and manifest route.
 - Link verified official maps and record exact-grade versus school-stage scope explicitly.
 - Explain publisher sequence and curated sequence separately.
-- Order only verified topic-inventory IDs. Link a thematic plan only when that artifact exists.
-- Record lesson estimates, audited books, and deduplication decisions.
+- Order every verified topic-inventory ID needed by the architecture and make prerequisites point strictly backward. Link a thematic plan only when that artifact exists.
+- Record per-unit lesson allocations and reconcile every budget scenario, reserve, and school-specific capacity.
+- Put canonical page choices, role decisions, rejected duplicates, and exclusions in the linked source-selection matrix.
 - Plan Russian explanation coverage and Estonian vocabulary, instruction-language, sentence, and oral-answer progression by unit.
-- Give vocabulary a later-unit recycling interval and purpose in `planned_vocabulary_recycling_intervals`; this is separate from within-unit `recycled_in_lessons`.
-- Maintain separate practical, revision, subject-assessment, and language-assessment calendars.
-- Record outcome coverage, known gaps, and provenance.
-- For an excerpt, keep `scope: small_annual_course_excerpt`, `status: incomplete`, `declared_complete: false`, and a real `deferred_to_issue`.
+- Give vocabulary a strictly later-unit recycling interval and purpose in `planned_vocabulary_recycling_intervals`; this is separate from same-lesson `reuse_stage_refs` and within-unit `recycled_in_lessons`.
+- Keep language progression in its linked component and maintain separate practical, revision, subject-assessment, and language-assessment calendars in the teaching-calendars component.
+- Record outcome coverage, teacher-review decisions, known gaps, and provenance.
+- Add a linked implementation roadmap with every annual unit exactly once and no placeholder lesson files.
+- For architecture-only completion, keep `scope: complete_annual_architecture`, `all_thematic_plans_authored: false`, `all_lessons_authored: false`, `declared_complete: false`, and a real `deferred_to_issue`.
 
 Do not turn school-stage evidence, publisher placement, or topic availability into an unsupported exact-grade or full-course claim.
 

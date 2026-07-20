@@ -1,0 +1,166 @@
+schema_version: "1.0"
+artifact_type: annual_implementation_roadmap
+artifact_id: grade-5-science-implementation-roadmap
+course_ref: grade-5-science-annual-architecture
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+phases:
+  - phase_id: existing-production
+    order: 1
+    title: Preserve the validated production unit
+    selection_rule: Keep the four-lesson water unit authoritative while later thematic plans are authored.
+    unit_ids: [grade-5-water-four-lesson-plan]
+  - phase_id: neighbouring-water-units
+    order: 2
+    title: Implement neighbouring water units
+    selection_rule: Build immediate prerequisite and transfer links around the existing water unit first.
+    unit_ids: [grade-5-rivers-lakes, grade-5-water-use-cycle, grade-5-freshwater-ecosystems]
+  - phase_id: strong-bilingual-evidence
+    order: 3
+    title: Implement units with strong bilingual evidence
+    selection_rule: Use units with direct ordinary Russian and Estonian page evidence before author-heavy gaps.
+    unit_ids: [grade-5-air-properties, grade-5-weather-climate, grade-5-baltic-sea]
+  - phase_id: reviewed-russian-bridges
+    order: 4
+    title: Resolve Russian explanation gaps
+    selection_rule: Author teacher-reviewed Russian bridges or full explanations before detailed lesson implementation.
+    unit_ids: [grade-5-landforms-map, grade-5-settlements, grade-5-bog-ecosystem]
+units:
+  - unit_id: grade-5-water-four-lesson-plan
+    implementation_order: 0
+    issue_18_phase: existing-production
+    expected_thematic_plan_path: lesson-plans/grade-5-science/water/thematic-plan.yaml
+    approximate_lesson_count: 4
+    source_readiness: implemented
+    russian_explanation_readiness: implemented
+    estonian_language_readiness: implemented
+    practical_work_readiness: implemented
+    blockers: []
+    dependencies: []
+    implementation_status: validated_production_unit
+  - unit_id: grade-5-water-use-cycle
+    implementation_order: 1
+    issue_18_phase: neighbouring-water-units
+    expected_thematic_plan_path: lesson-plans/grade-5-science/water-use-cycle/thematic-plan.yaml
+    approximate_lesson_count: 6
+    source_readiness: ready
+    russian_explanation_readiness: partial
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers:
+      - A concise Russian bridge for the current water-cycle, pollution, and purification concepts must be reviewed.
+    dependencies: [grade-5-water-four-lesson-plan]
+    implementation_status: planned_next
+  - unit_id: grade-5-rivers-lakes
+    implementation_order: 2
+    issue_18_phase: neighbouring-water-units
+    expected_thematic_plan_path: lesson-plans/grade-5-science/rivers-lakes/thematic-plan.yaml
+    approximate_lesson_count: 6
+    source_readiness: ready
+    russian_explanation_readiness: ready
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers: []
+    dependencies: [grade-5-landforms-map]
+    implementation_status: planned_next
+  - unit_id: grade-5-freshwater-ecosystems
+    implementation_order: 3
+    issue_18_phase: neighbouring-water-units
+    expected_thematic_plan_path: lesson-plans/grade-5-science/freshwater-ecosystems/thematic-plan.yaml
+    approximate_lesson_count: 6
+    source_readiness: ready
+    russian_explanation_readiness: ready
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers: []
+    dependencies: [grade-5-rivers-lakes, grade-5-water-use-cycle]
+    implementation_status: planned_next
+  - unit_id: grade-5-air-properties
+    implementation_order: 4
+    issue_18_phase: strong-bilingual-evidence
+    expected_thematic_plan_path: lesson-plans/grade-5-science/air-properties/thematic-plan.yaml
+    approximate_lesson_count: 5
+    source_readiness: ready
+    russian_explanation_readiness: ready
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers: []
+    dependencies: [grade-5-water-four-lesson-plan]
+    implementation_status: planned_later
+  - unit_id: grade-5-weather-climate
+    implementation_order: 5
+    issue_18_phase: strong-bilingual-evidence
+    expected_thematic_plan_path: lesson-plans/grade-5-science/weather-climate/thematic-plan.yaml
+    approximate_lesson_count: 6
+    source_readiness: ready
+    russian_explanation_readiness: ready
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers: []
+    dependencies: [grade-5-air-properties]
+    implementation_status: planned_later
+  - unit_id: grade-5-baltic-sea
+    implementation_order: 6
+    issue_18_phase: strong-bilingual-evidence
+    expected_thematic_plan_path: lesson-plans/grade-5-science/baltic-sea/thematic-plan.yaml
+    approximate_lesson_count: 6
+    source_readiness: ready
+    russian_explanation_readiness: ready
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers: []
+    dependencies: [grade-5-rivers-lakes, grade-5-water-use-cycle, grade-5-freshwater-ecosystems, grade-5-weather-climate]
+    implementation_status: planned_later
+  - unit_id: grade-5-landforms-map
+    implementation_order: 7
+    issue_18_phase: reviewed-russian-bridges
+    expected_thematic_plan_path: lesson-plans/grade-5-science/landforms-map/thematic-plan.yaml
+    approximate_lesson_count: 5
+    source_readiness: partial
+    russian_explanation_readiness: blocked
+    estonian_language_readiness: ready
+    practical_work_readiness: ready
+    blockers:
+      - A concise Russian explanation of relief representation and map height must be authored and teacher-reviewed.
+    dependencies: []
+    implementation_status: blocked_pending_review
+  - unit_id: grade-5-settlements
+    implementation_order: 8
+    issue_18_phase: reviewed-russian-bridges
+    expected_thematic_plan_path: lesson-plans/grade-5-science/settlements/thematic-plan.yaml
+    approximate_lesson_count: 5
+    source_readiness: partial
+    russian_explanation_readiness: blocked
+    estonian_language_readiness: ready
+    practical_work_readiness: partial
+    blockers:
+      - The complete Russian concept explanation and the local fieldwork scope require teacher review.
+    dependencies: [grade-5-landforms-map, grade-5-water-use-cycle, grade-5-air-properties]
+    implementation_status: blocked_pending_review
+  - unit_id: grade-5-bog-ecosystem
+    implementation_order: 9
+    issue_18_phase: reviewed-russian-bridges
+    expected_thematic_plan_path: lesson-plans/grade-5-science/bog-ecosystem/thematic-plan.yaml
+    approximate_lesson_count: 5
+    source_readiness: partial
+    russian_explanation_readiness: blocked
+    estonian_language_readiness: ready
+    practical_work_readiness: partial
+    blockers:
+      - The complete Russian explanation and scientific limits of the water-retention model require teacher review.
+    dependencies: [grade-5-landforms-map, grade-5-water-use-cycle, grade-5-freshwater-ecosystems]
+    implementation_status: blocked_pending_review
+provenance:
+  category: author_created_bridge
+  source_reference: issue 18 grade-5-science implementation roadmap
+  notes: >-
+    The roadmap prioritises the existing unit, neighbouring water work, strong bilingual evidence,
+    and finally the units whose Russian explanations require explicit teacher review.

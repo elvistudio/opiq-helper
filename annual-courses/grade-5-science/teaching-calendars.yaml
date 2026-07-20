@@ -1,0 +1,236 @@
+schema_version: "1.0"
+artifact_type: annual_teaching_calendars
+artifact_id: grade-5-science-teaching-calendars
+course_ref: grade-5-science-annual-architecture
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+practical_work_calendar:
+  - activity_id: practical-landform-model
+    unit_id: grade-5-landforms-map
+    title_ru: Модель рельефа и контур высоты
+    title_et: Pinnavormi mudel ja kõrgusjoon
+    activity_type: model
+    selected_opiq_record_ids: [landforms-map-et-koolibri]
+    expected_observations_or_data_ru: Ученики связывают форму модели с её плоским условным изображением и обозначают высокую и низкую часть.
+    equipment: [пластилин или смятая бумага, поднос, карточки высоты, карандаш]
+    safety_considerations: [Не бросать материалы и держать проходы свободными., После работы вымыть руки при использовании пластилина.]
+    teacher_controlled_steps: [Учитель показывает безопасную сборку модели и разрезы по высоте., Учитель не требует точной топографической съёмки.]
+    estimated_minutes: 25
+    subject_skill: modelling and map interpretation
+    estonian_language_function: describe
+    assessment_role: formative_subject
+    provenance: {category: author_created_bridge, source_reference: grade-5-landforms-map practical architecture, notes: Short model description derived from the selected canonical map page without copying a textbook procedure.}
+    implementation_status: needs_teacher_review
+  - activity_id: practical-river-route-map
+    unit_id: grade-5-rivers-lakes
+    title_ru: Путь реки на карте
+    title_et: Jõe teekond kaardil
+    activity_type: table_or_graph_interpretation
+    selected_opiq_record_ids: [rivers-et-avita-2024, lakes-et-koolibri]
+    expected_observations_or_data_ru: Ученики отмечают исток, направление течения, устье и ближайшее озеро или море в короткой таблице.
+    equipment: [карта Эстонии, цветные карандаши, таблица наблюдения]
+    safety_considerations: [Работа выполняется за столом без перемещения тяжёлых настенных карт.]
+    teacher_controlled_steps: [Учитель заранее выбирает одну ясно читаемую реку и проверяет обозначения карты.]
+    estimated_minutes: 25
+    subject_skill: map reading and data recording
+    estonian_language_function: sequence
+    assessment_role: practical_skill
+    provenance: {category: author_created_worksheet, source_reference: grade-5-rivers-lakes map task, notes: Author-created map table cites selected canonical river and lake sources.}
+    implementation_status: architecture_only
+  - activity_id: practical-water-state-observation
+    unit_id: grade-5-water-four-lesson-plan
+    title_ru: Наблюдение плавления и конденсации
+    title_et: Sulamise ja veeldumise vaatlus
+    activity_type: experiment
+    selected_opiq_record_ids: [water-changes-et-koolibri-practical]
+    expected_observations_or_data_ru: Ученики фиксируют уменьшение льда и появление капель на холодной поверхности и дают раздельные выводы.
+    equipment: [лёд, прозрачные стаканы, холодная крышка, термометр, таблица наблюдения]
+    safety_considerations: [Тёплую воду и стеклянные предметы контролирует учитель., Разлитую воду вытирают сразу.]
+    teacher_controlled_steps: [Учитель выполняет этап с тёплой водой., Учитель проверяет безопасное использование термометра.]
+    estimated_minutes: 24
+    subject_skill: safe observation and measurement
+    estonian_language_function: conclude
+    assessment_role: practical_skill
+    provenance: {category: author_created_bridge, source_reference: lesson-plans/grade-5-science/water/lesson-03.yaml, notes: Existing validated safe practical work is referenced without duplicating its full procedure.}
+    implementation_status: validated_production_activity
+  - activity_id: practical-water-filter-model
+    unit_id: grade-5-water-use-cycle
+    title_ru: Модель фильтрации загрязнённой воды
+    title_et: Reostunud vee filtreerimise mudel
+    activity_type: experiment
+    selected_opiq_record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri]
+    expected_observations_or_data_ru: Ученики сравнивают вид модельной воды до и после фильтра и отмечают, что прозрачность не доказывает пригодность для питья.
+    equipment: [вода с землёй, прозрачные ёмкости, воронка, бумажный фильтр, поднос]
+    safety_considerations: [Модельную воду нельзя пить или пробовать., Руки моют после работы; пролитую воду вытирают сразу.]
+    teacher_controlled_steps: [Учитель готовит только безопасную смесь воды и земли., Учитель явно запрещает вывод о питьевой безопасности.]
+    estimated_minutes: 30
+    subject_skill: controlled comparison and evidence limits
+    estonian_language_function: conclude
+    assessment_role: practical_skill
+    provenance: {category: author_created_bridge, source_reference: grade-5-water-use-cycle filtration architecture, notes: Concise safe model linked to canonical pollution and cycle evidence; no textbook procedure is copied.}
+    implementation_status: architecture_only
+  - activity_id: practical-freshwater-food-web
+    unit_id: grade-5-freshwater-ecosystems
+    title_ru: Построение пищевой сети водоёма
+    title_et: Veekogu toiduvõrgu koostamine
+    activity_type: classification
+    selected_opiq_record_ids: [freshwater-community-et-avita-2024, food-chains-et-koolibri]
+    expected_observations_or_data_ru: Ученики классифицируют организмы по роли и соединяют несколько корректно направленных пищевых связей.
+    equipment: [карточки организмов, стрелки, таблица ролей]
+    safety_considerations: [Используются изображения; живые организмы не собираются и не тревожатся.]
+    teacher_controlled_steps: [Учитель проверяет направление стрелок и научные названия до раздачи карточек.]
+    estimated_minutes: 25
+    subject_skill: classification and food-web modelling
+    estonian_language_function: classify
+    assessment_role: practical_skill
+    provenance: {category: author_created_worksheet, source_reference: grade-5-freshwater-ecosystems card model, notes: Author-created cards summarise selected sources without reproducing textbook text.}
+    implementation_status: architecture_only
+  - activity_id: practical-air-space-model
+    unit_id: grade-5-air-properties
+    title_ru: Воздух занимает место
+    title_et: Õhk võtab ruumi
+    activity_type: experiment
+    selected_opiq_record_ids: [air-composition-et-avita-2024]
+    expected_observations_or_data_ru: Ученики наблюдают сопротивление запертого воздуха в шприце без иглы и описывают, что воздух занимает место.
+    equipment: [пластиковые шприцы без игл, карточка наблюдения]
+    safety_considerations: [Используются только шприцы без игл., Шприц не направляют на лицо и не разбирают.]
+    teacher_controlled_steps: [Учитель проверяет отсутствие игл и ограничивает силу нажатия.]
+    estimated_minutes: 20
+    subject_skill: observation and evidence-based description
+    estonian_language_function: describe
+    assessment_role: formative_subject
+    provenance: {category: author_created_bridge, source_reference: grade-5-air-properties air-space model, notes: Safe author-created demonstration linked to the canonical air-composition page.}
+    implementation_status: architecture_only
+  - activity_id: practical-weather-log
+    unit_id: grade-5-weather-climate
+    title_ru: Краткий журнал погоды
+    title_et: Lühike ilmapäevik
+    activity_type: measurement
+    selected_opiq_record_ids: [weather-et-avita-2024]
+    expected_observations_or_data_ru: Ученики записывают температуру, облачность, осадки и направление ветра в одинаковом формате несколько раз.
+    equipment: [наружный термометр, безопасный указатель ветра, таблица погоды, часы]
+    safety_considerations: [Наблюдение проводится из безопасного места по школьным правилам., Термометр устанавливает и проверяет учитель.]
+    teacher_controlled_steps: [Учитель выбирает место и время измерения., Учитель моделирует одну строку таблицы до самостоятельной записи.]
+    estimated_minutes: 15
+    subject_skill: repeated measurement and data reporting
+    estonian_language_function: report
+    assessment_role: practical_skill
+    provenance: {category: author_created_worksheet, source_reference: grade-5-weather-climate observation log, notes: Repeated table is author-created and linked to selected canonical weather evidence.}
+    implementation_status: architecture_only
+  - activity_id: practical-baltic-salinity-model
+    unit_id: grade-5-baltic-sea
+    title_ru: Сравнение модельной пресной и солоноватой воды
+    title_et: Magevee ja riimvee mudeli võrdlus
+    activity_type: measurement
+    selected_opiq_record_ids: [baltic-sea-et-avita-2024]
+    expected_observations_or_data_ru: Ученики сравнивают две заранее подготовленные безопасные модели по подписи и количеству соли, не пробуя растворы.
+    equipment: [две подписанные ёмкости, вода, отмеренная поваренная соль, мерная ложка]
+    safety_considerations: [Растворы не пробуют и не пьют., Соль и воду готовит учитель; разливы убираются сразу.]
+    teacher_controlled_steps: [Учитель заранее готовит и подписывает модели., Учитель подчёркивает, что модель не воспроизводит всю морскую систему.]
+    estimated_minutes: 20
+    subject_skill: model comparison and measurement interpretation
+    estonian_language_function: compare
+    assessment_role: formative_subject
+    provenance: {category: author_created_bridge, source_reference: grade-5-baltic-sea salinity model, notes: Concise model supports the selected Baltic source without claiming laboratory salinity analysis.}
+    implementation_status: architecture_only
+  - activity_id: practical-settlement-environment-audit
+    unit_id: grade-5-settlements
+    title_ru: Аудит среды возле школы
+    title_et: Kooliümbruse keskkonna vaatlus
+    activity_type: fieldwork
+    selected_opiq_record_ids: [settlements-et-koolibri]
+    expected_observations_or_data_ru: Ученики отмечают воду, зелёные зоны, шум, отходы и безопасные маршруты без оценки частных лиц.
+    equipment: [план школьной территории, чек-лист, планшет или твёрдая папка]
+    safety_considerations: [Маршрут и границы наблюдения заранее утверждает учитель., Группа соблюдает правила движения и не фотографирует людей без разрешения.]
+    teacher_controlled_steps: [Учитель проводит инструктаж и ведёт группу., При плохой погоде используется виртуальное наблюдение по школьному плану.]
+    estimated_minutes: 35
+    subject_skill: local environmental observation
+    estonian_language_function: report
+    assessment_role: practical_skill
+    provenance: {category: author_created_worksheet, source_reference: grade-5-settlements local audit, notes: Author-created field checklist bridges the selected Estonian source and full Russian explanation.}
+    implementation_status: needs_teacher_review
+  - activity_id: practical-bog-water-model
+    unit_id: grade-5-bog-ecosystem
+    title_ru: Модель удержания воды болотным субстратом
+    title_et: Soo veesidumise mudel
+    activity_type: model
+    selected_opiq_record_ids: [bog-conditions-et-koolibri]
+    expected_observations_or_data_ru: Ученики сравнивают количество удержанной воды в безопасных модельных материалах и обсуждают пределы модели.
+    equipment: [губка, песок в закрытом контейнере, мерные стаканы, вода, поднос]
+    safety_considerations: [Природный торф и живой мох не собираются., Воду не пьют; разливы вытирают сразу.]
+    teacher_controlled_steps: [Учитель готовит одинаковые объёмы материалов и воды., Учитель объясняет, что губка не является болотом, а лишь показывает одно свойство.]
+    estimated_minutes: 25
+    subject_skill: model comparison and limitation
+    estonian_language_function: conclude
+    assessment_role: formative_subject
+    provenance: {category: author_created_bridge, source_reference: grade-5-bog-ecosystem water-retention model, notes: Safe model is author-created and explicitly linked to canonical bog-condition evidence.}
+    implementation_status: needs_teacher_review
+revision_calendar:
+  - revision_id: revision-water-foundations
+    after_unit_id: grade-5-water-four-lesson-plan
+    unit_ids: [grade-5-landforms-map, grade-5-rivers-lakes, grade-5-water-four-lesson-plan]
+    approximate_timing: closing lesson of unit 3
+    subject_focus_ru: Связать карту водоёмов со свойствами, состояниями и наблюдаемыми изменениями воды.
+    estonian_focus_et: kaart, jõgi, järv, vesi, aine, olekumuutus
+    evidence: Three short stations produce separate subject and Estonian-language evidence.
+    provenance: {category: author_created_assessment, source_reference: grade-5-water-04-changes-review plus annual bridge, notes: Existing water revision is extended only as an annual architecture reference.}
+    implementation_status: validated_production_revision
+  - revision_id: revision-water-ecosystems
+    after_unit_id: grade-5-freshwater-ecosystems
+    unit_ids: [grade-5-water-use-cycle, grade-5-freshwater-ecosystems]
+    approximate_timing: closing lesson of unit 5
+    subject_focus_ru: Повторить круговорот, защиту воды, условия сообщества и пищевые связи.
+    estonian_focus_et: veeringe, reostus, elukooslus, toiduahel, toiduvõrk
+    evidence: Pupils complete one concept map in Russian and selected labels in Estonian.
+    provenance: {category: author_created_assessment, source_reference: grade-5 water and freshwater cumulative revision, notes: Planned cumulative revision; detailed worksheet is deferred.}
+    implementation_status: architecture_only
+  - revision_id: revision-air-weather
+    after_unit_id: grade-5-weather-climate
+    unit_ids: [grade-5-air-properties, grade-5-weather-climate]
+    approximate_timing: closing lesson of unit 7
+    subject_focus_ru: Связать свойства воздуха с измеряемыми элементами погоды и различием погоды и климата.
+    estonian_focus_et: õhk, temperatuur, termomeeter, ilm, kliima, tuul, sademed
+    evidence: A weather-data row and one Russian causal explanation show separate domains.
+    provenance: {category: author_created_assessment, source_reference: grade-5 air and weather cumulative revision, notes: Planned revision architecture; full tasks are deferred.}
+    implementation_status: architecture_only
+  - revision_id: revision-environments-final
+    after_unit_id: grade-5-bog-ecosystem
+    unit_ids: [grade-5-baltic-sea, grade-5-settlements, grade-5-bog-ecosystem]
+    approximate_timing: closing lesson of unit 10
+    subject_focus_ru: Сравнить морскую, городскую и болотную среду, влияние человека и способы охраны.
+    estonian_focus_et: Läänemeri, asula, soo, elukooslus, reostus, kaart
+    evidence: Pupils classify evidence and give a full Russian comparison plus one short Estonian conclusion.
+    provenance: {category: author_created_assessment, source_reference: grade-5 final environment revision architecture, notes: Final cumulative structure is planned; no complete test paper is created.}
+    implementation_status: architecture_only
+subject_assessment_calendar:
+  - {assessment_id: subject-landforms-map-check, unit_id: grade-5-landforms-map, approximate_timing: "end of unit 1", domains: [subject_understanding, practical_skill], evidence: "Correct relief interpretation and map location with Russian explanation.", purpose: "Identify map misconceptions before river work.", source_or_author_artifact: "author map-model checklist", assessment_mode: formative, expected_follow_up: "Reteach height and symbol reading where evidence is weak.", provenance: {category: author_created_assessment, source_reference: "grade-5-landforms-map assessment architecture", notes: "Checklist to be authored with the thematic plan."}, implementation_status: architecture_only}
+  - {assessment_id: subject-rivers-map-check, unit_id: grade-5-rivers-lakes, approximate_timing: "end of unit 2", domains: [subject_understanding, practical_skill], evidence: "River route and lake location are correct and explained in Russian.", purpose: "Verify spatial and water-body prerequisites.", source_or_author_artifact: "author river-map checklist", assessment_mode: formative, expected_follow_up: "Provide a reduced map and repeat the route model if needed.", provenance: {category: author_created_assessment, source_reference: "grade-5-rivers-lakes assessment architecture", notes: "Checklist is planned rather than fully authored."}, implementation_status: architecture_only}
+  - {assessment_id: subject-water-unit-check, unit_id: grade-5-water-four-lesson-plan, approximate_timing: "lesson 4 of unit 3", domains: [subject_understanding, practical_skill], evidence: "Russian answers distinguish properties, states, and four changes using observation data.", purpose: "Summarise the existing validated production unit.", source_or_author_artifact: "lesson-plans/grade-5-science/water/lesson-04.yaml", assessment_mode: summative, expected_follow_up: "Reteach the specific process or evidence link without lowering the subject goal.", provenance: {category: author_created_assessment, source_reference: grade-5-water-04-changes-review, notes: "Existing production assessment remains the authoritative detailed artifact."}, implementation_status: validated_production_assessment}
+  - {assessment_id: subject-water-use-check, unit_id: grade-5-water-use-cycle, approximate_timing: "end of unit 4", domains: [subject_understanding, practical_skill], evidence: "Russian cycle explanation and safe purification-model conclusion distinguish cleaning from drinking safety.", purpose: "Check application of water concepts to systems and protection.", source_or_author_artifact: "author cycle-and-filter rubric", assessment_mode: formative, expected_follow_up: "Revisit model limits and groundwater protection using a visual.", provenance: {category: author_created_assessment, source_reference: "grade-5-water-use-cycle assessment architecture", notes: "Rubric is deferred to the thematic-plan PR."}, implementation_status: architecture_only}
+  - {assessment_id: subject-freshwater-check, unit_id: grade-5-freshwater-ecosystems, approximate_timing: "end of unit 5", domains: [subject_understanding, practical_skill], evidence: "Correct food web and full Russian explanation of producer, consumer, and decomposer roles.", purpose: "Verify ecosystem reasoning before Baltic comparison.", source_or_author_artifact: "author freshwater food-web rubric", assessment_mode: summative, expected_follow_up: "Rebuild one chain with arrows and explain the weak link in Russian.", provenance: {category: author_created_assessment, source_reference: "grade-5-freshwater-ecosystems assessment architecture", notes: "Detailed rubric remains unimplemented."}, implementation_status: architecture_only}
+  - {assessment_id: subject-air-check, unit_id: grade-5-air-properties, approximate_timing: "end of unit 6", domains: [subject_understanding, practical_skill], evidence: "Russian explanation uses the air model and distinguishes composition, property, and pollution.", purpose: "Confirm prerequisites for weather.", source_or_author_artifact: "author air evidence checklist", assessment_mode: formative, expected_follow_up: "Repeat the model or composition diagram before weather measurements.", provenance: {category: author_created_assessment, source_reference: "grade-5-air-properties assessment architecture", notes: "Detailed prompts remain deferred."}, implementation_status: architecture_only}
+  - {assessment_id: subject-weather-check, unit_id: grade-5-weather-climate, approximate_timing: "end of unit 7", domains: [subject_understanding, practical_skill], evidence: "Accurate weather table and Russian comparison of weather and climate.", purpose: "Assess measurement, data reporting, and conceptual distinction.", source_or_author_artifact: "author weather-log rubric", assessment_mode: summative, expected_follow_up: "Repeat one measurement routine and compare two sample days.", provenance: {category: author_created_assessment, source_reference: "grade-5-weather-climate assessment architecture", notes: "Rubric and sample data are deferred."}, implementation_status: architecture_only}
+  - {assessment_id: subject-baltic-check, unit_id: grade-5-baltic-sea, approximate_timing: "end of unit 8", domains: [subject_understanding, practical_skill], evidence: "Russian explanation connects location, low salinity, ecosystem, weather influence, and protection.", purpose: "Check synthesis across earlier map, water, ecosystem, and weather units.", source_or_author_artifact: "author Baltic synthesis rubric", assessment_mode: formative, expected_follow_up: "Reopen the prerequisite diagram or map for any missing connection.", provenance: {category: author_created_assessment, source_reference: "grade-5-baltic-sea assessment architecture", notes: "Full assessment is deferred."}, implementation_status: architecture_only}
+  - {assessment_id: subject-settlement-check, unit_id: grade-5-settlements, approximate_timing: "end of unit 9", domains: [subject_understanding, practical_skill], evidence: "Local evidence is categorised and an improvement proposal is justified in Russian.", purpose: "Assess application of environment criteria without grading Estonian fluency as subject mastery.", source_or_author_artifact: "author settlement-audit rubric", assessment_mode: formative, expected_follow_up: "Provide missing Russian concept explanation or repeat one observation category.", provenance: {category: author_created_assessment, source_reference: "grade-5-settlements assessment architecture", notes: "Requires teacher review with the Russian explanation."}, implementation_status: architecture_only}
+  - {assessment_id: subject-bog-check, unit_id: grade-5-bog-ecosystem, approximate_timing: "end of unit 10", domains: [subject_understanding, practical_skill], evidence: "Russian explanation connects formation, water conditions, organisms, food links, use, and protection.", purpose: "Summarise the final ecosystem synthesis.", source_or_author_artifact: "author bog synthesis rubric", assessment_mode: summative, expected_follow_up: "Revisit the model limitation or ecosystem diagram based on the missing evidence.", provenance: {category: author_created_assessment, source_reference: "grade-5-bog-ecosystem assessment architecture", notes: "Full rubric is deferred and requires Russian-source teacher review."}, implementation_status: architecture_only}
+language_assessment_calendar:
+  - {assessment_id: language-map-water-recognition, unit_id: grade-5-rivers-lakes, approximate_timing: "end of unit 2", domains: [estonian_terminology_recognition, supported_estonian_production], evidence: "Recognises map and water-body terms and completes one labelled sentence frame.", purpose: "Check the recognition-to-labelling transition separately from subject assessment.", source_or_author_artifact: "author bilingual map card", assessment_mode: formative, expected_follow_up: "Reuse the word bank in the water unit if recognition is weak.", provenance: {category: author_created_assessment, source_reference: "grade-5-rivers-lakes language assessment", notes: "Short bilingual card remains to be authored."}, implementation_status: architecture_only}
+  - {assessment_id: language-water-production, unit_id: grade-5-water-four-lesson-plan, approximate_timing: "lesson 4 of unit 3", domains: [estonian_terminology_recognition, supported_estonian_production, independent_estonian_production], evidence: "Terms are recognised and one supported plus one short independent Estonian answer is produced.", purpose: "Preserve the existing separate language evidence.", source_or_author_artifact: "lesson-plans/grade-5-science/water/lesson-04.yaml", assessment_mode: formative, expected_follow_up: "Keep the full Russian subject result and adjust only the Estonian scaffold.", provenance: {category: author_created_assessment, source_reference: grade-5-water-04-changes-review, notes: "Existing production language assessment remains authoritative."}, implementation_status: validated_production_assessment}
+  - {assessment_id: language-ecosystem-classification, unit_id: grade-5-freshwater-ecosystems, approximate_timing: "end of unit 5", domains: [estonian_terminology_recognition, supported_estonian_production], evidence: "Correctly labels three organism roles and completes one food-chain frame.", purpose: "Check classification language separately from ecosystem reasoning.", source_or_author_artifact: "author ecosystem language card", assessment_mode: formative, expected_follow_up: "Rehearse with organism cards and a reduced word bank.", provenance: {category: author_created_assessment, source_reference: "grade-5-freshwater-ecosystems language assessment", notes: "Short language card is deferred."}, implementation_status: architecture_only}
+  - {assessment_id: language-weather-report, unit_id: grade-5-weather-climate, approximate_timing: "end of unit 7", domains: [estonian_terminology_recognition, supported_estonian_production, independent_estonian_production], evidence: "Reads familiar instructions and reports one or two measured facts in Estonian.", purpose: "Check progression from labels to a short data report.", source_or_author_artifact: "author weather oral rubric", assessment_mode: formative, expected_follow_up: "Return to the repeated weather frame without changing subject assessment.", provenance: {category: author_created_assessment, source_reference: "grade-5-weather-climate language assessment", notes: "Oral rubric is deferred."}, implementation_status: architecture_only}
+  - {assessment_id: language-settlement-proposal, unit_id: grade-5-settlements, approximate_timing: "end of unit 9", domains: [estonian_terminology_recognition, supported_estonian_production], evidence: "Uses a word bank to name one condition and complete one improvement proposal frame.", purpose: "Keep Estonian demand short while Russian carries the full justification.", source_or_author_artifact: "author settlement proposal frame", assessment_mode: formative, expected_follow_up: "Reduce choice or rehearse with a partner if needed.", provenance: {category: author_created_assessment, source_reference: "grade-5-settlements language assessment", notes: "Requires coordination with the future Russian explanation."}, implementation_status: architecture_only}
+  - {assessment_id: language-final-conclusion, unit_id: grade-5-bog-ecosystem, approximate_timing: "end of unit 10", domains: [estonian_terminology_recognition, supported_estonian_production, independent_estonian_production], evidence: "Recognises bog terms and gives one short evidence-based conclusion in Estonian.", purpose: "Check the annual progression to a short conclusion without replacing Russian scientific reasoning.", source_or_author_artifact: "author bog conclusion rubric", assessment_mode: formative, expected_follow_up: "Restore the sentence frame or visual support if independent output is not yet stable.", provenance: {category: author_created_assessment, source_reference: "grade-5-bog-ecosystem language assessment", notes: "Full rubric is deferred and needs teacher review."}, implementation_status: architecture_only}
+provenance:
+  category: author_created_bridge
+  source_reference: issue 18 grade-5-science annual teaching calendars
+  notes: >-
+    Practical work, cumulative revision, subject assessment, and Estonian-language
+    assessment remain separate linked planning calendars.

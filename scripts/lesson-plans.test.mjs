@@ -38,6 +38,42 @@ function annual(repository) {
   return found.data;
 }
 
+function sourceMatrix(repository) {
+  const found = artifacts(repository, 'annual_source_selection_matrix')[0];
+  assert.ok(found, 'missing annual source-selection matrix');
+  return found.data;
+}
+
+function roadmap(repository) {
+  const found = artifacts(repository, 'annual_implementation_roadmap')[0];
+  assert.ok(found, 'missing annual implementation roadmap');
+  return found.data;
+}
+
+function annualLanguage(repository) {
+  const found = artifacts(repository, 'annual_language_progression')[0];
+  assert.ok(found, 'missing annual language progression');
+  return found.data;
+}
+
+function annualCalendars(repository) {
+  const found = artifacts(repository, 'annual_teaching_calendars')[0];
+  assert.ok(found, 'missing annual teaching calendars');
+  return found.data;
+}
+
+function annualUnit(repository, unitId) {
+  const found = annual(repository).ordered_units.find((unit) => unit.unit_id === unitId);
+  assert.ok(found, `missing annual unit ${unitId}`);
+  return found;
+}
+
+function sourceUnit(repository, unitId) {
+  const found = sourceMatrix(repository).units.find((unit) => unit.unit_id === unitId);
+  assert.ok(found, `missing source-matrix unit ${unitId}`);
+  return found;
+}
+
 function profiles(repository) {
   const found = artifacts(repository, 'learner_language_profiles')[0];
   assert.ok(found, 'missing language profiles');
@@ -74,18 +110,22 @@ function assertWarnsWithoutErrors(repository, pattern) {
   assert.match(diagnosticText(foundWarnings), pattern);
 }
 
-test('valid complete golden lesson and production repository pass with documented recycling warnings', () => {
+test('production repository passes with documented architecture and pedagogical warnings', () => {
   const result = validation(cloneRepository());
   const foundErrors = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'error');
   const foundWarnings = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'warning');
   assert.deepEqual(foundErrors, [], diagnosticText(foundErrors));
-  assert.equal(foundWarnings.length, 5, diagnosticText(foundWarnings));
+  assert.equal(foundWarnings.length, 12, diagnosticText(foundWarnings));
   for (const term of ['lahus', 'termomeeter', 'jäätumine', 'aurustumine', 'olekumuutus']) {
     assert.match(diagnosticText(foundWarnings), new RegExp(`term ${term} .* not recycled in a later lesson`, 'u'));
   }
   assert.equal(result.summary.lessons, 4);
-  assert.equal(result.summary.pageReferences, 19);
-  assert.equal(result.summary.warnings, 5);
+  assert.equal(result.summary.annualCourses, 1);
+  assert.equal(result.summary.annualComponents, 4);
+  assert.equal(result.summary.annualUnits, 10);
+  assert.equal(result.summary.annualSelectedPages, 32);
+  assert.equal(result.summary.pageReferences, 51);
+  assert.equal(result.summary.warnings, 12);
 });
 
 test('valid four-lesson thematic plan links order, count, duration, and glossary', () => {
@@ -97,12 +137,81 @@ test('valid four-lesson thematic plan links order, count, duration, and glossary
   assert.deepEqual(errors(repository), []);
 });
 
-test('valid annual excerpt is explicitly incomplete and links the water unit', () => {
+test('complete annual architecture remains partially implemented and links the water production unit', () => {
   const repository = cloneRepository();
   const course = annual(repository);
   assert.equal(course.completeness.declared_complete, false);
-  assert.equal(course.completeness.scope, 'small_annual_course_excerpt');
+  assert.equal(course.completeness.scope, 'complete_annual_architecture');
+  assert.equal(course.completeness.architecture_complete, true);
+  assert.equal(course.completeness.all_thematic_plans_authored, false);
+  assert.equal(course.ordered_units.length, 10);
   assert.equal(course.ordered_units.filter((unit) => unit.thematic_plan_ref).length, 1);
+  assert.equal(annualUnit(repository, 'grade-5-water-four-lesson-plan').implementation_status, 'validated_production_unit');
+  assert.deepEqual(errors(repository), []);
+});
+
+test('all annual units map to the ten verified topic groups exactly once', () => {
+  const repository = cloneRepository();
+  const topicIds = annual(repository).ordered_units.flatMap((unit) => unit.topic_inventory_refs);
+  assert.equal(new Set(topicIds).size, 10);
+  assert.equal(topicIds.length, 10);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('multiple audited books contribute distinct annual source roles', () => {
+  const repository = cloneRepository();
+  const riverSources = sourceUnit(repository, 'grade-5-rivers-lakes').selected_sources;
+  const topicInventory = repository.curriculum.artifacts
+    .find((artifact) => artifact.data.artifact_type === 'topic_inventory').data;
+  const recordsById = new Map(topicInventory.topics.flatMap((topic) => [
+    ...topic.selected_records,
+    ...topic.alternative_records,
+    ...topic.rejected_records,
+  ]).map((record) => [record.record_id, record]));
+  assert.ok(new Set(riverSources.map((source) => recordsById.get(source.record_id).book_id)).size >= 3);
+  assert.ok(riverSources.some((source) => source.instructional_roles.includes('core_explanation_ru')));
+  assert.ok(riverSources.some((source) => source.instructional_roles.includes('terminology_et')));
+  assert.ok(riverSources.some((source) => source.instructional_roles.includes('data_interpretation')));
+  assert.deepEqual(errors(repository), []);
+});
+
+test('annual Russian coverage supports both direct pages and explicit author bridges', () => {
+  const repository = cloneRepository();
+  const coverage = new Map(annualLanguage(repository).russian_explanation_coverage.map((entry) => [entry.unit_id, entry]));
+  assert.equal(coverage.get('grade-5-rivers-lakes').status, 'direct_opiq_ru');
+  assert.ok(coverage.get('grade-5-rivers-lakes').available_record_ids.length > 0);
+  assert.equal(coverage.get('grade-5-landforms-map').status, 'author_bridge_required');
+  assert.deepEqual(coverage.get('grade-5-landforms-map').available_record_ids, []);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('annual cross-unit vocabulary recycling follows later units', () => {
+  const repository = cloneRepository();
+  const intervals = annualLanguage(repository).planned_vocabulary_recycling_intervals;
+  for (const term of ['lahus', 'termomeeter', 'jäätumine', 'aurustumine', 'olekumuutus']) {
+    assert.ok(intervals.some((interval) => interval.term_et === term), `missing interval for ${term}`);
+  }
+  assert.deepEqual(errors(repository), []);
+});
+
+test('annual lesson-budget baseline reconciles with explicit reserve', () => {
+  const repository = cloneRepository();
+  const budget = annual(repository).lesson_budget;
+  const baselineScenario = budget.scenarios.find((scenario) => scenario.scenario_id === budget.recommended_baseline_scenario_id);
+  assert.equal(budget.unit_estimate_total, 54);
+  assert.equal(baselineScenario.available_lessons, 70);
+  assert.equal(baselineScenario.reserve_lessons, 8);
+  assert.equal(baselineScenario.school_specific_or_lost_lessons, 8);
+  assert.equal(baselineScenario.architecture_fits, true);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('official annual evidence remains school-stage scope rather than exact grade 5', () => {
+  const repository = cloneRepository();
+  for (const reference of annual(repository).official_curriculum_references) {
+    assert.equal(reference.official_scope, 'school_stage_2');
+    assert.equal(reference.exact_grade_claimed, false);
+  }
   assert.deepEqual(errors(repository), []);
 });
 
@@ -321,7 +430,7 @@ test('unknown lesson reference fails', () => {
 test('unknown unit reference fails', () => {
   const repository = cloneRepository();
   annual(repository).ordered_units[1].thematic_plan_ref = 'unknown-unit';
-  assertFailsWith(repository, /unknown unit reference unknown-unit/u);
+  assertFailsWith(repository, /unit without a full thematic plan must use null/u);
 });
 
 test('unknown curriculum outcome fails', () => {
@@ -388,10 +497,10 @@ test('conflated content and language assessment fails', () => {
   assertFailsWith(repository, /content and Estonian-language assessment must have separate criteria/u);
 });
 
-test('annual excerpt incorrectly marked complete fails', () => {
+test('annual architecture incorrectly marked fully complete fails', () => {
   const repository = cloneRepository();
   annual(repository).completeness.declared_complete = true;
-  assertFailsWith(repository, /incomplete excerpt|declared_complete/u);
+  assertFailsWith(repository, /complete architecture is not the same|declared_complete|cannot declare fully authored completion/u);
 });
 
 test('school-stage outcome falsely labelled exact grade 5 fails', () => {
@@ -404,6 +513,156 @@ test('duplicate artifact IDs fail', () => {
   const repository = cloneRepository();
   annual(repository).course_id = lesson(repository, 1).lesson_id;
   assertFailsWith(repository, /duplicate artifact ID/u);
+});
+
+test('unknown annual topic ID fails', () => {
+  const repository = cloneRepository();
+  annualUnit(repository, 'grade-5-landforms-map').topic_inventory_refs = ['unknown-topic'];
+  assertFailsWith(repository, /unknown verified topic inventory ID unknown-topic/u);
+});
+
+test('unknown annual canonical page fails', () => {
+  const repository = cloneRepository();
+  sourceUnit(repository, 'grade-5-rivers-lakes').selected_sources[0].canonical_url = 'https://www.opiq.ee/kit/999/chapter/1';
+  assertFailsWith(repository, /expected https:\/\/www\.opiq\.ee\/kit\/17\/chapter\/755/u);
+});
+
+test('wrong annual canonical route fails', () => {
+  const repository = cloneRepository();
+  annual(repository).canonical_route.source_id = 'grade-6-science';
+  assertFailsWith(repository, /route|topic inventory|annual course/u);
+});
+
+test('wrong annual book ID fails', () => {
+  const repository = cloneRepository();
+  annualUnit(repository, 'grade-5-rivers-lakes').source_book_ids[0] = 'unknown-grade-5-book';
+  assertFailsWith(repository, /unknown audited book unknown-grade-5-book/u);
+});
+
+test('cover-only book cannot be annual page evidence', () => {
+  const repository = cloneRepository();
+  annualUnit(repository, 'grade-5-rivers-lakes').source_book_ids[0] = '5k_loodusõpetus_koolibri_rus';
+  assertFailsWith(repository, /not eligible ordinary page evidence/u);
+});
+
+test('simplified-curriculum book cannot be an ordinary annual default', () => {
+  const repository = cloneRepository();
+  annualUnit(repository, 'grade-5-rivers-lakes').source_book_ids[0] = '5k_loodusõpetus_harno_est';
+  assertFailsWith(repository, /not eligible ordinary page evidence/u);
+});
+
+test('duplicate annual unit ID fails', () => {
+  const repository = cloneRepository();
+  annual(repository).ordered_units[1].unit_id = annual(repository).ordered_units[0].unit_id;
+  assertFailsWith(repository, /duplicate annual unit ID/u);
+});
+
+test('broken annual order fails', () => {
+  const repository = cloneRepository();
+  annual(repository).ordered_units[1].order = 8;
+  assertFailsWith(repository, /expected order 2/u);
+});
+
+test('prerequisite after dependent unit fails', () => {
+  const repository = cloneRepository();
+  annualUnit(repository, 'grade-5-landforms-map').prerequisite_unit_ids = ['grade-5-rivers-lakes'];
+  assertFailsWith(repository, /prerequisite unit grade-5-rivers-lakes must occur earlier/u);
+});
+
+test('cross-unit recycling into an earlier unit fails', () => {
+  const repository = cloneRepository();
+  const interval = annualLanguage(repository).planned_vocabulary_recycling_intervals
+    .find((entry) => entry.term_et === 'termomeeter');
+  interval.recycled_in_unit = 'grade-5-rivers-lakes';
+  interval.interval_units = 1;
+  assertFailsWith(repository, /recycling unit must follow introduction/u);
+});
+
+test('annual selected source without an instructional role fails', () => {
+  const repository = cloneRepository();
+  sourceUnit(repository, 'grade-5-rivers-lakes').selected_sources[0].instructional_roles = [];
+  assertFailsWith(repository, /instructional_roles/u);
+});
+
+test('annual selected source without provenance fails', () => {
+  const repository = cloneRepository();
+  delete sourceUnit(repository, 'grade-5-rivers-lakes').selected_sources[0].provenance;
+  assertFailsWith(repository, /missing required field provenance/u);
+});
+
+test('annual best-source decision must match the selected instructional role', () => {
+  const repository = cloneRepository();
+  sourceUnit(repository, 'grade-5-rivers-lakes').role_matrix.assessment.record_ids = ['rivers-ru-avita'];
+  assertFailsWith(repository, /rivers-ru-avita has no instructional role supporting assessment/u);
+});
+
+test('mandatory unit without Russian explanation status fails', () => {
+  const repository = cloneRepository();
+  delete annualUnit(repository, 'grade-5-rivers-lakes').russian_explanation_status;
+  assertFailsWith(repository, /missing required field russian_explanation_status/u);
+});
+
+test('mandatory unit without Estonian terminology fails', () => {
+  const repository = cloneRepository();
+  annualLanguage(repository).estonian_language_progression
+    .find((entry) => entry.unit_id === 'grade-5-rivers-lakes').new_terms_et = [];
+  assertFailsWith(repository, /new_terms_et/u);
+});
+
+test('mandatory unit without a short Estonian oral-answer target fails', () => {
+  const repository = cloneRepository();
+  annualLanguage(repository).estonian_language_progression
+    .find((entry) => entry.unit_id === 'grade-5-rivers-lakes').short_oral_answer_target_et = '';
+  assertFailsWith(repository, /short_oral_answer_target_et/u);
+});
+
+test('annual lesson totals must reconcile', () => {
+  const repository = cloneRepository();
+  annual(repository).lesson_budget.unit_estimate_total += 1;
+  assertFailsWith(repository, /expected 54/u);
+});
+
+test('architecture cannot be marked fully authored while thematic plans are missing', () => {
+  const repository = cloneRepository();
+  const completeness = annual(repository).completeness;
+  completeness.scope = 'fully_authored_annual_course';
+  completeness.official_curriculum_coverage_complete = true;
+  completeness.all_thematic_plans_authored = true;
+  completeness.all_lessons_authored = true;
+  completeness.implementation_status = 'fully_authored';
+  completeness.declared_complete = true;
+  completeness.deferred_to_issue = null;
+  assertFailsWith(repository, /expected false|cannot declare fully authored completion/u);
+});
+
+test('unknown practical-work unit fails', () => {
+  const repository = cloneRepository();
+  annualCalendars(repository).practical_work_calendar[0].unit_id = 'unknown-unit';
+  assertFailsWith(repository, /unknown unit unknown-unit/u);
+});
+
+test('unknown assessment unit fails', () => {
+  const repository = cloneRepository();
+  annualCalendars(repository).subject_assessment_calendar[0].unit_id = 'unknown-unit';
+  assertFailsWith(repository, /unknown unit unknown-unit/u);
+});
+
+test('rejected duplicate must resolve to a canonical page', () => {
+  const repository = cloneRepository();
+  sourceUnit(repository, 'grade-5-rivers-lakes').rejected_duplicates[0].canonical_url = 'https://www.opiq.ee/kit/999/chapter/1';
+  assertFailsWith(repository, /rejected candidate URL must occur exactly once/u);
+});
+
+test('unknown roadmap unit reference fails', () => {
+  const repository = cloneRepository();
+  roadmap(repository).units[0].dependencies = ['unknown-unit'];
+  assertFailsWith(repository, /unknown unit unknown-unit/u);
+});
+
+test('unknown annual component reference fails', () => {
+  const repository = cloneRepository();
+  annual(repository).language_progression_ref.artifact_id = 'unknown-language-progression';
+  assertFailsWith(repository, /unknown annual_language_progression unknown-language-progression/u);
 });
 
 test('excessive new vocabulary emits a configurable warning', () => {
@@ -436,4 +695,48 @@ test('missing scaffold release emits a warning', () => {
   progression.guided_practice = 'full_support';
   progression.final_output = 'full_support';
   assertWarnsWithoutErrors(repository, /does not reduce scaffold level/u);
+});
+
+test('annual unit without direct Russian page evidence emits a warning', () => {
+  const repository = cloneRepository();
+  assertWarnsWithoutErrors(repository, /unit grade-5-landforms-map has no direct Russian Opiq explanation/u);
+});
+
+test('mandatory annual unit without practical work emits a warning', () => {
+  const repository = cloneRepository();
+  annualCalendars(repository).practical_work_calendar = annualCalendars(repository).practical_work_calendar
+    .filter((entry) => entry.unit_id !== 'grade-5-rivers-lakes');
+  assertWarnsWithoutErrors(repository, /mandatory unit grade-5-rivers-lakes has no planned practical activity/u);
+});
+
+test('important annual term without later-unit recycling emits a warning', () => {
+  const repository = cloneRepository();
+  annualLanguage(repository).planned_vocabulary_recycling_intervals = annualLanguage(repository).planned_vocabulary_recycling_intervals
+    .filter((entry) => entry.term_et !== 'termomeeter');
+  assertWarnsWithoutErrors(repository, /important water-unit term termomeeter has no later thematic-unit recycling plan/u);
+});
+
+test('recommended annual budget with insufficient reserve emits a warning', () => {
+  const repository = cloneRepository();
+  const budget = annual(repository).lesson_budget;
+  const baselineScenario = budget.scenarios.find((scenario) => scenario.scenario_id === budget.recommended_baseline_scenario_id);
+  baselineScenario.reserve_lessons = 6;
+  baselineScenario.school_specific_or_lost_lessons = 10;
+  assertWarnsWithoutErrors(repository, /recommended baseline reserves less than 10%/u);
+});
+
+test('ambiguous official annual coverage emits a warning', () => {
+  const repository = cloneRepository();
+  const coverage = annual(repository).outcome_coverage[0];
+  coverage.coverage_status = 'ambiguous';
+  for (const unitId of coverage.unit_ids) {
+    annualUnit(repository, unitId).linked_official_outcomes
+      .find((entry) => entry.outcome_id === coverage.outcome_id).coverage_status = 'ambiguous';
+  }
+  assertWarnsWithoutErrors(repository, /official outcome .* remains ambiguous/u);
+});
+
+test('pending annual teacher review emits a warning', () => {
+  const repository = cloneRepository();
+  assertWarnsWithoutErrors(repository, /teacher review review-landforms-russian-bridge is pending/u);
 });
