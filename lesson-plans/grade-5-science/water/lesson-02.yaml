@@ -1,0 +1,497 @@
+schema_version: "1.0"
+artifact_type: bilingual_lesson
+lesson_id: grade-5-water-02-states
+grade: 5
+subject: science
+subject_et: loodusõpetus
+title_ru: Три состояния воды
+title_et: Vee kolm olekut
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы урока точно составляют стандартные 45 минут.
+unit_ref: grade-5-water-four-lesson-plan
+position_in_unit: 2
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-5-science-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  official_outcome_refs: [prok-ii-loodusopetus-18-water-properties]
+  course_map_ref: grade-5-science-golden-unit
+  opiq_records:
+    - record_id: water-states-ru
+      canonical_url: https://www.opiq.ee/kit/17/chapter/748
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Состояния воды и их изменение
+      language: ru
+      programme_type: ordinary
+      instructional_roles: [core_explanation_ru, practice_ru, revision]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 748
+        notes: Canonical Russian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Provides the primary Russian concept explanation for the three states of water.
+    - record_id: water-states-et
+      canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_2024_est
+      title: Vee olekud ja nende muutumine
+      language: et
+      programme_type: ordinary
+      instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 525 / chapter 29515
+        notes: Canonical Estonian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Supplies current Estonian state terminology and concise practice.
+    - record_id: water-states-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee ja aine olekud
+      language: et
+      programme_type: ordinary
+      instructional_roles: [bilingual_visual, experiment, practice_et, revision, assessment]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6282
+        notes: Canonical Estonian practical and visual record from the merged golden water unit.
+      selection_rationale: Adds a distinct visual and classification role from a second ordinary publisher.
+  author_materials:
+    - material_id: three-states-diagram
+      title: Двуязычная схема трёх состояний воды
+      material_type: visual
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 02 synthesis from selected state-of-water records
+        notes: Teacher-created labelled diagram using short terms rather than copied textbook prose.
+    - material_id: state-sort-cards
+      title: Карточки для классификации примеров
+      material_type: worksheet
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 02 state classification task
+        notes: Teacher-created examples for sorting solid, liquid, and gaseous water.
+    - material_id: states-exit-card
+      title: Выходная карточка по трём состояниям
+      material_type: assessment
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 02 separate content and language check
+        notes: Teacher-created exit card with separate Russian-content and Estonian-language evidence.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: activate-properties
+      language_mode: activate_prior_knowledge
+      description: Повторяются vesi и aine, а примеры состояний сначала называются по-русски.
+    - sequence: 2
+      stage_id: explain-three-states-ru
+      language_mode: establish_concept_ru
+      description: Различия состояний формулируются полными русскими объяснениями.
+    - sequence: 3
+      stage_id: label-states-et
+      language_mode: introduce_term_et
+      description: Эстонские слова прикрепляются к уже понятой трёхчастной схеме.
+    - sequence: 4
+      stage_id: classify-states
+      language_mode: supported_task_et
+      description: Ученики классифицируют примеры с карточками и короткой рамкой.
+    - sequence: 5
+      stage_id: state-summary
+      language_mode: short_oral_answer_et
+      description: После полного русского объяснения ученик самостоятельно называет три состояния по-эстонски.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: distinguish-three-water-states
+      text_ru: Ученик различает твёрдое, жидкое и газообразное состояния воды по их свойствам.
+      observable_output_ru: Классифицирует минимум шесть примеров и объясняет три решения по-русски.
+      curriculum_outcome_refs: [prok-ii-loodusopetus-18-water-properties]
+  estonian_language_objectives:
+    - objective_id: label-three-water-states-et
+      text_ru: Ученик подписывает и называет три состояния воды по-эстонски.
+      text_et: Õpilane nimetab ja märgib vee kolm olekut.
+      observable_output: label_visual
+      minimum_quantity: 3
+      language_functions: [name, classify, describe]
+  subject_success_criteria:
+    - criterion_id: subject-state-classification
+      descriptor: Шесть примеров распределены по состояниям на основании свойств, а не внешнего названия.
+      acceptable_evidence: Сортировка карточек и три полных русских обоснования.
+  estonian_success_criteria:
+    - criterion_id: language-three-state-labels
+      descriptor: Все три состояния подписаны понятными эстонскими терминами.
+      acceptable_evidence: Схема с tahke, vedel и gaasiline и один короткий устный ответ.
+  prerequisites:
+    - Ученик понимает понятия вещества и свойства из урока 1.
+    - Ученик узнаёт слова vesi, aine, vaata и nimeta.
+  anticipated_misconceptions:
+    - Водяной пар ошибочно отождествляется с видимым туманом из мелких капель.
+    - Жидкость ошибочно считают сохраняющей собственную форму.
+language_load:
+  new_terms_et:
+    - term_et: tahke
+      equivalent_ru: твёрдый
+      simple_definition_et: Tahkel ainel on kindel kuju.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-states-koolibri
+        notes: A1-A2 definition grounded in the selected ordinary state-of-water pages.
+      first_use_stage: label-states-et
+      reuse_stage_refs: [classify-states, state-summary]
+    - term_et: vedel
+      equivalent_ru: жидкий
+      simple_definition_et: Vedelik voolab ja võtab anuma kuju.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-states-koolibri
+        notes: A1-A2 definition grounded in the selected ordinary state-of-water pages.
+      first_use_stage: label-states-et
+      reuse_stage_refs: [classify-states, state-summary]
+    - term_et: gaasiline
+      equivalent_ru: газообразный
+      simple_definition_et: Gaas täidab kogu anuma.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-states-koolibri
+        notes: A1-A2 definition grounded in the selected ordinary state-of-water pages.
+      first_use_stage: label-states-et
+      reuse_stage_refs: [classify-states, state-summary]
+    - term_et: veeaur
+      equivalent_ru: водяной пар
+      simple_definition_et: Veeaur on gaasilises olekus vesi.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-ru and water-states-et
+        notes: Teacher bridge corrects the common confusion between vapour and visible droplets.
+      first_use_stage: label-states-et
+      reuse_stage_refs: [classify-states, state-summary]
+  recycled_terms_et:
+    - term_et: vesi
+      equivalent_ru: вода
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [activate-properties, label-states-et, state-summary]
+    - term_et: aine
+      equivalent_ru: вещество
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [activate-properties, explain-three-states-ru, label-states-et]
+  new_instruction_verbs_et:
+    - verb_et: liigita
+      equivalent_ru: классифицируй
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 02 classification instruction
+        notes: New classroom verb modelled with three visible sorting zones.
+      first_use_stage: label-states-et
+      reuse_stage_refs: [classify-states, state-summary]
+  recycled_instruction_verbs_et:
+    - verb_et: vaata
+      equivalent_ru: посмотри
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [activate-properties, classify-states]
+    - verb_et: nimeta
+      equivalent_ru: назови
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [label-states-et, state-summary]
+  model_sentences:
+    - text_et: Vesi võib olla tahke, vedel või gaasiline.
+      translation_ru: Вода может быть твёрдой, жидкой или газообразной.
+      terms_et: [vesi, tahke, vedel, gaasiline]
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et
+        notes: Short sentence synthesized from the selected canonical Estonian terminology.
+  sentence_frames:
+    - frame_id: frame-classify-state
+      frame_et: ___ on ___ olekus, sest ___.
+      purpose_ru: Рамка связывает название состояния с одним наблюдаемым признаком.
+      stage_refs: [classify-states, state-summary]
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 02 classification bridge
+        notes: Teacher-created frame for supported classification without demanding extended Estonian.
+  expected_receptive_language_et:
+    - Vaata pilti.
+    - Liigita vee olekud.
+    - Nimeta kolm olekut.
+  expected_supported_productive_language_et:
+    - Jää on tahkes olekus.
+    - Vesi on vedelas olekus.
+    - Veeaur on gaasilises olekus.
+  expected_independent_productive_language_et:
+    - Vesi võib olla tahke, vedel või gaasiline.
+  full_expected_answer_ru: >-
+    Твёрдая вода сохраняет форму, жидкая вода течёт и принимает форму сосуда, а газообразная
+    вода распространяется в доступном пространстве. Видимое облачко состоит из капель, а не
+    является самим невидимым водяным паром.
+  short_expected_oral_answer_et: Vesi võib olla tahke, vedel või gaasiline.
+  oral_output_terms_et: [vesi, tahke, vedel, gaasiline]
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 4
+  new_instruction_verbs: 1
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Одна трёхчастная схема организует четыре новых слова и снижает одновременную новизну.
+scaffolds:
+  - scaffold_id: russian-state-explanation
+    type: russian_explanation
+    description_ru: Полное различие трёх состояний и водяного пара сначала обсуждается по-русски.
+    stage_refs: [activate-properties, explain-three-states-ru, label-states-et]
+    release:
+      at_stage: classify-states
+      how_reduced_ru: Во время сортировки остаются схема признаков и короткие вопросы без готового объяснения.
+    provenance:
+      category: author_created_explanation
+      source_reference: water-states-ru
+      notes: Teacher summary grounded in the canonical Russian source, without copied textbook prose.
+  - scaffold_id: labelled-state-diagram
+    type: visual
+    description_ru: Три сектора схемы содержат объект, русский термин и постепенно открываемый эстонский термин.
+    stage_refs: [explain-three-states-ru, label-states-et, classify-states]
+    release:
+      at_stage: state-summary
+      how_reduced_ru: В финале остаются только три изображения без подписей.
+    provenance:
+      category: author_created_bridge
+      source_reference: three-states-diagram
+      notes: Teacher-created visual bridge aligned to both canonical Estonian pages.
+  - scaffold_id: state-sentence-frame
+    type: sentence_frame
+    description_ru: Рамка поддерживает короткую классификацию и указание причины.
+    stage_refs: [classify-states]
+    release:
+      at_stage: state-summary
+      how_reduced_ru: Итоговый ответ произносится без рамки, но по трём изображениям.
+    provenance:
+      category: author_created_bridge
+      source_reference: frame-classify-state
+      notes: A1-A2 sentence support with an explicit release point.
+multimodal_support:
+  - support_id: state-labelled-illustration
+    type: labelled_illustration
+    stage_refs: [explain-three-states-ru, label-states-et, state-summary]
+    material_ref: three-states-diagram
+    provenance:
+      category: author_created_bridge
+      source_reference: three-states-diagram
+      notes: Diagram makes state distinctions visible before language production.
+  - support_id: state-sorting-cards
+    type: real_object
+    stage_refs: [classify-states]
+    material_ref: state-sort-cards
+    provenance:
+      category: author_created_worksheet
+      source_reference: state-sort-cards
+      notes: Manipulable examples support classification and pair rehearsal.
+stages:
+  - stage_id: activate-properties
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Повторить воду как вещество и заметить, что один материал встречается в разных формах.
+    language_purpose_et: Повторить vesi и aine через знакомую схему урока 1.
+    teacher_action_ru: Показывает лёд, воду и изображение водяного пара, задавая вопросы по-русски.
+    pupil_action_ru: Называют объекты, предполагают различия и повторяют два знакомых эстонских слова.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Это всё вода, Формы отличаются]
+      et: [vesi, aine]
+    material_refs: [three-states-diagram]
+    provenance_refs: [three-states-diagram]
+    scaffold_refs: [russian-state-explanation]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что общего у трёх примеров?
+      subject_evidence: Узнаёт воду как одно вещество в разных состояниях.
+      language_evidence: Повторно использует vesi и aine.
+    expected_evidence_of_learning: Предыдущее понятие вещества доступно для нового сравнения.
+    transition: Формулируем точные различия на русском языке.
+  - stage_id: explain-three-states-ru
+    duration_minutes: 12
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Установить признаки твёрдого, жидкого и газообразного состояний и уточнить водяной пар.
+    language_purpose_et: Подготовить устойчивые понятия до введения четырёх эстонских слов.
+    teacher_action_ru: Объясняет признаки, демонстрирует изменение формы жидкости и обсуждает невидимость пара.
+    pupil_action_ru: Сравнивают состояния полными русскими предложениями и исправляют исходные гипотезы.
+    teacher_language: [ru]
+    expected_pupil_language:
+      ru: [Лёд сохраняет форму, Жидкая вода принимает форму сосуда]
+      et: []
+    material_refs: [water-states-ru, three-states-diagram]
+    provenance_refs: [water-states-ru, three-states-diagram]
+    scaffold_refs: [russian-state-explanation, labelled-state-diagram]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Почему видимое облачко нельзя просто назвать водяным паром?
+      subject_evidence: Отличает невидимый газ от видимых капель.
+      language_evidence: Новая эстонская продукция ещё не требуется.
+    expected_evidence_of_learning: Ученик опирается на свойства состояния, а не только на бытовое название.
+    transition: Добавляем эстонские обозначения к трём секторам.
+  - stage_id: label-states-et
+    duration_minutes: 8
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить трёхчастную классификацию при введении терминов.
+    language_purpose_et: Ввести tahke, vedel, gaasiline, veeaur и глагол liigita.
+    teacher_action_ru: Открывает подписи по одной, моделирует произношение и показывает действие liigita.
+    pupil_action_ru: Соотносят термины с секторами, повторяют и подписывают схему.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Твёрдый, жидкий, газообразный]
+      et: [tahke, vedel, gaasiline, veeaur]
+    material_refs: [water-states-et, three-states-diagram]
+    provenance_refs: [water-states-et, three-states-diagram]
+    scaffold_refs: [russian-state-explanation, labelled-state-diagram]
+    new_language_items: [tahke, vedel, gaasiline, veeaur, liigita]
+    formative_check:
+      prompt_ru: Подпиши три сектора без русского перевода.
+      subject_evidence: Выбирает правильный сектор по признаку состояния.
+      language_evidence: Правильно размещает минимум три эстонских термина.
+    expected_evidence_of_learning: Термины связаны с признаками, уже объяснёнными по-русски.
+    transition: Применяем классификацию к новым примерам.
+  - stage_id: classify-states
+    duration_minutes: 12
+    stage_type: guided_practice
+    content_purpose_ru: Классифицировать шесть примеров и обосновать решения свойствами.
+    language_purpose_et: Следовать инструкции liigita и использовать короткую рамку в паре.
+    teacher_action_ru: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи схемы.
+    pupil_action_ru: Сортируют карточки, репетируют фразу в паре и объясняют спорные случаи по-русски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Это жидкое состояние, потому что вода принимает форму сосуда]
+      et: [Jää on tahkes olekus, Liigita kaardid]
+    material_refs: [state-sort-cards, water-states-koolibri]
+    provenance_refs: [state-sort-cards, water-states-koolibri]
+    scaffold_refs: [labelled-state-diagram, state-sentence-frame]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Каким свойством ты обосновал классификацию?
+      subject_evidence: Использует свойство состояния как причину.
+      language_evidence: Завершает минимум одну эстонскую рамку.
+    expected_evidence_of_learning: Шесть карточек классифицированы, а три решения объяснены по-русски.
+    transition: Проверяем самостоятельное называние без подписей.
+  - stage_id: state-summary
+    duration_minutes: 8
+    stage_type: independent_output
+    content_purpose_ru: Проверить целостное различение трёх состояний и исправить заблуждение о паре.
+    language_purpose_et: Самостоятельно подписать схему и дать одно короткое устное предложение.
+    teacher_action_ru: Убирает подписи, принимает сначала полный русский ответ и отдельно фиксирует эстонскую продукцию.
+    pupil_action_ru: Заполняют выходную карточку и произносят короткий ответ без предложения-шаблона.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Три состояния отличаются формой и поведением вещества]
+      et: [Vesi võib olla tahke, vedel või gaasiline]
+    material_refs: [states-exit-card, three-states-diagram]
+    provenance_refs: [states-exit-card, three-states-diagram]
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Объясни различия по-русски, затем назови три состояния по-эстонски.
+      subject_evidence: Полное объяснение использует свойства трёх состояний.
+      language_evidence: Три термина понятны в одном коротком предложении.
+    expected_evidence_of_learning: Содержание и эстонская продукция оценены раздельно.
+    transition: Дома термины повторяются на знакомых примерах перед уроком 3.
+questions:
+  - question_id: question-three-states
+    question_ru: Чем жидкая вода отличается от льда и водяного пара?
+    question_et: Mis olekus võivad vesi ja jää olla?
+    full_expected_answer_ru: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар является газом и заполняет доступное пространство.
+    short_oral_answer_et: Jää on tahke ja vesi on vedel.
+    acceptable_variants:
+      - Vesi on vedelas olekus ja jää on tahkes olekus.
+      - Veeaur on gaasilises olekus.
+    misconception_to_watch: Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+    objective_refs: [distinguish-three-water-states, label-three-water-states-et]
+    provenance_refs: [water-states-ru, water-states-et]
+practical_work: null
+assessment:
+  - criterion_id: assess-subject-three-states
+    domain: subject_understanding
+    what_is_checked: Различение трёх состояний по наблюдаемым свойствам.
+    acceptable_evidence: Шесть корректно распределённых карточек и три русских обоснования.
+    success_threshold: Пять из шести примеров и два точных обоснования.
+    affects: subject_assessment
+  - criterion_id: assess-et-recognition-states
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание tahke, vedel, gaasiline и veeaur.
+    acceptable_evidence: Правильное размещение терминов на схеме.
+    success_threshold: Три базовых состояния из трёх распознаны.
+    affects: language_assessment
+  - criterion_id: assess-et-supported-state
+    domain: supported_estonian_production
+    what_is_checked: Использование рамки для классификации одного примера.
+    acceptable_evidence: Одна понятная фраза с названием состояния и опорой.
+    success_threshold: Одна поддержанная фраза с целевым термином.
+    affects: language_assessment
+  - criterion_id: assess-et-independent-state
+    domain: independent_estonian_production
+    what_is_checked: Самостоятельное называние трёх состояний в коротком ответе.
+    acceptable_evidence: Одно понятное предложение без полной рамки.
+    success_threshold: Все три термина понятны; ошибка окончания не снижает предметную оценку.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторно демонстрировать форму льда и жидкости и проговаривать признак по-русски.
+      preserves_subject_objective: true
+    - type: visual_support
+      implementation_ru: Оставить цветовые сектора и изображения после снятия двуязычных подписей.
+      preserves_subject_objective: true
+    - type: sentence_frames
+      implementation_ru: Разрешить использовать рамку ещё раз перед коротким устным ответом.
+      preserves_subject_objective: true
+    - type: additional_estonian_production
+      implementation_ru: Предложить сильному ученику добавить причину к каждой из трёх фраз.
+      preserves_subject_objective: true
+  challenge_extension: Объяснить по-русски различие водяного пара и тумана и дать две короткие эстонские фразы.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Упрощённая программа не используется как скрытая замена обычного содержания.
+homework:
+  content_task_ru: Найти дома или на фотографии три примера воды в разных состояниях и объяснить классификацию по-русски.
+  estonian_language_component: Подписать каждый пример tahke, vedel или gaasiline.
+  expected_minutes: 10
+  source_reference: three-states-diagram and water-states-et
+  required_opiq_url: https://www.opiq.ee/kit/525/chapter/29515
+  adult_support_expected: false
+  success_guidance_ru: Требуются три примера, три точные подписи и хотя бы одно русское обоснование свойством.
+  provenance:
+    category: author_created_worksheet
+    source_reference: lesson 02 homework bridge to canonical chapter 29515
+    notes: Teacher-created classification task linked to the canonical terminology source.
+artifact_completeness:
+  status: complete_lesson_artifact
+  declared_complete: true
+  notes: Урок является полным учебным артефактом, но не картой всей официальной программы.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 10 grade-5 water lesson 02
+  notes: Russian-primary, Estonian-supported lesson assembled only from the canonical grade-5-science route.

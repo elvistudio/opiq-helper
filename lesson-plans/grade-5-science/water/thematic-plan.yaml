@@ -1,0 +1,387 @@
+schema_version: "1.0"
+artifact_type: bilingual_thematic_plan
+unit_id: grade-5-water-four-lesson-plan
+title_ru: Вода как вещество и состояния воды
+title_et: Vesi kui aine ja vee olekud
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+curriculum_map_id: grade-5-science-official-scope-pilot
+course_map_ref: grade-5-science-golden-unit
+linked_outcomes:
+  - outcome_id: prok-ii-loodusopetus-04-safe-investigation
+    coverage_status: partial
+    lesson_ids: [grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+    notes: >-
+      The unit includes one supervised investigation and data interpretation, but it does not
+      verify the complete end-of-school-stage safe-investigation outcome.
+  - outcome_id: prok-ii-loodusopetus-18-water-properties
+    coverage_status: partial
+    lesson_ids:
+      - grade-5-water-01-properties
+      - grade-5-water-02-states
+      - grade-5-water-03-melting-condensation
+      - grade-5-water-04-changes-review
+    notes: >-
+      The four lessons cover the water component only; the official school-stage outcome also
+      includes air and soil and therefore remains partial.
+prerequisite_map:
+  - prerequisite_id: prerequisite-observation-language
+    description_ru: Ученик может описать простое наблюдение по-русски и отличить его от догадки.
+    needed_by_lesson_ids: [grade-5-water-01-properties, grade-5-water-03-melting-condensation]
+    support_if_missing_ru: Учитель моделирует пару «наблюдение — вывод» на знакомом безопасном объекте.
+  - prerequisite_id: prerequisite-simple-temperature
+    description_ru: Ученик понимает назначение термометра и читает простую школьную шкалу.
+    needed_by_lesson_ids: [grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+    support_if_missing_ru: Учитель проводит короткую русскоязычную репетицию измерения до практической работы.
+unit_learning_outcomes:
+  - outcome_id: unit-water-properties
+    text_ru: Ученик объясняет свойства воды как вещества на основании наблюдений.
+    text_et: Õpilane nimetab eesti keeles vee põhiomadusi.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-5-science-golden-unit and lesson 01
+      notes: Bilingual teaching outcome synthesized from the selected canonical water-property records.
+  - outcome_id: unit-water-states
+    text_ru: Ученик различает три состояния и объясняет четыре изменения состояния воды.
+    text_et: Õpilane nimetab vee olekuid ja kirjeldab lühidalt üht olekumuutust.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-5-science-golden-unit and lessons 02-04
+      notes: Bilingual outcome grounded in selected ordinary state and phase-change records.
+  - outcome_id: unit-safe-observation
+    text_ru: Ученик безопасно собирает данные, различает наблюдение и вывод и объясняет результат.
+    text_et: Õpilane järgib tuttavaid juhiseid ja ütleb lühikese järelduse.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-5-science-golden-unit practical activity and lesson 03
+      notes: Curated practical outcome based on canonical experiment evidence and teacher-created safety controls.
+unit_content_success_criteria:
+  - Называет свойства воды и подтверждает минимум одно свойство наблюдением.
+  - Различает три состояния и правильно направляет минимум три из четырёх переходов.
+  - Безопасно записывает данные и отделяет наблюдение от причинного вывода.
+unit_estonian_language_targets:
+  - target_id: unit-recognise-core-terms
+    observable_output: Узнать и правильно соотнести минимум десять накопительных терминов unit.
+    minimum_quantity: 10
+    language_functions: [name, classify]
+  - target_id: unit-follow-four-instructions
+    observable_output: Выполнить минимум четыре знакомые инструкции в предметных задачах.
+    minimum_quantity: 4
+    language_functions: [sequence, report]
+  - target_id: unit-give-short-causal-answer
+    observable_output: Дать один или два коротких устных ответа об изменении состояния воды.
+    minimum_quantity: 1
+    language_functions: [explain, conclude]
+recommended_lesson_sequence:
+  - order: 1
+    lesson_id: grade-5-water-01-properties
+    duration_minutes: 45
+    focus_ru: Вода как вещество, наблюдаемые свойства и различие наблюдения и вывода.
+  - order: 2
+    lesson_id: grade-5-water-02-states
+    duration_minutes: 45
+    focus_ru: Твёрдое, жидкое и газообразное состояния и их классификация.
+  - order: 3
+    lesson_id: grade-5-water-03-melting-condensation
+    duration_minutes: 45
+    focus_ru: Безопасное наблюдение плавления и конденсации с измерениями и выводом.
+  - order: 4
+    lesson_id: grade-5-water-04-changes-review
+    duration_minutes: 45
+    focus_ru: Полная система изменений, накопительное повторение и раздельная оценка.
+lesson_ids:
+  - grade-5-water-01-properties
+  - grade-5-water-02-states
+  - grade-5-water-03-melting-condensation
+  - grade-5-water-04-changes-review
+lesson_count: 4
+expected_total_duration_minutes: 180
+selected_opiq_sources:
+  - record_id: golden-water-properties-ru
+    canonical_url: https://www.opiq.ee/kit/17/chapter/747
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_rus
+    title: Вода как вещество. Свойства воды
+    language: ru
+    programme_type: ordinary
+    instructional_roles: [core_explanation_ru, practice_ru, revision]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17 / chapter 747
+      notes: Canonical Russian ordinary-textbook record from the merged golden water unit.
+    selection_rationale: Primary Russian subject-comprehension source for water properties.
+  - record_id: golden-water-states-ru
+    canonical_url: https://www.opiq.ee/kit/17/chapter/748
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_rus
+    title: Состояния воды и их изменение
+    language: ru
+    programme_type: ordinary
+    instructional_roles: [core_explanation_ru, practice_ru, revision]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17 / chapter 748
+      notes: Canonical Russian ordinary-textbook record from the merged golden water unit.
+    selection_rationale: Primary Russian explanation of three states and phase changes.
+  - record_id: golden-water-properties-et
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29514
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Vesi ja selle omadused
+    language: et
+    programme_type: ordinary
+    instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29514
+      notes: Canonical current Estonian ordinary-textbook record from the merged golden unit.
+    selection_rationale: Current Estonian terminology and short tasks corresponding to the Russian explanation.
+  - record_id: golden-water-states-et
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Vee olekud ja nende muutumine
+    language: et
+    programme_type: ordinary
+    instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29515
+      notes: Canonical current Estonian ordinary-textbook record from the merged golden unit.
+    selection_rationale: Current phase-change terms and a short investigation prompt.
+  - record_id: golden-water-states-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee ja aine olekud
+    language: et
+    programme_type: ordinary
+    instructional_roles: [bilingual_visual, experiment, practice_et, revision, assessment]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6282
+      notes: Canonical Estonian practical record from the merged golden unit.
+    selection_rationale: Distinct practical, visual, conclusion, and assessment evidence.
+  - record_id: golden-water-changes-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee olekute muutumine
+    language: et
+    programme_type: ordinary
+    instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6283
+      notes: Canonical Estonian practical and assessment record from the merged golden unit.
+    selection_rationale: Melting measurement, condensation, revision, and oral-answer evidence.
+cumulative_glossary:
+  - term_et: aine
+    equivalent_ru: вещество
+    introduced_in_lesson: grade-5-water-01-properties
+    recycled_in_lessons: [grade-5-water-02-states]
+  - term_et: omadus
+    equivalent_ru: свойство
+    introduced_in_lesson: grade-5-water-01-properties
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+  - term_et: lahus
+    equivalent_ru: раствор
+    introduced_in_lesson: grade-5-water-01-properties
+    recycled_in_lessons: [grade-5-water-01-properties]
+  - term_et: tahke
+    equivalent_ru: твёрдый
+    introduced_in_lesson: grade-5-water-02-states
+    recycled_in_lessons: [grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+  - term_et: vedel
+    equivalent_ru: жидкий
+    introduced_in_lesson: grade-5-water-02-states
+    recycled_in_lessons: [grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+  - term_et: gaasiline
+    equivalent_ru: газообразный
+    introduced_in_lesson: grade-5-water-02-states
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+  - term_et: veeaur
+    equivalent_ru: водяной пар
+    introduced_in_lesson: grade-5-water-02-states
+    recycled_in_lessons: [grade-5-water-03-melting-condensation]
+  - term_et: sulamine
+    equivalent_ru: плавление
+    introduced_in_lesson: grade-5-water-03-melting-condensation
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+  - term_et: veeldumine
+    equivalent_ru: конденсация
+    introduced_in_lesson: grade-5-water-03-melting-condensation
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+  - term_et: temperatuur
+    equivalent_ru: температура
+    introduced_in_lesson: grade-5-water-03-melting-condensation
+    recycled_in_lessons: [grade-5-water-03-melting-condensation]
+  - term_et: termomeeter
+    equivalent_ru: термометр
+    introduced_in_lesson: grade-5-water-03-melting-condensation
+    recycled_in_lessons: [grade-5-water-03-melting-condensation]
+  - term_et: jäätumine
+    equivalent_ru: замерзание
+    introduced_in_lesson: grade-5-water-04-changes-review
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+  - term_et: aurustumine
+    equivalent_ru: испарение
+    introduced_in_lesson: grade-5-water-04-changes-review
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+  - term_et: olekumuutus
+    equivalent_ru: изменение состояния
+    introduced_in_lesson: grade-5-water-04-changes-review
+    recycled_in_lessons: [grade-5-water-04-changes-review]
+vocabulary_by_lesson:
+  - lesson_id: grade-5-water-01-properties
+    introduced: [aine, omadus, lahus]
+    recycled: [vesi]
+  - lesson_id: grade-5-water-02-states
+    introduced: [tahke, vedel, gaasiline, veeaur]
+    recycled: [vesi, aine]
+  - lesson_id: grade-5-water-03-melting-condensation
+    introduced: [sulamine, veeldumine, temperatuur, termomeeter]
+    recycled: [tahke, vedel, veeaur]
+  - lesson_id: grade-5-water-04-changes-review
+    introduced: [jäätumine, aurustumine, olekumuutus]
+    recycled: [vesi, omadus, tahke, vedel, gaasiline, sulamine, veeldumine]
+instruction_verbs_progression:
+  - lesson_id: grade-5-water-01-properties
+    introduced: [võrdle]
+    recycled: [vaata, nimeta]
+  - lesson_id: grade-5-water-02-states
+    introduced: [liigita]
+    recycled: [vaata, nimeta]
+  - lesson_id: grade-5-water-03-melting-condensation
+    introduced: [mõõda, kirjuta]
+    recycled: [vaata, võrdle]
+  - lesson_id: grade-5-water-04-changes-review
+    introduced: [selgita]
+    recycled: [liigita, kirjuta, võrdle]
+sentence_frame_progression:
+  - lesson_id: grade-5-water-01-properties
+    introduced: [frame-water-property]
+    recycled: []
+  - lesson_id: grade-5-water-02-states
+    introduced: [frame-classify-state]
+    recycled: [frame-water-property]
+  - lesson_id: grade-5-water-03-melting-condensation
+    introduced: [frame-phase-change]
+    recycled: [frame-classify-state]
+  - lesson_id: grade-5-water-04-changes-review
+    introduced: [frame-explain-change]
+    recycled: [frame-phase-change]
+language_function_progression:
+  - lesson_id: grade-5-water-01-properties
+    functions: [name, describe]
+    expected_output_et: Назвать три свойства по одной короткой рамке.
+  - lesson_id: grade-5-water-02-states
+    functions: [name, classify, describe]
+    expected_output_et: Подписать три состояния и классифицировать один пример.
+  - lesson_id: grade-5-water-03-melting-condensation
+    functions: [sequence, conclude, report]
+    expected_output_et: Следовать двум инструкциям и дать один короткий вывод.
+  - lesson_id: grade-5-water-04-changes-review
+    functions: [sequence, explain, conclude]
+    expected_output_et: Самостоятельно сообщить об одном изменении состояния.
+scaffolding_progression:
+  - lesson_id: grade-5-water-01-properties
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+    release_notes_ru: Полное русское объяснение и рамка сокращаются до банка слов и одной фразы.
+  - lesson_id: grade-5-water-02-states
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+    release_notes_ru: Подписанная схема постепенно превращается в три изображения без слов.
+  - lesson_id: grade-5-water-03-melting-condensation
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+    release_notes_ru: Таблица, банк слов и парная репетиция снимаются перед индивидуальным выводом.
+  - lesson_id: grade-5-water-04-changes-review
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+    release_notes_ru: Накопительный глоссарий доступен на станциях, но убирается в короткой итоговой части.
+practical_work:
+  - item_id: unit-melting-condensation-observation
+    lesson_id: grade-5-water-03-melting-condensation
+    description_ru: Безопасное измерение таяния льда и учительская демонстрация конденсации.
+    source_refs: [golden-water-states-koolibri, golden-water-changes-koolibri]
+    provenance:
+      category: author_created_bridge
+      source_reference: lesson 03 practical synthesis from canonical Koolibri records
+      notes: Teacher-controlled adaptation preserves canonical practical roles and explicit safety.
+revision:
+  - item_id: unit-revision-stations-item
+    lesson_id: grade-5-water-04-changes-review
+    description_ru: Четыре станции повторяют понятия, данные, накопительный глоссарий и устный ответ.
+    source_refs: [golden-water-states-ru, golden-water-states-et, golden-water-changes-koolibri]
+    provenance:
+      category: author_created_worksheet
+      source_reference: lesson 04 cumulative revision stations
+      notes: Teacher-created deduplicated review from selected canonical records.
+assessment_points:
+  - assessment_id: assessment-properties-formative
+    lesson_id: grade-5-water-01-properties
+    domains: [subject, estonian_recognition, estonian_supported]
+    planned: true
+    description_ru: Выходная карточка отдельно фиксирует свойство с доказательством и короткую фразу.
+  - assessment_id: assessment-practical-formative
+    lesson_id: grade-5-water-03-melting-condensation
+    domains: [subject, practical, estonian_supported, estonian_independent]
+    planned: true
+    description_ru: Данные и русский вывод проверяются отдельно от двух коротких языковых действий.
+  - assessment_id: assessment-unit-cumulative
+    lesson_id: grade-5-water-04-changes-review
+    domains: [subject, practical, estonian_recognition, estonian_supported, estonian_independent]
+    planned: true
+    description_ru: Итоговая проверка сообщает предметный и эстонский результаты раздельно.
+differentiation_policy:
+  subject_objective_preserved: true
+  language_support_options:
+    - Дополнительное русское объяснение без сокращения предметного понятия.
+    - Накопительный двуязычный глоссарий, визуальная схема и банк слов.
+    - Одна короткая эстонская фраза вместо двух при полном русском ответе.
+    - Дополнительная эстонская причинная фраза как усложнение, а не обязательный минимум.
+  simplified_curriculum_default: forbidden_without_learner_specific_authorisation
+  notes: >-
+    Языковая поддержка меняет объём эстонской продукции, но не снижает содержание; simplified
+    curriculum возможен только как явно авторизованное решение для конкретного ученика.
+known_gaps:
+  - Официальные outcomes относятся к концу school stage II, а не исключительно к grade 5.
+  - Unit покрывает только водную часть более широкого outcome о воде, воздухе и почве.
+  - Этот тематический план не является полным годовым курсом и не устанавливает annual completeness.
+optional_extensions:
+  - title_ru: Сравнить скорость таяния по дополнительным безопасным данным учителя.
+    source_ref: unit-revision-stations
+    provenance:
+      category: author_created_worksheet
+      source_reference: optional extension using teacher-provided data
+      notes: Extension adds data reasoning without introducing a new Opiq source or longer Estonian output.
+completeness:
+  status: incomplete_curriculum_coverage
+  declared_complete: false
+  verified_outcome_ids: []
+  partial_outcome_ids:
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-18-water-properties
+  missing_outcome_ids: []
+  ambiguous_outcome_ids: []
+  notes: >-
+    The four lesson artifacts form a complete teaching example, but both official school-stage
+    outcome mappings remain partial and no annual or school-stage completeness is claimed.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 10 four-lesson water thematic plan
+  notes: Unit plan links four validated lessons and only canonical ordinary grade-5-science sources.

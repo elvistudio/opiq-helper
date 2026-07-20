@@ -1,0 +1,640 @@
+schema_version: "1.0"
+artifact_type: bilingual_lesson
+lesson_id: grade-5-water-03-melting-condensation
+grade: 5
+subject: science
+subject_et: loodusõpetus
+title_ru: Наблюдаем плавление и конденсацию
+title_et: Vaatleme sulamist ja veeldumist
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Шесть этапов точно составляют заявленные 45 минут без скрытого резерва.
+unit_ref: grade-5-water-four-lesson-plan
+position_in_unit: 3
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-5-science-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  official_outcome_refs:
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-18-water-properties
+  course_map_ref: grade-5-science-golden-unit
+  opiq_records:
+    - record_id: water-states-ru
+      canonical_url: https://www.opiq.ee/kit/17/chapter/748
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Состояния воды и их изменение
+      language: ru
+      programme_type: ordinary
+      instructional_roles: [core_explanation_ru, practice_ru, revision]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 748
+        notes: Canonical Russian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Establishes the full Russian concept of state change before the practical observation.
+    - record_id: water-states-et
+      canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_2024_est
+      title: Vee olekud ja nende muutumine
+      language: et
+      programme_type: ordinary
+      instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 525 / chapter 29515
+        notes: Canonical Estonian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Supplies current Estonian phase-change terminology and a short investigation prompt.
+    - record_id: water-states-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee ja aine olekud
+      language: et
+      programme_type: ordinary
+      instructional_roles: [bilingual_visual, experiment, practice_et, revision, assessment]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6282
+        notes: Canonical Estonian practical record selected in the merged golden water unit.
+      selection_rationale: Contributes observation, conclusion, visual, and assessment roles from a second publisher.
+    - record_id: water-changes-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee olekute muutumine
+      language: et
+      programme_type: ordinary
+      instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6283
+        notes: Canonical Estonian practical record selected in the merged golden water unit.
+      selection_rationale: Provides canonical experiment evidence for melting measurement and condensation.
+  author_materials:
+    - material_id: phase-change-diagram
+      title: Схема «состояние — процесс — состояние»
+      material_type: visual
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 synthesis from selected phase-change records
+        notes: Teacher-created bilingual diagram containing short labels and no copied textbook paragraphs.
+    - material_id: melting-condensation-table
+      title: Таблица измерений и наблюдений
+      material_type: worksheet
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 03 safe practical table
+        notes: Teacher-created data table aligned to the canonical experiment headings.
+    - material_id: practical-safety-card
+      title: Карточка безопасной работы
+      material_type: practical_setup
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 teacher-controlled safety procedure
+        notes: Teacher-created safety instructions keep all warm-water handling under teacher control.
+    - material_id: separate-practical-exit-card
+      title: Выходная карточка содержания и языка
+      material_type: assessment
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 03 separate content-language assessment
+        notes: Teacher-created card scores the Russian conclusion separately from the short Estonian output.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: activate-state-model
+      language_mode: activate_prior_knowledge
+      description: Схема трёх состояний и знакомые эстонские термины быстро восстанавливаются.
+    - sequence: 2
+      stage_id: explain-changes-ru
+      language_mode: establish_concept_ru
+      description: Причина и результат плавления и конденсации объясняются по-русски.
+    - sequence: 3
+      stage_id: bridge-process-terms-et
+      language_mode: introduce_term_et
+      description: Новые термины и инструкции вводятся через понятую схему и демонстрацию.
+    - sequence: 4
+      stage_id: observe-changes
+      language_mode: supported_task_et
+      description: Ученики следуют коротким инструкциям, измеряют и заполняют двуязычную таблицу.
+    - sequence: 5
+      stage_id: separate-conclusions
+      language_mode: full_subject_answer_ru
+      description: Полный вывод по-русски оценивается отдельно от короткого эстонского ответа.
+    - sequence: 6
+      stage_id: homework-launch
+      language_mode: recycle_language
+      description: Слова и рамка повторно применяются к безопасному домашнему наблюдению.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: explain-melting-condensation
+      text_ru: Ученик объясняет плавление и конденсацию как изменения состояния при передаче тепла.
+      observable_output_ru: Записывает наблюдения и даёт два причинно-следственных вывода по-русски.
+      curriculum_outcome_refs: [prok-ii-loodusopetus-18-water-properties]
+    - objective_id: conduct-safe-water-observation
+      text_ru: Ученик безопасно измеряет и наблюдает изменения, различая наблюдение и вывод.
+      observable_output_ru: Выполняет все ученические шаги безопасно и заполняет минимум четыре ячейки данных.
+      curriculum_outcome_refs: [prok-ii-loodusopetus-04-safe-investigation]
+  estonian_language_objectives:
+    - objective_id: report-phase-change-et
+      text_ru: Ученик следует двум инструкциям и даёт короткий вывод о плавлении или конденсации.
+      text_et: Õpilane järgib kahte juhist ja ütleb ühe lühikese järelduse.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 2
+      language_functions: [sequence, conclude, report]
+  subject_success_criteria:
+    - criterion_id: subject-two-causal-conclusions
+      descriptor: Два вывода связывают изменение температуры с изменением состояния.
+      acceptable_evidence: Таблица наблюдений и полный русский отчёт о плавлении и конденсации.
+    - criterion_id: subject-safe-data-collection
+      descriptor: Измерения выполнены безопасно, а наблюдения записаны до вывода.
+      acceptable_evidence: Соблюдённая процедура и не менее четырёх заполненных ячеек данных.
+  estonian_success_criteria:
+    - criterion_id: language-instructions-and-conclusion
+      descriptor: Ученик выполняет mõõda и kirjuta и произносит один понятный короткий вывод.
+      acceptable_evidence: Два выполненных действия и фраза с sulamine или veeldumine.
+  prerequisites:
+    - Ученик различает tahke, vedel, gaasiline и veeaur из урока 2.
+    - Ученик умеет безопасно читать простую шкалу термометра под руководством учителя.
+  anticipated_misconceptions:
+    - Капли на холодной крышке ошибочно считают водой, прошедшей сквозь крышку.
+    - Плавление ошибочно объясняют исчезновением льда, а не переходом в жидкое состояние.
+language_load:
+  new_terms_et:
+    - term_et: sulamine
+      equivalent_ru: плавление
+      simple_definition_et: Sulamisel muutub tahke aine vedelaks.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-changes-koolibri
+        notes: Short phase-change definition grounded in canonical ordinary-textbook records.
+      first_use_stage: bridge-process-terms-et
+      reuse_stage_refs: [observe-changes, separate-conclusions, homework-launch]
+    - term_et: veeldumine
+      equivalent_ru: конденсация
+      simple_definition_et: Veeldumisel muutub veeaur veeks.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-changes-koolibri
+        notes: Short A1-A2 definition grounded in canonical condensation evidence.
+      first_use_stage: bridge-process-terms-et
+      reuse_stage_refs: [observe-changes, separate-conclusions]
+    - term_et: temperatuur
+      equivalent_ru: температура
+      simple_definition_et: Temperatuur näitab, kui soe või külm miski on.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-changes-koolibri
+        notes: Measurement-language bridge based on the canonical practical record.
+      first_use_stage: bridge-process-terms-et
+      reuse_stage_refs: [observe-changes, separate-conclusions]
+    - term_et: termomeeter
+      equivalent_ru: термометр
+      simple_definition_et: Termomeeter mõõdab temperatuuri.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-changes-koolibri
+        notes: Measurement term grounded in the canonical melting-temperature activity.
+      first_use_stage: bridge-process-terms-et
+      reuse_stage_refs: [observe-changes, homework-launch]
+  recycled_terms_et:
+    - term_et: tahke
+      equivalent_ru: твёрдый
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [activate-state-model, explain-changes-ru, observe-changes]
+    - term_et: vedel
+      equivalent_ru: жидкий
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [activate-state-model, observe-changes, separate-conclusions]
+    - term_et: veeaur
+      equivalent_ru: водяной пар
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [explain-changes-ru, bridge-process-terms-et, observe-changes]
+  new_instruction_verbs_et:
+    - verb_et: mõõda
+      equivalent_ru: измерь
+      provenance:
+        category: author_created_bridge
+        source_reference: water-changes-koolibri
+        notes: Canonical practical-language verb introduced through teacher modelling.
+      first_use_stage: bridge-process-terms-et
+      reuse_stage_refs: [observe-changes, homework-launch]
+    - verb_et: kirjuta
+      equivalent_ru: запиши
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 practical table instruction
+        notes: Familiar classroom action reinforced as explicit subject-task language.
+      first_use_stage: bridge-process-terms-et
+      reuse_stage_refs: [observe-changes, separate-conclusions, homework-launch]
+  recycled_instruction_verbs_et:
+    - verb_et: vaata
+      equivalent_ru: посмотри
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [activate-state-model, observe-changes]
+    - verb_et: võrdle
+      equivalent_ru: сравни
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [observe-changes, separate-conclusions]
+  model_sentences:
+    - text_et: Jää sulab ja muutub vedelaks veeks.
+      translation_ru: Лёд плавится и превращается в жидкую воду.
+      terms_et: [sulamine, tahke, vedel]
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-changes-koolibri
+        notes: Short observation model based on canonical phase-change evidence.
+    - text_et: Külmal pinnal veeaur veeldub.
+      translation_ru: На холодной поверхности водяной пар конденсируется.
+      terms_et: [veeaur, veeldumine]
+      provenance:
+        category: author_created_bridge
+        source_reference: water-changes-koolibri
+        notes: Short conclusion model grounded in canonical condensation evidence.
+  sentence_frames:
+    - frame_id: frame-phase-change
+      frame_et: ___ muutub ___, sest temperatuur ___.
+      purpose_ru: Рамка связывает начальное состояние, результат и изменение температуры.
+      stage_refs: [observe-changes, separate-conclusions]
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 causal language bridge
+        notes: Teacher-created sentence frame limits output while preserving causal meaning.
+  expected_receptive_language_et:
+    - Mõõda temperatuur.
+    - Kirjuta tulemus tabelisse.
+    - Võrdle vaatlust ja järeldust.
+  expected_supported_productive_language_et:
+    - Jää sulab ja muutub vedelaks veeks.
+    - Veeaur veeldub külmal pinnal.
+  expected_independent_productive_language_et:
+    - Jää sulab.
+    - Veeaur veeldub.
+  full_expected_answer_ru: >-
+    Лёд получает тепло и плавится, переходя из твёрдого состояния в жидкое. Водяной пар у
+    холодной поверхности отдаёт тепло и превращается в капли жидкой воды; это конденсация.
+  short_expected_oral_answer_et: Jää sulab; külmal pinnal veeaur veeldub.
+  oral_output_terms_et: [sulamine, veeldumine, tahke, vedel, veeaur]
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 4
+  new_instruction_verbs: 2
+  new_sentence_structures: 1
+  independent_output_sentences: 2
+  rationale: Два процесса сравниваются одной причинной схемой; эстонский итог ограничен двумя короткими фразами.
+scaffolds:
+  - scaffold_id: russian-causal-model
+    type: russian_explanation
+    description_ru: Учитель моделирует причинную цепочку «тепло — изменение частиц — новое состояние» по-русски.
+    stage_refs: [activate-state-model, explain-changes-ru, bridge-process-terms-et]
+    release:
+      at_stage: observe-changes
+      how_reduced_ru: Во время опыта остаются только стрелки схемы и вопросы о наблюдении.
+    provenance:
+      category: author_created_explanation
+      source_reference: water-states-ru
+      notes: Teacher explanation summarizes canonical Russian evidence without copying textbook text.
+  - scaffold_id: phase-change-word-bank
+    type: word_bank
+    description_ru: Банк слов содержит состояния, два процесса и два измерительных глагола.
+    stage_refs: [bridge-process-terms-et, observe-changes]
+    release:
+      at_stage: separate-conclusions
+      how_reduced_ru: Для короткого устного ответа остаются только изображения и стрелки без слов.
+    provenance:
+      category: author_created_bridge
+      source_reference: phase-change-diagram
+      notes: Teacher-created bilingual support based on selected canonical terminology.
+  - scaffold_id: practical-observation-table
+    type: partially_completed_table
+    description_ru: Таблица разделяет температуру, наблюдение и вывод и содержит одну заполненную модельную строку.
+    stage_refs: [observe-changes, homework-launch]
+    release:
+      at_stage: separate-conclusions
+      how_reduced_ru: Итоговый вывод формулируется без модельной строки таблицы.
+    provenance:
+      category: author_created_worksheet
+      source_reference: melting-condensation-table
+      notes: Teacher-created data support aligned to canonical practical evidence.
+  - scaffold_id: pair-rehearsal-conclusion
+    type: pair_rehearsal
+    description_ru: Перед индивидуальным ответом ученики один раз репетируют короткий эстонский вывод в паре.
+    stage_refs: [observe-changes]
+    release:
+      at_stage: separate-conclusions
+      how_reduced_ru: Индивидуальный ответ даётся без помощи партнёра.
+    provenance:
+      category: author_created_bridge
+      source_reference: lesson 03 oral rehearsal routine
+      notes: Teacher-created release step for A1-A2 oral production.
+multimodal_support:
+  - support_id: phase-change-process-diagram
+    type: diagram
+    stage_refs: [activate-state-model, explain-changes-ru, bridge-process-terms-et]
+    material_ref: phase-change-diagram
+    provenance:
+      category: author_created_bridge
+      source_reference: phase-change-diagram
+      notes: Diagram displays state, process, and resulting state without long prose.
+  - support_id: measured-melting-observation
+    type: measurement
+    stage_refs: [observe-changes]
+    material_ref: melting-condensation-table
+    provenance:
+      category: author_created_worksheet
+      source_reference: water-changes-koolibri and melting-condensation-table
+      notes: Measurement and table support are grounded in the canonical practical record.
+  - support_id: teacher-condensation-demonstration
+    type: demonstration
+    stage_refs: [observe-changes]
+    material_ref: practical-safety-card
+    provenance:
+      category: author_created_bridge
+      source_reference: safe adaptation of water-changes-koolibri
+      notes: Teacher-controlled setup preserves the concept while keeping warm water away from pupils.
+stages:
+  - stage_id: activate-state-model
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Восстановить три состояния и предсказать направление двух изменений.
+    language_purpose_et: Повторить tahke, vedel и veeaur по знакомой схеме.
+    teacher_action_ru: Показывает лёд, воду и схему, просит предсказать изменения по-русски.
+    pupil_action_ru: Формулируют гипотезы по-русски и называют знакомые подписи по-эстонски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Лёд может превратиться в воду]
+      et: [tahke, vedel, veeaur]
+    material_refs: [phase-change-diagram]
+    provenance_refs: [phase-change-diagram]
+    scaffold_refs: [russian-causal-model]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какое состояние начальное и какое конечное?
+      subject_evidence: Правильно указывает направление двух изменений.
+      language_evidence: Узнаёт три повторяемых термина.
+    expected_evidence_of_learning: Предыдущая модель состояний готова для причинного объяснения.
+    transition: Объясняем причину и результат на русском языке.
+  - stage_id: explain-changes-ru
+    duration_minutes: 8
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Объяснить плавление и конденсацию через передачу тепла и изменение состояния.
+    language_purpose_et: Создать понятия до введения sulamine и veeldumine.
+    teacher_action_ru: Строит две причинные цепочки и различает наблюдение, объяснение и вывод.
+    pupil_action_ru: Пересказывают цепочки по-русски и отмечают, что нужно наблюдать и измерять.
+    teacher_language: [ru]
+    expected_pupil_language:
+      ru: [Лёд получает тепло и плавится, Пар охлаждается и образует капли]
+      et: []
+    material_refs: [water-states-ru, phase-change-diagram]
+    provenance_refs: [water-states-ru, phase-change-diagram]
+    scaffold_refs: [russian-causal-model]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Откуда берутся капли на холодной поверхности?
+      subject_evidence: Объясняет образование капель из водяного пара.
+      language_evidence: Новые эстонские слова пока не оцениваются.
+    expected_evidence_of_learning: Два процесса объяснены до начала языкового и практического задания.
+    transition: Прикрепляем короткие эстонские термины к причинным цепочкам.
+  - stage_id: bridge-process-terms-et
+    duration_minutes: 7
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить направление и причину каждого процесса при добавлении терминов.
+    language_purpose_et: Ввести sulamine, veeldumine, temperatuur, termomeeter, mõõda и kirjuta.
+    teacher_action_ru: Моделирует термины на схеме и физически показывает действия mõõda и kirjuta.
+    pupil_action_ru: Соотносят карточки, повторяют два предложения и выполняют пробную инструкцию.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Это плавление, Это конденсация]
+      et: [sulamine, veeldumine, mõõda, kirjuta]
+    material_refs: [water-states-et, phase-change-diagram, practical-safety-card]
+    provenance_refs: [water-states-et, phase-change-diagram, practical-safety-card]
+    scaffold_refs: [russian-causal-model, phase-change-word-bank]
+    new_language_items: [sulamine, veeldumine, temperatuur, termomeeter, mõõda, kirjuta]
+    formative_check:
+      prompt_ru: Покажи процесс и выполни команду «Mõõda temperatuur».
+      subject_evidence: Выбирает правильную стрелку процесса.
+      language_evidence: Следует инструкции и называет оба процесса.
+    expected_evidence_of_learning: Новые слова связаны с понятыми процессами и конкретными действиями.
+    transition: Проверяем процессы в безопасном наблюдении.
+  - stage_id: observe-changes
+    duration_minutes: 15
+    stage_type: practical_observation
+    content_purpose_ru: Собрать данные о плавлении и наблюдать конденсацию в учительской демонстрации.
+    language_purpose_et: Следовать mõõda и kirjuta и поддержанно описать два наблюдения.
+    teacher_action_ru: Раздаёт лёд и термометры, контролирует измерение и сам выполняет демонстрацию с тёплой водой.
+    pupil_action_ru: Измеряют безопасные образцы, записывают данные, наблюдают крышку и обсуждают вывод по-русски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Лёд тает и становится водой, Капли появились из водяного пара]
+      et: [Mõõda temperatuur, Kirjuta tulemus, Jää sulab]
+    material_refs: [melting-condensation-table, practical-safety-card, water-changes-koolibri]
+    provenance_refs: [melting-condensation-table, practical-safety-card, water-changes-koolibri]
+    scaffold_refs: [phase-change-word-bank, practical-observation-table, pair-rehearsal-conclusion]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что мы наблюдали, а что является нашим выводом?
+      subject_evidence: Разделяет данные и объяснение и соблюдает безопасность.
+      language_evidence: Выполняет две инструкции и завершает одну рамку.
+    expected_evidence_of_learning: Таблица содержит измерения и наблюдения, а вывод объясняет два изменения состояния.
+    transition: Снимаем поддержку и оцениваем два результата отдельно.
+  - stage_id: separate-conclusions
+    duration_minutes: 7
+    stage_type: assessment
+    content_purpose_ru: Проверить полное причинное объяснение плавления и конденсации.
+    language_purpose_et: Дать один или два коротких самостоятельных вывода по-эстонски.
+    teacher_action_ru: Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
+    pupil_action_ru: Пишут полный вывод по-русски и затем отвечают кратко по-эстонски без банка слов.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Лёд получает тепло и переходит в жидкое состояние]
+      et: [Jää sulab, Veeaur veeldub]
+    material_refs: [separate-practical-exit-card]
+    provenance_refs: [separate-practical-exit-card]
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Объясни оба процесса, затем дай короткий ответ по-эстонски.
+      subject_evidence: Два русских вывода содержат причину и результат.
+      language_evidence: Один или два эстонских ответа понятны и используют целевой термин.
+    expected_evidence_of_learning: Слабая форма эстонского ответа не подменяет оценку предметного понимания.
+    transition: Повторяем безопасную версию наблюдения дома без нагревания.
+  - stage_id: homework-launch
+    duration_minutes: 3
+    stage_type: homework_launch
+    content_purpose_ru: Ограничить домашнее задание безопасным наблюдением таяния без горячей воды.
+    language_purpose_et: Повторить sulamine, mõõda и kirjuta в знакомой последовательности.
+    teacher_action_ru: Демонстрирует безопасный домашний вариант и запрещает самостоятельное кипячение воды.
+    pupil_action_ru: Пересказывают процедуру и критерии завершения по-русски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Нужно наблюдать лёд без нагревания]
+      et: [mõõda, kirjuta, sulamine]
+    material_refs: [melting-condensation-table, practical-safety-card]
+    provenance_refs: [melting-condensation-table, practical-safety-card]
+    scaffold_refs: [practical-observation-table]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что дома делать запрещено?
+      subject_evidence: Называет безопасный способ и запрет на нагревание.
+      language_evidence: Узнаёт три повторяемых слова.
+    expected_evidence_of_learning: Домашнее задание понято как короткое безопасное наблюдение.
+    transition: Результаты будут использованы в повторении урока 4.
+questions:
+  - question_id: question-condensation-origin
+    question_ru: Откуда появились капли на холодной крышке?
+    question_et: Mis juhtub veeauruga külmal pinnal?
+    full_expected_answer_ru: Водяной пар у холодной поверхности охлаждается и превращается в капли жидкой воды; этот процесс называется конденсацией.
+    short_oral_answer_et: Veeaur jahtub ja veeldub veeks.
+    acceptable_variants:
+      - Külmal pinnal veeaur veeldub.
+      - Veeaur muutub veeks.
+    misconception_to_watch: Капли не прошли сквозь крышку и не возникли из материала крышки.
+    objective_refs: [explain-melting-condensation, report-phase-change-et]
+    provenance_refs: [water-changes-koolibri, phase-change-diagram]
+  - question_id: question-melting-data
+    question_ru: Как данные подтверждают, что лёд плавился?
+    question_et: Mis juhtub jääga soojas kohas?
+    full_expected_answer_ru: Лёд уменьшался, появилась жидкая вода, а температура образца изменилась; наблюдения показывают переход из твёрдого состояния в жидкое.
+    short_oral_answer_et: Jää sulab ja muutub vedelaks veeks.
+    acceptable_variants:
+      - Soojas kohas jää sulab.
+      - Jää muutub veeks.
+    misconception_to_watch: Исчезновение куска льда не означает исчезновения вещества воды.
+    objective_refs: [explain-melting-condensation, conduct-safe-water-observation, report-phase-change-et]
+    provenance_refs: [water-changes-koolibri, melting-condensation-table]
+practical_work:
+  work_id: observe-melting-condensation
+  title_ru: Наблюдаем плавление и конденсацию
+  title_et: Vaatleme sulamist ja veeldumist
+  safety_requirements:
+    - Ученики не кипятят воду и не касаются сосуда с тёплой водой.
+    - Тёплую воду наливает и демонстрационный сосуд перемещает только учитель.
+    - Термометры используются по инструкции; стеклянные приборы заменяются безопасными школьными моделями.
+  teacher_controlled_steps:
+    - Учитель заранее проверяет безопасные термометры и готовит одинаковые кусочки льда.
+    - Учитель сам наливает тёплую воду в устойчивый прозрачный сосуд и закрывает его холодной крышкой.
+    - Учитель убирает тёплую воду сразу после наблюдения капель.
+  pupil_steps:
+    - Положить лёд в два подписанных безопасных места и записать начальное наблюдение.
+    - Измерить доступную температуру по команде учителя и записать результат.
+    - Сравнить скорость таяния и наблюдать капли на холодной крышке с безопасного расстояния.
+    - Сначала записать наблюдение, затем отдельно сформулировать вывод.
+  materials:
+    - Одинаковые кусочки льда, два устойчивых поддона и безопасные школьные термометры.
+    - Подготовленный учителем сосуд с тёплой водой и холодная прозрачная крышка.
+    - Двуязычная таблица и карточка безопасной работы.
+  observation_table:
+    columns: [Время, Температура, Наблюдение, Вывод, Märksõna eesti keeles]
+    data_collection_ru: Группа записывает начальное и конечное состояние, доступную температуру и отдельный вывод для каждого процесса.
+  expected_observation_ru: В более тёплом месте лёд быстрее превращается в жидкую воду; на холодной крышке появляются капли.
+  expected_conclusion_ru: При получении тепла лёд плавится, а при охлаждении у поверхности водяной пар конденсируется в жидкую воду.
+  russian_report_target: Полный отчёт содержит условия, два наблюдения, два объяснения и различает данные и вывод.
+  short_estonian_conclusion: Soojas jää sulab; külmal pinnal veeaur veeldub.
+  opiq_source_record_ids: [water-states-koolibri, water-changes-koolibri]
+  provenance_refs: [water-states-koolibri, water-changes-koolibri, melting-condensation-table, practical-safety-card]
+assessment:
+  - criterion_id: assess-subject-phase-change
+    domain: subject_understanding
+    what_is_checked: Причинное понимание плавления и конденсации.
+    acceptable_evidence: Два полных русских вывода, связанных с наблюдением и передачей тепла.
+    success_threshold: Оба процесса имеют верное начальное и конечное состояние.
+    affects: subject_assessment
+  - criterion_id: assess-practical-safe-observation
+    domain: practical_skill
+    what_is_checked: Безопасное измерение, запись данных и различение наблюдения и вывода.
+    acceptable_evidence: Соблюдение всех ученических шагов и заполненная таблица.
+    success_threshold: Процедура безопасна и заполнены минимум четыре обязательные ячейки.
+    affects: subject_assessment
+  - criterion_id: assess-et-recognition-processes
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание sulamine, veeldumine, temperatuur и termomeeter.
+    acceptable_evidence: Четыре корректных соответствия на схеме или в таблице.
+    success_threshold: Три из четырёх терминов распознаны.
+    affects: language_assessment
+  - criterion_id: assess-et-supported-instructions
+    domain: supported_estonian_production
+    what_is_checked: Следование mõõda и kirjuta и завершение причинной рамки.
+    acceptable_evidence: Два выполненных действия и одна поддержанная фраза.
+    success_threshold: Обе инструкции выполнены и одна фраза понятна.
+    affects: language_assessment
+  - criterion_id: assess-et-independent-conclusion
+    domain: independent_estonian_production
+    what_is_checked: Короткий самостоятельный вывод после снятия банка слов.
+    acceptable_evidence: Одна или две понятные фразы с sulamine или veeldumine.
+    success_threshold: Один процесс назван понятно; языковая ошибка отдельно отмечается и не отменяет предметный успех.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторно пройти причинную схему по-русски перед заполнением вывода.
+      preserves_subject_objective: true
+    - type: bilingual_glossary
+      implementation_ru: Оставить четыре терминологические карточки рядом с таблицей наблюдений.
+      preserves_subject_objective: true
+    - type: sentence_frames
+      implementation_ru: Разрешить использовать причинную рамку и банк слов для поддержанного ответа.
+      preserves_subject_objective: true
+    - type: partner_rehearsal
+      implementation_ru: Дать одну парную репетицию короткого вывода до индивидуальной записи.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Принять одну короткую эстонскую фразу при сохранении полного русского отчёта.
+      preserves_subject_objective: true
+    - type: challenge_extension
+      implementation_ru: Предложить сравнить скорость таяния и дать два причинных предложения по-эстонски.
+      preserves_subject_objective: true
+  challenge_extension: Объяснить по-русски роль передачи тепла в обоих процессах и дать два связанных эстонских предложения.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Упрощённые страницы не используются; обычное предметное содержание сохраняется для всех учеников.
+homework:
+  content_task_ru: Наблюдать таяние одного кубика льда при комнатной температуре без нагревания и записать начало, конец и вывод.
+  estonian_language_component: Использовать слова sulamine, mõõda или kirjuta и завершить одну короткую рамку.
+  expected_minutes: 12
+  source_reference: melting-condensation-table and water-changes-koolibri
+  required_opiq_url: https://www.opiq.ee/kit/122/chapter/6283
+  adult_support_expected: false
+  success_guidance_ru: Нужны два наблюдения, один русский вывод и одна короткая эстонская фраза; нагревать воду нельзя.
+  provenance:
+    category: author_created_worksheet
+    source_reference: lesson 03 safe homework bridge to canonical chapter 6283
+    notes: Teacher-created no-heating observation task grounded in canonical practical evidence.
+artifact_completeness:
+  status: complete_lesson_artifact
+  declared_complete: true
+  notes: Это полный golden lesson, но его curriculum linkage остаётся частичным и school-stage based.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 10 grade-5 water golden lesson 03
+  notes: Complete Russian-primary, Estonian-supported lesson using only ordinary canonical grade-5-science records.

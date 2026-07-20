@@ -1,0 +1,327 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json",
+  "title": "Opiq Helper bilingual annual-course plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "course_id",
+    "grade",
+    "subject",
+    "subject_et",
+    "instruction_language",
+    "subject_support_language",
+    "canonical_route",
+    "official_curriculum_references",
+    "sequence_policy",
+    "ordered_units",
+    "lesson_estimate",
+    "selected_source_books",
+    "deduplication_decisions",
+    "russian_explanation_coverage",
+    "estonian_vocabulary_progression",
+    "estonian_instruction_language_progression",
+    "sentence_and_oral_answer_progression",
+    "planned_vocabulary_recycling_intervals",
+    "practical_work_calendar",
+    "revision_calendar",
+    "subject_assessment_calendar",
+    "language_assessment_calendar",
+    "outcome_coverage",
+    "known_gaps",
+    "completeness",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "annual_course_plan" },
+    "course_id": { "$ref": "#/$defs/slug" },
+    "grade": { "type": "integer", "minimum": 1 },
+    "subject": { "type": "string", "minLength": 1 },
+    "subject_et": { "type": "string", "minLength": 1 },
+    "instruction_language": { "const": "ru" },
+    "subject_support_language": { "const": "et" },
+    "canonical_route": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/canonicalRoute" },
+    "official_curriculum_references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["curriculum_map_id", "outcome_ids", "official_scope", "exact_grade_claimed", "notes"],
+        "properties": {
+          "curriculum_map_id": { "$ref": "#/$defs/slug" },
+          "outcome_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/slug" }
+          },
+          "official_scope": { "enum": ["exact_grade", "school_stage_1", "school_stage_2", "school_stage_3"] },
+          "exact_grade_claimed": { "type": "boolean" },
+          "notes": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "sequence_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publisher_sequence", "curated_sequence", "relationship"],
+      "properties": {
+        "publisher_sequence": { "type": "string", "minLength": 10 },
+        "curated_sequence": { "type": "string", "minLength": 10 },
+        "relationship": { "const": "publisher_evidence_informs_but_does_not_define_curated_order" }
+      }
+    },
+    "ordered_units": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/orderedUnit" }
+    },
+    "lesson_estimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["represented_lessons", "estimated_planned_lessons", "full_course_estimate_known", "notes"],
+      "properties": {
+        "represented_lessons": { "type": "integer", "minimum": 0 },
+        "estimated_planned_lessons": { "type": "integer", "minimum": 1 },
+        "full_course_estimate_known": { "type": "boolean" },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "selected_source_books": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["book_id", "language", "roles", "selection_notes"],
+        "properties": {
+          "book_id": { "type": "string", "minLength": 1 },
+          "language": { "enum": ["ru", "et"] },
+          "roles": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json#/$defs/instructionalRole" }
+          },
+          "selection_notes": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "deduplication_decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["decision_id", "topic_id", "decision", "rationale"],
+        "properties": {
+          "decision_id": { "$ref": "#/$defs/slug" },
+          "topic_id": { "$ref": "#/$defs/slug" },
+          "decision": { "enum": ["select_by_role", "retain_distinct_roles", "defer_until_verified"] },
+          "rationale": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "russian_explanation_coverage": { "$ref": "#/$defs/unitCoverageProgression" },
+    "estonian_vocabulary_progression": { "$ref": "#/$defs/unitStringProgression" },
+    "estonian_instruction_language_progression": { "$ref": "#/$defs/unitStringProgression" },
+    "sentence_and_oral_answer_progression": { "$ref": "#/$defs/unitStringProgression" },
+    "planned_vocabulary_recycling_intervals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["term_et", "introduced_in_unit", "recycled_in_unit", "interval_units", "planned_use"],
+        "properties": {
+          "term_et": { "type": "string", "minLength": 1 },
+          "introduced_in_unit": { "$ref": "#/$defs/slug" },
+          "recycled_in_unit": { "$ref": "#/$defs/slug" },
+          "interval_units": { "type": "integer", "minimum": 1 },
+          "planned_use": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "practical_work_calendar": { "$ref": "#/$defs/calendar" },
+    "revision_calendar": { "$ref": "#/$defs/calendar" },
+    "subject_assessment_calendar": { "$ref": "#/$defs/calendar" },
+    "language_assessment_calendar": { "$ref": "#/$defs/calendar" },
+    "outcome_coverage": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["outcome_id", "coverage_status", "unit_ids", "official_scope", "notes"],
+        "properties": {
+          "outcome_id": { "$ref": "#/$defs/slug" },
+          "coverage_status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" },
+          "unit_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/slug" }
+          },
+          "official_scope": { "enum": ["exact_grade", "school_stage_1", "school_stage_2", "school_stage_3"] },
+          "notes": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "known_gaps": { "$ref": "#/$defs/nonEmptyStringArray" },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "status", "declared_complete", "deferred_to_issue", "notes"],
+      "properties": {
+        "scope": { "enum": ["small_annual_course_excerpt", "full_annual_course"] },
+        "status": { "enum": ["complete", "incomplete"] },
+        "declared_complete": { "type": "boolean" },
+        "deferred_to_issue": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        },
+        "notes": { "type": "string", "minLength": 10 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "scope": { "const": "small_annual_course_excerpt" } },
+            "required": ["scope"]
+          },
+          "then": {
+            "properties": {
+              "status": { "const": "incomplete" },
+              "declared_complete": { "const": false },
+              "deferred_to_issue": { "type": "integer", "minimum": 1 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "status": { "const": "complete" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "scope": { "const": "full_annual_course" },
+              "declared_complete": { "const": true },
+              "deferred_to_issue": { "type": "null" }
+            }
+          }
+        }
+      ]
+    },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },
+    "nonEmptyStringArray": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/nonEmptyStringArray" },
+    "orderedUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "order",
+        "unit_id",
+        "topic_id",
+        "title_ru",
+        "title_et",
+        "status",
+        "thematic_plan_ref",
+        "estimated_lessons",
+        "selected_book_ids",
+        "curriculum_outcome_ids",
+        "publisher_sequence_note",
+        "curated_sequence_reason"
+      ],
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "topic_id": { "$ref": "#/$defs/slug" },
+        "title_ru": { "type": "string", "minLength": 1 },
+        "title_et": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["represented_by_thematic_plan", "topic_inventory_only"] },
+        "thematic_plan_ref": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/slug" }
+          ]
+        },
+        "estimated_lessons": { "type": "integer", "minimum": 1 },
+        "selected_book_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "curriculum_outcome_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "publisher_sequence_note": { "type": "string", "minLength": 10 },
+        "curated_sequence_reason": { "type": "string", "minLength": 10 }
+      }
+    },
+    "unitCoverageProgression": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit_id", "status", "source_or_bridge", "notes"],
+        "properties": {
+          "unit_id": { "$ref": "#/$defs/slug" },
+          "status": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/completenessStatus" },
+          "source_or_bridge": { "enum": ["canonical_opiq_ru", "author_created_bridge_required", "not_yet_verified"] },
+          "notes": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "unitStringProgression": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit_id", "introduced", "recycled", "expected_output"],
+        "properties": {
+          "unit_id": { "$ref": "#/$defs/slug" },
+          "introduced": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "recycled": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "expected_output": { "type": "string", "minLength": 5 }
+        }
+      }
+    },
+    "calendar": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["calendar_id", "unit_id", "timing", "description_ru", "status"],
+        "properties": {
+          "calendar_id": { "$ref": "#/$defs/slug" },
+          "unit_id": { "$ref": "#/$defs/slug" },
+          "timing": { "type": "string", "minLength": 3 },
+          "description_ru": { "type": "string", "minLength": 10 },
+          "status": { "enum": ["planned", "placeholder_not_verified"] }
+        }
+      }
+    }
+  }
+}
