@@ -1,5 +1,5 @@
-version: "1.0"
-scope: "Regression cases for previously identified topic-retrieval risks. This file is not a complete curriculum map."
+version: "2.0"
+scope: "Machine-checked regression cases for topic evidence and route boundaries. This file is not a complete curriculum map."
 allowed_statuses:
   - present
   - ambiguous
@@ -11,171 +11,472 @@ cases:
     subject: mathematics
     topic: "võrra rohkem"
     status: ambiguous
+    expected_source_id: grade-1-mathematics
     expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
-    evidence: "Audit of canonical headings, task examples, and compact JSONL found no explicit võrra rohkem / mitme võrra rohkem / на сколько больше task. Generic comparison exists at kit 112 chapter 1.6 (https://www.opiq.ee/kit/112/chapter/5426) and kit 539 chapter 1.6 (https://www.opiq.ee/kit/539/chapter/29821). Kit 112 chapter 9.6 (https://www.opiq.ee/kit/112/chapter/6527) asks for a depth difference, but this single contextual task does not establish the distinct more-by learning objective. Topics-only matches were not used."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/5426
+        expected:
+          class: 1
+          title: SUUREM, VÄIKSEM, VÕRDNE
+          headings_any:
+            - SUUREM
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/539/chapter/29821
+        expected:
+          class: 1
+          title: Больше, меньше, равно
+          headings_any:
+            - Больше, меньше, равно
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/6527
+        expected:
+          class: 1
+          title: Meeter ja sentimeeter (3)
+          task_examples_any:
+            - mitme meetri võrra
+      - kind: promotion_guard
+        source_id: grade-1-mathematics
+        fields:
+          - title
+          - headings
+          - task_examples
+        absent_patterns:
+          - võrra rohkem
+          - mitme võrra rohkem
+          - на сколько больше
+    evidence: "Generic greater/less comparison pages and one depth-difference task exist, but no explicit more-by learning objective appears in canonical titles, headings, or task examples; Topics are not used."
 
   - id: grade-1-mathematics-vorra-vahem
     grade: 1
     subject: mathematics
     topic: "võrra vähem"
     status: ambiguous
+    expected_source_id: grade-1-mathematics
     expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
-    evidence: "Audit of canonical headings, task examples, and compact JSONL found no explicit võrra vähem / mitme võrra vähem / на сколько меньше task. Generic comparison exists at kit 158 chapter 2.2 (https://www.opiq.ee/kit/158/chapter/8915) and kit 266 chapter 2.2 (https://www.opiq.ee/kit/266/chapter/15145). Kit 112 chapter 9.6 (https://www.opiq.ee/kit/112/chapter/6527) asks for a depth difference, but this single contextual task does not establish the distinct less-by learning objective. Topics-only matches were not used."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/158/chapter/8915
+        expected:
+          class: 1
+          title: SUUREM JA VÄIKSEM
+          headings_any:
+            - SUUREM JA VÄIKSEM
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/266/chapter/15145
+        expected:
+          class: 1
+          title: БОЛЬШЕ И МЕНЬШЕ
+          headings_any:
+            - БОЛЬШЕ И МЕНЬШЕ
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/6527
+        expected:
+          class: 1
+          title: Meeter ja sentimeeter (3)
+          task_examples_any:
+            - mitme meetri võrra
+      - kind: promotion_guard
+        source_id: grade-1-mathematics
+        fields:
+          - title
+          - headings
+          - task_examples
+        absent_patterns:
+          - võrra vähem
+          - mitme võrra vähem
+          - на сколько меньше
+    evidence: "Generic greater/less comparison pages and one depth-difference task exist, but no explicit less-by learning objective appears in canonical titles, headings, or task examples; Topics are not used."
 
   - id: grade-1-mathematics-within-100
     grade: 1
     subject: mathematics
     topic: "вычисления в пределах 100"
     status: present
+    expected_source_id: grade-1-mathematics
     expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
-    evidence: "Liitmine 100 piires, Lahutamine 100 piires, and Arvud 1–100 are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/6519
+        expected:
+          class: 1
+          book_id: 1k_math_avita_est
+          title: Liitmine 100 piires (1)
+          headings_any:
+            - Õpin liitma 100 piires
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/6511
+        expected:
+          class: 1
+          title: Arvud 1–100
+          headings_any:
+            - Arvud 1–100
+      - kind: url_absent
+        origin_source_id: grade-1-mathematics
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/6519
+    evidence: "Liitmine 100 piires and Arvud 1–100 are explicit canonical titles/headings in the grade 1 mathematics route and the anchor is absent from grade 3 mathematics."
+
+  - id: grade-1-mathematics-addition-route-anchor
+    grade: 1
+    subject: mathematics
+    topic: "сложение"
+    status: present
+    expected_source_id: grade-1-mathematics
+    expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/539/chapter/29825
+        expected:
+          class: 1
+          book_id: 1k_math_avita
+          title: Сложение
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          headings_any:
+            - Что такое сложение?
+    evidence: "The exact grade 1 mathematics route anchor has the explicit title Сложение and heading Что такое сложение?."
 
   - id: grade-1-mathematics-geometric-shapes
     grade: 1
     subject: mathematics
     topic: "геометрические фигуры"
     status: present
+    expected_source_id: grade-1-mathematics
     expected_md_path: project-files/outputs/opiq_1klass_matemaatika.md
-    evidence: "Geomeetrilised kujundid and individual shape pages are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-mathematics
+        url: https://www.opiq.ee/kit/112/chapter/6533
+        expected:
+          class: 1
+          book_id: 1k_math_avita_est
+          title: Kordamine. Geomeetrilised kujundid
+          headings_any:
+            - Geomeetrilised kujundid
+    evidence: "The grade 1 mathematics record has the explicit title and heading Kordamine. Geomeetrilised kujundid."
 
   - id: grade-1-science-migratory-and-resident-birds
     grade: 1
     subject: science
     topic: "перелётные и оседлые птицы"
     status: present
+    expected_source_id: grade-1-science
     expected_md_path: project-files/outputs/opiq_1klass_loodusopetus.md
-    evidence: "Rändlinnud ja paigalinnud is an explicit heading, with Estonian and Russian variants."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-science
+        url: https://www.opiq.ee/kit/104/chapter/5094
+        expected:
+          class: 1
+          book_id: 1k_loodus_2_avita_est
+          title: LOOMAD VALMISTUVAD TALVEKS
+          headings_any:
+            - RÄNDLINNUD
+      - kind: url_absent
+        origin_source_id: grade-1-science
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/104/chapter/5094
+    evidence: "RÄNDLINNUD is an explicit heading in grade 1 science; the exact grade 1 page is absent from the grade 3 science route."
 
   - id: grade-1-science-estonian-national-symbols
     grade: 1
     subject: science
     topic: "национальные символы Эстонии"
     status: present
+    expected_source_id: grade-1-science
     expected_md_path: project-files/outputs/opiq_1klass_loodusopetus.md
-    evidence: "Eesti sümbolid is an explicit heading in the Estonia section."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-science
+        url: https://www.opiq.ee/kit/104/chapter/5101
+        expected:
+          class: 1
+          title: SÜNNIPÄEV. EESTI
+          headings_any:
+            - Eesti sümbolid
+    evidence: "Eesti sümbolid is an explicit heading in the grade 1 science Estonia record."
 
   - id: grade-3-science-map
     grade: 3
     subject: science
     topic: "карта"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Kaart, Eesti kaart, and Kuidas kaarti lugeda are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1396
+        expected:
+          class: 3
+          book_id: 3k_loodus_avita_est
+          title: Eesti
+          headings_any:
+            - Eesti kaart
+      - kind: url_absent
+        origin_source_id: grade-3-science
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/30/chapter/1396
+    evidence: "Eesti kaart is an explicit heading in the grade 3 science route; the exact science page is absent from grade 3 mathematics."
 
   - id: grade-3-science-plan
     grade: 3
     subject: science
     topic: "план"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Foto, joonistus, plaan and Plaan ja kaart are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1430
+        expected:
+          class: 3
+          title: Foto, joonistus, plaan
+          headings_any:
+            - Foto, joonistus, plaan
+    evidence: "Foto, joonistus, plaan is an explicit canonical title and heading in grade 3 science."
 
   - id: grade-3-science-cardinal-directions
     grade: 3
     subject: science
     topic: "стороны света"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Ilmakaared and Põhi- ja vaheilmakaared are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1429
+        expected:
+          class: 3
+          title: Ilmakaared
+          headings_any:
+            - Põhi- ja vaheilmakaared
+    evidence: "Ilmakaared and Põhi- ja vaheilmakaared are explicit canonical title/heading evidence."
 
   - id: grade-3-science-magnets
     grade: 3
     subject: science
     topic: "магниты"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Magnet ja kompass and Magnetnähtused are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1427
+        expected:
+          class: 3
+          title: Magnet ja kompass
+          headings_any:
+            - Magnet ja kompass
+    evidence: "Magnet ja kompass is an explicit title and heading in grade 3 science."
 
   - id: grade-3-science-electricity
     grade: 3
     subject: science
     topic: "электричество"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Elekter ja elektrivool and Elekter meie ümber are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1424
+        expected:
+          class: 3
+          title: Elekter ja elektrivool
+          headings_any:
+            - Mis on elekter ja elektrivool?
+    evidence: "Elekter ja elektrivool is an explicit canonical page with a matching explanatory heading."
 
   - id: grade-3-science-electric-circuit
     grade: 3
     subject: science
     topic: "электрическая цепь"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Vooluallikas ja vooluring and Vooluring are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1425
+        expected:
+          class: 3
+          title: Vooluallikas ja vooluring
+          headings_all:
+            - Vooluallikas ja vooluring
+            - Vooluring
+    evidence: "Vooluallikas ja vooluring and Vooluring are explicit headings in the selected grade 3 science record."
 
   - id: grade-3-science-food-chain
     grade: 3
     subject: science
     topic: "пищевая цепь"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Toiduahel is an explicit heading."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1412
+        expected:
+          class: 3
+          title: Kooslused
+          headings_any:
+            - Toiduahel
+    evidence: "Toiduahel is an explicit heading in the grade 3 science Kooslused record."
 
   - id: grade-3-science-food-web
     grade: 3
     subject: science
     topic: "пищевая сеть"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Toiduvõrk is an explicit heading."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1412
+        expected:
+          class: 3
+          title: Kooslused
+          headings_any:
+            - Toiduvõrk
+    evidence: "Toiduvõrk is an explicit heading in the grade 3 science Kooslused record."
 
   - id: grade-3-science-fungi
     grade: 3
     subject: science
     topic: "грибы"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Seened is an explicit page and heading."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1410
+        expected:
+          class: 3
+          title: Seened
+          headings_any:
+            - Seened söögina
+    evidence: "Seened is an explicit page title with explicit fungi headings in grade 3 science."
 
   - id: grade-3-science-bacteria
     grade: 3
     subject: science
     topic: "бактерии"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Bakterid is an explicit page and heading."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1411
+        expected:
+          class: 3
+          title: Bakterid
+          headings_any:
+            - Lisa. Bakterid
+    evidence: "Bakterid is an explicit page title and heading in grade 3 science."
 
   - id: grade-3-science-vertebrates
     grade: 3
     subject: science
     topic: "позвоночные"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Selgroogsed and comparison with invertebrates are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1401
+        expected:
+          class: 3
+          title: Selgroogsed loomad
+          headings_any:
+            - Kes on selgroogsed loomad?
+    evidence: "Selgroogsed loomad and its explanatory heading are explicit in grade 3 science."
 
   - id: grade-3-science-invertebrates
     grade: 3
     subject: science
     topic: "беспозвоночные"
     status: present
+    expected_source_id: grade-3-science
     expected_md_path: project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "Selgrootud loomad and multiple invertebrate groups are explicit headings."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/30/chapter/1407
+        expected:
+          class: 3
+          title: Selgrootud loomad
+          headings_any:
+            - Selgrootud loomad
+    evidence: "Selgrootud loomad is an explicit canonical title and heading in grade 3 science."
 
-  # Subject-routing cases may declare exact URLs, the canonical Subject, and
-  # forbidden subjects/paths. These are regression guards, not a curriculum map.
   - id: grade-3-mathematics-kaitseme-loodust-subject
     grade: 3
     subject: mathematics
     topic: "Kaitseme loodust pages with computational learning tasks"
     status: present
+    expected_source_id: grade-3-mathematics
     expected_md_path: project-files/outputs/opiq_3klass_matemaatika.md
-    expected_urls:
-      - https://www.opiq.ee/kit/531/chapter/29334
-      - https://www.opiq.ee/kit/54/chapter/2701
-    expected_subject: "mathematics / matemaatika / математика"
-    forbidden_subjects:
-      - science
-      - loodusõpetus
-      - природоведение
-    forbidden_md_paths:
-      - project-files/outputs/opiq_3klass_loodusopetus.md
-    evidence: "docs/audits/grade-3-mathematics-source-and-subjects.md documents both exact records. The pages belong to grade 3 mathematics books and ask pupils to read a diagram, count responses, calculate gift prices, and calculate saved electricity hours. Environmental protection remains thematic context and does not change the instructional subject."
+    assertions:
+      - kind: record_present
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/531/chapter/29334
+        expected:
+          class: 3
+          book_id: 3k_matem_avita_2023_est
+          title: Kaitseme loodust
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          task_examples_any:
+            - arvuta
+      - kind: record_present
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/54/chapter/2701
+        expected:
+          class: 3
+          book_id: 3k_matem_avita_2_est
+          title: Kaitseme loodust
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          headings_any:
+            - Mitme tunni jagu säästad elektrit?
+      - kind: url_absent
+        origin_source_id: grade-3-mathematics
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/531/chapter/29334
+      - kind: url_absent
+        origin_source_id: grade-3-mathematics
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/54/chapter/2701
+    evidence: "Both exact records belong to mathematics books and contain computational tasks. Their environmental context remains, but neither URL is canonical in the science route."
 
-  # Route-boundary cases may use expected_source_ids/expected_md_paths for both
-  # canonical routes and negative_expectation for content forbidden in one path.
   - id: grade-1-estonian-subject-separation
     grade: 1
     subject: estonian
-    related_subject: estonian_second_language
     topic: "eesti keel and eesti keel teise keelena are separate routes"
     status: present
     expected_source_ids:
@@ -184,9 +485,267 @@ cases:
     expected_md_paths:
       - project-files/outputs/opiq_1klass_eesti_keel.md
       - project-files/outputs/opiq_1klass_eesti_teise_keelena.md
-    negative_expectation:
-      kind: book_id_absent_from_path
-      book_id: 1k_eesti_teise_keelena_avita_est
-      kit_id: "537"
-      md_path: project-files/outputs/opiq_1klass_eesti_keel.md
-    evidence: "docs/audits/grade-1-estonian-subject-separation.md classifies all 26 kit 537 records and documents why the second-language book must not be returned through the first-language index."
+    assertions:
+      - kind: record_present
+        source_id: grade-1-estonian
+        url: https://www.opiq.ee/kit/464/chapter/25229
+        expected:
+          class: 1
+          book_id: 1k_eesti_keel_koolibri4_est
+          title: HÄÄLIKUD JA TÄHED
+          subject:
+            en: Estonian language
+            et: eesti keel
+            ru: эстонский язык
+          headings_any:
+            - HÄÄLIKUD JA TÄHED
+      - kind: record_present
+        source_id: grade-1-estonian-second-language
+        url: https://www.opiq.ee/kit/554/chapter/30913
+        expected:
+          class: 1
+          book_id: 1k_eesti_keel_esiopetus_avita_est
+          title: PÄEV JA ÖÖ. MUUTUSED LOODUSES
+          subject:
+            en: Estonian as a second language
+            et: eesti keel teise keelena
+            ru: эстонский как второй язык
+          headings_any:
+            - PÄEV
+      - kind: url_absent
+        origin_source_id: grade-1-estonian
+        source_id: grade-1-estonian-second-language
+        url: https://www.opiq.ee/kit/464/chapter/25229
+      - kind: url_absent
+        origin_source_id: grade-1-estonian-second-language
+        source_id: grade-1-estonian
+        url: https://www.opiq.ee/kit/554/chapter/30913
+      - kind: book_id_absent
+        source_id: grade-1-estonian
+        book_id: 1k_eesti_teise_keelena_avita_est
+    evidence: "The two current routes have symmetric positive and negative URL guards. The audited kit 537 Book ID remains absent from first-language Estonian and is not claimed as present in the second-language route because its provenance gap remains."
+
+  - id: grade-2-estonian-letters-and-books
+    grade: 2
+    subject: estonian
+    topic: "letters, sounds, and books"
+    status: present
+    expected_source_id: grade-2-estonian
+    expected_md_path: project-files/outputs/opiq_2klass_eesti_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-estonian
+        url: https://www.opiq.ee/kit/232/chapter/15700
+        expected:
+          class: 2
+          book_id: avita_eesti_keel_2_et
+          title: Loeme tähti ja raamatuid
+          subject:
+            en: Estonian language
+            et: eesti keel
+            ru: эстонский язык
+          headings_any:
+            - Tähed ja häälikud
+      - kind: url_absent
+        origin_source_id: grade-2-estonian
+        source_id: grade-1-estonian
+        url: https://www.opiq.ee/kit/232/chapter/15700
+    evidence: "The explicit Tähed ja häälikud heading belongs to the grade 2 Estonian route and its exact page is absent from grade 1 Estonian."
+
+  - id: grade-2-human-studies-water-safety
+    grade: 2
+    subject: human_studies
+    topic: "water safety"
+    status: present
+    expected_source_id: grade-2-human-studies
+    expected_md_path: project-files/outputs/opiq_2klass_inimeseopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-human-studies
+        url: https://www.opiq.ee/kit/494/chapter/27188
+        expected:
+          class: 2
+          book_id: avita_inimeseõpe_2_et
+          title: VEEOHUTUS I
+          headings_any:
+            - UJUMINE UJULAS VÕI VEEKOGUS
+      - kind: url_absent
+        origin_source_id: grade-2-human-studies
+        source_id: grade-3-human-studies
+        url: https://www.opiq.ee/kit/449/chapter/24915
+    evidence: "The requested water-safety page is verified in grade 2. Because that source URL also occurs in grade 3, a distinct grade-2-only communication page provides the machine-readable wrong-grade boundary."
+
+  - id: grade-2-russian-language-and-speech
+    grade: 2
+    subject: russian
+    topic: "язык и речь"
+    status: present
+    expected_source_id: grade-2-russian
+    expected_md_path: project-files/outputs/opiq_2klass_vene_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-russian
+        url: https://www.opiq.ee/kit/292/chapter/16114
+        expected:
+          class: 2
+          book_id: avita_русский_язык_2_класс_kit292
+          title: Язык и речь. Вступление
+          subject:
+            en: Russian language
+            et: vene keel
+            ru: русский язык
+          headings_any:
+            - Язык и речь
+      - kind: url_absent
+        origin_source_id: grade-2-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/292/chapter/16114
+    evidence: "The record is the Russian-language school subject, not a Russian-language mathematics page; its exact URL is absent from grade 3 mathematics."
+
+  - id: grade-3-human-studies-water-safety
+    grade: 3
+    subject: human_studies
+    topic: "water safety and personal safety"
+    status: present
+    expected_source_id: grade-3-human-studies
+    expected_md_path: project-files/outputs/opiq_3klass_inimeseopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-human-studies
+        url: https://www.opiq.ee/kit/579/chapter/32048
+        expected:
+          class: 3
+          book_id: 3k_inimeseopetus_avita2_est
+          title: VEEOHUTUS I. ENDA OHUTUSE TAGAMINE
+          headings_any:
+            - ENDA OHUTUSE TAGAMINE
+      - kind: url_absent
+        origin_source_id: grade-3-human-studies
+        source_id: grade-2-human-studies
+        url: https://www.opiq.ee/kit/146/chapter/8129
+    evidence: "The requested water-safety page is verified in grade 3. Because that source URL also occurs in grade 2, a distinct grade-3-only school-introduction page provides the machine-readable wrong-grade boundary."
+
+  - id: grade-5-science-living-nature
+    grade: 5
+    subject: science
+    topic: "classification of nature"
+    status: present
+    expected_source_id: grade-5-science
+    expected_md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-5-science
+        url: https://www.opiq.ee/kit/275/chapter/15511
+        expected:
+          class: 5
+          book_id: 5k_loodusõpetus_harno_est
+          title: Elusloodus I
+          headings_any:
+            - Looduse jaotus
+      - kind: url_absent
+        origin_source_id: grade-5-science
+        source_id: grade-6-science
+        url: https://www.opiq.ee/kit/275/chapter/15511
+    evidence: "Looduse jaotus is an explicit grade 5 science heading and the exact page is absent from grade 6 science."
+
+  - id: grade-6-science-bog-conditions
+    grade: 6
+    subject: science
+    topic: "bog conditions and peat formation"
+    status: present
+    expected_source_id: grade-6-science
+    expected_md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-6-science
+        url: https://www.opiq.ee/kit/572/chapter/31885
+        expected:
+          class: 6
+          book_id: 5k_loodusõpetus_avita_2025_est
+          title: Elutingimused soos
+          headings_any:
+            - Soos tekib turvas
+      - kind: url_absent
+        origin_source_id: grade-6-science
+        source_id: grade-5-science
+        url: https://www.opiq.ee/kit/572/chapter/31885
+    evidence: "Soos tekib turvas is an explicit grade 6 science heading and the exact page is absent from grade 5 science."
+
+  - id: grade-7-geography-introduction
+    grade: 7
+    subject: geography
+    topic: "what geography studies"
+    status: present
+    expected_source_id: grade-7-geography
+    expected_md_path: project-files/outputs/opiq_7klass_geograafia.md
+    assertions:
+      - kind: record_present
+        source_id: grade-7-geography
+        url: https://www.opiq.ee/kit/96/chapter/4655
+        expected:
+          class: 7
+          book_id: 7k__geograafia_koolibri_est
+          title: Mis on geograafia?
+          subject:
+            en: geography
+            et: geograafia
+            ru: география
+          headings_any:
+            - Millega tegeleb geograafia?
+      - kind: url_absent
+        origin_source_id: grade-7-geography
+        source_id: grade-7-science
+        url: https://www.opiq.ee/kit/96/chapter/4655
+    evidence: "Millega tegeleb geograafia? is explicit geography evidence and the page is absent from grade 7 science."
+
+  - id: grade-7-science-natural-sciences
+    grade: 7
+    subject: science
+    topic: "science and technology"
+    status: present
+    expected_source_id: grade-7-science
+    expected_md_path: project-files/outputs/opiq_7klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-7-science
+        url: https://www.opiq.ee/kit/546/chapter/30107
+        expected:
+          class: 7
+          book_id: 7k_loodusõpetus_avita_2024_est
+          title: Loodusteadused
+          subject:
+            en: science
+            et: loodusõpetus
+            ru: природоведение
+          headings_any:
+            - Teadus ja tehnoloogia
+      - kind: url_absent
+        origin_source_id: grade-7-science
+        source_id: grade-7-geography
+        url: https://www.opiq.ee/kit/546/chapter/30107
+    evidence: "Teadus ja tehnoloogia is explicit grade 7 science evidence and the page is absent from grade 7 geography."
+
+  - id: grade-4-missing-coverage
+    grade: 4
+    subject: all
+    topic: "canonical grade 4 coverage"
+    status: missing
+    assertions:
+      - kind: missing_coverage
+        grade: 4
+        subjects: all
+    evidence: "The manifest has no grade 4 source route and explicitly records grade 4 with coverage_status missing for all subjects."
+
+  - id: grade-5-science-curriculum-not-verified
+    grade: 5
+    subject: science
+    topic: "curriculum completeness"
+    status: not_verified
+    expected_source_id: grade-5-science
+    expected_md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+    assertions:
+      - kind: manifest_equals
+        source_id: grade-5-science
+        field: coverage_status
+        value: available_not_curriculum_verified
+    evidence: "The grade 5 science route contains canonical pages, but manifest coverage_status explicitly says that curriculum completeness has not been verified."

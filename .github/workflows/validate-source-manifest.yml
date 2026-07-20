@@ -6,6 +6,9 @@ on:
       - source-manifest.json
       - scripts/**
       - project-files/**
+      - evaluations/**
+      - package.json
+      - package-lock.json
       - .github/workflows/validate-source-manifest.yml
   push:
     branches:
@@ -14,6 +17,9 @@ on:
       - source-manifest.json
       - scripts/**
       - project-files/**
+      - evaluations/**
+      - package.json
+      - package-lock.json
       - .github/workflows/validate-source-manifest.yml
   workflow_dispatch:
 
@@ -34,6 +40,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test known-topic regression runner
+        run: npm run test:topics
+
+      - name: Check known-topic regressions
+        run: npm run check:topics
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

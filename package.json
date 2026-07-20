@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "check:topics": "node scripts/check-known-topic-regressions.mjs",
+    "test:topics": "node --test scripts/known-topic-regressions.test.mjs"
+  },
+  "devDependencies": {
+    "yaml": "2.9.0"
+  }
+}
