@@ -16,7 +16,9 @@ try {
   } else {
     console.log(
       `Teaching-plan check passed: ${result.summary.profiles} profiles, ${result.summary.lessons} lessons, `
-      + `${result.summary.units} thematic plan, ${result.summary.annualCourses} annual excerpt, `
+      + `${result.summary.units} thematic plan, ${result.summary.annualCourses} annual architecture, `
+      + `${result.summary.annualComponents} annual components, ${result.summary.annualUnits} annual units, `
+      + `${result.summary.annualSelectedPages} annual selected pages, `
       + `${result.summary.pageReferences} canonical page references; ${result.summary.warnings} warning(s).`,
     );
   }
