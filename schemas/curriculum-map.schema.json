@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/curriculum-map.schema.json",
+  "title": "Opiq Helper official curriculum map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "map_id",
+    "grade",
+    "subject",
+    "subject_et",
+    "official_scope",
+    "official_documents",
+    "outcomes",
+    "completeness"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "official_curriculum_map" },
+    "map_id": { "$ref": "#/$defs/slug" },
+    "grade": { "type": "integer", "minimum": 1 },
+    "subject": { "type": "string", "minLength": 1 },
+    "subject_et": { "type": "string", "minLength": 1 },
+    "official_scope": { "$ref": "#/$defs/officialScope" },
+    "official_documents": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/officialDocument" }
+    },
+    "outcomes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/outcome" }
+    },
+    "completeness": { "$ref": "#/$defs/completeness" }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "officialUrl": {
+      "type": "string",
+      "pattern": "^https://www\\.riigiteataja\\.ee/[^\\s]+$"
+    },
+    "officialScope": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "grade",
+            "grade_allocation_basis",
+            "exact_grade_claimed",
+            "note"
+          ],
+          "properties": {
+            "kind": { "const": "exact_grade" },
+            "grade": { "type": "integer", "minimum": 1 },
+            "grade_allocation_basis": { "const": "official_exact_grade" },
+            "exact_grade_claimed": { "const": true },
+            "note": { "type": "string", "minLength": 10 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "school_stage",
+            "terminal_grade",
+            "grade_allocation_basis",
+            "exact_grade_claimed",
+            "note"
+          ],
+          "properties": {
+            "kind": { "const": "school_stage" },
+            "school_stage": { "type": "integer", "minimum": 1, "maximum": 3 },
+            "terminal_grade": { "type": "integer", "minimum": 1 },
+            "grade_allocation_basis": { "const": "official_school_stage" },
+            "exact_grade_claimed": { "const": false },
+            "note": { "type": "string", "minLength": 10 }
+          }
+        }
+      ]
+    },
+    "officialDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_id",
+        "title_et",
+        "regulation_identifier",
+        "appendix_identifier",
+        "official_url",
+        "evidence_url",
+        "revision_effective_from",
+        "verified_on",
+        "evidence_status",
+        "verification_notes"
+      ],
+      "properties": {
+        "document_id": { "$ref": "#/$defs/slug" },
+        "title_et": { "type": "string", "minLength": 1 },
+        "regulation_identifier": { "type": "string", "minLength": 1 },
+        "appendix_identifier": { "type": "string", "minLength": 1 },
+        "official_url": { "$ref": "#/$defs/officialUrl" },
+        "evidence_url": { "$ref": "#/$defs/officialUrl" },
+        "revision_effective_from": { "$ref": "#/$defs/date" },
+        "verified_on": { "$ref": "#/$defs/date" },
+        "evidence_status": {
+          "enum": ["verified", "partial", "missing", "ambiguous"]
+        },
+        "verification_notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome_id",
+        "document_id",
+        "official_reference",
+        "wording_et",
+        "translation_ru",
+        "translation_provenance",
+        "official_scope",
+        "evidence_status",
+        "verification",
+        "pilot_relevance"
+      ],
+      "properties": {
+        "outcome_id": { "$ref": "#/$defs/slug" },
+        "document_id": { "$ref": "#/$defs/slug" },
+        "official_reference": { "type": "string", "minLength": 10 },
+        "wording_et": { "type": "string", "minLength": 20 },
+        "translation_ru": { "type": "string", "minLength": 20 },
+        "translation_provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "source_language", "verified_on", "notes"],
+          "properties": {
+            "kind": { "const": "opiq_helper_translation" },
+            "source_language": { "const": "et" },
+            "verified_on": { "$ref": "#/$defs/date" },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "official_scope": { "$ref": "#/$defs/officialScope" },
+        "evidence_status": {
+          "enum": ["verified", "partial", "missing", "ambiguous"]
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["verified_on", "method", "notes"],
+          "properties": {
+            "verified_on": { "$ref": "#/$defs/date" },
+            "method": { "const": "manual_primary_source_review" },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "pilot_relevance": { "type": "string", "minLength": 10 }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "declared_complete", "known_gaps", "notes"],
+      "properties": {
+        "status": { "enum": ["verified", "partial", "missing", "ambiguous"] },
+        "declared_complete": { "type": "boolean" },
+        "known_gaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    }
+  }
+}

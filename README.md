@@ -16,7 +16,7 @@ The represented subjects are:
 - Russian;
 - geography.
 
-The presence of Opiq pages does not prove complete coverage of the official school curriculum. The repository does not currently contain a complete curriculum map.
+The presence of Opiq pages does not prove complete coverage of the official school curriculum. The repository contains a partial grade-5 science curriculum-map pilot, not a complete annual curriculum map.
 
 ## Source locations
 
@@ -25,6 +25,8 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `project-files/inputs/final-zips/` contains available source archives.
 - `project-files/outputs/*_qa.json` contains available static QA snapshots.
 - `evaluations/known-topic-checks.yaml` records machine-checked representative topic and routing regressions; it is not a curriculum map.
+- `curriculum-maps/` separates official curriculum evidence, publisher evidence, topic inventory, and curated-course data.
+- `schemas/` contains the strict JSON Schemas for curriculum and course artifacts.
 
 The legacy `opiq_compact_all_index.json`, `opiq_lookup_all.*`, `topic_map_all.json`, and `opiq-compact-all*` files form an older, partial aggregate. They are not the canonical repository manifest.
 
@@ -105,3 +107,19 @@ npm run check:topics
 ```
 
 The regression set checks representative positive evidence and wrong-route boundaries for every manifest source. It remains distinct from a curriculum map and does not prove complete programme coverage.
+
+## Curriculum maps and bilingual courses
+
+The curriculum-map model is documented in [`docs/curriculum-maps.md`](docs/curriculum-maps.md). The first pilot uses only the registered `grade-5-science` route and keeps four layers separate: official Riigi Teataja evidence, official school-stage scope, publisher/Opiq evidence, and the curated Opiq Helper course.
+
+The course model requires Russian as the primary explanation language and Estonian as the subject-support language. It supports selecting complementary pages from several eligible books, assigning explicit instructional roles, and rejecting duplicate or simplified-curriculum material with a recorded reason.
+
+Install dependencies and run the schema tests and production validation with:
+
+```sh
+npm ci --ignore-scripts --no-audit --no-fund
+npm run test:curriculum
+npm run check:curriculum
+```
+
+The pilot validates one golden thematic unit and a deduplicated evidence inventory. It does not claim a complete grade-5 annual course or complete official curriculum coverage.

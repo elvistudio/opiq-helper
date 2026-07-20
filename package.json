@@ -1,10 +1,13 @@
 {
   "private": true,
   "scripts": {
+    "check:curriculum": "node scripts/check-curriculum-maps.mjs",
     "check:topics": "node scripts/check-known-topic-regressions.mjs",
+    "test:curriculum": "node --test scripts/curriculum-maps.test.mjs",
     "test:topics": "node --test scripts/known-topic-regressions.test.mjs"
   },
   "devDependencies": {
+    "ajv": "8.20.0",
     "yaml": "2.9.0"
   }
 }

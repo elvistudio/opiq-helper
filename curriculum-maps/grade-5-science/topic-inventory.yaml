@@ -1,0 +1,779 @@
+schema_version: "1.0"
+artifact_type: topic_inventory
+map_id: grade-5-science-topic-inventory
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+scope: deduplicated_inventory_not_final_annual_sequence
+coverage_status: partial
+grade_allocation_basis: curated_course_sequence
+unavailable_page_evidence_book_ids:
+  - 5k_loodusõpetus_koolibri_rus
+topics:
+  - topic_id: rivers-and-lakes
+    title_ru: Реки и озёра Эстонии
+    title_et: Eesti jõed ja järved
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: rivers-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/755
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Река
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 755
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Gives the primary Russian explanation of river parts and major Estonian rivers.
+      - record_id: rivers-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29222
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Eesti jõed
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29222
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Supplies current Estonian terms, a river diagram, and map-oriented tasks.
+      - record_id: lakes-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6269
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Eesti järved
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6269
+          notes: Canonical Estonian-language page from the registered ordinary Koolibri book.
+        selection_rationale: Adds a distinct lake and map perspective rather than repeating the river explanation.
+    alternative_records:
+      - record_id: lakes-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/759
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Озёра
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, optional_extension]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 759
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Provides Russian support when the curated sequence reaches lake formation and diversity.
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: [rivers-ru-avita, lakes-ru-avita]
+      estonian_terminology_or_visuals: [rivers-et-avita-2024, lakes-et-koolibri]
+      practice: [rivers-ru-avita, rivers-et-avita-2024]
+      practical_or_assessment: [lakes-et-koolibri]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: ambiguous
+    deduplication:
+      decision: select_by_role
+      rationale: The three selected pages divide Russian explanation, Estonian terminology, and lake/map evidence.
+      rejected_record_ids: []
+    known_gaps:
+      - This inventory does not yet enumerate every river and lake chapter as a final lesson sequence.
+
+  - topic_id: freshwater-ecosystems
+    title_ru: Пресноводные сообщества
+    title_et: Magevee elukooslused
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: freshwater-community-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/764
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Водоем как сообщество живых организмов
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 764
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Explains producers, consumers, decomposers, and food relations in Russian.
+      - record_id: freshwater-community-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29229
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Veekogu kui elukooslus
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29229
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Supplies current Estonian terminology and explicit food-chain and food-web headings.
+      - record_id: food-chains-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6276
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Jõe ja järve elukooslused. Toiduahelad
+        language: et
+        programme_type: ordinary
+        instructional_roles: [practice_et, revision, assessment, oral_answer_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6276
+          notes: Canonical Estonian-language practice page from the registered ordinary Koolibri book.
+        selection_rationale: Adds practice and summary material with a distinct instructional role.
+    alternative_records: []
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: [freshwater-community-ru-avita]
+      estonian_terminology_or_visuals: [freshwater-community-et-avita-2024]
+      practice: [food-chains-et-koolibri]
+      practical_or_assessment: [food-chains-et-koolibri]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: retain_distinct_roles
+      rationale: Overlapping ecosystem explanations are retained only where language or practice roles differ.
+      rejected_record_ids: []
+    known_gaps:
+      - A complete species-by-species sequence and fieldwork plan remain outside this inventory pilot.
+
+  - topic_id: water-properties-and-states
+    title_ru: Вода как вещество и состояния воды
+    title_et: Vesi kui aine ja vee olekud
+    coverage_status: verified
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: water-properties-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/747
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Вода как вещество. Свойства воды
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 747
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Strongest available Russian explanation of water as a substance and solvent.
+      - record_id: water-states-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/748
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Состояния воды и их изменение
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 748
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Gives the Russian conceptual bridge between all three states and phase changes.
+      - record_id: water-properties-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29514
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Vesi ja selle omadused
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, definition_et, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29514
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Provides current Estonian concepts and short checks corresponding to the Russian core.
+      - record_id: water-states-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Vee olekud ja nende muutumine
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, definition_et, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29515
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Supplies the contemporary Estonian phase-change terminology and a short investigation prompt.
+      - record_id: water-states-et-koolibri-practical
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Vee ja aine olekud
+        language: et
+        programme_type: ordinary
+        instructional_roles: [bilingual_visual, experiment, practice_et, revision, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6282
+          notes: Canonical Estonian-language practical page from the registered ordinary Koolibri book.
+        selection_rationale: Adds experiment conclusions, questions, and revision without duplicating the core explanation role.
+      - record_id: water-changes-et-koolibri-practical
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Vee olekute muutumine
+        language: et
+        programme_type: ordinary
+        instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6283
+          notes: Canonical Estonian-language practical page from the registered ordinary Koolibri book.
+        selection_rationale: Provides measurable melting, evaporation, boiling, and condensation activities.
+    alternative_records:
+      - record_id: water-properties-et-avita-old
+        canonical_url: https://www.opiq.ee/kit/9/chapter/363
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_est
+        title: Vesi kui aine. Vee omadused
+        language: et
+        programme_type: ordinary
+        instructional_roles: [optional_extension, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 9 / chapter 363
+          notes: Canonical Estonian-language page from the registered older ordinary Avita book.
+        selection_rationale: Retained as an optional older explanation but not assigned beside the newer Avita page.
+    rejected_records:
+      - record_id: water-solid-liquid-simplified
+        canonical_url: https://www.opiq.ee/kit/275/chapter/15515
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_harno_est
+        title: Tahked kehad ja vedelikud
+        language: et
+        programme_type: simplified_curriculum
+        instructional_roles: [optional_extension]
+        provenance:
+          category: opiq_simplified_curriculum
+          source_reference: grade-5-science / kit 275 / chapter 15515
+          notes: Canonical page explicitly belonging to the registered simplified-curriculum book.
+        selection_rationale: Audited for overlap but not selected for the default ordinary course.
+        rejection_reason: Simplified-curriculum material requires an explicit learner-specific opt-in.
+      - record_id: water-section-title-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6281
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Vesi kui aine
+        language: et
+        programme_type: ordinary
+        instructional_roles: [optional_extension]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6281
+          notes: Canonical section-title page from the registered ordinary Koolibri book.
+        selection_rationale: Audited as a possible entry page but it contains no distinct instructional detail.
+        rejection_reason: The page is only a section title and adds no page-level explanation, task, or assessment evidence.
+    source_recommendations:
+      russian_explanation: [water-properties-ru-avita, water-states-ru-avita]
+      estonian_terminology_or_visuals: [water-properties-et-avita-2024, water-states-et-avita-2024]
+      practice: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical]
+      practical_or_assessment: [water-states-et-koolibri-practical, water-changes-et-koolibri-practical]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: verified
+    deduplication:
+      decision: retain_distinct_roles
+      rationale: Russian explanation, current Estonian terminology, and Koolibri practical evidence have separate roles.
+      rejected_record_ids: [water-solid-liquid-simplified, water-section-title-et-koolibri]
+    known_gaps:
+      - Verification covers this thematic pilot, not every official water-related outcome for the school stage.
+
+  - topic_id: water-use-protection-and-cycle
+    title_ru: Подземные воды, использование, защита и круговорот воды
+    title_et: Põhjavesi, vee kasutamine, kaitse ja veeringe
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: groundwater-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/753
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Подземные воды
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 753
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Provides the clearest available Russian explanation of groundwater.
+      - record_id: water-pollution-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29520
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Vee reostumine
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29520
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Gives current Estonian environmental terminology and pollution tasks.
+      - record_id: water-cycle-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6297
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Vee ringkäik looduses
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, bilingual_visual, practice_et, experiment, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6297
+          notes: Canonical Estonian-language page from the registered ordinary Koolibri book.
+        selection_rationale: Adds a visual cycle explanation, a practical prompt, questions, and revision.
+    alternative_records:
+      - record_id: water-use-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/754
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Использо­ва­ние воды
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, optional_extension]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 754
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Russian bridge for household water use and protection when this topic is sequenced.
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: [groundwater-ru-avita, water-use-ru-avita]
+      estonian_terminology_or_visuals: [water-pollution-et-avita-2024, water-cycle-et-koolibri]
+      practice: [water-pollution-et-avita-2024, water-cycle-et-koolibri]
+      practical_or_assessment: [water-cycle-et-koolibri]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: ambiguous
+    deduplication:
+      decision: retain_distinct_roles
+      rationale: Pages are grouped by the water-system theme but provide distinct groundwater, pollution, and cycle roles.
+      rejected_record_ids: []
+    known_gaps:
+      - The annual course must still order drinking-water treatment and water-use pages coherently.
+
+  - topic_id: air-properties-and-protection
+    title_ru: Воздух, его свойства и защита
+    title_et: Õhk, selle omadused ja kaitse
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: air-composition-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/771
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Воздух и состав воздуха
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 771
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Supplies the primary Russian explanation of air composition and atmosphere.
+      - record_id: air-composition-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30585
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Õhk ja õhu koostis
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 30585
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Provides current Estonian terminology aligned to the Russian core page.
+      - record_id: air-pollution-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30591
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Õhusaaste
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 30591
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Adds current pollution vocabulary, causes, effects, and mitigation tasks.
+    alternative_records:
+      - record_id: air-protection-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/778
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Загрязнение и защита воздуха
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 778
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Russian support for causes and consequences of air pollution.
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: [air-composition-ru-avita, air-protection-ru-avita]
+      estonian_terminology_or_visuals: [air-composition-et-avita-2024, air-pollution-et-avita-2024]
+      practice: [air-pollution-et-avita-2024]
+      practical_or_assessment: [air-pollution-et-avita-2024]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Current Estonian pages and Russian-language counterparts are paired by language role.
+      rejected_record_ids: []
+    known_gaps:
+      - Practical work and a final assessment sequence require full annual-course curation.
+
+  - topic_id: weather-and-climate
+    title_ru: Погода и климат
+    title_et: Ilm ja kliima
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: weather-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/779
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Погода
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 779
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Explains weather, air masses, stations, and weather maps in Russian.
+      - record_id: weather-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30592
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Ilm
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 30592
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Supplies Estonian weather and map-language terminology with short tasks.
+      - record_id: climate-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30597
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Inimese tegevus muudab kliimat
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 30597
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Distinguishes weather and climate and adds a current human-impact perspective.
+    alternative_records:
+      - record_id: climate-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/784
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Климат
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, optional_extension]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 784
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Russian bridge for the distinction between weather, seasons, and climate.
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: [weather-ru-avita, climate-ru-avita]
+      estonian_terminology_or_visuals: [weather-et-avita-2024, climate-et-avita-2024]
+      practice: [weather-et-avita-2024, climate-et-avita-2024]
+      practical_or_assessment: [climate-et-avita-2024]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: partial
+    deduplication:
+      decision: retain_distinct_roles
+      rationale: Russian explanation and current Estonian climate tasks are complementary rather than duplicate assignments.
+      rejected_record_ids: []
+    known_gaps:
+      - The inventory does not yet define a sustained weather-observation project or final assessment.
+
+  - topic_id: baltic-sea
+    title_ru: Балтийское море
+    title_et: Läänemeri
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: baltic-sea-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/785
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Балтийское море
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 785
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Gives Russian geographic explanation and explicit map tasks.
+      - record_id: baltic-sea-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30598
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Läänemeri
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 30598
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Provides current Estonian sea and coastline terminology with map work.
+      - record_id: baltic-protection-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/30606
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_2024_est
+        title: Läänemere reostus ja kaitse
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 30606
+          notes: Canonical Estonian-language page from the registered current Avita book.
+        selection_rationale: Adds protection vocabulary and cause-and-effect assessment questions.
+    alternative_records:
+      - record_id: baltic-protection-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/794
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Загрязнение и защита Балтийского моря
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 794
+          notes: Canonical Russian-language page from the registered ordinary Avita book.
+        selection_rationale: Russian bridge for pollution causes, effects, and regional cooperation.
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: [baltic-sea-ru-avita, baltic-protection-ru-avita]
+      estonian_terminology_or_visuals: [baltic-sea-et-avita-2024, baltic-protection-et-avita-2024]
+      practice: [baltic-sea-et-avita-2024, baltic-protection-et-avita-2024]
+      practical_or_assessment: [baltic-protection-et-avita-2024]
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: partial
+    deduplication:
+      decision: retain_distinct_roles
+      rationale: Language support and current environmental tasks justify the retained cross-book alternatives.
+      rejected_record_ids: []
+    known_gaps:
+      - The inventory samples the theme and does not yet sequence every Baltic ecosystem chapter.
+
+  - topic_id: settlements
+    title_ru: Поселения и среда жизни
+    title_et: Asulad ja elukeskkond
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: settlements-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6300
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Asulate ajalooline areng. Maa-asulad
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6300
+          notes: Canonical Estonian-language page from the registered ordinary Koolibri book.
+        selection_rationale: Represents the available ordinary-programme settlement sequence and includes map work.
+    alternative_records: []
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: []
+      estonian_terminology_or_visuals: [settlements-et-koolibri]
+      practice: [settlements-et-koolibri]
+      practical_or_assessment: [settlements-et-koolibri]
+    availability:
+      russian: missing
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: partial
+    deduplication:
+      decision: insufficient_evidence
+      rationale: Only an Estonian ordinary-programme page sequence is available for this theme.
+      rejected_record_ids: []
+    known_gaps:
+      - No Russian page-level explanation for settlements is registered in the canonical route.
+
+  - topic_id: landforms-and-map-reading
+    title_ru: Формы рельефа и чтение карты
+    title_et: Pinnavormid ja kaardi lugemine
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: landforms-map-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6309
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Pinnamoe kujutamine ja lugemine kaardil
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6309
+          notes: Canonical Estonian-language map-skills page from the registered ordinary Koolibri book.
+        selection_rationale: Provides page-level evidence for contour and relief map language and practice.
+    alternative_records: []
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: []
+      estonian_terminology_or_visuals: [landforms-map-et-koolibri]
+      practice: [landforms-map-et-koolibri]
+      practical_or_assessment: [landforms-map-et-koolibri]
+    availability:
+      russian: missing
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: partial
+    deduplication:
+      decision: insufficient_evidence
+      rationale: The ordinary canonical route offers only Estonian page evidence for this theme.
+      rejected_record_ids: []
+    known_gaps:
+      - A Russian explanatory bridge must be author-created or sourced later with explicit provenance.
+
+  - topic_id: bog-ecosystem
+    title_ru: Болото как экосистема
+    title_et: Soo kui elukooslus
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_koolibri_est
+    selected_records:
+      - record_id: bog-conditions-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6316
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Eesti soode areng, keskkonna­tingimused soos
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, experiment, map_skill]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6316
+          notes: Canonical Estonian-language page from the registered ordinary Koolibri book.
+        selection_rationale: Represents bog formation, conditions, map work, and a practical prompt.
+    alternative_records: []
+    rejected_records: []
+    source_recommendations:
+      russian_explanation: []
+      estonian_terminology_or_visuals: [bog-conditions-et-koolibri]
+      practice: [bog-conditions-et-koolibri]
+      practical_or_assessment: [bog-conditions-et-koolibri]
+    availability:
+      russian: missing
+      estonian: verified
+      practical: partial
+      revision: partial
+      assessment: partial
+    deduplication:
+      decision: insufficient_evidence
+      rationale: Only Estonian ordinary-programme page evidence is available for the bog theme.
+      rejected_record_ids: []
+    known_gaps:
+      - No Russian page-level explanation for bogs is registered in the canonical route.
+known_gaps:
+  - This inventory is a deduplicated evidence catalogue, not the complete annual course required by issue #18.
+  - Official outcomes have been verified only for the golden unit and are not mapped across every inventory topic.
+  - Ordinary Russian page evidence is absent for settlements, landforms, and bogs.
+  - Simplified-curriculum-only themes are not silently promoted into the ordinary course inventory.
+  - The cover-only Russian Koolibri book cannot supply page-level evidence.

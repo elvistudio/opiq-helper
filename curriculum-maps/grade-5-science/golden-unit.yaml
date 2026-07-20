@@ -1,0 +1,481 @@
+schema_version: "1.0"
+artifact_type: thematic_unit
+map_id: grade-5-science-golden-unit
+unit_id: water-properties-and-states
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+title_ru: Вода как вещество и состояния воды
+title_et: Vesi kui aine ja vee olekud
+official_curriculum:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  outcome_mappings:
+    - outcome_id: prok-ii-loodusopetus-04-safe-investigation
+      coverage_status: partial
+      course_evidence_record_ids:
+        - golden-water-states-koolibri
+        - golden-water-changes-koolibri
+      evidence_summary: >-
+        The Koolibri pages provide supervised experiments and measurement prompts, but this
+        unit alone does not verify the complete end-of-stage investigation outcome.
+    - outcome_id: prok-ii-loodusopetus-18-water-properties
+      coverage_status: partial
+      course_evidence_record_ids:
+        - golden-water-properties-ru
+        - golden-water-states-ru
+        - golden-water-properties-et
+        - golden-water-states-et
+        - golden-water-states-koolibri
+        - golden-water-changes-koolibri
+      evidence_summary: >-
+        The selected pages explicitly cover water properties, states, and experiments. The
+        official outcome also covers air and soil, so the unit maps only its water component.
+grade_allocation:
+  official_scope: school_stage_2
+  official_basis: official_school_stage
+  publisher_basis: publisher_sequence
+  curated_basis: curated_course_sequence
+  exact_grade_official: false
+  notes: >-
+    The state outcome is defined for the end of school stage II. Publishers place these pages
+    in grade-5 books, and Opiq Helper curates them into this pilot; neither fact turns the
+    school-stage outcome into an official exact-grade requirement.
+learning_outcomes:
+  - id: explain-water-as-substance
+    text_ru: Ученик объясняет по-русски, что вода — вещество с наблюдаемыми свойствами.
+    text_et: Õpilane nimetab eesti keeles vee põhiomadusi.
+    provenance:
+      category: author_created_bridge
+      source_reference: golden unit synthesis from selected Opiq records
+      notes: Bilingual course outcome derived from the selected ordinary textbook evidence.
+  - id: distinguish-water-states
+    text_ru: Ученик различает твёрдое, жидкое и газообразное состояния воды и описывает переходы.
+    text_et: Õpilane eristab tahket, vedelat ja gaasilist olekut ning nimetab olekumuutusi.
+    provenance:
+      category: author_created_bridge
+      source_reference: golden unit synthesis from selected Opiq records
+      notes: Bilingual course outcome aligned to water-state pages in both course languages.
+  - id: observe-state-change-safely
+    text_ru: Ученик безопасно наблюдает плавление льда и конденсацию и записывает результат.
+    text_et: Õpilane vaatleb ohutult jää sulamist ja veeauru veeldumist.
+    provenance:
+      category: author_created_bridge
+      source_reference: golden unit practical synthesis from Koolibri chapters 6282 and 6283
+      notes: Curated practical outcome based on canonical experiment and measurement evidence.
+success_criteria:
+  - id: success-three-states
+    text_ru: Правильно называет три состояния воды и приводит по одному примеру.
+    text_et: Nimetab vee kolm olekut ja toob iga oleku kohta ühe näite.
+    provenance:
+      category: author_created_assessment
+      source_reference: golden unit success criteria
+      notes: Teacher-facing criterion created from the selected Opiq explanations and tasks.
+  - id: success-two-changes
+    text_ru: Объясняет плавление и конденсацию, используя причину и результат.
+    text_et: Selgitab lühidalt sulamist ja veeldumist.
+    provenance:
+      category: author_created_assessment
+      source_reference: golden unit success criteria
+      notes: Bilingual criterion for conceptual understanding and short Estonian output.
+  - id: success-safe-observation
+    text_ru: Следует инструкции, записывает наблюдение и отличает его от вывода.
+    text_et: Järgib juhist, märgib vaatluse ja ütleb järelduse.
+    provenance:
+      category: author_created_assessment
+      source_reference: golden unit practical success criteria
+      notes: Safe-investigation criterion created for the supervised classroom activity.
+prerequisites:
+  - id: prerequisite-temperature
+    text_ru: Понимает, что термометр измеряет температуру, и умеет читать простую шкалу.
+    text_et: Teab sõnu temperatuur ja termomeeter ning loeb lihtsat skaalat.
+    provenance:
+      category: author_created_bridge
+      source_reference: golden unit prerequisite analysis
+      notes: Required bridge before using measurement prompts in the selected practical pages.
+  - id: prerequisite-materials
+    text_ru: Различает предмет и вещество на бытовых примерах.
+    text_et: Eristab lihtsas näites keha ja ainet.
+    provenance:
+      category: author_created_bridge
+      source_reference: golden unit prerequisite analysis
+      notes: Minimal conceptual prerequisite for discussing water as a substance.
+estimated_lessons: 4
+selected_records:
+  - record_id: golden-water-properties-ru
+    canonical_url: https://www.opiq.ee/kit/17/chapter/747
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_rus
+    title: Вода как вещество. Свойства воды
+    language: ru
+    programme_type: ordinary
+    instructional_roles: [core_explanation_ru, practice_ru, revision]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17 / chapter 747
+      notes: Canonical Russian ordinary-textbook record from the registered grade-5 route.
+    selection_rationale: Primary subject-comprehension source for water properties and solutions in Russian.
+  - record_id: golden-water-states-ru
+    canonical_url: https://www.opiq.ee/kit/17/chapter/748
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_rus
+    title: Состояния воды и их изменение
+    language: ru
+    programme_type: ordinary
+    instructional_roles: [core_explanation_ru, practice_ru, revision]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17 / chapter 748
+      notes: Canonical Russian ordinary-textbook record from the registered grade-5 route.
+    selection_rationale: Primary Russian explanation of three states and phase changes.
+  - record_id: golden-water-properties-et
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29514
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Vesi ja selle omadused
+    language: et
+    programme_type: ordinary
+    instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29514
+      notes: Canonical Estonian ordinary-textbook record from the registered grade-5 route.
+    selection_rationale: Current Estonian terminology and concise tasks corresponding to the Russian explanation.
+  - record_id: golden-water-states-et
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Vee olekud ja nende muutumine
+    language: et
+    programme_type: ordinary
+    instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29515
+      notes: Canonical Estonian ordinary-textbook record from the registered grade-5 route.
+    selection_rationale: Current Estonian state-change terms and a short investigation prompt.
+  - record_id: golden-water-states-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee ja aine olekud
+    language: et
+    programme_type: ordinary
+    instructional_roles: [bilingual_visual, experiment, practice_et, revision, assessment]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6282
+      notes: Canonical Estonian ordinary-textbook practical record from the registered route.
+    selection_rationale: Distinct practical, conclusion, question, and revision evidence from a second publisher.
+  - record_id: golden-water-changes-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee olekute muutumine
+    language: et
+    programme_type: ordinary
+    instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6283
+      notes: Canonical Estonian ordinary-textbook practical record from the registered route.
+    selection_rationale: Adds melting-temperature measurement, evaporation, boiling, condensation, and review prompts.
+rejected_duplicate_records:
+  - record_id: rejected-water-properties-avita-old
+    canonical_url: https://www.opiq.ee/kit/9/chapter/363
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_est
+    title: Vesi kui aine. Vee omadused
+    language: et
+    programme_type: ordinary
+    instructional_roles: [optional_extension]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 9 / chapter 363
+      notes: Canonical older Estonian Avita explanation from the registered ordinary route.
+    selection_rationale: Audited against the current kit 525 explanation before rejection.
+    rejection_reason: Overlaps with the newer Avita explanation and adds no separate role in this four-lesson unit.
+  - record_id: rejected-water-states-avita-old
+    canonical_url: https://www.opiq.ee/kit/9/chapter/364
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_est
+    title: Vee olekud ja nende muutumine
+    language: et
+    programme_type: ordinary
+    instructional_roles: [optional_extension]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 9 / chapter 364
+      notes: Canonical older Estonian Avita explanation from the registered ordinary route.
+    selection_rationale: Audited against current terminology and the Koolibri practical evidence.
+    rejection_reason: Repeats the concept explanation without a distinct role needed by the pilot.
+  - record_id: rejected-water-section-title-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6281
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vesi kui aine
+    language: et
+    programme_type: ordinary
+    instructional_roles: [optional_extension]
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6281
+      notes: Canonical section-title record from the registered ordinary Koolibri book.
+    selection_rationale: Inspected as the entry page for the selected Koolibri section.
+    rejection_reason: Contains only a section heading and no distinct explanation, task, or practical evidence.
+  - record_id: rejected-water-simplified-harno
+    canonical_url: https://www.opiq.ee/kit/275/chapter/15515
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_harno_est
+    title: Tahked kehad ja vedelikud
+    language: et
+    programme_type: simplified_curriculum
+    instructional_roles: [optional_extension]
+    provenance:
+      category: opiq_simplified_curriculum
+      source_reference: grade-5-science / kit 275 / chapter 15515
+      notes: Canonical simplified-curriculum record, classified explicitly rather than silently used.
+    selection_rationale: Audited because it overlaps with states of matter and includes simple experiments.
+    rejection_reason: The default ordinary course cannot silently assign simplified-curriculum material.
+bilingual_learning:
+  primary_subject_explanation_target_ru:
+    text: >-
+      Вода — вещество. В обычных условиях мы наблюдаем воду в твёрдом, жидком и
+      газообразном состояниях. При нагревании и охлаждении состояние может изменяться:
+      лёд плавится, вода испаряется, водяной пар конденсируется, а вода замерзает.
+      Температура и условия наблюдения должны быть указаны, а вывод должен опираться на опыт.
+    provenance:
+      category: author_created_explanation
+      source_reference: synthesis of golden-water-properties-ru and golden-water-states-ru
+      notes: Teacher-authored Russian explanation target grounded in the two canonical Avita pages.
+  estonian_terminology:
+    - term_et: aine
+      equivalent_ru: вещество
+      simple_definition_et: Aine on see, millest kehad koosnevad.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-properties-et
+        notes: Simplified Estonian definition based on the selected canonical terminology.
+    - term_et: vee omadus
+      equivalent_ru: свойство воды
+      simple_definition_et: Omadus kirjeldab, milline vesi on.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-properties-et
+        notes: Short language bridge based on the canonical water-properties chapter.
+    - term_et: tahke
+      equivalent_ru: твёрдый
+      simple_definition_et: Tahkel ainel on kindel kuju.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et and golden-water-states-koolibri
+        notes: A1-A2 definition synthesized from the selected ordinary textbook pages.
+    - term_et: vedel
+      equivalent_ru: жидкий
+      simple_definition_et: Vedelik voolab ja võtab anuma kuju.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et and golden-water-states-koolibri
+        notes: A1-A2 definition synthesized from the selected ordinary textbook pages.
+    - term_et: gaasiline
+      equivalent_ru: газообразный
+      simple_definition_et: Gaas täidab kogu anuma.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et and golden-water-states-koolibri
+        notes: A1-A2 definition synthesized from the selected ordinary textbook pages.
+    - term_et: sulamine
+      equivalent_ru: плавление
+      simple_definition_et: Sulamisel muutub tahke aine vedelaks.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et and golden-water-changes-koolibri
+        notes: Short phase-change definition grounded in the canonical pages.
+    - term_et: jäätumine
+      equivalent_ru: замерзание
+      simple_definition_et: Jäätumisel muutub vesi jääks.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et
+        notes: Short phase-change definition grounded in the canonical Avita page.
+    - term_et: aurustumine
+      equivalent_ru: испарение
+      simple_definition_et: Aurustumisel muutub vedelik gaasiks.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et and golden-water-changes-koolibri
+        notes: Short phase-change definition grounded in the canonical pages.
+    - term_et: veeldumine
+      equivalent_ru: конденсация
+      simple_definition_et: Veeldumisel muutub veeaur veeks.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et and golden-water-changes-koolibri
+        notes: Short phase-change definition grounded in the canonical pages.
+    - term_et: termomeeter
+      equivalent_ru: термометр
+      simple_definition_et: Termomeeter mõõdab temperatuuri.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-changes-koolibri
+        notes: Measurement-language bridge based on the canonical experiment heading.
+  simple_estonian_sentences:
+    - text_et: Vesi võib olla tahke, vedel või gaasiline.
+      translation_ru: Вода может быть твёрдой, жидкой или газообразной.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-et
+        notes: Short model sentence based on the selected Estonian terminology.
+    - text_et: Jää sulab soojemas kohas veeks.
+      translation_ru: Лёд в более тёплом месте тает и превращается в воду.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-changes-koolibri
+        notes: Short observation sentence for the supervised melting activity.
+    - text_et: Külmal pinnal veeaur veeldub.
+      translation_ru: На холодной поверхности водяной пар конденсируется.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-changes-koolibri
+        notes: Short model sentence for the condensation observation.
+  common_estonian_instructions:
+    - instruction_et: Vaata pilti ja nimeta vee olek.
+      translation_ru: Посмотри на рисунок и назови состояние воды.
+      provenance:
+        category: author_created_bridge
+        source_reference: selected Estonian Opiq task patterns in the golden unit
+        notes: Teacher-curated school instruction modelled on canonical short tasks.
+    - instruction_et: Mõõda temperatuur ja kirjuta tulemus tabelisse.
+      translation_ru: Измерь температуру и запиши результат в таблицу.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-changes-koolibri
+        notes: Measurement instruction based on the canonical melting-temperature activity.
+    - instruction_et: Võrdle vaatlust ja järeldust.
+      translation_ru: Сравни наблюдение и вывод.
+      provenance:
+        category: author_created_bridge
+        source_reference: golden-water-states-koolibri
+        notes: Teacher-created language bridge for the experiment conclusion heading.
+  short_estonian_task:
+    prompt_et: "Pane kirja: mis juhtub jääga soojas ruumis ja mis olek tekib?"
+    full_expected_answer_ru: В тёплом помещении лёд получает тепло, плавится и превращается в жидкую воду.
+    short_oral_answer_et: Jää sulab ja muutub vedelaks veeks.
+    provenance:
+      category: author_created_worksheet
+      source_reference: golden-water-states-et and golden-water-changes-koolibri
+      notes: Short bilingual transfer task created from the selected phase-change evidence.
+  teacher_questions:
+    - question_ru: Чем отличаются три состояния воды?
+      full_expected_answer_ru: >-
+        Лёд сохраняет форму, жидкая вода течёт и принимает форму сосуда, а водяной пар
+        распространяется и заполняет доступное пространство.
+      short_oral_answer_et: Jää on tahke, vesi on vedel ja veeaur on gaasiline.
+      provenance:
+        category: author_created_assessment
+        source_reference: all selected state-of-water records
+        notes: Oral question synthesized from aligned Russian and Estonian canonical explanations.
+    - question_ru: Что показывает опыт с холодной поверхностью?
+      full_expected_answer_ru: >-
+        На холодной поверхности водяной пар охлаждается и превращается в капли жидкой воды;
+        этот переход называется конденсацией.
+      short_oral_answer_et: Veeaur jahtub ja veeldub veeks.
+      provenance:
+        category: author_created_assessment
+        source_reference: golden-water-changes-koolibri
+        notes: Oral question grounded in the canonical condensation evidence.
+  language_progression:
+    level: A1-A2
+    focus: grade_5_terms_instructions_short_sentences
+    notes: >-
+      Russian carries the conceptual explanation. Estonian output is limited to high-frequency
+      terms, classroom instructions, short definitions, and one- or two-sentence oral answers.
+  language_learning_notes: >-
+    Introduce each Estonian term after the concept is understood in Russian. Recycle the same
+    instruction verbs in Opiq and practical work; do not require a long Estonian explanation.
+practical_activity:
+  title_ru: Наблюдаем плавление и конденсацию
+  title_et: Vaatleme sulamist ja veeldumist
+  instructions_ru: >-
+    Под наблюдением учителя положите одинаковые кусочки льда в два места с разной температурой,
+    измеряйте и записывайте изменения. Затем поднесите холодную прозрачную поверхность к тёплому
+    влажному воздуху и наблюдайте капли. Ученики не кипятят воду самостоятельно.
+  instructions_et: >-
+    Pane jää kahte erineva temperatuuriga kohta. Mõõda, vaatle ja kirjuta tulemus. Vaata,
+    kuidas külmale pinnale tekivad veetilgad. Järgi õpetaja ohutusjuhiseid.
+  expected_result_ru: >-
+    В более тёплом месте лёд плавится быстрее. На холодной поверхности водяной пар охлаждается
+    и образует капли: наблюдаются плавление и конденсация.
+  short_oral_answer_et: Soojas jää sulab; külmal pinnal veeaur veeldub.
+  source_record_ids: [golden-water-states-koolibri, golden-water-changes-koolibri]
+  provenance:
+    category: author_created_bridge
+    source_reference: practical synthesis from Koolibri chapters 6282 and 6283
+    notes: Teacher-curated safe activity grounded in canonical experiment and measurement headings.
+revision:
+  title_ru: Схема переходов между состояниями воды
+  title_et: Vee olekute muutumise skeem
+  instructions_ru: >-
+    Заполните схему «лёд — вода — водяной пар», подпишите четыре перехода по-русски и по-эстонски,
+    затем ответьте на два вопроса выбранной страницы Koolibri.
+  instructions_et: Täida skeem jää–vesi–veeaur ja lisa sõnad sulamine, jäätumine, aurustumine, veeldumine.
+  expected_result_ru: Ученик правильно связывает состояния и четыре изменения и объясняет два из них.
+  short_oral_answer_et: Vee olekud on tahke, vedel ja gaasiline.
+  source_record_ids: [golden-water-states-ru, golden-water-states-et, golden-water-states-koolibri]
+  provenance:
+    category: author_created_worksheet
+    source_reference: revision synthesis from selected Avita and Koolibri pages
+    notes: Deduplicated bilingual revision activity based on canonical page evidence.
+assessment:
+  title_ru: Короткая проверка по свойствам и состояниям воды
+  title_et: Lühikontroll vee omaduste ja olekute kohta
+  instructions_ru: >-
+    Выполните пять заданий: назовите состояния, соотнесите переходы, объясните одно наблюдение,
+    прочитайте простую температуру и дайте один короткий устный ответ по-эстонски.
+  instructions_et: Täida viis ülesannet ja vasta ühele küsimusele eesti keeles.
+  expected_result_ru: >-
+    Зачёт получен, если понятия и переходы определены верно, вывод связан с наблюдением,
+    а короткий эстонский ответ понятен и использует ключевой термин.
+  short_oral_answer_et: Vesi muudab soojenemisel ja jahtumisel olekut.
+  source_record_ids:
+    - golden-water-properties-ru
+    - golden-water-states-ru
+    - golden-water-states-et
+    - golden-water-changes-koolibri
+  provenance:
+    category: author_created_assessment
+    source_reference: golden unit assessment synthesized from selected canonical records
+    notes: Teacher-created assessment with explicit Russian-content and Estonian-language targets.
+coverage_status: partial
+completeness:
+  status: incomplete
+  declared_complete: false
+  required_outcome_ids:
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-18-water-properties
+  verified_outcome_ids: []
+  partial_outcome_ids:
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-18-water-properties
+  missing_outcome_ids: []
+  ambiguous_outcome_ids: []
+  check_notes: >-
+    This complete thematic teaching example maps only parts of two official end-of-stage
+    outcomes and is not a complete grade-5 or school-stage curriculum map.
+known_gaps:
+  - The official outcomes are school-stage outcomes and are only partially addressed by this water unit.
+  - The Russian explanation comes from an older ordinary Avita edition because kit 525 is Estonian only.
+  - The Russian Koolibri book is cover-only in the registered archive and cannot provide page evidence.
+  - Long Estonian subject explanations are intentionally deferred; grade 5 uses terms and short sentences.
+unit_provenance:
+  category: author_created_bridge
+  source_reference: Opiq Helper golden bilingual unit assembled from grade-5-science only
+  notes: >-
+    Curated Russian-primary and Estonian-support unit using ordinary canonical records from
+    Avita and Koolibri; it is not a publisher sequence or a complete annual course.

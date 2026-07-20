@@ -1,0 +1,94 @@
+schema_version: "1.0"
+artifact_type: official_curriculum_map
+map_id: grade-5-science-official-scope-pilot
+grade: 5
+subject: science
+subject_et: loodusõpetus
+official_scope:
+  kind: school_stage
+  school_stage: 2
+  terminal_grade: 6
+  grade_allocation_basis: official_school_stage
+  exact_grade_claimed: false
+  note: >-
+    The national curriculum states these outcomes for the end of the second school stage
+    (grade 6); it does not assign them specifically to grade 5.
+official_documents:
+  - document_id: prok-lisa-4-loodusained
+    title_et: Põhikooli riiklik õppekava, lisa 4, ainevaldkond „Loodusained“
+    regulation_identifier: Vabariigi Valitsuse 6. jaanuari 2011. a määrus nr 1
+    appendix_identifier: Lisa 4 (Vabariigi Valitsuse 23.03.2023 määruse nr 18 sõnastuses)
+    official_url: https://www.riigiteataja.ee/akt/123122025006
+    evidence_url: https://www.riigiteataja.ee/aktilisa/1250/6202/5011/18m_pohi_lisa4.pdf
+    revision_effective_from: 2025-12-26
+    verified_on: 2026-07-20
+    evidence_status: verified
+    verification_notes: >-
+      The consolidated regulation current on the verification date and its official appendix
+      were reviewed directly in Riigi Teataja; the December 2025 amendment does not replace
+      the 2023 wording of appendix 4.
+outcomes:
+  - outcome_id: prok-ii-loodusopetus-04-safe-investigation
+    document_id: prok-lisa-4-loodusained
+    official_reference: Lisa 4, section 2.1.3, II kooliaste, outcome 4
+    wording_et: >-
+      kasutab uurimiseks ja andmete kogumiseks tehnilisi abivahendeid (nt mikroskoop,
+      digitaalsed andurid, luup, mõõdulint); kasutab katseid tehes turvalisi töövõtteid;
+    translation_ru: >-
+      использует при исследовании и сборе данных технические вспомогательные средства
+      (например, микроскоп, цифровые датчики, лупу, измерительную ленту); при проведении
+      опытов применяет безопасные приёмы работы;
+    translation_provenance:
+      kind: opiq_helper_translation
+      source_language: et
+      verified_on: 2026-07-20
+      notes: Russian translation prepared for Opiq Helper and checked against the official Estonian wording.
+    official_scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      grade_allocation_basis: official_school_stage
+      exact_grade_claimed: false
+      note: This is an end-of-stage outcome for grades 4–6, not an exact grade-5 allocation.
+    evidence_status: verified
+    verification:
+      verified_on: 2026-07-20
+      method: manual_primary_source_review
+      notes: Wording was transcribed from the current official appendix and translated into Russian.
+    pilot_relevance: The golden unit includes a supervised observation of water changing state.
+  - outcome_id: prok-ii-loodusopetus-18-water-properties
+    document_id: prok-lisa-4-loodusained
+    official_reference: Lisa 4, section 2.1.3, II kooliaste, outcome 18
+    wording_et: >-
+      iseloomustab katsete põhjal vee, õhu ja mulla koostist ning omadusi; seostab need
+      looduses toimuvate protsessidega;
+    translation_ru: >-
+      на основе опытов характеризует состав и свойства воды, воздуха и почвы; связывает
+      их с процессами, происходящими в природе;
+    translation_provenance:
+      kind: opiq_helper_translation
+      source_language: et
+      verified_on: 2026-07-20
+      notes: Russian translation prepared for Opiq Helper and checked against the official Estonian wording.
+    official_scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      grade_allocation_basis: official_school_stage
+      exact_grade_claimed: false
+      note: This is an end-of-stage outcome for grades 4–6, not an exact grade-5 allocation.
+    evidence_status: verified
+    verification:
+      verified_on: 2026-07-20
+      method: manual_primary_source_review
+      notes: Wording was transcribed from the current official appendix and translated into Russian.
+    pilot_relevance: The golden unit addresses the water part of this broader school-stage outcome.
+completeness:
+  status: partial
+  declared_complete: false
+  known_gaps:
+    - Only two official school-stage outcomes needed by the golden pilot are represented.
+    - The complete second-stage loodusõpetus outcome set is deferred to the annual course work.
+  notes: >-
+    This file verifies official evidence for one pilot unit only and makes no claim of complete
+    grade-5 or second-school-stage curriculum coverage.

@@ -7,6 +7,9 @@ on:
       - scripts/**
       - project-files/**
       - evaluations/**
+      - curriculum-maps/**
+      - schemas/**
+      - docs/curriculum-maps.md
       - package.json
       - package-lock.json
       - .github/workflows/validate-source-manifest.yml
@@ -18,6 +21,9 @@ on:
       - scripts/**
       - project-files/**
       - evaluations/**
+      - curriculum-maps/**
+      - schemas/**
+      - docs/curriculum-maps.md
       - package.json
       - package-lock.json
       - .github/workflows/validate-source-manifest.yml
@@ -49,6 +55,12 @@ jobs:
 
       - name: Check known-topic regressions
         run: npm run check:topics
+
+      - name: Test curriculum map validator
+        run: npm run test:curriculum
+
+      - name: Check curriculum maps
+        run: npm run check:curriculum
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
