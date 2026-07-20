@@ -1,0 +1,514 @@
+schema_version: "1.0"
+artifact_type: bilingual_lesson
+lesson_id: grade-5-water-01-properties
+grade: 5
+subject: science
+subject_et: loodusõpetus
+title_ru: Вода как вещество и её свойства
+title_et: Vesi kui aine ja vee omadused
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы урока должны точно составлять заявленные 45 минут.
+unit_ref: grade-5-water-four-lesson-plan
+position_in_unit: 1
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-5-science-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  official_outcome_refs:
+    - prok-ii-loodusopetus-18-water-properties
+  course_map_ref: grade-5-science-golden-unit
+  opiq_records:
+    - record_id: water-properties-ru
+      canonical_url: https://www.opiq.ee/kit/17/chapter/747
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Вода как вещество. Свойства воды
+      language: ru
+      programme_type: ordinary
+      instructional_roles: [core_explanation_ru, practice_ru, revision]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 747
+        notes: Canonical Russian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Provides the primary Russian explanation of water as a substance and its properties.
+    - record_id: water-properties-et
+      canonical_url: https://www.opiq.ee/kit/525/chapter/29514
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_2024_est
+      title: Vesi ja selle omadused
+      language: et
+      programme_type: ordinary
+      instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 525 / chapter 29514
+        notes: Canonical Estonian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Supplies current Estonian terminology and short checks aligned to the Russian concept.
+  author_materials:
+    - material_id: water-sample-visual
+      title: Прозрачные образцы воды и схема «тело — вещество»
+      material_type: visual
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 01 teacher visual derived from the selected water-property pages
+        notes: Teacher-created visual bridge; it contains labels and summaries, not copied textbook passages.
+    - material_id: water-property-table
+      title: Таблица наблюдений за свойствами воды
+      material_type: worksheet
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 01 observation table
+        notes: Teacher-created table for recording observations without reproducing textbook exercises.
+    - material_id: water-property-exit-card
+      title: Раздельная выходная карточка по содержанию и эстонскому языку
+      material_type: assessment
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 01 exit card
+        notes: Teacher-created assessment aligned to the two separate lesson objectives.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: activate-water
+      language_mode: activate_prior_knowledge
+      description: Ученики называют знакомые свойства воды по-русски и узнают знакомое слово vesi.
+    - sequence: 2
+      stage_id: explain-properties-ru
+      language_mode: establish_concept_ru
+      description: Учитель формирует понятия вещества и свойства на русском языке.
+    - sequence: 3
+      stage_id: bridge-properties-et
+      language_mode: introduce_term_et
+      description: Эстонские термины связываются с уже понятыми образцами и схемой.
+    - sequence: 4
+      stage_id: observe-water
+      language_mode: supported_task_et
+      description: Ученики выполняют наблюдение с двуязычной таблицей и рамкой ответа.
+    - sequence: 5
+      stage_id: independent-summary
+      language_mode: full_subject_answer_ru
+      description: Сначала даётся полный предметный вывод по-русски, затем короткий ответ по-эстонски.
+    - sequence: 6
+      stage_id: homework-launch
+      language_mode: recycle_language
+      description: Те же термины и глаголы переносятся в короткое домашнее наблюдение.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: explain-observable-water-properties
+      text_ru: Ученик объясняет по-русски, что вода является веществом с наблюдаемыми свойствами.
+      observable_output_ru: Называет не менее трёх свойств и подтверждает каждое наблюдением.
+      curriculum_outcome_refs: [prok-ii-loodusopetus-18-water-properties]
+  estonian_language_objectives:
+    - objective_id: name-water-properties-et
+      text_ru: Ученик использует эстонские термины в короткой модели ответа.
+      text_et: Õpilane nimetab vähemalt kolm vee omadust.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 3
+      language_functions: [name, describe]
+  subject_success_criteria:
+    - criterion_id: subject-properties-evidence
+      descriptor: Объяснение связывает три свойства воды с конкретными наблюдениями.
+      acceptable_evidence: Полный русский устный ответ или заполненная таблица с корректным выводом.
+  estonian_success_criteria:
+    - criterion_id: language-three-property-terms
+      descriptor: Ученик понятно произносит или подписывает не менее трёх целевых слов.
+      acceptable_evidence: Короткий ответ по рамке «Vesi on ...» с тремя корректными словами.
+  prerequisites:
+    - Ученик узнаёт воду в бытовых примерах и может описать наблюдение по-русски.
+    - Ученик знаком с эстонскими словами vesi, vaata и nimeta.
+  anticipated_misconceptions:
+    - Бесцветность ошибочно принимается за белый цвет воды.
+    - Растворение вещества ошибочно принимается за исчезновение вещества.
+language_load:
+  new_terms_et:
+    - term_et: aine
+      equivalent_ru: вещество
+      simple_definition_et: Aine on see, millest kehad koosnevad.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-properties-et
+        notes: Simple Estonian definition grounded in the selected canonical terminology.
+      first_use_stage: bridge-properties-et
+      reuse_stage_refs: [observe-water, independent-summary]
+    - term_et: omadus
+      equivalent_ru: свойство
+      simple_definition_et: Omadus kirjeldab, milline aine on.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-properties-et
+        notes: Simple Estonian definition aligned to the canonical water-properties page.
+      first_use_stage: bridge-properties-et
+      reuse_stage_refs: [observe-water, independent-summary]
+    - term_et: lahus
+      equivalent_ru: раствор
+      simple_definition_et: Lahus tekib, kui aine lahustub vedelikus.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-properties-ru and water-properties-et
+        notes: Short bilingual bridge from the selected ordinary-textbook explanations.
+      first_use_stage: bridge-properties-et
+      reuse_stage_refs: [observe-water, homework-launch]
+  recycled_terms_et:
+    - term_et: vesi
+      equivalent_ru: вода
+      source_lesson_id: prior-learning
+      reuse_stage_refs: [activate-water, bridge-properties-et, observe-water, independent-summary]
+  new_instruction_verbs_et:
+    - verb_et: võrdle
+      equivalent_ru: сравни
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 01 bilingual observation instruction
+        notes: Classroom instruction introduced through teacher modelling and two visible samples.
+      first_use_stage: bridge-properties-et
+      reuse_stage_refs: [observe-water, homework-launch]
+  recycled_instruction_verbs_et:
+    - verb_et: vaata
+      equivalent_ru: посмотри
+      source_lesson_id: familiar-classroom-language
+      reuse_stage_refs: [activate-water, observe-water]
+    - verb_et: nimeta
+      equivalent_ru: назови
+      source_lesson_id: familiar-classroom-language
+      reuse_stage_refs: [bridge-properties-et, independent-summary]
+  model_sentences:
+    - text_et: Vesi on aine ja sellel on omadused.
+      translation_ru: Вода — вещество, и у неё есть свойства.
+      terms_et: [vesi, aine, omadus]
+      provenance:
+        category: author_created_bridge
+        source_reference: water-properties-ru and water-properties-et
+        notes: Short model sentence synthesized from aligned canonical pages.
+  sentence_frames:
+    - frame_id: frame-water-property
+      frame_et: Vesi on ___. Vee omadus on ___.
+      purpose_ru: Рамка поддерживает называние вещества и одного наблюдаемого свойства.
+      stage_refs: [observe-water, independent-summary]
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 01 language bridge
+        notes: Teacher-created sentence frame for A1-A2 supported production.
+  expected_receptive_language_et:
+    - Vaata proovi.
+    - Võrdle kahte proovi.
+    - Nimeta vee omadus.
+  expected_supported_productive_language_et:
+    - Vesi on aine.
+    - Vesi on värvitu ja läbipaistev.
+  expected_independent_productive_language_et:
+    - Vesi on aine.
+  full_expected_answer_ru: >-
+    Вода — вещество. Чистая вода прозрачна, бесцветна и текуча; она принимает форму сосуда.
+    При растворении вещество остаётся в растворе, хотя его частицы могут быть не видны.
+  short_expected_oral_answer_et: Vesi on aine; puhas vesi on värvitu ja läbipaistev.
+  oral_output_terms_et: [vesi, aine, omadus]
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 3
+  new_instruction_verbs: 1
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Новые понятия сначала формируются по-русски; эстонская продукция ограничена одной рамкой.
+scaffolds:
+  - scaffold_id: russian-property-explanation
+    type: russian_explanation
+    description_ru: Учитель объясняет различие между предметом, веществом и свойством на знакомых примерах.
+    stage_refs: [activate-water, explain-properties-ru, bridge-properties-et]
+    release:
+      at_stage: observe-water
+      how_reduced_ru: Во время наблюдения остаются только короткие подсказки и таблица свойств.
+    provenance:
+      category: author_created_explanation
+      source_reference: water-properties-ru
+      notes: Teacher explanation summarizes the canonical Russian page without copying its text.
+  - scaffold_id: bilingual-property-frame
+    type: sentence_frame
+    description_ru: Двуязычная рамка связывает наблюдаемое свойство с короткой эстонской фразой.
+    stage_refs: [bridge-properties-et, observe-water, homework-launch]
+    release:
+      at_stage: independent-summary
+      how_reduced_ru: В итоговом ответе остаются только три слова в банке без готового предложения.
+    provenance:
+      category: author_created_bridge
+      source_reference: frame-water-property
+      notes: Teacher-created bridge for gradual release toward one short independent sentence.
+multimodal_support:
+  - support_id: real-water-samples
+    type: real_object
+    stage_refs: [activate-water, observe-water]
+    material_ref: water-sample-visual
+    provenance:
+      category: author_created_bridge
+      source_reference: classroom water samples
+      notes: Real samples anchor the Russian concept before Estonian terminology is required.
+  - support_id: property-observation-table
+    type: table
+    stage_refs: [observe-water]
+    material_ref: water-property-table
+    provenance:
+      category: author_created_worksheet
+      source_reference: water-property-table
+      notes: Structured table separates observation from conclusion and reduces working-memory load.
+stages:
+  - stage_id: activate-water
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Активировать бытовые знания о воде и отделить наблюдение от предположения.
+    language_purpose_et: Узнать знакомые слова vesi, vaata и nimeta.
+    teacher_action_ru: Показывает два образца и задаёт короткие вопросы по-русски, затем говорит «Vaata vett».
+    pupil_action_ru: Называют по-русски то, что непосредственно видят, и показывают на воду по инструкции.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Это вода, Она прозрачная]
+      et: [vesi]
+    material_refs: [water-sample-visual]
+    provenance_refs: [water-sample-visual]
+    scaffold_refs: [russian-property-explanation]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что мы действительно видим?
+      subject_evidence: Называет наблюдаемое свойство без догадки.
+      language_evidence: Узнаёт слово vesi в инструкции.
+    expected_evidence_of_learning: Ученик отделяет наблюдение о воде от бытового предположения.
+    transition: Переходим от образца к понятию вещества.
+  - stage_id: explain-properties-ru
+    duration_minutes: 10
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Сформировать понятия «вещество», «свойство» и «раствор» на русском языке.
+    language_purpose_et: Подготовить понятия, к которым позже будут прикреплены эстонские слова.
+    teacher_action_ru: Объясняет понятия по канонической русской странице и строит схему на доске.
+    pupil_action_ru: Формулируют полный русский ответ и приводят по одному бытовому примеру.
+    teacher_language: [ru]
+    expected_pupil_language:
+      ru: [Вода является веществом, Свойство можно наблюдать]
+      et: []
+    material_refs: [water-properties-ru, water-sample-visual]
+    provenance_refs: [water-properties-ru, water-sample-visual]
+    scaffold_refs: [russian-property-explanation]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Чем вещество отличается от его свойства?
+      subject_evidence: Даёт связное объяснение на русском языке.
+      language_evidence: Эстонская продукция на этом этапе не оценивается.
+    expected_evidence_of_learning: Понятия сформированы до добавления новой эстонской терминологии.
+    transition: Привязываем три эстонских слова к знакомой схеме.
+  - stage_id: bridge-properties-et
+    duration_minutes: 8
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить точное понимание свойств при переходе к новым обозначениям.
+    language_purpose_et: Ввести aine, omadus, lahus и инструкцию võrdle через схему и образцы.
+    teacher_action_ru: Показывает слово рядом с понятием, моделирует произношение и одно предложение.
+    pupil_action_ru: Соотносят карточки со схемой, повторяют термины и завершают рамку в паре.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Это вещество, Это свойство]
+      et: [aine, omadus, lahus, Vesi on aine]
+    material_refs: [water-properties-et, water-sample-visual]
+    provenance_refs: [water-properties-et, water-sample-visual]
+    scaffold_refs: [russian-property-explanation, bilingual-property-frame]
+    new_language_items: [aine, omadus, lahus, võrdle]
+    formative_check:
+      prompt_ru: Покажи карточку, соответствующую слову «свойство».
+      subject_evidence: Соотносит термин с правильным понятием.
+      language_evidence: Произносит omadus и завершает короткую рамку.
+    expected_evidence_of_learning: Новые слова обозначают уже понятые понятия, а не заменяют объяснение.
+    transition: Используем слова в поддержанном наблюдении.
+  - stage_id: observe-water
+    duration_minutes: 12
+    stage_type: practical_observation
+    content_purpose_ru: Наблюдать свойства чистой воды и раствора без пробования веществ на вкус.
+    language_purpose_et: Следовать инструкциям vaata и võrdle и подписать два свойства.
+    teacher_action_ru: Организует безопасное сравнение образцов и напоминает, что жидкости нельзя пробовать.
+    pupil_action_ru: Наблюдают, заполняют таблицу, обсуждают вывод по-русски и подписывают свойства по-эстонски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Вода прозрачна, Растворённое вещество не исчезло]
+      et: [Vesi on läbipaistev, Võrdle proove]
+    material_refs: [water-property-table, water-sample-visual]
+    provenance_refs: [water-property-table, water-sample-visual, water-properties-ru, water-properties-et]
+    scaffold_refs: [bilingual-property-frame]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какое наблюдение подтверждает названное свойство?
+      subject_evidence: Связывает запись в таблице с наблюдаемым признаком.
+      language_evidence: Использует минимум два целевых слова в подписи.
+    expected_evidence_of_learning: Таблица содержит наблюдение, а русский вывод не смешивает растворение с исчезновением.
+    transition: Убираем рамку и формулируем короткий итог.
+  - stage_id: independent-summary
+    duration_minutes: 7
+    stage_type: independent_output
+    content_purpose_ru: Проверить самостоятельное объяснение одного свойства и его доказательства.
+    language_purpose_et: Дать одно короткое самостоятельное предложение с целевым термином.
+    teacher_action_ru: Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
+    pupil_action_ru: Объясняют свойство по-русски и без готовой рамки говорят «Vesi on aine» или вариант.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Вода является веществом и имеет наблюдаемые свойства]
+      et: [Vesi on aine]
+    material_refs: [water-property-exit-card]
+    provenance_refs: [water-property-exit-card]
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Назови свойство и доказательство, затем скажи одну фразу по-эстонски.
+      subject_evidence: Русский ответ содержит свойство и наблюдение.
+      language_evidence: Короткая эстонская фраза понятна и содержит целевой термин.
+    expected_evidence_of_learning: Предметный результат и языковой результат зафиксированы отдельно.
+    transition: Переносим те же слова в домашнее наблюдение.
+  - stage_id: homework-launch
+    duration_minutes: 3
+    stage_type: homework_launch
+    content_purpose_ru: Объяснить домашнее наблюдение без новых предметных требований.
+    language_purpose_et: Повторно использовать слова vesi, omadus и инструкцию võrdle.
+    teacher_action_ru: Показывает пример записи и проверяет понимание задания без выполнения его за ученика.
+    pupil_action_ru: Пересказывают задание по-русски и отмечают три слова, которые нужно повторить.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Нужно сравнить воду в двух сосудах]
+      et: [vesi, omadus, võrdle]
+    material_refs: [water-property-table]
+    provenance_refs: [water-property-table]
+    scaffold_refs: [bilingual-property-frame]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что нужно записать дома?
+      subject_evidence: Называет наблюдение и вывод как разные записи.
+      language_evidence: Узнаёт три повторяемых слова.
+    expected_evidence_of_learning: Ученик понимает объём и критерии короткого домашнего задания.
+    transition: Урок завершён; слова будут повторены на уроке 2.
+questions:
+  - question_id: question-water-property
+    question_ru: Почему прозрачность можно назвать свойством воды?
+    question_et: Milline omadus on puhtal veel?
+    full_expected_answer_ru: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому это свойство.
+    short_oral_answer_et: Puhas vesi on läbipaistev.
+    acceptable_variants:
+      - Vesi on läbipaistev.
+      - Puhas vesi on värvitu.
+    misconception_to_watch: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+    objective_refs: [explain-observable-water-properties, name-water-properties-et]
+    provenance_refs: [water-properties-ru, water-properties-et]
+practical_work:
+  work_id: compare-water-samples
+  title_ru: Сравниваем воду и прозрачный раствор
+  title_et: Võrdleme vett ja läbipaistvat lahust
+  safety_requirements:
+    - Не пробовать образцы на вкус и не пить лабораторную воду.
+    - Использовать только подписанные учителем безопасные бытовые растворы.
+  teacher_controlled_steps:
+    - Учитель заранее готовит и подписывает чистую воду и безопасный раствор.
+    - Учитель отвечает за утилизацию образцов после наблюдения.
+  pupil_steps:
+    - Рассмотреть оба образца на светлом и тёмном фоне.
+    - Записать только наблюдаемые признаки и затем сформулировать вывод.
+  materials:
+    - Два прозрачных подписанных стакана на группу.
+    - Чистая вода, безопасный солевой раствор и двуязычная таблица.
+  observation_table:
+    columns: [Образец, Что видно, Свойство, Omadus eesti keeles]
+    data_collection_ru: Ученики записывают отдельные наблюдения для воды и раствора до общего вывода.
+  expected_observation_ru: Оба образца прозрачны, хотя раствор содержит растворённое вещество.
+  expected_conclusion_ru: Невидимость растворённого вещества не означает, что оно исчезло; свойства описывают наблюдаемый образец.
+  russian_report_target: Дать два наблюдения и один обоснованный вывод полными предложениями по-русски.
+  short_estonian_conclusion: Vesi ja lahus on läbipaistvad.
+  opiq_source_record_ids: [water-properties-ru, water-properties-et]
+  provenance_refs: [water-property-table, water-properties-ru, water-properties-et]
+assessment:
+  - criterion_id: assess-subject-water-property
+    domain: subject_understanding
+    what_is_checked: Понимание воды как вещества и связь свойства с наблюдением.
+    acceptable_evidence: Полный русский ответ или корректный вывод в таблице.
+    success_threshold: Три свойства и одно корректное доказательство.
+    affects: subject_assessment
+  - criterion_id: assess-practical-observation
+    domain: practical_skill
+    what_is_checked: Безопасное наблюдение и разделение наблюдения и вывода.
+    acceptable_evidence: Заполненная таблица без дегустации или неподтверждённых утверждений.
+    success_threshold: Все обязательные строки заполнены безопасно.
+    affects: subject_assessment
+  - criterion_id: assess-et-recognition-properties
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание слов aine, omadus и vesi.
+    acceptable_evidence: Правильное соотнесение трёх карточек со схемой.
+    success_threshold: Три из трёх терминов распознаны.
+    affects: language_assessment
+  - criterion_id: assess-et-supported-property
+    domain: supported_estonian_production
+    what_is_checked: Заполнение рамки с целевым термином.
+    acceptable_evidence: Понятная фраза «Vesi on ...» с поддержкой банка слов.
+    success_threshold: Одна корректная поддержанная фраза.
+    affects: language_assessment
+  - criterion_id: assess-et-independent-property
+    domain: independent_estonian_production
+    what_is_checked: Короткий ответ после снятия полной рамки.
+    acceptable_evidence: Одна понятная самостоятельная фраза с aine или omadus.
+    success_threshold: Одна понятная фраза; грамматическая неточность не отменяет предметный результат.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторно показать различие между предметом и веществом на знакомом объекте.
+      preserves_subject_objective: true
+    - type: bilingual_glossary
+      implementation_ru: Оставить карточки aine, omadus, lahus с русским эквивалентом на столе.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить выбрать термин и произнести одну фразу вместо двух, сохранив полный русский вывод.
+      preserves_subject_objective: true
+    - type: challenge_extension
+      implementation_ru: Предложить самостоятельно сравнить раствор и чистую воду двумя эстонскими фразами.
+      preserves_subject_objective: true
+  challenge_extension: Объяснить по-русски, почему прозрачный раствор всё равно содержит вещество, и дать две короткие фразы по-эстонски.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Материалы упрощённой программы не используются в обычном маршруте этого урока.
+homework:
+  content_task_ru: Наблюдать воду в двух безопасных домашних сосудах и записать два свойства и один вывод.
+  estonian_language_component: Подписать слова vesi и omadus и завершить рамку «Vesi on ...».
+  expected_minutes: 10
+  source_reference: water-property-table and water-properties-et
+  required_opiq_url: https://www.opiq.ee/kit/525/chapter/29514
+  adult_support_expected: false
+  success_guidance_ru: Достаточно двух точных наблюдений, одного русского вывода и одной короткой эстонской фразы.
+  provenance:
+    category: author_created_worksheet
+    source_reference: lesson 01 homework bridge to canonical chapter 29514
+    notes: Short teacher-created observation task; the canonical URL supplies terminology, not copied text.
+artifact_completeness:
+  status: complete_lesson_artifact
+  declared_complete: true
+  notes: Урок полностью описан как учебный артефакт, но не заявляет полноту официальной программы.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 10 grade-5 water lesson 01
+  notes: Russian-primary, Estonian-supported lesson assembled only from the canonical grade-5-science route.

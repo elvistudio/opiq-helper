@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/language-profiles.schema.json",
+  "title": "Opiq Helper reusable language-profile defaults",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "defaults_policy", "profiles"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "learner_language_profiles" },
+    "defaults_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defaults_are_learner_facts", "learner_specific_overrides_allowed", "notes"],
+      "properties": {
+        "defaults_are_learner_facts": { "const": false },
+        "learner_specific_overrides_allowed": { "const": true },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "profile_id",
+          "grade",
+          "subject",
+          "instruction_language",
+          "subject_support_language",
+          "learner_language_level",
+          "russian_explanation_role",
+          "expected_output",
+          "warning_thresholds",
+          "notes"
+        ],
+        "properties": {
+          "profile_id": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+          },
+          "grade": { "type": "integer", "minimum": 1 },
+          "subject": { "type": "string", "minLength": 1 },
+          "instruction_language": { "const": "ru" },
+          "subject_support_language": { "const": "et" },
+          "learner_language_level": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel"
+          },
+          "russian_explanation_role": { "type": "string", "minLength": 10 },
+          "expected_output": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "terms",
+                "labels",
+                "familiar_instructions",
+                "simple_definitions",
+                "sentence_frames",
+                "one_or_two_sentence_oral_answers",
+                "comparisons",
+                "process_sequences",
+                "cause_and_result",
+                "three_to_five_sentence_supported_responses",
+                "map_terminology",
+                "directions",
+                "coordinates",
+                "scale",
+                "landforms",
+                "data_description",
+                "short_reasoned_geographic_answers"
+              ]
+            }
+          },
+          "warning_thresholds": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "max_new_terms_per_lesson",
+              "max_new_instruction_verbs_per_lesson",
+              "max_new_sentence_structures_per_lesson",
+              "max_independent_output_sentences",
+              "warn_if_no_recycled_terms_after_first_lesson"
+            ],
+            "properties": {
+              "max_new_terms_per_lesson": { "type": "integer", "minimum": 1 },
+              "max_new_instruction_verbs_per_lesson": { "type": "integer", "minimum": 1 },
+              "max_new_sentence_structures_per_lesson": { "type": "integer", "minimum": 1 },
+              "max_independent_output_sentences": { "type": "integer", "minimum": 1 },
+              "warn_if_no_recycled_terms_after_first_lesson": { "type": "boolean" }
+            }
+          },
+          "notes": { "type": "string", "minLength": 10 }
+        }
+      }
+    }
+  }
+}

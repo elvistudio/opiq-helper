@@ -1,0 +1,552 @@
+schema_version: "1.0"
+artifact_type: bilingual_lesson
+lesson_id: grade-5-water-04-changes-review
+grade: 5
+subject: science
+subject_et: loodusõpetus
+title_ru: "Изменения состояний воды: повторение и проверка"
+title_et: "Vee olekute muutumine: kordamine ja hindamine"
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Пять этапов точно составляют 45 минут и включают раздельную проверку результатов.
+unit_ref: grade-5-water-four-lesson-plan
+position_in_unit: 4
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-5-science-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  official_outcome_refs:
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-18-water-properties
+  course_map_ref: grade-5-science-golden-unit
+  opiq_records:
+    - record_id: water-properties-ru
+      canonical_url: https://www.opiq.ee/kit/17/chapter/747
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Вода как вещество. Свойства воды
+      language: ru
+      programme_type: ordinary
+      instructional_roles: [core_explanation_ru, practice_ru, revision]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 747
+        notes: Canonical Russian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Supports Russian revision of water as a substance and observable properties.
+    - record_id: water-states-ru
+      canonical_url: https://www.opiq.ee/kit/17/chapter/748
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Состояния воды и их изменение
+      language: ru
+      programme_type: ordinary
+      instructional_roles: [core_explanation_ru, practice_ru, revision]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 748
+        notes: Canonical Russian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Supplies the full Russian explanation used in the cumulative review.
+    - record_id: water-states-et
+      canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_2024_est
+      title: Vee olekud ja nende muutumine
+      language: et
+      programme_type: ordinary
+      instructional_roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 525 / chapter 29515
+        notes: Canonical Estonian ordinary-textbook record selected in the merged golden water unit.
+      selection_rationale: Supplies current terminology for all four phase changes.
+    - record_id: water-changes-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee olekute muutumine
+      language: et
+      programme_type: ordinary
+      instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et]
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6283
+        notes: Canonical Estonian practical and assessment record selected in the merged golden unit.
+      selection_rationale: Provides a distinct revision and assessment role for the final lesson.
+  author_materials:
+    - material_id: complete-phase-cycle
+      title: Полная схема четырёх изменений воды
+      material_type: visual
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 04 synthesis from selected water-state records
+        notes: Teacher-created bilingual cycle with concise labels and directional arrows.
+    - material_id: unit-revision-stations
+      title: Четыре станции повторения
+      material_type: worksheet
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 04 cumulative revision tasks
+        notes: Teacher-created short tasks covering concepts, data, terminology, and oral response.
+    - material_id: unit-separate-assessment
+      title: Раздельная итоговая проверка unit
+      material_type: assessment
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 04 content-language assessment
+        notes: Teacher-created assessment reports subject understanding and Estonian production separately.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: retrieve-water-unit
+      language_mode: recycle_language
+      description: Термины трёх уроков восстанавливаются через изображения и полные русские объяснения.
+    - sequence: 2
+      stage_id: complete-change-model-ru
+      language_mode: establish_concept_ru
+      description: Полная система четырёх переходов строится и объясняется по-русски.
+    - sequence: 3
+      stage_id: add-final-terms-et
+      language_mode: introduce_term_et
+      description: Jäätumine и aurustumine добавляются к уже знакомым sulamine и veeldumine.
+    - sequence: 4
+      stage_id: revision-stations
+      language_mode: supported_task_et
+      description: Термины и инструкции многократно используются на четырёх коротких станциях.
+    - sequence: 5
+      stage_id: separate-unit-assessment
+      language_mode: short_oral_answer_et
+      description: Полное предметное объяснение и короткая эстонская продукция оцениваются отдельно.
+  learner_estonian_level: A1-A2
+  planned_support_level: moderate
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: explain-four-water-changes
+      text_ru: Ученик связывает три состояния воды четырьмя изменениями и объясняет роль нагревания или охлаждения.
+      observable_output_ru: Заполняет полную схему и объясняет минимум три перехода полными русскими предложениями.
+      curriculum_outcome_refs: [prok-ii-loodusopetus-18-water-properties]
+    - objective_id: interpret-water-observation
+      text_ru: Ученик отличает данные наблюдения от вывода на примере unit.
+      observable_output_ru: Правильно классифицирует минимум четыре из пяти утверждений как данные или вывод.
+      curriculum_outcome_refs: [prok-ii-loodusopetus-04-safe-investigation]
+  estonian_language_objectives:
+    - objective_id: report-one-water-change-et
+      text_ru: Ученик следует знакомым инструкциям и самостоятельно сообщает об одном изменении воды.
+      text_et: Õpilane järgib tuttavaid juhiseid ja selgitab lühidalt üht olekumuutust.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 1
+      language_functions: [sequence, explain, conclude]
+  subject_success_criteria:
+    - criterion_id: subject-complete-change-cycle
+      descriptor: Полная схема содержит три состояния, четыре процесса и верные направления стрелок.
+      acceptable_evidence: Заполненная схема и три причинных объяснения по-русски.
+    - criterion_id: subject-observation-conclusion
+      descriptor: Наблюдение, измерение и вывод различаются в четырёх из пяти примеров.
+      acceptable_evidence: Карточка классификации с кратким русским обоснованием.
+  estonian_success_criteria:
+    - criterion_id: language-one-independent-change
+      descriptor: Ученик понятно называет начальное состояние, процесс или результат одной короткой фразой.
+      acceptable_evidence: Самостоятельный ответ с минимум двумя целевыми словами.
+  prerequisites:
+    - Ученик знает понятия воды как вещества, трёх состояний, плавления и конденсации.
+    - Ученик узнаёт знакомые инструкции vaata, nimeta, liigita, mõõda, kirjuta и võrdle.
+  anticipated_misconceptions:
+    - Нагревание ошибочно связывают только с кипением, а охлаждение только с замерзанием.
+    - Правильно произнесённый эстонский термин ошибочно принимают за доказательство понимания процесса.
+language_load:
+  new_terms_et:
+    - term_et: jäätumine
+      equivalent_ru: замерзание
+      simple_definition_et: Jäätumisel muutub vedel vesi jääks.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et
+        notes: Short definition grounded in the canonical Estonian phase-change page.
+      first_use_stage: add-final-terms-et
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
+    - term_et: aurustumine
+      equivalent_ru: испарение
+      simple_definition_et: Aurustumisel muutub vedelik gaasiks.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-changes-koolibri
+        notes: Short definition grounded in canonical ordinary-programme records.
+      first_use_stage: add-final-terms-et
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
+    - term_et: olekumuutus
+      equivalent_ru: изменение состояния
+      simple_definition_et: Olekumuutus on aine üleminek ühest olekust teise.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-ru and water-states-et
+        notes: Unit-level bridge term synthesized from aligned canonical explanations.
+      first_use_stage: add-final-terms-et
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
+  recycled_terms_et:
+    - term_et: vesi
+      equivalent_ru: вода
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [retrieve-water-unit, complete-change-model-ru, separate-unit-assessment]
+    - term_et: omadus
+      equivalent_ru: свойство
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [retrieve-water-unit, revision-stations]
+    - term_et: tahke
+      equivalent_ru: твёрдый
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [retrieve-water-unit, complete-change-model-ru, revision-stations]
+    - term_et: vedel
+      equivalent_ru: жидкий
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [retrieve-water-unit, complete-change-model-ru, revision-stations]
+    - term_et: gaasiline
+      equivalent_ru: газообразный
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [retrieve-water-unit, complete-change-model-ru, revision-stations]
+    - term_et: sulamine
+      equivalent_ru: плавление
+      source_lesson_id: grade-5-water-03-melting-condensation
+      reuse_stage_refs: [retrieve-water-unit, add-final-terms-et, revision-stations, separate-unit-assessment]
+    - term_et: veeldumine
+      equivalent_ru: конденсация
+      source_lesson_id: grade-5-water-03-melting-condensation
+      reuse_stage_refs: [retrieve-water-unit, add-final-terms-et, revision-stations, separate-unit-assessment]
+    - term_et: temperatuur
+      equivalent_ru: температура
+      source_lesson_id: grade-5-water-03-melting-condensation
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
+  new_instruction_verbs_et:
+    - verb_et: selgita
+      equivalent_ru: объясни
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 04 cumulative explanation instruction
+        notes: New instruction verb follows repeated supported explanations in the prior lessons.
+      first_use_stage: add-final-terms-et
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
+  recycled_instruction_verbs_et:
+    - verb_et: liigita
+      equivalent_ru: классифицируй
+      source_lesson_id: grade-5-water-02-states
+      reuse_stage_refs: [retrieve-water-unit, revision-stations]
+    - verb_et: kirjuta
+      equivalent_ru: запиши
+      source_lesson_id: grade-5-water-03-melting-condensation
+      reuse_stage_refs: [revision-stations, separate-unit-assessment]
+    - verb_et: võrdle
+      equivalent_ru: сравни
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs: [revision-stations]
+  model_sentences:
+    - text_et: Soojenemisel jää sulab ja vesi aurustub.
+      translation_ru: При нагревании лёд плавится, а вода испаряется.
+      terms_et: [sulamine, aurustumine]
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-changes-koolibri
+        notes: Short comparison model synthesized from canonical phase-change evidence.
+    - text_et: Jahtumisel veeaur veeldub ja vesi jäätub.
+      translation_ru: При охлаждении водяной пар конденсируется, а вода замерзает.
+      terms_et: [veeldumine, jäätumine]
+      provenance:
+        category: author_created_bridge
+        source_reference: water-states-et and water-changes-koolibri
+        notes: Short sequence model synthesized from canonical phase-change evidence.
+  sentence_frames:
+    - frame_id: frame-explain-change
+      frame_et: ___ muutub ___, kui temperatuur ___. Seda nimetatakse ___.
+      purpose_ru: Рамка поддерживает причинное объяснение одного изменения состояния.
+      stage_refs: [revision-stations, separate-unit-assessment]
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 04 cumulative phase-change bridge
+        notes: Teacher-created frame recycles the causal structure from lesson 03.
+  expected_receptive_language_et:
+    - Liigita vee olekud.
+    - Võrdle kahte olekumuutust.
+    - Selgita üht olekumuutust.
+  expected_supported_productive_language_et:
+    - Soojenemisel jää sulab.
+    - Jahtumisel veeaur veeldub.
+    - Vesi jäätub või aurustub.
+    - Temperatuur tõuseb või langeb.
+  expected_independent_productive_language_et:
+    - Jää sulab ja muutub veeks.
+  full_expected_answer_ru: >-
+    При получении тепла лёд плавится, а жидкая вода может испаряться. При отдаче тепла водяной
+    пар конденсируется, а жидкая вода замерзает. Во всех случаях вещество воды сохраняется,
+    но меняется его состояние.
+  short_expected_oral_answer_et: Vesi muudab soojenemisel või jahtumisel olekut.
+  oral_output_terms_et: [vesi, olekumuutus, sulamine, veeldumine, jäätumine, aurustumine]
+cognitive_load:
+  new_subject_concepts: 1
+  new_estonian_terms: 3
+  new_instruction_verbs: 1
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Урок добавляет только два недостающих процесса и организует знакомую лексику в одну полную схему.
+scaffolds:
+  - scaffold_id: complete-russian-cycle
+    type: russian_explanation
+    description_ru: Учитель собирает четыре процесса в одну причинную модель на русском языке.
+    stage_refs: [retrieve-water-unit, complete-change-model-ru, add-final-terms-et]
+    release:
+      at_stage: revision-stations
+      how_reduced_ru: На станциях остаются стрелки и данные, но готовые причинные объяснения убираются.
+    provenance:
+      category: author_created_explanation
+      source_reference: water-states-ru and complete-phase-cycle
+      notes: Teacher synthesis grounded in canonical Russian content and prior lesson evidence.
+  - scaffold_id: cumulative-word-bank
+    type: word_bank
+    description_ru: Слова распределены по состояниям, нагреванию и охлаждению, чтобы снизить поиск в памяти.
+    stage_refs: [add-final-terms-et, revision-stations]
+    release:
+      at_stage: separate-unit-assessment
+      how_reduced_ru: В индивидуальном ответе остаётся только схема без слов.
+    provenance:
+      category: author_created_bridge
+      source_reference: complete-phase-cycle
+      notes: Cumulative word bank recycles rather than restarts the unit vocabulary.
+  - scaffold_id: revision-pair-rehearsal
+    type: pair_rehearsal
+    description_ru: На устной станции ученик один раз репетирует ответ с партнёром и рамкой.
+    stage_refs: [revision-stations]
+    release:
+      at_stage: separate-unit-assessment
+      how_reduced_ru: Итоговый короткий ответ даётся индивидуально без партнёра.
+    provenance:
+      category: author_created_bridge
+      source_reference: unit-revision-stations
+      notes: Teacher-created rehearsal routine supports gradual release.
+multimodal_support:
+  - support_id: full-phase-cycle-diagram
+    type: diagram
+    stage_refs: [retrieve-water-unit, complete-change-model-ru, add-final-terms-et, separate-unit-assessment]
+    material_ref: complete-phase-cycle
+    provenance:
+      category: author_created_bridge
+      source_reference: complete-phase-cycle
+      notes: Directional diagram coordinates states, heating, cooling, and four process labels.
+  - support_id: revision-station-tables
+    type: table
+    stage_refs: [revision-stations]
+    material_ref: unit-revision-stations
+    provenance:
+      category: author_created_worksheet
+      source_reference: unit-revision-stations
+      notes: Four compact task formats reduce simultaneous instructions and support retrieval.
+stages:
+  - stage_id: retrieve-water-unit
+    duration_minutes: 6
+    stage_type: activation
+    content_purpose_ru: Восстановить свойства, состояния, плавление и конденсацию из трёх уроков.
+    language_purpose_et: Повторно назвать минимум пять знакомых терминов без нового списка.
+    teacher_action_ru: Показывает неполную схему и принимает быстрые ответы сначала по-русски.
+    pupil_action_ru: Восстанавливают понятия, затем добавляют знакомые эстонские подписи в паре.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Вода сохраняется, но меняет состояние]
+      et: [tahke, vedel, gaasiline, sulamine, veeldumine]
+    material_refs: [complete-phase-cycle]
+    provenance_refs: [complete-phase-cycle]
+    scaffold_refs: [complete-russian-cycle]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие две стрелки мы уже наблюдали на прошлом уроке?
+      subject_evidence: Правильно называет плавление и конденсацию и их направления.
+      language_evidence: Повторно использует минимум три знакомых эстонских термина.
+    expected_evidence_of_learning: Знакомая лексика активирована до добавления двух процессов.
+    transition: Достраиваем полную предметную модель на русском языке.
+  - stage_id: complete-change-model-ru
+    duration_minutes: 9
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Связать нагревание и охлаждение со всеми четырьмя изменениями воды.
+    language_purpose_et: Подготовить понятия замерзания и испарения до новых обозначений.
+    teacher_action_ru: Достраивает схему, сравнивает противоположные процессы и проверяет сохранение вещества.
+    pupil_action_ru: Объясняют три перехода полными русскими предложениями и исправляют направления стрелок.
+    teacher_language: [ru]
+    expected_pupil_language:
+      ru: [При нагревании вода может испаряться, При охлаждении вода замерзает]
+      et: []
+    material_refs: [water-states-ru, complete-phase-cycle]
+    provenance_refs: [water-states-ru, complete-phase-cycle]
+    scaffold_refs: [complete-russian-cycle]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие процессы противоположны друг другу и почему?
+      subject_evidence: Называет две пары и объясняет направление передачи тепла.
+      language_evidence: Новые эстонские слова ещё не оцениваются.
+    expected_evidence_of_learning: Полная модель сформирована по-русски до языкового моста.
+    transition: Добавляем два последних термина и инструкцию selgita.
+  - stage_id: add-final-terms-et
+    duration_minutes: 7
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить правильные направления процессов при добавлении названий.
+    language_purpose_et: Ввести jäätumine, aurustumine, olekumuutus и selgita.
+    teacher_action_ru: Добавляет слова на готовую схему, моделирует две короткие фразы и действие selgita.
+    pupil_action_ru: Соотносят слова, повторяют модели и объясняют выбор стрелки по-русски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Это замерзание, потому что вода становится льдом]
+      et: [jäätumine, aurustumine, olekumuutus, selgita]
+    material_refs: [water-states-et, complete-phase-cycle]
+    provenance_refs: [water-states-et, complete-phase-cycle]
+    scaffold_refs: [complete-russian-cycle, cumulative-word-bank]
+    new_language_items: [jäätumine, aurustumine, olekumuutus, selgita]
+    formative_check:
+      prompt_ru: Поставь два термина на правильные стрелки.
+      subject_evidence: Направления замерзания и испарения выбраны правильно.
+      language_evidence: Два новых термина произнесены и размещены понятно.
+    expected_evidence_of_learning: Новые слова завершают одну знакомую систему, а не создают отдельный список.
+    transition: Многократно применяем всю систему на станциях.
+  - stage_id: revision-stations
+    duration_minutes: 15
+    stage_type: revision
+    content_purpose_ru: Применить модель к данным, примерам, причинным объяснениям и различению вывода.
+    language_purpose_et: Переработать знакомые термины, включая temperatuur, и инструкции в четырёх коротких форматах.
+    teacher_action_ru: Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов.
+    pupil_action_ru: Решают задания, объясняют предметные решения по-русски и репетируют короткий эстонский ответ.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [Наблюдение показывает переход воды в другое состояние]
+      et: [Liigita, võrdle, selgita, Vesi jäätub, Temperatuur tõuseb või langeb]
+    material_refs: [unit-revision-stations, water-changes-koolibri]
+    provenance_refs: [unit-revision-stations, water-changes-koolibri]
+    scaffold_refs: [cumulative-word-bank, revision-pair-rehearsal]
+    new_language_items: []
+    formative_check:
+      prompt_ru: Как данные подтверждают выбранный процесс?
+      subject_evidence: Связывает данные с процессом и отличает вывод от наблюдения.
+      language_evidence: Использует минимум четыре переработанных термина на станциях.
+    expected_evidence_of_learning: Понятия и язык извлекаются в разных задачах перед индивидуальной проверкой.
+    transition: Проводим короткую раздельную итоговую проверку.
+  - stage_id: separate-unit-assessment
+    duration_minutes: 8
+    stage_type: assessment
+    content_purpose_ru: Проверить полную схему, причинное объяснение и интерпретацию наблюдения.
+    language_purpose_et: Проверить распознавание терминов и один короткий самостоятельный ответ отдельно.
+    teacher_action_ru: Оценивает русскую предметную часть и эстонскую языковую часть по отдельным критериям.
+    pupil_action_ru: Заполняют схему, пишут русский вывод и дают одну короткую фразу по-эстонски.
+    teacher_language: [ru, et]
+    expected_pupil_language:
+      ru: [При нагревании и охлаждении вода меняет состояние]
+      et: [Vesi muudab olekut, Jää sulab]
+    material_refs: [unit-separate-assessment, complete-phase-cycle]
+    provenance_refs: [unit-separate-assessment, complete-phase-cycle]
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Объясни один переход полностью, затем назови его коротко по-эстонски.
+      subject_evidence: Русский ответ содержит состояние, процесс, причину и результат.
+      language_evidence: Короткий ответ использует введённый или переработанный термин.
+    expected_evidence_of_learning: Предметная оценка не снижается автоматически из-за слабой формы эстонского ответа.
+    transition: Unit завершён; термин vesi будет переработан в соседней теме о водоёмах.
+questions:
+  - question_id: question-opposite-processes
+    question_ru: Какие изменения воды являются противоположными и что определяет направление?
+    question_et: Mis juhtub veega soojenemisel või jahtumisel?
+    full_expected_answer_ru: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла.
+    short_oral_answer_et: Soojenemisel jää sulab; jahtumisel vesi jäätub.
+    acceptable_variants:
+      - Vesi aurustub või veeldub.
+      - Vesi muudab temperatuuri mõjul olekut.
+    misconception_to_watch: Перечень терминов без объяснения направления не доказывает предметное понимание.
+    objective_refs: [explain-four-water-changes, report-one-water-change-et]
+    provenance_refs: [water-states-ru, water-states-et, complete-phase-cycle]
+practical_work: null
+assessment:
+  - criterion_id: assess-subject-complete-cycle
+    domain: subject_understanding
+    what_is_checked: Три состояния, четыре изменения и причинное направление каждого перехода.
+    acceptable_evidence: Полная схема и три русских причинных объяснения.
+    success_threshold: Все состояния и минимум три процесса верны.
+    affects: subject_assessment
+  - criterion_id: assess-practical-data-reasoning
+    domain: practical_skill
+    what_is_checked: Различение наблюдения, измерения и вывода в данных прошлой практической работы.
+    acceptable_evidence: Корректная классификация четырёх из пяти утверждений.
+    success_threshold: Четыре из пяти утверждений классифицированы.
+    affects: subject_assessment
+  - criterion_id: assess-et-recognition-unit
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание трёх состояний и четырёх процессов.
+    acceptable_evidence: Подписи на полной схеме.
+    success_threshold: Пять из семи основных терминов распознаны.
+    affects: language_assessment
+  - criterion_id: assess-et-supported-unit
+    domain: supported_estonian_production
+    what_is_checked: Завершение рамки о начальном состоянии, процессе и результате.
+    acceptable_evidence: Одна поддержанная причинная фраза с двумя терминами.
+    success_threshold: Значение понятно и направление процесса верно.
+    affects: language_assessment
+  - criterion_id: assess-et-independent-unit
+    domain: independent_estonian_production
+    what_is_checked: Один короткий самостоятельный ответ без банка слов.
+    acceptable_evidence: Понятная фраза с введённым или переработанным термином.
+    success_threshold: Один процесс назван понятно; это оценивается отдельно от предметного ответа.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Разобрать одну пару противоположных процессов с предметами и стрелками.
+      preserves_subject_objective: true
+    - type: bilingual_glossary
+      implementation_ru: Разрешить пользоваться накопительным глоссарием на станциях, но не в независимой части.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Принять одну короткую фразу при полном русском объяснении трёх процессов.
+      preserves_subject_objective: true
+    - type: challenge_extension
+      implementation_ru: Предложить связать два противоположных процесса двумя эстонскими предложениями.
+      preserves_subject_objective: true
+  challenge_extension: Интерпретировать незнакомый бытовой пример изменения состояния и дать короткое причинное объяснение на двух языках.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Материалы упрощённой программы не используются и не заменяют обычные цели unit.
+homework:
+  content_task_ru: Исправить ошибки в своей итоговой схеме и письменно объяснить один процесс по-русски.
+  estonian_language_component: Подписать исправленный процесс и произнести одну короткую эстонскую фразу.
+  expected_minutes: 12
+  source_reference: complete-phase-cycle and water-states-et
+  required_opiq_url: https://www.opiq.ee/kit/525/chapter/29515
+  adult_support_expected: false
+  success_guidance_ru: Исправленная схема должна иметь верное направление, русский вывод и одну понятную эстонскую подпись.
+  provenance:
+    category: author_created_assessment
+    source_reference: lesson 04 feedback task linked to canonical chapter 29515
+    notes: Teacher-created correction task uses canonical terminology without reproducing textbook exercises.
+artifact_completeness:
+  status: complete_lesson_artifact
+  declared_complete: true
+  notes: Урок завершает unit как учебный артефакт, но не заявляет полное official outcome coverage.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 10 grade-5 water lesson 04
+  notes: Russian-primary, Estonian-supported lesson assembled only from canonical ordinary grade-5-science records.

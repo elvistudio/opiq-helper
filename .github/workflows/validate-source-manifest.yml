@@ -8,8 +8,12 @@ on:
       - project-files/**
       - evaluations/**
       - curriculum-maps/**
+      - lesson-plans/**
+      - annual-courses/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/lesson-plans.md
+      - docs/templates/**
       - package.json
       - package-lock.json
       - .github/workflows/validate-source-manifest.yml
@@ -22,8 +26,12 @@ on:
       - project-files/**
       - evaluations/**
       - curriculum-maps/**
+      - lesson-plans/**
+      - annual-courses/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/lesson-plans.md
+      - docs/templates/**
       - package.json
       - package-lock.json
       - .github/workflows/validate-source-manifest.yml
@@ -61,6 +69,12 @@ jobs:
 
       - name: Check curriculum maps
         run: npm run check:curriculum
+
+      - name: Test bilingual teaching-plan validator
+        run: npm run test:plans
+
+      - name: Check bilingual teaching plans
+        run: npm run check:plans
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

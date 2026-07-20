@@ -1,0 +1,240 @@
+schema_version: "1.0"
+artifact_type: annual_course_plan
+course_id: grade-5-science-water-neighbours-excerpt
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+official_curriculum_references:
+  - curriculum_map_id: grade-5-science-official-scope-pilot
+    outcome_ids:
+      - prok-ii-loodusopetus-04-safe-investigation
+      - prok-ii-loodusopetus-18-water-properties
+    official_scope: school_stage_2
+    exact_grade_claimed: false
+    notes: >-
+      Both outcomes are verified as end-of-school-stage-II evidence and are not represented as
+      official exact-grade-5 requirements.
+sequence_policy:
+  publisher_sequence: >-
+    Publisher grade labels and chapter orders are recorded in the book inventory as evidence,
+    but overlapping books do not define one binding annual order.
+  curated_sequence: >-
+    This excerpt places the water-property unit between verified river/lake evidence and the
+    verified groundwater, protection, and cycle topic group so that water vocabulary can recur.
+  relationship: publisher_evidence_informs_but_does_not_define_curated_order
+ordered_units:
+  - order: 1
+    unit_id: excerpt-rivers-and-lakes
+    topic_id: rivers-and-lakes
+    title_ru: Реки и озёра Эстонии
+    title_et: Eesti jõed ja järved
+    status: topic_inventory_only
+    thematic_plan_ref: null
+    estimated_lessons: 5
+    selected_book_ids:
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_koolibri_est
+    curriculum_outcome_ids: []
+    publisher_sequence_note: Тема подтверждена несколькими grade-5 книгами, но точный порядок издателей различается.
+    curated_sequence_reason: Тема создаёт знакомый контекст водоёмов и вводит vesi до изучения свойств вещества.
+  - order: 2
+    unit_id: grade-5-water-four-lesson-plan
+    topic_id: water-properties-and-states
+    title_ru: Вода как вещество и состояния воды
+    title_et: Vesi kui aine ja vee olekud
+    status: represented_by_thematic_plan
+    thematic_plan_ref: grade-5-water-four-lesson-plan
+    estimated_lessons: 4
+    selected_book_ids:
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_koolibri_est
+    curriculum_outcome_ids:
+      - prok-ii-loodusopetus-04-safe-investigation
+      - prok-ii-loodusopetus-18-water-properties
+    publisher_sequence_note: Все три обычные книги дают water evidence, но unit выбирает источники по роли.
+    curated_sequence_reason: Четыре урока формируют свойства и состояния до перехода к круговороту и защите воды.
+  - order: 3
+    unit_id: excerpt-water-use-protection-cycle
+    topic_id: water-use-protection-and-cycle
+    title_ru: Подземные воды, использование, защита и круговорот воды
+    title_et: Põhjavesi, vee kasutamine, kaitse ja veeringe
+    status: topic_inventory_only
+    thematic_plan_ref: null
+    estimated_lessons: 4
+    selected_book_ids:
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_koolibri_est
+    curriculum_outcome_ids: []
+    publisher_sequence_note: Topic inventory объединяет разнесённые издательские страницы без готового unit plan.
+    curated_sequence_reason: Круговорот позволяет повторить состояния, испарение и конденсацию в природной системе.
+lesson_estimate:
+  represented_lessons: 4
+  estimated_planned_lessons: 13
+  full_course_estimate_known: false
+  notes: >-
+    Only the four water-property lessons are represented by validated lesson artifacts. The
+    neighbouring estimates are planning placeholders, not authored lessons or a full-year total.
+selected_source_books:
+  - book_id: 5k_loodusõpetus_avita_rus
+    language: ru
+    roles: [core_explanation_ru, practice_ru, revision]
+    selection_notes: Ordinary Russian source provides primary subject explanations for represented topic groups.
+  - book_id: 5k_loodusõpetus_avita_2024_est
+    language: et
+    roles: [core_source_et, terminology_et, definition_et, practice_et, oral_answer_et]
+    selection_notes: Current ordinary Estonian source provides terminology, short definitions, and practice.
+  - book_id: 5k_loodusõpetus_koolibri_est
+    language: et
+    roles: [bilingual_visual, experiment, map_skill, revision, assessment]
+    selection_notes: Ordinary Koolibri source contributes complementary maps, visuals, practical work, and checks.
+deduplication_decisions:
+  - decision_id: dedupe-rivers-by-role
+    topic_id: rivers-and-lakes
+    decision: select_by_role
+    rationale: Russian explanation, current Estonian river terms, and lake/map evidence have distinct roles.
+  - decision_id: dedupe-water-retain-distinct-roles
+    topic_id: water-properties-and-states
+    decision: retain_distinct_roles
+    rationale: Russian explanation, current Estonian terminology, and Koolibri practical evidence are complementary.
+  - decision_id: dedupe-water-cycle-distinct-roles
+    topic_id: water-use-protection-and-cycle
+    decision: retain_distinct_roles
+    rationale: Groundwater, pollution, and cycle pages address separate subtopics and language roles.
+russian_explanation_coverage:
+  - unit_id: excerpt-rivers-and-lakes
+    status: partial
+    source_or_bridge: canonical_opiq_ru
+    notes: Canonical Russian river and lake pages exist, but no validated thematic plan is authored here.
+  - unit_id: grade-5-water-four-lesson-plan
+    status: verified
+    source_or_bridge: canonical_opiq_ru
+    notes: Two canonical Russian water pages support every represented lesson's full explanation target.
+  - unit_id: excerpt-water-use-protection-cycle
+    status: partial
+    source_or_bridge: canonical_opiq_ru
+    notes: Canonical groundwater and water-use pages exist, but sequence and full unit coverage remain unverified.
+estonian_vocabulary_progression:
+  - unit_id: excerpt-rivers-and-lakes
+    introduced: [vesi, jõgi, järv]
+    recycled: []
+    expected_output: Назвать водоём и подписать реку и озеро на визуальном материале.
+  - unit_id: grade-5-water-four-lesson-plan
+    introduced: [aine, omadus, tahke, vedel, gaasiline, sulamine, veeldumine, jäätumine, aurustumine]
+    recycled: [vesi]
+    expected_output: Распознать накопительные термины и дать один-два коротких устных ответа.
+  - unit_id: excerpt-water-use-protection-cycle
+    introduced: [põhjavesi, veeringe, reostus]
+    recycled: [vesi, omadus, aurustumine, veeldumine]
+    expected_output: Подписать простую схему круговорота и дать короткую причинную фразу с поддержкой.
+estonian_instruction_language_progression:
+  - unit_id: excerpt-rivers-and-lakes
+    introduced: [leia, näita]
+    recycled: [vaata, nimeta]
+    expected_output: Следовать знакомой карте или изображению с короткими командами.
+  - unit_id: grade-5-water-four-lesson-plan
+    introduced: [võrdle, liigita, mõõda, kirjuta, selgita]
+    recycled: [vaata, nimeta]
+    expected_output: Выполнить измерение, классификацию и короткое объяснение по моделированным инструкциям.
+  - unit_id: excerpt-water-use-protection-cycle
+    introduced: [järjesta]
+    recycled: [näita, võrdle, selgita]
+    expected_output: Расположить этапы цикла и объяснить один переход с поддержкой.
+sentence_and_oral_answer_progression:
+  - unit_id: excerpt-rivers-and-lakes
+    introduced: [See on jõgi, See on järv]
+    recycled: []
+    expected_output: Одно короткое называние по изображению или карте.
+  - unit_id: grade-5-water-four-lesson-plan
+    introduced: [Vesi on aine, Jää sulab, Veeaur veeldub]
+    recycled: [See on vesi]
+    expected_output: Одно или два коротких предложения после полного русского ответа.
+  - unit_id: excerpt-water-use-protection-cycle
+    introduced: [Vesi aurustub ja hiljem veeldub]
+    recycled: [Jää sulab, Veeaur veeldub]
+    expected_output: Коротко связать два этапа цикла с причинной опорой.
+planned_vocabulary_recycling_intervals:
+  - term_et: vesi
+    introduced_in_unit: excerpt-rivers-and-lakes
+    recycled_in_unit: grade-5-water-four-lesson-plan
+    interval_units: 1
+    planned_use: Перейти от названия водоёма к воде как веществу без повторного введения базового слова.
+  - term_et: aurustumine
+    introduced_in_unit: grade-5-water-four-lesson-plan
+    recycled_in_unit: excerpt-water-use-protection-cycle
+    interval_units: 1
+    planned_use: Использовать знакомый процесс как этап круговорота воды в природной системе.
+  - term_et: veeldumine
+    introduced_in_unit: grade-5-water-four-lesson-plan
+    recycled_in_unit: excerpt-water-use-protection-cycle
+    interval_units: 1
+    planned_use: Повторить конденсацию при чтении простой схемы круговорота.
+practical_work_calendar:
+  - calendar_id: calendar-water-melting-condensation
+    unit_id: grade-5-water-four-lesson-plan
+    timing: lesson 3 of 4
+    description_ru: Безопасное измерение таяния и учительская демонстрация конденсации.
+    status: planned
+revision_calendar:
+  - calendar_id: calendar-water-unit-revision
+    unit_id: grade-5-water-four-lesson-plan
+    timing: lesson 4 of 4
+    description_ru: Четыре станции повторяют понятия, данные, лексику и короткий устный ответ.
+    status: planned
+  - calendar_id: calendar-water-cycle-recycling
+    unit_id: excerpt-water-use-protection-cycle
+    timing: opening lesson placeholder
+    description_ru: Повторить aurustumine и veeldumine перед схемой круговорота.
+    status: placeholder_not_verified
+subject_assessment_calendar:
+  - calendar_id: calendar-water-subject-assessment
+    unit_id: grade-5-water-four-lesson-plan
+    timing: lesson 4 of 4
+    description_ru: Проверить свойства, состояния, четыре процесса и интерпретацию наблюдения по-русски.
+    status: planned
+language_assessment_calendar:
+  - calendar_id: calendar-water-language-assessment
+    unit_id: grade-5-water-four-lesson-plan
+    timing: lesson 4 of 4
+    description_ru: Отдельно проверить распознавание терминов, поддержанный и короткий самостоятельный ответ.
+    status: planned
+outcome_coverage:
+  - outcome_id: prok-ii-loodusopetus-04-safe-investigation
+    coverage_status: partial
+    unit_ids: [grade-5-water-four-lesson-plan]
+    official_scope: school_stage_2
+    notes: Один безопасный опыт и одна проверка данных не составляют полное school-stage outcome coverage.
+  - outcome_id: prok-ii-loodusopetus-18-water-properties
+    coverage_status: partial
+    unit_ids: [grade-5-water-four-lesson-plan]
+    official_scope: school_stage_2
+    notes: Water properties are represented, while the same official outcome also requires air and soil evidence.
+known_gaps:
+  - Это намеренно небольшой excerpt из трёх topic groups, а не полный grade-5 annual course.
+  - Только water-properties unit связан с четырьмя валидированными lesson artifacts.
+  - Официальная карта содержит только два school-stage outcomes и остаётся partial.
+  - Соседние unit estimates, calendars и language steps требуют отдельной авторской проработки в issue 18.
+  - Ни publisher sequence, ни этот excerpt не доказывают official exact-grade-5 allocation.
+completeness:
+  scope: small_annual_course_excerpt
+  status: incomplete
+  declared_complete: false
+  deferred_to_issue: 18
+  notes: >-
+    The excerpt demonstrates reusable annual-course links and vocabulary recycling only. Issue
+    #18 must author, verify, and validate the complete grade-5 science course.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 10 annual-course excerpt from grade-5-science topic inventory
+  notes: >-
+    Curated excerpt uses only verified grade-5 topic IDs, the canonical route, the water thematic
+    plan, and audited ordinary books; it does not create unsupported neighbouring lessons.

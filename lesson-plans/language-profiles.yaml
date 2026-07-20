@@ -1,0 +1,86 @@
+schema_version: "1.0"
+artifact_type: learner_language_profiles
+defaults_policy:
+  defaults_are_learner_facts: false
+  learner_specific_overrides_allowed: true
+  notes: >-
+    These profiles are planning defaults, not diagnoses of an individual pupil. A teacher may
+    record a justified learner-specific override without changing the course's subject objective.
+profiles:
+  - profile_id: grade-5-science-a1-a2-default
+    grade: 5
+    subject: science
+    instruction_language: ru
+    subject_support_language: et
+    learner_language_level: A1-A2
+    russian_explanation_role: >-
+      Russian carries complex subject explanation, reasoning, and full answers while Estonian
+      is introduced in small, reusable subject-language steps.
+    expected_output:
+      - terms
+      - labels
+      - familiar_instructions
+      - simple_definitions
+      - sentence_frames
+      - one_or_two_sentence_oral_answers
+    warning_thresholds:
+      max_new_terms_per_lesson: 5
+      max_new_instruction_verbs_per_lesson: 2
+      max_new_sentence_structures_per_lesson: 2
+      max_independent_output_sentences: 2
+      warn_if_no_recycled_terms_after_first_lesson: true
+    notes: >-
+      The default supports recognition, supported production, and one- or two-sentence oral
+      answers; it does not require full Estonian-language immersion.
+  - profile_id: grade-6-science-a2-default
+    grade: 6
+    subject: science
+    instruction_language: ru
+    subject_support_language: et
+    learner_language_level: A2
+    russian_explanation_role: >-
+      Russian remains available for complex concepts and causal reasoning while Estonian
+      production expands through modelled definitions, comparisons, and process descriptions.
+    expected_output:
+      - terms
+      - simple_definitions
+      - comparisons
+      - process_sequences
+      - cause_and_result
+      - three_to_five_sentence_supported_responses
+    warning_thresholds:
+      max_new_terms_per_lesson: 6
+      max_new_instruction_verbs_per_lesson: 2
+      max_new_sentence_structures_per_lesson: 3
+      max_independent_output_sentences: 3
+      warn_if_no_recycled_terms_after_first_lesson: true
+    notes: >-
+      Three-to-five-sentence responses are supported outputs where appropriate, not a fixed
+      requirement for every pupil or every lesson.
+  - profile_id: grade-7-geography-a2-b1-default
+    grade: 7
+    subject: geography
+    instruction_language: ru
+    subject_support_language: et
+    learner_language_level: A2-B1
+    russian_explanation_role: >-
+      Russian supports concept formation and extended geographic reasoning while Estonian
+      develops map language, data description, comparison, and short reasoned answers.
+    expected_output:
+      - map_terminology
+      - directions
+      - coordinates
+      - scale
+      - landforms
+      - data_description
+      - comparisons
+      - short_reasoned_geographic_answers
+    warning_thresholds:
+      max_new_terms_per_lesson: 7
+      max_new_instruction_verbs_per_lesson: 3
+      max_new_sentence_structures_per_lesson: 3
+      max_independent_output_sentences: 4
+      warn_if_no_recycled_terms_after_first_lesson: true
+    notes: >-
+      The profile is reusable for later grade-7 geography work and permits explicit
+      learner-specific overrides; no grade-7 production plan is created by issue #10.

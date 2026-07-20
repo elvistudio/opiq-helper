@@ -1,0 +1,785 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/lesson-plan.schema.json",
+  "title": "Opiq Helper bilingual lesson plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "lesson_id",
+    "grade",
+    "subject",
+    "subject_et",
+    "title_ru",
+    "title_et",
+    "duration_minutes",
+    "duration_tolerance",
+    "unit_ref",
+    "position_in_unit",
+    "canonical_route",
+    "instruction_language",
+    "subject_support_language",
+    "learner_language_profile",
+    "evidence_linkage",
+    "methodology",
+    "objectives",
+    "language_load",
+    "cognitive_load",
+    "scaffolds",
+    "multimodal_support",
+    "stages",
+    "questions",
+    "practical_work",
+    "assessment",
+    "differentiation",
+    "homework",
+    "artifact_completeness",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "bilingual_lesson" },
+    "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "grade": { "type": "integer", "minimum": 1 },
+    "subject": { "type": "string", "minLength": 1 },
+    "subject_et": { "type": "string", "minLength": 1 },
+    "title_ru": { "type": "string", "minLength": 1 },
+    "title_et": { "type": "string", "minLength": 1 },
+    "duration_minutes": { "type": "integer", "minimum": 1 },
+    "duration_tolerance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minutes", "reason"],
+      "properties": {
+        "minutes": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "reason": { "type": "string", "minLength": 10 }
+      }
+    },
+    "unit_ref": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "position_in_unit": { "type": "integer", "minimum": 1 },
+    "canonical_route": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/canonicalRoute" },
+    "instruction_language": { "const": "ru" },
+    "subject_support_language": { "const": "et" },
+    "learner_language_profile": { "$ref": "#/$defs/learnerProfileUse" },
+    "evidence_linkage": { "$ref": "#/$defs/evidenceLinkage" },
+    "methodology": { "$ref": "#/$defs/methodology" },
+    "objectives": { "$ref": "#/$defs/objectives" },
+    "language_load": { "$ref": "#/$defs/languageLoad" },
+    "cognitive_load": { "$ref": "#/$defs/cognitiveLoad" },
+    "scaffolds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/scaffold" }
+    },
+    "multimodal_support": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/multimodalSupport" }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/stage" }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/question" }
+    },
+    "practical_work": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/practicalWork" }
+      ]
+    },
+    "assessment": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/assessmentCriterion" }
+    },
+    "differentiation": { "$ref": "#/$defs/differentiation" },
+    "homework": { "$ref": "#/$defs/homework" },
+    "artifact_completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "declared_complete", "notes"],
+      "properties": {
+        "status": { "enum": ["complete_lesson_artifact", "draft_lesson_artifact"] },
+        "declared_complete": { "type": "boolean" },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" }
+  },
+  "$defs": {
+    "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },
+    "nonEmptyStringArray": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/nonEmptyStringArray" },
+    "learnerProfileUse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "learner_language_level", "uses_default", "overrides"],
+      "properties": {
+        "profile_id": { "$ref": "#/$defs/slug" },
+        "learner_language_level": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel" },
+        "uses_default": { "type": "boolean" },
+        "overrides": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["field", "value", "reason"],
+            "properties": {
+              "field": { "type": "string", "minLength": 1 },
+              "value": { "type": "string", "minLength": 1 },
+              "reason": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      }
+    },
+    "evidenceLinkage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "curriculum_map_id",
+        "official_outcome_refs",
+        "course_map_ref",
+        "opiq_records",
+        "author_materials"
+      ],
+      "properties": {
+        "curriculum_map_id": { "$ref": "#/$defs/slug" },
+        "official_outcome_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "course_map_ref": { "$ref": "#/$defs/slug" },
+        "opiq_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pageRecord" }
+        },
+        "author_materials": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/authorMaterial" }
+        }
+      }
+    },
+    "methodology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "approaches",
+        "content_priority",
+        "language_path",
+        "learner_estonian_level",
+        "planned_support_level",
+        "scaffold_release",
+        "content_language_assessment_policy"
+      ],
+      "properties": {
+        "model": { "const": "russian_primary_estonian_supported" },
+        "approaches": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/methodologyApproach" }
+        },
+        "content_priority": { "const": "subject_comprehension_not_reduced_by_language_support" },
+        "language_path": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["sequence", "stage_id", "language_mode", "description"],
+            "properties": {
+              "sequence": { "type": "integer", "minimum": 1 },
+              "stage_id": { "$ref": "#/$defs/slug" },
+              "language_mode": {
+                "enum": [
+                  "activate_prior_knowledge",
+                  "establish_concept_ru",
+                  "introduce_term_et",
+                  "model_sentence_et",
+                  "supported_task_et",
+                  "full_subject_answer_ru",
+                  "short_oral_answer_et",
+                  "recycle_language"
+                ]
+              },
+              "description": { "type": "string", "minLength": 10 }
+            }
+          }
+        },
+        "learner_estonian_level": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel" },
+        "planned_support_level": { "enum": ["high", "moderate", "light"] },
+        "scaffold_release": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["introduction", "guided_practice", "final_output"],
+          "properties": {
+            "introduction": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/scaffoldLevel" },
+            "guided_practice": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/scaffoldLevel" },
+            "final_output": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/scaffoldLevel" }
+          }
+        },
+        "content_language_assessment_policy": { "const": "separate_content_and_estonian_language_evidence" }
+      }
+    },
+    "objectives": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "content_objectives",
+        "estonian_language_objectives",
+        "subject_success_criteria",
+        "estonian_success_criteria",
+        "prerequisites",
+        "anticipated_misconceptions"
+      ],
+      "properties": {
+        "content_objectives": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["objective_id", "text_ru", "observable_output_ru", "curriculum_outcome_refs"],
+            "properties": {
+              "objective_id": { "$ref": "#/$defs/slug" },
+              "text_ru": { "type": "string", "minLength": 10 },
+              "observable_output_ru": { "type": "string", "minLength": 10 },
+              "curriculum_outcome_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/slug" }
+              }
+            }
+          }
+        },
+        "estonian_language_objectives": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "objective_id",
+              "text_ru",
+              "text_et",
+              "observable_output",
+              "minimum_quantity",
+              "language_functions"
+            ],
+            "properties": {
+              "objective_id": { "$ref": "#/$defs/slug" },
+              "text_ru": { "type": "string", "minLength": 10 },
+              "text_et": { "type": "string", "minLength": 5 },
+              "observable_output": {
+                "enum": [
+                  "recognise_terms",
+                  "follow_familiar_instructions",
+                  "complete_sentence_frame",
+                  "label_visual",
+                  "give_short_oral_answer",
+                  "write_short_answer"
+                ]
+              },
+              "minimum_quantity": { "type": "integer", "minimum": 1 },
+              "language_functions": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/languageFunction" }
+              }
+            }
+          }
+        },
+        "subject_success_criteria": { "$ref": "#/$defs/successCriteria" },
+        "estonian_success_criteria": { "$ref": "#/$defs/successCriteria" },
+        "prerequisites": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "anticipated_misconceptions": { "$ref": "#/$defs/nonEmptyStringArray" }
+      }
+    },
+    "successCriteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["criterion_id", "descriptor", "acceptable_evidence"],
+        "properties": {
+          "criterion_id": { "$ref": "#/$defs/slug" },
+          "descriptor": { "type": "string", "minLength": 10 },
+          "acceptable_evidence": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "languageLoad": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_terms_et",
+        "recycled_terms_et",
+        "new_instruction_verbs_et",
+        "recycled_instruction_verbs_et",
+        "model_sentences",
+        "sentence_frames",
+        "expected_receptive_language_et",
+        "expected_supported_productive_language_et",
+        "expected_independent_productive_language_et",
+        "full_expected_answer_ru",
+        "short_expected_oral_answer_et",
+        "oral_output_terms_et"
+      ],
+      "properties": {
+        "new_terms_et": {
+          "type": "array",
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/newTerm" }
+        },
+        "recycled_terms_et": {
+          "type": "array",
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/recycledTerm" }
+        },
+        "new_instruction_verbs_et": {
+          "type": "array",
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/newInstructionVerb" }
+        },
+        "recycled_instruction_verbs_et": {
+          "type": "array",
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/recycledInstructionVerb" }
+        },
+        "model_sentences": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text_et", "translation_ru", "terms_et", "provenance"],
+            "properties": {
+              "text_et": { "type": "string", "minLength": 3 },
+              "translation_ru": { "type": "string", "minLength": 3 },
+              "terms_et": { "$ref": "#/$defs/nonEmptyStringArray" },
+              "provenance": { "$ref": "#/$defs/provenance" }
+            }
+          }
+        },
+        "sentence_frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["frame_id", "frame_et", "purpose_ru", "stage_refs", "provenance"],
+            "properties": {
+              "frame_id": { "$ref": "#/$defs/slug" },
+              "frame_et": { "type": "string", "minLength": 3 },
+              "purpose_ru": { "type": "string", "minLength": 10 },
+              "stage_refs": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/slug" }
+              },
+              "provenance": { "$ref": "#/$defs/provenance" }
+            }
+          }
+        },
+        "expected_receptive_language_et": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "expected_supported_productive_language_et": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "expected_independent_productive_language_et": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "full_expected_answer_ru": { "type": "string", "minLength": 20 },
+        "short_expected_oral_answer_et": { "type": "string", "minLength": 3 },
+        "oral_output_terms_et": { "$ref": "#/$defs/nonEmptyStringArray" }
+      }
+    },
+    "cognitiveLoad": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_subject_concepts",
+        "new_estonian_terms",
+        "new_instruction_verbs",
+        "new_sentence_structures",
+        "independent_output_sentences",
+        "rationale"
+      ],
+      "properties": {
+        "new_subject_concepts": { "type": "integer", "minimum": 0 },
+        "new_estonian_terms": { "type": "integer", "minimum": 0 },
+        "new_instruction_verbs": { "type": "integer", "minimum": 0 },
+        "new_sentence_structures": { "type": "integer", "minimum": 0 },
+        "independent_output_sentences": { "type": "integer", "minimum": 0 },
+        "rationale": { "type": "string", "minLength": 10 }
+      }
+    },
+    "scaffold": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scaffold_id", "type", "description_ru", "stage_refs", "release", "provenance"],
+      "properties": {
+        "scaffold_id": { "$ref": "#/$defs/slug" },
+        "type": {
+          "enum": [
+            "russian_explanation",
+            "bilingual_glossary",
+            "visual",
+            "teacher_modelling",
+            "worked_example",
+            "sentence_frame",
+            "word_bank",
+            "pair_rehearsal",
+            "model_answer",
+            "partially_completed_table",
+            "reduced_choice_task"
+          ]
+        },
+        "description_ru": { "type": "string", "minLength": 10 },
+        "stage_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "release": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["at_stage", "how_reduced_ru"],
+          "properties": {
+            "at_stage": { "$ref": "#/$defs/slug" },
+            "how_reduced_ru": { "type": "string", "minLength": 10 }
+          }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "multimodalSupport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["support_id", "type", "stage_refs", "material_ref", "provenance"],
+      "properties": {
+        "support_id": { "$ref": "#/$defs/slug" },
+        "type": {
+          "enum": [
+            "real_object",
+            "photograph",
+            "diagram",
+            "map",
+            "labelled_illustration",
+            "table",
+            "demonstration",
+            "measurement",
+            "practical_work",
+            "digital_map_gis"
+          ]
+        },
+        "stage_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "material_ref": { "$ref": "#/$defs/slug" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage_id",
+        "duration_minutes",
+        "stage_type",
+        "content_purpose_ru",
+        "language_purpose_et",
+        "teacher_action_ru",
+        "pupil_action_ru",
+        "teacher_language",
+        "expected_pupil_language",
+        "material_refs",
+        "provenance_refs",
+        "scaffold_refs",
+        "new_language_items",
+        "formative_check",
+        "expected_evidence_of_learning",
+        "transition"
+      ],
+      "properties": {
+        "stage_id": { "$ref": "#/$defs/slug" },
+        "duration_minutes": { "type": "integer", "minimum": 1 },
+        "stage_type": {
+          "enum": [
+            "activation",
+            "russian_concept_explanation",
+            "estonian_language_bridge",
+            "guided_practice",
+            "practical_observation",
+            "independent_output",
+            "revision",
+            "assessment",
+            "homework_launch"
+          ]
+        },
+        "content_purpose_ru": { "type": "string", "minLength": 10 },
+        "language_purpose_et": { "type": "string", "minLength": 5 },
+        "teacher_action_ru": { "type": "string", "minLength": 10 },
+        "pupil_action_ru": { "type": "string", "minLength": 10 },
+        "teacher_language": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["ru", "et"] }
+        },
+        "expected_pupil_language": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ru", "et"],
+          "properties": {
+            "ru": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+            "et": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+          }
+        },
+        "material_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "provenance_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "scaffold_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "new_language_items": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "formative_check": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["prompt_ru", "subject_evidence", "language_evidence"],
+          "properties": {
+            "prompt_ru": { "type": "string", "minLength": 5 },
+            "subject_evidence": { "type": "string", "minLength": 5 },
+            "language_evidence": { "type": "string", "minLength": 5 }
+          }
+        },
+        "expected_evidence_of_learning": { "type": "string", "minLength": 10 },
+        "transition": { "type": "string", "minLength": 5 }
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question_id",
+        "question_ru",
+        "question_et",
+        "full_expected_answer_ru",
+        "short_oral_answer_et",
+        "acceptable_variants",
+        "misconception_to_watch",
+        "objective_refs",
+        "provenance_refs"
+      ],
+      "properties": {
+        "question_id": { "$ref": "#/$defs/slug" },
+        "question_ru": { "type": "string", "minLength": 5 },
+        "question_et": { "type": "string", "minLength": 3 },
+        "full_expected_answer_ru": { "type": "string", "minLength": 10 },
+        "short_oral_answer_et": { "type": "string", "minLength": 3 },
+        "acceptable_variants": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "misconception_to_watch": { "type": "string", "minLength": 10 },
+        "objective_refs": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/objectiveReference" },
+        "provenance_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "practicalWork": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work_id",
+        "title_ru",
+        "title_et",
+        "safety_requirements",
+        "teacher_controlled_steps",
+        "pupil_steps",
+        "materials",
+        "observation_table",
+        "expected_observation_ru",
+        "expected_conclusion_ru",
+        "russian_report_target",
+        "short_estonian_conclusion",
+        "opiq_source_record_ids",
+        "provenance_refs"
+      ],
+      "properties": {
+        "work_id": { "$ref": "#/$defs/slug" },
+        "title_ru": { "type": "string", "minLength": 3 },
+        "title_et": { "type": "string", "minLength": 3 },
+        "safety_requirements": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "teacher_controlled_steps": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "pupil_steps": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "materials": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "observation_table": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["columns", "data_collection_ru"],
+          "properties": {
+            "columns": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "data_collection_ru": { "type": "string", "minLength": 10 }
+          }
+        },
+        "expected_observation_ru": { "type": "string", "minLength": 10 },
+        "expected_conclusion_ru": { "type": "string", "minLength": 10 },
+        "russian_report_target": { "type": "string", "minLength": 10 },
+        "short_estonian_conclusion": { "type": "string", "minLength": 3 },
+        "opiq_source_record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "provenance_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "assessmentCriterion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion_id", "domain", "what_is_checked", "acceptable_evidence", "success_threshold", "affects"],
+      "properties": {
+        "criterion_id": { "$ref": "#/$defs/slug" },
+        "domain": {
+          "enum": [
+            "subject_understanding",
+            "practical_skill",
+            "estonian_terminology_recognition",
+            "supported_estonian_production",
+            "independent_estonian_production"
+          ]
+        },
+        "what_is_checked": { "type": "string", "minLength": 10 },
+        "acceptable_evidence": { "type": "string", "minLength": 10 },
+        "success_threshold": { "type": "string", "minLength": 5 },
+        "affects": { "enum": ["subject_assessment", "language_assessment", "both"] }
+      }
+    },
+    "differentiation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supports", "challenge_extension", "simplified_curriculum_opt_in"],
+      "properties": {
+        "supports": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "implementation_ru", "preserves_subject_objective"],
+            "properties": {
+              "type": {
+                "enum": [
+                  "additional_russian_explanation",
+                  "reduced_estonian_output",
+                  "bilingual_glossary",
+                  "sentence_frames",
+                  "word_bank",
+                  "partner_rehearsal",
+                  "visual_support",
+                  "challenge_extension",
+                  "additional_estonian_production"
+                ]
+              },
+              "implementation_ru": { "type": "string", "minLength": 10 },
+              "preserves_subject_objective": { "const": true }
+            }
+          }
+        },
+        "challenge_extension": { "type": "string", "minLength": 10 },
+        "simplified_curriculum_opt_in": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["enabled", "notes"],
+              "properties": {
+                "enabled": { "const": false },
+                "notes": { "type": "string", "minLength": 10 }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["enabled", "learner_ref", "authorisation_ref", "provenance", "notes"],
+              "properties": {
+                "enabled": { "const": true },
+                "learner_ref": { "type": "string", "minLength": 1 },
+                "authorisation_ref": { "type": "string", "minLength": 1 },
+                "provenance": { "$ref": "#/$defs/provenance" },
+                "notes": { "type": "string", "minLength": 10 }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "homework": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "content_task_ru",
+        "estonian_language_component",
+        "expected_minutes",
+        "source_reference",
+        "required_opiq_url",
+        "adult_support_expected",
+        "success_guidance_ru",
+        "provenance"
+      ],
+      "properties": {
+        "content_task_ru": { "type": "string", "minLength": 10 },
+        "estonian_language_component": { "type": "string", "minLength": 5 },
+        "expected_minutes": { "type": "integer", "minimum": 1, "maximum": 60 },
+        "source_reference": { "type": "string", "minLength": 1 },
+        "required_opiq_url": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^https://www\\.opiq\\.ee/(?:kit|Kit)/[^\\s]+$" }
+          ]
+        },
+        "adult_support_expected": { "type": "boolean" },
+        "success_guidance_ru": { "type": "string", "minLength": 10 },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json",
+  "title": "Opiq Helper shared teaching-plan vocabulary",
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "canonicalRoute": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json#/$defs/canonicalRoute"
+    },
+    "pageRecord": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json#/$defs/pageRecord"
+    },
+    "provenance": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json#/$defs/provenance"
+    },
+    "learnerLanguageLevel": {
+      "enum": ["A1", "A1-A2", "A2", "A2-B1", "B1"]
+    },
+    "methodologyApproach": {
+      "enum": [
+        "content_language_dual_objectives",
+        "planned_translanguaging",
+        "gradual_scaffolding",
+        "pluriliteracies",
+        "multimodal_support",
+        "vocabulary_recycling",
+        "cognitive_load_control",
+        "separate_content_language_assessment"
+      ]
+    },
+    "languageFunction": {
+      "enum": [
+        "name",
+        "describe",
+        "compare",
+        "classify",
+        "sequence",
+        "explain",
+        "infer",
+        "conclude",
+        "report"
+      ]
+    },
+    "scaffoldLevel": {
+      "enum": ["full_support", "partial_support", "short_independent_output"]
+    },
+    "authorMaterial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["material_id", "title", "material_type", "provenance"],
+      "properties": {
+        "material_id": { "$ref": "#/$defs/slug" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "material_type": {
+          "enum": ["explanation", "bridge", "worksheet", "assessment", "visual", "practical_setup"]
+        },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "newTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "term_et",
+        "equivalent_ru",
+        "simple_definition_et",
+        "provenance",
+        "first_use_stage",
+        "reuse_stage_refs"
+      ],
+      "properties": {
+        "term_et": { "$ref": "#/$defs/nonEmptyString" },
+        "equivalent_ru": { "$ref": "#/$defs/nonEmptyString" },
+        "simple_definition_et": { "type": "string", "minLength": 3 },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "first_use_stage": { "$ref": "#/$defs/slug" },
+        "reuse_stage_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "recycledTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["term_et", "equivalent_ru", "source_lesson_id", "reuse_stage_refs"],
+      "properties": {
+        "term_et": { "$ref": "#/$defs/nonEmptyString" },
+        "equivalent_ru": { "$ref": "#/$defs/nonEmptyString" },
+        "source_lesson_id": { "$ref": "#/$defs/nonEmptyString" },
+        "reuse_stage_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "newInstructionVerb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verb_et", "equivalent_ru", "provenance", "first_use_stage", "reuse_stage_refs"],
+      "properties": {
+        "verb_et": { "$ref": "#/$defs/nonEmptyString" },
+        "equivalent_ru": { "$ref": "#/$defs/nonEmptyString" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "first_use_stage": { "$ref": "#/$defs/slug" },
+        "reuse_stage_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "recycledInstructionVerb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verb_et", "equivalent_ru", "source_lesson_id", "reuse_stage_refs"],
+      "properties": {
+        "verb_et": { "$ref": "#/$defs/nonEmptyString" },
+        "equivalent_ru": { "$ref": "#/$defs/nonEmptyString" },
+        "source_lesson_id": { "$ref": "#/$defs/nonEmptyString" },
+        "reuse_stage_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "objectiveReference": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" }
+    },
+    "completenessStatus": {
+      "enum": ["verified", "partial", "missing", "ambiguous"]
+    }
+  }
+}
