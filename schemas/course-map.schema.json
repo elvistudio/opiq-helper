@@ -1,0 +1,755 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json",
+  "title": "Opiq Helper course assembly artifacts",
+  "oneOf": [
+    { "$ref": "#/$defs/bookInventory" },
+    { "$ref": "#/$defs/topicInventory" },
+    { "$ref": "#/$defs/thematicUnit" }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "opiqUrl": {
+      "type": "string",
+      "pattern": "^https://www\\.opiq\\.ee/(?:kit|Kit)/[^\\s]+$"
+    },
+    "coverageStatus": {
+      "enum": ["verified", "partial", "missing", "ambiguous"]
+    },
+    "programmeType": {
+      "enum": [
+        "ordinary",
+        "simplified_curriculum",
+        "supplementary",
+        "teacher_support",
+        "unknown"
+      ]
+    },
+    "instructionalRole": {
+      "enum": [
+        "core_explanation_ru",
+        "core_source_et",
+        "terminology_et",
+        "definition_et",
+        "bilingual_visual",
+        "practice_ru",
+        "practice_et",
+        "experiment",
+        "fieldwork",
+        "map_skill",
+        "digital_map",
+        "revision",
+        "assessment",
+        "optional_extension",
+        "oral_answer_et"
+      ]
+    },
+    "provenanceCategory": {
+      "enum": [
+        "official_curriculum",
+        "opiq_textbook",
+        "opiq_supplementary",
+        "opiq_teacher_support",
+        "opiq_simplified_curriculum",
+        "author_created_explanation",
+        "author_created_bridge",
+        "author_created_worksheet",
+        "author_created_assessment"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "source_reference", "notes"],
+      "properties": {
+        "category": { "$ref": "#/$defs/provenanceCategory" },
+        "source_reference": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "canonicalRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "md_path", "source_archive", "qa_path"],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/slug" },
+        "md_path": { "$ref": "#/$defs/repositoryPath" },
+        "source_archive": { "$ref": "#/$defs/repositoryPath" },
+        "qa_path": { "$ref": "#/$defs/repositoryPath" }
+      }
+    },
+    "pageRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "canonical_url",
+        "canonical_source_id",
+        "book_id",
+        "title",
+        "language",
+        "programme_type",
+        "instructional_roles",
+        "provenance",
+        "selection_rationale"
+      ],
+      "properties": {
+        "record_id": { "$ref": "#/$defs/slug" },
+        "canonical_url": { "$ref": "#/$defs/opiqUrl" },
+        "canonical_source_id": { "$ref": "#/$defs/slug" },
+        "book_id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "language": { "enum": ["et", "ru"] },
+        "programme_type": { "$ref": "#/$defs/programmeType" },
+        "instructional_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/instructionalRole" }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "selection_rationale": { "type": "string", "minLength": 10 },
+        "rejection_reason": { "type": "string", "minLength": 10 }
+      }
+    },
+    "book": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "book_id",
+        "kit_id",
+        "kit_url",
+        "title",
+        "publisher",
+        "language",
+        "source_record_count",
+        "canonical_record_count",
+        "page_evidence",
+        "programme_type",
+        "programme_type_evidence",
+        "publisher_sequence",
+        "likely_roles",
+        "eligible_for_ordinary_course",
+        "source_limitations",
+        "provenance"
+      ],
+      "properties": {
+        "book_id": { "type": "string", "minLength": 1 },
+        "kit_id": { "type": "integer", "minimum": 1 },
+        "kit_url": { "$ref": "#/$defs/opiqUrl" },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "language": { "enum": ["et", "ru"] },
+        "source_record_count": { "type": "integer", "minimum": 0 },
+        "canonical_record_count": { "type": "integer", "minimum": 0 },
+        "page_evidence": { "enum": ["page_records", "cover_only"] },
+        "programme_type": { "$ref": "#/$defs/programmeType" },
+        "programme_type_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "source", "verified_on", "notes"],
+          "properties": {
+            "status": { "enum": ["verified", "partial", "ambiguous"] },
+            "source": { "type": "string", "minLength": 1 },
+            "verified_on": { "$ref": "#/$defs/date" },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "publisher_sequence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["grade", "grade_allocation_basis", "notes"],
+          "properties": {
+            "grade": { "type": "integer", "minimum": 1 },
+            "grade_allocation_basis": { "const": "publisher_sequence" },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "likely_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/instructionalRole" }
+        },
+        "eligible_for_ordinary_course": { "type": "boolean" },
+        "source_limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "bookInventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "map_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "instruction_language",
+        "subject_support_language",
+        "canonical_route",
+        "source_audit",
+        "simplified_material_policy",
+        "books",
+        "known_gaps"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "book_inventory" },
+        "map_id": { "$ref": "#/$defs/slug" },
+        "grade": { "type": "integer", "minimum": 1 },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_et": { "type": "string", "minLength": 1 },
+        "instruction_language": { "const": "ru" },
+        "subject_support_language": { "const": "et" },
+        "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+        "source_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_records",
+            "canonical_records",
+            "cover_detail_records_excluded",
+            "source_books",
+            "books_with_page_records",
+            "notes"
+          ],
+          "properties": {
+            "source_records": { "type": "integer", "minimum": 0 },
+            "canonical_records": { "type": "integer", "minimum": 0 },
+            "cover_detail_records_excluded": { "type": "integer", "minimum": 0 },
+            "source_books": { "type": "integer", "minimum": 1 },
+            "books_with_page_records": { "type": "integer", "minimum": 0 },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "simplified_material_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["default_course_use", "explicit_opt_in_required", "notes"],
+          "properties": {
+            "default_course_use": { "const": "forbidden" },
+            "explicit_opt_in_required": { "const": true },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "books": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/book" }
+        },
+        "known_gaps": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "availability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["russian", "estonian", "practical", "revision", "assessment"],
+      "properties": {
+        "russian": { "$ref": "#/$defs/coverageStatus" },
+        "estonian": { "$ref": "#/$defs/coverageStatus" },
+        "practical": { "$ref": "#/$defs/coverageStatus" },
+        "revision": { "$ref": "#/$defs/coverageStatus" },
+        "assessment": { "$ref": "#/$defs/coverageStatus" }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topic_id",
+        "title_ru",
+        "title_et",
+        "coverage_status",
+        "grade_allocation_basis",
+        "books_covering",
+        "selected_records",
+        "alternative_records",
+        "rejected_records",
+        "source_recommendations",
+        "availability",
+        "deduplication",
+        "known_gaps"
+      ],
+      "properties": {
+        "topic_id": { "$ref": "#/$defs/slug" },
+        "title_ru": { "type": "string", "minLength": 1 },
+        "title_et": { "type": "string", "minLength": 1 },
+        "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+        "grade_allocation_basis": { "const": "curated_course_sequence" },
+        "books_covering": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "selected_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/pageRecord" }
+        },
+        "alternative_records": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/pageRecord" }
+        },
+        "rejected_records": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/pageRecord" }
+        },
+        "source_recommendations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "russian_explanation",
+            "estonian_terminology_or_visuals",
+            "practice",
+            "practical_or_assessment"
+          ],
+          "properties": {
+            "russian_explanation": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "estonian_terminology_or_visuals": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "practice": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "practical_or_assessment": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            }
+          }
+        },
+        "availability": { "$ref": "#/$defs/availability" },
+        "deduplication": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision", "rationale", "rejected_record_ids"],
+          "properties": {
+            "decision": { "enum": ["select_by_role", "retain_distinct_roles", "insufficient_evidence"] },
+            "rationale": { "type": "string", "minLength": 10 },
+            "rejected_record_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            }
+          }
+        },
+        "known_gaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "topicInventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "map_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "instruction_language",
+        "subject_support_language",
+        "canonical_route",
+        "scope",
+        "coverage_status",
+        "grade_allocation_basis",
+        "unavailable_page_evidence_book_ids",
+        "topics",
+        "known_gaps"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "topic_inventory" },
+        "map_id": { "$ref": "#/$defs/slug" },
+        "grade": { "type": "integer", "minimum": 1 },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_et": { "type": "string", "minLength": 1 },
+        "instruction_language": { "const": "ru" },
+        "subject_support_language": { "const": "et" },
+        "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+        "scope": { "const": "deduplicated_inventory_not_final_annual_sequence" },
+        "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+        "grade_allocation_basis": { "const": "curated_course_sequence" },
+        "unavailable_page_evidence_book_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "topics": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/topic" }
+        },
+        "known_gaps": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "learningItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text_ru", "text_et", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "text_ru": { "type": "string", "minLength": 1 },
+        "text_et": { "type": "string", "minLength": 1 },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "thematicUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "map_id",
+        "unit_id",
+        "grade",
+        "subject",
+        "subject_et",
+        "instruction_language",
+        "subject_support_language",
+        "canonical_route",
+        "title_ru",
+        "title_et",
+        "official_curriculum",
+        "grade_allocation",
+        "learning_outcomes",
+        "success_criteria",
+        "prerequisites",
+        "estimated_lessons",
+        "selected_records",
+        "rejected_duplicate_records",
+        "bilingual_learning",
+        "practical_activity",
+        "revision",
+        "assessment",
+        "coverage_status",
+        "completeness",
+        "known_gaps",
+        "unit_provenance"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "thematic_unit" },
+        "map_id": { "$ref": "#/$defs/slug" },
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "grade": { "type": "integer", "minimum": 1 },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_et": { "type": "string", "minLength": 1 },
+        "instruction_language": { "const": "ru" },
+        "subject_support_language": { "const": "et" },
+        "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+        "title_ru": { "type": "string", "minLength": 1 },
+        "title_et": { "type": "string", "minLength": 1 },
+        "official_curriculum": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["curriculum_map_id", "outcome_mappings"],
+          "properties": {
+            "curriculum_map_id": { "$ref": "#/$defs/slug" },
+            "outcome_mappings": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["outcome_id", "coverage_status", "course_evidence_record_ids", "evidence_summary"],
+                "properties": {
+                  "outcome_id": { "$ref": "#/$defs/slug" },
+                  "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+                  "course_evidence_record_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/$defs/slug" }
+                  },
+                  "evidence_summary": { "type": "string", "minLength": 10 }
+                }
+              }
+            }
+          }
+        },
+        "grade_allocation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "official_scope",
+            "official_basis",
+            "publisher_basis",
+            "curated_basis",
+            "exact_grade_official",
+            "notes"
+          ],
+          "properties": {
+            "official_scope": {
+              "enum": ["exact_grade", "school_stage_1", "school_stage_2", "school_stage_3"]
+            },
+            "official_basis": {
+              "enum": ["official_exact_grade", "official_school_stage"]
+            },
+            "publisher_basis": { "const": "publisher_sequence" },
+            "curated_basis": { "const": "curated_course_sequence" },
+            "exact_grade_official": { "type": "boolean" },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "learning_outcomes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/learningItem" }
+        },
+        "success_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/learningItem" }
+        },
+        "prerequisites": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/learningItem" }
+        },
+        "estimated_lessons": { "type": "integer", "minimum": 1 },
+        "selected_records": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/pageRecord" }
+        },
+        "rejected_duplicate_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/pageRecord" }
+        },
+        "bilingual_learning": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "primary_subject_explanation_target_ru",
+            "estonian_terminology",
+            "simple_estonian_sentences",
+            "common_estonian_instructions",
+            "short_estonian_task",
+            "teacher_questions",
+            "language_progression",
+            "language_learning_notes"
+          ],
+          "properties": {
+            "primary_subject_explanation_target_ru": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text", "provenance"],
+              "properties": {
+                "text": { "type": "string", "minLength": 20 },
+                "provenance": { "$ref": "#/$defs/provenance" }
+              }
+            },
+            "estonian_terminology": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["term_et", "equivalent_ru", "simple_definition_et", "provenance"],
+                "properties": {
+                  "term_et": { "type": "string", "minLength": 1 },
+                  "equivalent_ru": { "type": "string", "minLength": 1 },
+                  "simple_definition_et": { "type": "string", "minLength": 3 },
+                  "provenance": { "$ref": "#/$defs/provenance" }
+                }
+              }
+            },
+            "simple_estonian_sentences": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["text_et", "translation_ru", "provenance"],
+                "properties": {
+                  "text_et": { "type": "string", "minLength": 3 },
+                  "translation_ru": { "type": "string", "minLength": 3 },
+                  "provenance": { "$ref": "#/$defs/provenance" }
+                }
+              }
+            },
+            "common_estonian_instructions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["instruction_et", "translation_ru", "provenance"],
+                "properties": {
+                  "instruction_et": { "type": "string", "minLength": 2 },
+                  "translation_ru": { "type": "string", "minLength": 2 },
+                  "provenance": { "$ref": "#/$defs/provenance" }
+                }
+              }
+            },
+            "short_estonian_task": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["prompt_et", "full_expected_answer_ru", "short_oral_answer_et", "provenance"],
+              "properties": {
+                "prompt_et": { "type": "string", "minLength": 5 },
+                "full_expected_answer_ru": { "type": "string", "minLength": 10 },
+                "short_oral_answer_et": { "type": "string", "minLength": 3 },
+                "provenance": { "$ref": "#/$defs/provenance" }
+              }
+            },
+            "teacher_questions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["question_ru", "full_expected_answer_ru", "short_oral_answer_et", "provenance"],
+                "properties": {
+                  "question_ru": { "type": "string", "minLength": 5 },
+                  "full_expected_answer_ru": { "type": "string", "minLength": 10 },
+                  "short_oral_answer_et": { "type": "string", "minLength": 3 },
+                  "provenance": { "$ref": "#/$defs/provenance" }
+                }
+              }
+            },
+            "language_progression": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["level", "focus", "notes"],
+              "properties": {
+                "level": { "enum": ["A1", "A1-A2", "A2", "A2-B1", "B1"] },
+                "focus": {
+                  "enum": [
+                    "grade_5_terms_instructions_short_sentences",
+                    "grade_6_definitions_comparisons_processes",
+                    "grade_7_subject_explanations_map_language_reasoning"
+                  ]
+                },
+                "notes": { "type": "string", "minLength": 10 }
+              }
+            },
+            "language_learning_notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "practical_activity": { "$ref": "#/$defs/activity" },
+        "revision": { "$ref": "#/$defs/activity" },
+        "assessment": { "$ref": "#/$defs/activity" },
+        "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+        "completeness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "declared_complete",
+            "required_outcome_ids",
+            "verified_outcome_ids",
+            "partial_outcome_ids",
+            "missing_outcome_ids",
+            "ambiguous_outcome_ids",
+            "check_notes"
+          ],
+          "properties": {
+            "status": { "enum": ["complete", "incomplete", "not_assessed"] },
+            "declared_complete": { "type": "boolean" },
+            "required_outcome_ids": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+          "verified_outcome_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/slug" }
+          },
+          "partial_outcome_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/slug" }
+          },
+            "missing_outcome_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "ambiguous_outcome_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "check_notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "known_gaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "unit_provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title_ru",
+        "title_et",
+        "instructions_ru",
+        "instructions_et",
+        "expected_result_ru",
+        "short_oral_answer_et",
+        "source_record_ids",
+        "provenance"
+      ],
+      "properties": {
+        "title_ru": { "type": "string", "minLength": 3 },
+        "title_et": { "type": "string", "minLength": 3 },
+        "instructions_ru": { "type": "string", "minLength": 10 },
+        "instructions_et": { "type": "string", "minLength": 5 },
+        "expected_result_ru": { "type": "string", "minLength": 10 },
+        "short_oral_answer_et": { "type": "string", "minLength": 3 },
+        "source_record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    }
+  }
+}

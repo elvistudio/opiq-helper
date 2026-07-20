@@ -1,0 +1,236 @@
+schema_version: "1.0"
+artifact_type: book_inventory
+map_id: grade-5-science-book-inventory
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+source_audit:
+  source_records: 322
+  canonical_records: 316
+  cover_detail_records_excluded: 6
+  source_books: 6
+  books_with_page_records: 5
+  notes: >-
+    Counts come from the registered archive, canonical Markdown, and QA snapshot. The archive
+    contains two duplicate cover records for kit 525 and one cover record for each of kits 9,
+    17, 122, and 172.
+simplified_material_policy:
+  default_course_use: forbidden
+  explicit_opt_in_required: true
+  notes: >-
+    Simplified-curriculum pages may be considered only through an explicit learner-specific
+    decision; they are excluded from the ordinary golden unit.
+books:
+  - book_id: 5k_loodusõpetus_avita_2024_est
+    kit_id: 525
+    kit_url: https://www.opiq.ee/Kit/Details/525
+    title: Loodusõpetus 5. klassile (2024)
+    publisher: Avita
+    language: et
+    source_record_count: 48
+    canonical_record_count: 46
+    page_evidence: page_records
+    programme_type: ordinary
+    programme_type_evidence:
+      status: verified
+      source: https://www.opiq.ee/Kit/Details/525
+      verified_on: 2026-07-20
+      notes: Direct metadata for the registered kit declares the 2023 national curriculum and ordinary grade-5 loodusõpetus.
+    publisher_sequence:
+      grade: 5
+      grade_allocation_basis: publisher_sequence
+      notes: The publisher labels the book grade 5; this is not an official exact-grade outcome allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - experiment
+      - revision
+      - assessment
+    eligible_for_ordinary_course: true
+    source_limitations:
+      - The archive book object omits publisher metadata; kit metadata identifies Avita.
+      - The publisher sequence rearranges some second-school-stage themes between grades 5 and 6.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525
+      notes: Ordinary Estonian-language Opiq textbook material from the registered route.
+  - book_id: 5k_loodusõpetus_avita_est
+    kit_id: 9
+    kit_url: https://www.opiq.ee/Kit/Details/9
+    title: Veeta ei saa
+    publisher: Avita
+    language: et
+    source_record_count: 54
+    canonical_record_count: 53
+    page_evidence: page_records
+    programme_type: ordinary
+    programme_type_evidence:
+      status: verified
+      source: https://www.opiq.ee/Kit/Details/9
+      verified_on: 2026-07-20
+      notes: Direct metadata for the registered kit declares the ordinary 2011 national curriculum for grade-5 loodusõpetus.
+    publisher_sequence:
+      grade: 5
+      grade_allocation_basis: publisher_sequence
+      notes: The publisher labels the book grade 5; this is not an official exact-grade outcome allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - practice_et
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: true
+    source_limitations:
+      - This is an older Estonian edition and overlaps heavily with kit 525.
+      - The publisher recommends treating its grade-5 and grade-6 books as one sequence.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 9
+      notes: Ordinary Estonian-language Opiq textbook material from the registered route.
+  - book_id: 5k_loodusõpetus_avita_rus
+    kit_id: 17
+    kit_url: https://www.opiq.ee/Kit/Details/17
+    title: Без воды жизнь невозможна
+    publisher: Avita
+    language: ru
+    source_record_count: 54
+    canonical_record_count: 53
+    page_evidence: page_records
+    programme_type: ordinary
+    programme_type_evidence:
+      status: verified
+      source: https://www.opiq.ee/Kit/Details/17
+      verified_on: 2026-07-20
+      notes: Direct metadata identifies the registered kit as the Russian ordinary-programme counterpart to the Avita sequence.
+    publisher_sequence:
+      grade: 5
+      grade_allocation_basis: publisher_sequence
+      notes: The publisher labels the book grade 5; this is not an official exact-grade outcome allocation.
+    likely_roles:
+      - core_explanation_ru
+      - practice_ru
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: true
+    source_limitations:
+      - The available Russian sequence corresponds to the older Avita edition rather than kit 525.
+      - The publisher recommends treating its grade-5 and grade-6 books as one sequence.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17
+      notes: Ordinary Russian-language Opiq textbook material from the registered route.
+  - book_id: 5k_loodusõpetus_harno_est
+    kit_id: 275
+    kit_url: https://www.opiq.ee/Kit/Details/275
+    title: Loodusõpetus 5. klassile. Lihtsustatud õppekava
+    publisher: SA Innove / HARNO
+    language: et
+    source_record_count: 106
+    canonical_record_count: 106
+    page_evidence: page_records
+    programme_type: simplified_curriculum
+    programme_type_evidence:
+      status: verified
+      source: https://www.opiq.ee/Kit/Details/275
+      verified_on: 2026-07-20
+      notes: Direct metadata for the registered kit explicitly identifies Põhikooli lihtsustatud riiklik õppekava 2010.
+    publisher_sequence:
+      grade: 5
+      grade_allocation_basis: publisher_sequence
+      notes: This exact-grade sequence belongs to the simplified programme, not the ordinary state programme.
+    likely_roles:
+      - optional_extension
+      - terminology_et
+      - practice_et
+      - experiment
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - Simplified-curriculum material cannot be assigned silently in the ordinary course.
+      - The canonical records include teacher guidance, print-PDF, and Impressum pages.
+    provenance:
+      category: opiq_simplified_curriculum
+      source_reference: grade-5-science / kit 275
+      notes: Registered page-level evidence, explicitly classified as simplified curriculum.
+  - book_id: 5k_loodusõpetus_koolibri_est
+    kit_id: 122
+    kit_url: https://www.opiq.ee/Kit/Details/122
+    title: Jõgi ja järv. Vesi kui elukeskkond
+    publisher: Koolibri
+    language: et
+    source_record_count: 59
+    canonical_record_count: 58
+    page_evidence: page_records
+    programme_type: ordinary
+    programme_type_evidence:
+      status: verified
+      source: https://www.opiq.ee/Kit/Details/122
+      verified_on: 2026-07-20
+      notes: Direct metadata for the registered kit declares the 2011 and 2023 ordinary national curricula for grade-5 loodusõpetus.
+    publisher_sequence:
+      grade: 5
+      grade_allocation_basis: publisher_sequence
+      notes: The publisher labels the book grade 5; this is not an official exact-grade outcome allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - experiment
+      - fieldwork
+      - map_skill
+      - revision
+      - assessment
+    eligible_for_ordinary_course: true
+    source_limitations:
+      - No Russian page records from the paired Koolibri book are present in the canonical route.
+      - Several section-title pages contain little page-level instructional evidence.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122
+      notes: Ordinary Estonian-language Opiq textbook material from the registered route.
+  - book_id: 5k_loodusõpetus_koolibri_rus
+    kit_id: 172
+    kit_url: https://www.opiq.ee/Kit/Details/172
+    title: Природоведение. 5 класс
+    publisher: Koolibri
+    language: ru
+    source_record_count: 1
+    canonical_record_count: 0
+    page_evidence: cover_only
+    programme_type: ordinary
+    programme_type_evidence:
+      status: verified
+      source: https://www.opiq.ee/Kit/Details/172
+      verified_on: 2026-07-20
+      notes: Direct metadata identifies an ordinary Russian grade-5 book, but the registered archive contains no chapters.
+    publisher_sequence:
+      grade: 5
+      grade_allocation_basis: publisher_sequence
+      notes: The publisher labels the book grade 5; this is not an official exact-grade outcome allocation.
+    likely_roles:
+      - core_explanation_ru
+      - practice_ru
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The registered archive contains only cover metadata and no canonical page records.
+      - It cannot provide page-level evidence or direct assignable URLs in this repository state.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 172 cover record
+      notes: Ordinary Russian-language book metadata without page-level canonical evidence.
+known_gaps:
+  - The source archive does not contain page records for the Russian Koolibri book.
+  - The export does not preserve a complete programme declaration; programme types were verified from the direct registered kit metadata on 2026-07-20.
+  - Publisher grade sequencing is evidence for course assembly, not an official state grade allocation.
+  - The inventory does not establish complete official curriculum coverage.
