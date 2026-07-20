@@ -1,0 +1,391 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/annual-course-components.schema.json",
+  "title": "Opiq Helper annual-course architecture components",
+  "oneOf": [
+    { "$ref": "#/$defs/sourceSelectionMatrix" },
+    { "$ref": "#/$defs/implementationRoadmap" },
+    { "$ref": "#/$defs/languageProgression" },
+    { "$ref": "#/$defs/teachingCalendars" }
+  ],
+  "$defs": {
+    "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },
+    "canonicalRoute": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/canonicalRoute" },
+    "instructionalRole": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json#/$defs/instructionalRole" },
+    "slugArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" }
+    },
+    "nonEmptySlugArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" }
+    },
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "repositoryYamlPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+\\.ya?ml$"
+    },
+    "opiqUrl": {
+      "type": "string",
+      "pattern": "^https://www\\.opiq\\.ee/(?:kit|Kit)/[^\\s]+$"
+    },
+    "commonIdentity": {
+      "type": "object",
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "course_ref": { "$ref": "#/$defs/slug" },
+        "grade": { "type": "integer", "minimum": 1 },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_et": { "type": "string", "minLength": 1 },
+        "instruction_language": { "const": "ru" },
+        "subject_support_language": { "const": "et" },
+        "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "selectedSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_id", "canonical_url", "instructional_roles", "provenance", "selection_rationale"],
+      "properties": {
+        "record_id": { "$ref": "#/$defs/slug" },
+        "canonical_url": { "$ref": "#/$defs/opiqUrl" },
+        "instructional_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/instructionalRole" }
+        },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "selection_rationale": { "type": "string", "minLength": 10 }
+      }
+    },
+    "rejectedSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_id", "canonical_url", "book_id", "rejection_reason", "provenance"],
+      "properties": {
+        "record_id": { "$ref": "#/$defs/slug" },
+        "canonical_url": { "$ref": "#/$defs/opiqUrl" },
+        "book_id": { "type": "string", "minLength": 1 },
+        "rejection_reason": { "type": "string", "minLength": 10 },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "roleDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "record_ids", "notes"],
+      "properties": {
+        "status": { "enum": ["selected", "author_created_required", "unavailable", "not_needed"] },
+        "record_ids": { "$ref": "#/$defs/slugArray" },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "roleMatrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core_explanation_ru",
+        "core_source_et",
+        "visual_or_diagram",
+        "practical_or_experiment",
+        "practice_ru",
+        "practice_et",
+        "revision",
+        "assessment",
+        "optional_extension"
+      ],
+      "properties": {
+        "core_explanation_ru": { "$ref": "#/$defs/roleDecision" },
+        "core_source_et": { "$ref": "#/$defs/roleDecision" },
+        "visual_or_diagram": { "$ref": "#/$defs/roleDecision" },
+        "practical_or_experiment": { "$ref": "#/$defs/roleDecision" },
+        "practice_ru": { "$ref": "#/$defs/roleDecision" },
+        "practice_et": { "$ref": "#/$defs/roleDecision" },
+        "revision": { "$ref": "#/$defs/roleDecision" },
+        "assessment": { "$ref": "#/$defs/roleDecision" },
+        "optional_extension": { "$ref": "#/$defs/roleDecision" }
+      }
+    },
+    "bookDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["book_id", "candidate_record_ids", "selected_record_ids", "decision", "reason"],
+      "properties": {
+        "book_id": { "type": "string", "minLength": 1 },
+        "candidate_record_ids": { "$ref": "#/$defs/slugArray" },
+        "selected_record_ids": { "$ref": "#/$defs/slugArray" },
+        "decision": { "enum": ["selected", "rejected_duplicate", "eligible_no_distinct_role", "no_topic_evidence"] },
+        "reason": { "type": "string", "minLength": 10 }
+      }
+    },
+    "sourceSelectionUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit_id", "topic_inventory_refs", "selected_sources", "role_matrix", "book_decisions", "rejected_duplicates", "unavailable_roles", "teacher_review_required"],
+      "properties": {
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "topic_inventory_refs": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "selected_sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/selectedSource" }
+        },
+        "role_matrix": { "$ref": "#/$defs/roleMatrix" },
+        "book_decisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/bookDecision" }
+        },
+        "rejected_duplicates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/rejectedSource" }
+        },
+        "unavailable_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "reason"],
+            "properties": {
+              "role": { "$ref": "#/$defs/instructionalRole" },
+              "reason": { "type": "string", "minLength": 10 }
+            }
+          }
+        },
+        "teacher_review_required": { "type": "boolean" }
+      }
+    },
+    "sourceSelectionMatrix": {
+      "allOf": [
+        { "$ref": "#/$defs/commonIdentity" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema_version", "artifact_type", "artifact_id", "course_ref", "grade", "subject",
+            "subject_et", "instruction_language", "subject_support_language", "canonical_route",
+            "eligible_book_ids", "excluded_books", "units", "provenance"
+          ],
+          "properties": {
+            "schema_version": { "const": "1.0" },
+            "artifact_type": { "const": "annual_source_selection_matrix" },
+            "artifact_id": { "$ref": "#/$defs/slug" },
+            "course_ref": { "$ref": "#/$defs/slug" },
+            "grade": { "type": "integer", "minimum": 1 },
+            "subject": { "type": "string", "minLength": 1 },
+            "subject_et": { "type": "string", "minLength": 1 },
+            "instruction_language": { "const": "ru" },
+            "subject_support_language": { "const": "et" },
+            "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+            "eligible_book_ids": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            },
+            "excluded_books": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["book_id", "reason"],
+                "properties": {
+                  "book_id": { "type": "string", "minLength": 1 },
+                  "reason": { "type": "string", "minLength": 10 }
+                }
+              }
+            },
+            "units": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/sourceSelectionUnit" }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ]
+    },
+    "roadmapPhase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phase_id", "order", "title", "selection_rule", "unit_ids"],
+      "properties": {
+        "phase_id": { "$ref": "#/$defs/slug" },
+        "order": { "type": "integer", "minimum": 1 },
+        "title": { "type": "string", "minLength": 3 },
+        "selection_rule": { "type": "string", "minLength": 10 },
+        "unit_ids": { "$ref": "#/$defs/nonEmptySlugArray" }
+      }
+    },
+    "roadmapUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id", "implementation_order", "issue_18_phase", "expected_thematic_plan_path",
+        "approximate_lesson_count", "source_readiness", "russian_explanation_readiness",
+        "estonian_language_readiness", "practical_work_readiness", "blockers", "dependencies",
+        "implementation_status"
+      ],
+      "properties": {
+        "unit_id": { "$ref": "#/$defs/slug" },
+        "implementation_order": { "type": "integer", "minimum": 0 },
+        "issue_18_phase": { "$ref": "#/$defs/slug" },
+        "expected_thematic_plan_path": { "$ref": "#/$defs/repositoryYamlPath" },
+        "approximate_lesson_count": { "type": "integer", "minimum": 1 },
+        "source_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
+        "russian_explanation_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
+        "estonian_language_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
+        "practical_work_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
+        "blockers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "dependencies": { "$ref": "#/$defs/slugArray" },
+        "implementation_status": { "enum": ["validated_production_unit", "planned_next", "planned_later", "blocked_pending_review"] }
+      }
+    },
+    "implementationRoadmap": {
+      "allOf": [
+        { "$ref": "#/$defs/commonIdentity" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema_version", "artifact_type", "artifact_id", "course_ref", "grade", "subject",
+            "subject_et", "instruction_language", "subject_support_language", "canonical_route",
+            "phases", "units", "provenance"
+          ],
+          "properties": {
+            "schema_version": { "const": "1.0" },
+            "artifact_type": { "const": "annual_implementation_roadmap" },
+            "artifact_id": { "$ref": "#/$defs/slug" },
+            "course_ref": { "$ref": "#/$defs/slug" },
+            "grade": { "type": "integer", "minimum": 1 },
+            "subject": { "type": "string", "minLength": 1 },
+            "subject_et": { "type": "string", "minLength": 1 },
+            "instruction_language": { "const": "ru" },
+            "subject_support_language": { "const": "et" },
+            "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+            "phases": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/roadmapPhase" }
+            },
+            "units": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/roadmapUnit" }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ]
+    },
+    "languageProgression": {
+      "allOf": [
+        { "$ref": "#/$defs/commonIdentity" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema_version", "artifact_type", "artifact_id", "course_ref", "grade", "subject",
+            "subject_et", "instruction_language", "subject_support_language", "canonical_route",
+            "russian_explanation_coverage", "estonian_language_progression",
+            "planned_vocabulary_recycling_intervals", "provenance"
+          ],
+          "properties": {
+            "schema_version": { "const": "1.0" },
+            "artifact_type": { "const": "annual_language_progression" },
+            "artifact_id": { "$ref": "#/$defs/slug" },
+            "course_ref": { "$ref": "#/$defs/slug" },
+            "grade": { "type": "integer", "minimum": 1 },
+            "subject": { "type": "string", "minLength": 1 },
+            "subject_et": { "type": "string", "minLength": 1 },
+            "instruction_language": { "const": "ru" },
+            "subject_support_language": { "const": "et" },
+            "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+            "russian_explanation_coverage": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/russianCoverage" }
+            },
+            "estonian_language_progression": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/languageProgression" }
+            },
+            "planned_vocabulary_recycling_intervals": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/recyclingInterval" }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ]
+    },
+    "teachingCalendars": {
+      "allOf": [
+        { "$ref": "#/$defs/commonIdentity" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schema_version", "artifact_type", "artifact_id", "course_ref", "grade", "subject",
+            "subject_et", "instruction_language", "subject_support_language", "canonical_route",
+            "practical_work_calendar", "revision_calendar", "subject_assessment_calendar",
+            "language_assessment_calendar", "provenance"
+          ],
+          "properties": {
+            "schema_version": { "const": "1.0" },
+            "artifact_type": { "const": "annual_teaching_calendars" },
+            "artifact_id": { "$ref": "#/$defs/slug" },
+            "course_ref": { "$ref": "#/$defs/slug" },
+            "grade": { "type": "integer", "minimum": 1 },
+            "subject": { "type": "string", "minLength": 1 },
+            "subject_et": { "type": "string", "minLength": 1 },
+            "instruction_language": { "const": "ru" },
+            "subject_support_language": { "const": "et" },
+            "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+            "practical_work_calendar": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/practicalActivity" }
+            },
+            "revision_calendar": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/revisionPoint" }
+            },
+            "subject_assessment_calendar": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/assessmentPoint" }
+            },
+            "language_assessment_calendar": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/assessmentPoint" }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ]
+    }
+  }
+}

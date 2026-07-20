@@ -1,0 +1,265 @@
+schema_version: "1.0"
+artifact_type: annual_language_progression
+artifact_id: grade-5-science-language-progression
+course_ref: grade-5-science-annual-architecture
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+russian_explanation_coverage:
+  - unit_id: grade-5-landforms-map
+    status: author_bridge_required
+    available_record_ids: []
+    concepts_covered: []
+    concepts_missing: [формы рельефа, высота, чтение карты]
+    author_response: bridge_sufficient
+    teacher_review_required: true
+    notes: The canonical route has ordinary Estonian evidence but no Russian page-level explanation for this unit.
+  - unit_id: grade-5-rivers-lakes
+    status: direct_opiq_ru
+    available_record_ids: [rivers-ru-avita, lakes-ru-avita]
+    concepts_covered: [река, озеро, исток, устье, течение]
+    concepts_missing: []
+    author_response: none
+    teacher_review_required: false
+    notes: Direct Russian Avita pages support the principal river and lake explanation.
+  - unit_id: grade-5-water-four-lesson-plan
+    status: direct_opiq_ru
+    available_record_ids: [water-properties-ru-avita, water-states-ru-avita]
+    concepts_covered: [свойства воды, состояния воды, изменения состояния]
+    concepts_missing: []
+    author_response: none
+    teacher_review_required: false
+    notes: Existing production lessons already use the two selected Russian pages.
+  - unit_id: grade-5-water-use-cycle
+    status: partial_opiq_ru
+    available_record_ids: [groundwater-ru-avita, water-use-ru-avita]
+    concepts_covered: [подземные воды, использование воды]
+    concepts_missing: [современная схема круговорота, загрязнение и очистка]
+    author_response: bridge_sufficient
+    teacher_review_required: false
+    notes: Russian pages cover groundwater and use; concise author bridges must connect cycle, pollution, and purification.
+  - unit_id: grade-5-freshwater-ecosystems
+    status: direct_opiq_ru
+    available_record_ids: [freshwater-community-ru-avita]
+    concepts_covered: [водоём как сообщество, основные связи организмов]
+    concepts_missing: []
+    author_response: none
+    teacher_review_required: false
+    notes: The selected Russian overview carries concept formation; Estonian pages add terminology and assessment.
+  - unit_id: grade-5-air-properties
+    status: direct_opiq_ru
+    available_record_ids: [air-composition-ru-avita, air-protection-ru-avita]
+    concepts_covered: [состав воздуха, свойства, загрязнение и защита]
+    concepts_missing: []
+    author_response: none
+    teacher_review_required: false
+    notes: Two Russian pages cover the core and protection strands.
+  - unit_id: grade-5-weather-climate
+    status: direct_opiq_ru
+    available_record_ids: [weather-ru-avita, climate-ru-avita]
+    concepts_covered: [погода, элементы погоды, климат]
+    concepts_missing: []
+    author_response: none
+    teacher_review_required: false
+    notes: Russian weather and climate pages support explanations; measurement tables remain author-created.
+  - unit_id: grade-5-baltic-sea
+    status: direct_opiq_ru
+    available_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita]
+    concepts_covered: [Балтийское море, использование, загрязнение и защита]
+    concepts_missing: []
+    author_response: none
+    teacher_review_required: false
+    notes: Russian core and protection pages support the full explanation architecture.
+  - unit_id: grade-5-settlements
+    status: author_full_explanation_required
+    available_record_ids: []
+    concepts_covered: []
+    concepts_missing: [типы поселений, условия среды, оценка местного поселения]
+    author_response: full_explanation_required
+    teacher_review_required: true
+    notes: No ordinary Russian page-level settlement source exists in the canonical route.
+  - unit_id: grade-5-bog-ecosystem
+    status: author_full_explanation_required
+    available_record_ids: []
+    concepts_covered: []
+    concepts_missing: [образование болот, условия, организмы, использование и охрана]
+    author_response: full_explanation_required
+    teacher_review_required: true
+    notes: No ordinary Russian page-level bog source exists in the canonical route.
+estonian_language_progression:
+  - unit_id: grade-5-landforms-map
+    learner_language_level: A1-A2
+    new_terms_et: [kaart, pinnavorm, kõrgus, madalik, kõrgustik, nõlv]
+    recycled_terms_et: []
+    new_instruction_verbs_et: [leia, näita]
+    recycled_instruction_verbs_et: [vaata, nimeta]
+    sentence_frames_et: [Kaardil on __., See pinnavorm on __.]
+    language_functions: [name, describe]
+    expected_receptive_output_et: Recognises six map terms and follows leia and näita with a visual.
+    expected_supported_output_et: Labels a simple relief diagram and completes one sentence frame.
+    expected_independent_output_et: Gives one short location statement from a familiar map.
+    short_oral_answer_target_et: Kaardil on kõrgustik.
+    planned_scaffolding_level: high
+    progression_stage: recognise_and_name
+    cognitive_load_note: Six linked terms are distributed across five lessons and always anchored in a map or model.
+  - unit_id: grade-5-rivers-lakes
+    learner_language_level: A1-A2
+    new_terms_et: [vesi, jõgi, järv, lähe, suue, vool]
+    recycled_terms_et: [kaart, kõrgus, madalik]
+    new_instruction_verbs_et: [jälgi, märgi]
+    recycled_instruction_verbs_et: [leia, näita, vaata, nimeta]
+    sentence_frames_et: [Jõgi voolab __., See on jõe lähe ja see on suue.]
+    language_functions: [name, sequence, describe]
+    expected_receptive_output_et: Follows a river route on a map and recognises the six core terms.
+    expected_supported_output_et: Labels a river and lake and completes two short map statements.
+    expected_independent_output_et: Names one river or lake and gives one short location statement.
+    short_oral_answer_target_et: Jõgi voolab lähtest suudmeni.
+    planned_scaffolding_level: high
+    progression_stage: label_and_classify
+    cognitive_load_note: New terms describe one coherent visual system; prior map language is explicitly recycled.
+  - unit_id: grade-5-water-four-lesson-plan
+    learner_language_level: A1-A2
+    new_terms_et: [aine, omadus, lahus, tahke, vedel, gaasiline, veeaur, sulamine, veeldumine, temperatuur, termomeeter, jäätumine, aurustumine, olekumuutus]
+    recycled_terms_et: [vesi]
+    new_instruction_verbs_et: [võrdle, liigita, mõõda, kirjuta, selgita]
+    recycled_instruction_verbs_et: [leia, näita, vaata, nimeta]
+    sentence_frames_et: [Vesi on aine., Jää sulab ja muutub vedelaks., Veeaur veeldub.]
+    language_functions: [name, classify, describe, sequence, conclude]
+    expected_receptive_output_et: Recognises cumulative terms and familiar instructions across four complete lessons.
+    expected_supported_output_et: Classifies states, labels a diagram, and completes modelled process sentences.
+    expected_independent_output_et: Gives one or two short oral sentences after a full Russian subject answer.
+    short_oral_answer_target_et: Jää sulab; veeaur veeldub.
+    planned_scaffolding_level: high
+    progression_stage: describe_properties
+    cognitive_load_note: Fourteen terms are distributed and recycled inside four validated lessons, not introduced simultaneously.
+  - unit_id: grade-5-water-use-cycle
+    learner_language_level: A1-A2
+    new_terms_et: [põhjavesi, joogivesi, reostus, veeringe, puhastamine, veekaitse]
+    recycled_terms_et: [vesi, lahus, aurustumine, veeldumine, jäätumine, olekumuutus]
+    new_instruction_verbs_et: [järjesta, põhjenda]
+    recycled_instruction_verbs_et: [mõõda, kirjuta, selgita, näita]
+    sentence_frames_et: [Vesi aurustub ja hiljem veeldub., Vett tuleb kaitsta, sest __.]
+    language_functions: [sequence, explain, conclude]
+    expected_receptive_output_et: Recognises cycle labels and follows a supported ordering task.
+    expected_supported_output_et: Orders a water-cycle diagram and gives one reason for protection using a frame.
+    expected_independent_output_et: States one short cause or sequence relation in Estonian.
+    short_oral_answer_target_et: Vesi aurustub ja hiljem veeldub.
+    planned_scaffolding_level: high
+    progression_stage: sequence
+    cognitive_load_note: Six new application terms reuse six water-unit terms; complex causal explanation remains Russian.
+  - unit_id: grade-5-freshwater-ecosystems
+    learner_language_level: A1-A2
+    new_terms_et: [elukooslus, tootja, tarbija, lagundaja, toiduahel, toiduvõrk, kohastumus]
+    recycled_terms_et: [vesi, jõgi, järv, omadus]
+    new_instruction_verbs_et: [rühmita, koosta]
+    recycled_instruction_verbs_et: [liigita, võrdle, selgita]
+    sentence_frames_et: [__ on tootja., Toiduahel algab __.]
+    language_functions: [classify, sequence, explain]
+    expected_receptive_output_et: Recognises ecosystem roles and follows classification and ordering instructions.
+    expected_supported_output_et: Builds and labels one food chain using a word bank.
+    expected_independent_output_et: Gives one short statement naming an organism role.
+    short_oral_answer_target_et: Taim on tootja.
+    planned_scaffolding_level: moderate
+    progression_stage: label_and_classify
+    cognitive_load_note: Seven related terms are spread across six lessons and attached to organisms and arrows.
+  - unit_id: grade-5-air-properties
+    learner_language_level: A1-A2
+    new_terms_et: [õhk, hapnik, süsihappegaas, õhurõhk, õhusaaste, koostis]
+    recycled_terms_et: [omadus, temperatuur]
+    new_instruction_verbs_et: [kirjelda, hinda]
+    recycled_instruction_verbs_et: [võrdle, mõõda, selgita]
+    sentence_frames_et: [Õhk sisaldab __., Õhk on __.]
+    language_functions: [describe, compare, explain]
+    expected_receptive_output_et: Recognises components and properties in a diagram and demonstration.
+    expected_supported_output_et: Describes one property and labels a simple composition visual.
+    expected_independent_output_et: Gives one short property statement from observed evidence.
+    short_oral_answer_target_et: Õhk võtab ruumi.
+    planned_scaffolding_level: moderate
+    progression_stage: describe_properties
+    cognitive_load_note: Six new terms reuse property and temperature language from water without increasing answer length.
+  - unit_id: grade-5-weather-climate
+    learner_language_level: A1-A2
+    new_terms_et: [ilm, kliima, õhutemperatuur, tuul, pilv, sademed, ilmakaart]
+    recycled_terms_et: [õhk, temperatuur, termomeeter, aurustumine, jäätumine, olekumuutus]
+    new_instruction_verbs_et: [registreeri, ennusta]
+    recycled_instruction_verbs_et: [mõõda, kirjelda, võrdle, hinda]
+    sentence_frames_et: [Täna on __ ilm., Õhutemperatuur on __ kraadi.]
+    language_functions: [describe, compare, infer, report]
+    expected_receptive_output_et: Follows familiar measurement instructions and recognises seven weather labels.
+    expected_supported_output_et: Records a weather row and compares two observations with a frame.
+    expected_independent_output_et: Reports one or two measured weather facts briefly.
+    short_oral_answer_target_et: Täna on pilvine ilm ja temperatuur on kümme kraadi.
+    planned_scaffolding_level: moderate
+    progression_stage: compare
+    cognitive_load_note: Seven terms recur in a repeated observation routine; phase-change terms are not retaught as new.
+  - unit_id: grade-5-baltic-sea
+    learner_language_level: A1-A2
+    new_terms_et: [Läänemeri, soolsus, rannik, laht, väin, poolsaar, saar]
+    recycled_terms_et: [kaart, jõgi, järv, elukooslus, toiduahel, ilm, kliima, reostus]
+    new_instruction_verbs_et: [seosta]
+    recycled_instruction_verbs_et: [leia, näita, võrdle, selgita, põhjenda]
+    sentence_frames_et: [Läänemeri on vähese soolsusega, sest __., Kaardil asub __.]
+    language_functions: [compare, explain, infer]
+    expected_receptive_output_et: Recognises Baltic map terms and a supported explanation of low salinity.
+    expected_supported_output_et: Labels a map and completes one comparison or cause frame.
+    expected_independent_output_et: Gives one short fact about location, salinity, or protection.
+    short_oral_answer_target_et: Läänemeri on vähese soolsusega meri.
+    planned_scaffolding_level: moderate
+    progression_stage: cause_and_result
+    cognitive_load_note: Seven place terms build on established map, ecosystem, weather, and pollution language.
+  - unit_id: grade-5-settlements
+    learner_language_level: A1-A2
+    new_terms_et: [asula, linn, maa-asula, elukeskkond, müra, jäätmed, maakonnakeskus]
+    recycled_terms_et: [kaart, õhk, vesi, reostus]
+    new_instruction_verbs_et: [paku, kaardista]
+    recycled_instruction_verbs_et: [hinda, kirjelda, võrdle, põhjenda]
+    sentence_frames_et: [Asulas on __., "Keskkonda saab parandada nii: __."]
+    language_functions: [describe, compare, conclude, report]
+    expected_receptive_output_et: Recognises settlement and environment labels in a local map or photograph.
+    expected_supported_output_et: Classifies a settlement and completes one improvement proposal frame.
+    expected_independent_output_et: Gives one short observation about the local environment.
+    short_oral_answer_target_et: Asulas on palju liiklust ja müra.
+    planned_scaffolding_level: high
+    progression_stage: cause_and_result
+    cognitive_load_note: Russian author explanation carries the new concept load while Estonian stays at labels and one proposal.
+  - unit_id: grade-5-bog-ecosystem
+    learner_language_level: A1-A2
+    new_terms_et: [soo, turvas, raba, madalsoo, liigniiskus, sootaim, sooloom]
+    recycled_terms_et: [kaart, vesi, elukooslus, toiduahel, toiduvõrk, reostus]
+    new_instruction_verbs_et: [järelda, esitle]
+    recycled_instruction_verbs_et: [rühmita, koosta, seosta, põhjenda]
+    sentence_frames_et: [Soos on __., Vaatluse põhjal järeldan, et __.]
+    language_functions: [classify, compare, infer, conclude, report]
+    expected_receptive_output_et: Recognises seven bog terms in a diagram, map, and organism set.
+    expected_supported_output_et: Classifies a bog feature or organism and completes a conclusion frame.
+    expected_independent_output_et: Gives one short evidence-based conclusion after a full Russian explanation.
+    short_oral_answer_target_et: Soos on palju vett ja kasvab turvas.
+    planned_scaffolding_level: high
+    progression_stage: conclude_from_observation
+    cognitive_load_note: The final unit reuses water, map, and ecosystem language; Russian carries formation and causal reasoning.
+planned_vocabulary_recycling_intervals:
+  - {term_et: kaart, introduced_in_unit: grade-5-landforms-map, recycled_in_unit: grade-5-rivers-lakes, interval_units: 1, disposition: specific_later_unit, reuse_context: locating rivers and lakes on an Estonian map, expected_pupil_output: Kaardil on jõgi., rationale: Immediate spatial reuse establishes kaart as a recurring course tool.}
+  - {term_et: vesi, introduced_in_unit: grade-5-rivers-lakes, recycled_in_unit: grade-5-water-four-lesson-plan, interval_units: 1, disposition: specific_later_unit, reuse_context: moving from a familiar water body to water as a substance, expected_pupil_output: Vesi on aine., rationale: The familiar word carries the transition without being introduced again.}
+  - {term_et: lahus, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-water-use-cycle, interval_units: 1, disposition: practical_work_instructions, reuse_context: discussing dissolved substances during a non-drinking filtration model, expected_pupil_output: See on lahus., rationale: Purification provides a meaningful later context rather than artificial repetition.}
+  - {term_et: aurustumine, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-water-use-cycle, interval_units: 1, disposition: specific_later_unit, reuse_context: labelling the upward stage of a water-cycle model, expected_pupil_output: Vesi aurustub., rationale: The process is essential to the later natural-system model.}
+  - {term_et: veeldumine, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-water-use-cycle, interval_units: 1, disposition: specific_later_unit, reuse_context: labelling cloud and drop formation in the water cycle, expected_pupil_output: Veeaur veeldub., rationale: The term is reused with the same scientifically grounded meaning.}
+  - {term_et: jäätumine, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-water-use-cycle, interval_units: 1, disposition: specific_later_unit, reuse_context: identifying cold-weather storage in the water-cycle model, expected_pupil_output: Vesi jäätub., rationale: Seasonal water-cycle examples provide a natural later use.}
+  - {term_et: olekumuutus, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-water-use-cycle, interval_units: 1, disposition: cumulative_revision, reuse_context: grouping cycle arrows as changes of state, expected_pupil_output: See on olekumuutus., rationale: The umbrella concept consolidates four process terms in a later unit.}
+  - {term_et: termomeeter, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-weather-climate, interval_units: 4, disposition: practical_work_instructions, reuse_context: repeated outdoor or window-side temperature measurement, expected_pupil_output: Mõõdan termomeetriga., rationale: Weather observation is the authentic later measurement context.}
+  - {term_et: temperatuur, introduced_in_unit: grade-5-water-four-lesson-plan, recycled_in_unit: grade-5-air-properties, interval_units: 3, disposition: specific_later_unit, reuse_context: comparing air temperature with prior water-temperature observations, expected_pupil_output: Õhu temperatuur muutub., rationale: The measurement concept transfers from water to air.}
+  - {term_et: elukooslus, introduced_in_unit: grade-5-freshwater-ecosystems, recycled_in_unit: grade-5-baltic-sea, interval_units: 3, disposition: specific_later_unit, reuse_context: comparing freshwater and Baltic communities, expected_pupil_output: Läänemeri on elukooslus., rationale: The later comparison deepens rather than repeats the ecosystem concept.}
+  - {term_et: õhk, introduced_in_unit: grade-5-air-properties, recycled_in_unit: grade-5-weather-climate, interval_units: 1, disposition: specific_later_unit, reuse_context: explaining that weather describes atmospheric conditions, expected_pupil_output: Õhk liigub., rationale: Air is the immediate conceptual prerequisite for weather.}
+  - {term_et: reostus, introduced_in_unit: grade-5-water-use-cycle, recycled_in_unit: grade-5-baltic-sea, interval_units: 4, disposition: cumulative_revision, reuse_context: comparing freshwater pollution with Baltic protection decisions, expected_pupil_output: Reostus kahjustab elukooslust., rationale: The later environmental case broadens the concept across systems.}
+provenance:
+  category: author_created_bridge
+  source_reference: issue 18 grade-5-science annual language progression
+  notes: >-
+    Russian explanation coverage, A1-A2 Estonian progression, and strict later-unit
+    vocabulary intervals are linked to the canonical annual architecture.

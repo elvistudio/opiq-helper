@@ -1,0 +1,570 @@
+schema_version: "2.0"
+artifact_type: annual_course_plan
+course_id: grade-5-science-annual-architecture
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+methodology_model: russian_primary_estonian_supported
+learner_language_profile_ref: grade-5-science-a1-a2-default
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+official_curriculum_references:
+  - curriculum_map_id: grade-5-science-official-scope-pilot
+    outcome_ids:
+      - prok-ii-loodusopetus-01-models-and-water-cycle
+      - prok-ii-loodusopetus-03-local-investigation
+      - prok-ii-loodusopetus-04-safe-investigation
+      - prok-ii-loodusopetus-08-water-purification
+      - prok-ii-loodusopetus-10-weather-measurements
+      - prok-ii-loodusopetus-12-map-locations
+      - prok-ii-loodusopetus-16-community-conditions
+      - prok-ii-loodusopetus-17-food-webs
+      - prok-ii-loodusopetus-18-water-properties
+      - prok-ii-loodusopetus-19-groundwater
+      - prok-ii-loodusopetus-20-settlement-environment
+      - prok-ii-loodusopetus-28-bog-formation
+      - prok-ii-loodusopetus-33-baltic-salinity-weather
+      - prok-ii-loodusopetus-35-human-impact-communities
+    official_scope: school_stage_2
+    exact_grade_claimed: false
+    notes: >-
+      These are verified end-of-school-stage-II outcomes relevant to the curated ten-unit
+      architecture. They are not official exact-grade-5 allocations.
+sequence_policy:
+  publisher_sequence: >-
+    Avita and Koolibri orders establish publisher grade-5 evidence but differ in grouping and
+    repetition; no book is traversed from cover to cover.
+  curriculum_logic: >-
+    Map literacy precedes spatial topics; water properties support cycles and ecosystems; air
+    supports weather; earlier water, ecosystem, and map concepts converge in later units.
+  curated_sequence: >-
+    Ten deduplicated topic groups are retained once, ordered by prerequisites and opportunities
+    for observation, revision, assessment, and cumulative Estonian-language reuse.
+  relationship: publisher_evidence_informs_but_does_not_define_curated_order
+source_selection_matrix_ref:
+  artifact_id: grade-5-science-source-selection
+  path: annual-courses/grade-5-science/source-selection-matrix.yaml
+implementation_roadmap_ref:
+  artifact_id: grade-5-science-implementation-roadmap
+  path: annual-courses/grade-5-science/implementation-roadmap.yaml
+language_progression_ref:
+  artifact_id: grade-5-science-language-progression
+  path: annual-courses/grade-5-science/language-progression.yaml
+teaching_calendars_ref:
+  artifact_id: grade-5-science-teaching-calendars
+  path: annual-courses/grade-5-science/teaching-calendars.yaml
+topic_architecture_decisions:
+  - old_topic_ids: [landforms-and-map-reading]
+    new_unit_id: grade-5-landforms-map
+    decision: preserve
+    reason: The topic is a compact prerequisite for later river, Baltic, settlement, and bog map work.
+    affected_record_ids: [landforms-map-et-koolibri]
+    deduplication_decision: Retain the strongest Koolibri map page; reject simplified material as ordinary evidence.
+    annual_sequence_effect: Move the preserved topic to the opening block so map language is available later.
+  - old_topic_ids: [rivers-and-lakes]
+    new_unit_id: grade-5-rivers-lakes
+    decision: preserve
+    reason: River and lake concepts form one coherent spatial water-body unit with distinct bilingual roles.
+    affected_record_ids: [rivers-ru-avita, lakes-ru-avita, rivers-et-avita-2024, lakes-et-koolibri]
+    deduplication_decision: Keep Russian river and lake explanations plus distinct current Estonian and map evidence.
+    annual_sequence_effect: Place after map literacy and before water as a substance.
+  - old_topic_ids: [water-properties-and-states]
+    new_unit_id: grade-5-water-four-lesson-plan
+    decision: preserve
+    reason: The merged four-lesson water unit is already a complete validated production thematic plan.
+    affected_record_ids: [water-properties-ru-avita, water-states-ru-avita, water-properties-et-avita-2024, water-states-et-avita-2024, water-states-et-koolibri-practical, water-changes-et-koolibri-practical]
+    deduplication_decision: Preserve the existing role-based six-page selection and its rejected duplicates.
+    annual_sequence_effect: Retain the production unit after water-body context and before the water cycle.
+  - old_topic_ids: [water-use-protection-and-cycle]
+    new_unit_id: grade-5-water-use-cycle
+    decision: preserve
+    reason: Groundwater, use, protection, purification, and cycle form one connected application unit.
+    affected_record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri]
+    deduplication_decision: Retain complementary Russian explanation and Estonian cycle, pollution, and visual roles.
+    annual_sequence_effect: Follow the water-properties unit to recycle state-change vocabulary immediately.
+  - old_topic_ids: [freshwater-ecosystems]
+    new_unit_id: grade-5-freshwater-ecosystems
+    decision: preserve
+    reason: Community structure, adaptations, and food relationships form a single ecosystem progression.
+    affected_record_ids: [freshwater-community-ru-avita, freshwater-community-et-avita-2024, food-chains-et-koolibri]
+    deduplication_decision: Retain one Russian core page, one current Estonian overview, and one food-chain assessment source.
+    annual_sequence_effect: Place after physical water concepts and before wider ecosystem comparisons.
+  - old_topic_ids: [air-properties-and-protection]
+    new_unit_id: grade-5-air-properties
+    decision: preserve
+    reason: Air composition, properties, and protection provide one conceptual base for weather.
+    affected_record_ids: [air-composition-ru-avita, air-protection-ru-avita, air-composition-et-avita-2024, air-pollution-et-avita-2024]
+    deduplication_decision: Retain distinct composition and protection roles in Russian and Estonian.
+    annual_sequence_effect: Place directly before weather so õhk and temperatuur recur.
+  - old_topic_ids: [weather-and-climate]
+    new_unit_id: grade-5-weather-climate
+    decision: preserve
+    reason: Weather observations and introductory climate comparison form one six-lesson progression.
+    affected_record_ids: [weather-ru-avita, climate-ru-avita, weather-et-avita-2024, climate-et-avita-2024]
+    deduplication_decision: Select weather and climate pages by language role; measurement tasks are author-created bridges.
+    annual_sequence_effect: Follow air and precede the Baltic unit that reuses weather and climate language.
+  - old_topic_ids: [baltic-sea]
+    new_unit_id: grade-5-baltic-sea
+    decision: preserve
+    reason: Baltic salinity, ecosystem, human use, weather influence, pollution, and protection belong together.
+    affected_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita, baltic-sea-et-avita-2024, baltic-protection-et-avita-2024]
+    deduplication_decision: Retain distinct core and protection pages in both languages; reject older duplicates.
+    annual_sequence_effect: Place after freshwater, air, and weather so comparisons use established concepts.
+  - old_topic_ids: [settlements]
+    new_unit_id: grade-5-settlements
+    decision: preserve
+    reason: Settlement forms and environmental conditions remain coherent but need Russian author material.
+    affected_record_ids: [settlements-et-koolibri]
+    deduplication_decision: Use the sole ordinary Estonian page-level candidate and do not promote simplified pages.
+    annual_sequence_effect: Place late so pupils can apply map, water, air, pollution, and environment concepts.
+  - old_topic_ids: [bog-ecosystem]
+    new_unit_id: grade-5-bog-ecosystem
+    decision: preserve
+    reason: Bog formation, conditions, organisms, use, and protection provide a cumulative ecosystem unit.
+    affected_record_ids: [bog-conditions-et-koolibri]
+    deduplication_decision: Use the sole ordinary Estonian core candidate and require an explicit Russian explanation.
+    annual_sequence_effect: End with a synthesis of water, map, ecosystem, and protection concepts.
+ordered_units:
+  - order: 1
+    unit_id: grade-5-landforms-map
+    topic_inventory_refs: [landforms-and-map-reading]
+    title_ru: Формы рельефа и чтение карты
+    title_et: Pinnavormid ja kaardi lugemine
+    scope_ru: Основные формы рельефа, высота и чтение условного изображения рельефа на карте.
+    main_concepts: [карта, форма рельефа, абсолютная высота, относительная высота, возвышенность, низменность]
+    prerequisite_unit_ids: []
+    estimated_lessons: 5
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 0, subject_assessment: 1, language_assessment: 0}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-12-map-locations, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [landforms-map-et-koolibri]
+    russian_explanation_status: author_bridge_required
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: opening block
+    placement_reason: Карта нужна для последующего описания рек, Балтийского моря, поселений и болот.
+    later_reuse_unit_ids: [grade-5-rivers-lakes, grade-5-baltic-sea, grade-5-settlements, grade-5-bog-ecosystem]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: needs_russian_bridge
+    teacher_review_status: pending
+    estimate_basis: Five lessons cover core map concepts, one model task, and one check without claiming a school timetable.
+  - order: 2
+    unit_id: grade-5-rivers-lakes
+    topic_inventory_refs: [rivers-and-lakes]
+    title_ru: Реки и озёра Эстонии
+    title_et: Eesti jõed ja järved
+    scope_ru: Строение, питание и течение рек, основные озёра Эстонии и их положение на карте.
+    main_concepts: [исток, устье, течение, бассейн, река, озеро]
+    prerequisite_unit_ids: [grade-5-landforms-map]
+    estimated_lessons: 6
+    lesson_allocation: {core_instruction: 4, practical_work: 1, revision: 0, subject_assessment: 0, language_assessment: 1}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-12-map-locations, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [rivers-ru-avita, lakes-ru-avita, rivers-et-avita-2024, lakes-et-koolibri]
+    russian_explanation_status: direct_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: early first third
+    placement_reason: Знакомые водоёмы дают предметный контекст для свойств воды и последующих экосистем.
+    later_reuse_unit_ids: [grade-5-freshwater-ecosystems, grade-5-baltic-sea]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: annual_architecture_only
+    teacher_review_status: not_required
+    estimate_basis: Six lessons allow river and lake explanations, map comparison, observation, and separate language evidence.
+  - order: 3
+    unit_id: grade-5-water-four-lesson-plan
+    topic_inventory_refs: [water-properties-and-states]
+    title_ru: Вода как вещество и состояния воды
+    title_et: Vesi kui aine ja vee olekud
+    scope_ru: Свойства воды, состояния вещества, нагревание, охлаждение и наблюдаемые переходы между состояниями.
+    main_concepts: [вещество, свойства воды, состояния вещества, плавление, конденсация, замерзание, испарение]
+    prerequisite_unit_ids: [grade-5-rivers-lakes]
+    estimated_lessons: 4
+    lesson_allocation: {core_instruction: 2, practical_work: 1, revision: 1, subject_assessment: 0, language_assessment: 0}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-04-safe-investigation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-18-water-properties, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [water-properties-ru-avita, water-states-ru-avita, water-properties-et-avita-2024, water-states-et-avita-2024, water-states-et-koolibri-practical, water-changes-et-koolibri-practical]
+    russian_explanation_status: direct_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: early first third
+    placement_reason: Валидированный unit формирует физические понятия до круговорота, защиты и экосистем.
+    later_reuse_unit_ids: [grade-5-water-use-cycle, grade-5-air-properties, grade-5-weather-climate]
+    thematic_plan_ref: grade-5-water-four-lesson-plan
+    full_thematic_plan_exists: true
+    implementation_status: validated_production_unit
+    teacher_review_status: not_required
+    estimate_basis: The existing linked thematic plan contains four complete 45-minute lesson artifacts.
+  - order: 4
+    unit_id: grade-5-water-use-cycle
+    topic_inventory_refs: [water-use-protection-and-cycle]
+    title_ru: Подземные воды, использование, защита и круговорот воды
+    title_et: Põhjavesi, vee kasutamine, kaitse ja veeringe
+    scope_ru: Подземные и питьевые воды, использование, загрязнение, очистка, защита и модель круговорота.
+    main_concepts: [подземные воды, питьевая вода, загрязнение, очистка, круговорот, водосбережение]
+    prerequisite_unit_ids: [grade-5-water-four-lesson-plan]
+    estimated_lessons: 6
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 0, subject_assessment: 1, language_assessment: 1}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-08-water-purification, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-19-groundwater, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri]
+    russian_explanation_status: partial_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: end of first third
+    placement_reason: Круговорот и очистка естественно повторяют состояния воды и переводят понятия в применение.
+    later_reuse_unit_ids: [grade-5-weather-climate, grade-5-settlements, grade-5-bog-ecosystem]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: annual_architecture_only
+    teacher_review_status: not_required
+    estimate_basis: Six lessons separate groundwater, purification, cycle modelling, protection, and two assessment modes.
+  - order: 5
+    unit_id: grade-5-freshwater-ecosystems
+    topic_inventory_refs: [freshwater-ecosystems]
+    title_ru: Пресноводные сообщества
+    title_et: Magevee elukooslused
+    scope_ru: Условия пресноводных сообществ, приспособления организмов, пищевые цепи и пищевые сети.
+    main_concepts: [сообщество, среда обитания, приспособление, производитель, потребитель, разрушитель, пищевая сеть]
+    prerequisite_unit_ids: [grade-5-rivers-lakes, grade-5-water-four-lesson-plan]
+    estimated_lessons: 6
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 1, subject_assessment: 1, language_assessment: 0}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-16-community-conditions, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-17-food-webs, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [freshwater-community-ru-avita, freshwater-community-et-avita-2024, food-chains-et-koolibri]
+    russian_explanation_status: direct_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: middle block
+    placement_reason: Физические свойства и типы водоёмов уже известны, поэтому внимание переносится на связи организмов.
+    later_reuse_unit_ids: [grade-5-baltic-sea, grade-5-bog-ecosystem]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: annual_architecture_only
+    teacher_review_status: not_required
+    estimate_basis: Six lessons cover community structure, adaptations, food relationships, classification, revision, and assessment.
+  - order: 6
+    unit_id: grade-5-air-properties
+    topic_inventory_refs: [air-properties-and-protection]
+    title_ru: Воздух, его свойства и защита
+    title_et: Õhk, selle omadused ja kaitse
+    scope_ru: Состав и свойства воздуха, роль кислорода, загрязнение воздуха и способы защиты.
+    main_concepts: [воздух, состав воздуха, кислород, углекислый газ, давление воздуха, загрязнение]
+    prerequisite_unit_ids: [grade-5-water-four-lesson-plan]
+    estimated_lessons: 5
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 0, subject_assessment: 1, language_assessment: 0}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-04-safe-investigation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-18-water-properties, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est]
+    selected_source_record_ids: [air-composition-ru-avita, air-protection-ru-avita, air-composition-et-avita-2024, air-pollution-et-avita-2024]
+    russian_explanation_status: direct_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: middle block
+    placement_reason: Состав и свойства воздуха необходимы до измерения погоды и обсуждения климата.
+    later_reuse_unit_ids: [grade-5-weather-climate, grade-5-settlements]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: annual_architecture_only
+    teacher_review_status: not_required
+    estimate_basis: Five lessons cover composition, properties, a safe model, pollution, and a subject check.
+  - order: 7
+    unit_id: grade-5-weather-climate
+    topic_inventory_refs: [weather-and-climate]
+    title_ru: Погода и климат
+    title_et: Ilm ja kliima
+    scope_ru: Элементы погоды, наблюдение и запись данных, чтение простой карты погоды и различение погоды и климата.
+    main_concepts: [погода, климат, температура воздуха, ветер, облачность, осадки, карта погоды]
+    prerequisite_unit_ids: [grade-5-water-use-cycle, grade-5-air-properties]
+    estimated_lessons: 6
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 1, subject_assessment: 0, language_assessment: 1}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-10-weather-measurements, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-18-water-properties, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est]
+    selected_source_record_ids: [weather-ru-avita, climate-ru-avita, weather-et-avita-2024, climate-et-avita-2024]
+    russian_explanation_status: direct_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: middle to late block
+    placement_reason: Погода использует воздух, температуру и фазовые переходы; затем её можно связать с Балтийским морем.
+    later_reuse_unit_ids: [grade-5-baltic-sea]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: annual_architecture_only
+    teacher_review_status: not_required
+    estimate_basis: Six lessons allow repeated observations, data interpretation, climate contrast, revision, and language evidence.
+  - order: 8
+    unit_id: grade-5-baltic-sea
+    topic_inventory_refs: [baltic-sea]
+    title_ru: Балтийское море
+    title_et: Läänemeri
+    scope_ru: Положение и низкая солёность Балтийского моря, его сообщества, влияние на погоду, использование, загрязнение и защита.
+    main_concepts: [Балтийское море, солёность, побережье, залив, пролив, морское сообщество, защита моря]
+    prerequisite_unit_ids: [grade-5-landforms-map, grade-5-freshwater-ecosystems, grade-5-weather-climate]
+    estimated_lessons: 6
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 0, subject_assessment: 1, language_assessment: 1}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-12-map-locations, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-16-community-conditions, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-17-food-webs, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-33-baltic-salinity-weather, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est]
+    selected_source_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita, baltic-sea-et-avita-2024, baltic-protection-et-avita-2024]
+    russian_explanation_status: direct_opiq_ru
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: late block
+    placement_reason: Unit синтезирует карту, воду, экосистемы и погоду и расширяет сравнение пресной и солоноватой воды.
+    later_reuse_unit_ids: [grade-5-bog-ecosystem]
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: annual_architecture_only
+    teacher_review_status: not_required
+    estimate_basis: Six lessons cover location, salinity, ecosystem, human use, protection, and separate assessments.
+  - order: 9
+    unit_id: grade-5-settlements
+    topic_inventory_refs: [settlements]
+    title_ru: Поселения и среда жизни
+    title_et: Asulad ja elukeskkond
+    scope_ru: Типы поселений, их положение и развитие, условия городской и сельской среды и предложения по улучшению.
+    main_concepts: [поселение, город, сельское поселение, среда жизни, шум, отходы, уездный центр]
+    prerequisite_unit_ids: [grade-5-landforms-map, grade-5-water-use-cycle, grade-5-air-properties]
+    estimated_lessons: 5
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 0, subject_assessment: 1, language_assessment: 0}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-20-settlement-environment, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [settlements-et-koolibri]
+    russian_explanation_status: author_full_explanation_required
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: late block
+    placement_reason: Позднее размещение позволяет применить уже изученные критерии воды, воздуха, шума, отходов и карты.
+    later_reuse_unit_ids: []
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: needs_russian_bridge
+    teacher_review_status: pending
+    estimate_basis: Five lessons allow a Russian concept bridge, local audit, comparison, proposal, and subject assessment.
+  - order: 10
+    unit_id: grade-5-bog-ecosystem
+    topic_inventory_refs: [bog-ecosystem]
+    title_ru: Болото как экосистема
+    title_et: Soo kui elukooslus
+    scope_ru: Формирование болот, водный режим, типичные организмы, пищевые связи, использование и охрана.
+    main_concepts: [болото, торф, верховое болото, низинное болото, переувлажнение, болотное сообщество, охрана]
+    prerequisite_unit_ids: [grade-5-landforms-map, grade-5-water-use-cycle, grade-5-freshwater-ecosystems]
+    estimated_lessons: 5
+    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 1, subject_assessment: 0, language_assessment: 0}
+    mandatory_status: curated_core
+    linked_official_outcomes:
+      - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-12-map-locations, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-16-community-conditions, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-17-food-webs, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-28-bog-formation, coverage_status: partial}
+      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+    coverage_status: partial
+    source_book_ids: [5k_loodusõpetus_koolibri_est]
+    selected_source_record_ids: [bog-conditions-et-koolibri]
+    russian_explanation_status: author_full_explanation_required
+    estonian_source_status: direct_opiq_et
+    practical_work_potential: planned
+    assessment_potential: planned
+    recommended_period: closing block
+    placement_reason: Итоговый unit объединяет водный режим, карту, сообщества, пищевые связи и охрану природы.
+    later_reuse_unit_ids: []
+    thematic_plan_ref: null
+    full_thematic_plan_exists: false
+    implementation_status: needs_russian_bridge
+    teacher_review_status: pending
+    estimate_basis: Five lessons cover formation, conditions, organisms, a safe model, protection, and cumulative revision.
+lesson_estimate:
+  represented_lessons: 4
+  estimated_planned_lessons: 54
+  full_course_estimate_known: true
+  estimate_basis: curated_unit_architecture
+  notes: >-
+    Fifty-four lesson places are allocated architecturally; only the four linked water lessons
+    are fully authored. School-specific scheduling must select a feasible scenario.
+lesson_budget:
+  basis: scenario
+  recommended_baseline_scenario_id: two-lessons-per-week-assumption
+  unit_estimate_total: 54
+  planned_breakdown:
+    core_instruction: 30
+    practical_work: 10
+    revision: 4
+    subject_assessment: 6
+    language_assessment: 4
+  assumptions:
+    - Thirty-five teaching weeks are a planning assumption, not an official school calendar.
+    - The national allocation is set for school stage II rather than an exact grade-5 weekly timetable, so it is not used as the scenario basis.
+    - Dedicated lesson categories are mutually exclusive in the budget; formative checks may still occur inside any lesson.
+  scenarios:
+    - scenario_id: one-lesson-per-week-assumption
+      teaching_weeks: 35
+      lessons_per_week: 1
+      available_lessons: 35
+      architecture_requirement_lessons: 54
+      reserve_lessons: 0
+      school_specific_or_lost_lessons: 0
+      shortfall_lessons: 19
+      architecture_fits: false
+      notes: A school using this scenario must reduce scope or provide additional time; the validator reports the shortfall.
+    - scenario_id: two-lessons-per-week-assumption
+      teaching_weeks: 35
+      lessons_per_week: 2
+      available_lessons: 70
+      architecture_requirement_lessons: 54
+      reserve_lessons: 8
+      school_specific_or_lost_lessons: 8
+      shortfall_lessons: 0
+      architecture_fits: true
+      notes: This is the recommended planning baseline, leaving explicit reserve and school-specific capacity.
+selected_source_books:
+  - book_id: 5k_loodusõpetus_avita_rus
+    language: ru
+    roles: [core_explanation_ru, practice_ru, revision, map_skill]
+    selection_notes: Ordinary Russian Avita pages carry direct explanation where canonical page evidence exists.
+  - book_id: 5k_loodusõpetus_avita_2024_est
+    language: et
+    roles: [core_source_et, terminology_et, definition_et, practice_et, assessment, oral_answer_et, estonian_instruction_training]
+    selection_notes: Current ordinary Estonian Avita pages provide terminology, concise tasks, and current visual language.
+  - book_id: 5k_loodusõpetus_koolibri_est
+    language: et
+    roles: [core_source_et, bilingual_visual, experiment, fieldwork, map_skill, data_interpretation, revision, assessment]
+    selection_notes: Ordinary Koolibri pages add maps, practical prompts, ecosystem work, revision, and assessment roles.
+deduplication_decisions:
+  - {decision_id: dedupe-landforms-by-role, topic_id: landforms-and-map-reading, decision: select_by_role, rationale: Select the sole ordinary mapped page and require a Russian author bridge.}
+  - {decision_id: dedupe-rivers-distinct-languages, topic_id: rivers-and-lakes, decision: retain_distinct_roles, rationale: Russian explanations and Estonian map and terminology pages have distinct roles.}
+  - {decision_id: dedupe-water-existing-unit, topic_id: water-properties-and-states, decision: retain_distinct_roles, rationale: Preserve the six validated sources of the existing water thematic plan.}
+  - {decision_id: dedupe-water-cycle-roles, topic_id: water-use-protection-and-cycle, decision: retain_distinct_roles, rationale: "Groundwater, use, pollution, and cycle sources cover different concepts and roles."}
+  - {decision_id: dedupe-freshwater-roles, topic_id: freshwater-ecosystems, decision: retain_distinct_roles, rationale: "Russian overview, current Estonian overview, and food-chain assessment are complementary."}
+  - {decision_id: dedupe-air-roles, topic_id: air-properties-and-protection, decision: retain_distinct_roles, rationale: Composition and protection pages are retained separately in both support languages.}
+  - {decision_id: dedupe-weather-roles, topic_id: weather-and-climate, decision: retain_distinct_roles, rationale: Weather and climate pages serve different concepts while older duplicates are rejected.}
+  - {decision_id: dedupe-baltic-roles, topic_id: baltic-sea, decision: retain_distinct_roles, rationale: Core Baltic and protection pages are kept in both languages for distinct roles.}
+  - {decision_id: dedupe-settlements-by-role, topic_id: settlements, decision: select_by_role, rationale: Select the only ordinary page-level source and require full Russian author explanation.}
+  - {decision_id: dedupe-bog-by-role, topic_id: bog-ecosystem, decision: select_by_role, rationale: Select the only ordinary core page and require full Russian author explanation.}
+outcome_coverage:
+  - {outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: The water-cycle model is planned; the same outcome also contains other school-stage models.}
+  - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial, unit_ids: [grade-5-rivers-lakes, grade-5-freshwater-ecosystems, grade-5-settlements, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Several local investigations are architected but not all detailed artifacts are authored.}
+  - {outcome_id: prok-ii-loodusopetus-04-safe-investigation, coverage_status: partial, unit_ids: [grade-5-water-four-lesson-plan, grade-5-air-properties], official_scope: school_stage_2, notes: "Safe practice is explicit, but this architecture is not complete end-of-stage evidence."}
+  - {outcome_id: prok-ii-loodusopetus-08-water-purification, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: A safe filtration model is planned; the complete investigation remains to be authored.}
+  - {outcome_id: prok-ii-loodusopetus-10-weather-measurements, coverage_status: partial, unit_ids: [grade-5-weather-climate], official_scope: school_stage_2, notes: "A repeated weather log is planned, not yet a complete validated thematic unit."}
+  - {outcome_id: prok-ii-loodusopetus-12-map-locations, coverage_status: partial, unit_ids: [grade-5-landforms-map, grade-5-rivers-lakes, grade-5-baltic-sea, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Relevant map applications are sequenced; the broader official list remains school-stage scope.}
+  - {outcome_id: prok-ii-loodusopetus-16-community-conditions, coverage_status: partial, unit_ids: [grade-5-freshwater-ecosystems, grade-5-baltic-sea, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Three relevant communities are mapped; other communities in the outcome are outside this architecture subset.}
+  - {outcome_id: prok-ii-loodusopetus-17-food-webs, coverage_status: partial, unit_ids: [grade-5-freshwater-ecosystems, grade-5-baltic-sea, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Food-chain and food-web progression is architected but only the freshwater source role is selected in detail.}
+  - {outcome_id: prok-ii-loodusopetus-18-water-properties, coverage_status: partial, unit_ids: [grade-5-water-four-lesson-plan, grade-5-air-properties, grade-5-weather-climate], official_scope: school_stage_2, notes: Water and air strands are represented; the official outcome also includes soil.}
+  - {outcome_id: prok-ii-loodusopetus-19-groundwater, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: Groundwater and protection sources are selected; the full unit remains unauthored.}
+  - {outcome_id: prok-ii-loodusopetus-20-settlement-environment, coverage_status: partial, unit_ids: [grade-5-settlements], official_scope: school_stage_2, notes: "A local audit is architected, but Russian explanation and teacher review remain outstanding."}
+  - {outcome_id: prok-ii-loodusopetus-28-bog-formation, coverage_status: partial, unit_ids: [grade-5-bog-ecosystem], official_scope: school_stage_2, notes: "The bog unit maps the outcome, but no full thematic plan exists."}
+  - {outcome_id: prok-ii-loodusopetus-33-baltic-salinity-weather, coverage_status: partial, unit_ids: [grade-5-baltic-sea], official_scope: school_stage_2, notes: Salinity and weather influence are selected architecturally; lessons remain unauthored.}
+  - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial, unit_ids: [grade-5-water-use-cycle, grade-5-freshwater-ecosystems, grade-5-air-properties, grade-5-baltic-sea, grade-5-settlements, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: "Protection decisions recur across units, but full school-stage mastery is not claimed."}
+teacher_review_decisions:
+  - decision_id: review-landforms-russian-bridge
+    unit_ids: [grade-5-landforms-map]
+    status: pending
+    reason: The route has no ordinary Russian page-level landform explanation.
+    required_action: Review and author a concise Russian concept bridge before the thematic-plan PR.
+  - decision_id: review-settlements-russian-explanation
+    unit_ids: [grade-5-settlements]
+    status: pending
+    reason: The route has only Estonian ordinary page evidence for settlements.
+    required_action: Approve the scope and author a full Russian explanation with explicit provenance.
+  - decision_id: review-bog-russian-explanation
+    unit_ids: [grade-5-bog-ecosystem]
+    status: pending
+    reason: The route has only Estonian ordinary page evidence for bogs.
+    required_action: Review terminology and author a full Russian explanation before detailed lessons.
+  - decision_id: review-school-timetable-scenario
+    unit_ids: []
+    status: resolved
+    reason: No official exact grade-5 weekly allocation or school calendar is registered.
+    required_action: Keep scenario assumptions explicit and let each school select or adapt a feasible budget.
+  - decision_id: review-official-grade-scope
+    unit_ids: []
+    status: resolved
+    reason: All registered national outcomes are end-of-school-stage-II outcomes.
+    required_action: Preserve exact_grade_claimed false and never relabel publisher placement as official grade 5.
+known_gaps:
+  - Only the four-lesson water unit has a complete thematic plan and detailed lesson artifacts.
+  - The official map contains a verified relevant subset of school-stage outcomes, not all 36 outcomes and not an exact-grade-5 allocation.
+  - Landforms need a reviewed Russian bridge; settlements and bogs need full Russian author explanations.
+  - Nine unit lesson estimates remain architectural until their thematic-plan PRs validate the detailed sequence.
+  - Practical descriptions, revision points, and assessments outside the water unit are concise architecture, not ready-to-print materials.
+  - The one-lesson-per-week assumption has a documented 19-lesson shortfall; schools must use a feasible local timetable.
+  - No simplified-curriculum or cover-only source is selected as ordinary course material.
+completeness:
+  scope: complete_annual_architecture
+  architecture_complete: true
+  all_units_sequenced: true
+  all_sources_selected: true
+  official_curriculum_coverage_complete: false
+  all_thematic_plans_authored: false
+  all_lessons_authored: false
+  implementation_status: architecture_complete_partial_implementation
+  declared_complete: false
+  deferred_to_issue: 18
+  notes: >-
+    The ten-unit skeleton, sources, budgets, language progression, calendars, and roadmap are
+    complete for this phase. Detailed implementation remains limited to the water unit.
+provenance:
+  category: author_created_bridge
+  source_reference: issue 18 grade-5-science annual architecture
+  notes: >-
+    Curated architecture uses only the canonical grade-5-science route, audited ordinary books,
+    verified topic groups, official school-stage evidence, and the existing water teaching unit.
