@@ -26,7 +26,9 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `project-files/outputs/*_qa.json` contains available static QA snapshots.
 - `evaluations/known-topic-checks.yaml` records machine-checked representative topic and routing regressions; it is not a curriculum map.
 - `curriculum-maps/` separates official curriculum evidence, publisher evidence, topic inventory, and curated-course data.
-- `schemas/` contains the strict JSON Schemas for curriculum and course artifacts.
+- `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
+- `annual-courses/` contains annual-course plans or explicitly incomplete excerpts.
+- `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
 
 The legacy `opiq_compact_all_index.json`, `opiq_lookup_all.*`, `topic_map_all.json`, and `opiq-compact-all*` files form an older, partial aggregate. They are not the canonical repository manifest.
 
@@ -123,3 +125,18 @@ npm run check:curriculum
 ```
 
 The pilot validates one golden thematic unit and a deduplicated evidence inventory. It does not claim a complete grade-5 annual course or complete official curriculum coverage.
+
+## Bilingual teaching plans
+
+The lesson, thematic-plan, and annual-course formats are documented in [`docs/lesson-plans.md`](docs/lesson-plans.md). Their methodology model is `russian_primary_estonian_supported`: Russian carries complex subject explanation, while Estonian is introduced systematically through terminology, familiar instructions, visuals, short definitions, sentence frames, and short oral output.
+
+The production pilot contains four linked grade-5 science lessons for the water unit, one thematic plan, and one explicitly incomplete annual-course excerpt. Reusable language-profile defaults also describe the intended progression for later grade-6 science and grade-7 geography work; they are planning defaults, not fixed learner facts.
+
+Run the focused tests and production validation with:
+
+```sh
+npm run test:plans
+npm run check:plans
+```
+
+Validation reuses the curriculum-map route loader and canonical Opiq checks. It verifies cross-file links, timing, source ownership, programme type, provenance, bilingual objectives, vocabulary recycling, scaffold release, separate assessment, and incomplete annual-course declarations. These design controls do not guarantee learning outcomes.
