@@ -12,7 +12,8 @@ The documented model is a teaching design, not a claim that a particular techniq
 | --- | --- | --- | --- |
 | Single lesson | `schemas/lesson-plan.schema.json` | `lesson-plans/grade-5-science/water/lesson-03.yaml` | Timed teaching, language path, materials, practical work, and separate assessment |
 | Thematic plan | `schemas/thematic-plan.schema.json` | `lesson-plans/grade-5-science/water/thematic-plan.yaml` | Four-lesson order, vocabulary recycling, scaffold progression, and unit checks |
-| Annual course | `schemas/annual-course.schema.json` | `annual-courses/grade-5-science/excerpt.yaml` | Ordered units, progression calendars, coverage, and explicit gaps |
+| Annual course architecture | `schemas/annual-course.schema.json` | `annual-courses/grade-5-science/annual-architecture.yaml` | Complete unit skeleton, budgets, progression calendars, coverage, and explicit implementation gaps |
+| Annual components | `schemas/annual-course-components.schema.json` | `annual-courses/grade-5-science/{source-selection-matrix,language-progression,teaching-calendars,implementation-roadmap}.yaml` | Auditable page choices, language progression, calendars, and phased implementation work |
 | Language defaults | `schemas/language-profiles.schema.json` | `lesson-plans/language-profiles.yaml` | Reusable grade/subject defaults with justified learner-specific overrides |
 
 All schemas are strict. Unknown fields fail validation. Shared teaching vocabulary lives in `schemas/teaching-plan-common.schema.json`; canonical routes, Opiq records, instructional roles, and provenance reuse the definitions and validation infrastructure introduced by the curriculum-map implementation.
@@ -144,21 +145,26 @@ The validator compares order, count, duration, route, outcomes, selected sources
 
 The production plan genuinely recycles `temperatuur` from lesson 3 in lesson 4. It intentionally reports five warnings for terms without a later lesson in this short unit: `lahus`, `termomeeter`, `jäätumine`, `aurustumine`, and `olekumuutus`. Their within-lesson `reuse_stage_refs` remain valid practice; later-unit recycling, where planned, belongs to the annual-course intervals.
 
-## Annual-course excerpt
+## Annual-course architecture
 
-The annual schema is reusable, but issue #10 intentionally provides only a small excerpt. It places the water unit between the verified topic-inventory groups `rivers-and-lakes` and `water-use-protection-and-cycle`. The latter recycles `aurustumine` and `veeldumine` into the water-cycle context.
+The grade-5 production course now sequences all ten verified topic-inventory groups. It is a complete architecture, not a fully authored year: the water unit is the only linked production thematic plan and its four lessons are the only detailed annual lessons. Four linked components keep the 32-page source matrix, language progression, teaching calendars, and implementation roadmap reviewable without creating placeholder lessons.
 
-The excerpt distinguishes publisher order from the curated order, records audited source books and deduplication decisions, and has separate practical, revision, subject-assessment, and language-assessment calendars. It must remain:
+Architecture completeness and implementation completeness are separate:
 
 ```yaml
 completeness:
-  scope: small_annual_course_excerpt
-  status: incomplete
+  scope: complete_annual_architecture
+  architecture_complete: true
+  all_units_sequenced: true
+  all_sources_selected: true
+  all_thematic_plans_authored: false
+  all_lessons_authored: false
+  implementation_status: architecture_complete_partial_implementation
   declared_complete: false
   deferred_to_issue: 18
 ```
 
-Topic-inventory-only neighbours are not disguised as completed unit or lesson plans. Issue #18 will author and verify the complete grade-5 course.
+The annual validator checks topic and outcome links, eligible books, canonical pages, source roles and provenance, contiguous order, prerequisites, lesson-budget arithmetic, Russian explanation status, Estonian progression, strict later-unit recycling, practical/revision/assessment references, roadmap consistency, school-stage semantics, and honest completeness. Planning gaps are warnings when they are pedagogically actionable rather than structural errors. The architecture is described in `docs/grade-5-science-annual-course.md`.
 
 ## Creating and validating artifacts
 
@@ -178,7 +184,7 @@ For a new lesson:
 6. Resolve every stage material and provenance reference.
 7. Reconcile stage timing and keep content/language assessment separate.
 
-For a thematic plan, link complete lesson artifacts, make the glossary and progression match those lessons exactly, and list only strictly later lessons in `recycled_in_lessons`. Use an explicit empty list when no suitable later lesson exists. For an annual plan, use verified topic IDs, link only existing thematic plans, distinguish publisher and curated sequences, and declare gaps honestly.
+For a thematic plan, link complete lesson artifacts, make the glossary and progression match those lessons exactly, and list only strictly later lessons in `recycled_in_lessons`. Use an explicit empty list when no suitable later lesson exists. For an annual architecture, use verified topic IDs, link only existing thematic plans, select canonical pages through the source matrix, distinguish publisher and curated sequences, reconcile budget scenarios, and declare implementation and evidence gaps honestly.
 
 Run:
 
