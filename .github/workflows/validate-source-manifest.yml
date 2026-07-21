@@ -109,6 +109,9 @@ jobs:
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
 
+      - name: Verify generated grade 2 source indexes
+        run: npm run check:grade-2-sources
+
       - name: Verify generated grade 3 mathematics QA
         run: node scripts/generate-grade-3-mathematics-qa.mjs --check
 

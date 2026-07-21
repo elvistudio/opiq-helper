@@ -127,7 +127,7 @@ Fields with and without the `- ` prefix are equivalent. Semicolon-separated head
 
 ## Route coverage gates
 
-A full run fails unless each of the 14 manifest sources has:
+A full run fails unless each manifest source has:
 
 1. at least one `record_present` assertion;
 2. at least one `url_absent` assertion where it is `origin_source_id` and the target is another route.

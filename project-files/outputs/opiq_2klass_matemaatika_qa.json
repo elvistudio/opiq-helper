@@ -1,0 +1,273 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-2-mathematics",
+  "source_archive": "project-files/inputs/final-zips/opiq_2klass_matemaatika_2_klassile_v2.zip",
+  "output_file": "project-files/outputs/opiq_2klass_matemaatika.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-21T16:36:27.449Z",
+    "generator": "scripts/generate-grade-2-source-indexes.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+  },
+  "checksums": {
+    "source_archive_sha256": "fa7bfc685bcb8190a215417f1e9a3977124cb1c9160d1654a75245647c085446",
+    "output_file_sha256": "25a4b81499a7e82f6bd45365708f2f1e635c46bddaf4541c7385d3fd4e48cbe0"
+  },
+  "source_records": 485,
+  "page_records_included": 464,
+  "cover_detail_records_excluded": 16,
+  "administrative_records_excluded": 5,
+  "mixed_subject_page_records_excluded": 0,
+  "grades": {
+    "2": 464
+  },
+  "languages": {
+    "et": 215,
+    "ru": 249
+  },
+  "books": {
+    "avita_matemaatik_2_et": 108,
+    "avita_математика_2_et": 85,
+    "avita_математика_2_ru": 108,
+    "harno_matemaatik_2_et": 51,
+    "koolibri_matemaatik_2_et": 56,
+    "koolibri_математика_2_et": 56
+  },
+  "kits": {
+    "95": 108,
+    "107": 56,
+    "165": 108,
+    "272": 8,
+    "273": 10,
+    "274": 33,
+    "361": 56,
+    "578": 85
+  },
+  "programme_types": {
+    "ordinary_curriculum": 413,
+    "simplified_curriculum": 51
+  },
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 485
+  },
+  "canonical_subject_counts": {
+    "mathematics / matemaatika / математика": 464
+  },
+  "subject_normalization_records": 0,
+  "subject_normalization_audit": [],
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 8,
+    "source_duplicate_records": 8,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/95",
+        "source_positions": [
+          1,
+          2
+        ],
+        "book_ids": [
+          "avita_matemaatik_2_et"
+        ],
+        "chapter_ids": [
+          "1",
+          "111"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/578",
+        "source_positions": [
+          112,
+          369
+        ],
+        "book_ids": [
+          "avita_математика_2_et",
+          "harno_математика_2_et"
+        ],
+        "chapter_ids": [
+          "316",
+          "229"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/165",
+        "source_positions": [
+          113,
+          200
+        ],
+        "book_ids": [
+          "avita_математика_2_et",
+          "avita_математика_2_ru"
+        ],
+        "chapter_ids": [
+          "375",
+          "485"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/272",
+        "source_positions": [
+          310,
+          311
+        ],
+        "book_ids": [
+          "harno_matemaatik_2_et"
+        ],
+        "chapter_ids": [
+          "170",
+          "196"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/273",
+        "source_positions": [
+          312,
+          313
+        ],
+        "book_ids": [
+          "harno_matemaatik_2_et"
+        ],
+        "chapter_ids": [
+          "197",
+          "217"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/274",
+        "source_positions": [
+          314,
+          315
+        ],
+        "book_ids": [
+          "harno_matemaatik_2_et"
+        ],
+        "chapter_ids": [
+          "218",
+          "228"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/107",
+        "source_positions": [
+          370,
+          371
+        ],
+        "book_ids": [
+          "koolibri_matemaatik_2_et"
+        ],
+        "chapter_ids": [
+          "112",
+          "169"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/361",
+        "source_positions": [
+          428,
+          429
+        ],
+        "book_ids": [
+          "koolibri_математика_2_et"
+        ],
+        "chapter_ids": [
+          "317",
+          "374"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      }
+    ]
+  },
+  "excluded_book_audit": [],
+  "book_id_language_suffix_anomalies": [
+    "avita_математика_2_et",
+    "koolibri_математика_2_et"
+  ],
+  "book_metadata_audit": {
+    "avita_matemaatik_2_et": {
+      "title": "Matemaatika 2. klassile",
+      "publisher": "Avita",
+      "language": "et",
+      "kits": [
+        "95"
+      ],
+      "page_records": 108,
+      "programme_type": "ordinary_curriculum"
+    },
+    "avita_математика_2_et": {
+      "title": "Математика для 2 класса",
+      "publisher": "Avita",
+      "language": "ru",
+      "kits": [
+        "578"
+      ],
+      "page_records": 85,
+      "programme_type": "ordinary_curriculum"
+    },
+    "avita_математика_2_ru": {
+      "title": "Математика для 2 класса",
+      "publisher": "Avita",
+      "language": "ru",
+      "kits": [
+        "165"
+      ],
+      "page_records": 108,
+      "programme_type": "ordinary_curriculum"
+    },
+    "harno_matemaatik_2_et": {
+      "title": "Matemaatika 2. klassile, I osa. Lihtsustatud õppekava",
+      "publisher": "Harno",
+      "language": "et",
+      "kits": [
+        "272",
+        "273",
+        "274"
+      ],
+      "page_records": 51,
+      "programme_type": "simplified_curriculum"
+    },
+    "koolibri_matemaatik_2_et": {
+      "title": "MATEMAATIKA 2. klassile",
+      "publisher": "Koolibri",
+      "language": "et",
+      "kits": [
+        "107"
+      ],
+      "page_records": 56,
+      "programme_type": "ordinary_curriculum"
+    },
+    "koolibri_математика_2_et": {
+      "title": "МАТЕМАТИКА 2 класс",
+      "publisher": "Koolibri",
+      "language": "ru",
+      "kits": [
+        "361"
+      ],
+      "page_records": 56,
+      "programme_type": "ordinary_curriculum"
+    }
+  },
+  "records_without_headings": 0,
+  "missing_urls": 0,
+  "archive_index": {
+    "generated_at": "2026-07-21T15:15:52.528Z",
+    "raw_archive_included": true,
+    "declared_books": 7
+  }
+}
