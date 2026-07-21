@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/classroom-trial.schema.json",
+  "title": "Opiq Helper anonymised classroom trial record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "trial_id",
+    "pack_ref",
+    "reviewed_version",
+    "trial_status",
+    "context",
+    "privacy",
+    "conducted_at",
+    "timing_observations",
+    "instruction_observations",
+    "safety_observations",
+    "learning_evidence",
+    "language_evidence",
+    "material_usability",
+    "unexpected_support_needed",
+    "teacher_adjustments",
+    "findings",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.1" },
+    "artifact_type": { "const": "classroom_trial" },
+    "trial_id": { "$ref": "#/$defs/idOrTemplateId" },
+    "pack_ref": { "$ref": "#/$defs/slug" },
+    "reviewed_version": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/reviewedVersion" },
+    "trial_status": { "enum": ["draft", "conducted", "analysed", "superseded"] },
+    "context": { "$ref": "#/$defs/context" },
+    "privacy": { "$ref": "#/$defs/privacy" },
+    "conducted_at": { "$ref": "#/$defs/nullableDate" },
+    "timing_observations": { "$ref": "#/$defs/observationArray" },
+    "instruction_observations": { "$ref": "#/$defs/observationArray" },
+    "safety_observations": { "$ref": "#/$defs/observationArray" },
+    "learning_evidence": { "$ref": "#/$defs/observationArray" },
+    "language_evidence": { "$ref": "#/$defs/observationArray" },
+    "material_usability": { "$ref": "#/$defs/observationArray" },
+    "unexpected_support_needed": { "$ref": "#/$defs/observationArray" },
+    "teacher_adjustments": { "$ref": "#/$defs/observationArray" },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "decision": { "$ref": "#/$defs/decision" }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "idOrTemplateId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:-YYYY-MM-DD)?$"
+    },
+    "nullableDate": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      ]
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lesson_ids", "setting", "grade", "approximate_group_size", "learner_estonian_profile", "instruction_language", "subject_support_language", "teacher_role"],
+      "properties": {
+        "lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "setting": { "enum": ["classroom", "small_group", "homeschool"] },
+        "grade": { "type": "integer", "minimum": 1 },
+        "approximate_group_size": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        },
+        "learner_estonian_profile": { "$ref": "#/$defs/nonEmptyString" },
+        "instruction_language": { "const": "ru" },
+        "subject_support_language": { "const": "et" },
+        "teacher_role": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contains_student_names",
+        "contains_birth_dates",
+        "contains_personal_identifiers",
+        "contains_addresses",
+        "contains_contact_information",
+        "contains_parent_contacts",
+        "contains_student_photos",
+        "contains_special_category_data",
+        "contains_identifiable_individual_grades",
+        "contains_identifiable_free_text",
+        "observations_are_aggregated",
+        "free_text_checked_for_identifiers"
+      ],
+      "properties": {
+        "contains_student_names": { "const": false },
+        "contains_birth_dates": { "const": false },
+        "contains_personal_identifiers": { "const": false },
+        "contains_addresses": { "const": false },
+        "contains_contact_information": { "const": false },
+        "contains_parent_contacts": { "const": false },
+        "contains_student_photos": { "const": false },
+        "contains_special_category_data": { "const": false },
+        "contains_identifiable_individual_grades": { "const": false },
+        "contains_identifiable_free_text": { "const": false },
+        "observations_are_aggregated": { "const": true },
+        "free_text_checked_for_identifiers": { "type": "boolean" }
+      }
+    },
+    "observationArray": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lesson_id", "summary"],
+        "properties": {
+          "lesson_id": { "$ref": "#/$defs/slug" },
+          "summary": { "$ref": "#/$defs/nonEmptyString" },
+          "aggregate_count": { "type": "integer", "minimum": 0 },
+          "aggregate_denominator": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id", "severity", "category", "artifact_paths", "lesson_ids", "description", "evidence", "recommended_action", "resolution_status", "resolution_refs"],
+      "properties": {
+        "finding_id": { "$ref": "#/$defs/slug" },
+        "severity": { "enum": ["blocking", "major", "minor", "observation"] },
+        "category": { "enum": ["timing", "instruction_clarity", "safety", "learning_evidence", "language_evidence", "material_usability", "cognitive_load", "scaffolding", "other"] },
+        "artifact_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          }
+        },
+        "lesson_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence": { "$ref": "#/$defs/nonEmptyString" },
+        "recommended_action": { "$ref": "#/$defs/nonEmptyString" },
+        "resolution_status": { "enum": ["open", "planned", "resolved", "dismissed"] },
+        "resolution_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "safe_to_repeat", "rationale"],
+      "properties": {
+        "status": { "enum": ["pending", "changes_required", "repeat_trial_required", "successful_with_notes", "successful"] },
+        "safe_to_repeat": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "boolean" }
+          ]
+        },
+        "rationale": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    }
+  }
+}

@@ -68,6 +68,91 @@
       "uniqueItems": true,
       "items": { "enum": ["ru", "et"] }
     },
+    "contentFingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "specification_version", "value", "file_count"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "specification_version": { "const": "1.0" },
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+          ]
+        },
+        "file_count": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        }
+      }
+    },
+    "reviewedVersion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit_sha", "content_fingerprint"],
+      "properties": {
+        "commit_sha": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+          ]
+        },
+        "content_fingerprint": { "$ref": "#/$defs/contentFingerprint" }
+      }
+    },
+    "reviewableContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["specification_version", "explicit_paths", "directory_paths", "derived_material_paths"],
+      "properties": {
+        "specification_version": { "const": "1.0" },
+        "explicit_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "directory_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "derived_material_paths": { "const": true }
+      }
+    },
+    "pedagogicalReviewLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["guide_path", "review_record_path", "status"],
+      "properties": {
+        "guide_path": { "$ref": "#/$defs/repositoryPath" },
+        "review_record_path": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/repositoryPath" }
+          ]
+        },
+        "status": { "enum": ["pending", "changes_requested", "approved", "rejected"] }
+      }
+    },
+    "classroomTrialLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template_path", "trial_record_paths", "status"],
+      "properties": {
+        "template_path": { "$ref": "#/$defs/repositoryPath" },
+        "trial_record_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "status": { "enum": ["not_tested", "changes_required", "repeat_required", "tested"] }
+      }
+    },
     "authorMaterial": {
       "type": "object",
       "additionalProperties": false,

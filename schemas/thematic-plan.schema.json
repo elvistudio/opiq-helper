@@ -260,12 +260,18 @@
     "teacher_pack": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["path", "materials_resolved", "print_ready", "teacher_review_status", "classroom_ready"],
+      "required": ["path", "materials_resolved", "print_ready", "teacher_review_status", "pedagogical_review", "classroom_trial", "classroom_ready"],
       "properties": {
         "path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
         "materials_resolved": { "type": "boolean" },
         "print_ready": { "type": "boolean" },
         "teacher_review_status": { "enum": ["pending", "approved", "changes_requested"] },
+        "pedagogical_review": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pedagogicalReviewLink"
+        },
+        "classroom_trial": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/classroomTrialLink"
+        },
         "classroom_ready": { "type": "boolean" }
       }
     },

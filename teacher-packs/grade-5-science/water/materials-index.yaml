@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.2"
 artifact_type: teacher_pack_materials_index
 pack_id: grade-5-science-water-teacher-pack
 unit_ref: grade-5-water-four-lesson-plan
@@ -37,6 +37,28 @@ opiq_sources:
   - record_id: water-changes-koolibri
     canonical_url: https://www.opiq.ee/kit/122/chapter/6283
     lesson_ids: [grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+reviewable_content:
+  specification_version: "1.0"
+  explicit_paths:
+    - lesson-plans/grade-5-science/water/lesson-01.yaml
+    - lesson-plans/grade-5-science/water/lesson-02.yaml
+    - lesson-plans/grade-5-science/water/lesson-03.yaml
+    - lesson-plans/grade-5-science/water/lesson-04.yaml
+    - lesson-plans/grade-5-science/water/thematic-plan.yaml
+  directory_paths:
+    - teacher-packs/grade-5-science/water/lessons
+    - teacher-packs/grade-5-science/water/student
+    - teacher-packs/grade-5-science/water/answers
+    - teacher-packs/grade-5-science/water/parent
+  derived_material_paths: true
+pedagogical_review:
+  guide_path: pedagogical-reviews/grade-5-science/water/review-guide.md
+  review_record_path: null
+  status: pending
+classroom_trial:
+  template_path: pedagogical-reviews/grade-5-science/water/classroom-trial-template.yaml
+  trial_record_paths: []
+  status: not_tested
 materials:
   - lesson_ids: []
     required_for_pack: true

@@ -1,0 +1,67 @@
+name: Teacher pack readiness correction
+description: Propose an evidence-backed correction to teacher-pack readiness.
+title: "Teacher-pack readiness correction: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: Readiness can change only from registered review/trial evidence matching the current content fingerprint. Commit SHA is provenance only. Do not include student personal data.
+  - type: input
+    id: content_fingerprint
+    attributes:
+      label: Current content fingerprint
+      description: Lower-case SHA-256 value computed with fingerprint specification 1.0.
+    validations:
+      required: true
+  - type: input
+    id: fingerprint_file_count
+    attributes:
+      label: Current fingerprint file count
+    validations:
+      required: true
+  - type: input
+    id: provenance_commit_sha
+    attributes:
+      label: Provenance commit SHA
+      description: Git location for audit and navigation; this is not the readiness gate.
+    validations:
+      required: true
+  - type: input
+    id: review_record
+    attributes:
+      label: Teacher review record path
+      description: Leave as “none” if the correction does not claim approval.
+    validations:
+      required: true
+  - type: input
+    id: trial_records
+    attributes:
+      label: Classroom trial record paths
+      description: Leave as “none” if the correction does not claim tested status.
+    validations:
+      required: true
+  - type: dropdown
+    id: target_status
+    attributes:
+      label: Requested readiness status
+      options:
+        - teacher_pack_complete_pending_review
+        - teacher_reviewed
+        - classroom_tested
+        - classroom_ready
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Evidence-based rationale
+      description: Refer only to repository artifacts, finding IDs, and resolution refs.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: This issue contains no student personal or identifiable information.
+          required: true

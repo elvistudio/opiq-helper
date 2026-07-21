@@ -103,6 +103,12 @@
 
 `schema_complete: true`, `content_complete: true`, `materials_resolved: true`, `print_ready: true`. Независимая проверка `primary_science_teacher` имеет статус `pending`; апробация — `not_tested`. Поэтому `readiness_status: teacher_pack_complete_pending_review`, а `classroom_ready: false`.
 
+## 16. Workflow независимой проверки
+
+Педагогическое review и classroom trial ещё не выполнялись. Следуйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md): вычислите content fingerprint, сохраните commit SHA как provenance, проверьте все четыре читаемых урока и материалы, зарегистрируйте реальные findings, внесите исправления, а затем проведите ограниченную апробацию с [обезличенной формой](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Template не считается evidence. `approved` review само по себе не означает `classroom_ready`; требуется отдельная analysed trial с тем же актуальным fingerprint. Rebase и squash не меняют readiness при неизменном содержании.
+
+Не переносите в репозиторий персональные данные детей. Допустимы только агрегированные наблюдения, вручную проверенные на прямые и косвенные идентификаторы.
+
 ## Provenance
 
 Руководство — `author_created_bridge`, составленный по четырём YAML-урокам, water thematic plan и указанным каноническим Opiq-записям. Оно содержит краткие учительские формулировки, но не воспроизводит учебниковые тексты.

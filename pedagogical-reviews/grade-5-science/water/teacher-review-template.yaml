@@ -1,0 +1,47 @@
+schema_version: "1.1"
+artifact_type: teacher_review
+review_id: grade-5-water-review-YYYY-MM-DD
+pack_ref: grade-5-science-water-teacher-pack
+reviewed_version:
+  commit_sha: null
+  content_fingerprint:
+    algorithm: sha256
+    specification_version: "1.0"
+    value: null
+    file_count: null
+review_status: draft
+reviewer:
+  role: primary_science_teacher
+  subject_experience_years: null
+  language_context:
+    instruction_language: ru
+    subject_support_language: et
+  identity_storage: external
+  reviewer_reference: null
+reviewed_at: null
+review_scope:
+  teacher_guide: false
+  lesson_guides: []
+  student_materials: false
+  answer_keys: false
+  assessment_rubric: false
+  homeschool_materials: false
+  safety: false
+  language_level: false
+ratings:
+  scientific_accuracy: null
+  age_appropriateness: null
+  timing_feasibility: null
+  instruction_clarity: null
+  student_material_usability: null
+  assessment_alignment: null
+  estonian_a1_a2_fit: null
+  safety_readiness: null
+  homeschool_usability: null
+findings: []
+blocking_findings: []
+required_changes: []
+optional_improvements: []
+decision:
+  status: pending
+  rationale: Педагогическое ревью ещё не выполнено.
