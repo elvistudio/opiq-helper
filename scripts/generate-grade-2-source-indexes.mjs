@@ -12,11 +12,70 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const generatorPath = 'scripts/generate-grade-2-source-indexes.mjs';
-const generatorVersion = '1.0';
+const generatorVersion = '2.0';
 const checkOnly = process.argv.slice(2).includes('--check');
 const unknownArguments = process.argv.slice(2).filter((argument) => argument !== '--check');
 
 const configurations = [
+  {
+    sourceId: 'grade-2-estonian',
+    expectedSourceRecords: 454,
+    expectedCanonicalRecords: 372,
+    expectedCoverRecords: 9,
+    expectedAdministrativeRecords: 1,
+    expectedDuplicateGroups: 4,
+    expectedDuplicateRecords: 5,
+    expectedExcludedBookRecords: 72,
+    expectedCanonicalBooks: 3,
+    subject: { en: 'Estonian language', et: 'eesti keel', ru: 'эстонский язык' },
+    title: '2. klass eesti keel',
+    queryDescription: 'grade 2 first-language Estonian',
+    pageLanguageNames: ['Estonian'],
+    excludedBookIds: new Map([
+      ['koolibri_koos_on_lõ_2_et', 'Koos on lõbus. Janno jutud belongs to Estonian as a second language.'],
+    ]),
+    bookVariants: new Map([
+      ['avita_eesti_keel_2_et::232', { canonicalBookId: 'avita_eesti_keel_2_et', title: 'Eesti keele õpik 2. klassile', expectedCoverTitle: 'Eesti keele õpik 2. klassile', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['koolibri_ilus_emake_2_et::118', { canonicalBookId: 'koolibri_ilus_emake_2_et', title: 'ILUS EMAKEEL', expectedCoverTitle: 'ILUS EMAKEEL', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['koolibri_mina_loen__2_et::458', { canonicalBookId: 'koolibri_mina_loen__2_et', title: 'Mina loen ja kirjutan 2', expectedCoverTitle: 'Mina loen ja kirjutan 2', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+    ]),
+    routePartition: {
+      pairedSourceId: 'grade-2-estonian-second-language',
+      expectedUnionRecords: 444,
+    },
+  },
+  {
+    sourceId: 'grade-2-estonian-second-language',
+    expectedSourceRecords: 454,
+    expectedCanonicalRecords: 72,
+    expectedCoverRecords: 9,
+    expectedAdministrativeRecords: 1,
+    expectedDuplicateGroups: 4,
+    expectedDuplicateRecords: 5,
+    expectedExcludedBookRecords: 372,
+    expectedCanonicalBooks: 1,
+    subject: { en: 'Estonian as a second language', et: 'eesti keel teise keelena', ru: 'эстонский как второй язык' },
+    title: '2. klass eesti keel teise keelena',
+    queryDescription: 'grade 2 Estonian as a second language',
+    pageLanguageNames: ['Estonian'],
+    excludedBookIds: new Map([
+      ['avita_eesti_keel_2_et', 'Eesti keele õpik 2. klassile belongs to first-language Estonian.'],
+      ['koolibri_ilus_emake_2_et', 'ILUS EMAKEEL belongs to first-language Estonian.'],
+      ['koolibri_mina_loen__2_et', 'Mina loen ja kirjutan 2 belongs to first-language Estonian.'],
+    ]),
+    forbiddenTopicAliases: {
+      et: ['emakeel'],
+      ru: ['родной язык'],
+      en: ['mother tongue'],
+    },
+    bookVariants: new Map([
+      ['koolibri_koos_on_lõ_2_et::129', { canonicalBookId: 'koolibri_koos_on_lõ_2_et', title: 'Koos on lõbus. Janno jutud', expectedCoverTitle: 'KOOS ON LÕBUS. Janno jutud', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+    ]),
+    routePartition: {
+      pairedSourceId: 'grade-2-estonian',
+      expectedUnionRecords: 444,
+    },
+  },
   {
     sourceId: 'grade-2-mathematics',
     expectedSourceRecords: 485,
@@ -24,11 +83,24 @@ const configurations = [
     expectedCoverRecords: 16,
     expectedAdministrativeRecords: 5,
     expectedDuplicateGroups: 8,
+    expectedDuplicateRecords: 8,
+    expectedExcludedBookRecords: 0,
+    expectedCanonicalBooks: 8,
     subject: { en: 'mathematics', et: 'matemaatika', ru: 'математика' },
     title: '2. klass matemaatika',
     queryDescription: 'grade 2 mathematics',
-    simplifiedBookIds: new Set(['harno_matemaatik_2_et']),
+    pageLanguageNames: ['Estonian', 'Russian'],
     excludedBookIds: new Map(),
+    bookVariants: new Map([
+      ['avita_matemaatik_2_et::95', { canonicalBookId: 'avita_matemaatik_2_et__kit95', title: 'Matemaatika 2. klassile', expectedCoverTitle: 'Matemaatika 2. klassile', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['avita_математика_2_et::578', { canonicalBookId: 'avita_математика_2_et__kit578', title: 'Matemaatika 2. klassile', expectedCoverTitle: 'Matemaatika 2. klassile', publisher: 'Avita', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail; bilingual headings retained' }],
+      ['avita_математика_2_ru::165', { canonicalBookId: 'avita_математика_2_ru__kit165', title: 'Математика для 2 класса', expectedCoverTitle: 'Математика для 2 класса', publisher: 'Avita', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['harno_matemaatik_2_et::272', { canonicalBookId: 'harno_matemaatik_2_et__kit272', title: 'Matemaatika 2. klassile, I osa. Lihtsustatud õppekava', expectedCoverTitle: 'Matemaatika 2. klassile, I osa. Lihtsustatud õppekava', publisher: 'Harno', language: 'et', programmeType: 'simplified_curriculum', titleEvidence: 'cover_detail' }],
+      ['harno_matemaatik_2_et::273', { canonicalBookId: 'harno_matemaatik_2_et__kit273', title: 'Matemaatika 2. klassile, II osa. Lihtsustatud õppekava', expectedCoverTitle: 'Matemaatika 2. klassile, II osa. Lihtsustatud õppekava', publisher: 'Harno', language: 'et', programmeType: 'simplified_curriculum', titleEvidence: 'cover_detail' }],
+      ['harno_matemaatik_2_et::274', { canonicalBookId: 'harno_matemaatik_2_et__kit274', title: 'Matemaatika 2. klassile, III osa. Lihtsustatud õppekava', expectedCoverTitle: 'Matemaatika 2. klassile, III osa. Lihtsustatud õppekava', publisher: 'Harno', language: 'et', programmeType: 'simplified_curriculum', titleEvidence: 'cover_detail' }],
+      ['koolibri_matemaatik_2_et::107', { canonicalBookId: 'koolibri_matemaatik_2_et__kit107', title: 'MATEMAATIKA 2. klassile', expectedCoverTitle: 'MATEMAATIKA 2. klassile', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['koolibri_математика_2_et::361', { canonicalBookId: 'koolibri_математика_2_et__kit361', title: 'МАТЕМАТИКА 2 класс', expectedCoverTitle: 'МАТЕМАТИКА 2 класс', publisher: 'Koolibri', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+    ]),
   },
   {
     sourceId: 'grade-2-science',
@@ -37,13 +109,51 @@ const configurations = [
     expectedCoverRecords: 18,
     expectedAdministrativeRecords: 5,
     expectedDuplicateGroups: 9,
+    expectedDuplicateRecords: 9,
+    expectedExcludedBookRecords: 119,
+    expectedCanonicalBooks: 7,
     subject: { en: 'science', et: 'loodusõpetus', ru: 'природоведение' },
     title: '2. klass loodusõpetus',
     queryDescription: 'grade 2 science',
-    simplifiedBookIds: new Set(['ministeerium_loodusõpet_2_et']),
+    pageLanguageNames: ['Estonian', 'Russian'],
     excludedBookIds: new Map([
       ['avita_loodus-_ja_2_et', 'Mixed loodus- ja inimeseõpetus book; its Estonian pages are already routed through grade-2-human-studies.'],
       ['avita_природа_и__2_ru', 'Mixed nature-and-human-studies book; excluded to keep the science route subject-pure.'],
+    ]),
+    bookVariants: new Map([
+      ['avita_loodusõpet_2_et::379', { canonicalBookId: 'avita_loodusõpet_2_et', title: 'Loodusõpetus 2. klassile (2022)', expectedCoverTitle: 'Loodusõpetus 2. klassile (2022)', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['avita_природовед_2_ru::570', { canonicalBookId: 'avita_природовед_2_ru', title: 'Природоведение для 2 класса', expectedCoverTitle: 'Loodusõpetus 2. klassile', publisher: 'Avita', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'index_json; cover is Estonian' }],
+      ['koolibri_loodusõpet_2_et::121', { canonicalBookId: 'koolibri_loodusõpet_2_et', title: 'Loodusõpetus 2. klassile', expectedCoverTitle: 'Loodusõpetus 2. klassile', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['koolibri_природове_2_ru::132', { canonicalBookId: 'koolibri_природове_2_ru', title: 'Природоведение 2 класс', expectedCoverTitle: 'Природоведение 2 клacc', publisher: 'Koolibri', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'confirmed Cyrillic/Latin typo correction' }],
+      ['ministeerium_loodusõpet_2_et::501', { canonicalBookId: 'ministeerium_loodusõpet_2_et', title: 'Loodusõpetus 2. klassile. Lihtsustatud õppekava', expectedCoverTitle: 'Loodusõpetus 2. klassile. Lihtsustatud õppekava', publisher: 'Ministeerium', language: 'et', programmeType: 'simplified_curriculum', titleEvidence: 'cover_detail; publisher case normalized from index_json' }],
+      ['skriibus_loodusõpet_2_et::387', { canonicalBookId: 'skriibus_loodusõpet_2_et', title: 'Loodusõpetuse tööraamat 2. klassile', expectedCoverTitle: 'Loodusõpetuse tööraamat 2. klassile', publisher: 'Skriibus', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['star cloud_loodusõpet_2_et::384', { canonicalBookId: 'star cloud_loodusõpet_2_et', title: 'Loodusõpetuse õppevideod 1. kooliastmele', expectedCoverTitle: 'Loodusõpetuse õppevideod 1. kooliastmele', publisher: 'Star Cloud', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+    ]),
+  },
+  {
+    sourceId: 'grade-2-human-studies',
+    expectedSourceRecords: 262,
+    expectedCanonicalRecords: 243,
+    expectedCoverRecords: 14,
+    expectedAdministrativeRecords: 5,
+    expectedDuplicateGroups: 7,
+    expectedDuplicateRecords: 7,
+    expectedExcludedBookRecords: 0,
+    expectedCanonicalBooks: 7,
+    subject: { en: 'human studies', et: 'inimeseõpetus', ru: 'человековедение' },
+    title: '2. klass inimeseõpetus',
+    queryDescription: 'grade 2 human studies',
+    pageLanguageNames: ['Estonian', 'Russian'],
+    normalizeContentLists: true,
+    excludedBookIds: new Map(),
+    bookVariants: new Map([
+      ['avita_inimeseõpe_2_et::449', { canonicalBookId: 'avita_inimeseõpe_2_et__kit449', title: 'Inimeseõpetus algklassidele, I osa. 2023 ÕK', expectedCoverTitle: 'Inimeseõpetus algklassidele, I osa. 2023 ÕK', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['avita_inimeseõpe_2_et::494', { canonicalBookId: 'avita_inimeseõpe_2_et__kit494', title: 'Inimeseõpetus algklassidele, II osa. 2023 ÕK', expectedCoverTitle: 'Inimeseõpetus algklassidele, II osa. 2023 ÕK', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['avita_inimeseõpe_2_ru::579', { canonicalBookId: 'avita_inimeseõpe_2_ru__kit579', title: 'Inimeseõpetus algklassidele. II osa', expectedCoverTitle: 'Inimeseõpetus algklassidele. II osa', publisher: 'Avita', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['avita_loodus-_ja_2_et::56', { canonicalBookId: 'avita_loodus-_ja_2_et__kit56', title: 'Loodus- ja inimeseõpetus 2. klassile', expectedCoverTitle: 'Loodus- ja inimeseõpetus 2. klassile', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['harno_inimeseõpe_2_et::286', { canonicalBookId: 'harno_inimeseõpe_2_et__kit286', title: 'Inimeseõpetus 2. klassile. Lihtsustatud õppekava', expectedCoverTitle: 'Inimeseõpetus 2. klassile. Lihtsustatud õppekava', publisher: 'Harno', language: 'et', programmeType: 'simplified_curriculum', titleEvidence: 'cover_detail' }],
+      ['koolibri_in2_2._kla_2_et::142', { canonicalBookId: 'koolibri_in2_2._kla_2_et__kit142', title: 'IN2. 2. klassi inimeseõpetus', expectedCoverTitle: 'IN2', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'index_json and cover_detail' }],
+      ['koolibri_мой_мир._ч_2_ru::229', { canonicalBookId: 'koolibri_мой_мир._ч_2_ru__kit229', title: 'Мой мир. Человековедение 2 класс', expectedCoverTitle: 'Мой мир. Человековедение 2 класс', publisher: 'Koolibri', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail; discretionary soft hyphen removed' }],
     ]),
   },
 ];
@@ -91,7 +201,7 @@ function parseJsonl(text, label) {
     ]) assert(Object.hasOwn(record, field), `${label} line ${index + 1} is missing ${field}.`);
     assert(/^https:\/\/(?:www\.)?opiq\.ee\//iu.test(record.url), `${label} line ${index + 1} has an invalid Opiq URL.`);
     assert(record.grade === 2, `${label} line ${index + 1} has grade ${record.grade}; expected 2.`);
-    assert(['et', 'ru'].includes(record.language), `${label} line ${index + 1} has unsupported page language ${record.language}.`);
+    assert(['et', 'ru', 'en'].includes(record.language), `${label} line ${index + 1} has unsupported page language ${record.language}.`);
     for (const field of ['topics_et', 'topics_ru', 'topics_en', 'headings', 'task_examples']) {
       assert(Array.isArray(record[field]), `${label} line ${index + 1} field ${field} must be an array.`);
     }
@@ -101,6 +211,12 @@ function parseJsonl(text, label) {
 
 function normalizeText(value) {
   return String(value ?? '').replaceAll('\u00ad', '').normalize('NFC').replace(/[\s\u00a0]+/gu, ' ').trim();
+}
+
+function normalizeTextList(values) {
+  return [...new Set(values
+    .map((value) => normalizeText(value).replace(/[\u200b-\u200d\u2060\ufeff]/gu, '').trim())
+    .filter(Boolean))];
 }
 
 function sourceSubject(record) {
@@ -118,6 +234,14 @@ function markdownField(label, value) {
 
 function kitId(url) {
   return url.match(/\/kit\/(\d+)/iu)?.[1] ?? url.match(/\/Kit\/Details\/(\d+)/u)?.[1] ?? '';
+}
+
+function bookVariantKey(record) {
+  return `${normalizeText(record.book_id)}::${kitId(record.url)}`;
+}
+
+function coverTitle(record) {
+  return normalizeText(record.title).replace(/\s+[–-]\s+Opiq$/iu, '');
 }
 
 function isCoverDetail(record) {
@@ -155,34 +279,66 @@ function normalizeTopicList(values, forbiddenAliases, requiredAlias) {
 }
 
 function normalizeRecord(record, configuration) {
+  const sourceBookId = normalizeText(record.book_id);
+  const variant = configuration.bookVariants.get(bookVariantKey(record));
+  assert(variant, `${configuration.sourceId}: no canonical book variant for ${bookVariantKey(record)} (${record.url}).`);
   const normalized = {
     ...record,
     title: normalizeText(record.title),
     url: normalizeText(record.url),
-    book: normalizeText(record.book).replace(/\s+2\s+klass$/iu, ''),
-    book_id: normalizeText(record.book_id),
+    book: variant.title,
+    book_id: variant.canonicalBookId,
+    source_book_id: sourceBookId,
     chapter_id: normalizeText(record.chapter_id),
-    language: normalizeText(record.language).toLowerCase(),
-    publisher: normalizeText(record.publisher),
-    headings: record.headings.map(normalizeText).filter(Boolean),
-    task_examples: record.task_examples.map(normalizeText).filter(Boolean),
+    language: variant.language,
+    publisher: variant.publisher,
+    programme_type: variant.programmeType,
+    headings: configuration.normalizeContentLists
+      ? normalizeTextList(record.headings)
+      : record.headings.map(normalizeText).filter(Boolean),
+    task_examples: configuration.normalizeContentLists
+      ? normalizeTextList(record.task_examples)
+      : record.task_examples.map(normalizeText).filter(Boolean),
   };
-  const publisherNames = new Map([['avita', 'Avita'], ['harno', 'Harno']]);
-  normalized.publisher = publisherNames.get(normalized.publisher.toLocaleLowerCase()) ?? normalized.publisher;
   normalized.subject_en = configuration.subject.en;
   normalized.subject_et = configuration.subject.et;
   normalized.subject_ru = configuration.subject.ru;
-  normalized.topics_et = normalizeTopicList(record.topics_et, ['matemaatika', 'loodusõpetus'], configuration.subject.et);
-  normalized.topics_ru = normalizeTopicList(record.topics_ru, ['математика', 'природоведение'], configuration.subject.ru);
-  normalized.topics_en = normalizeTopicList(record.topics_en, ['mathematics', 'science'], configuration.subject.en);
+  normalized.topics_et = normalizeTopicList(record.topics_et, [
+    'matemaatika', 'loodusõpetus', 'inimeseõpetus', 'eesti keel', 'eesti keel teise keelena',
+    ...(configuration.forbiddenTopicAliases?.et ?? []),
+  ], configuration.subject.et);
+  normalized.topics_ru = normalizeTopicList(record.topics_ru, [
+    'математика', 'природоведение', 'человековедение', 'эстонский язык', 'эстонский как второй язык',
+    ...(configuration.forbiddenTopicAliases?.ru ?? []),
+  ], configuration.subject.ru);
+  normalized.topics_en = normalizeTopicList(record.topics_en, [
+    'mathematics', 'science', 'human studies', 'Estonian language', 'Estonian as a second language',
+    ...(configuration.forbiddenTopicAliases?.en ?? []),
+  ], configuration.subject.en);
   return normalized;
+}
+
+function validateBookVariantEvidence(records, configuration) {
+  const coverRecords = records.filter(isCoverDetail);
+  for (const [key, variant] of configuration.bookVariants) {
+    const matches = coverRecords.filter((record) => bookVariantKey(record) === key);
+    assert(matches.length > 0, `${configuration.sourceId}: canonical variant ${key} has no cover/detail evidence.`);
+    const foundTitles = [...new Set(matches.map(coverTitle))];
+    assert(
+      foundTitles.length === 1 && foundTitles[0].toLocaleLowerCase() === variant.expectedCoverTitle.toLocaleLowerCase(),
+      `${configuration.sourceId}: cover title for ${key} is ${JSON.stringify(foundTitles)}; expected ${JSON.stringify(variant.expectedCoverTitle)}.`,
+    );
+    assert(variant.canonicalBookId && variant.title && variant.publisher && variant.language && variant.programmeType,
+      `${configuration.sourceId}: canonical variant ${key} is incomplete.`);
+  }
 }
 
 function auditDuplicateUrls(records, configuration) {
   const duplicateGroups = [...groupBy(records, (record) => record.url).entries()].filter(([, matches]) => matches.length > 1);
   assert(duplicateGroups.length === configuration.expectedDuplicateGroups, `${configuration.sourceId}: duplicate URL group count changed.`);
+  const duplicateRecords = duplicateGroups.reduce((total, [, matches]) => total + matches.length - 1, 0);
+  assert(duplicateRecords === configuration.expectedDuplicateRecords, `${configuration.sourceId}: duplicate record count changed.`);
   const entries = duplicateGroups.map(([url, matches]) => {
-    assert(matches.length === 2, `${configuration.sourceId}: duplicate ${url} must contain exactly two records.`);
     assert(matches.every(isCoverDetail), `${configuration.sourceId}: non-cover duplicate requires manual review: ${url}`);
     return {
       url,
@@ -193,7 +349,7 @@ function auditDuplicateUrls(records, configuration) {
       reason: 'The repeated URL is a kit detail page, not a chapter-level instructional page.',
     };
   });
-  return { duplicateGroups, entries };
+  return { duplicateGroups, duplicateRecords, entries };
 }
 
 function canonicalize(records, configuration) {
@@ -223,6 +379,10 @@ function canonicalize(records, configuration) {
   assert(canonicalRecords.length === configuration.expectedCanonicalRecords, `${configuration.sourceId}: canonical count is ${canonicalRecords.length}; expected ${configuration.expectedCanonicalRecords}.`);
   assert(coverRecords.length === configuration.expectedCoverRecords, `${configuration.sourceId}: cover count changed.`);
   assert(administrativeRecords.length === configuration.expectedAdministrativeRecords, `${configuration.sourceId}: administrative count changed.`);
+  assert(excludedBookRecords.length === configuration.expectedExcludedBookRecords, `${configuration.sourceId}: subject-boundary exclusion count changed.`);
+  assert(new Set(canonicalRecords.map((record) => record.book_id)).size === configuration.expectedCanonicalBooks, `${configuration.sourceId}: canonical book count changed.`);
+  assert(canonicalRecords.length + coverRecords.length + administrativeRecords.length + excludedBookRecords.length === records.length,
+    `${configuration.sourceId}: source record accounting is incomplete.`);
   assert(canonicalRecords.every((record) => sourceSubject(record) === canonicalSubject(configuration.subject)), `${configuration.sourceId}: canonical subject normalization failed.`);
   return { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords, subjectNormalizationAudit };
 }
@@ -243,13 +403,13 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
     `- Subject ET: ${configuration.subject.et}`,
     `- Subject RU: ${configuration.subject.ru}`,
     `- Subject EN: ${configuration.subject.en}`,
-    '- Page languages: Estonian, Russian',
+    `- Page languages: ${configuration.pageLanguageNames.join(', ')}`,
     `- Source records: ${index.recordCount}`,
     `- Page records included: ${canonicalRecords.length}`,
     `- Cover/detail records excluded: ${coverRecords.length}`,
     `- Administrative records excluded: ${administrativeRecords.length}`,
     `- Duplicate source URL groups: ${duplicateAudit.duplicateGroups.length}; all were excluded kit-detail records`,
-    `- Mixed-subject page records excluded: ${excludedBookRecords.length}`,
+    `- Subject-boundary page records excluded: ${excludedBookRecords.length}`,
     '- Curriculum coverage: not verified',
     '',
     '## Books',
@@ -257,8 +417,10 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
   for (const [bookId, records] of bookGroups) {
     const first = records[0];
     const kits = [...new Set(records.map((record) => kitId(record.url)))].sort().join(', ');
-    const programme = configuration.simplifiedBookIds.has(bookId) ? 'simplified curriculum; use only with explicit labelling' : 'ordinary curriculum';
-    lines.push(`- \`${bookId}\` — ${first.book}; ${first.publisher || 'publisher not recorded'}; language ${first.language}; kit ${kits}; ${records.length} pages; ${programme}.`);
+    const programme = first.programme_type === 'simplified_curriculum'
+      ? 'simplified curriculum; use only with explicit labelling'
+      : 'ordinary curriculum';
+    lines.push(`- \`${bookId}\` — ${first.book}; Source Book ID \`${first.source_book_id}\`; ${first.publisher || 'publisher not recorded'}; language ${first.language}; kit ${kits}; ${records.length} pages; ${programme}.`);
   }
   if (configuration.excludedBookIds.size > 0) {
     lines.push('', '## Subject-boundary exclusions');
@@ -269,18 +431,18 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
   }
   lines.push('', '## Pages', '');
   canonicalRecords.forEach((record, indexPosition) => {
-    const programme = configuration.simplifiedBookIds.has(record.book_id) ? 'simplified_curriculum' : 'ordinary_curriculum';
     lines.push(
       `### ${indexPosition + 1}. ${record.title}`,
       `- URL: ${record.url}`,
       `- Book: ${record.book}`,
       `- Book ID: ${record.book_id}`,
+      `- Source Book ID: ${record.source_book_id}`,
       `- Chapter ID: ${record.chapter_id}`,
       '- Class: 2',
       `- Language: ${record.language}`,
       markdownField('Publisher', record.publisher),
       `- Subject: ${sourceSubject(record)}`,
-      `- Programme type: ${programme}`,
+      `- Programme type: ${record.programme_type}`,
       markdownField('Topics ET', record.topics_et.join('; ')),
       markdownField('Topics RU', record.topics_ru.join('; ')),
       markdownField('Topics EN', record.topics_en.join('; ')),
@@ -301,11 +463,13 @@ function bookMetadataAudit(records, configuration) {
     .sort(([left], [right]) => left.localeCompare(right))
     .map(([bookId, matches]) => [bookId, {
       title: matches[0].book,
+      source_book_id: matches[0].source_book_id,
       publisher: matches[0].publisher,
       language: matches[0].language,
       kits: [...new Set(matches.map((record) => kitId(record.url)))].sort(),
       page_records: matches.length,
-      programme_type: configuration.simplifiedBookIds.has(bookId) ? 'simplified_curriculum' : 'ordinary_curriculum',
+      programme_type: matches[0].programme_type,
+      title_evidence: configuration.bookVariants.get(`${matches[0].source_book_id}::${kitId(matches[0].url)}`).titleEvidence,
     }]));
 }
 
@@ -314,6 +478,11 @@ async function generateSource(manifest, configuration) {
   assert(source, `Manifest source ${configuration.sourceId} was not found.`);
   assert(source.canonical_url_policy?.require_unique === true, `${configuration.sourceId}: unique URL policy is required.`);
   assert(JSON.stringify(source.canonical_subject_policy?.required_subject) === JSON.stringify(configuration.subject), `${configuration.sourceId}: canonical subject policy differs from generator configuration.`);
+  if (configuration.excludedBookIds.size > 0) {
+    const manifestBoundary = [...(source.subject_boundary?.forbidden_book_ids ?? [])].sort();
+    const expectedBoundary = [...configuration.excludedBookIds.keys()].sort();
+    assert(JSON.stringify(manifestBoundary) === JSON.stringify(expectedBoundary), `${configuration.sourceId}: manifest subject boundary differs from generator configuration.`);
+  }
   const archivePath = await requireFile(source.source_archive, `${configuration.sourceId} source archive`);
   const markdownPath = repositoryPath(source.md_path, `${configuration.sourceId} Markdown path`);
   const qaPath = repositoryPath(source.qa_path, `${configuration.sourceId} QA path`);
@@ -331,18 +500,16 @@ async function generateSource(manifest, configuration) {
   for (const bookId of new Set(records.map((record) => normalizeText(record.book_id)))) {
     assert(indexedBookIds.has(bookId), `${configuration.sourceId}: record Book ID ${bookId} is absent from index.json.`);
   }
+  validateBookVariantEvidence(records, configuration);
   const duplicateAudit = auditDuplicateUrls(records, configuration);
   const state = canonicalize(records, configuration);
   const markdown = renderMarkdown(configuration, source, index, state, duplicateAudit);
   const canonicalRecords = state.canonicalRecords;
-  const existingQa = await readFile(qaPath, 'utf8').then((contents) => parseJson(contents, source.qa_path), () => null);
-  const generatedAt = existingQa?.generation?.status === 'generated'
-    ? existingQa.generation.generated_at
-    : new Date().toISOString();
+  assert(typeof index.generatedAt === 'string' && index.generatedAt, `${configuration.sourceId}: archive index has no generatedAt value.`);
   const sourceArchiveBytes = await readFile(archivePath);
-  const canonicalBookIds = [...new Set(canonicalRecords.map((record) => record.book_id))];
-  const suffixAnomalies = canonicalBookIds.filter((bookId) => bookId.endsWith('_et')
-    && canonicalRecords.some((record) => record.book_id === bookId && record.language === 'ru'));
+  const canonicalSourceBookIds = [...new Set(canonicalRecords.map((record) => record.source_book_id))];
+  const suffixAnomalies = canonicalSourceBookIds.filter((bookId) => bookId.endsWith('_et')
+    && canonicalRecords.some((record) => record.source_book_id === bookId && record.language === 'ru'));
   const excludedBookAudit = [...configuration.excludedBookIds].map(([bookId, reason]) => ({
     book_id: bookId,
     source_records: records.filter((record) => normalizeText(record.book_id) === bookId).length,
@@ -357,7 +524,7 @@ async function generateSource(manifest, configuration) {
     format_version: source.format_version,
     generation: {
       status: 'generated',
-      generated_at: generatedAt,
+      generated_at: index.generatedAt,
       generator: generatorPath,
       generator_version: generatorVersion,
       note: 'Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown.',
@@ -370,25 +537,33 @@ async function generateSource(manifest, configuration) {
     page_records_included: canonicalRecords.length,
     cover_detail_records_excluded: state.coverRecords.length,
     administrative_records_excluded: state.administrativeRecords.length,
-    mixed_subject_page_records_excluded: state.excludedBookRecords.length,
+    subject_boundary_page_records_excluded: state.excludedBookRecords.length,
     grades: countBy(canonicalRecords, (record) => record.grade),
     languages: countBy(canonicalRecords, (record) => record.language),
     books: countBy(canonicalRecords, (record) => record.book_id),
+    source_books: countBy(canonicalRecords, (record) => record.source_book_id),
     kits: countBy(canonicalRecords, (record) => kitId(record.url)),
-    programme_types: countBy(canonicalRecords, (record) => configuration.simplifiedBookIds.has(record.book_id) ? 'simplified_curriculum' : 'ordinary_curriculum'),
+    programme_types: countBy(canonicalRecords, (record) => record.programme_type),
     source_subject_counts: countBy(records, sourceSubject),
     canonical_subject_counts: countBy(canonicalRecords, sourceSubject),
     subject_normalization_records: state.subjectNormalizationAudit.length,
     subject_normalization_audit: state.subjectNormalizationAudit,
     duplicate_url_audit: {
       source_duplicate_groups: duplicateAudit.duplicateGroups.length,
-      source_duplicate_records: records.length - new Set(records.map((record) => record.url)).size,
+      source_duplicate_records: duplicateAudit.duplicateRecords,
       canonical_duplicate_groups: 0,
       entries: duplicateAudit.entries,
     },
     excluded_book_audit: excludedBookAudit,
     book_id_language_suffix_anomalies: suffixAnomalies,
     book_metadata_audit: bookMetadataAudit(canonicalRecords, configuration),
+    ...(configuration.routePartition ? {
+      route_partition: {
+        paired_source_id: configuration.routePartition.pairedSourceId,
+        expected_union_page_records: configuration.routePartition.expectedUnionRecords,
+        canonical_overlap_urls: 0,
+      },
+    } : {}),
     records_without_headings: canonicalRecords.filter((record) => record.headings.length === 0).length,
     missing_urls: canonicalRecords.filter((record) => !record.url).length,
     archive_index: {
@@ -409,6 +584,7 @@ async function generateSource(manifest, configuration) {
     if (currentQa !== qaContents) await writeFile(qaPath, qaContents, 'utf8');
     console.log(`${configuration.sourceId} generation complete: ${records.length} source records, ${canonicalRecords.length} canonical pages.`);
   }
+  return { source, canonicalRecords };
 }
 
 if (unknownArguments.length > 0) {
@@ -418,7 +594,17 @@ if (unknownArguments.length > 0) {
 } else {
   try {
     const manifest = parseJson(await readFile(manifestPath, 'utf8'), 'source-manifest.json');
-    for (const configuration of configurations) await generateSource(manifest, configuration);
+    const results = [];
+    for (const configuration of configurations) results.push(await generateSource(manifest, configuration));
+    const firstLanguage = results.find((result) => result.source.id === 'grade-2-estonian');
+    const secondLanguage = results.find((result) => result.source.id === 'grade-2-estonian-second-language');
+    assert(firstLanguage && secondLanguage, 'Both grade 2 Estonian subject routes are required.');
+    const firstUrls = new Set(firstLanguage.canonicalRecords.map((record) => record.url));
+    const secondUrls = new Set(secondLanguage.canonicalRecords.map((record) => record.url));
+    const overlap = [...firstUrls].filter((url) => secondUrls.has(url));
+    assert(overlap.length === 0, `Grade 2 Estonian routes overlap on canonical URL ${overlap[0]}.`);
+    assert(firstUrls.size + secondUrls.size === 444, 'Grade 2 Estonian route union must contain 444 instructional pages.');
+    console.log('Grade 2 Estonian route partition passed: 372 first-language pages, 72 second-language pages, 0 overlapping URLs.');
   } catch (error) {
     console.error(`Grade 2 source generation failed: ${error.message}`);
     process.exitCode = 1;

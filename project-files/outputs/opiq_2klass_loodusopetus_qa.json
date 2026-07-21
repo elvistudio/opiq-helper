@@ -6,20 +6,20 @@
   "format_version": "2.0",
   "generation": {
     "status": "generated",
-    "generated_at": "2026-07-21T16:36:27.535Z",
+    "generated_at": "2026-07-21T09:40:37.262Z",
     "generator": "scripts/generate-grade-2-source-indexes.mjs",
-    "generator_version": "1.0",
+    "generator_version": "2.0",
     "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "138b7836b71521c5a7ba00deab14542cb301b780836321ee3239f2991080c3f6",
-    "output_file_sha256": "6cd62c74d9aeb558dc6479e943ea9e7d06f515cc1b7d51137c49a472ca9be71e"
+    "output_file_sha256": "a0654efe95673f2c96ae749ab786758a5c527889b77ece0a29b5758836ec4379"
   },
   "source_records": 428,
   "page_records_included": 286,
   "cover_detail_records_excluded": 18,
   "administrative_records_excluded": 5,
-  "mixed_subject_page_records_excluded": 119,
+  "subject_boundary_page_records_excluded": 119,
   "grades": {
     "2": 286
   },
@@ -28,6 +28,15 @@
     "ru": 90
   },
   "books": {
+    "avita_loodusõpet_2_et": 27,
+    "avita_природовед_2_ru": 23,
+    "koolibri_loodusõpet_2_et": 64,
+    "koolibri_природове_2_ru": 67,
+    "ministeerium_loodusõpet_2_et": 36,
+    "skriibus_loodusõpet_2_et": 28,
+    "star cloud_loodusõpet_2_et": 41
+  },
+  "source_books": {
     "avita_loodusõpet_2_et": 27,
     "avita_природовед_2_ru": 23,
     "koolibri_loodusõpet_2_et": 64,
@@ -948,73 +957,87 @@
   "book_metadata_audit": {
     "avita_loodusõpet_2_et": {
       "title": "Loodusõpetus 2. klassile (2022)",
+      "source_book_id": "avita_loodusõpet_2_et",
       "publisher": "Avita",
       "language": "et",
       "kits": [
         "379"
       ],
       "page_records": 27,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     },
     "avita_природовед_2_ru": {
       "title": "Природоведение для 2 класса",
+      "source_book_id": "avita_природовед_2_ru",
       "publisher": "Avita",
       "language": "ru",
       "kits": [
         "570"
       ],
       "page_records": 23,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "index_json; cover is Estonian"
     },
     "koolibri_loodusõpet_2_et": {
       "title": "Loodusõpetus 2. klassile",
+      "source_book_id": "koolibri_loodusõpet_2_et",
       "publisher": "Koolibri",
       "language": "et",
       "kits": [
         "121"
       ],
       "page_records": 64,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     },
     "koolibri_природове_2_ru": {
-      "title": "Природоведение 2 клacc",
+      "title": "Природоведение 2 класс",
+      "source_book_id": "koolibri_природове_2_ru",
       "publisher": "Koolibri",
       "language": "ru",
       "kits": [
         "132"
       ],
       "page_records": 67,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "confirmed Cyrillic/Latin typo correction"
     },
     "ministeerium_loodusõpet_2_et": {
       "title": "Loodusõpetus 2. klassile. Lihtsustatud õppekava",
-      "publisher": "ministeerium",
+      "source_book_id": "ministeerium_loodusõpet_2_et",
+      "publisher": "Ministeerium",
       "language": "et",
       "kits": [
         "501"
       ],
       "page_records": 36,
-      "programme_type": "simplified_curriculum"
+      "programme_type": "simplified_curriculum",
+      "title_evidence": "cover_detail; publisher case normalized from index_json"
     },
     "skriibus_loodusõpet_2_et": {
       "title": "Loodusõpetuse tööraamat 2. klassile",
+      "source_book_id": "skriibus_loodusõpet_2_et",
       "publisher": "Skriibus",
       "language": "et",
       "kits": [
         "387"
       ],
       "page_records": 28,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     },
     "star cloud_loodusõpet_2_et": {
       "title": "Loodusõpetuse õppevideod 1. kooliastmele",
+      "source_book_id": "star cloud_loodusõpet_2_et",
       "publisher": "Star Cloud",
       "language": "et",
       "kits": [
         "384"
       ],
       "page_records": 41,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     }
   },
   "records_without_headings": 0,

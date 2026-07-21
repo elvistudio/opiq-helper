@@ -22,3 +22,5 @@ One Russian Koolibri Book ID contains the invisible discretionary soft-hyphen ch
 ## Boundary and limitations
 
 The manifest forbids both mixed Book IDs in `grade-2-science`, and the regression suite checks that a pure science page resolves only through the new route. This separation is a retrieval decision, not an assertion that the repository covers the complete official grade-2 curriculum. Human-studies requests continue to use `grade-2-human-studies`.
+
+The 60 excluded Russian `Природа и человек для 2 класса` instructional pages remain available in the committed kit 86 archive and do not require recapture. They are intentionally not added to `grade-2-human-studies` until that route can represent multi-archive provenance or an equally explicit aggregation model. See the [grade 2 catalogue metadata audit](grade-2-catalog-metadata.md).
