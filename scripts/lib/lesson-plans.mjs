@@ -238,16 +238,145 @@ function validateArtifactRouteAndPages(diagnostics, artifact, context, indexes, 
   return routeData;
 }
 
-function validateAuthorMaterials(diagnostics, artifact) {
+function resolveMaterialPath(diagnostics, artifact, repositoryPath, field, context) {
+  try {
+    const resolved = safeRepositoryPath(context.rootDir, repositoryPath, field);
+    if (!fsSync.existsSync(resolved) || !fsSync.statSync(resolved).isFile()) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, field, `material file does not exist: ${repositoryPath ?? '<missing>'}`));
+      return null;
+    }
+    return resolved;
+  } catch (error) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, field, error.message));
+    return null;
+  }
+}
+
+function validRecordedDate(value) {
+  return typeof value === 'string'
+    && /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:\d{2})?)?$/u.test(value)
+    && !Number.isNaN(Date.parse(value));
+}
+
+function validateAuthorMaterials(diagnostics, artifact, context) {
   const materials = artifact.data.evidence_linkage?.author_materials ?? [];
   addDuplicateDiagnostics(diagnostics, materials.map((material) => material.material_id), {
     file: artifact.file,
     field: '/evidence_linkage/author_materials',
     label: 'author material ID',
   });
+  let allResolved = true;
+  let allStudentPrintable = true;
   for (const [index, material] of materials.entries()) {
+    const field = `/evidence_linkage/author_materials/${index}`;
     if (!authorProvenance.has(material.provenance?.category)) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, `/evidence_linkage/author_materials/${index}/provenance/category`, 'author material requires author-created provenance'));
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/provenance/category`, 'author material requires author-created provenance'));
+    }
+    const artifactFile = resolveMaterialPath(diagnostics, artifact, material.artifact_path, `${field}/artifact_path`, context);
+    if (!artifactFile) allResolved = false;
+    if (material.audience === 'student' && /\.ya?ml$/iu.test(material.artifact_path ?? '')) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/artifact_path`, 'student material cannot use a YAML plan as its ready artifact'));
+      allStudentPrintable = false;
+    }
+    if (material.printable && !/\.(?:md|html)$/iu.test(material.artifact_path ?? '')) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/printable`, 'printable material must be a Markdown or HTML file'));
+      if (material.audience === 'student') allStudentPrintable = false;
+    }
+    if (material.audience === 'student' && material.printable !== true) allStudentPrintable = false;
+    if (['worksheet', 'assessment'].includes(material.material_type)) {
+      if (!material.answer_key_path && !material.answer_key_exemption?.open_ended) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/answer_key_path`, `${material.material_type} requires an answer key or an explicit open-ended exemption`));
+        allResolved = false;
+      }
+    }
+    if (material.answer_key_path) {
+      const answerKey = resolveMaterialPath(diagnostics, artifact, material.answer_key_path, `${field}/answer_key_path`, context);
+      if (!answerKey) allResolved = false;
+      if (answerKey && artifactFile && answerKey === artifactFile) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/answer_key_path`, 'answer key must be separate from the student artifact'));
+        allResolved = false;
+      }
+    }
+  }
+  return { allResolved, allStudentPrintable };
+}
+
+function validateLessonReadiness(diagnostics, artifact, materialState) {
+  const readiness = artifact.data.artifact_readiness ?? {};
+  const review = readiness.teacher_review ?? {};
+  const trial = readiness.classroom_trial ?? {};
+  if (readiness.content_complete && !readiness.schema_complete) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/content_complete', 'content_complete requires schema_complete'));
+  }
+  if (readiness.materials_resolved && !materialState.allResolved) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/materials_resolved', 'materials_resolved cannot be true while a declared material or answer key is unresolved'));
+  }
+  if (readiness.materials_resolved && !readiness.content_complete) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/materials_resolved', 'materials_resolved requires content_complete'));
+  }
+  if (readiness.print_ready && !materialState.allStudentPrintable) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/print_ready', 'print_ready cannot be true while a required student material is not printable'));
+  }
+  if (readiness.print_ready && !readiness.materials_resolved) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/print_ready', 'print_ready requires materials_resolved'));
+  }
+  if (review.status === 'approved') {
+    if (!normalize(review.reviewer_role) || !validRecordedDate(review.reviewed_at) || !normalize(review.notes)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/teacher_review', 'approved teacher review requires reviewer role, valid date, and notes'));
+    }
+  } else if (review.status === 'pending' && review.reviewed_at !== null) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/teacher_review/reviewed_at', 'pending teacher review must not record a review date'));
+  }
+  if (trial.status === 'tested') {
+    if (!validRecordedDate(trial.tested_at) || !normalize(trial.context) || !normalize(trial.notes)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/classroom_trial', 'tested classroom trial requires a valid date, context, and notes'));
+    }
+  } else if (trial.status === 'not_tested' && (trial.tested_at !== null || trial.context !== null)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/classroom_trial', 'not_tested classroom trial must not record a date or context'));
+  }
+  const status = readiness.readiness_status;
+  if (status === 'schema_complete' && !readiness.schema_complete) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'schema_complete status requires schema_complete: true'));
+  }
+  if (status === 'content_complete' && !(readiness.schema_complete && readiness.content_complete)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'content_complete status requires schema_complete and content_complete'));
+  }
+  const requiresResolvedPack = [
+    'materials_resolved',
+    'print_ready',
+    'teacher_pack_complete_pending_review',
+    'teacher_reviewed',
+    'classroom_tested',
+    'classroom_ready',
+  ].includes(status);
+  if (requiresResolvedPack && !(readiness.schema_complete && readiness.content_complete && readiness.materials_resolved)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', `${status} requires schema, content, and materials to be complete`));
+  }
+  if (['print_ready', 'teacher_pack_complete_pending_review', 'teacher_reviewed', 'classroom_tested', 'classroom_ready'].includes(status) && !readiness.print_ready) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', `${status} requires print_ready`));
+  }
+  if (status === 'teacher_pack_complete_pending_review' && review.status !== 'pending') {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'teacher_pack_complete_pending_review requires pending teacher review'));
+  }
+  if (status === 'teacher_reviewed' && review.status !== 'approved') {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'teacher_reviewed requires approved teacher review'));
+  }
+  if (status === 'classroom_tested' && trial.status !== 'tested') {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'classroom_tested requires a recorded classroom trial'));
+  }
+  if (status === 'classroom_ready' && readiness.classroom_ready !== true) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'classroom_ready status requires classroom_ready: true'));
+  }
+  if (readiness.classroom_ready) {
+    const unresolvedReadinessWarnings = [];
+    if (review.status !== 'approved') unresolvedReadinessWarnings.push('teacher review is not approved');
+    if (trial.status !== 'tested') unresolvedReadinessWarnings.push('classroom trial is not recorded');
+    if (!readiness.print_ready || !materialState.allResolved || !materialState.allStudentPrintable) unresolvedReadinessWarnings.push('materials are not fully resolved and printable');
+    if (unresolvedReadinessWarnings.length > 0) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/classroom_ready', `classroom_ready cannot be true with unresolved readiness warnings: ${unresolvedReadinessWarnings.join('; ')}`));
+    }
+    if (status !== 'classroom_ready') {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_readiness/readiness_status', 'classroom_ready: true requires readiness_status classroom_ready'));
     }
   }
 }
@@ -307,7 +436,7 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
   if (officialMap && objectiveOutcomes.length === 0) {
     diagnostics.push(makeDiagnostic('error', artifact.file, '/objectives/content_objectives', 'content objectives require official outcome references'));
   }
-  validateAuthorMaterials(diagnostics, artifact);
+  return validateAuthorMaterials(diagnostics, artifact, context);
 }
 
 function validateLessonMethodology(diagnostics, artifact) {
@@ -604,11 +733,12 @@ function addLessonWarnings(diagnostics, artifact, profile) {
 }
 
 function validateLesson(diagnostics, artifact, context, indexes, profiles) {
-  validateLessonEvidence(diagnostics, artifact, context, indexes);
+  const materialState = validateLessonEvidence(diagnostics, artifact, context, indexes);
   validateLessonMethodology(diagnostics, artifact);
   validateLessonLanguageLoad(diagnostics, artifact);
   validateLessonStages(diagnostics, artifact);
   validateLessonReferencesAndAssessment(diagnostics, artifact);
+  validateLessonReadiness(diagnostics, artifact, materialState ?? { allResolved: false, allStudentPrintable: false });
   const profile = validateLessonProfile(diagnostics, artifact, profiles);
   addLessonWarnings(diagnostics, artifact, profile);
 }
@@ -682,6 +812,30 @@ function validateUnit(diagnostics, artifact, context, indexes, lessonsById) {
       if (!lesson) diagnostics.push(makeDiagnostic('error', artifact.file, `/linked_outcomes/${index}/lesson_ids`, `unknown lesson reference ${lessonId}`));
       else if (!(lesson.evidence_linkage?.official_outcome_refs ?? []).includes(mapping.outcome_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `/linked_outcomes/${index}/lesson_ids`, `lesson ${lessonId} does not reference outcome ${mapping.outcome_id}`));
     }
+  }
+  const teacherPack = unit.teacher_pack ?? {};
+  try {
+    const packDirectory = safeRepositoryPath(context.rootDir, teacherPack.path, 'teacher_pack path');
+    if (!fsSync.existsSync(packDirectory) || !fsSync.statSync(packDirectory).isDirectory()) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/path', `teacher-pack directory does not exist: ${teacherPack.path ?? '<missing>'}`));
+    } else if (!fsSync.existsSync(path.join(packDirectory, 'materials-index.yaml'))) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/path', 'teacher-pack directory requires materials-index.yaml'));
+    }
+  } catch (error) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/path', error.message));
+  }
+  const linkedReadiness = lessonIds.map((lessonId) => lessonsById.get(lessonId)?.data.artifact_readiness).filter(Boolean);
+  if (teacherPack.materials_resolved && linkedReadiness.some((readiness) => !readiness.materials_resolved)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/materials_resolved', 'teacher pack cannot resolve materials while a linked lesson remains unresolved'));
+  }
+  if (teacherPack.print_ready && linkedReadiness.some((readiness) => !readiness.print_ready)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/print_ready', 'teacher pack cannot be print ready while a linked lesson is not print ready'));
+  }
+  if (teacherPack.teacher_review_status === 'approved' && linkedReadiness.some((readiness) => readiness.teacher_review?.status !== 'approved')) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/teacher_review_status', 'approved teacher pack requires approved review for every linked lesson'));
+  }
+  if (teacherPack.classroom_ready && linkedReadiness.some((readiness) => !readiness.classroom_ready)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/classroom_ready', 'classroom-ready teacher pack requires every linked lesson to be classroom ready'));
   }
   validateUnitProgressions(diagnostics, artifact, lessonsById);
 }

@@ -3,9 +3,11 @@
   "scripts": {
     "check:curriculum": "node scripts/check-curriculum-maps.mjs",
     "check:plans": "node scripts/check-lesson-plans.mjs",
+    "check:teacher-packs": "node scripts/check-teacher-packs.mjs",
     "check:topics": "node scripts/check-known-topic-regressions.mjs",
     "test:curriculum": "node --test scripts/curriculum-maps.test.mjs",
     "test:plans": "node --test scripts/lesson-plans.test.mjs",
+    "test:teacher-packs": "node --test scripts/teacher-packs.test.mjs",
     "test:topics": "node --test scripts/known-topic-regressions.test.mjs"
   },
   "devDependencies": {

@@ -14,9 +14,12 @@ Use `schemas/thematic-plan.schema.json` as the machine-readable authority.
 - Schedule practical work, revision, and separate subject/Estonian assessment points.
 - Preserve the subject objective in differentiation and forbid silent simplified-curriculum use.
 - Record known gaps, optional extensions, provenance, and honest completeness buckets.
+- Link the real teacher-pack directory in `teacher_pack`; declare material resolution, print readiness, review status, and classroom readiness independently.
 
 A complete teaching sequence may still have incomplete curriculum coverage. Do not set `declared_complete: true` while an official outcome is partial, missing, or ambiguous.
 
 Within-lesson practice belongs in each lesson’s `reuse_stage_refs`. Recycling in a later thematic unit belongs in the annual course’s `planned_vocabulary_recycling_intervals`; neither should be copied into same-lesson `recycled_in_lessons` entries.
 
-Validate with `npm run test:plans && npm run check:plans`.
+Thematic curriculum `completeness` and teacher-pack readiness answer different questions. A sequence can have partial official coverage while its files are resolved; a print-ready pack can still await independent review and classroom trial.
+
+Validate with `npm run test:plans && npm run check:plans && npm run test:teacher-packs && npm run check:teacher-packs`.

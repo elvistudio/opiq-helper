@@ -9,6 +9,7 @@ on:
       - evaluations/**
       - curriculum-maps/**
       - lesson-plans/**
+      - teacher-packs/**
       - annual-courses/**
       - schemas/**
       - docs/curriculum-maps.md
@@ -28,6 +29,7 @@ on:
       - evaluations/**
       - curriculum-maps/**
       - lesson-plans/**
+      - teacher-packs/**
       - annual-courses/**
       - schemas/**
       - docs/curriculum-maps.md
@@ -77,6 +79,12 @@ jobs:
 
       - name: Check bilingual teaching plans
         run: npm run check:plans
+
+      - name: Test teacher-pack validator
+        run: npm run test:teacher-packs
+
+      - name: Check teacher packs
+        run: npm run check:teacher-packs
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

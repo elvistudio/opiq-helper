@@ -12,6 +12,7 @@ The documented model is a teaching design, not a claim that a particular techniq
 | --- | --- | --- | --- |
 | Single lesson | `schemas/lesson-plan.schema.json` | `lesson-plans/grade-5-science/water/lesson-03.yaml` | Timed teaching, language path, materials, practical work, and separate assessment |
 | Thematic plan | `schemas/thematic-plan.schema.json` | `lesson-plans/grade-5-science/water/thematic-plan.yaml` | Four-lesson order, vocabulary recycling, scaffold progression, and unit checks |
+| Teacher pack | `schemas/teacher-pack.schema.json` | `teacher-packs/grade-5-science/water/materials-index.yaml` | Real teacher/student/parent files, answer keys, printability, and readiness checks |
 | Annual course architecture | `schemas/annual-course.schema.json` | `annual-courses/grade-5-science/annual-architecture.yaml` | Complete unit skeleton, budgets, progression calendars, coverage, and explicit implementation gaps |
 | Annual components | `schemas/annual-course-components.schema.json` | `annual-courses/grade-5-science/{source-selection-matrix,language-progression,teaching-calendars,implementation-roadmap}.yaml` | Auditable page choices, language progression, calendars, and phased implementation work |
 | Language defaults | `schemas/language-profiles.schema.json` | `lesson-plans/language-profiles.yaml` | Reusable grade/subject defaults with justified learner-specific overrides |
@@ -110,6 +111,32 @@ Supported provenance categories are:
 
 Every stage resolves its material and provenance references. Author-created bridges are explicit and do not pretend to be Opiq text. Production artifacts use summaries, short task descriptions, labels, direct URLs, and source references rather than copying textbook passages.
 
+## Artifact readiness and resolved materials
+
+Lesson schema 1.1 replaces the old binary `artifact_completeness` claim with independent `artifact_readiness` facts:
+
+```yaml
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review:
+    status: pending
+  classroom_trial:
+    status: not_tested
+  classroom_ready: false
+  readiness_status: teacher_pack_complete_pending_review
+```
+
+The meanings are intentionally non-equivalent: `schema complete` ≠ `content complete` ≠ `materials resolved` ≠ `print ready` ≠ `teacher reviewed` ≠ `classroom tested` ≠ `classroom ready`.
+
+Every `author_material` declares a repository-relative `artifact_path`, audience, lower-case language list, printability, provenance, and an `answer_key_path` for worksheets/assessments unless an open creative task has an explicit exemption. Files must exist inside the repository. A student YAML plan or an Opiq URL is not a ready worksheet. Printable materials must be Markdown or HTML.
+
+`materials_resolved: true` is rejected if a declared material or key is absent. `print_ready: true` is rejected if a required student file is not printable. Approved review requires role, date, and notes. `classroom_ready: true` requires both approved review and a recorded classroom trial and is rejected while readiness warnings remain.
+
+The water teacher pack is physically resolved and print-ready, but independent review is pending and no classroom trial is recorded. Its honest status is `teacher_pack_complete_pending_review`; `classroom_ready` remains false. `npm run check:teacher-packs` reports these as two actionable warnings, not as completed facts.
+
 Simplified-curriculum material is forbidden as a silent default. The lesson schema supports only an explicit learner-specific opt-in with authorisation and provenance. No production pilot lesson enables that option.
 
 ## Golden lesson excerpt
@@ -182,7 +209,8 @@ For a new lesson:
 4. Define separate observable content and language objectives.
 5. Plan the language path, stage-linked scaffolds, release, terminology, and recycling.
 6. Resolve every stage material and provenance reference.
-7. Reconcile stage timing and keep content/language assessment separate.
+7. Create each author-material file and answer key, register it in the teacher-pack index, and declare honest readiness.
+8. Reconcile stage timing and keep content/language assessment separate.
 
 For a thematic plan, link complete lesson artifacts, make the glossary and progression match those lessons exactly, and list only strictly later lessons in `recycled_in_lessons`. Use an explicit empty list when no suitable later lesson exists. For an annual architecture, use verified topic IDs, link only existing thematic plans, select canonical pages through the source matrix, distinguish publisher and curated sequences, reconcile budget scenarios, and declare implementation and evidence gaps honestly.
 
@@ -191,6 +219,8 @@ Run:
 ```sh
 npm run test:plans
 npm run check:plans
+npm run test:teacher-packs
+npm run check:teacher-packs
 ```
 
-The focused test suite mutates the valid production repository to verify route ownership, schema strictness, objectives, language load, timing, cross-file links, programme type, provenance, assessment separation, school-stage scope, completeness, and warning thresholds.
+The focused test suites mutate the valid production repository to verify route ownership, schema strictness, objectives, language load, timing, cross-file links, programme type, provenance, assessment separation, school-stage scope, completeness, material path safety, answer-key requirements, hidden-answer rejection, readiness gates, and warning thresholds.

@@ -27,6 +27,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `evaluations/known-topic-checks.yaml` records machine-checked representative topic and routing regressions; it is not a curriculum map.
 - `curriculum-maps/` separates official curriculum evidence, publisher evidence, topic inventory, and curated-course data.
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
+- `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
 
@@ -130,13 +131,19 @@ The grade-5 work validates one golden thematic unit, a ten-topic evidence invent
 
 The lesson, thematic-plan, and annual-course formats are documented in [`docs/lesson-plans.md`](docs/lesson-plans.md). Their methodology model is `russian_primary_estonian_supported`: Russian carries complex subject explanation, while Estonian is introduced systematically through terminology, familiar instructions, visuals, short definitions, sentence frames, and short oral output.
 
-The production set contains four linked grade-5 science lessons for the water unit, one thematic plan, and a ten-unit annual architecture with linked source selection, language progression, teaching calendars, and implementation roadmap. The architecture is complete for planning, while nine thematic plans and their detailed lessons remain unimplemented. See [`docs/grade-5-science-annual-course.md`](docs/grade-5-science-annual-course.md). Reusable language-profile defaults also describe the intended progression for later grade-6 science and grade-7 geography work; they are planning defaults, not fixed learner facts.
+The production set contains four linked grade-5 science lessons for the water unit, one thematic plan, a resolved teacher pack, and a ten-unit annual architecture with linked source selection, language progression, teaching calendars, and implementation roadmap. The architecture is complete for planning, while nine thematic plans and their detailed lessons remain unimplemented. See [`docs/grade-5-science-annual-course.md`](docs/grade-5-science-annual-course.md). Reusable language-profile defaults also describe the intended progression for later grade-6 science and grade-7 geography work; they are planning defaults, not fixed learner facts.
+
+The water unit has complete YAML, real resolved files, a teacher guide, 12 printable student files, four answer keys, a rubric, and family support. Independent teacher review is still `pending`, classroom trial is `not_tested`, and `classroom_ready` is therefore `false`.
+
+Readiness is deliberately staged: `schema complete` ≠ `materials resolved` ≠ `print ready` ≠ `teacher reviewed` ≠ `classroom tested` ≠ `classroom ready`.
 
 Run the focused tests and production validation with:
 
 ```sh
 npm run test:plans
 npm run check:plans
+npm run test:teacher-packs
+npm run check:teacher-packs
 ```
 
 Validation reuses the curriculum-map route loader and canonical Opiq checks. It verifies cross-file links, timing, source ownership, programme type, provenance, bilingual objectives, lesson- and unit-scale vocabulary recycling, scaffold release, budget reconciliation, separate assessment, and honest annual implementation declarations. These design controls do not guarantee learning outcomes.

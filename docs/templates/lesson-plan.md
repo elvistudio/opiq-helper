@@ -8,7 +8,8 @@ Use `schemas/lesson-plan.schema.json` as the machine-readable authority. Start f
 - Copy the exact canonical route from the manifest.
 - Link the official curriculum map, outcome IDs, and merged course-map artifact.
 - Add only canonical Opiq records already selected in that course map; preserve URL, Book ID, title, language, programme type, roles, and provenance.
-- Register every teacher-created explanation, bridge, worksheet, assessment, visual, or practical setup.
+- Register every teacher-created explanation, bridge, worksheet, assessment, visual, or practical setup with `artifact_path`, audience, lower-case languages, printability, provenance, and an answer key where required.
+- Keep every path repository-relative and inside the teacher pack. A YAML plan or Opiq link does not replace a separate worksheet.
 
 ## Teaching design
 
@@ -36,4 +37,12 @@ Use `schemas/lesson-plan.schema.json` as the machine-readable authority. Start f
 - A simplified-curriculum opt-in requires explicit learner-specific authorisation and provenance.
 - Homework needs a content task, Estonian component, time estimate, source, Opiq URL when used, adult-support expectation, guidance, and provenance.
 
-Validate with `npm run test:plans && npm run check:plans`.
+## Readiness
+
+- Use `artifact_readiness`, not the removed binary `artifact_completeness` block.
+- Set schema, content, material resolution, and print readiness independently.
+- `approved` teacher review requires reviewer role, date, and notes.
+- Do not set `classroom_ready: true` until review is approved, a classroom trial is recorded, and readiness warnings are resolved.
+- A teacher pack can honestly be `teacher_pack_complete_pending_review` while `classroom_ready` remains false.
+
+Validate with `npm run test:plans && npm run check:plans && npm run test:teacher-packs && npm run check:teacher-packs`.
