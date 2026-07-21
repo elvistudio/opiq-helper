@@ -4,7 +4,9 @@
 
 The production artifact `annual-courses/grade-5-science/annual-architecture.yaml` is the complete planning skeleton for a curated grade-5 `loodusõpetus` course. It sequences every one of the ten verified topic-inventory groups, selects sources by instructional role, reconciles lesson-budget scenarios, and plans language, practical work, revision, assessment, and later-unit vocabulary reuse.
 
-“Architecture complete” does not mean “annual course fully authored.” Only `grade-5-water-four-lesson-plan` has a validated thematic plan and four detailed 45-minute lessons. The other nine units remain architecture until later issue #18 pull requests add and validate their thematic and lesson artifacts. The course therefore keeps `declared_complete: false`.
+“Architecture complete” does not mean “annual course fully authored.” Only `grade-5-water-four-lesson-plan` has a validated thematic plan, four detailed 45-minute lessons, and a resolved printable teacher pack. The other nine units remain architecture until later issue #18 pull requests add and validate their thematic, lesson, and material artifacts. The course therefore keeps `declared_complete: false`.
+
+The water pack distinguishes readiness stages rather than calling a YAML file “complete.” Its schema and content are complete, declared material paths resolve, and student files are print-ready. Independent primary-science teacher review is pending, classroom trial is not recorded, and `classroom_ready` remains false. These states must not be collapsed: schema complete ≠ materials resolved ≠ print ready ≠ teacher reviewed ≠ classroom tested ≠ classroom ready.
 
 The model is `russian_primary_estonian_supported`: Russian carries concept formation, scientific reasoning, misconception repair, and full subject answers. Estonian at the A1–A2 planning level supports terminology, diagrams and labels, familiar instructions, short frames, and one- or two-sentence oral output. The architecture does not prescribe immersion and does not reduce science objectives because language output is shorter.
 
@@ -69,13 +71,15 @@ The linked language-progression artifact contains 12 deterministic later-unit in
 
 ## Practical work, revision, and assessment
 
-The architecture plans one concise, safe practical activity per unit: 10 activities across observation, measurement, classification, models, experiments, fieldwork, and data use. Equipment, safety, teacher-controlled steps, time, skill, Estonian language function, assessment role, provenance, and implementation status are explicit. Outside the water unit these entries are designs, not ready-to-print procedures.
+The architecture plans one concise, safe practical activity per unit: 10 activities across observation, measurement, classification, models, experiments, fieldwork, and data use. Equipment, safety, teacher-controlled steps, time, skill, Estonian language function, assessment role, provenance, and implementation status are explicit. Outside the water unit these entries are designs, not ready-to-print procedures. The water implementation is indexed at `teacher-packs/grade-5-science/water/materials-index.yaml` and validated separately from the annual architecture.
 
 Four cumulative revision points cover all ten units. Ten subject-assessment points and six Estonian-language-assessment points use separate calendars and domains. A weak Estonian answer does not automatically lower the subject result; correctly repeating a term without demonstrating the concept does not establish subject mastery. Full papers and rubrics remain deferred.
 
 ## Validation and intentional warnings
 
 `npm run check:plans` validates the annual schema, all four linked components, all cross-file references, source ownership, programme type, page metadata, role and provenance, order, prerequisites, estimates, scenarios, Russian and Estonian coverage, later-unit recycling, calendars, school-stage semantics, and completeness declarations.
+
+`npm run check:teacher-packs` additionally resolves author-material and answer-key paths, compares lesson YAML with the material index, checks audiences and printability, verifies direct Opiq URLs in the teacher lesson guides, rejects hidden student answers, and enforces teacher-review/classroom-trial gates. The current pack produces exactly two readiness warnings: teacher review pending and classroom trial not completed.
 
 The production repository intentionally emits 12 warnings:
 
