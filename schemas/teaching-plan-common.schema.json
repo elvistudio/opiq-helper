@@ -68,6 +68,35 @@
       "uniqueItems": true,
       "items": { "enum": ["ru", "et"] }
     },
+    "pedagogicalReviewLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["guide_path", "review_record_path", "status"],
+      "properties": {
+        "guide_path": { "$ref": "#/$defs/repositoryPath" },
+        "review_record_path": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/repositoryPath" }
+          ]
+        },
+        "status": { "enum": ["pending", "changes_requested", "approved", "rejected"] }
+      }
+    },
+    "classroomTrialLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template_path", "trial_record_paths", "status"],
+      "properties": {
+        "template_path": { "$ref": "#/$defs/repositoryPath" },
+        "trial_record_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "status": { "enum": ["not_tested", "changes_required", "repeat_required", "tested"] }
+      }
+    },
     "authorMaterial": {
       "type": "object",
       "additionalProperties": false,

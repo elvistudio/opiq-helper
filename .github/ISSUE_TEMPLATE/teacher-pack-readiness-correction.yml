@@ -1,0 +1,53 @@
+name: Teacher pack readiness correction
+description: Propose an evidence-backed correction to teacher-pack readiness.
+title: "Teacher-pack readiness correction: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: Readiness can change only from registered review/trial evidence for the current pack commit. Do not include student personal data.
+  - type: input
+    id: pack_commit_sha
+    attributes:
+      label: Current pack commit SHA
+    validations:
+      required: true
+  - type: input
+    id: review_record
+    attributes:
+      label: Teacher review record path
+      description: Leave as “none” if the correction does not claim approval.
+    validations:
+      required: true
+  - type: input
+    id: trial_records
+    attributes:
+      label: Classroom trial record paths
+      description: Leave as “none” if the correction does not claim tested status.
+    validations:
+      required: true
+  - type: dropdown
+    id: target_status
+    attributes:
+      label: Requested readiness status
+      options:
+        - teacher_pack_complete_pending_review
+        - teacher_reviewed
+        - classroom_tested
+        - classroom_ready
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Evidence-based rationale
+      description: Refer only to repository artifacts, finding IDs, and resolution refs.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: This issue contains no student personal or identifiable information.
+          required: true

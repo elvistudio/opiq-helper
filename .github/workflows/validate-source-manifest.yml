@@ -10,12 +10,15 @@ on:
       - curriculum-maps/**
       - lesson-plans/**
       - teacher-packs/**
+      - pedagogical-reviews/**
       - annual-courses/**
       - schemas/**
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/templates/**
+      - README.md
+      - .github/ISSUE_TEMPLATE/**
       - package.json
       - package-lock.json
       - .github/workflows/validate-source-manifest.yml
@@ -30,12 +33,15 @@ on:
       - curriculum-maps/**
       - lesson-plans/**
       - teacher-packs/**
+      - pedagogical-reviews/**
       - annual-courses/**
       - schemas/**
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/templates/**
+      - README.md
+      - .github/ISSUE_TEMPLATE/**
       - package.json
       - package-lock.json
       - .github/workflows/validate-source-manifest.yml
@@ -53,6 +59,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -85,6 +93,12 @@ jobs:
 
       - name: Check teacher packs
         run: npm run check:teacher-packs
+
+      - name: Test pedagogical review validator
+        run: npm run test:reviews
+
+      - name: Check pedagogical review workflow
+        run: npm run check:reviews
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

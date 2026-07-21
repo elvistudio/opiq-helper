@@ -374,6 +374,14 @@ teacher_pack:
   materials_resolved: true
   print_ready: true
   teacher_review_status: pending
+  pedagogical_review:
+    guide_path: pedagogical-reviews/grade-5-science/water/review-guide.md
+    review_record_path: null
+    status: pending
+  classroom_trial:
+    template_path: pedagogical-reviews/grade-5-science/water/classroom-trial-template.yaml
+    trial_record_paths: []
+    status: not_tested
   classroom_ready: false
 completeness:
   status: incomplete_curriculum_coverage

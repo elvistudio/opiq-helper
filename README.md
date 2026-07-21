@@ -28,6 +28,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `curriculum-maps/` separates official curriculum evidence, publisher evidence, topic inventory, and curated-course data.
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
+- `pedagogical-reviews/` contains unfilled review/trial instruments and the privacy-safe evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
 
@@ -137,6 +138,8 @@ The water unit has complete YAML, real resolved files, a teacher guide, 12 print
 
 Readiness is deliberately staged: `schema complete` ≠ `materials resolved` ≠ `print ready` ≠ `teacher reviewed` ≠ `classroom tested` ≠ `classroom ready`.
 
+Readiness workflow: merge the authored pack → freeze its content commit SHA → conduct independent review → record and resolve findings → conduct a limited trial → analyse anonymised aggregate observations → register evidence → update readiness in a separate PR. An approved review does not by itself establish classroom readiness, and stale evidence from an older pack commit is rejected. Student personal data must never be committed.
+
 Run the focused tests and production validation with:
 
 ```sh
@@ -144,6 +147,8 @@ npm run test:plans
 npm run check:plans
 npm run test:teacher-packs
 npm run check:teacher-packs
+npm run test:reviews
+npm run check:reviews
 ```
 
 Validation reuses the curriculum-map route loader and canonical Opiq checks. It verifies cross-file links, timing, source ownership, programme type, provenance, bilingual objectives, lesson- and unit-scale vocabulary recycling, scaffold release, budget reconciliation, separate assessment, and honest annual implementation declarations. These design controls do not guarantee learning outcomes.
