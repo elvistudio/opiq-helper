@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.1"
 artifact_type: bilingual_lesson
 lesson_id: grade-5-water-01-properties
 grade: 5
@@ -60,6 +60,11 @@ evidence_linkage:
     - material_id: water-sample-visual
       title: Прозрачные образцы воды и схема «тело — вещество»
       material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
       provenance:
         category: author_created_bridge
         source_reference: lesson 01 teacher visual derived from the selected water-property pages
@@ -67,6 +72,11 @@ evidence_linkage:
     - material_id: water-property-table
       title: Таблица наблюдений за свойствами воды
       material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
       provenance:
         category: author_created_worksheet
         source_reference: lesson 01 observation table
@@ -74,6 +84,11 @@ evidence_linkage:
     - material_id: water-property-exit-card
       title: Раздельная выходная карточка по содержанию и эстонскому языку
       material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
       provenance:
         category: author_created_assessment
         source_reference: lesson 01 exit card
@@ -504,10 +519,23 @@ homework:
     category: author_created_worksheet
     source_reference: lesson 01 homework bridge to canonical chapter 29514
     notes: Short teacher-created observation task; the canonical URL supplies terminology, not copied text.
-artifact_completeness:
-  status: complete_lesson_artifact
-  declared_complete: true
-  notes: Урок полностью описан как учебный артефакт, но не заявляет полноту официальной программы.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review:
+    status: pending
+    reviewer_role: primary_science_teacher
+    reviewed_at: null
+    notes: Комплект подготовлен, но независимая педагогическая проверка ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе.
+  classroom_ready: false
+  readiness_status: teacher_pack_complete_pending_review
 provenance:
   category: author_created_bridge
   source_reference: issue 10 grade-5 water lesson 01

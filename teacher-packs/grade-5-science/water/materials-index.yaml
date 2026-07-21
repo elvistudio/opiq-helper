@@ -1,0 +1,461 @@
+schema_version: "1.0"
+artifact_type: teacher_pack_materials_index
+pack_id: grade-5-science-water-teacher-pack
+unit_ref: grade-5-water-four-lesson-plan
+pack_path: teacher-packs/grade-5-science/water
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+lesson_ids:
+  - grade-5-water-01-properties
+  - grade-5-water-02-states
+  - grade-5-water-03-melting-condensation
+  - grade-5-water-04-changes-review
+opiq_sources:
+  - record_id: water-properties-ru
+    canonical_url: https://www.opiq.ee/kit/17/chapter/747
+    lesson_ids: [grade-5-water-01-properties, grade-5-water-04-changes-review]
+  - record_id: water-properties-et
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29514
+    lesson_ids: [grade-5-water-01-properties]
+  - record_id: water-states-ru
+    canonical_url: https://www.opiq.ee/kit/17/chapter/748
+    lesson_ids: [grade-5-water-02-states, grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+  - record_id: water-states-et
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29515
+    lesson_ids: [grade-5-water-02-states, grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+  - record_id: water-states-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6282
+    lesson_ids: [grade-5-water-02-states, grade-5-water-03-melting-condensation]
+  - record_id: water-changes-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6283
+    lesson_ids: [grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+materials:
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: pack-overview
+      title: Обзор teacher-ready комплекта «Вода»
+      material_type: pack_overview
+      artifact_path: teacher-packs/grade-5-science/water/README.md
+      audience: shared
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade 5 water teacher pack overview
+        notes: Navigation and honest readiness summary for the complete water teacher pack.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-teacher-guide
+      title: Руководство учителя по блоку «Вода»
+      material_type: teacher_guide
+      artifact_path: teacher-packs/grade-5-science/water/teacher-guide.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: four validated water lessons and thematic plan
+        notes: Teacher-facing synthesis with canonical links, safety, differentiation and readiness.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-preparation-checklist
+      title: Checklist подготовки четырёх уроков
+      material_type: checklist
+      artifact_path: teacher-packs/grade-5-science/water/preparation-checklist.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: water teacher pack preparation requirements
+        notes: Deterministic preparation and safety checklist for the four lessons.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-assessment-rubric
+      title: Единая rubric блока «Вода»
+      material_type: rubric
+      artifact_path: teacher-packs/grade-5-science/water/assessment-rubric.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: separate assessment criteria from lessons 01-04
+        notes: Subject, practical and Estonian-language evidence remain separate.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-guide
+      title: Руководство для семейного обучения
+      material_type: homeschool_guide
+      artifact_path: teacher-packs/grade-5-science/water/homeschool-guide.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: family adaptation of the four-lesson water unit
+        notes: Supplementary family material that is not represented as a separate official programme.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: water-lesson-01-guide
+      title: Читаемая версия урока 1
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water/lessons/lesson-01.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-01-properties
+        notes: Teacher-readable rendering of the validated lesson without replacing the YAML authority.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: water-lesson-02-guide
+      title: Читаемая версия урока 2
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water/lessons/lesson-02.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-02-states
+        notes: Teacher-readable rendering of the validated lesson without replacing the YAML authority.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: water-lesson-03-guide
+      title: Читаемая версия урока 3
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water/lessons/lesson-03.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-03-melting-condensation
+        notes: Teacher-readable rendering of the validated golden lesson with explicit safety controls.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: water-lesson-04-guide
+      title: Читаемая версия урока 4
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water/lessons/lesson-04.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-04-changes-review
+        notes: Teacher-readable rendering of the validated cumulative lesson.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: water-sample-visual
+      title: Прозрачные образцы воды и схема «тело — вещество»
+      material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 01 teacher visual derived from the selected water-property pages
+        notes: Teacher-created visual bridge; it contains labels and summaries, not copied textbook passages.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: water-property-table
+      title: Таблица наблюдений за свойствами воды
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 01 observation table
+        notes: Teacher-created table for recording observations without reproducing textbook exercises.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: water-property-exit-card
+      title: Раздельная выходная карточка по содержанию и эстонскому языку
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 01 exit card
+        notes: Teacher-created assessment aligned to the two separate lesson objectives.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: three-states-diagram
+      title: Двуязычная схема трёх состояний воды
+      material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 02 synthesis from selected state-of-water records
+        notes: Teacher-created labelled diagram using short terms rather than copied textbook prose.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: state-sort-cards
+      title: Карточки для классификации примеров
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 02 state classification task
+        notes: Teacher-created examples for sorting solid, liquid, and gaseous water.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: states-exit-card
+      title: Выходная карточка по трём состояниям
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 02 separate content and language check
+        notes: Teacher-created exit card with separate Russian-content and Estonian-language evidence.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: phase-change-diagram
+      title: Схема «состояние — процесс — состояние»
+      material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 synthesis from selected phase-change records
+        notes: Teacher-created bilingual diagram containing short labels and no copied textbook paragraphs.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: melting-condensation-table
+      title: Таблица измерений и наблюдений
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 03 safe practical table
+        notes: Teacher-created data table aligned to the canonical experiment headings.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: practical-safety-card
+      title: Карточка безопасной работы
+      material_type: practical_setup
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 teacher-controlled safety procedure
+        notes: Teacher-created safety instructions keep all warm-water handling under teacher control.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: separate-practical-exit-card
+      title: Выходная карточка содержания и языка
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 03 separate content-language assessment
+        notes: Teacher-created card scores the Russian conclusion separately from the short Estonian output.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: complete-phase-cycle
+      title: Полная схема четырёх изменений воды
+      material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 04 synthesis from selected water-state records
+        notes: Teacher-created bilingual cycle with concise labels and directional arrows.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: unit-revision-stations
+      title: Четыре станции повторения
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 04 cumulative revision tasks
+        notes: Teacher-created short tasks covering concepts, data, terminology, and oral response.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: unit-separate-assessment
+      title: Раздельная итоговая проверка unit
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-assessment.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 04 content-language assessment
+        notes: Teacher-created assessment reports subject understanding and Estonian production separately.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: unit-reflection-card
+      title: Карточка самооценки после блока
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-reflection-card.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: Карточка фиксирует самооценку и вопросы ученика; правильного ответа не существует.
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 04 unscored reflection
+        notes: Open reflection is not used as proof of subject mastery or Estonian proficiency.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: lesson-01-answer-key
+      title: Ключ ответов урока 1
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 01 expected answers
+        notes: Correct, acceptable and partial answers with misconceptions and teacher guidance.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: lesson-02-answer-key
+      title: Ключ ответов урока 2
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 02 expected answers
+        notes: Correct, acceptable and partial answers with misconceptions and teacher guidance.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: lesson-03-answer-key
+      title: Ключ ответов урока 3
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 03 expected answers and safety
+        notes: Correct, acceptable and partial answers with misconceptions and teacher guidance.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: lesson-04-answer-key
+      title: Ключ ответов урока 4
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: lesson 04 expected answers and rubric
+        notes: Correct, acceptable and partial answers with misconceptions and teacher guidance.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: home-observation-safety-card
+      title: Карточка безопасности домашнего наблюдения
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water/parent/home-observation-safety-card.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 no-heating homework safety
+        notes: Family-facing controls permit only passive ice melting without heating.
+  - lesson_ids: [grade-5-water-01-properties, grade-5-water-02-states, grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: weekly-progress-checklist
+      title: Недельный checklist семейного прогресса
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water/parent/weekly-progress-checklist.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: family review across the four water lessons
+        notes: Local family checklist excludes personal-data storage in the repository.

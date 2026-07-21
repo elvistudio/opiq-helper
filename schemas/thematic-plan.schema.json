@@ -40,11 +40,12 @@
     "differentiation_policy",
     "known_gaps",
     "optional_extensions",
+    "teacher_pack",
     "completeness",
     "provenance"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
     "artifact_type": { "const": "bilingual_thematic_plan" },
     "unit_id": { "$ref": "#/$defs/slug" },
     "title_ru": { "type": "string", "minLength": 1 },
@@ -254,6 +255,18 @@
           "source_ref": { "type": "string", "minLength": 1 },
           "provenance": { "$ref": "#/$defs/provenance" }
         }
+      }
+    },
+    "teacher_pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "materials_resolved", "print_ready", "teacher_review_status", "classroom_ready"],
+      "properties": {
+        "path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
+        "materials_resolved": { "type": "boolean" },
+        "print_ready": { "type": "boolean" },
+        "teacher_review_status": { "enum": ["pending", "approved", "changes_requested"] },
+        "classroom_ready": { "type": "boolean" }
       }
     },
     "completeness": {

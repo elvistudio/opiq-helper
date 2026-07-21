@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.1"
 artifact_type: bilingual_lesson
 lesson_id: grade-5-water-02-states
 grade: 5
@@ -72,6 +72,11 @@ evidence_linkage:
     - material_id: three-states-diagram
       title: Двуязычная схема трёх состояний воды
       material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
       provenance:
         category: author_created_bridge
         source_reference: lesson 02 synthesis from selected state-of-water records
@@ -79,6 +84,11 @@ evidence_linkage:
     - material_id: state-sort-cards
       title: Карточки для классификации примеров
       material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
       provenance:
         category: author_created_worksheet
         source_reference: lesson 02 state classification task
@@ -86,6 +96,11 @@ evidence_linkage:
     - material_id: states-exit-card
       title: Выходная карточка по трём состояниям
       material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
       provenance:
         category: author_created_assessment
         source_reference: lesson 02 separate content and language check
@@ -487,10 +502,23 @@ homework:
     category: author_created_worksheet
     source_reference: lesson 02 homework bridge to canonical chapter 29515
     notes: Teacher-created classification task linked to the canonical terminology source.
-artifact_completeness:
-  status: complete_lesson_artifact
-  declared_complete: true
-  notes: Урок является полным учебным артефактом, но не картой всей официальной программы.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review:
+    status: pending
+    reviewer_role: primary_science_teacher
+    reviewed_at: null
+    notes: Комплект подготовлен, но независимая педагогическая проверка ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе.
+  classroom_ready: false
+  readiness_status: teacher_pack_complete_pending_review
 provenance:
   category: author_created_bridge
   source_reference: issue 10 grade-5 water lesson 02

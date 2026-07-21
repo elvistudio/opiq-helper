@@ -34,11 +34,11 @@
     "assessment",
     "differentiation",
     "homework",
-    "artifact_completeness",
+    "artifact_readiness",
     "provenance"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
     "artifact_type": { "const": "bilingual_lesson" },
     "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "grade": { "type": "integer", "minimum": 1 },
@@ -100,16 +100,7 @@
     },
     "differentiation": { "$ref": "#/$defs/differentiation" },
     "homework": { "$ref": "#/$defs/homework" },
-    "artifact_completeness": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["status", "declared_complete", "notes"],
-      "properties": {
-        "status": { "enum": ["complete_lesson_artifact", "draft_lesson_artifact"] },
-        "declared_complete": { "type": "boolean" },
-        "notes": { "type": "string", "minLength": 10 }
-      }
-    },
+    "artifact_readiness": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/artifactReadiness" },
     "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" }
   },
   "$defs": {
