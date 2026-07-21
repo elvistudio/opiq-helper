@@ -105,7 +105,7 @@
 
 ## 16. Workflow независимой проверки
 
-Педагогическое review и classroom trial ещё не выполнялись. Следуйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md): зафиксируйте commit SHA pack, проверьте все четыре читаемых урока и материалы, зарегистрируйте реальные findings, внесите исправления, а затем проведите ограниченную апробацию с [обезличенной формой](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Template не считается evidence. `approved` review само по себе не означает `classroom_ready`; требуется отдельная analysed trial того же актуального pack commit.
+Педагогическое review и classroom trial ещё не выполнялись. Следуйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md): вычислите content fingerprint, сохраните commit SHA как provenance, проверьте все четыре читаемых урока и материалы, зарегистрируйте реальные findings, внесите исправления, а затем проведите ограниченную апробацию с [обезличенной формой](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Template не считается evidence. `approved` review само по себе не означает `classroom_ready`; требуется отдельная analysed trial с тем же актуальным fingerprint. Rebase и squash не меняют readiness при неизменном содержании.
 
 Не переносите в репозиторий персональные данные детей. Допустимы только агрегированные наблюдения, вручную проверенные на прямые и косвенные идентификаторы.
 

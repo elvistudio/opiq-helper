@@ -4,17 +4,20 @@
 
 ## До review
 
-1. Работайте с уже merged версией комплекта и зафиксируйте SHA именно его содержимого:
+1. Работайте с уже merged версией комплекта и вычислите fingerprint проверяемого содержимого:
 
    ```sh
-   git rev-list -1 HEAD -- teacher-packs/grade-5-science/water ':(exclude)teacher-packs/grade-5-science/water/materials-index.yaml'
+   node scripts/compute-teacher-pack-fingerprint.mjs \
+     teacher-packs/grade-5-science/water/materials-index.yaml \
+     --list-files
    ```
 
-2. Запишите результат в `pack_commit_sha` будущей review record. `materials-index.yaml` исключён, потому что он хранит ссылку на evidence и его обновление не меняет проверяемые учебные материалы.
-3. Распечатайте все student materials в чёрно-белом режиме.
-4. Откройте и проверьте все прямые Opiq URL из teacher guide.
-5. Прочитайте четыре lesson guides, answer keys, общую rubric и homeschool guide.
-6. Отдельно проверьте безопасность практических работ, особенно урока 3.
+2. Повторите команду без `--list-files` и запишите `algorithm`, `specification_version`, `fingerprint` и `file_count` в `reviewed_version.content_fingerprint` будущей review record. Запишите `git rev-parse HEAD` в `reviewed_version.commit_sha` только как provenance. Совпадение fingerprint, а не commit SHA, определяет актуальность evidence.
+3. Убедитесь, что scope содержит четыре lesson YAML, thematic plan, teacher guides, student materials, answer keys, rubric, homeschool и parent materials. Scope проверяется автоматически; `materials-index.yaml` и evidence records исключены, чтобы их регистрация не инвалидировала evidence.
+4. Распечатайте все student materials в чёрно-белом режиме.
+5. Откройте и проверьте все прямые Opiq URL из teacher guide.
+6. Прочитайте четыре lesson guides, answer keys, общую rubric и homeschool guide.
+7. Отдельно проверьте безопасность практических работ, особенно урока 3.
 
 ## Что проверить
 
@@ -47,7 +50,7 @@ Severity `blocking` или `major` должна быть закрыта до app
 - `changes_required`: до апробации нужны исправления и повторная проверка.
 - `rejected`: пакет небезопасен или требует существенной переработки.
 
-Даже `approved` не означает `classroom_ready`. Для этого дополнительно нужна analysed classroom trial на том же актуальном pack commit SHA.
+Даже `approved` не означает `classroom_ready`. Для этого дополнительно нужна analysed classroom trial с тем же актуальным content fingerprint. Другой provenance commit SHA при совпадающем fingerprint допустим; изменение любого reviewable файла делает evidence stale.
 
 ## Privacy
 

@@ -9,7 +9,7 @@
     "artifact_type",
     "review_id",
     "pack_ref",
-    "pack_commit_sha",
+    "reviewed_version",
     "review_status",
     "reviewer",
     "reviewed_at",
@@ -22,11 +22,11 @@
     "decision"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
     "artifact_type": { "const": "teacher_review" },
     "review_id": { "$ref": "#/$defs/idOrTemplateId" },
     "pack_ref": { "$ref": "#/$defs/slug" },
-    "pack_commit_sha": { "$ref": "#/$defs/nullableCommitSha" },
+    "reviewed_version": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/reviewedVersion" },
     "review_status": { "enum": ["draft", "completed", "superseded"] },
     "reviewer": { "$ref": "#/$defs/reviewer" },
     "reviewed_at": { "$ref": "#/$defs/nullableDate" },
@@ -65,12 +65,6 @@
     "idOrTemplateId": {
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:-YYYY-MM-DD)?$"
-    },
-    "nullableCommitSha": {
-      "oneOf": [
-        { "type": "null" },
-        { "type": "string", "pattern": "^[0-9a-f]{40}$" }
-      ]
     },
     "nullableDate": {
       "oneOf": [

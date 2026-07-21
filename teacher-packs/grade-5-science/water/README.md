@@ -17,7 +17,7 @@ Teacher-ready комплект для четырёх уроков 5 класса
 
 ## Независимая проверка и апробация
 
-Для независимого review используйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md), а для урока — печатную [обезличенную форму наблюдения](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Сначала зафиксируйте commit SHA проверяемого содержимого pack. Пустые templates помогают оформить будущую запись, но не являются доказательством выполненного review или trial.
+Для независимого review используйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md), а для урока — печатную [обезличенную форму наблюдения](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Сначала вычислите content fingerprint и сохраните commit SHA только как provenance. Fingerprint охватывает связанные lesson/thematic YAML и реальные teacher/student/answer/parent материалы; rebase или squash не инвалидирует unchanged content. Пустые templates помогают оформить будущую запись, но не являются доказательством выполненного review или trial.
 
 В репозитории разрешены только агрегированные наблюдения без имён, дат рождения, идентификаторов, адресов, контактов, фотографий, медицинских данных, персональных оценок и иного идентифицирующего текста. Автоматический validator проверяет декларации, но человек обязан прочитать свободный текст до commit.
 

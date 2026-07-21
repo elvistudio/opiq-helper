@@ -7,9 +7,23 @@ body:
     attributes:
       value: Only aggregated observations are allowed. Never enter a pupil name or information that can identify a pupil.
   - type: input
-    id: pack_commit_sha
+    id: content_fingerprint
     attributes:
-      label: Trialled pack commit SHA
+      label: Trialled content fingerprint
+      description: Lower-case SHA-256 value computed with fingerprint specification 1.0.
+    validations:
+      required: true
+  - type: input
+    id: fingerprint_file_count
+    attributes:
+      label: Fingerprint file count
+    validations:
+      required: true
+  - type: input
+    id: provenance_commit_sha
+    attributes:
+      label: Provenance commit SHA
+      description: Git location for audit and navigation; this is not the readiness gate.
     validations:
       required: true
   - type: input

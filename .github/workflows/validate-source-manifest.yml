@@ -16,6 +16,7 @@ on:
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
+      - docs/teacher-pack-content-fingerprint.md
       - docs/templates/**
       - README.md
       - .github/ISSUE_TEMPLATE/**
@@ -39,6 +40,7 @@ on:
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
+      - docs/teacher-pack-content-fingerprint.md
       - docs/templates/**
       - README.md
       - .github/ISSUE_TEMPLATE/**
@@ -59,8 +61,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -93,6 +93,12 @@ jobs:
 
       - name: Check teacher packs
         run: npm run check:teacher-packs
+
+      - name: Test teacher-pack fingerprinting
+        run: npm run test:fingerprints
+
+      - name: Check teacher-pack fingerprints
+        run: npm run check:fingerprints
 
       - name: Test pedagogical review validator
         run: npm run test:reviews

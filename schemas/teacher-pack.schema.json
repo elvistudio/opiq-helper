@@ -18,12 +18,13 @@
     "canonical_route",
     "lesson_ids",
     "opiq_sources",
+    "reviewable_content",
     "pedagogical_review",
     "classroom_trial",
     "materials"
   ],
   "properties": {
-    "schema_version": { "const": "1.1" },
+    "schema_version": { "const": "1.2" },
     "artifact_type": { "const": "teacher_pack_materials_index" },
     "pack_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "unit_ref": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
@@ -58,6 +59,9 @@
           }
         }
       }
+    },
+    "reviewable_content": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/reviewableContent"
     },
     "pedagogical_review": {
       "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pedagogicalReviewLink"

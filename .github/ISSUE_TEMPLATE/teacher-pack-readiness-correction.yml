@@ -5,11 +5,25 @@ labels: []
 body:
   - type: markdown
     attributes:
-      value: Readiness can change only from registered review/trial evidence for the current pack commit. Do not include student personal data.
+      value: Readiness can change only from registered review/trial evidence matching the current content fingerprint. Commit SHA is provenance only. Do not include student personal data.
   - type: input
-    id: pack_commit_sha
+    id: content_fingerprint
     attributes:
-      label: Current pack commit SHA
+      label: Current content fingerprint
+      description: Lower-case SHA-256 value computed with fingerprint specification 1.0.
+    validations:
+      required: true
+  - type: input
+    id: fingerprint_file_count
+    attributes:
+      label: Current fingerprint file count
+    validations:
+      required: true
+  - type: input
+    id: provenance_commit_sha
+    attributes:
+      label: Provenance commit SHA
+      description: Git location for audit and navigation; this is not the readiness gate.
     validations:
       required: true
   - type: input

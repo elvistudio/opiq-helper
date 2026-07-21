@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 import Ajv2020 from 'ajv/dist/2020.js';
 import {
   makeDiagnostic,
@@ -12,6 +11,7 @@ import {
   loadTeacherPackRepository,
   validateTeacherPackRepository,
 } from './teacher-packs.mjs';
+import { computeTeacherPackFingerprintFromRepository } from './teacher-pack-fingerprints.mjs';
 
 const completedReviewDecisions = new Set(['approved', 'approved_with_minor_notes']);
 const successfulTrialDecisions = new Set(['successful', 'successful_with_notes']);
@@ -91,22 +91,10 @@ async function loadRequiredDocument(rootDir, repositoryPath, kind) {
   }
 }
 
-function resolvePackCommitSha(rootDir, packPath) {
-  const excludedIndex = `:(exclude)${packPath}/materials-index.yaml`;
-  const value = execFileSync('git', ['rev-list', '-1', 'HEAD', '--', packPath, excludedIndex], {
-    cwd: rootDir,
-    encoding: 'utf8',
-    stdio: ['ignore', 'pipe', 'pipe'],
-  }).trim();
-  if (!/^[0-9a-f]{40}$/u.test(value)) throw new Error(`cannot resolve teacher-pack content commit for ${packPath}`);
-  return value;
-}
-
 export async function loadPedagogicalReviewRepository({
   rootDir = process.cwd(),
   teacherReviewSchemaPath = 'schemas/teacher-review.schema.json',
   classroomTrialSchemaPath = 'schemas/classroom-trial.schema.json',
-  currentPackCommitSha = null,
 } = {}) {
   const teacherPacks = await loadTeacherPackRepository({ rootDir });
   const absoluteRoot = teacherPacks.rootDir;
@@ -119,7 +107,7 @@ export async function loadPedagogicalReviewRepository({
   const reviewRecords = [];
   const trialRecords = [];
   const workflowDocuments = [];
-  const packCommitShas = {};
+  const currentPackFingerprints = {};
   for (const index of teacherPacks.indexes) {
     const reviewLink = index.data.pedagogical_review ?? {};
     const trialLink = index.data.classroom_trial ?? {};
@@ -138,7 +126,7 @@ export async function loadPedagogicalReviewRepository({
     for (const trialPath of trialLink.trial_record_paths ?? []) {
       trialRecords.push(await loadYamlArtifact(absoluteRoot, trialPath, 'classroom-trial record'));
     }
-    packCommitShas[index.data.pack_id] = currentPackCommitSha ?? resolvePackCommitSha(absoluteRoot, index.data.pack_path);
+    currentPackFingerprints[index.data.pack_id] = await computeTeacherPackFingerprintFromRepository(teacherPacks, index);
   }
   return {
     rootDir: absoluteRoot,
@@ -149,12 +137,13 @@ export async function loadPedagogicalReviewRepository({
     reviewRecords,
     trialRecords,
     workflowDocuments,
-    packCommitShas,
+    currentPackFingerprints,
   };
 }
 
 function compileSchemas(context) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
+  ajv.addSchema(context.teacherPacks.plans.schemas.common);
   return {
     review: ajv.compile(context.schemas.review),
     trial: ajv.compile(context.schemas.trial),
@@ -177,26 +166,48 @@ function validateTemplateSemantics(diagnostics, artifact, type) {
   if (!artifact.data) return;
   if (type === 'review') {
     if (artifact.data.review_status !== 'draft' || artifact.data.decision?.status !== 'pending'
-      || artifact.data.pack_commit_sha !== null || artifact.data.reviewed_at !== null) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'teacher-review template must remain an uncompleted draft without evidence dates or commit SHA'));
+      || artifact.data.reviewed_version?.commit_sha !== null
+      || artifact.data.reviewed_version?.content_fingerprint?.value !== null
+      || artifact.data.reviewed_version?.content_fingerprint?.file_count !== null
+      || artifact.data.reviewed_at !== null) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'teacher-review template must remain an uncompleted draft with null version evidence'));
     }
   } else if (artifact.data.trial_status !== 'draft' || artifact.data.decision?.status !== 'pending'
-    || artifact.data.pack_commit_sha !== null || artifact.data.conducted_at !== null) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'classroom-trial template must remain an uncompleted draft without evidence dates or commit SHA'));
+    || artifact.data.reviewed_version?.commit_sha !== null
+    || artifact.data.reviewed_version?.content_fingerprint?.value !== null
+    || artifact.data.reviewed_version?.content_fingerprint?.file_count !== null
+    || artifact.data.conducted_at !== null) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'classroom-trial template must remain an uncompleted draft with null version evidence'));
   }
 }
 
-function validateReviewRecord(diagnostics, artifact, pack, currentSha, lessonIds, schemaValid, { requireApproval = false } = {}) {
+function fingerprintMatches(recorded, current) {
+  return recorded?.algorithm === current?.algorithm
+    && recorded?.specification_version === current?.specification_version
+    && recorded?.value === current?.value
+    && recorded?.file_count === current?.file_count;
+}
+
+function staleFingerprintReason(kind, recorded, current) {
+  return `${kind} is stale: ${kind === 'teacher review' ? 'reviewed' : 'tested'} content fingerprint does not match current teacher-pack content; `
+    + `recorded: ${recorded?.value ?? '<missing>'}; current: ${current?.value ?? '<missing>'}; `
+    + `recorded file count: ${recorded?.file_count ?? '<missing>'}; current file count: ${current?.file_count ?? '<missing>'}`;
+}
+
+function validateReviewRecord(diagnostics, artifact, pack, currentFingerprint, lessonIds, schemaValid, { requireApproval = false } = {}) {
   const review = artifact.data;
   if (!review || !schemaValid) return { effective: false, stale: false };
   const field = '/';
   if (review.pack_ref !== pack.pack_id) diagnostics.push(makeDiagnostic('error', artifact.file, '/pack_ref', `expected ${pack.pack_id}`));
-  const stale = typeof review.pack_commit_sha === 'string' && review.pack_commit_sha !== currentSha;
-  if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/pack_commit_sha', 'teacher review is stale for the current teacher-pack commit'));
   const completed = review.review_status === 'completed';
+  const recordedFingerprint = review.reviewed_version?.content_fingerprint;
+  const stale = completed && !fingerprintMatches(recordedFingerprint, currentFingerprint);
+  if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/reviewed_version/content_fingerprint', staleFingerprintReason('teacher review', recordedFingerprint, currentFingerprint)));
   if (requireApproval && !completed) diagnostics.push(makeDiagnostic('error', artifact.file, '/review_status', 'teacher review evidence must have review_status: completed'));
   if (completed && review.decision?.status === 'pending') diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'completed teacher review cannot retain a pending decision'));
   if (completed || requireApproval) {
+    if (!/^[0-9a-f]{40}$/u.test(review.reviewed_version?.commit_sha ?? '')) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/commit_sha', 'completed teacher review requires a provenance commit SHA'));
+    if (!/^[0-9a-f]{64}$/u.test(recordedFingerprint?.value ?? '') || !Number.isInteger(recordedFingerprint?.file_count)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/content_fingerprint', 'completed teacher review requires a non-null sha256 content fingerprint and file count'));
     if (!normalize(review.reviewer?.role)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewer/role', 'completed teacher review requires reviewer role'));
     if (!validDate(review.reviewed_at)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_at', 'completed teacher review requires a valid date'));
     for (const flag of mandatoryScopeFlags) {
@@ -266,7 +277,7 @@ function validateReviewRecord(diagnostics, artifact, pack, currentSha, lessonIds
     && unplannedMinorFindings.length === 0
     && approvedDecision;
   if (!effective && completed && approvedDecision && stale && requireApproval) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, field, 'stale teacher review cannot prove current readiness'));
+    diagnostics.push(makeDiagnostic('error', artifact.file, field, 'stale teacher review fingerprint cannot prove current readiness'));
   }
   return { effective: Boolean(effective), stale };
 }
@@ -277,16 +288,21 @@ function privacyComplete(privacy) {
     && privacy?.free_text_checked_for_identifiers === true;
 }
 
-function validateTrialRecord(diagnostics, artifact, pack, currentSha, lessonIds, schemaValid, { requireSuccess = false } = {}) {
+function validateTrialRecord(diagnostics, artifact, pack, currentFingerprint, lessonIds, schemaValid, { requireSuccess = false } = {}) {
   const trial = artifact.data;
   if (!trial || !schemaValid) return { effective: false, stale: false };
   if (trial.pack_ref !== pack.pack_id) diagnostics.push(makeDiagnostic('error', artifact.file, '/pack_ref', `expected ${pack.pack_id}`));
-  const stale = typeof trial.pack_commit_sha === 'string' && trial.pack_commit_sha !== currentSha;
-  if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/pack_commit_sha', 'classroom trial is stale for the current teacher-pack commit'));
   const analysed = trial.trial_status === 'analysed';
+  const recordedFingerprint = trial.reviewed_version?.content_fingerprint;
+  const stale = analysed && !fingerprintMatches(recordedFingerprint, currentFingerprint);
+  if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/reviewed_version/content_fingerprint', staleFingerprintReason('classroom trial', recordedFingerprint, currentFingerprint)));
   if (requireSuccess && !analysed) diagnostics.push(makeDiagnostic('error', artifact.file, '/trial_status', 'classroom trial evidence must have trial_status: analysed'));
   if (analysed && trial.decision?.status === 'pending') diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'analysed classroom trial cannot retain a pending decision'));
   if ((analysed || requireSuccess) && !validDate(trial.conducted_at)) diagnostics.push(makeDiagnostic('error', artifact.file, '/conducted_at', 'analysed classroom trial requires a valid date'));
+  if (analysed || requireSuccess) {
+    if (!/^[0-9a-f]{40}$/u.test(trial.reviewed_version?.commit_sha ?? '')) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/commit_sha', 'analysed classroom trial requires a provenance commit SHA'));
+    if (!/^[0-9a-f]{64}$/u.test(recordedFingerprint?.value ?? '') || !Number.isInteger(recordedFingerprint?.file_count)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/content_fingerprint', 'analysed classroom trial requires a non-null sha256 content fingerprint and file count'));
+  }
   const knownLessons = new Set(lessonIds);
   if ((analysed || requireSuccess) && (trial.context?.lesson_ids ?? []).length === 0) diagnostics.push(makeDiagnostic('error', artifact.file, '/context/lesson_ids', 'analysed classroom trial requires at least one lesson ID'));
   for (const lessonId of trial.context?.lesson_ids ?? []) {
@@ -313,7 +329,7 @@ function validateTrialRecord(diagnostics, artifact, pack, currentSha, lessonIds,
     && openSafetyBlockers.length === 0
     && successfulDecision;
   if (!effective && analysed && successfulDecision && stale && requireSuccess) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'stale classroom trial cannot prove current readiness'));
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'stale classroom trial fingerprint cannot prove current readiness'));
   }
   return { effective, stale };
 }
@@ -326,7 +342,7 @@ function validatePackWorkflow(diagnostics, context, index, schemaValidity) {
   const trialLink = pack.classroom_trial ?? {};
   const lessonIds = pack.lesson_ids ?? [];
   const lessons = context.teacherPacks.plans.artifacts.filter((artifact) => lessonIds.includes(artifact.data.lesson_id));
-  const currentSha = context.packCommitShas[pack.pack_id];
+  const currentFingerprint = context.currentPackFingerprints[pack.pack_id];
   if (JSON.stringify(reviewLink) !== JSON.stringify(unitPack.pedagogical_review ?? {})) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review', 'must exactly match thematic-plan pedagogical_review linkage'));
   if (JSON.stringify(trialLink) !== JSON.stringify(unitPack.classroom_trial ?? {})) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial', 'must exactly match thematic-plan classroom_trial linkage'));
   if (reviewLink.status !== unitPack.teacher_review_status) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/teacher_review_status', 'must match pedagogical_review.status'));
@@ -345,21 +361,21 @@ function validatePackWorkflow(diagnostics, context, index, schemaValidity) {
   const linkedReviewRecords = context.reviewRecords.filter((record) => record.file === reviewLink.review_record_path);
   const linkedTrialRecords = context.trialRecords.filter((record) => (trialLink.trial_record_paths ?? []).includes(record.file));
   const reviewStates = linkedReviewRecords.map((record) => validateReviewRecord(
-    diagnostics, record, pack, currentSha, lessonIds, schemaValidity.get(record), { requireApproval: reviewClaimedApproved || classroomReady },
+    diagnostics, record, pack, currentFingerprint, lessonIds, schemaValidity.get(record), { requireApproval: reviewClaimedApproved || classroomReady },
   ));
   const trialStates = linkedTrialRecords.map((record) => validateTrialRecord(
-    diagnostics, record, pack, currentSha, lessonIds, schemaValidity.get(record), { requireSuccess: trialClaimedTested || classroomReady },
+    diagnostics, record, pack, currentFingerprint, lessonIds, schemaValidity.get(record), { requireSuccess: trialClaimedTested || classroomReady },
   ));
   const effectiveReview = reviewStates.some((state) => state.effective);
   const effectiveTrial = trialStates.some((state) => state.effective);
 
   if (reviewClaimedApproved && linkedReviewRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/review_record_path', 'teacher_review: approved requires a registered completed review record'));
-  if (reviewClaimedApproved && !effectiveReview) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'approved teacher review has no effective evidence for the current teacher-pack commit'));
+  if (reviewClaimedApproved && !effectiveReview) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'approved teacher review has no effective evidence for the current teacher-pack fingerprint'));
   if (['changes_requested', 'rejected'].includes(reviewLink.status) && linkedReviewRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/review_record_path', `${reviewLink.status} review status requires a registered review record`));
   if (reviewLink.status === 'changes_requested' && !linkedReviewRecords.some((record) => record.data?.review_status === 'completed' && record.data?.decision?.status === 'changes_required')) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'changes_requested status requires a completed changes_required review decision'));
   if (reviewLink.status === 'rejected' && !linkedReviewRecords.some((record) => record.data?.review_status === 'completed' && record.data?.decision?.status === 'rejected')) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'rejected status requires a completed rejected review decision'));
   if (trialClaimedTested && linkedTrialRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/trial_record_paths', 'classroom_trial: tested requires a registered analysed trial record'));
-  if (trialClaimedTested && !effectiveTrial) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'tested classroom trial has no effective evidence for the current teacher-pack commit'));
+  if (trialClaimedTested && !effectiveTrial) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'tested classroom trial has no effective evidence for the current teacher-pack fingerprint'));
   if (['changes_required', 'repeat_required'].includes(trialLink.status) && linkedTrialRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/trial_record_paths', `${trialLink.status} trial status requires a registered trial record`));
   if (trialLink.status === 'changes_required' && !linkedTrialRecords.some((record) => record.data?.trial_status === 'analysed' && record.data?.decision?.status === 'changes_required')) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'changes_required status requires an analysed changes_required trial decision'));
   if (trialLink.status === 'repeat_required' && !linkedTrialRecords.some((record) => record.data?.trial_status === 'analysed' && record.data?.decision?.status === 'repeat_trial_required')) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'repeat_required status requires an analysed repeat_trial_required decision'));

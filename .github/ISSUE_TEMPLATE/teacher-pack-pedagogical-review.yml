@@ -7,10 +7,24 @@ body:
     attributes:
       value: Do not include any student personal data. The YAML review record remains the machine-readable evidence authority.
   - type: input
-    id: pack_commit_sha
+    id: content_fingerprint
     attributes:
-      label: Reviewed pack commit SHA
-      description: Use the frozen teacher-pack content SHA from the review guide.
+      label: Reviewed content fingerprint
+      description: Lower-case SHA-256 value computed with fingerprint specification 1.0.
+    validations:
+      required: true
+  - type: input
+    id: fingerprint_file_count
+    attributes:
+      label: Fingerprint file count
+      description: The file count printed by the fingerprint CLI.
+    validations:
+      required: true
+  - type: input
+    id: provenance_commit_sha
+    attributes:
+      label: Provenance commit SHA
+      description: Git location for audit and navigation; this is not the readiness gate.
     validations:
       required: true
   - type: dropdown

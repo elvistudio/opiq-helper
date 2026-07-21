@@ -1,8 +1,14 @@
-schema_version: "1.0"
+schema_version: "1.1"
 artifact_type: teacher_review
 review_id: grade-5-water-review-YYYY-MM-DD
 pack_ref: grade-5-science-water-teacher-pack
-pack_commit_sha: null
+reviewed_version:
+  commit_sha: null
+  content_fingerprint:
+    algorithm: sha256
+    specification_version: "1.0"
+    value: null
+    file_count: null
 review_status: draft
 reviewer:
   role: primary_science_teacher

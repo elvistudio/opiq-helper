@@ -5,13 +5,15 @@ This directory defines the evidence workflow for independently reviewing and tri
 The sequence is:
 
 1. merge the authored teacher pack;
-2. freeze the reviewed pack-content commit SHA;
+2. compute the reviewed pack's deterministic content fingerprint and retain the commit SHA as provenance;
 3. complete an independent teacher review;
 4. record and resolve required changes;
 5. run a limited classroom trial;
 6. analyse only anonymised, aggregated observations;
 7. register the evidence records;
 8. update readiness in a separate pull request.
+
+`reviewed_version.commit_sha` shows where the reviewed content existed in Git but is not a readiness gate. `reviewed_version.content_fingerprint` must match the current reviewable bytes and file count. Rebase, squash, or unrelated commits therefore leave unchanged evidence effective. Any scoped YAML or teacher-pack artifact change makes it stale. Evidence records and `materials-index.yaml` are excluded so evidence registration cannot invalidate itself. The exact scope and framing are documented in [`docs/teacher-pack-content-fingerprint.md`](../docs/teacher-pack-content-fingerprint.md).
 
 ## Privacy boundary
 

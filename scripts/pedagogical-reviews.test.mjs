@@ -7,12 +7,13 @@ import {
 
 const currentSha = 'a'.repeat(40);
 const staleSha = 'b'.repeat(40);
+const staleFingerprint = '0'.repeat(64);
 const reviewPath = 'pedagogical-reviews/grade-5-science/water/records/teacher-review-2026-07-21.yaml';
 const trialPath = 'pedagogical-reviews/grade-5-science/water/records/classroom-trial-2026-07-21.yaml';
 let baseline;
 
 before(async () => {
-  baseline = await loadPedagogicalReviewRepository({ currentPackCommitSha: currentSha });
+  baseline = await loadPedagogicalReviewRepository();
 });
 
 function cloneRepository() {
@@ -38,13 +39,26 @@ function lessonIds(repository) {
   return packIndex(repository).lesson_ids;
 }
 
+function reviewedVersion(repository, commitSha = currentSha) {
+  const fingerprint = repository.currentPackFingerprints[packIndex(repository).pack_id];
+  return {
+    commit_sha: commitSha,
+    content_fingerprint: {
+      algorithm: fingerprint.algorithm,
+      specification_version: fingerprint.specification_version,
+      value: fingerprint.value,
+      file_count: fingerprint.file_count,
+    },
+  };
+}
+
 function validReview(repository, overrides = {}) {
   return {
-    schema_version: '1.0',
+    schema_version: '1.1',
     artifact_type: 'teacher_review',
     review_id: 'grade-5-water-review-2026-07-21',
     pack_ref: packIndex(repository).pack_id,
-    pack_commit_sha: currentSha,
+    reviewed_version: reviewedVersion(repository),
     review_status: 'completed',
     reviewer: {
       role: 'primary_science_teacher',
@@ -86,11 +100,11 @@ function validReview(repository, overrides = {}) {
 
 function validTrial(repository, overrides = {}) {
   return {
-    schema_version: '1.0',
+    schema_version: '1.1',
     artifact_type: 'classroom_trial',
     trial_id: 'grade-5-water-trial-2026-07-21',
     pack_ref: packIndex(repository).pack_id,
-    pack_commit_sha: currentSha,
+    reviewed_version: reviewedVersion(repository),
     trial_status: 'analysed',
     context: {
       lesson_ids: [lessonIds(repository)[0]],
@@ -270,12 +284,19 @@ test('completed review without date fails', () => {
   assertFailsWith(repository, /requires a valid date/iu);
 });
 
-test('review for another pack commit is stale', () => {
+test('50 different provenance commit SHA with identical content fingerprint remains effective', () => {
   const repository = cloneRepository();
   claimReviewApproved(repository);
-  addReview(repository, validReview(repository, { pack_commit_sha: staleSha }));
-  assert.match(diagnosticText(repository, 'warning'), /teacher review is stale for the current teacher-pack commit/iu);
-  assertFailsWith(repository, /stale teacher review cannot prove current readiness/iu);
+  const review = validReview(repository);
+  review.reviewed_version.commit_sha = staleSha;
+  addReview(repository, review);
+  claimTrialTested(repository);
+  const trial = validTrial(repository);
+  trial.reviewed_version.commit_sha = staleSha;
+  addTrial(repository, trial);
+  claimClassroomReady(repository);
+  assert.deepEqual(errors(repository), []);
+  assert.doesNotMatch(diagnosticText(repository, 'warning'), /stale/iu);
 });
 
 test('completed review must cover safety', () => {
@@ -379,11 +400,14 @@ test('classroom ready without trial fails', () => {
 test('classroom ready rejects stale review', () => {
   const repository = cloneRepository();
   claimReviewApproved(repository);
-  addReview(repository, validReview(repository, { pack_commit_sha: staleSha }));
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.value = staleFingerprint;
+  addReview(repository, review);
   claimTrialTested(repository);
   addTrial(repository);
   claimClassroomReady(repository);
-  assertFailsWith(repository, /stale teacher review cannot prove current readiness/iu);
+  assert.match(diagnosticText(repository, 'warning'), /teacher review is stale: reviewed content fingerprint does not match current teacher-pack content/iu);
+  assertFailsWith(repository, /stale teacher review fingerprint cannot prove current readiness/iu);
 });
 
 test('classroom ready rejects stale trial', () => {
@@ -391,10 +415,12 @@ test('classroom ready rejects stale trial', () => {
   claimReviewApproved(repository);
   addReview(repository);
   claimTrialTested(repository);
-  addTrial(repository, validTrial(repository, { pack_commit_sha: staleSha }));
+  const trial = validTrial(repository);
+  trial.reviewed_version.content_fingerprint.value = staleFingerprint;
+  addTrial(repository, trial);
   claimClassroomReady(repository);
-  assert.match(diagnosticText(repository, 'warning'), /classroom trial is stale for the current teacher-pack commit/iu);
-  assertFailsWith(repository, /stale classroom trial cannot prove current readiness/iu);
+  assert.match(diagnosticText(repository, 'warning'), /classroom trial is stale: tested content fingerprint does not match current teacher-pack content/iu);
+  assertFailsWith(repository, /stale classroom trial fingerprint cannot prove current readiness/iu);
 });
 
 test('teacher-review template cannot be registered as completed evidence', () => {
@@ -430,4 +456,104 @@ test('approval fails while required changes remain open', () => {
   });
   addReview(repository, review);
   assertFailsWith(repository, /approval requires required change resolve-timing to be closed/iu);
+});
+
+test('41 completed review without content fingerprint is rejected', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.value = null;
+  review.reviewed_version.content_fingerprint.file_count = null;
+  addReview(repository, review);
+  assertFailsWith(repository, /completed teacher review requires a non-null sha256 content fingerprint and file count/iu);
+});
+
+test('42 analysed trial without content fingerprint is rejected', () => {
+  const repository = cloneRepository();
+  claimTrialTested(repository);
+  const trial = validTrial(repository);
+  trial.reviewed_version.content_fingerprint.value = null;
+  trial.reviewed_version.content_fingerprint.file_count = null;
+  addTrial(repository, trial);
+  assertFailsWith(repository, /analysed classroom trial requires a non-null sha256 content fingerprint and file count/iu);
+});
+
+test('43 fingerprint with incorrect length is rejected', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.value = '0'.repeat(63);
+  addReview(repository, review);
+  assertFailsWith(repository, /content_fingerprint\/value must match pattern/iu);
+});
+
+test('44 uppercase hexadecimal fingerprint is rejected', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.value = 'A'.repeat(64);
+  addReview(repository, review);
+  assertFailsWith(repository, /content_fingerprint\/value must match pattern/iu);
+});
+
+test('45 unknown fingerprint algorithm is rejected', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.algorithm = 'sha512';
+  addReview(repository, review);
+  assertFailsWith(repository, /content_fingerprint\/algorithm must be equal to constant/iu);
+});
+
+test('46 unknown fingerprint specification version is rejected', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.specification_version = '2.0';
+  addReview(repository, review);
+  assertFailsWith(repository, /content_fingerprint\/specification_version must be equal to constant/iu);
+});
+
+test('47 incorrect fingerprint file count makes evidence stale', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.file_count += 1;
+  addReview(repository, review);
+  assert.match(diagnosticText(repository, 'warning'), /recorded file count: \d+; current file count: \d+/iu);
+  assertFailsWith(repository, /stale teacher review fingerprint cannot prove current readiness/iu);
+});
+
+test('48 mismatched review fingerprint makes review stale', () => {
+  const repository = cloneRepository();
+  claimReviewApproved(repository);
+  const review = validReview(repository);
+  review.reviewed_version.content_fingerprint.value = staleFingerprint;
+  addReview(repository, review);
+  assert.match(diagnosticText(repository, 'warning'), /teacher review is stale: reviewed content fingerprint does not match current teacher-pack content/iu);
+  assertFailsWith(repository, /stale teacher review fingerprint cannot prove current readiness/iu);
+});
+
+test('49 mismatched trial fingerprint makes trial stale', () => {
+  const repository = cloneRepository();
+  claimTrialTested(repository);
+  const trial = validTrial(repository);
+  trial.reviewed_version.content_fingerprint.value = staleFingerprint;
+  addTrial(repository, trial);
+  assert.match(diagnosticText(repository, 'warning'), /classroom trial is stale: tested content fingerprint does not match current teacher-pack content/iu);
+  assertFailsWith(repository, /stale classroom trial fingerprint cannot prove current readiness/iu);
+});
+
+test('51 draft template with populated fingerprint is rejected', () => {
+  const repository = cloneRepository();
+  const fingerprint = repository.currentPackFingerprints[packIndex(repository).pack_id];
+  repository.reviewTemplates[0].data.reviewed_version.content_fingerprint.value = fingerprint.value;
+  repository.reviewTemplates[0].data.reviewed_version.content_fingerprint.file_count = fingerprint.file_count;
+  assertFailsWith(repository, /template must remain an uncompleted draft with null version evidence/iu);
+});
+
+test('52 draft template missing explicit null fingerprint field is rejected', () => {
+  const repository = cloneRepository();
+  delete repository.trialTemplates[0].data.reviewed_version.content_fingerprint.file_count;
+  assertFailsWith(repository, /missing required field file_count/iu);
 });

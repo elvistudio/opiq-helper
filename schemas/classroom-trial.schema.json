@@ -9,7 +9,7 @@
     "artifact_type",
     "trial_id",
     "pack_ref",
-    "pack_commit_sha",
+    "reviewed_version",
     "trial_status",
     "context",
     "privacy",
@@ -26,11 +26,11 @@
     "decision"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
     "artifact_type": { "const": "classroom_trial" },
     "trial_id": { "$ref": "#/$defs/idOrTemplateId" },
     "pack_ref": { "$ref": "#/$defs/slug" },
-    "pack_commit_sha": { "$ref": "#/$defs/nullableCommitSha" },
+    "reviewed_version": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/reviewedVersion" },
     "trial_status": { "enum": ["draft", "conducted", "analysed", "superseded"] },
     "context": { "$ref": "#/$defs/context" },
     "privacy": { "$ref": "#/$defs/privacy" },
@@ -58,12 +58,6 @@
     "idOrTemplateId": {
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:-YYYY-MM-DD)?$"
-    },
-    "nullableCommitSha": {
-      "oneOf": [
-        { "type": "null" },
-        { "type": "string", "pattern": "^[0-9a-f]{40}$" }
-      ]
     },
     "nullableDate": {
       "oneOf": [
