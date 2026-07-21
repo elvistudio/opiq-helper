@@ -552,6 +552,68 @@ cases:
         url: https://www.opiq.ee/kit/232/chapter/15700
     evidence: "The explicit Tähed ja häälikud heading belongs to the grade 2 Estonian route and its exact page is absent from grade 1 Estonian."
 
+  - id: grade-2-mathematics-arithmetic-review
+    grade: 2
+    subject: mathematics
+    topic: "comparison, addition, and subtraction within 20"
+    status: present
+    expected_source_id: grade-2-mathematics
+    expected_md_path: project-files/outputs/opiq_2klass_matemaatika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-mathematics
+        url: https://www.opiq.ee/kit/95/chapter/4622
+        expected:
+          class: 2
+          book_id: avita_matemaatik_2_et
+          title: Kordamine. Arvude võrdlemine, liitmine ja lahutamine 20 piires
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          headings_any:
+            - Arvutan ja võrdlen
+      - kind: url_absent
+        origin_source_id: grade-2-mathematics
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/95/chapter/4622
+    evidence: "The explicit arithmetic-review heading is in the canonical grade 2 mathematics route and the exact page is absent from grade 3 mathematics."
+
+  - id: grade-2-science-weather
+    grade: 2
+    subject: science
+    topic: "weather observation"
+    status: present
+    expected_source_id: grade-2-science
+    expected_md_path: project-files/outputs/opiq_2klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-science
+        url: https://www.opiq.ee/kit/379/chapter/20582
+        expected:
+          class: 2
+          book_id: avita_loodusõpet_2_et
+          title: Ilm
+          subject:
+            en: science
+            et: loodusõpetus
+            ru: природоведение
+          headings_any:
+            - Mari ilmajaamas
+          task_examples_any:
+            - Uuri ilmakaarti
+      - kind: url_absent
+        origin_source_id: grade-2-science
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/379/chapter/20582
+      - kind: book_id_absent
+        source_id: grade-2-science
+        book_id: avita_loodus-_ja_2_et
+      - kind: book_id_absent
+        source_id: grade-2-science
+        book_id: avita_природа_и__2_ru
+    evidence: "The weather task is verified in a pure grade 2 science book and absent from grade 3 science. Both audited mixed human-studies/science Book IDs remain outside the canonical science route."
+
   - id: grade-2-human-studies-water-safety
     grade: 2
     subject: human_studies

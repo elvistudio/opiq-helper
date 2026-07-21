@@ -94,6 +94,15 @@ node scripts/generate-grade-3-mathematics-qa.mjs --check
 
 The generator preserves its initial `generated_at` value on ordinary reruns and verifies the canonical Markdown field by field against the compact JSONL. Run the general refresh and manifest checks afterward.
 
+Grade 2 mathematics and science are reproducibly generated from the committed original export archives:
+
+```sh
+npm run generate:grade-2-sources
+npm run check:grade-2-sources
+```
+
+The generator removes repeated kit-detail covers and administrative pages, requires unique canonical chapter URLs, and labels simplified-curriculum records. The combined science/human-studies export is deliberately not routed as one subject: the canonical `grade-2-science` index excludes the two mixed books, while the existing `grade-2-human-studies` route remains separate. The source-label corrections and exclusions are recorded in the QA snapshots and the [grade 2 subject-boundary audit](docs/audits/grade-2-science-subject-separation.md). Neither route is a verified curriculum map.
+
 Routes may opt into exact canonical URL uniqueness with `canonical_url_policy.require_unique: true`. The policy is intentionally route-specific because other known duplicate routes are handled by their own audits.
 
 A route-specific `canonical_subject_policy` requires every canonical record to use the declared Subject. For grade 3 mathematics, two audited `Kaitseme loodust` source records are normalized from science to mathematics because their learner tasks are computational. Environmental keywords remain valid thematic context; the subject policy checks the Subject field, not topic keywords.

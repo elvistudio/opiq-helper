@@ -132,6 +132,78 @@
       "notes": "Route first-language Estonian queries here."
     },
     {
+      "id": "grade-2-mathematics",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "mathematics",
+      "subject_et": "matemaatika",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_2klass_matemaatika.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_matemaatika_2_klassile_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_matemaatika_qa.json",
+      "record_count": 464,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "Sixteen cover/detail records and five administrative records are excluded; all eight duplicate source URL groups were repeated kit-detail pages.",
+        "Two Russian source Book IDs end in _et despite Language ru. The source IDs are retained for provenance; the explicit Language field is authoritative.",
+        "One simplified-curriculum book is included and labelled per book and record; it must not be used as the ordinary default."
+      ],
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "mathematics",
+          "et": "matemaatika",
+          "ru": "математика"
+        }
+      },
+      "notes": "Canonical Markdown is reproducibly generated from the committed original export. It contains 464 unique chapter-level pages and does not claim curriculum completeness."
+    },
+    {
+      "id": "grade-2-science",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_2klass_loodusopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_loodusopetus_qa.json",
+      "record_count": 286,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "Eighteen cover/detail records and five administrative records are excluded; all nine duplicate source URL groups were repeated kit-detail pages.",
+        "The source mislabeled 156 records as mathematics. Ninety eligible Russian-language science pages are normalized to the science subject in the canonical index.",
+        "Two mixed loodus- ja inimeseõpetus books are excluded from this subject-pure route; their 119 instructional pages are documented in the subject-boundary audit.",
+        "One Russian source Book ID contains a discretionary soft hyphen. The canonical ID removes only that invisible character and otherwise retains the source identifier.",
+        "One simplified-curriculum book is included and labelled per book and record; it must not be used as the ordinary default."
+      ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "avita_loodus-_ja_2_et",
+          "avita_природа_и__2_ru"
+        ],
+        "audit_path": "docs/audits/grade-2-science-subject-separation.md",
+        "reason": "Mixed nature-and-human-studies books are excluded so the science route does not silently absorb human-studies material."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "science",
+          "et": "loodusõpetus",
+          "ru": "природоведение"
+        }
+      },
+      "notes": "Canonical Markdown is reproducibly generated from seven science books in the committed original export. It contains 286 unique chapter-level pages and does not claim curriculum completeness."
+    },
+    {
       "id": "grade-2-human-studies",
       "grade": 2,
       "grade_group": "1-4",
