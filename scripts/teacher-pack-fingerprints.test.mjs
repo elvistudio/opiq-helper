@@ -8,6 +8,7 @@ import {
   computeContentFingerprintFromEntries,
   computeTeacherPackContentFingerprint,
 } from './lib/teacher-pack-fingerprints.mjs';
+import { loadTeacherPackRepository } from './lib/teacher-packs.mjs';
 
 const temporaryRoots = [];
 
@@ -114,6 +115,25 @@ async function expectRejects(fixture, pattern) {
 
 after(async () => {
   await Promise.all(temporaryRoots.map((root) => fs.rm(root, { recursive: true, force: true })));
+});
+
+test('production water-use-cycle pack has a deterministic complete reviewable fingerprint', async () => {
+  const repository = await loadTeacherPackRepository();
+  const indexArtifact = repository.indexes.find((entry) => entry.data.pack_id === 'grade-5-science-water-use-cycle-teacher-pack');
+  assert.ok(indexArtifact, 'missing water-use-cycle materials index');
+  const thematicArtifact = repository.plans.artifacts.find((entry) => entry.data.artifact_type === 'bilingual_thematic_plan'
+    && entry.data.unit_id === indexArtifact.data.unit_ref);
+  const lessonIdSet = new Set(indexArtifact.data.lesson_ids);
+  const lessonArtifacts = repository.plans.artifacts.filter((entry) => entry.data.artifact_type === 'bilingual_lesson'
+    && lessonIdSet.has(entry.data.lesson_id));
+  const input = { rootDir: repository.rootDir, indexArtifact, thematicArtifact, lessonArtifacts };
+  const first = await computeTeacherPackContentFingerprint(input);
+  const second = await computeTeacherPackContentFingerprint(input);
+  assert.equal(first.value, second.value);
+  assert.equal(first.file_count, 44);
+  assert.equal(first.files.filter((file) => file.endsWith('.yaml')).length, 7);
+  assert.ok(first.files.includes('teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-safety-card.md'));
+  assert.ok(first.files.includes('teacher-packs/grade-5-science/water-use-cycle/answers/lesson-06-answer-key.md'));
 });
 
 test('01 identical file sets always produce the same fingerprint', async () => {

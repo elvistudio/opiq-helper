@@ -6,6 +6,7 @@ import {
 } from './lib/teacher-packs.mjs';
 
 let baseline;
+const baselinePackId = 'grade-5-science-water-teacher-pack';
 
 before(async () => {
   baseline = await loadTeacherPackRepository();
@@ -16,8 +17,9 @@ function cloneRepository() {
 }
 
 function lessons(repository) {
+  const linkedLessonIds = new Set(indexData(repository).lesson_ids);
   return repository.plans.artifacts
-    .filter((artifact) => artifact.data.artifact_type === 'bilingual_lesson')
+    .filter((artifact) => artifact.data.artifact_type === 'bilingual_lesson' && linkedLessonIds.has(artifact.data.lesson_id))
     .sort((left, right) => left.data.position_in_unit - right.data.position_in_unit);
 }
 
@@ -28,14 +30,16 @@ function lesson(repository, position = 1) {
 }
 
 function thematic(repository) {
-  const found = repository.plans.artifacts.find((artifact) => artifact.data.artifact_type === 'bilingual_thematic_plan');
+  const expectedUnitId = indexData(repository).unit_ref;
+  const found = repository.plans.artifacts.find((artifact) => artifact.data.artifact_type === 'bilingual_thematic_plan' && artifact.data.unit_id === expectedUnitId);
   assert.ok(found, 'missing thematic plan');
   return found.data;
 }
 
 function indexData(repository) {
-  assert.equal(repository.indexes.length, 1);
-  return repository.indexes[0].data;
+  const found = repository.indexes.find((entry) => entry.data.pack_id === baselinePackId);
+  assert.ok(found, `missing teacher pack ${baselinePackId}`);
+  return found.data;
 }
 
 function lessonMaterial(repository, position, materialId) {
@@ -81,18 +85,34 @@ test('production water teacher pack resolves all files with honest readiness war
   const foundErrors = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'error');
   const foundWarnings = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'warning');
   assert.deepEqual(foundErrors, [], diagnosticText(foundErrors));
-  assert.equal(foundWarnings.length, 2, diagnosticText(foundWarnings));
+  assert.equal(foundWarnings.length, 4, diagnosticText(foundWarnings));
   assert.match(diagnosticText(foundWarnings), /teacher review .* pending/u);
   assert.match(diagnosticText(foundWarnings), /not been tested in a classroom/u);
-  assert.equal(result.summary.packs, 1);
-  assert.equal(result.summary.lessons, 4);
-  assert.equal(result.summary.materials, 29);
-  assert.equal(result.summary.studentDocuments, 12);
+  assert.equal(result.summary.packs, 2);
+  assert.equal(result.summary.lessons, 10);
+  assert.equal(result.summary.materials, 66);
+  assert.equal(result.summary.studentDocuments, 30);
   assert.equal(thematic(repository).teacher_pack.classroom_ready, false);
   for (const artifact of lessons(repository)) {
     assert.equal(artifact.data.artifact_readiness.readiness_status, 'teacher_pack_complete_pending_review');
     assert.equal(artifact.data.artifact_readiness.classroom_ready, false);
   }
+});
+
+test('water-use-cycle teacher pack resolves six lessons, scored materials, and pending readiness', () => {
+  const repository = cloneRepository();
+  const index = repository.indexes.find((entry) => entry.data.pack_id === 'grade-5-science-water-use-cycle-teacher-pack')?.data;
+  assert.ok(index, 'missing water-use-cycle teacher pack');
+  assert.equal(index.lesson_ids.length, 6);
+  assert.equal(index.materials.length, 37);
+  assert.equal(index.pedagogical_review.status, 'pending');
+  assert.equal(index.classroom_trial.status, 'not_tested');
+  const studentTasks = index.materials.map((entry) => entry.material)
+    .filter((material) => material.audience === 'student' && ['worksheet', 'assessment'].includes(material.material_type));
+  assert.ok(studentTasks.length > 0);
+  assert.ok(studentTasks.every((material) => material.answer_key_path), 'every scored student task needs an answer key');
+  assert.ok(index.materials.some((entry) => entry.material.material_id === 'filter-safety-card'));
+  assert.deepEqual(diagnostics(repository), []);
 });
 
 test('worksheet path that does not exist fails', () => {
