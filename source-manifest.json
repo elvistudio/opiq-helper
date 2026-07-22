@@ -256,6 +256,39 @@
       "notes": "Canonical Markdown is reproducibly generated from three source books in the committed original export: Estonian and Russian part 2 books plus the supplementary Estonian holiday-card collection. This route does not claim curriculum completeness."
     },
     {
+      "id": "grade-2-music",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "music",
+      "subject_et": "muusika",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_2klass_muusika.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_muusikamaa_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_muusika_qa.json",
+      "record_count": 317,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "Ten repeated kit-detail records and two Impressum pages are excluded; the 317 canonical chapter URLs are unique.",
+        "All 329 source records are automatically labelled as mathematics. Canonical instructional records are normalized to music without changing page titles, headings, tasks or URLs.",
+        "Publisher names are absent from the archive.",
+        "Thirty-one canonical title groups repeat across distinct chapter URLs. They are retained because title equality does not prove duplicate instructional content, particularly across editions and languages.",
+        "The heritage-music video collection is supplementary material and must not be treated as the ordinary core without explicit labelling."
+      ],
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "music",
+          "et": "muusika",
+          "ru": "музыка"
+        }
+      },
+      "notes": "Canonical Markdown is reproducibly generated from five source books in the committed original export: four Estonian sources and one Russian source. This route does not claim curriculum completeness."
+    },
+    {
       "id": "grade-2-russian",
       "grade": 2,
       "grade_group": "1-4",

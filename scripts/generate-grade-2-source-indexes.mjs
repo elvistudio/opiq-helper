@@ -73,6 +73,48 @@ const configurations = [
       ['kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid', { kit: '200', language: 'et', pages: 85 }],
       ['трудовое_обучение_и_искусство._2_часть', { kit: '371', language: 'ru', pages: 89 }],
     ]),
+    metadataLimitations: [
+      'The export does not record publisher names.',
+      'The compact index and page records are authoritative for language; raw per-book files incorrectly label the two Estonian books as Russian.',
+      'Repeated page titles are retained because their canonical chapter URLs and instructional contexts are distinct.',
+    ],
+    excludedBookIds: new Map(),
+  },
+  {
+    sourceId: 'grade-2-music',
+    generatorVersion: '1.2',
+    expectedSourceRecords: 329,
+    expectedCanonicalRecords: 317,
+    expectedCoverRecords: 10,
+    expectedAdministrativeRecords: 2,
+    expectedDuplicateGroups: 5,
+    expectedDuplicateTitleGroups: 31,
+    expectedDuplicateTitleRecords: 65,
+    subject: { en: 'music', et: 'muusika', ru: 'музыка' },
+    title: '2. klass muusika',
+    queryDescription: 'grade 2 music',
+    simplifiedBookIds: new Set(),
+    supplementaryBookIds: new Set(['eesti_pärimusmuusika_keskuse_õppevideod']),
+    canonicalBookTitles: new Map([
+      ['2._klassi_muusikaõpetus', 'Muusikamaa'],
+      ['eesti_pärimusmuusika_keskuse_õppevideod', 'Eesti Pärimusmuusika Keskuse õppevideod'],
+      ['muusikaõpik_2._klassile', 'Muusikaõpik 2. klassile'],
+      ['muusikaõpik_2._klassile_2024', 'Muusikaõpik 2. klassile 2024'],
+      ['музыка_–_волшебная_страна._2_класс', 'Музыка – волшебная страна. 2 класс'],
+    ]),
+    expectedBooks: new Map([
+      ['2._klassi_muusikaõpetus', { kit: '188', language: 'et', pages: 116 }],
+      ['eesti_pärimusmuusika_keskuse_õppevideod', { kit: '465', language: 'et', pages: 33 }],
+      ['muusikaõpik_2._klassile', { kit: '193', language: 'et', pages: 29 }],
+      ['muusikaõpik_2._klassile_2024', { kit: '556', language: 'et', pages: 28 }],
+      ['музыка_–_волшебная_страна._2_класс', { kit: '238', language: 'ru', pages: 111 }],
+    ]),
+    metadataLimitations: [
+      'The export does not record publisher names.',
+      'Thirty-one canonical title groups repeat across distinct chapter URLs; they are retained as separate edition, language, or instructional contexts.',
+      'Two Book IDs contain discretionary soft hyphens; the canonical IDs remove only those invisible formatting characters.',
+      'The heritage-music video collection is supplementary material and is not treated as the ordinary core.',
+    ],
     excludedBookIds: new Map(),
   },
 ];
@@ -240,6 +282,28 @@ function auditDuplicateUrls(records, configuration) {
   return { duplicateGroups, entries };
 }
 
+function auditDuplicateTitles(records, configuration) {
+  if (configuration.expectedDuplicateTitleGroups === undefined) return null;
+  const groups = [...groupBy(records, (record) => record.title).entries()]
+    .filter(([, matches]) => matches.length > 1)
+    .sort(([left], [right]) => left.localeCompare(right));
+  const recordCount = groups.reduce((total, [, matches]) => total + matches.length, 0);
+  assert(groups.length === configuration.expectedDuplicateTitleGroups, `${configuration.sourceId}: repeated canonical title group count changed.`);
+  assert(recordCount === configuration.expectedDuplicateTitleRecords, `${configuration.sourceId}: repeated canonical title record count changed.`);
+  return {
+    groups: groups.length,
+    records: recordCount,
+    entries: groups.map(([title, matches]) => ({
+      title,
+      urls: matches.map((record) => record.url),
+      book_ids: [...new Set(matches.map((record) => record.book_id))],
+      languages: [...new Set(matches.map((record) => record.language))].sort(),
+      decision: 'retain_distinct_canonical_chapters',
+      reason: 'Equal titles do not prove duplicate instructional content; canonical URLs and chapter contexts differ.',
+    })),
+  };
+}
+
 function canonicalize(records, configuration) {
   const coverRecords = records.filter(isCoverDetail);
   const administrativeRecords = records.filter((record) => !isCoverDetail(record) && isAdministrative(record));
@@ -400,6 +464,7 @@ async function generateSource(manifest, configuration) {
   const state = canonicalize(records, configuration);
   const markdown = renderMarkdown(configuration, source, index, state, duplicateAudit);
   const canonicalRecords = state.canonicalRecords;
+  const duplicateTitleAudit = auditDuplicateTitles(canonicalRecords, configuration);
   if (configuration.expectedBooks) {
     assert(configuration.expectedBooks.size === new Set(canonicalRecords.map((record) => record.book_id)).size, `${configuration.sourceId}: canonical book count changed.`);
     for (const [bookId, expected] of configuration.expectedBooks) {
@@ -461,16 +526,13 @@ async function generateSource(manifest, configuration) {
       canonical_duplicate_groups: 0,
       entries: duplicateAudit.entries,
     },
+    ...(duplicateTitleAudit ? { duplicate_title_audit: duplicateTitleAudit } : {}),
     excluded_book_audit: excludedBookAudit,
     book_id_language_suffix_anomalies: suffixAnomalies,
     book_metadata_audit: bookMetadataAudit(canonicalRecords, configuration),
     ...(configuration.canonicalBookTitles.size > 0 ? {
       book_metadata_normalization_audit: bookMetadataNormalizationAudit(records, canonicalRecords, configuration),
-      metadata_limitations: [
-        'The export does not record publisher names.',
-        'The compact index and page records are authoritative for language; raw per-book files incorrectly label the two Estonian books as Russian.',
-        'Repeated page titles are retained because their canonical chapter URLs and instructional contexts are distinct.',
-      ],
+      metadata_limitations: configuration.metadataLimitations,
     } : {}),
     records_without_headings: canonicalRecords.filter((record) => record.headings.length === 0).length,
     missing_urls: canonicalRecords.filter((record) => !record.url).length,
