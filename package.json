@@ -11,6 +11,7 @@
     "fingerprint:teacher-pack": "node scripts/compute-teacher-pack-fingerprint.mjs",
     "generate:grade-2-sources": "node scripts/generate-grade-2-source-indexes.mjs",
     "test:curriculum": "node --test scripts/curriculum-maps.test.mjs",
+    "test:grade-2-sources": "node --test scripts/grade-2-source-indexes.test.mjs",
     "test:fingerprints": "node --test scripts/teacher-pack-fingerprints.test.mjs",
     "test:plans": "node --test scripts/lesson-plans.test.mjs",
     "test:reviews": "node --test scripts/pedagogical-reviews.test.mjs",

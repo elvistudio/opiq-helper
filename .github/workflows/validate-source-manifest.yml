@@ -119,6 +119,9 @@ jobs:
       - name: Verify generated grade 2 source indexes
         run: npm run check:grade-2-sources
 
+      - name: Test grade 2 catalogue integrity guards
+        run: npm run test:grade-2-sources
+
       - name: Verify generated grade 3 mathematics QA
         run: node scripts/generate-grade-3-mathematics-qa.mjs --check
 
