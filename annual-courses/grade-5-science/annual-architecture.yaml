@@ -83,12 +83,12 @@ topic_architecture_decisions:
     affected_record_ids: [water-properties-ru-avita, water-states-ru-avita, water-properties-et-avita-2024, water-states-et-avita-2024, water-states-et-koolibri-practical, water-changes-et-koolibri-practical]
     deduplication_decision: Preserve the existing role-based six-page selection and its rejected duplicates.
     annual_sequence_effect: Retain the production unit after water-body context and before the water cycle.
-  - old_topic_ids: [water-use-protection-and-cycle]
+  - old_topic_ids: [ water-use-protection-and-cycle ]
     new_unit_id: grade-5-water-use-cycle
     decision: preserve
     reason: Groundwater, use, protection, purification, and cycle form one connected application unit.
-    affected_record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri]
-    deduplication_decision: Retain complementary Russian explanation and Estonian cycle, pollution, and visual roles.
+    affected_record_ids: [ groundwater-ru-avita, water-use-ru-avita, groundwater-et-avita-2024, water-pollution-et-avita-2024, water-cycle-et-avita-2024, water-treatment-et-koolibri, drinking-water-et-koolibri, water-cycle-et-koolibri ]
+    deduplication_decision: Retain eight complementary direct-Russian, ET-to-RU adaptation, terminology, treatment, visual, practical, revision, and assessment roles; reject eight audited overlaps or off-unit pages.
     annual_sequence_effect: Follow the water-properties unit to recycle state-change vocabulary immediately.
   - old_topic_ids: [freshwater-ecosystems]
     new_unit_id: grade-5-freshwater-ecosystems
@@ -331,88 +331,353 @@ ordered_units:
     estimate_basis: The existing linked thematic plan contains four complete 45-minute lesson artifacts.
   - order: 4
     unit_id: grade-5-water-use-cycle
-    topic_inventory_refs: [water-use-protection-and-cycle]
+    topic_inventory_refs:
+      - water-use-protection-and-cycle
     title_ru: Подземные воды, использование, защита и круговорот воды
     title_et: Põhjavesi, vee kasutamine, kaitse ja veeringe
     scope_ru: Подземные и питьевые воды, использование, загрязнение, очистка, защита и модель круговорота.
-    main_concepts: [подземные воды, питьевая вода, загрязнение, очистка, круговорот, водосбережение]
-    prerequisite_unit_ids: [grade-5-water-four-lesson-plan]
+    main_concepts:
+      - подземные воды
+      - питьевая вода
+      - использование воды
+      - загрязнение
+      - очистка
+      - защита
+      - водосбережение
+      - круговорот
+      - пределы фильтрационной модели
+    prerequisite_unit_ids:
+      - grade-5-water-four-lesson-plan
     estimated_lessons: 6
-    lesson_allocation: {core_instruction: 3, practical_work: 1, revision: 0, subject_assessment: 1, language_assessment: 1}
+    lesson_allocation:
+      core_instruction: 3
+      practical_work: 1
+      revision: 0
+      subject_assessment: 1
+      language_assessment: 1
     mandatory_status: curated_core
     linked_official_outcomes:
-      - {outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle, coverage_status: partial}
-      - {outcome_id: prok-ii-loodusopetus-08-water-purification, coverage_status: partial}
-      - {outcome_id: prok-ii-loodusopetus-19-groundwater, coverage_status: partial}
-      - {outcome_id: prok-ii-loodusopetus-35-human-impact-communities, coverage_status: partial}
+      - outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle
+        coverage_status: partial
+      - outcome_id: prok-ii-loodusopetus-04-safe-investigation
+        coverage_status: partial
+      - outcome_id: prok-ii-loodusopetus-08-water-purification
+        coverage_status: partial
+      - outcome_id: prok-ii-loodusopetus-19-groundwater
+        coverage_status: partial
+      - outcome_id: prok-ii-loodusopetus-35-human-impact-communities
+        coverage_status: partial
     coverage_status: partial
-    source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
-    selected_source_record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri]
+    source_book_ids:
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_avita_2024_est
+      - 5k_loodusõpetus_koolibri_est
+    selected_source_record_ids:
+      - groundwater-ru-avita
+      - water-use-ru-avita
+      - groundwater-et-avita-2024
+      - water-pollution-et-avita-2024
+      - water-cycle-et-avita-2024
+      - water-treatment-et-koolibri
+      - drinking-water-et-koolibri
+      - water-cycle-et-koolibri
     topic_synthesis:
       output_language: ru
       readiness: needs_review
-      strategies: [direct_opiq_ru, adapted_from_opiq_et, synthesized_from_multiple_opiq_sources, author_created_explanation]
+      strategies:
+        - direct_opiq_ru
+        - adapted_from_opiq_et
+        - synthesized_from_multiple_opiq_sources
+        - author_created_explanation
       source_contributions:
-        - contribution_id: groundwater-russian-direct
+        - contribution_id: groundwater-ru-avita-contribution
           source_kind: opiq_record
           source_id: groundwater-ru-avita
           source_language: ru
-          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: groundwater-ru-avita, notes: Canonical ordinary Russian groundwater page in the exact route.}
-          selection_rationale: Provides direct Russian explanation for groundwater and protection foundations.
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: groundwater-ru-avita
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Primary Russian concept formation for groundwater, infiltration, wells, and groundwater protection.
           transformations:
-            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [подземные воды, грунтовые воды, охрана воды], notes: Direct Russian evidence forms one strand of the final synthesis.}
-        - contribution_id: water-use-russian-direct
+            - transformation: direct
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+                - practice_ru
+              concepts_supported:
+                - подземные воды
+                - просачивание
+                - защита источников
+              notes: Direct canonical Russian evidence contributes to the coherent pupil-facing explanation.
+        - contribution_id: water-use-ru-avita-contribution
           source_kind: opiq_record
           source_id: water-use-ru-avita
           source_language: ru
-          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-use-ru-avita, notes: Canonical ordinary Russian water-use page in the exact route.}
-          selection_rationale: Provides direct Russian explanation of water use, drinking water, and conservation.
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: water-use-ru-avita
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Provides the coherent Russian base for water use, wastewater, conservation, and treatment.
           transformations:
-            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, revision], concepts_supported: [использование воды, питьевая вода, водосбережение], notes: Direct Russian evidence is retained without treating it as complete coverage of the whole topic.}
-        - contribution_id: water-pollution-estonian-adaptation
+            - transformation: direct
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+                - practice_ru
+                - revision
+              concepts_supported:
+                - питьевая вода
+                - использование воды
+                - водосбережение
+              notes: Direct canonical Russian evidence contributes to the coherent pupil-facing explanation.
+        - contribution_id: groundwater-et-avita-2024-contribution
+          source_kind: opiq_record
+          source_id: groundwater-et-avita-2024
+          source_language: et
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: groundwater-et-avita-2024
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Adds current Estonian groundwater terminology, infiltration evidence, and a distinct map/visual role.
+          transformations:
+            - transformation: pedagogical_adaptation
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+              concepts_supported:
+                - põhjavesi
+                - imbumine
+                - joogivesi
+              notes: Selected Estonian evidence is summarized and pedagogically adapted into concise Russian explanation; no full chapter translation is stored.
+            - transformation: direct
+              output_language: et
+              output_layer: subject_support
+              instructional_roles:
+                - core_source_et
+                - terminology_et
+                - bilingual_visual
+                - map_skill
+              concepts_supported:
+                - põhjavesi
+                - imbumine
+                - joogivesi
+              notes: Terminology, labels, visual evidence, short instructions, or assessment prompts remain direct Estonian subject support.
+        - contribution_id: water-pollution-et-avita-2024-contribution
           source_kind: opiq_record
           source_id: water-pollution-et-avita-2024
           source_language: et
-          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-pollution-et-avita-2024, notes: Canonical current Estonian pollution and protection source in the exact route.}
-          selection_rationale: Supplies current pollution, protection, terminology, task, and assessment evidence.
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: water-pollution-et-avita-2024
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Strongest current Estonian source for pollution/protection terminology and short decision tasks.
           transformations:
-            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [загрязнение воды, защита воды, очистка], notes: Current Estonian concepts will be summarized and adapted into concise Russian explanation with review.}
-            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, practice_et, assessment], concepts_supported: [veereostus, vee kaitse, puhastamine], notes: Current terminology and short tasks remain direct Estonian support.}
-        - contribution_id: water-cycle-estonian-adaptation
+            - transformation: pedagogical_adaptation
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+              concepts_supported:
+                - reostus
+                - veekaitse
+                - puhastamine
+              notes: Selected Estonian evidence is summarized and pedagogically adapted into concise Russian explanation; no full chapter translation is stored.
+            - transformation: direct
+              output_language: et
+              output_layer: subject_support
+              instructional_roles:
+                - core_source_et
+                - terminology_et
+                - practice_et
+                - assessment
+              concepts_supported:
+                - reostus
+                - veekaitse
+                - puhastamine
+              notes: Terminology, labels, visual evidence, short instructions, or assessment prompts remain direct Estonian subject support.
+        - contribution_id: water-treatment-et-koolibri-contribution
+          source_kind: opiq_record
+          source_id: water-treatment-et-koolibri
+          source_language: et
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: water-treatment-et-koolibri
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Distinct practical and data-interpretation support for treatment and the bounded filtration model.
+          transformations:
+            - transformation: pedagogical_adaptation
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+              concepts_supported:
+                - очистка сточных вод
+                - фильтрация
+                - пределы модели
+              notes: Selected Estonian evidence is summarized and pedagogically adapted into concise Russian explanation; no full chapter translation is stored.
+            - transformation: direct
+              output_language: et
+              output_layer: subject_support
+              instructional_roles:
+                - core_source_et
+                - experiment
+                - data_interpretation
+                - revision
+              concepts_supported:
+                - очистка сточных вод
+                - фильтрация
+                - пределы модели
+              notes: Terminology, labels, visual evidence, short instructions, or assessment prompts remain direct Estonian subject support.
+        - contribution_id: drinking-water-et-koolibri-contribution
+          source_kind: opiq_record
+          source_id: drinking-water-et-koolibri
+          source_language: et
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: drinking-water-et-koolibri
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Distinct evidence for the difference between classroom filtration, water treatment, and potable water.
+          transformations:
+            - transformation: pedagogical_adaptation
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+              concepts_supported:
+                - joogivesi
+                - питьевая безопасность
+                - очистка питьевой воды
+              notes: Selected Estonian evidence is summarized and pedagogically adapted into concise Russian explanation; no full chapter translation is stored.
+            - transformation: direct
+              output_language: et
+              output_layer: subject_support
+              instructional_roles:
+                - core_source_et
+                - definition_et
+                - bilingual_visual
+                - assessment
+              concepts_supported:
+                - joogivesi
+                - питьевая безопасность
+                - очистка питьевой воды
+              notes: Terminology, labels, visual evidence, short instructions, or assessment prompts remain direct Estonian subject support.
+        - contribution_id: water-cycle-et-koolibri-contribution
           source_kind: opiq_record
           source_id: water-cycle-et-koolibri
           source_language: et
-          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-cycle-et-koolibri, notes: Canonical ordinary Estonian water-cycle source in the exact route.}
-          selection_rationale: Supplies the strongest cycle visual, sequence, and practical evidence.
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: water-cycle-et-koolibri
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Strongest cycle visual and sequence for ET-to-RU adaptation and vocabulary recycling.
           transformations:
-            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [круговорот воды, испарение, конденсация, осадки], notes: Diagram and sequence evidence will be adapted into a Russian causal explanation rather than treated as missing.}
-            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, bilingual_visual, data_interpretation, revision], concepts_supported: [veeringe, aurustumine, veeldumine, sademed], notes: The diagram and labels recycle existing Estonian phase-change vocabulary.}
-        - contribution_id: water-safety-author-bridge
+            - transformation: pedagogical_adaptation
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+              concepts_supported:
+                - круговорот воды
+                - испарение
+                - конденсация
+                - осадки
+                - просачивание
+              notes: Selected Estonian evidence is summarized and pedagogically adapted into concise Russian explanation; no full chapter translation is stored.
+            - transformation: direct
+              output_language: et
+              output_layer: subject_support
+              instructional_roles:
+                - core_source_et
+                - bilingual_visual
+                - experiment
+                - data_interpretation
+                - revision
+              concepts_supported:
+                - круговорот воды
+                - испарение
+                - конденсация
+                - осадки
+                - просачивание
+              notes: Terminology, labels, visual evidence, short instructions, or assessment prompts remain direct Estonian subject support.
+        - contribution_id: water-cycle-et-avita-2024-contribution
+          source_kind: opiq_record
+          source_id: water-cycle-et-avita-2024
+          source_language: et
+          provenance:
+            source_family: opiq
+            source_type: ordinary_textbook
+            source_reference: water-cycle-et-avita-2024
+            notes: Canonical ordinary textbook record in the exact grade-5-science route.
+          selection_rationale: Adds current cycle terminology and a distinct concise assessment role alongside the richer Koolibri sequence.
+          transformations:
+            - transformation: direct
+              output_language: et
+              output_layer: subject_support
+              instructional_roles:
+                - core_source_et
+                - terminology_et
+                - practice_et
+                - assessment
+              concepts_supported:
+                - veeringe
+                - sademed
+                - короткая проверка последовательности
+              notes: Terminology, labels, visual evidence, short instructions, or assessment prompts remain direct Estonian subject support.
+        - contribution_id: water-filter-safety-author-bridge
           source_kind: author_created
           source_id: water-purification-safety-bridge
           source_language: ru
-          provenance: {source_family: author_created, source_type: author_explanation, source_reference: future grade-5-water-use-cycle thematic plan, notes: Explicit author bridge; it is not represented as Opiq or official curriculum text.}
-          selection_rationale: A concise safety bridge is needed because a classroom filter model does not establish potable water.
+          provenance:
+            source_family: author_created
+            source_type: author_explanation
+            source_reference: lesson-plans/grade-5-science/water-use-cycle/lesson-04.yaml and teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-safety-card.md
+            notes: Bounded safety explanation is explicitly author-created and is not represented as Opiq or curriculum text.
+          selection_rationale: A concise bridge is required to prevent the dangerous inference that visible filtration creates potable water.
           transformations:
-            - {transformation: original, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [ограничения фильтрационной модели, безопасность питьевой воды], notes: The future authored explanation will state model limits and require teacher review.}
+            - transformation: original
+              output_language: ru
+              output_layer: main_explanation
+              instructional_roles:
+                - core_explanation_ru
+              concepts_supported:
+                - ограничения фильтрационной модели
+                - невидимые загрязнители
+                - безопасность питьевой воды
+              notes: States that visible particles may be removed while dissolved substances or microorganisms may remain; no tasting is allowed.
           authoring:
-            reason: Selected Opiq pages do not fully explain why visible filtration does not make water safe to drink.
-            uncovered_concepts: [ограничения фильтрационной модели, безопасность питьевой воды]
-            instructional_need: Prevent a dangerous misconception during the planned practical model.
-      missing_concepts: [ограничения фильтрационной модели, безопасность питьевой воды]
+            reason: Selected textbook evidence does not by itself provide the full classroom-specific safety boundary required for this exact model.
+            uncovered_concepts:
+              - ограничения фильтрационной модели
+              - питьевая безопасность модельной воды
+            instructional_need: Prevent tasting and prevent transparent appearance from being treated as evidence of potable water.
+      missing_concepts: []
       review_required: true
       review_status: pending
-      notes: Direct Russian evidence, adapted Estonian cycle and protection evidence, and one bounded safety bridge form the planned synthesis.
+      notes: The six authored lessons now implement the mixed Russian/Estonian synthesis and bounded safety bridge; human review is still required before readiness can become ready.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: end of first third
     placement_reason: Круговорот и очистка естественно повторяют состояния воды и переводят понятия в применение.
-    later_reuse_unit_ids: [grade-5-weather-climate, grade-5-settlements, grade-5-bog-ecosystem]
-    thematic_plan_ref: null
-    full_thematic_plan_exists: false
+    later_reuse_unit_ids:
+      - grade-5-weather-climate
+      - grade-5-settlements
+      - grade-5-bog-ecosystem
+    thematic_plan_ref: grade-5-water-use-cycle
+    full_thematic_plan_exists: true
     implementation_status: source_review_required
     teacher_review_status: pending
-    estimate_basis: Six lessons separate groundwater, purification, cycle modelling, protection, and two assessment modes.
+    estimate_basis: Six authored 45-minute lessons exactly implement three core lessons, one practical lesson, one subject-assessment lesson, and one language-assessment lesson; human review remains pending.
   - order: 5
     unit_id: grade-5-freshwater-ecosystems
     topic_inventory_refs: [freshwater-ecosystems]
@@ -805,7 +1070,7 @@ ordered_units:
     teacher_review_status: pending
     estimate_basis: Five lessons cover formation, conditions, organisms, a safe model, protection, and cumulative revision.
 lesson_estimate:
-  represented_lessons: 4
+  represented_lessons: 10
   estimated_planned_lessons: 54
   full_course_estimate_known: true
   estimate_basis: curated_unit_architecture
@@ -872,16 +1137,16 @@ deduplication_decisions:
   - {decision_id: dedupe-settlements-by-role, topic_id: settlements, decision: select_by_role, rationale: Select the ordinary Estonian page for Russian adaptation and limit author work to named local-environment gaps.}
   - {decision_id: dedupe-bog-by-role, topic_id: bog-ecosystem, decision: select_by_role, rationale: Select the ordinary Estonian core page for Russian adaptation and limit author work to named use-and-protection gaps.}
 outcome_coverage:
-  - {outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: The water-cycle model is planned; the same outcome also contains other school-stage models.}
+  - { outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle, coverage_status: partial, unit_ids: [ grade-5-water-use-cycle ], official_scope: school_stage_2, notes: The authored water-cycle model covers one partial strand of the broader school-stage modelling outcome. }
   - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial, unit_ids: [grade-5-rivers-lakes, grade-5-freshwater-ecosystems, grade-5-settlements, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Several local investigations are architected but not all detailed artifacts are authored.}
-  - {outcome_id: prok-ii-loodusopetus-04-safe-investigation, coverage_status: partial, unit_ids: [grade-5-water-four-lesson-plan, grade-5-air-properties], official_scope: school_stage_2, notes: "Safe practice is explicit, but this architecture is not complete end-of-stage evidence."}
-  - {outcome_id: prok-ii-loodusopetus-08-water-purification, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: A safe filtration model is planned; the complete investigation remains to be authored.}
+  - { outcome_id: prok-ii-loodusopetus-04-safe-investigation, coverage_status: partial, unit_ids: [ grade-5-water-four-lesson-plan, grade-5-air-properties ], official_scope: school_stage_2, notes: "Safe investigations now include the existing water observations and the authored controlled filtration model; full school-stage mastery is not claimed." }
+  - { outcome_id: prok-ii-loodusopetus-08-water-purification, coverage_status: partial, unit_ids: [ grade-5-water-use-cycle ], official_scope: school_stage_2, notes: "The authored filtration lesson distinguishes visible cleaning, treatment, and potable-water safety; the school-stage outcome remains partial." }
   - {outcome_id: prok-ii-loodusopetus-10-weather-measurements, coverage_status: partial, unit_ids: [grade-5-weather-climate], official_scope: school_stage_2, notes: "A repeated weather log is planned, not yet a complete validated thematic unit."}
   - {outcome_id: prok-ii-loodusopetus-12-map-locations, coverage_status: partial, unit_ids: [grade-5-landforms-map, grade-5-rivers-lakes, grade-5-baltic-sea, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Relevant map applications are sequenced; the broader official list remains school-stage scope.}
   - {outcome_id: prok-ii-loodusopetus-16-community-conditions, coverage_status: partial, unit_ids: [grade-5-freshwater-ecosystems, grade-5-baltic-sea, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Three relevant communities are mapped; other communities in the outcome are outside this architecture subset.}
   - {outcome_id: prok-ii-loodusopetus-17-food-webs, coverage_status: partial, unit_ids: [grade-5-freshwater-ecosystems, grade-5-baltic-sea, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Food-chain and food-web progression is architected but only the freshwater source role is selected in detail.}
   - {outcome_id: prok-ii-loodusopetus-18-water-properties, coverage_status: partial, unit_ids: [grade-5-water-four-lesson-plan, grade-5-air-properties, grade-5-weather-climate], official_scope: school_stage_2, notes: Water and air strands are represented; the official outcome also includes soil.}
-  - {outcome_id: prok-ii-loodusopetus-19-groundwater, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: Groundwater and protection sources are selected; the full unit remains unauthored.}
+  - { outcome_id: prok-ii-loodusopetus-19-groundwater, coverage_status: partial, unit_ids: [ grade-5-water-use-cycle ], official_scope: school_stage_2, notes: "The authored unit teaches groundwater formation, use, cycle links, and protection while retaining partial school-stage status." }
   - {outcome_id: prok-ii-loodusopetus-20-settlement-environment, coverage_status: partial, unit_ids: [grade-5-settlements], official_scope: school_stage_2, notes: "A local audit is architected, but Russian explanation and teacher review remain outstanding."}
   - {outcome_id: prok-ii-loodusopetus-28-bog-formation, coverage_status: partial, unit_ids: [grade-5-bog-ecosystem], official_scope: school_stage_2, notes: "The bog unit maps the outcome, but no full thematic plan exists."}
   - {outcome_id: prok-ii-loodusopetus-33-baltic-salinity-weather, coverage_status: partial, unit_ids: [grade-5-baltic-sea], official_scope: school_stage_2, notes: Salinity and weather influence are selected architecturally; lessons remain unauthored.}
@@ -893,9 +1158,9 @@ teacher_review_decisions:
     reason: The planned Russian adaptation from the selected Estonian landform source has not been independently reviewed.
     required_action: Review the adaptation scope, map terminology, and age fit before the thematic-plan PR.
   - decision_id: review-water-use-synthesis
-    unit_ids: [grade-5-water-use-cycle]
+    unit_ids: [ grade-5-water-use-cycle ]
     status: pending
-    reason: The mixed Russian and adapted Estonian synthesis plus the bounded purification-safety bridge has not been reviewed.
+    reason: Six lessons, teacher pack, assessments, ET-to-RU adaptations, and the filter safety bridge are authored; independent scientific, safety, timing, and A1-A2 review remains pending.
     required_action: Review source transformations and the safety statement before the thematic-plan PR.
   - decision_id: review-settlements-russian-explanation
     unit_ids: [grade-5-settlements]

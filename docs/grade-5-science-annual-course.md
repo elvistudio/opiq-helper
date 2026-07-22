@@ -4,7 +4,7 @@
 
 The production artifact `annual-courses/grade-5-science/annual-architecture.yaml` is the complete planning skeleton for a curated grade-5 `loodusõpetus` course. It sequences every one of the ten verified topic-inventory groups, selects sources by instructional role, reconciles lesson-budget scenarios, and plans language, practical work, revision, assessment, and later-unit vocabulary reuse.
 
-“Architecture complete” does not mean “annual course fully authored.” Only `grade-5-water-four-lesson-plan` has a validated thematic plan, four detailed 45-minute lessons, and a resolved printable teacher pack. The other nine units remain architecture until later issue #18 pull requests add and validate their thematic, lesson, and material artifacts. The course therefore keeps `declared_complete: false`.
+“Architecture complete” does not mean “annual course fully authored.” `grade-5-water-four-lesson-plan` has four production lessons, and `grade-5-water-use-cycle` now has six authored 45-minute lessons plus a resolved printable teacher pack pending human review. The other eight units remain architecture until later issue #18 pull requests add and validate their thematic, lesson, and material artifacts. The course therefore keeps `declared_complete: false`.
 
 The water pack distinguishes readiness stages rather than calling a YAML file “complete.” Its schema and content are complete, declared material paths resolve, and student files are print-ready. Independent primary-science teacher review is pending, classroom trial is not recorded, and `classroom_ready` remains false. These states must not be collapsed: teacher pack complete ≠ independently reviewed ≠ classroom tested ≠ classroom ready.
 
@@ -21,7 +21,7 @@ The ten existing topic groups are preserved once. Overlapping publisher pages ar
 | 1 | Формы рельефа и карта / Pinnavormid ja kaart | 5 | Establish map and relief language used by later spatial units | ET→RU adaptation needs review |
 | 2 | Реки и озёра Эстонии / Eesti jõed ja järved | 6 | Apply map literacy before treating water as a substance | Multi-Opiq synthesis planned |
 | 3 | Вода как вещество и состояния воды / Vesi kui aine ja vee olekud | 4 | Establish properties and state changes before cycles and ecosystems | Synthesis ready; validated production unit |
-| 4 | Использование, охрана и круговорот воды / Vee kasutamine, kaitse ja veeringe | 6 | Extend water concepts to systems and human action | Mixed synthesis and bounded safety bridge need review |
+| 4 | Подземные воды, использование, защита и круговорот воды / Põhjavesi, vee kasutamine, kaitse ja veeringe | 6 | Extend water concepts to systems and human action | Six lessons and teacher pack authored; human review pending |
 | 5 | Пресноводные сообщества / Magevee elukooslused | 6 | Build ecosystem relations on known water bodies and conditions | Multi-Opiq synthesis planned |
 | 6 | Воздух, его свойства и охрана / Õhu omadused ja kaitse | 5 | Establish atmosphere concepts before weather | Multi-Opiq synthesis planned |
 | 7 | Погода и климат / Ilm ja kliima | 6 | Use air properties in repeated measurement and comparison | Multi-Opiq synthesis planned |
@@ -40,11 +40,13 @@ The second is the recommended planning baseline, not an official or school-speci
 
 ## Source selection and deduplication
 
-`source-selection-matrix.yaml` resolves 32 unique selected pages through the canonical `grade-5-science` route. Four audited ordinary books with page records are eligible. The HARNO simplified-curriculum book is explicitly excluded as an ordinary default, and the Russian Koolibri book is excluded because the route contains only cover metadata and no page-level evidence.
+`source-selection-matrix.yaml` resolves 36 unique selected pages through the canonical `grade-5-science` route. Four audited ordinary books with page records are eligible. The HARNO simplified-curriculum book is explicitly excluded as an ordinary default, and the Russian Koolibri book is excluded because the route contains only cover metadata and no page-level evidence.
 
-Each unit records best available choices for Russian explanation, Estonian core support, visual or diagram, practical work, Russian and Estonian practice, revision, assessment, and optional extension. A selected page may fill several real roles. Eleven rejected candidates remain auditable with canonical URLs and reasons such as duplicate explanation or simplified curriculum. Repeated pages are not retained merely to make every publisher appear in a unit.
+Each unit records best available choices for Russian explanation, Estonian core support, visual or diagram, practical work, Russian and Estonian practice, revision, assessment, and optional extension. A selected page may fill several real roles. Eighteen rejected candidates remain auditable with canonical URLs and reasons such as duplicate explanation, section-only evidence, off-unit overlap, or simplified curriculum. Repeated pages are not retained merely to make every publisher appear in a unit.
 
-`core_explanation_ru` describes the final explanation role. It may therefore be assigned to a selected Estonian page only when `topic_synthesis` declares an ET→RU translation or pedagogical adaptation. Every one of the 32 selected pages has a source contribution and transformation role. The shared `external-sources/registry.yaml` is intentionally empty; no external production source is required.
+The water-use/cycle audit considered every eligible ordinary book in the exact route. Eight pages were selected for distinct roles and eight unit candidates were explicitly rejected. Broader query hits already owned by the preceding water-state unit or by the later rivers, air, weather, and Baltic units were inspected as cross-unit matches and were not duplicated into this unit's candidate inventory.
+
+`core_explanation_ru` describes the final explanation role. It may therefore be assigned to a selected Estonian page only when `topic_synthesis` declares an ET→RU translation or pedagogical adaptation. Every one of the 36 selected pages has a source contribution and transformation role. The shared `external-sources/registry.yaml` is intentionally empty; no external production source is required.
 
 All selected and rejected URLs are short references to canonical Opiq pages. The repository does not reproduce long textbook procedures or passages.
 
@@ -57,7 +59,7 @@ Every unit now has a reusable `topic_synthesis` object. Source evidence, transfo
 - Landforms use the selected Estonian relief/map page as the basis of a Russian pedagogical adaptation; the topic is not content-missing.
 - Rivers/lakes, freshwater, air, weather, and Baltic Sea combine direct Russian explanation with distinct Estonian terminology, visual, task, map, data, or assessment roles.
 - The existing water unit is the only `ready` production synthesis.
-- Water use/cycle combines direct Russian pages, adapted current Estonian pollution/cycle evidence, and one explicit author safety bridge for the limits of a filtration model.
+- Water use/cycle now links six authored lessons and a teacher pack. It combines two direct Russian pages, six distinct Estonian groundwater/treatment/cycle contributions, and one explicit author safety bridge for the limits of a filtration model; readiness remains `needs_review`.
 - Settlements and bogs adapt their strong selected Estonian pages. Author-created content is limited to named local-environment or use/protection gaps rather than replacing the whole topic.
 
 The absence of a direct Russian page no longer produces a warning when a valid adaptation exists. Four not-yet-reviewed syntheses retain pending review decisions. The full policy and completed-topic contract are in [`topic-synthesis-policy.md`](topic-synthesis-policy.md).
@@ -72,11 +74,11 @@ Vocabulary reuse has three distinct scales:
 2. `recycled_in_lessons` means reuse in a strictly later lesson of the same thematic unit;
 3. `planned_vocabulary_recycling_intervals` means reuse in a strictly later annual unit.
 
-The linked language-progression artifact contains 12 deterministic later-unit intervals. The water-unit terms `lahus`, `jäätumine`, `aurustumine`, and `olekumuutus` return in the water-use-and-cycle unit; `termomeeter` returns in the weather unit. Each interval records distance, context, expected pupil output, and rationale. These annual intervals do not erase the water thematic plan’s honest warnings that the terms are not recycled in a later lesson inside its four-lesson boundary.
+The linked language-progression artifact contains 16 deterministic later-unit intervals. The water-unit terms `lahus`, `jäätumine`, `aurustumine`, and `olekumuutus` return in the water-use-and-cycle unit; `termomeeter` returns in the weather unit. Each interval records distance, context, expected pupil output, and rationale. These annual intervals do not erase the water thematic plan’s honest warnings that the terms are not recycled in a later lesson inside its four-lesson boundary.
 
 ## Practical work, revision, and assessment
 
-The architecture plans one concise, safe practical activity per unit: 10 activities across observation, measurement, classification, models, experiments, fieldwork, and data use. Equipment, safety, teacher-controlled steps, time, skill, Estonian language function, assessment role, provenance, and implementation status are explicit. Outside the water unit these entries are designs, not ready-to-print procedures. The water implementation is indexed at `teacher-packs/grade-5-science/water/materials-index.yaml` and validated separately from the annual architecture.
+The architecture plans one concise, safe practical activity per unit: 10 activities across observation, measurement, classification, models, experiments, fieldwork, and data use. Equipment, safety, teacher-controlled steps, time, skill, Estonian language function, assessment role, provenance, and implementation status are explicit. Outside the two authored water-related units these entries are designs, not ready-to-print procedures. The implementations are indexed at `teacher-packs/grade-5-science/water/materials-index.yaml` and `teacher-packs/grade-5-science/water-use-cycle/materials-index.yaml` and validated separately from the annual architecture.
 
 Four cumulative revision points cover all ten units. Ten subject-assessment points and six Estonian-language-assessment points use separate calendars and domains. A weak Estonian answer does not automatically lower the subject result; correctly repeating a term without demonstrating the concept does not establish subject mastery. Full papers and rubrics remain deferred.
 
@@ -84,9 +86,9 @@ Four cumulative revision points cover all ten units. Ten subject-assessment poin
 
 `npm run check:plans` validates the annual schema, all four linked components, all cross-file references, source ownership, programme type, page metadata, roles, orthogonal provenance, transformation semantics, external-registry identity, order, prerequisites, estimates, scenarios, Estonian progression, later-unit recycling, calendars, school-stage semantics, and completeness declarations. `npm run test:synthesis` adds focused valid and invalid transformation tests.
 
-`npm run check:teacher-packs` additionally resolves author-material and answer-key paths, compares lesson YAML with the material index, checks audiences and printability, verifies direct Opiq URLs in the teacher lesson guides, rejects hidden student answers, and enforces teacher-review/classroom-trial gates. The current pack produces exactly two readiness warnings: teacher review pending and classroom trial not completed.
+`npm run check:teacher-packs` additionally resolves author-material and answer-key paths, compares lesson YAML with the material index, checks audiences and printability, verifies direct Opiq URLs in the teacher lesson guides, rejects hidden student answers, and enforces teacher-review/classroom-trial gates. Each current pack produces exactly two readiness warnings: teacher review pending and classroom trial not completed.
 
-`npm run check:reviews` validates the blank production templates, registered evidence records, mandatory review scope, anonymised trial declarations, deterministic content-fingerprint binding, stale evidence, finding resolution, and the final classroom-readiness gate. `npm run check:fingerprints` independently audits the configured scope without requiring Git history. Current production has 0 completed reviews and 0 analysed trials and therefore passes with two honest workflow warnings.
+`npm run check:reviews` validates the blank production templates, registered evidence records, mandatory review scope, anonymised trial declarations, deterministic content-fingerprint binding, stale evidence, finding resolution, and the final classroom-readiness gate. `npm run check:fingerprints` independently audits the configured scope without requiring Git history. Current production has 0 completed reviews and 0 analysed trials and therefore passes with four honest workflow warnings, two per pack.
 
 The production repository intentionally emits 15 plan warnings:
 
@@ -101,7 +103,7 @@ These are visible planning facts, not validation failures. Detailed tests mutate
 
 `implementation-roadmap.yaml` keeps the existing water unit first, then recommends:
 
-1. neighbouring water units: water use and cycle, rivers and lakes, freshwater ecosystems;
+1. remaining neighbouring water units: rivers and lakes, freshwater ecosystems;
 2. units with strong bilingual page evidence: air, weather and climate, Baltic Sea;
 3. teacher-reviewed adaptations and bounded author additions: landforms and map, settlements, bogs.
 

@@ -145,7 +145,7 @@ Templates are schema-valid blank instruments, never completed evidence. Trial re
 
 The evidence workflow is: (1) merge the authored pack, (2) compute and record its content fingerprint plus provenance commit SHA, (3) conduct independent teacher review, (4) record findings, (5) resolve required changes, (6) conduct a limited classroom trial, (7) analyse anonymised observations, and (8) update readiness in a separate PR. `classroom_ready: true` requires both fingerprint-current evidence records and is rejected while blocking, safety, required-change, or stale-evidence diagnostics remain.
 
-The water teacher pack is physically resolved and print-ready, but independent review is pending and no classroom trial is recorded. Its honest status is `teacher_pack_complete_pending_review`; `classroom_ready` remains false. `npm run check:teacher-packs` and `npm run check:reviews` each report the two pending workflow facts without inventing evidence.
+Both water-related teacher packs are physically resolved and print-ready, but independent review is pending and no classroom trial is recorded. Their honest status is `teacher_pack_complete_pending_review`; `classroom_ready` remains false. `npm run check:teacher-packs` and `npm run check:reviews` report two pending workflow facts per pack without inventing evidence.
 
 Simplified-curriculum material is forbidden as a silent default. The lesson schema supports only an explicit learner-specific opt-in with authorisation and provenance. No production pilot lesson enables that option.
 
@@ -184,7 +184,7 @@ The production plan genuinely recycles `temperatuur` from lesson 3 in lesson 4. 
 
 ## Annual-course architecture
 
-The grade-5 production course now sequences all ten verified topic-inventory groups. It is a complete architecture, not a fully authored year: the water unit is the only linked production thematic plan and its four lessons are the only detailed annual lessons. Four linked components keep the 32-page source matrix, language progression, teaching calendars, and implementation roadmap reviewable without creating placeholder lessons.
+The grade-5 production course now sequences all ten verified topic-inventory groups. It is a complete architecture, not a fully authored year: two water-related thematic plans link ten detailed lessons, while the other eight units remain architecture. Four linked components keep the 36-page source matrix, language progression, teaching calendars, and implementation roadmap reviewable without creating placeholder lessons.
 
 Architecture completeness and implementation completeness are separate:
 

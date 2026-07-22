@@ -60,19 +60,49 @@ estonian_language_progression:
     cognitive_load_note: Fourteen terms are distributed and recycled inside four validated lessons, not introduced simultaneously.
   - unit_id: grade-5-water-use-cycle
     learner_language_level: A1-A2
-    new_terms_et: [põhjavesi, joogivesi, reostus, veeringe, puhastamine, veekaitse]
-    recycled_terms_et: [vesi, lahus, aurustumine, veeldumine, jäätumine, olekumuutus]
-    new_instruction_verbs_et: [järjesta, põhjenda]
-    recycled_instruction_verbs_et: [mõõda, kirjuta, selgita, näita]
-    sentence_frames_et: [Vesi aurustub ja hiljem veeldub., Vett tuleb kaitsta, sest __.]
-    language_functions: [sequence, explain, conclude]
-    expected_receptive_output_et: Recognises cycle labels and follows a supported ordering task.
-    expected_supported_output_et: Orders a water-cycle diagram and gives one reason for protection using a frame.
-    expected_independent_output_et: States one short cause or sequence relation in Estonian.
-    short_oral_answer_target_et: Vesi aurustub ja hiljem veeldub.
+    new_terms_et:
+      - põhjavesi
+      - joogivesi
+      - reostus
+      - puhastamine
+      - veekaitse
+      - veeringe
+      - sademed
+      - imbumine
+    recycled_terms_et:
+      - vesi
+      - lahus
+      - aurustumine
+      - veeldumine
+      - jäätumine
+      - olekumuutus
+    new_instruction_verbs_et:
+      - põhjenda
+      - järjesta
+    recycled_instruction_verbs_et:
+      - näita
+      - kirjuta
+      - selgita
+      - mõõda
+      - võrdle
+    sentence_frames_et:
+      - Põhjavesi on __.
+      - Vett tuleb kaitsta, sest __.
+      - Kõigepealt vesi __, siis __ ja lõpuks __.
+    language_functions:
+      - name
+      - classify
+      - sequence
+      - compare
+      - explain
+      - conclude
+    expected_receptive_output_et: Recognises eight unit terms and follows familiar instructions for pointing, ordering, comparing, and writing.
+    expected_supported_output_et: Labels a water-system diagram, orders cycle stages, and completes one cause frame.
+    expected_independent_output_et: Gives one short cause or sequence statement while full scientific reasoning remains Russian.
+    short_oral_answer_target_et: Vett tuleb kaitsta, sest reostus on ohtlik.
     planned_scaffolding_level: high
     progression_stage: sequence
-    cognitive_load_note: Six new application terms reuse six water-unit terms; complex causal explanation remains Russian.
+    cognitive_load_note: Eight new terms are introduced across lessons 1–3, then recycled in lessons 4–6; no lesson introduces more than three terms.
   - unit_id: grade-5-freshwater-ecosystems
     learner_language_level: A1-A2
     new_terms_et: [elukooslus, tootja, tarbija, lagundaja, toiduahel, toiduvõrk, kohastumus]
@@ -105,12 +135,26 @@ estonian_language_progression:
     cognitive_load_note: Six new terms reuse property and temperature language from water without increasing answer length.
   - unit_id: grade-5-weather-climate
     learner_language_level: A1-A2
-    new_terms_et: [ilm, kliima, õhutemperatuur, tuul, pilv, sademed, ilmakaart]
-    recycled_terms_et: [õhk, temperatuur, termomeeter, aurustumine, jäätumine, olekumuutus]
-    new_instruction_verbs_et: [registreeri, ennusta]
-    recycled_instruction_verbs_et: [mõõda, kirjelda, võrdle, hinda]
-    sentence_frames_et: [Täna on __ ilm., Õhutemperatuur on __ kraadi.]
-    language_functions: [describe, compare, infer, report]
+    new_terms_et:
+      - ilm
+      - kliima
+      - õhutemperatuur
+      - tuul
+      - pilv
+      - ilmakaart
+    recycled_terms_et:
+      - õhk
+      - temperatuur
+      - termomeeter
+      - aurustumine
+      - jäätumine
+      - olekumuutus
+      - sademed
+      - veeringe
+    new_instruction_verbs_et: [ registreeri, ennusta ]
+    recycled_instruction_verbs_et: [ mõõda, kirjelda, võrdle, hinda ]
+    sentence_frames_et: [ Täna on __ ilm., Õhutemperatuur on __ kraadi. ]
+    language_functions: [ describe, compare, infer, report ]
     expected_receptive_output_et: Follows familiar measurement instructions and recognises seven weather labels.
     expected_supported_output_et: Records a weather row and compares two observations with a frame.
     expected_independent_output_et: Reports one or two measured weather facts briefly.
@@ -150,12 +194,20 @@ estonian_language_progression:
     cognitive_load_note: Russian author explanation carries the new concept load while Estonian stays at labels and one proposal.
   - unit_id: grade-5-bog-ecosystem
     learner_language_level: A1-A2
-    new_terms_et: [soo, turvas, raba, madalsoo, liigniiskus, sootaim, sooloom]
-    recycled_terms_et: [kaart, vesi, elukooslus, toiduahel, toiduvõrk, reostus]
-    new_instruction_verbs_et: [järelda, esitle]
-    recycled_instruction_verbs_et: [rühmita, koosta, seosta, põhjenda]
-    sentence_frames_et: [Soos on __., Vaatluse põhjal järeldan, et __.]
-    language_functions: [classify, compare, infer, conclude, report]
+    new_terms_et: [ soo, turvas, raba, madalsoo, liigniiskus, sootaim, sooloom ]
+    recycled_terms_et:
+      - kaart
+      - vesi
+      - elukooslus
+      - toiduahel
+      - toiduvõrk
+      - reostus
+      - imbumine
+      - põhjavesi
+    new_instruction_verbs_et: [ järelda, esitle ]
+    recycled_instruction_verbs_et: [ rühmita, koosta, seosta, põhjenda ]
+    sentence_frames_et: [ Soos on __., Vaatluse põhjal järeldan, et __. ]
+    language_functions: [ classify, compare, infer, conclude, report ]
     expected_receptive_output_et: Recognises seven bog terms in a diagram, map, and organism set.
     expected_supported_output_et: Classifies a bog feature or organism and completes a conclusion frame.
     expected_independent_output_et: Gives one short evidence-based conclusion after a full Russian explanation.
@@ -176,6 +228,38 @@ planned_vocabulary_recycling_intervals:
   - {term_et: elukooslus, introduced_in_unit: grade-5-freshwater-ecosystems, recycled_in_unit: grade-5-baltic-sea, interval_units: 3, disposition: specific_later_unit, reuse_context: comparing freshwater and Baltic communities, expected_pupil_output: Läänemeri on elukooslus., rationale: The later comparison deepens rather than repeats the ecosystem concept.}
   - {term_et: õhk, introduced_in_unit: grade-5-air-properties, recycled_in_unit: grade-5-weather-climate, interval_units: 1, disposition: specific_later_unit, reuse_context: explaining that weather describes atmospheric conditions, expected_pupil_output: Õhk liigub., rationale: Air is the immediate conceptual prerequisite for weather.}
   - {term_et: reostus, introduced_in_unit: grade-5-water-use-cycle, recycled_in_unit: grade-5-baltic-sea, interval_units: 4, disposition: cumulative_revision, reuse_context: comparing freshwater pollution with Baltic protection decisions, expected_pupil_output: Reostus kahjustab elukooslust., rationale: The later environmental case broadens the concept across systems.}
+  - term_et: sademed
+    introduced_in_unit: grade-5-water-use-cycle
+    recycled_in_unit: grade-5-weather-climate
+    interval_units: 3
+    disposition: specific_later_unit
+    reuse_context: weather-data interpretation and precipitation labels
+    expected_pupil_output: Sademed on vihm või lumi.
+    rationale: Weather provides an authentic later context for precipitation terminology.
+  - term_et: veeringe
+    introduced_in_unit: grade-5-water-use-cycle
+    recycled_in_unit: grade-5-weather-climate
+    interval_units: 3
+    disposition: specific_later_unit
+    reuse_context: connecting precipitation observations to the water cycle
+    expected_pupil_output: Sademed on veeringe osa.
+    rationale: The later unit reuses the system concept rather than restarting terminology.
+  - term_et: imbumine
+    introduced_in_unit: grade-5-water-use-cycle
+    recycled_in_unit: grade-5-bog-ecosystem
+    interval_units: 6
+    disposition: specific_later_unit
+    reuse_context: comparing infiltration and waterlogged bog conditions
+    expected_pupil_output: Vesi imbub aeglaselt.
+    rationale: Bog conditions provide a meaningful later comparison of water movement.
+  - term_et: põhjavesi
+    introduced_in_unit: grade-5-water-use-cycle
+    recycled_in_unit: grade-5-bog-ecosystem
+    interval_units: 6
+    disposition: specific_later_unit
+    reuse_context: relating groundwater and wet ecosystem conditions
+    expected_pupil_output: Põhjavesi on maa sees.
+    rationale: The term is retrieved in a later water-related ecosystem without forcing unrelated repetition.
 provenance:
   category: author_created_bridge
   source_reference: issue 18 grade-5-science annual language progression

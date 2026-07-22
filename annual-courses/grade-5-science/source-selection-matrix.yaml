@@ -163,49 +163,305 @@ units:
     unavailable_roles: []
     teacher_review_required: false
   - unit_id: grade-5-water-use-cycle
-    topic_inventory_refs: [water-use-protection-and-cycle]
+    topic_inventory_refs:
+      - water-use-protection-and-cycle
     selected_sources:
       - record_id: groundwater-ru-avita
         canonical_url: https://www.opiq.ee/kit/17/chapter/753
-        instructional_roles: [core_explanation_ru, practice_ru]
-        provenance: {category: opiq_textbook, source_reference: groundwater-ru-avita, notes: Ordinary Russian groundwater page from the topic inventory.}
-        selection_rationale: Best direct Russian groundwater explanation.
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 753
+          notes: Canonical ordinary Russian groundwater page in the exact grade-5 science route.
+        selection_rationale: Primary Russian concept formation for groundwater, infiltration, wells, and groundwater protection.
       - record_id: water-use-ru-avita
         canonical_url: https://www.opiq.ee/kit/17/chapter/754
-        instructional_roles: [core_explanation_ru, practice_ru, revision]
-        provenance: {category: opiq_textbook, source_reference: water-use-ru-avita, notes: Ordinary Russian water-use page from the topic inventory.}
-        selection_rationale: Adds Russian use and conservation context not present in the groundwater page.
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - revision
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 754
+          notes: Canonical ordinary Russian page on drinking water, water use, wastewater, cleaning, and conservation.
+        selection_rationale: Provides the coherent Russian base for water use, wastewater, conservation, and treatment.
+      - record_id: groundwater-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29519
+        instructional_roles:
+          - core_explanation_ru
+          - core_source_et
+          - terminology_et
+          - definition_et
+          - bilingual_visual
+          - map_skill
+          - practice_et
+          - oral_answer_et
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29519
+          notes: Canonical current ordinary Estonian groundwater page with formation, movement, protection, and map evidence.
+        selection_rationale: Adds current Estonian groundwater terminology, infiltration evidence, and a distinct map/visual role.
       - record_id: water-pollution-et-avita-2024
         canonical_url: https://www.opiq.ee/kit/525/chapter/29520
-        instructional_roles: [core_explanation_ru, core_source_et, terminology_et, practice_et, assessment, oral_answer_et, estonian_instruction_training]
-        provenance: {category: opiq_textbook, source_reference: water-pollution-et-avita-2024, notes: Current Estonian pollution page from the topic inventory.}
-        selection_rationale: Best current Estonian protection terminology and assessment source.
+        instructional_roles:
+          - core_explanation_ru
+          - core_source_et
+          - terminology_et
+          - definition_et
+          - practice_et
+          - assessment
+          - oral_answer_et
+          - estonian_instruction_training
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29520
+          notes: Canonical current ordinary Estonian source for wastewater, pollution, protection, and treatment.
+        selection_rationale: Strongest current Estonian source for pollution/protection terminology and short decision tasks.
+      - record_id: water-cycle-et-avita-2024
+        canonical_url: https://www.opiq.ee/kit/525/chapter/29521
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - definition_et
+          - bilingual_visual
+          - practice_et
+          - assessment
+          - oral_answer_et
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 525 / chapter 29521
+          notes: Canonical current ordinary Estonian water-cycle page and diagram task.
+        selection_rationale: Adds current cycle terminology and a distinct concise assessment role alongside the richer Koolibri sequence.
+      - record_id: water-treatment-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6295
+        instructional_roles:
+          - core_explanation_ru
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - experiment
+          - practice_et
+          - data_interpretation
+          - revision
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6295
+          notes: Canonical ordinary Estonian page on consumption, wastewater, cleaning facilities, and practical prompts.
+        selection_rationale: Distinct practical and data-interpretation support for treatment and the bounded filtration model.
+      - record_id: drinking-water-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6296
+        instructional_roles:
+          - core_explanation_ru
+          - core_source_et
+          - terminology_et
+          - definition_et
+          - bilingual_visual
+          - practice_et
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6296
+          notes: Canonical ordinary Estonian page on obtaining and treating drinking water.
+        selection_rationale: Distinct evidence for the difference between classroom filtration, water treatment, and potable water.
       - record_id: water-cycle-et-koolibri
         canonical_url: https://www.opiq.ee/kit/122/chapter/6297
-        instructional_roles: [core_explanation_ru, core_source_et, bilingual_visual, practice_et, experiment, revision, data_interpretation]
-        provenance: {category: opiq_textbook, source_reference: water-cycle-et-koolibri, notes: Ordinary Koolibri water-cycle page from the topic inventory.}
-        selection_rationale: Best cycle visual and practical bridge for cross-unit state-change recycling.
+        instructional_roles:
+          - core_explanation_ru
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+          - practice_et
+          - experiment
+          - revision
+          - data_interpretation
+          - oral_answer_et
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6297
+          notes: Canonical ordinary Estonian water-cycle page with visual sequence and practical prompt.
+        selection_rationale: Strongest cycle visual and sequence for ET-to-RU adaptation and vocabulary recycling.
     role_matrix:
-      core_explanation_ru: {status: selected, record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Direct Russian pages and explicitly adapted Estonian pollution and cycle evidence jointly support the final Russian synthesis.}
-      core_source_et: {status: selected, record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Pollution and cycle pages carry distinct Estonian concepts.}
-      visual_or_diagram: {status: selected, record_ids: [water-cycle-et-koolibri], notes: The cycle diagram anchors sequencing and recycled process terms.}
-      practical_or_experiment: {status: selected, record_ids: [water-cycle-et-koolibri], notes: The selected page supports the author-created safe filter and model work.}
-      practice_ru: {status: selected, record_ids: [groundwater-ru-avita, water-use-ru-avita], notes: Russian tasks accompany concept formation.}
-      practice_et: {status: selected, record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Short Estonian tasks cover protection and cycle order.}
-      revision: {status: selected, record_ids: [water-use-ru-avita, water-cycle-et-koolibri], notes: The pair revisits use and cycle concepts.}
-      assessment: {status: selected, record_ids: [water-pollution-et-avita-2024], notes: Pollution decisions provide the strongest assessment role.}
-      optional_extension: {status: not_needed, record_ids: [], notes: Older groundwater duplication is rejected.}
+      core_explanation_ru:
+        status: selected
+        record_ids:
+          - groundwater-ru-avita
+          - water-use-ru-avita
+          - groundwater-et-avita-2024
+          - water-pollution-et-avita-2024
+          - water-treatment-et-koolibri
+          - drinking-water-et-koolibri
+          - water-cycle-et-koolibri
+        notes: Direct Russian sources and explicit ET-to-RU adaptations form one coherent Russian explanation.
+      core_source_et:
+        status: selected
+        record_ids:
+          - groundwater-et-avita-2024
+          - water-pollution-et-avita-2024
+          - water-treatment-et-koolibri
+          - drinking-water-et-koolibri
+          - water-cycle-et-koolibri
+          - water-cycle-et-avita-2024
+        notes: All six selected Estonian pages have distinct terminology, visual, practical, or assessment roles.
+      visual_or_diagram:
+        status: selected
+        record_ids:
+          - groundwater-et-avita-2024
+          - water-treatment-et-koolibri
+          - drinking-water-et-koolibri
+          - water-cycle-et-koolibri
+          - water-cycle-et-avita-2024
+        notes: Groundwater, treatment, and cycle visuals support the authored diagrams and sequencing.
+      practical_or_experiment:
+        status: selected
+        record_ids:
+          - water-treatment-et-koolibri
+          - water-cycle-et-koolibri
+        notes: Treatment and cycle evidence support the bounded practical/model roles.
+      practice_ru:
+        status: selected
+        record_ids:
+          - groundwater-ru-avita
+          - water-use-ru-avita
+        notes: The two direct Russian sources provide age-appropriate subject practice.
+      practice_et:
+        status: selected
+        record_ids:
+          - groundwater-et-avita-2024
+          - water-pollution-et-avita-2024
+          - water-treatment-et-koolibri
+          - drinking-water-et-koolibri
+          - water-cycle-et-avita-2024
+        notes: Short Estonian tasks cover formation, protection, treatment, and cycle order.
+      revision:
+        status: selected
+        record_ids:
+          - water-use-ru-avita
+          - water-treatment-et-koolibri
+          - water-cycle-et-koolibri
+        notes: Selected sources support cumulative retrieval without adding an extra lesson.
+      assessment:
+        status: selected
+        record_ids:
+          - water-pollution-et-avita-2024
+          - drinking-water-et-koolibri
+          - water-cycle-et-avita-2024
+        notes: Current protection, drinking-water, and cycle prompts support separate assessment artifacts.
+      optional_extension:
+        status: not_needed
+        record_ids: []
+        notes: All necessary roles are covered; audited overlaps are explicitly rejected rather than added.
     book_decisions:
-      - {book_id: 5k_loodusõpetus_avita_2024_est, candidate_record_ids: [water-pollution-et-avita-2024], selected_record_ids: [water-pollution-et-avita-2024], decision: selected, reason: "Current pollution and protection language has a distinct role."}
-      - {book_id: 5k_loodusõpetus_avita_est, candidate_record_ids: [rejected-groundwater-old-avita], selected_record_ids: [], decision: rejected_duplicate, reason: "The older groundwater page adds no distinct role beyond selected Russian and current evidence."}
-      - {book_id: 5k_loodusõpetus_avita_rus, candidate_record_ids: [groundwater-ru-avita, water-use-ru-avita], selected_record_ids: [groundwater-ru-avita, water-use-ru-avita], decision: selected, reason: "Both direct Russian explanation strands are required."}
-      - {book_id: 5k_loodusõpetus_koolibri_est, candidate_record_ids: [water-cycle-et-koolibri], selected_record_ids: [water-cycle-et-koolibri], decision: selected, reason: "The cycle visual and sequence role is unique."}
+      - book_id: 5k_loodusõpetus_avita_2024_est
+        candidate_record_ids:
+          - groundwater-et-avita-2024
+          - water-pollution-et-avita-2024
+          - water-cycle-et-avita-2024
+        selected_record_ids:
+          - groundwater-et-avita-2024
+          - water-pollution-et-avita-2024
+          - water-cycle-et-avita-2024
+        decision: selected
+        reason: Current Estonian groundwater, pollution, and cycle pages provide distinct terminology, visual, and assessment roles.
+      - book_id: 5k_loodusõpetus_avita_est
+        candidate_record_ids:
+          - rejected-groundwater-old-avita
+          - rejected-water-use-old-avita
+        selected_record_ids: []
+        decision: rejected_duplicate
+        reason: Older pages overlap the selected current and Russian evidence without a distinct instructional role.
+      - book_id: 5k_loodusõpetus_avita_rus
+        candidate_record_ids:
+          - groundwater-ru-avita
+          - water-use-ru-avita
+        selected_record_ids:
+          - groundwater-ru-avita
+          - water-use-ru-avita
+        decision: selected
+        reason: Both direct Russian strands are necessary for groundwater and water-use concept formation.
+      - book_id: 5k_loodusõpetus_koolibri_est
+        candidate_record_ids:
+          - water-treatment-et-koolibri
+          - drinking-water-et-koolibri
+          - water-cycle-et-koolibri
+          - rejected-water-use-section-koolibri
+          - rejected-water-planet-koolibri
+          - rejected-water-mixtures-koolibri
+          - rejected-water-solutions-koolibri
+          - rejected-river-use-koolibri
+          - rejected-river-protection-koolibri
+        selected_record_ids:
+          - water-treatment-et-koolibri
+          - drinking-water-et-koolibri
+          - water-cycle-et-koolibri
+        decision: selected
+        reason: Three pages provide distinct treatment, drinking-water, cycle, visual, practical, and revision roles; overlapping or off-unit pages are rejected.
     rejected_duplicates:
+      - record_id: rejected-water-use-section-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6291
+        book_id: 5k_loodusõpetus_koolibri_est
+        rejection_reason: Section entry contains only a heading and no distinct page-level explanation or task.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/122/chapter/6291
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+      - record_id: rejected-water-planet-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6292
+        book_id: 5k_loodusõpetus_koolibri_est
+        rejection_reason: Broader hydrosphere material overlaps prior water states and selected groundwater evidence; retain only as a possible future extension.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/122/chapter/6292
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+      - record_id: rejected-water-mixtures-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6293
+        book_id: 5k_loodusõpetus_koolibri_est
+        rejection_reason: Mixture separation is broader than the bounded filter model and adds no necessary role after the prerequisite water unit.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/122/chapter/6293
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+      - record_id: rejected-water-solutions-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6294
+        book_id: 5k_loodusõpetus_koolibri_est
+        rejection_reason: Solutions are already established in the prerequisite unit; this page is not needed for the six-lesson sequence.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/122/chapter/6294
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
       - record_id: rejected-groundwater-old-avita
         canonical_url: https://www.opiq.ee/kit/9/chapter/369
         book_id: 5k_loodusõpetus_avita_est
-        rejection_reason: Older Estonian groundwater explanation overlaps selected evidence and has no separate role.
-        provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/369, notes: Rejected ordinary canonical duplicate retained for auditability.}
+        rejection_reason: Older Estonian groundwater explanation overlaps the selected Russian and current Estonian pages without a distinct role.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/9/chapter/369
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+      - record_id: rejected-water-use-old-avita
+        canonical_url: https://www.opiq.ee/kit/9/chapter/370
+        book_id: 5k_loodusõpetus_avita_est
+        rejection_reason: Older Estonian page overlaps the selected Russian use page and current protection/treatment evidence.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/9/chapter/370
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+      - record_id: rejected-river-use-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6278
+        book_id: 5k_loodusõpetus_koolibri_est
+        rejection_reason: This page belongs to the rivers-and-lakes unit and does not add a distinct system-level role here.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/122/chapter/6278
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+      - record_id: rejected-river-protection-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6279
+        book_id: 5k_loodusõpetus_koolibri_est
+        rejection_reason: Specific river and lake protection is reserved for the neighbouring water-body unit to avoid duplication.
+        provenance:
+          category: opiq_textbook
+          source_reference: https://www.opiq.ee/kit/122/chapter/6279
+          notes: Audited ordinary canonical candidate retained as an explicit non-selection.
     unavailable_roles: []
     teacher_review_required: true
   - unit_id: grade-5-freshwater-ecosystems

@@ -51,13 +51,14 @@ units:
     issue_18_phase: neighbouring-water-units
     expected_thematic_plan_path: lesson-plans/grade-5-science/water-use-cycle/thematic-plan.yaml
     approximate_lesson_count: 6
-    source_readiness: ready
+    source_readiness: implemented
     synthesis_readiness: needs_review
-    estonian_language_readiness: ready
-    practical_work_readiness: ready
+    estonian_language_readiness: implemented
+    practical_work_readiness: implemented
     blockers:
-      - The mixed direct-and-adapted synthesis and bounded purification-safety bridge must be reviewed.
-    dependencies: [grade-5-water-four-lesson-plan]
+      - Independent human review must approve scientific accuracy, ET-to-RU adaptation, filtration safety, lesson timing, and A1-A2 load before the synthesis can be ready.
+    dependencies:
+      - grade-5-water-four-lesson-plan
     implementation_status: source_review_required
   - unit_id: grade-5-rivers-lakes
     implementation_order: 2

@@ -65,18 +65,34 @@ practical_work_calendar:
     unit_id: grade-5-water-use-cycle
     title_ru: Модель фильтрации загрязнённой воды
     title_et: Reostunud vee filtreerimise mudel
-    activity_type: experiment
-    selected_opiq_record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri]
+    activity_type: model
+    selected_opiq_record_ids:
+      - water-treatment-et-koolibri
+      - drinking-water-et-koolibri
+      - water-pollution-et-avita-2024
     expected_observations_or_data_ru: Ученики сравнивают вид модельной воды до и после фильтра и отмечают, что прозрачность не доказывает пригодность для питья.
-    equipment: [вода с землёй, прозрачные ёмкости, воронка, бумажный фильтр, поднос]
-    safety_considerations: [Модельную воду нельзя пить или пробовать., Руки моют после работы; пролитую воду вытирают сразу.]
-    teacher_controlled_steps: [Учитель готовит только безопасную смесь воды и земли., Учитель явно запрещает вывод о питьевой безопасности.]
-    estimated_minutes: 30
+    equipment:
+      - вода и чистая почва, подготовленные учителем
+      - прозрачные устойчивые ёмкости
+      - воронка
+      - бумажный фильтр
+      - поднос
+    safety_considerations:
+      - Модельную воду нельзя пить или пробовать до или после фильтрации.
+      - Прозрачный внешний вид не доказывает питьевую безопасность.
+      - Пролитую воду вытирают сразу; после работы моют руки.
+    teacher_controlled_steps:
+      - Учитель готовит только смесь воды и чистой почвы, контролирует выдачу, переливание, разливы и утилизацию.
+      - Учитель прямо объясняет, что растворённые вещества и микроорганизмы могут остаться и классная модель не воспроизводит станцию очистки.
+    estimated_minutes: 22
     subject_skill: controlled comparison and evidence limits
     estonian_language_function: conclude
     assessment_role: practical_skill
-    provenance: {category: author_created_bridge, source_reference: grade-5-water-use-cycle filtration architecture, notes: Concise safe model linked to canonical pollution and cycle evidence; no textbook procedure is copied.}
-    implementation_status: architecture_only
+    provenance:
+      category: author_created_bridge
+      source_reference: lesson-plans/grade-5-science/water-use-cycle/lesson-04.yaml; teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-safety-card.md
+      notes: Authored safe model linked to canonical treatment evidence; independent review is pending.
+    implementation_status: needs_teacher_review
   - activity_id: practical-freshwater-food-web
     unit_id: grade-5-freshwater-ecosystems
     title_ru: Построение пищевой сети водоёма
@@ -214,7 +230,23 @@ subject_assessment_calendar:
   - {assessment_id: subject-landforms-map-check, unit_id: grade-5-landforms-map, approximate_timing: "end of unit 1", domains: [subject_understanding, practical_skill], evidence: "Correct relief interpretation and map location with Russian explanation.", purpose: "Identify map misconceptions before river work.", source_or_author_artifact: "author map-model checklist", assessment_mode: formative, expected_follow_up: "Reteach height and symbol reading where evidence is weak.", provenance: {category: author_created_assessment, source_reference: "grade-5-landforms-map assessment architecture", notes: "Checklist to be authored with the thematic plan."}, implementation_status: architecture_only}
   - {assessment_id: subject-rivers-map-check, unit_id: grade-5-rivers-lakes, approximate_timing: "end of unit 2", domains: [subject_understanding, practical_skill], evidence: "River route and lake location are correct and explained in Russian.", purpose: "Verify spatial and water-body prerequisites.", source_or_author_artifact: "author river-map checklist", assessment_mode: formative, expected_follow_up: "Provide a reduced map and repeat the route model if needed.", provenance: {category: author_created_assessment, source_reference: "grade-5-rivers-lakes assessment architecture", notes: "Checklist is planned rather than fully authored."}, implementation_status: architecture_only}
   - {assessment_id: subject-water-unit-check, unit_id: grade-5-water-four-lesson-plan, approximate_timing: "lesson 4 of unit 3", domains: [subject_understanding, practical_skill], evidence: "Russian answers distinguish properties, states, and four changes using observation data.", purpose: "Summarise the existing validated production unit.", source_or_author_artifact: "lesson-plans/grade-5-science/water/lesson-04.yaml", assessment_mode: summative, expected_follow_up: "Reteach the specific process or evidence link without lowering the subject goal.", provenance: {category: author_created_assessment, source_reference: grade-5-water-04-changes-review, notes: "Existing production assessment remains the authoritative detailed artifact."}, implementation_status: validated_production_assessment}
-  - {assessment_id: subject-water-use-check, unit_id: grade-5-water-use-cycle, approximate_timing: "end of unit 4", domains: [subject_understanding, practical_skill], evidence: "Russian cycle explanation and safe purification-model conclusion distinguish cleaning from drinking safety.", purpose: "Check application of water concepts to systems and protection.", source_or_author_artifact: "author cycle-and-filter rubric", assessment_mode: formative, expected_follow_up: "Revisit model limits and groundwater protection using a visual.", provenance: {category: author_created_assessment, source_reference: "grade-5-water-use-cycle assessment architecture", notes: "Rubric is deferred to the thematic-plan PR."}, implementation_status: architecture_only}
+  - assessment_id: subject-water-use-check
+    unit_id: grade-5-water-use-cycle
+    approximate_timing: end of unit 4
+    domains:
+      - subject_understanding
+      - practical_skill
+    evidence: Russian cycle explanation and safe purification-model conclusion distinguish cleaning from drinking safety.
+    purpose: Check application of water concepts to systems and protection.
+    source_or_author_artifact: teacher-packs/grade-5-science/water-use-cycle/student/lesson-05-subject-assessment.md; teacher-packs/grade-5-science/water-use-cycle/assessment-rubric.md
+    assessment_mode: formative
+    expected_follow_up: Revisit model limits and groundwater protection using a visual.
+    provenance:
+      category: author_created_assessment
+      source_reference: lesson-plans/grade-5-science/water-use-cycle/lesson-05.yaml
+      notes: Authored formative Russian subject assessment with separate practical evidence and answer key.
+    implementation_status: validated_production_assessment
+
   - {assessment_id: subject-freshwater-check, unit_id: grade-5-freshwater-ecosystems, approximate_timing: "end of unit 5", domains: [subject_understanding, practical_skill], evidence: "Correct food web and full Russian explanation of producer, consumer, and decomposer roles.", purpose: "Verify ecosystem reasoning before Baltic comparison.", source_or_author_artifact: "author freshwater food-web rubric", assessment_mode: summative, expected_follow_up: "Rebuild one chain with arrows and explain the weak link in Russian.", provenance: {category: author_created_assessment, source_reference: "grade-5-freshwater-ecosystems assessment architecture", notes: "Detailed rubric remains unimplemented."}, implementation_status: architecture_only}
   - {assessment_id: subject-air-check, unit_id: grade-5-air-properties, approximate_timing: "end of unit 6", domains: [subject_understanding, practical_skill], evidence: "Russian explanation uses the air model and distinguishes composition, property, and pollution.", purpose: "Confirm prerequisites for weather.", source_or_author_artifact: "author air evidence checklist", assessment_mode: formative, expected_follow_up: "Repeat the model or composition diagram before weather measurements.", provenance: {category: author_created_assessment, source_reference: "grade-5-air-properties assessment architecture", notes: "Detailed prompts remain deferred."}, implementation_status: architecture_only}
   - {assessment_id: subject-weather-check, unit_id: grade-5-weather-climate, approximate_timing: "end of unit 7", domains: [subject_understanding, practical_skill], evidence: "Accurate weather table and Russian comparison of weather and climate.", purpose: "Assess measurement, data reporting, and conceptual distinction.", source_or_author_artifact: "author weather-log rubric", assessment_mode: summative, expected_follow_up: "Repeat one measurement routine and compare two sample days.", provenance: {category: author_created_assessment, source_reference: "grade-5-weather-climate assessment architecture", notes: "Rubric and sample data are deferred."}, implementation_status: architecture_only}
@@ -228,6 +260,23 @@ language_assessment_calendar:
   - {assessment_id: language-weather-report, unit_id: grade-5-weather-climate, approximate_timing: "end of unit 7", domains: [estonian_terminology_recognition, supported_estonian_production, independent_estonian_production], evidence: "Reads familiar instructions and reports one or two measured facts in Estonian.", purpose: "Check progression from labels to a short data report.", source_or_author_artifact: "author weather oral rubric", assessment_mode: formative, expected_follow_up: "Return to the repeated weather frame without changing subject assessment.", provenance: {category: author_created_assessment, source_reference: "grade-5-weather-climate language assessment", notes: "Oral rubric is deferred."}, implementation_status: architecture_only}
   - {assessment_id: language-settlement-proposal, unit_id: grade-5-settlements, approximate_timing: "end of unit 9", domains: [estonian_terminology_recognition, supported_estonian_production], evidence: "Uses a word bank to name one condition and complete one improvement proposal frame.", purpose: "Keep Estonian demand short while Russian carries the full justification.", source_or_author_artifact: "author settlement proposal frame", assessment_mode: formative, expected_follow_up: "Reduce choice or rehearse with a partner if needed.", provenance: {category: author_created_assessment, source_reference: "grade-5-settlements language assessment", notes: "Requires coordination with the future Russian explanation."}, implementation_status: architecture_only}
   - {assessment_id: language-final-conclusion, unit_id: grade-5-bog-ecosystem, approximate_timing: "end of unit 10", domains: [estonian_terminology_recognition, supported_estonian_production, independent_estonian_production], evidence: "Recognises bog terms and gives one short evidence-based conclusion in Estonian.", purpose: "Check the annual progression to a short conclusion without replacing Russian scientific reasoning.", source_or_author_artifact: "author bog conclusion rubric", assessment_mode: formative, expected_follow_up: "Restore the sentence frame or visual support if independent output is not yet stable.", provenance: {category: author_created_assessment, source_reference: "grade-5-bog-ecosystem language assessment", notes: "Full rubric is deferred and needs teacher review."}, implementation_status: architecture_only}
+  - assessment_id: language-water-use-check
+    unit_id: grade-5-water-use-cycle
+    approximate_timing: lesson 6 at the end of unit 4
+    domains:
+      - estonian_terminology_recognition
+      - supported_estonian_production
+      - independent_estonian_production
+    evidence: Term matching, cycle ordering, one cause frame, and one short oral answer are recorded separately from the Russian subject score.
+    purpose: Check bounded A1-A2 subject-language consolidation without retesting full scientific reasoning in Estonian.
+    source_or_author_artifact: teacher-packs/grade-5-science/water-use-cycle/student/lesson-06-language-assessment.md; teacher-packs/grade-5-science/water-use-cycle/student/lesson-06-oral-card.md; teacher-packs/grade-5-science/water-use-cycle/assessment-rubric.md
+    assessment_mode: formative
+    expected_follow_up: Use full, reduced, or short-independent scaffold variants and repeat only the language function that remains unsupported.
+    provenance:
+      category: author_created_assessment
+      source_reference: lesson-plans/grade-5-science/water-use-cycle/lesson-06.yaml
+      notes: Dedicated language-assessment lesson with separate language scoring.
+    implementation_status: validated_production_assessment
 provenance:
   category: author_created_bridge
   source_reference: issue 18 grade-5-science annual teaching calendars
