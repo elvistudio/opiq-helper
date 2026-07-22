@@ -1,0 +1,681 @@
+schema_version: "1.1"
+artifact_type: bilingual_lesson
+lesson_id: grade-5-water-use-05-subject-assessment
+grade: 5
+subject: science
+subject_et: loodusõpetus
+title_ru: Предметное обобщение и проверка
+title_et: Teadmiste kokkuvõte ja kontroll
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы урока точно составляют заявленные 45 минут.
+unit_ref: grade-5-water-use-cycle
+position_in_unit: 5
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-5-science-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  official_outcome_refs:
+    - prok-ii-loodusopetus-01-models-and-water-cycle
+    - prok-ii-loodusopetus-08-water-purification
+    - prok-ii-loodusopetus-19-groundwater
+    - prok-ii-loodusopetus-35-human-impact-communities
+  course_map_ref: grade-5-science-water-use-cycle-unit
+  opiq_records:
+    - record_id: groundwater-ru-avita
+      canonical_url: https://www.opiq.ee/kit/17/chapter/753
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Подземные воды
+      language: ru
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - practice_ru
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 753
+        notes: Canonical ordinary Russian groundwater page in the exact grade-5 science route.
+      selection_rationale: Primary Russian concept formation for groundwater, infiltration, wells, and groundwater protection.
+    - record_id: water-use-ru-avita
+      canonical_url: https://www.opiq.ee/kit/17/chapter/754
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_rus
+      title: Использо­ва­ние воды
+      language: ru
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - practice_ru
+        - revision
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 17 / chapter 754
+        notes: Canonical ordinary Russian page on drinking water, water use, wastewater, cleaning, and conservation.
+      selection_rationale: Provides the coherent Russian base for water use, wastewater, conservation, and treatment.
+    - record_id: water-pollution-et-avita-2024
+      canonical_url: https://www.opiq.ee/kit/525/chapter/29520
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_2024_est
+      title: Vee reostumine
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - core_source_et
+        - terminology_et
+        - definition_et
+        - practice_et
+        - assessment
+        - oral_answer_et
+        - estonian_instruction_training
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 525 / chapter 29520
+        notes: Canonical current ordinary Estonian source for wastewater, pollution, protection, and treatment.
+      selection_rationale: Strongest current Estonian source for pollution/protection terminology and short decision tasks.
+    - record_id: water-cycle-et-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6297
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee ringkäik looduses
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - core_source_et
+        - terminology_et
+        - bilingual_visual
+        - practice_et
+        - experiment
+        - revision
+        - data_interpretation
+        - oral_answer_et
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6297
+        notes: Canonical ordinary Estonian water-cycle page with visual sequence and practical prompt.
+      selection_rationale: Strongest cycle visual and sequence for ET-to-RU adaptation and vocabulary recycling.
+    - record_id: water-treatment-et-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6295
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee tarbimine ja puhastamine
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - core_source_et
+        - terminology_et
+        - bilingual_visual
+        - experiment
+        - practice_et
+        - data_interpretation
+        - revision
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6295
+        notes: Canonical ordinary Estonian page on consumption, wastewater, cleaning facilities, and practical prompts.
+      selection_rationale: Distinct practical and data-interpretation support for treatment and the bounded filtration model.
+  author_materials:
+    - material_id: water-use-concept-map
+      title: Concept map блока
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-05-concept-map.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-05-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle water-use-concept-map
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+    - material_id: water-use-subject-assessment
+      title: Предметная проверка блока
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-05-subject-assessment.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-05-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle water-use-subject-assessment
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: water-use-05-activate
+      language_mode: activate_prior_knowledge
+      description: Активируем знакомые научные представления по-русски и узнаём ранее введённые эстонские обозначения.
+    - sequence: 2
+      stage_id: water-use-05-explain-ru
+      language_mode: establish_concept_ru
+      description: Формируем сложное научное различие и причинные связи на русском языке.
+    - sequence: 3
+      stage_id: water-use-05-language-bridge
+      language_mode: model_sentence_et
+      description: Связываем понятую модель с короткими эстонскими терминами, инструкцией и предложением.
+    - sequence: 4
+      stage_id: water-use-05-assessment
+      language_mode: supported_task_et
+      description: Выполняем содержательное задание с короткой эстонской поддержкой и полным русским рассуждением.
+    - sequence: 5
+      stage_id: water-use-05-independent-output
+      language_mode: full_subject_answer_ru
+      description: Фиксируем полный русский предметный результат отдельно от короткого эстонского ответа.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: water-use-05-content-objective
+      text_ru: Систематизирует весь блок и применяет научные понятия к схеме круговорота, фильтрационной модели и решению по защите воды.
+      observable_output_ru: "Выполняет предметную работу на русском: concept map, последовательность, интерпретацию модели и один полный доказательный ответ."
+      curriculum_outcome_refs:
+        - prok-ii-loodusopetus-01-models-and-water-cycle
+        - prok-ii-loodusopetus-08-water-purification
+        - prok-ii-loodusopetus-19-groundwater
+        - prok-ii-loodusopetus-35-human-impact-communities
+  estonian_language_objectives:
+    - objective_id: water-use-05-language-objective
+      text_ru: Узнаёт ключевые эстонские подписи как поддержку, не включая эстонскую беглость в предметный балл.
+      text_et: Õpilane tunneb ära vähemalt kuus tuttavat terminit.
+      observable_output: recognise_terms
+      minimum_quantity: 1
+      language_functions:
+        - classify
+        - sequence
+  subject_success_criteria:
+    - criterion_id: water-use-05-subject-success
+      descriptor: "Выполняет предметную работу на русском: concept map, последовательность, интерпретацию модели и один полный доказательный ответ."
+      acceptable_evidence: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+  estonian_success_criteria:
+    - criterion_id: water-use-05-language-success
+      descriptor: Узнаёт ключевые эстонские подписи как поддержку, не включая эстонскую беглость в предметный балл.
+      acceptable_evidence: Põhjavesi ja veeringe on seotud.
+  prerequisites:
+    - Ученик может объяснить знакомое наблюдение полным предложением по-русски.
+    - Ученик помнит ключевые понятия предыдущих уроков блока и может пользоваться двуязычной схемой.
+  anticipated_misconceptions:
+    - Перечень терминов ошибочно принимается за научное объяснение.
+    - Фильтрационная модель считается доказательством питьевой безопасности.
+    - Круговорот описывается без возврата воды в систему.
+language_load:
+  new_terms_et: []
+  recycled_terms_et:
+    - term_et: põhjavesi
+      equivalent_ru: подземная вода
+      source_lesson_id: grade-5-water-use-01-groundwater
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: joogivesi
+      equivalent_ru: питьевая вода
+      source_lesson_id: grade-5-water-use-01-groundwater
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: reostus
+      equivalent_ru: загрязнение
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: puhastamine
+      equivalent_ru: очистка
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: veekaitse
+      equivalent_ru: охрана воды
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: veeringe
+      equivalent_ru: круговорот воды
+      source_lesson_id: grade-5-water-use-03-cycle
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: sademed
+      equivalent_ru: осадки
+      source_lesson_id: grade-5-water-use-03-cycle
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: imbumine
+      equivalent_ru: просачивание
+      source_lesson_id: grade-5-water-use-03-cycle
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: lahus
+      equivalent_ru: раствор
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: aurustumine
+      equivalent_ru: испарение
+      source_lesson_id: grade-5-water-04-changes-review
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: veeldumine
+      equivalent_ru: конденсация
+      source_lesson_id: grade-5-water-03-melting-condensation
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: jäätumine
+      equivalent_ru: замерзание
+      source_lesson_id: grade-5-water-04-changes-review
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+    - term_et: olekumuutus
+      equivalent_ru: изменение состояния
+      source_lesson_id: grade-5-water-04-changes-review
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+        - water-use-05-independent-output
+  new_instruction_verbs_et: []
+  recycled_instruction_verbs_et:
+    - verb_et: järjesta
+      equivalent_ru: расположи по порядку
+      source_lesson_id: grade-5-water-use-03-cycle
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+    - verb_et: põhjenda
+      equivalent_ru: обоснуй
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+    - verb_et: selgita
+      equivalent_ru: объясни
+      source_lesson_id: grade-5-water-four-lesson-plan
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+    - verb_et: kirjuta
+      equivalent_ru: запиши
+      source_lesson_id: grade-5-water-four-lesson-plan
+      reuse_stage_refs:
+        - water-use-05-activate
+        - water-use-05-assessment
+  model_sentences:
+    - text_et: Põhjavesi ja veeringe on seotud.
+      translation_ru: Подземные воды связаны с круговоротом воды.
+      terms_et:
+        - põhjavesi
+        - veeringe
+      provenance:
+        category: author_created_bridge
+        source_reference: water-pollution-et-avita-2024
+        notes: Short A1-A2 model sentence grounded in the selected canonical source and the authored Russian explanation.
+  sentence_frames:
+    - frame_id: water-use-05-sentence-frame
+      frame_et: Põhjavesi tekib, kui vesi __.
+      purpose_ru: Поддерживает одно короткое содержательное высказывание без требования полного научного объяснения по-эстонски.
+      stage_refs:
+        - water-use-05-language-bridge
+        - water-use-05-assessment
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-05-subject-assessment
+        notes: Teacher-created A1-A2 sentence frame linked to the lesson content objective.
+  expected_receptive_language_et:
+    - Vaata skeemi.
+    - Näita õiget kohta.
+  expected_supported_productive_language_et:
+    - Põhjavesi ja veeringe on seotud.
+  expected_independent_productive_language_et:
+    - Põhjavesi ja veeringe on seotud.
+  full_expected_answer_ru: Подземные воды образуются при просачивании воды; люди используют и очищают воду, но должны предотвращать загрязнение. В круговороте вода испаряется, конденсируется, выпадает осадками, стекает или просачивается. Бумажная фильтрация удаляет лишь часть видимых частиц и не делает модельную воду питьевой.
+  short_expected_oral_answer_et: Põhjavesi ja veeringe on seotud.
+  oral_output_terms_et:
+    - põhjavesi
+    - veeringe
+cognitive_load:
+  new_subject_concepts: 1
+  new_estonian_terms: 0
+  new_instruction_verbs: 0
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Сложные причинные связи формируются по-русски; эстонская нагрузка ограничена терминами, одной рамкой и одной короткой самостоятельной фразой.
+scaffolds:
+  - scaffold_id: water-use-05-russian-explanation
+    type: russian_explanation
+    description_ru: Учитель формирует научное понятие и исправляет заблуждения полными русскими объяснениями до языковой задачи.
+    stage_refs:
+      - water-use-05-activate
+      - water-use-05-explain-ru
+      - water-use-05-language-bridge
+    release:
+      at_stage: water-use-05-assessment
+      how_reduced_ru: Во время задания остаётся краткая схема; готовое причинное объяснение убирается.
+    provenance:
+      category: author_created_explanation
+      source_reference: groundwater-ru-avita
+      notes: Concise Russian synthesis grounded in selected ordinary Opiq evidence.
+  - scaffold_id: water-use-05-bilingual-frame
+    type: sentence_frame
+    description_ru: Двуязычная схема, банк слов и рамка поддерживают короткое эстонское действие после понимания содержания.
+    stage_refs:
+      - water-use-05-language-bridge
+      - water-use-05-assessment
+    release:
+      at_stage: water-use-05-independent-output
+      how_reduced_ru: В самостоятельной части остаются только визуальные опоры или ключевые слова без готовой фразы.
+    provenance:
+      category: author_created_bridge
+      source_reference: water-use-05-sentence-frame
+      notes: Teacher-created support for gradual release and bounded A1-A2 output.
+multimodal_support:
+  - support_id: water-use-05-printable-visual
+    type: table
+    stage_refs:
+      - water-use-05-activate
+      - water-use-05-language-bridge
+      - water-use-05-assessment
+    material_ref: water-use-concept-map
+    provenance:
+      category: author_created_worksheet
+      source_reference: grade-5-water-use-cycle water-use-concept-map
+      notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+stages:
+  - stage_id: water-use-05-activate
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Активировать необходимые знания и отделить научное наблюдение от бытового предположения.
+    language_purpose_et: Узнать знакомые эстонские термины и инструкции без нового сложного объяснения.
+    teacher_action_ru: "Показывает опорную схему и задаёт по-русски вопрос: «Как круговорот, подземные воды и защита воды связаны в одной системе?»; принимает предварительные версии без оценки."
+    pupil_action_ru: Вспоминают связанные понятия по-русски, отмечают знакомые эстонские подписи и формулируют первоначальную гипотезу.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Формулирует исходное научное предположение полным предложением.
+      et:
+        - põhjavesi
+        - joogivesi
+        - reostus
+    material_refs:
+      - water-use-concept-map
+    provenance_refs:
+      - water-use-concept-map
+    scaffold_refs:
+      - water-use-05-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что мы уже знаем и что ещё нужно доказать или уточнить?
+      subject_evidence: Отделяет знакомый факт от предположения и называет связанное понятие.
+      language_evidence: Узнаёт хотя бы одну знакомую эстонскую подпись.
+    expected_evidence_of_learning: Учитель видит исходные представления и выбирает необходимую глубину русского объяснения.
+    transition: Переходим к точному научному объяснению на русском языке.
+  - stage_id: water-use-05-explain-ru
+    duration_minutes: 8
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Систематизирует весь блок и применяет научные понятия к схеме круговорота, фильтрационной модели и решению по защите воды.
+    language_purpose_et: Сначала установить научный смысл по-русски, чтобы новые или повторяемые эстонские слова обозначали уже понятные идеи.
+    teacher_action_ru: "Строит связное объяснение по выбранным каноническим источникам. Целевой вывод: Подземные воды образуются при просачивании воды; люди используют и очищают воду, но должны предотвращать загрязнение. В круговороте вода испаряется, конденсируется, выпадает осадками, стекает или просачивается. Бумажная фильтрация удаляет лишь часть видимых частиц и не делает модельную воду питьевой."
+    pupil_action_ru: Работают со схемой, задают уточняющие вопросы и формулируют полный предметный ответ по-русски.
+    teacher_language:
+      - ru
+    expected_pupil_language:
+      ru:
+        - Подземные воды образуются при просачивании воды; люди используют и очищают воду, но должны предотвращать загрязнение. В круговороте вода испаряется, конденсируется, выпадает осадками, стекает или просачивается. Бумажная фильтрация удаляет лишь часть видимых частиц и не делает модельную воду питьевой.
+      et: []
+    material_refs:
+      - groundwater-ru-avita
+      - water-use-concept-map
+    provenance_refs:
+      - groundwater-ru-avita
+      - water-use-concept-map
+    scaffold_refs:
+      - water-use-05-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Как круговорот, подземные воды и защита воды связаны в одной системе?
+      subject_evidence: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+      language_evidence: Эстонская продукция на этапе формирования сложного понятия не оценивается.
+    expected_evidence_of_learning: Ученик даёт научно корректный русский ответ до перехода к эстонской предметной поддержке.
+    transition: Связываем понятую модель с короткими эстонскими обозначениями.
+  - stage_id: water-use-05-language-bridge
+    duration_minutes: 5
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить точность научного понятия при переходе к терминам, подписям и короткой модели ответа.
+    language_purpose_et: Повторить знакомые термины и модель предложения без введения новой лексики.
+    teacher_action_ru: Показывает соответствия RU–ET, моделирует «Põhjavesi ja veeringe on seotud.» и короткую инструкцию перед заданием.
+    pupil_action_ru: Соотносят подписи со знакомой схемой, повторяют модель и репетируют ответ в паре.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Подземные воды связаны с круговоротом воды.
+      et:
+        - Põhjavesi ja veeringe on seotud.
+    material_refs:
+      - water-pollution-et-avita-2024
+      - water-use-concept-map
+    provenance_refs:
+      - water-pollution-et-avita-2024
+      - water-use-concept-map
+    scaffold_refs:
+      - water-use-05-russian-explanation
+      - water-use-05-bilingual-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Соотнеси эстонскую подпись с уже понятным научным элементом.
+      subject_evidence: Выбирает подпись по смыслу, а не только по внешнему сходству слова.
+      language_evidence: Использует модель «Põhjavesi ja veeringe on seotud.» с опорой.
+    expected_evidence_of_learning: Эстонский термин связан с научным понятием, сформированным по-русски.
+    transition: Применяем понятие и язык в поддержанном содержательном задании.
+  - stage_id: water-use-05-assessment
+    duration_minutes: 22
+    stage_type: assessment
+    content_purpose_ru: "Выполняет предметную работу на русском: concept map, последовательность, интерпретацию модели и один полный доказательный ответ."
+    language_purpose_et: Следовать короткой знакомой инструкции, использовать подписи и подготовить одну короткую фразу без замены русского объяснения.
+    teacher_action_ru: Выдаёт предметную работу, разъясняет критерии по-русски и не включает качество эстонской речи в предметный балл.
+    pupil_action_ru: Выполняют содержательное задание, сначала обосновывают выбор по-русски, затем используют короткую эстонскую подпись или рамку.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+      et:
+        - Põhjavesi ja veeringe on seotud.
+    material_refs:
+      - water-use-concept-map
+      - water-use-subject-assessment
+    provenance_refs:
+      - water-use-concept-map
+      - water-use-subject-assessment
+      - groundwater-ru-avita
+      - water-use-ru-avita
+      - water-pollution-et-avita-2024
+      - water-cycle-et-koolibri
+      - water-treatment-et-koolibri
+    scaffold_refs:
+      - water-use-05-bilingual-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Почему прозрачная вода после модели не считается питьевой?
+      subject_evidence: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+      language_evidence: Завершает рамку «Põhjavesi tekib, kui vesi __.» или даёт эквивалентную короткую фразу.
+    expected_evidence_of_learning: Предметное доказательство и короткая эстонская продукция фиксируются раздельно.
+    transition: Снимаем готовую рамку и фиксируем короткий самостоятельный результат.
+  - stage_id: water-use-05-independent-output
+    duration_minutes: 5
+    stage_type: independent_output
+    content_purpose_ru: Проверить краткое самостоятельное применение центрального научного различия урока.
+    language_purpose_et: Дать одну короткую самостоятельную фразу на доступном уровне A1–A2.
+    teacher_action_ru: Сначала принимает полный русский предметный ответ, затем просит одну короткую эстонскую фразу без готового предложения.
+    pupil_action_ru: Формулируют предметный вывод по-русски и отдельно дают короткий эстонский ответ.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+      et:
+        - Põhjavesi ja veeringe on seotud.
+    material_refs:
+      - water-use-subject-assessment
+    provenance_refs:
+      - water-use-subject-assessment
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Как круговорот, подземные воды и защита воды связаны в одной системе?
+      subject_evidence: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+      language_evidence: Põhjavesi ja veeringe on seotud.
+    expected_evidence_of_learning: Учитель получает отдельное русское свидетельство понимания и отдельное короткое эстонское свидетельство.
+    transition: Урок завершён; отмеченные понятия будут повторены в следующем уроке или итоговой проверке.
+questions:
+  - question_id: water-use-05-major-question
+    question_ru: Как круговорот, подземные воды и защита воды связаны в одной системе?
+    question_et: Mis on põhjavesi?
+    full_expected_answer_ru: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+    short_oral_answer_et: Põhjavesi on maa sees.
+    acceptable_variants:
+      - Просочившаяся вода пополняет подземные воды, которые нужно защищать.
+      - Põhjavesi ja veeringe on seotud.
+    misconception_to_watch: Перечень терминов ошибочно принимается за научное объяснение.
+    objective_refs:
+      - water-use-05-content-objective
+      - water-use-05-language-objective
+    provenance_refs:
+      - groundwater-ru-avita
+      - water-use-ru-avita
+      - water-pollution-et-avita-2024
+      - water-cycle-et-koolibri
+      - water-treatment-et-koolibri
+practical_work: null
+assessment:
+  - criterion_id: water-use-05-assess-subject
+    domain: subject_understanding
+    what_is_checked: Систематизирует весь блок и применяет научные понятия к схеме круговорота, фильтрационной модели и решению по защите воды.
+    acceptable_evidence: "Полный русский ответ: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой."
+    success_threshold: Научно корректный ответ содержит центральное различие и хотя бы одно обоснование.
+    affects: subject_assessment
+  - criterion_id: water-use-05-assess-et-recognition
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание целевых эстонских терминов в схеме, карточках или инструкции.
+    acceptable_evidence: Корректно соотносит минимум два целевых слова с понятиями или изображениями.
+    success_threshold: Не менее двух корректных соответствий.
+    affects: language_assessment
+  - criterion_id: water-use-05-assess-et-supported
+    domain: supported_estonian_production
+    what_is_checked: Заполнение короткой эстонской рамки с сохранением научного смысла.
+    acceptable_evidence: Фраза по рамке «Põhjavesi tekib, kui vesi __.» с допустимой грамматической неточностью.
+    success_threshold: Одна понятная поддержанная фраза.
+    affects: language_assessment
+  - criterion_id: water-use-05-assess-et-independent
+    domain: independent_estonian_production
+    what_is_checked: Короткий самостоятельный эстонский ответ после снятия полной рамки.
+    acceptable_evidence: Põhjavesi ja veeringe on seotud. или научно эквивалентный короткий вариант.
+    success_threshold: Одна понятная короткая фраза.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторно объяснить причинную связь по-русски на конкретной схеме, не сокращая предметный результат.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить выбор из банка слов или одну короткую фразу вместо двух, сохранив полный русский ответ.
+      preserves_subject_objective: true
+    - type: bilingual_glossary
+      implementation_ru: Оставить двуязычную карточку и визуальные подписи во время поддержанной части.
+      preserves_subject_objective: true
+    - type: partner_rehearsal
+      implementation_ru: Дать короткую парную репетицию перед индивидуальным эстонским ответом.
+      preserves_subject_objective: true
+  challenge_extension: Предложить обосновать дополнительную причинную связь по-русски и затем добавить вторую короткую эстонскую фразу.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Simplified-curriculum pages are not ordinary defaults and require separate learner-specific authorisation and provenance.
+homework:
+  content_task_ru: Исправить только отмеченную предметную ошибку по guidance учителя; новый материал не вводится.
+  estonian_language_component: Повторить короткую модель «Põhjavesi ja veeringe on seotud.».
+  expected_minutes: 10
+  source_reference: water-use-subject-assessment
+  required_opiq_url: https://www.opiq.ee/kit/17/chapter/753
+  adult_support_expected: false
+  success_guidance_ru: Задание выполнено, если научный смысл верен по-русски, а короткая эстонская часть понятна; грамматическая неточность не снижает предметный результат.
+  provenance:
+    category: author_created_worksheet
+    source_reference: grade-5-water-use-05-subject-assessment
+    notes: Bounded consolidation task linked to the lesson and selected canonical source.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review:
+    status: pending
+    reviewer_role: primary_science_teacher
+    reviewed_at: null
+    notes: Комплект подготовлен, но независимая педагогическая проверка ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе.
+  classroom_ready: false
+  readiness_status: teacher_pack_complete_pending_review
+provenance:
+  category: author_created_bridge
+  source_reference: grade-5-science-water-use-cycle-unit; groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri, water-treatment-et-koolibri
+  notes: Authored bilingual lesson synthesizes concise Russian explanation and bounded Estonian support from selected canonical ordinary sources; no chapter text is reproduced.

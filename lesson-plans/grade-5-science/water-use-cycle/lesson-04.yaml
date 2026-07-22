@@ -1,0 +1,673 @@
+schema_version: "1.1"
+artifact_type: bilingual_lesson
+lesson_id: grade-5-water-use-04-filter-model
+grade: 5
+subject: science
+subject_et: loodusõpetus
+title_ru: Модель фильтрации и её ограничения
+title_et: Filtreerimise mudel ja selle piirid
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы урока точно составляют заявленные 45 минут.
+unit_ref: grade-5-water-use-cycle
+position_in_unit: 4
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-5-science-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  official_outcome_refs:
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-08-water-purification
+  course_map_ref: grade-5-science-water-use-cycle-unit
+  opiq_records:
+    - record_id: water-treatment-et-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6295
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Vee tarbimine ja puhastamine
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - core_source_et
+        - terminology_et
+        - bilingual_visual
+        - experiment
+        - practice_et
+        - data_interpretation
+        - revision
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6295
+        notes: Canonical ordinary Estonian page on consumption, wastewater, cleaning facilities, and practical prompts.
+      selection_rationale: Distinct practical and data-interpretation support for treatment and the bounded filtration model.
+    - record_id: drinking-water-et-koolibri
+      canonical_url: https://www.opiq.ee/kit/122/chapter/6296
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_koolibri_est
+      title: Joogivee saamine
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - core_source_et
+        - terminology_et
+        - definition_et
+        - bilingual_visual
+        - practice_et
+        - assessment
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 122 / chapter 6296
+        notes: Canonical ordinary Estonian page on obtaining and treating drinking water.
+      selection_rationale: Distinct evidence for the difference between classroom filtration, water treatment, and potable water.
+    - record_id: water-pollution-et-avita-2024
+      canonical_url: https://www.opiq.ee/kit/525/chapter/29520
+      canonical_source_id: grade-5-science
+      book_id: 5k_loodusõpetus_avita_2024_est
+      title: Vee reostumine
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - core_explanation_ru
+        - core_source_et
+        - terminology_et
+        - definition_et
+        - practice_et
+        - assessment
+        - oral_answer_et
+        - estonian_instruction_training
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-5-science / kit 525 / chapter 29520
+        notes: Canonical current ordinary Estonian source for wastewater, pollution, protection, and treatment.
+      selection_rationale: Strongest current Estonian source for pollution/protection terminology and short decision tasks.
+  author_materials:
+    - material_id: filter-safety-card
+      title: Карточка безопасности модели фильтрации
+      material_type: practical_setup
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-safety-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle filter-safety-card
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+    - material_id: filter-observation-table
+      title: Таблица наблюдений до и после фильтрации
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-observation-table.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle filter-observation-table
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+    - material_id: filter-comparison-sheet
+      title: Сравнение модельной воды
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-comparison.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle filter-comparison-sheet
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+    - material_id: filter-limit-card
+      title: Карточка вывода о пределах модели
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-model-limit.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle filter-limit-card
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+    - material_id: filter-exit-ticket
+      title: Раздельный exit ticket модели фильтрации
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-exit-ticket.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle filter-exit-ticket
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: water-use-04-activate
+      language_mode: activate_prior_knowledge
+      description: Активируем знакомые научные представления по-русски и узнаём ранее введённые эстонские обозначения.
+    - sequence: 2
+      stage_id: water-use-04-explain-ru
+      language_mode: establish_concept_ru
+      description: Формируем сложное научное различие и причинные связи на русском языке.
+    - sequence: 3
+      stage_id: water-use-04-language-bridge
+      language_mode: model_sentence_et
+      description: Связываем понятую модель с короткими эстонскими терминами, инструкцией и предложением.
+    - sequence: 4
+      stage_id: water-use-04-practical-observation
+      language_mode: supported_task_et
+      description: Выполняем содержательное задание с короткой эстонской поддержкой и полным русским рассуждением.
+    - sequence: 5
+      stage_id: water-use-04-independent-output
+      language_mode: full_subject_answer_ru
+      description: Фиксируем полный русский предметный результат отдельно от короткого эстонского ответа.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: water-use-04-content-objective
+      text_ru: Безопасно сравнивает модельную воду до и после фильтрации и объясняет ограничения модели.
+      observable_output_ru: "Записывает наблюдения и делает русский вывод: видимые частицы могут уменьшиться, но прозрачность не доказывает питьевую безопасность."
+      curriculum_outcome_refs:
+        - prok-ii-loodusopetus-04-safe-investigation
+        - prok-ii-loodusopetus-08-water-purification
+  estonian_language_objectives:
+    - objective_id: water-use-04-language-objective
+      text_ru: Выполняет знакомые инструкции сравнения и даёт короткий поддержанный вывод по-эстонски.
+      text_et: Õpilane järgib tuttavaid juhiseid ja ütleb ühe lühikese järelduse.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 1
+      language_functions:
+        - compare
+        - conclude
+  subject_success_criteria:
+    - criterion_id: water-use-04-subject-success
+      descriptor: "Записывает наблюдения и делает русский вывод: видимые частицы могут уменьшиться, но прозрачность не доказывает питьевую безопасность."
+      acceptable_evidence: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+  estonian_success_criteria:
+    - criterion_id: water-use-04-language-success
+      descriptor: Выполняет знакомые инструкции сравнения и даёт короткий поддержанный вывод по-эстонски.
+      acceptable_evidence: Filtreeritud vesi ei ole joogivesi.
+  prerequisites:
+    - Ученик может объяснить знакомое наблюдение полным предложением по-русски.
+    - Ученик помнит ключевые понятия предыдущих уроков блока и может пользоваться двуязычной схемой.
+  anticipated_misconceptions:
+    - Прозрачная вода ошибочно считается безопасной.
+    - Фильтрация считается способом удаления всех загрязнителей.
+    - Классная модель считается точной копией водоочистной станции.
+language_load:
+  new_terms_et: []
+  recycled_terms_et:
+    - term_et: lahus
+      equivalent_ru: раствор
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+        - water-use-04-independent-output
+    - term_et: puhastamine
+      equivalent_ru: очистка
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+        - water-use-04-independent-output
+    - term_et: reostus
+      equivalent_ru: загрязнение
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+        - water-use-04-independent-output
+    - term_et: joogivesi
+      equivalent_ru: питьевая вода
+      source_lesson_id: grade-5-water-use-01-groundwater
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+        - water-use-04-independent-output
+  new_instruction_verbs_et: []
+  recycled_instruction_verbs_et:
+    - verb_et: võrdle
+      equivalent_ru: сравни
+      source_lesson_id: grade-5-water-01-properties
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+    - verb_et: kirjuta
+      equivalent_ru: запиши
+      source_lesson_id: grade-5-water-four-lesson-plan
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+    - verb_et: põhjenda
+      equivalent_ru: обоснуй
+      source_lesson_id: grade-5-water-use-02-protection
+      reuse_stage_refs:
+        - water-use-04-activate
+        - water-use-04-practical-observation
+  model_sentences:
+    - text_et: Filtreeritud vesi ei ole automaatselt joogivesi.
+      translation_ru: Отфильтрованная вода не становится автоматически питьевой.
+      terms_et:
+        - puhastamine
+        - joogivesi
+      provenance:
+        category: author_created_bridge
+        source_reference: water-treatment-et-koolibri
+        notes: Short A1-A2 model sentence grounded in the selected canonical source and the authored Russian explanation.
+  sentence_frames:
+    - frame_id: water-use-04-sentence-frame
+      frame_et: Pärast filtreerimist on vesi __, kuid __.
+      purpose_ru: Поддерживает одно короткое содержательное высказывание без требования полного научного объяснения по-эстонски.
+      stage_refs:
+        - water-use-04-language-bridge
+        - water-use-04-practical-observation
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-04-filter-model
+        notes: Teacher-created A1-A2 sentence frame linked to the lesson content objective.
+  expected_receptive_language_et:
+    - Vaata skeemi.
+    - Näita õiget kohta.
+  expected_supported_productive_language_et:
+    - Filtreeritud vesi ei ole automaatselt joogivesi.
+    - Filtreeritud vesi ei ole joogivesi.
+  expected_independent_productive_language_et:
+    - Filtreeritud vesi ei ole joogivesi.
+  full_expected_answer_ru: Бумажный фильтр может задержать часть видимых частиц, поэтому внешний вид модельной воды изменится. Растворённые вещества и микроорганизмы могут остаться. Классная модель не воспроизводит водоочистную станцию и не подтверждает пригодность воды для питья; модельную воду никогда не пробуют.
+  short_expected_oral_answer_et: Filtreeritud vesi ei ole joogivesi.
+  oral_output_terms_et:
+    - puhastamine
+    - joogivesi
+cognitive_load:
+  new_subject_concepts: 1
+  new_estonian_terms: 0
+  new_instruction_verbs: 0
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Сложные причинные связи формируются по-русски; эстонская нагрузка ограничена терминами, одной рамкой и одной короткой самостоятельной фразой.
+scaffolds:
+  - scaffold_id: water-use-04-russian-explanation
+    type: russian_explanation
+    description_ru: Учитель формирует научное понятие и исправляет заблуждения полными русскими объяснениями до языковой задачи.
+    stage_refs:
+      - water-use-04-activate
+      - water-use-04-explain-ru
+      - water-use-04-language-bridge
+    release:
+      at_stage: water-use-04-practical-observation
+      how_reduced_ru: Во время задания остаётся краткая схема; готовое причинное объяснение убирается.
+    provenance:
+      category: author_created_explanation
+      source_reference: water-treatment-et-koolibri
+      notes: Concise Russian synthesis grounded in selected ordinary Opiq evidence.
+  - scaffold_id: water-use-04-bilingual-frame
+    type: sentence_frame
+    description_ru: Двуязычная схема, банк слов и рамка поддерживают короткое эстонское действие после понимания содержания.
+    stage_refs:
+      - water-use-04-language-bridge
+      - water-use-04-practical-observation
+    release:
+      at_stage: water-use-04-independent-output
+      how_reduced_ru: В самостоятельной части остаются только визуальные опоры или ключевые слова без готовой фразы.
+    provenance:
+      category: author_created_bridge
+      source_reference: water-use-04-sentence-frame
+      notes: Teacher-created support for gradual release and bounded A1-A2 output.
+multimodal_support:
+  - support_id: water-use-04-printable-visual
+    type: practical_work
+    stage_refs:
+      - water-use-04-activate
+      - water-use-04-language-bridge
+      - water-use-04-practical-observation
+    material_ref: filter-safety-card
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-5-water-use-cycle filter-safety-card
+      notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+stages:
+  - stage_id: water-use-04-activate
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Активировать необходимые знания и отделить научное наблюдение от бытового предположения.
+    language_purpose_et: Узнать знакомые эстонские термины и инструкции без нового сложного объяснения.
+    teacher_action_ru: "Показывает опорную схему и задаёт по-русски вопрос: «Что изменилось после фильтрации и почему прозрачную модельную воду нельзя пить?»; принимает предварительные версии без оценки."
+    pupil_action_ru: Вспоминают связанные понятия по-русски, отмечают знакомые эстонские подписи и формулируют первоначальную гипотезу.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Формулирует исходное научное предположение полным предложением.
+      et:
+        - lahus
+        - puhastamine
+        - reostus
+    material_refs:
+      - filter-safety-card
+    provenance_refs:
+      - filter-safety-card
+    scaffold_refs:
+      - water-use-04-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что мы уже знаем и что ещё нужно доказать или уточнить?
+      subject_evidence: Отделяет знакомый факт от предположения и называет связанное понятие.
+      language_evidence: Узнаёт хотя бы одну знакомую эстонскую подпись.
+    expected_evidence_of_learning: Учитель видит исходные представления и выбирает необходимую глубину русского объяснения.
+    transition: Переходим к точному научному объяснению на русском языке.
+  - stage_id: water-use-04-explain-ru
+    duration_minutes: 8
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Безопасно сравнивает модельную воду до и после фильтрации и объясняет ограничения модели.
+    language_purpose_et: Сначала установить научный смысл по-русски, чтобы новые или повторяемые эстонские слова обозначали уже понятные идеи.
+    teacher_action_ru: "Строит связное объяснение по выбранным каноническим источникам. Целевой вывод: Бумажный фильтр может задержать часть видимых частиц, поэтому внешний вид модельной воды изменится. Растворённые вещества и микроорганизмы могут остаться. Классная модель не воспроизводит водоочистную станцию и не подтверждает пригодность воды для питья; модельную воду никогда не пробуют."
+    pupil_action_ru: Работают со схемой, задают уточняющие вопросы и формулируют полный предметный ответ по-русски.
+    teacher_language:
+      - ru
+    expected_pupil_language:
+      ru:
+        - Бумажный фильтр может задержать часть видимых частиц, поэтому внешний вид модельной воды изменится. Растворённые вещества и микроорганизмы могут остаться. Классная модель не воспроизводит водоочистную станцию и не подтверждает пригодность воды для питья; модельную воду никогда не пробуют.
+      et: []
+    material_refs:
+      - water-treatment-et-koolibri
+      - filter-safety-card
+    provenance_refs:
+      - water-treatment-et-koolibri
+      - filter-safety-card
+    scaffold_refs:
+      - water-use-04-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что изменилось после фильтрации и почему прозрачную модельную воду нельзя пить?
+      subject_evidence: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+      language_evidence: Эстонская продукция на этапе формирования сложного понятия не оценивается.
+    expected_evidence_of_learning: Ученик даёт научно корректный русский ответ до перехода к эстонской предметной поддержке.
+    transition: Связываем понятую модель с короткими эстонскими обозначениями.
+  - stage_id: water-use-04-language-bridge
+    duration_minutes: 5
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить точность научного понятия при переходе к терминам, подписям и короткой модели ответа.
+    language_purpose_et: Повторить знакомые термины и модель предложения без введения новой лексики.
+    teacher_action_ru: Показывает соответствия RU–ET, моделирует «Filtreeritud vesi ei ole automaatselt joogivesi.» и короткую инструкцию перед заданием.
+    pupil_action_ru: Соотносят подписи со знакомой схемой, повторяют модель и репетируют ответ в паре.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Отфильтрованная вода не становится автоматически питьевой.
+      et:
+        - Filtreeritud vesi ei ole automaatselt joogivesi.
+    material_refs:
+      - water-treatment-et-koolibri
+      - filter-safety-card
+    provenance_refs:
+      - water-treatment-et-koolibri
+      - filter-safety-card
+    scaffold_refs:
+      - water-use-04-russian-explanation
+      - water-use-04-bilingual-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Соотнеси эстонскую подпись с уже понятным научным элементом.
+      subject_evidence: Выбирает подпись по смыслу, а не только по внешнему сходству слова.
+      language_evidence: Использует модель «Filtreeritud vesi ei ole automaatselt joogivesi.» с опорой.
+    expected_evidence_of_learning: Эстонский термин связан с научным понятием, сформированным по-русски.
+    transition: Применяем понятие и язык в поддержанном содержательном задании.
+  - stage_id: water-use-04-practical-observation
+    duration_minutes: 22
+    stage_type: practical_observation
+    content_purpose_ru: "Записывает наблюдения и делает русский вывод: видимые частицы могут уменьшиться, но прозрачность не доказывает питьевую безопасность."
+    language_purpose_et: Следовать короткой знакомой инструкции, использовать подписи и подготовить одну короткую фразу без замены русского объяснения.
+    teacher_action_ru: Организует только безопасную учительскую смесь воды и чистой почвы, запрещает пробование, контролирует материалы, разливы и утилизацию и повторяет предел модели.
+    pupil_action_ru: Соблюдают правила, сравнивают модельную воду до и после фильтрации, записывают наблюдение отдельно от вывода и ничего не пробуют.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+      et:
+        - Filtreeritud vesi ei ole joogivesi.
+    material_refs:
+      - filter-safety-card
+      - filter-observation-table
+      - filter-comparison-sheet
+      - filter-limit-card
+      - filter-exit-ticket
+    provenance_refs:
+      - filter-safety-card
+      - filter-observation-table
+      - filter-comparison-sheet
+      - filter-limit-card
+      - filter-exit-ticket
+      - water-treatment-et-koolibri
+      - drinking-water-et-koolibri
+      - water-pollution-et-avita-2024
+    scaffold_refs:
+      - water-use-04-bilingual-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие ограничения есть у нашей модели фильтрации?
+      subject_evidence: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+      language_evidence: Завершает рамку «Pärast filtreerimist on vesi __, kuid __.» или даёт эквивалентную короткую фразу.
+    expected_evidence_of_learning: Предметное доказательство и короткая эстонская продукция фиксируются раздельно.
+    transition: Снимаем готовую рамку и фиксируем короткий самостоятельный результат.
+  - stage_id: water-use-04-independent-output
+    duration_minutes: 5
+    stage_type: independent_output
+    content_purpose_ru: Проверить краткое самостоятельное применение центрального научного различия урока.
+    language_purpose_et: Дать одну короткую самостоятельную фразу на доступном уровне A1–A2.
+    teacher_action_ru: Сначала принимает полный русский предметный ответ, затем просит одну короткую эстонскую фразу без готового предложения.
+    pupil_action_ru: Формулируют предметный вывод по-русски и отдельно дают короткий эстонский ответ.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+      et:
+        - Filtreeritud vesi ei ole joogivesi.
+    material_refs:
+      - filter-exit-ticket
+    provenance_refs:
+      - filter-exit-ticket
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что изменилось после фильтрации и почему прозрачную модельную воду нельзя пить?
+      subject_evidence: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+      language_evidence: Filtreeritud vesi ei ole joogivesi.
+    expected_evidence_of_learning: Учитель получает отдельное русское свидетельство понимания и отдельное короткое эстонское свидетельство.
+    transition: Урок завершён; отмеченные понятия будут повторены в следующем уроке или итоговой проверке.
+questions:
+  - question_id: water-use-04-major-question
+    question_ru: Что изменилось после фильтрации и почему прозрачную модельную воду нельзя пить?
+    question_et: Kas filtreeritud vesi on joogivesi?
+    full_expected_answer_ru: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+    short_oral_answer_et: Ei, see ei ole joogivesi.
+    acceptable_variants:
+      - Вид стал чище, но пить воду нельзя.
+      - Filtreeritud vesi ei ole joogivesi.
+    misconception_to_watch: Прозрачная вода ошибочно считается безопасной.
+    objective_refs:
+      - water-use-04-content-objective
+      - water-use-04-language-objective
+    provenance_refs:
+      - water-treatment-et-koolibri
+      - drinking-water-et-koolibri
+      - water-pollution-et-avita-2024
+practical_work:
+  work_id: practical-water-filter-model
+  title_ru: Безопасная модель фильтрации и её ограничения
+  title_et: Ohutu filtreerimise mudel ja selle piirid
+  safety_requirements:
+    - Использовать только подготовленные учителем воду и чистую почву; неизвестные загрязнители запрещены.
+    - Модельную воду нельзя пить или пробовать ни до, ни после фильтрации.
+    - Разлитую воду вытереть сразу; после работы вымыть руки.
+    - Учитель контролирует выдачу материалов, сбор сосудов и утилизацию смеси.
+    - Прозрачный вид после фильтрации не доказывает питьевую безопасность.
+  teacher_controlled_steps:
+    - Учитель заранее готовит модельную воду из воды и чистой почвы, устанавливает воронки над устойчивыми прозрачными сосудами и держит поднос под установкой.
+    - Учитель выдаёт безопасные школьные материалы, контролирует переливание, разливы, сбор и утилизацию.
+    - "Учитель до и после опыта явно проговаривает: бумажный фильтр не удаляет все растворённые вещества и микроорганизмы и не создаёт питьевую воду."
+  pupil_steps:
+    - Не пробуя воду, описать внешний вид учительского образца до фильтрации.
+    - Под контролем учителя медленно пропустить смесь через бумажный фильтр.
+    - Сравнить внешний вид до и после, записать только наблюдаемое изменение.
+    - Сделать вывод о видимых частицах и отдельно назвать то, чего модель не доказывает.
+    - Передать установку учителю и вымыть руки.
+  materials:
+    - Вода и чистая почва, подготовленные учителем.
+    - Прозрачные сосуды, устойчивая воронка, бумажный фильтр и поднос.
+    - Печатные safety card, observation table и model-limit card.
+  observation_table:
+    columns:
+      - До фильтрации
+      - После фильтрации
+      - Наблюдение
+      - Ограничение модели
+      - Märksõna eesti keeles
+    data_collection_ru: Ученики отдельно фиксируют видимые изменения и то, что невозможно установить по внешнему виду.
+  expected_observation_ru: После бумажного фильтра количество видимых частиц может уменьшиться и вода может выглядеть прозрачнее.
+  expected_conclusion_ru: Фильтр задерживает лишь часть видимых частиц; растворённые вещества и микроорганизмы могут остаться, поэтому модельная вода не является питьевой.
+  russian_report_target: Дать наблюдение, объяснить одно ограничение модели и прямо сказать, что модельную воду нельзя пить.
+  short_estonian_conclusion: Filtreeritud vesi ei ole joogivesi.
+  opiq_source_record_ids:
+    - water-treatment-et-koolibri
+    - drinking-water-et-koolibri
+    - water-pollution-et-avita-2024
+  provenance_refs:
+    - water-treatment-et-koolibri
+    - drinking-water-et-koolibri
+    - water-pollution-et-avita-2024
+    - filter-safety-card
+    - filter-observation-table
+    - filter-comparison-sheet
+    - filter-limit-card
+    - filter-exit-ticket
+assessment:
+  - criterion_id: water-use-04-assess-subject
+    domain: subject_understanding
+    what_is_checked: Безопасно сравнивает модельную воду до и после фильтрации и объясняет ограничения модели.
+    acceptable_evidence: "Полный русский ответ: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность."
+    success_threshold: Научно корректный ответ содержит центральное различие и хотя бы одно обоснование.
+    affects: subject_assessment
+  - criterion_id: water-use-04-assess-practical
+    domain: practical_skill
+    what_is_checked: Безопасное сравнение, точная запись наблюдения и признание пределов фильтрационной модели.
+    acceptable_evidence: Соблюдает запрет пробования, записывает до/после и не называет модельную воду питьевой.
+    success_threshold: Все правила безопасности выполнены, наблюдение и вывод разделены.
+    affects: subject_assessment
+  - criterion_id: water-use-04-assess-et-recognition
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание целевых эстонских терминов в схеме, карточках или инструкции.
+    acceptable_evidence: Корректно соотносит минимум два целевых слова с понятиями или изображениями.
+    success_threshold: Не менее двух корректных соответствий.
+    affects: language_assessment
+  - criterion_id: water-use-04-assess-et-supported
+    domain: supported_estonian_production
+    what_is_checked: Заполнение короткой эстонской рамки с сохранением научного смысла.
+    acceptable_evidence: Фраза по рамке «Pärast filtreerimist on vesi __, kuid __.» с допустимой грамматической неточностью.
+    success_threshold: Одна понятная поддержанная фраза.
+    affects: language_assessment
+  - criterion_id: water-use-04-assess-et-independent
+    domain: independent_estonian_production
+    what_is_checked: Короткий самостоятельный эстонский ответ после снятия полной рамки.
+    acceptable_evidence: Filtreeritud vesi ei ole joogivesi. или научно эквивалентный короткий вариант.
+    success_threshold: Одна понятная короткая фраза.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторно объяснить причинную связь по-русски на конкретной схеме, не сокращая предметный результат.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить выбор из банка слов или одну короткую фразу вместо двух, сохранив полный русский ответ.
+      preserves_subject_objective: true
+    - type: bilingual_glossary
+      implementation_ru: Оставить двуязычную карточку и визуальные подписи во время поддержанной части.
+      preserves_subject_objective: true
+    - type: partner_rehearsal
+      implementation_ru: Дать короткую парную репетицию перед индивидуальным эстонским ответом.
+      preserves_subject_objective: true
+  challenge_extension: Предложить обосновать дополнительную причинную связь по-русски и затем добавить вторую короткую эстонскую фразу.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Simplified-curriculum pages are not ordinary defaults and require separate learner-specific authorisation and provenance.
+homework:
+  content_task_ru: Без опыта записать два отличия классной модели от настоящей системы очистки и повторить правило «не пробовать».
+  estonian_language_component: Повторить короткую модель «Filtreeritud vesi ei ole joogivesi.».
+  expected_minutes: 10
+  source_reference: filter-exit-ticket
+  required_opiq_url: https://www.opiq.ee/kit/122/chapter/6295
+  adult_support_expected: false
+  success_guidance_ru: Задание выполнено, если научный смысл верен по-русски, а короткая эстонская часть понятна; грамматическая неточность не снижает предметный результат.
+  provenance:
+    category: author_created_worksheet
+    source_reference: grade-5-water-use-04-filter-model
+    notes: Bounded consolidation task linked to the lesson and selected canonical source.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: true
+  teacher_review:
+    status: pending
+    reviewer_role: primary_science_teacher
+    reviewed_at: null
+    notes: Комплект подготовлен, но независимая педагогическая проверка ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе.
+  classroom_ready: false
+  readiness_status: teacher_pack_complete_pending_review
+provenance:
+  category: author_created_bridge
+  source_reference: grade-5-science-water-use-cycle-unit; water-treatment-et-koolibri, drinking-water-et-koolibri, water-pollution-et-avita-2024
+  notes: Authored bilingual lesson synthesizes concise Russian explanation and bounded Estonian support from selected canonical ordinary sources; no chapter text is reproduced.
