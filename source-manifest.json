@@ -289,6 +289,71 @@
       "notes": "Canonical Markdown is reproducibly generated from five source books in the committed original export: four Estonian sources and one Russian source. This route does not claim curriculum completeness."
     },
     {
+      "id": "grade-2-kodututarde-training",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "kodututarde_training",
+      "subject_et": "Kodutütarde väljaõpe",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_2klass_kodututarde_valjaope.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_kodututarde_valjaope_qa.json",
+      "record_count": 31,
+      "format_version": "2.0",
+      "coverage_status": "supplementary_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The archive mixes four kits and five source Book IDs. Only kit 593, Kodutütarde I järk (2026), is canonical in this exact route.",
+        "Ten kit 593 instructional URLs were exported twice under two Book IDs. They are deduplicated by exact canonical URL after content-equivalence checks.",
+        "Three unique Estonian pages are automatically labelled as English. Their canonical language is normalized to Estonian from the source book metadata and Estonian page content.",
+        "Koduõpe contains examples explicitly labelled for grades 1–9, Kodutütarde VI järk is a different progression level, and Noorte Kotkaste I järk has its own route.",
+        "This material is supplementary youth-organisation training and must not be presented as the ordinary school curriculum."
+      ],
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Kodututred training",
+          "et": "Kodutütarde väljaõpe",
+          "ru": "подготовка Kodututred"
+        }
+      },
+      "notes": "Canonical Markdown is reproducibly generated from kit 593 in the committed mixed archive. It contains 31 unique supplementary pages and does not claim official curriculum coverage."
+    },
+    {
+      "id": "grade-2-noorte-kotkaste-training",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "noorte_kotkaste_training",
+      "subject_et": "Noorte Kotkaste väljaõpe",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope_qa.json",
+      "record_count": 27,
+      "format_version": "2.0",
+      "coverage_status": "supplementary_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The archive mixes four kits and five source Book IDs. Only kit 594, Noorte Kotkaste I järk (2026), is canonical in this exact route.",
+        "Three Estonian pages are automatically labelled as English. Their canonical language is normalized to Estonian from the source book metadata and Estonian page content.",
+        "Koduõpe contains examples explicitly labelled for grades 1–9, while Kodutütarde I and VI järk are kept outside this organisation-specific route.",
+        "This material is supplementary youth-organisation training and must not be presented as the ordinary school curriculum."
+      ],
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Young Eagles training",
+          "et": "Noorte Kotkaste väljaõpe",
+          "ru": "подготовка Noorte Kotkad"
+        }
+      },
+      "notes": "Canonical Markdown is reproducibly generated from kit 594 in the committed mixed archive. It contains 27 unique supplementary pages and does not claim official curriculum coverage."
+    },
+    {
       "id": "grade-2-russian",
       "grade": 2,
       "grade_group": "1-4",
