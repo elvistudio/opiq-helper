@@ -1,0 +1,641 @@
+schema_version: "1.0"
+artifact_type: thematic_unit
+map_id: grade-5-science-water-use-cycle-unit
+unit_id: water-use-protection-and-cycle
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+title_ru: Подземные воды, использование, защита и круговорот воды
+title_et: Põhjavesi, vee kasutamine, kaitse ja veeringe
+official_curriculum:
+  curriculum_map_id: grade-5-science-official-scope-pilot
+  outcome_mappings:
+    - outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle
+      coverage_status: partial
+      course_evidence_record_ids:
+        - water-cycle-et-koolibri
+        - water-cycle-et-avita-2024
+      evidence_summary: The lessons build and interpret the water-cycle model, but the official outcome is a broader end-of-school-stage modelling outcome.
+    - outcome_id: prok-ii-loodusopetus-04-safe-investigation
+      coverage_status: partial
+      course_evidence_record_ids:
+        - water-treatment-et-koolibri
+        - drinking-water-et-koolibri
+      evidence_summary: The supervised filtration model provides one safe investigation with observations and limitations, not complete end-of-stage investigation mastery.
+    - outcome_id: prok-ii-loodusopetus-08-water-purification
+      coverage_status: partial
+      course_evidence_record_ids:
+        - water-treatment-et-koolibri
+        - drinking-water-et-koolibri
+        - water-pollution-et-avita-2024
+      evidence_summary: The unit compares a bounded filtration model with potable-water treatment while retaining the broader school-stage outcome as partial.
+    - outcome_id: prok-ii-loodusopetus-19-groundwater
+      coverage_status: partial
+      course_evidence_record_ids:
+        - groundwater-ru-avita
+        - groundwater-et-avita-2024
+        - water-use-ru-avita
+      evidence_summary: Groundwater formation, drinking-water use, protection, and cycle links are taught, but official school-stage evidence is not an exact-grade-5 completeness claim.
+    - outcome_id: prok-ii-loodusopetus-35-human-impact-communities
+      coverage_status: partial
+      course_evidence_record_ids:
+        - water-use-ru-avita
+        - water-pollution-et-avita-2024
+      evidence_summary: Pupils evaluate water-use, pollution, protection, and conservation decisions; the outcome covers broader community impacts across school stage II.
+grade_allocation:
+  official_scope: school_stage_2
+  official_basis: official_school_stage
+  publisher_basis: publisher_sequence
+  curated_basis: curated_course_sequence
+  exact_grade_official: false
+  notes: Official evidence is end-of-school-stage II; publisher placement and this curated grade-5 sequence do not turn it into an official exact-grade requirement.
+learning_outcomes:
+  - id: unit-groundwater-and-protection
+    text_ru: Объясняет образование и использование подземных вод и обосновывает необходимость защиты источников.
+    text_et: Õpilane nimetab põhjavee ja joogivee ning ütleb ühe kaitselause.
+    provenance:
+      category: author_created_bridge
+      source_reference: groundwater-ru-avita and groundwater-et-avita-2024
+      notes: Bilingual outcome synthesized from selected canonical ordinary sources.
+  - id: unit-water-use-and-cycle-system
+    text_ru: Связывает использование, загрязнение, очистку, защиту и природный круговорот воды в одну причинную систему.
+    text_et: Õpilane järjestab veeringe ja kasutab lühidalt põhitermineid.
+    provenance:
+      category: author_created_bridge
+      source_reference: selected eight-record multi-source synthesis
+      notes: Russian system explanation and short Estonian subject-language layer are kept distinct.
+  - id: unit-safe-filter-model
+    text_ru: Безопасно проводит модель фильтрации и объясняет, почему прозрачность не доказывает пригодность воды для питья.
+    text_et: Õpilane võrdleb vett ja ütleb, et filtreeritud mudelivesi ei ole joogivesi.
+    provenance:
+      category: author_created_explanation
+      source_reference: practical-water-filter-model and canonical treatment sources
+      notes: Bounded safety explanation addresses a dangerous misconception without claiming textbook authorship.
+success_criteria:
+  - id: success-system-explanation
+    text_ru: Строит связную модель круговорота с испарением, конденсацией, осадками, стоком и просачиванием.
+    text_et: Järjestab veeringe põhietapid.
+    provenance:
+      category: author_created_assessment
+      source_reference: lesson 05 subject assessment
+      notes: Separate content criterion derived from the selected source synthesis.
+  - id: success-groundwater-protection
+    text_ru: Объясняет образование подземных вод и отличает их от открытых поверхностных вод.
+    text_et: Ütleb ühe põhjavee kaitsmise põhjuse.
+    provenance:
+      category: author_created_assessment
+      source_reference: lessons 01-02
+      notes: Groundwater criterion preserves Russian scientific evidence and short Estonian output.
+  - id: success-filter-limit
+    text_ru: По результатам фильтрационной модели отделяет наблюдаемое изменение от недоказанной питьевой безопасности.
+    text_et: Filtreeritud mudelivesi ei ole joogivesi.
+    provenance:
+      category: author_created_assessment
+      source_reference: lesson 04 filter model
+      notes: Safety-critical criterion distinguishes appearance from potability.
+prerequisites:
+  - id: prerequisite-water-states
+    text_ru: Понимает свойства воды, раствор и основные изменения состояния.
+    text_et: Tunneb vee olekuid ja olekumuutusi.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-5-water-four-lesson-plan
+      notes: The existing four-lesson production unit provides the prerequisite evidence.
+  - id: prerequisite-observation
+    text_ru: Различает наблюдение и вывод в безопасной практической работе.
+    text_et: Eristab vaatlust ja järeldust.
+    provenance:
+      category: author_created_bridge
+      source_reference: prior safe observation practice
+      notes: Required before interpreting the filtration model.
+estimated_lessons: 6
+selected_records:
+  - record_id: groundwater-ru-avita
+    canonical_url: https://www.opiq.ee/kit/17/chapter/753
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_rus
+    title: Подземные воды
+    language: ru
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - practice_ru
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17 / chapter 753
+      notes: Canonical ordinary Russian groundwater page in the exact grade-5 science route.
+    selection_rationale: Primary Russian concept formation for groundwater, infiltration, wells, and groundwater protection.
+  - record_id: water-use-ru-avita
+    canonical_url: https://www.opiq.ee/kit/17/chapter/754
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_rus
+    title: Использо­ва­ние воды
+    language: ru
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - practice_ru
+      - revision
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 17 / chapter 754
+      notes: Canonical ordinary Russian page on drinking water, water use, wastewater, cleaning, and conservation.
+    selection_rationale: Provides the coherent Russian base for water use, wastewater, conservation, and treatment.
+  - record_id: groundwater-et-avita-2024
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29519
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Põhjavesi
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - core_source_et
+      - terminology_et
+      - definition_et
+      - bilingual_visual
+      - map_skill
+      - practice_et
+      - oral_answer_et
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29519
+      notes: Canonical current ordinary Estonian groundwater page with formation, movement, protection, and map evidence.
+    selection_rationale: Adds current Estonian groundwater terminology, infiltration evidence, and a distinct map/visual role.
+  - record_id: water-pollution-et-avita-2024
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29520
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Vee reostumine
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - core_source_et
+      - terminology_et
+      - definition_et
+      - practice_et
+      - assessment
+      - oral_answer_et
+      - estonian_instruction_training
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29520
+      notes: Canonical current ordinary Estonian source for wastewater, pollution, protection, and treatment.
+    selection_rationale: Strongest current Estonian source for pollution/protection terminology and short decision tasks.
+  - record_id: water-cycle-et-avita-2024
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29521
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_2024_est
+    title: Veeringe
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - core_source_et
+      - terminology_et
+      - definition_et
+      - bilingual_visual
+      - practice_et
+      - assessment
+      - oral_answer_et
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 525 / chapter 29521
+      notes: Canonical current ordinary Estonian water-cycle page and diagram task.
+    selection_rationale: Adds current cycle terminology and a distinct concise assessment role alongside the richer Koolibri sequence.
+  - record_id: water-treatment-et-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6295
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee tarbimine ja puhastamine
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - experiment
+      - practice_et
+      - data_interpretation
+      - revision
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6295
+      notes: Canonical ordinary Estonian page on consumption, wastewater, cleaning facilities, and practical prompts.
+    selection_rationale: Distinct practical and data-interpretation support for treatment and the bounded filtration model.
+  - record_id: drinking-water-et-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6296
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Joogivee saamine
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - core_source_et
+      - terminology_et
+      - definition_et
+      - bilingual_visual
+      - practice_et
+      - assessment
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6296
+      notes: Canonical ordinary Estonian page on obtaining and treating drinking water.
+    selection_rationale: Distinct evidence for the difference between classroom filtration, water treatment, and potable water.
+  - record_id: water-cycle-et-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6297
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee ringkäik looduses
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - core_explanation_ru
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - experiment
+      - revision
+      - data_interpretation
+      - oral_answer_et
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-5-science / kit 122 / chapter 6297
+      notes: Canonical ordinary Estonian water-cycle page with visual sequence and practical prompt.
+    selection_rationale: Strongest cycle visual and sequence for ET-to-RU adaptation and vocabulary recycling.
+rejected_duplicate_records:
+  - record_id: rejected-water-use-section-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6291
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vee kasutamine ja kaitse
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/122/chapter/6291
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Section entry contains only a heading and no distinct page-level explanation or task.
+  - record_id: rejected-water-planet-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6292
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Vesi meie planeedil
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/122/chapter/6292
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Broader hydrosphere material overlaps prior water states and selected groundwater evidence; retain only as a possible future extension.
+  - record_id: rejected-water-mixtures-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6293
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Ainete segud
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/122/chapter/6293
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Mixture separation is broader than the bounded filter model and adds no necessary role after the prerequisite water unit.
+  - record_id: rejected-water-solutions-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6294
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Lahused
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/122/chapter/6294
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Solutions are already established in the prerequisite unit; this page is not needed for the six-lesson sequence.
+  - record_id: rejected-groundwater-old-avita
+    canonical_url: https://www.opiq.ee/kit/9/chapter/369
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_est
+    title: Põhjavesi
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/9/chapter/369
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Older Estonian groundwater explanation overlaps the selected Russian and current Estonian pages without a distinct role.
+  - record_id: rejected-water-use-old-avita
+    canonical_url: https://www.opiq.ee/kit/9/chapter/370
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_avita_est
+    title: Vee kasutamine
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/9/chapter/370
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Older Estonian page overlaps the selected Russian use page and current protection/treatment evidence.
+  - record_id: rejected-river-use-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6278
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Jõgede ja järvede kasutamine
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/122/chapter/6278
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: This page belongs to the rivers-and-lakes unit and does not add a distinct system-level role here.
+  - record_id: rejected-river-protection-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6279
+    canonical_source_id: grade-5-science
+    book_id: 5k_loodusõpetus_koolibri_est
+    title: Jõgede ja järvede kaitse
+    language: et
+    programme_type: ordinary
+    instructional_roles:
+      - optional_extension
+    provenance:
+      category: opiq_textbook
+      source_reference: https://www.opiq.ee/kit/122/chapter/6279
+      notes: Audited ordinary canonical candidate retained as an explicit non-selection.
+    selection_rationale: Inspected during the complete exact-route multi-book audit.
+    rejection_reason: Specific river and lake protection is reserved for the neighbouring water-body unit to avoid duplication.
+bilingual_learning:
+  primary_subject_explanation_target_ru:
+    text: Осадки и просачивание пополняют подземные воды. Люди используют воду и должны предотвращать загрязнение и очищать сточные воды. В круговороте вода испаряется, конденсируется, выпадает осадками, стекает или просачивается. Бумажная фильтрация удаляет лишь часть видимых частиц и не доказывает питьевую безопасность.
+    provenance:
+      category: author_created_explanation
+      source_reference: multi-source synthesis of eight selected canonical records
+      notes: Concise Russian target; it does not copy or translate a full Opiq chapter.
+  estonian_terminology:
+    - term_et: põhjavesi
+      equivalent_ru: подземная вода
+      simple_definition_et: Põhjavesi on maa sees olev vesi.
+      provenance:
+        category: author_created_bridge
+        source_reference: groundwater-et-avita-2024
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: joogivesi
+      equivalent_ru: питьевая вода
+      simple_definition_et: Joogivesi on joomiseks sobiv vesi.
+      provenance:
+        category: author_created_bridge
+        source_reference: drinking-water-et-koolibri
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: reostus
+      equivalent_ru: загрязнение
+      simple_definition_et: Reostus teeb vee ohtlikuks.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-pollution-et-avita-2024
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: puhastamine
+      equivalent_ru: очистка
+      simple_definition_et: Puhastamine eemaldab osa saasteaineid.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-treatment-et-koolibri
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: veekaitse
+      equivalent_ru: охрана воды
+      simple_definition_et: Veekaitse aitab hoida vett puhtana.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-pollution-et-avita-2024
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: veeringe
+      equivalent_ru: круговорот воды
+      simple_definition_et: Veeringe on vee pidev liikumine looduses.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-cycle-et-koolibri
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: sademed
+      equivalent_ru: осадки
+      simple_definition_et: Sademed on taevast langev vesi.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-cycle-et-avita-2024
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+    - term_et: imbumine
+      equivalent_ru: просачивание
+      simple_definition_et: Imbumisel liigub vesi pinnasesse.
+      provenance:
+        category: author_created_bridge
+        source_reference: groundwater-et-avita-2024
+        notes: A1-A2 definition grounded in the selected canonical Estonian record.
+  simple_estonian_sentences:
+    - text_et: Põhjavesi on maa sees.
+      translation_ru: Подземная вода находится в земле.
+      provenance:
+        category: author_created_bridge
+        source_reference: groundwater-et-avita-2024
+        notes: Short Estonian subject-support sentence; complex reasoning remains Russian.
+    - text_et: Vett tuleb kaitsta, sest reostus on ohtlik.
+      translation_ru: Воду нужно защищать, потому что загрязнение опасно.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-pollution-et-avita-2024
+        notes: Short Estonian subject-support sentence; complex reasoning remains Russian.
+    - text_et: Vesi aurustub ja hiljem veeldub.
+      translation_ru: Вода испаряется и позже конденсируется.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-cycle-et-koolibri
+        notes: Short Estonian subject-support sentence; complex reasoning remains Russian.
+    - text_et: Filtreeritud mudelivesi ei ole joogivesi.
+      translation_ru: Отфильтрованная модельная вода не является питьевой.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 04 safety bridge
+        notes: Short Estonian subject-support sentence; complex reasoning remains Russian.
+  common_estonian_instructions:
+    - instruction_et: Näita põhjavee kohta.
+      translation_ru: Покажи место подземной воды.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 01
+        notes: Familiar or modelled classroom instruction for supported A1-A2 work.
+    - instruction_et: Põhjenda oma valikut.
+      translation_ru: Обоснуй свой выбор.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 02
+        notes: Familiar or modelled classroom instruction for supported A1-A2 work.
+    - instruction_et: Järjesta veeringe.
+      translation_ru: Расположи этапы круговорота по порядку.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03
+        notes: Familiar or modelled classroom instruction for supported A1-A2 work.
+    - instruction_et: Võrdle enne ja pärast.
+      translation_ru: Сравни до и после.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 04
+        notes: Familiar or modelled classroom instruction for supported A1-A2 work.
+  short_estonian_task:
+    prompt_et: "Järjesta veeringe ja lõpeta lause: Vett tuleb kaitsta, sest __."
+    full_expected_answer_ru: Вода проходит через испарение, конденсацию, осадки, сток и просачивание; защищать её нужно, потому что загрязнение угрожает живым организмам и питьевым источникам.
+    short_oral_answer_et: Vett tuleb kaitsta, sest reostus on ohtlik.
+    provenance:
+      category: author_created_assessment
+      source_reference: lesson 06 language assessment
+      notes: Language result is scored separately from the full Russian scientific answer.
+  teacher_questions:
+    - question_ru: Чем подземная вода отличается от воды в реке или озере?
+      full_expected_answer_ru: Подземная вода заполняет поры и трещины горных пород под поверхностью, а вода рек и озёр находится в открытых поверхностных водоёмах.
+      short_oral_answer_et: Põhjavesi on maa sees.
+      provenance:
+        category: author_created_bridge
+        source_reference: groundwater-ru-avita
+        notes: Teacher-ready question grounded in selected canonical evidence.
+    - question_ru: Почему загрязнённая вода может быть опасной, даже если выглядит прозрачной?
+      full_expected_answer_ru: В воде могут находиться растворённые вещества или микроорганизмы, которых не видно, поэтому внешний вид не доказывает безопасность.
+      short_oral_answer_et: Vett tuleb kaitsta.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-use-ru-avita
+        notes: Teacher-ready question grounded in selected canonical evidence.
+    - question_ru: Как связаны испарение, конденсация и осадки?
+      full_expected_answer_ru: Вода испаряется, водяной пар охлаждается и конденсируется в капли, из которых при подходящих условиях выпадают осадки.
+      short_oral_answer_et: Vesi aurustub ja veeldub.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-cycle-et-koolibri
+        notes: Teacher-ready question grounded in selected canonical evidence.
+    - question_ru: Что изменилось после фильтрации и почему прозрачную модельную воду нельзя пить?
+      full_expected_answer_ru: Фильтр задержал часть видимых частиц, но невидимые растворённые вещества или микроорганизмы могут остаться; модель не доказывает безопасность.
+      short_oral_answer_et: Ei, see ei ole joogivesi.
+      provenance:
+        category: author_created_bridge
+        source_reference: water-treatment-et-koolibri
+        notes: Teacher-ready question grounded in selected canonical evidence.
+    - question_ru: Как круговорот, подземные воды и защита воды связаны в одной системе?
+      full_expected_answer_ru: Осадки и просачивание пополняют подземные воды; загрязнение на поверхности может угрожать источнику, поэтому использование воды должно сопровождаться защитой и очисткой.
+      short_oral_answer_et: Põhjavesi on maa sees.
+      provenance:
+        category: author_created_bridge
+        source_reference: groundwater-ru-avita
+        notes: Teacher-ready question grounded in selected canonical evidence.
+    - question_ru: Почему знание эстонского слова reostus само по себе ещё не доказывает понимание загрязнения?
+      full_expected_answer_ru: "Термин нужно связать с научным смыслом: загрязнитель может сделать воду опасной, поэтому необходимо предотвращать попадание загрязнений и очищать сточные воды."
+      short_oral_answer_et: Vett tuleb kaitsta, sest reostus on ohtlik.
+      provenance:
+        category: author_created_bridge
+        source_reference: groundwater-et-avita-2024
+        notes: Teacher-ready question grounded in selected canonical evidence.
+  language_progression:
+    level: A1-A2
+    focus: grade_5_terms_instructions_short_sentences
+    notes: Progresses from recognition and labels to ordering, a cause frame, and one short oral answer; full causal reasoning remains Russian.
+  language_learning_notes: New terms are distributed across lessons 1–3 and then genuinely recycled in later lessons, including separate language assessment in lesson 6.
+practical_activity:
+  title_ru: Модель фильтрации и её ограничения
+  title_et: Filtreerimise mudel ja selle piirid
+  instructions_ru: Сравнить учительскую смесь воды и чистой почвы до и после бумажного фильтра, ничего не пробовать и отдельно записать видимое изменение и предел модели.
+  instructions_et: Võrdle vett enne ja pärast. Ära maitse vett.
+  expected_result_ru: Видимых частиц может стать меньше, но растворённые вещества и микроорганизмы могут остаться; модельная вода не является питьевой.
+  short_oral_answer_et: Filtreeritud vesi ei ole joogivesi.
+  source_record_ids:
+    - water-treatment-et-koolibri
+    - drinking-water-et-koolibri
+    - water-pollution-et-avita-2024
+  provenance:
+    category: author_created_bridge
+    source_reference: practical-water-filter-model
+    notes: Safe bounded model based on selected canonical treatment evidence; teacher controls all materials.
+revision:
+  title_ru: Связываем воду в одну систему
+  title_et: Seome vee üheks süsteemiks
+  instructions_ru: По concept map связать круговорот, подземные воды, использование, загрязнение, очистку и защиту.
+  instructions_et: Näita ja järjesta tuttavad mõisted.
+  expected_result_ru: Ученик строит причинную систему и правильно определяет предел фильтрационной модели.
+  short_oral_answer_et: Põhjavesi ja veeringe on seotud.
+  source_record_ids:
+    - groundwater-ru-avita
+    - water-use-ru-avita
+    - water-pollution-et-avita-2024
+    - water-cycle-et-koolibri
+  provenance:
+    category: author_created_assessment
+    source_reference: lesson 05 concept map
+    notes: Cumulative retrieval is embedded in the allocated subject-assessment lesson.
+assessment:
+  title_ru: Раздельная предметная и языковая проверка
+  title_et: Eraldi aine- ja keelehindamine
+  instructions_ru: На уроке 5 дать полный предметный ответ по-русски; на уроке 6 отдельно выполнить короткие задания по эстонской терминологии.
+  instructions_et: Järjesta, kirjuta ja anna üks lühike vastus.
+  expected_result_ru: Предметное понимание подтверждается независимо от грамматической точности короткого эстонского ответа.
+  short_oral_answer_et: Vett tuleb kaitsta, sest reostus on ohtlik.
+  source_record_ids:
+    - groundwater-ru-avita
+    - water-use-ru-avita
+    - water-pollution-et-avita-2024
+    - water-cycle-et-avita-2024
+  provenance:
+    category: author_created_assessment
+    source_reference: lessons 05 and 06
+    notes: Subject and Estonian production criteria are explicitly separate.
+coverage_status: partial
+completeness:
+  status: incomplete
+  declared_complete: false
+  required_outcome_ids:
+    - prok-ii-loodusopetus-01-models-and-water-cycle
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-08-water-purification
+    - prok-ii-loodusopetus-19-groundwater
+    - prok-ii-loodusopetus-35-human-impact-communities
+  verified_outcome_ids: []
+  partial_outcome_ids:
+    - prok-ii-loodusopetus-01-models-and-water-cycle
+    - prok-ii-loodusopetus-04-safe-investigation
+    - prok-ii-loodusopetus-08-water-purification
+    - prok-ii-loodusopetus-19-groundwater
+    - prok-ii-loodusopetus-35-human-impact-communities
+  missing_outcome_ids: []
+  ambiguous_outcome_ids: []
+  check_notes: All mapped official outcomes are school-stage II and remain partial; this authored unit does not claim exact-grade or annual completeness.
+known_gaps:
+  - Independent primary-science teacher review is pending.
+  - Classroom trial has not been conducted.
+  - The classroom filter model cannot establish potable-water safety.
+unit_provenance:
+  category: author_created_bridge
+  source_reference: issue 18 water-use-cycle course map and exact canonical route
+  notes: Curated six-lesson synthesis across eligible ordinary Russian and Estonian grade-5 science books.

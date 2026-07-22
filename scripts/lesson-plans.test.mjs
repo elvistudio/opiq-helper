@@ -32,6 +32,20 @@ function thematic(repository) {
   return found.data;
 }
 
+function thematicById(repository, unitId) {
+  const found = artifacts(repository, 'bilingual_thematic_plan')
+    .find((artifact) => artifact.data.unit_id === unitId);
+  assert.ok(found, `missing thematic plan ${unitId}`);
+  return found.data;
+}
+
+function lessonById(repository, lessonId) {
+  const found = artifacts(repository, 'bilingual_lesson')
+    .find((artifact) => artifact.data.lesson_id === lessonId);
+  assert.ok(found, `missing lesson ${lessonId}`);
+  return found.data;
+}
+
 function annual(repository) {
   const found = artifacts(repository, 'annual_course_plan')[0];
   assert.ok(found, 'missing annual course');
@@ -139,12 +153,12 @@ test('production repository passes with documented architecture and pedagogical 
     assert.match(warningText, new RegExp(`topic synthesis ${unitId} is planned but has not yet been authored`, 'u'));
   }
   assert.doesNotMatch(warningText, /no direct Russian Opiq explanation/u);
-  assert.equal(result.summary.lessons, 4);
+  assert.equal(result.summary.lessons, 10);
   assert.equal(result.summary.annualCourses, 1);
   assert.equal(result.summary.annualComponents, 4);
   assert.equal(result.summary.annualUnits, 10);
-  assert.equal(result.summary.annualSelectedPages, 32);
-  assert.equal(result.summary.pageReferences, 51);
+  assert.equal(result.summary.annualSelectedPages, 36);
+  assert.equal(result.summary.pageReferences, 84);
   assert.equal(result.summary.externalSources, 0);
   assert.equal(result.summary.warnings, 15);
 });
@@ -166,9 +180,135 @@ test('complete annual architecture remains partially implemented and links the w
   assert.equal(course.completeness.architecture_complete, true);
   assert.equal(course.completeness.all_thematic_plans_authored, false);
   assert.equal(course.ordered_units.length, 10);
-  assert.equal(course.ordered_units.filter((unit) => unit.thematic_plan_ref).length, 1);
+  assert.equal(course.ordered_units.filter((unit) => unit.thematic_plan_ref).length, 2);
   assert.equal(annualUnit(repository, 'grade-5-water-four-lesson-plan').implementation_status, 'validated_production_unit');
+  assert.equal(annualUnit(repository, 'grade-5-water-use-cycle').implementation_status, 'source_review_required');
   assert.deepEqual(errors(repository), []);
+});
+
+test('water-use-cycle production unit has six complete 45-minute lessons and pending review', () => {
+  const repository = cloneRepository();
+  const unit = thematicById(repository, 'grade-5-water-use-cycle');
+  const annualEntry = annualUnit(repository, unit.unit_id);
+  assert.equal(unit.lesson_count, 6);
+  assert.equal(unit.expected_total_duration_minutes, 270);
+  assert.deepEqual(unit.recommended_lesson_sequence.map((entry) => entry.order), [1, 2, 3, 4, 5, 6]);
+  assert.ok(unit.recommended_lesson_sequence.every((entry) => entry.duration_minutes === 45));
+  assert.equal(annualEntry.estimated_lessons, 6);
+  assert.deepEqual(annualEntry.lesson_allocation, {
+    core_instruction: 3,
+    practical_work: 1,
+    revision: 0,
+    subject_assessment: 1,
+    language_assessment: 1,
+  });
+  assert.equal(annualEntry.topic_synthesis.readiness, 'needs_review');
+  assert.equal(annualEntry.topic_synthesis.review_status, 'pending');
+  assert.equal(unit.teacher_pack.teacher_review_status, 'pending');
+  assert.equal(unit.teacher_pack.classroom_ready, false);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('water-use-cycle keeps mixed source transformations and no production external source', () => {
+  const repository = cloneRepository();
+  const synthesis = annualUnit(repository, 'grade-5-water-use-cycle').topic_synthesis;
+  assert.ok(synthesis.strategies.includes('direct_opiq_ru'));
+  assert.ok(synthesis.strategies.includes('adapted_from_opiq_et'));
+  assert.ok(synthesis.strategies.includes('synthesized_from_multiple_opiq_sources'));
+  assert.ok(synthesis.source_contributions.some((entry) => entry.source_language === 'ru'));
+  assert.ok(synthesis.source_contributions.some((entry) => entry.source_language === 'et'
+    && entry.transformations.some((transformation) => transformation.transformation === 'pedagogical_adaptation')));
+  assert.ok(synthesis.source_contributions.some((entry) => entry.source_kind === 'author_created'
+    && entry.authoring.reason.includes('safety')));
+  assert.equal(synthesis.source_contributions.some((entry) => entry.source_kind === 'external_source'), false);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('water-use-cycle source audit selects eight distinct-role pages and records eight rejections', () => {
+  const repository = cloneRepository();
+  const sourceAudit = sourceUnit(repository, 'grade-5-water-use-cycle');
+  assert.equal(sourceAudit.selected_sources.length, 8);
+  assert.equal(sourceAudit.rejected_duplicates.length, 8);
+  assert.equal(sourceAudit.book_decisions.length, 4);
+  assert.deepEqual(new Set(sourceAudit.selected_sources.map((entry) => entry.record_id)), new Set([
+    'groundwater-ru-avita',
+    'water-use-ru-avita',
+    'groundwater-et-avita-2024',
+    'water-pollution-et-avita-2024',
+    'water-cycle-et-avita-2024',
+    'water-treatment-et-koolibri',
+    'drinking-water-et-koolibri',
+    'water-cycle-et-koolibri',
+  ]));
+  assert.ok(sourceAudit.rejected_duplicates.every((entry) => entry.rejection_reason.length > 20));
+  assert.deepEqual(errors(repository), []);
+});
+
+test('water-use-cycle filtration model is safe and recycles all required water terms', () => {
+  const repository = cloneRepository();
+  const practical = lessonById(repository, 'grade-5-water-use-04-filter-model').practical_work;
+  const safety = [...practical.safety_requirements, ...practical.teacher_controlled_steps].join(' ');
+  assert.match(safety, /нельзя пить|нельзя.*пробовать/u);
+  assert.match(safety, /Прозрачн.*не доказывает.*питьев/u);
+  assert.match(practical.expected_conclusion_ru, /растворённые вещества.*микроорганизмы.*не является питьевой/u);
+  const unitLessons = thematicById(repository, 'grade-5-water-use-cycle').lesson_ids.map((lessonId) => lessonById(repository, lessonId));
+  const recycled = new Set(unitLessons.flatMap((entry) => entry.language_load.recycled_terms_et.map((term) => term.term_et)));
+  for (const term of ['lahus', 'aurustumine', 'veeldumine', 'jäätumine', 'olekumuutus']) assert.ok(recycled.has(term), `missing ${term}`);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('water-use-cycle rejects a five-lesson or seven-lesson claim against the annual allocation', () => {
+  for (const count of [5, 7]) {
+    const repository = cloneRepository();
+    thematicById(repository, 'grade-5-water-use-cycle').lesson_count = count;
+    assertFailsWith(repository, /requires exactly its six authored lessons|expected 6|expected annual allocation 6/u);
+  }
+});
+
+test('water-use-cycle rejects an incorrect 270-minute total', () => {
+  const repository = cloneRepository();
+  thematicById(repository, 'grade-5-water-use-cycle').expected_total_duration_minutes = 269;
+  assertFailsWith(repository, /requires exactly 270 minutes|expected linked lesson total 270/u);
+});
+
+test('water-use-cycle rejects a pupil tasting instruction', () => {
+  const repository = cloneRepository();
+  const practical = lessonById(repository, 'grade-5-water-use-04-filter-model').practical_work;
+  practical.pupil_steps.push('Попробовать воду после фильтрации.');
+  assertFailsWith(repository, /must never allow tasting/u);
+});
+
+test('water-use-cycle rejects a claim that clear filtered water is safe to drink', () => {
+  const repository = cloneRepository();
+  const practical = lessonById(repository, 'grade-5-water-use-04-filter-model').practical_work;
+  practical.expected_conclusion_ru = 'После фильтрации прозрачную воду можно пить.';
+  assertFailsWith(repository, /must not claim that clear filtered water is safe to drink/u);
+});
+
+test('water-use-cycle rejects a missing safety card', () => {
+  const repository = cloneRepository();
+  const practicalLesson = lessonById(repository, 'grade-5-water-use-04-filter-model');
+  practicalLesson.evidence_linkage.author_materials = practicalLesson.evidence_linkage.author_materials
+    .filter((material) => material.material_id !== 'filter-safety-card');
+  assertFailsWith(repository, /requires the registered filter-safety-card/u);
+});
+
+test('authored annual unit requires its dedicated language-assessment calendar entry', () => {
+  const repository = cloneRepository();
+  const calendars = annualCalendars(repository);
+  calendars.language_assessment_calendar = calendars.language_assessment_calendar
+    .filter((entry) => entry.unit_id !== 'grade-5-water-use-cycle');
+  assertFailsWith(repository, /allocates language-assessment lessons but has no language assessment entry/u);
+});
+
+test('water-use-cycle rejects loss of a required cross-unit recycled term', () => {
+  const repository = cloneRepository();
+  const unit = thematicById(repository, 'grade-5-water-use-cycle');
+  for (const lessonId of unit.lesson_ids) {
+    const target = lessonById(repository, lessonId);
+    target.language_load.recycled_terms_et = target.language_load.recycled_terms_et.filter((term) => term.term_et !== 'lahus');
+  }
+  assertFailsWith(repository, /required cross-unit water term lahus is not meaningfully recycled/u);
 });
 
 test('all annual units map to the ten verified topic groups exactly once', () => {

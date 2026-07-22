@@ -11,6 +11,7 @@ const staleFingerprint = '0'.repeat(64);
 const reviewPath = 'pedagogical-reviews/grade-5-science/water/records/teacher-review-2026-07-21.yaml';
 const trialPath = 'pedagogical-reviews/grade-5-science/water/records/classroom-trial-2026-07-21.yaml';
 let baseline;
+const baselinePackId = 'grade-5-science-water-teacher-pack';
 
 before(async () => {
   baseline = await loadPedagogicalReviewRepository();
@@ -21,18 +22,20 @@ function cloneRepository() {
 }
 
 function packIndex(repository) {
-  assert.equal(repository.teacherPacks.indexes.length, 1);
-  return repository.teacherPacks.indexes[0].data;
+  const found = repository.teacherPacks.indexes.find((entry) => entry.data.pack_id === baselinePackId);
+  assert.ok(found, `missing teacher pack ${baselinePackId}`);
+  return found.data;
 }
 
 function thematic(repository) {
-  const artifact = repository.teacherPacks.plans.artifacts.find((entry) => entry.data.artifact_type === 'bilingual_thematic_plan');
+  const artifact = repository.teacherPacks.plans.artifacts.find((entry) => entry.data.artifact_type === 'bilingual_thematic_plan' && entry.data.unit_id === packIndex(repository).unit_ref);
   assert.ok(artifact);
   return artifact.data;
 }
 
 function lessons(repository) {
-  return repository.teacherPacks.plans.artifacts.filter((entry) => entry.data.artifact_type === 'bilingual_lesson');
+  const linkedLessonIds = new Set(lessonIds(repository));
+  return repository.teacherPacks.plans.artifacts.filter((entry) => entry.data.artifact_type === 'bilingual_lesson' && linkedLessonIds.has(entry.data.lesson_id));
 }
 
 function lessonIds(repository) {
@@ -215,7 +218,7 @@ test('production templates validate while pending state has zero completed evide
   assert.equal(result.summary.errors, 0);
   assert.equal(result.summary.completedReviews, 0);
   assert.equal(result.summary.analysedTrials, 0);
-  assert.equal(result.summary.warnings, 2);
+  assert.equal(result.summary.warnings, 4);
 });
 
 test('synthetic current review and analysed trial can prove classroom readiness', () => {

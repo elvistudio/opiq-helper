@@ -853,6 +853,71 @@ function validateUnit(diagnostics, artifact, context, indexes, lessonsById) {
     diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack/classroom_ready', 'classroom-ready teacher pack requires every linked lesson to be classroom ready'));
   }
   validateUnitProgressions(diagnostics, artifact, lessonsById);
+  validateWaterUseCycleProduction(diagnostics, artifact, lessonsById);
+}
+
+function validateWaterUseCycleProduction(diagnostics, artifact, lessonsById) {
+  const unit = artifact.data;
+  if (unit.unit_id !== 'grade-5-water-use-cycle') return;
+
+  const expectedLessonIds = [
+    'grade-5-water-use-01-groundwater',
+    'grade-5-water-use-02-protection',
+    'grade-5-water-use-03-cycle',
+    'grade-5-water-use-04-filter-model',
+    'grade-5-water-use-05-subject-assessment',
+    'grade-5-water-use-06-language-assessment',
+  ];
+  if (!sameSet(unit.lesson_ids, expectedLessonIds) || unit.lesson_count !== 6) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/lesson_ids', 'grade-5-water-use-cycle requires exactly its six authored lessons'));
+  }
+  if (unit.expected_total_duration_minutes !== 270) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/expected_total_duration_minutes', 'grade-5-water-use-cycle requires exactly 270 minutes'));
+  }
+
+  const practical = lessonsById.get('grade-5-water-use-04-filter-model')?.data;
+  const practicalWork = practical?.practical_work;
+  if (!practicalWork || practicalWork.work_id !== 'practical-water-filter-model') {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/practical_work', 'grade-5-water-use-cycle requires the practical-water-filter-model activity in lesson 4'));
+    return;
+  }
+  const safetyText = normalize([
+    ...(practicalWork.safety_requirements ?? []),
+    ...(practicalWork.teacher_controlled_steps ?? []),
+    ...(practicalWork.pupil_steps ?? []),
+    practicalWork.expected_observation_ru,
+    practicalWork.expected_conclusion_ru,
+    practicalWork.russian_report_target,
+  ].join(' '));
+  const safetyRequirements = [
+    [/подготовленн\S* учител\S*.*чист\S* почв/u, 'teacher-prepared water and clean soil'],
+    [/(?:нельзя|не) (?:пить|пробовать)|запрет пробования/u, 'an explicit no-tasting rule'],
+    [/разлив|разлит/u, 'immediate spill control'],
+    [/вымыть руки|мытьё рук/u, 'handwashing'],
+    [/учител\S* контролир\S*.*утилиз/u, 'teacher-controlled materials and disposal'],
+    [/прозрачн\S*.*не доказ\S*.*питьев/u, 'the rule that clear-looking water does not prove potability'],
+    [/раствор[её]н\S*.*микроорганизм/u, 'the limitation that dissolved substances and microorganisms may remain'],
+  ];
+  for (const [pattern, label] of safetyRequirements) {
+    if (!pattern.test(safetyText)) diagnostics.push(makeDiagnostic('error', artifact.file, '/practical_work/safety_requirements', `filtration model is missing ${label}`));
+  }
+  const pupilSteps = normalize((practicalWork.pupil_steps ?? []).join(' '));
+  if (/(?:^|[.!?]\s+)(?:попробовать|пить|выпить)(?:\s|[.,;:!?]|$)/u.test(pupilSteps)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/practical_work/pupil_steps', 'pupil instructions must never allow tasting model water'));
+  }
+  if (/прозрачн\S* вод\S* (?:можно|безопасн\S*) (?:пить|для питья)/u.test(safetyText)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/practical_work', 'filtration model must not claim that clear filtered water is safe to drink'));
+  }
+  const safetyMaterial = (practical?.evidence_linkage?.author_materials ?? [])
+    .find((material) => material.material_id === 'filter-safety-card');
+  if (!safetyMaterial) diagnostics.push(makeDiagnostic('error', artifact.file, '/teacher_pack', 'filtration model requires the registered filter-safety-card'));
+
+  const recycled = new Set(expectedLessonIds.flatMap((lessonId) => (
+    lessonsById.get(lessonId)?.data.language_load?.recycled_terms_et ?? []
+  )).map((term) => normalize(term.term_et)));
+  for (const term of ['lahus', 'aurustumine', 'veeldumine', 'jäätumine', 'olekumuutus']) {
+    if (!recycled.has(term)) diagnostics.push(makeDiagnostic('error', artifact.file, '/vocabulary_by_lesson', `required cross-unit water term ${term} is not meaningfully recycled`));
+  }
 }
 
 function validateUnitProgressions(diagnostics, artifact, lessonsById) {
@@ -1322,6 +1387,7 @@ function validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById
       else {
         representedLessons += linked.data.lesson_count ?? 0;
         if (linked.data.unit_id !== unit.unit_id || linked.data.grade !== course.grade || linked.data.subject !== course.subject) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/thematic_plan_ref`, 'linked thematic plan ID, grade, and subject must match annual unit'));
+        if (linked.data.lesson_count !== unit.estimated_lessons) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/thematic_plan_ref`, `linked thematic plan has ${linked.data.lesson_count ?? 0} lessons; expected annual allocation ${unit.estimated_lessons}`));
       }
     } else if (unit.thematic_plan_ref !== null) {
       diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/thematic_plan_ref`, 'unit without a full thematic plan must use null'));
@@ -1438,6 +1504,16 @@ function validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById
     for (const [index, assessment] of (calendars[field] ?? []).entries()) {
       if (!knownUnitIds.has(assessment.unit_id)) diagnostics.push(makeDiagnostic('error', calendarFile, `/${field}/${index}/unit_id`, `unknown unit ${assessment.unit_id}`));
       for (const domain of assessment.domains ?? []) if (!allowed.has(domain)) diagnostics.push(makeDiagnostic('error', calendarFile, `/${field}/${index}/domains`, `${domain} belongs in the other assessment calendar`));
+    }
+  }
+  const subjectAssessmentUnits = new Set((calendars.subject_assessment_calendar ?? []).map((entry) => entry.unit_id));
+  const languageAssessmentUnits = new Set((calendars.language_assessment_calendar ?? []).map((entry) => entry.unit_id));
+  for (const [index, unit] of units.entries()) {
+    if (unit.full_thematic_plan_exists && (unit.lesson_allocation?.subject_assessment ?? 0) > 0 && !subjectAssessmentUnits.has(unit.unit_id)) {
+      diagnostics.push(makeDiagnostic('error', calendarFile, '/subject_assessment_calendar', `unit ${unit.unit_id} allocates subject-assessment lessons but has no subject assessment entry`));
+    }
+    if (unit.full_thematic_plan_exists && (unit.lesson_allocation?.language_assessment ?? 0) > 0 && !languageAssessmentUnits.has(unit.unit_id)) {
+      diagnostics.push(makeDiagnostic('error', calendarFile, '/language_assessment_calendar', `unit ${unit.unit_id} allocates language-assessment lessons but has no language assessment entry`));
     }
   }
   const summativeOrders = (calendars.subject_assessment_calendar ?? [])

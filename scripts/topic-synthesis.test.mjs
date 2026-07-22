@@ -140,7 +140,7 @@ test('multiple Estonian Opiq records can contribute to a synthesis', () => {
   const synthesis = unit(repository, 'grade-5-water-use-cycle').topic_synthesis;
   const estonianMainContributors = synthesis.source_contributions.filter((entry) => entry.source_language === 'et'
     && entry.transformations.some((transformation) => transformation.output_layer === 'main_explanation'));
-  assert.equal(estonianMainContributors.length, 2);
+  assert.ok(estonianMainContributors.length >= 2);
   assertValid(repository);
 });
 

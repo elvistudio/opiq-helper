@@ -1,0 +1,731 @@
+schema_version: "1.2"
+artifact_type: teacher_pack_materials_index
+pack_id: grade-5-science-water-use-cycle-teacher-pack
+unit_ref: grade-5-water-use-cycle
+pack_path: teacher-packs/grade-5-science/water-use-cycle
+grade: 5
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-5-science
+  md_path: project-files/outputs/opiq_5klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+lesson_ids:
+  - grade-5-water-use-01-groundwater
+  - grade-5-water-use-02-protection
+  - grade-5-water-use-03-cycle
+  - grade-5-water-use-04-filter-model
+  - grade-5-water-use-05-subject-assessment
+  - grade-5-water-use-06-language-assessment
+opiq_sources:
+  - record_id: groundwater-ru-avita
+    canonical_url: https://www.opiq.ee/kit/17/chapter/753
+    lesson_ids:
+      - grade-5-water-use-01-groundwater
+      - grade-5-water-use-05-subject-assessment
+  - record_id: water-use-ru-avita
+    canonical_url: https://www.opiq.ee/kit/17/chapter/754
+    lesson_ids:
+      - grade-5-water-use-02-protection
+      - grade-5-water-use-05-subject-assessment
+  - record_id: groundwater-et-avita-2024
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29519
+    lesson_ids:
+      - grade-5-water-use-01-groundwater
+      - grade-5-water-use-03-cycle
+      - grade-5-water-use-06-language-assessment
+  - record_id: water-pollution-et-avita-2024
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29520
+    lesson_ids:
+      - grade-5-water-use-02-protection
+      - grade-5-water-use-04-filter-model
+      - grade-5-water-use-05-subject-assessment
+      - grade-5-water-use-06-language-assessment
+  - record_id: water-cycle-et-avita-2024
+    canonical_url: https://www.opiq.ee/kit/525/chapter/29521
+    lesson_ids:
+      - grade-5-water-use-03-cycle
+      - grade-5-water-use-06-language-assessment
+  - record_id: water-treatment-et-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6295
+    lesson_ids:
+      - grade-5-water-use-02-protection
+      - grade-5-water-use-04-filter-model
+      - grade-5-water-use-05-subject-assessment
+  - record_id: drinking-water-et-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6296
+    lesson_ids:
+      - grade-5-water-use-02-protection
+      - grade-5-water-use-04-filter-model
+  - record_id: water-cycle-et-koolibri
+    canonical_url: https://www.opiq.ee/kit/122/chapter/6297
+    lesson_ids:
+      - grade-5-water-use-03-cycle
+      - grade-5-water-use-05-subject-assessment
+      - grade-5-water-use-06-language-assessment
+reviewable_content:
+  specification_version: "1.0"
+  explicit_paths:
+    - lesson-plans/grade-5-science/water-use-cycle/lesson-01.yaml
+    - lesson-plans/grade-5-science/water-use-cycle/lesson-02.yaml
+    - lesson-plans/grade-5-science/water-use-cycle/lesson-03.yaml
+    - lesson-plans/grade-5-science/water-use-cycle/lesson-04.yaml
+    - lesson-plans/grade-5-science/water-use-cycle/lesson-05.yaml
+    - lesson-plans/grade-5-science/water-use-cycle/lesson-06.yaml
+    - lesson-plans/grade-5-science/water-use-cycle/thematic-plan.yaml
+  directory_paths:
+    - teacher-packs/grade-5-science/water-use-cycle/lessons
+    - teacher-packs/grade-5-science/water-use-cycle/student
+    - teacher-packs/grade-5-science/water-use-cycle/answers
+    - teacher-packs/grade-5-science/water-use-cycle/parent
+  derived_material_paths: true
+pedagogical_review:
+  guide_path: pedagogical-reviews/grade-5-science/water-use-cycle/review-guide.md
+  review_record_path: null
+  status: pending
+classroom_trial:
+  template_path: pedagogical-reviews/grade-5-science/water-use-cycle/classroom-trial-template.yaml
+  trial_record_paths: []
+  status: not_tested
+materials:
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-pack-overview
+      title: Обзор teacher pack
+      material_type: pack_overview
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/README.md
+      audience: shared
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle teacher pack
+        notes: Teacher-pack navigation or support material grounded in the six authored lessons.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-teacher-guide
+      title: Руководство учителя
+      material_type: teacher_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/teacher-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle teacher pack
+        notes: Teacher-pack navigation or support material grounded in the six authored lessons.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-preparation-checklist
+      title: Checklist подготовки
+      material_type: checklist
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/preparation-checklist.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle teacher pack
+        notes: Teacher-pack navigation or support material grounded in the six authored lessons.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-assessment-rubric
+      title: Rubric блока
+      material_type: rubric
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/assessment-rubric.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle teacher pack
+        notes: Teacher-pack navigation or support material grounded in the six authored lessons.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-homeschool-guide
+      title: Дополнительное руководство для семейного обучения
+      material_type: homeschool_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/homeschool-guide.md
+      audience: parent
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle teacher pack
+        notes: Teacher-pack navigation or support material grounded in the six authored lessons.
+  - lesson_ids:
+      - grade-5-water-use-01-groundwater
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-01-guide
+      title: Читаемая версия урока 1
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/lessons/lesson-01.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-01-groundwater
+        notes: Teacher-readable rendering of the validated YAML lesson; the YAML remains the machine authority.
+  - lesson_ids:
+      - grade-5-water-use-02-protection
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-02-guide
+      title: Читаемая версия урока 2
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/lessons/lesson-02.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-02-protection
+        notes: Teacher-readable rendering of the validated YAML lesson; the YAML remains the machine authority.
+  - lesson_ids:
+      - grade-5-water-use-03-cycle
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-03-guide
+      title: Читаемая версия урока 3
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/lessons/lesson-03.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-03-cycle
+        notes: Teacher-readable rendering of the validated YAML lesson; the YAML remains the machine authority.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-04-guide
+      title: Читаемая версия урока 4
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/lessons/lesson-04.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-04-filter-model
+        notes: Teacher-readable rendering of the validated YAML lesson; the YAML remains the machine authority.
+  - lesson_ids:
+      - grade-5-water-use-05-subject-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-05-guide
+      title: Читаемая версия урока 5
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/lessons/lesson-05.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-05-subject-assessment
+        notes: Teacher-readable rendering of the validated YAML lesson; the YAML remains the machine authority.
+  - lesson_ids:
+      - grade-5-water-use-06-language-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-06-guide
+      title: Читаемая версия урока 6
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/lessons/lesson-06.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-06-language-assessment
+        notes: Teacher-readable rendering of the validated YAML lesson; the YAML remains the machine authority.
+  - lesson_ids:
+      - grade-5-water-use-01-groundwater
+    required_for_pack: true
+    material:
+      material_id: groundwater-concept-sheet
+      title: Схема образования подземных вод
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-01-groundwater-sheet.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-01-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle groundwater-concept-sheet
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-01-groundwater
+    required_for_pack: true
+    material:
+      material_id: groundwater-exit-ticket
+      title: Exit ticket о подземной и питьевой воде
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-01-exit-ticket.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-01-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle groundwater-exit-ticket
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-02-protection
+    required_for_pack: true
+    material:
+      material_id: water-protection-sheet
+      title: Классификация использования, загрязнения и защиты
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-02-protection-sheet.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-02-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle water-protection-sheet
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-02-protection
+    required_for_pack: true
+    material:
+      material_id: water-protection-glossary
+      title: Двуязычная карточка терминов защиты воды
+      material_type: visual
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-02-glossary-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle water-protection-glossary
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-02-protection
+    required_for_pack: true
+    material:
+      material_id: water-protection-exit-ticket
+      title: Exit ticket о защите воды
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-02-exit-ticket.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-02-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle water-protection-exit-ticket
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-03-cycle
+    required_for_pack: true
+    material:
+      material_id: water-cycle-diagram
+      title: Схема круговорота воды
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-03-cycle-diagram.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle water-cycle-diagram
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-03-cycle
+    required_for_pack: true
+    material:
+      material_id: water-cycle-sequence-cards
+      title: Карточки последовательности круговорота
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-03-sequence-cards.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle water-cycle-sequence-cards
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-03-cycle
+    required_for_pack: true
+    material:
+      material_id: phase-change-recycling-sheet
+      title: Повторение изменений состояния в круговороте
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-03-phase-change-recycling.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle phase-change-recycling-sheet
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-03-cycle
+    required_for_pack: true
+    material:
+      material_id: water-cycle-exit-ticket
+      title: Exit ticket о круговороте
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-03-exit-ticket.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle water-cycle-exit-ticket
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: filter-safety-card
+      title: Карточка безопасности модели фильтрации
+      material_type: practical_setup
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-safety-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle filter-safety-card
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: filter-observation-table
+      title: Таблица наблюдений до и после фильтрации
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-observation-table.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle filter-observation-table
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: filter-comparison-sheet
+      title: Сравнение модельной воды
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-comparison.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle filter-comparison-sheet
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: filter-limit-card
+      title: Карточка вывода о пределах модели
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-model-limit.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle filter-limit-card
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: filter-exit-ticket
+      title: Раздельный exit ticket модели фильтрации
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-04-exit-ticket.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle filter-exit-ticket
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-05-subject-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-concept-map
+      title: Concept map блока
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-05-concept-map.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-05-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-5-water-use-cycle water-use-concept-map
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-05-subject-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-subject-assessment
+      title: Предметная проверка блока
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-05-subject-assessment.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-05-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle water-use-subject-assessment
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-06-language-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-language-assessment
+      title: Отдельная оценка эстонской терминологии
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-06-language-assessment.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-06-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle water-use-language-assessment
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-06-language-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-oral-card
+      title: Карточка короткого устного ответа
+      material_type: assessment
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/student/lesson-06-oral-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-06-answer-key.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-cycle water-use-oral-card
+        notes: Author-created concise material linked to the authored bilingual lesson; no textbook passage is reproduced.
+  - lesson_ids:
+      - grade-5-water-use-01-groundwater
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-01-answer-key
+      title: Ключ ответов к уроку 1
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-01-answer-key.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-01-groundwater
+        notes: Teacher-created expected answers, acceptable variants, partial evidence, misconceptions, and follow-up guidance.
+  - lesson_ids:
+      - grade-5-water-use-02-protection
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-02-answer-key
+      title: Ключ ответов к уроку 2
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-02-answer-key.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-02-protection
+        notes: Teacher-created expected answers, acceptable variants, partial evidence, misconceptions, and follow-up guidance.
+  - lesson_ids:
+      - grade-5-water-use-03-cycle
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-03-answer-key
+      title: Ключ ответов к уроку 3
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-03-answer-key.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-03-cycle
+        notes: Teacher-created expected answers, acceptable variants, partial evidence, misconceptions, and follow-up guidance.
+  - lesson_ids:
+      - grade-5-water-use-04-filter-model
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-04-answer-key
+      title: Ключ ответов к уроку 4
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-04-answer-key.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-04-filter-model
+        notes: Teacher-created expected answers, acceptable variants, partial evidence, misconceptions, and follow-up guidance.
+  - lesson_ids:
+      - grade-5-water-use-05-subject-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-05-answer-key
+      title: Ключ ответов к уроку 5
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-05-answer-key.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-05-subject-assessment
+        notes: Teacher-created expected answers, acceptable variants, partial evidence, misconceptions, and follow-up guidance.
+  - lesson_ids:
+      - grade-5-water-use-06-language-assessment
+    required_for_pack: true
+    material:
+      material_id: water-use-lesson-06-answer-key
+      title: Ключ ответов к уроку 6
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/answers/lesson-06-answer-key.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-5-water-use-06-language-assessment
+        notes: Teacher-created expected answers, acceptable variants, partial evidence, misconceptions, and follow-up guidance.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-parent-safety-guide
+      title: Безопасное домашнее наблюдение
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/parent/home-observation-safety-card.md
+      audience: parent
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle family support
+        notes: Optional family support with no personal-data storage and no unsafe home filtration experiment.
+  - lesson_ids: []
+    required_for_pack: true
+    material:
+      material_id: water-use-parent-progress-checklist
+      title: Недельный checklist прогресса
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water-use-cycle/parent/weekly-progress-checklist.md
+      audience: parent
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-5-water-use-cycle family support
+        notes: Optional family support with no personal-data storage and no unsafe home filtration experiment.
