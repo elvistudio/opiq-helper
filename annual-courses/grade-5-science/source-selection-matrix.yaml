@@ -28,11 +28,11 @@ units:
     selected_sources:
       - record_id: landforms-map-et-koolibri
         canonical_url: https://www.opiq.ee/kit/122/chapter/6309
-        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, map_skill, data_interpretation, estonian_instruction_training]
+        instructional_roles: [core_explanation_ru, core_source_et, terminology_et, bilingual_visual, practice_et, map_skill, data_interpretation, estonian_instruction_training]
         provenance: {category: opiq_textbook, source_reference: landforms-map-et-koolibri, notes: Ordinary Koolibri page selected from the verified topic inventory.}
-        selection_rationale: Strongest ordinary page for relief representation, map reading, terminology, and a visual bridge.
+        selection_rationale: Strongest ordinary source for an adapted Russian explanation plus direct Estonian map terminology and visuals.
     role_matrix:
-      core_explanation_ru: {status: author_created_required, record_ids: [], notes: No ordinary Russian page-level evidence exists in this route.}
+      core_explanation_ru: {status: selected, record_ids: [landforms-map-et-koolibri], notes: "The final Russian explanation is pedagogically adapted from this strong Estonian source; the role describes output language, not source language."}
       core_source_et: {status: selected, record_ids: [landforms-map-et-koolibri], notes: The selected Koolibri page is the Estonian core.}
       visual_or_diagram: {status: selected, record_ids: [landforms-map-et-koolibri], notes: Relief representation and map symbols provide the visual role.}
       practical_or_experiment: {status: author_created_required, record_ids: [], notes: The safe relief model is author-created and cites this page.}
@@ -53,7 +53,6 @@ units:
         rejection_reason: Simplified-curriculum relief material requires explicit learner-specific authorisation and cannot be an ordinary default.
         provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/15534, notes: Rejected canonical candidate remains auditable and is not selected.}
     unavailable_roles:
-      - {role: core_explanation_ru, reason: No ordinary Russian page-level landform explanation is registered.}
       - {role: practice_ru, reason: Russian practice must be created with the reviewed author bridge.}
     teacher_review_required: true
   - unit_id: grade-5-rivers-lakes
@@ -178,16 +177,16 @@ units:
         selection_rationale: Adds Russian use and conservation context not present in the groundwater page.
       - record_id: water-pollution-et-avita-2024
         canonical_url: https://www.opiq.ee/kit/525/chapter/29520
-        instructional_roles: [core_source_et, terminology_et, practice_et, assessment, oral_answer_et, estonian_instruction_training]
+        instructional_roles: [core_explanation_ru, core_source_et, terminology_et, practice_et, assessment, oral_answer_et, estonian_instruction_training]
         provenance: {category: opiq_textbook, source_reference: water-pollution-et-avita-2024, notes: Current Estonian pollution page from the topic inventory.}
         selection_rationale: Best current Estonian protection terminology and assessment source.
       - record_id: water-cycle-et-koolibri
         canonical_url: https://www.opiq.ee/kit/122/chapter/6297
-        instructional_roles: [core_source_et, bilingual_visual, practice_et, experiment, revision, data_interpretation]
+        instructional_roles: [core_explanation_ru, core_source_et, bilingual_visual, practice_et, experiment, revision, data_interpretation]
         provenance: {category: opiq_textbook, source_reference: water-cycle-et-koolibri, notes: Ordinary Koolibri water-cycle page from the topic inventory.}
         selection_rationale: Best cycle visual and practical bridge for cross-unit state-change recycling.
     role_matrix:
-      core_explanation_ru: {status: selected, record_ids: [groundwater-ru-avita, water-use-ru-avita], notes: Russian coverage is direct for groundwater and use but partial for the whole unit.}
+      core_explanation_ru: {status: selected, record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Direct Russian pages and explicitly adapted Estonian pollution and cycle evidence jointly support the final Russian synthesis.}
       core_source_et: {status: selected, record_ids: [water-pollution-et-avita-2024, water-cycle-et-koolibri], notes: Pollution and cycle pages carry distinct Estonian concepts.}
       visual_or_diagram: {status: selected, record_ids: [water-cycle-et-koolibri], notes: The cycle diagram anchors sequencing and recycled process terms.}
       practical_or_experiment: {status: selected, record_ids: [water-cycle-et-koolibri], notes: The selected page supports the author-created safe filter and model work.}
@@ -208,7 +207,7 @@ units:
         rejection_reason: Older Estonian groundwater explanation overlaps selected evidence and has no separate role.
         provenance: {category: opiq_textbook, source_reference: https://www.opiq.ee/kit/9/chapter/369, notes: Rejected ordinary canonical duplicate retained for auditability.}
     unavailable_roles: []
-    teacher_review_required: false
+    teacher_review_required: true
   - unit_id: grade-5-freshwater-ecosystems
     topic_inventory_refs: [freshwater-ecosystems]
     selected_sources:
@@ -393,11 +392,11 @@ units:
     selected_sources:
       - record_id: settlements-et-koolibri
         canonical_url: https://www.opiq.ee/kit/122/chapter/6300
-        instructional_roles: [core_source_et, terminology_et, practice_et, map_skill, fieldwork, estonian_instruction_training]
+        instructional_roles: [core_explanation_ru, core_source_et, terminology_et, practice_et, map_skill, fieldwork, estonian_instruction_training]
         provenance: {category: opiq_textbook, source_reference: settlements-et-koolibri, notes: Sole ordinary Estonian settlement page selected by the topic inventory.}
-        selection_rationale: Provides verified settlement terminology and map context while Russian explanation is explicitly author-created.
+        selection_rationale: Provides the verified concept base for Russian pedagogical adaptation and direct Estonian terminology and map work.
     role_matrix:
-      core_explanation_ru: {status: author_created_required, record_ids: [], notes: No ordinary Russian page-level settlement explanation exists.}
+      core_explanation_ru: {status: selected, record_ids: [settlements-et-koolibri], notes: The final Russian explanation is adapted from this selected Estonian page; author work is limited to explicitly uncovered local-environment concepts.}
       core_source_et: {status: selected, record_ids: [settlements-et-koolibri], notes: Koolibri supplies the only ordinary Estonian core candidate.}
       visual_or_diagram: {status: selected, record_ids: [settlements-et-koolibri], notes: Settlement types and map context provide the visual bridge.}
       practical_or_experiment: {status: selected, record_ids: [settlements-et-koolibri], notes: The author local audit is linked to this source.}
@@ -418,7 +417,6 @@ units:
         rejection_reason: Simplified-curriculum settlement material cannot be selected as an ordinary default.
         provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/16756, notes: Rejected simplified canonical candidate remains explicit.}
     unavailable_roles:
-      - {role: core_explanation_ru, reason: No ordinary Russian settlement page is registered.}
       - {role: practice_ru, reason: Russian practice must be authored with the full explanation.}
     teacher_review_required: true
   - unit_id: grade-5-bog-ecosystem
@@ -426,11 +424,11 @@ units:
     selected_sources:
       - record_id: bog-conditions-et-koolibri
         canonical_url: https://www.opiq.ee/kit/122/chapter/6316
-        instructional_roles: [core_source_et, terminology_et, practice_et, experiment, map_skill, bilingual_visual, data_interpretation, estonian_instruction_training]
+        instructional_roles: [core_explanation_ru, core_source_et, terminology_et, practice_et, experiment, map_skill, bilingual_visual, data_interpretation, estonian_instruction_training]
         provenance: {category: opiq_textbook, source_reference: bog-conditions-et-koolibri, notes: Sole ordinary Estonian bog core page selected by the topic inventory.}
-        selection_rationale: Strongest ordinary bog-formation and condition evidence; Russian explanation remains explicit author work.
+        selection_rationale: Strongest ordinary source for an adapted Russian explanation of bog formation and conditions plus direct Estonian support.
     role_matrix:
-      core_explanation_ru: {status: author_created_required, record_ids: [], notes: No ordinary Russian page-level bog explanation exists.}
+      core_explanation_ru: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: The final Russian explanation is adapted from this Estonian source; author work is limited to listed uncovered concepts.}
       core_source_et: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: Koolibri supplies the only ordinary Estonian core candidate.}
       visual_or_diagram: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: Formation and condition visuals support the concept bridge.}
       practical_or_experiment: {status: selected, record_ids: [bog-conditions-et-koolibri], notes: The safe water-retention model is linked to this source.}
@@ -451,7 +449,6 @@ units:
         rejection_reason: Simplified-curriculum bog material cannot be selected as an ordinary default.
         provenance: {category: opiq_simplified_curriculum, source_reference: https://www.opiq.ee/kit/275/chapter/15580, notes: Rejected simplified canonical candidate remains explicit.}
     unavailable_roles:
-      - {role: core_explanation_ru, reason: No ordinary Russian bog page is registered.}
       - {role: practice_ru, reason: Russian practice must be authored with the full explanation.}
     teacher_review_required: true
 provenance:
