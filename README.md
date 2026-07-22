@@ -30,18 +30,22 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
 - `pedagogical-reviews/` contains unfilled review/trial instruments and the privacy-safe evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
+- `external-sources/registry.yaml` is the shared registry for optional verified non-Opiq supplements; it is currently empty.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
 
 The legacy `opiq_compact_all_index.json`, `opiq_lookup_all.*`, `topic_map_all.json`, and `opiq-compact-all*` files form an older, partial aggregate. They are not the canonical repository manifest.
 
 ## Routing
 
-Resolve requests in this order:
+Resolve requests and topic synthesis in this order:
 
 1. grade;
 2. subject;
-3. preferred source language;
-4. the matching `md_path` in `source-manifest.json`.
+3. source-language scope;
+4. requested output language;
+5. the matching route and `md_path` in `source-manifest.json`;
+6. every eligible ordinary book inside that exact route;
+7. the strongest non-duplicate pages by instructional role.
 
 Limit the content search to the selected Markdown file or files. Do not silently fall back to an adjacent grade.
 
@@ -127,12 +131,15 @@ The curriculum-map model is documented in [`docs/curriculum-maps.md`](docs/curri
 
 The course model requires Russian as the primary explanation language and Estonian as the subject-support language. It supports selecting complementary pages from several eligible books, assigning explicit instructional roles, and rejecting duplicate or simplified-curriculum material with a recorded reason.
 
+The project-wide [topic-synthesis policy](docs/topic-synthesis-policy.md) makes source language independent from output language. A strong Estonian Opiq page may be translated or pedagogically adapted into a concise Russian explanation with canonical provenance. `core_explanation_ru` describes the final pupil-facing role, not necessarily the source-page language. Topic synthesis records direct, translated, adapted, multi-Opiq, optional external, and explicitly author-created contributions separately. The shared production external registry is empty; external material is never required merely to make validation pass.
+
 Install dependencies and run the schema tests and production validation with:
 
 ```sh
 npm ci --ignore-scripts --no-audit --no-fund
 npm run test:curriculum
 npm run check:curriculum
+npm run test:synthesis
 ```
 
 The grade-5 work validates one golden thematic unit, a ten-topic evidence inventory, and a complete annual skeleton. It does not claim a fully authored grade-5 course or complete official curriculum coverage.
@@ -154,6 +161,7 @@ Run the focused tests and production validation with:
 ```sh
 npm run test:plans
 npm run check:plans
+npm run test:synthesis
 npm run test:teacher-packs
 npm run check:teacher-packs
 npm run test:reviews

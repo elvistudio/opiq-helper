@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.1"
 artifact_type: annual_language_progression
 artifact_id: grade-5-science-language-progression
 course_ref: grade-5-science-annual-architecture
@@ -12,87 +12,6 @@ canonical_route:
   md_path: project-files/outputs/opiq_5klass_loodusopetus.md
   source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
   qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
-russian_explanation_coverage:
-  - unit_id: grade-5-landforms-map
-    status: author_bridge_required
-    available_record_ids: []
-    concepts_covered: []
-    concepts_missing: [формы рельефа, высота, чтение карты]
-    author_response: bridge_sufficient
-    teacher_review_required: true
-    notes: The canonical route has ordinary Estonian evidence but no Russian page-level explanation for this unit.
-  - unit_id: grade-5-rivers-lakes
-    status: direct_opiq_ru
-    available_record_ids: [rivers-ru-avita, lakes-ru-avita]
-    concepts_covered: [река, озеро, исток, устье, течение]
-    concepts_missing: []
-    author_response: none
-    teacher_review_required: false
-    notes: Direct Russian Avita pages support the principal river and lake explanation.
-  - unit_id: grade-5-water-four-lesson-plan
-    status: direct_opiq_ru
-    available_record_ids: [water-properties-ru-avita, water-states-ru-avita]
-    concepts_covered: [свойства воды, состояния воды, изменения состояния]
-    concepts_missing: []
-    author_response: none
-    teacher_review_required: false
-    notes: Existing production lessons already use the two selected Russian pages.
-  - unit_id: grade-5-water-use-cycle
-    status: partial_opiq_ru
-    available_record_ids: [groundwater-ru-avita, water-use-ru-avita]
-    concepts_covered: [подземные воды, использование воды]
-    concepts_missing: [современная схема круговорота, загрязнение и очистка]
-    author_response: bridge_sufficient
-    teacher_review_required: false
-    notes: Russian pages cover groundwater and use; concise author bridges must connect cycle, pollution, and purification.
-  - unit_id: grade-5-freshwater-ecosystems
-    status: direct_opiq_ru
-    available_record_ids: [freshwater-community-ru-avita]
-    concepts_covered: [водоём как сообщество, основные связи организмов]
-    concepts_missing: []
-    author_response: none
-    teacher_review_required: false
-    notes: The selected Russian overview carries concept formation; Estonian pages add terminology and assessment.
-  - unit_id: grade-5-air-properties
-    status: direct_opiq_ru
-    available_record_ids: [air-composition-ru-avita, air-protection-ru-avita]
-    concepts_covered: [состав воздуха, свойства, загрязнение и защита]
-    concepts_missing: []
-    author_response: none
-    teacher_review_required: false
-    notes: Two Russian pages cover the core and protection strands.
-  - unit_id: grade-5-weather-climate
-    status: direct_opiq_ru
-    available_record_ids: [weather-ru-avita, climate-ru-avita]
-    concepts_covered: [погода, элементы погоды, климат]
-    concepts_missing: []
-    author_response: none
-    teacher_review_required: false
-    notes: Russian weather and climate pages support explanations; measurement tables remain author-created.
-  - unit_id: grade-5-baltic-sea
-    status: direct_opiq_ru
-    available_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita]
-    concepts_covered: [Балтийское море, использование, загрязнение и защита]
-    concepts_missing: []
-    author_response: none
-    teacher_review_required: false
-    notes: Russian core and protection pages support the full explanation architecture.
-  - unit_id: grade-5-settlements
-    status: author_full_explanation_required
-    available_record_ids: []
-    concepts_covered: []
-    concepts_missing: [типы поселений, условия среды, оценка местного поселения]
-    author_response: full_explanation_required
-    teacher_review_required: true
-    notes: No ordinary Russian page-level settlement source exists in the canonical route.
-  - unit_id: grade-5-bog-ecosystem
-    status: author_full_explanation_required
-    available_record_ids: []
-    concepts_covered: []
-    concepts_missing: [образование болот, условия, организмы, использование и охрана]
-    author_response: full_explanation_required
-    teacher_review_required: true
-    notes: No ordinary Russian page-level bog source exists in the canonical route.
 estonian_language_progression:
   - unit_id: grade-5-landforms-map
     learner_language_level: A1-A2

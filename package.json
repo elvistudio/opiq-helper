@@ -15,6 +15,7 @@
     "test:plans": "node --test scripts/lesson-plans.test.mjs",
     "test:reviews": "node --test scripts/pedagogical-reviews.test.mjs",
     "test:teacher-packs": "node --test scripts/teacher-packs.test.mjs",
+    "test:synthesis": "node --test scripts/topic-synthesis.test.mjs",
     "test:topics": "node --test scripts/known-topic-regressions.test.mjs"
   },
   "devDependencies": {

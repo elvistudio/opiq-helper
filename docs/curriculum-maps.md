@@ -30,7 +30,7 @@ without changing or combining the grade-5 source set.
 
 A course is assembled by instructional role, not by completing one textbook or every textbook. A record can have several roles, including:
 
-- `core_explanation_ru` and `practice_ru` for subject comprehension in Russian;
+- `core_explanation_ru` and `practice_ru` for subject comprehension in Russian. The first describes the final explanation language and may be supported by an explicitly translated or adapted Estonian source;
 - `core_source_et`, `terminology_et`, `definition_et`, `practice_et`, and `oral_answer_et` for gradual Estonian support;
 - `bilingual_visual`, `experiment`, `fieldwork`, `map_skill`, and `digital_map` for specific modes of learning;
 - `revision`, `assessment`, and `optional_extension` for course flow.
@@ -38,6 +38,8 @@ A course is assembled by instructional role, not by completing one textbook or e
 When books overlap, the topic inventory must either select one page by role or retain alternatives with clearly different roles. Rejected pages retain their canonical URL and a `rejection_reason`. This prevents a pupil from receiving the same explanation from several publishers merely because all versions are available.
 
 Every selected Opiq record declares its canonical source ID, URL, Book ID, language, programme type, roles, provenance, and selection rationale. Validation resolves the source ID through `source-manifest.json`, reads only its declared Markdown index, and checks that the URL occurs exactly once with the expected grade, subject, title, Book ID, and language.
+
+Annual topic preparation follows the project-wide [multilingual topic-synthesis policy](topic-synthesis-policy.md). Source evidence, ET→RU transformation, final output language, production readiness, and review readiness remain separate fields. An absent Russian page is not equivalent to absent content when strong Estonian route evidence supports a declared translation or pedagogical adaptation.
 
 ## Bilingual learning model
 

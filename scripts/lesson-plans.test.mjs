@@ -115,17 +115,38 @@ test('production repository passes with documented architecture and pedagogical 
   const foundErrors = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'error');
   const foundWarnings = result.diagnostics.filter((diagnostic) => diagnostic.severity === 'warning');
   assert.deepEqual(foundErrors, [], diagnosticText(foundErrors));
-  assert.equal(foundWarnings.length, 12, diagnosticText(foundWarnings));
+  assert.equal(foundWarnings.length, 15, diagnosticText(foundWarnings));
+  const warningText = diagnosticText(foundWarnings);
   for (const term of ['lahus', 'termomeeter', 'jäätumine', 'aurustumine', 'olekumuutus']) {
-    assert.match(diagnosticText(foundWarnings), new RegExp(`term ${term} .* not recycled in a later lesson`, 'u'));
+    assert.match(warningText, new RegExp(`term ${term} .* not recycled in a later lesson`, 'u'));
   }
+  assert.match(warningText, /one-lesson-per-week-assumption has a 19-lesson shortfall/u);
+  for (const reviewId of [
+    'review-landforms-russian-bridge',
+    'review-water-use-synthesis',
+    'review-settlements-russian-explanation',
+    'review-bog-russian-explanation',
+  ]) {
+    assert.match(warningText, new RegExp(`teacher review ${reviewId} is pending`, 'u'));
+  }
+  for (const unitId of [
+    'grade-5-rivers-lakes',
+    'grade-5-freshwater-ecosystems',
+    'grade-5-air-properties',
+    'grade-5-weather-climate',
+    'grade-5-baltic-sea',
+  ]) {
+    assert.match(warningText, new RegExp(`topic synthesis ${unitId} is planned but has not yet been authored`, 'u'));
+  }
+  assert.doesNotMatch(warningText, /no direct Russian Opiq explanation/u);
   assert.equal(result.summary.lessons, 4);
   assert.equal(result.summary.annualCourses, 1);
   assert.equal(result.summary.annualComponents, 4);
   assert.equal(result.summary.annualUnits, 10);
   assert.equal(result.summary.annualSelectedPages, 32);
   assert.equal(result.summary.pageReferences, 51);
-  assert.equal(result.summary.warnings, 12);
+  assert.equal(result.summary.externalSources, 0);
+  assert.equal(result.summary.warnings, 15);
 });
 
 test('valid four-lesson thematic plan links order, count, duration, and glossary', () => {
@@ -175,13 +196,15 @@ test('multiple audited books contribute distinct annual source roles', () => {
   assert.deepEqual(errors(repository), []);
 });
 
-test('annual Russian coverage supports both direct pages and explicit author bridges', () => {
+test('annual topic synthesis separates direct Russian evidence from Estonian adaptation', () => {
   const repository = cloneRepository();
-  const coverage = new Map(annualLanguage(repository).russian_explanation_coverage.map((entry) => [entry.unit_id, entry]));
-  assert.equal(coverage.get('grade-5-rivers-lakes').status, 'direct_opiq_ru');
-  assert.ok(coverage.get('grade-5-rivers-lakes').available_record_ids.length > 0);
-  assert.equal(coverage.get('grade-5-landforms-map').status, 'author_bridge_required');
-  assert.deepEqual(coverage.get('grade-5-landforms-map').available_record_ids, []);
+  const rivers = annualUnit(repository, 'grade-5-rivers-lakes').topic_synthesis;
+  const landforms = annualUnit(repository, 'grade-5-landforms-map').topic_synthesis;
+  assert.ok(rivers.strategies.includes('direct_opiq_ru'));
+  assert.ok(rivers.strategies.includes('synthesized_from_multiple_opiq_sources'));
+  assert.deepEqual(landforms.strategies, ['adapted_from_opiq_et']);
+  assert.equal(landforms.output_language, 'ru');
+  assert.equal(landforms.readiness, 'needs_review');
   assert.deepEqual(errors(repository), []);
 });
 
@@ -596,10 +619,10 @@ test('annual best-source decision must match the selected instructional role', (
   assertFailsWith(repository, /rivers-ru-avita has no instructional role supporting assessment/u);
 });
 
-test('mandatory unit without Russian explanation status fails', () => {
+test('mandatory unit without a topic synthesis fails', () => {
   const repository = cloneRepository();
-  delete annualUnit(repository, 'grade-5-rivers-lakes').russian_explanation_status;
-  assertFailsWith(repository, /missing required field russian_explanation_status/u);
+  delete annualUnit(repository, 'grade-5-rivers-lakes').topic_synthesis;
+  assertFailsWith(repository, /missing required field topic_synthesis/u);
 });
 
 test('mandatory unit without Estonian terminology fails', () => {
@@ -697,9 +720,11 @@ test('missing scaffold release emits a warning', () => {
   assertWarnsWithoutErrors(repository, /does not reduce scaffold level/u);
 });
 
-test('annual unit without direct Russian page evidence emits a warning', () => {
+test('valid Estonian-to-Russian adaptation does not warn merely because direct Russian evidence is absent', () => {
   const repository = cloneRepository();
-  assertWarnsWithoutErrors(repository, /unit grade-5-landforms-map has no direct Russian Opiq explanation/u);
+  const foundErrors = errors(repository);
+  assert.deepEqual(foundErrors, [], diagnosticText(foundErrors));
+  assert.doesNotMatch(diagnosticText(warnings(repository)), /no direct Russian Opiq explanation/u);
 });
 
 test('mandatory annual unit without practical work emits a warning', () => {

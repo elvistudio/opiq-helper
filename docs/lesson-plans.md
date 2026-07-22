@@ -15,6 +15,8 @@ The documented model is a teaching design, not a claim that a particular techniq
 | Teacher pack | `schemas/teacher-pack.schema.json` | `teacher-packs/grade-5-science/water/materials-index.yaml` | Real teacher/student/parent files, answer keys, printability, and readiness checks |
 | Annual course architecture | `schemas/annual-course.schema.json` | `annual-courses/grade-5-science/annual-architecture.yaml` | Complete unit skeleton, budgets, progression calendars, coverage, and explicit implementation gaps |
 | Annual components | `schemas/annual-course-components.schema.json` | `annual-courses/grade-5-science/{source-selection-matrix,language-progression,teaching-calendars,implementation-roadmap}.yaml` | Auditable page choices, language progression, calendars, and phased implementation work |
+| Topic synthesis | `schemas/topic-synthesis.schema.json` | `annual-courses/grade-5-science/annual-architecture.yaml` | Source evidence, transformation, Russian output, production readiness, and review status per topic |
+| External registry | `schemas/external-source-registry.schema.json` | `external-sources/registry.yaml` | Optional verified non-Opiq supplements shared across courses |
 | Language defaults | `schemas/language-profiles.schema.json` | `lesson-plans/language-profiles.yaml` | Reusable grade/subject defaults with justified learner-specific overrides |
 
 All schemas are strict. Unknown fields fail validation. Shared teaching vocabulary lives in `schemas/teaching-plan-common.schema.json`; canonical routes, Opiq records, instructional roles, and provenance reuse the definitions and validation infrastructure introduced by the curriculum-map implementation.
@@ -102,6 +104,8 @@ Exceeding a threshold is a warning, not an automatic error. A lesson after posit
 Every production Opiq reference resolves through the artifact’s canonical route and is checked against the registered Markdown, archive, QA snapshot, and book inventory. Validation compares URL, Book ID, title, language, grade, subject, programme type, and source ownership. A lesson source must also be selected in the linked merged curriculum-map unit.
 
 Instructional roles reuse the curriculum model, including `core_explanation_ru`, `core_source_et`, `terminology_et`, `definition_et`, `bilingual_visual`, `experiment`, `revision`, `assessment`, and `oral_answer_et`.
+
+For annual topic preparation, `core_explanation_ru` describes the final pupil-facing explanation language, not necessarily the source-page language. The [topic-synthesis policy](topic-synthesis-policy.md) records whether a selected page contributes directly, through ET→RU translation or pedagogical adaptation, as one input to a multi-Opiq synthesis, or as an Estonian support layer. Source language, output language, transformation, production readiness, and review status are validated separately. No direct Russian page is required when a valid selected Estonian source supports a declared adaptation.
 
 Supported provenance categories are:
 
@@ -197,7 +201,7 @@ completeness:
   deferred_to_issue: 18
 ```
 
-The annual validator checks topic and outcome links, eligible books, canonical pages, source roles and provenance, contiguous order, prerequisites, lesson-budget arithmetic, Russian explanation status, Estonian progression, strict later-unit recycling, practical/revision/assessment references, roadmap consistency, school-stage semantics, and honest completeness. Planning gaps are warnings when they are pedagogically actionable rather than structural errors. The architecture is described in `docs/grade-5-science-annual-course.md`.
+The annual validator checks topic and outcome links, eligible books, canonical pages, source roles and provenance, every selected page's transformation contribution, synthesis strategy semantics, the shared external registry, contiguous order, prerequisites, lesson-budget arithmetic, Estonian progression, strict later-unit recycling, practical/revision/assessment references, roadmap consistency, school-stage semantics, and honest completeness. Planning gaps are warnings when they are pedagogically actionable rather than structural errors. The architecture is described in `docs/grade-5-science-annual-course.md`.
 
 ## Creating and validating artifacts
 
@@ -218,13 +222,14 @@ For a new lesson:
 7. Create each author-material file and answer key, register it in the teacher-pack index, and declare honest readiness.
 8. Reconcile stage timing and keep content/language assessment separate.
 
-For a thematic plan, link complete lesson artifacts, make the glossary and progression match those lessons exactly, and list only strictly later lessons in `recycled_in_lessons`. Use an explicit empty list when no suitable later lesson exists. For an annual architecture, use verified topic IDs, link only existing thematic plans, select canonical pages through the source matrix, distinguish publisher and curated sequences, reconcile budget scenarios, and declare implementation and evidence gaps honestly.
+For a thematic plan, link complete lesson artifacts, make the glossary and progression match those lessons exactly, and list only strictly later lessons in `recycled_in_lessons`. Use an explicit empty list when no suitable later lesson exists. For an annual architecture, use verified topic IDs, link only existing thematic plans, select canonical pages through the source matrix, give every selected source a transformation contribution, distinguish publisher and curated sequences, reconcile budget scenarios, and declare implementation and evidence gaps honestly. External sources are optional and must resolve through the shared registry.
 
 Run:
 
 ```sh
 npm run test:plans
 npm run check:plans
+npm run test:synthesis
 npm run test:teacher-packs
 npm run check:teacher-packs
 ```

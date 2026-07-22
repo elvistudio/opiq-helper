@@ -1,4 +1,4 @@
-schema_version: "2.0"
+schema_version: "2.1"
 artifact_type: annual_course_plan
 course_id: grade-5-science-annual-architecture
 grade: 5
@@ -13,6 +13,9 @@ canonical_route:
   md_path: project-files/outputs/opiq_5klass_loodusopetus.md
   source_archive: project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip
   qa_path: project-files/outputs/opiq_5klass_loodusopetus_qa.json
+external_source_registry_ref:
+  artifact_id: shared-external-source-registry
+  path: external-sources/registry.yaml
 official_curriculum_references:
   - curriculum_map_id: grade-5-science-official-scope-pilot
     outcome_ids:
@@ -118,16 +121,16 @@ topic_architecture_decisions:
   - old_topic_ids: [settlements]
     new_unit_id: grade-5-settlements
     decision: preserve
-    reason: Settlement forms and environmental conditions remain coherent but need Russian author material.
+    reason: Settlement forms and environmental conditions remain coherent and can use verified Estonian evidence through Russian adaptation.
     affected_record_ids: [settlements-et-koolibri]
     deduplication_decision: Use the sole ordinary Estonian page-level candidate and do not promote simplified pages.
     annual_sequence_effect: Place late so pupils can apply map, water, air, pollution, and environment concepts.
   - old_topic_ids: [bog-ecosystem]
     new_unit_id: grade-5-bog-ecosystem
     decision: preserve
-    reason: Bog formation, conditions, organisms, use, and protection provide a cumulative ecosystem unit.
+    reason: Bog formation, conditions, organisms, use, and protection provide a cumulative unit with a strong Estonian adaptation base.
     affected_record_ids: [bog-conditions-et-koolibri]
-    deduplication_decision: Use the sole ordinary Estonian core candidate and require an explicit Russian explanation.
+    deduplication_decision: Use the sole ordinary Estonian core candidate for Russian adaptation and bound any author additions to named gaps.
     annual_sequence_effect: End with a synthesis of water, map, ecosystem, and protection concepts.
 ordered_units:
   - order: 1
@@ -146,8 +149,24 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [landforms-map-et-koolibri]
-    russian_explanation_status: author_bridge_required
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: needs_review
+      strategies: [adapted_from_opiq_et]
+      source_contributions:
+        - contribution_id: landforms-koolibri-adaptation
+          source_kind: opiq_record
+          source_id: landforms-map-et-koolibri
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: landforms-map-et-koolibri, notes: Canonical ordinary Estonian source in the exact grade-5-science route.}
+          selection_rationale: The strongest verified page supplies relief, height, map, terminology, and visual evidence.
+          transformations:
+            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [формы рельефа, абсолютная и относительная высота, чтение карты], notes: Russian concept explanation will be pedagogically adapted rather than invented or translated as a full chapter.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, map_skill, bilingual_visual], concepts_supported: [pinnavorm, absoluutne kõrgus, suhteline kõrgus, kaart], notes: "Original Estonian terms, labels, and map tasks remain the planned subject-support layer."}
+      missing_concepts: []
+      review_required: true
+      review_status: pending
+      notes: The source evidence is available; the concise Russian pedagogical adaptation still requires teacher review.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: opening block
@@ -155,7 +174,7 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-rivers-lakes, grade-5-baltic-sea, grade-5-settlements, grade-5-bog-ecosystem]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: needs_russian_bridge
+    implementation_status: source_review_required
     teacher_review_status: pending
     estimate_basis: Five lessons cover core map concepts, one model task, and one check without claiming a school timetable.
   - order: 2
@@ -175,8 +194,47 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [rivers-ru-avita, lakes-ru-avita, rivers-et-avita-2024, lakes-et-koolibri]
-    russian_explanation_status: direct_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: planned
+      strategies: [direct_opiq_ru, synthesized_from_multiple_opiq_sources]
+      source_contributions:
+        - contribution_id: rivers-russian-direct
+          source_kind: opiq_record
+          source_id: rivers-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: rivers-ru-avita, notes: Canonical ordinary Russian river page in the exact route.}
+          selection_rationale: Provides the strongest direct Russian explanation of river structure and flow.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [исток, устье, течение, речной бассейн], notes: Concise Russian teaching text may directly summarize this selected canonical page.}
+        - contribution_id: lakes-russian-direct
+          source_kind: opiq_record
+          source_id: lakes-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: lakes-ru-avita, notes: Canonical ordinary Russian lake page in the exact route.}
+          selection_rationale: Adds distinct Russian lake concepts and examples rather than duplicating the river page.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [озеро, озёрная котловина, озёра Эстонии], notes: The lake strand is combined with the river strand into one coherent Russian topic.}
+        - contribution_id: rivers-estonian-support
+          source_kind: opiq_record
+          source_id: rivers-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: rivers-et-avita-2024, notes: Canonical current Estonian river source in the exact route.}
+          selection_rationale: Supplies current Estonian terminology, instructions, and data or map language.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, map_skill, practice_et], concepts_supported: [jõgi, lähe, suue, vool], notes: Estonian terms and map instructions remain short direct subject-support elements.}
+        - contribution_id: lakes-estonian-support
+          source_kind: opiq_record
+          source_id: lakes-et-koolibri
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: lakes-et-koolibri, notes: Canonical ordinary Estonian lake source in the exact route.}
+          selection_rationale: Contributes a distinct map, visual, terminology, and practice role for lakes.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, map_skill, practice_et], concepts_supported: [järv, Eesti järved, kaardi lugemine], notes: "Direct Estonian support is coordinated with, but does not replace, Russian concept formation."}
+      missing_concepts: []
+      review_required: false
+      review_status: not_required
+      notes: Selected Russian and Estonian pages are planned as one deduplicated bilingual topic rather than parallel textbook traversals.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: early first third
@@ -184,7 +242,7 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-freshwater-ecosystems, grade-5-baltic-sea]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: annual_architecture_only
+    implementation_status: synthesis_planned
     teacher_review_status: not_required
     estimate_basis: Six lessons allow river and lake explanations, map comparison, observation, and separate language evidence.
   - order: 3
@@ -204,8 +262,63 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [water-properties-ru-avita, water-states-ru-avita, water-properties-et-avita-2024, water-states-et-avita-2024, water-states-et-koolibri-practical, water-changes-et-koolibri-practical]
-    russian_explanation_status: direct_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: ready
+      strategies: [direct_opiq_ru, synthesized_from_multiple_opiq_sources]
+      source_contributions:
+        - contribution_id: water-properties-russian-direct
+          source_kind: opiq_record
+          source_id: water-properties-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-properties-ru-avita, notes: Canonical Russian water-properties page already used by production lessons.}
+          selection_rationale: Carries the authored unit's Russian explanation of water as a substance and its properties.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [вода как вещество, свойства воды, наблюдение], notes: Production lessons already use a concise direct summary with canonical provenance.}
+        - contribution_id: water-states-russian-direct
+          source_kind: opiq_record
+          source_id: water-states-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-states-ru-avita, notes: Canonical Russian state-change page already used by production lessons.}
+          selection_rationale: Carries full Russian concept formation for states and changes of state.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, revision], concepts_supported: [состояния воды, плавление, конденсация, испарение, замерзание], notes: Production lessons already synthesize this page into concise Russian explanation and answers.}
+        - contribution_id: water-properties-estonian-support
+          source_kind: opiq_record
+          source_id: water-properties-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-properties-et-avita-2024, notes: Canonical current Estonian properties page used by the production unit.}
+          selection_rationale: Supplies current terms, definitions, and short supported tasks.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, definition_et, practice_et], concepts_supported: [vesi, aine, omadus, lahus], notes: Short Estonian definitions and tasks are already integrated without immersion.}
+        - contribution_id: water-states-estonian-support
+          source_kind: opiq_record
+          source_id: water-states-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-states-et-avita-2024, notes: Canonical current Estonian state page used by the production unit.}
+          selection_rationale: Supplies current phase-change terminology and short oral-answer models.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, definition_et, oral_answer_et], concepts_supported: [tahke, vedel, gaasiline, sulamine, veeldumine], notes: The existing lessons use these terms as a systematic support layer.}
+        - contribution_id: water-practical-koolibri-support
+          source_kind: opiq_record
+          source_id: water-states-et-koolibri-practical
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-states-et-koolibri-practical, notes: Canonical ordinary Estonian practical page used by the production unit.}
+          selection_rationale: Adds distinct experiment, visual, revision, and assessment evidence.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [bilingual_visual, experiment, practice_et, assessment], concepts_supported: [olekud, vaatlus, järeldus], notes: Practical evidence is summarized and linked without copying textbook procedures.}
+        - contribution_id: water-changes-koolibri-support
+          source_kind: opiq_record
+          source_id: water-changes-et-koolibri-practical
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-changes-et-koolibri-practical, notes: Canonical ordinary Estonian phase-change practical page used by production lessons.}
+          selection_rationale: Adds melting measurement, condensation, revision, and short Estonian output.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [experiment, practice_et, revision, assessment, oral_answer_et], concepts_supported: [sulamine, veeldumine, temperatuur, järeldus], notes: Existing safe practical work and language tasks explicitly cite this contribution.}
+      missing_concepts: []
+      review_required: false
+      review_status: not_required
+      notes: Four complete lessons already implement the coherent Russian explanation and planned Estonian support; classroom-readiness review remains a separate teacher-pack workflow.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: early first third
@@ -235,8 +348,61 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [groundwater-ru-avita, water-use-ru-avita, water-pollution-et-avita-2024, water-cycle-et-koolibri]
-    russian_explanation_status: partial_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: needs_review
+      strategies: [direct_opiq_ru, adapted_from_opiq_et, synthesized_from_multiple_opiq_sources, author_created_explanation]
+      source_contributions:
+        - contribution_id: groundwater-russian-direct
+          source_kind: opiq_record
+          source_id: groundwater-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: groundwater-ru-avita, notes: Canonical ordinary Russian groundwater page in the exact route.}
+          selection_rationale: Provides direct Russian explanation for groundwater and protection foundations.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [подземные воды, грунтовые воды, охрана воды], notes: Direct Russian evidence forms one strand of the final synthesis.}
+        - contribution_id: water-use-russian-direct
+          source_kind: opiq_record
+          source_id: water-use-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-use-ru-avita, notes: Canonical ordinary Russian water-use page in the exact route.}
+          selection_rationale: Provides direct Russian explanation of water use, drinking water, and conservation.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, revision], concepts_supported: [использование воды, питьевая вода, водосбережение], notes: Direct Russian evidence is retained without treating it as complete coverage of the whole topic.}
+        - contribution_id: water-pollution-estonian-adaptation
+          source_kind: opiq_record
+          source_id: water-pollution-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-pollution-et-avita-2024, notes: Canonical current Estonian pollution and protection source in the exact route.}
+          selection_rationale: Supplies current pollution, protection, terminology, task, and assessment evidence.
+          transformations:
+            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [загрязнение воды, защита воды, очистка], notes: Current Estonian concepts will be summarized and adapted into concise Russian explanation with review.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, practice_et, assessment], concepts_supported: [veereostus, vee kaitse, puhastamine], notes: Current terminology and short tasks remain direct Estonian support.}
+        - contribution_id: water-cycle-estonian-adaptation
+          source_kind: opiq_record
+          source_id: water-cycle-et-koolibri
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: water-cycle-et-koolibri, notes: Canonical ordinary Estonian water-cycle source in the exact route.}
+          selection_rationale: Supplies the strongest cycle visual, sequence, and practical evidence.
+          transformations:
+            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [круговорот воды, испарение, конденсация, осадки], notes: Diagram and sequence evidence will be adapted into a Russian causal explanation rather than treated as missing.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, bilingual_visual, data_interpretation, revision], concepts_supported: [veeringe, aurustumine, veeldumine, sademed], notes: The diagram and labels recycle existing Estonian phase-change vocabulary.}
+        - contribution_id: water-safety-author-bridge
+          source_kind: author_created
+          source_id: water-purification-safety-bridge
+          source_language: ru
+          provenance: {source_family: author_created, source_type: author_explanation, source_reference: future grade-5-water-use-cycle thematic plan, notes: Explicit author bridge; it is not represented as Opiq or official curriculum text.}
+          selection_rationale: A concise safety bridge is needed because a classroom filter model does not establish potable water.
+          transformations:
+            - {transformation: original, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [ограничения фильтрационной модели, безопасность питьевой воды], notes: The future authored explanation will state model limits and require teacher review.}
+          authoring:
+            reason: Selected Opiq pages do not fully explain why visible filtration does not make water safe to drink.
+            uncovered_concepts: [ограничения фильтрационной модели, безопасность питьевой воды]
+            instructional_need: Prevent a dangerous misconception during the planned practical model.
+      missing_concepts: [ограничения фильтрационной модели, безопасность питьевой воды]
+      review_required: true
+      review_status: pending
+      notes: Direct Russian evidence, adapted Estonian cycle and protection evidence, and one bounded safety bridge form the planned synthesis.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: end of first third
@@ -244,8 +410,8 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-weather-climate, grade-5-settlements, grade-5-bog-ecosystem]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: annual_architecture_only
-    teacher_review_status: not_required
+    implementation_status: source_review_required
+    teacher_review_status: pending
     estimate_basis: Six lessons separate groundwater, purification, cycle modelling, protection, and two assessment modes.
   - order: 5
     unit_id: grade-5-freshwater-ecosystems
@@ -266,8 +432,41 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est, 5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [freshwater-community-ru-avita, freshwater-community-et-avita-2024, food-chains-et-koolibri]
-    russian_explanation_status: direct_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: planned
+      strategies: [direct_opiq_ru, synthesized_from_multiple_opiq_sources]
+      source_contributions:
+        - contribution_id: freshwater-russian-direct
+          source_kind: opiq_record
+          source_id: freshwater-community-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: freshwater-community-ru-avita, notes: Canonical ordinary Russian freshwater-community page in the exact route.}
+          selection_rationale: Provides the direct Russian foundation for habitat, organisms, and community relationships.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [пресноводное сообщество, среда обитания, связи организмов], notes: Direct Russian concept formation is combined with more specific Estonian evidence.}
+        - contribution_id: freshwater-estonian-synthesis
+          source_kind: opiq_record
+          source_id: freshwater-community-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: freshwater-community-et-avita-2024, notes: Canonical current Estonian freshwater-community source in the exact route.}
+          selection_rationale: Adds current terminology, visuals, adaptations, and task language to the synthesis.
+          transformations:
+            - {transformation: synthesis_input, output_language: ru, output_layer: main_explanation, instructional_roles: [core_source_et], concepts_supported: [conditions of a freshwater community, organism adaptations], notes: Selected evidence informs the concise Russian synthesis without becoming a full translation.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [terminology_et, bilingual_visual, practice_et], concepts_supported: [magevee elukooslus, elupaik, kohastumine], notes: Current terms and short visual tasks remain direct Estonian support.}
+        - contribution_id: freshwater-food-web-support
+          source_kind: opiq_record
+          source_id: food-chains-et-koolibri
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: food-chains-et-koolibri, notes: Canonical ordinary Estonian food-chain source in the exact route.}
+          selection_rationale: Supplies a distinct diagram, data, revision, and assessment role for food relationships.
+          transformations:
+            - {transformation: synthesis_input, output_language: ru, output_layer: main_explanation, instructional_roles: [data_interpretation], concepts_supported: [пищевая цепь, пищевая сеть, направление пищевой связи], notes: Food-web evidence is synthesized into the Russian explanation and expected answers.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [practice_et, assessment, oral_answer_et], concepts_supported: [toiduahel, toiduvõrk], notes: Short classification and oral-answer work remain direct Estonian support.}
+      missing_concepts: []
+      review_required: false
+      review_status: not_required
+      notes: One Russian core page and two Estonian sources have complementary, non-duplicate roles in the planned synthesis.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: middle block
@@ -275,7 +474,7 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-baltic-sea, grade-5-bog-ecosystem]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: annual_architecture_only
+    implementation_status: synthesis_planned
     teacher_review_status: not_required
     estimate_basis: Six lessons cover community structure, adaptations, food relationships, classification, revision, and assessment.
   - order: 6
@@ -296,8 +495,47 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est]
     selected_source_record_ids: [air-composition-ru-avita, air-protection-ru-avita, air-composition-et-avita-2024, air-pollution-et-avita-2024]
-    russian_explanation_status: direct_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: planned
+      strategies: [direct_opiq_ru, synthesized_from_multiple_opiq_sources]
+      source_contributions:
+        - contribution_id: air-composition-russian-direct
+          source_kind: opiq_record
+          source_id: air-composition-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: air-composition-ru-avita, notes: Canonical ordinary Russian air-composition page in the exact route.}
+          selection_rationale: Provides direct Russian explanation of air composition and properties.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru], concepts_supported: [состав воздуха, кислород, углекислый газ, свойства воздуха], notes: This page supplies the principal Russian concept-formation strand.}
+        - contribution_id: air-protection-russian-direct
+          source_kind: opiq_record
+          source_id: air-protection-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: air-protection-ru-avita, notes: Canonical ordinary Russian air-protection page in the exact route.}
+          selection_rationale: Adds a distinct Russian pollution, protection, and revision strand.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, revision], concepts_supported: [загрязнение воздуха, источники загрязнения, защита воздуха], notes: Protection evidence is integrated after properties instead of duplicating the composition explanation.}
+        - contribution_id: air-composition-estonian-support
+          source_kind: opiq_record
+          source_id: air-composition-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: air-composition-et-avita-2024, notes: Canonical current Estonian air-composition source in the exact route.}
+          selection_rationale: Supplies current terms, visuals, and familiar task instructions.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et], concepts_supported: [õhk, hapnik, süsihappegaas], notes: Estonian terms and labels remain a short direct support layer.}
+        - contribution_id: air-pollution-estonian-support
+          source_kind: opiq_record
+          source_id: air-pollution-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: air-pollution-et-avita-2024, notes: Canonical current Estonian air-pollution source in the exact route.}
+          selection_rationale: Adds protection terminology, practice, assessment, and oral-answer roles.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, assessment, oral_answer_et], concepts_supported: [õhusaaste, õhu kaitse], notes: Short Estonian decisions and answers are linked to the Russian reasoning strand.}
+      missing_concepts: []
+      review_required: false
+      review_status: not_required
+      notes: Two complementary Russian pages form the main synthesis while current Estonian pages supply terminology and tasks.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: middle block
@@ -305,7 +543,7 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-weather-climate, grade-5-settlements]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: annual_architecture_only
+    implementation_status: synthesis_planned
     teacher_review_status: not_required
     estimate_basis: Five lessons cover composition, properties, a safe model, pollution, and a subject check.
   - order: 7
@@ -325,8 +563,47 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est]
     selected_source_record_ids: [weather-ru-avita, climate-ru-avita, weather-et-avita-2024, climate-et-avita-2024]
-    russian_explanation_status: direct_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: planned
+      strategies: [direct_opiq_ru, synthesized_from_multiple_opiq_sources]
+      source_contributions:
+        - contribution_id: weather-russian-direct
+          source_kind: opiq_record
+          source_id: weather-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: weather-ru-avita, notes: Canonical ordinary Russian weather page in the exact route.}
+          selection_rationale: Provides direct Russian explanation of weather elements, observation, and simple map reading.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, map_skill], concepts_supported: [погода, температура воздуха, ветер, облачность, осадки], notes: Weather concept formation and expected answers remain Russian.}
+        - contribution_id: climate-russian-direct
+          source_kind: opiq_record
+          source_id: climate-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: climate-ru-avita, notes: Canonical ordinary Russian climate page in the exact route.}
+          selection_rationale: Adds the distinct weather-versus-climate comparison and revision role.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, revision], concepts_supported: [климат, погода и климат, длительные наблюдения], notes: Climate is synthesized with weather only after their conceptual distinction is established.}
+        - contribution_id: weather-estonian-data-support
+          source_kind: opiq_record
+          source_id: weather-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: weather-et-avita-2024, notes: Canonical current Estonian weather source in the exact route.}
+          selection_rationale: Supplies data vocabulary, map labels, instructions, and current terms.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, map_skill, data_interpretation], concepts_supported: [ilm, õhutemperatuur, tuul, pilvisus, sademed], notes: Estonian labels and data instructions support rather than replace Russian reasoning.}
+        - contribution_id: climate-estonian-support
+          source_kind: opiq_record
+          source_id: climate-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: climate-et-avita-2024, notes: Canonical current Estonian climate source in the exact route.}
+          selection_rationale: Adds concise comparison language, practice, assessment, and short oral answers.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, assessment, oral_answer_et], concepts_supported: [kliima, ilm ja kliima], notes: Short Estonian comparison frames remain within the A1-A2 support target.}
+      missing_concepts: []
+      review_required: false
+      review_status: not_required
+      notes: The planned result combines two direct Russian explanations with current Estonian data and comparison language.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: middle to late block
@@ -334,7 +611,7 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-baltic-sea]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: annual_architecture_only
+    implementation_status: synthesis_planned
     teacher_review_status: not_required
     estimate_basis: Six lessons allow repeated observations, data interpretation, climate contrast, revision, and language evidence.
   - order: 8
@@ -357,8 +634,47 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_avita_rus, 5k_loodusõpetus_avita_2024_est]
     selected_source_record_ids: [baltic-sea-ru-avita, baltic-protection-ru-avita, baltic-sea-et-avita-2024, baltic-protection-et-avita-2024]
-    russian_explanation_status: direct_opiq_ru
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: planned
+      strategies: [direct_opiq_ru, synthesized_from_multiple_opiq_sources]
+      source_contributions:
+        - contribution_id: baltic-core-russian-direct
+          source_kind: opiq_record
+          source_id: baltic-sea-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: baltic-sea-ru-avita, notes: Canonical ordinary Russian Baltic core page in the exact route.}
+          selection_rationale: Provides direct Russian explanation of location, salinity, and Baltic conditions.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, map_skill], concepts_supported: [Балтийское море, солёность, побережье, залив, пролив], notes: This page supplies the Russian geographic and physical foundation.}
+        - contribution_id: baltic-protection-russian-direct
+          source_kind: opiq_record
+          source_id: baltic-protection-ru-avita
+          source_language: ru
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: baltic-protection-ru-avita, notes: Canonical ordinary Russian Baltic protection page in the exact route.}
+          selection_rationale: Adds distinct Russian ecosystem, use, pollution, and protection evidence.
+          transformations:
+            - {transformation: direct, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru, practice_ru, revision], concepts_supported: [морское сообщество, использование моря, загрязнение, защита], notes: Protection evidence is integrated as a distinct strand rather than a duplicate overview.}
+        - contribution_id: baltic-core-estonian-support
+          source_kind: opiq_record
+          source_id: baltic-sea-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: baltic-sea-et-avita-2024, notes: Canonical current Estonian Baltic core source in the exact route.}
+          selection_rationale: Supplies current map, visual, terminology, and familiar instruction language.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, map_skill, bilingual_visual], concepts_supported: [Läänemeri, soolsus, rannik, laht, väin], notes: Direct Estonian terms and labels are reused with the Russian concept explanation.}
+        - contribution_id: baltic-protection-estonian-support
+          source_kind: opiq_record
+          source_id: baltic-protection-et-avita-2024
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: baltic-protection-et-avita-2024, notes: Canonical current Estonian Baltic protection source in the exact route.}
+          selection_rationale: Adds protection terminology, short tasks, assessment, and oral-answer roles.
+          transformations:
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, assessment, oral_answer_et], concepts_supported: [Läänemere kaitse, reostus, elukooslus], notes: Estonian production remains short and is assessed separately from Russian subject reasoning.}
+      missing_concepts: []
+      review_required: false
+      review_status: not_required
+      notes: Complementary Russian core and protection pages are combined with current Estonian map, terminology, and assessment support.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: late block
@@ -366,7 +682,7 @@ ordered_units:
     later_reuse_unit_ids: [grade-5-bog-ecosystem]
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: annual_architecture_only
+    implementation_status: synthesis_planned
     teacher_review_status: not_required
     estimate_basis: Six lessons cover location, salinity, ecosystem, human use, protection, and separate assessments.
   - order: 9
@@ -387,8 +703,36 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [settlements-et-koolibri]
-    russian_explanation_status: author_full_explanation_required
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: needs_review
+      strategies: [adapted_from_opiq_et, author_created_explanation]
+      source_contributions:
+        - contribution_id: settlements-koolibri-adaptation
+          source_kind: opiq_record
+          source_id: settlements-et-koolibri
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: settlements-et-koolibri, notes: Canonical ordinary Estonian settlement page in the exact route.}
+          selection_rationale: Supplies verified settlement types, historical development, rural context, map evidence, and terminology.
+          transformations:
+            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [типы поселений, развитие поселений, город и сельское поселение], notes: The selected Estonian concept base will be pedagogically adapted into concise Russian explanation.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, map_skill, fieldwork], concepts_supported: [asula, linn, maa-asula, kaardi lugemine], notes: "Original Estonian terms, map labels, and fieldwork instructions remain direct support."}
+        - contribution_id: settlements-local-environment-author
+          source_kind: author_created
+          source_id: settlements-local-environment-bridge
+          source_language: ru
+          provenance: {source_family: author_created, source_type: author_explanation, source_reference: future grade-5-settlements thematic plan, notes: "Explicit bounded author contribution, not represented as Opiq content."}
+          selection_rationale: Local environmental-quality criteria and an evidence-based improvement proposal are not fully covered by the selected page.
+          transformations:
+            - {transformation: original, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [условия местной среды, доказательное предложение по улучшению], notes: "The future author bridge will connect earlier water, air, and pollution concepts to a local audit."}
+          authoring:
+            reason: The selected page supports settlement concepts but not the complete local environmental audit required by the curated unit.
+            uncovered_concepts: [условия местной среды, доказательное предложение по улучшению]
+            instructional_need: Connect prior environmental concepts to a safe local observation task.
+      missing_concepts: [условия местной среды, доказательное предложение по улучшению]
+      review_required: true
+      review_status: pending
+      notes: Most concept formation comes from verified Estonian Opiq evidence; author work is explicitly limited to uncovered local application.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: late block
@@ -396,7 +740,7 @@ ordered_units:
     later_reuse_unit_ids: []
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: needs_russian_bridge
+    implementation_status: source_review_required
     teacher_review_status: pending
     estimate_basis: Five lessons allow a Russian concept bridge, local audit, comparison, proposal, and subject assessment.
   - order: 10
@@ -420,8 +764,36 @@ ordered_units:
     coverage_status: partial
     source_book_ids: [5k_loodusõpetus_koolibri_est]
     selected_source_record_ids: [bog-conditions-et-koolibri]
-    russian_explanation_status: author_full_explanation_required
-    estonian_source_status: direct_opiq_et
+    topic_synthesis:
+      output_language: ru
+      readiness: needs_review
+      strategies: [adapted_from_opiq_et, author_created_explanation]
+      source_contributions:
+        - contribution_id: bog-koolibri-adaptation
+          source_kind: opiq_record
+          source_id: bog-conditions-et-koolibri
+          source_language: et
+          provenance: {source_family: opiq, source_type: ordinary_textbook, source_reference: bog-conditions-et-koolibri, notes: Canonical ordinary Estonian bog-condition page in the exact route.}
+          selection_rationale: Supplies verified bog formation, water conditions, visual, map, data, and practical evidence.
+          transformations:
+            - {transformation: pedagogical_adaptation, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [образование болот, водные условия, приспособления организмов], notes: The strong Estonian concept base will be adapted into Russian rather than declared unavailable.}
+            - {transformation: direct, output_language: et, output_layer: subject_support, instructional_roles: [core_source_et, terminology_et, experiment, bilingual_visual, data_interpretation], concepts_supported: [soo, turvas, sootaimed, veerežiim], notes: "Original terms, labels, model instructions, and data work remain direct Estonian support."}
+        - contribution_id: bog-use-protection-author
+          source_kind: author_created
+          source_id: bog-use-protection-bridge
+          source_language: ru
+          provenance: {source_family: author_created, source_type: author_explanation, source_reference: future grade-5-bog-ecosystem thematic plan, notes: "Explicit bounded author contribution, not represented as Opiq content."}
+          selection_rationale: The selected page does not fully cover the curated unit's use, protection, and broader ecosystem connections.
+          transformations:
+            - {transformation: original, output_language: ru, output_layer: main_explanation, instructional_roles: [core_explanation_ru], concepts_supported: [использование болот, охрана болот, связь условий и сообщества], notes: The future bridge will add only named uncovered concepts and preserve source uncertainty.}
+          authoring:
+            reason: Verified Opiq evidence strongly covers formation and conditions but not every curated use and protection concept.
+            uncovered_concepts: [использование болот, охрана болот, связь условий и сообщества]
+            instructional_need: Connect the bog topic to earlier water, ecosystem, and protection reasoning.
+      missing_concepts: [использование болот, охрана болот, связь условий и сообщества]
+      review_required: true
+      review_status: pending
+      notes: The topic is not content-blocked; one Estonian Opiq source supports adaptation and bounded author additions await review.
     practical_work_potential: planned
     assessment_potential: planned
     recommended_period: closing block
@@ -429,7 +801,7 @@ ordered_units:
     later_reuse_unit_ids: []
     thematic_plan_ref: null
     full_thematic_plan_exists: false
-    implementation_status: needs_russian_bridge
+    implementation_status: source_review_required
     teacher_review_status: pending
     estimate_basis: Five lessons cover formation, conditions, organisms, a safe model, protection, and cumulative revision.
 lesson_estimate:
@@ -497,8 +869,8 @@ deduplication_decisions:
   - {decision_id: dedupe-air-roles, topic_id: air-properties-and-protection, decision: retain_distinct_roles, rationale: Composition and protection pages are retained separately in both support languages.}
   - {decision_id: dedupe-weather-roles, topic_id: weather-and-climate, decision: retain_distinct_roles, rationale: Weather and climate pages serve different concepts while older duplicates are rejected.}
   - {decision_id: dedupe-baltic-roles, topic_id: baltic-sea, decision: retain_distinct_roles, rationale: Core Baltic and protection pages are kept in both languages for distinct roles.}
-  - {decision_id: dedupe-settlements-by-role, topic_id: settlements, decision: select_by_role, rationale: Select the only ordinary page-level source and require full Russian author explanation.}
-  - {decision_id: dedupe-bog-by-role, topic_id: bog-ecosystem, decision: select_by_role, rationale: Select the only ordinary core page and require full Russian author explanation.}
+  - {decision_id: dedupe-settlements-by-role, topic_id: settlements, decision: select_by_role, rationale: Select the ordinary Estonian page for Russian adaptation and limit author work to named local-environment gaps.}
+  - {decision_id: dedupe-bog-by-role, topic_id: bog-ecosystem, decision: select_by_role, rationale: Select the ordinary Estonian core page for Russian adaptation and limit author work to named use-and-protection gaps.}
 outcome_coverage:
   - {outcome_id: prok-ii-loodusopetus-01-models-and-water-cycle, coverage_status: partial, unit_ids: [grade-5-water-use-cycle], official_scope: school_stage_2, notes: The water-cycle model is planned; the same outcome also contains other school-stage models.}
   - {outcome_id: prok-ii-loodusopetus-03-local-investigation, coverage_status: partial, unit_ids: [grade-5-rivers-lakes, grade-5-freshwater-ecosystems, grade-5-settlements, grade-5-bog-ecosystem], official_scope: school_stage_2, notes: Several local investigations are architected but not all detailed artifacts are authored.}
@@ -518,18 +890,23 @@ teacher_review_decisions:
   - decision_id: review-landforms-russian-bridge
     unit_ids: [grade-5-landforms-map]
     status: pending
-    reason: The route has no ordinary Russian page-level landform explanation.
-    required_action: Review and author a concise Russian concept bridge before the thematic-plan PR.
+    reason: The planned Russian adaptation from the selected Estonian landform source has not been independently reviewed.
+    required_action: Review the adaptation scope, map terminology, and age fit before the thematic-plan PR.
+  - decision_id: review-water-use-synthesis
+    unit_ids: [grade-5-water-use-cycle]
+    status: pending
+    reason: The mixed Russian and adapted Estonian synthesis plus the bounded purification-safety bridge has not been reviewed.
+    required_action: Review source transformations and the safety statement before the thematic-plan PR.
   - decision_id: review-settlements-russian-explanation
     unit_ids: [grade-5-settlements]
     status: pending
-    reason: The route has only Estonian ordinary page evidence for settlements.
-    required_action: Approve the scope and author a full Russian explanation with explicit provenance.
+    reason: The Russian adaptation and bounded local-environment addition have not been independently reviewed.
+    required_action: Approve the adaptation scope and the explicitly author-created local application.
   - decision_id: review-bog-russian-explanation
     unit_ids: [grade-5-bog-ecosystem]
     status: pending
-    reason: The route has only Estonian ordinary page evidence for bogs.
-    required_action: Review terminology and author a full Russian explanation before detailed lessons.
+    reason: The Russian adaptation and bounded use-and-protection addition have not been independently reviewed.
+    required_action: Review scientific terminology, adaptation limits, and author-created additions before detailed lessons.
   - decision_id: review-school-timetable-scenario
     unit_ids: []
     status: resolved
@@ -543,7 +920,7 @@ teacher_review_decisions:
 known_gaps:
   - Only the four-lesson water unit has a complete thematic plan and detailed lesson artifacts.
   - The official map contains a verified relevant subset of school-stage outcomes, not all 36 outcomes and not an exact-grade-5 allocation.
-  - Landforms need a reviewed Russian bridge; settlements and bogs need full Russian author explanations.
+  - Four planned ET-to-RU or mixed-source syntheses require review; settlements and bogs retain bounded author-created additions for named gaps.
   - Nine unit lesson estimates remain architectural until their thematic-plan PRs validate the detailed sequence.
   - Practical descriptions, revision points, and assessments outside the water unit are concise architecture, not ready-to-print materials.
   - The one-lesson-per-week assumption has a documented 19-lesson shortfall; schools must use a feasible local timetable.

@@ -12,6 +12,10 @@ import {
   validateCanonicalRoute,
   validatePageReferences,
 } from './curriculum-maps.mjs';
+import {
+  validateCourseTopicSyntheses,
+  validateExternalSourceRegistry,
+} from './topic-synthesis.mjs';
 
 const lessonArtifactType = 'bilingual_lesson';
 const unitArtifactType = 'bilingual_thematic_plan';
@@ -20,6 +24,7 @@ const sourceMatrixArtifactType = 'annual_source_selection_matrix';
 const roadmapArtifactType = 'annual_implementation_roadmap';
 const languageProgressionArtifactType = 'annual_language_progression';
 const teachingCalendarsArtifactType = 'annual_teaching_calendars';
+const externalRegistryArtifactType = 'external_source_registry';
 const profileArtifactType = 'learner_language_profiles';
 const requiredApproaches = new Set([
   'content_language_dual_objectives',
@@ -85,6 +90,7 @@ function artifactId(artifact) {
   ].includes(artifact.data.artifact_type)) {
     return artifact.data.artifact_id;
   }
+  if (artifact.data.artifact_type === externalRegistryArtifactType) return artifact.data.registry_id;
   return null;
 }
 
@@ -103,17 +109,21 @@ export async function loadLessonPlanRepository({
   rootDir = process.cwd(),
   lessonPlansPath = 'lesson-plans',
   annualCoursesPath = 'annual-courses',
+  externalSourcesPath = 'external-sources',
   commonSchemaPath = 'schemas/teaching-plan-common.schema.json',
   profileSchemaPath = 'schemas/language-profiles.schema.json',
   lessonSchemaPath = 'schemas/lesson-plan.schema.json',
   thematicSchemaPath = 'schemas/thematic-plan.schema.json',
   annualSchemaPath = 'schemas/annual-course.schema.json',
   annualComponentsSchemaPath = 'schemas/annual-course-components.schema.json',
+  topicSynthesisSchemaPath = 'schemas/topic-synthesis.schema.json',
+  externalSourceRegistrySchemaPath = 'schemas/external-source-registry.schema.json',
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
-  const [lessonFiles, annualFiles] = await Promise.all([
+  const [lessonFiles, annualFiles, externalArtifacts] = await Promise.all([
     loadYamlArtifacts(absoluteRoot, lessonPlansPath),
     loadYamlArtifacts(absoluteRoot, annualCoursesPath),
+    loadYamlArtifacts(absoluteRoot, externalSourcesPath),
   ]);
   const artifacts = [...lessonFiles, ...annualFiles];
   const additionalSourceIds = [...new Set(artifacts
@@ -126,6 +136,8 @@ export async function loadLessonPlanRepository({
     thematic: thematicSchemaPath,
     annual: annualSchemaPath,
     annualComponents: annualComponentsSchemaPath,
+    topicSynthesis: topicSynthesisSchemaPath,
+    externalSourceRegistry: externalSourceRegistrySchemaPath,
   };
   const schemaEntries = await Promise.all(Object.entries(schemaPaths).map(async ([name, schemaPath]) => {
     const schemaFile = safeRepositoryPath(absoluteRoot, schemaPath, `${name} schema path`);
@@ -140,6 +152,7 @@ export async function loadLessonPlanRepository({
     curriculum,
     schemas: Object.fromEntries(schemaEntries),
     artifacts,
+    externalArtifacts,
   };
 }
 
@@ -147,6 +160,7 @@ function createValidators(context) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
   ajv.addSchema(context.curriculum.schemas.course);
   ajv.addSchema(context.schemas.common);
+  ajv.addSchema(context.schemas.topicSynthesis);
   ajv.addSchema(context.schemas.annual);
   return {
     profiles: ajv.compile(context.schemas.profiles),
@@ -154,6 +168,7 @@ function createValidators(context) {
     thematic: ajv.compile(context.schemas.thematic),
     annual: ajv.getSchema(context.schemas.annual.$id),
     annualComponents: ajv.compile(context.schemas.annualComponents),
+    externalSourceRegistry: ajv.compile(context.schemas.externalSourceRegistry),
   };
 }
 
@@ -1220,6 +1235,8 @@ function validateImplementationRoadmap(diagnostics, artifact, courseArtifact, co
       diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/issue_18_phase`, 'unit is absent from its declared phase'));
     }
     if (unit.approximate_lesson_count !== mainUnit.estimated_lessons) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/approximate_lesson_count`, `expected ${mainUnit.estimated_lessons}`));
+    if (unit.synthesis_readiness !== mainUnit.topic_synthesis?.readiness) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/synthesis_readiness`, `expected ${mainUnit.topic_synthesis?.readiness ?? '<missing>'}`));
+    if (unit.implementation_status !== mainUnit.implementation_status) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/implementation_status`, `expected ${mainUnit.implementation_status}`));
     for (const dependency of unit.dependencies ?? []) if (!mainUnits.has(dependency)) diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/dependencies`, `unknown unit ${dependency}`));
     if (unit.implementation_status === 'validated_production_unit') {
       const expectedPath = safeRepositoryPath(context.rootDir, unit.expected_thematic_plan_path, `${unit.unit_id} thematic plan path`);
@@ -1351,21 +1368,9 @@ function validateAnnualCourse(diagnostics, artifact, context, indexes, unitsById
     if (!topics.has(decision.topic_id)) diagnostics.push(makeDiagnostic('error', artifact.file, `/deduplication_decisions/${index}/topic_id`, `unknown topic ${decision.topic_id}`));
   }
 
-  for (const field of ['russian_explanation_coverage', 'estonian_language_progression']) {
+  for (const field of ['estonian_language_progression']) {
     const entries = language[field] ?? [];
     if (!sameSet(entries.map((entry) => entry.unit_id), unitIds)) diagnostics.push(makeDiagnostic('error', languageFile, `/${field}`, 'annual progression must contain each annual unit exactly once'));
-  }
-  const selectedById = sourceValidation?.selectedById ?? new Map();
-  for (const [index, coverage] of (language.russian_explanation_coverage ?? []).entries()) {
-    const unit = units.find((candidate) => candidate.unit_id === coverage.unit_id);
-    if (unit && coverage.status !== unit.russian_explanation_status) diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}/status`, `expected ${unit.russian_explanation_status}`));
-    for (const recordId of coverage.available_record_ids ?? []) {
-      const selected = selectedById.get(recordId);
-      if (!selected || selected.unitId !== coverage.unit_id) diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}/available_record_ids`, `unknown selected record ${recordId}`));
-      else if (selected.record.language !== 'ru') diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}/available_record_ids`, `${recordId} is not Russian-language evidence`));
-    }
-    if (coverage.status === 'direct_opiq_ru' && (coverage.available_record_ids ?? []).length === 0) diagnostics.push(makeDiagnostic('error', languageFile, `/russian_explanation_coverage/${index}`, 'direct_opiq_ru requires a selected Russian record'));
-    if ((coverage.available_record_ids ?? []).length === 0) diagnostics.push(makeDiagnostic('warning', languageFile, `/russian_explanation_coverage/${index}`, `unit ${coverage.unit_id} has no direct Russian Opiq explanation; ${coverage.status}`));
   }
   const progressionByUnit = new Map((language.estonian_language_progression ?? []).map((entry) => [entry.unit_id, entry]));
   const introducedTerms = new Map();
@@ -1511,6 +1516,7 @@ export function validateLessonPlanRepository(context) {
   const roadmapArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === roadmapArtifactType);
   const languageProgressionArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === languageProgressionArtifactType);
   const teachingCalendarsArtifacts = context.artifacts.filter((artifact) => artifact.data.artifact_type === teachingCalendarsArtifactType);
+  const externalRegistryArtifacts = context.externalArtifacts ?? [];
   const componentArtifacts = [
     ...sourceMatrixArtifacts,
     ...roadmapArtifacts,
@@ -1540,7 +1546,14 @@ export function validateLessonPlanRepository(context) {
   for (const artifact of unitArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.thematic);
   for (const artifact of courseArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.annual);
   for (const artifact of componentArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.annualComponents);
-  addDuplicateDiagnostics(diagnostics, [...lessonArtifacts, ...unitArtifacts, ...courseArtifacts, ...componentArtifacts].map(artifactId), {
+  for (const artifact of externalRegistryArtifacts) addSchemaDiagnostics(diagnostics, artifact, validators.externalSourceRegistry);
+  addDuplicateDiagnostics(diagnostics, [
+    ...lessonArtifacts,
+    ...unitArtifacts,
+    ...courseArtifacts,
+    ...componentArtifacts,
+    ...externalRegistryArtifacts,
+  ].map(artifactId), {
     file: 'teaching plans', field: '/', label: 'artifact ID',
   });
   const profiles = new Map((profilesArtifacts[0]?.data.profiles ?? []).map((profile) => [profile.profile_id, profile]));
@@ -1549,6 +1562,14 @@ export function validateLessonPlanRepository(context) {
   const unitsById = new Map(unitArtifacts.map((artifact) => [artifact.data.unit_id, artifact]));
   const coursesById = new Map(courseArtifacts.map((artifact) => [artifact.data.course_id, artifact]));
   const componentsById = new Map(componentArtifacts.map((artifact) => [artifact.data.artifact_id, artifact]));
+  const externalRegistriesById = new Map();
+  const externalSourcesByRegistryId = new Map();
+  for (const artifact of externalRegistryArtifacts) {
+    const registryId = artifact.data.registry_id;
+    if (externalRegistriesById.has(registryId)) diagnostics.push(makeDiagnostic('error', artifact.file, '/registry_id', `duplicate external source registry ID: ${registryId}`));
+    externalRegistriesById.set(registryId, artifact);
+    externalSourcesByRegistryId.set(registryId, validateExternalSourceRegistry(diagnostics, artifact));
+  }
   for (const artifact of lessonArtifacts) validateLesson(diagnostics, artifact, context, indexes, profiles);
   for (const artifact of unitArtifacts) validateUnit(diagnostics, artifact, context, indexes, lessonsById);
   const sourceValidationByCourse = new Map();
@@ -1568,16 +1589,27 @@ export function validateLessonPlanRepository(context) {
     if (!course) diagnostics.push(makeDiagnostic('error', artifact.file, '/course_ref', `unknown annual course ${artifact.data.course_ref ?? '<missing>'}`));
     validateAnnualComponentIdentity(diagnostics, artifact, course, context);
   }
-  for (const artifact of courseArtifacts) validateAnnualCourse(
-    diagnostics,
-    artifact,
-    context,
-    indexes,
-    unitsById,
-    componentsById,
-    profiles,
-    sourceValidationByCourse.get(artifact.data.course_id),
-  );
+  for (const artifact of courseArtifacts) {
+    const sourceValidation = sourceValidationByCourse.get(artifact.data.course_id);
+    validateAnnualCourse(
+      diagnostics,
+      artifact,
+      context,
+      indexes,
+      unitsById,
+      componentsById,
+      profiles,
+      sourceValidation,
+    );
+    const registryId = artifact.data.external_source_registry_ref?.artifact_id;
+    validateCourseTopicSyntheses({
+      diagnostics,
+      courseArtifact: artifact,
+      selectedById: sourceValidation?.selectedById ?? new Map(),
+      externalRegistryArtifact: externalRegistriesById.get(registryId),
+      externalSourcesById: externalSourcesByRegistryId.get(registryId) ?? new Map(),
+    });
+  }
   const errors = diagnostics.filter((diagnostic) => diagnostic.severity === 'error').length;
   const warnings = diagnostics.filter((diagnostic) => diagnostic.severity === 'warning').length;
   return {
@@ -1590,6 +1622,7 @@ export function validateLessonPlanRepository(context) {
       annualComponents: componentArtifacts.length,
       annualUnits: courseArtifacts.reduce((sum, artifact) => sum + (artifact.data.ordered_units?.length ?? 0), 0),
       annualSelectedPages: [...sourceValidationByCourse.values()].reduce((sum, result) => sum + result.selectedCount, 0),
+      externalSources: [...externalSourcesByRegistryId.values()].reduce((sum, sources) => sum + sources.size, 0),
       pageReferences: lessonArtifacts.reduce((sum, artifact) => sum + (artifact.data.evidence_linkage?.opiq_records?.length ?? 0), 0)
         + unitArtifacts.reduce((sum, artifact) => sum + (artifact.data.selected_opiq_sources?.length ?? 0), 0)
         + [...sourceValidationByCourse.values()].reduce((sum, result) => sum + result.selectedCount, 0),

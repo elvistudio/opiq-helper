@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/topic-synthesis.schema.json",
+  "title": "Opiq Helper multilingual topic synthesis",
+  "$defs": {
+    "slug": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}$"
+    },
+    "instructionalRole": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/course-map.schema.json#/$defs/instructionalRole"
+    },
+    "strategy": {
+      "enum": [
+        "direct_opiq_ru",
+        "translated_from_opiq_et",
+        "adapted_from_opiq_et",
+        "synthesized_from_multiple_opiq_sources",
+        "supplemented_by_external_source",
+        "author_created_explanation"
+      ]
+    },
+    "orthogonalProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_family", "source_type", "source_reference", "notes"],
+      "properties": {
+        "source_family": { "enum": ["opiq", "external", "author_created"] },
+        "source_type": {
+          "enum": [
+            "ordinary_textbook",
+            "supplementary",
+            "teacher_support",
+            "simplified_curriculum",
+            "official_public_source",
+            "scientific_or_university_source",
+            "museum_or_recognized_educational_source",
+            "reputable_educational_or_environmental_source",
+            "author_explanation",
+            "author_language_bridge",
+            "author_task",
+            "author_assessment"
+          ]
+        },
+        "source_reference": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "transformationContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transformation",
+        "output_language",
+        "output_layer",
+        "instructional_roles",
+        "concepts_supported",
+        "notes"
+      ],
+      "properties": {
+        "transformation": {
+          "enum": [
+            "direct",
+            "translation",
+            "pedagogical_adaptation",
+            "synthesis_input",
+            "supplement",
+            "original"
+          ]
+        },
+        "output_language": { "$ref": "#/$defs/language" },
+        "output_layer": { "enum": ["main_explanation", "subject_support"] },
+        "instructional_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/instructionalRole" }
+        },
+        "concepts_supported": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "authoringJustification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason", "uncovered_concepts", "instructional_need"],
+      "properties": {
+        "reason": { "type": "string", "minLength": 10 },
+        "uncovered_concepts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "instructional_need": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 10 }
+          ]
+        }
+      }
+    },
+    "sourceContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contribution_id",
+        "source_kind",
+        "source_id",
+        "source_language",
+        "provenance",
+        "selection_rationale",
+        "transformations"
+      ],
+      "properties": {
+        "contribution_id": { "$ref": "#/$defs/slug" },
+        "source_kind": { "enum": ["opiq_record", "external_source", "author_created"] },
+        "source_id": { "$ref": "#/$defs/slug" },
+        "source_language": { "$ref": "#/$defs/language" },
+        "provenance": { "$ref": "#/$defs/orthogonalProvenance" },
+        "selection_rationale": { "type": "string", "minLength": 10 },
+        "transformations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/transformationContribution" }
+        },
+        "authoring": { "$ref": "#/$defs/authoringJustification" }
+      }
+    },
+    "topicSynthesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "output_language",
+        "readiness",
+        "strategies",
+        "source_contributions",
+        "missing_concepts",
+        "review_required",
+        "review_status",
+        "notes"
+      ],
+      "properties": {
+        "output_language": { "$ref": "#/$defs/language" },
+        "readiness": { "enum": ["ready", "planned", "needs_review", "blocked"] },
+        "strategies": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/strategy" }
+        },
+        "source_contributions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/sourceContribution" }
+        },
+        "missing_concepts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "review_required": { "type": "boolean" },
+        "review_status": { "enum": ["not_required", "pending", "approved", "blocked"] },
+        "notes": { "type": "string", "minLength": 10 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "review_required": { "const": false } }, "required": ["review_required"] },
+          "then": { "properties": { "review_status": { "const": "not_required" } } }
+        },
+        {
+          "if": { "properties": { "review_required": { "const": true } }, "required": ["review_required"] },
+          "then": { "properties": { "review_status": { "enum": ["pending", "approved", "blocked"] } } }
+        }
+      ]
+    }
+  }
+}
