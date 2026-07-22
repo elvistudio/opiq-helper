@@ -658,6 +658,54 @@ cases:
         url: https://www.opiq.ee/kit/371/chapter/20322
     evidence: "The matching Estonian and Russian button-sewing chapters are canonical arts-and-crafts records. Their exact URLs are absent from the grade 2 mathematics and science routes despite the archive's incorrect automatic subject labels."
 
+  - id: grade-2-music-rhythm
+    grade: 2
+    subject: music
+    topic: "rhythm recognition and performance in Estonian and Russian"
+    status: present
+    expected_source_id: grade-2-music
+    expected_md_path: project-files/outputs/opiq_2klass_muusika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-music
+        url: https://www.opiq.ee/kit/193/chapter/10970
+        expected:
+          class: 2
+          book_id: muusikaõpik_2._klassile
+          title: Rütm
+          subject:
+            en: music
+            et: muusika
+            ru: музыка
+          headings_any:
+            - Rütm
+          task_examples_any:
+            - Kirjuta oma sõnadega.
+      - kind: record_present
+        source_id: grade-2-music
+        url: https://www.opiq.ee/kit/238/chapter/13490
+        expected:
+          class: 2
+          book_id: музыка_–_волшебная_страна._2_класс
+          title: Здравствуй
+          subject:
+            en: music
+            et: muusika
+            ru: музыка
+          headings_any:
+            - ЗДРАВСТВУЙ!
+          task_examples_any:
+            - Выполни задание в рабочей тетради. Досочини ритм и исполни его на музыкальном инструменте.
+      - kind: url_absent
+        origin_source_id: grade-2-music
+        source_id: grade-2-mathematics
+        url: https://www.opiq.ee/kit/193/chapter/10970
+      - kind: url_absent
+        origin_source_id: grade-2-music
+        source_id: grade-2-arts-and-crafts
+        url: https://www.opiq.ee/kit/238/chapter/13490
+    evidence: "The Estonian Rütm page and Russian-language rhythm-completion task are explicit grade 2 music evidence. Their exact URLs are absent from mathematics and arts-and-crafts despite the archive's incorrect automatic mathematics labels."
+
   - id: grade-2-human-studies-water-safety
     grade: 2
     subject: human_studies
