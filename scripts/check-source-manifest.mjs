@@ -173,6 +173,7 @@ async function validateQaSnapshot(
   outputPath,
   allowedLanguages,
   compactMetadata = null,
+  additionalArchivePaths = [],
 ) {
   const sourceLabel = source.id;
   if (!isPlainObject(qa)) {
@@ -283,6 +284,72 @@ async function validateQaSnapshot(
         fail(`${sourceLabel}: checksums.output_file_sha256 does not match output_file.`);
       }
     }
+  }
+
+  if (additionalArchivePaths.length > 0) {
+    if (!Array.isArray(qa.source_archives) || qa.source_archives.length !== additionalArchivePaths.length + 1) {
+      fail(`${sourceLabel}: source_archives must contain the primary archive and every additional source archive.`);
+    } else {
+      const registered = [
+        { entry: { path: source.source_archive, role: 'primary' }, archivePath },
+        ...additionalArchivePaths,
+      ];
+      const seenPaths = new Set();
+      let sourceRecordTotal = 0;
+      let includedRecordTotal = 0;
+      for (const [index, expected] of registered.entries()) {
+        const actual = qa.source_archives[index];
+        const itemLabel = `${sourceLabel}: source_archives[${index}]`;
+        if (!isPlainObject(actual)) {
+          fail(`${itemLabel} must be an object.`);
+          continue;
+        }
+        const allowedFields = new Set([
+          'path', 'role', 'source_book_ids', 'sha256', 'source_records', 'page_records_included',
+        ]);
+        for (const field of Object.keys(actual)) {
+          if (!allowedFields.has(field)) fail(`${itemLabel} contains unknown field ${field}.`);
+        }
+        if (actual.path !== expected.entry.path) {
+          fail(`${itemLabel}.path must equal ${expected.entry.path}.`);
+        } else if (seenPaths.has(actual.path)) {
+          fail(`${sourceLabel}: source_archives contains duplicate path ${actual.path}.`);
+        } else {
+          seenPaths.add(actual.path);
+        }
+        if (actual.role !== expected.entry.role) {
+          fail(`${itemLabel}.role must equal ${expected.entry.role}.`);
+        }
+        if (!Array.isArray(actual.source_book_ids) || actual.source_book_ids.length === 0) {
+          fail(`${itemLabel}.source_book_ids must be a non-empty array.`);
+        } else if (index > 0 && JSON.stringify(actual.source_book_ids) !== JSON.stringify(expected.entry.source_book_ids)) {
+          fail(`${itemLabel}.source_book_ids must match the manifest declaration.`);
+        }
+        if (!sha256Pattern.test(actual.sha256 || '')) {
+          fail(`${itemLabel}.sha256 must be 64 lowercase hexadecimal characters.`);
+        } else if (expected.archivePath && actual.sha256 !== await sha256(expected.archivePath)) {
+          fail(`${itemLabel}.sha256 does not match the registered archive.`);
+        }
+        if (!Number.isInteger(actual.source_records) || actual.source_records < 1) {
+          fail(`${itemLabel}.source_records must be a positive integer.`);
+        } else {
+          sourceRecordTotal += actual.source_records;
+        }
+        if (!Number.isInteger(actual.page_records_included) || actual.page_records_included < 0) {
+          fail(`${itemLabel}.page_records_included must be a non-negative integer.`);
+        } else {
+          includedRecordTotal += actual.page_records_included;
+        }
+      }
+      if (sourceRecordTotal !== qa.source_records) {
+        fail(`${sourceLabel}: source_archives source_records total ${sourceRecordTotal}, expected ${qa.source_records}.`);
+      }
+      if (includedRecordTotal !== qa.page_records_included) {
+        fail(`${sourceLabel}: source_archives page_records_included total ${includedRecordTotal}, expected ${qa.page_records_included}.`);
+      }
+    }
+  } else if (Object.hasOwn(qa, 'source_archives')) {
+    fail(`${sourceLabel}: source_archives is only allowed when additional_source_archives is registered.`);
   }
 
   validateNumericCounters(qa, sourceLabel);
@@ -411,6 +478,106 @@ async function validateSubjectBoundaryConfig(source, sourceLabel) {
   }
 
   await requireFile(boundary.audit_path, `${sourceLabel} subject_boundary.audit_path`);
+}
+
+async function validateRoutingBoundaryConfig(source, sourceLabel) {
+  if (!Object.hasOwn(source, 'routing_boundary')) return;
+
+  const boundary = source.routing_boundary;
+  if (!isPlainObject(boundary)) {
+    fail(`${sourceLabel}: routing_boundary must be an object.`);
+    return;
+  }
+
+  const forbiddenBookIds = boundary.forbidden_book_ids;
+  const forbiddenUrlPrefixes = boundary.forbidden_url_prefixes;
+  if (!Array.isArray(forbiddenBookIds) || forbiddenBookIds.length === 0) {
+    fail(`${sourceLabel}: routing_boundary.forbidden_book_ids must be a non-empty array.`);
+  } else {
+    const seen = new Set();
+    forbiddenBookIds.forEach((bookId, index) => {
+      if (!isNonEmptyString(bookId)) {
+        fail(`${sourceLabel}: routing_boundary.forbidden_book_ids[${index}] must be a non-empty string.`);
+      } else if (seen.has(bookId)) {
+        fail(`${sourceLabel}: routing_boundary.forbidden_book_ids contains duplicate book ID "${bookId}".`);
+      } else {
+        seen.add(bookId);
+      }
+    });
+  }
+
+  if (!Array.isArray(forbiddenUrlPrefixes) || forbiddenUrlPrefixes.length === 0) {
+    fail(`${sourceLabel}: routing_boundary.forbidden_url_prefixes must be a non-empty array.`);
+  } else {
+    const seen = new Set();
+    forbiddenUrlPrefixes.forEach((urlPrefix, index) => {
+      if (!isNonEmptyString(urlPrefix) || !/^https:\/\/(?:www\.)?opiq\.ee\//i.test(urlPrefix)) {
+        fail(`${sourceLabel}: routing_boundary.forbidden_url_prefixes[${index}] must be a direct Opiq URL prefix.`);
+      } else if (seen.has(urlPrefix)) {
+        fail(`${sourceLabel}: routing_boundary.forbidden_url_prefixes contains duplicate prefix "${urlPrefix}".`);
+      } else {
+        seen.add(urlPrefix);
+      }
+    });
+  }
+
+  if (!isNonEmptyString(boundary.reason)) {
+    fail(`${sourceLabel}: routing_boundary.reason must be a non-empty string.`);
+  }
+  await requireFile(boundary.audit_path, `${sourceLabel} routing_boundary.audit_path`);
+}
+
+async function validateAdditionalSourceArchives(source, sourceLabel, primaryArchivePath) {
+  if (!Object.hasOwn(source, 'additional_source_archives')) return [];
+  if (!Array.isArray(source.additional_source_archives) || source.additional_source_archives.length === 0) {
+    fail(`${sourceLabel}: additional_source_archives must be a non-empty array when present.`);
+    return [];
+  }
+
+  const allowedFields = new Set(['path', 'role', 'source_book_ids', 'notes']);
+  const seenPaths = new Set(isNonEmptyString(source.source_archive) ? [source.source_archive] : []);
+  const validated = [];
+  for (const [index, entry] of source.additional_source_archives.entries()) {
+    const entryLabel = `${sourceLabel} additional_source_archives[${index}]`;
+    if (!isPlainObject(entry)) {
+      fail(`${entryLabel} must be an object.`);
+      continue;
+    }
+    for (const field of Object.keys(entry)) {
+      if (!allowedFields.has(field)) fail(`${entryLabel} contains unknown field ${field}.`);
+    }
+    if (!isNonEmptyString(entry.path)) {
+      fail(`${entryLabel}.path must be a non-empty repository-relative path.`);
+      continue;
+    }
+    if (seenPaths.has(entry.path)) {
+      fail(`${entryLabel}.path duplicates another registered source archive: ${entry.path}`);
+      continue;
+    }
+    seenPaths.add(entry.path);
+    if (!isNonEmptyString(entry.role)) fail(`${entryLabel}.role must be a non-empty string.`);
+    if (!isNonEmptyString(entry.notes)) fail(`${entryLabel}.notes must be a non-empty string.`);
+    if (!Array.isArray(entry.source_book_ids) || entry.source_book_ids.length === 0) {
+      fail(`${entryLabel}.source_book_ids must be a non-empty array.`);
+    } else {
+      const seenBookIds = new Set();
+      entry.source_book_ids.forEach((bookId, bookIndex) => {
+        if (!isNonEmptyString(bookId)) {
+          fail(`${entryLabel}.source_book_ids[${bookIndex}] must be a non-empty string.`);
+        } else if (seenBookIds.has(bookId)) {
+          fail(`${entryLabel}.source_book_ids contains duplicate book ID "${bookId}".`);
+        } else {
+          seenBookIds.add(bookId);
+        }
+      });
+    }
+    const archivePath = await requireFile(entry.path, `${entryLabel}.path`);
+    if (archivePath) validated.push({ entry, archivePath });
+  }
+  if (!primaryArchivePath) {
+    fail(`${sourceLabel}: additional_source_archives requires a primary source_archive.`);
+  }
+  return validated;
 }
 
 function validateCanonicalUrlPolicy(source, sourceLabel) {
@@ -581,6 +748,8 @@ async function validateSourceProvenance(source, sourceLabel, archivePath, allowe
 function validateMarkdown(source, markdown, allowedLanguages) {
   const records = splitMarkdownRecords(markdown);
   const forbiddenBookIds = new Set(source.subject_boundary?.forbidden_book_ids || []);
+  const routingForbiddenBookIds = new Set(source.routing_boundary?.forbidden_book_ids || []);
+  const forbiddenUrlPrefixes = source.routing_boundary?.forbidden_url_prefixes || [];
   const seenUrls = new Map();
   if (records.length !== source.record_count) {
     fail(
@@ -606,6 +775,10 @@ function validateMarkdown(source, markdown, allowedLanguages) {
       }
     }
 
+    if (urlMatch && forbiddenUrlPrefixes.some((prefix) => urlMatch[1].startsWith(prefix))) {
+      fail(`${recordLabel}: URL ${urlMatch[1]} is forbidden by routing_boundary.`);
+    }
+
     if (forbiddenBookIds.size > 0) {
       const bookIdMatch = record.match(/^(?:-\s+)?Book ID:\s*(.+?)\s*$/mi);
       const bookId = bookIdMatch?.[1].trim();
@@ -615,6 +788,15 @@ function validateMarkdown(source, markdown, allowedLanguages) {
         fail(
           `${recordLabel}: URL ${urlMatch?.[1] || '<missing>'} has forbidden Book ID "${bookId}" from subject_boundary.forbidden_book_ids.`,
         );
+      }
+    }
+    if (routingForbiddenBookIds.size > 0) {
+      const bookIdMatch = record.match(/^(?:-\s+)?Book ID:\s*(.+?)\s*$/mi);
+      const bookId = bookIdMatch?.[1].trim();
+      if (!bookId) {
+        fail(`${recordLabel}: missing Book ID required by routing_boundary.`);
+      } else if (routingForbiddenBookIds.has(bookId)) {
+        fail(`${recordLabel}: URL ${urlMatch?.[1] || '<missing>'} has forbidden Book ID "${bookId}" from routing_boundary.`);
       }
     }
 
@@ -717,6 +899,7 @@ if (!manifest) {
     }
 
     await validateSubjectBoundaryConfig(source, label);
+    await validateRoutingBoundaryConfig(source, label);
     validateCanonicalUrlPolicy(source, label);
     validateCanonicalSubjectPolicy(source, label);
 
@@ -742,6 +925,7 @@ if (!manifest) {
     } else if (source.source_archive !== null) {
       fail(`${label}: source_archive must be a path or null.`);
     }
+    const additionalArchivePaths = await validateAdditionalSourceArchives(source, label, archivePath);
     const compactMetadata = await validateSourceProvenance(
       source,
       label,
@@ -773,6 +957,7 @@ if (!manifest) {
           mdPath,
           normalizedSourceLanguages,
           compactMetadata,
+          additionalArchivePaths,
         );
         checkedQaSnapshotCount += 1;
       }

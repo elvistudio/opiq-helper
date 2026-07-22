@@ -5118,23 +5118,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: Sissejuhatus
 
-### 319. Sissejuhatus
-- URL: https://www.opiq.ee/kit/330/chapter/18522
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.1
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: sissejuhatus; muusika; teksti; mõistmine; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Sissejuhatus; Muusika; Teksti mõistmine; Matemaatika; Loodusõpetus
-
-### 320. KOOLITUNNID
+### 319. KOOLITUNNID
 - URL: https://www.opiq.ee/kit/126/chapter/6746
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5150,39 +5134,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: KOOLITUNNID; 1. MIS TUND ON?; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1; LISAÜLESANNE 2
 
-### 321. Vaikus ja müra
-- URL: https://www.opiq.ee/kit/330/chapter/18531
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.10
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: inimene; keha; meeled; tervis; vaikus; müra; plärakast; hiirvaikseke; lugu; lärmist; vaikusest; laula; kaasa; eesti keel; emakeel; sõna; harjutus
-- Topics RU: человек; тело; чувства; здоровье; эстонский язык; родной язык; слово; упражнение
-- Topics EN: human; body; senses; health; Estonian language; mother tongue; word; exercise
-- Headings: Vaikus ja müra; Plärakast ja Hiirvaikseke; Lugu lärmist ja vaikusest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Inimese meeled; Müratase koolimajas; Kas tead?
-
-### 322. Mis saab jäätmetest?
-- URL: https://www.opiq.ee/kit/330/chapter/18532
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.11
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: saab; jäätmetest; võluprügikast; lugu; sellest; kuidas; jäätmeid; paremini; kasutada; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Mis saab jäätmetest?; Võluprügikast; Lugu jäätmetest ja sellest, kuidas jäätmeid paremini ära kasutada; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Prügi sortimine; Säästan elektrit; Kas tead?
-
-### 323. ÕPETAJATE PÄEV
+### 320. ÕPETAJATE PÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6747
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5198,7 +5150,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: ÕPETAJATE PÄEV; 1. VASTA KÜSIMUSTELE!; 2. E-ÜLESANNE; E-ül; 3. LOEME KOOS!; 4. TEE NII!
 
-### 324. NÜÜD MA OSKAN
+### 321. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6748
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5214,135 +5166,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; reading
 - Headings: NÜÜD MA OSKAN; 1. LOE JA RÄÄGI!; E-ül; 2. LOEME KOOS!; 3. MIS VÄRVI ON?; 4. LOEME KOOS! TEE KAASA!; 5. RÄÄGI!; LISAÜLESANNE 1; LISAÜLESANNE 2; LISAÜLESANNE 3
 
-### 325. Tarbimine ja pakendid
-- URL: https://www.opiq.ee/kit/330/chapter/18533
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.12
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: tarbimine; pakendid; pakendimäed; lugu; prügist; pakenditest; laula; kaasa; nuputa; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Tarbimine ja pakendid; Pakendimäed; Lugu prügist ja pakenditest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Loodushoiu uuring; Pakendiprügi; Kas tead?
-
-### 326. Põlispuu tugevus ja haprus
-- URL: https://www.opiq.ee/kit/330/chapter/18534
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.13
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: põlispuu; tugevus; haprus; salapärane; mets; lugu; metsast; vanadest; puudest; eesti keel; emakeel; sõna; harjutus; kuulamine
-- Topics RU: эстонский язык; родной язык; слово; упражнение; аудирование; слушание
-- Topics EN: Estonian language; mother tongue; word; exercise; listening
-- Headings: Põlispuu tugevus ja haprus; Salapärane mets; Lugu metsast, vanadest puudest ja Kuu valgusest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus 1a; Harjutus 1b; Kas oskad?; Metsloomade kaal; Metsa puud; Kuula ja vaata; Kas tunned muusikastiile?; Kas tead?
-
-### 327. Planeedi kopsud
-- URL: https://www.opiq.ee/kit/330/chapter/18535
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.14
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: planeedi; kopsud; sõbrad; puud; lugu; metsast; puudest; laula; kaasa; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Planeedi kopsud; Mu sõbrad puud; Lugu metsast ja puudest; Laula kaasa; Nuputa; Kas oskad?; Puidust esemed; Puud ja hapnik; Kas tead?
-
-### 328. Suur aineringlus
-- URL: https://www.opiq.ee/kit/330/chapter/18536
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.15
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: suur; aineringlus; millimeetri; sügavusel; lugu; sellest; juhtub; surnud; liblika; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Suur aineringlus; 20 millimeetri sügavusel maa all; Lugu sellest, mis juhtub surnud liblika ja maha langenud puulehega; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Vihmaussid; Lagundamine; Kas tead?
-
-### 329. Loomade jäljed
-- URL: https://www.opiq.ee/kit/330/chapter/18537
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.16
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: loomade; jäljed; järele; talle; lugu; kavalast; rebasest; jälgedest; laula; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Loomade jäljed; Järele talle!; Lugu kavalast rebasest ja loomade jälgedest; Laula kaasa; Nuputa; Kas oskad?; Kelle jäljed?; Jäljed lumel; Kas tead?
-
-### 330. Taastuvad energiaallikad
-- URL: https://www.opiq.ee/kit/330/chapter/18538
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.17
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: taastuvad; energiaallikad; jänes; kilpkonn; lugu; tuule; jõust; mootorpaadist; purjekast; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Taastuvad energiaallikad; Jänes ja kilpkonn; Lugu tuule jõust, mootorpaadist ja purjekast; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Kas kütusest piisab?; Tuul; Kas tead?
-
-### 331. Hoiame elektrit kokku!
-- URL: https://www.opiq.ee/kit/330/chapter/18539
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.18
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: hoiame; elektrit; kohtumine; jõuga; lugu; sellest; miks; vaja; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Hoiame elektrit kokku!; Kohtumine jõuga; Lugu sellest, miks on vaja toast lahkudes tuli kustutada; Laula kaasa; Nuputa; Kas oskad?; Elektri tootmine; Valgustite ostmine; Kas tead?
-
-### 332. Saastunud õhk levib
-- URL: https://www.opiq.ee/kit/330/chapter/18540
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.19
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: saastunud; levib; sügeluse; pulber; lugu; sellest; mida; tuul; pilved; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Saastunud õhk levib; Sügeluse pulber; Lugu sellest, mida tuul ja pilved meieni kanda võivad; Laula kaasa; Nuputa; Kas oskad?; Keskkonnaprobleemid; Maailmakoristuspäev; Kas tead?
-
-### 333. MINA
+### 322. MINA
 - URL: https://www.opiq.ee/kit/126/chapter/6738
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5358,151 +5182,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINA; 1. TEE NII!; 2. E-ÜLESANNE; E-ül; 3. RÄÄGI!
 
-### 334. Veeringlus. Ilmastik
-- URL: https://www.opiq.ee/kit/330/chapter/18523
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.2
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: veeringlus; ilmastik; veepiisa; teekond; lugu; vihmast; pilvedest; ilmast; laula; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Veeringlus. Ilmastik; Veepiisa teekond; Lugu vihmast, pilvedest ja ilmast​; Laula kaasa; Kes on kes?; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Veeringlus; Vihmavee kogus; Järgarvud; Kas tead?
-
-### 335. Teaduslikud avastused
-- URL: https://www.opiq.ee/kit/330/chapter/18541
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.20
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: teaduslikud; avastused; teadlase; juhtum; lugu; liiga; agarast; teadlasest; lehmast; eesti keel; emakeel; lugemine
-- Topics RU: эстонский язык; родной язык; чтение
-- Topics EN: Estonian language; mother tongue; reading
-- Headings: Teaduslikud avastused; Teadlase juhtum; Lugu liiga agarast teadlasest, lehmast ja vasikast; Laula kaasa; Nuputa; Lugemissoovitus; Kas oskad?; Koduloomade pojad; Piimašokolaad; Kas tead?
-
-### 336. Ravimtaimed
-- URL: https://www.opiq.ee/kit/330/chapter/18542
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.21
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: ravimtaimed; võlujuur; lugu; ravimtaimest; selle; korjamisest; laula; kaasa; nuputa; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Ravimtaimed; Võlujuur; Lugu ravimtaimest ja selle korjamisest; Laula kaasa; Nuputa; Kas oskad?; Taime osad; Pärnaõietee; Kas tead?
-
-### 337. Kuidas maastik on muutunud?
-- URL: https://www.opiq.ee/kit/330/chapter/18543
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.22
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: kuidas; maastik; muutunud; inimesed; lugu; sellest; vanasti; põldu; hariti; eesti keel; emakeel; sõna; lugemine; harjutus
-- Topics RU: эстонский язык; родной язык; слово; чтение; упражнение
-- Topics EN: Estonian language; mother tongue; word; reading; exercise
-- Headings: Kuidas maastik on muutunud?; Inimesed ja maastik; Lugu sellest, kuidas vanasti põldu hariti; Laula kaasa; Nuputa; Lugemissoovitus; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Teraviljatooted; Vanaaegsed põllutööriistad; Kas tead?
-
-### 338. Talgud
-- URL: https://www.opiq.ee/kit/330/chapter/18544
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.23
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: talgud; vana; küün; lugu; sellest; kuidas; üheskoos; jõuab; palju; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Talgud; Vana küün; Lugu sellest, kuidas üheskoos jõuab palju head teha; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Sorteerime vanu asju; „Teeme ära“ talgupäev; Kas tead?
-
-### 339. Maailma rikkus ja ebavõrdsus
-- URL: https://www.opiq.ee/kit/330/chapter/18545
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.24
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: maailma; rikkus; ebavõrdsus; kaks; last; kõrbes; lugu; aafrika; lastest; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Maailma rikkus ja ebavõrdsus; Kaks last kõrbes; Lugu Aafrika lastest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Toiduained; Arvuta; Banaanitaim; Kas tead?
-
-### 340. Fotosüntees ja elu suur ringkäik
-- URL: https://www.opiq.ee/kit/330/chapter/18546
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.25
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: fotosüntees; suur; ringkäik; mootor; lugu; taimedest; õhust; hingamisest; suurest; eesti keel; emakeel; lugemine
-- Topics RU: эстонский язык; родной язык; чтение
-- Topics EN: Estonian language; mother tongue; reading
-- Headings: Fotosüntees ja elu suur ringkäik; Elu mootor; Lugu taimedest, õhust, hingamisest ja elu suurest ringkäigust; Laula kaasa; Nuputa; Lugemissoovitus; Kas oskad?; Toiduahelad; Arvuta; Kas tead?
-
-### 341. Prügi ookeanis ja mageveevarud
-- URL: https://www.opiq.ee/kit/330/chapter/18547
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.26
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: inimene; keha; meeled; tervis; prügi; ookeanis; mageveevarud; ookean; lugu; ookeanist; prügist; magedast; veest; eesti keel; emakeel; sõna; harjutus
-- Topics RU: человек; тело; чувства; здоровье; эстонский язык; родной язык; слово; упражнение
-- Topics EN: human; body; senses; health; Estonian language; mother tongue; word; exercise
-- Headings: Prügi ookeanis ja mageveevarud; Ookean; Lugu ookeanist, prügist ja magedast veest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Kala keha; Ookeani sügavus; Kas tead?
-
-### 342. Tiigi elanikud
-- URL: https://www.opiq.ee/kit/330/chapter/18548
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.27
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: tiigi; elanikud; kiiliprintsess; lugu; elanikest; kiili; vastsest; kellest; saab; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Tiigi elanikud; Kiiliprintsess; Lugu tiigi elanikest ja kiili vastsest, kellest saab printsess; Laula kaasa; Nuputa; Kas oskad?; Konna areng; Arvuta; Kas tead?
-
-### 343. EMA JA ISA
+### 323. EMA JA ISA
 - URL: https://www.opiq.ee/kit/126/chapter/6739
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5518,39 +5198,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: EMA JA ISA; 1. RÄÄGI!; 2. E-ÜLESANNE; E-ül
 
-### 344. Toiduahel. Tunded
-- URL: https://www.opiq.ee/kit/330/chapter/18524
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.3
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: loom; loomad; linnud; putukad; toiduahel; tunded; hirmsad; elukad; lugu; lõksu; jäänud; hundist; laula; eesti keel; emakeel; sõna; harjutus
-- Topics RU: животное; животные; птицы; насекомые; эстонский язык; родной язык; слово; упражнение
-- Topics EN: animal; animals; birds; insects; Estonian language; mother tongue; word; exercise
-- Headings: Toiduahel. Tunded; Hirmsad elukad; Lugu lõksu jäänud hundist; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus; Harjutus 1a; Harjutus 1b; Kas oskad?; Lõpulaulu loomad; Hunt; Hundi nädala söögikogus; Kas tead?
-
-### 345. Puu eluring. Linnaloodus
-- URL: https://www.opiq.ee/kit/330/chapter/18525
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.4
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: taim; taimed; puu; lill; eluring; linnaloodus; väike; park; lugu; vanast; tammest; tõrudest; kopast; eesti keel; emakeel
-- Topics RU: растение; растения; дерево; цветок; эстонский язык; родной язык
-- Topics EN: plant; plants; tree; flower; Estonian language; mother tongue
-- Headings: Puu eluring. Linnaloodus; Väike park; Lugu vanast tammest, tõrudest ja kopast; Laula kaasa; Nuputa; Kas oskad?; Puude viljad; Tõrud ja pähklid; Eesti 100 tamme; Kas tead?
-
-### 346. ÕED JA VENNAD
+### 324. ÕED JA VENNAD
 - URL: https://www.opiq.ee/kit/126/chapter/6740
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5566,23 +5214,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: ÕED JA VENNAD; 1. LOEME KOOS!; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül
 
-### 347. Looduslik tasakaal. Putukatõrje
-- URL: https://www.opiq.ee/kit/330/chapter/18526
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.5
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: looduslik; tasakaal; putukatõrje; lepatriinu; lehetäi; lugu; põllul; aias; elavatest; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Looduslik tasakaal. Putukatõrje; Lepatriinu ja lehetäi; Lugu põllul ja aias elavatest putukatest ning putukatõrjest; Laula kaasa; Nuputa; Kas oskad?; Toiduahel; Lepatriinu; Kas tead?
-
-### 348. VANAEMA JA VANAISA
+### 325. VANAEMA JA VANAISA
 - URL: https://www.opiq.ee/kit/126/chapter/6741
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5598,7 +5230,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: VANAEMA JA VANAISA; 1. LOEME KOOS!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1; LISAÜLESANNE 2
 
-### 349. MINU SÕBRAD
+### 326. MINU SÕBRAD
 - URL: https://www.opiq.ee/kit/126/chapter/6742
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5614,23 +5246,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU SÕBRAD; 1. VASTA KÜSIMUSTELE!; 2. LOEME KOOS!; 3. RÄÄGI!; 4. E-ÜLESANNE; E-ül
 
-### 350. Milleks on vaja hekki?
-- URL: https://www.opiq.ee/kit/330/chapter/18527
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.6
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: milleks; vaja; hekki; armunud; siil; lugu; lindude; loomade; putukate; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Milleks on vaja hekki?; Armunud siil; Lugu lindude, loomade ja putukate kodust; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus 1a; Harjutus 1b; Kas oskad?; Mida siil sööb?; Heki istutamine; Kas tead?
-
-### 351. MINU KLASS
+### 327. MINU KLASS
 - URL: https://www.opiq.ee/kit/126/chapter/6743
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5646,23 +5262,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU KLASS; 1. VASTA KÜSIMUSTELE!; 2. E-ÜLESANNE; E-ül; 3. LOEME KOOS! TEE KAASA!; VAATA, MIS MUL ON!; 4. RÄÄGI!
 
-### 352. Saastatud linnaõhk
-- URL: https://www.opiq.ee/kit/330/chapter/18528
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.7
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: saastatud; linnaõhk; õhku; lugu; sõidukitest; linnaõhust; laula; kaasa; nuputa; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Saastatud linnaõhk; Õhku, õhku!; Lugu sõidukitest ja linnaõhust; Laula kaasa; Nuputa; Kas tead?; Õhukiht; Kooli autoga või jalgrattaga?
-
-### 353. MINU ÕPETAJA
+### 328. MINU ÕPETAJA
 - URL: https://www.opiq.ee/kit/126/chapter/6744
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5678,23 +5278,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU ÕPETAJA; 1. ÕIGE VÕI VALE?; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 354. Reostunud jõevesi
-- URL: https://www.opiq.ee/kit/330/chapter/18529
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.8
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: vesi; veeohutus; veekogu; reostunud; jõevesi; lugu; puhtast; reostatud; jõeveest; laula; kaasa; eesti keel; emakeel; sõna; harjutus
-- Topics RU: вода; безопасность на воде; водоём; эстонский язык; родной язык; слово; упражнение
-- Topics EN: water; water safety; body of water; Estonian language; mother tongue; word; exercise
-- Headings: Reostunud jõevesi; Vesi on elu; Lugu puhtast ja reostatud jõeveest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Vee kasutus; Reovesi; Kas tead?
-
-### 355. MINU ÕPETAJALE MEELDIB
+### 329. MINU ÕPETAJALE MEELDIB
 - URL: https://www.opiq.ee/kit/126/chapter/6745
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5710,39 +5294,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU ÕPETAJALE MEELDIB; MINU ÕPETAJALE MEELDIB …; 1. RÄÄGI SÕBRAGA!; 2. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 356. Reovee puhastamine
-- URL: https://www.opiq.ee/kit/330/chapter/18530
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 1.9
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: reovee; puhastamine; lugu; puhastamisest; laula; kaasa; nuputa; sõnad; selgeks; eesti keel; emakeel; sõna; harjutus
-- Topics RU: эстонский язык; родной язык; слово; упражнение
-- Topics EN: Estonian language; mother tongue; word; exercise
-- Headings: Reovee puhastamine; Vee lugu; Lugu vee puhastamisest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Vee omadused; Veepuhastusjaam; Kas tead?
-
-### 357. Impressum
-- URL: https://www.opiq.ee/kit/330/chapter/18549
-- Book: Sissejuhatus
-- Book ID: 1k_minu_vaike_kallis_planeet_est
-- Chapter ID: 2.1
-- Class: 1
-- Language: et
-- Publisher: Avita
-- Subject ET: eesti keel
-- Subject RU: эстонский язык
-- Subject EN: Estonian language
-- Topics ET: impressum; eesti keel; emakeel
-- Topics RU: эстонский язык; родной язык
-- Topics EN: Estonian language; mother tongue
-- Headings: Impressum
-
-### 358. MINU KODULINN
+### 330. MINU KODULINN
 - URL: https://www.opiq.ee/kit/126/chapter/6750
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5758,7 +5310,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU KODULINN; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül
 
-### 359. VANAEMA JUURES
+### 331. VANAEMA JUURES
 - URL: https://www.opiq.ee/kit/126/chapter/6759
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5774,7 +5326,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: VANAEMA JUURES; 1. LÕPETA LAUSED!; E-ül; 2. LOEME KOOS!; 3. RÄÄGI!; LISAÜLESANNE 1
 
-### 360. NÜÜD MA OSKAN
+### 332. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6760
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5790,7 +5342,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; reading
 - Headings: NÜÜD MA OSKAN; 1. LOE JA RÄÄGI!; 2. LOE!; 3. MIDA SINA TEED? ÜTLE JA NÄITA!; E-ül; 4. LOEME KOOS!; 5. RÄÄGI!
 
-### 361. MINU LEMMIKKOHAD
+### 333. MINU LEMMIKKOHAD
 - URL: https://www.opiq.ee/kit/126/chapter/6751
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5806,7 +5358,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU LEMMIKKOHAD; 1. ÕIGE VÕI VALE?; E-ül; 2. LOEME KOOS!; 3. RÄÄGI!
 
-### 362. MINU KODU
+### 334. MINU KODU
 - URL: https://www.opiq.ee/kit/126/chapter/6752
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5822,7 +5374,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU KODU; 1. VASTA KÜSIMUSTELE!; 2. LAULAME KOOS!; MU KODUKE; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 363. MEIE KODU TOAD
+### 335. MEIE KODU TOAD
 - URL: https://www.opiq.ee/kit/126/chapter/6753
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5838,7 +5390,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MEIE KODU TOAD; 1. KUS NEED ASJAD KÄIVAD? MIS TUBA SEE ON?; 2. LOEME KOOS!; MINU KODU; 3. RÄÄGI!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 364. ELUTUBA
+### 336. ELUTUBA
 - URL: https://www.opiq.ee/kit/126/chapter/6754
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5854,7 +5406,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; picture
 - Headings: ELUTUBA; 1. VAATA PILTI! RÄÄGI, MIDA KEEGI TEEB.; 2. ÕIGE VÕI VALE?; 3. LOEME KOOS!; 4. RÄÄGI SÕBRAGA!; 5. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 365. MINU TUBA
+### 337. MINU TUBA
 - URL: https://www.opiq.ee/kit/126/chapter/6755
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5870,7 +5422,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU TUBA; 1. RÄÄGI!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 366. ISADEPÄEV
+### 338. ISADEPÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6756
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5886,7 +5438,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: ISADEPÄEV; 1. ÕIGE VÕI VALE?; E-ül; 2. LOEME KOOS!; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 367. KORISTAME KODU!
+### 339. KORISTAME KODU!
 - URL: https://www.opiq.ee/kit/126/chapter/6757
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5902,7 +5454,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; picture
 - Headings: KORISTAME KODU!; 1. VAATA PILTE! MIDA KEEGI TEEB?; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül
 
-### 368. KÜLALISED
+### 340. KÜLALISED
 - URL: https://www.opiq.ee/kit/126/chapter/6758
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5918,7 +5470,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; picture
 - Headings: KÜLALISED; 1. MILLINE ON ÕIGE PILT?; E-ül; 2. E-ÜLESANNE; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 369. SÜNNIPÄEV
+### 341. SÜNNIPÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6761
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5934,7 +5486,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: SÜNNIPÄEV; 1. VASTA KÜSIMUSTELE!; 2. E-ÜLESANNE; E-ül; 3. LAULAME KOOS!; SÜNNIPÄEVAKS; 4. RÄÄGI!; LISAÜLESANNE 1
 
-### 370. SÜNNIPÄEVAPIDU
+### 342. SÜNNIPÄEVAPIDU
 - URL: https://www.opiq.ee/kit/126/chapter/6762
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5950,7 +5502,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: SÜNNIPÄEVAPIDU; 1. TEE NII!; 2. E-ÜLESANNE; E-ül
 
-### 371. NÄDAL
+### 343. NÄDAL
 - URL: https://www.opiq.ee/kit/126/chapter/6763
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5966,7 +5518,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: NÄDAL; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 372. KUUD
+### 344. KUUD
 - URL: https://www.opiq.ee/kit/126/chapter/6764
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5982,7 +5534,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: KUUD; 1. ÕIGE VÕI VALE?; E-ül; 2. JÄTA MEELDE!; LISAÜLESANNE 1
 
-### 373. AASTAAJAD
+### 345. AASTAAJAD
 - URL: https://www.opiq.ee/kit/126/chapter/6765
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -5998,7 +5550,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: seasons; spring; summer; autumn; winter; Estonian language; mother tongue
 - Headings: AASTAAJAD; 1. JÄTA MEELDE!; 2. LOEME KOOS!; 3. RÄÄGI!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 374. JÕULUD KOOLIS
+### 346. JÕULUD KOOLIS
 - URL: https://www.opiq.ee/kit/126/chapter/6766
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6014,7 +5566,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: JÕULUD KOOLIS; Š, Z, Ž; 1. MIS SEE ON?; 2. LAULAME KOOS!; METSAS SIRGUS KUUSEKE; 3. RÄÄGI!; 4. E-ÜLESANNE; E-ül
 
-### 375. JÕULUD KODUS
+### 347. JÕULUD KODUS
 - URL: https://www.opiq.ee/kit/126/chapter/6767
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6030,7 +5582,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: JÕULUD KODUS; C, Q, W, X, Y; 1. ÕIGE VÕI VALE?; E-ül; 2. LOEME KOOS!; PÄKAPIKK; 3. E-ÜLESANNE; 4. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 376. NÜÜD MA OSKAN
+### 348. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6768
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6046,7 +5598,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: NÜÜD MA OSKAN; 1. RÄÄGI PIIA SÜNNIPÄEVAST!; 2. VASTA KÜSIMUSTELE!; 3. LOEME KOOS!; 4. LOEME KOOS!; DETSEMBER; 5. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 377. JÕULUVAHEAEG
+### 349. JÕULUVAHEAEG
 - URL: https://www.opiq.ee/kit/126/chapter/6769
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6062,7 +5614,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: JÕULUVAHEAEG; 1. LÕPETA LAUSED!; E-ül; 2. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 378. KUIDAS OLLA TERVE?
+### 350. KUIDAS OLLA TERVE?
 - URL: https://www.opiq.ee/kit/126/chapter/6778
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6078,7 +5630,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: KUIDAS OLLA TERVE?; 1. VALI ÕIGE VARIANT!; E-ül; 2. LAULAME KOOS!; HANEPOJAD; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 379. SÕBRAPÄEV
+### 351. SÕBRAPÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6779
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6094,7 +5646,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: SÕBRAPÄEV; 1. ÕIGE VÕI VALE?; E-ül; 2. LOEME KOOS!; SÕBRALE​; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 380. TÜLI KOOLIS
+### 352. TÜLI KOOLIS
 - URL: https://www.opiq.ee/kit/126/chapter/6780
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6110,7 +5662,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: TÜLI KOOLIS; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül
 
-### 381. PALUN VABANDUST!
+### 353. PALUN VABANDUST!
 - URL: https://www.opiq.ee/kit/126/chapter/6781
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6126,7 +5678,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: PALUN VABANDUST!; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül
 
-### 382. NÜÜD MA OSKAN
+### 354. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6782
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6142,7 +5694,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: time; calendar; Estonian language; mother tongue
 - Headings: NÜÜD MA OSKAN; 1. HARJUTA!; 2. KES ISTUB BUSSIS EES / KESKEL / TAGA?; 3. KELL ON ...; 4. TÕUSE PÜSTI!; 5. E-ÜLESANNE; E-ül; 6. RÄÄGI!
 
-### 383. KOOLITEE
+### 355. KOOLITEE
 - URL: https://www.opiq.ee/kit/126/chapter/6770
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6158,7 +5710,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: KOOLITEE; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 384. MINU KOOL
+### 356. MINU KOOL
 - URL: https://www.opiq.ee/kit/126/chapter/6771
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6174,7 +5726,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence; picture
 - Headings: MINU KOOL; 1. LÕPETA LAUSED.; 2. VAATA PILTI, ÜTLE JA NÄITA!; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül
 
-### 385. MINU KLASSIRUUM
+### 357. MINU KLASSIRUUM
 - URL: https://www.opiq.ee/kit/126/chapter/6772
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6190,7 +5742,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: MINU KLASSIRUUM; 1. LÕPETA LAUSED!; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 386. KOOLIKORD
+### 358. KOOLIKORD
 - URL: https://www.opiq.ee/kit/126/chapter/6773
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6206,7 +5758,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: KOOLIKORD; 1. ÕIGE VÕI VALE?; E-ül; 2. LOEME KOOS!; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 387. MINU HOMMIK
+### 359. MINU HOMMIK
 - URL: https://www.opiq.ee/kit/126/chapter/6774
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6222,7 +5774,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: time; calendar; Estonian language; mother tongue
 - Headings: MINU HOMMIK; 1. ÕIGE VÕI VALE?; E-ül; 2. MIS KELL ON?; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 388. MINU PÄEV
+### 360. MINU PÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6775
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6238,7 +5790,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: time; calendar; Estonian language; mother tongue
 - Headings: MINU PÄEV; 1. MIDA TEEB PIIA KELL … ?; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 389. MINU ÕHTU
+### 361. MINU ÕHTU
 - URL: https://www.opiq.ee/kit/126/chapter/6776
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6254,7 +5806,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: MINU ÕHTU; 1. KUJUTA ETTE, ET SA OLED PIIA.; 2. LOEME KOOS!; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 390. KEHAOSAD
+### 362. KEHAOSAD
 - URL: https://www.opiq.ee/kit/126/chapter/6777
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6270,7 +5822,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: KEHAOSAD; 1. RÄÄGI!; 2. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 391. EESTI SÜNNIPÄEV
+### 363. EESTI SÜNNIPÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6783
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6286,7 +5838,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: EESTI SÜNNIPÄEV; 1. ÕIGE VÕI VALE?; E-ül; 2. MIS VÄRVI ON EESTI SÜMBOLID? RÄÄGI!; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 392. NÜÜD MA OSKAN
+### 364. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6792
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6302,7 +5854,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; word; reading
 - Headings: NÜÜD MA OSKAN; 1. LOE JA RÄÄGI.; 2. E-ÜLESANNE; E-ül; 3. MIS SÕNAD ON PUUDU?; 4. RÄÄGI!; LISAÜLESANNE 1
 
-### 393. VASTLAPÄEV
+### 365. VASTLAPÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6784
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6318,7 +5870,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: VASTLAPÄEV; 1. LÕPETA LAUSED!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 394. LAULUPIDU
+### 366. LAULUPIDU
 - URL: https://www.opiq.ee/kit/126/chapter/6785
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6334,7 +5886,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: LAULUPIDU; 1. VASTA KÜSIMUSTELE!; 2. LAULAME KOOS! TEE KAASA!; KUI SUL TUJU HEA; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 395. EESTI TOIT
+### 367. EESTI TOIT
 - URL: https://www.opiq.ee/kit/126/chapter/6786
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6350,7 +5902,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; picture
 - Headings: EESTI TOIT; 1. MILLINE ON ÕIGE PILT? RÄÄGI!; 2. NÄITA JA ÜTLE!; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül
 
-### 396. LEMMIKMULTIKAS
+### 368. LEMMIKMULTIKAS
 - URL: https://www.opiq.ee/kit/126/chapter/6787
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6366,7 +5918,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: LEMMIKMULTIKAS; 1. ÕIGE VÕI VALE?; E-ül; 2. RÄÄGI SÕBRAGA!
 
-### 397. NUKUTEATER
+### 369. NUKUTEATER
 - URL: https://www.opiq.ee/kit/126/chapter/6788
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6382,7 +5934,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: NUKUTEATER; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI SÕBRAGA!; 3. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 398. METSLOOMAD
+### 370. METSLOOMAD
 - URL: https://www.opiq.ee/kit/126/chapter/6789
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6398,7 +5950,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: METSLOOMAD; 1. E-ÜLESANNE; E-ül; 2. KES SEE ON? MIS VÄRVI TA ON?; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE
 
-### 399. OTEPÄÄ
+### 371. OTEPÄÄ
 - URL: https://www.opiq.ee/kit/126/chapter/6790
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6414,7 +5966,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: OTEPÄÄ; 1. KES MIDA TEEB? RÄÄGI!; 2. RÄÄGI!; 3. E-ÜLESANNE; E-ül
 
-### 400. PÄRNU
+### 372. PÄRNU
 - URL: https://www.opiq.ee/kit/126/chapter/6791
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6430,7 +5982,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: PÄRNU; 1. LÕPETA LAUSED!; 2. NÄITA JA ÜTLE! MIDA SA RANNAS TEED?; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 401. EMA HOBID
+### 373. EMA HOBID
 - URL: https://www.opiq.ee/kit/126/chapter/6793
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6446,7 +5998,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: EMA HOBID; 1. LÕPETA LAUSED!; 2. LOEME KOOS!; PATSU-PATSU KOOKI; 3. RÄÄGI!; 4. E-ÜLESANNE; E-ül
 
-### 402. ISA HOBID
+### 374. ISA HOBID
 - URL: https://www.opiq.ee/kit/126/chapter/6794
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6462,7 +6014,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: ISA HOBID; 1. ÕIGE VÕI VALE?; E-ül; 2. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 403. LIHAVÕTTED
+### 375. LIHAVÕTTED
 - URL: https://www.opiq.ee/kit/126/chapter/6795
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6478,7 +6030,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: LIHAVÕTTED; 1. VASTA KÜSIMUSTELE!; 2. LOEME KOOS!; 3. E-ÜLESANNE; E-ül; 4. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 404. MARGUSE HOBI
+### 376. MARGUSE HOBI
 - URL: https://www.opiq.ee/kit/126/chapter/6796
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6494,7 +6046,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; reading
 - Headings: MARGUSE HOBI; 1. VASTA KÜSIMUSTELE!; 2. MIS NEED ON? LOE!; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; 5. E-ÜLESANNE
 
-### 405. PIIA JA MEELISE HOBID
+### 377. PIIA JA MEELISE HOBID
 - URL: https://www.opiq.ee/kit/126/chapter/6797
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6510,7 +6062,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: PIIA JA MEELISE HOBID; 1. VASTA KÜSIMUSTELE!; 2. LOEME KOOS!; 3. RÄÄGI!; 4. E-ÜLESANNE; E-ül
 
-### 406. MÄNGURING
+### 378. MÄNGURING
 - URL: https://www.opiq.ee/kit/126/chapter/6798
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6526,7 +6078,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: MÄNGURING; 1. LÕPETA LAUSED!; 2. LAULAME JA MÄNGIME!; KES AIAS?; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 407. NÜÜD MA OSKAN
+### 379. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6799
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6542,7 +6094,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; word; reading
 - Headings: NÜÜD MA OSKAN; 1. LOE JA RÄÄGI!; 2. LAULAME JA MÄNGIME!; KAKS SAMMU SISSEPOOLE; 3. MIS SÕNAD ON PUUDU?; 4. RÄÄGI!; 5. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 408. PIIA HELISTAB VANAEMA HELMILE
+### 380. PIIA HELISTAB VANAEMA HELMILE
 - URL: https://www.opiq.ee/kit/126/chapter/6800
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6558,7 +6110,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: PIIA HELISTAB VANAEMA HELMILE; 1. ÕIGE VÕI VALE?; E-ül; 2. LOEME KOOS!; KALLIS VANAEMA; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 409. EMADEPÄEV
+### 381. EMADEPÄEV
 - URL: https://www.opiq.ee/kit/126/chapter/6801
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6574,7 +6126,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: EMADEPÄEV; 1. VASTA KÜSIMUSTELE!; 2. LAULAME KOOS!; SULLE, EMAKE; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 410. ARVUTI
+### 382. ARVUTI
 - URL: https://www.opiq.ee/kit/126/chapter/6802
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6590,7 +6142,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: ARVUTI; 1. VASTA KÜSIMUSTELE!; 2. RÄÄGI!; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 411. LÄHME POODI!
+### 383. LÄHME POODI!
 - URL: https://www.opiq.ee/kit/126/chapter/6803
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6606,7 +6158,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; sentence
 - Headings: LÄHME POODI!; 1. LÕPETA LAUSED!; E-ül; 2. NÄITA JA ÜTLE!; 3. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 412. RAHA
+### 384. RAHA
 - URL: https://www.opiq.ee/kit/126/chapter/6804
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6622,7 +6174,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: euro; cent; Estonian language; mother tongue; sentence
 - Headings: RAHA; 1. LÕPETA LAUSED!; 2. LOEME KOOS!; 3. E-ÜLESANNE; E-ül; 4. RÄÄGI SÕBRAGA!; LISAÜLESANNE 1
 
-### 413. EKSKURSIOON
+### 385. EKSKURSIOON
 - URL: https://www.opiq.ee/kit/126/chapter/6805
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6638,7 +6190,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; picture
 - Headings: EKSKURSIOON; 1. VAATA PILTI!; 2. ÕIGE VÕI VALE?; E-ül; 3. LAULAME KOOS!; KOER MUKI; 4. RÄÄGI SÕBRAGA!; 5. E-ÜLESANNE; LISAÜLESANNE 1
 
-### 414. LAAGER
+### 386. LAAGER
 - URL: https://www.opiq.ee/kit/126/chapter/6806
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6654,7 +6206,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: LAAGER; 1. VASTA KÜSIMUSTELE!; 2. LOEME KOOS!; 3. LOEME KOOS!; PÄIKENE; 4. RÄÄGI SÕBRAGA!; 5. E-ÜLESANNE; E-ül; LISAÜLESANNE 1
 
-### 415. MINU SUVI
+### 387. MINU SUVI
 - URL: https://www.opiq.ee/kit/126/chapter/6807
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6670,7 +6222,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: seasons; spring; summer; autumn; winter; Estonian language; mother tongue; sentence
 - Headings: MINU SUVI; 1. LÕPETA LAUSED!; 2. MIDA SINA SUVEL TEED?; 3. RÄÄGI SÕBRAGA!; 4. E-ÜLESANNE; E-ül
 
-### 416. NÜÜD MA OSKAN
+### 388. NÜÜD MA OSKAN
 - URL: https://www.opiq.ee/kit/126/chapter/6808
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6686,7 +6238,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; word; reading
 - Headings: NÜÜD MA OSKAN; 1. LOE JA RÄÄGI!; 2. LOEME KOOS!; 3. MIS SÕNAD ON PUUDU?; 4. RÄÄGI!; 5. E-ÜLESANNE; E-ül; ILUSAT SUVE!
 
-### 417. Sõnastik
+### 389. Sõnastik
 - URL: https://www.opiq.ee/kit/126/chapter/6809
 - Book: Sissejuhatus
 - Book ID: 1k_eesti_keel_koolibri3_est
@@ -6702,7 +6254,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; word
 - Headings: Sõnastik
 
-### 418. Teose kirjeldus
+### 390. Teose kirjeldus
 - URL: https://www.opiq.ee/kit/586/chapter/32576
 - Book: Teose kirjeldus
 - Book ID: 1k_eesti_keel_kuulamis_est
@@ -6718,7 +6270,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: Teose kirjeldus
 
-### 419. Hääldusharjutused
+### 391. Hääldusharjutused
 - URL: https://www.opiq.ee/kit/586/chapter/32577
 - Book: Teose kirjeldus
 - Book ID: 1k_eesti_keel_kuulamis_est
@@ -6734,7 +6286,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; exercise
 - Headings: Hääldusharjutused
 
-### 420. Kuulamisülesanded
+### 392. Kuulamisülesanded
 - URL: https://www.opiq.ee/kit/586/chapter/32578
 - Book: Teose kirjeldus
 - Book ID: 1k_eesti_keel_kuulamis_est
@@ -6750,7 +6302,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; listening
 - Headings: Kuulamisülesanded
 
-### 421. Impressum
+### 393. Impressum
 - URL: https://www.opiq.ee/kit/586/chapter/32579
 - Book: Teose kirjeldus
 - Book ID: 1k_eesti_keel_kuulamis_est
@@ -6766,7 +6318,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue
 - Headings: Impressum
 
-### 422. TÄHESTIK
+### 394. TÄHESTIK
 - URL: https://www.opiq.ee/kit/558/chapter/31377
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6782,7 +6334,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: TÄHESTIK
 
-### 423. KES PÄÄSTAB MAAILMA?
+### 395. KES PÄÄSTAB MAAILMA?
 - URL: https://www.opiq.ee/kit/558/chapter/31378
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6798,7 +6350,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: KES PÄÄSTAB MAAILMA?
 
-### 424. MIDA ME SELLEL NÄDALAL TEEME?
+### 396. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31379
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6814,7 +6366,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sound
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; KLASSIS; JÄRGMISTES TUNDIDES; • SÕLMIME KLASSI KOKKULEPPED; • SAAME OMAVAHEL TUTTAVAKS; • HARJUTAME A-, E- JA I-TÄHTE; • SELGITAME, MIS ON TÄHT JA MIS ON HÄÄLIK; • MIS PILDIL TOIMUB?; • MIS PANEB SIND NII ARVAMA?; • MIDA TAHAKSID VEEL PILDI KOHTA ÖELDA?
 
-### 425. SALAPÄRASED JÄLJED. AKTUS, FÄNNID JA NOOR VÕLUR
+### 397. SALAPÄRASED JÄLJED. AKTUS, FÄNNID JA NOOR VÕLUR
 - URL: https://www.opiq.ee/kit/558/chapter/31380
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6830,7 +6382,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; reading
 - Headings: SALAPÄRASED JÄLJED. AKTUS, FÄNNID JA NOOR VÕLUR; EMA AJAB ISA PESEMA. ​ISA KAOB VANNITUPPA. ​SEALT KOSTAB URINAT. ​PIIA VIIB ISALE TASSI KOHVI. ​SEE RÕÕMUSTAB ISA. ​PIIA ON JUBA VALMIS JA OOTAB.; • MILLINE TEGEVUS ON PILDIL? RÄÄGI.; • MIS ON KLASSIS SOBILIK?; • LOE ÜHE KLASSI KOKKULEPPEID.; • MISSUGUSED ON SINU KLASSI KOKKULEPPED?; • KAS TAHAKSID MIDAGI LISADA?; ● MILLISE KOKKULEPPE TÄITMINE ON SUL TÄNA JUBA HÄSTI VÄLJA TULNUD?; ● RIPUTAGE KOKKULEPPED KA KLASSI SEINALE.
 
-### 426. KOOGID, PUUDEL JA PRANTSUSE MEES
+### 398. KOOGID, PUUDEL JA PRANTSUSE MEES
 - URL: https://www.opiq.ee/kit/558/chapter/31373
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6846,7 +6398,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: KOOGID, PUUDEL JA PRANTSUSE MEES; • KAUNISTA JA VÄRVI PILDIRAAM.; • LEIA PILDILT 10 AABITSAT.; • TUTVUSTA ENNAST. TÄIDA LÜNGAD.; TUTVUSTA ENNAST.; • MIDA VÕIKS TEHA KLASSI HOMMIKURINGIS?; • ARUTLEGE KLASSIS. MILLINE TEGEVUS ON PUUDU?
 
-### 427. TÄHELEPANU, VALMIS, START!
+### 399. TÄHELEPANU, VALMIS, START!
 - URL: https://www.opiq.ee/kit/558/chapter/31374
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6862,7 +6414,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing
 - Headings: TÄHELEPANU, VALMIS, START!; TARKUS TULEB TASAPISI; ASTER​AKEN​AABITS; KAPP​KLASS​VAAS; ANNA​ÕPETAJA LAURA​AASTA; 1. KELLE NIMES ON A?; 2. KIRJUTA PUUDUV TÄHT.; 3B. MILLISED HUVID LASTEL ON?; 3A. MILLISED HUVID LASTEL ON?
 
-### 428. KARVANE ÜLLATUS
+### 400. KARVANE ÜLLATUS
 - URL: https://www.opiq.ee/kit/558/chapter/31375
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6878,7 +6430,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sound; word
 - Headings: KARVANE ÜLLATUS; HEAL TÖÖL KÄIB KASU KANNUL; ISA ​ILVES ​IIRIS; SILM​AABITS​HIIR; VÕTI​HARI​NAGI; KAPIST KOSTAB PORIN. ​SIIS ILMUB KAPIST VÄLJA PISIKE ELUKAS. NIISUGUST POLE LAPSED VEEL IIALGI NÄINUD.; 4. MILLISED TÄHED ON KORRAPIDAJA ÄRA KUSTUTANUD?; 5. MILLISES SÕNAS EI OLE I-TÄHTE?; 6C. MITU HÄÄLIKUT ON SÕNAS?; 6A. MITU HÄÄLIKUT ON SÕNAS?; 6B. MITU HÄÄLIKUT ON SÕNAS?
 
-### 429. EKSEMPLAR NUMBER 186 (I)
+### 401. EKSEMPLAR NUMBER 186 (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31376
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6894,7 +6446,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: time; calendar; euro; cent; Estonian language; mother tongue; letter; alphabet; sound; word
 - Headings: EKSEMPLAR NUMBER 186 (I); SÖÖBIK TEEB SÄÄRED; EURO​ELUKAS​EESTI KEEL; KELL​KÄED​LEIB; KARVANE​TEE​TEGELANE; 7. KLASSIS ON VEEL KEEGI. KES?; 8C. MILLISED SÕNAD KÕLAVAD SARNASELT?; 8A. MIS ON PILDIL?; 8B. MIS SÕNADES ON E-TÄHT?; 9. MITU TÄHTE JA MITU HÄÄLIKUT ON SÕNAS.
 
-### 430. EKSEMPLAR NUMBER 186 (II)
+### 402. EKSEMPLAR NUMBER 186 (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31381
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6910,7 +6462,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: EKSEMPLAR NUMBER 186 (II); LAPSED NEELASID KEELE ALLA
 
-### 431. MIDA ME SELLEL NÄDALAL TEEME?
+### 403. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31425
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6926,7 +6478,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence; writing; story; storytelling
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; LOODUSES; JÄRGMISTES TUNDIDES; • jutustame, kuidas loodusele head teha; • õpime tundma Eesti rahvuslooma; • kordame liitsõnu; • loeme tähestikku; • kirjutame lause lõppu sobiva märgi (.!?); • Mis sellel pildil toimub?; • Mis paneb sind nii arvama?; • Milliseid taimi ja loomi sellel pildil näed?
 
-### 432. ISADEPÄEVA ÖÖMATK (I)
+### 404. ISADEPÄEVA ÖÖMATK (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31422
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6942,7 +6494,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence; writing
 - Headings: ISADEPÄEVA ÖÖMATK (I); ISA SÜDA LASTE KÜLJES; 104. Kirjuta puuduvad tähed.; 105. Mida läheb matkal vaja?; 106. Milliseid loomi on võimalik looduses kohata?; 107. Ühenda ühesugused laused.; 108. Pane lause lõppu punkt.
 
-### 433. ISADEPÄEVA ÖÖMATK (II)
+### 405. ISADEPÄEVA ÖÖMATK (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31426
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6958,7 +6510,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: ISADEPÄEVA ÖÖMATK (II); KES RAIUB PUID ILMA KIRVETA?
 
-### 434. TOIDUJAGAMISE PÄEV (I)
+### 406. TOIDUJAGAMISE PÄEV (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31423
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6974,7 +6526,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence; writing
 - Headings: TOIDUJAGAMISE PÄEV (I); MÕNEL PEREL ON KITSAS KÄES; LIISA-LOTTA EMA TÕSTAB IGASSE KASTI KILO APELSINE. ​LAPSED AITAVAD PAKKE KOKKU PANNA. ​TÄNU NEILE SAAB MITUSADA PERET KÕHU TÄIS. ​MÕNEL LAPSEL ON KODUS KAPP TÜHI. ​MÕNED LAPSED SAAVAD PUUVILJU HARVA. ​MÕNES KOHAS VISATAKSE TOITU ÄRA. ​SEAL ON TOITU ÜLE.; 109. Ühenda küsimus ja vastus.; 110. Mis sobib kasti panna?; 111. Kirjuta lause lõppu hüüumärk.; 112. Mida kõike võiks panna pitsa peale?
 
-### 435. TOIDUJAGAMISE PÄEV (II)
+### 407. TOIDUJAGAMISE PÄEV (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31424
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -6990,7 +6542,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: TOIDUJAGAMISE PÄEV (II); KELLEL NÄLG, SELLEL JALG; 113B. Prügi sorteerimine; 113A. Mis täht on prügikastil puudu?; 114. Suured ja väikesed tähed
 
-### 436. MIDA ME SELLEL NÄDALAL TEEME?
+### 408. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31431
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7006,7 +6558,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; SÜNNIPÄEVAL; JÄRGMISTES TUNDIDES; • räägime sündmuste tähistamisest; • nimetame erinevaid tähtpäevi; • uurime kalendrit; • vastame teksti põhjal küsimustele; • kordame ainsust ja mitmust; • Mis on pildil?; • Mis paneb sind nii arvama?; • Mis on pildilt puudu?
 
-### 437. KADRIPÄEVA KINGITUS (I)
+### 409. KADRIPÄEVA KINGITUS (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31427
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7022,7 +6574,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: KADRIPÄEVA KINGITUS (I); MART ON ÜLE MAA, KADRI ÜLE KARJA; 115. Ainsus või mitmus?; 116. Millise tordi mamma küpsetas?; 117. Mitu päeva on aastas?; 118. Sünnipäev on tore päev; 119. Leia tähereast rahvakalendri tähtpäevad.
 
-### 438. KADRIPÄEVA KINGITUS (II)
+### 410. KADRIPÄEVA KINGITUS (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31428
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7038,7 +6590,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: KADRIPÄEVA KINGITUS (II); HABE EES, KUID POLE MEES, SARVED ON, KUID POLE LEHM?; 120. Nädalapäevad; 121. Kuupäevad; 122. Kas tunned tähtpäevi?; 123. Lahenda ristsõna.
 
-### 439. KAAMERA JA AABITSAD (I)
+### 411. KAAMERA JA AABITSAD (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31429
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7054,7 +6606,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence
 - Headings: KAAMERA JA AABITSAD (I); INIMESI TUNTAKSE NENDE TEGUDEST; 124. Kes külastas novembris 1.a klassi? Mis juhtus?; 125. Vali õige lauselõpp.
 
-### 440. KAAMERA JA AABITSAD (II)
+### 412. KAAMERA JA AABITSAD (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31430
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7070,7 +6622,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence
 - Headings: KAAMERA JA AABITSAD (II); SUSI SIND SÖÖGU!; 126. Kuidas on üks, kuidas mitu?; 127. Moodusta laused.
 
-### 441. MIDA ME SELLEL NÄDALAL TEEME?
+### 413. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31436
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7086,7 +6638,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; consonant; reading; rhyme
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; RAAMATUKOGUS; JÄRGMISTES TUNDIDES; • räägime lugemisharjumustest; • saame tuttavaks mõne Eesti lastekirjanikuga; • uurime täis- ja kaashäälikuid; • otsime riimuvaid sõnu; • kordame sõnu, mille lõpus on -b või -vad; • Mis on pildil?; • Mis paneb sind nii arvama?; • Mida sa veel soovid pildi kohta öelda?
 
-### 442. SUUR PÄÄSTEPLAAN (I)
+### 414. SUUR PÄÄSTEPLAAN (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31432
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7102,7 +6654,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing
 - Headings: SUUR PÄÄSTEPLAAN (I); JÄI KAHE SILMA VAHELE; 128. Vasta küsimusele.; 129. Kus on lapsed proovinud Sööbikule kodu leida?; 130. Kirjuta pildi juurde, mida Sööbik tunneb.
 
-### 443. SUUR PÄÄSTEPLAAN (II)
+### 415. SUUR PÄÄSTEPLAAN (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31433
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7118,7 +6670,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: comparison; compare; greater; less; Estonian language; mother tongue; letter; alphabet; sentence; reading
 - Headings: SUUR PÄÄSTEPLAAN (II); KUS HÄDA KÕIGE SUUREM, SEAL ABI KÕIGE LÄHEM; 131. Kas tunned Eesti lastekirjanikke?; 132. Milliseid sõnu võiks Laura vennal kodus olla?; 133. Lõpeta lause.; 134. Kuidas sul lugemisega läheb?; 135. Millised raamatud on sellel raamaturiiulil?; 136. Plaaditäis sõnu; 137. Loe sõnu ja ütle, mis on pildil.
 
-### 444. VEEL ÜKS OOTAMATU KOHTUMINE (I)
+### 416. VEEL ÜKS OOTAMATU KOHTUMINE (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31434
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7134,7 +6686,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence; writing
 - Headings: VEEL ÜKS OOTAMATU KOHTUMINE (I); LAPSED ON MUREST MURTUD; 138. Moodusta laused.; 139. Kirjuta -b või -vad.
 
-### 445. VEEL ÜKS OOTAMATU KOHTUMINE (II)
+### 417. VEEL ÜKS OOTAMATU KOHTUMINE (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31435
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7150,7 +6702,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; rhyme
 - Headings: VEEL ÜKS OOTAMATU KOHTUMINE (II); ÜLE ILMA ULATAB, ÜMBER PEA EI ULATA?; 140. Räppari töövahendiks on sõnad ja riimid.; 141. Kuidas leida riime?
 
-### 446. MIDA ME SELLEL NÄDALAL TEEME?
+### 418. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31440
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7166,7 +6718,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; vowel; word; picture
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; SÕBRA JUURES; JÄRGMISTES TUNDIDES; • leiame sarnasusi ja erinevusi oma kaaslastega; • selgitame, kes on hea sõber ja kaaslane; • otsime sõnades täishäälikuühendeid; • vastame teksti põhjal küsimustele; • Millest see pilt kõneleb?; • Mis paneb sind nii arvama?; • Milline vanasõna sulle meeldib?
 
-### 447. VANAD SÕBRAD JA UUED SÕBRAD (I)
+### 419. VANAD SÕBRAD JA UUED SÕBRAD (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31437
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7182,7 +6734,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; vowel
 - Headings: VANAD SÕBRAD JA UUED SÕBRAD (I); ÕIGE SÕBER ON ENAM KUI KULD; 142. Kas tunned oma klassikaaslasi hästi?; 143. Moodusta etteantud tähtedest sõnu.; 144. Täishäälikuühend; 145. Mis on sul klassikaaslasega sarnane, mis on erinev?; 146. Mis värvi on su klassikaaslaste silmad?
 
-### 448. VANAD SÕBRAD JA UUED SÕBRAD (II)
+### 420. VANAD SÕBRAD JA UUED SÕBRAD (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31438
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7198,7 +6750,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: VANAD SÕBRAD JA UUED SÕBRAD (II); VALEL ON SABA TAGA; 147. Leia tähtedest sõna.; 148. Kukimukil oli stuudios palju sõnu.
 
-### 449. POMMUUDIS (I)
+### 421. POMMUUDIS (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31441
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7214,7 +6766,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: POMMUUDIS (I); UUDIS LEVIS NAGU KULUTULI
 
-### 450. POMMUUDIS (II)
+### 422. POMMUUDIS (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31439
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7230,7 +6782,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; writing
 - Headings: POMMUUDIS (II); NAD SOBIVAD NAGU SUKK JA SAABAS; 149. Märgi õige vastus.; 150. Mis on Kukimuki köögikapis?; 151. Milliseid toidusõnu himustas Sööbik?; 152. Kirjuta jutumullidesse, mida võiksid Sõnasööbik ja Kukimuki omavahel arutada.
 
-### 451. MIDA ME SELLEL NÄDALAL TEEME?
+### 423. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31445
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7246,7 +6798,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; story; storytelling; picture
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; ENNE JÕULE; JÄRGMISTES TUNDIDES; • jutustame oma pere jõulutraditsioonidest; • õpime tundma Eesti linnu; • otsime küsimusele tekstist vastuseid; • Millest see pilt kõneleb?; • Mis paneb sind nii arvama?; • Mis võiks pildil veel olla?
 
-### 452. KONTSERT JA KIRI (I)
+### 424. KONTSERT JA KIRI (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31442
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7262,7 +6814,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: KONTSERT JA KIRI (I); SÖÖBIK KAOB KUI TINA TUHKA; 153. Mida teel sinu pere jõulukuul?; 154. Leia jõuludega seotud sõnad; 155. Mis on peidus nendes kingipakkides?; 156. Kuidas jõuavad pakid lasteni?; 157. Joonista töövihikusse oma kingisoov.
 
-### 453. KONTSERT JA KIRI (II)
+### 425. KONTSERT JA KIRI (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31446
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7278,7 +6830,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: KONTSERT JA KIRI (II); LÕPP HEA, KÕIK HEA
 
-### 454. KONTSERT JA KIRI (III)
+### 426. KONTSERT JA KIRI (III)
 - URL: https://www.opiq.ee/kit/558/chapter/31443
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7294,7 +6846,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence
 - Headings: KONTSERT JA KIRI (III); ÜHENDUSES PEITUB JÕUD; 158. Lauselõpumärgid; 159. Kas õige või vale?; 160. Tee lause esimene täht ja lõpumärk töövihikus värviliseks.
 
-### 455. ON VIIMANE PÄEV ENNE JÕULUPÜHI
+### 427. ON VIIMANE PÄEV ENNE JÕULUPÜHI
 - URL: https://www.opiq.ee/kit/558/chapter/31444
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7310,7 +6862,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; sentence; writing
 - Headings: ON VIIMANE PÄEV ENNE JÕULUPÜHI; 161. Värvi töövihikus juhendi järgi.; 162. Kus olid Kukimukil kontserdid?; 163. Kes on kes?; 164. Sama tähendusega väljendid; 165. Vali lausesse sobiv sõna.; 166. Järjesta sõnad nii, et saad kokku vanasõna.; 167. Vanasõnad; 168. Mõistata.; 169. Ühenda töövihikus tähed tähestiku järjekorras.; 170. Kirjuta jõuluvanale kiri.; BINGO
 
-### 456. JÕULULUULETUSED
+### 428. JÕULULUULETUSED
 - URL: https://www.opiq.ee/kit/558/chapter/31447
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7326,7 +6878,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; poem
 - Headings: JÕULULUULETUSED; PIIA JÕULULUULETUS; UKU JÕULULUULETUS; ANNA JÕULULUULETUS; ALEKSI JÕULULUULETUS; LIISA-LOTA JÕULULUULETUS; MARKUSE JÕULULUULETUS
 
-### 457. MIDA ME SELLEL NÄDALAL TEEME?
+### 429. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31385
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7342,7 +6894,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; syllable; word; sentence; story; storytelling
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; KÖÖGIS; JÄRGMISTES TUNDIDES; • NIMETAME MITMESUGUSEID TOITE; • JUTUSTAME OMA SÖÖMISHARJUMUSTEST; • HARJUTAME N-, M- JA L-TÄHTE; • ARUTAME, MIS VAHE ON SILBIL, SÕNAL, LAUSEL; • MOODUSTAME SILPIDEST SÕNU; • MILLISED TOIDUAINED ON PILDIL?; • MIS VÕIKS PILDIL VEEL OLLA?; • MIDA TAHAKSID VEEL PILDI KOHTA ÖELDA?
 
-### 458. KOOGID, KANAD JA БOРЩ
+### 430. KOOGID, KANAD JA БOРЩ
 - URL: https://www.opiq.ee/kit/558/chapter/31382
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7358,7 +6910,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: KOOGID, KANAD JA БOРЩ; TÜHI KÕHT ON KÕIGE PAREM KOKK; NÄITLEJA​NALI​NUPP; HERNES​KANA​MANNA; SEEN​APELSIN​PANN; ISA VAATAB, ​MIDA PIIA KÖÖGIS TEEB.​PIIA LAOB SÕNU LAUALE.​ISA TAHAB PANNKOOKE. ​​NÄMM-NÄMM! TA ON MAIAS​.; 10B. LEIA VASTUSED.; 10A. MILLISTES SÕNADES ON N-TÄHT?; 11C. MIDA ON VAJA, ET TEHA PANNKOOKE?; 11A. MIS ON PILDIL?; 11B. MITU TÄHTE ON SÕNAS?; 12. KUIDAS TEHA BANAANIPANNKOOKE?
 
-### 459. SALAPÄRANE KAST (I)
+### 431. SALAPÄRANE KAST (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31383
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7374,7 +6926,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: plant; plants; tree; flower; Estonian language; mother tongue; letter; alphabet; sound; word; sentence; reading
 - Headings: SALAPÄRANE KAST (I); AUSTA LEIBA, LEIB ON VANEM KUI MEIE; MESI​MUSTIKAS​MAASIKAS; PELMEEN​EMAKEEL​HOMMIK; KOHUPIIM​KREEM​KOMM; 13B. M KÕLAB PIKALT.; 13A. MIS ON PILDIL? HÄÄLI.; 14. PUU- JA KÖÖGIVILJAD.; 15. LOE JA VASTA.; 16. HÄÄLIK, TÄHT, SÕNA JA LAUSE.
 
-### 460. SALAPÄRANE KAST (II)
+### 432. SALAPÄRANE KAST (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31384
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7390,7 +6942,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: time; calendar; Estonian language; mother tongue; letter; alphabet; word; reading
 - Headings: SALAPÄRANE KAST (II); SÖÖBIK LASEB LEIBA LUUSSE; LEIB​LAUPÄEV​LIISA-LOTTA; SILM​KLASS​NELI; NÄDAL​MOOSIPALL​KELL; 17. MIDA SÜÜA LÕUNA- VÕI ÕHTUSÖÖGIKS?; 18. MIDA LÄHEB KOKAL VAJA?; 19. LOE IGA SÕNA ESIMENE TÄHT. MILLISE SOOVI SAAD?
 
-### 461. SÖÖBIK SÖÖBIKUTE HÕIMKONNAST
+### 433. SÖÖBIK SÖÖBIKUTE HÕIMKONNAST
 - URL: https://www.opiq.ee/kit/558/chapter/31386
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7406,7 +6958,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: SÖÖBIK SÖÖBIKUTE HÕIMKONNAST; OMA SILM ON KUNINGAS
 
-### 462. MIDA ME SELLEL NÄDALAL TEEME?
+### 434. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31390
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7422,7 +6974,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: half; Estonian language; mother tongue; letter; alphabet; vowel; word
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; KOOLI- JA KODUTEEL; JÄRGMISTES TUNDIDES; • NÄITAME, KUS ON PAREM JA KUS VASAK POOL; • SELGITAME, KUIDAS OHUTULT KOOLI JÕUDA; • HARJUTAME O-, Õ- JA Ö-TÄHTE; • NIMETAME TÄISHÄÄLIKUID; • VALIME SÕNASSE ÜHE VÕI KAKS TÄHTE; • MIS PILDIL TOIMUB?; • MIS PANEB SIND NII ARVAMA?; • MIDA TAHAKSID VEEL PILDI KOHTA ÖELDA?
 
-### 463. LIISA-LOTTA VALVURID (I)
+### 435. LIISA-LOTTA VALVURID (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31387
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7438,7 +6990,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; sentence; writing
 - Headings: LIISA-LOTTA VALVURID (I); KOLM PROUAT ON KARVUPIDI KOOS; ONN​OKTOOBER​ORAV; KOLM PROUAT​KOKARAAMAT​KOOLIHOOV; KILO KOMME​KINO​AUTO; 20. LIISA-LOTTA KODUTEE; 21. VALI LAUSESSE ÕIGE SÕNA.; 22B. KIRJUTA ÕIGE SÕNA.; 22A. KIRJUTA KASTI ÕIGE SÕNA.
 
-### 464. LIISA-LOTTA VALVURID (II)
+### 436. LIISA-LOTTA VALVURID (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31388
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7454,7 +7006,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sound; vowel; word; exercise
 - Headings: LIISA-LOTTA VALVURID (II); VANAEMAD PEAVAD SÕNASÕDA; ÕHUPALL​ÕU​ÕUNAKOOK; KÕNNITEE​MÕRA​RÕÕMUS SÕBER; LÕUNASÖÖK​VÕILEIB​VÕÕRAS; 23. KUIDAS ÜLETADA TEED?; 24. O VÕI Õ?; 25. TEISED LIIKLEJAD; 26B. TEE SÕNAS TÄISHÄÄLIKUD PUNASEKS.; 26A. LEIA EELMISEST HARJUTUSEST SÕNA, MILLES ON Õ.; 27. KUIDAS OHUTULT TÕUKE- JA JALGRATTAGA SÕITA?
 
-### 465. KOLLID TEEL (I)
+### 437. KOLLID TEEL (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31389
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7470,7 +7022,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; sentence; writing
 - Headings: KOLLID TEEL (I); HOOLETUS EES, ÕNNETUS TAGA; ÖÖPÄEV​ÖÖKULL​ÖÖBIK; SÖÖKLA​VÖÖTRADA​KÖHA; KODUTÖÖ​TURVAVÖÖ​PÖÖRANE; 28. KAS TUNNED LIIKLUSMÄRKE?; 29B. MÕTLE LAUSEID, MIDA SAAB NENDE SÕNADEGA TEHA.; 29A. KIRJUTA LÜNKA Ö VÕI ÖÖ.; 30. SUUND
 
-### 466. KOLLID TEEL (II)
+### 438. KOLLID TEEL (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31391
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7486,7 +7038,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: KOLLID TEEL (II); PAREM KARTA KUI KAHETSEDA
 
-### 467. MIDA ME SELLEL NÄDALAL TEEME?
+### 439. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31395
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7502,7 +7054,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; consonant; story; storytelling
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; TÖÖL; JÄRGMISTES TUNDIDES; • JUTUSTAME ERINEVATEST AMETITEST; • UNISTAME OMA TULEVIKUTÖÖST; • HARJUTAME R-, S-, U-TÄHTE; • TEEME SELGEKS, MIS VAHE ON TÄIS- JA KAASHÄÄLIKUL; • MIS PILDIL TOIMUB?; • MIS PANEB SIND NII ARVAMA?; • MIDA TAHAKSID VEEL PILDI KOHTA ÖELDA?
 
-### 468. KOOGID JA AMETID
+### 440. KOOGID JA AMETID
 - URL: https://www.opiq.ee/kit/558/chapter/31392
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7518,7 +7070,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing
 - Headings: KOOGID JA AMETID; KES TÖÖD TEEB, SEE RÕÕMU NÄEB; RÕÕM​RAAMAT​ROBOT; JOOKSUTRENN​PARIMAD PRÄÄNIKUD PRANTSUSMAA; HEA SÕBER​TRAKTOR​JALGRATTUR; PIIA PEAB ISA TÖÖ JUURDE RUTTAMA.​PAUL PRÄÄNIK ON AJAKIRJANIK.​TA KIRJUTAB SPORDIST.​PIIA KUTSUB SÕBRAD MEEDIAMAJJA KAASA.; 31. KES TÖÖTAVAD KOHVIKUS?; 32. MIS EI SOBI VEERGU?; 33. LEIA R-TÄHED.; 34. KAUNISTA TORDILÕIK TÖÖVIHIKUS.
 
-### 469. PAUL PRÄÄNIKU RASKE PÄEV (I)
+### 441. PAUL PRÄÄNIKU RASKE PÄEV (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31393
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7534,7 +7086,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: seasons; spring; summer; autumn; winter; Estonian language; mother tongue; letter; alphabet; word
 - Headings: PAUL PRÄÄNIKU RASKE PÄEV (I); ISA VÕIB VAHEL PEA KAOTADA; SOOJAD SUSSID​SÖÖB SÕNU​SOE SUVI; NÄOST ROOSA​PISIKE SÖÖBIK​MUST SEIN; TEETASS​SEITSMES ​KLASS; PIIA ISA TERVITAB LAPSI. ​​ANNA TEEB KNIKSU, ​​ALEKS TEEB VÄIKESE KUMMARDUSE.; 35. KELLEKS TAHAD SAADA?; 36. MIDA KEEGI TEEB?; 37. VALI LÜNKA ÕIGE SÕNA.; 38. KELLEL LÄHEB NEID ASJU TÖÖS VAJA?
 
-### 470. PAUL PRÄÄNIKU RASKE PÄEV (II)
+### 442. PAUL PRÄÄNIKU RASKE PÄEV (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31396
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7550,7 +7102,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: PAUL PRÄÄNIKU RASKE PÄEV (II); AMET EI RIKU MEEST
 
-### 471. LINNUVAATLEJAD
+### 443. LINNUVAATLEJAD
 - URL: https://www.opiq.ee/kit/558/chapter/31394
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7566,7 +7118,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: animal; animals; birds; insects; Estonian language; mother tongue; letter; alphabet; picture
 - Headings: LINNUVAATLEJAD; OOTAJA ÕNGE TULEB KALA; UUS ARVUTI​UHKE USS​UUDIS; KAUNIS LOODUS LINNUHUVILINE​PUTUKAD; SÜGISKUU​KASTANIPUU​KALALUU; UKU ISA TAHAB SARVIKPÜTIST PILTI TEHA. SARVIKPÜTT ON PUNAKA VÄRVUSEGA, PEANUPP ON KOLLANE.​TA ON TUBLI SUKELDUJA.; JÄRVEL TUKUB ÜKSIK PART.​LINNUHUVILISED ON KANNATLIKUD,​AGA LINNUD VIST TUDUVAD.​JÄRVE KALDAL SUMISEVAD PARMUD.​UKU JA EMA SÖÖVAD ÄRA JUUSTUSAIAD.​ISA SÖÖB ÄRA MUUD VÕILEIVAD.​LINNUD EI OLEGI KÕIGE OLULISEMAD.​KÕIGE OLULISEM ON ELADA HETKES.​ELU ON ILUS!; 39. KEDA KAITSEVAD UKU VANEMAD?; 40. MIDA LENDORAV SÖÖB?; 41. KUHU LENDORAV TOIDUVARUD PEIDAB?
 
-### 472. MIDA ME SELLEL NÄDALAL TEEME?
+### 444. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31400
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7582,7 +7134,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; story; storytelling
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; KODUS; JÄRGMISTES TUNDIDES; • JUTUSTAME OMA KODUST; • SELGITAME, KUIDAS OLLA TERVE; • HARJUTAME Ü-, Ä- JA P-TÄHTE; • TUNNEME ÄRA VASTANDSÕNAD; • SAAME TEADA, MIS ON SULGHÄÄLIK; • MIS ON PILDIL?; • MIS PANEB SIND NII ARVAMA?; • KES VÕIKS SELLES TOAS ELADA?
 
-### 473. ENTSÜKLOPEEDIA JA KRATID (I)
+### 445. ENTSÜKLOPEEDIA JA KRATID (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31397
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7598,7 +7150,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: ENTSÜKLOPEEDIA JA KRATID (I); ISA ON ELAV ENTSÜKLOPEEDIA; ÜKS KÜSIMUS​ÜLLATUS​ÜMBRIK; ENTSÜKLOPEEDIA​TÜRGI JA SÜÜRIA​KÜÜSLAUK; PÕLDPÜÜ​KASSI SÜÜ​VALGE RÜÜ; MARKUSEL ON ISALE KÜSIMUS.​ISA ON NAGU ELAV ENTSÜKLOPEEDIA.; SEE ON KÜLL ÜLLATUS!​ISA TUNNEB LOODUST HÄSTI.​ISA ÜTLES ÜKSKORD, ET HERNES​PÄRINEB TÜRGIST JA SÜÜRIAST.​SEEMNEID SAAB KÜLVATA SIIS,​KUI SOOJA ON KÜMME KRAADI.; 42. KAS U, UU VÕI Ü?; 43. Ü-TÄHT ARVUDES.; 44. JUTTUDES KÄIB TIHTI VÕITLUS HEA JA KURJA VAHEL.
 
-### 474. ENTSÜKLOPEEDIA JA KRATID (II)
+### 446. ENTSÜKLOPEEDIA JA KRATID (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31398
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7614,7 +7166,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sound; vowel; word
 - Headings: ENTSÜKLOPEEDIA JA KRATID (II); ISE HÄÄLETU, TUMM, AGA RÄÄGIB PALJU; ÄMBLIK​ÄRA RÄÄGI​ÄRATUSKELL; NÄTSUPAKK​VÄRSKE VÄRV​NÄLJANE NÄKK; LIBE JÄÄ​MÄÄ-MÄÄ!​VÄIKE SÄÄSK; MEMM EI OLE SÖÖBIKUTEST KUULNUD.; MEMM EI RÄÄGI SÖÖBIKUST KELLELEGI. ​TA PALUB SÖÖBIKU EEST HÄSTI HOOLITSEDA. ​LAPSED VIIVAD SÖÖBIKULE IGA PÄEV SÕNU, ET TA NÄLJANE EI OLEKS.; 45. MIDA VÕIKS RAAMATUKOGUST LAENATA?; 46. MÄRGI KÕIGE PIKEM JA KÕIGE LÜHEM SÕNA.; 47. TÄISHÄÄLIKUD RAAMATUTEGELASTE NIMEDES.; 48. MIS SÕNA SAAD?
 
-### 475. ISA JA GRIPP (I)
+### 447. ISA JA GRIPP (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31399
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7630,7 +7182,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sentence
 - Headings: ISA JA GRIPP (I); ISA ON HOMME TERVE NAGU PURIKAS; PUNANE PINTSAK​PASTAPLIIATS​PEREKOND; APTEEK​KÄPIKUD​TEATRIPILET; KUUM ​SUPP​RIIDEKAPP​GRIPP; ONU RASMUS SAAB ISA PILETI.​RASMUS ON EMA VEND.​TA ÕPIB ÜLIKOOLIS LOODUSTEADUSI.; 49. HÄÄLI SÕNU.; 50. PIIA SEAB END VALMIS.; 51. MILLISED RIIDED PIIA ENDALE VALIS?; 52B. TEE KÕIK P-TÄHED VÄRVILISEKS.; 52A. MIS EI SOBI LAUSESSE?
 
-### 476. ISA JA GRIPP (II)
+### 448. ISA JA GRIPP (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31401
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7646,7 +7198,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: ISA JA GRIPP (II); RASMUSEL ON TULI TAKUS
 
-### 477. MIDA ME SELLEL NÄDALAL TEEME?
+### 449. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31405
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7662,7 +7214,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing; story; storytelling
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; TELEVIISORIS; JÄRGMISTES TUNDIDES; • NIMETAME SÜGISE TUNNUSEID; • JUTUSTAME TELERI VAATAMISEST; • HARJUTAME B-, K- JA G-TÄHTE; • KIRJUTAME SÕNU, MILLE LÕPUS ON -B VÕI -GA; • MIS PILDIL TOIMUB?; • MIS PANEB SIND NII ARVAMA?; • MIDA TAHAKSID VEEL PILDI KOHTA ÖELDA?
 
-### 478. ÕPETAJATE PÄEVA ÜLLATUS
+### 450. ÕPETAJATE PÄEVA ÜLLATUS
 - URL: https://www.opiq.ee/kit/558/chapter/31402
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7678,7 +7230,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: ÕPETAJATE PÄEVA ÜLLATUS; OKTOOBER KORD NAERAB, KORD NUTAB; BOTASED​BASS​BINOKKEL; NOBE BEEBI​KÕBUS​TUBLI SÕBER; MAITSEB BESEED​LÕBUS BÄND​SÕIDAB BUSSIGA; ÕPETAJA LAURAL ON LASTELE UUDIS.​​KOOLI TULEB KÜLLA „PROŽEKTORI” SAATE JUHT BOBI BERENS.; BOBI BERENS TUNNEB KUULSAID BÄNDE​JA LAULJAID, NÄITEKS RÄPPAR KUKIMUKIT. LAPSED ON KUKIMUKI SUURED FÄNNID. TEMAST OLI „PROŽEKTORIS” SAADE. KUKIMUKI ON KUULUS RÄPPAR,​KES ON ALATI PRILLIDE JA KAPUUTSIGA. KEEGI EI TEA, KUIDAS TA PÄRIS ELUS​VÄLJA NÄEB.; 53B. LEIA B-TÄHED.; 53A. SÜGISKUUD; 54. SÜGISESED TEGEVUSED; 55. MIS ISELOOMUSTAB SÜGIST?; 56. MILLISED VILJAD VALMIVAD SÜGISEL?
 
-### 479. KÜLALINE TELEVISIOONIST
+### 451. KÜLALINE TELEVISIOONIST
 - URL: https://www.opiq.ee/kit/558/chapter/31403
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7694,7 +7246,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; sound; story; storytelling
 - Headings: KÜLALINE TELEVISIOONIST; SILM EI SAA TÄIS NÄGEMISEST EGA KÕRV KUULMISEST; KÜLLAKUTSE​KOOLIMAJA​KIMP KANNIKESI; PROJEKT​UKSELUKK​RASKE KOTT; KUULUS ISIK​NÄTSUPAKK​KOOLIÕPIK; BOBI BERENS JUTUSTAB LASTELE MITU LUGU.​ÜKS LUGU ON KELDRIVARGUSEST.​KARU VEHKIS SISSE SADA MOOSIPURKI​JA NORSKAS VIIMAKS KUUSE ALL PURKIDE OTSAS.​LAPSED TAHAVAD KUULDA KUKIMUKIST.; ÕPETAJA KINGIB KÜLALISELE KOOLIPILDIGA​TASSI JA KUTSUB BOBI KOOLIMAJA VAATAMA.​BOBI KUMMARDAB.; 57. MIDA SAID KÜLALISE KOHTA TEADA?; 58. MITU HÄÄLIKUT?; 59. MIS ON PILDIL?
 
-### 480. PROŽEKTOR KOOLIS (I)
+### 452. PROŽEKTOR KOOLIS (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31404
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7710,7 +7262,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; writing
 - Headings: PROŽEKTOR KOOLIS (I); ETTEVAATUS ON TARKUSE EMA; GARDEROOB​GÜMNAASIUM​GLOOBUS; INGLISE KEEL​ÄGE GRIPP​EHMUNUD NÄGU; TAGATASKU​HING​KUNSTIRING; KLASSIS ON PLAKATID, GLOOBUSED JA DIGIVAHENDID.​ÕPIKUID POLE VAJA IGA PÄEV KAASA TASSIDA.​NEED SEISAVAD KAPIS. KAPP ON LOGUVÕITU.​LINK TULI ÄRA JA LUKK ON KATKI. ​SEINAGA ON MIDAGI JUHTUNUD. ​MIS LAIGUD NEED ON? ​BOBI BERENS PUUDUTAB PLEKKE ​JA AJAB END AEGLASELT SIRGU.; 60. MIDA TELEVIISORIST VAADATA?; 61. TÄIDA KAVA PÕHJAL ÜLESANDED.; 62. KAS SÕNA ALGUSES ON G VÕI K?; 63. KIRJUTA SÕNA LÕPPU -GA.
 
-### 481. PROŽEKTOR KOOLIS (II)
+### 453. PROŽEKTOR KOOLIS (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31406
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7726,7 +7278,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: PROŽEKTOR KOOLIS (II); UUDISHIMU TEEB RUTTU VANAKS
 
-### 482. MIDA ME SELLEL NÄDALAL TEEME?
+### 454. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31411
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7742,7 +7294,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; LINNAS JA MAAL; JÄRGMISTES TUNDIDES; • SELGITAME, KUIDAS TEATRIS KÄITUDA; • NIMETAME ERINEVAID AIASAADUSEID; • HARJUTAME T- JA D-TÄHTE; • KIRJUTAME SÕNU, MILLE LÕPUS ON -D VÕI -VAD; • KORDAME SULGHÄÄLIKUID; • MIS SELLEL PILDIL TOIMUB?; • MIS PANEB SIND NII ARVAMA?; • MIDA SA VEEL SOOVID PILDI KOHTA ÖELDA?
 
-### 483. SEKELDUSED TEATRIS (I)
+### 455. SEKELDUSED TEATRIS (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31407
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7758,7 +7310,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: SEKELDUSED TEATRIS (I); VARAS EI SAA IIALGI RIKKAKS; TEEB TÖÖD​TÄDI TIINA​TRÜHVEL; JALGRATAS​MAITSEV VORST​TOOB VÕTME; SELJAKOTT​LIHTNE RETSEPT​TEATRIPUHVET; LAVAL TEEB RÖÖVEL RÖÖVLITEMPE.​VAHEAJAL TÕMBAB PIIA KOTILUKU LAHTI.​TA TAHAB TEADA, KUIDAS SÖÖBIKULE TEATRIS MEELDIB.; LIISA-LOTTA TUNNEB TEATRIKÄIKE,​ISEGI TEED LAVAAUKU JA KARDINATE TAHA.​ERITI HÄSTI ON TAL SELGE TEE PUHVETISSE.​TEATRI PUHVETIS TÖÖTAB TÄDI TIINA.​TIINA ANNAB TALLE ALATI​MAAILMA PARIMAID TRÜHVLEID.; 64. MIS ON PILDIL?; 65. KUIDAS TEATRIS KÄITUDA?; 66. MIS SÕNA EI SOBI TEISTE HULKA?; 67. MIS ON PILDIL?
 
-### 484. SEKELDUSED TEATRIS (II)
+### 456. SEKELDUSED TEATRIS (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31408
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7774,7 +7326,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; writing
 - Headings: SEKELDUSED TEATRIS (II); RÖÖVEL VÕTTIS ARU PÄHE; DOLLAR​DIIVAN​DIRIGENT; TUNDUB ÕUDNE​KADE DAAM​KOOLIDIREKTOR; PIKAD KARDINAD​DEKORATSIOONID​NÄITLEJAD; SEE ON NÄITLEJATE TUBA. KEEGI KÕMISTAB NAERDA.​TÜDRUKUD TARDUVAD PAIGALE.; Sööbikule teatris ei meeldi.​Ta isegi ei plaksuta, kui etendus lõpeb.​Ta on vist päti peale kade.​Sööbik tahab tähelepanu, aga teatris on tähtsad näitlejad.; 68. VÄRVI JA KUJUNDA PILET TÖÖVIHIKUS, NII NAGU SULLE MEELDIB.; 69. UURI PILETIT.; 70. TÄIDA TABEL.; 71. KIRJUTA SÕNALE SOBIV LÕPP.
 
-### 485. TUHAT MESILAST JA ONU REIN (I)
+### 457. TUHAT MESILAST JA ONU REIN (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31409
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7790,7 +7342,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: TUHAT MESILAST JA ONU REIN (I); REINUL LÖÖB KÕHT PILLI; REINUL LÖÖB KÕHT PILLI.​KARTULID ON VALMIS. VARSTI SAAB SÜÜA.; 72. KUIDAS ELAVAD INIMESED LINNAS, KUIDAS MAAL?; 73. LAHENDA MÕISTATUS.; 74. AIASAADUSED
 
-### 486. TUHAT MESILAST JA ONU REIN (II)
+### 458. TUHAT MESILAST JA ONU REIN (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31410
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7806,7 +7358,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing
 - Headings: TUHAT MESILAST JA ONU REIN (II); VÄIKE MEES, TERAV KIRVES?; 75. MIDA KASVATAB VANAEMA AIAS?; 76. KIRJUTA ÕIGE ALGUSTÄHT.
 
-### 487. MIDA ME SELLEL NÄDALAL TEEME?
+### 459. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31415
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7822,7 +7374,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; MUUSEUMIS; JÄRGMISTES TUNDIDES; • SELGITAME, KUIDAS ÕPPEKÄIGUL KÄITUDA; • HARJUTAME J-, V- JA H-TÄHTE; • UURIME, KUS I JA J SÕNAS ASUVAD; • VAATLEME SÕNU, MILLE ALGUSES ON H; • NIMETAME OMADUSSÕNU; • MIS ON PILDIL?; • MIS PANEB SIND NII ARVAMA?; • KUS VÕIKS NIISUGUNE TUBA OLLA?
 
-### 488. Pauku ja nalja (I)
+### 460. Pauku ja nalja (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31412
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7838,7 +7390,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: Pauku ja nalja (I); LAPSED MURRAVAD PEAD; JAANUAR​JÄRJEJUTT​JOONISTUS; AJALEHT​ÕPETAJA JOPE​NELJAPÄEV; JÄI KOJU​LÄHME MAJJA​JALAKÄIJA; 77. KOOSTA LÜHIJUTT.; 78. RAAMATUTEGELASTE NIMED; 79. MILLISED SÕNAD SAAD?; 80. MIDA VÕTTA ÕPPEKÄIGULE KAASA?; 81. MIS ON ÕPPEKÄIGUL SOBILIK?
 
-### 489. Pauku ja nalja (II)
+### 461. Pauku ja nalja (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31413
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7854,7 +7406,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: seasons; spring; summer; autumn; winter; Estonian language; mother tongue; letter; alphabet; word; sentence; writing
 - Headings: Pauku ja nalja (II); RAAMATUTEGA RUTTU RIKKAKS EI SAA, KÜLL AGA TARGAKS; VAHVEL​VÄGEV VÕLUR​VAJALIK VÕTI; VÄRSKE VÄRV​VAHVA KOHVIK​KEHV TAHVEL; PÕNEV SUVI​VÄIKE JÄRV​PUULATV; PÖÖNINGUL TULEB VALVAS OLLA.​SEE ON TEGELIKULT VÕLUPÖÖNING.​SEE TUNDUB VÕIMATU. VALEJUTT!​VÕLUASJU POLE OLEMAS.​LAPSED TAHAVAD ISE PILGU PEALE VISATA.; 82. KUHU MINNA EKSKURSIOONILE?; 83. MIS ON PILDIL?; 84. LEIA VASTANDTÄHENDUSEGA SÕNA.; 85. KIRJUTA LAUSESSE SOBIV SÕNA.
 
-### 490. IMEPÖÖNING (I)
+### 462. IMEPÖÖNING (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31414
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7870,7 +7422,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word
 - Headings: IMEPÖÖNING (I); LAURA TÕMMATAKSE HANEKS; HUVITAV KOHT​HAAPSALU​HAMBURGER; LÜHIKE VAHETUND KÕRREMAHL​TÜHI SAHTEL; AITÄH​ATSIH​SIUH-VIUH; LASTELE TUNDUB SEE HEA KOHT, ​AGA SÖÖBIK MURETSEB SÖÖGI PÄRAST. ​MIS TA SIIN HAMBA ALLA SAAB? ​KAPID ON HIRMUS TÜHJAD. ​ÄKKI ON RAAMATUTES LIHAPALLE VÕI HAMBURGEREID? ​ANNA PANEB KAPPI ÜHE KÜPSISE. SIUHTI SAAB ​ÜHEST KÜPSISEST KAPIS KOLM KÜPSIST.​PIIA PANEB ÜHE KÕRREMAHLA.​VIUHTI SAAB SELLEST KOLM ​KÕRREMAHLA.; 86. MIS OLI KARLSSONI SASSIS TOAS?; 87. VALI ÕIGE SÕNA.; 88. MITU?; 89. MITU?; 90. MITU?
 
-### 491. IMEPÖÖNING (II)
+### 463. IMEPÖÖNING (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31416
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7886,7 +7438,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: IMEPÖÖNING (II); TÜHI KOTT EI SEISA PÜSTI
 
-### 492. MIDA ME SELLEL NÄDALAL TEEME?
+### 464. MIDA ME SELLEL NÄDALAL TEEME?
 - URL: https://www.opiq.ee/kit/558/chapter/31420
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7902,7 +7454,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; story; storytelling
 - Headings: MIDA ME SELLEL NÄDALAL TEEME?; PUHKUSEL; JÄRGMISTES TUNDIDES; • JUTUSTAME OMA VAHEAJA PLAANIDEST; • HARJUTAME VÕÕRTÄHTI; • ESITAME KÜSIMUSI OLENDITE JA ASJADE KOHTA; • OTSIME SUURI ALGUSTÄHTI; • MOODUSTAME LIITSÕNU; • MIS SELLEL PILDIL TOIMUB?; • MIS PANEB SIND NII ARVAMA?; • MIDA SA VEEL SOOVID PILDI KOHTA ÖELDA?
 
-### 493. Sügisene vaheaeg (I)
+### 465. Sügisene vaheaeg (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31417
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7918,7 +7470,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; writing
 - Headings: Sügisene vaheaeg (I); EI VIRGAL PUUDU TÖÖD; FRIIKARTULID​FANTASTIKA​FRIKADELLISUPP; PAKK KEEFIRIT ​VALGUSFOOR​HUVITAV INFO; FOTOGRAAF ​MÄNGIS FLÖÖTI ​VANA FOTO; REEDEL SOOVIB LAURA KÕIGILE FANTASTILIST VAHEAEGA. ​UKU MATKAB VANEMATEGA IDA-VIRUMAAL. ​LIISA-LOTTA KÄIB RULAVÕISTLUSEL JA LOOMAAIAS. ​PIIA LÄHEB ISAGA JALKASTAADIONILE. ​SEAL TOIMUB PÕNEV FINAALMATŠ.; 91B. VÄRVI F-TÄHTED.; 91A. KAS TEAD SÕNU?; 92. KES? VÕI MIS?; 93. KES VÕI MIS?; 94. KIRJUTA LÜNKA F VÕI V.
 
-### 494. Sügisene vaheaeg (II)
+### 466. Sügisene vaheaeg (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31418
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7934,7 +7486,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet; word; sentence
 - Headings: Sügisene vaheaeg (II); SÖÖBIKUL ON MUSTAD PÄEVAD; ŠOKOLAAD ​GULJAŠŠ ​MAITSEV BORŠ; ZEN ​ZOOLOOG ​PROŽEKTOR; ŽELATIIN ​DŽEMM ​BEEŽ JA ORANŽ; SÖÖBIK ON ÜLLATUNUD. BORŠ ON MAITSEV. ​ŠOKOLAAD PANEB MÕMISEMA. ​TA PROOVIB KA ŠAMPINJONE JA GULJAŠŠI. ​SÖÖBIK LIMPSAB KEELT. ​NELJAPÄEVAL ON AGA KÕIK OTSAS. ​SÖÖBIK SÖÖB ÄRA MUSTADEKS PÄEVADEKS ​HOITUD DŽEMMI JA ISEGI ŽELATIINI.; 95. ÜHENDA SÕNA JA SELETUS.; 96. KASUTA SÕNU LAUSETES.
 
-### 495. TAGASI KOOLIS (I)
+### 467. TAGASI KOOLIS (I)
 - URL: https://www.opiq.ee/kit/558/chapter/31421
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est
@@ -7950,7 +7502,7 @@ Use this file to answer requests for Opiq links by theme. Match user queries in 
 - Topics EN: Estonian language; mother tongue; letter; alphabet
 - Headings: TAGASI KOOLIS (I); TÕSI TÕEKS JA NALI NALJAKS
 
-### 496. TAGASI KOOLIS (II)
+### 468. TAGASI KOOLIS (II)
 - URL: https://www.opiq.ee/kit/558/chapter/31419
 - Book: TÄHESTIK
 - Book ID: 1k_eesti_keel_koolibri2_est

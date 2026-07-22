@@ -651,6 +651,38 @@ cases:
         book_id: avita_природа_и__2_ru
     evidence: "The weather task is verified in a pure grade 2 science book and absent from grade 3 science. Both audited mixed human-studies/science Book IDs remain outside the canonical science route."
 
+  - id: grade-2-science-planeet-grade-routing
+    grade: 2
+    subject: science
+    topic: "water cycle and weather in the supplementary cross-curricular book"
+    status: present
+    expected_source_id: grade-2-science
+    expected_md_path: project-files/outputs/opiq_2klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-science
+        url: https://www.opiq.ee/kit/330/chapter/18523
+        expected:
+          class: 2
+          book_id: avita_minu_väike_2_et
+          title: Veeringlus. Ilmastik
+          subject:
+            en: science
+            et: loodusõpetus
+            ru: природоведение
+          headings_any:
+            - Veepiisa teekond
+            - Veeringlus
+      - kind: url_absent
+        origin_source_id: grade-2-science
+        source_id: grade-1-science
+        url: https://www.opiq.ee/kit/330/chapter/18523
+      - kind: url_absent
+        origin_source_id: grade-2-science
+        source_id: grade-1-estonian
+        url: https://www.opiq.ee/kit/330/chapter/18523
+    evidence: "The dedicated kit 330 archive identifies grade 2 and canonical science metadata. Its chapter is present only in grade-2-science and the legacy grade-1 copies are removed."
+
   - id: grade-2-human-studies-water-safety
     grade: 2
     subject: human_studies
