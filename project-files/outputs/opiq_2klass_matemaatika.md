@@ -420,7 +420,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kordamine. Tasapinnalised kujundid; Harjutan; Matemaatikaklubi; Nuputa!
-- Task examples: Ülesande kõrval on kujundid, mis peavad leiduma lapse riietel või asjadel. Leia kujundite järgi, kes on kes. Lohista iga lapse juurde tema nimi.; Vali kujundi nimetusele vastavad arvud. Ülesanne 2b RistkülikVaata vihjetVihjeKõik ruudud on ristkülikud. {"data":"<p>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19</p>"} 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+- Task examples: Ülesande kõrval on kujundid, mis peavad leiduma lapse riietel või asjadel. Leia kujundite järgi, kes on kes. Lohista iga lapse juurde tema nimi.; Vali kujundi nimetusele vastavad arvud. Ülesanne 2b RistkülikVaata vihjetVihjeKõik ruudud on ristkülikud. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 
 ### 24. Kujundid
 - URL: https://www.opiq.ee/kit/95/chapter/4647
@@ -437,7 +437,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kujundid; Leian piltidelt kujundeid; Kolmnurk ja nelinurk; Jätan meelde!; Harjutan; Matemaatikaklubi; Nuputa!
-- Task examples: Vaata pilti ja lahenda ülesanne. Ülesanne 1b Loenda pildil olevad kujundid. Täida tabel.KujundKujundite arv pildilRistkülik Ruut Kolmnurk Ring : 0 : 0 Ülesanne 1a Ka kunstnikud armastavad geomeetriat. Vaata Henryk Berlew; Õpetaja jagas lastele värvilisi kujundeid: punaseid kolmnurki, kollaseid ristkülikuid, rohelisi ruute ja siniseid ringe. Lapsed tegid neist pilte ja korraldasid näituse.​Loenda kokku laste kasutatud kujundid. Täida tabel
+- Task examples: Vaata pilti ja lahenda ülesanne. Ülesanne 1b Loenda pildil olevad kujundid. Täida tabel.KujundKujundite arv pildilRistkülik Ruut Kolmnurk Ring : 0 : 0 Ülesanne 1a Ka kunstnikud armastavad geomeetriat. Vaata Henryk Berlew; Õpetaja jagas lastele värvilisi kujundeid: punaseid kolmnurki, kollaseid ristkülikuid, rohelisi ruute ja siniseid ringe. Lapsed tegid neist pilte ja korraldasid näituse. Loenda kokku laste kasutatud kujundid. Täida tabel
 
 ### 25. Täisnurk
 - URL: https://www.opiq.ee/kit/95/chapter/6401
@@ -590,7 +590,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; повторение; повтори; тренировка
 - Topics EN: mathematics; revision; review; practice
 - Headings: Meeter, sentimeeter; Mida teeb kooliarst?; Meetri ja sentimeetri vaheline seos; Harjutan; Ül 3 lahendussõna; Ül 4 lahendussõna; Matemaatikaklubi; Nuputa!
-- Task examples: Vaata tervisekaardilt, kui pikk on Maria 2. klassis.; Võrdle 2.klassi poiste pikkust eelmisel aastal mõõdetud tulemusega. ​Mitu sentimeetrit on poisid kasvanud? 2.klassi poisid Ülesanne 2 1. klassis2. klassisKasvanud (cm)Marko1 m 30 cm m cm Silver1 m 45 cm m cm Rasmus1 m 22
+- Task examples: Vaata tervisekaardilt, kui pikk on Maria 2. klassis.; Võrdle 2.klassi poiste pikkust eelmisel aastal mõõdetud tulemusega. Mitu sentimeetrit on poisid kasvanud? 2.klassi poisid Ülesanne 2 1. klassis2. klassisKasvanud (cm)Marko1 m 30 cm m cm Silver1 m 45 cm m cm Rasmus1 m 22
 
 ### 34. Detsimeeter
 - URL: https://www.opiq.ee/kit/95/chapter/4636
@@ -998,7 +998,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; сложение; сложи; сумма; повторение; повтори; тренировка
 - Topics EN: mathematics; addition; add; sum; revision; review; practice
 - Headings: Täiskümnete ja ‑sadade liitmine 1000 piires; Kuidas liita täiskümneid ja -sadasid?; Kuidas liita täiskümneid?; 3.klass; 1.klass; 2.klass; Harjutan; Matemaatikaklubi; Nuputa!
-- Task examples: Vaata skeeme ja arvuta. Ülesanne 1a 300 + 300 = : 0 : 0 Ülesanne 1b 400 + 200 = : 0 : 0 Ülesanne 1c 400 + = : 0 : 0 123; Suusaspordipäeval oli igale vanuserühmale määratud ise pikkusega sprindirada. Leia plaanilt iga klassi rada.​Vaata plaani ja leia, millise pikkusega lõikudest iga klassi suusarada koosneb. 3.klass Roheline radaVaata vihj
+- Task examples: Vaata skeeme ja arvuta. Ülesanne 1a 300 + 300 = : 0 : 0 Ülesanne 1b 400 + 200 = : 0 : 0 Ülesanne 1c 400 + = : 0 : 0 123; Suusaspordipäeval oli igale vanuserühmale määratud ise pikkusega sprindirada. Leia plaanilt iga klassi rada. Vaata plaani ja leia, millise pikkusega lõikudest iga klassi suusarada koosneb. 3.klass Roheline radaVaata vihj
 
 ### 58. Täiskümnete ja ‑sadade lahutamine 1000 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6406
@@ -1134,7 +1134,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kordamine. Ruumilised kujundid; Ruumilised kujundid; Harjutan; Rühmatöö
-- Task examples: Millise kujundiga sarnaneb pildil olev ese? Vali õige kujund.; Kooli juurde rajatud parki oli plaanis panna 10 suurt lillevaasi. Õpilased tegid lillevaaside kavandid. Oma töö esitas kolm rühma.Vaata kavandit ja kirjuta lünka õige arv. Vali õige kujundi nimetus.​ Ülesanne 2a Võistlus
+- Task examples: Millise kujundiga sarnaneb pildil olev ese? Vali õige kujund.; Kooli juurde rajatud parki oli plaanis panna 10 suurt lillevaasi. Õpilased tegid lillevaaside kavandid. Oma töö esitas kolm rühma.Vaata kavandit ja kirjuta lünka õige arv. Vali õige kujundi nimetus. Ülesanne 2a Võistlus
 
 ### 66. Lahutamine 100 piires üleminekuga (1)
 - URL: https://www.opiq.ee/kit/95/chapter/6413
@@ -1933,7 +1933,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; измерение; единица измерения; длина; масса; объём; повторение; повтори; тренировка; миллиметр
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; measurement; unit; length; mass; volume; revision; review; practice
 - Headings: Sirglõik. Millimeeter; Отрезок. Миллиметр; Sirglõik ja selle pikkuse mõõtmine; Millimeeter ja sentimeeter; Harjutan; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Loe joonlaualt, mitmeks osaks on 1 cm jaotatud.; Kui pikk on joonisel olev ese?​Mõõda millimeetrites ja sentimeetrites. Ülesanne 2c mm ehk cm : 0 : 0 Ülesanne 2a mm ehk cm : 0 : 0 Ülesanne 2b mm ehk cm : 0 : 0 Ülesanne 2c mm ehk cm : 0 : 0 Ülesanne 2a mm ehk cm : 0 : 0
+- Task examples: Loe joonlaualt, mitmeks osaks on 1 cm jaotatud.; Kui pikk on joonisel olev ese? Mõõda millimeetrites ja sentimeetrites. Ülesanne 2c mm ehk cm : 0 : 0 Ülesanne 2a mm ehk cm : 0 : 0 Ülesanne 2b mm ehk cm : 0 : 0 Ülesanne 2c mm ehk cm : 0 : 0 Ülesanne 2a mm ehk cm : 0 : 0
 
 ### 113. Pikkuse mõõtmine millimeetrites
 - URL: https://www.opiq.ee/kit/578/chapter/32040
@@ -1950,7 +1950,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; измерение; единица измерения; длина; масса; объём; повторение; повтори; тренировка; длины; миллиметрах
 - Topics EN: mathematics; measurement; unit; length; mass; volume; revision; review; practice
 - Headings: Pikkuse mõõtmine millimeetrites; Измерение длины в миллиметрах; Mõõdan esemete pikkust; Harjutan (1); Kuidas võrrelda millimeetrit ja sentimeetrit?; Harjutan (2); Matemaatikaklubi; Nuputa!; Nuputa! (2); Nuputa! (1); Matemaatika eesti keeles
-- Task examples: Katile meeldib väga joonistada. Ema kinkis talle sünnipäevaks joonistustarvete komplekti. Vaata pilti ja hinda silma järgi esemete pikkust.; Nädala pärast olid Kati värvipliiatsid erineva pikkusega.​Mõõda lühemaks kulunud pliiatsite pikkus. Ülesanne 2d Rohelise pliiatsi pikkus on mm. : 0 : 0 Ülesanne 2a Punase pliiatsi pikkus on mm. : 0 : 0 Ülesanne 2b Sinise
+- Task examples: Katile meeldib väga joonistada. Ema kinkis talle sünnipäevaks joonistustarvete komplekti. Vaata pilti ja hinda silma järgi esemete pikkust.; Nädala pärast olid Kati värvipliiatsid erineva pikkusega. Mõõda lühemaks kulunud pliiatsite pikkus. Ülesanne 2d Rohelise pliiatsi pikkus on mm. : 0 : 0 Ülesanne 2a Punase pliiatsi pikkus on mm. : 0 : 0 Ülesanne 2b Sinise
 
 ### 114. Arvude järjestamine
 - URL: https://www.opiq.ee/kit/578/chapter/32029
@@ -2018,7 +2018,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; сравнение; сравни; больше; меньше; повторение; повтори; тренировка; чисел
 - Topics EN: mathematics; comparison; compare; greater; less; revision; review; practice
 - Headings: Arvude võrdlemine; Сравнение чисел; Võrdlen hindu; Võrdus ja võrratus; Kahekohaliste arvude võrdlemine; Harjutan (1); Harjutan (2); Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Meie toidupoodides on väga palju mitmesugust kaupa.​Kõigepealt peaks vaatama, kui tervislik mingi toiduaine on,​aga mõistlik on võrrelda ka hindu.; Loe võrratused. 16 < 2015 > 912 > 2532 < 3336 > 2145 > 4261 < 7570 > 5890 < 9558 > 4964 < 68100 < 99 KeeleabiПрочитай неравенства.< (... on väiksem kui ...)> (... on suurem kui ...)= (... on võrdne​​​ ...)
+- Task examples: Meie toidupoodides on väga palju mitmesugust kaupa. Kõigepealt peaks vaatama, kui tervislik mingi toiduaine on, aga mõistlik on võrrelda ka hindu.; Loe võrratused. 16 < 2015 > 912 > 2532 < 3336 > 2145 > 4261 < 7570 > 5890 < 9558 > 4964 < 68100 < 99 KeeleabiПрочитай неравенства.< (... on väiksem kui ...)> (... on suurem kui ...)= (... on võrdne ...)
 
 ### 118. Liitmine ja lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32033
@@ -2154,7 +2154,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; ромб
 - Topics EN: mathematics
 - Headings: Romb; Ромб; Rombi omadused; Rombi joonestamine; Üks võimalus; Ruut on ka romb; Teine võimalus; Matemaatika eesti keeles
-- Task examples: Lohista mõisted skeemile.; Mis kujund on pildil?​Vali kõik sobivad mõisted. Ülesanne 2c nelinurk ristkülik romb ruut nelinurk ristkülik romb ruut : 0 : 0 Ülesanne 2a nelinurk ristkülik romb ruut nelinurk ristkülik romb ruut : 0 : 0 Ülesanne 2b nel
+- Task examples: Lohista mõisted skeemile.; Mis kujund on pildil? Vali kõik sobivad mõisted. Ülesanne 2c nelinurk ristkülik romb ruut nelinurk ristkülik romb ruut : 0 : 0 Ülesanne 2a nelinurk ristkülik romb ruut nelinurk ristkülik romb ruut : 0 : 0 Ülesanne 2b nel
 
 ### 126. Kordamine. Tasandilised kujundid
 - URL: https://www.opiq.ee/kit/578/chapter/32209
@@ -2171,7 +2171,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка; плоские
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kordamine. Tasandilised kujundid; Повторение. Плоские фигуры; Harjutan; Tasandilised kujundid; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Ülesande kõrval on kujundid, mis peavad leiduma lapse riietel või asjadel. Leia kujundite järgi, kes on kes. Lohista iga lapse juurde tema nimi.; Märgi kujundite numbrid pildi all. Ülesanne 2b RistkülikVaata vihjetVihjeKõik ruudud on ristkülikud. {"data":"<p>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19</p>"} 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+- Task examples: Ülesande kõrval on kujundid, mis peavad leiduma lapse riietel või asjadel. Leia kujundite järgi, kes on kes. Lohista iga lapse juurde tema nimi.; Märgi kujundite numbrid pildi all. Ülesanne 2b RistkülikVaata vihjetVihjeKõik ruudud on ristkülikud. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
 
 ### 127. Kujundid
 - URL: https://www.opiq.ee/kit/578/chapter/32198
@@ -2188,7 +2188,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kujundid; Фигуры; Leian piltidelt kujundeid; Kolmnurk ja nelinurk; Harjutan; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Kunstnikud armastavad geomeetriat. Vaata Henryk Berlewi pilti „Punase, musta ja valge seade“ ja lahenda ülesanne. Ülesanne 1b Loenda pildil olevad kujundid. Täida tabel.KujundKujundite arv pildilRistkülik Ruut Kolmnurk R; Loenda laste kasutatud kujundid. Täida tabel lõpuni.Kui kujundit pildil ei ole, kirjuta lünka 0.​
+- Task examples: Kunstnikud armastavad geomeetriat. Vaata Henryk Berlewi pilti „Punase, musta ja valge seade“ ja lahenda ülesanne. Ülesanne 1b Loenda pildil olevad kujundid. Täida tabel.KujundKujundite arv pildilRistkülik Ruut Kolmnurk R; Loenda laste kasutatud kujundid. Täida tabel lõpuni.Kui kujundit pildil ei ole, kirjuta lünka 0.
 
 ### 128. Täisnurk
 - URL: https://www.opiq.ee/kit/578/chapter/32199
@@ -2341,7 +2341,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; повторение; повтори; тренировка; метр; сантиметр
 - Topics EN: mathematics; revision; review; practice
 - Headings: Meeter, sentimeeter; Метр, сантиметр; Mida teeb kooliarst?; Meetri ja sentimeetri vaheline seos; Harjutan; Ül 3 lahendussõna; Ül 4 lahendussõna; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Vaata tervisekaardilt, kui pikk on Maria 2. klassis.; Kui pikad on 2. klassi poisid? ​Mitu sentimeetrit on poisid kasvanud? 2. klassi poisid Ülesanne 2 1. klassis2. klassisKasvanudMarko1 m 30 cm m cm cm Silver1 m 45 cm m cm cm Rasmus1 m 22 cm m cm cm Sander1 m 2 cm m cm cm
+- Task examples: Vaata tervisekaardilt, kui pikk on Maria 2. klassis.; Kui pikad on 2. klassi poisid? Mitu sentimeetrit on poisid kasvanud? 2. klassi poisid Ülesanne 2 1. klassis2. klassisKasvanudMarko1 m 30 cm m cm cm Silver1 m 45 cm m cm cm Rasmus1 m 22 cm m cm cm Sander1 m 2 cm m cm cm
 
 ### 137. Detsimeeter
 - URL: https://www.opiq.ee/kit/578/chapter/32220
@@ -2426,7 +2426,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; число; числа; цифры; повторение; повтори; тренировка; двузначное; виде; суммы; десятков; единиц
 - Topics EN: mathematics; number; numbers; digits; revision; review; practice
 - Headings: Kahekohaline arv kümneliste ja üheliste summana; Двузначное число в виде суммы десятков и единиц; Millest koosneb kahekohaline arv?; Harjutan; Matemaatikaklubi; Nuputa!; Nuputa! (2); Nuputa! (1); Matemaatika eesti keeles
-- Task examples: Lapsed tegid korjanduse, et maksta haige koera operatsiooni eest.​Vaata pilti, kui suure summa suutis iga laps koguda. Täida lüngad. Ülesanne 1c Kümnelisi Ühelisi Kokku : 0 : 0 Ülesanne 1a Kümnelisi 3 Ühelisi Kokku : 0 :; Täida tabel. K – kümnelised, Ü – ühelised. Ülesanne 2b KÜK ja Ü summaArv 2 70 + 20 + 6 + 984 + 43 : 0 : 0 Ülesanne 2a KÜK ja Ü summaArv3530 + 53581 + 64 + : 0 : 0 Ülesanne 2b KÜK ja Ü summaArv 2 70 + 20 + 6 + 984 + 43 :
+- Task examples: Lapsed tegid korjanduse, et maksta haige koera operatsiooni eest. Vaata pilti, kui suure summa suutis iga laps koguda. Täida lüngad. Ülesanne 1c Kümnelisi Ühelisi Kokku : 0 : 0 Ülesanne 1a Kümnelisi 3 Ühelisi Kokku : 0 :; Täida tabel. K – kümnelised, Ü – ühelised. Ülesanne 2b KÜK ja Ü summaArv 2 70 + 20 + 6 + 984 + 43 : 0 : 0 Ülesanne 2a KÜK ja Ü summaArv3530 + 53581 + 64 + : 0 : 0 Ülesanne 2b KÜK ja Ü summaArv 2 70 + 20 + 6 + 984 + 43 :
 
 ### 142. Täiskümnetest üheliste lahutamine
 - URL: https://www.opiq.ee/kit/578/chapter/32213
@@ -2511,7 +2511,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; повторение; повтори; тренировка; вычисление; пределах
 - Topics EN: mathematics; revision; review; practice
 - Headings: Kordamine. Arvutamine 100 piires; Повторение. Вычисление в пределах 100; Kui vana on minu kass või koer?; Loomade varjupaik; Arutle; Harjutan; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Arvuta ja leia iga kassi vanus inimaastates.​Kasuta liuguriga joonist. Ülesanne 1c BossVanus inimaastates 40 – 4 = Kassi vanus PättVanus inimaastates 30 – 2 = Kassi vanus : 0 : 0 Ülesanne 1a MimmiKassi vanus 10 – 4 = , s; Kui vanad on need loomad inimaastates?​Kasuta liuguriga joonist.
+- Task examples: Arvuta ja leia iga kassi vanus inimaastates. Kasuta liuguriga joonist. Ülesanne 1c BossVanus inimaastates 40 – 4 = Kassi vanus PättVanus inimaastates 30 – 2 = Kassi vanus : 0 : 0 Ülesanne 1a MimmiKassi vanus 10 – 4 = , s; Kui vanad on need loomad inimaastates? Kasuta liuguriga joonist.
 
 ### 147. Kordamine. Arvutamine 100 piires, sirglõik
 - URL: https://www.opiq.ee/kit/578/chapter/32218
@@ -2664,7 +2664,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; повторение; повтори; тренировка; единицы; измерения; времени; длительность
 - Topics EN: mathematics; revision; review; practice
 - Headings: Kordamine. Ajaühikud, kestus; Повторение. Единицы измерения времени, длительность; Kui kaua sündmus kestab?; Teisendan ja arvutan; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Millal sündmus algas ja millal lõppes?​Kui kaua sündmus kestis? Ülesanne 1b 2021. aastal toimusid olümpiamängud Jaapani pealinnas Tokyos. Mängud algasid 1.8.23.31. juulil. Mängud lõppesid 1.8.23.31. augustil. Mängud kes; Millal sündmus algas, millal lõppes?​Kui kaua sündmus kestis? Ülesanne 2b Korvpall Mäng algas kell . Mäng lõppes kell . Mäng kestis h min. : 0 : 0 Ülesanne 2a Jalgpall Mäng algas kell . Mäng lõppes kell . Mäng kestis h m
+- Task examples: Millal sündmus algas ja millal lõppes? Kui kaua sündmus kestis? Ülesanne 1b 2021. aastal toimusid olümpiamängud Jaapani pealinnas Tokyos. Mängud algasid 1.8.23.31. juulil. Mängud lõppesid 1.8.23.31. augustil. Mängud kes; Millal sündmus algas, millal lõppes? Kui kaua sündmus kestis? Ülesanne 2b Korvpall Mäng algas kell . Mäng lõppes kell . Mäng kestis h min. : 0 : 0 Ülesanne 2a Jalgpall Mäng algas kell . Mäng lõppes kell . Mäng kestis h m
 
 ### 156. Kordamine. Jõulud (1)
 - URL: https://www.opiq.ee/kit/578/chapter/32230
@@ -2868,7 +2868,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; цилиндр; конус
 - Topics EN: mathematics; geometry; shape; shapes; line; segment
 - Headings: Silinder, koonus, kera; Цилиндр, конус, шар; Silinder, koonus ja kera on ruumilised kujundid; Arutle; Silindri-, koonuse- ja kerakujulised asjad; Kera kuju looduses; Silindri kuju looduses; Koonuse kuju looduses; Pöördkehade kirjeldamine; Paaristöö; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Lohista hulga alla selle nimetus.; Vaata sünnipäevapilti.​Märgi esemed, mis on antud kujundi moodi. Ülesanne 2c toolijalg lauaplaat õhupall tort joogiklaas tordikaunistus joogikõrs : 0 : 0 KeeleabiРассмотри картинку с днём рождения. Отметь предметы, кото
+- Task examples: Lohista hulga alla selle nimetus.; Vaata sünnipäevapilti. Märgi esemed, mis on antud kujundi moodi. Ülesanne 2c toolijalg lauaplaat õhupall tort joogiklaas tordikaunistus joogikõrs : 0 : 0 KeeleabiРассмотри картинку с днём рождения. Отметь предметы, кото
 
 ### 168. Kordamine. Ruumilised kujundid
 - URL: https://www.opiq.ee/kit/578/chapter/33022
@@ -2885,7 +2885,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка; мные
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kordamine. Ruumilised kujundid; Повторение. Объёмные фигуры; Tasandilised ja ruumilised kujundid; Harjutan; Rühmatöö; Matemaatika eesti keeles
-- Task examples: Millise kujundiga see asi sarnaneb? Vali õige vastus.; Vaata kavandit ja kirjuta lünka õige arv.​Vali õige kujundi nimetus.​ Ülesanne 2c Võistlustöö „Rakett“ Materjal: puit, kivi Aluse kõrgus: cmAluse kuju: kuuppüramiidkoonusruut Vaasi kõrgus: cm Vaasi kuju: kolmnurkristtahu
+- Task examples: Millise kujundiga see asi sarnaneb? Vali õige vastus.; Vaata kavandit ja kirjuta lünka õige arv. Vali õige kujundi nimetus. Ülesanne 2c Võistlustöö „Rakett“ Materjal: puit, kivi Aluse kõrgus: cmAluse kuju: kuuppüramiidkoonusruut Vaasi kõrgus: cm Vaasi kuju: kolmnurkristtahu
 
 ### 169. Lahutamine 100 piires üleminekuga (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33013
@@ -2936,7 +2936,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; повторение; повтори; тренировка; килограмм; грамм
 - Topics EN: mathematics; revision; review; practice
 - Headings: Kilogramm, gramm (1); Килограмм, грамм; Massiühikud; Huvitav teada; Harjutan; Arvutan massiühikutega; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Milline ühik sobib nende asjade või olendite kaalumiseks?; Kumb on raskem, kumb kergem?​Mitme grammi, kilogrammi või tonni võrra? Ülesanne 2c Traktor on kombainist t võrra raskem.kergem. : 0 : 0 Ülesanne 2a Õun on porgandist g võrra raskem.kergem. : 0 : 0 Ülesanne 2b Kõrvits on
+- Task examples: Milline ühik sobib nende asjade või olendite kaalumiseks?; Kumb on raskem, kumb kergem? Mitme grammi, kilogrammi või tonni võrra? Ülesanne 2c Traktor on kombainist t võrra raskem.kergem. : 0 : 0 Ülesanne 2a Õun on porgandist g võrra raskem.kergem. : 0 : 0 Ülesanne 2b Kõrvits on
 
 ### 172. Kilogramm, gramm (2)
 - URL: https://www.opiq.ee/kit/578/chapter/33016
@@ -2953,7 +2953,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; килограмм; грамм
 - Topics EN: mathematics
 - Headings: Kilogramm, gramm (2); Килограмм, грамм; Võrdlen massiühikuid; Arvutan massiühikutega; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Maadlusvõistlused algavad sportlaste kaalumisega. Selle alusel jaotatakse nad rühmadesse. Maadluses on 7 rühma. 1.rühm​2.rühm​3.rühm​4.rühm​ 5.rühm​6.rühm​7.rühm​kuni 55 kgkuni 60 kgkuni 66 kgkuni 74 kgkuni 84 kgkuni 96; Lõuna-Eesti vägilase võistlusel tuli kanda rasket kohvrit, suruda palki ja tõsta kivi. Arvuta, kui rasked need olid.
+- Task examples: Maadlusvõistlused algavad sportlaste kaalumisega. Selle alusel jaotatakse nad rühmadesse. Maadluses on 7 rühma. 1.rühm 2.rühm 3.rühm 4.rühm 5.rühm 6.rühm 7.rühm kuni 55 kgkuni 60 kgkuni 66 kgkuni 74 kgkuni 84 kgkuni 96; Lõuna-Eesti vägilase võistlusel tuli kanda rasket kohvrit, suruda palki ja tõsta kivi. Arvuta, kui rasked need olid.
 
 ### 173. Kordamine. Liitmine ja lahutamine 100 piires, kilogramm, gramm
 - URL: https://www.opiq.ee/kit/578/chapter/33017
@@ -3055,7 +3055,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; деление; раздели; частное; половина
 - Topics EN: mathematics; division; divide; quotient; half
 - Headings: Pool; Половина; Mis on tervik, mis on pool?; Leian arvust poole; Leian terviku; Matemaatikaklubi; Matemaatika eesti keeles
-- Task examples: Leia arvust pool. Jätka näite järgi. Näide126+66 + 6 = 122 · 6 = 12 18+ + = · = 14+ + = · = 16+ + = · = KeeleabiНайди половину числа. Продолжи по образцу.; Leia arvust pool. 20 = + = 2 · 10Arvus 20 on 2 kümnelist.Kahest kümnelisest pool on 1 kümneline.Seega pool arvust 20 on 10.KeeleabiЧисло 20 состоит из 2 десятков.​Половина от 2 десятков – это 1 десяток. Поэтому половина
+- Task examples: Leia arvust pool. Jätka näite järgi. Näide126+66 + 6 = 122 · 6 = 12 18+ + = · = 14+ + = · = 16+ + = · = KeeleabiНайди половину числа. Продолжи по образцу.; Leia arvust pool. 20 = + = 2 · 10Arvus 20 on 2 kümnelist.Kahest kümnelisest pool on 1 kümneline.Seega pool arvust 20 on 10.KeeleabiЧисло 20 состоит из 2 десятков. Половина от 2 десятков – это 1 десяток. Поэтому половина
 
 ### 179. Kell
 - URL: https://www.opiq.ee/kit/578/chapter/33033
@@ -3140,7 +3140,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; геометрия; фигура; фигуры; прямая; отрезок; повторение; повтори; тренировка; прямоугольник; квадрат; треугольник; круг
 - Topics EN: mathematics; geometry; shape; shapes; line; segment; revision; review; practice
 - Headings: Kordamine. Ristkülik, ruut, kolmnurk, ring; Повторение. Прямоугольник, квадрат, треугольник, круг; Kujundid meie ümber; Liiklusmärgid; Arutle; Miks on vaja kanda helkurit?; Liiklusmärgid koolimajja; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Vaata pilti ja vasta küsimustele. Missugused liiklusmärgid on sulle tuttavad?Millise kujuga on liiklusmärgid?Kas kõik need liiklusmärgid on kasutusel Eestis?Kas sa oled mõnda nendest märkidest näinud oma kooliteel?Mida v; Joonesta vihikusse kolmnurk ja ruut.​Joonista nende sisse liiklusmärgid. KeeleabiНачерти в тетради треугольник и квадрат.​Нарисуй в них дорожные знаки.joonestama – чертитьjoonistama – рисовать
+- Task examples: Vaata pilti ja vasta küsimustele. Missugused liiklusmärgid on sulle tuttavad?Millise kujuga on liiklusmärgid?Kas kõik need liiklusmärgid on kasutusel Eestis?Kas sa oled mõnda nendest märkidest näinud oma kooliteel?Mida v; Joonesta vihikusse kolmnurk ja ruut. Joonista nende sisse liiklusmärgid. KeeleabiНачерти в тетради треугольник и квадрат. Нарисуй в них дорожные знаки.joonestama – чертитьjoonistama – рисовать
 
 ### 184. Korrutamise seos liitmisega
 - URL: https://www.opiq.ee/kit/578/chapter/33026
@@ -3174,7 +3174,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; закон; умножения
 - Topics EN: mathematics
 - Headings: Korrutamise seadus; Закон умножения; Lahendan ülesannet kahte moodi; Kas liidan või korrutan?; Tekstülesanded; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Arvuta kahte moodi, mitu papagoid on pildil.; Mitu akent on maja tagaküljel?​Arvuta vihikusse kahte moodi. KeeleabiСколько окон с задней стороны дома? Вычисли двумя способами в тетради. KontrollVaata, kas lahendasid õigesti.PausEsita% puhverdatud00:0000:00Eemalda va
+- Task examples: Arvuta kahte moodi, mitu papagoid on pildil.; Mitu akent on maja tagaküljel? Arvuta vihikusse kahte moodi. KeeleabiСколько окон с задней стороны дома? Вычисли двумя способами в тетради. KontrollVaata, kas lahendasid õigesti.PausEsita% puhverdatud00:0000:00Eemalda va
 
 ### 186. Korrutamine arvuga 2 (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33028
@@ -3208,7 +3208,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; умножение; умножь; произведение; число; числа; цифры; повторение; повтори; тренировка
 - Topics EN: mathematics; multiplication; multiply; product; number; numbers; digits; revision; review; practice
 - Headings: Korrutamine arvuga 2 (2); Умножение на число 2; Kahekordne; Korrutan arvuga 2; Tekstülesanded; Arutle; Harjutan; Matemaatikaklubi; Nuputa!; Matemaatika eesti keeles
-- Task examples: Kaubaauto tõi Voore põhikooli sööklasse toiduaineid.​Aita söökla töötajatel kaup üle lugeda. Ülesanne 1b Mitu pakki piima toodi? 2 · 5678 + 5678 = Vastus. Piima toodi pakki. : 0 : 0 Ülesanne 1a Mitu pakki mahla toodi? 2; Leia puuduv tegur. Ülesanne 2c 10 20 30 40 50 60 100 · 2 = 40 · 2 = 80 · 2 = 100 · 2 = 60 : 0 : 0 Ülesanne 2a 1 2 3 4 5 6 7 8 9 10 · 2 = 18 · 2 = 14 · 2 = 6 · 2 = 2 · 2 = 20 : 0 : 0 Ülesanne 2b 1 2 3 4 5 6 7 8 9 10 · 2 =
+- Task examples: Kaubaauto tõi Voore põhikooli sööklasse toiduaineid. Aita söökla töötajatel kaup üle lugeda. Ülesanne 1b Mitu pakki piima toodi? 2 · 5678 + 5678 = Vastus. Piima toodi pakki. : 0 : 0 Ülesanne 1a Mitu pakki mahla toodi? 2; Leia puuduv tegur. Ülesanne 2c 10 20 30 40 50 60 100 · 2 = 40 · 2 = 80 · 2 = 100 · 2 = 60 : 0 : 0 Ülesanne 2a 1 2 3 4 5 6 7 8 9 10 · 2 = 18 · 2 = 14 · 2 = 6 · 2 = 2 · 2 = 20 : 0 : 0 Ülesanne 2b 1 2 3 4 5 6 7 8 9 10 · 2 =
 
 ### 188. Korrutamine arvuga 3 (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33030
@@ -3616,7 +3616,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; растение; растения; дерево; цветок; урок; открытом; воздухе; разбивка; цветочной; клумбы; выбор; цветов
 - Topics EN: mathematics; plant; plants; tree; flower
 - Headings: Урок на открытом воздухе. Разбивка цветочной клумбы; Разбивка цветочной клумбы; 1Б​; 1А​; Выбор цветов; ​Многолетние растения; Однолетние растения; Составление бюджета
-- Task examples: Сходите погулять и найдите место рядом со школой, где вы хотели бы разбить цветочную клумбу. 1Б​ДОПОСЛЕ 1А​ДОПОСЛЕ 1Б​ДОПОСЛЕ 1А​ДОПОСЛЕ 12; Цветочные клумбы могут иметь очень разные геометрические формы. Сделайте разметку своей клумбы камушком или веточкой. Измерьте её.
+- Task examples: Сходите погулять и найдите место рядом со школой, где вы хотели бы разбить цветочную клумбу. 1Б ДОПОСЛЕ 1А ДОПОСЛЕ 1Б ДОПОСЛЕ 1А ДОПОСЛЕ 12; Цветочные клумбы могут иметь очень разные геометрические формы. Сделайте разметку своей клумбы камушком или веточкой. Измерьте её.
 
 ### 212. Повторение. Длина отрезка, вычисления в пределах 20
 - URL: https://www.opiq.ee/kit/165/chapter/9268
@@ -3888,7 +3888,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; дециметр; какие; единицы; длины; используют; измерения; предметов; чему
 - Topics EN: mathematics
 - Headings: Дециметр; Какие единицы длины используют для измерения предметов?; Чему равен один дециметр?; 2В; ​2А; 2Б; Математический Клуб; Подумай!
-- Task examples: На линейке стёрлись некоторые числа. Распредели их заново. Перетащи числа.; Что такое дециметр? Выполни задания. 2В Выясни, используя измерительную ленту, сколько дециметров составляет один метр. 1 м = дм : 0 : 0 ​2АИзготовь из бумаги или картона измерительную ленту длиной в 1 дециметр. 2Б Выясн
+- Task examples: На линейке стёрлись некоторые числа. Распредели их заново. Перетащи числа.; Что такое дециметр? Выполни задания. 2В Выясни, используя измерительную ленту, сколько дециметров составляет один метр. 1 м = дм : 0 : 0 2АИзготовь из бумаги или картона измерительную ленту длиной в 1 дециметр. 2Б Выясн
 
 ### 228. Единицы длины: м, дм, см, мм
 - URL: https://www.opiq.ee/kit/165/chapter/9259
@@ -4687,7 +4687,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; сложение; сложи; сумма; умножение; умножь; произведение; действие; заменяющее; одинаковых; слагаемых; такое; думаем
 - Topics EN: mathematics; addition; add; sum; multiplication; multiply; product
 - Headings: Умножение как действие, заменяющее сложение одинаковых слагаемых; Что такое умножение?; Думаем, решаем и считаем; 5Б; 5А; Математический Клуб; Подумай!
-- Task examples: В каждой упаковке одинаковое количество сока. Сколько всего стаканов сока на каждой картинке? 4 ​стакана четыре умножить на один 4 · 1 = 44 + 4 ​стаканов четыре умножить на два 4 · 2 = 84 + 4 + 4 стаканов четыре умножить; Замени сложение одинаковых слагаемых умножением.
+- Task examples: В каждой упаковке одинаковое количество сока. Сколько всего стаканов сока на каждой картинке? 4 стакана четыре умножить на один 4 · 1 = 44 + 4 стаканов четыре умножить на два 4 · 2 = 84 + 4 + 4 стаканов четыре умножить; Замени сложение одинаковых слагаемых умножением.
 
 ### 275. Закон умножения
 - URL: https://www.opiq.ee/kit/165/chapter/9292
@@ -4874,7 +4874,7 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Topics RU: математика; деление; раздели; частное; половина; число; числа; цифры; интересно; знать; думаем; решаем; считаем; текстовые
 - Topics EN: mathematics; division; divide; quotient; half; number; numbers; digits
 - Headings: Деление на число 4; Интересно знать; Думаем, решаем и считаем; 3Б; 3А; 4Б; 4А; Текстовые задачи; 7В; 7А; 7Б; Математический Клуб; Подумай!
-- Task examples: В музыкальной школе обучается 12 детей. Учитель сформировал из них 4 ансамбля. В каждом ансамбле равное количество детей. ​Сколько детей в каждом ансамбле? 12 : 4 = 3, так как 3 · 4 = 12 Ответ: в каждом ансамбле играет п; Раздели музыкальные инструменты поровну на 4 ансамбля. Сколько инструментов будет в каждом ансамбле?
+- Task examples: В музыкальной школе обучается 12 детей. Учитель сформировал из них 4 ансамбля. В каждом ансамбле равное количество детей. Сколько детей в каждом ансамбле? 12 : 4 = 3, так как 3 · 4 = 12 Ответ: в каждом ансамбле играет п; Раздели музыкальные инструменты поровну на 4 ансамбля. Сколько инструментов будет в каждом ансамбле?
 
 ### 286. Порядок действий в выражениях
 - URL: https://www.opiq.ee/kit/165/chapter/9303

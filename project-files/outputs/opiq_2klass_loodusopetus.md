@@ -3587,7 +3587,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - Topics RU: природоведение; природа; окружающая среда; времена года; весна; лето; осень; зима
 - Topics EN: science; nature; environment; seasons; spring; summer; autumn; winter
 - Headings: Kevad ja kevadkuud; 1. Aastaajad; ÜL 2; ÜL 1; 2. Kevad; 3. Loodus kevadel; 4. Kevadkuud; 5. Tähtpäevad kevadel; 6. Kokkuvõte; Tööleht
-- Task examples: ÜL 2 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 ÜL 1 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 ÜL 2 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 ÜL 1 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 12; Puu on lehes.Puu all kasvavad ​või-lilled. 3 : 0 : 0 See puu on kask. Kask on raagus.Puu all on veel lund. 1 : 0 : 0 Kase okste küljes on noored lehed.Puu all kasvavad ​paise-lehed. 2 : 0 : 0 Puu on lehes.Puu all kasvava
+- Task examples: ÜL 2 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 ÜL 1 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 ÜL 2 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 ÜL 1 Aasta-aeg on KEVAD.TALV.SÜGIS. : 0 : 0 12; Puu on lehes.Puu all kasvavad või-lilled. 3 : 0 : 0 See puu on kask. Kask on raagus.Puu all on veel lund. 1 : 0 : 0 Kase okste küljes on noored lehed.Puu all kasvavad paise-lehed. 2 : 0 : 0 Puu on lehes.Puu all kasvava
 
 ### 210. Puud ja põõsad kevadel
 - URL: https://www.opiq.ee/kit/501/chapter/27399
@@ -3655,7 +3655,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - Topics RU: природоведение; животное; животные; птицы; насекомые
 - Topics EN: science; animal; animals; birds; insects
 - Headings: Loomad kevadel; 1. Loomad; Väikesed loomad (putukad; roomavad); loomad; 2. Loomad ärkavad talve-unest; 3. Loomad vahetavad karva; 4. Loomadel sünnivad pojad; 5. Pojad kasvavad; 6. Kokkuvõte; ÜLESANNE 5 (1)
-- Task examples: *Klõpsa sõna esimesel tähel ja viimasel tähel.TIGU, MESILANE, VIHMAUSS, SIPELGAS Väikesed loomad (putukad; roomavad) {"data":[["ASIUMNEP"],["VIHMAUSS"],["OPERTUNT"],["MESILANE"],["RLARÜSDI"],["SGLEHMAD"],["KABTIGUR"],["U; ÜLESANNE 5 (1) Jänese kutsikadpojadtalled sünnivad aprillis.Mets-sea vasikadpõrsadtalled sünnivad aprillis.Põdra vasikastallkutsikas sünnib mais.Hundi talledvasikadkutsikad sünnivad aprillis. : 0 : 0 ÜLESANNE 5 (1) Orava
+- Task examples: *Klõpsa sõna esimesel tähel ja viimasel tähel.TIGU, MESILANE, VIHMAUSS, SIPELGAS Väikesed loomad (putukad; roomavad); ÜLESANNE 5 (1) Jänese kutsikadpojadtalled sünnivad aprillis.Mets-sea vasikadpõrsadtalled sünnivad aprillis.Põdra vasikastallkutsikas sünnib mais.Hundi talledvasikadkutsikad sünnivad aprillis. : 0 : 0 ÜLESANNE 5 (1) Orava
 
 ### 214. Linnud kevadel
 - URL: https://www.opiq.ee/kit/501/chapter/27403
@@ -3689,7 +3689,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - Topics RU: природоведение; времена года; весна; лето; осень; зима
 - Topics EN: science; seasons; spring; summer; autumn; winter
 - Headings: Suvi ja suvekuud; 1. Aasta-ajad enne suve; 2. Suvi; 3. Suvekuud; 4. Erinev ilm; 5. Vikerkaar; 5. Kokkuvõte; Aastaajad, kuud 2; Aastaajad, kuud 1
-- Task examples: 4 {"data":"<ol><li>Kombain <b>koristab vilja</b>.</li><li>Kombain koristab põllult vilja.</li></ol>"} Kombain koristab vilja. Kombain koristab põllult vilja. : 0 : 0 1 {"data":"<ol><li>Mees <b>sõidab rattaga</b>.</li><li; Aastaajad, kuud 2 KEVAD ja SUVI AUGUST APRILL MAI JUULI JUUNI MÄRTS : 0 : 0 Aastaajad, kuud 1 SÜGIS ja TALV NOVEMBER OKTOOBER SEPTEMBER JAANUAR VEEBRUAR DETSEMBER : 0 : 0 Aastaajad, kuud 2 KEVAD ja SUVI AUGUST APRILL MAI
+- Task examples: 4 Kombain koristab vilja. Kombain koristab põllult vilja. : 0 : 0 1; Aastaajad, kuud 2 KEVAD ja SUVI AUGUST APRILL MAI JUULI JUUNI MÄRTS : 0 : 0 Aastaajad, kuud 1 SÜGIS ja TALV NOVEMBER OKTOOBER SEPTEMBER JAANUAR VEEBRUAR DETSEMBER : 0 : 0 Aastaajad, kuud 2 KEVAD ja SUVI AUGUST APRILL MAI
 
 ### 216. Aasta
 - URL: https://www.opiq.ee/kit/501/chapter/27405
@@ -3706,7 +3706,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - Topics RU: природоведение; повторение; повтори; тренировка; растение; растения; дерево; цветок; животное; животные; птицы; насекомые; времена года; весна; лето; осень; зима
 - Topics EN: science; revision; review; practice; plant; plants; tree; flower; animal; animals; birds; insects; seasons; spring; summer; autumn; winter
 - Headings: Aasta; 1. Suvi aias; AED; 2. Loomad ja taimed aias; Taimed; Putukad; Linnud; 3. Aasta-ring aias; ÜL 3 (4) kevad; ÜL 3 (1) suvi; ÜL 3 (2) sügis; ÜL 3 (3) talv; 4. Maasikad; Maasika joonis; 5. Mets-maasikad; Tööleht; 6. Kordamine; ÜL (2); ÜL (1); ÜLESANNE 8.2
-- Task examples: 1.PausEsita% puhverdatud00:0000:07Eemalda vaigistusVaigistaSeadedKiirusTavalineKiirusTagasi eelmisesse menüüsse0.5×0.75×Tavaline1.25×1.5×1.75×2×4×Your browser does not support the audio element.2.PausEsita% puhverdatud00; Taimed TAIMED on … {"data":"<p>mulla-hunnik, õuna-puu, maasikas, põõsas</p>"} mulla-hunnik, õuna-puu, maasikas, põõsas : 0 : 0 Putukad PUTUKAD on … {"data":"<p>liblikas, vihma-uss, sipelgas, konn, mesilane</p>"} liblikas
+- Task examples: 1.PausEsita% puhverdatud00:0000:07Eemalda vaigistusVaigistaSeadedKiirusTavalineKiirusTagasi eelmisesse menüüsse0.5×0.75×Tavaline1.25×1.5×1.75×2×4×Your browser does not support the audio element.2.PausEsita% puhverdatud00; Taimed TAIMED on … mulla-hunnik, õuna-puu, maasikas, põõsas : 0 : 0 Putukad PUTUKAD on … liblikas
 
 ### 217. Metoodiline juhendmaterjal õpetajale
 - URL: https://www.opiq.ee/kit/501/chapter/27406

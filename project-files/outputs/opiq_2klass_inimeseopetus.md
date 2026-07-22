@@ -3244,7 +3244,7 @@ Use this file to answer grade 2 human studies requests only. Match queries again
 - Topics RU: человековедение
 - Topics EN: human studies
 - Headings: Eesti Vabariik; Eesti Vabariigi lipp, vapp ja hümn; Eesti Vabariigi valitsus ja president; Lisaülesanne; Eesti Vabariigi hümn
-- Task examples: Uuri kaarti ja otsusta, kus asub Eesti ning tema naaberriigid. Lohista kaardil riikide nimed õigesse kohta. Ülesanne 1a {"data":["EESTI","LÄTI","SOOME","ROOTSI","VENEMAA"]}EESTI11LÄTI22SOOME33ROOTSI44VENEMAA55 : 0 : 0 Ig; Uuri Eesti kaarti. Leia kaardilt oma kodukoht. Ülesanne 2 Mina elan maakonnas. Eestis on kokku maakonda. : 0 : 0 Lisa oma materjali Tekstiabi Muud tegevused Kopeeri link Teata veast näidatakse õppekavast: Riiklik õppekav
+- Task examples: Uuri kaarti ja otsusta, kus asub Eesti ning tema naaberriigid. Lohista kaardil riikide nimed õigesse kohta. Ülesanne 1a EESTI11LÄTI22SOOME33ROOTSI44VENEMAA55 : 0 : 0 Ig; Uuri Eesti kaarti. Leia kaardilt oma kodukoht. Ülesanne 2 Mina elan maakonnas. Eestis on kokku maakonda. : 0 : 0 Lisa oma materjali Tekstiabi Muud tegevused Kopeeri link Teata veast näidatakse õppekavast: Riiklik õppekav
 
 ### 190. Minu kodukoht
 - URL: https://www.opiq.ee/kit/142/chapter/8010
@@ -3261,7 +3261,7 @@ Use this file to answer grade 2 human studies requests only. Match queries again
 - Topics RU: человековедение
 - Topics EN: human studies
 - Headings: Minu kodukoht
-- Task examples: Kus sa elad? Kirjuta. Ülesanne 7 Mina elan... maakonnas vallas/linnas külas/alevis/alevikus tänaval Salvesta Lisa oma materjali Tekstiabi Muud tegevused Kopeeri link Teata veast näidatakse õppekavast: Riiklik õppekava 20; Millised on Eesti maakondade vapid? Ühenda maakond vapiga. Ülesanne 8 {"data":["Põlvamaa","Ida-Virumaa","Pärnumaa","Harjumaa","Võrumaa","Tartumaa","Järvamaa","Raplamaa","Saaremaa","Läänemaa","Hiiumaa","Jõgevamaa","Lääne-
+- Task examples: Kus sa elad? Kirjuta. Ülesanne 7 Mina elan... maakonnas vallas/linnas külas/alevis/alevikus tänaval Salvesta Lisa oma materjali Tekstiabi Muud tegevused Kopeeri link Teata veast näidatakse õppekavast: Riiklik õppekava 20; Millised on Eesti maakondade vapid? Ühenda maakond vapiga. Ülesanne 8
 
 ### 191. Elu linnas ja maal
 - URL: https://www.opiq.ee/kit/142/chapter/8011
@@ -3295,7 +3295,7 @@ Use this file to answer grade 2 human studies requests only. Match queries again
 - Topics RU: человековедение
 - Topics EN: human studies
 - Headings: Eestimaa rikkus; Tuntud inimesed; Lisaülesanne 5; Lisaülesanne 5a; Lisaülesanne 5b
-- Task examples: Kas sina oled nendes kohtades käinud? Ülesanne 14a JahEi JahEi JahEi JahEi JahEi JahEi JahEi JahEi JahEi Salvesta Kuhu sa tahaksid Eestimaal veel minna? Kirjuta ja põhjenda, miks sa tahad just sellesse paika minna. Ülesa; Kes on need tuntud Eesti inimesed? Ühenda nimi ja foto. Vajadusel kasuta internetti. Ülesanne 15 {"data":["vigursuusataja Kelly Sildaru","rallisõitja Ott Tänak","näitleja Hele Kõrve","kunstnik ja kirjanik Piret Raud","he
+- Task examples: Kas sina oled nendes kohtades käinud? Ülesanne 14a JahEi JahEi JahEi JahEi JahEi JahEi JahEi JahEi JahEi Salvesta Kuhu sa tahaksid Eestimaal veel minna? Kirjuta ja põhjenda, miks sa tahad just sellesse paika minna. Ülesa; Kes on need tuntud Eesti inimesed? Ühenda nimi ja foto. Vajadusel kasuta internetti. Ülesanne 15
 
 ### 193. Tean ja oskan
 - URL: https://www.opiq.ee/kit/142/chapter/8013
@@ -3924,7 +3924,7 @@ Use this file to answer grade 2 human studies requests only. Match queries again
 - Topics RU: человековедение; родной; край
 - Topics EN: human studies
 - Headings: Мой родной край
-- Task examples: Где ты живёшь? Напиши. Задание 7 Я живу ... в уезде . волости / городе . деревне / посёлке . на улице . Salvesta Lisa oma materjali Tekstiabi Muud tegevused Kopeeri link Teata veast näidatakse õppekavast: Riiklik õppekav; Знаешь ли ты флаг и герб твоего родного края? Рассмотри гербы уездов Эстонии и отметь герб уезда, в котором ты живёшь. Задание 8 {"data":["Герб уезда, в котором я живу."]}Герб уезда, в котором я живу.11 : 0 : 0 Как выгля
+- Task examples: Где ты живёшь? Напиши. Задание 7 Я живу ... в уезде . волости / городе . деревне / посёлке . на улице . Salvesta Lisa oma materjali Tekstiabi Muud tegevused Kopeeri link Teata veast näidatakse õppekavast: Riiklik õppekav; Знаешь ли ты флаг и герб твоего родного края? Рассмотри гербы уездов Эстонии и отметь герб уезда, в котором ты живёшь. Задание 8 Герб уезда, в котором я живу.11 : 0 : 0 Как выгля
 
 ### 230. Жизнь в городе и деревне
 - URL: https://www.opiq.ee/kit/229/chapter/13097
@@ -3958,7 +3958,7 @@ Use this file to answer grade 2 human studies requests only. Match queries again
 - Topics RU: человековедение; богатство; эстонии; известные; люди; дополнительное
 - Topics EN: human studies
 - Headings: Богатство Эстонии; Известные люди; Дополнительное задание; Дополнительное задание 1; Дополнительное задание 2
-- Task examples: Бывал/а ли ты в этих местах? Отметь крестиком ( + ) те места, где ты бывал/а. Задание 14а парк Тойла-Ору +– Мельницы Англа +– Пярнуский мол +– водопад Валасте +– Таэваскода +– музей А. Х. Таммсааре в волости Албу +– гора; Знаешь ли ты этих известных людей Эстонии? Соедини имя с фотографией. Как ты узнал/а об этих людях? Если нужно, воспользуйся интернетом. Задание 15 {"data":["дискобол Герд Кантер","актёр Эдуард Томан","художник Эдгар Вал
+- Task examples: Бывал/а ли ты в этих местах? Отметь крестиком ( + ) те места, где ты бывал/а. Задание 14а парк Тойла-Ору +– Мельницы Англа +– Пярнуский мол +– водопад Валасте +– Таэваскода +– музей А. Х. Таммсааре в волости Албу +– гора; Знаешь ли ты этих известных людей Эстонии? Соедини имя с фотографией. Как ты узнал/а об этих людях? Если нужно, воспользуйся интернетом. Задание 15
 
 ### 232. Знаю и умею
 - URL: https://www.opiq.ee/kit/229/chapter/13099

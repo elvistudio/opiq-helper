@@ -7,6 +7,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { readCompactZip, readZipText, requireZipMember } from './lib/compact-zip.mjs';
+import { sanitizeCapturedTaskExample } from './lib/grade-2-content-quality.mjs';
 import {
   assertArchiveChecksum,
   assertCrossRouteUrlOwnership,
@@ -22,7 +23,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const generatorPath = 'scripts/generate-grade-2-source-indexes.mjs';
-const generatorVersion = '3.0';
+const generatorVersion = '3.1';
 const checkOnly = process.argv.slice(2).includes('--check');
 const unknownArguments = process.argv.slice(2).filter((argument) => argument !== '--check');
 const expectedArchiveChecksums = new Map([
@@ -659,8 +660,8 @@ function normalizeRecord(record, configuration) {
       ? normalizeTextList(record.headings)
       : record.headings.map(normalizeText).filter(Boolean),
     task_examples: configuration.normalizeContentLists
-      ? normalizeTextList(record.task_examples)
-      : record.task_examples.map(normalizeText).filter(Boolean),
+      ? normalizeTextList(record.task_examples.map((value) => sanitizeCapturedTaskExample(value).text))
+      : record.task_examples.map((value) => sanitizeCapturedTaskExample(value).text).filter(Boolean),
   };
   normalized.subject_en = configuration.subject.en;
   normalized.subject_et = configuration.subject.et;
@@ -1084,6 +1085,65 @@ async function generateSource(manifest, configuration) {
   return { source, canonicalRecords };
 }
 
+async function normalizeLegacyRussianTaskPayloads(manifest) {
+  const source = manifest.sources.find((entry) => entry.id === 'grade-2-russian');
+  assert(source, 'Manifest source grade-2-russian was not found.');
+  const archivePath = await requireFile(source.source_archive, 'grade-2-russian source archive');
+  const archive = await readCompactZip(archivePath);
+  requireZipMember(archive, 'opiq_lookup.jsonl');
+  const sourceRecords = parseJsonl(
+    readZipText(archive, 'opiq_lookup.jsonl'),
+    'grade-2-russian opiq_lookup.jsonl',
+  );
+  const affectedByUrl = groupBy(
+    sourceRecords.filter((record) => record.task_examples.some((value) => value.includes('{"d'))),
+    (record) => normalizeText(record.url),
+  );
+  assert(affectedByUrl.size === 6, `grade-2-russian embedded task payload URL count is ${affectedByUrl.size}; expected 6.`);
+
+  const markdownPath = repositoryPath(source.md_path, 'grade-2-russian Markdown path');
+  const qaPath = repositoryPath(source.qa_path, 'grade-2-russian QA path');
+  const currentMarkdown = await readFile(markdownPath, 'utf8');
+  const starts = [...currentMarkdown.matchAll(/^###\s+(\d+)\.\s+.+$/gmu)];
+  assert(starts.length === source.record_count, `grade-2-russian Markdown has ${starts.length} records; expected ${source.record_count}.`);
+  const affectedCanonicalUrls = new Set();
+  let expectedMarkdown = currentMarkdown.slice(0, starts[0].index);
+  starts.forEach((start, index) => {
+    const blockEnd = index + 1 < starts.length ? starts[index + 1].index : currentMarkdown.length;
+    let block = currentMarkdown.slice(start.index, blockEnd);
+    const url = block.match(/^- URL:\s*(\S+)\s*$/mu)?.[1];
+    assert(url, `grade-2-russian record ${index + 1} has no URL field.`);
+    const sourceMatches = affectedByUrl.get(url);
+    if (sourceMatches) {
+      const taskVariants = [...new Set(sourceMatches.map((record) => JSON.stringify(
+        record.task_examples.map((value) => sanitizeCapturedTaskExample(value).text).filter(Boolean),
+      )))];
+      assert(taskVariants.length === 1, `grade-2-russian source duplicates disagree after payload repair: ${url}`);
+      const repairedTasks = JSON.parse(taskVariants[0]);
+      const taskLine = `- Task examples: ${repairedTasks.join('; ')}`;
+      assert(/^- Task examples:.*$/mu.test(block), `grade-2-russian affected record has no Task examples field: ${url}`);
+      block = block.replace(/^- Task examples:.*$/mu, taskLine);
+      affectedCanonicalUrls.add(url);
+    }
+    expectedMarkdown += block;
+  });
+  assert(affectedCanonicalUrls.size === 6, `grade-2-russian canonical repair count is ${affectedCanonicalUrls.size}; expected 6.`);
+
+  const qa = parseJson(await readFile(qaPath, 'utf8'), source.qa_path);
+  qa.checksums.output_file_sha256 = sha256(Buffer.from(expectedMarkdown, 'utf8'));
+  const expectedQa = `${JSON.stringify(qa, null, 2)}\n`;
+  const currentQa = await readFile(qaPath, 'utf8');
+  if (checkOnly) {
+    assert(currentMarkdown === expectedMarkdown, `${source.md_path} contains unprocessed embedded task payloads; run ${generatorPath} without --check.`);
+    assert(currentQa === expectedQa, `${source.qa_path} is stale after deterministic task-payload repair.`);
+    console.log('grade-2-russian legacy content check passed: 6 archive-proven task payload repairs.');
+  } else {
+    if (currentMarkdown !== expectedMarkdown) await writeFile(markdownPath, expectedMarkdown, 'utf8');
+    if (currentQa !== expectedQa) await writeFile(qaPath, expectedQa, 'utf8');
+    console.log('grade-2-russian legacy content normalization complete: 6 archive-proven task payload repairs.');
+  }
+}
+
 if (unknownArguments.length > 0) {
   console.error(`Unknown argument(s): ${unknownArguments.join(', ')}`);
   console.error(`Usage: node ${generatorPath} [--check]`);
@@ -1093,6 +1153,7 @@ if (unknownArguments.length > 0) {
     const manifest = parseJson(await readFile(manifestPath, 'utf8'), 'source-manifest.json');
     await validateImmutableArchiveSet();
     await relocateLegacyGradeOneRecords(manifest);
+    await normalizeLegacyRussianTaskPayloads(manifest);
     const results = [];
     for (const configuration of configurations) results.push(await generateSource(manifest, configuration));
     const firstLanguage = results.find((result) => result.source.id === 'grade-2-estonian');
