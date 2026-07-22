@@ -93,14 +93,14 @@ node scripts/generate-grade-1-mathematics-qa.mjs
 node scripts/generate-grade-1-mathematics-qa.mjs --check
 ```
 
-Grade 3 mathematics uses the same derived-provenance model and has its own audited generator:
+Grade 3 mathematics is generated from its committed original export and has its own archive, semantic-comparison, and content-quality checks:
 
 ```sh
 node scripts/generate-grade-3-mathematics-qa.mjs
 node scripts/generate-grade-3-mathematics-qa.mjs --check
 ```
 
-The generator preserves its initial `generated_at` value on ordinary reruns and verifies the canonical Markdown field by field against the compact JSONL. Run the general refresh and manifest checks afterward.
+The grade 3 generator verifies all 657 ZIP members and 643 source rows, excludes non-instructional details and Impressum pages, produces 619 unique instructional records, and compares them with the former compact snapshot. The old compact ZIP is retained only as noncanonical historical comparison evidence. The deterministic QA timestamp comes from the original capture. Run the general refresh and manifest checks afterward.
 
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 

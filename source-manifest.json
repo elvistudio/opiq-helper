@@ -559,33 +559,21 @@
       "grade_group": "1-4",
       "subject": "mathematics",
       "subject_et": "matemaatika",
-      "languages": ["et", "ru", "en"],
+      "languages": ["et", "ru"],
       "md_path": "project-files/outputs/opiq_3klass_matemaatika.md",
-      "source_archive": "project-files/outputs/3klass-matem-compact.zip",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_matemaatika_3_klassile_opiq_v2.zip",
       "qa_path": "project-files/outputs/opiq_3klass_matemaatika_qa.json",
-      "record_count": 634,
+      "record_count": 619,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
-      "quality_status": "qa_snapshot_available",
+      "quality_status": "original_archive_audited",
       "known_issues": [
-        "The original export 3klass-matem.zip is unavailable; the route is validated against a committed derived compact snapshot.",
-        "Publisher metadata is empty for the four simplified-curriculum book IDs in the compact snapshot.",
-        "Six administrative Impressum records and nine unique kit detail records remain in the canonical index."
+        "The original exporter systematically labels all source rows as grade 2. Canonical grade 3 is supported by every captured cover title, source Book ID, and kit identity; raw values remain in QA.",
+        "Five Estonian instructional pages are source-labelled en and are normalized to et from captured book, heading, and task evidence.",
+        "Publisher metadata is absent from the original capture. Previously audited Avita and Koolibri values are retained for ordinary books; simplified-book publishers remain empty.",
+        "Two environmental-context calculation pages are normalized from science aliases to mathematics using stable URL and raw-task evidence.",
+        "The historical compact snapshot remains committed only for noncanonical semantic comparison."
       ],
-      "source_provenance": {
-        "kind": "derived_compact_snapshot",
-        "archive_path": "project-files/outputs/3klass-matem-compact.zip",
-        "declared_original_archive": "3klass-matem.zip",
-        "compact_generated_at": "2026-06-12T14:08:30.147803+00:00",
-        "original_archive_available": false,
-        "required_members": [
-          "index.json",
-          "opiq_lookup.jsonl",
-          "opiq_lookup.md",
-          "topic_map.json"
-        ],
-        "limitations": "The original export is unavailable; this route is reproducibly validated against the committed compact snapshot."
-      },
       "canonical_url_policy": {
         "require_unique": true
       },
@@ -596,7 +584,7 @@
           "ru": "математика"
         }
       },
-      "notes": "The derived compact snapshot contains 637 source records. Three repeated kit detail rows are excluded from the 634-record canonical index. Two audited Kaitseme loodust records remain in mathematics because their learning tasks are computational; environmental keywords are retained as context. This route is not curriculum-verified."
+      "notes": "The committed original Opiq export contains 643 source rows. Nine unique Kit Details records, nine duplicate detail aliases, and six administrative Impressum records are excluded from the 619-page instructional index. Nine source-book-plus-kit variants are preserved; ordinary and simplified curricula remain explicit. This route is not curriculum-verified."
     },
     {
       "id": "grade-5-science",

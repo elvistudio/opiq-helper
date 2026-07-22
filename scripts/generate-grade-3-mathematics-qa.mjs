@@ -1,463 +1,521 @@
 #!/usr/bin/env node
 
-import { createHash } from 'node:crypto';
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
-import { readCompactZip, readZipText, requireZipMember } from './lib/compact-zip.mjs';
+import { readCompactZip, readZipText } from './lib/compact-zip.mjs';
+import { mixedScriptWords } from './lib/grade-2-content-quality.mjs';
+import {
+  assertArchiveIdentity,
+  assertCompactMarkdownMatches,
+  assertGeneratedArtifact,
+  assertGrade3,
+  assertRequiredMembers,
+  assertSafeMemberName,
+  buildGrade3CanonicalCatalog,
+  compareHistoricalCatalog,
+  countBy,
+  grade3MathematicsArchive,
+  grade3MathematicsVariants,
+  historicalGrade3MathematicsArchive,
+  languageNormalizationUrls,
+  parseGrade3Jsonl,
+  parseGrade3Markdown,
+  requiredOriginalMembers,
+  renderGrade3Markdown,
+  sha256Bytes,
+  sourceSubject,
+  subjectNormalizationUrls,
+  validateManifestGrade3Source,
+} from './lib/grade-3-mathematics.mjs';
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
-const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const sourceId = 'grade-3-mathematics';
 const generatorPath = 'scripts/generate-grade-3-mathematics-qa.mjs';
-const generatorVersion = '1.0';
-const checkOnly = process.argv.slice(2).includes('--check');
+const generatorVersion = '2.0';
+const auditPath = 'docs/audits/grade-3-mathematics-source-and-subjects.md';
+const checkOnly = process.argv.includes('--check');
 const unknownArguments = process.argv.slice(2).filter((argument) => argument !== '--check');
+assertGrade3(unknownArguments.length === 0, `Unknown arguments: ${unknownArguments.join(' ')}`);
 
-const duplicateDecisions = new Map([
-  ['https://www.opiq.ee/Kit/Details/497', { positions: [561, 562], chapterIds: ['265', '291'] }],
-  ['https://www.opiq.ee/Kit/Details/498', { positions: [584, 585], chapterIds: ['248', '264'] }],
-  ['https://www.opiq.ee/Kit/Details/500', { positions: [625, 626], chapterIds: ['200', '223'] }],
-]);
-
-const subjectDecisions = new Map([
-  ['https://www.opiq.ee/kit/531/chapter/29334', {
-    sourcePosition: 59,
-    bookId: '3k_matem_avita_2023_est',
-    kitId: '531',
-    chapterId: '3.16',
-  }],
-  ['https://www.opiq.ee/kit/54/chapter/2701', {
-    sourcePosition: 201,
-    bookId: '3k_matem_avita_2_est',
-    kitId: '54',
-    chapterId: '3.16',
-  }],
-]);
-
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
-}
-
-function isPlainObject(value) {
-  return value !== null && typeof value === 'object' && !Array.isArray(value);
-}
-
-function repositoryPath(relativePath, label) {
-  assert(typeof relativePath === 'string' && relativePath.trim(), `${label} must be a non-empty path.`);
-  assert(!path.isAbsolute(relativePath), `${label} must be repository-relative.`);
-  const absolutePath = path.resolve(repositoryRoot, relativePath);
-  assert(
-    absolutePath !== repositoryRoot && absolutePath.startsWith(`${repositoryRoot}${path.sep}`),
-    `${label} points outside the repository.`,
-  );
-  return absolutePath;
-}
-
-async function requireFile(relativePath, label) {
-  const absolutePath = repositoryPath(relativePath, label);
-  const fileStat = await stat(absolutePath).catch(() => null);
-  assert(fileStat?.isFile(), `${label} is missing: ${relativePath}`);
-  return absolutePath;
-}
-
-async function sha256(filePath) {
-  return createHash('sha256').update(await readFile(filePath)).digest('hex');
-}
-
-function parseJson(text, label) {
+const absolute = (relativePath) => path.join(repositoryRoot, relativePath);
+const parseJson = (text, label) => {
   try {
     return JSON.parse(text);
   } catch (error) {
     throw new Error(`${label} is invalid JSON: ${error.message}`);
   }
+};
+const normalizeRepresentationText = (value) => String(value ?? '').normalize('NFC').replace(/[\s\u00a0]+/gu, ' ').trim();
+
+function stableJson(value) {
+  return `${JSON.stringify(value, null, 2)}\n`;
 }
 
-function parseJsonl(text) {
-  const lines = text.split(/\r?\n/).filter((line) => line.trim());
-  return lines.map((line, index) => {
-    const value = parseJson(line, `opiq_lookup.jsonl line ${index + 1}`);
-    assert(isPlainObject(value), `opiq_lookup.jsonl line ${index + 1} must be an object.`);
-    for (const field of [
-      'title', 'url', 'book', 'book_id', 'chapter_id', 'grade', 'subject_et', 'subject_ru',
-      'subject_en', 'language', 'publisher', 'topics_et', 'topics_ru', 'topics_en', 'headings',
-      'task_examples',
-    ]) {
-      assert(Object.hasOwn(value, field), `opiq_lookup.jsonl line ${index + 1} is missing ${field}.`);
-    }
-    assert(/^https:\/\/(?:www\.)?opiq\.ee\//i.test(value.url), `Source record ${index + 1} has an invalid Opiq URL.`);
-    assert(Number.isInteger(value.grade) && value.grade === 3, `Source record ${index + 1} has an invalid grade.`);
-    for (const field of ['topics_et', 'topics_ru', 'topics_en', 'headings', 'task_examples']) {
-      assert(Array.isArray(value[field]), `Source record ${index + 1} field ${field} must be an array.`);
-    }
-    return { ...value, source_position: index + 1 };
-  });
-}
+function validateIndex(index, rawIndex, sourceRecords, archive) {
+  assertGrade3(index?.formatVersion === grade3MathematicsArchive.format_version, 'index.json formatVersion is not 2.0.');
+  assertGrade3(index.generatedAt === grade3MathematicsArchive.capture_timestamp, 'index.json capture timestamp changed.');
+  assertGrade3(index.source === 'opiq-helper-extension', 'index.json source is not opiq-helper-extension.');
+  assertGrade3(index.recordCount === sourceRecords.length, 'index.json recordCount differs from JSONL.');
+  assertGrade3(JSON.stringify(index.supportedQueryLanguages) === JSON.stringify(['et', 'ru', 'en']), 'index.json query languages changed.');
+  assertGrade3(JSON.stringify(index.compactFiles) === JSON.stringify(['opiq_lookup.md', 'opiq_lookup.jsonl', 'topic_map.json', 'index.json']), 'index.json compactFiles changed.');
+  assertGrade3(index.rawArchiveIncluded === true, 'index.json must declare the raw archive.');
+  assertGrade3(rawIndex.generatedAt === index.generatedAt, 'Raw and compact capture timestamps differ.');
+  assertGrade3(JSON.stringify(rawIndex.books) === JSON.stringify(index.books), 'Raw and compact book inventories differ.');
+  assertGrade3(index.books.length === 9, `index.json has ${index.books.length} books; expected 9.`);
 
-function parseMarkdownRecords(markdown) {
-  const starts = [...markdown.matchAll(/^##\s+(.+)$/gm)];
-  return starts.map((match, index) => {
-    const text = markdown.slice(
-      match.index,
-      index + 1 < starts.length ? starts[index + 1].index : markdown.length,
-    );
-    const field = (name) => text.match(new RegExp(`^${name}:[ \\t]*(.*)$`, 'm'))?.[1] ?? '';
-    return {
-      position: index + 1,
-      title: match[1],
-      url: field('URL'),
-      book: field('Book'),
-      grade: field('Class'),
-      subject: field('Subject'),
-      language: field('Language'),
-      publisher: field('Publisher'),
-      bookId: field('Book ID'),
-      chapterId: field('Chapter ID'),
-      topicsEt: field('Topics ET'),
-      topicsRu: field('Topics RU'),
-      topicsEn: field('Topics EN'),
-      headings: field('Headings'),
-      taskExamples: field('Task examples'),
-    };
-  });
-}
-
-function kitId(url) {
-  return url.match(/\/kit\/(\d+)/i)?.[1] || url.match(/\/Kit\/Details\/(\d+)/)?.[1] || '';
-}
-
-function countBy(records, selector) {
-  const counts = new Map();
-  for (const record of records) {
-    const key = String(selector(record));
-    counts.set(key, (counts.get(key) || 0) + 1);
+  const sourceCounts = countBy(sourceRecords, (record) => record.book_id);
+  for (const book of index.books) {
+    const variant = grade3MathematicsVariants[book.id];
+    assertGrade3(variant, `index.json contains unknown book ${book.id}.`);
+    assertGrade3(book.title.replace(/\s+[–-]\s+Opiq$/u, '') === variant.title, `Captured title differs for ${book.id}.`);
+    assertGrade3(book.grade === 2, `${book.id} no longer has the audited source-grade anomaly 2.`);
+    assertGrade3(book.language === variant.language, `${book.id} index language differs from audited language.`);
+    assertGrade3(book.publisher === '', `${book.id} unexpectedly contains publisher metadata.`);
+    assertGrade3(book.chapterCount === sourceCounts[book.id], `${book.id} chapterCount differs from JSONL.`);
+    const member = `raw/Opiq-DB/books/${book.id}.json`;
+    assertGrade3(archive.entries.has(member), `Original archive is missing ${member}.`);
+    const rawBook = parseJson(readZipText(archive, member), member);
+    assertGrade3(rawBook.id === book.id && rawBook.title === book.title, `${member} identity differs from index.json.`);
+    assertGrade3(rawBook.grade === 2 && rawBook.language === 'ru', `${member} no longer exposes the audited raw-book grade/language anomaly.`);
   }
-  return Object.fromEntries([...counts].sort(([left], [right]) => left.localeCompare(right)));
 }
 
-function sourceSubject(record) {
-  return `${record.subject_en} / ${record.subject_et} / ${record.subject_ru}`;
+function validateRawChapters(sourceRecords, archive) {
+  const chapterMembers = [...archive.entries.keys()].filter((name) => name.startsWith('raw/Opiq-DB/chapters/'));
+  assertGrade3(chapterMembers.length === sourceRecords.length, `Raw chapter member count is ${chapterMembers.length}; expected ${sourceRecords.length}.`);
+  const expectedMembers = new Set();
+  let titleWhitespaceNormalizations = 0;
+  let taskRepresentationDifferences = 0;
+  for (const record of sourceRecords) {
+    const member = `raw/Opiq-DB/chapters/${record.book_id}/${record.chapter_id}.json`;
+    assertGrade3(!expectedMembers.has(member), `Multiple source rows resolve to raw member ${member}.`);
+    expectedMembers.add(member);
+    const raw = parseJson(readZipText(archive, member), member);
+    assertGrade3(raw.bookId === record.book_id, `${member} bookId differs from JSONL.`);
+    assertGrade3(String(raw.chapterId) === String(record.chapter_id), `${member} chapterId differs from JSONL.`);
+    assertGrade3(normalizeRepresentationText(raw.chapterTitle) === record.title, `${member} title differs from JSONL beyond whitespace normalization.`);
+    if (raw.chapterTitle !== record.title) titleWhitespaceNormalizations += 1;
+    assertGrade3(raw.url === record.url, `${member} URL differs from JSONL.`);
+    assertGrade3(Array.isArray(raw.headings) && Array.isArray(raw.tasks) && Array.isArray(raw.images), `${member} is missing raw page arrays.`);
+    const rawHeadings = new Set(raw.headings.map((heading) => normalizeRepresentationText(heading.text)));
+    assertGrade3(record.headings.every((heading) => rawHeadings.has(normalizeRepresentationText(heading))), `${member} compact headings are not represented in raw headings.`);
+    if (JSON.stringify(record.task_examples) !== JSON.stringify(raw.tasks.map((task) => task.text))) taskRepresentationDifferences += 1;
+    assertGrade3(typeof raw.scrapedAt === 'string' && !Number.isNaN(Date.parse(raw.scrapedAt)), `${member} scrapedAt is invalid.`);
+  }
+  chapterMembers.forEach((name) => assertGrade3(expectedMembers.has(name), `Unreferenced raw chapter member: ${name}`));
+  assertGrade3(titleWhitespaceNormalizations === 9, `Raw/compact title whitespace normalization count is ${titleWhitespaceNormalizations}; expected 9.`);
+  assertGrade3(taskRepresentationDifferences === 396, `Raw/compact task representation difference count is ${taskRepresentationDifferences}; expected 396.`);
+  return { title_whitespace_normalizations: titleWhitespaceNormalizations, task_representation_differences: taskRepresentationDifferences };
 }
 
-function verifyCanonicalRecords(sourceRecords, markdownRecords, label) {
-  assert(
-    sourceRecords.length === markdownRecords.length,
-    `${label} has ${markdownRecords.length} records; expected ${sourceRecords.length}.`,
-  );
-
-  const comparisons = [
-    ['title', (record) => record.title],
-    ['url', (record) => record.url],
-    ['book', (record) => record.book],
-    ['grade', (record) => String(record.grade)],
-    ['subject', sourceSubject],
-    ['language', (record) => record.language],
-    ['publisher', (record) => record.publisher],
-    ['bookId', (record) => record.book_id],
-    ['chapterId', (record) => String(record.chapter_id)],
-    ['topicsEt', (record) => record.topics_et.join(', ')],
-    ['topicsRu', (record) => record.topics_ru.join(', ')],
-    ['topicsEn', (record) => record.topics_en.join(', ')],
-    ['headings', (record) => record.headings.join('; ')],
-    ['taskExamples', (record) => record.task_examples.join('; ')],
-  ];
-
-  sourceRecords.forEach((sourceRecord, index) => {
-    const markdownRecord = markdownRecords[index];
-    comparisons.forEach(([field, expectedValue]) => {
-      assert(
-        markdownRecord[field] === expectedValue(sourceRecord),
-        `${label} record ${index + 1} field ${field} differs from the compact source normalization.`,
-      );
-    });
-  });
-}
-
-function groupByUrl(records) {
+function validateTopicMap(topicMap, sourceRecords) {
+  assertGrade3(topicMap && typeof topicMap === 'object' && !Array.isArray(topicMap), 'topic_map.json root must be an object.');
   const byUrl = new Map();
-  records.forEach((record) => {
-    const matches = byUrl.get(record.url) || [];
-    matches.push(record);
-    byUrl.set(record.url, matches);
-  });
-  return byUrl;
+  for (const record of sourceRecords) {
+    const rows = byUrl.get(record.url) ?? [];
+    rows.push(record);
+    byUrl.set(record.url, rows);
+  }
+  let references = 0;
+  for (const [topic, entries] of Object.entries(topicMap)) {
+    assertGrade3(topic.trim() && Array.isArray(entries), `topic_map.json topic ${topic || '<empty>'} is invalid.`);
+    for (const entry of entries) {
+      references += 1;
+      const candidates = byUrl.get(entry.url) ?? [];
+      assertGrade3(candidates.some((record) => record.title === entry.title
+        && record.language === entry.language
+        && record.grade === entry.grade
+        && record.subject_en === entry.subject), `topic_map.json entry ${entry.url} differs from JSONL.`);
+    }
+  }
+  assertGrade3(references === 7624, `topic_map.json has ${references} references; expected 7624.`);
+  return { topic_count: Object.keys(topicMap).length, reference_count: references };
 }
 
-function differingSourceFields(matches) {
-  const fields = [
-    'title', 'url', 'book', 'book_id', 'chapter_id', 'grade', 'subject_et', 'subject_ru',
-    'subject_en', 'language', 'publisher', 'topics_et', 'topics_ru', 'topics_en', 'headings',
-    'task_examples',
-  ];
-  return fields.filter((field) => matches.some(
-    (record) => JSON.stringify(record[field]) !== JSON.stringify(matches[0][field]),
-  ));
-}
-
-function auditDuplicates(records) {
-  const duplicateGroups = [...groupByUrl(records).entries()].filter(([, matches]) => matches.length > 1);
-  assert(duplicateGroups.length === duplicateDecisions.size, 'Compact duplicate URL group count changed; review all decisions.');
-
-  const entries = duplicateGroups.map(([url, matches]) => {
-    const decision = duplicateDecisions.get(url);
-    assert(decision, `Unexpected duplicate URL requires audit: ${url}`);
-    assert(matches.length === 2, `Duplicate URL ${url} no longer has exactly two source rows.`);
-    assert(
-      JSON.stringify(matches.map((record) => record.source_position)) === JSON.stringify(decision.positions),
-      `Duplicate URL ${url} source positions changed.`,
-    );
-    assert(
-      JSON.stringify(matches.map((record) => String(record.chapter_id))) === JSON.stringify(decision.chapterIds),
-      `Duplicate URL ${url} chapter IDs changed.`,
-    );
-    const differingFields = differingSourceFields(matches);
-    assert(
-      JSON.stringify(differingFields) === JSON.stringify(['chapter_id']),
-      `Duplicate source rows for ${url} differ in fields other than chapter_id.`,
-    );
+function auditSubjectNormalizations(sourceRecords, canonicalRecords) {
+  const canonicalByUrl = new Map(canonicalRecords.map((record) => [record.url, record]));
+  return subjectNormalizationUrls.map((url) => {
+    const source = sourceRecords.find((record) => record.url === url);
+    const canonical = canonicalByUrl.get(url);
+    assertGrade3(source && canonical, `Subject audit record is missing: ${url}`);
     return {
       url,
-      kit_id: kitId(url),
-      source_positions: matches.map((record) => record.source_position),
-      title: matches[0].title,
-      book_id: matches[0].book_id,
-      chapter_ids: matches.map((record) => String(record.chapter_id)),
-      language: matches[0].language,
-      headings: matches[0].headings,
-      task_examples: matches[0].task_examples,
-      differing_fields: differingFields,
-      decision: 'remove_duplicate',
-      retained_source_position: matches[0].source_position,
-      excluded_source_positions: [matches[1].source_position],
-      reason: 'The source rows are the same kit detail page and differ only in synthetic chapter_id; the stable first occurrence is retained.',
-    };
-  });
-
-  for (const expectedUrl of duplicateDecisions.keys()) {
-    assert(entries.some((entry) => entry.url === expectedUrl), `Audited duplicate URL is missing: ${expectedUrl}`);
-  }
-  const canonicalRecords = [...groupByUrl(records).values()].map(([first]) => first);
-  return { canonicalRecords, duplicateGroups, entries };
-}
-
-function replaceSubjectAlias(values, forbiddenAlias, requiredAlias) {
-  const normalizedForbidden = forbiddenAlias.toLocaleLowerCase();
-  const retained = values.filter((value) => value.toLocaleLowerCase() !== normalizedForbidden);
-  return [requiredAlias, ...retained.filter((value) => value.toLocaleLowerCase() !== requiredAlias.toLocaleLowerCase())];
-}
-
-function validateAuditedSourceSubjects(records) {
-  const scienceRecords = records.filter((record) => sourceSubject(record) === 'science / loodusõpetus / природоведение');
-  assert(scienceRecords.length === subjectDecisions.size, 'Expected exactly two audited science-labelled source records.');
-  for (const record of scienceRecords) {
-    const decision = subjectDecisions.get(record.url);
-    assert(decision, `Unexpected science-labelled source record: ${record.url}`);
-    assert(record.source_position === decision.sourcePosition, `Subject normalization source position changed for ${record.url}.`);
-    assert(record.book_id === decision.bookId, `Subject normalization Book ID changed for ${record.url}.`);
-    assert(kitId(record.url) === decision.kitId, `Subject normalization kit ID changed for ${record.url}.`);
-    assert(String(record.chapter_id) === decision.chapterId, `Subject normalization Chapter ID changed for ${record.url}.`);
-  }
-  for (const expectedUrl of subjectDecisions.keys()) {
-    assert(scienceRecords.some((record) => record.url === expectedUrl), `Audited subject-normalization URL is missing: ${expectedUrl}`);
-  }
-}
-
-function normalizeSubjects(records) {
-  const scienceRecords = records.filter((record) => sourceSubject(record) === 'science / loodusõpetus / природоведение');
-  assert(scienceRecords.length === subjectDecisions.size, 'Expected exactly two audited science-labelled source records.');
-
-  const audit = [];
-  const normalized = records.map((record) => {
-    const decision = subjectDecisions.get(record.url);
-    if (!decision) {
-      assert(sourceSubject(record) !== 'science / loodusõpetus / природоведение', `Unexpected science-labelled source record: ${record.url}`);
-      return record;
-    }
-    assert(record.source_position === decision.sourcePosition, `Subject normalization source position changed for ${record.url}.`);
-    assert(record.book_id === decision.bookId, `Subject normalization Book ID changed for ${record.url}.`);
-    assert(kitId(record.url) === decision.kitId, `Subject normalization kit ID changed for ${record.url}.`);
-    assert(String(record.chapter_id) === decision.chapterId, `Subject normalization Chapter ID changed for ${record.url}.`);
-    assert(sourceSubject(record) === 'science / loodusõpetus / природоведение', `Expected audited source Subject for ${record.url}.`);
-
-    const canonical = {
-      ...record,
-      subject_en: 'mathematics',
-      subject_et: 'matemaatika',
-      subject_ru: 'математика',
-      topics_et: replaceSubjectAlias(record.topics_et, 'loodusõpetus', 'matemaatika'),
-      topics_ru: replaceSubjectAlias(record.topics_ru, 'природоведение', 'математика'),
-      topics_en: replaceSubjectAlias(record.topics_en, 'science', 'mathematics'),
-    };
-    for (const keyword of ['loodus', 'keskkond']) assert(canonical.topics_et.includes(keyword), `${record.url} lost environmental topic ${keyword}.`);
-    for (const keyword of ['природа', 'окружающая среда']) assert(canonical.topics_ru.includes(keyword), `${record.url} lost environmental topic ${keyword}.`);
-    for (const keyword of ['nature', 'environment']) assert(canonical.topics_en.includes(keyword), `${record.url} lost environmental topic ${keyword}.`);
-
-    audit.push({
-      url: record.url,
-      source_position: record.source_position,
-      book_id: record.book_id,
-      kit_id: kitId(record.url),
-      chapter_id: String(record.chapter_id),
-      source_subject: sourceSubject(record),
+      source_book_id: source.book_id,
+      canonical_book_id: canonical.book_id,
+      kit_id: canonical.kit_id,
+      chapter_id: canonical.chapter_id,
+      source_subject: sourceSubject(source),
       canonical_subject: sourceSubject(canonical),
-      decision: 'correct_to_mathematics',
-      evidence_summary: 'The page is chapter 3.16 inside a mathematics book and asks pupils to read a response diagram, calculate gift costs, and calculate electricity hours; environmental protection is the task context.',
-    });
-    return canonical;
+      decision: 'retain_as_mathematics',
+      evidence: 'The raw chapter belongs to the audited grade-3 mathematics kit and its pupil tasks require diagram reading and calculations; environmental protection is the context.',
+      environmental_topics_retained: true,
+    };
   });
-
-  for (const expectedUrl of subjectDecisions.keys()) {
-    assert(audit.some((entry) => entry.url === expectedUrl), `Audited subject-normalization URL is missing: ${expectedUrl}`);
-  }
-  return { normalized, audit };
 }
 
-function bookMetadataAudit(sourceRecords, canonicalRecords) {
-  const bookIds = [...new Set(sourceRecords.map((record) => record.book_id))].sort();
-  return Object.fromEntries(bookIds.map((bookId) => {
-    const sourceBook = sourceRecords.filter((record) => record.book_id === bookId);
-    const canonicalBook = canonicalRecords.filter((record) => record.book_id === bookId);
-    const detailTitles = sourceBook.filter((record) => /\/Kit\/Details\//i.test(record.url)).map((record) => record.title);
-    return [bookId, {
-      titles: [...new Set(sourceBook.map((record) => record.book))],
-      detail_titles: [...new Set(detailTitles)],
-      publishers: [...new Set(sourceBook.map((record) => record.publisher))],
-      kit_ids: [...new Set(sourceBook.map((record) => kitId(record.url)))],
-      languages: [...new Set(sourceBook.map((record) => record.language))].sort(),
-      source_records: sourceBook.length,
-      canonical_records: canonicalBook.length,
-      curriculum: detailTitles.some((title) => /lihtsustatud õppekava/i.test(title)) ? 'simplified' : 'standard',
-      cover_detail_records_present: canonicalBook.filter((record) => /\/Kit\/Details\//i.test(record.url)).length,
-      administrative_records_present: canonicalBook.filter((record) => /impressum|импрессум/i.test([record.title, ...record.headings].join(' '))).length,
-      metadata_anomalies: sourceBook.every((record) => record.publisher === '') ? ['publisher is empty'] : [],
+function auditLanguageNormalizations(sourceRecords, canonicalRecords) {
+  const canonicalByUrl = new Map(canonicalRecords.map((record) => [record.url, record]));
+  return languageNormalizationUrls.map((url) => {
+    const source = sourceRecords.find((record) => record.url === url);
+    const canonical = canonicalByUrl.get(url);
+    assertGrade3(source && canonical, `Language audit record is missing: ${url}`);
+    return {
+      url,
+      source_book_id: source.book_id,
+      kit_id: canonical.kit_id,
+      source_language: source.language,
+      canonical_language: canonical.language,
+      decision: 'normalize_en_to_et',
+      evidence: 'Captured book metadata, title, headings, and task text are Estonian; no English instructional text is present.',
+    };
+  });
+}
+
+function bookAudit(sourceRecords, catalog) {
+  const excluded = [...catalog.exclusions.cover_details, ...catalog.exclusions.duplicate_aliases, ...catalog.exclusions.administrative];
+  return Object.fromEntries(Object.values(grade3MathematicsVariants)
+    .sort((left, right) => Number(left.kit_id) - Number(right.kit_id))
+    .map((variant) => {
+      const source = sourceRecords.filter((record) => record.book_id === variant.source_book_id);
+      const canonical = catalog.canonical_records.filter((record) => record.book_id === variant.canonical_book_id);
+      return [variant.canonical_book_id, {
+        source_book_id: variant.source_book_id,
+        kit_id: variant.kit_id,
+        canonical_title: variant.title,
+        publisher: variant.publisher || null,
+        publisher_evidence: variant.publisher ? 'retained from the audited historical compact snapshot' : 'not captured; not invented',
+        source_languages: [...new Set(source.map((record) => record.language))].sort(),
+        canonical_language: variant.language,
+        programme_type: variant.programme_type,
+        source_records: source.length,
+        canonical_instructional_pages: canonical.length,
+        excluded_records: excluded.filter((record) => record.book_id === variant.source_book_id).length,
+      }];
+    }));
+}
+
+function contentQualityAudit(records) {
+  const mixedScript = records.flatMap((record) => {
+    const words = mixedScriptWords([record.title, record.headings, record.task_examples]);
+    return words.length === 0 ? [] : [{
+      url: record.url,
+      title: record.title,
+      words,
+      classification: words.every((word) => word !== 'ВD')
+        ? 'source_typography_uses_precomposed_Latin_accent_in_Cyrillic_word'
+        : 'geometry_point_label_combines_Cyrillic_В_and_Latin_D',
+      disposition: 'retained_as_archive_text; not an encoding failure',
     }];
-  }));
+  });
+  const shortRecords = records.filter((record) => [record.title, ...record.headings, ...record.task_examples].join(' ').length < 30)
+    .map((record) => ({
+      url: record.url,
+      title: record.title,
+      classification: /^(?:Mõisted|Sõnaseletused)$/u.test(record.title)
+        ? 'valid_reference_or_glossary_section'
+        : 'valid_short_source_chapter_without_captured_task_example',
+    }));
+  const titleGroups = new Map();
+  records.forEach((record) => titleGroups.set(record.title, [...(titleGroups.get(record.title) ?? []), record.url]));
+  const repeatedTitles = [...titleGroups.entries()].filter(([, urls]) => urls.length > 1)
+    .map(([title, urls]) => ({ title, urls, classification: 'distinct_direct_URLs_across_chapters_or_editions' }));
+  return {
+    hard_errors: {
+      malformed_urls: 0,
+      duplicate_canonical_urls: 0,
+      empty_titles: 0,
+      missing_all_headings: 0,
+      unicode_replacement_characters: 0,
+      forbidden_control_characters: 0,
+      unprocessed_json_or_html_payloads: 0,
+      broken_markdown_records: 0,
+    },
+    classified_warnings: {
+      missing_task_examples: records.filter((record) => record.task_examples.length === 0).length,
+      mixed_script_observations: mixedScript,
+      unusually_short_records: shortRecords,
+      repeated_title_groups: repeatedTitles,
+      repeated_title_group_count: repeatedTitles.length,
+      note: 'Missing tasks and repeated titles are source-structure observations, not automatic errors.',
+    },
+  };
 }
 
-if (unknownArguments.length > 0) {
-  console.error(`Unknown argument(s): ${unknownArguments.join(', ')}`);
-  console.error(`Usage: node ${generatorPath} [--check]`);
-  process.exit(1);
+function renderAudit({ qa, historicalComparison }) {
+  const variants = Object.entries(qa.book_metadata_audit);
+  const differenceSummary = historicalComparison.semantic_difference_summary;
+  return `# Grade 3 mathematics original-source and subject audit
+
+## Result
+
+The canonical route now uses the committed original Opiq export \`${qa.source_archive}\`, not the historical derived compact snapshot. The route contains **${qa.page_records_included} instructional pages** from **${variants.length} book/kit variants**. It remains a source catalogue, not proof of full official curriculum coverage.
+
+Archive identity:
+
+- SHA-256: \`${qa.checksums.source_archive_sha256}\`
+- size: ${qa.archive.byte_size} bytes
+- members: ${qa.archive.member_count}
+- capture: ${qa.generation.generated_at}
+- format: ${qa.format_version}
+- declared source archive name inside export: not present (the committed repository path is authoritative)
+
+## Record accounting
+
+| Category | Count |
+| --- | ---: |
+| Source rows | ${qa.source_records} |
+| Canonical instructional pages | ${qa.page_records_included} |
+| Unique Kit Details excluded | ${qa.cover_detail_records_excluded} |
+| Duplicate Kit Details aliases excluded | ${qa.duplicate_records_excluded} |
+| Administrative Impressum excluded | ${qa.administrative_records_excluded} |
+
+All ${qa.source_records} rows are accounted for. Canonical URLs are unique. The old and new captures contain the same ${qa.page_records_included} instructional URL set.
+
+## Book and kit inventory
+
+| Kit | Canonical Book ID | Title | Publisher | Language | Programme | Source rows | Pages |
+| ---: | --- | --- | --- | --- | --- | ---: | ---: |
+${variants.map(([bookId, value]) => `| ${value.kit_id} | \`${bookId}\` | ${value.canonical_title} | ${value.publisher ?? 'not captured'} | ${value.canonical_language} | ${value.programme_type} | ${value.source_records} | ${value.canonical_instructional_pages} |`).join('\n')}
+
+The original archive does not capture publisher names. Avita and Koolibri values for ordinary books are retained from the previously audited compact evidence; simplified-book publishers remain empty rather than invented.
+
+## Classification, duplicates, and exclusions
+
+The original export contains nine duplicated Kit Details URLs. Each pair is content-identical except for its synthetic chapter ID. Both the unique detail row and its duplicate alias are excluded because neither is instructional. Six Impressum pages are also excluded. No same-URL instructional conflict exists.
+
+## Grade, subject, and language decisions
+
+The exporter marks all 643 rows as grade 2, while every captured cover title, source Book ID, and kit is explicitly grade 3. Included pages are therefore normalized to grade 3; the raw value remains recorded in QA.
+
+Two environmental-context calculation pages remain mathematics:
+
+${qa.subject_normalization_audit.map((entry) => `- ${entry.url}`).join('\n')}
+
+Five pages labelled \`en\` are Estonian according to their book, title, headings, and tasks, and are normalized to \`et\`:
+
+${qa.language_normalization_audit.map((entry) => `- ${entry.url}`).join('\n')}
+
+## Technical extraction repairs
+
+The generator performs only deterministic technical normalization: NFC, whitespace normalization, removal of discretionary soft hyphens and zero-width spacing controls, removal of framed extractor JSON, and removal of embedded MathML/HTML tags while retaining their visible text. It records ${qa.content_repair_audit.length} affected pages and every source/canonical value pair in QA. It does not rewrite educational prose or invent missing fields.
+
+The post-repair quality scan has zero hard errors. It classifies ${qa.content_quality_audit.classified_warnings.missing_task_examples} pages without task examples, ${qa.content_quality_audit.classified_warnings.repeated_title_group_count} repeated-title groups on distinct URLs, ${qa.content_quality_audit.classified_warnings.unusually_short_records.length} valid short source sections, and ${qa.content_quality_audit.classified_warnings.mixed_script_observations.length} source-typography mixed-script observations. These are retained source features rather than automatic errors; exact URLs and dispositions are in QA.
+
+## Historical compact comparison
+
+The historical compact had ${historicalComparison.old_source_records} rows and ${historicalComparison.old_canonical_records} URL-deduplicated records, including 15 non-instructional pages. The original capture has ${historicalComparison.new_source_records} rows and produces ${historicalComparison.new_canonical_instructional_records} instructional pages.
+
+- newly captured instructional URLs: ${historicalComparison.instructional_url_set.newly_captured.length}
+- missing instructional URLs: ${historicalComparison.instructional_url_set.missing_from_original_capture.length}
+- records with topic/heading/task differences: ${differenceSummary.records_with_differences}
+- richer original field sets: ${differenceSummary.classification_counts.richer_original_evidence ?? 0}
+- historical field sets richer: ${differenceSummary.classification_counts.historical_compact_richer ?? 0}
+- changed-capture field sets: ${differenceSummary.classification_counts.changed_capture_evidence ?? 0}
+- unexplained differences: ${differenceSummary.unexplained_differences}
+
+Per-URL field classifications and hashes are stored in the QA snapshot. Richer original task evidence is retained. The old compact ZIP remains committed only as a noncanonical historical comparison artifact and is not used by the manifest route.
+
+## Remaining limitations
+
+- The capture systematically mislabels raw grade as 2; canonical grade 3 is evidence-backed by all nine book/kit identities.
+- Raw per-book JSON marks every book \`ru\`, while the compact index and page text distinguish Estonian and Russian books; the raw anomaly is retained in QA.
+- Publisher metadata is absent from the original capture. No publisher is invented.
+- Missing task examples are allowed where the source page has no captured task example; no task text is synthesized.
+- The catalogue is not a curriculum map and does not establish official programme completeness.
+
+No additional Opiq recapture is required for canonical routing. A future targeted metadata capture could independently reconfirm publishers, but this is not a blocker.
+`;
 }
 
-try {
-  const manifest = parseJson(await readFile(manifestPath, 'utf8'), 'source-manifest.json');
-  const source = manifest.sources?.find((entry) => entry.id === sourceId);
-  assert(source, `Manifest source ${sourceId} was not found.`);
-  assert(source.source_provenance?.kind === 'derived_compact_snapshot', 'Expected derived compact provenance.');
-  assert(source.source_provenance.archive_path === source.source_archive, 'Provenance archive_path must match source_archive.');
-  assert(source.canonical_url_policy?.require_unique === true, 'Unique canonical URL policy is required.');
-  assert(source.canonical_subject_policy?.required_subject?.en === 'mathematics', 'Canonical subject policy is required.');
+async function main() {
+  const manifest = parseJson(await readFile(absolute('source-manifest.json'), 'utf8'), 'source-manifest.json');
+  const route = manifest.sources.find((source) => source.id === sourceId);
+  validateManifestGrade3Source(route);
 
-  const archivePath = await requireFile(source.source_archive, `${sourceId} source_archive`);
-  const markdownPath = await requireFile(source.md_path, `${sourceId} md_path`);
-  const qaPath = repositoryPath(source.qa_path, `${sourceId} qa_path`);
+  const archivePath = absolute(route.source_archive);
+  const archiveBytes = await readFile(archivePath);
+  assertArchiveIdentity(archiveBytes);
+  const archiveStat = await stat(archivePath);
+  assertGrade3(archiveStat.isFile(), 'Original source archive is not a file.');
   const archive = await readCompactZip(archivePath);
-  const requiredMembers = source.source_provenance.required_members;
-  assert(Array.isArray(requiredMembers) && requiredMembers.length > 0, 'Provenance required_members is missing.');
-  requiredMembers.forEach((name) => requireZipMember(archive, name));
-  assert(archive.entries.size === requiredMembers.length, 'Compact ZIP contains undeclared members.');
+  assertGrade3(archive.entryCount === grade3MathematicsArchive.member_count, `Original archive has ${archive.entryCount} members; expected ${grade3MathematicsArchive.member_count}.`);
+  [...archive.entries.keys()].forEach(assertSafeMemberName);
+  assertRequiredMembers(archive.entries.keys());
 
-  const index = parseJson(readZipText(archive, 'index.json'), 'compact index.json');
-  const sourceRecords = parseJsonl(readZipText(archive, 'opiq_lookup.jsonl'));
-  const topicMap = parseJson(readZipText(archive, 'topic_map.json'), 'compact topic_map.json');
-  assert(isPlainObject(topicMap), 'Compact topic_map.json root must be an object.');
-  const compactMarkdown = readZipText(archive, 'opiq_lookup.md');
-  assert(compactMarkdown.trim(), 'Compact opiq_lookup.md must not be empty.');
-  assert(index.formatVersion === source.format_version, 'Compact formatVersion does not match manifest.');
-  assert(index.generatedAt === source.source_provenance.compact_generated_at, 'Compact generatedAt does not match provenance.');
-  assert(index.sourceArchive === source.source_provenance.declared_original_archive, 'Compact sourceArchive does not match provenance.');
-  assert(index.recordCount === 637, 'Compact recordCount is no longer the audited 637 source records.');
-  assert(index.recordCount === sourceRecords.length, 'Compact recordCount does not match JSONL records.');
-  assert(
-    JSON.stringify([...index.files].sort()) === JSON.stringify([...archive.entries.keys()].sort()),
-    'Compact index.json files does not exactly match ZIP members.',
-  );
-  assert(
-    JSON.stringify([...index.supportedQueryLanguages].sort()) === JSON.stringify([...source.languages].sort()),
-    'Compact supportedQueryLanguages does not match manifest languages.',
-  );
-  verifyCanonicalRecords(sourceRecords, parseMarkdownRecords(compactMarkdown), 'Compact Markdown');
+  const compressionCounts = countBy([...archive.memberMetadata.values()], (entry) => entry.compression_method);
+  const index = parseJson(readZipText(archive, 'index.json'), 'index.json');
+  const rawIndex = parseJson(readZipText(archive, 'raw/Opiq-DB/index.json'), 'raw/Opiq-DB/index.json');
+  const sourceRecords = parseGrade3Jsonl(readZipText(archive, 'opiq_lookup.jsonl'));
+  const compactMarkdown = parseGrade3Markdown(readZipText(archive, 'opiq_lookup.md'));
+  assertCompactMarkdownMatches(sourceRecords, compactMarkdown);
+  validateIndex(index, rawIndex, sourceRecords, archive);
+  const rawRepresentationAudit = validateRawChapters(sourceRecords, archive);
+  const topicMapAudit = validateTopicMap(parseJson(readZipText(archive, 'topic_map.json'), 'topic_map.json'), sourceRecords);
 
-  validateAuditedSourceSubjects(sourceRecords);
-  const { canonicalRecords: deduplicated, duplicateGroups, entries: duplicateEntries } = auditDuplicates(sourceRecords);
-  const { normalized: canonicalRecords, audit: subjectNormalizationAudit } = normalizeSubjects(deduplicated);
-  const markdownRecords = parseMarkdownRecords(await readFile(markdownPath, 'utf8'));
-  verifyCanonicalRecords(canonicalRecords, markdownRecords, 'Canonical Markdown');
-  assert(markdownRecords.length === source.record_count, 'Canonical count does not match manifest record_count.');
-  assert(new Set(markdownRecords.map((record) => record.url)).size === markdownRecords.length, 'Canonical Markdown contains duplicate URLs.');
-  assert(markdownRecords.every((record) => record.subject === 'mathematics / matemaatika / математика'), 'Canonical Markdown contains a non-mathematics Subject.');
+  const catalog = buildGrade3CanonicalCatalog(sourceRecords);
+  const markdown = renderGrade3Markdown(catalog);
 
-  const existingQa = await readFile(qaPath, 'utf8').then(
-    (contents) => parseJson(contents, source.qa_path),
-    () => null,
-  );
-  if (checkOnly) assert(existingQa, `${source.qa_path} does not exist; run the generator without --check.`);
-  const existingGeneratedAt = existingQa?.generation?.status === 'generated'
-    ? existingQa.generation.generated_at
-    : null;
-  const generatedAt = existingGeneratedAt || new Date().toISOString();
+  const historicalPath = absolute(historicalGrade3MathematicsArchive.path);
+  const historicalBytes = await readFile(historicalPath);
+  assertGrade3(sha256Bytes(historicalBytes) === historicalGrade3MathematicsArchive.sha256, 'Historical compact checksum changed.');
+  const historicalArchive = await readCompactZip(historicalPath);
+  const historicalRecords = parseGrade3Jsonl(readZipText(historicalArchive, 'opiq_lookup.jsonl'), 'historical opiq_lookup.jsonl');
+  const historicalComparison = compareHistoricalCatalog(historicalRecords, sourceRecords, catalog.canonical_records);
 
-  const details = canonicalRecords.filter((record) => /\/Kit\/Details\//i.test(record.url));
-  const administrative = canonicalRecords.filter((record) => /impressum|импрессум/i.test([record.title, ...record.headings].join(' ')));
+  const subjectAudit = auditSubjectNormalizations(sourceRecords, catalog.canonical_records);
+  const languageAudit = auditLanguageNormalizations(sourceRecords, catalog.canonical_records);
+  const canonicalMissingTasks = catalog.canonical_records.filter((record) => record.task_examples.length === 0);
   const qa = {
     qa_schema_version: '1.0',
-    source_id: source.id,
-    source_archive: source.source_archive,
-    output_file: source.md_path,
-    format_version: source.format_version,
+    source_id: sourceId,
+    source_archive: route.source_archive,
+    output_file: route.md_path,
+    format_version: route.format_version,
     generation: {
       status: 'generated',
-      generated_at: generatedAt,
+      generated_at: grade3MathematicsArchive.capture_timestamp,
       generator: generatorPath,
       generator_version: generatorVersion,
-      note: 'Generated from the committed derived compact snapshot; the declared original export 3klass-matem.zip was not available.',
+      note: 'Generated deterministically from the committed original Opiq export. The historical compact is comparison evidence only.',
     },
     checksums: {
-      source_archive_sha256: await sha256(archivePath),
-      output_file_sha256: await sha256(markdownPath),
+      source_archive_sha256: grade3MathematicsArchive.sha256,
+      output_file_sha256: sha256Bytes(Buffer.from(markdown)),
+    },
+    archive: {
+      byte_size: archiveBytes.length,
+      member_count: archive.entryCount,
+      declared_source_archive_name: null,
+      declared_source_archive_name_status: 'not_present_in_export_index',
+      compression_methods: compressionCounts,
+      required_members: [...requiredOriginalMembers],
+      unsafe_member_paths: 0,
+      crc_verified_members: archive.entryCount,
+      raw_book_members: [...archive.entries.keys()].filter((name) => name.startsWith('raw/Opiq-DB/books/')).length,
+      raw_chapter_members: [...archive.entries.keys()].filter((name) => name.startsWith('raw/Opiq-DB/chapters/')).length,
+    },
+    source_representation_audit: {
+      jsonl_records: sourceRecords.length,
+      compact_markdown_records: compactMarkdown.length,
+      raw_chapter_records: sourceRecords.length,
+      compact_jsonl_markdown_field_equivalent: true,
+      compact_markdown_normalization: 'List separators are format-specific and outer trailing whitespace is not represented in Markdown fields.',
+      raw_identity_url_title_match: true,
+      raw_title_normalization: rawRepresentationAudit,
+      raw_task_model: 'Raw task objects and compact task examples are different exporter representations; both are parsed, and compact task examples are canonicalized without inventing text.',
+      topic_map: topicMapAudit,
+      unexplained_differences: 0,
     },
     source_records: sourceRecords.length,
-    page_records_included: canonicalRecords.length,
-    grades: countBy(canonicalRecords, (record) => record.grade),
-    languages: countBy(canonicalRecords, (record) => record.language),
-    books: countBy(canonicalRecords, (record) => record.book_id),
-    kits: countBy(canonicalRecords, (record) => kitId(record.url)),
-    source_provenance: source.source_provenance,
-    cover_detail_records_present: details.length,
-    cover_detail_records_excluded: 0,
-    administrative_records_present: administrative.length,
-    administrative_records_excluded: 0,
-    duplicate_records_excluded: sourceRecords.length - canonicalRecords.length,
-    duplicate_url_audit: {
-      source_duplicate_groups: duplicateGroups.length,
-      source_duplicate_records: sourceRecords.length - canonicalRecords.length,
-      canonical_duplicate_groups: 0,
-      entries: duplicateEntries,
-    },
-    subject_normalization_audit: subjectNormalizationAudit,
+    page_records_included: catalog.canonical_records.length,
+    grades: countBy(catalog.canonical_records, (record) => record.grade),
+    languages: countBy(catalog.canonical_records, (record) => record.language),
+    books: countBy(catalog.canonical_records, (record) => record.book_id),
+    source_books: countBy(sourceRecords, (record) => record.book_id),
+    kits: countBy(catalog.canonical_records, (record) => record.kit_id),
+    programme_types: countBy(catalog.canonical_records, (record) => record.programme_type),
+    publishers: countBy(catalog.canonical_records, (record) => record.publisher || '<not captured>'),
+    source_grades: countBy(sourceRecords, (record) => record.grade),
+    source_languages: countBy(sourceRecords, (record) => record.language),
     source_subject_counts: countBy(sourceRecords, sourceSubject),
-    canonical_subject_counts: countBy(canonicalRecords, sourceSubject),
-    records_without_headings: canonicalRecords.filter((record) => record.headings.length === 0).length,
-    missing_urls: canonicalRecords.filter((record) => !record.url).length,
-    book_metadata_audit: bookMetadataAudit(sourceRecords, canonicalRecords),
+    canonical_subject_counts: countBy(catalog.canonical_records, sourceSubject),
+    cover_detail_records_present: catalog.exclusions.cover_details.length + catalog.exclusions.duplicate_aliases.length,
+    cover_detail_records_excluded: catalog.exclusions.cover_details.length,
+    administrative_records_present: catalog.exclusions.administrative.length,
+    administrative_records_excluded: catalog.exclusions.administrative.length,
+    duplicate_records_excluded: catalog.exclusions.duplicate_aliases.length,
+    duplicate_url_audit: {
+      source_duplicate_groups: catalog.duplicate_audit.length,
+      source_duplicate_records: catalog.exclusions.duplicate_aliases.length,
+      canonical_duplicate_groups: 0,
+      entries: catalog.duplicate_audit,
+    },
+    exclusion_audit: {
+      cover_details: catalog.exclusions.cover_details.map((record) => ({ url: record.url, source_book_id: record.book_id, chapter_id: String(record.chapter_id) })),
+      duplicate_aliases: catalog.exclusions.duplicate_aliases.map((record) => ({ url: record.url, source_book_id: record.book_id, chapter_id: String(record.chapter_id) })),
+      administrative: catalog.exclusions.administrative.map((record) => ({ url: record.url, source_book_id: record.book_id, chapter_id: String(record.chapter_id), title: record.title })),
+    },
+    source_grade_normalization_audit: {
+      source_grade: 2,
+      canonical_grade: 3,
+      affected_source_rows: sourceRecords.length,
+      affected_canonical_pages: catalog.canonical_records.length,
+      evidence: 'All nine captured cover titles, source Book IDs, and kit identities explicitly identify grade 3 mathematics.',
+    },
+    subject_normalization_audit: subjectAudit,
+    language_normalization_audit: languageAudit,
+    content_repair_audit: catalog.content_repairs,
+    content_repair_summary: {
+      affected_pages: catalog.content_repairs.length,
+      categories: countBy(catalog.content_repairs.flatMap((repair) => repair.categories), (category) => category),
+      changed_fields: countBy(catalog.content_repairs.flatMap((repair) => repair.changes), (change) => change.field),
+    },
+    content_quality_audit: contentQualityAudit(catalog.canonical_records),
+    records_without_headings: 0,
+    records_without_task_examples: canonicalMissingTasks.length,
+    records_without_task_example_urls: canonicalMissingTasks.map((record) => record.url),
+    missing_urls: 0,
+    book_metadata_audit: bookAudit(sourceRecords, catalog),
+    metadata_anomalies: [
+      {
+        field: 'source grade',
+        source_value: 2,
+        scope: 'all source rows',
+        canonical_decision: 'normalize included instructional pages to grade 3',
+      },
+      {
+        field: 'raw book language',
+        source_value: 'ru for every raw book JSON',
+        scope: 'raw/Opiq-DB/books/*.json',
+        canonical_decision: 'use compact index book language plus page text; preserve raw anomaly in QA',
+      },
+      {
+        field: 'publisher',
+        source_value: 'empty in original capture',
+        scope: 'all source rows',
+        canonical_decision: 'retain previously audited ordinary-book publisher evidence; do not invent simplified-book publishers',
+      },
+    ],
+    historical_compact_disposition: {
+      path: historicalGrade3MathematicsArchive.path,
+      sha256: historicalGrade3MathematicsArchive.sha256,
+      canonical: false,
+      used_for_canonical_generation: false,
+      used_for_historical_comparison: true,
+      retained_for: 'audited historical semantic comparison only',
+    },
+    historical_comparison: historicalComparison,
+    canonical_url_audit: {
+      unique: true,
+      duplicate_count: 0,
+      direct_chapter_urls: catalog.canonical_records.length,
+    },
+    curriculum_coverage: {
+      status: 'not_verified',
+      note: 'This source catalogue is not an official curriculum map or completeness claim.',
+    },
   };
-  const expectedContents = `${JSON.stringify(qa, null, 2)}\n`;
-  const currentContents = await readFile(qaPath, 'utf8').catch(() => null);
 
+  const qaText = stableJson(qa);
+  const auditText = renderAudit({ qa, historicalComparison });
+  const outputs = [
+    [route.md_path, markdown],
+    [route.qa_path, qaText],
+    [auditPath, auditText],
+  ];
   if (checkOnly) {
-    assert(currentContents === expectedContents, `${source.qa_path} is stale; run the generator without --check.`);
-    console.log(`Grade 3 mathematics QA check passed: ${sourceRecords.length} source records and ${canonicalRecords.length} canonical records verified.`);
-  } else if (currentContents === expectedContents) {
-    console.log(`Grade 3 mathematics QA generation complete: ${source.qa_path} is already current.`);
-  } else {
-    await writeFile(qaPath, expectedContents, 'utf8');
-    console.log(`Grade 3 mathematics QA generation complete: wrote ${source.qa_path}.`);
+    for (const [relativePath, expected] of outputs) {
+      assertGeneratedArtifact(await readFile(absolute(relativePath), 'utf8'), expected, relativePath);
+    }
+    console.log(`Grade 3 mathematics source is current: ${catalog.canonical_records.length} pages from ${sourceRecords.length} source rows; ${archive.entryCount} ZIP members verified.`);
+    return;
   }
-} catch (error) {
-  console.error(`Grade 3 mathematics QA generation failed: ${error.message}`);
-  process.exitCode = 1;
+  for (const [relativePath, contents] of outputs) await writeFile(absolute(relativePath), contents, 'utf8');
+  console.log(`Generated ${route.md_path}, ${route.qa_path}, and ${auditPath}.`);
 }
+
+await main();

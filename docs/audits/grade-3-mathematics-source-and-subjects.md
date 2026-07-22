@@ -1,84 +1,93 @@
-# Grade 3 mathematics source and subject audit
+# Grade 3 mathematics original-source and subject audit
 
-## Scope and decision standard
+## Result
 
-This audit covers the `grade-3-mathematics` route only. The grade 3 science index was read only to check cross-route ownership of two disputed URLs. No grade 2 or grade 4 material was used. The audit establishes source traceability, canonical URL uniqueness, and subject-label consistency; it does not establish complete curriculum coverage or pedagogical readiness.
+The canonical route now uses the committed original Opiq export `project-files/inputs/final-zips/opiq_3klass_matemaatika_3_klassile_opiq_v2.zip`, not the historical derived compact snapshot. The route contains **619 instructional pages** from **9 book/kit variants**. It remains a source catalogue, not proof of full official curriculum coverage.
 
-Classification was based on the committed compact records, their location in each book, direct Opiq URLs, book/kit/chapter metadata, headings, and task examples. A filename or topic keyword alone was not treated as proof.
+Archive identity:
 
-## Provenance and archive validation
+- SHA-256: `44ef9fafb11084288f68cb970f96393fb5e41e46810bbe080ba711377649c486`
+- size: 7911532 bytes
+- members: 657
+- capture: 2026-07-22T19:51:37.588Z
+- format: 2.0
+- declared source archive name inside export: not present (the committed repository path is authoritative)
 
-The declared original export `3klass-matem.zip` was not found in the repository or in the connected project workspace under the reasonable names `3klass-matem.zip`, `3klass-matemaatika.zip`, `opiq_3klass_matemaatika.zip`, or `3klass-matem-*.zip`. The registered source is therefore the committed derived snapshot:
+## Record accounting
 
-- Path: `project-files/outputs/3klass-matem-compact.zip`
-- Provenance kind: `derived_compact_snapshot`
-- SHA-256: `15d1dea7d6c935df484387aaa38a7b4965ac87f7f1b5356d53542a5019440f11`
-- Declared original archive: `3klass-matem.zip` (unavailable)
-- Compact generation time: `2026-06-12T14:08:30.147803+00:00`
-- Format version: `2.0`
-- Supported query languages: `et`, `ru`, `en`
-- Source records: 637
+| Category | Count |
+| --- | ---: |
+| Source rows | 643 |
+| Canonical instructional pages | 619 |
+| Unique Kit Details excluded | 9 |
+| Duplicate Kit Details aliases excluded | 9 |
+| Administrative Impressum excluded | 6 |
 
-The standard-library ZIP reader verified the central directory, safe member paths, unique member names, supported deflate compression, uncompressed sizes, and CRC-32 values. The four members are:
+All 643 rows are accounted for. Canonical URLs are unique. The old and new captures contain the same 619 instructional URL set.
 
-| Member | Uncompressed bytes | CRC-32 |
-| --- | ---: | --- |
-| `index.json` | 311 | `40d15e76` |
-| `opiq_lookup.jsonl` | 718696 | `49265d1e` |
-| `opiq_lookup.md` | 641073 | `1cf1fc8b` |
-| `topic_map.json` | 1406371 | `d60cc38c` |
+## Book and kit inventory
 
-All 637 JSONL lines are objects with the required route fields and direct Opiq URLs. `topic_map.json` is valid JSON with an object root. Before canonical corrections, compact `opiq_lookup.md` was byte-for-byte equal to the 637-record canonical Markdown. `index.json` agrees with the archive members, JSONL count, format, timestamp, original filename, and languages.
+| Kit | Canonical Book ID | Title | Publisher | Language | Programme | Source rows | Pages |
+| ---: | --- | --- | --- | --- | --- | ---: | ---: |
+| 54 | `matemaatika_3._klassile__kit54` | Matemaatika 3. klassile | Avita | et | ordinary_curriculum | 143 | 140 |
+| 92 | `математика_для_3_класса__kit92` | Математика для 3 класса | Avita | ru | ordinary_curriculum | 138 | 136 |
+| 134 | `matemaatika_3._klassile_koolibri__kit134` | MATEMAATIKA 3. klassile | Koolibri | et | ordinary_curriculum | 63 | 61 |
+| 308 | `математика_3_класс__kit308` | МАТЕМАТИКА 3 класс | Koolibri | ru | ordinary_curriculum | 63 | 61 |
+| 497 | `matemaatika_3._klassile,_i_osa._lihtsustatud_õppekava__kit497` | Matemaatika 3. klassile, I osa. Lihtsustatud õppekava | not captured | et | simplified_curriculum | 27 | 24 |
+| 498 | `matemaatika_3._klassile,_ii_osa._lihtsustatud_õppekava__kit498` | Matemaatika 3. klassile, II osa. Lihtsustatud õppekava | not captured | et | simplified_curriculum | 17 | 14 |
+| 499 | `matemaatika_3._klassile,_iii_osa._lihtsustatud_õppekava__kit499` | Matemaatika 3. klassile, III osa. Lihtsustatud õppekava | not captured | et | simplified_curriculum | 25 | 22 |
+| 500 | `matemaatika_3._klassile,_iv_osa._lihtsustatud_õppekava__kit500` | Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava | not captured | et | simplified_curriculum | 24 | 21 |
+| 531 | `matemaatika_3._klassile_2023_õk__kit531` | Matemaatika 3. klassile 2023 ÕK | Avita | et | ordinary_curriculum | 143 | 140 |
 
-## Books and kits
+The original archive does not capture publisher names. Avita and Koolibri values for ordinary books are retained from the previously audited compact evidence; simplified-book publishers remain empty rather than invented.
 
-Counts were computed from all compact JSONL records and then from the deduplicated, normalized canonical sequence.
+## Classification, duplicates, and exclusions
 
-| Book ID | Detail title / visible book metadata | Publisher | Kit | Languages (source) | Source | Canonical | Curriculum | Detail / admin in canonical | Metadata notes |
-| --- | --- | --- | ---: | --- | ---: | ---: | --- | --- | --- |
-| `3k_matem_avita_2023_est` | Matemaatika 3. klassile 2023 ÕK / Arvutamise algus | Avita | 531 | et 140, en 2 | 142 | 142 | standard | 1 / 1 | none found |
-| `3k_matem_avita_2_est` | Matemaatika 3. klassile / Arvutamise algus | Avita | 54 | et 140, en 2 | 142 | 142 | standard | 1 / 1 | none found |
-| `3k_matem_avita_est` | Математика для 3 класса / Как появился счёт? | Avita | 92 | ru 137 | 137 | 137 | standard | 1 / 0 | none found |
-| `3k_matem_koolibri_est` | MATEMAATIKA 3. klassile / KORDAMINE | Koolibri | 134 | et 62 | 62 | 62 | standard | 1 / 0 | none found |
-| `3k_matem_koolibri_rus` | МАТЕМАТИКА 3 класс / ПОВТОРЕНИЕ | Koolibri | 308 | ru 62 | 62 | 62 | standard | 1 / 0 | none found |
-| `3k_matem_osa1_est` | Matemaatika 3. klassile, I osa. Lihtsustatud õppekava | empty | 497 | et 27 | 27 | 26 | simplified | 1 / 1 | publisher empty; one repeated detail row excluded |
-| `3k_matem_osa2_est` | Matemaatika 3. klassile, II osa. Lihtsustatud õppekava | empty | 498 | et 16, en 1 | 17 | 16 | simplified | 1 / 1 | publisher empty; one repeated detail row excluded |
-| `3k_matem_osa3_est` | Matemaatika 3. klassile, III osa. Lihtsustatud õppekava / Kordamine | empty | 499 | et 24 | 24 | 24 | simplified | 1 / 1 | publisher empty |
-| `3k_matem_osa4_est` | Matemaatika 3. klassile, IV osa. Lihtsustatud õppekava | empty | 500 | et 24 | 24 | 23 | simplified | 1 / 1 | publisher empty; one repeated detail row excluded |
+The original export contains nine duplicated Kit Details URLs. Each pair is content-identical except for its synthetic chapter ID. Both the unique detail row and its duplicate alias are excluded because neither is instructional. Six Impressum pages are also excluded. No same-URL instructional conflict exists.
 
-The “simplified” classification is supported by the kit detail title stored in the compact records, including the III-part title even though its ordinary `Book` field is only `Kordamine`. The nine books are the full contents of this snapshot, not a claim that the complete grade 3 curriculum is covered.
+## Grade, subject, and language decisions
 
-Canonical totals after the decisions below are: 634 records; languages `et: 430`, `ru: 199`, `en: 5`; nine unique detail records; six Impressum records. Administrative and unique detail records remain because this issue only resolves proven duplicate and subject errors.
+The exporter marks all 643 rows as grade 2, while every captured cover title, source Book ID, and kit is explicitly grade 3. Included pages are therefore normalized to grade 3; the raw value remains recorded in QA.
 
-## Exact URL duplicate audit
+Two environmental-context calculation pages remain mathematics:
 
-There are exactly three duplicate groups and three excess source occurrences. In every group the two rows have identical title, URL, book, subject, language, publisher, topics, headings, and task examples. Only the synthetic `chapter_id` differs. Each URL is a kit detail page rather than two distinct chapters, so the stable first occurrence is authoritative.
+- https://www.opiq.ee/kit/531/chapter/29334
+- https://www.opiq.ee/kit/54/chapter/2701
 
-| URL | Source positions | Book ID | Chapter IDs | Language | Decision | Canonical result |
-| --- | --- | --- | --- | --- | --- | --- |
-| https://www.opiq.ee/Kit/Details/497 | 561, 562 | `3k_matem_osa1_est` | 265, 291 | et | `remove_duplicate` | retain source position 561 |
-| https://www.opiq.ee/Kit/Details/498 | 584, 585 | `3k_matem_osa2_est` | 248, 264 | et | `remove_duplicate` | retain source position 584 |
-| https://www.opiq.ee/Kit/Details/500 | 625, 626 | `3k_matem_osa4_est` | 200, 223 | et | `remove_duplicate` | retain source position 625 |
+Five pages labelled `en` are Estonian according to their book, title, headings, and tasks, and are normalized to `et`:
 
-All three detail rows have no headings or task examples. No incompatible metadata was merged. The canonical count changes from 637 to 634, and the 634 canonical URLs are unique.
+- https://www.opiq.ee/kit/54/chapter/2659
+- https://www.opiq.ee/kit/54/chapter/2674
+- https://www.opiq.ee/kit/498/chapter/27314
+- https://www.opiq.ee/kit/531/chapter/29291
+- https://www.opiq.ee/kit/531/chapter/29307
 
-## Subject-label audit: `Kaitseme loodust`
+## Technical extraction repairs
 
-The compact source contains exactly two records labelled `science / loodusõpetus / природоведение`. No third science-labelled source record exists.
+The generator performs only deterministic technical normalization: NFC, whitespace normalization, removal of discretionary soft hyphens and zero-width spacing controls, removal of framed extractor JSON, and removal of embedded MathML/HTML tags while retaining their visible text. It records 100 affected pages and every source/canonical value pair in QA. It does not rewrite educational prose or invent missing fields.
 
-| Source position | URL | Book / kit / chapter | Sequence evidence | Task evidence | Decision |
-| ---: | --- | --- | --- | --- | --- |
-| 59 | https://www.opiq.ee/kit/531/chapter/29334 | `3k_matem_avita_2023_est`, kit 531, chapter 3.16 | Follows chapters 3.14 and 3.15 and precedes 3.2 within the same mathematics book | Read a response diagram and count respondents; calculate the price of gifts; heading asks how many hours of electricity are saved | `correct_to_mathematics` |
-| 201 | https://www.opiq.ee/kit/54/chapter/2701 | `3k_matem_avita_2_est`, kit 54, chapter 3.16 | Follows chapters 3.14 and 3.15 and precedes 3.2 within the older version of the same mathematics book | Read a response diagram and count respondents; calculate the price of gifts; heading asks how many hours of electricity are saved | `correct_to_mathematics` |
+The post-repair quality scan has zero hard errors. It classifies 217 pages without task examples, 133 repeated-title groups on distinct URLs, 5 valid short source sections, and 4 source-typography mixed-script observations. These are retained source features rather than automatic errors; exact URLs and dispositions are in QA.
 
-The environmental-protection theme is authentic context, but the learner actions are diagram reading and arithmetic. Both records therefore remain in mathematics with canonical Subject `mathematics / matemaatika / математика`. Only the erroneous base aliases `science`, `loodusõpetus`, and `природоведение` were replaced by their mathematics equivalents. Specific context such as `loodus`, `keskkond`, `kaitseme loodust`, `prügi`, `pakendid`, `energia`, `природа`, `окружающая среда`, `nature`, and `environment` was retained where present in the source headings or topics.
+## Historical compact comparison
 
-## Grade 3 science cross-route check
+The historical compact had 637 rows and 634 URL-deduplicated records, including 15 non-instructional pages. The original capture has 643 rows and produces 619 instructional pages.
 
-The two exact URLs do not occur in `project-files/outputs/opiq_3klass_loodusopetus.md`. Searches for the title and the distinctive diagram, gift-cost, waste/packaging, and electricity-saving phrases also found no semantic duplicate there. Canonical ownership remains with mathematics because the source books and learner tasks are mathematical; the grade 3 science index was not changed.
+- newly captured instructional URLs: 0
+- missing instructional URLs: 0
+- records with topic/heading/task differences: 348
+- richer original field sets: 40
+- historical field sets richer: 923
+- changed-capture field sets: 62
+- unexplained differences: 0
 
-## Reproducibility and limitations
+Per-URL field classifications and hashes are stored in the QA snapshot. Richer original task evidence is retained. The old compact ZIP remains committed only as a noncanonical historical comparison artifact and is not used by the manifest route.
 
-`scripts/generate-grade-3-mathematics-qa.mjs` re-reads the committed compact ZIP, validates all 637 source records and compact metadata, verifies the three exact duplicate decisions, applies only the two exact subject normalizations, and compares the resulting 634 records with the canonical Markdown field by field. The manifest checker independently enforces unique canonical URLs and the exact mathematics Subject for every record in this route.
+## Remaining limitations
 
-The unavailable original export prevents verification against pre-compact raw export metadata. Empty publisher values for the simplified books are preserved rather than invented. The audit does not evaluate every exercise pedagogically and does not prove curriculum completeness.
+- The capture systematically mislabels raw grade as 2; canonical grade 3 is evidence-backed by all nine book/kit identities.
+- Raw per-book JSON marks every book `ru`, while the compact index and page text distinguish Estonian and Russian books; the raw anomaly is retained in QA.
+- Publisher metadata is absent from the original capture. No publisher is invented.
+- Missing task examples are allowed where the source page has no captured task example; no task text is synthesized.
+- The catalogue is not a curriculum map and does not establish official programme completeness.
+
+No additional Opiq recapture is required for canonical routing. A future targeted metadata capture could independently reconfirm publishers, but this is not a blocker.
