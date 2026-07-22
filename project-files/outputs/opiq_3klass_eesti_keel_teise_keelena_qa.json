@@ -1,0 +1,792 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-3-estonian-second-language",
+  "source_archive": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_3klass_eesti_keel_teise_keelena.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-22T22:19:43.868Z",
+    "generator": "scripts/generate-grade-3-estonian-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from the original shared grade-3 Estonian capture; routes are split by audited book and kit identity."
+  },
+  "checksums": {
+    "source_archive_sha256": "76745111aa9ac75736418d6a3cb2958c0541182192522d71100a2140716972c7",
+    "output_file_sha256": "4f0c1ace432611c51c6dd17661d35d767b3c331ab8352e2ea980ebe6b79d0c04"
+  },
+  "archive": {
+    "byte_size": 2272881,
+    "member_count": 435,
+    "crc_verified_members": 435,
+    "unsafe_member_paths": 0
+  },
+  "source_records": 426,
+  "page_records_included": 54,
+  "cover_detail_records_excluded": 4,
+  "duplicate_records_excluded": 4,
+  "administrative_records_excluded": 1,
+  "subject_boundary_page_records_excluded": 363,
+  "source_accounting": {
+    "first_language_instructional_pages": 363,
+    "second_language_instructional_pages": 54,
+    "unique_kit_details": 4,
+    "duplicate_kit_detail_aliases": 4,
+    "administrative_impressum": 1,
+    "total": 426
+  },
+  "grades": {
+    "3": 54
+  },
+  "languages": {
+    "et": 54
+  },
+  "books": {
+    "eesti_keel_teise_keelena_3._klassile__kit140": 54
+  },
+  "kits": {
+    "140": 54
+  },
+  "programme_types": {
+    "ordinary_curriculum": 54
+  },
+  "raw_grade_counts": {
+    "2": 368,
+    "3": 58
+  },
+  "route_source_grade_counts": {
+    "3": 56
+  },
+  "canonical_grade_counts": {
+    "3": 54
+  },
+  "raw_subject_counts": {
+    "mathematics / matemaatika / математика": 426
+  },
+  "canonical_subject_counts": {
+    "Estonian as a second language / eesti keel teise keelena / эстонский язык как второй": 54
+  },
+  "raw_language_counts": {
+    "en": 1,
+    "et": 424,
+    "ru": 1
+  },
+  "route_source_language_counts": {
+    "et": 55,
+    "ru": 1
+  },
+  "canonical_language_counts": {
+    "et": 54
+  },
+  "route_partition": {
+    "paired_source_id": "grade-3-estonian",
+    "expected_union_page_records": 417,
+    "canonical_overlap_urls": 0,
+    "included_source_book_ids": [
+      "eesti_keel_teise_keelena_3._klassile"
+    ],
+    "forbidden_book_ids": [
+      "3._klassi_eesti_keel__kit135",
+      "eesti_keele_õpik_3._klassile__kit179",
+      "mina_loen_ja_kirjutan_3__kit590"
+    ]
+  },
+  "source_representation_audit": {
+    "compact_jsonl_records": 426,
+    "compact_markdown_records": 426,
+    "raw_chapter_records": 426,
+    "raw_compact_title_whitespace_normalizations": 5,
+    "raw_compact_task_representation_differences": 0,
+    "topic_map": {
+      "topic_count": 1751,
+      "reference_count": 3161
+    },
+    "unexplained_differences": 0
+  },
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 4,
+    "source_duplicate_records": 4,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/135",
+        "kit_id": "135",
+        "source_book_id": "3._klassi_eesti_keel",
+        "chapter_ids": [
+          "182",
+          "368"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "Both records represent the same non-instructional Kit Details page and differ only by synthetic chapter ID."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/140",
+        "kit_id": "140",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "chapter_ids": [
+          "369",
+          "424"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "Both records represent the same non-instructional Kit Details page and differ only by synthetic chapter ID."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/179",
+        "kit_id": "179",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "chapter_ids": [
+          "1",
+          "181"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "Both records represent the same non-instructional Kit Details page and differ only by synthetic chapter ID."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/590",
+        "kit_id": "590",
+        "source_book_id": "mina_loen_ja_kirjutan_3",
+        "chapter_ids": [
+          "425",
+          "426"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "Both records represent the same non-instructional Kit Details page and differ only by synthetic chapter ID."
+      }
+    ]
+  },
+  "grade_normalization_audit": [
+    {
+      "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+      "kit_id": "140",
+      "source_grade": 3,
+      "canonical_grade": 3,
+      "records": 54,
+      "decision": "retain_grade_3",
+      "evidence": "Captured Kit Details title, Source Book ID, kit identity, raw book title, and chapter context all identify a grade-3 book."
+    }
+  ],
+  "subject_normalization_audit": {
+    "records": 54,
+    "source_subject": "mathematics / matemaatika / математика",
+    "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский язык как второй",
+    "decision": "replace automatic mathematics subject with the audited Estonian subject route",
+    "evidence": "Book identities, Kit Details titles, headings, and instructional context consistently identify Estonian-language study rather than mathematics."
+  },
+  "language_normalization_audit": [
+    {
+      "url": "https://www.opiq.ee/kit/140/chapter/7788",
+      "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+      "kit_id": "140",
+      "source_language": "ru",
+      "canonical_language": "et",
+      "headings": [
+        "Palun aita mind!",
+        "1. MIS ON VALESTI?",
+        "E-ül",
+        "2. MIS TOAD ON SINU KODUS?",
+        "3. RÄÄGI!",
+        "4. LOE LUULETUST!",
+        "Tigu[sõnaseletus: tigu – улитка]",
+        "LISAÜLESANNE 1",
+        "5. KIRJELDA PILTI!",
+        "6. KIRJUTA!",
+        "7. VAATA, LOE JA VÕRDLE!",
+        "8. MISSUGUNE? LOE JA VÕRDLE!",
+        "9. LÕPETA LAUSED!",
+        "10. TEEME RÜHMATÖÖD!",
+        "11. E-ÜLESANNE",
+        "12. E-ÜLESANNE"
+      ],
+      "task_examples": [],
+      "decision": "normalize_to_et",
+      "evidence": "The title and instructional headings are Estonian. One bilingual vocabulary gloss (tigu – улитка) is retained and does not make the page Russian-language."
+    }
+  ],
+  "content_repair_audit": {
+    "changed_records": 13,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7783",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Lähme rattaga sõitma! I",
+              "LÄHME RATTAGA SÕITMA!​I",
+              "1. JUTUSTA!",
+              "2. RÄÄGI!",
+              "3. MOODUSTA LAUSEID!",
+              "4. MIDA SA TEED KOOS … ? LÕPETA LAUSED!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ],
+            "canonical_value": [
+              "Lähme rattaga sõitma! I",
+              "LÄHME RATTAGA SÕITMA! I",
+              "1. JUTUSTA!",
+              "2. RÄÄGI!",
+              "3. MOODUSTA LAUSEID!",
+              "4. MIDA SA TEED KOOS … ? LÕPETA LAUSED!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7784",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Lähme rattaga sõitma! II",
+              "LÄHME RATTAGA SÕITMA!​II",
+              "1. MÕTLE LOO PÕHJAL VÄLJA KOLM KÜSIMUST!",
+              "2. AINSUS JA MITMUS. LOE JA VÕRDLE!",
+              "3. E-ÜLESANNE",
+              "E-ül",
+              "4. KIRJUTA ALLAJOONITUD SÕNU MITMUSES!",
+              "5. RÄÄGI SÕBRAGA!"
+            ],
+            "canonical_value": [
+              "Lähme rattaga sõitma! II",
+              "LÄHME RATTAGA SÕITMA! II",
+              "1. MÕTLE LOO PÕHJAL VÄLJA KOLM KÜSIMUST!",
+              "2. AINSUS JA MITMUS. LOE JA VÕRDLE!",
+              "3. E-ÜLESANNE",
+              "E-ül",
+              "4. KIRJUTA ALLAJOONITUD SÕNU MITMUSES!",
+              "5. RÄÄGI SÕBRAGA!"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7793",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Mis seal sees on? I",
+              "MIS SEAL SEES ON?​I",
+              "1. LÕPETA LAUSED!",
+              "2. VAATA JA JÄTA MEELDE!",
+              "3. RÄÄGI!",
+              "4. E-ÜLESANNE",
+              "E-ül"
+            ],
+            "canonical_value": [
+              "Mis seal sees on? I",
+              "MIS SEAL SEES ON? I",
+              "1. LÕPETA LAUSED!",
+              "2. VAATA JA JÄTA MEELDE!",
+              "3. RÄÄGI!",
+              "4. E-ÜLESANNE",
+              "E-ül"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7794",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Mis seal sees on? II",
+              "MIS SEAL SEES ON?​II",
+              "1. JUTUSTA LUGU „MIS SEAL SEES ON?”!",
+              "2. LOE LUULETUST!",
+              "Tramburai",
+              "3. VASTA KÜSIMUSTELE!",
+              "4. KIRJUTA!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ],
+            "canonical_value": [
+              "Mis seal sees on? II",
+              "MIS SEAL SEES ON? II",
+              "1. JUTUSTA LUGU „MIS SEAL SEES ON?”!",
+              "2. LOE LUULETUST!",
+              "Tramburai",
+              "3. VASTA KÜSIMUSTELE!",
+              "4. KIRJUTA!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7800",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Tüdrukute mängud ja poiste mängud I",
+              "TÜDRUKUTE MÄNGUD JA POISTE MÄNGUD​I",
+              "1. LÕPETA LAUSED!",
+              "2. RÄÄGI SÕBRAGA!",
+              "3. RÄÄGI!",
+              "4. KIRJUTA JUTT!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ],
+            "canonical_value": [
+              "Tüdrukute mängud ja poiste mängud I",
+              "TÜDRUKUTE MÄNGUD JA POISTE MÄNGUD I",
+              "1. LÕPETA LAUSED!",
+              "2. RÄÄGI SÕBRAGA!",
+              "3. RÄÄGI!",
+              "4. KIRJUTA JUTT!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7801",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Tüdrukute mängud ja poiste mängud II",
+              "TÜDRUKUTE MÄNGUD JA POISTE MÄNGUD​II",
+              "1. JUTUSTA LUGU „TÜDRUKUTE MÄNGUD JA POISTE MÄNGUD”!",
+              "2. TÄIDA LÜNGAD!",
+              "E-ül",
+              "3. LOE LUULETUST JA VASTA KÜSIMUSTELE!",
+              "Onu Heino – tore mees"
+            ],
+            "canonical_value": [
+              "Tüdrukute mängud ja poiste mängud II",
+              "TÜDRUKUTE MÄNGUD JA POISTE MÄNGUD II",
+              "1. JUTUSTA LUGU „TÜDRUKUTE MÄNGUD JA POISTE MÄNGUD”!",
+              "2. TÄIDA LÜNGAD!",
+              "E-ül",
+              "3. LOE LUULETUST JA VASTA KÜSIMUSTELE!",
+              "Onu Heino – tore mees"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7807",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Birgitil on sünnipäev I",
+              "BIRGITIL ON SÜNNIPÄEV​I",
+              "1. VALI ÕIGE VARIANT!",
+              "E-ül",
+              "2 RÄÄGI!",
+              "3. RÄÄGI"
+            ],
+            "canonical_value": [
+              "Birgitil on sünnipäev I",
+              "BIRGITIL ON SÜNNIPÄEV I",
+              "1. VALI ÕIGE VARIANT!",
+              "E-ül",
+              "2 RÄÄGI!",
+              "3. RÄÄGI"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7808",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Birgitil on sünnipäev II",
+              "BIRGITIL ON SÜNNIPÄEV​​II",
+              "1. VASTA KÜSIMUSTELE KIRJALIKULT VIHIKUSSE!",
+              "2. LOE KUTSET! VASTA KÜSIMUSTELE!",
+              "3. KIRJUTA KOOS ÕPETAJAGA!",
+              "4. VÕRDLE!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ],
+            "canonical_value": [
+              "Birgitil on sünnipäev II",
+              "BIRGITIL ON SÜNNIPÄEV II",
+              "1. VASTA KÜSIMUSTELE KIRJALIKULT VIHIKUSSE!",
+              "2. LOE KUTSET! VASTA KÜSIMUSTELE!",
+              "3. KIRJUTA KOOS ÕPETAJAGA!",
+              "4. VÕRDLE!",
+              "5. E-ÜLESANNE",
+              "E-ül"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7815",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Kui palju sõpru sul on? I",
+              "KUI PALJU SÕPRU SUL ON?​I",
+              "1. VALI LOETUD TEKSTI PÕHJAL ÕIGE VARIANT!",
+              "E-ül",
+              "2. RÄÄGI!",
+              "3. LOE LUULETUST!"
+            ],
+            "canonical_value": [
+              "Kui palju sõpru sul on? I",
+              "KUI PALJU SÕPRU SUL ON? I",
+              "1. VALI LOETUD TEKSTI PÕHJAL ÕIGE VARIANT!",
+              "E-ül",
+              "2. RÄÄGI!",
+              "3. LOE LUULETUST!"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7816",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Kui palju sõpru sul on? II",
+              "KUI PALJU SÕPRU SUL ON?​II",
+              "1. E-ÜLESANNE",
+              "E-ül",
+              "2. VAATA MÕTTEKAARTI JA JUTUSTA LUGU „KUI PALJU SÕPRU SUL ON?”",
+              "3. RÄÄGI SÕBRAGA!"
+            ],
+            "canonical_value": [
+              "Kui palju sõpru sul on? II",
+              "KUI PALJU SÕPRU SUL ON? II",
+              "1. E-ÜLESANNE",
+              "E-ül",
+              "2. VAATA MÕTTEKAARTI JA JUTUSTA LUGU „KUI PALJU SÕPRU SUL ON?”",
+              "3. RÄÄGI SÕBRAGA!"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7821",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Muki ajab asju I",
+              "MUKI AJAB ASJU​I",
+              "1. ESITA KÜSIMUSI!",
+              "2. LÕPETA LAUSED!",
+              "E-ül",
+              "3. VAATA KUULUTUST JA VASTA KÜSIMUSTELE!",
+              "4. RÄÄGI!"
+            ],
+            "canonical_value": [
+              "Muki ajab asju I",
+              "MUKI AJAB ASJU I",
+              "1. ESITA KÜSIMUSI!",
+              "2. LÕPETA LAUSED!",
+              "E-ül",
+              "3. VAATA KUULUTUST JA VASTA KÜSIMUSTELE!",
+              "4. RÄÄGI!"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7822",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed",
+          "same_record_heading_alignment"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Muki ajab asju II",
+              "MUKI AJAB ASJU​I​I",
+              "1. KOOSTA KAVA!",
+              "2. JUTUSTA!",
+              "3. KIRJUTA LÜNKA SOBIV TEGUSÕNA LEIDMA VORM!",
+              "E-ül",
+              "4. RÄÄGI SÕBRAGA!"
+            ],
+            "canonical_value": [
+              "Muki ajab asju II",
+              "MUKI AJAB ASJU II",
+              "1. KOOSTA KAVA!",
+              "2. JUTUSTA!",
+              "3. KIRJUTA LÜNKA SOBIV TEGUSÕNA LEIDMA VORM!",
+              "E-ül",
+              "4. RÄÄGI SÕBRAGA!"
+            ]
+          }
+        ],
+        "evidence": "The same captured record title is “Muki ajab asju II”; the separated Roman numeral is an extractor artifact caused by two zero-width characters.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      },
+      {
+        "url": "https://www.opiq.ee/kit/140/chapter/7823",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "kit_id": "140",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Ootan suve I",
+              "OOTAN SUVE​I",
+              "1. MIS ON VALESTI?",
+              "E-ül",
+              "2. RÄÄGI!",
+              "3. KIRJUTA!"
+            ],
+            "canonical_value": [
+              "Ootan suve I",
+              "OOTAN SUVE I",
+              "1. MIS ON VALESTI?",
+              "E-ül",
+              "2. RÄÄGI!",
+              "3. KIRJUTA!"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared."
+      }
+    ],
+    "policy": "Only deterministic technical normalization from the same captured record is allowed; educational prose is not rewritten."
+  },
+  "content_quality_audit": {
+    "hard_errors": {
+      "malformed_urls": 0,
+      "duplicate_canonical_urls": 0,
+      "empty_titles": 0,
+      "missing_all_headings": 0,
+      "unicode_replacement_characters": 0,
+      "forbidden_control_characters": 0,
+      "unprocessed_json_or_html_payloads": 0,
+      "broken_markdown_records": 0
+    },
+    "classified_warnings": {
+      "missing_task_examples": 54,
+      "mixed_script_observations": [],
+      "unusually_short_records": [
+        {
+          "url": "https://www.opiq.ee/kit/140/chapter/7780",
+          "title": "Sissejuhatus",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/140/chapter/7827",
+          "title": "Sõnaseletused",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/140/chapter/7828",
+          "title": "Sõnastik",
+          "classification": "valid_short_source_section"
+        }
+      ],
+      "repeated_title_groups": [
+        {
+          "title": "Nüüd ma oskan",
+          "urls": [
+            "https://www.opiq.ee/kit/140/chapter/7779",
+            "https://www.opiq.ee/kit/140/chapter/7786",
+            "https://www.opiq.ee/kit/140/chapter/7791",
+            "https://www.opiq.ee/kit/140/chapter/7797",
+            "https://www.opiq.ee/kit/140/chapter/7804",
+            "https://www.opiq.ee/kit/140/chapter/7811",
+            "https://www.opiq.ee/kit/140/chapter/7818",
+            "https://www.opiq.ee/kit/140/chapter/7826"
+          ],
+          "classification": "distinct_direct_URLs_across_sections_or_books"
+        }
+      ],
+      "repeated_title_group_count": 1,
+      "note": "The capture contains no task examples. Missing tasks, repeated titles, and short section headings are source-structure observations, not automatic errors."
+    }
+  },
+  "book_metadata_audit": {
+    "eesti_keel_teise_keelena_3._klassile__kit140": {
+      "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+      "kit_id": "140",
+      "canonical_title": "KOOS ON VAHVA. Sõprade seiklused",
+      "publisher": null,
+      "publisher_evidence": "not captured; not invented",
+      "source_languages": {
+        "et": 55,
+        "ru": 1
+      },
+      "canonical_language": "et",
+      "programme_type": "ordinary_curriculum",
+      "source_records": 56,
+      "canonical_instructional_pages": 54,
+      "title_evidence": "captured Kit Details title, source Book ID, index inventory, and raw book metadata"
+    }
+  },
+  "captured_book_inventory": {
+    "3._klassi_eesti_keel": {
+      "kit_id": "135",
+      "title": "ILUS EMAKEEL",
+      "source_records": 187,
+      "instructional_pages": 185,
+      "route_id": "grade-3-estonian",
+      "cover_only": false,
+      "publisher": null
+    },
+    "eesti_keel_teise_keelena_3._klassile": {
+      "kit_id": "140",
+      "title": "KOOS ON VAHVA. Sõprade seiklused",
+      "source_records": 56,
+      "instructional_pages": 54,
+      "route_id": "grade-3-estonian-second-language",
+      "cover_only": false,
+      "publisher": null
+    },
+    "eesti_keele_õpik_3._klassile": {
+      "kit_id": "179",
+      "title": "Eesti keele õpik 3. klassile",
+      "source_records": 181,
+      "instructional_pages": 178,
+      "route_id": "grade-3-estonian",
+      "cover_only": false,
+      "publisher": null
+    },
+    "mina_loen_ja_kirjutan_3": {
+      "kit_id": "590",
+      "title": "Mina loen ja kirjutan 3",
+      "source_records": 2,
+      "instructional_pages": 0,
+      "route_id": null,
+      "cover_only": true,
+      "publisher": null
+    }
+  },
+  "cover_only_sources": [
+    {
+      "source_book_id": "mina_loen_ja_kirjutan_3",
+      "canonical_book_id": "mina_loen_ja_kirjutan_3__kit590",
+      "kit_id": "590",
+      "title": "Mina loen ja kirjutan 3",
+      "source_records": 2,
+      "canonical_instructional_pages": 0,
+      "status": "captured_cover_only",
+      "eligibility": "not_eligible_for_page_level_evidence",
+      "recapture_required": "Capture the instructional chapter pages for kit 590; a new full-catalogue capture is not required."
+    }
+  ],
+  "publisher_limitations": {
+    "archive_publishers_present": 0,
+    "canonical_publishers_invented": 0,
+    "note": "Publisher metadata is absent from this archive and is left empty."
+  },
+  "known_limitations": [
+    "The compact exporter labels every source record as mathematics; canonical subjects are evidence-backed by book/kit identity and page content.",
+    "The compact index says et for all four books while raw per-book metadata says ru; page-level compact language and instructional text are used for the two audited corrections.",
+    "The capture contains no task examples in compact or raw chapter representations; no exercises are invented.",
+    "Kit 590 contains only two duplicate Kit Details records and cannot support page-level instructional retrieval.",
+    "The route catalogue does not establish complete official-curriculum coverage."
+  ],
+  "records_without_headings": 0,
+  "records_without_task_examples": 54,
+  "missing_urls": 0
+}
