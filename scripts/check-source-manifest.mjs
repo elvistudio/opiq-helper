@@ -407,6 +407,57 @@ async function validateQaSnapshot(
     }
   }
 
+  if (source.id === 'grade-3-mathematics' && !compactMetadata) {
+    const originalRequiredFields = [
+      'archive',
+      'source_representation_audit',
+      'cover_detail_records_excluded',
+      'administrative_records_excluded',
+      'duplicate_records_excluded',
+      'duplicate_url_audit',
+      'subject_normalization_audit',
+      'language_normalization_audit',
+      'content_repair_audit',
+      'content_quality_audit',
+      'historical_comparison',
+      'historical_compact_disposition',
+      'source_subject_counts',
+      'canonical_subject_counts',
+      'kits',
+    ];
+    originalRequiredFields.forEach((field) => {
+      if (!Object.hasOwn(qa, field)) fail(`${sourceLabel}: missing original-archive QA field ${field}.`);
+    });
+    if (qa.source_records !== 643) fail(`${sourceLabel}: original archive must account for 643 source records.`);
+    const accountedSourceRecords = qa.page_records_included
+      + qa.cover_detail_records_excluded
+      + qa.administrative_records_excluded
+      + qa.duplicate_records_excluded;
+    if (accountedSourceRecords !== qa.source_records) {
+      fail(`${sourceLabel}: included and excluded QA counters account for ${accountedSourceRecords} source records, expected ${qa.source_records}.`);
+    }
+    if (qa.archive?.member_count !== 657 || qa.archive?.crc_verified_members !== 657) {
+      fail(`${sourceLabel}: all 657 original ZIP members must be present and CRC-verified.`);
+    }
+    if (qa.source_representation_audit?.unexplained_differences !== 0) {
+      fail(`${sourceLabel}: original archive representations contain unexplained differences.`);
+    }
+    if (qa.historical_comparison?.semantic_difference_summary?.unexplained_differences !== 0) {
+      fail(`${sourceLabel}: historical/original comparison contains unexplained differences.`);
+    }
+    const qualityErrors = qa.content_quality_audit?.hard_errors;
+    if (!isPlainObject(qualityErrors) || Object.values(qualityErrors).some((count) => count !== 0)) {
+      fail(`${sourceLabel}: canonical content-quality audit must contain zero hard errors.`);
+    }
+    if (qa.historical_compact_disposition?.canonical !== false
+      || qa.historical_compact_disposition?.used_for_canonical_generation !== false
+      || qa.historical_compact_disposition?.used_for_historical_comparison !== true) {
+      fail(`${sourceLabel}: historical compact must be noncanonical comparison evidence only.`);
+    }
+    validateCountMap(qa, sourceLabel, 'source_subject_counts', qa.source_records);
+    validateCountMap(qa, sourceLabel, 'canonical_subject_counts', qa.page_records_included);
+  }
+
   validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'languages', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'books', qa.page_records_included);
@@ -964,6 +1015,23 @@ if (!manifest) {
       if (previous && previous !== source.id) {
         fail(`grade-2 cross-route canonical URL overlap: ${url} belongs to both ${previous} and ${source.id}.`);
       } else gradeTwoUrlOwners.set(url, source.id);
+    }
+  }
+
+  const gradeThreeMathematics = manifest.sources.find((source) => source.id === 'grade-3-mathematics');
+  if (gradeThreeMathematics) {
+    const targetMarkdown = await readFile(path.join(repositoryRoot, gradeThreeMathematics.md_path), 'utf8');
+    const targetUrls = new Set(splitMarkdownRecords(targetMarkdown)
+      .map((record) => record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1])
+      .filter(Boolean));
+    for (const source of manifest.sources.filter((entry) => entry.id !== gradeThreeMathematics.id)) {
+      const markdown = await readFile(path.join(repositoryRoot, source.md_path), 'utf8');
+      for (const record of splitMarkdownRecords(markdown)) {
+        const url = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1];
+        if (url && targetUrls.has(url)) {
+          fail(`grade-3 mathematics canonical URL overlap: ${url} also belongs to ${source.id}.`);
+        }
+      }
     }
   }
 
