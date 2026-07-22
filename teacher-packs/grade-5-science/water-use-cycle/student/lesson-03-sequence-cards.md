@@ -26,6 +26,6 @@
 
 ---
 
-Урок: grade-5-water-use-03-cycle  
-Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.  
+Урок: grade-5-water-use-03-cycle<br>
+Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.<br>
 Печать: чёрно-белая.

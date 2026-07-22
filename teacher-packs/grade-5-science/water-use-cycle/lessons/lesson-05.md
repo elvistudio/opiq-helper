@@ -1,6 +1,6 @@
 # Урок 5. Предметное обобщение и проверка / Teadmiste kokkuvõte ja kontroll
 
-**Продолжительность:** 45 минут  
+**Продолжительность:** 45 минут<br>
 **Lesson ID:** grade-5-water-use-05-subject-assessment
 
 ## Что подготовить

@@ -1,6 +1,6 @@
 # Урок 6. Эстонская терминология: закрепление и отдельная оценка / Eesti oskuskeele kordamine ja hindamine
 
-**Продолжительность:** 45 минут  
+**Продолжительность:** 45 минут<br>
 **Lesson ID:** grade-5-water-use-06-language-assessment
 
 ## Что подготовить

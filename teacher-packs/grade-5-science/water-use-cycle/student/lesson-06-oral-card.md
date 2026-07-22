@@ -8,16 +8,16 @@
 
 ### Сокращённая опора
 
-Слова: **vesi · kaitsta · reostus · ohtlik**  
+Слова: **vesi · kaitsta · reostus · ohtlik**<br>
 Скажи одну фразу: _______________________________________________
 
 ### Короткий самостоятельный ответ
 
-**Miks tuleb vett kaitsta?**  
+**Miks tuleb vett kaitsta?**<br>
 __________________________________________________________________
 
 ---
 
-Урок: grade-5-water-use-06-language-assessment  
-Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.  
+Урок: grade-5-water-use-06-language-assessment<br>
+Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.<br>
 Печать: чёрно-белая.

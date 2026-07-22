@@ -14,6 +14,6 @@
 
 ---
 
-Урок: grade-5-water-use-04-filter-model  
-Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.  
+Урок: grade-5-water-use-04-filter-model<br>
+Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.<br>
 Печать: чёрно-белая.

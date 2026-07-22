@@ -1,6 +1,6 @@
 # Урок 4. Модель фильтрации и её ограничения / Filtreerimise mudel ja selle piirid
 
-**Продолжительность:** 45 минут  
+**Продолжительность:** 45 минут<br>
 **Lesson ID:** grade-5-water-use-04-filter-model
 
 ## Что подготовить

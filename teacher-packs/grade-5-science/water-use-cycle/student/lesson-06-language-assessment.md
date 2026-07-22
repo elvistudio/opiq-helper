@@ -22,6 +22,6 @@ __________________________________________________________________
 
 ---
 
-Урок: grade-5-water-use-06-language-assessment  
-Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.  
+Урок: grade-5-water-use-06-language-assessment<br>
+Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.<br>
 Печать: чёрно-белая.

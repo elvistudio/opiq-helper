@@ -11,6 +11,6 @@
 
 ---
 
-Урок: grade-5-water-use-02-protection  
-Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.  
+Урок: grade-5-water-use-02-protection<br>
+Provenance: авторский worksheet/bridge/assessment по выбранным каноническим Opiq источникам; длинный текст учебника не воспроизводится.<br>
 Печать: чёрно-белая.
