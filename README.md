@@ -11,6 +11,7 @@ The represented subjects are:
 - mathematics;
 - science (`loodusõpetus`);
 - human studies (`inimeseõpetus`);
+- combined nature and human studies (`loodus- ja inimeseõpetus`) when the source itself is not safely divisible;
 - Estonian (`eesti keel`);
 - Estonian as a second language (`eesti keel teise keelena`);
 - Russian;
@@ -101,14 +102,14 @@ node scripts/generate-grade-3-mathematics-qa.mjs --check
 
 The generator preserves its initial `generated_at` value on ordinary reruns and verifies the canonical Markdown field by field against the compact JSONL. Run the general refresh and manifest checks afterward.
 
-Grade 2 mathematics, science, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from the committed original export archives:
+Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
 ```sh
 npm run generate:grade-2-sources
 npm run check:grade-2-sources
 ```
 
-The generator removes repeated kit-detail covers and administrative pages, requires unique canonical chapter URLs, and labels simplified- or supplementary-curriculum records. The combined science/human-studies export is deliberately not routed as one subject: the canonical `grade-2-science` index excludes the two mixed books, while the existing `grade-2-human-studies` route remains separate. The source-label corrections and exclusions are recorded in the QA snapshots and the [grade 2 subject-boundary audit](docs/audits/grade-2-science-subject-separation.md).
+The generator removes repeated kit-detail covers and administrative pages, requires unique canonical chapter URLs, preserves source-book-plus-kit provenance, and labels simplified, supplementary, mixed-subject, and youth-training records. First-language Estonian and Estonian as a second language are a disjoint 372/72 partition of their shared capture. The Russian combined kit 86 is exposed only through `grade-2-nature-and-human-studies`, not silently assigned to either subject-pure route. Kit 330 is a supplementary grade-2 science capture and no longer appears in grade-1 routes. See the [complete captured grade 2 catalogue](docs/audits/grade-2-complete-captured-catalog.md).
 
 The arts-and-crafts route contains two ordinary Estonian/Russian part-2 books and one supplementary Estonian holiday-card collection. Its source metadata corrections, book identities, duplicate decision, and limitations are recorded in the [grade 2 arts-and-crafts source audit](docs/audits/grade-2-arts-and-crafts-source-audit.md). These routes are searchable source indexes, not verified curriculum maps.
 
