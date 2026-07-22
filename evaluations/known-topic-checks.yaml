@@ -706,6 +706,60 @@ cases:
         url: https://www.opiq.ee/kit/238/chapter/13490
     evidence: "The Estonian Rütm page and Russian-language rhythm-completion task are explicit grade 2 music evidence. Their exact URLs are absent from mathematics and arts-and-crafts despite the archive's incorrect automatic mathematics labels."
 
+  - id: grade-2-kodututarde-training-national-symbols
+    grade: 2
+    subject: kodututarde_training
+    topic: "Estonian national symbols in Kodututred I-rank training"
+    status: present
+    expected_source_id: grade-2-kodututarde-training
+    expected_md_path: project-files/outputs/opiq_2klass_kodututarde_valjaope.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-kodututarde-training
+        url: https://www.opiq.ee/kit/593/chapter/33606
+        expected:
+          class: 2
+          book_id: kodutütarde_i_järk_(2026)
+          title: Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
+          subject:
+            en: Kodututred training
+            et: Kodutütarde väljaõpe
+            ru: подготовка Kodututred
+          headings_any:
+            - Eesti rahvussümbolid
+      - kind: url_absent
+        origin_source_id: grade-2-kodututarde-training
+        source_id: grade-2-noorte-kotkaste-training
+        url: https://www.opiq.ee/kit/593/chapter/33606
+    evidence: "The national-symbol page belongs to the canonical Kodututred I-rank kit and is absent from the separately routed Noorte Kotkad source."
+
+  - id: grade-2-noorte-kotkaste-training-first-aid
+    grade: 2
+    subject: noorte_kotkaste_training
+    topic: "minor-wound and nosebleed first aid in Young Eagles I-rank training"
+    status: present
+    expected_source_id: grade-2-noorte-kotkaste-training
+    expected_md_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-noorte-kotkaste-training
+        url: https://www.opiq.ee/kit/594/chapter/33635
+        expected:
+          class: 2
+          book_id: kaitseliit_noorte_kot_2_et
+          title: Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
+          subject:
+            en: Young Eagles training
+            et: Noorte Kotkaste väljaõpe
+            ru: подготовка Noorte Kotkad
+          headings_any:
+            - Esmaabi pisihaava korral
+      - kind: url_absent
+        origin_source_id: grade-2-noorte-kotkaste-training
+        source_id: grade-2-kodututarde-training
+        url: https://www.opiq.ee/kit/594/chapter/33635
+    evidence: "The first-aid page belongs to the canonical Noorte Kotkad I-rank kit and is absent from the separately routed Kodututred source."
+
   - id: grade-2-human-studies-water-safety
     grade: 2
     subject: human_studies
