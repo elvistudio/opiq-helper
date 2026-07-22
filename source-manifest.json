@@ -587,6 +587,87 @@
       "notes": "The committed original Opiq export contains 643 source rows. Nine unique Kit Details records, nine duplicate detail aliases, and six administrative Impressum records are excluded from the 619-page instructional index. Nine source-book-plus-kit variants are preserved; ordinary and simplified curricula remain explicit. This route is not curriculum-verified."
     },
     {
+      "id": "grade-3-estonian",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "estonian",
+      "subject_et": "eesti keel",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_3klass_eesti_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_eesti_keel_qa.json",
+      "record_count": 363,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "The shared original export combines first-language Estonian and Estonian as a second language and automatically labels every source row as mathematics; the canonical route corrects both boundaries.",
+        "Kits 135 and 179 are source-labelled grade 2 and are normalized to grade 3 from captured Kit Details titles, Source Book IDs, kit identities, raw book titles, and chapter context.",
+        "The archive contains no task examples in either compact or raw chapter representations; no exercises are synthesized.",
+        "Kit 590 is captured cover-only and is not eligible for page-level evidence until its instructional chapters are recaptured."
+      ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "eesti_keel_teise_keelena_3._klassile__kit140",
+          "mina_loen_ja_kirjutan_3__kit590"
+        ],
+        "audit_path": "docs/audits/grade-3-estonian-source-separation.md",
+        "reason": "KOOS ON VAHVA belongs to Estonian as a second language, while cover-only kit 590 cannot be used as instructional evidence."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian language",
+          "et": "eesti keel",
+          "ru": "эстонский язык"
+        }
+      },
+      "notes": "Use only for grade 3 first-language Estonian. The route contains 363 instructional pages from kits 135 and 179, shares truthful archive provenance with the separate second-language route, and does not claim curriculum completeness."
+    },
+    {
+      "id": "grade-3-estonian-second-language",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "estonian_second_language",
+      "subject_et": "eesti keel teise keelena",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_3klass_eesti_keel_teise_keelena.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_eesti_keel_teise_keelena_qa.json",
+      "record_count": 54,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "The shared original export combines first-language Estonian and Estonian as a second language and automatically labels every source row as mathematics; the canonical route corrects both boundaries.",
+        "One kit 140 page is source-labelled ru but contains Estonian instruction with a retained Russian vocabulary gloss; it is normalized to et from page-level evidence.",
+        "The archive contains no task examples in either compact or raw chapter representations; no exercises are synthesized.",
+        "Kit 590 is captured cover-only and is not eligible for page-level evidence until its instructional chapters are recaptured."
+      ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "3._klassi_eesti_keel__kit135",
+          "eesti_keele_õpik_3._klassile__kit179",
+          "mina_loen_ja_kirjutan_3__kit590"
+        ],
+        "audit_path": "docs/audits/grade-3-estonian-source-separation.md",
+        "reason": "ILUS EMAKEEL and Eesti keele õpik 3. klassile belong to first-language Estonian, while cover-only kit 590 cannot be used as instructional evidence."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian as a second language",
+          "et": "eesti keel teise keelena",
+          "ru": "эстонский язык как второй"
+        }
+      },
+      "notes": "Use only for grade 3 Estonian-as-a-second-language queries. The route contains 54 KOOS ON VAHVA pages from kit 140, shares truthful archive provenance with the first-language route, and does not claim curriculum completeness."
+    },
+    {
       "id": "grade-5-science",
       "grade": 5,
       "grade_group": "5-7",
