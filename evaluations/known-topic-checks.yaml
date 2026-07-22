@@ -614,6 +614,50 @@ cases:
         book_id: avita_природа_и__2_ru
     evidence: "The weather task is verified in a pure grade 2 science book and absent from grade 3 science. Both audited mixed human-studies/science Book IDs remain outside the canonical science route."
 
+  - id: grade-2-arts-and-crafts-button-sewing
+    grade: 2
+    subject: arts_and_crafts
+    topic: "button sewing in Estonian and Russian"
+    status: present
+    expected_source_id: grade-2-arts-and-crafts
+    expected_md_path: project-files/outputs/opiq_2klass_kunst_ja_tooopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-arts-and-crafts
+        url: https://www.opiq.ee/kit/192/chapter/10946
+        expected:
+          class: 2
+          book_id: kunsti-_ja_tööõpetus._2._osa
+          title: Nööbi õmblemine
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Nööbi õmblemine
+      - kind: record_present
+        source_id: grade-2-arts-and-crafts
+        url: https://www.opiq.ee/kit/371/chapter/20322
+        expected:
+          class: 2
+          book_id: трудовое_обучение_и_искусство._2_часть
+          title: Пришивание пуговиц
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Пришивание пуговиц
+      - kind: url_absent
+        origin_source_id: grade-2-arts-and-crafts
+        source_id: grade-2-mathematics
+        url: https://www.opiq.ee/kit/192/chapter/10946
+      - kind: url_absent
+        origin_source_id: grade-2-arts-and-crafts
+        source_id: grade-2-science
+        url: https://www.opiq.ee/kit/371/chapter/20322
+    evidence: "The matching Estonian and Russian button-sewing chapters are canonical arts-and-crafts records. Their exact URLs are absent from the grade 2 mathematics and science routes despite the archive's incorrect automatic subject labels."
+
   - id: grade-2-human-studies-water-safety
     grade: 2
     subject: human_studies
