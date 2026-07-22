@@ -16,6 +16,7 @@
     "methodology_model",
     "learner_language_profile_ref",
     "canonical_route",
+    "external_source_registry_ref",
     "official_curriculum_references",
     "sequence_policy",
     "source_selection_matrix_ref",
@@ -35,7 +36,7 @@
     "provenance"
   ],
   "properties": {
-    "schema_version": { "const": "2.0" },
+    "schema_version": { "const": "2.1" },
     "artifact_type": { "const": "annual_course_plan" },
     "course_id": { "$ref": "#/$defs/slug" },
     "grade": { "type": "integer", "minimum": 1 },
@@ -46,6 +47,7 @@
     "methodology_model": { "const": "russian_primary_estonian_supported" },
     "learner_language_profile_ref": { "$ref": "#/$defs/slug" },
     "canonical_route": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/canonicalRoute" },
+    "external_source_registry_ref": { "$ref": "#/$defs/artifactReference" },
     "official_curriculum_references": {
       "type": "array",
       "minItems": 1,
@@ -198,7 +200,7 @@
         "order", "unit_id", "topic_inventory_refs", "title_ru", "title_et", "scope_ru",
         "main_concepts", "prerequisite_unit_ids", "estimated_lessons", "lesson_allocation",
         "mandatory_status", "linked_official_outcomes", "coverage_status", "source_book_ids",
-        "selected_source_record_ids", "russian_explanation_status", "estonian_source_status",
+        "selected_source_record_ids", "topic_synthesis",
         "practical_work_potential", "assessment_potential", "recommended_period",
         "placement_reason", "later_reuse_unit_ids", "thematic_plan_ref",
         "full_thematic_plan_exists", "implementation_status", "teacher_review_status",
@@ -237,8 +239,9 @@
           "items": { "type": "string", "minLength": 1 }
         },
         "selected_source_record_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
-        "russian_explanation_status": { "$ref": "#/$defs/russianStatus" },
-        "estonian_source_status": { "enum": ["direct_opiq_et", "partial_opiq_et", "not_yet_verified"] },
+        "topic_synthesis": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/topic-synthesis.schema.json#/$defs/topicSynthesis"
+        },
         "practical_work_potential": { "enum": ["planned", "possible_needs_design", "not_identified"] },
         "assessment_potential": { "enum": ["planned", "possible_needs_design", "not_identified"] },
         "recommended_period": { "type": "string", "minLength": 5 },
@@ -255,8 +258,8 @@
           "enum": [
             "validated_production_unit",
             "annual_architecture_only",
-            "needs_source_review",
-            "needs_russian_bridge",
+            "synthesis_planned",
+            "source_review_required",
             "optional_extension",
             "blocked_by_missing_evidence"
           ]
@@ -308,38 +311,6 @@
             }
           }
         }
-      }
-    },
-    "russianStatus": {
-      "enum": [
-        "direct_opiq_ru",
-        "partial_opiq_ru",
-        "author_bridge_required",
-        "author_full_explanation_required",
-        "not_yet_verified"
-      ]
-    },
-    "russianCoverage": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["unit_id", "status", "available_record_ids", "concepts_covered", "concepts_missing", "author_response", "teacher_review_required", "notes"],
-      "properties": {
-        "unit_id": { "$ref": "#/$defs/slug" },
-        "status": { "$ref": "#/$defs/russianStatus" },
-        "available_record_ids": { "$ref": "#/$defs/slugArray" },
-        "concepts_covered": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 }
-        },
-        "concepts_missing": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 }
-        },
-        "author_response": { "enum": ["none", "bridge_sufficient", "full_explanation_required", "pending_review"] },
-        "teacher_review_required": { "type": "boolean" },
-        "notes": { "type": "string", "minLength": 10 }
       }
     },
     "languageProgression": {

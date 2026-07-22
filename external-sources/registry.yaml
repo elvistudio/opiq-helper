@@ -1,0 +1,7 @@
+schema_version: "1.0"
+artifact_type: external_source_registry
+registry_id: shared-external-source-registry
+sources: []
+notes: >-
+  Shared project-wide registry. It is intentionally empty until a real topic needs a verified
+  external source; synthetic registry entries belong only in tests.

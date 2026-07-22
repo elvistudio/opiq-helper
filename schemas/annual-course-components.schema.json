@@ -42,7 +42,7 @@
     "commonIdentity": {
       "type": "object",
       "properties": {
-        "schema_version": { "const": "1.0" },
+        "schema_version": { "enum": ["1.0", "1.1"] },
         "artifact_id": { "$ref": "#/$defs/slug" },
         "course_ref": { "$ref": "#/$defs/slug" },
         "grade": { "type": "integer", "minimum": 1 },
@@ -236,7 +236,7 @@
       "additionalProperties": false,
       "required": [
         "unit_id", "implementation_order", "issue_18_phase", "expected_thematic_plan_path",
-        "approximate_lesson_count", "source_readiness", "russian_explanation_readiness",
+        "approximate_lesson_count", "source_readiness", "synthesis_readiness",
         "estonian_language_readiness", "practical_work_readiness", "blockers", "dependencies",
         "implementation_status"
       ],
@@ -247,7 +247,7 @@
         "expected_thematic_plan_path": { "$ref": "#/$defs/repositoryYamlPath" },
         "approximate_lesson_count": { "type": "integer", "minimum": 1 },
         "source_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
-        "russian_explanation_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
+        "synthesis_readiness": { "enum": ["ready", "planned", "needs_review", "blocked", "implemented"] },
         "estonian_language_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
         "practical_work_readiness": { "enum": ["ready", "partial", "blocked", "implemented"] },
         "blockers": {
@@ -256,7 +256,16 @@
           "items": { "type": "string", "minLength": 10 }
         },
         "dependencies": { "$ref": "#/$defs/slugArray" },
-        "implementation_status": { "enum": ["validated_production_unit", "planned_next", "planned_later", "blocked_pending_review"] }
+        "implementation_status": {
+          "enum": [
+            "validated_production_unit",
+            "annual_architecture_only",
+            "synthesis_planned",
+            "source_review_required",
+            "optional_extension",
+            "blocked_by_missing_evidence"
+          ]
+        }
       }
     },
     "implementationRoadmap": {
@@ -271,7 +280,7 @@
             "phases", "units", "provenance"
           ],
           "properties": {
-            "schema_version": { "const": "1.0" },
+            "schema_version": { "const": "1.1" },
             "artifact_type": { "const": "annual_implementation_roadmap" },
             "artifact_id": { "$ref": "#/$defs/slug" },
             "course_ref": { "$ref": "#/$defs/slug" },
@@ -305,11 +314,11 @@
           "required": [
             "schema_version", "artifact_type", "artifact_id", "course_ref", "grade", "subject",
             "subject_et", "instruction_language", "subject_support_language", "canonical_route",
-            "russian_explanation_coverage", "estonian_language_progression",
+            "estonian_language_progression",
             "planned_vocabulary_recycling_intervals", "provenance"
           ],
           "properties": {
-            "schema_version": { "const": "1.0" },
+            "schema_version": { "const": "1.1" },
             "artifact_type": { "const": "annual_language_progression" },
             "artifact_id": { "$ref": "#/$defs/slug" },
             "course_ref": { "$ref": "#/$defs/slug" },
@@ -319,11 +328,6 @@
             "instruction_language": { "const": "ru" },
             "subject_support_language": { "const": "et" },
             "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
-            "russian_explanation_coverage": {
-              "type": "array",
-              "minItems": 1,
-              "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/annual-course.schema.json#/$defs/russianCoverage" }
-            },
             "estonian_language_progression": {
               "type": "array",
               "minItems": 1,
