@@ -1,0 +1,2312 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-2-arts-and-crafts",
+  "source_archive": "project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_2klass_kunst_ja_tooopetus.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-22T10:26:52.939Z",
+    "generator": "scripts/generate-grade-2-source-indexes.mjs",
+    "generator_version": "1.1",
+    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+  },
+  "checksums": {
+    "source_archive_sha256": "5de5260ab8b1973a4d5132dd248ec8198cf3062f9084f369442d9cf61ed110eb",
+    "output_file_sha256": "4fac618df05209d0307fd13418b67055c0ce34d8c933a895e5a5cd5a0b006910"
+  },
+  "source_records": 269,
+  "page_records_included": 263,
+  "cover_detail_records_excluded": 6,
+  "administrative_records_excluded": 0,
+  "mixed_subject_page_records_excluded": 0,
+  "grades": {
+    "2": 263
+  },
+  "languages": {
+    "et": 174,
+    "ru": 89
+  },
+  "books": {
+    "kunsti-_ja_tööõpetus._2._osa": 89,
+    "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid": 85,
+    "трудовое_обучение_и_искусство._2_часть": 89
+  },
+  "kits": {
+    "192": 89,
+    "200": 85,
+    "371": 89
+  },
+  "programme_types": {
+    "ordinary_curriculum": 178,
+    "supplementary": 85
+  },
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 268,
+    "science / loodusõpetus / природоведение": 1
+  },
+  "canonical_subject_counts": {
+    "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство": 263
+  },
+  "subject_normalization_records": 263,
+  "subject_normalization_audit": [
+    {
+      "source_position": 3,
+      "url": "https://www.opiq.ee/kit/192/chapter/10881",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 4,
+      "url": "https://www.opiq.ee/kit/192/chapter/10890",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 5,
+      "url": "https://www.opiq.ee/kit/192/chapter/10891",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 6,
+      "url": "https://www.opiq.ee/kit/192/chapter/10892",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 7,
+      "url": "https://www.opiq.ee/kit/192/chapter/10893",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 8,
+      "url": "https://www.opiq.ee/kit/192/chapter/10894",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 9,
+      "url": "https://www.opiq.ee/kit/192/chapter/10895",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 10,
+      "url": "https://www.opiq.ee/kit/192/chapter/10896",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 11,
+      "url": "https://www.opiq.ee/kit/192/chapter/10897",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 12,
+      "url": "https://www.opiq.ee/kit/192/chapter/10898",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 13,
+      "url": "https://www.opiq.ee/kit/192/chapter/10899",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 14,
+      "url": "https://www.opiq.ee/kit/192/chapter/10882",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 15,
+      "url": "https://www.opiq.ee/kit/192/chapter/10900",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 16,
+      "url": "https://www.opiq.ee/kit/192/chapter/10901",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 17,
+      "url": "https://www.opiq.ee/kit/192/chapter/10883",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 18,
+      "url": "https://www.opiq.ee/kit/192/chapter/10884",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 19,
+      "url": "https://www.opiq.ee/kit/192/chapter/10885",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 20,
+      "url": "https://www.opiq.ee/kit/192/chapter/10886",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 21,
+      "url": "https://www.opiq.ee/kit/192/chapter/10887",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 22,
+      "url": "https://www.opiq.ee/kit/192/chapter/10888",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 23,
+      "url": "https://www.opiq.ee/kit/192/chapter/10889",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 24,
+      "url": "https://www.opiq.ee/kit/192/chapter/10902",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 25,
+      "url": "https://www.opiq.ee/kit/192/chapter/10911",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 26,
+      "url": "https://www.opiq.ee/kit/192/chapter/10912",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 27,
+      "url": "https://www.opiq.ee/kit/192/chapter/10913",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 28,
+      "url": "https://www.opiq.ee/kit/192/chapter/10914",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 29,
+      "url": "https://www.opiq.ee/kit/192/chapter/10915",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 30,
+      "url": "https://www.opiq.ee/kit/192/chapter/10916",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 31,
+      "url": "https://www.opiq.ee/kit/192/chapter/10917",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 32,
+      "url": "https://www.opiq.ee/kit/192/chapter/10918",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 33,
+      "url": "https://www.opiq.ee/kit/192/chapter/10919",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 34,
+      "url": "https://www.opiq.ee/kit/192/chapter/10920",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 35,
+      "url": "https://www.opiq.ee/kit/192/chapter/10903",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 36,
+      "url": "https://www.opiq.ee/kit/192/chapter/10904",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 37,
+      "url": "https://www.opiq.ee/kit/192/chapter/10905",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 38,
+      "url": "https://www.opiq.ee/kit/192/chapter/10906",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 39,
+      "url": "https://www.opiq.ee/kit/192/chapter/10907",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 40,
+      "url": "https://www.opiq.ee/kit/192/chapter/10908",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 41,
+      "url": "https://www.opiq.ee/kit/192/chapter/10909",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 42,
+      "url": "https://www.opiq.ee/kit/192/chapter/10910",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 43,
+      "url": "https://www.opiq.ee/kit/192/chapter/10921",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 44,
+      "url": "https://www.opiq.ee/kit/192/chapter/10930",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 45,
+      "url": "https://www.opiq.ee/kit/192/chapter/10931",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 46,
+      "url": "https://www.opiq.ee/kit/192/chapter/10932",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 47,
+      "url": "https://www.opiq.ee/kit/192/chapter/10933",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 48,
+      "url": "https://www.opiq.ee/kit/192/chapter/10934",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 49,
+      "url": "https://www.opiq.ee/kit/192/chapter/10935",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 50,
+      "url": "https://www.opiq.ee/kit/192/chapter/10936",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 51,
+      "url": "https://www.opiq.ee/kit/192/chapter/10937",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 52,
+      "url": "https://www.opiq.ee/kit/192/chapter/10938",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 53,
+      "url": "https://www.opiq.ee/kit/192/chapter/10939",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 54,
+      "url": "https://www.opiq.ee/kit/192/chapter/10922",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 55,
+      "url": "https://www.opiq.ee/kit/192/chapter/10940",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 56,
+      "url": "https://www.opiq.ee/kit/192/chapter/10941",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 57,
+      "url": "https://www.opiq.ee/kit/192/chapter/10942",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 58,
+      "url": "https://www.opiq.ee/kit/192/chapter/10943",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 59,
+      "url": "https://www.opiq.ee/kit/192/chapter/10944",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 60,
+      "url": "https://www.opiq.ee/kit/192/chapter/10945",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 61,
+      "url": "https://www.opiq.ee/kit/192/chapter/10946",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 62,
+      "url": "https://www.opiq.ee/kit/192/chapter/10947",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 63,
+      "url": "https://www.opiq.ee/kit/192/chapter/10948",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 64,
+      "url": "https://www.opiq.ee/kit/192/chapter/10949",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 65,
+      "url": "https://www.opiq.ee/kit/192/chapter/10923",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 66,
+      "url": "https://www.opiq.ee/kit/192/chapter/10950",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 67,
+      "url": "https://www.opiq.ee/kit/192/chapter/10951",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 68,
+      "url": "https://www.opiq.ee/kit/192/chapter/10952",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 69,
+      "url": "https://www.opiq.ee/kit/192/chapter/10924",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 70,
+      "url": "https://www.opiq.ee/kit/192/chapter/10925",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 71,
+      "url": "https://www.opiq.ee/kit/192/chapter/10926",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 72,
+      "url": "https://www.opiq.ee/kit/192/chapter/10927",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 73,
+      "url": "https://www.opiq.ee/kit/192/chapter/10928",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 74,
+      "url": "https://www.opiq.ee/kit/192/chapter/10929",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 75,
+      "url": "https://www.opiq.ee/kit/192/chapter/10953",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 76,
+      "url": "https://www.opiq.ee/kit/192/chapter/10962",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 77,
+      "url": "https://www.opiq.ee/kit/192/chapter/10963",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 78,
+      "url": "https://www.opiq.ee/kit/192/chapter/10964",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 79,
+      "url": "https://www.opiq.ee/kit/192/chapter/10965",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 80,
+      "url": "https://www.opiq.ee/kit/192/chapter/10966",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 81,
+      "url": "https://www.opiq.ee/kit/192/chapter/10967",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 82,
+      "url": "https://www.opiq.ee/kit/192/chapter/10968",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 83,
+      "url": "https://www.opiq.ee/kit/192/chapter/10969",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 84,
+      "url": "https://www.opiq.ee/kit/192/chapter/10954",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 85,
+      "url": "https://www.opiq.ee/kit/192/chapter/10955",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 86,
+      "url": "https://www.opiq.ee/kit/192/chapter/10956",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 87,
+      "url": "https://www.opiq.ee/kit/192/chapter/10957",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 88,
+      "url": "https://www.opiq.ee/kit/192/chapter/10958",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 89,
+      "url": "https://www.opiq.ee/kit/192/chapter/10959",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 90,
+      "url": "https://www.opiq.ee/kit/192/chapter/10960",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 91,
+      "url": "https://www.opiq.ee/kit/192/chapter/10961",
+      "book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 94,
+      "url": "https://www.opiq.ee/kit/200/chapter/11374",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 95,
+      "url": "https://www.opiq.ee/kit/200/chapter/11375",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 96,
+      "url": "https://www.opiq.ee/kit/200/chapter/11376",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 97,
+      "url": "https://www.opiq.ee/kit/200/chapter/11377",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 98,
+      "url": "https://www.opiq.ee/kit/200/chapter/11378",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 99,
+      "url": "https://www.opiq.ee/kit/200/chapter/11379",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 100,
+      "url": "https://www.opiq.ee/kit/200/chapter/11380",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 101,
+      "url": "https://www.opiq.ee/kit/200/chapter/11381",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 102,
+      "url": "https://www.opiq.ee/kit/200/chapter/11382",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 103,
+      "url": "https://www.opiq.ee/kit/200/chapter/11383",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 104,
+      "url": "https://www.opiq.ee/kit/200/chapter/11384",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 105,
+      "url": "https://www.opiq.ee/kit/200/chapter/11385",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 106,
+      "url": "https://www.opiq.ee/kit/200/chapter/11386",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 107,
+      "url": "https://www.opiq.ee/kit/200/chapter/11395",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 108,
+      "url": "https://www.opiq.ee/kit/200/chapter/11396",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 109,
+      "url": "https://www.opiq.ee/kit/200/chapter/11397",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 110,
+      "url": "https://www.opiq.ee/kit/200/chapter/11398",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 111,
+      "url": "https://www.opiq.ee/kit/200/chapter/11399",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 112,
+      "url": "https://www.opiq.ee/kit/200/chapter/11400",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 113,
+      "url": "https://www.opiq.ee/kit/200/chapter/11401",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 114,
+      "url": "https://www.opiq.ee/kit/200/chapter/11402",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 115,
+      "url": "https://www.opiq.ee/kit/200/chapter/11403",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 116,
+      "url": "https://www.opiq.ee/kit/200/chapter/11404",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 117,
+      "url": "https://www.opiq.ee/kit/200/chapter/11387",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 118,
+      "url": "https://www.opiq.ee/kit/200/chapter/11405",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 119,
+      "url": "https://www.opiq.ee/kit/200/chapter/11406",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 120,
+      "url": "https://www.opiq.ee/kit/200/chapter/11407",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 121,
+      "url": "https://www.opiq.ee/kit/200/chapter/11408",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 122,
+      "url": "https://www.opiq.ee/kit/200/chapter/11409",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 123,
+      "url": "https://www.opiq.ee/kit/200/chapter/11410",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 124,
+      "url": "https://www.opiq.ee/kit/200/chapter/11411",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 125,
+      "url": "https://www.opiq.ee/kit/200/chapter/11412",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 126,
+      "url": "https://www.opiq.ee/kit/200/chapter/11413",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 127,
+      "url": "https://www.opiq.ee/kit/200/chapter/11414",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 128,
+      "url": "https://www.opiq.ee/kit/200/chapter/11388",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 129,
+      "url": "https://www.opiq.ee/kit/200/chapter/11415",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 130,
+      "url": "https://www.opiq.ee/kit/200/chapter/11416",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 131,
+      "url": "https://www.opiq.ee/kit/200/chapter/11417",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 132,
+      "url": "https://www.opiq.ee/kit/200/chapter/11418",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 133,
+      "url": "https://www.opiq.ee/kit/200/chapter/11419",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 134,
+      "url": "https://www.opiq.ee/kit/200/chapter/11420",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 135,
+      "url": "https://www.opiq.ee/kit/200/chapter/11421",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 136,
+      "url": "https://www.opiq.ee/kit/200/chapter/11389",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 137,
+      "url": "https://www.opiq.ee/kit/200/chapter/11390",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 138,
+      "url": "https://www.opiq.ee/kit/200/chapter/11391",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 139,
+      "url": "https://www.opiq.ee/kit/200/chapter/11392",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 140,
+      "url": "https://www.opiq.ee/kit/200/chapter/11393",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 141,
+      "url": "https://www.opiq.ee/kit/200/chapter/11394",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 142,
+      "url": "https://www.opiq.ee/kit/200/chapter/11422",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 143,
+      "url": "https://www.opiq.ee/kit/200/chapter/11423",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 144,
+      "url": "https://www.opiq.ee/kit/200/chapter/11424",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 145,
+      "url": "https://www.opiq.ee/kit/200/chapter/11425",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 146,
+      "url": "https://www.opiq.ee/kit/200/chapter/11426",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 147,
+      "url": "https://www.opiq.ee/kit/200/chapter/11427",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 148,
+      "url": "https://www.opiq.ee/kit/200/chapter/11428",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 149,
+      "url": "https://www.opiq.ee/kit/200/chapter/11429",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 150,
+      "url": "https://www.opiq.ee/kit/200/chapter/11430",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 151,
+      "url": "https://www.opiq.ee/kit/200/chapter/11439",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 152,
+      "url": "https://www.opiq.ee/kit/200/chapter/11440",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 153,
+      "url": "https://www.opiq.ee/kit/200/chapter/11441",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 154,
+      "url": "https://www.opiq.ee/kit/200/chapter/11442",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 155,
+      "url": "https://www.opiq.ee/kit/200/chapter/11443",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 156,
+      "url": "https://www.opiq.ee/kit/200/chapter/11444",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 157,
+      "url": "https://www.opiq.ee/kit/200/chapter/11445",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 158,
+      "url": "https://www.opiq.ee/kit/200/chapter/11446",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 159,
+      "url": "https://www.opiq.ee/kit/200/chapter/11447",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 160,
+      "url": "https://www.opiq.ee/kit/200/chapter/11448",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 161,
+      "url": "https://www.opiq.ee/kit/200/chapter/11431",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 162,
+      "url": "https://www.opiq.ee/kit/200/chapter/11432",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 163,
+      "url": "https://www.opiq.ee/kit/200/chapter/11433",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 164,
+      "url": "https://www.opiq.ee/kit/200/chapter/11434",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 165,
+      "url": "https://www.opiq.ee/kit/200/chapter/11435",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 166,
+      "url": "https://www.opiq.ee/kit/200/chapter/11436",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 167,
+      "url": "https://www.opiq.ee/kit/200/chapter/11437",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 168,
+      "url": "https://www.opiq.ee/kit/200/chapter/11438",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 169,
+      "url": "https://www.opiq.ee/kit/200/chapter/11449",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 170,
+      "url": "https://www.opiq.ee/kit/200/chapter/11458",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 171,
+      "url": "https://www.opiq.ee/kit/200/chapter/11450",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 172,
+      "url": "https://www.opiq.ee/kit/200/chapter/11451",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 173,
+      "url": "https://www.opiq.ee/kit/200/chapter/11452",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 174,
+      "url": "https://www.opiq.ee/kit/200/chapter/11453",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 175,
+      "url": "https://www.opiq.ee/kit/200/chapter/11454",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 176,
+      "url": "https://www.opiq.ee/kit/200/chapter/11455",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 177,
+      "url": "https://www.opiq.ee/kit/200/chapter/11456",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 178,
+      "url": "https://www.opiq.ee/kit/200/chapter/11457",
+      "book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 181,
+      "url": "https://www.opiq.ee/kit/371/chapter/20257",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 182,
+      "url": "https://www.opiq.ee/kit/371/chapter/20266",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 183,
+      "url": "https://www.opiq.ee/kit/371/chapter/20267",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 184,
+      "url": "https://www.opiq.ee/kit/371/chapter/20268",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 185,
+      "url": "https://www.opiq.ee/kit/371/chapter/20269",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 186,
+      "url": "https://www.opiq.ee/kit/371/chapter/20270",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 187,
+      "url": "https://www.opiq.ee/kit/371/chapter/20271",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 188,
+      "url": "https://www.opiq.ee/kit/371/chapter/20272",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 189,
+      "url": "https://www.opiq.ee/kit/371/chapter/20273",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 190,
+      "url": "https://www.opiq.ee/kit/371/chapter/20274",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 191,
+      "url": "https://www.opiq.ee/kit/371/chapter/20275",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 192,
+      "url": "https://www.opiq.ee/kit/371/chapter/20258",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 193,
+      "url": "https://www.opiq.ee/kit/371/chapter/20276",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 194,
+      "url": "https://www.opiq.ee/kit/371/chapter/20277",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 195,
+      "url": "https://www.opiq.ee/kit/371/chapter/20259",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 196,
+      "url": "https://www.opiq.ee/kit/371/chapter/20260",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 197,
+      "url": "https://www.opiq.ee/kit/371/chapter/20261",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 198,
+      "url": "https://www.opiq.ee/kit/371/chapter/20262",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 199,
+      "url": "https://www.opiq.ee/kit/371/chapter/20263",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 200,
+      "url": "https://www.opiq.ee/kit/371/chapter/20264",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 201,
+      "url": "https://www.opiq.ee/kit/371/chapter/20265",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 202,
+      "url": "https://www.opiq.ee/kit/371/chapter/20278",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 203,
+      "url": "https://www.opiq.ee/kit/371/chapter/20287",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 204,
+      "url": "https://www.opiq.ee/kit/371/chapter/20288",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 205,
+      "url": "https://www.opiq.ee/kit/371/chapter/20289",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 206,
+      "url": "https://www.opiq.ee/kit/371/chapter/20290",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 207,
+      "url": "https://www.opiq.ee/kit/371/chapter/20291",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 208,
+      "url": "https://www.opiq.ee/kit/371/chapter/20292",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 209,
+      "url": "https://www.opiq.ee/kit/371/chapter/20293",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 210,
+      "url": "https://www.opiq.ee/kit/371/chapter/20294",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 211,
+      "url": "https://www.opiq.ee/kit/371/chapter/20295",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 212,
+      "url": "https://www.opiq.ee/kit/371/chapter/20296",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 213,
+      "url": "https://www.opiq.ee/kit/371/chapter/20279",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 214,
+      "url": "https://www.opiq.ee/kit/371/chapter/20280",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 215,
+      "url": "https://www.opiq.ee/kit/371/chapter/20281",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 216,
+      "url": "https://www.opiq.ee/kit/371/chapter/20282",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 217,
+      "url": "https://www.opiq.ee/kit/371/chapter/20283",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 218,
+      "url": "https://www.opiq.ee/kit/371/chapter/20284",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 219,
+      "url": "https://www.opiq.ee/kit/371/chapter/20285",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 220,
+      "url": "https://www.opiq.ee/kit/371/chapter/20286",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 221,
+      "url": "https://www.opiq.ee/kit/371/chapter/20297",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 222,
+      "url": "https://www.opiq.ee/kit/371/chapter/20306",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 223,
+      "url": "https://www.opiq.ee/kit/371/chapter/20307",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 224,
+      "url": "https://www.opiq.ee/kit/371/chapter/20308",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 225,
+      "url": "https://www.opiq.ee/kit/371/chapter/20309",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 226,
+      "url": "https://www.opiq.ee/kit/371/chapter/20310",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 227,
+      "url": "https://www.opiq.ee/kit/371/chapter/20311",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 228,
+      "url": "https://www.opiq.ee/kit/371/chapter/20312",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 229,
+      "url": "https://www.opiq.ee/kit/371/chapter/20313",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 230,
+      "url": "https://www.opiq.ee/kit/371/chapter/20314",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 231,
+      "url": "https://www.opiq.ee/kit/371/chapter/20315",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 232,
+      "url": "https://www.opiq.ee/kit/371/chapter/20298",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 233,
+      "url": "https://www.opiq.ee/kit/371/chapter/20316",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 234,
+      "url": "https://www.opiq.ee/kit/371/chapter/20317",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 235,
+      "url": "https://www.opiq.ee/kit/371/chapter/20318",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 236,
+      "url": "https://www.opiq.ee/kit/371/chapter/20319",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 237,
+      "url": "https://www.opiq.ee/kit/371/chapter/20320",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 238,
+      "url": "https://www.opiq.ee/kit/371/chapter/20321",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 239,
+      "url": "https://www.opiq.ee/kit/371/chapter/20322",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 240,
+      "url": "https://www.opiq.ee/kit/371/chapter/20323",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 241,
+      "url": "https://www.opiq.ee/kit/371/chapter/20324",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 242,
+      "url": "https://www.opiq.ee/kit/371/chapter/20325",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 243,
+      "url": "https://www.opiq.ee/kit/371/chapter/20299",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 244,
+      "url": "https://www.opiq.ee/kit/371/chapter/20326",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 245,
+      "url": "https://www.opiq.ee/kit/371/chapter/20327",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 246,
+      "url": "https://www.opiq.ee/kit/371/chapter/20328",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 247,
+      "url": "https://www.opiq.ee/kit/371/chapter/20300",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 248,
+      "url": "https://www.opiq.ee/kit/371/chapter/20301",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 249,
+      "url": "https://www.opiq.ee/kit/371/chapter/20302",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 250,
+      "url": "https://www.opiq.ee/kit/371/chapter/20303",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 251,
+      "url": "https://www.opiq.ee/kit/371/chapter/20304",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 252,
+      "url": "https://www.opiq.ee/kit/371/chapter/20305",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 253,
+      "url": "https://www.opiq.ee/kit/371/chapter/20329",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 254,
+      "url": "https://www.opiq.ee/kit/371/chapter/20338",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 255,
+      "url": "https://www.opiq.ee/kit/371/chapter/20339",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 256,
+      "url": "https://www.opiq.ee/kit/371/chapter/20340",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 257,
+      "url": "https://www.opiq.ee/kit/371/chapter/20341",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 258,
+      "url": "https://www.opiq.ee/kit/371/chapter/20342",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 259,
+      "url": "https://www.opiq.ee/kit/371/chapter/20343",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 260,
+      "url": "https://www.opiq.ee/kit/371/chapter/20344",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 261,
+      "url": "https://www.opiq.ee/kit/371/chapter/20345",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 262,
+      "url": "https://www.opiq.ee/kit/371/chapter/20330",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 263,
+      "url": "https://www.opiq.ee/kit/371/chapter/20331",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 264,
+      "url": "https://www.opiq.ee/kit/371/chapter/20332",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 265,
+      "url": "https://www.opiq.ee/kit/371/chapter/20333",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 266,
+      "url": "https://www.opiq.ee/kit/371/chapter/20334",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 267,
+      "url": "https://www.opiq.ee/kit/371/chapter/20335",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 268,
+      "url": "https://www.opiq.ee/kit/371/chapter/20336",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 269,
+      "url": "https://www.opiq.ee/kit/371/chapter/20337",
+      "book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+      "decision": "correct_automatic_subject_label"
+    }
+  ],
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 3,
+    "source_duplicate_records": 3,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/192",
+        "source_positions": [
+          1,
+          2
+        ],
+        "book_ids": [
+          "kunsti-_ja_tööõpetus._2._osa"
+        ],
+        "chapter_ids": [
+          "88",
+          "178"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/200",
+        "source_positions": [
+          92,
+          93
+        ],
+        "book_ids": [
+          "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid"
+        ],
+        "chapter_ids": [
+          "1",
+          "87"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/371",
+        "source_positions": [
+          179,
+          180
+        ],
+        "book_ids": [
+          "трудовое_обучение_и_искусство._2_часть"
+        ],
+        "chapter_ids": [
+          "179",
+          "269"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      }
+    ]
+  },
+  "excluded_book_audit": [],
+  "book_id_language_suffix_anomalies": [],
+  "book_metadata_audit": {
+    "kunsti-_ja_tööõpetus._2._osa": {
+      "title": "Kunsti- ja tööõpetus. 2. osa",
+      "publisher": "",
+      "language": "et",
+      "kits": [
+        "192"
+      ],
+      "page_records": 89,
+      "programme_type": "ordinary_curriculum"
+    },
+    "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid": {
+      "title": "Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid",
+      "publisher": "",
+      "language": "et",
+      "kits": [
+        "200"
+      ],
+      "page_records": 85,
+      "programme_type": "supplementary"
+    },
+    "трудовое_обучение_и_искусство._2_часть": {
+      "title": "Трудовое обучение и искусство. 2 часть",
+      "publisher": "",
+      "language": "ru",
+      "kits": [
+        "371"
+      ],
+      "page_records": 89,
+      "programme_type": "ordinary_curriculum"
+    }
+  },
+  "book_metadata_normalization_audit": [
+    {
+      "source_book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "canonical_book_id": "kunsti-_ja_tööõpetus._2._osa",
+      "source_titles": [
+        "Käsitöötuba – Opiq"
+      ],
+      "canonical_title": "Kunsti- ja tööõpetus. 2. osa",
+      "source_records": 91,
+      "canonical_pages": 89,
+      "languages": [
+        "et"
+      ],
+      "kits": [
+        "192"
+      ],
+      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
+    },
+    {
+      "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+      "canonical_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "source_titles": [
+        "Käsitöötuba – Opiq"
+      ],
+      "canonical_title": "Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid",
+      "source_records": 87,
+      "canonical_pages": 85,
+      "languages": [
+        "et"
+      ],
+      "kits": [
+        "200"
+      ],
+      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
+    },
+    {
+      "source_book_id": "трудовое_обучение_и_искусство._2_часть",
+      "canonical_book_id": "трудовое_обучение_и_искусство._2_часть",
+      "source_titles": [
+        "Творческая мастерская – Opiq"
+      ],
+      "canonical_title": "Трудовое обучение и искусство. 2 часть",
+      "source_records": 91,
+      "canonical_pages": 89,
+      "languages": [
+        "ru"
+      ],
+      "kits": [
+        "371"
+      ],
+      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
+    }
+  ],
+  "metadata_limitations": [
+    "The export does not record publisher names.",
+    "The compact index and page records are authoritative for language; raw per-book files incorrectly label the two Estonian books as Russian.",
+    "Repeated page titles are retained because their canonical chapter URLs and instructional contexts are distinct."
+  ],
+  "records_without_headings": 0,
+  "missing_urls": 0,
+  "archive_index": {
+    "generated_at": "2026-07-22T10:02:53.213Z",
+    "raw_archive_included": true,
+    "declared_books": 3
+  }
+}

@@ -12,7 +12,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const generatorPath = 'scripts/generate-grade-2-source-indexes.mjs';
-const generatorVersion = '1.0';
+const defaultGeneratorVersion = '1.0';
 const checkOnly = process.argv.slice(2).includes('--check');
 const unknownArguments = process.argv.slice(2).filter((argument) => argument !== '--check');
 
@@ -28,6 +28,8 @@ const configurations = [
     title: '2. klass matemaatika',
     queryDescription: 'grade 2 mathematics',
     simplifiedBookIds: new Set(['harno_matemaatik_2_et']),
+    supplementaryBookIds: new Set(),
+    canonicalBookTitles: new Map(),
     excludedBookIds: new Map(),
   },
   {
@@ -41,10 +43,37 @@ const configurations = [
     title: '2. klass loodusõpetus',
     queryDescription: 'grade 2 science',
     simplifiedBookIds: new Set(['ministeerium_loodusõpet_2_et']),
+    supplementaryBookIds: new Set(),
+    canonicalBookTitles: new Map(),
     excludedBookIds: new Map([
       ['avita_loodus-_ja_2_et', 'Mixed loodus- ja inimeseõpetus book; its Estonian pages are already routed through grade-2-human-studies.'],
       ['avita_природа_и__2_ru', 'Mixed nature-and-human-studies book; excluded to keep the science route subject-pure.'],
     ]),
+  },
+  {
+    sourceId: 'grade-2-arts-and-crafts',
+    generatorVersion: '1.1',
+    expectedSourceRecords: 269,
+    expectedCanonicalRecords: 263,
+    expectedCoverRecords: 6,
+    expectedAdministrativeRecords: 0,
+    expectedDuplicateGroups: 3,
+    subject: { en: 'arts and crafts', et: 'kunst ja tööõpetus', ru: 'трудовое обучение и искусство' },
+    title: '2. klass kunst ja tööõpetus',
+    queryDescription: 'grade 2 arts-and-crafts',
+    simplifiedBookIds: new Set(),
+    supplementaryBookIds: new Set(['kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid']),
+    canonicalBookTitles: new Map([
+      ['kunsti-_ja_tööõpetus._2._osa', 'Kunsti- ja tööõpetus. 2. osa'],
+      ['kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid', 'Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid'],
+      ['трудовое_обучение_и_искусство._2_часть', 'Трудовое обучение и искусство. 2 часть'],
+    ]),
+    expectedBooks: new Map([
+      ['kunsti-_ja_tööõpetus._2._osa', { kit: '192', language: 'et', pages: 89 }],
+      ['kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid', { kit: '200', language: 'et', pages: 85 }],
+      ['трудовое_обучение_и_искусство._2_часть', { kit: '371', language: 'ru', pages: 89 }],
+    ]),
+    excludedBookIds: new Map(),
   },
 ];
 
@@ -155,12 +184,14 @@ function normalizeTopicList(values, forbiddenAliases, requiredAlias) {
 }
 
 function normalizeRecord(record, configuration) {
+  const canonicalBookId = normalizeText(record.book_id);
   const normalized = {
     ...record,
     title: normalizeText(record.title),
     url: normalizeText(record.url),
-    book: normalizeText(record.book).replace(/\s+2\s+klass$/iu, ''),
-    book_id: normalizeText(record.book_id),
+    book: configuration.canonicalBookTitles.get(canonicalBookId)
+      ?? normalizeText(record.book).replace(/\s+2\s+klass$/iu, ''),
+    book_id: canonicalBookId,
     chapter_id: normalizeText(record.chapter_id),
     language: normalizeText(record.language).toLowerCase(),
     publisher: normalizeText(record.publisher),
@@ -176,6 +207,19 @@ function normalizeRecord(record, configuration) {
   normalized.topics_ru = normalizeTopicList(record.topics_ru, ['математика', 'природоведение'], configuration.subject.ru);
   normalized.topics_en = normalizeTopicList(record.topics_en, ['mathematics', 'science'], configuration.subject.en);
   return normalized;
+}
+
+function programmeType(bookId, configuration) {
+  if (configuration.simplifiedBookIds.has(bookId)) return 'simplified_curriculum';
+  if (configuration.supplementaryBookIds.has(bookId)) return 'supplementary';
+  return 'ordinary_curriculum';
+}
+
+function programmeDescription(bookId, configuration) {
+  const programme = programmeType(bookId, configuration);
+  if (programme === 'simplified_curriculum') return 'simplified curriculum; use only with explicit labelling';
+  if (programme === 'supplementary') return 'supplementary material; do not treat as the ordinary core without explicit labelling';
+  return 'ordinary curriculum';
 }
 
 function auditDuplicateUrls(records, configuration) {
@@ -257,7 +301,7 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
   for (const [bookId, records] of bookGroups) {
     const first = records[0];
     const kits = [...new Set(records.map((record) => kitId(record.url)))].sort().join(', ');
-    const programme = configuration.simplifiedBookIds.has(bookId) ? 'simplified curriculum; use only with explicit labelling' : 'ordinary curriculum';
+    const programme = programmeDescription(bookId, configuration);
     lines.push(`- \`${bookId}\` — ${first.book}; ${first.publisher || 'publisher not recorded'}; language ${first.language}; kit ${kits}; ${records.length} pages; ${programme}.`);
   }
   if (configuration.excludedBookIds.size > 0) {
@@ -269,7 +313,7 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
   }
   lines.push('', '## Pages', '');
   canonicalRecords.forEach((record, indexPosition) => {
-    const programme = configuration.simplifiedBookIds.has(record.book_id) ? 'simplified_curriculum' : 'ordinary_curriculum';
+    const programme = programmeType(record.book_id, configuration);
     lines.push(
       `### ${indexPosition + 1}. ${record.title}`,
       `- URL: ${record.url}`,
@@ -305,8 +349,29 @@ function bookMetadataAudit(records, configuration) {
       language: matches[0].language,
       kits: [...new Set(matches.map((record) => kitId(record.url)))].sort(),
       page_records: matches.length,
-      programme_type: configuration.simplifiedBookIds.has(bookId) ? 'simplified_curriculum' : 'ordinary_curriculum',
+      programme_type: programmeType(bookId, configuration),
     }]));
+}
+
+function bookMetadataNormalizationAudit(records, canonicalRecords, configuration) {
+  if (configuration.canonicalBookTitles.size === 0) return [];
+  return [...groupBy(records, (record) => record.book_id).entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([sourceBookId, matches]) => {
+      const canonicalBookId = normalizeText(sourceBookId);
+      const canonicalMatches = canonicalRecords.filter((record) => record.book_id === canonicalBookId);
+      return {
+        source_book_id: sourceBookId,
+        canonical_book_id: canonicalBookId,
+        source_titles: [...new Set(matches.map((record) => normalizeText(record.book)))],
+        canonical_title: configuration.canonicalBookTitles.get(canonicalBookId),
+        source_records: matches.length,
+        canonical_pages: canonicalMatches.length,
+        languages: [...new Set(canonicalMatches.map((record) => record.language))].sort(),
+        kits: [...new Set(matches.map((record) => kitId(record.url)))].filter(Boolean).sort(),
+        decision: 'derive_specific_title_from_explicit_source_book_id_and_kit',
+      };
+    });
 }
 
 async function generateSource(manifest, configuration) {
@@ -335,6 +400,16 @@ async function generateSource(manifest, configuration) {
   const state = canonicalize(records, configuration);
   const markdown = renderMarkdown(configuration, source, index, state, duplicateAudit);
   const canonicalRecords = state.canonicalRecords;
+  if (configuration.expectedBooks) {
+    assert(configuration.expectedBooks.size === new Set(canonicalRecords.map((record) => record.book_id)).size, `${configuration.sourceId}: canonical book count changed.`);
+    for (const [bookId, expected] of configuration.expectedBooks) {
+      const matches = canonicalRecords.filter((record) => record.book_id === bookId);
+      assert(matches.length === expected.pages, `${configuration.sourceId}: ${bookId} has ${matches.length} pages; expected ${expected.pages}.`);
+      assert(matches.every((record) => record.language === expected.language), `${configuration.sourceId}: ${bookId} language differs from ${expected.language}.`);
+      assert(JSON.stringify([...new Set(matches.map((record) => kitId(record.url)))]) === JSON.stringify([expected.kit]), `${configuration.sourceId}: ${bookId} kit differs from ${expected.kit}.`);
+      assert(matches.every((record) => record.book === configuration.canonicalBookTitles.get(bookId)), `${configuration.sourceId}: ${bookId} canonical title normalization failed.`);
+    }
+  }
   const existingQa = await readFile(qaPath, 'utf8').then((contents) => parseJson(contents, source.qa_path), () => null);
   const generatedAt = existingQa?.generation?.status === 'generated'
     ? existingQa.generation.generated_at
@@ -359,7 +434,7 @@ async function generateSource(manifest, configuration) {
       status: 'generated',
       generated_at: generatedAt,
       generator: generatorPath,
-      generator_version: generatorVersion,
+      generator_version: configuration.generatorVersion ?? defaultGeneratorVersion,
       note: 'Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown.',
     },
     checksums: {
@@ -375,7 +450,7 @@ async function generateSource(manifest, configuration) {
     languages: countBy(canonicalRecords, (record) => record.language),
     books: countBy(canonicalRecords, (record) => record.book_id),
     kits: countBy(canonicalRecords, (record) => kitId(record.url)),
-    programme_types: countBy(canonicalRecords, (record) => configuration.simplifiedBookIds.has(record.book_id) ? 'simplified_curriculum' : 'ordinary_curriculum'),
+    programme_types: countBy(canonicalRecords, (record) => programmeType(record.book_id, configuration)),
     source_subject_counts: countBy(records, sourceSubject),
     canonical_subject_counts: countBy(canonicalRecords, sourceSubject),
     subject_normalization_records: state.subjectNormalizationAudit.length,
@@ -389,6 +464,14 @@ async function generateSource(manifest, configuration) {
     excluded_book_audit: excludedBookAudit,
     book_id_language_suffix_anomalies: suffixAnomalies,
     book_metadata_audit: bookMetadataAudit(canonicalRecords, configuration),
+    ...(configuration.canonicalBookTitles.size > 0 ? {
+      book_metadata_normalization_audit: bookMetadataNormalizationAudit(records, canonicalRecords, configuration),
+      metadata_limitations: [
+        'The export does not record publisher names.',
+        'The compact index and page records are authoritative for language; raw per-book files incorrectly label the two Estonian books as Russian.',
+        'Repeated page titles are retained because their canonical chapter URLs and instructional contexts are distinct.',
+      ],
+    } : {}),
     records_without_headings: canonicalRecords.filter((record) => record.headings.length === 0).length,
     missing_urls: canonicalRecords.filter((record) => !record.url).length,
     archive_index: {

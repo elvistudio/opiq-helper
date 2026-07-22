@@ -223,6 +223,39 @@
       "notes": "The source collection includes a combined loodus- ja inimeseõpetus book, while the canonical route is human studies."
     },
     {
+      "id": "grade-2-arts-and-crafts",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "arts_and_crafts",
+      "subject_et": "kunst ja tööõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_2klass_kunst_ja_tooopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_kunst_ja_tooopetus_qa.json",
+      "record_count": 263,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "Six repeated kit-detail records are excluded; the 263 canonical chapter URLs are unique.",
+        "The export automatically labels 268 source records as mathematics and one as science. Canonical records are normalized to arts and crafts without changing page titles, headings, tasks or URLs.",
+        "Publisher names are absent from the archive.",
+        "Raw per-book files incorrectly label the two Estonian books as Russian; the compact index and record-level Language fields consistently identify them as Estonian.",
+        "The holiday-card collection is supplementary material and must not be treated as the ordinary core without explicit labelling."
+      ],
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "arts and crafts",
+          "et": "kunst ja tööõpetus",
+          "ru": "трудовое обучение и искусство"
+        }
+      },
+      "notes": "Canonical Markdown is reproducibly generated from three source books in the committed original export: Estonian and Russian part 2 books plus the supplementary Estonian holiday-card collection. This route does not claim curriculum completeness."
+    },
+    {
       "id": "grade-2-russian",
       "grade": 2,
       "grade_group": "1-4",
