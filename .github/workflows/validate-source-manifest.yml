@@ -129,7 +129,10 @@ jobs:
         run: npm run check:grade-2-content-quality
 
       - name: Verify generated grade 3 mathematics QA
-        run: node scripts/generate-grade-3-mathematics-qa.mjs --check
+        run: npm run check:grade-3-mathematics
+
+      - name: Test grade 3 mathematics original-source migration
+        run: npm run test:grade-3-mathematics
 
       - name: Validate source manifest
         run: node scripts/check-source-manifest.mjs

@@ -443,7 +443,7 @@ cases:
         url: https://www.opiq.ee/kit/531/chapter/29334
         expected:
           class: 3
-          book_id: 3k_matem_avita_2023_est
+          book_id: matemaatika_3._klassile_2023_õk__kit531
           title: Kaitseme loodust
           subject:
             en: mathematics
@@ -456,7 +456,7 @@ cases:
         url: https://www.opiq.ee/kit/54/chapter/2701
         expected:
           class: 3
-          book_id: 3k_matem_avita_2_est
+          book_id: matemaatika_3._klassile__kit54
           title: Kaitseme loodust
           subject:
             en: mathematics
@@ -473,6 +473,46 @@ cases:
         source_id: grade-3-science
         url: https://www.opiq.ee/kit/54/chapter/2701
     evidence: "Both exact records belong to mathematics books and contain computational tasks. Their environmental context remains, but neither URL is canonical in the science route."
+
+  - id: grade-3-mathematics-original-route-variants
+    grade: 3
+    subject: mathematics
+    topic: "ordinary Russian and simplified Estonian grade-3 mathematics sources"
+    status: present
+    expected_source_id: grade-3-mathematics
+    expected_md_path: project-files/outputs/opiq_3klass_matemaatika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/92/chapter/4471
+        expected:
+          class: 3
+          book_id: математика_для_3_класса__kit92
+          title: Как появился счёт?
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          headings_any:
+            - Группировка чисел
+          task_examples_any:
+            - Запиши числа цифрами.
+      - kind: record_present
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/497/chapter/27286
+        expected:
+          class: 3
+          book_id: matemaatika_3._klassile,_i_osa._lihtsustatud_õppekava__kit497
+          title: Arvud 1–20
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+      - kind: url_absent
+        origin_source_id: grade-3-mathematics
+        source_id: grade-3-science
+        url: https://www.opiq.ee/kit/92/chapter/4471
+    evidence: "The original capture preserves ordinary Russian kit 92 and explicitly labelled simplified Estonian kit 497 as different programme types; their direct chapter URLs remain unique to the mathematics route."
 
   - id: grade-1-estonian-subject-separation
     grade: 1

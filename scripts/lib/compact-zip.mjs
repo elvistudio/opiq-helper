@@ -60,6 +60,7 @@ export async function readCompactZip(filePath) {
   }
 
   const entries = new Map();
+  const memberMetadata = new Map();
   let cursor = centralDirectoryOffset;
   for (let index = 0; index < entryCount; index += 1) {
     if (cursor + 46 > buffer.length || buffer.readUInt32LE(cursor) !== centralDirectorySignature) {
@@ -118,6 +119,12 @@ export async function readCompactZip(filePath) {
     }
 
     entries.set(name, contents);
+    memberMetadata.set(name, {
+      compression_method: compressionMethod,
+      compressed_size: compressedSize,
+      uncompressed_size: uncompressedSize,
+      crc32: expectedCrc.toString(16).padStart(8, '0'),
+    });
     cursor = nameEnd + extraLength + commentLength;
   }
 
@@ -125,7 +132,7 @@ export async function readCompactZip(filePath) {
     throw new Error('ZIP central-directory size does not match its entries.');
   }
 
-  return { entries, entryCount };
+  return { entries, entryCount, memberMetadata };
 }
 
 export function requireZipMember(archive, name) {
