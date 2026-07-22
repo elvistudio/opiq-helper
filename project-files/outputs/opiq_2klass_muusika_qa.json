@@ -6,20 +6,21 @@
   "format_version": "2.0",
   "generation": {
     "status": "generated",
-    "generated_at": "2026-07-22T10:42:46.118Z",
+    "generated_at": "2026-07-22T08:13:24.754Z",
     "generator": "scripts/generate-grade-2-source-indexes.mjs",
-    "generator_version": "1.2",
-    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "f165c57ec815a9f2b526d63557ee9c3c6f33bb66ab61bc5d2fc161d533408597",
-    "output_file_sha256": "b1f0235bb6067d24e1f1c78cf394f99aad58f6f147f7677aff5ad860015414cf"
+    "output_file_sha256": "bc1428ff32b1cb3cf4a2c73883dcb10e0fab83c155af1a0e824702cbad941666"
   },
   "source_records": 329,
   "page_records_included": 317,
   "cover_detail_records_excluded": 10,
   "administrative_records_excluded": 2,
-  "mixed_subject_page_records_excluded": 0,
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 0,
   "grades": {
     "2": 317
   },
@@ -28,6 +29,13 @@
     "ru": 111
   },
   "books": {
+    "2._klassi_muusikaõpetus": 116,
+    "eesti_pärimusmuusika_keskuse_õppevideod": 33,
+    "muusikaõpik_2._klassile": 29,
+    "muusikaõpik_2._klassile_2024": 28,
+    "музыка_–_волшебная_страна._2_класс": 111
+  },
+  "source_books": {
     "2._klassi_muusikaõpetus": 116,
     "eesti_pärimusmuusika_keskuse_õppevideod": 33,
     "muusikaõpik_2._klassile": 29,
@@ -3191,147 +3199,69 @@
   "book_metadata_audit": {
     "2._klassi_muusikaõpetus": {
       "title": "Muusikamaa",
+      "source_book_id": "2._klassi_muusikaõpetus",
       "publisher": "",
       "language": "et",
       "kits": [
         "188"
       ],
       "page_records": 116,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; publisher absent from archive"
     },
     "eesti_pärimusmuusika_keskuse_õppevideod": {
       "title": "Eesti Pärimusmuusika Keskuse õppevideod",
+      "source_book_id": "eesti_pärimusmuusika_keskuse_õppevideod",
       "publisher": "",
       "language": "et",
       "kits": [
         "465"
       ],
       "page_records": 33,
-      "programme_type": "supplementary"
+      "programme_type": "supplementary",
+      "title_evidence": "cover_detail; publisher absent from archive"
     },
     "muusikaõpik_2._klassile": {
       "title": "Muusikaõpik 2. klassile",
+      "source_book_id": "muusikaõpik_2._klassile",
       "publisher": "",
       "language": "et",
       "kits": [
         "193"
       ],
       "page_records": 29,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; publisher absent from archive"
     },
     "muusikaõpik_2._klassile_2024": {
       "title": "Muusikaõpik 2. klassile 2024",
+      "source_book_id": "muusikaõpik_2._klassile_2024",
       "publisher": "",
       "language": "et",
       "kits": [
         "556"
       ],
       "page_records": 28,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; publisher absent from archive"
     },
     "музыка_–_волшебная_страна._2_класс": {
       "title": "Музыка – волшебная страна. 2 класс",
+      "source_book_id": "музыка_–_волшебная_страна._2_класс",
       "publisher": "",
       "language": "ru",
       "kits": [
         "238"
       ],
       "page_records": 111,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; publisher absent from archive"
     }
   },
-  "book_metadata_normalization_audit": [
-    {
-      "source_book_id": "2._klassi_muusika­õpetus",
-      "canonical_book_id": "2._klassi_muusikaõpetus",
-      "source_titles": [
-        "Muusikamaa – Opiq"
-      ],
-      "canonical_title": "Muusikamaa",
-      "source_records": 118,
-      "canonical_pages": 116,
-      "languages": [
-        "et"
-      ],
-      "kits": [
-        "188"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    },
-    {
-      "source_book_id": "eesti_pärimus­muusika_keskuse_õppevideod",
-      "canonical_book_id": "eesti_pärimusmuusika_keskuse_õppevideod",
-      "source_titles": [
-        "Eesti Pärimusmuusika Keskuse õppevideod – Opiq"
-      ],
-      "canonical_title": "Eesti Pärimusmuusika Keskuse õppevideod",
-      "source_records": 35,
-      "canonical_pages": 33,
-      "languages": [
-        "et"
-      ],
-      "kits": [
-        "465"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    },
-    {
-      "source_book_id": "muusikaõpik_2._klassile",
-      "canonical_book_id": "muusikaõpik_2._klassile",
-      "source_titles": [
-        "Muusikaõpik 2. klassile – Opiq"
-      ],
-      "canonical_title": "Muusikaõpik 2. klassile",
-      "source_records": 32,
-      "canonical_pages": 29,
-      "languages": [
-        "et"
-      ],
-      "kits": [
-        "193"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    },
-    {
-      "source_book_id": "muusikaõpik_2._klassile_2024",
-      "canonical_book_id": "muusikaõpik_2._klassile_2024",
-      "source_titles": [
-        "Muusikaõpik 2. klassile 2024 – Opiq"
-      ],
-      "canonical_title": "Muusikaõpik 2. klassile 2024",
-      "source_records": 31,
-      "canonical_pages": 28,
-      "languages": [
-        "et"
-      ],
-      "kits": [
-        "556"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    },
-    {
-      "source_book_id": "музыка_–_волшебная_страна._2_класс",
-      "canonical_book_id": "музыка_–_волшебная_страна._2_класс",
-      "source_titles": [
-        "Музыка – волшебная страна. 2 класс – Opiq"
-      ],
-      "canonical_title": "Музыка – волшебная страна. 2 класс",
-      "source_records": 113,
-      "canonical_pages": 111,
-      "languages": [
-        "ru"
-      ],
-      "kits": [
-        "238"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    }
-  ],
   "metadata_limitations": [
     "The export does not record publisher names.",
-    "Thirty-one canonical title groups repeat across distinct chapter URLs; they are retained as separate edition, language, or instructional contexts.",
-    "Two Book IDs contain discretionary soft hyphens; the canonical IDs remove only those invisible formatting characters.",
-    "The heritage-music video collection is supplementary material and is not treated as the ordinary core."
+    "Repeated page titles remain separate because distinct canonical URLs and instructional contexts are not duplicates.",
+    "The heritage-music video collection is supplementary and must be labelled."
   ],
   "records_without_headings": 0,
   "missing_urls": 0,

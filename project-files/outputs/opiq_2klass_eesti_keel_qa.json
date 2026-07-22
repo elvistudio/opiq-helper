@@ -5,50 +5,3162 @@
   "output_file": "project-files/outputs/opiq_2klass_eesti_keel.md",
   "format_version": "2.0",
   "generation": {
-    "status": "legacy_migrated",
-    "generated_at": null,
-    "generator": null,
-    "generator_version": null,
-    "note": "Original generation metadata was not recorded."
+    "status": "generated",
+    "generated_at": "2026-07-18T18:19:09.990Z",
+    "generator": "scripts/generate-grade-2-source-indexes.mjs",
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "44a048b881e36c4f28e46968f8fa1c04df1121edf8381aa45235d3173d694016",
-    "output_file_sha256": "5e9616342b9e041a8089e3c1fdb8e771c567511fef9513ff1297b18f41bad951"
+    "output_file_sha256": "84d8ac11ca243ae65a7c452e1a97d720a4fa2a23fef419837ef5d9a35116db24"
   },
   "source_records": 454,
-  "page_records_included": 444,
+  "page_records_included": 372,
   "cover_detail_records_excluded": 9,
   "administrative_records_excluded": 1,
-  "normalized_grade": 2,
-  "normalized_language": "et",
-  "normalized_subject": {
-    "et": "eesti keel",
-    "ru": "эстонский язык",
-    "en": "Estonian language"
-  },
-  "normalized_book_titles": {
-    "avita_eesti_keel_2_et": "Eesti keele õpik 2. klassile",
-    "koolibri_ilus_emake_2_et": "Ilus emakeel 2",
-    "koolibri_koos_on_lõ_2_et": "Koos on lõbus. Janno jutud",
-    "koolibri_mina_loen__2_et": "Mina loen ja kirjutan 2"
-  },
-  "removed_wrong_math_aliases": {
-    "topics_et": 475,
-    "topics_ru": 475,
-    "topics_en": 475
-  },
+  "subject_boundary_page_records_excluded": 72,
+  "out_of_scope_records_excluded": 0,
   "grades": {
-    "2": 444
+    "2": 372
   },
   "languages": {
-    "et": 444
+    "et": 372
   },
   "books": {
     "avita_eesti_keel_2_et": 149,
     "koolibri_ilus_emake_2_et": 182,
-    "koolibri_koos_on_lõ_2_et": 72,
     "koolibri_mina_loen__2_et": 41
   },
+  "source_books": {
+    "avita_eesti_keel_2_et": 149,
+    "koolibri_ilus_emake_2_et": 182,
+    "koolibri_mina_loen__2_et": 41
+  },
+  "kits": {
+    "118": 182,
+    "232": 149,
+    "458": 41
+  },
+  "programme_types": {
+    "ordinary_curriculum": 372
+  },
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 454
+  },
+  "canonical_subject_counts": {
+    "Estonian language / eesti keel / эстонский язык": 372
+  },
+  "subject_normalization_records": 372,
+  "subject_normalization_audit": [
+    {
+      "source_position": 3,
+      "url": "https://www.opiq.ee/kit/232/chapter/15698",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 4,
+      "url": "https://www.opiq.ee/kit/232/chapter/15699",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 5,
+      "url": "https://www.opiq.ee/kit/232/chapter/15700",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 6,
+      "url": "https://www.opiq.ee/kit/232/chapter/15701",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 7,
+      "url": "https://www.opiq.ee/kit/232/chapter/16885",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 8,
+      "url": "https://www.opiq.ee/kit/232/chapter/16886",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 9,
+      "url": "https://www.opiq.ee/kit/232/chapter/16887",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 10,
+      "url": "https://www.opiq.ee/kit/232/chapter/16888",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 11,
+      "url": "https://www.opiq.ee/kit/232/chapter/17225",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 12,
+      "url": "https://www.opiq.ee/kit/232/chapter/17226",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 13,
+      "url": "https://www.opiq.ee/kit/232/chapter/17227",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 14,
+      "url": "https://www.opiq.ee/kit/232/chapter/17228",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 15,
+      "url": "https://www.opiq.ee/kit/232/chapter/17229",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 16,
+      "url": "https://www.opiq.ee/kit/232/chapter/17230",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 17,
+      "url": "https://www.opiq.ee/kit/232/chapter/17231",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 18,
+      "url": "https://www.opiq.ee/kit/232/chapter/17232",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 19,
+      "url": "https://www.opiq.ee/kit/232/chapter/17400",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 20,
+      "url": "https://www.opiq.ee/kit/232/chapter/17401",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 21,
+      "url": "https://www.opiq.ee/kit/232/chapter/17402",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 22,
+      "url": "https://www.opiq.ee/kit/232/chapter/17403",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 23,
+      "url": "https://www.opiq.ee/kit/232/chapter/17404",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 24,
+      "url": "https://www.opiq.ee/kit/232/chapter/17405",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 25,
+      "url": "https://www.opiq.ee/kit/232/chapter/17406",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 26,
+      "url": "https://www.opiq.ee/kit/232/chapter/17407",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 27,
+      "url": "https://www.opiq.ee/kit/232/chapter/17408",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 28,
+      "url": "https://www.opiq.ee/kit/232/chapter/17409",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 29,
+      "url": "https://www.opiq.ee/kit/232/chapter/17410",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 30,
+      "url": "https://www.opiq.ee/kit/232/chapter/17411",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 31,
+      "url": "https://www.opiq.ee/kit/232/chapter/18198",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 32,
+      "url": "https://www.opiq.ee/kit/232/chapter/18199",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 33,
+      "url": "https://www.opiq.ee/kit/232/chapter/18200",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 34,
+      "url": "https://www.opiq.ee/kit/232/chapter/18201",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 35,
+      "url": "https://www.opiq.ee/kit/232/chapter/18202",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 36,
+      "url": "https://www.opiq.ee/kit/232/chapter/18203",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 37,
+      "url": "https://www.opiq.ee/kit/232/chapter/18204",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 38,
+      "url": "https://www.opiq.ee/kit/232/chapter/18205",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 39,
+      "url": "https://www.opiq.ee/kit/232/chapter/18461",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 40,
+      "url": "https://www.opiq.ee/kit/232/chapter/18462",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 41,
+      "url": "https://www.opiq.ee/kit/232/chapter/18463",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 42,
+      "url": "https://www.opiq.ee/kit/232/chapter/18464",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 43,
+      "url": "https://www.opiq.ee/kit/232/chapter/18465",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 44,
+      "url": "https://www.opiq.ee/kit/232/chapter/18466",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 45,
+      "url": "https://www.opiq.ee/kit/232/chapter/18467",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 46,
+      "url": "https://www.opiq.ee/kit/232/chapter/18468",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 47,
+      "url": "https://www.opiq.ee/kit/232/chapter/15702",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 48,
+      "url": "https://www.opiq.ee/kit/232/chapter/15703",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 49,
+      "url": "https://www.opiq.ee/kit/232/chapter/15704",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 50,
+      "url": "https://www.opiq.ee/kit/232/chapter/15705",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 51,
+      "url": "https://www.opiq.ee/kit/232/chapter/18859",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 52,
+      "url": "https://www.opiq.ee/kit/232/chapter/18860",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 53,
+      "url": "https://www.opiq.ee/kit/232/chapter/18861",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 54,
+      "url": "https://www.opiq.ee/kit/232/chapter/18862",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 55,
+      "url": "https://www.opiq.ee/kit/232/chapter/18863",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 56,
+      "url": "https://www.opiq.ee/kit/232/chapter/18864",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 57,
+      "url": "https://www.opiq.ee/kit/232/chapter/18865",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 58,
+      "url": "https://www.opiq.ee/kit/232/chapter/18866",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 59,
+      "url": "https://www.opiq.ee/kit/232/chapter/18969",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 60,
+      "url": "https://www.opiq.ee/kit/232/chapter/18970",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 61,
+      "url": "https://www.opiq.ee/kit/232/chapter/18971",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 62,
+      "url": "https://www.opiq.ee/kit/232/chapter/18972",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 63,
+      "url": "https://www.opiq.ee/kit/232/chapter/18973",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 64,
+      "url": "https://www.opiq.ee/kit/232/chapter/18974",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 65,
+      "url": "https://www.opiq.ee/kit/232/chapter/18975",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 66,
+      "url": "https://www.opiq.ee/kit/232/chapter/18976",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 67,
+      "url": "https://www.opiq.ee/kit/232/chapter/19106",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 68,
+      "url": "https://www.opiq.ee/kit/232/chapter/19107",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 69,
+      "url": "https://www.opiq.ee/kit/232/chapter/19108",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 70,
+      "url": "https://www.opiq.ee/kit/232/chapter/19109",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 71,
+      "url": "https://www.opiq.ee/kit/232/chapter/13198",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 72,
+      "url": "https://www.opiq.ee/kit/232/chapter/13199",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 73,
+      "url": "https://www.opiq.ee/kit/232/chapter/13200",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 74,
+      "url": "https://www.opiq.ee/kit/232/chapter/13201",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 75,
+      "url": "https://www.opiq.ee/kit/232/chapter/13221",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 76,
+      "url": "https://www.opiq.ee/kit/232/chapter/13222",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 77,
+      "url": "https://www.opiq.ee/kit/232/chapter/13223",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 78,
+      "url": "https://www.opiq.ee/kit/232/chapter/13224",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 79,
+      "url": "https://www.opiq.ee/kit/232/chapter/13730",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 80,
+      "url": "https://www.opiq.ee/kit/232/chapter/13749",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 81,
+      "url": "https://www.opiq.ee/kit/232/chapter/13750",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 82,
+      "url": "https://www.opiq.ee/kit/232/chapter/13751",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 83,
+      "url": "https://www.opiq.ee/kit/232/chapter/13940",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 84,
+      "url": "https://www.opiq.ee/kit/232/chapter/13941",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 85,
+      "url": "https://www.opiq.ee/kit/232/chapter/13942",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 86,
+      "url": "https://www.opiq.ee/kit/232/chapter/13943",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 87,
+      "url": "https://www.opiq.ee/kit/232/chapter/13944",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 88,
+      "url": "https://www.opiq.ee/kit/232/chapter/13945",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 89,
+      "url": "https://www.opiq.ee/kit/232/chapter/14032",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 90,
+      "url": "https://www.opiq.ee/kit/232/chapter/14033",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 91,
+      "url": "https://www.opiq.ee/kit/232/chapter/15706",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 92,
+      "url": "https://www.opiq.ee/kit/232/chapter/15707",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 93,
+      "url": "https://www.opiq.ee/kit/232/chapter/15708",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 94,
+      "url": "https://www.opiq.ee/kit/232/chapter/15709",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 95,
+      "url": "https://www.opiq.ee/kit/232/chapter/14140",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 96,
+      "url": "https://www.opiq.ee/kit/232/chapter/14141",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 97,
+      "url": "https://www.opiq.ee/kit/232/chapter/14142",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 98,
+      "url": "https://www.opiq.ee/kit/232/chapter/14143",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 99,
+      "url": "https://www.opiq.ee/kit/232/chapter/14144",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 100,
+      "url": "https://www.opiq.ee/kit/232/chapter/14145",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 101,
+      "url": "https://www.opiq.ee/kit/232/chapter/14146",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 102,
+      "url": "https://www.opiq.ee/kit/232/chapter/14147",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 103,
+      "url": "https://www.opiq.ee/kit/232/chapter/14218",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 104,
+      "url": "https://www.opiq.ee/kit/232/chapter/14219",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 105,
+      "url": "https://www.opiq.ee/kit/232/chapter/14220",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 106,
+      "url": "https://www.opiq.ee/kit/232/chapter/14221",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 107,
+      "url": "https://www.opiq.ee/kit/232/chapter/14222",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 108,
+      "url": "https://www.opiq.ee/kit/232/chapter/14223",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 109,
+      "url": "https://www.opiq.ee/kit/232/chapter/14224",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 110,
+      "url": "https://www.opiq.ee/kit/232/chapter/14225",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 111,
+      "url": "https://www.opiq.ee/kit/232/chapter/14226",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 112,
+      "url": "https://www.opiq.ee/kit/232/chapter/14227",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 113,
+      "url": "https://www.opiq.ee/kit/232/chapter/14228",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 114,
+      "url": "https://www.opiq.ee/kit/232/chapter/14128",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 115,
+      "url": "https://www.opiq.ee/kit/232/chapter/14137",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 116,
+      "url": "https://www.opiq.ee/kit/232/chapter/13752",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 117,
+      "url": "https://www.opiq.ee/kit/232/chapter/14138",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 118,
+      "url": "https://www.opiq.ee/kit/232/chapter/14139",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 119,
+      "url": "https://www.opiq.ee/kit/232/chapter/14129",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 120,
+      "url": "https://www.opiq.ee/kit/232/chapter/14130",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 121,
+      "url": "https://www.opiq.ee/kit/232/chapter/14131",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 122,
+      "url": "https://www.opiq.ee/kit/232/chapter/14132",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 123,
+      "url": "https://www.opiq.ee/kit/232/chapter/14133",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 124,
+      "url": "https://www.opiq.ee/kit/232/chapter/14134",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 125,
+      "url": "https://www.opiq.ee/kit/232/chapter/14135",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 126,
+      "url": "https://www.opiq.ee/kit/232/chapter/14136",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 127,
+      "url": "https://www.opiq.ee/kit/232/chapter/13202",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 129,
+      "url": "https://www.opiq.ee/kit/232/chapter/15710",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 130,
+      "url": "https://www.opiq.ee/kit/232/chapter/15711",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 131,
+      "url": "https://www.opiq.ee/kit/232/chapter/15712",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 132,
+      "url": "https://www.opiq.ee/kit/232/chapter/15713",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 133,
+      "url": "https://www.opiq.ee/kit/232/chapter/15714",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 134,
+      "url": "https://www.opiq.ee/kit/232/chapter/15715",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 135,
+      "url": "https://www.opiq.ee/kit/232/chapter/15716",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 136,
+      "url": "https://www.opiq.ee/kit/232/chapter/15717",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 137,
+      "url": "https://www.opiq.ee/kit/232/chapter/15718",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 138,
+      "url": "https://www.opiq.ee/kit/232/chapter/15719",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 139,
+      "url": "https://www.opiq.ee/kit/232/chapter/15720",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 140,
+      "url": "https://www.opiq.ee/kit/232/chapter/15721",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 141,
+      "url": "https://www.opiq.ee/kit/232/chapter/15722",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 142,
+      "url": "https://www.opiq.ee/kit/232/chapter/15723",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 143,
+      "url": "https://www.opiq.ee/kit/232/chapter/15724",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 144,
+      "url": "https://www.opiq.ee/kit/232/chapter/15725",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 145,
+      "url": "https://www.opiq.ee/kit/232/chapter/15726",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 146,
+      "url": "https://www.opiq.ee/kit/232/chapter/15727",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 147,
+      "url": "https://www.opiq.ee/kit/232/chapter/15728",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 148,
+      "url": "https://www.opiq.ee/kit/232/chapter/15729",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 149,
+      "url": "https://www.opiq.ee/kit/232/chapter/16881",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 150,
+      "url": "https://www.opiq.ee/kit/232/chapter/16882",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 151,
+      "url": "https://www.opiq.ee/kit/232/chapter/16883",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 152,
+      "url": "https://www.opiq.ee/kit/232/chapter/16884",
+      "book_id": "avita_eesti_keel_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 156,
+      "url": "https://www.opiq.ee/kit/118/chapter/5863",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 157,
+      "url": "https://www.opiq.ee/kit/118/chapter/5864",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 158,
+      "url": "https://www.opiq.ee/kit/118/chapter/5865",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 159,
+      "url": "https://www.opiq.ee/kit/118/chapter/5866",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 160,
+      "url": "https://www.opiq.ee/kit/118/chapter/5905",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 161,
+      "url": "https://www.opiq.ee/kit/118/chapter/5906",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 162,
+      "url": "https://www.opiq.ee/kit/118/chapter/5907",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 163,
+      "url": "https://www.opiq.ee/kit/118/chapter/5908",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 164,
+      "url": "https://www.opiq.ee/kit/118/chapter/5910",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 165,
+      "url": "https://www.opiq.ee/kit/118/chapter/5909",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 166,
+      "url": "https://www.opiq.ee/kit/118/chapter/5916",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 167,
+      "url": "https://www.opiq.ee/kit/118/chapter/5911",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 168,
+      "url": "https://www.opiq.ee/kit/118/chapter/5912",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 169,
+      "url": "https://www.opiq.ee/kit/118/chapter/5913",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 170,
+      "url": "https://www.opiq.ee/kit/118/chapter/5914",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 171,
+      "url": "https://www.opiq.ee/kit/118/chapter/5915",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 172,
+      "url": "https://www.opiq.ee/kit/118/chapter/5917",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 173,
+      "url": "https://www.opiq.ee/kit/118/chapter/5918",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 174,
+      "url": "https://www.opiq.ee/kit/118/chapter/5920",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 175,
+      "url": "https://www.opiq.ee/kit/118/chapter/5919",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 176,
+      "url": "https://www.opiq.ee/kit/118/chapter/20797",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 177,
+      "url": "https://www.opiq.ee/kit/118/chapter/5921",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 178,
+      "url": "https://www.opiq.ee/kit/118/chapter/5932",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 179,
+      "url": "https://www.opiq.ee/kit/118/chapter/5927",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 180,
+      "url": "https://www.opiq.ee/kit/118/chapter/5933",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 181,
+      "url": "https://www.opiq.ee/kit/118/chapter/5934",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 182,
+      "url": "https://www.opiq.ee/kit/118/chapter/5935",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 183,
+      "url": "https://www.opiq.ee/kit/118/chapter/5936",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 184,
+      "url": "https://www.opiq.ee/kit/118/chapter/5928",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 185,
+      "url": "https://www.opiq.ee/kit/118/chapter/20798",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 186,
+      "url": "https://www.opiq.ee/kit/118/chapter/5922",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 187,
+      "url": "https://www.opiq.ee/kit/118/chapter/5923",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 188,
+      "url": "https://www.opiq.ee/kit/118/chapter/5929",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 189,
+      "url": "https://www.opiq.ee/kit/118/chapter/5924",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 190,
+      "url": "https://www.opiq.ee/kit/118/chapter/5930",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 191,
+      "url": "https://www.opiq.ee/kit/118/chapter/5931",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 192,
+      "url": "https://www.opiq.ee/kit/118/chapter/5925",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 193,
+      "url": "https://www.opiq.ee/kit/118/chapter/5926",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 194,
+      "url": "https://www.opiq.ee/kit/118/chapter/5941",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 195,
+      "url": "https://www.opiq.ee/kit/118/chapter/5937",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 196,
+      "url": "https://www.opiq.ee/kit/118/chapter/5938",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 197,
+      "url": "https://www.opiq.ee/kit/118/chapter/5939",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 198,
+      "url": "https://www.opiq.ee/kit/118/chapter/5942",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 199,
+      "url": "https://www.opiq.ee/kit/118/chapter/5940",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 200,
+      "url": "https://www.opiq.ee/kit/118/chapter/5943",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 201,
+      "url": "https://www.opiq.ee/kit/118/chapter/5944",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 202,
+      "url": "https://www.opiq.ee/kit/118/chapter/5945",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 203,
+      "url": "https://www.opiq.ee/kit/118/chapter/5946",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 204,
+      "url": "https://www.opiq.ee/kit/118/chapter/5947",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 205,
+      "url": "https://www.opiq.ee/kit/118/chapter/5948",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 206,
+      "url": "https://www.opiq.ee/kit/118/chapter/5949",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 207,
+      "url": "https://www.opiq.ee/kit/118/chapter/5950",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 208,
+      "url": "https://www.opiq.ee/kit/118/chapter/5951",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 209,
+      "url": "https://www.opiq.ee/kit/118/chapter/5952",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 210,
+      "url": "https://www.opiq.ee/kit/118/chapter/5953",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 211,
+      "url": "https://www.opiq.ee/kit/118/chapter/5954",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 212,
+      "url": "https://www.opiq.ee/kit/118/chapter/20799",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 213,
+      "url": "https://www.opiq.ee/kit/118/chapter/20800",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 214,
+      "url": "https://www.opiq.ee/kit/118/chapter/5959",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 215,
+      "url": "https://www.opiq.ee/kit/118/chapter/5955",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 216,
+      "url": "https://www.opiq.ee/kit/118/chapter/5956",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 217,
+      "url": "https://www.opiq.ee/kit/118/chapter/5957",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 218,
+      "url": "https://www.opiq.ee/kit/118/chapter/5958",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 219,
+      "url": "https://www.opiq.ee/kit/118/chapter/20801",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 220,
+      "url": "https://www.opiq.ee/kit/118/chapter/5960",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 221,
+      "url": "https://www.opiq.ee/kit/118/chapter/5961",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 222,
+      "url": "https://www.opiq.ee/kit/118/chapter/5965",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 223,
+      "url": "https://www.opiq.ee/kit/118/chapter/5962",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 224,
+      "url": "https://www.opiq.ee/kit/118/chapter/5963",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 225,
+      "url": "https://www.opiq.ee/kit/118/chapter/5964",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 226,
+      "url": "https://www.opiq.ee/kit/118/chapter/5871",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 227,
+      "url": "https://www.opiq.ee/kit/118/chapter/5867",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 228,
+      "url": "https://www.opiq.ee/kit/118/chapter/5868",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 229,
+      "url": "https://www.opiq.ee/kit/118/chapter/5869",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 230,
+      "url": "https://www.opiq.ee/kit/118/chapter/5870",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 231,
+      "url": "https://www.opiq.ee/kit/118/chapter/5872",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 232,
+      "url": "https://www.opiq.ee/kit/118/chapter/5966",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 233,
+      "url": "https://www.opiq.ee/kit/118/chapter/5967",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 234,
+      "url": "https://www.opiq.ee/kit/118/chapter/5968",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 235,
+      "url": "https://www.opiq.ee/kit/118/chapter/5969",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 236,
+      "url": "https://www.opiq.ee/kit/118/chapter/5970",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 237,
+      "url": "https://www.opiq.ee/kit/118/chapter/5971",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 238,
+      "url": "https://www.opiq.ee/kit/118/chapter/5972",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 239,
+      "url": "https://www.opiq.ee/kit/118/chapter/5973",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 240,
+      "url": "https://www.opiq.ee/kit/118/chapter/5974",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 241,
+      "url": "https://www.opiq.ee/kit/118/chapter/5975",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 242,
+      "url": "https://www.opiq.ee/kit/118/chapter/5976",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 243,
+      "url": "https://www.opiq.ee/kit/118/chapter/5977",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 244,
+      "url": "https://www.opiq.ee/kit/118/chapter/5978",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 245,
+      "url": "https://www.opiq.ee/kit/118/chapter/5979",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 246,
+      "url": "https://www.opiq.ee/kit/118/chapter/5980",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 247,
+      "url": "https://www.opiq.ee/kit/118/chapter/5981",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 248,
+      "url": "https://www.opiq.ee/kit/118/chapter/5982",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 249,
+      "url": "https://www.opiq.ee/kit/118/chapter/5985",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 250,
+      "url": "https://www.opiq.ee/kit/118/chapter/5983",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 251,
+      "url": "https://www.opiq.ee/kit/118/chapter/5984",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 252,
+      "url": "https://www.opiq.ee/kit/118/chapter/20802",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 253,
+      "url": "https://www.opiq.ee/kit/118/chapter/5986",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 254,
+      "url": "https://www.opiq.ee/kit/118/chapter/5987",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 255,
+      "url": "https://www.opiq.ee/kit/118/chapter/5988",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 256,
+      "url": "https://www.opiq.ee/kit/118/chapter/5989",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 257,
+      "url": "https://www.opiq.ee/kit/118/chapter/5990",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 258,
+      "url": "https://www.opiq.ee/kit/118/chapter/5991",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 259,
+      "url": "https://www.opiq.ee/kit/118/chapter/5992",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 260,
+      "url": "https://www.opiq.ee/kit/118/chapter/5994",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 261,
+      "url": "https://www.opiq.ee/kit/118/chapter/5993",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 262,
+      "url": "https://www.opiq.ee/kit/118/chapter/5995",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 263,
+      "url": "https://www.opiq.ee/kit/118/chapter/5996",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 264,
+      "url": "https://www.opiq.ee/kit/118/chapter/5997",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 265,
+      "url": "https://www.opiq.ee/kit/118/chapter/5998",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 266,
+      "url": "https://www.opiq.ee/kit/118/chapter/5999",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 267,
+      "url": "https://www.opiq.ee/kit/118/chapter/6000",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 268,
+      "url": "https://www.opiq.ee/kit/118/chapter/6001",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 269,
+      "url": "https://www.opiq.ee/kit/118/chapter/20803",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 270,
+      "url": "https://www.opiq.ee/kit/118/chapter/6002",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 271,
+      "url": "https://www.opiq.ee/kit/118/chapter/6006",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 272,
+      "url": "https://www.opiq.ee/kit/118/chapter/6003",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 273,
+      "url": "https://www.opiq.ee/kit/118/chapter/6004",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 274,
+      "url": "https://www.opiq.ee/kit/118/chapter/6005",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 275,
+      "url": "https://www.opiq.ee/kit/118/chapter/6007",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 276,
+      "url": "https://www.opiq.ee/kit/118/chapter/6008",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 277,
+      "url": "https://www.opiq.ee/kit/118/chapter/6009",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 278,
+      "url": "https://www.opiq.ee/kit/118/chapter/6010",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 279,
+      "url": "https://www.opiq.ee/kit/118/chapter/6011",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 280,
+      "url": "https://www.opiq.ee/kit/118/chapter/6012",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 281,
+      "url": "https://www.opiq.ee/kit/118/chapter/6013",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 282,
+      "url": "https://www.opiq.ee/kit/118/chapter/6014",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 283,
+      "url": "https://www.opiq.ee/kit/118/chapter/6015",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 284,
+      "url": "https://www.opiq.ee/kit/118/chapter/6016",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 285,
+      "url": "https://www.opiq.ee/kit/118/chapter/6017",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 286,
+      "url": "https://www.opiq.ee/kit/118/chapter/6019",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 287,
+      "url": "https://www.opiq.ee/kit/118/chapter/6020",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 288,
+      "url": "https://www.opiq.ee/kit/118/chapter/6018",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 289,
+      "url": "https://www.opiq.ee/kit/118/chapter/20804",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 290,
+      "url": "https://www.opiq.ee/kit/118/chapter/6029",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 291,
+      "url": "https://www.opiq.ee/kit/118/chapter/6031",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 292,
+      "url": "https://www.opiq.ee/kit/118/chapter/6028",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 293,
+      "url": "https://www.opiq.ee/kit/118/chapter/20805",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 294,
+      "url": "https://www.opiq.ee/kit/118/chapter/6021",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 295,
+      "url": "https://www.opiq.ee/kit/118/chapter/6022",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 296,
+      "url": "https://www.opiq.ee/kit/118/chapter/6023",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 297,
+      "url": "https://www.opiq.ee/kit/118/chapter/6024",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 298,
+      "url": "https://www.opiq.ee/kit/118/chapter/6025",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 299,
+      "url": "https://www.opiq.ee/kit/118/chapter/6026",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 300,
+      "url": "https://www.opiq.ee/kit/118/chapter/6030",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 301,
+      "url": "https://www.opiq.ee/kit/118/chapter/6027",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 302,
+      "url": "https://www.opiq.ee/kit/118/chapter/5877",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 303,
+      "url": "https://www.opiq.ee/kit/118/chapter/5873",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 304,
+      "url": "https://www.opiq.ee/kit/118/chapter/5878",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 305,
+      "url": "https://www.opiq.ee/kit/118/chapter/5874",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 306,
+      "url": "https://www.opiq.ee/kit/118/chapter/5875",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 307,
+      "url": "https://www.opiq.ee/kit/118/chapter/5876",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 308,
+      "url": "https://www.opiq.ee/kit/118/chapter/6032",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 309,
+      "url": "https://www.opiq.ee/kit/118/chapter/5883",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 310,
+      "url": "https://www.opiq.ee/kit/118/chapter/5879",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 311,
+      "url": "https://www.opiq.ee/kit/118/chapter/5880",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 312,
+      "url": "https://www.opiq.ee/kit/118/chapter/5881",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 313,
+      "url": "https://www.opiq.ee/kit/118/chapter/5882",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 314,
+      "url": "https://www.opiq.ee/kit/118/chapter/20794",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 315,
+      "url": "https://www.opiq.ee/kit/118/chapter/5884",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 316,
+      "url": "https://www.opiq.ee/kit/118/chapter/5885",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 317,
+      "url": "https://www.opiq.ee/kit/118/chapter/5886",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 318,
+      "url": "https://www.opiq.ee/kit/118/chapter/5887",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 319,
+      "url": "https://www.opiq.ee/kit/118/chapter/5888",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 320,
+      "url": "https://www.opiq.ee/kit/118/chapter/5889",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 321,
+      "url": "https://www.opiq.ee/kit/118/chapter/5890",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 322,
+      "url": "https://www.opiq.ee/kit/118/chapter/5891",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 323,
+      "url": "https://www.opiq.ee/kit/118/chapter/5892",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 324,
+      "url": "https://www.opiq.ee/kit/118/chapter/5893",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 325,
+      "url": "https://www.opiq.ee/kit/118/chapter/5894",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 326,
+      "url": "https://www.opiq.ee/kit/118/chapter/5895",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 327,
+      "url": "https://www.opiq.ee/kit/118/chapter/20795",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 328,
+      "url": "https://www.opiq.ee/kit/118/chapter/5896",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 329,
+      "url": "https://www.opiq.ee/kit/118/chapter/20796",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 330,
+      "url": "https://www.opiq.ee/kit/118/chapter/5897",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 331,
+      "url": "https://www.opiq.ee/kit/118/chapter/5898",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 332,
+      "url": "https://www.opiq.ee/kit/118/chapter/5899",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 333,
+      "url": "https://www.opiq.ee/kit/118/chapter/5900",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 334,
+      "url": "https://www.opiq.ee/kit/118/chapter/5901",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 335,
+      "url": "https://www.opiq.ee/kit/118/chapter/5902",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 336,
+      "url": "https://www.opiq.ee/kit/118/chapter/5903",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 337,
+      "url": "https://www.opiq.ee/kit/118/chapter/5904",
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 414,
+      "url": "https://www.opiq.ee/kit/458/chapter/24985",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 415,
+      "url": "https://www.opiq.ee/kit/458/chapter/24984",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 416,
+      "url": "https://www.opiq.ee/kit/458/chapter/24986",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 417,
+      "url": "https://www.opiq.ee/kit/458/chapter/24995",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 418,
+      "url": "https://www.opiq.ee/kit/458/chapter/24996",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 419,
+      "url": "https://www.opiq.ee/kit/458/chapter/24997",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 420,
+      "url": "https://www.opiq.ee/kit/458/chapter/24987",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 421,
+      "url": "https://www.opiq.ee/kit/458/chapter/24988",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 422,
+      "url": "https://www.opiq.ee/kit/458/chapter/24989",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 423,
+      "url": "https://www.opiq.ee/kit/458/chapter/24990",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 424,
+      "url": "https://www.opiq.ee/kit/458/chapter/24991",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 425,
+      "url": "https://www.opiq.ee/kit/458/chapter/24992",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 426,
+      "url": "https://www.opiq.ee/kit/458/chapter/24993",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 427,
+      "url": "https://www.opiq.ee/kit/458/chapter/24994",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 428,
+      "url": "https://www.opiq.ee/kit/458/chapter/24998",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 429,
+      "url": "https://www.opiq.ee/kit/458/chapter/25007",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 430,
+      "url": "https://www.opiq.ee/kit/458/chapter/25008",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 431,
+      "url": "https://www.opiq.ee/kit/458/chapter/24999",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 432,
+      "url": "https://www.opiq.ee/kit/458/chapter/25000",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 433,
+      "url": "https://www.opiq.ee/kit/458/chapter/25001",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 434,
+      "url": "https://www.opiq.ee/kit/458/chapter/25002",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 435,
+      "url": "https://www.opiq.ee/kit/458/chapter/25003",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 436,
+      "url": "https://www.opiq.ee/kit/458/chapter/25004",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 437,
+      "url": "https://www.opiq.ee/kit/458/chapter/25005",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 438,
+      "url": "https://www.opiq.ee/kit/458/chapter/25006",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 439,
+      "url": "https://www.opiq.ee/kit/458/chapter/25009",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 440,
+      "url": "https://www.opiq.ee/kit/458/chapter/25018",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 441,
+      "url": "https://www.opiq.ee/kit/458/chapter/25019",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 442,
+      "url": "https://www.opiq.ee/kit/458/chapter/25020",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 443,
+      "url": "https://www.opiq.ee/kit/458/chapter/25021",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 444,
+      "url": "https://www.opiq.ee/kit/458/chapter/25022",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 445,
+      "url": "https://www.opiq.ee/kit/458/chapter/25023",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 446,
+      "url": "https://www.opiq.ee/kit/458/chapter/25024",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 447,
+      "url": "https://www.opiq.ee/kit/458/chapter/25010",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 448,
+      "url": "https://www.opiq.ee/kit/458/chapter/25011",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 449,
+      "url": "https://www.opiq.ee/kit/458/chapter/25012",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 450,
+      "url": "https://www.opiq.ee/kit/458/chapter/25013",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 451,
+      "url": "https://www.opiq.ee/kit/458/chapter/25014",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 452,
+      "url": "https://www.opiq.ee/kit/458/chapter/25015",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 453,
+      "url": "https://www.opiq.ee/kit/458/chapter/25016",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 454,
+      "url": "https://www.opiq.ee/kit/458/chapter/25017",
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+      "decision": "correct_automatic_subject_label"
+    }
+  ],
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 4,
+    "source_duplicate_records": 5,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/232",
+        "source_positions": [
+          1,
+          2
+        ],
+        "book_ids": [
+          "avita_eesti_keel_2_et"
+        ],
+        "chapter_ids": [
+          "1",
+          "152"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/118",
+        "source_positions": [
+          153,
+          154,
+          155
+        ],
+        "book_ids": [
+          "koolibri_ilus_emake_2_et"
+        ],
+        "chapter_ids": [
+          "153",
+          "154",
+          "337"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/129",
+        "source_positions": [
+          338,
+          339
+        ],
+        "book_ids": [
+          "koolibri_koos_on_lõ_2_et"
+        ],
+        "chapter_ids": [
+          "338",
+          "411"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/458",
+        "source_positions": [
+          412,
+          413
+        ],
+        "book_ids": [
+          "koolibri_mina_loen__2_et"
+        ],
+        "chapter_ids": [
+          "412",
+          "454"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      }
+    ]
+  },
+  "excluded_book_audit": [
+    {
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_records": 74,
+      "page_records_excluded": 72,
+      "reason": "Koos on lõbus. Janno jutud belongs to Estonian as a second language."
+    }
+  ],
+  "book_id_language_suffix_anomalies": [],
+  "book_metadata_audit": {
+    "avita_eesti_keel_2_et": {
+      "title": "Eesti keele õpik 2. klassile",
+      "source_book_id": "avita_eesti_keel_2_et",
+      "publisher": "Avita",
+      "language": "et",
+      "kits": [
+        "232"
+      ],
+      "page_records": 149,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "koolibri_ilus_emake_2_et": {
+      "title": "ILUS EMAKEEL",
+      "source_book_id": "koolibri_ilus_emake_2_et",
+      "publisher": "Koolibri",
+      "language": "et",
+      "kits": [
+        "118"
+      ],
+      "page_records": 182,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "koolibri_mina_loen__2_et": {
+      "title": "Mina loen ja kirjutan 2",
+      "source_book_id": "koolibri_mina_loen__2_et",
+      "publisher": "Koolibri",
+      "language": "et",
+      "kits": [
+        "458"
+      ],
+      "page_records": 41,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    }
+  },
+  "metadata_limitations": [],
+  "route_partition": {
+    "paired_source_id": "grade-2-estonian-second-language",
+    "expected_union_page_records": 444,
+    "canonical_overlap_urls": 0
+  },
   "records_without_headings": 0,
-  "missing_urls": 0
+  "missing_urls": 0,
+  "archive_index": {
+    "generated_at": "2026-07-18T18:19:09.990Z",
+    "raw_archive_included": true,
+    "declared_books": 4
+  }
 }

@@ -14,16 +14,17 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - Page records included: 317
 - Cover/detail records excluded: 10
 - Administrative records excluded: 2
-- Duplicate source URL groups: 5; all were excluded kit-detail records
-- Mixed-subject page records excluded: 0
+- Duplicate source URL groups: 5; canonical duplicates are removed only after exact content checks
+- Subject-boundary page records excluded: 0
+- Out-of-scope instructional records excluded: 0
 - Curriculum coverage: not verified
 
 ## Books
-- `2._klassi_muusikaõpetus` — Muusikamaa; publisher not recorded; language et; kit 188; 116 pages; ordinary curriculum.
-- `eesti_pärimusmuusika_keskuse_õppevideod` — Eesti Pärimusmuusika Keskuse õppevideod; publisher not recorded; language et; kit 465; 33 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
-- `muusikaõpik_2._klassile` — Muusikaõpik 2. klassile; publisher not recorded; language et; kit 193; 29 pages; ordinary curriculum.
-- `muusikaõpik_2._klassile_2024` — Muusikaõpik 2. klassile 2024; publisher not recorded; language et; kit 556; 28 pages; ordinary curriculum.
-- `музыка_–_волшебная_страна._2_класс` — Музыка – волшебная страна. 2 класс; publisher not recorded; language ru; kit 238; 111 pages; ordinary curriculum.
+- `2._klassi_muusikaõpetus` — Muusikamaa; Source Book ID `2._klassi_muusikaõpetus`; publisher not recorded; language et; kit 188; 116 pages; ordinary curriculum.
+- `eesti_pärimusmuusika_keskuse_õppevideod` — Eesti Pärimusmuusika Keskuse õppevideod; Source Book ID `eesti_pärimusmuusika_keskuse_õppevideod`; publisher not recorded; language et; kit 465; 33 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
+- `muusikaõpik_2._klassile` — Muusikaõpik 2. klassile; Source Book ID `muusikaõpik_2._klassile`; publisher not recorded; language et; kit 193; 29 pages; ordinary curriculum.
+- `muusikaõpik_2._klassile_2024` — Muusikaõpik 2. klassile 2024; Source Book ID `muusikaõpik_2._klassile_2024`; publisher not recorded; language et; kit 556; 28 pages; ordinary curriculum.
+- `музыка_–_волшебная_страна._2_класс` — Музыка – волшебная страна. 2 класс; Source Book ID `музыка_–_волшебная_страна._2_класс`; publisher not recorded; language ru; kit 238; 111 pages; ordinary curriculum.
 
 ## Pages
 
@@ -31,6 +32,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10576
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -47,6 +49,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10577
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -63,6 +66,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10578
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -79,6 +83,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10617
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 10.1
 - Class: 2
 - Language: et
@@ -95,6 +100,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10618
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 10.2
 - Class: 2
 - Language: et
@@ -111,6 +117,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10619
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 10.3
 - Class: 2
 - Language: et
@@ -127,6 +134,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10620
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 10.4
 - Class: 2
 - Language: et
@@ -143,6 +151,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10621
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 11.1
 - Class: 2
 - Language: et
@@ -159,6 +168,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10622
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 11.2
 - Class: 2
 - Language: et
@@ -175,6 +185,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10623
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 11.3
 - Class: 2
 - Language: et
@@ -191,6 +202,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10624
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 11.4
 - Class: 2
 - Language: et
@@ -207,6 +219,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10625
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 12.1
 - Class: 2
 - Language: et
@@ -223,6 +236,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10626
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 12.2
 - Class: 2
 - Language: et
@@ -239,6 +253,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10627
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 12.3
 - Class: 2
 - Language: et
@@ -255,6 +270,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10628
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 12.4
 - Class: 2
 - Language: et
@@ -271,6 +287,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10629
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 12.5
 - Class: 2
 - Language: et
@@ -287,6 +304,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10630
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 13.1
 - Class: 2
 - Language: et
@@ -303,6 +321,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10631
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 13.2
 - Class: 2
 - Language: et
@@ -319,6 +338,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10632
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 14.1
 - Class: 2
 - Language: et
@@ -335,6 +355,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10633
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 14.2
 - Class: 2
 - Language: et
@@ -351,6 +372,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10634
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 14.3
 - Class: 2
 - Language: et
@@ -367,6 +389,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10635
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 15.1
 - Class: 2
 - Language: et
@@ -383,6 +406,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10636
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 15.2
 - Class: 2
 - Language: et
@@ -399,6 +423,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10637
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 15.3
 - Class: 2
 - Language: et
@@ -415,6 +440,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10638
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.1
 - Class: 2
 - Language: et
@@ -431,6 +457,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10639
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.2
 - Class: 2
 - Language: et
@@ -447,6 +474,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10640
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.3
 - Class: 2
 - Language: et
@@ -463,6 +491,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10641
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.4
 - Class: 2
 - Language: et
@@ -479,6 +508,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10642
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.5
 - Class: 2
 - Language: et
@@ -495,6 +525,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10643
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.6
 - Class: 2
 - Language: et
@@ -511,6 +542,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10644
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 16.7
 - Class: 2
 - Language: et
@@ -527,6 +559,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10645
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 17.1
 - Class: 2
 - Language: et
@@ -543,6 +576,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10646
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 17.2
 - Class: 2
 - Language: et
@@ -559,6 +593,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10647
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 17.3
 - Class: 2
 - Language: et
@@ -575,6 +610,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10648
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 17.4
 - Class: 2
 - Language: et
@@ -591,6 +627,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10649
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 18.1
 - Class: 2
 - Language: et
@@ -607,6 +644,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10650
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 18.2
 - Class: 2
 - Language: et
@@ -623,6 +661,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10651
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 18.3
 - Class: 2
 - Language: et
@@ -639,6 +678,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10652
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 19.1
 - Class: 2
 - Language: et
@@ -655,6 +695,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10653
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 19.2
 - Class: 2
 - Language: et
@@ -671,6 +712,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10654
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 19.3
 - Class: 2
 - Language: et
@@ -687,6 +729,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10579
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -703,6 +746,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10580
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -719,6 +763,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10581
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -735,6 +780,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10582
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -751,6 +797,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10655
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 20.1
 - Class: 2
 - Language: et
@@ -767,6 +814,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10656
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 20.2
 - Class: 2
 - Language: et
@@ -783,6 +831,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10657
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 20.3
 - Class: 2
 - Language: et
@@ -799,6 +848,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10658
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 20.4
 - Class: 2
 - Language: et
@@ -815,6 +865,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10659
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 21.1
 - Class: 2
 - Language: et
@@ -831,6 +882,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10660
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 21.2
 - Class: 2
 - Language: et
@@ -847,6 +899,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10661
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 21.3
 - Class: 2
 - Language: et
@@ -863,6 +916,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10662
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 21.4
 - Class: 2
 - Language: et
@@ -879,6 +933,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10663
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 21.5
 - Class: 2
 - Language: et
@@ -895,6 +950,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10664
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 21.6
 - Class: 2
 - Language: et
@@ -911,6 +967,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10665
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 22.1
 - Class: 2
 - Language: et
@@ -927,6 +984,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10666
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 22.2
 - Class: 2
 - Language: et
@@ -943,6 +1001,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10667
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 22.3
 - Class: 2
 - Language: et
@@ -959,6 +1018,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10668
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 22.4
 - Class: 2
 - Language: et
@@ -975,6 +1035,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10669
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 23.1
 - Class: 2
 - Language: et
@@ -991,6 +1052,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10670
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 23.2
 - Class: 2
 - Language: et
@@ -1007,6 +1069,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10671
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 24.1
 - Class: 2
 - Language: et
@@ -1023,6 +1086,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10672
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 24.2
 - Class: 2
 - Language: et
@@ -1039,6 +1103,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10673
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 24.3
 - Class: 2
 - Language: et
@@ -1055,6 +1120,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10674
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 24.4
 - Class: 2
 - Language: et
@@ -1071,6 +1137,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10675
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 24.5
 - Class: 2
 - Language: et
@@ -1087,6 +1154,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10676
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 25.1
 - Class: 2
 - Language: et
@@ -1103,6 +1171,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10677
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 25.2
 - Class: 2
 - Language: et
@@ -1119,6 +1188,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10678
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 25.3
 - Class: 2
 - Language: et
@@ -1135,6 +1205,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10679
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 25.4
 - Class: 2
 - Language: et
@@ -1151,6 +1222,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10680
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 26.1
 - Class: 2
 - Language: et
@@ -1167,6 +1239,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10681
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 26.2
 - Class: 2
 - Language: et
@@ -1183,6 +1256,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10682
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 26.3
 - Class: 2
 - Language: et
@@ -1199,6 +1273,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10683
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 26.4
 - Class: 2
 - Language: et
@@ -1215,6 +1290,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10684
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 27.1
 - Class: 2
 - Language: et
@@ -1231,6 +1307,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10685
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 27.2
 - Class: 2
 - Language: et
@@ -1247,6 +1324,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10686
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 27.3
 - Class: 2
 - Language: et
@@ -1263,6 +1341,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10687
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 27.4
 - Class: 2
 - Language: et
@@ -1279,6 +1358,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10688
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 27.5
 - Class: 2
 - Language: et
@@ -1295,6 +1375,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10689
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 28.1
 - Class: 2
 - Language: et
@@ -1311,6 +1392,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10690
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 28.2
 - Class: 2
 - Language: et
@@ -1327,6 +1409,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10691
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 28.3
 - Class: 2
 - Language: et
@@ -1343,6 +1426,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10583
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -1359,6 +1443,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10584
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -1375,6 +1460,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10585
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -1391,6 +1477,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10586
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -1407,6 +1494,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10587
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -1423,6 +1511,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10588
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -1439,6 +1528,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10589
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -1455,6 +1545,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10590
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -1471,6 +1562,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10591
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -1487,6 +1579,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10592
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -1503,6 +1596,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10593
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
@@ -1519,6 +1613,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10594
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.5
 - Class: 2
 - Language: et
@@ -1535,6 +1630,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10595
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.6
 - Class: 2
 - Language: et
@@ -1551,6 +1647,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10596
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.7
 - Class: 2
 - Language: et
@@ -1567,6 +1664,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10597
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.8
 - Class: 2
 - Language: et
@@ -1583,6 +1681,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10598
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 5.9
 - Class: 2
 - Language: et
@@ -1599,6 +1698,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10599
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -1615,6 +1715,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10600
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -1631,6 +1732,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10601
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
@@ -1647,6 +1749,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10602
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 6.4
 - Class: 2
 - Language: et
@@ -1663,6 +1766,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10603
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 6.5
 - Class: 2
 - Language: et
@@ -1679,6 +1783,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10604
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 6.6
 - Class: 2
 - Language: et
@@ -1695,6 +1800,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10605
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 7.1
 - Class: 2
 - Language: et
@@ -1711,6 +1817,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10606
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 7.2
 - Class: 2
 - Language: et
@@ -1727,6 +1834,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10607
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 7.3
 - Class: 2
 - Language: et
@@ -1743,6 +1851,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10608
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 7.4
 - Class: 2
 - Language: et
@@ -1759,6 +1868,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10609
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 7.5
 - Class: 2
 - Language: et
@@ -1775,6 +1885,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10610
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 8.1
 - Class: 2
 - Language: et
@@ -1791,6 +1902,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10611
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 8.2
 - Class: 2
 - Language: et
@@ -1807,6 +1919,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10612
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 8.3
 - Class: 2
 - Language: et
@@ -1823,6 +1936,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10613
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 9.1
 - Class: 2
 - Language: et
@@ -1839,6 +1953,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10614
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 9.2
 - Class: 2
 - Language: et
@@ -1855,6 +1970,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10615
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 9.3
 - Class: 2
 - Language: et
@@ -1871,6 +1987,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/188/chapter/10616
 - Book: Muusikamaa
 - Book ID: 2._klassi_muusikaõpetus
+- Source Book ID: 2._klassi_muusikaõpetus
 - Chapter ID: 9.4
 - Class: 2
 - Language: et
@@ -1887,6 +2004,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25281
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -1903,6 +2021,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25289
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -1919,6 +2038,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25287
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -1935,6 +2055,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25285
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -1951,6 +2072,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25291
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -1967,6 +2089,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25283
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -1983,6 +2106,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25282
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -1999,6 +2123,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25284
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -2015,6 +2140,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25288
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -2031,6 +2157,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25290
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -2047,6 +2174,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25286
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -2063,6 +2191,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25292
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -2079,6 +2208,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25293
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -2095,6 +2225,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25294
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -2111,6 +2242,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25295
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -2127,6 +2259,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25296
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -2143,6 +2276,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25297
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -2159,6 +2293,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25298
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -2175,6 +2310,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25299
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -2191,6 +2327,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25300
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -2207,6 +2344,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25301
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -2223,6 +2361,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25302
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -2239,6 +2378,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25303
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -2255,6 +2395,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25304
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -2271,6 +2412,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25305
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -2287,6 +2429,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25306
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
@@ -2303,6 +2446,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25922
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -2319,6 +2463,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25923
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -2335,6 +2480,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25924
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
@@ -2351,6 +2497,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25311
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 7.1
 - Class: 2
 - Language: et
@@ -2367,6 +2514,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25312
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 7.2
 - Class: 2
 - Language: et
@@ -2383,6 +2531,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25308
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 8.1
 - Class: 2
 - Language: et
@@ -2399,6 +2548,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/465/chapter/25921
 - Book: Eesti Pärimusmuusika Keskuse õppevideod
 - Book ID: eesti_pärimusmuusika_keskuse_õppevideod
+- Source Book ID: eesti_pärimusmuusika_keskuse_õppevideod
 - Chapter ID: 8.2
 - Class: 2
 - Language: et
@@ -2415,6 +2565,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10970
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -2431,6 +2582,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10979
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -2447,6 +2599,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10980
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -2463,6 +2616,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10981
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.12
 - Class: 2
 - Language: et
@@ -2479,6 +2633,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10982
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.13
 - Class: 2
 - Language: et
@@ -2495,6 +2650,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10971
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -2511,6 +2667,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10972
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -2527,6 +2684,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10973
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -2543,6 +2701,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10974
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -2559,6 +2718,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10975
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -2575,6 +2735,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10976
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -2591,6 +2752,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10977
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -2607,6 +2769,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10978
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -2623,6 +2786,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10983
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -2639,6 +2803,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10992
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -2655,6 +2820,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10993
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -2671,6 +2837,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10994
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -2687,6 +2854,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10984
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -2703,6 +2871,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10985
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -2719,6 +2888,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10986
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -2735,6 +2905,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10987
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -2751,6 +2922,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10988
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -2767,6 +2939,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10989
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -2783,6 +2956,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10990
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -2799,6 +2973,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10991
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -2815,6 +2990,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10995
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -2831,6 +3007,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/19530
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -2847,6 +3024,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10996
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -2863,6 +3041,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/193/chapter/10997
 - Book: Muusikaõpik 2. klassile
 - Book ID: muusikaõpik_2._klassile
+- Source Book ID: muusikaõpik_2._klassile
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -2879,6 +3058,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31279
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -2895,6 +3075,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31288
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -2911,6 +3092,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31289
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -2927,6 +3109,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31290
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.12
 - Class: 2
 - Language: et
@@ -2943,6 +3126,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31291
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.13
 - Class: 2
 - Language: et
@@ -2959,6 +3143,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31280
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -2975,6 +3160,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31281
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -2991,6 +3177,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31282
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -3007,6 +3194,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31283
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -3023,6 +3211,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31284
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -3039,6 +3228,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31285
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -3055,6 +3245,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31286
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -3071,6 +3262,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31287
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -3087,6 +3279,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31292
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -3103,6 +3296,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31301
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -3119,6 +3313,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31302
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -3135,6 +3330,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31303
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -3151,6 +3347,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31293
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -3167,6 +3364,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31294
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -3183,6 +3381,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31295
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -3199,6 +3398,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31296
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -3215,6 +3415,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31297
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -3231,6 +3432,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31298
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -3247,6 +3449,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31299
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -3263,6 +3466,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31300
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -3279,6 +3483,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31304
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -3295,6 +3500,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31305
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -3311,6 +3517,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/556/chapter/31306
 - Book: Muusikaõpik 2. klassile 2024
 - Book ID: muusikaõpik_2._klassile_2024
+- Source Book ID: muusikaõpik_2._klassile_2024
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -3327,6 +3534,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13449
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -3343,6 +3551,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13450
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.2
 - Class: 2
 - Language: ru
@@ -3359,6 +3568,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13451
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.3
 - Class: 2
 - Language: ru
@@ -3375,6 +3585,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13452
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.4
 - Class: 2
 - Language: ru
@@ -3391,6 +3602,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13453
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.5
 - Class: 2
 - Language: ru
@@ -3407,6 +3619,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13454
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.6
 - Class: 2
 - Language: ru
@@ -3423,6 +3636,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13455
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 1.7
 - Class: 2
 - Language: ru
@@ -3439,6 +3653,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13485
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 10.1
 - Class: 2
 - Language: ru
@@ -3455,6 +3670,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13486
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 11.1
 - Class: 2
 - Language: ru
@@ -3471,6 +3687,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13487
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 11.2
 - Class: 2
 - Language: ru
@@ -3487,6 +3704,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13488
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 12.1
 - Class: 2
 - Language: ru
@@ -3503,6 +3721,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13489
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 12.2
 - Class: 2
 - Language: ru
@@ -3519,6 +3738,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13490
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.1
 - Class: 2
 - Language: ru
@@ -3535,6 +3755,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13499
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.10
 - Class: 2
 - Language: ru
@@ -3551,6 +3772,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13500
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.11
 - Class: 2
 - Language: ru
@@ -3567,6 +3789,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13501
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.12
 - Class: 2
 - Language: ru
@@ -3583,6 +3806,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13491
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.2
 - Class: 2
 - Language: ru
@@ -3599,6 +3823,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13492
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.3
 - Class: 2
 - Language: ru
@@ -3615,6 +3840,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13493
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.4
 - Class: 2
 - Language: ru
@@ -3631,6 +3857,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13494
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.5
 - Class: 2
 - Language: ru
@@ -3647,6 +3874,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13495
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.6
 - Class: 2
 - Language: ru
@@ -3663,6 +3891,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13496
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.7
 - Class: 2
 - Language: ru
@@ -3679,6 +3908,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13497
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.8
 - Class: 2
 - Language: ru
@@ -3695,6 +3925,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13498
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 13.9
 - Class: 2
 - Language: ru
@@ -3711,6 +3942,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13502
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.1
 - Class: 2
 - Language: ru
@@ -3727,6 +3959,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13511
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.10
 - Class: 2
 - Language: ru
@@ -3743,6 +3976,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13503
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.2
 - Class: 2
 - Language: ru
@@ -3759,6 +3993,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13504
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.3
 - Class: 2
 - Language: ru
@@ -3775,6 +4010,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13505
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.4
 - Class: 2
 - Language: ru
@@ -3791,6 +4027,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13506
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.5
 - Class: 2
 - Language: ru
@@ -3807,6 +4044,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13507
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.6
 - Class: 2
 - Language: ru
@@ -3823,6 +4061,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13508
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.7
 - Class: 2
 - Language: ru
@@ -3839,6 +4078,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13509
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.8
 - Class: 2
 - Language: ru
@@ -3855,6 +4095,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13510
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 14.9
 - Class: 2
 - Language: ru
@@ -3871,6 +4112,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13512
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 15.1
 - Class: 2
 - Language: ru
@@ -3887,6 +4129,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13513
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 15.2
 - Class: 2
 - Language: ru
@@ -3903,6 +4146,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13514
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.1
 - Class: 2
 - Language: ru
@@ -3919,6 +4163,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13523
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.10
 - Class: 2
 - Language: ru
@@ -3935,6 +4180,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13515
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.2
 - Class: 2
 - Language: ru
@@ -3951,6 +4197,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13516
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.3
 - Class: 2
 - Language: ru
@@ -3967,6 +4214,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13517
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.4
 - Class: 2
 - Language: ru
@@ -3983,6 +4231,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13518
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.5
 - Class: 2
 - Language: ru
@@ -3999,6 +4248,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13519
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.6
 - Class: 2
 - Language: ru
@@ -4015,6 +4265,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13520
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.7
 - Class: 2
 - Language: ru
@@ -4031,6 +4282,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13521
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.8
 - Class: 2
 - Language: ru
@@ -4047,6 +4299,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13522
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 16.9
 - Class: 2
 - Language: ru
@@ -4063,6 +4316,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13524
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 17.1
 - Class: 2
 - Language: ru
@@ -4079,6 +4333,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13525
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 17.2
 - Class: 2
 - Language: ru
@@ -4095,6 +4350,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13526
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 18.1
 - Class: 2
 - Language: ru
@@ -4111,6 +4367,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13527
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 18.2
 - Class: 2
 - Language: ru
@@ -4127,6 +4384,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13528
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 19.1
 - Class: 2
 - Language: ru
@@ -4143,6 +4401,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13529
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 19.2
 - Class: 2
 - Language: ru
@@ -4159,6 +4418,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13530
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 19.3
 - Class: 2
 - Language: ru
@@ -4175,6 +4435,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13456
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -4191,6 +4452,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13457
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -4207,6 +4469,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13458
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.3
 - Class: 2
 - Language: ru
@@ -4223,6 +4486,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13459
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.4
 - Class: 2
 - Language: ru
@@ -4239,6 +4503,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13460
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.5
 - Class: 2
 - Language: ru
@@ -4255,6 +4520,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13461
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.6
 - Class: 2
 - Language: ru
@@ -4271,6 +4537,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13462
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.7
 - Class: 2
 - Language: ru
@@ -4287,6 +4554,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13463
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 2.8
 - Class: 2
 - Language: ru
@@ -4303,6 +4571,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13531
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 20.1
 - Class: 2
 - Language: ru
@@ -4319,6 +4588,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13532
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 20.2
 - Class: 2
 - Language: ru
@@ -4335,6 +4605,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13533
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 20.3
 - Class: 2
 - Language: ru
@@ -4351,6 +4622,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13534
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 20.4
 - Class: 2
 - Language: ru
@@ -4367,6 +4639,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13535
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 20.5
 - Class: 2
 - Language: ru
@@ -4383,6 +4656,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13536
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 20.6
 - Class: 2
 - Language: ru
@@ -4399,6 +4673,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13537
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 21.1
 - Class: 2
 - Language: ru
@@ -4415,6 +4690,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13538
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 21.2
 - Class: 2
 - Language: ru
@@ -4431,6 +4707,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13539
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.1
 - Class: 2
 - Language: ru
@@ -4447,6 +4724,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13548
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.10
 - Class: 2
 - Language: ru
@@ -4463,6 +4741,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13549
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.11
 - Class: 2
 - Language: ru
@@ -4479,6 +4758,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13550
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.12
 - Class: 2
 - Language: ru
@@ -4495,6 +4775,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13551
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.13
 - Class: 2
 - Language: ru
@@ -4511,6 +4792,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13552
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.14
 - Class: 2
 - Language: ru
@@ -4527,6 +4809,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13553
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.15
 - Class: 2
 - Language: ru
@@ -4543,6 +4826,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13540
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.2
 - Class: 2
 - Language: ru
@@ -4559,6 +4843,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13541
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.3
 - Class: 2
 - Language: ru
@@ -4575,6 +4860,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13542
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.4
 - Class: 2
 - Language: ru
@@ -4591,6 +4877,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13543
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.5
 - Class: 2
 - Language: ru
@@ -4607,6 +4894,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13544
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.6
 - Class: 2
 - Language: ru
@@ -4623,6 +4911,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13545
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.7
 - Class: 2
 - Language: ru
@@ -4639,6 +4928,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13546
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.8
 - Class: 2
 - Language: ru
@@ -4655,6 +4945,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13547
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 22.9
 - Class: 2
 - Language: ru
@@ -4671,6 +4962,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13554
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 23.1
 - Class: 2
 - Language: ru
@@ -4687,6 +4979,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13555
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 23.2
 - Class: 2
 - Language: ru
@@ -4703,6 +4996,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13556
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 23.3
 - Class: 2
 - Language: ru
@@ -4719,6 +5013,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13557
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 24.1
 - Class: 2
 - Language: ru
@@ -4735,6 +5030,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13558
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 24.2
 - Class: 2
 - Language: ru
@@ -4751,6 +5047,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13559
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 24.3
 - Class: 2
 - Language: ru
@@ -4767,6 +5064,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13464
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -4783,6 +5081,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13465
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 4.1
 - Class: 2
 - Language: ru
@@ -4799,6 +5098,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13466
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 4.2
 - Class: 2
 - Language: ru
@@ -4815,6 +5115,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13467
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 4.3
 - Class: 2
 - Language: ru
@@ -4831,6 +5132,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13468
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 4.4
 - Class: 2
 - Language: ru
@@ -4847,6 +5149,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13469
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 5.1
 - Class: 2
 - Language: ru
@@ -4863,6 +5166,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13470
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 5.2
 - Class: 2
 - Language: ru
@@ -4879,6 +5183,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13471
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 5.3
 - Class: 2
 - Language: ru
@@ -4895,6 +5200,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13472
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 5.4
 - Class: 2
 - Language: ru
@@ -4911,6 +5217,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13473
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 6.1
 - Class: 2
 - Language: ru
@@ -4927,6 +5234,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13474
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 6.2
 - Class: 2
 - Language: ru
@@ -4943,6 +5251,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13475
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 6.3
 - Class: 2
 - Language: ru
@@ -4959,6 +5268,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13476
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 6.4
 - Class: 2
 - Language: ru
@@ -4975,6 +5285,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13477
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 6.5
 - Class: 2
 - Language: ru
@@ -4991,6 +5302,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13478
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 7.1
 - Class: 2
 - Language: ru
@@ -5007,6 +5319,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13479
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 8.1
 - Class: 2
 - Language: ru
@@ -5023,6 +5336,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13480
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 8.2
 - Class: 2
 - Language: ru
@@ -5039,6 +5353,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13481
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 8.3
 - Class: 2
 - Language: ru
@@ -5055,6 +5370,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13482
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 9.1
 - Class: 2
 - Language: ru
@@ -5071,6 +5387,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13483
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 9.2
 - Class: 2
 - Language: ru
@@ -5087,6 +5404,7 @@ Use this file to answer grade 2 music requests only. Match queries against title
 - URL: https://www.opiq.ee/kit/238/chapter/13484
 - Book: Музыка – волшебная страна. 2 класс
 - Book ID: музыка_–_волшебная_страна._2_класс
+- Source Book ID: музыка_–_волшебная_страна._2_класс
 - Chapter ID: 9.3
 - Class: 2
 - Language: ru

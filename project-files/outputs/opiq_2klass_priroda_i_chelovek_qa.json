@@ -1,0 +1,717 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-2-nature-and-human-studies",
+  "source_archive": "project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip",
+  "output_file": "project-files/outputs/opiq_2klass_priroda_i_chelovek.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-21T09:40:37.262Z",
+    "generator": "scripts/generate-grade-2-source-indexes.mjs",
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
+  },
+  "checksums": {
+    "source_archive_sha256": "138b7836b71521c5a7ba00deab14542cb301b780836321ee3239f2991080c3f6",
+    "output_file_sha256": "4d64c320927088098ea2c3d6125918755656e9b9e9c0ffa067b805a14a68c141"
+  },
+  "source_records": 428,
+  "page_records_included": 60,
+  "cover_detail_records_excluded": 18,
+  "administrative_records_excluded": 5,
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 345,
+  "grades": {
+    "2": 60
+  },
+  "languages": {
+    "ru": 60
+  },
+  "books": {
+    "avita_природа_и__2_ru__kit86": 60
+  },
+  "source_books": {
+    "avita_природа_и__2_ru": 60
+  },
+  "kits": {
+    "86": 60
+  },
+  "programme_types": {
+    "mixed_subject": 60
+  },
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 156,
+    "science / loodusõpetus / природоведение": 272
+  },
+  "canonical_subject_counts": {
+    "science and human studies / loodus- ja inimeseõpetus / природа и человек": 60
+  },
+  "subject_normalization_records": 60,
+  "subject_normalization_audit": [
+    {
+      "source_position": 95,
+      "url": "https://www.opiq.ee/kit/86/chapter/4190",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 96,
+      "url": "https://www.opiq.ee/kit/86/chapter/4199",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 97,
+      "url": "https://www.opiq.ee/kit/86/chapter/4200",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 98,
+      "url": "https://www.opiq.ee/kit/86/chapter/4201",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 99,
+      "url": "https://www.opiq.ee/kit/86/chapter/4202",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 100,
+      "url": "https://www.opiq.ee/kit/86/chapter/4203",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 101,
+      "url": "https://www.opiq.ee/kit/86/chapter/4204",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 102,
+      "url": "https://www.opiq.ee/kit/86/chapter/4205",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 103,
+      "url": "https://www.opiq.ee/kit/86/chapter/4206",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 104,
+      "url": "https://www.opiq.ee/kit/86/chapter/4207",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 105,
+      "url": "https://www.opiq.ee/kit/86/chapter/4208",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 106,
+      "url": "https://www.opiq.ee/kit/86/chapter/4191",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 107,
+      "url": "https://www.opiq.ee/kit/86/chapter/4209",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 108,
+      "url": "https://www.opiq.ee/kit/86/chapter/4210",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 109,
+      "url": "https://www.opiq.ee/kit/86/chapter/4211",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 110,
+      "url": "https://www.opiq.ee/kit/86/chapter/4212",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 111,
+      "url": "https://www.opiq.ee/kit/86/chapter/4192",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 112,
+      "url": "https://www.opiq.ee/kit/86/chapter/4193",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 113,
+      "url": "https://www.opiq.ee/kit/86/chapter/4194",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 114,
+      "url": "https://www.opiq.ee/kit/86/chapter/4195",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 115,
+      "url": "https://www.opiq.ee/kit/86/chapter/4196",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 116,
+      "url": "https://www.opiq.ee/kit/86/chapter/4197",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 117,
+      "url": "https://www.opiq.ee/kit/86/chapter/4198",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 118,
+      "url": "https://www.opiq.ee/kit/86/chapter/4213",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 119,
+      "url": "https://www.opiq.ee/kit/86/chapter/4222",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 120,
+      "url": "https://www.opiq.ee/kit/86/chapter/4223",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 121,
+      "url": "https://www.opiq.ee/kit/86/chapter/4224",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 122,
+      "url": "https://www.opiq.ee/kit/86/chapter/4225",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 123,
+      "url": "https://www.opiq.ee/kit/86/chapter/4226",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 124,
+      "url": "https://www.opiq.ee/kit/86/chapter/4227",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 125,
+      "url": "https://www.opiq.ee/kit/86/chapter/4228",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 126,
+      "url": "https://www.opiq.ee/kit/86/chapter/4229",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 127,
+      "url": "https://www.opiq.ee/kit/86/chapter/4230",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 128,
+      "url": "https://www.opiq.ee/kit/86/chapter/4231",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 129,
+      "url": "https://www.opiq.ee/kit/86/chapter/4214",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 130,
+      "url": "https://www.opiq.ee/kit/86/chapter/4232",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 131,
+      "url": "https://www.opiq.ee/kit/86/chapter/12105",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 132,
+      "url": "https://www.opiq.ee/kit/86/chapter/12106",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 133,
+      "url": "https://www.opiq.ee/kit/86/chapter/12107",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 134,
+      "url": "https://www.opiq.ee/kit/86/chapter/12108",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 135,
+      "url": "https://www.opiq.ee/kit/86/chapter/12109",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 136,
+      "url": "https://www.opiq.ee/kit/86/chapter/12110",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 137,
+      "url": "https://www.opiq.ee/kit/86/chapter/12111",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 138,
+      "url": "https://www.opiq.ee/kit/86/chapter/12112",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 139,
+      "url": "https://www.opiq.ee/kit/86/chapter/12113",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 140,
+      "url": "https://www.opiq.ee/kit/86/chapter/4215",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 141,
+      "url": "https://www.opiq.ee/kit/86/chapter/12114",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 142,
+      "url": "https://www.opiq.ee/kit/86/chapter/12115",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 143,
+      "url": "https://www.opiq.ee/kit/86/chapter/12116",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 144,
+      "url": "https://www.opiq.ee/kit/86/chapter/12117",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 145,
+      "url": "https://www.opiq.ee/kit/86/chapter/12118",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 146,
+      "url": "https://www.opiq.ee/kit/86/chapter/12119",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 147,
+      "url": "https://www.opiq.ee/kit/86/chapter/4216",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 148,
+      "url": "https://www.opiq.ee/kit/86/chapter/4217",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 149,
+      "url": "https://www.opiq.ee/kit/86/chapter/4218",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 150,
+      "url": "https://www.opiq.ee/kit/86/chapter/4219",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 151,
+      "url": "https://www.opiq.ee/kit/86/chapter/4220",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 152,
+      "url": "https://www.opiq.ee/kit/86/chapter/4221",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 154,
+      "url": "https://www.opiq.ee/kit/86/chapter/12121",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 155,
+      "url": "https://www.opiq.ee/kit/86/chapter/4233",
+      "book_id": "avita_природа_и__2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "science and human studies / loodus- ja inimeseõpetus / природа и человек",
+      "decision": "correct_automatic_subject_label"
+    }
+  ],
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 9,
+    "source_duplicate_records": 9,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/56",
+        "source_positions": [
+          1,
+          2
+        ],
+        "book_ids": [
+          "avita_loodus-_ja_2_et"
+        ],
+        "chapter_ids": [
+          "1",
+          "62"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/379",
+        "source_positions": [
+          63,
+          64
+        ],
+        "book_ids": [
+          "avita_loodusõpet_2_et"
+        ],
+        "chapter_ids": [
+          "235",
+          "264"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/86",
+        "source_positions": [
+          93,
+          94
+        ],
+        "book_ids": [
+          "avita_природа_и__2_ru"
+        ],
+        "chapter_ids": [
+          "63",
+          "125"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/570",
+        "source_positions": [
+          156,
+          157
+        ],
+        "book_ids": [
+          "avita_природовед_2_ru"
+        ],
+        "chapter_ids": [
+          "304",
+          "329"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/121",
+        "source_positions": [
+          182,
+          183
+        ],
+        "book_ids": [
+          "koolibri_loodusõpet_2_et"
+        ],
+        "chapter_ids": [
+          "169",
+          "234"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/132",
+        "source_positions": [
+          248,
+          249
+        ],
+        "book_ids": [
+          "koolibri_природове_2_ru"
+        ],
+        "chapter_ids": [
+          "360",
+          "428"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/501",
+        "source_positions": [
+          317,
+          318
+        ],
+        "book_ids": [
+          "ministeerium_loodusõpet_2_et"
+        ],
+        "chapter_ids": [
+          "265",
+          "303"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/387",
+        "source_positions": [
+          356,
+          357
+        ],
+        "book_ids": [
+          "skriibus_loodusõpet_2_et"
+        ],
+        "chapter_ids": [
+          "330",
+          "359"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/384",
+        "source_positions": [
+          386,
+          387
+        ],
+        "book_ids": [
+          "star cloud_loodusõpet_2_et"
+        ],
+        "chapter_ids": [
+          "126",
+          "168"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      }
+    ]
+  },
+  "excluded_book_audit": [],
+  "book_id_language_suffix_anomalies": [],
+  "book_metadata_audit": {
+    "avita_природа_и__2_ru__kit86": {
+      "title": "Природа и человек для 2 класса",
+      "source_book_id": "avita_природа_и__2_ru",
+      "publisher": "Avita",
+      "language": "ru",
+      "kits": [
+        "86"
+      ],
+      "page_records": 60,
+      "programme_type": "mixed_subject",
+      "title_evidence": "cover_detail"
+    }
+  },
+  "metadata_limitations": [
+    "The archive does not provide reliable page-level evidence for splitting this combined book into subject-pure routes.",
+    "The dedicated route is mixed-subject and does not claim official curriculum completeness."
+  ],
+  "source_scope": {
+    "included_kit_ids": [
+      "86"
+    ],
+    "source_records_out_of_scope": 345,
+    "decision": "exact_kit_scope"
+  },
+  "records_without_headings": 0,
+  "missing_urls": 0,
+  "archive_index": {
+    "generated_at": "2026-07-21T09:40:37.262Z",
+    "raw_archive_included": true,
+    "declared_books": 9
+  }
+}

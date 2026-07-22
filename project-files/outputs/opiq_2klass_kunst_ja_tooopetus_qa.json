@@ -6,20 +6,21 @@
   "format_version": "2.0",
   "generation": {
     "status": "generated",
-    "generated_at": "2026-07-22T10:26:52.939Z",
+    "generated_at": "2026-07-22T10:02:53.213Z",
     "generator": "scripts/generate-grade-2-source-indexes.mjs",
-    "generator_version": "1.1",
-    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "5de5260ab8b1973a4d5132dd248ec8198cf3062f9084f369442d9cf61ed110eb",
-    "output_file_sha256": "4fac618df05209d0307fd13418b67055c0ce34d8c933a895e5a5cd5a0b006910"
+    "output_file_sha256": "83e2f6c8064ab601a3e9ebd7ceaaa245ab6d534b28e5414e198ac765150f4909"
   },
   "source_records": 269,
   "page_records_included": 263,
   "cover_detail_records_excluded": 6,
   "administrative_records_excluded": 0,
-  "mixed_subject_page_records_excluded": 0,
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 0,
   "grades": {
     "2": 263
   },
@@ -28,6 +29,11 @@
     "ru": 89
   },
   "books": {
+    "kunsti-_ja_tööõpetus._2._osa": 89,
+    "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid": 85,
+    "трудовое_обучение_и_искусство._2_часть": 89
+  },
+  "source_books": {
     "kunsti-_ja_tööõpetus._2._osa": 89,
     "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid": 85,
     "трудовое_обучение_и_искусство._2_часть": 89
@@ -2215,92 +2221,45 @@
   "book_metadata_audit": {
     "kunsti-_ja_tööõpetus._2._osa": {
       "title": "Kunsti- ja tööõpetus. 2. osa",
+      "source_book_id": "kunsti-_ja_tööõpetus._2._osa",
       "publisher": "",
       "language": "et",
       "kits": [
         "192"
       ],
       "page_records": 89,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; publisher absent from archive"
     },
     "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid": {
       "title": "Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid",
+      "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
       "publisher": "",
       "language": "et",
       "kits": [
         "200"
       ],
       "page_records": 85,
-      "programme_type": "supplementary"
+      "programme_type": "supplementary",
+      "title_evidence": "cover_detail; publisher absent from archive"
     },
     "трудовое_обучение_и_искусство._2_часть": {
       "title": "Трудовое обучение и искусство. 2 часть",
+      "source_book_id": "трудовое_обучение_и_искусство._2_часть",
       "publisher": "",
       "language": "ru",
       "kits": [
         "371"
       ],
       "page_records": 89,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; publisher absent from archive"
     }
   },
-  "book_metadata_normalization_audit": [
-    {
-      "source_book_id": "kunsti-_ja_tööõpetus._2._osa",
-      "canonical_book_id": "kunsti-_ja_tööõpetus._2._osa",
-      "source_titles": [
-        "Käsitöötuba – Opiq"
-      ],
-      "canonical_title": "Kunsti- ja tööõpetus. 2. osa",
-      "source_records": 91,
-      "canonical_pages": 89,
-      "languages": [
-        "et"
-      ],
-      "kits": [
-        "192"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    },
-    {
-      "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
-      "canonical_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
-      "source_titles": [
-        "Käsitöötuba – Opiq"
-      ],
-      "canonical_title": "Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid",
-      "source_records": 87,
-      "canonical_pages": 85,
-      "languages": [
-        "et"
-      ],
-      "kits": [
-        "200"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    },
-    {
-      "source_book_id": "трудовое_обучение_и_искусство._2_часть",
-      "canonical_book_id": "трудовое_обучение_и_искусство._2_часть",
-      "source_titles": [
-        "Творческая мастерская – Opiq"
-      ],
-      "canonical_title": "Трудовое обучение и искусство. 2 часть",
-      "source_records": 91,
-      "canonical_pages": 89,
-      "languages": [
-        "ru"
-      ],
-      "kits": [
-        "371"
-      ],
-      "decision": "derive_specific_title_from_explicit_source_book_id_and_kit"
-    }
-  ],
   "metadata_limitations": [
     "The export does not record publisher names.",
-    "The compact index and page records are authoritative for language; raw per-book files incorrectly label the two Estonian books as Russian.",
-    "Repeated page titles are retained because their canonical chapter URLs and instructional contexts are distinct."
+    "Raw per-book files misstate the two Estonian book languages; compact index and record-level language evidence are authoritative.",
+    "The holiday-card collection is supplementary and must be labelled."
   ],
   "records_without_headings": 0,
   "missing_urls": 0,

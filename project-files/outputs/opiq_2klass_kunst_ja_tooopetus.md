@@ -14,14 +14,15 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - Page records included: 263
 - Cover/detail records excluded: 6
 - Administrative records excluded: 0
-- Duplicate source URL groups: 3; all were excluded kit-detail records
-- Mixed-subject page records excluded: 0
+- Duplicate source URL groups: 3; canonical duplicates are removed only after exact content checks
+- Subject-boundary page records excluded: 0
+- Out-of-scope instructional records excluded: 0
 - Curriculum coverage: not verified
 
 ## Books
-- `kunsti-_ja_tööõpetus._2._osa` — Kunsti- ja tööõpetus. 2. osa; publisher not recorded; language et; kit 192; 89 pages; ordinary curriculum.
-- `kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid` — Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid; publisher not recorded; language et; kit 200; 85 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
-- `трудовое_обучение_и_искусство._2_часть` — Трудовое обучение и искусство. 2 часть; publisher not recorded; language ru; kit 371; 89 pages; ordinary curriculum.
+- `kunsti-_ja_tööõpetus._2._osa` — Kunsti- ja tööõpetus. 2. osa; Source Book ID `kunsti-_ja_tööõpetus._2._osa`; publisher not recorded; language et; kit 192; 89 pages; ordinary curriculum.
+- `kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid` — Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid; Source Book ID `kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid`; publisher not recorded; language et; kit 200; 85 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
+- `трудовое_обучение_и_искусство._2_часть` — Трудовое обучение и искусство. 2 часть; Source Book ID `трудовое_обучение_и_искусство._2_часть`; publisher not recorded; language ru; kit 371; 89 pages; ordinary curriculum.
 
 ## Pages
 
@@ -29,6 +30,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10881
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -45,6 +47,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10890
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -61,6 +64,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10891
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -77,6 +81,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10892
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.12
 - Class: 2
 - Language: et
@@ -93,6 +98,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10893
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.13
 - Class: 2
 - Language: et
@@ -109,6 +115,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10894
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.14
 - Class: 2
 - Language: et
@@ -125,6 +132,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10895
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.15
 - Class: 2
 - Language: et
@@ -141,6 +149,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10896
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.16
 - Class: 2
 - Language: et
@@ -157,6 +166,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10897
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.17
 - Class: 2
 - Language: et
@@ -173,6 +183,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10898
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.18
 - Class: 2
 - Language: et
@@ -189,6 +200,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10899
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.19
 - Class: 2
 - Language: et
@@ -205,6 +217,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10882
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -221,6 +234,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10900
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.20
 - Class: 2
 - Language: et
@@ -237,6 +251,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10901
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.21
 - Class: 2
 - Language: et
@@ -253,6 +268,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10883
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -269,6 +285,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10884
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -285,6 +302,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10885
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -301,6 +319,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10886
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -317,6 +336,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10887
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -333,6 +353,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10888
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -349,6 +370,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10889
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -365,6 +387,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10902
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -381,6 +404,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10911
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -397,6 +421,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10912
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -413,6 +438,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10913
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -429,6 +455,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10914
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.13
 - Class: 2
 - Language: et
@@ -445,6 +472,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10915
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.14
 - Class: 2
 - Language: et
@@ -461,6 +489,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10916
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.15
 - Class: 2
 - Language: et
@@ -477,6 +506,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10917
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.16
 - Class: 2
 - Language: et
@@ -493,6 +523,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10918
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.17
 - Class: 2
 - Language: et
@@ -509,6 +540,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10919
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.18
 - Class: 2
 - Language: et
@@ -525,6 +557,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10920
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.19
 - Class: 2
 - Language: et
@@ -541,6 +574,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10903
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -557,6 +591,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10904
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -573,6 +608,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10905
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -589,6 +625,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10906
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -605,6 +642,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10907
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -621,6 +659,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10908
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -637,6 +676,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10909
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -653,6 +693,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10910
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -669,6 +710,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10921
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -685,6 +727,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10930
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.10
 - Class: 2
 - Language: et
@@ -701,6 +744,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10931
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.11
 - Class: 2
 - Language: et
@@ -717,6 +761,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10932
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.12
 - Class: 2
 - Language: et
@@ -733,6 +778,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10933
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.13
 - Class: 2
 - Language: et
@@ -749,6 +795,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10934
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.14
 - Class: 2
 - Language: et
@@ -765,6 +812,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10935
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.15
 - Class: 2
 - Language: et
@@ -781,6 +829,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10936
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.16
 - Class: 2
 - Language: et
@@ -797,6 +846,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10937
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.17
 - Class: 2
 - Language: et
@@ -813,6 +863,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10938
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.18
 - Class: 2
 - Language: et
@@ -829,6 +880,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10939
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.19
 - Class: 2
 - Language: et
@@ -845,6 +897,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10922
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -861,6 +914,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10940
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.20
 - Class: 2
 - Language: et
@@ -877,6 +931,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10941
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.21
 - Class: 2
 - Language: et
@@ -893,6 +948,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10942
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.22
 - Class: 2
 - Language: et
@@ -909,6 +965,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10943
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.23
 - Class: 2
 - Language: et
@@ -925,6 +982,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10944
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.24
 - Class: 2
 - Language: et
@@ -941,6 +999,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10945
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.25
 - Class: 2
 - Language: et
@@ -957,6 +1016,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10946
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.26
 - Class: 2
 - Language: et
@@ -973,6 +1033,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10947
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.27
 - Class: 2
 - Language: et
@@ -989,6 +1050,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10948
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.28
 - Class: 2
 - Language: et
@@ -1005,6 +1067,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10949
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.29
 - Class: 2
 - Language: et
@@ -1021,6 +1084,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10923
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -1037,6 +1101,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10950
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.30
 - Class: 2
 - Language: et
@@ -1053,6 +1118,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10951
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.31
 - Class: 2
 - Language: et
@@ -1069,6 +1135,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10952
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.32
 - Class: 2
 - Language: et
@@ -1085,6 +1152,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10924
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -1101,6 +1169,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10925
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -1117,6 +1186,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10926
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -1133,6 +1203,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10927
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.7
 - Class: 2
 - Language: et
@@ -1149,6 +1220,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10928
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.8
 - Class: 2
 - Language: et
@@ -1165,6 +1237,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10929
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 3.9
 - Class: 2
 - Language: et
@@ -1181,6 +1254,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10953
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -1197,6 +1271,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10962
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.10
 - Class: 2
 - Language: et
@@ -1213,6 +1288,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10963
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.11
 - Class: 2
 - Language: et
@@ -1229,6 +1305,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10964
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.12
 - Class: 2
 - Language: et
@@ -1245,6 +1322,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10965
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.13
 - Class: 2
 - Language: et
@@ -1261,6 +1339,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10966
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.14
 - Class: 2
 - Language: et
@@ -1277,6 +1356,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10967
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.15
 - Class: 2
 - Language: et
@@ -1293,6 +1373,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10968
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.16
 - Class: 2
 - Language: et
@@ -1309,6 +1390,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10969
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.17
 - Class: 2
 - Language: et
@@ -1325,6 +1407,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10954
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -1341,6 +1424,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10955
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -1357,6 +1441,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10956
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -1373,6 +1458,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10957
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -1389,6 +1475,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10958
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -1405,6 +1492,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10959
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.7
 - Class: 2
 - Language: et
@@ -1421,6 +1509,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10960
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.8
 - Class: 2
 - Language: et
@@ -1437,6 +1526,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/192/chapter/10961
 - Book: Kunsti- ja tööõpetus. 2. osa
 - Book ID: kunsti-_ja_tööõpetus._2._osa
+- Source Book ID: kunsti-_ja_tööõpetus._2._osa
 - Chapter ID: 4.9
 - Class: 2
 - Language: et
@@ -1453,6 +1543,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11374
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -1469,6 +1560,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11375
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -1485,6 +1577,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11376
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -1501,6 +1594,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11377
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -1517,6 +1611,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11378
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -1533,6 +1628,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11379
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -1549,6 +1645,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11380
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -1565,6 +1662,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11381
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -1581,6 +1679,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11382
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -1597,6 +1696,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11383
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -1613,6 +1713,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11384
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -1629,6 +1730,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11385
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -1645,6 +1747,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11386
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -1661,6 +1764,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11395
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.10
 - Class: 2
 - Language: et
@@ -1677,6 +1781,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11396
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.11
 - Class: 2
 - Language: et
@@ -1693,6 +1798,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11397
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.12
 - Class: 2
 - Language: et
@@ -1709,6 +1815,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11398
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.13
 - Class: 2
 - Language: et
@@ -1725,6 +1832,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11399
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.14
 - Class: 2
 - Language: et
@@ -1741,6 +1849,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11400
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.15
 - Class: 2
 - Language: et
@@ -1757,6 +1866,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11401
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.16
 - Class: 2
 - Language: et
@@ -1773,6 +1883,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11402
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.17
 - Class: 2
 - Language: et
@@ -1789,6 +1900,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11403
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.18
 - Class: 2
 - Language: et
@@ -1805,6 +1917,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11404
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.19
 - Class: 2
 - Language: et
@@ -1821,6 +1934,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11387
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -1837,6 +1951,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11405
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.20
 - Class: 2
 - Language: et
@@ -1853,6 +1968,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11406
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.21
 - Class: 2
 - Language: et
@@ -1869,6 +1985,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11407
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.22
 - Class: 2
 - Language: et
@@ -1885,6 +2002,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11408
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.23
 - Class: 2
 - Language: et
@@ -1901,6 +2019,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11409
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.24
 - Class: 2
 - Language: et
@@ -1917,6 +2036,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11410
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.25
 - Class: 2
 - Language: et
@@ -1933,6 +2053,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11411
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.26
 - Class: 2
 - Language: et
@@ -1949,6 +2070,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11412
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.27
 - Class: 2
 - Language: et
@@ -1965,6 +2087,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11413
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.28
 - Class: 2
 - Language: et
@@ -1981,6 +2104,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11414
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.29
 - Class: 2
 - Language: et
@@ -1997,6 +2121,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11388
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -2013,6 +2138,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11415
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.30
 - Class: 2
 - Language: et
@@ -2029,6 +2155,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11416
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.31
 - Class: 2
 - Language: et
@@ -2045,6 +2172,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11417
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.32
 - Class: 2
 - Language: et
@@ -2061,6 +2189,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11418
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.33
 - Class: 2
 - Language: et
@@ -2077,6 +2206,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11419
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.34
 - Class: 2
 - Language: et
@@ -2093,6 +2223,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11420
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.35
 - Class: 2
 - Language: et
@@ -2109,6 +2240,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11421
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.36
 - Class: 2
 - Language: et
@@ -2125,6 +2257,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11389
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -2141,6 +2274,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11390
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -2157,6 +2291,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11391
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -2173,6 +2308,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11392
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.7
 - Class: 2
 - Language: et
@@ -2189,6 +2325,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11393
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.8
 - Class: 2
 - Language: et
@@ -2205,6 +2342,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11394
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 3.9
 - Class: 2
 - Language: et
@@ -2221,6 +2359,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11422
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -2237,6 +2376,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11423
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -2253,6 +2393,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11424
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -2269,6 +2410,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11425
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -2285,6 +2427,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11426
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -2301,6 +2444,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11427
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -2317,6 +2461,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11428
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -2333,6 +2478,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11429
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
@@ -2349,6 +2495,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11430
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -2365,6 +2512,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11439
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.10
 - Class: 2
 - Language: et
@@ -2381,6 +2529,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11440
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.11
 - Class: 2
 - Language: et
@@ -2397,6 +2546,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11441
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.12
 - Class: 2
 - Language: et
@@ -2413,6 +2563,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11442
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.13
 - Class: 2
 - Language: et
@@ -2429,6 +2580,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11443
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.14
 - Class: 2
 - Language: et
@@ -2445,6 +2597,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11444
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.15
 - Class: 2
 - Language: et
@@ -2461,6 +2614,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11445
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.16
 - Class: 2
 - Language: et
@@ -2477,6 +2631,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11446
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.17
 - Class: 2
 - Language: et
@@ -2493,6 +2648,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11447
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.18
 - Class: 2
 - Language: et
@@ -2509,6 +2665,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11448
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.19
 - Class: 2
 - Language: et
@@ -2525,6 +2682,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11431
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -2541,6 +2699,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11432
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
@@ -2557,6 +2716,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11433
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.4
 - Class: 2
 - Language: et
@@ -2573,6 +2733,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11434
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.5
 - Class: 2
 - Language: et
@@ -2589,6 +2750,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11435
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.6
 - Class: 2
 - Language: et
@@ -2605,6 +2767,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11436
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.7
 - Class: 2
 - Language: et
@@ -2621,6 +2784,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11437
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.8
 - Class: 2
 - Language: et
@@ -2637,6 +2801,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11438
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 6.9
 - Class: 2
 - Language: et
@@ -2653,6 +2818,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11449
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.1
 - Class: 2
 - Language: et
@@ -2669,6 +2835,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11458
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.10
 - Class: 2
 - Language: et
@@ -2685,6 +2852,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11450
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.2
 - Class: 2
 - Language: et
@@ -2701,6 +2869,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11451
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.3
 - Class: 2
 - Language: et
@@ -2717,6 +2886,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11452
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.4
 - Class: 2
 - Language: et
@@ -2733,6 +2903,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11453
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.5
 - Class: 2
 - Language: et
@@ -2749,6 +2920,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11454
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.6
 - Class: 2
 - Language: et
@@ -2765,6 +2937,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11455
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.7
 - Class: 2
 - Language: et
@@ -2781,6 +2954,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11456
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.8
 - Class: 2
 - Language: et
@@ -2797,6 +2971,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/200/chapter/11457
 - Book: Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid
 - Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+- Source Book ID: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
 - Chapter ID: 7.9
 - Class: 2
 - Language: et
@@ -2813,6 +2988,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20257
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -2829,6 +3005,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20266
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.10
 - Class: 2
 - Language: ru
@@ -2845,6 +3022,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20267
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.11
 - Class: 2
 - Language: ru
@@ -2861,6 +3039,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20268
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.12
 - Class: 2
 - Language: ru
@@ -2877,6 +3056,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20269
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.13
 - Class: 2
 - Language: ru
@@ -2893,6 +3073,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20270
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.14
 - Class: 2
 - Language: ru
@@ -2909,6 +3090,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20271
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.15
 - Class: 2
 - Language: ru
@@ -2925,6 +3107,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20272
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.16
 - Class: 2
 - Language: ru
@@ -2941,6 +3124,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20273
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.17
 - Class: 2
 - Language: ru
@@ -2957,6 +3141,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20274
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.18
 - Class: 2
 - Language: ru
@@ -2973,6 +3158,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20275
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.19
 - Class: 2
 - Language: ru
@@ -2989,6 +3175,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20258
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.2
 - Class: 2
 - Language: ru
@@ -3005,6 +3192,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20276
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.20
 - Class: 2
 - Language: ru
@@ -3021,6 +3209,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20277
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.21
 - Class: 2
 - Language: ru
@@ -3037,6 +3226,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20259
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.3
 - Class: 2
 - Language: ru
@@ -3053,6 +3243,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20260
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.4
 - Class: 2
 - Language: ru
@@ -3069,6 +3260,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20261
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.5
 - Class: 2
 - Language: ru
@@ -3085,6 +3277,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20262
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.6
 - Class: 2
 - Language: ru
@@ -3101,6 +3294,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20263
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.7
 - Class: 2
 - Language: ru
@@ -3117,6 +3311,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20264
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.8
 - Class: 2
 - Language: ru
@@ -3133,6 +3328,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20265
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 1.9
 - Class: 2
 - Language: ru
@@ -3149,6 +3345,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20278
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -3165,6 +3362,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20287
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.10
 - Class: 2
 - Language: ru
@@ -3181,6 +3379,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20288
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.11
 - Class: 2
 - Language: ru
@@ -3197,6 +3396,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20289
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.12
 - Class: 2
 - Language: ru
@@ -3213,6 +3413,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20290
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.13
 - Class: 2
 - Language: ru
@@ -3229,6 +3430,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20291
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.14
 - Class: 2
 - Language: ru
@@ -3245,6 +3447,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20292
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.15
 - Class: 2
 - Language: ru
@@ -3261,6 +3464,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20293
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.16
 - Class: 2
 - Language: ru
@@ -3277,6 +3481,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20294
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.17
 - Class: 2
 - Language: ru
@@ -3293,6 +3498,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20295
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.18
 - Class: 2
 - Language: ru
@@ -3309,6 +3515,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20296
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.19
 - Class: 2
 - Language: ru
@@ -3325,6 +3532,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20279
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -3341,6 +3549,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20280
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.3
 - Class: 2
 - Language: ru
@@ -3357,6 +3566,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20281
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.4
 - Class: 2
 - Language: ru
@@ -3373,6 +3583,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20282
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.5
 - Class: 2
 - Language: ru
@@ -3389,6 +3600,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20283
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.6
 - Class: 2
 - Language: ru
@@ -3405,6 +3617,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20284
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.7
 - Class: 2
 - Language: ru
@@ -3421,6 +3634,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20285
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.8
 - Class: 2
 - Language: ru
@@ -3437,6 +3651,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20286
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 2.9
 - Class: 2
 - Language: ru
@@ -3453,6 +3668,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20297
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -3469,6 +3685,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20306
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.10
 - Class: 2
 - Language: ru
@@ -3485,6 +3702,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20307
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.11
 - Class: 2
 - Language: ru
@@ -3501,6 +3719,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20308
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.12
 - Class: 2
 - Language: ru
@@ -3517,6 +3736,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20309
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.13
 - Class: 2
 - Language: ru
@@ -3533,6 +3753,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20310
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.14
 - Class: 2
 - Language: ru
@@ -3549,6 +3770,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20311
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.15
 - Class: 2
 - Language: ru
@@ -3565,6 +3787,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20312
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.16
 - Class: 2
 - Language: ru
@@ -3581,6 +3804,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20313
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.17
 - Class: 2
 - Language: ru
@@ -3597,6 +3821,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20314
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.18
 - Class: 2
 - Language: ru
@@ -3613,6 +3838,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20315
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.19
 - Class: 2
 - Language: ru
@@ -3629,6 +3855,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20298
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.2
 - Class: 2
 - Language: ru
@@ -3645,6 +3872,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20316
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.20
 - Class: 2
 - Language: ru
@@ -3661,6 +3889,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20317
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.21
 - Class: 2
 - Language: ru
@@ -3677,6 +3906,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20318
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.22
 - Class: 2
 - Language: ru
@@ -3693,6 +3923,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20319
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.23
 - Class: 2
 - Language: ru
@@ -3709,6 +3940,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20320
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.24
 - Class: 2
 - Language: ru
@@ -3725,6 +3957,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20321
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.25
 - Class: 2
 - Language: ru
@@ -3741,6 +3974,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20322
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.26
 - Class: 2
 - Language: ru
@@ -3757,6 +3991,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20323
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.27
 - Class: 2
 - Language: ru
@@ -3773,6 +4008,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20324
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.28
 - Class: 2
 - Language: ru
@@ -3789,6 +4025,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20325
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.29
 - Class: 2
 - Language: ru
@@ -3805,6 +4042,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20299
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.3
 - Class: 2
 - Language: ru
@@ -3821,6 +4059,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20326
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.30
 - Class: 2
 - Language: ru
@@ -3837,6 +4076,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20327
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.31
 - Class: 2
 - Language: ru
@@ -3853,6 +4093,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20328
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.32
 - Class: 2
 - Language: ru
@@ -3869,6 +4110,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20300
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.4
 - Class: 2
 - Language: ru
@@ -3885,6 +4127,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20301
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.5
 - Class: 2
 - Language: ru
@@ -3901,6 +4144,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20302
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.6
 - Class: 2
 - Language: ru
@@ -3917,6 +4161,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20303
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.7
 - Class: 2
 - Language: ru
@@ -3933,6 +4178,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20304
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.8
 - Class: 2
 - Language: ru
@@ -3949,6 +4195,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20305
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 3.9
 - Class: 2
 - Language: ru
@@ -3965,6 +4212,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20329
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.1
 - Class: 2
 - Language: ru
@@ -3981,6 +4229,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20338
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.10
 - Class: 2
 - Language: ru
@@ -3997,6 +4246,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20339
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.11
 - Class: 2
 - Language: ru
@@ -4013,6 +4263,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20340
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.12
 - Class: 2
 - Language: ru
@@ -4029,6 +4280,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20341
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.13
 - Class: 2
 - Language: ru
@@ -4045,6 +4297,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20342
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.14
 - Class: 2
 - Language: ru
@@ -4061,6 +4314,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20343
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.15
 - Class: 2
 - Language: ru
@@ -4077,6 +4331,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20344
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.16
 - Class: 2
 - Language: ru
@@ -4093,6 +4348,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20345
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.17
 - Class: 2
 - Language: ru
@@ -4109,6 +4365,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20330
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.2
 - Class: 2
 - Language: ru
@@ -4125,6 +4382,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20331
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.3
 - Class: 2
 - Language: ru
@@ -4141,6 +4399,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20332
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.4
 - Class: 2
 - Language: ru
@@ -4157,6 +4416,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20333
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.5
 - Class: 2
 - Language: ru
@@ -4173,6 +4433,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20334
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.6
 - Class: 2
 - Language: ru
@@ -4189,6 +4450,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20335
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.7
 - Class: 2
 - Language: ru
@@ -4205,6 +4467,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20336
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.8
 - Class: 2
 - Language: ru
@@ -4221,6 +4484,7 @@ Use this file to answer grade 2 arts-and-crafts requests only. Match queries aga
 - URL: https://www.opiq.ee/kit/371/chapter/20337
 - Book: Трудовое обучение и искусство. 2 часть
 - Book ID: трудовое_обучение_и_искусство._2_часть
+- Source Book ID: трудовое_обучение_и_искусство._2_часть
 - Chapter ID: 4.9
 - Class: 2
 - Language: ru

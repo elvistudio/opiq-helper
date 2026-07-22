@@ -6,21 +6,21 @@
   "format_version": "2.0",
   "generation": {
     "status": "generated",
-    "generated_at": "2026-07-22T11:01:28.501Z",
+    "generated_at": "2026-07-22T06:41:31.773Z",
     "generator": "scripts/generate-grade-2-source-indexes.mjs",
-    "generator_version": "1.3",
-    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "c74f484260d9e3a5504367cb89d42c456598015f3a4b40f2162b1888d8c5de5d",
-    "output_file_sha256": "1b221fa1bc0e5086c8fa75cf3ffd007ceb50f2e6170c4c1bfd703e481f7ad9c2"
+    "output_file_sha256": "01f6f541d9a288ce4bd0bac19c8546a2e5216fe8de9ae40d8135ac886cf2604d"
   },
   "source_records": 155,
   "page_records_included": 31,
   "cover_detail_records_excluded": 12,
   "administrative_records_excluded": 0,
-  "mixed_subject_page_records_excluded": 0,
-  "out_of_scope_page_records_excluded": 102,
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 102,
   "grades": {
     "2": 31
   },
@@ -29,6 +29,10 @@
   },
   "books": {
     "kodutütarde_i_järk_(2026)": 31
+  },
+  "source_books": {
+    "kaitseliit_kodutütard_2_et": 10,
+    "kodutütarde_i_järk_(2026)": 21
   },
   "kits": {
     "593": 31
@@ -372,37 +376,6 @@
       "source_subject": "mathematics / matemaatika / математика",
       "canonical_subject": "Kodututred training / Kodutütarde väljaõpe / подготовка Kodututred",
       "decision": "correct_automatic_subject_label"
-    }
-  ],
-  "language_normalization_records": 4,
-  "language_normalization_audit": [
-    {
-      "source_position": 23,
-      "url": "https://www.opiq.ee/kit/593/chapter/33605",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
-    },
-    {
-      "source_position": 112,
-      "url": "https://www.opiq.ee/kit/593/chapter/33600",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
-    },
-    {
-      "source_position": 116,
-      "url": "https://www.opiq.ee/kit/593/chapter/33604",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
-    },
-    {
-      "source_position": 117,
-      "url": "https://www.opiq.ee/kit/593/chapter/33605",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
     }
   ],
   "duplicate_url_audit": {
@@ -1065,41 +1038,33 @@
     ]
   },
   "excluded_book_audit": [],
-  "source_scope_exclusion_audit": [
-    {
-      "kit": "231",
-      "source_page_records_excluded": 27,
-      "reason": "Koduõpe contains mixed teaching examples explicitly labelled for grades 1–9 and requires a separate multi-grade route design."
-    },
-    {
-      "kit": "357",
-      "source_page_records_excluded": 48,
-      "reason": "Kodutütarde VI järk is a different progression level and is outside the requested I järk route."
-    },
-    {
-      "kit": "594",
-      "source_page_records_excluded": 27,
-      "reason": "Noorte Kotkaste I järk is routed separately so the two youth organisations remain distinguishable."
-    }
-  ],
   "book_id_language_suffix_anomalies": [],
   "book_metadata_audit": {
     "kodutütarde_i_järk_(2026)": {
       "title": "Kodutütarde I järk (2026)",
+      "source_book_id": "kaitseliit_kodutütard_2_et",
       "publisher": "Kaitseliit",
       "language": "et",
       "kits": [
         "593"
       ],
       "page_records": 31,
-      "programme_type": "supplementary"
+      "programme_type": "supplementary",
+      "title_evidence": "cover_detail and duplicate content audit"
     }
   },
   "metadata_limitations": [
-    "The archive repeats ten kit 593 instructional URLs under two source Book IDs; one canonical record is retained per URL.",
-    "Three unique Estonian pages are automatically labelled as English; canonical language is normalized from source book and page content evidence.",
-    "The route is supplementary youth-organisation training, not an official school-subject curriculum map."
+    "Ten instructional URLs are repeated under two source Book IDs; identical records are deduplicated by URL.",
+    "Three Estonian pages are automatically labelled English and normalized from book and page evidence.",
+    "This is supplementary youth-organisation training, not ordinary school curriculum."
   ],
+  "source_scope": {
+    "included_kit_ids": [
+      "593"
+    ],
+    "source_records_out_of_scope": 102,
+    "decision": "exact_kit_scope"
+  },
   "records_without_headings": 0,
   "missing_urls": 0,
   "archive_index": {

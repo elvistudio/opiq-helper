@@ -14,18 +14,13 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - Page records included: 31
 - Cover/detail records excluded: 12
 - Administrative records excluded: 0
-- Duplicate source URL groups: 38; cover duplicates were excluded and repeated instructional URLs were deduplicated
-- Mixed-subject page records excluded: 0
-- Out-of-scope page records excluded: 102
+- Duplicate source URL groups: 38; canonical duplicates are removed only after exact content checks
+- Subject-boundary page records excluded: 0
+- Out-of-scope instructional records excluded: 102
 - Curriculum coverage: not verified
 
 ## Books
-- `kodutütarde_i_järk_(2026)` — Kodutütarde I järk (2026); Kaitseliit; language et; kit 593; 31 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
-
-## Source-scope exclusions
-- Kit 231: 27 source page records excluded. Koduõpe contains mixed teaching examples explicitly labelled for grades 1–9 and requires a separate multi-grade route design.
-- Kit 357: 48 source page records excluded. Kodutütarde VI järk is a different progression level and is outside the requested I järk route.
-- Kit 594: 27 source page records excluded. Noorte Kotkaste I järk is routed separately so the two youth organisations remain distinguishable.
+- `kodutütarde_i_järk_(2026)` — Kodutütarde I järk (2026); Source Book ID `kaitseliit_kodutütard_2_et`; Kaitseliit; language et; kit 593; 31 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
 
 ## Pages
 
@@ -33,6 +28,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33595
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -49,6 +45,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33599
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -65,6 +62,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33597
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -81,6 +79,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33598
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -97,6 +96,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33605
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -113,6 +113,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33608
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -129,6 +130,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33609
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -145,6 +147,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33610
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -161,6 +164,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33611
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -177,6 +181,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33617
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kaitseliit_kodutütard_2_et
 - Chapter ID: 8.1
 - Class: 2
 - Language: et
@@ -193,6 +198,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33587
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -209,6 +215,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33588
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -225,6 +232,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33589
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -241,6 +249,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33590
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -257,6 +266,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33591
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -273,6 +283,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33592
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -289,6 +300,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33593
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -305,6 +317,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33594
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -321,6 +334,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33596
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -337,6 +351,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33600
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -353,6 +368,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33601
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -369,6 +385,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33602
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -385,6 +402,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33603
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -401,6 +419,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33604
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -417,6 +436,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33606
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -433,6 +453,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33607
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -449,6 +470,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33612
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -465,6 +487,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33613
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -481,6 +504,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33614
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -497,6 +521,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33615
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -513,6 +538,7 @@ Use this file to answer grade 2 Kodututred training requests only. Match queries
 - URL: https://www.opiq.ee/kit/593/chapter/33616
 - Book: Kodutütarde I järk (2026)
 - Book ID: kodutütarde_i_järk_(2026)
+- Source Book ID: kodutütarde_i_järk_(2026)
 - Chapter ID: 7.1
 - Class: 2
 - Language: et

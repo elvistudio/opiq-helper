@@ -1,0 +1,748 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-2-estonian-second-language",
+  "source_archive": "project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip",
+  "output_file": "project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-18T18:19:09.990Z",
+    "generator": "scripts/generate-grade-2-source-indexes.mjs",
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
+  },
+  "checksums": {
+    "source_archive_sha256": "44a048b881e36c4f28e46968f8fa1c04df1121edf8381aa45235d3173d694016",
+    "output_file_sha256": "0c830c870e4108270d25c70a1210c7681be8bfcdce5356fd6f178bc0c6df9308"
+  },
+  "source_records": 454,
+  "page_records_included": 72,
+  "cover_detail_records_excluded": 9,
+  "administrative_records_excluded": 1,
+  "subject_boundary_page_records_excluded": 372,
+  "out_of_scope_records_excluded": 0,
+  "grades": {
+    "2": 72
+  },
+  "languages": {
+    "et": 72
+  },
+  "books": {
+    "koolibri_koos_on_lõ_2_et": 72
+  },
+  "source_books": {
+    "koolibri_koos_on_lõ_2_et": 72
+  },
+  "kits": {
+    "129": 72
+  },
+  "programme_types": {
+    "ordinary_curriculum": 72
+  },
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 454
+  },
+  "canonical_subject_counts": {
+    "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык": 72
+  },
+  "subject_normalization_records": 72,
+  "subject_normalization_audit": [
+    {
+      "source_position": 340,
+      "url": "https://www.opiq.ee/kit/129/chapter/6944",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 341,
+      "url": "https://www.opiq.ee/kit/129/chapter/6937",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 342,
+      "url": "https://www.opiq.ee/kit/129/chapter/6938",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 343,
+      "url": "https://www.opiq.ee/kit/129/chapter/6939",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 344,
+      "url": "https://www.opiq.ee/kit/129/chapter/6940",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 345,
+      "url": "https://www.opiq.ee/kit/129/chapter/6941",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 346,
+      "url": "https://www.opiq.ee/kit/129/chapter/6942",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 347,
+      "url": "https://www.opiq.ee/kit/129/chapter/6943",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 348,
+      "url": "https://www.opiq.ee/kit/129/chapter/6945",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 349,
+      "url": "https://www.opiq.ee/kit/129/chapter/6946",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 350,
+      "url": "https://www.opiq.ee/kit/129/chapter/6947",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 351,
+      "url": "https://www.opiq.ee/kit/129/chapter/6948",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 352,
+      "url": "https://www.opiq.ee/kit/129/chapter/6949",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 353,
+      "url": "https://www.opiq.ee/kit/129/chapter/6950",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 354,
+      "url": "https://www.opiq.ee/kit/129/chapter/6951",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 355,
+      "url": "https://www.opiq.ee/kit/129/chapter/6952",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 356,
+      "url": "https://www.opiq.ee/kit/129/chapter/6953",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 357,
+      "url": "https://www.opiq.ee/kit/129/chapter/6954",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 358,
+      "url": "https://www.opiq.ee/kit/129/chapter/6955",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 359,
+      "url": "https://www.opiq.ee/kit/129/chapter/6956",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 360,
+      "url": "https://www.opiq.ee/kit/129/chapter/6957",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 361,
+      "url": "https://www.opiq.ee/kit/129/chapter/6958",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 362,
+      "url": "https://www.opiq.ee/kit/129/chapter/6959",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 363,
+      "url": "https://www.opiq.ee/kit/129/chapter/6960",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 364,
+      "url": "https://www.opiq.ee/kit/129/chapter/6961",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 365,
+      "url": "https://www.opiq.ee/kit/129/chapter/6962",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 366,
+      "url": "https://www.opiq.ee/kit/129/chapter/6963",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 367,
+      "url": "https://www.opiq.ee/kit/129/chapter/6964",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 368,
+      "url": "https://www.opiq.ee/kit/129/chapter/6965",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 369,
+      "url": "https://www.opiq.ee/kit/129/chapter/6966",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 370,
+      "url": "https://www.opiq.ee/kit/129/chapter/6967",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 371,
+      "url": "https://www.opiq.ee/kit/129/chapter/6968",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 372,
+      "url": "https://www.opiq.ee/kit/129/chapter/6977",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 373,
+      "url": "https://www.opiq.ee/kit/129/chapter/6969",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 374,
+      "url": "https://www.opiq.ee/kit/129/chapter/6970",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 375,
+      "url": "https://www.opiq.ee/kit/129/chapter/6971",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 376,
+      "url": "https://www.opiq.ee/kit/129/chapter/6972",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 377,
+      "url": "https://www.opiq.ee/kit/129/chapter/6973",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 378,
+      "url": "https://www.opiq.ee/kit/129/chapter/6974",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 379,
+      "url": "https://www.opiq.ee/kit/129/chapter/6975",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 380,
+      "url": "https://www.opiq.ee/kit/129/chapter/6976",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 381,
+      "url": "https://www.opiq.ee/kit/129/chapter/6978",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 382,
+      "url": "https://www.opiq.ee/kit/129/chapter/6987",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 383,
+      "url": "https://www.opiq.ee/kit/129/chapter/6979",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 384,
+      "url": "https://www.opiq.ee/kit/129/chapter/6980",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 385,
+      "url": "https://www.opiq.ee/kit/129/chapter/6981",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 386,
+      "url": "https://www.opiq.ee/kit/129/chapter/6982",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 387,
+      "url": "https://www.opiq.ee/kit/129/chapter/6983",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 388,
+      "url": "https://www.opiq.ee/kit/129/chapter/6984",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 389,
+      "url": "https://www.opiq.ee/kit/129/chapter/6985",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 390,
+      "url": "https://www.opiq.ee/kit/129/chapter/6986",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 391,
+      "url": "https://www.opiq.ee/kit/129/chapter/6988",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 392,
+      "url": "https://www.opiq.ee/kit/129/chapter/6997",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 393,
+      "url": "https://www.opiq.ee/kit/129/chapter/6989",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 394,
+      "url": "https://www.opiq.ee/kit/129/chapter/6990",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 395,
+      "url": "https://www.opiq.ee/kit/129/chapter/6991",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 396,
+      "url": "https://www.opiq.ee/kit/129/chapter/6992",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 397,
+      "url": "https://www.opiq.ee/kit/129/chapter/6993",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 398,
+      "url": "https://www.opiq.ee/kit/129/chapter/6994",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 399,
+      "url": "https://www.opiq.ee/kit/129/chapter/6995",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 400,
+      "url": "https://www.opiq.ee/kit/129/chapter/6996",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 401,
+      "url": "https://www.opiq.ee/kit/129/chapter/6998",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 402,
+      "url": "https://www.opiq.ee/kit/129/chapter/7007",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 403,
+      "url": "https://www.opiq.ee/kit/129/chapter/6999",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 404,
+      "url": "https://www.opiq.ee/kit/129/chapter/7000",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 405,
+      "url": "https://www.opiq.ee/kit/129/chapter/7001",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 406,
+      "url": "https://www.opiq.ee/kit/129/chapter/7002",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 407,
+      "url": "https://www.opiq.ee/kit/129/chapter/7003",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 408,
+      "url": "https://www.opiq.ee/kit/129/chapter/7004",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 409,
+      "url": "https://www.opiq.ee/kit/129/chapter/7005",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 410,
+      "url": "https://www.opiq.ee/kit/129/chapter/7006",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 411,
+      "url": "https://www.opiq.ee/kit/129/chapter/7008",
+      "book_id": "koolibri_koos_on_lõ_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "Estonian as a second language / eesti keel teise keelena / эстонский как второй язык",
+      "decision": "correct_automatic_subject_label"
+    }
+  ],
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 4,
+    "source_duplicate_records": 5,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/232",
+        "source_positions": [
+          1,
+          2
+        ],
+        "book_ids": [
+          "avita_eesti_keel_2_et"
+        ],
+        "chapter_ids": [
+          "1",
+          "152"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/118",
+        "source_positions": [
+          153,
+          154,
+          155
+        ],
+        "book_ids": [
+          "koolibri_ilus_emake_2_et"
+        ],
+        "chapter_ids": [
+          "153",
+          "154",
+          "337"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/129",
+        "source_positions": [
+          338,
+          339
+        ],
+        "book_ids": [
+          "koolibri_koos_on_lõ_2_et"
+        ],
+        "chapter_ids": [
+          "338",
+          "411"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/458",
+        "source_positions": [
+          412,
+          413
+        ],
+        "book_ids": [
+          "koolibri_mina_loen__2_et"
+        ],
+        "chapter_ids": [
+          "412",
+          "454"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      }
+    ]
+  },
+  "excluded_book_audit": [
+    {
+      "book_id": "avita_eesti_keel_2_et",
+      "source_records": 152,
+      "page_records_excluded": 149,
+      "reason": "Eesti keele õpik 2. klassile belongs to first-language Estonian."
+    },
+    {
+      "book_id": "koolibri_ilus_emake_2_et",
+      "source_records": 185,
+      "page_records_excluded": 182,
+      "reason": "This book belongs to first-language Estonian."
+    },
+    {
+      "book_id": "koolibri_mina_loen__2_et",
+      "source_records": 43,
+      "page_records_excluded": 41,
+      "reason": "Mina loen ja kirjutan 2 belongs to first-language Estonian."
+    }
+  ],
+  "book_id_language_suffix_anomalies": [],
+  "book_metadata_audit": {
+    "koolibri_koos_on_lõ_2_et": {
+      "title": "Koos on lõbus. Janno jutud",
+      "source_book_id": "koolibri_koos_on_lõ_2_et",
+      "publisher": "Koolibri",
+      "language": "et",
+      "kits": [
+        "129"
+      ],
+      "page_records": 72,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    }
+  },
+  "metadata_limitations": [],
+  "route_partition": {
+    "paired_source_id": "grade-2-estonian",
+    "expected_union_page_records": 444,
+    "canonical_overlap_urls": 0
+  },
+  "records_without_headings": 0,
+  "missing_urls": 0,
+  "archive_index": {
+    "generated_at": "2026-07-18T18:19:09.990Z",
+    "raw_archive_included": true,
+    "declared_books": 4
+  }
+}

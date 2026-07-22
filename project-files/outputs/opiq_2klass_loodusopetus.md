@@ -4,28 +4,31 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ## Source Summary
 - Source archive: `project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip`
+- Additional source archive: `project-files/inputs/final-zips/opiq_2klass_minu_vaike_kallis_planeet_v2.zip` (supplementary_book_capture)
 - Format version: 2.0
 - Class: 2
 - Subject ET: loodusõpetus
 - Subject RU: природоведение
 - Subject EN: science
 - Page languages: Estonian, Russian
-- Source records: 428
-- Page records included: 286
-- Cover/detail records excluded: 18
-- Administrative records excluded: 5
-- Duplicate source URL groups: 9; all were excluded kit-detail records
-- Mixed-subject page records excluded: 119
+- Source records: 458
+- Page records included: 313
+- Cover/detail records excluded: 20
+- Administrative records excluded: 6
+- Duplicate source URL groups: 10; canonical duplicates are removed only after exact content checks
+- Subject-boundary page records excluded: 119
+- Out-of-scope instructional records excluded: 0
 - Curriculum coverage: not verified
 
 ## Books
-- `avita_loodusõpet_2_et` — Loodusõpetus 2. klassile (2022); Avita; language et; kit 379; 27 pages; ordinary curriculum.
-- `avita_природовед_2_ru` — Природоведение для 2 класса; Avita; language ru; kit 570; 23 pages; ordinary curriculum.
-- `koolibri_loodusõpet_2_et` — Loodusõpetus 2. klassile; Koolibri; language et; kit 121; 64 pages; ordinary curriculum.
-- `koolibri_природове_2_ru` — Природоведение 2 клacc; Koolibri; language ru; kit 132; 67 pages; ordinary curriculum.
-- `ministeerium_loodusõpet_2_et` — Loodusõpetus 2. klassile. Lihtsustatud õppekava; ministeerium; language et; kit 501; 36 pages; simplified curriculum; use only with explicit labelling.
-- `skriibus_loodusõpet_2_et` — Loodusõpetuse tööraamat 2. klassile; Skriibus; language et; kit 387; 28 pages; ordinary curriculum.
-- `star cloud_loodusõpet_2_et` — Loodusõpetuse õppevideod 1. kooliastmele; Star Cloud; language et; kit 384; 41 pages; ordinary curriculum.
+- `avita_loodusõpet_2_et` — Loodusõpetus 2. klassile (2022); Source Book ID `avita_loodusõpet_2_et`; Avita; language et; kit 379; 27 pages; ordinary curriculum.
+- `avita_minu_väike_2_et` — Minu väike kallis planeet 2 klass; Source Book ID `avita_minu_väike_2_et`; Avita; language et; kit 330; 27 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
+- `avita_природовед_2_ru` — Природоведение для 2 класса; Source Book ID `avita_природовед_2_ru`; Avita; language ru; kit 570; 23 pages; ordinary curriculum.
+- `koolibri_loodusõpet_2_et` — Loodusõpetus 2. klassile; Source Book ID `koolibri_loodusõpet_2_et`; Koolibri; language et; kit 121; 64 pages; ordinary curriculum.
+- `koolibri_природове_2_ru` — Природоведение 2 класс; Source Book ID `koolibri_природове_2_ru`; Koolibri; language ru; kit 132; 67 pages; ordinary curriculum.
+- `ministeerium_loodusõpet_2_et` — Loodusõpetus 2. klassile. Lihtsustatud õppekava; Source Book ID `ministeerium_loodusõpet_2_et`; Ministeerium; language et; kit 501; 36 pages; simplified curriculum; use only with explicit labelling.
+- `skriibus_loodusõpet_2_et` — Loodusõpetuse tööraamat 2. klassile; Source Book ID `skriibus_loodusõpet_2_et`; Skriibus; language et; kit 387; 28 pages; ordinary curriculum.
+- `star cloud_loodusõpet_2_et` — Loodusõpetuse õppevideod 1. kooliastmele; Source Book ID `star cloud_loodusõpet_2_et`; Star Cloud; language et; kit 384; 41 pages; ordinary curriculum.
 
 ## Subject-boundary exclusions
 - `avita_loodus-_ja_2_et`: 59 instructional pages excluded. Mixed loodus- ja inimeseõpetus book; its Estonian pages are already routed through grade-2-human-studies.
@@ -37,6 +40,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20574
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -53,6 +57,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20575
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -69,6 +74,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20584
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -85,6 +91,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20585
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -101,6 +108,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20586
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -117,6 +125,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20587
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.13
 - Class: 2
 - Language: et
@@ -133,6 +142,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20590
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.14
 - Class: 2
 - Language: et
@@ -149,6 +159,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20588
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.15
 - Class: 2
 - Language: et
@@ -165,6 +176,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20589
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.16
 - Class: 2
 - Language: et
@@ -181,6 +193,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20591
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.17
 - Class: 2
 - Language: et
@@ -197,6 +210,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20592
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.18
 - Class: 2
 - Language: et
@@ -213,6 +227,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20593
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.19
 - Class: 2
 - Language: et
@@ -229,6 +244,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20576
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -245,6 +261,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20594
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.20
 - Class: 2
 - Language: et
@@ -261,6 +278,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20595
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.21
 - Class: 2
 - Language: et
@@ -277,6 +295,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20596
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.22
 - Class: 2
 - Language: et
@@ -293,6 +312,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20597
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.23
 - Class: 2
 - Language: et
@@ -309,6 +329,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20598
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.24
 - Class: 2
 - Language: et
@@ -325,6 +346,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20599
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.25
 - Class: 2
 - Language: et
@@ -341,6 +363,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20600
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.26
 - Class: 2
 - Language: et
@@ -357,6 +380,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20577
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -373,6 +397,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20578
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -389,6 +414,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20579
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -405,6 +431,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20580
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -421,6 +448,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20581
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -437,6 +465,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20582
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -453,6 +482,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/379/chapter/20583
 - Book: Loodusõpetus 2. klassile (2022)
 - Book ID: avita_loodusõpet_2_et
+- Source Book ID: avita_loodusõpet_2_et
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -469,6 +499,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31841
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -485,6 +516,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31842
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -501,6 +533,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/32086
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.10
 - Class: 2
 - Language: ru
@@ -517,6 +550,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/32087
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.11
 - Class: 2
 - Language: ru
@@ -533,6 +567,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/32088
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.12
 - Class: 2
 - Language: ru
@@ -549,6 +584,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/32089
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.13
 - Class: 2
 - Language: ru
@@ -565,6 +601,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33143
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.14
 - Class: 2
 - Language: ru
@@ -581,6 +618,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33144
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.15
 - Class: 2
 - Language: ru
@@ -597,6 +635,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33145
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.16
 - Class: 2
 - Language: ru
@@ -613,6 +652,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33146
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.17
 - Class: 2
 - Language: ru
@@ -629,6 +669,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33147
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.18
 - Class: 2
 - Language: ru
@@ -645,6 +686,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33148
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.19
 - Class: 2
 - Language: ru
@@ -661,6 +703,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31843
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -677,6 +720,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/33149
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.20
 - Class: 2
 - Language: ru
@@ -693,6 +737,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31844
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.3
 - Class: 2
 - Language: ru
@@ -709,6 +754,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31845
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.4
 - Class: 2
 - Language: ru
@@ -725,6 +771,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31846
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.5
 - Class: 2
 - Language: ru
@@ -741,6 +788,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31847
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.6
 - Class: 2
 - Language: ru
@@ -757,6 +805,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31848
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.7
 - Class: 2
 - Language: ru
@@ -773,6 +822,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/32084
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.8
 - Class: 2
 - Language: ru
@@ -789,6 +839,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/32085
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 2.9
 - Class: 2
 - Language: ru
@@ -805,6 +856,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31849
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -821,6 +873,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/570/chapter/31850
 - Book: Природоведение для 2 класса
 - Book ID: avita_природовед_2_ru
+- Source Book ID: avita_природовед_2_ru
 - Chapter ID: 3.2
 - Class: 2
 - Language: ru
@@ -837,6 +890,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6199
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -853,6 +907,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6208
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -869,6 +924,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6209
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -885,6 +941,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6210
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.12
 - Class: 2
 - Language: et
@@ -901,6 +958,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6214
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.13
 - Class: 2
 - Language: et
@@ -917,6 +975,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6215
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.14
 - Class: 2
 - Language: et
@@ -933,6 +992,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6216
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.15
 - Class: 2
 - Language: et
@@ -949,6 +1009,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6200
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -965,6 +1026,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6201
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -981,6 +1043,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6202
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -997,6 +1060,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6203
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -1013,6 +1077,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6204
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -1029,6 +1094,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6205
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -1045,6 +1111,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6206
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -1061,6 +1128,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6207
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -1077,6 +1145,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6217
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -1093,6 +1162,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6226
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -1109,6 +1179,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6227
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -1125,6 +1196,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6228
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -1141,6 +1213,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6229
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.13
 - Class: 2
 - Language: et
@@ -1157,6 +1230,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6230
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.14
 - Class: 2
 - Language: et
@@ -1173,6 +1247,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6231
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.15
 - Class: 2
 - Language: et
@@ -1189,6 +1264,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6232
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.16
 - Class: 2
 - Language: et
@@ -1205,6 +1281,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6233
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.17
 - Class: 2
 - Language: et
@@ -1221,6 +1298,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6218
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -1237,6 +1315,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6219
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -1253,6 +1332,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6220
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -1269,6 +1349,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6221
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -1285,6 +1366,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6222
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -1301,6 +1383,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6223
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -1317,6 +1400,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6224
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -1333,6 +1417,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6225
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -1349,6 +1434,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6234
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -1365,6 +1451,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6235
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -1381,6 +1468,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6236
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -1397,6 +1485,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6237
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -1413,6 +1502,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6238
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -1429,6 +1519,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6239
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -1445,6 +1536,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6240
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.7
 - Class: 2
 - Language: et
@@ -1461,6 +1553,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6241
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 3.8
 - Class: 2
 - Language: et
@@ -1477,6 +1570,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6242
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -1493,6 +1587,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6251
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.10
 - Class: 2
 - Language: et
@@ -1509,6 +1604,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6252
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.11
 - Class: 2
 - Language: et
@@ -1525,6 +1621,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6253
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.12
 - Class: 2
 - Language: et
@@ -1541,6 +1638,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6254
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.13
 - Class: 2
 - Language: et
@@ -1557,6 +1655,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6255
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.14
 - Class: 2
 - Language: et
@@ -1573,6 +1672,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6256
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.15
 - Class: 2
 - Language: et
@@ -1589,6 +1689,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6257
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.16
 - Class: 2
 - Language: et
@@ -1605,6 +1706,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6258
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.17
 - Class: 2
 - Language: et
@@ -1621,6 +1723,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6259
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.18
 - Class: 2
 - Language: et
@@ -1637,6 +1740,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6260
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.19
 - Class: 2
 - Language: et
@@ -1653,6 +1757,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6243
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -1669,6 +1774,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6261
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.20
 - Class: 2
 - Language: et
@@ -1685,6 +1791,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6262
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.21
 - Class: 2
 - Language: et
@@ -1701,6 +1808,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6244
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -1717,6 +1825,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6245
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -1733,6 +1842,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6246
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -1749,6 +1859,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6247
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -1765,6 +1876,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6248
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.7
 - Class: 2
 - Language: et
@@ -1781,6 +1893,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6249
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.8
 - Class: 2
 - Language: et
@@ -1797,6 +1910,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6250
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 4.9
 - Class: 2
 - Language: et
@@ -1813,6 +1927,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6263
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -1829,6 +1944,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6264
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -1845,6 +1961,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/121/chapter/6265
 - Book: Loodusõpetus 2. klassile
 - Book ID: koolibri_loodusõpet_2_et
+- Source Book ID: koolibri_loodusõpet_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -1859,8 +1976,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 115. Растения
 - URL: https://www.opiq.ee/kit/132/chapter/7069
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -1875,8 +1993,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 116. Сорные растения (сорняки)
 - URL: https://www.opiq.ee/kit/132/chapter/7078
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.10
 - Class: 2
 - Language: ru
@@ -1891,8 +2010,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 117. Овощи
 - URL: https://www.opiq.ee/kit/132/chapter/7079
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.11
 - Class: 2
 - Language: ru
@@ -1907,8 +2027,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 118. Водные растения и их отличие от наземных растений
 - URL: https://www.opiq.ee/kit/132/chapter/7080
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.12
 - Class: 2
 - Language: ru
@@ -1923,8 +2044,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 119. Прибрежные растения
 - URL: https://www.opiq.ee/kit/132/chapter/7081
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.13
 - Class: 2
 - Language: ru
@@ -1939,8 +2061,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 120. Донные растения
 - URL: https://www.opiq.ee/kit/132/chapter/7082
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.14
 - Class: 2
 - Language: ru
@@ -1955,8 +2078,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 121. Растения с плавающими листьями и плавающие растения
 - URL: https://www.opiq.ee/kit/132/chapter/7083
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.15
 - Class: 2
 - Language: ru
@@ -1971,8 +2095,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 122. Комнатные растения
 - URL: https://www.opiq.ee/kit/132/chapter/7084
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.16
 - Class: 2
 - Language: ru
@@ -1987,8 +2112,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 123. Повторение темы «Растения»
 - URL: https://www.opiq.ee/kit/132/chapter/7085
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.17
 - Class: 2
 - Language: ru
@@ -2003,8 +2129,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 124. Основные сведения о растениях
 - URL: https://www.opiq.ee/kit/132/chapter/7086
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.18
 - Class: 2
 - Language: ru
@@ -2019,8 +2146,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 125. Наземные растения
 - URL: https://www.opiq.ee/kit/132/chapter/7070
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.2
 - Class: 2
 - Language: ru
@@ -2035,8 +2163,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 126. Внешнее строение растений
 - URL: https://www.opiq.ee/kit/132/chapter/7071
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.3
 - Class: 2
 - Language: ru
@@ -2051,8 +2180,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 127. Деревья
 - URL: https://www.opiq.ee/kit/132/chapter/7072
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.4
 - Class: 2
 - Language: ru
@@ -2067,8 +2197,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 128. Кустарники
 - URL: https://www.opiq.ee/kit/132/chapter/7073
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.5
 - Class: 2
 - Language: ru
@@ -2083,8 +2214,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 129. Ягодные кустарники
 - URL: https://www.opiq.ee/kit/132/chapter/7074
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.6
 - Class: 2
 - Language: ru
@@ -2099,8 +2231,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 130. Травянистые растения
 - URL: https://www.opiq.ee/kit/132/chapter/7075
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.7
 - Class: 2
 - Language: ru
@@ -2115,8 +2248,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 131. Злаки
 - URL: https://www.opiq.ee/kit/132/chapter/7076
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.8
 - Class: 2
 - Language: ru
@@ -2131,8 +2265,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 132. Цветы
 - URL: https://www.opiq.ee/kit/132/chapter/7077
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 1.9
 - Class: 2
 - Language: ru
@@ -2147,8 +2282,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 133. Наземные животные
 - URL: https://www.opiq.ee/kit/132/chapter/7087
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -2163,8 +2299,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 134. Рыбы
 - URL: https://www.opiq.ee/kit/132/chapter/7096
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.10
 - Class: 2
 - Language: ru
@@ -2179,8 +2316,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 135. Другие водные животные
 - URL: https://www.opiq.ee/kit/132/chapter/7097
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.11
 - Class: 2
 - Language: ru
@@ -2195,8 +2333,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 136. Домашние животные
 - URL: https://www.opiq.ee/kit/132/chapter/7098
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.12
 - Class: 2
 - Language: ru
@@ -2211,8 +2350,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 137. Питание животных
 - URL: https://www.opiq.ee/kit/132/chapter/7099
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.13
 - Class: 2
 - Language: ru
@@ -2227,8 +2367,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 138. Рост животных
 - URL: https://www.opiq.ee/kit/132/chapter/7100
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.14
 - Class: 2
 - Language: ru
@@ -2243,8 +2384,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 139. Повторение темы «Животные»
 - URL: https://www.opiq.ee/kit/132/chapter/7101
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.15
 - Class: 2
 - Language: ru
@@ -2259,8 +2401,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 140. Основные сведения о животных
 - URL: https://www.opiq.ee/kit/132/chapter/7102
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.16
 - Class: 2
 - Language: ru
@@ -2275,8 +2418,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 141. Для размышления
 - URL: https://www.opiq.ee/kit/132/chapter/7103
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.17
 - Class: 2
 - Language: ru
@@ -2291,8 +2435,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 142. Внешнее строение животных
 - URL: https://www.opiq.ee/kit/132/chapter/7088
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -2307,8 +2452,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 143. Дикие животные
 - URL: https://www.opiq.ee/kit/132/chapter/7089
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.3
 - Class: 2
 - Language: ru
@@ -2323,8 +2469,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 144. Змеи и ящерицы
 - URL: https://www.opiq.ee/kit/132/chapter/7090
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.4
 - Class: 2
 - Language: ru
@@ -2339,8 +2486,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 145. Земноводные
 - URL: https://www.opiq.ee/kit/132/chapter/7091
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.5
 - Class: 2
 - Language: ru
@@ -2355,8 +2503,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 146. Птицы
 - URL: https://www.opiq.ee/kit/132/chapter/7092
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.6
 - Class: 2
 - Language: ru
@@ -2371,8 +2520,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 147. Наиболее известные птицы
 - URL: https://www.opiq.ee/kit/132/chapter/7093
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.7
 - Class: 2
 - Language: ru
@@ -2387,8 +2537,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 148. Водоплавающие птицы
 - URL: https://www.opiq.ee/kit/132/chapter/7094
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.8
 - Class: 2
 - Language: ru
@@ -2403,8 +2554,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 149. Водные животные и их отличие от наземных животных
 - URL: https://www.opiq.ee/kit/132/chapter/7095
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 2.9
 - Class: 2
 - Language: ru
@@ -2419,8 +2571,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 150. Элементы погоды
 - URL: https://www.opiq.ee/kit/132/chapter/7104
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -2435,8 +2588,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 151. Температура воздуха и её измерение
 - URL: https://www.opiq.ee/kit/132/chapter/7105
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.2
 - Class: 2
 - Language: ru
@@ -2451,8 +2605,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 152. Облачность
 - URL: https://www.opiq.ee/kit/132/chapter/7106
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.3
 - Class: 2
 - Language: ru
@@ -2467,8 +2622,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 153. Осадки
 - URL: https://www.opiq.ee/kit/132/chapter/7107
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.4
 - Class: 2
 - Language: ru
@@ -2483,8 +2639,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 154. Ветер
 - URL: https://www.opiq.ee/kit/132/chapter/7108
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.5
 - Class: 2
 - Language: ru
@@ -2499,8 +2656,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 155. Погодные явления
 - URL: https://www.opiq.ee/kit/132/chapter/7109
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.6
 - Class: 2
 - Language: ru
@@ -2515,8 +2673,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 156. Повторение темы «Погода»
 - URL: https://www.opiq.ee/kit/132/chapter/7110
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.7
 - Class: 2
 - Language: ru
@@ -2531,8 +2690,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 157. Основные сведения о погоде
 - URL: https://www.opiq.ee/kit/132/chapter/7111
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 3.8
 - Class: 2
 - Language: ru
@@ -2547,8 +2707,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 158. Человек
 - URL: https://www.opiq.ee/kit/132/chapter/7112
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.1
 - Class: 2
 - Language: ru
@@ -2563,8 +2724,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 159. Взвешивание
 - URL: https://www.opiq.ee/kit/132/chapter/7121
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.10
 - Class: 2
 - Language: ru
@@ -2579,8 +2741,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 160. Упаковки продуктов
 - URL: https://www.opiq.ee/kit/132/chapter/7122
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.11
 - Class: 2
 - Language: ru
@@ -2595,8 +2758,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 161. Здоровое питание
 - URL: https://www.opiq.ee/kit/132/chapter/7123
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.12
 - Class: 2
 - Language: ru
@@ -2611,8 +2775,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 162. Приём пищи
 - URL: https://www.opiq.ee/kit/132/chapter/7124
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.13
 - Class: 2
 - Language: ru
@@ -2627,8 +2792,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 163. Поведение за столом
 - URL: https://www.opiq.ee/kit/132/chapter/7125
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.14
 - Class: 2
 - Language: ru
@@ -2643,8 +2809,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 164. Уход за телом
 - URL: https://www.opiq.ee/kit/132/chapter/7126
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.15
 - Class: 2
 - Language: ru
@@ -2659,8 +2826,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 165. Отдых
 - URL: https://www.opiq.ee/kit/132/chapter/7127
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.16
 - Class: 2
 - Language: ru
@@ -2675,8 +2843,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 166. Измерение температуры тела
 - URL: https://www.opiq.ee/kit/132/chapter/7128
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.17
 - Class: 2
 - Language: ru
@@ -2691,8 +2860,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 167. Связь человека и природы
 - URL: https://www.opiq.ee/kit/132/chapter/7129
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.18
 - Class: 2
 - Language: ru
@@ -2707,8 +2877,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 168. Различия между жизнью в сельской местности и в городе
 - URL: https://www.opiq.ee/kit/132/chapter/7130
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.19
 - Class: 2
 - Language: ru
@@ -2723,8 +2894,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 169. Наружное строение человека
 - URL: https://www.opiq.ee/kit/132/chapter/7113
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.2
 - Class: 2
 - Language: ru
@@ -2739,8 +2911,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 170. Повторение темы «Человек»
 - URL: https://www.opiq.ee/kit/132/chapter/7131
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.20
 - Class: 2
 - Language: ru
@@ -2755,8 +2928,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 171. Основные сведения о человеке
 - URL: https://www.opiq.ee/kit/132/chapter/7132
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.21
 - Class: 2
 - Language: ru
@@ -2771,8 +2945,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 172. Карта наблюдений за лесом или парком
 - URL: https://www.opiq.ee/kit/132/chapter/7133
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.22
 - Class: 2
 - Language: ru
@@ -2787,8 +2962,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 173. Карта наблюдений за водоёмом
 - URL: https://www.opiq.ee/kit/132/chapter/7134
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.23
 - Class: 2
 - Language: ru
@@ -2803,8 +2979,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 174. Карта наблюдений в заповеднике, зоопарке или на хуторе
 - URL: https://www.opiq.ee/kit/132/chapter/7135
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.24
 - Class: 2
 - Language: ru
@@ -2819,8 +2996,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 175. Туловище
 - URL: https://www.opiq.ee/kit/132/chapter/7114
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.3
 - Class: 2
 - Language: ru
@@ -2835,8 +3013,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 176. Голова
 - URL: https://www.opiq.ee/kit/132/chapter/7115
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.4
 - Class: 2
 - Language: ru
@@ -2851,8 +3030,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 177. Рука
 - URL: https://www.opiq.ee/kit/132/chapter/7116
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.5
 - Class: 2
 - Language: ru
@@ -2867,8 +3047,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 178. Нога
 - URL: https://www.opiq.ee/kit/132/chapter/7117
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.6
 - Class: 2
 - Language: ru
@@ -2883,8 +3064,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 179. Размеры тела
 - URL: https://www.opiq.ee/kit/132/chapter/7118
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.7
 - Class: 2
 - Language: ru
@@ -2899,8 +3081,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 180. Сравнение и измерение роста
 - URL: https://www.opiq.ee/kit/132/chapter/7119
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.8
 - Class: 2
 - Language: ru
@@ -2915,8 +3098,9 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ### 181. Пища и пищевые продукты
 - URL: https://www.opiq.ee/kit/132/chapter/7120
-- Book: Природоведение 2 клacc
+- Book: Природоведение 2 класс
 - Book ID: koolibri_природове_2_ru
+- Source Book ID: koolibri_природове_2_ru
 - Chapter ID: 4.9
 - Class: 2
 - Language: ru
@@ -2933,10 +3117,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27371
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; aeg; kell; kalender; aastaajad; kevad; suvi; sügis; talv; aasta; ajad; aastaaja; nimetus
@@ -2949,10 +3134,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27372
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; aastaajad; kevad; suvi; sügis; talv; vesi; veeohutus; veekogu; taevas; päike; pilved; tuul; muld; pind
@@ -2965,10 +3151,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27373
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loodus; keskkond; aastaajad; kevad; suvi; sügis; talv; kalendrikuu; sügiskuud; muutub; nädalapäevad; päevad; kuud
@@ -2981,10 +3168,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27374
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; taime; osad; aster; tamm; tüvi
@@ -2997,10 +3185,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27375
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; lehtpuud; mets; park; lehtpuu; lehes; raagus; erinevad; koor
@@ -3013,10 +3202,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27376
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; aastaajad; kevad; suvi; sügis; talv; okaspuud; okaspuu; erinevad; koor; okkad; käbid; toit; puud
@@ -3029,10 +3219,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27377
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; viljapuud; puuviljad; puud; aias; viljad; vilja; tekivad; õitest
@@ -3045,10 +3236,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27378
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; inimene; keha; meeled; tervis; marjapõõsad; marjad; põõsas; erinevad; tekivad; õitest; mida
@@ -3061,10 +3253,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27379
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; rohttaimed; lilled; värske; rohi; ristik; hein; roht
@@ -3077,10 +3270,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27380
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; umbrohud; tööd; aias; mihkli; taimedes; vitamiinid; need
@@ -3093,10 +3287,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27381
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; köögiviljad; põld; tomati; kartuli; mida; vajab; kasvamiseks
@@ -3109,10 +3304,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27382
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; koduloomad; toit; kukk; koera; hane; välimuse
@@ -3125,10 +3321,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27383
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; inimene; keha; meeled; tervis; koduloomad; vajalikud; lehm; piim; lammas; vill; hobune; kana
@@ -3141,10 +3338,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27384
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; lemmikloomad; koduloomad; maril; lemmik; mihklil; sinu; kokkuvõte
@@ -3157,10 +3355,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27385
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; aastaajad; kevad; suvi; sügis; talv; talvekuud; aastaaeg; enne; talve; detsember; jaanuar; veebruar
@@ -3173,10 +3372,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27386
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; metsloomad; jänes; kits; põder; jänese; välimus; metskitse
@@ -3189,10 +3389,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27387
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; metsloomad; rebane; hunt; loomade; välimus; hundiga; rebasega; rebase
@@ -3205,10 +3406,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27388
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; metsloomad; karu; metssiga; toit; mets; jahivad; kokkuvõte
@@ -3221,10 +3423,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27389
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; metsloomad; talvel; magavad; söövad; enne; talve; varusid
@@ -3237,10 +3440,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27390
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; inimene; keha; meeled; tervis; lepa; triinu; liblikas; putukal; jalga; mesilane; sipelgas
@@ -3253,10 +3457,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27391
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 4.7
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; ränd; paigalinnud; linnu; kehaosad; lind; putukas; suvel
@@ -3269,10 +3474,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27392
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; loom; loomad; linnud; putukad; hingamine; hingan; hingavad; inimesed; elus; olendid
@@ -3285,10 +3491,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27393
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; inimene; keha; meeled; tervis; paljunemine; koer; kana; tibud; loomapojad; kutsikas; vasikas
@@ -3301,10 +3508,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27394
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; loom; loomad; linnud; putukad; toitumine; inimesed; toituvad; loomapojad; imevad; piima
@@ -3317,10 +3525,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27395
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; loom; loomad; linnud; putukad; inimene; keha; meeled; tervis; kasvamine; arenemine; kasvab; taime; seemned
@@ -3333,10 +3542,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27396
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 5.5
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; loom; loomad; linnud; putukad; liikumine; inimesed; liiguvad; katse; liigutab; kokkuvõte
@@ -3349,10 +3559,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27397
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 5.6
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loodus; keskkond; elus; eluta; kokkuvõte
@@ -3365,10 +3576,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27398
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loodus; keskkond; aastaajad; kevad; suvi; sügis; talv; kevadkuud; kevadel; tähtpäevad; kokkuvõte; tööleht
@@ -3381,10 +3593,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27399
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; aastaajad; kevad; suvi; sügis; talv; puud; põõsad; kevadel; puude; lehed; pungad
@@ -3397,10 +3610,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27400
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; taim; taimed; puu; lill; kevadlilled; lilled; aias; lille; sibul; metsas; heina; maal
@@ -3413,10 +3627,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27401
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.4
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; kevadtööd; tööd; aias; inimesed; vahendid; pilt; tööleht; põllul
@@ -3429,10 +3644,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27402
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.5
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; kevadel; väikesed; roomavad; ärkavad; talve; unest
@@ -3445,10 +3661,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27403
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.6
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; loom; loomad; linnud; putukad; kevadel; rändlinnud; paigalinnud; ehitavad; pesa; lind; asukoht
@@ -3461,10 +3678,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27404
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.7
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; aastaajad; kevad; suvi; sügis; talv; suvekuud; aasta; ajad; enne; suve; erinev; vikerkaar
@@ -3477,10 +3695,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27405
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 6.8
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; kordamine; korda; harjutan; taim; taimed; puu; lill; loom; loomad; linnud; putukad; aastaajad; kevad; suvi; sügis; talv; aasta; aias; ring
@@ -3493,10 +3712,11 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/501/chapter/27406
 - Book: Loodusõpetus 2. klassile. Lihtsustatud õppekava
 - Book ID: ministeerium_loodusõpet_2_et
+- Source Book ID: ministeerium_loodusõpet_2_et
 - Chapter ID: 7.1
 - Class: 2
 - Language: et
-- Publisher: ministeerium
+- Publisher: Ministeerium
 - Subject: science / loodusõpetus / природоведение
 - Programme type: simplified_curriculum
 - Topics ET: loodusõpetus; metoodiline; juhendmaterjal; õpetajale
@@ -3509,6 +3729,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20880
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -3525,6 +3746,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20889
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -3541,6 +3763,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20890
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -3557,6 +3780,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20891
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.12
 - Class: 2
 - Language: et
@@ -3573,6 +3797,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20892
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.13
 - Class: 2
 - Language: et
@@ -3589,6 +3814,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20893
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.14
 - Class: 2
 - Language: et
@@ -3605,6 +3831,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20881
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -3621,6 +3848,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20882
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -3637,6 +3865,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20883
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -3653,6 +3882,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20884
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -3669,6 +3899,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20885
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -3685,6 +3916,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20886
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -3701,6 +3933,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20887
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -3717,6 +3950,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20888
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -3733,6 +3967,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20894
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -3749,6 +3984,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20903
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -3765,6 +4001,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20904
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -3781,6 +4018,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20905
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -3797,6 +4035,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20906
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.13
 - Class: 2
 - Language: et
@@ -3813,6 +4052,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20907
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.14
 - Class: 2
 - Language: et
@@ -3829,6 +4069,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20895
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -3845,6 +4086,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20896
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -3861,6 +4103,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20897
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -3877,6 +4120,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20898
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -3893,6 +4137,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20899
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -3909,6 +4154,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20900
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -3925,6 +4171,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20901
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -3941,6 +4188,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/387/chapter/20902
 - Book: Loodusõpetuse tööraamat 2. klassile
 - Book ID: skriibus_loodusõpet_2_et
+- Source Book ID: skriibus_loodusõpet_2_et
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -3957,6 +4205,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20741
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -3973,6 +4222,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20737
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -3989,6 +4239,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20738
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -4005,6 +4256,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20739
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -4021,6 +4273,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20740
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -4037,6 +4290,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20742
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -4053,6 +4307,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20751
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -4069,6 +4324,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20752
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -4085,6 +4341,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20743
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -4101,6 +4358,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20744
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -4117,6 +4375,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20745
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -4133,6 +4392,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20746
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -4149,6 +4409,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20747
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -4165,6 +4426,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20748
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -4181,6 +4443,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20749
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -4197,6 +4460,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20750
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -4213,6 +4477,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20753
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -4229,6 +4494,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20754
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -4245,6 +4511,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20755
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -4261,6 +4528,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20756
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -4277,6 +4545,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20757
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -4293,6 +4562,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20758
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -4309,6 +4579,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20759
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.7
 - Class: 2
 - Language: et
@@ -4325,6 +4596,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20760
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 3.8
 - Class: 2
 - Language: et
@@ -4341,6 +4613,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20761
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -4357,6 +4630,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20762
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -4373,6 +4647,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20763
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -4389,6 +4664,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20764
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -4405,6 +4681,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20765
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -4421,6 +4698,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20766
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -4437,6 +4715,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20767
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 4.7
 - Class: 2
 - Language: et
@@ -4453,6 +4732,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20768
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -4469,6 +4749,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20769
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -4485,6 +4766,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20770
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -4501,6 +4783,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20771
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
@@ -4517,6 +4800,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20772
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -4533,6 +4817,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20773
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -4549,6 +4834,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20774
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
@@ -4565,6 +4851,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20775
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 6.4
 - Class: 2
 - Language: et
@@ -4581,6 +4868,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20776
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 6.5
 - Class: 2
 - Language: et
@@ -4597,6 +4885,7 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - URL: https://www.opiq.ee/kit/384/chapter/20777
 - Book: Loodusõpetuse õppevideod 1. kooliastmele
 - Book ID: star cloud_loodusõpet_2_et
+- Source Book ID: star cloud_loodusõpet_2_et
 - Chapter ID: 6.6
 - Class: 2
 - Language: et
@@ -4607,4 +4896,463 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - Topics RU: природоведение
 - Topics EN: science
 - Headings: Milline on Eesti kaart?; Video; Eesti kaart; Katse. Eesti kaardi joonistamine; Tööleht
+- Task examples:
+
+### 287. Sissejuhatus
+- URL: https://www.opiq.ee/kit/330/chapter/18522
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.1
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; loodus; keskkond; sissejuhatus; muusika; teksti; mõistmine
+- Topics RU: природоведение; природа; окружающая среда
+- Topics EN: science; nature; environment
+- Headings: Sissejuhatus; Muusika; Teksti mõistmine; Matemaatika; Loodusõpetus
+- Task examples:
+
+### 288. Vaikus ja müra
+- URL: https://www.opiq.ee/kit/330/chapter/18531
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.10
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; inimene; keha; meeled; tervis; vaikus; müra; plärakast; hiirvaikseke; lugu; lärmist; vaikusest; laula; kaasa
+- Topics RU: природоведение; человек; тело; чувства; здоровье
+- Topics EN: science; human; body; senses; health
+- Headings: Vaikus ja müra; Plärakast ja Hiirvaikseke; Lugu lärmist ja vaikusest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Inimese meeled; Müratase koolimajas; Kas tead?
+- Task examples:
+
+### 289. Mis saab jäätmetest?
+- URL: https://www.opiq.ee/kit/330/chapter/18532
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.11
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; saab; jäätmetest; võluprügikast; lugu; sellest; kuidas; jäätmeid; paremini; kasutada
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Mis saab jäätmetest?; Võluprügikast; Lugu jäätmetest ja sellest, kuidas jäätmeid paremini ära kasutada; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Prügi sortimine; Säästan elektrit; Kas tead?
+- Task examples:
+
+### 290. Tarbimine ja pakendid
+- URL: https://www.opiq.ee/kit/330/chapter/18533
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.12
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; tarbimine; pakendid; pakendimäed; lugu; prügist; pakenditest; laula; kaasa; nuputa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Tarbimine ja pakendid; Pakendimäed; Lugu prügist ja pakenditest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Loodushoiu uuring; Pakendiprügi; Kas tead?
+- Task examples:
+
+### 291. Põlispuu tugevus ja haprus
+- URL: https://www.opiq.ee/kit/330/chapter/18534
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.13
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; põlispuu; tugevus; haprus; salapärane; mets; lugu; metsast; vanadest; puudest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Põlispuu tugevus ja haprus; Salapärane mets; Lugu metsast, vanadest puudest ja Kuu valgusest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus 1a; Harjutus 1b; Kas oskad?; Metsloomade kaal; Metsa puud; Kuula ja vaata; Kas tunned muusikastiile?; Kas tead?
+- Task examples:
+
+### 292. Planeedi kopsud
+- URL: https://www.opiq.ee/kit/330/chapter/18535
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.14
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; planeedi; kopsud; sõbrad; puud; lugu; metsast; puudest; laula; kaasa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Planeedi kopsud; Mu sõbrad puud; Lugu metsast ja puudest; Laula kaasa; Nuputa; Kas oskad?; Puidust esemed; Puud ja hapnik; Kas tead?
+- Task examples:
+
+### 293. Suur aineringlus
+- URL: https://www.opiq.ee/kit/330/chapter/18536
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.15
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; suur; aineringlus; millimeetri; sügavusel; lugu; sellest; juhtub; surnud; liblika
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Suur aineringlus; 20 millimeetri sügavusel maa all; Lugu sellest, mis juhtub surnud liblika ja maha langenud puulehega; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Vihmaussid; Lagundamine; Kas tead?
+- Task examples:
+
+### 294. Loomade jäljed
+- URL: https://www.opiq.ee/kit/330/chapter/18537
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.16
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; loomade; jäljed; järele; talle; lugu; kavalast; rebasest; jälgedest; laula
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Loomade jäljed; Järele talle!; Lugu kavalast rebasest ja loomade jälgedest; Laula kaasa; Nuputa; Kas oskad?; Kelle jäljed?; Jäljed lumel; Kas tead?
+- Task examples:
+
+### 295. Taastuvad energiaallikad
+- URL: https://www.opiq.ee/kit/330/chapter/18538
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.17
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; taastuvad; energiaallikad; jänes; kilpkonn; lugu; tuule; jõust; mootorpaadist; purjekast
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Taastuvad energiaallikad; Jänes ja kilpkonn; Lugu tuule jõust, mootorpaadist ja purjekast; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Kas kütusest piisab?; Tuul; Kas tead?
+- Task examples:
+
+### 296. Hoiame elektrit kokku!
+- URL: https://www.opiq.ee/kit/330/chapter/18539
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.18
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; liitmine; liida; summa; kokku; hoiame; elektrit; kohtumine; jõuga; lugu; sellest; miks; vaja
+- Topics RU: природоведение; сложение; сложи; сумма
+- Topics EN: science; addition; add; sum
+- Headings: Hoiame elektrit kokku!; Kohtumine jõuga; Lugu sellest, miks on vaja toast lahkudes tuli kustutada; Laula kaasa; Nuputa; Kas oskad?; Elektri tootmine; Valgustite ostmine; Kas tead?
+- Task examples:
+
+### 297. Saastunud õhk levib
+- URL: https://www.opiq.ee/kit/330/chapter/18540
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.19
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; saastunud; levib; sügeluse; pulber; lugu; sellest; mida; tuul; pilved
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Saastunud õhk levib; Sügeluse pulber; Lugu sellest, mida tuul ja pilved meieni kanda võivad; Laula kaasa; Nuputa; Kas oskad?; Keskkonnaprobleemid; Maailmakoristuspäev; Kas tead?
+- Task examples:
+
+### 298. Veeringlus. Ilmastik
+- URL: https://www.opiq.ee/kit/330/chapter/18523
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.2
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; veeringlus; ilmastik; veepiisa; teekond; lugu; vihmast; pilvedest; ilmast; laula
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Veeringlus. Ilmastik; Veepiisa teekond; Lugu vihmast, pilvedest ja ilmast​; Laula kaasa; Kes on kes?; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Veeringlus; Vihmavee kogus; Järgarvud; Kas tead?
+- Task examples:
+
+### 299. Teaduslikud avastused
+- URL: https://www.opiq.ee/kit/330/chapter/18541
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.20
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; teaduslikud; avastused; teadlase; juhtum; lugu; liiga; agarast; teadlasest; lehmast
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Teaduslikud avastused; Teadlase juhtum; Lugu liiga agarast teadlasest, lehmast ja vasikast; Laula kaasa; Lugemissoovitus; Kas oskad?; Kas tead?
+- Task examples:
+
+### 300. Ravimtaimed
+- URL: https://www.opiq.ee/kit/330/chapter/18542
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.21
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; ravimtaimed; võlujuur; lugu; ravimtaimest; selle; korjamisest; laula; kaasa; nuputa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Ravimtaimed; Võlujuur; Lugu ravimtaimest ja selle korjamisest; Laula kaasa; Nuputa; Kas oskad?; Taime osad; Pärnaõietee; Kas tead?
+- Task examples:
+
+### 301. Kuidas maastik on muutunud?
+- URL: https://www.opiq.ee/kit/330/chapter/18543
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.22
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; kuidas; maastik; muutunud; inimesed; lugu; sellest; vanasti; põldu; hariti
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Kuidas maastik on muutunud?; Inimesed ja maastik; Lugu sellest, kuidas vanasti põldu hariti; Laula kaasa; Nuputa; Lugemissoovitus; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Teraviljatooted; Vanaaegsed põllutööriistad; Kas tead?
+- Task examples:
+
+### 302. Talgud
+- URL: https://www.opiq.ee/kit/330/chapter/18544
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.23
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; talgud; vana; küün; lugu; sellest; kuidas; üheskoos; jõuab; palju
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Talgud; Vana küün; Lugu sellest, kuidas üheskoos jõuab palju head teha; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Sorteerime vanu asju; „Teeme ära“ talgupäev; Kas tead?
+- Task examples:
+
+### 303. Maailma rikkus ja ebavõrdsus
+- URL: https://www.opiq.ee/kit/330/chapter/18545
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.24
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; maailma; rikkus; ebavõrdsus; kaks; last; kõrbes; lugu; aafrika; lastest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Maailma rikkus ja ebavõrdsus; Kaks last kõrbes; Lugu Aafrika lastest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Toiduained; Arvuta; Banaanitaim; Kas tead?
+- Task examples:
+
+### 304. Fotosüntees ja elu suur ringkäik
+- URL: https://www.opiq.ee/kit/330/chapter/18546
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.25
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; fotosüntees; suur; ringkäik; mootor; lugu; taimedest; õhust; hingamisest; suurest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Fotosüntees ja elu suur ringkäik; Elu mootor; Lugu taimedest, õhust, hingamisest ja elu suurest ringkäigust; Laula kaasa; Nuputa; Lugemissoovitus; Kas oskad?; Toiduahelad; Arvuta; Kas tead?
+- Task examples:
+
+### 305. Prügi ookeanis ja mageveevarud
+- URL: https://www.opiq.ee/kit/330/chapter/18547
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.26
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; inimene; keha; meeled; tervis; prügi; ookeanis; mageveevarud; ookean; lugu; ookeanist; prügist; magedast; veest
+- Topics RU: природоведение; человек; тело; чувства; здоровье
+- Topics EN: science; human; body; senses; health
+- Headings: Prügi ookeanis ja mageveevarud; Ookean; Lugu ookeanist, prügist ja magedast veest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Kala keha; Ookeani sügavus; Kas tead?
+- Task examples:
+
+### 306. Tiigi elanikud
+- URL: https://www.opiq.ee/kit/330/chapter/18548
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.27
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; tiigi; elanikud; kiiliprintsess; lugu; elanikest; kiili; vastsest; kellest; saab
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Tiigi elanikud; Kiiliprintsess; Lugu tiigi elanikest ja kiili vastsest, kellest saab printsess; Laula kaasa; Nuputa; Kas oskad?; Konna areng; Arvuta; Kas tead?
+- Task examples:
+
+### 307. Toiduahel. Tunded
+- URL: https://www.opiq.ee/kit/330/chapter/18524
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.3
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; loom; loomad; linnud; putukad; toiduahel; tunded; hirmsad; elukad; lugu; lõksu; jäänud; hundist; laula
+- Topics RU: природоведение; животное; животные; птицы; насекомые
+- Topics EN: science; animal; animals; birds; insects
+- Headings: Toiduahel. Tunded; Hirmsad elukad; Lugu lõksu jäänud hundist; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus; Harjutus 1a; Harjutus 1b; Kas oskad?; Lõpulaulu loomad; Hunt; Hundi nädala söögikogus; Kas tead?
+- Task examples:
+
+### 308. Puu eluring. Linnaloodus
+- URL: https://www.opiq.ee/kit/330/chapter/18525
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.4
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; taim; taimed; puu; lill; eluring; linnaloodus; väike; park; lugu; vanast; tammest; tõrudest; kopast
+- Topics RU: природоведение; растение; растения; дерево; цветок
+- Topics EN: science; plant; plants; tree; flower
+- Headings: Puu eluring. Linnaloodus; Väike park; Lugu vanast tammest, tõrudest ja kopast; Laula kaasa; Nuputa; Kas oskad?; Puude viljad; Tõrud ja pähklid; Eesti 100 tamme; Kas tead?
+- Task examples:
+
+### 309. Looduslik tasakaal. Putukatõrje
+- URL: https://www.opiq.ee/kit/330/chapter/18526
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.5
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; looduslik; tasakaal; putukatõrje; lepatriinu; lehetäi; lugu; põllul; aias; elavatest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Looduslik tasakaal. Putukatõrje; Lepatriinu ja lehetäi; Lugu põllul ja aias elavatest putukatest ning putukatõrjest; Laula kaasa; Nuputa; Kas oskad?; Toiduahel; Lepatriinu; Kas tead?
+- Task examples:
+
+### 310. Milleks on vaja hekki?
+- URL: https://www.opiq.ee/kit/330/chapter/18527
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.6
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; milleks; vaja; hekki; armunud; siil; lugu; lindude; loomade; putukate
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Milleks on vaja hekki?; Armunud siil; Lugu lindude, loomade ja putukate kodust; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus 1a; Harjutus 1b; Kas oskad?; Mida siil sööb?; Heki istutamine; Kas tead?
+- Task examples:
+
+### 311. Saastatud linnaõhk
+- URL: https://www.opiq.ee/kit/330/chapter/18528
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.7
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; saastatud; linnaõhk; õhku; lugu; sõidukitest; linnaõhust; laula; kaasa; nuputa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Saastatud linnaõhk; Õhku, õhku!; Lugu sõidukitest ja linnaõhust; Laula kaasa; Nuputa; Kas tead?; Õhukiht; Kooli autoga või jalgrattaga?
+- Task examples:
+
+### 312. Reostunud jõevesi
+- URL: https://www.opiq.ee/kit/330/chapter/18529
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.8
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; vesi; veeohutus; veekogu; reostunud; jõevesi; lugu; puhtast; reostatud; jõeveest; laula; kaasa
+- Topics RU: природоведение; вода; безопасность на воде; водоём
+- Topics EN: science; water; water safety; body of water
+- Headings: Reostunud jõevesi; Vesi on elu; Lugu puhtast ja reostatud jõeveest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Vee kasutus; Reovesi; Kas tead?
+- Task examples:
+
+### 313. Reovee puhastamine
+- URL: https://www.opiq.ee/kit/330/chapter/18530
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.9
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: supplementary
+- Topics ET: loodusõpetus; reovee; puhastamine; lugu; puhastamisest; laula; kaasa; nuputa; sõnad; selgeks
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Reovee puhastamine; Vee lugu; Lugu vee puhastamisest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Vee omadused; Veepuhastusjaam; Kas tead?
 - Task examples:

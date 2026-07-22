@@ -6,20 +6,21 @@
   "format_version": "2.0",
   "generation": {
     "status": "generated",
-    "generated_at": "2026-07-21T16:36:27.449Z",
+    "generated_at": "2026-07-21T15:15:52.528Z",
     "generator": "scripts/generate-grade-2-source-indexes.mjs",
-    "generator_version": "1.0",
-    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "fa7bfc685bcb8190a215417f1e9a3977124cb1c9160d1654a75245647c085446",
-    "output_file_sha256": "25a4b81499a7e82f6bd45365708f2f1e635c46bddaf4541c7385d3fd4e48cbe0"
+    "output_file_sha256": "a1e03fa0bcacd73b855e5b7b4f5c418a4f9fce0504881bb64b5e9dc1b14c51e7"
   },
   "source_records": 485,
   "page_records_included": 464,
   "cover_detail_records_excluded": 16,
   "administrative_records_excluded": 5,
-  "mixed_subject_page_records_excluded": 0,
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 0,
   "grades": {
     "2": 464
   },
@@ -28,6 +29,16 @@
     "ru": 249
   },
   "books": {
+    "avita_matemaatik_2_et__kit95": 108,
+    "avita_математика_2_et__kit578": 85,
+    "avita_математика_2_ru__kit165": 108,
+    "harno_matemaatik_2_et__kit272": 8,
+    "harno_matemaatik_2_et__kit273": 10,
+    "harno_matemaatik_2_et__kit274": 33,
+    "koolibri_matemaatik_2_et__kit107": 56,
+    "koolibri_математика_2_et__kit361": 56
+  },
+  "source_books": {
     "avita_matemaatik_2_et": 108,
     "avita_математика_2_et": 85,
     "avita_математика_2_ru": 108,
@@ -200,69 +211,104 @@
     "koolibri_математика_2_et"
   ],
   "book_metadata_audit": {
-    "avita_matemaatik_2_et": {
+    "avita_matemaatik_2_et__kit95": {
       "title": "Matemaatika 2. klassile",
+      "source_book_id": "avita_matemaatik_2_et",
       "publisher": "Avita",
       "language": "et",
       "kits": [
         "95"
       ],
       "page_records": 108,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     },
-    "avita_математика_2_et": {
-      "title": "Математика для 2 класса",
+    "avita_математика_2_et__kit578": {
+      "title": "Matemaatika 2. klassile",
+      "source_book_id": "avita_математика_2_et",
       "publisher": "Avita",
       "language": "ru",
       "kits": [
         "578"
       ],
       "page_records": 85,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; bilingual headings retained"
     },
-    "avita_математика_2_ru": {
+    "avita_математика_2_ru__kit165": {
       "title": "Математика для 2 класса",
+      "source_book_id": "avita_математика_2_ru",
       "publisher": "Avita",
       "language": "ru",
       "kits": [
         "165"
       ],
       "page_records": 108,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     },
-    "harno_matemaatik_2_et": {
+    "harno_matemaatik_2_et__kit272": {
       "title": "Matemaatika 2. klassile, I osa. Lihtsustatud õppekava",
+      "source_book_id": "harno_matemaatik_2_et",
       "publisher": "Harno",
       "language": "et",
       "kits": [
-        "272",
-        "273",
+        "272"
+      ],
+      "page_records": 8,
+      "programme_type": "simplified_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "harno_matemaatik_2_et__kit273": {
+      "title": "Matemaatika 2. klassile, II osa. Lihtsustatud õppekava",
+      "source_book_id": "harno_matemaatik_2_et",
+      "publisher": "Harno",
+      "language": "et",
+      "kits": [
+        "273"
+      ],
+      "page_records": 10,
+      "programme_type": "simplified_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "harno_matemaatik_2_et__kit274": {
+      "title": "Matemaatika 2. klassile, III osa. Lihtsustatud õppekava",
+      "source_book_id": "harno_matemaatik_2_et",
+      "publisher": "Harno",
+      "language": "et",
+      "kits": [
         "274"
       ],
-      "page_records": 51,
-      "programme_type": "simplified_curriculum"
+      "page_records": 33,
+      "programme_type": "simplified_curriculum",
+      "title_evidence": "cover_detail"
     },
-    "koolibri_matemaatik_2_et": {
+    "koolibri_matemaatik_2_et__kit107": {
       "title": "MATEMAATIKA 2. klassile",
+      "source_book_id": "koolibri_matemaatik_2_et",
       "publisher": "Koolibri",
       "language": "et",
       "kits": [
         "107"
       ],
       "page_records": 56,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     },
-    "koolibri_математика_2_et": {
+    "koolibri_математика_2_et__kit361": {
       "title": "МАТЕМАТИКА 2 класс",
+      "source_book_id": "koolibri_математика_2_et",
       "publisher": "Koolibri",
       "language": "ru",
       "kits": [
         "361"
       ],
       "page_records": 56,
-      "programme_type": "ordinary_curriculum"
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
     }
   },
+  "metadata_limitations": [],
   "records_without_headings": 0,
   "missing_urls": 0,
   "archive_index": {

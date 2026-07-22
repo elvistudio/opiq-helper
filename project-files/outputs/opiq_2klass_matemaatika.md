@@ -14,24 +14,28 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 - Page records included: 464
 - Cover/detail records excluded: 16
 - Administrative records excluded: 5
-- Duplicate source URL groups: 8; all were excluded kit-detail records
-- Mixed-subject page records excluded: 0
+- Duplicate source URL groups: 8; canonical duplicates are removed only after exact content checks
+- Subject-boundary page records excluded: 0
+- Out-of-scope instructional records excluded: 0
 - Curriculum coverage: not verified
 
 ## Books
-- `avita_matemaatik_2_et` — Matemaatika 2. klassile; Avita; language et; kit 95; 108 pages; ordinary curriculum.
-- `avita_математика_2_et` — Математика для 2 класса; Avita; language ru; kit 578; 85 pages; ordinary curriculum.
-- `avita_математика_2_ru` — Математика для 2 класса; Avita; language ru; kit 165; 108 pages; ordinary curriculum.
-- `harno_matemaatik_2_et` — Matemaatika 2. klassile, I osa. Lihtsustatud õppekava; Harno; language et; kit 272, 273, 274; 51 pages; simplified curriculum; use only with explicit labelling.
-- `koolibri_matemaatik_2_et` — MATEMAATIKA 2. klassile; Koolibri; language et; kit 107; 56 pages; ordinary curriculum.
-- `koolibri_математика_2_et` — МАТЕМАТИКА 2 класс; Koolibri; language ru; kit 361; 56 pages; ordinary curriculum.
+- `avita_matemaatik_2_et__kit95` — Matemaatika 2. klassile; Source Book ID `avita_matemaatik_2_et`; Avita; language et; kit 95; 108 pages; ordinary curriculum.
+- `avita_математика_2_et__kit578` — Matemaatika 2. klassile; Source Book ID `avita_математика_2_et`; Avita; language ru; kit 578; 85 pages; ordinary curriculum.
+- `avita_математика_2_ru__kit165` — Математика для 2 класса; Source Book ID `avita_математика_2_ru`; Avita; language ru; kit 165; 108 pages; ordinary curriculum.
+- `harno_matemaatik_2_et__kit272` — Matemaatika 2. klassile, I osa. Lihtsustatud õppekava; Source Book ID `harno_matemaatik_2_et`; Harno; language et; kit 272; 8 pages; simplified curriculum; use only with explicit labelling.
+- `harno_matemaatik_2_et__kit273` — Matemaatika 2. klassile, II osa. Lihtsustatud õppekava; Source Book ID `harno_matemaatik_2_et`; Harno; language et; kit 273; 10 pages; simplified curriculum; use only with explicit labelling.
+- `harno_matemaatik_2_et__kit274` — Matemaatika 2. klassile, III osa. Lihtsustatud õppekava; Source Book ID `harno_matemaatik_2_et`; Harno; language et; kit 274; 33 pages; simplified curriculum; use only with explicit labelling.
+- `koolibri_matemaatik_2_et__kit107` — MATEMAATIKA 2. klassile; Source Book ID `koolibri_matemaatik_2_et`; Koolibri; language et; kit 107; 56 pages; ordinary curriculum.
+- `koolibri_математика_2_et__kit361` — МАТЕМАТИКА 2 класс; Source Book ID `koolibri_математика_2_et`; Koolibri; language ru; kit 361; 56 pages; ordinary curriculum.
 
 ## Pages
 
 ### 1. Kordamine
 - URL: https://www.opiq.ee/kit/95/chapter/4645
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -47,7 +51,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 2. Kordamine. Arvude võrdlemine, liitmine ja lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/95/chapter/4622
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -63,7 +68,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 3. Sirglõik
 - URL: https://www.opiq.ee/kit/95/chapter/4623
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.11
 - Class: 2
 - Language: et
@@ -79,7 +85,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 4. Sirglõik. Millimeeter
 - URL: https://www.opiq.ee/kit/95/chapter/4624
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.12
 - Class: 2
 - Language: et
@@ -95,7 +102,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 5. Pikkuse mõõtmine millimeetrites
 - URL: https://www.opiq.ee/kit/95/chapter/4625
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.13
 - Class: 2
 - Language: et
@@ -111,7 +119,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 6. Arvude järjestamine
 - URL: https://www.opiq.ee/kit/95/chapter/4614
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -127,7 +136,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 7. Kümnelised ja ühelised (1)
 - URL: https://www.opiq.ee/kit/95/chapter/4615
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -143,7 +153,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 8. Kümnelised ja ühelised (2)
 - URL: https://www.opiq.ee/kit/95/chapter/4616
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -159,7 +170,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 9. Arvude võrdlemine
 - URL: https://www.opiq.ee/kit/95/chapter/4617
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -175,7 +187,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 10. Liitmine ja lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/95/chapter/4618
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -191,7 +204,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 11. Liitmine 20 piires
 - URL: https://www.opiq.ee/kit/95/chapter/4619
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -207,7 +221,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 12. Lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/95/chapter/4620
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -223,7 +238,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 13. Liitmise ja lahutamise seos
 - URL: https://www.opiq.ee/kit/95/chapter/4621
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -239,7 +255,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 14. Kordamine. Korrutamine ja jagamine
 - URL: https://www.opiq.ee/kit/95/chapter/6453
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 10.1
 - Class: 2
 - Language: et
@@ -255,7 +272,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 15. Kordamine. Korrutustabel
 - URL: https://www.opiq.ee/kit/95/chapter/21921
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 10.2
 - Class: 2
 - Language: et
@@ -271,7 +289,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 16. Kordamine. Geomeetrilised kujundid
 - URL: https://www.opiq.ee/kit/95/chapter/6437
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 10.3
 - Class: 2
 - Language: et
@@ -287,7 +306,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 17. Kordamine. Mõõtühikud
 - URL: https://www.opiq.ee/kit/95/chapter/6454
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 10.4
 - Class: 2
 - Language: et
@@ -303,7 +323,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 18. Õuetund. Planeerime lillepeenra
 - URL: https://www.opiq.ee/kit/95/chapter/6455
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 10.5
 - Class: 2
 - Language: et
@@ -319,7 +340,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 19. Kordamine. Sirglõigu pikkus, arvutamine 20 piires
 - URL: https://www.opiq.ee/kit/95/chapter/4646
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -335,7 +357,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 20. Võrdhaarne kolmnurk
 - URL: https://www.opiq.ee/kit/95/chapter/20835
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.10
 - Class: 2
 - Language: et
@@ -351,7 +374,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 21. Võrdkülgne kolmnurk
 - URL: https://www.opiq.ee/kit/95/chapter/20836
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.11
 - Class: 2
 - Language: et
@@ -367,7 +391,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 22. Romb
 - URL: https://www.opiq.ee/kit/95/chapter/20837
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.12
 - Class: 2
 - Language: et
@@ -383,7 +408,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 23. Kordamine. Tasapinnalised kujundid
 - URL: https://www.opiq.ee/kit/95/chapter/4649
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.13
 - Class: 2
 - Language: et
@@ -399,7 +425,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 24. Kujundid
 - URL: https://www.opiq.ee/kit/95/chapter/4647
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -415,7 +442,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 25. Täisnurk
 - URL: https://www.opiq.ee/kit/95/chapter/6401
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -431,7 +459,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 26. Nelinurgad
 - URL: https://www.opiq.ee/kit/95/chapter/6402
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -447,7 +476,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 27. Ristkülik
 - URL: https://www.opiq.ee/kit/95/chapter/20831
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -463,7 +493,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 28. Ruut
 - URL: https://www.opiq.ee/kit/95/chapter/20832
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: et
@@ -479,7 +510,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 29. Ringjoon, ring, ringjoone keskpunkt
 - URL: https://www.opiq.ee/kit/95/chapter/6408
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: et
@@ -495,7 +527,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 30. Kolmnurk
 - URL: https://www.opiq.ee/kit/95/chapter/20833
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: et
@@ -511,7 +544,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 31. Täisnurkne kolmnurk
 - URL: https://www.opiq.ee/kit/95/chapter/20834
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 2.9
 - Class: 2
 - Language: et
@@ -527,7 +561,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 32. Täht arvu tähisena
 - URL: https://www.opiq.ee/kit/95/chapter/4650
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -543,7 +578,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 33. Meeter, sentimeeter
 - URL: https://www.opiq.ee/kit/95/chapter/4635
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.10
 - Class: 2
 - Language: et
@@ -559,7 +595,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 34. Detsimeeter
 - URL: https://www.opiq.ee/kit/95/chapter/4636
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.11
 - Class: 2
 - Language: et
@@ -575,7 +612,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 35. Pikkusühikud: m, dm, cm, mm
 - URL: https://www.opiq.ee/kit/95/chapter/4637
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.12
 - Class: 2
 - Language: et
@@ -591,7 +629,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 36. Kordamine. Liitmine ja lahutamine saja piires üleminekuta, arvude järjestamine ja võrdlemine
 - URL: https://www.opiq.ee/kit/95/chapter/4638
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.13
 - Class: 2
 - Language: et
@@ -607,7 +646,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 37. Ühelised, kümnelised, sajalised
 - URL: https://www.opiq.ee/kit/95/chapter/4629
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -623,7 +663,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 38. Kahekohaline arv kümneliste ja üheliste summana
 - URL: https://www.opiq.ee/kit/95/chapter/4651
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -639,7 +680,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 39. Täiskümnetest üheliste lahutamine
 - URL: https://www.opiq.ee/kit/95/chapter/4630
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -655,7 +697,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 40. Liitmine 100 piires üleminekuta
 - URL: https://www.opiq.ee/kit/95/chapter/4632
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -671,7 +714,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 41. Lahutamine 100 piires üleminekuta
 - URL: https://www.opiq.ee/kit/95/chapter/4633
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -687,7 +731,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 42. Järgmine kümme täis
 - URL: https://www.opiq.ee/kit/95/chapter/4634
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.7
 - Class: 2
 - Language: et
@@ -703,7 +748,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 43. Kordamine. Arvutamine 100 piires, täiskümnetest üheliste lahutamine
 - URL: https://www.opiq.ee/kit/95/chapter/4631
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.8
 - Class: 2
 - Language: et
@@ -719,7 +765,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 44. Kordamine. Arvutamine 100 piires üleminekuta. Sirglõik
 - URL: https://www.opiq.ee/kit/95/chapter/20987
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 3.9
 - Class: 2
 - Language: et
@@ -735,7 +782,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 45. Liitmine 100 piires üleminekuga (1)
 - URL: https://www.opiq.ee/kit/95/chapter/4639
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -751,7 +799,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 46. Matemaatilised pähklid
 - URL: https://www.opiq.ee/kit/95/chapter/4654
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.10
 - Class: 2
 - Language: et
@@ -767,7 +816,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 47. Liitmine 100 piires üleminekuga (2)
 - URL: https://www.opiq.ee/kit/95/chapter/4652
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -783,7 +833,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 48. Kalender (1)
 - URL: https://www.opiq.ee/kit/95/chapter/4640
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -799,7 +850,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 49. Kalender (2)
 - URL: https://www.opiq.ee/kit/95/chapter/4641
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -815,7 +867,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 50. Tund, minut
 - URL: https://www.opiq.ee/kit/95/chapter/4642
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -831,7 +884,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 51. Sekund
 - URL: https://www.opiq.ee/kit/95/chapter/4643
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -847,7 +901,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 52. Kordamine. Ajaühikud, kestus
 - URL: https://www.opiq.ee/kit/95/chapter/21054
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.7
 - Class: 2
 - Language: et
@@ -863,7 +918,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 53. Kordamine. Jõulud (1)
 - URL: https://www.opiq.ee/kit/95/chapter/4644
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.8
 - Class: 2
 - Language: et
@@ -879,7 +935,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 54. Kordamine. Jõulud (2)
 - URL: https://www.opiq.ee/kit/95/chapter/4653
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 4.9
 - Class: 2
 - Language: et
@@ -895,7 +952,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 55. Arvud tuhandeni
 - URL: https://www.opiq.ee/kit/95/chapter/6403
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -911,7 +969,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 56. Arvude 0–1000 võrdlemine
 - URL: https://www.opiq.ee/kit/95/chapter/6404
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -927,7 +986,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 57. Täiskümnete ja ‑sadade liitmine 1000 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6405
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -943,7 +1003,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 58. Täiskümnete ja ‑sadade lahutamine 1000 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6406
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
@@ -959,7 +1020,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 59. Kilomeeter
 - URL: https://www.opiq.ee/kit/95/chapter/6407
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.5
 - Class: 2
 - Language: et
@@ -975,7 +1037,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 60. Kordamine. Arvud tuhandeni, kilomeeter
 - URL: https://www.opiq.ee/kit/95/chapter/6409
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.6
 - Class: 2
 - Language: et
@@ -991,7 +1054,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 61. Liitmine 100 piires (3)
 - URL: https://www.opiq.ee/kit/95/chapter/6411
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.7
 - Class: 2
 - Language: et
@@ -1007,7 +1071,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 62. Liitmine 100 piires (4)
 - URL: https://www.opiq.ee/kit/95/chapter/6412
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 5.8
 - Class: 2
 - Language: et
@@ -1023,7 +1088,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 63. Lahutamine 100 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6439
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -1039,7 +1105,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 64. Silinder, koonus, kera
 - URL: https://www.opiq.ee/kit/95/chapter/4626
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.10
 - Class: 2
 - Language: et
@@ -1055,7 +1122,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 65. Kordamine. Ruumilised kujundid
 - URL: https://www.opiq.ee/kit/95/chapter/20830
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.11
 - Class: 2
 - Language: et
@@ -1071,7 +1139,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 66. Lahutamine 100 piires üleminekuga (1)
 - URL: https://www.opiq.ee/kit/95/chapter/6413
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -1087,7 +1156,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 67. Lahutamine 100 piires üleminekuga (2)
 - URL: https://www.opiq.ee/kit/95/chapter/6414
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
@@ -1103,7 +1173,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 68. Kilogramm, gramm (1)
 - URL: https://www.opiq.ee/kit/95/chapter/6440
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.4
 - Class: 2
 - Language: et
@@ -1119,7 +1190,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 69. Kilogramm, gramm (2)
 - URL: https://www.opiq.ee/kit/95/chapter/6441
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.5
 - Class: 2
 - Language: et
@@ -1135,7 +1207,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 70. Kordamine. Liitmine ja lahutamine 100 piires, kilogramm, gramm
 - URL: https://www.opiq.ee/kit/95/chapter/6415
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.6
 - Class: 2
 - Language: et
@@ -1151,7 +1224,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 71. Risttahukas ja kuup
 - URL: https://www.opiq.ee/kit/95/chapter/4627
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.7
 - Class: 2
 - Language: et
@@ -1167,7 +1241,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 72. Mis on pinnalaotus?
 - URL: https://www.opiq.ee/kit/95/chapter/21353
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.8
 - Class: 2
 - Language: et
@@ -1183,7 +1258,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 73. Püramiid
 - URL: https://www.opiq.ee/kit/95/chapter/4628
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 6.9
 - Class: 2
 - Language: et
@@ -1199,7 +1275,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 74. Kordamine. Liitmine ja lahutamine 100 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6438
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.1
 - Class: 2
 - Language: et
@@ -1215,7 +1292,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 75. Pool
 - URL: https://www.opiq.ee/kit/95/chapter/6445
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.10
 - Class: 2
 - Language: et
@@ -1231,7 +1309,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 76. Kell
 - URL: https://www.opiq.ee/kit/95/chapter/6419
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.11
 - Class: 2
 - Language: et
@@ -1247,7 +1326,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 77. Korrutamine arvuga 4
 - URL: https://www.opiq.ee/kit/95/chapter/6420
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.12
 - Class: 2
 - Language: et
@@ -1263,7 +1343,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 78. Kordamine
 - URL: https://www.opiq.ee/kit/95/chapter/6421
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.13
 - Class: 2
 - Language: et
@@ -1279,7 +1360,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 79. Kordamine. Nelinurgad, arvutamine täiskümnete ja ‑sadadega, pikkusühikud
 - URL: https://www.opiq.ee/kit/95/chapter/6410
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.2
 - Class: 2
 - Language: et
@@ -1295,7 +1377,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 80. Kordamine. Ristkülik, ruut, kolmnurk, ring
 - URL: https://www.opiq.ee/kit/95/chapter/21352
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.3
 - Class: 2
 - Language: et
@@ -1311,7 +1394,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 81. Korrutamise seos liitmisega
 - URL: https://www.opiq.ee/kit/95/chapter/6442
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.4
 - Class: 2
 - Language: et
@@ -1327,7 +1411,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 82. Korrutamise seadus
 - URL: https://www.opiq.ee/kit/95/chapter/6416
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.5
 - Class: 2
 - Language: et
@@ -1343,7 +1428,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 83. Korrutamine arvuga 2 (1)
 - URL: https://www.opiq.ee/kit/95/chapter/6417
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.6
 - Class: 2
 - Language: et
@@ -1359,7 +1445,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 84. Korrutamine arvuga 2 (2)
 - URL: https://www.opiq.ee/kit/95/chapter/6443
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.7
 - Class: 2
 - Language: et
@@ -1375,7 +1462,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 85. Korrutamine arvuga 3 (1)
 - URL: https://www.opiq.ee/kit/95/chapter/6418
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.8
 - Class: 2
 - Language: et
@@ -1391,7 +1479,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 86. Korrutamine arvuga 3 (2)
 - URL: https://www.opiq.ee/kit/95/chapter/6444
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 7.9
 - Class: 2
 - Language: et
@@ -1407,7 +1496,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 87. Jagamine. Korrutamise seos jagamisega
 - URL: https://www.opiq.ee/kit/95/chapter/6422
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.1
 - Class: 2
 - Language: et
@@ -1423,7 +1513,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 88. Jagamine arvuga 2
 - URL: https://www.opiq.ee/kit/95/chapter/6423
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.2
 - Class: 2
 - Language: et
@@ -1439,7 +1530,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 89. Jagamine arvuga 3
 - URL: https://www.opiq.ee/kit/95/chapter/6424
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.3
 - Class: 2
 - Language: et
@@ -1455,7 +1547,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 90. Jagamine arvudega 2 ja 3
 - URL: https://www.opiq.ee/kit/95/chapter/6425
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.4
 - Class: 2
 - Language: et
@@ -1471,7 +1564,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 91. Veerand, kolmveerand
 - URL: https://www.opiq.ee/kit/95/chapter/6446
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.5
 - Class: 2
 - Language: et
@@ -1487,7 +1581,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 92. Jagamine arvuga 4
 - URL: https://www.opiq.ee/kit/95/chapter/6426
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.6
 - Class: 2
 - Language: et
@@ -1503,7 +1598,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 93. Tehete järjekord avaldises
 - URL: https://www.opiq.ee/kit/95/chapter/6427
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.7
 - Class: 2
 - Language: et
@@ -1519,7 +1615,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 94. Korrutamine ja jagamine arvuga 4
 - URL: https://www.opiq.ee/kit/95/chapter/6428
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.8
 - Class: 2
 - Language: et
@@ -1535,7 +1632,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 95. Korrutamine arvuga 5
 - URL: https://www.opiq.ee/kit/95/chapter/6429
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 8.9
 - Class: 2
 - Language: et
@@ -1551,7 +1649,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 96. Jagamine arvuga 5
 - URL: https://www.opiq.ee/kit/95/chapter/6430
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.1
 - Class: 2
 - Language: et
@@ -1567,7 +1666,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 97. Korrutamine arvuga 9
 - URL: https://www.opiq.ee/kit/95/chapter/6450
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.10
 - Class: 2
 - Language: et
@@ -1583,7 +1683,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 98. Trikid matemaatikas
 - URL: https://www.opiq.ee/kit/95/chapter/6451
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.11
 - Class: 2
 - Language: et
@@ -1599,7 +1700,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 99. Kordamine. Liitmine ja lahutamine 100 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6452
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.12
 - Class: 2
 - Language: et
@@ -1615,7 +1717,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 100. Kordamine. Liitmine ja lahutamine 1000 piires
 - URL: https://www.opiq.ee/kit/95/chapter/6436
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.13
 - Class: 2
 - Language: et
@@ -1631,7 +1734,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 101. Liiter
 - URL: https://www.opiq.ee/kit/95/chapter/6431
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.2
 - Class: 2
 - Language: et
@@ -1647,7 +1751,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 102. Kordamine
 - URL: https://www.opiq.ee/kit/95/chapter/6447
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.3
 - Class: 2
 - Language: et
@@ -1663,7 +1768,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 103. Korrutustabel
 - URL: https://www.opiq.ee/kit/95/chapter/6448
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.4
 - Class: 2
 - Language: et
@@ -1679,7 +1785,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 104. Korrutamine ja jagamine arvuga 6
 - URL: https://www.opiq.ee/kit/95/chapter/6432
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.5
 - Class: 2
 - Language: et
@@ -1695,7 +1802,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 105. Korrutamine ja jagamine arvuga 7
 - URL: https://www.opiq.ee/kit/95/chapter/6449
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.6
 - Class: 2
 - Language: et
@@ -1711,7 +1819,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 106. Temperatuur (1)
 - URL: https://www.opiq.ee/kit/95/chapter/6433
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.7
 - Class: 2
 - Language: et
@@ -1727,7 +1836,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 107. Temperatuur (2)
 - URL: https://www.opiq.ee/kit/95/chapter/6434
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.8
 - Class: 2
 - Language: et
@@ -1743,7 +1853,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 108. Korrutamine ja jagamine arvuga 8
 - URL: https://www.opiq.ee/kit/95/chapter/6435
 - Book: Matemaatika 2. klassile
-- Book ID: avita_matemaatik_2_et
+- Book ID: avita_matemaatik_2_et__kit95
+- Source Book ID: avita_matemaatik_2_et
 - Chapter ID: 9.9
 - Class: 2
 - Language: et
@@ -1758,8 +1869,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 109. Kordamine
 - URL: https://www.opiq.ee/kit/578/chapter/32028
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -1774,8 +1886,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 110. Kordamine. Arvude võrdlemine, liitmine ja lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32037
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.10
 - Class: 2
 - Language: ru
@@ -1790,8 +1903,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 111. Sirglõik
 - URL: https://www.opiq.ee/kit/578/chapter/32038
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.11
 - Class: 2
 - Language: ru
@@ -1806,8 +1920,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 112. Sirglõik. Millimeeter
 - URL: https://www.opiq.ee/kit/578/chapter/32039
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.12
 - Class: 2
 - Language: ru
@@ -1822,8 +1937,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 113. Pikkuse mõõtmine millimeetrites
 - URL: https://www.opiq.ee/kit/578/chapter/32040
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.13
 - Class: 2
 - Language: ru
@@ -1838,8 +1954,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 114. Arvude järjestamine
 - URL: https://www.opiq.ee/kit/578/chapter/32029
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: ru
@@ -1854,8 +1971,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 115. Kümnelised ja ühelised (1)
 - URL: https://www.opiq.ee/kit/578/chapter/32030
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: ru
@@ -1870,8 +1988,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 116. Kümnelised ja ühelised (2)
 - URL: https://www.opiq.ee/kit/578/chapter/32031
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: ru
@@ -1886,8 +2005,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 117. Arvude võrdlemine
 - URL: https://www.opiq.ee/kit/578/chapter/32032
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: ru
@@ -1902,8 +2022,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 118. Liitmine ja lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32033
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: ru
@@ -1918,8 +2039,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 119. Liitmine 20 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32034
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: ru
@@ -1934,8 +2056,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 120. Lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32035
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: ru
@@ -1950,8 +2073,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 121. Liitmise ja lahutamise seos
 - URL: https://www.opiq.ee/kit/578/chapter/32036
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: ru
@@ -1966,8 +2090,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 122. Kordamine. Sirglõigu pikkus, arvutamine 20 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32197
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -1982,8 +2107,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 123. Võrdhaarne kolmnurk
 - URL: https://www.opiq.ee/kit/578/chapter/32206
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.10
 - Class: 2
 - Language: ru
@@ -1998,8 +2124,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 124. Võrdkülgne kolmnurk
 - URL: https://www.opiq.ee/kit/578/chapter/32207
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.11
 - Class: 2
 - Language: ru
@@ -2014,8 +2141,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 125. Romb
 - URL: https://www.opiq.ee/kit/578/chapter/32208
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.12
 - Class: 2
 - Language: ru
@@ -2030,8 +2158,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 126. Kordamine. Tasandilised kujundid
 - URL: https://www.opiq.ee/kit/578/chapter/32209
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.13
 - Class: 2
 - Language: ru
@@ -2046,8 +2175,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 127. Kujundid
 - URL: https://www.opiq.ee/kit/578/chapter/32198
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -2062,8 +2192,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 128. Täisnurk
 - URL: https://www.opiq.ee/kit/578/chapter/32199
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: ru
@@ -2078,8 +2209,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 129. Nelinurgad
 - URL: https://www.opiq.ee/kit/578/chapter/32200
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: ru
@@ -2094,8 +2226,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 130. Ristkülik
 - URL: https://www.opiq.ee/kit/578/chapter/32201
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: ru
@@ -2110,8 +2243,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 131. Ruut
 - URL: https://www.opiq.ee/kit/578/chapter/32202
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.6
 - Class: 2
 - Language: ru
@@ -2126,8 +2260,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 132. Ringjoon, ring, ringjoone keskpunkt
 - URL: https://www.opiq.ee/kit/578/chapter/32203
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.7
 - Class: 2
 - Language: ru
@@ -2142,8 +2277,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 133. Kolmnurk
 - URL: https://www.opiq.ee/kit/578/chapter/32204
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.8
 - Class: 2
 - Language: ru
@@ -2158,8 +2294,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 134. Täisnurkne kolmnurk
 - URL: https://www.opiq.ee/kit/578/chapter/32205
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 2.9
 - Class: 2
 - Language: ru
@@ -2174,8 +2311,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 135. Täht arvu tähisena
 - URL: https://www.opiq.ee/kit/578/chapter/32210
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -2190,8 +2328,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 136. Meeter, sentimeeter
 - URL: https://www.opiq.ee/kit/578/chapter/32219
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.10
 - Class: 2
 - Language: ru
@@ -2206,8 +2345,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 137. Detsimeeter
 - URL: https://www.opiq.ee/kit/578/chapter/32220
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.11
 - Class: 2
 - Language: ru
@@ -2222,8 +2362,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 138. Pikkusühikud: m, dm, cm, mm
 - URL: https://www.opiq.ee/kit/578/chapter/32221
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.12
 - Class: 2
 - Language: ru
@@ -2238,8 +2379,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 139. Kordamine. Arvutamine 100 piires, arvude järjestamine ja võrdlemine
 - URL: https://www.opiq.ee/kit/578/chapter/32222
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.13
 - Class: 2
 - Language: ru
@@ -2254,8 +2396,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 140. Ühelised, kümnelised, sajalised
 - URL: https://www.opiq.ee/kit/578/chapter/32211
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: ru
@@ -2270,8 +2413,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 141. Kahekohaline arv kümneliste ja üheliste summana
 - URL: https://www.opiq.ee/kit/578/chapter/32212
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: ru
@@ -2286,8 +2430,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 142. Täiskümnetest üheliste lahutamine
 - URL: https://www.opiq.ee/kit/578/chapter/32213
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.4
 - Class: 2
 - Language: ru
@@ -2302,8 +2447,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 143. Liitmine 100 piires üleminekuta
 - URL: https://www.opiq.ee/kit/578/chapter/32214
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.5
 - Class: 2
 - Language: ru
@@ -2318,8 +2464,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 144. Lahutamine 100 piires üleminekuta
 - URL: https://www.opiq.ee/kit/578/chapter/32215
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.6
 - Class: 2
 - Language: ru
@@ -2334,8 +2481,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 145. Järgmine kümme täis
 - URL: https://www.opiq.ee/kit/578/chapter/32216
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.7
 - Class: 2
 - Language: ru
@@ -2350,8 +2498,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 146. Kordamine. Arvutamine 100 piires
 - URL: https://www.opiq.ee/kit/578/chapter/32217
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.8
 - Class: 2
 - Language: ru
@@ -2366,8 +2515,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 147. Kordamine. Arvutamine 100 piires, sirglõik
 - URL: https://www.opiq.ee/kit/578/chapter/32218
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 3.9
 - Class: 2
 - Language: ru
@@ -2382,8 +2532,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 148. Liitmine 100 piires üleminekuga (1)
 - URL: https://www.opiq.ee/kit/578/chapter/32223
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: ru
@@ -2398,8 +2549,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 149. Matemaatilised pähklid
 - URL: https://www.opiq.ee/kit/578/chapter/32232
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.10
 - Class: 2
 - Language: ru
@@ -2414,8 +2566,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 150. Liitmine 100 piires üleminekuga (2)
 - URL: https://www.opiq.ee/kit/578/chapter/32224
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: ru
@@ -2430,8 +2583,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 151. Kalender (1)
 - URL: https://www.opiq.ee/kit/578/chapter/32225
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: ru
@@ -2446,8 +2600,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 152. Kalender (2)
 - URL: https://www.opiq.ee/kit/578/chapter/32226
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: ru
@@ -2462,8 +2617,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 153. Tund, minut
 - URL: https://www.opiq.ee/kit/578/chapter/32227
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: ru
@@ -2478,8 +2634,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 154. Sekund
 - URL: https://www.opiq.ee/kit/578/chapter/32228
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: ru
@@ -2494,8 +2651,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 155. Kordamine. Ajaühikud, kestus
 - URL: https://www.opiq.ee/kit/578/chapter/32229
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.7
 - Class: 2
 - Language: ru
@@ -2510,8 +2668,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 156. Kordamine. Jõulud (1)
 - URL: https://www.opiq.ee/kit/578/chapter/32230
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.8
 - Class: 2
 - Language: ru
@@ -2526,8 +2685,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 157. Kordamine. Jõulud (2)
 - URL: https://www.opiq.ee/kit/578/chapter/32231
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 4.9
 - Class: 2
 - Language: ru
@@ -2542,8 +2702,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 158. Arvud tuhandeni
 - URL: https://www.opiq.ee/kit/578/chapter/33004
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: ru
@@ -2558,8 +2719,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 159. Arvude 0–1000 võrdlemine
 - URL: https://www.opiq.ee/kit/578/chapter/33005
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: ru
@@ -2574,8 +2736,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 160. Täiskümnete ja ‑sadade liitmine 1000 piires
 - URL: https://www.opiq.ee/kit/578/chapter/33006
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: ru
@@ -2590,8 +2753,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 161. Täiskümnete ja ‑sadade lahutamine 1000 piires
 - URL: https://www.opiq.ee/kit/578/chapter/33007
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.4
 - Class: 2
 - Language: ru
@@ -2606,8 +2770,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 162. Kilomeeter
 - URL: https://www.opiq.ee/kit/578/chapter/33008
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.5
 - Class: 2
 - Language: ru
@@ -2622,8 +2787,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 163. Kordamine. Arvud tuhandeni, kilomeeter
 - URL: https://www.opiq.ee/kit/578/chapter/33009
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.6
 - Class: 2
 - Language: ru
@@ -2638,8 +2804,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 164. Liitmine 100 piires (3)
 - URL: https://www.opiq.ee/kit/578/chapter/33010
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.7
 - Class: 2
 - Language: ru
@@ -2654,8 +2821,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 165. Liitmine 100 piires (4)
 - URL: https://www.opiq.ee/kit/578/chapter/33011
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 5.8
 - Class: 2
 - Language: ru
@@ -2670,8 +2838,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 166. Lahutamine 100 piires
 - URL: https://www.opiq.ee/kit/578/chapter/33012
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: ru
@@ -2686,8 +2855,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 167. Silinder, koonus, kera
 - URL: https://www.opiq.ee/kit/578/chapter/33021
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.10
 - Class: 2
 - Language: ru
@@ -2702,8 +2872,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 168. Kordamine. Ruumilised kujundid
 - URL: https://www.opiq.ee/kit/578/chapter/33022
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.11
 - Class: 2
 - Language: ru
@@ -2718,8 +2889,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 169. Lahutamine 100 piires üleminekuga (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33013
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.2
 - Class: 2
 - Language: ru
@@ -2734,8 +2906,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 170. Lahutamine 100 piires üleminekuga (2)
 - URL: https://www.opiq.ee/kit/578/chapter/33014
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.3
 - Class: 2
 - Language: ru
@@ -2750,8 +2923,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 171. Kilogramm, gramm (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33015
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.4
 - Class: 2
 - Language: ru
@@ -2766,8 +2940,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 172. Kilogramm, gramm (2)
 - URL: https://www.opiq.ee/kit/578/chapter/33016
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.5
 - Class: 2
 - Language: ru
@@ -2782,8 +2957,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 173. Kordamine. Liitmine ja lahutamine 100 piires, kilogramm, gramm
 - URL: https://www.opiq.ee/kit/578/chapter/33017
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.6
 - Class: 2
 - Language: ru
@@ -2798,8 +2974,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 174. Risttahukas ja kuup
 - URL: https://www.opiq.ee/kit/578/chapter/33018
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.7
 - Class: 2
 - Language: ru
@@ -2814,8 +2991,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 175. Mis on pinnalaotus?
 - URL: https://www.opiq.ee/kit/578/chapter/33019
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.8
 - Class: 2
 - Language: ru
@@ -2830,8 +3008,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 176. Püramiid
 - URL: https://www.opiq.ee/kit/578/chapter/33020
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 6.9
 - Class: 2
 - Language: ru
@@ -2846,8 +3025,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 177. Kordamine. Liitmine ja lahutamine 100 piires
 - URL: https://www.opiq.ee/kit/578/chapter/33023
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.1
 - Class: 2
 - Language: ru
@@ -2862,8 +3042,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 178. Pool
 - URL: https://www.opiq.ee/kit/578/chapter/33032
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.10
 - Class: 2
 - Language: ru
@@ -2878,8 +3059,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 179. Kell
 - URL: https://www.opiq.ee/kit/578/chapter/33033
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.11
 - Class: 2
 - Language: ru
@@ -2894,8 +3076,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 180. Korrutamine arvuga 4
 - URL: https://www.opiq.ee/kit/578/chapter/33034
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.12
 - Class: 2
 - Language: ru
@@ -2910,8 +3093,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 181. Kordamine
 - URL: https://www.opiq.ee/kit/578/chapter/33035
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.13
 - Class: 2
 - Language: ru
@@ -2926,8 +3110,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 182. Kordamine. Nelinurgad, arvutamine täiskümnete ja ‑sadadega, pikkusühikud
 - URL: https://www.opiq.ee/kit/578/chapter/33024
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.2
 - Class: 2
 - Language: ru
@@ -2942,8 +3127,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 183. Kordamine. Ristkülik, ruut, kolmnurk, ring
 - URL: https://www.opiq.ee/kit/578/chapter/33025
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.3
 - Class: 2
 - Language: ru
@@ -2958,8 +3144,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 184. Korrutamise seos liitmisega
 - URL: https://www.opiq.ee/kit/578/chapter/33026
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.4
 - Class: 2
 - Language: ru
@@ -2974,8 +3161,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 185. Korrutamise seadus
 - URL: https://www.opiq.ee/kit/578/chapter/33027
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.5
 - Class: 2
 - Language: ru
@@ -2990,8 +3178,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 186. Korrutamine arvuga 2 (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33028
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.6
 - Class: 2
 - Language: ru
@@ -3006,8 +3195,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 187. Korrutamine arvuga 2 (2)
 - URL: https://www.opiq.ee/kit/578/chapter/33029
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.7
 - Class: 2
 - Language: ru
@@ -3022,8 +3212,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 188. Korrutamine arvuga 3 (1)
 - URL: https://www.opiq.ee/kit/578/chapter/33030
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.8
 - Class: 2
 - Language: ru
@@ -3038,8 +3229,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 189. Korrutamine arvuga 3 (2)
 - URL: https://www.opiq.ee/kit/578/chapter/33031
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 7.9
 - Class: 2
 - Language: ru
@@ -3054,8 +3246,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 190. Eesti-vene sõnastik
 - URL: https://www.opiq.ee/kit/578/chapter/32233
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 8.1
 - Class: 2
 - Language: ru
@@ -3070,8 +3263,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 191. Vene-eesti sõnastik
 - URL: https://www.opiq.ee/kit/578/chapter/32234
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 8.2
 - Class: 2
 - Language: ru
@@ -3086,8 +3280,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 192. Arvud ja järgarvud
 - URL: https://www.opiq.ee/kit/578/chapter/32235
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 8.3
 - Class: 2
 - Language: ru
@@ -3102,8 +3297,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 193. Nädalapäevad, kuud ja aastaajad
 - URL: https://www.opiq.ee/kit/578/chapter/32236
-- Book: Математика для 2 класса
-- Book ID: avita_математика_2_et
+- Book: Matemaatika 2. klassile
+- Book ID: avita_математика_2_et__kit578
+- Source Book ID: avita_математика_2_et
 - Chapter ID: 8.4
 - Class: 2
 - Language: ru
@@ -3119,7 +3315,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 194. Повторение
 - URL: https://www.opiq.ee/kit/165/chapter/9267
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -3135,7 +3332,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 195. Повторение. Сравнение чисел, сложение и вычитание в пределах 20
 - URL: https://www.opiq.ee/kit/165/chapter/9244
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.10
 - Class: 2
 - Language: ru
@@ -3151,7 +3349,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 196. Отрезок
 - URL: https://www.opiq.ee/kit/165/chapter/9245
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.11
 - Class: 2
 - Language: ru
@@ -3167,7 +3366,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 197. Отрезок. Миллиметр
 - URL: https://www.opiq.ee/kit/165/chapter/9246
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.12
 - Class: 2
 - Language: ru
@@ -3183,7 +3383,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 198. Измерение длины в миллиметрах
 - URL: https://www.opiq.ee/kit/165/chapter/9247
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.13
 - Class: 2
 - Language: ru
@@ -3199,7 +3400,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 199. Упорядочивание чисел
 - URL: https://www.opiq.ee/kit/165/chapter/9236
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.2
 - Class: 2
 - Language: ru
@@ -3215,7 +3417,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 200. Десятки и единицы (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9237
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.3
 - Class: 2
 - Language: ru
@@ -3231,7 +3434,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 201. Десятки и единицы (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9238
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.4
 - Class: 2
 - Language: ru
@@ -3247,7 +3451,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 202. Сравнение чисел
 - URL: https://www.opiq.ee/kit/165/chapter/9239
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.5
 - Class: 2
 - Language: ru
@@ -3263,7 +3468,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 203. Сложение и вычитание в пределах 20
 - URL: https://www.opiq.ee/kit/165/chapter/9240
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.6
 - Class: 2
 - Language: ru
@@ -3279,7 +3485,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 204. Сложение в пределах 20
 - URL: https://www.opiq.ee/kit/165/chapter/9241
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.7
 - Class: 2
 - Language: ru
@@ -3295,7 +3502,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 205. Вычитание в пределах 20
 - URL: https://www.opiq.ee/kit/165/chapter/9242
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.8
 - Class: 2
 - Language: ru
@@ -3311,7 +3519,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 206. Связь сложения и вычитания
 - URL: https://www.opiq.ee/kit/165/chapter/9243
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 1.9
 - Class: 2
 - Language: ru
@@ -3327,7 +3536,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 207. Повторение. Умножение и деление
 - URL: https://www.opiq.ee/kit/165/chapter/9329
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 10.1
 - Class: 2
 - Language: ru
@@ -3343,7 +3553,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 208. Повторение. Таблица умножения
 - URL: https://www.opiq.ee/kit/165/chapter/27755
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 10.2
 - Class: 2
 - Language: ru
@@ -3359,7 +3570,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 209. Геометрические фигуры
 - URL: https://www.opiq.ee/kit/165/chapter/9313
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 10.3
 - Class: 2
 - Language: ru
@@ -3375,7 +3587,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 210. Повторение
 - URL: https://www.opiq.ee/kit/165/chapter/9330
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 10.4
 - Class: 2
 - Language: ru
@@ -3391,7 +3604,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 211. Урок на открытом воздухе. Разбивка цветочной клумбы
 - URL: https://www.opiq.ee/kit/165/chapter/9331
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 10.5
 - Class: 2
 - Language: ru
@@ -3407,7 +3621,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 212. Повторение. Длина отрезка, вычисления в пределах 20
 - URL: https://www.opiq.ee/kit/165/chapter/9268
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -3423,7 +3638,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 213. Равнобедренный треугольник
 - URL: https://www.opiq.ee/kit/165/chapter/24562
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.10
 - Class: 2
 - Language: ru
@@ -3439,7 +3655,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 214. Равносторонний треугольник
 - URL: https://www.opiq.ee/kit/165/chapter/24563
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.11
 - Class: 2
 - Language: ru
@@ -3455,7 +3672,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 215. Ромб
 - URL: https://www.opiq.ee/kit/165/chapter/24564
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.12
 - Class: 2
 - Language: ru
@@ -3471,7 +3689,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 216. Повторение. Плоские фигуры
 - URL: https://www.opiq.ee/kit/165/chapter/24557
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.13
 - Class: 2
 - Language: ru
@@ -3487,7 +3706,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 217. Фигуры
 - URL: https://www.opiq.ee/kit/165/chapter/9269
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -3503,7 +3723,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 218. Прямой угол
 - URL: https://www.opiq.ee/kit/165/chapter/9277
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.3
 - Class: 2
 - Language: ru
@@ -3519,7 +3740,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 219. Четырёхугольники
 - URL: https://www.opiq.ee/kit/165/chapter/9278
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.4
 - Class: 2
 - Language: ru
@@ -3535,7 +3757,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 220. Прямоугольник
 - URL: https://www.opiq.ee/kit/165/chapter/24558
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.5
 - Class: 2
 - Language: ru
@@ -3551,7 +3774,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 221. Квадрат
 - URL: https://www.opiq.ee/kit/165/chapter/24559
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.6
 - Class: 2
 - Language: ru
@@ -3567,7 +3791,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 222. Окружность, круг, центр окружности
 - URL: https://www.opiq.ee/kit/165/chapter/9284
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.7
 - Class: 2
 - Language: ru
@@ -3583,7 +3808,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 223. Треугольник
 - URL: https://www.opiq.ee/kit/165/chapter/24560
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.8
 - Class: 2
 - Language: ru
@@ -3599,7 +3825,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 224. Прямоугольный треугольник
 - URL: https://www.opiq.ee/kit/165/chapter/24561
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 2.9
 - Class: 2
 - Language: ru
@@ -3615,7 +3842,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 225. Числовые значения буквы
 - URL: https://www.opiq.ee/kit/165/chapter/9272
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -3631,7 +3859,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 226. Метр, сантиметр
 - URL: https://www.opiq.ee/kit/165/chapter/9257
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.10
 - Class: 2
 - Language: ru
@@ -3647,7 +3876,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 227. Дециметр
 - URL: https://www.opiq.ee/kit/165/chapter/9258
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.11
 - Class: 2
 - Language: ru
@@ -3663,7 +3893,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 228. Единицы длины: м, дм, см, мм
 - URL: https://www.opiq.ee/kit/165/chapter/9259
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.12
 - Class: 2
 - Language: ru
@@ -3679,7 +3910,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 229. Повторение. Сложение и вычитание в пределах 100, упорядочивание и сравнение чисел
 - URL: https://www.opiq.ee/kit/165/chapter/9260
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.13
 - Class: 2
 - Language: ru
@@ -3695,7 +3927,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 230. Единицы, десятки, сотни
 - URL: https://www.opiq.ee/kit/165/chapter/9251
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.2
 - Class: 2
 - Language: ru
@@ -3711,7 +3944,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 231. Двузначное число как сумма десятков и единиц
 - URL: https://www.opiq.ee/kit/165/chapter/9273
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.3
 - Class: 2
 - Language: ru
@@ -3727,7 +3961,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 232. Вычитание единиц из целых десятков
 - URL: https://www.opiq.ee/kit/165/chapter/9252
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.4
 - Class: 2
 - Language: ru
@@ -3743,7 +3978,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 233. Сложение в пределах 100 без перехода через десяток
 - URL: https://www.opiq.ee/kit/165/chapter/9254
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.5
 - Class: 2
 - Language: ru
@@ -3759,7 +3995,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 234. Вычитание в пределах 100 без перехода через десяток
 - URL: https://www.opiq.ee/kit/165/chapter/9255
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.6
 - Class: 2
 - Language: ru
@@ -3775,7 +4012,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 235. Дополнение числа до целого десятка
 - URL: https://www.opiq.ee/kit/165/chapter/9256
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.7
 - Class: 2
 - Language: ru
@@ -3791,7 +4029,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 236. Повторение. Вычисления в пределах 100, вычитание единиц из десятков
 - URL: https://www.opiq.ee/kit/165/chapter/9253
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.8
 - Class: 2
 - Language: ru
@@ -3807,7 +4046,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 237. Повторение. Вычисления в пределах 100 без перехода через десяток. Отрезок
 - URL: https://www.opiq.ee/kit/165/chapter/24565
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 3.9
 - Class: 2
 - Language: ru
@@ -3823,7 +4063,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 238. Сложение в пределах 100 с переходом через десяток (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9274
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.1
 - Class: 2
 - Language: ru
@@ -3839,7 +4080,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 239. Математические орешки
 - URL: https://www.opiq.ee/kit/165/chapter/9276
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.10
 - Class: 2
 - Language: ru
@@ -3855,7 +4097,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 240. Сложение в пределах 100 с переходом через десяток (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9261
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.2
 - Class: 2
 - Language: ru
@@ -3871,7 +4114,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 241. Календарь (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9262
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.3
 - Class: 2
 - Language: ru
@@ -3887,7 +4131,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 242. Календарь (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9263
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.4
 - Class: 2
 - Language: ru
@@ -3903,7 +4148,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 243. Час, минута
 - URL: https://www.opiq.ee/kit/165/chapter/9264
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.5
 - Class: 2
 - Language: ru
@@ -3919,7 +4165,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 244. Секунда
 - URL: https://www.opiq.ee/kit/165/chapter/9265
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.6
 - Class: 2
 - Language: ru
@@ -3935,7 +4182,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 245. Повторение. Единицы измерения времени, длительность события
 - URL: https://www.opiq.ee/kit/165/chapter/24566
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.7
 - Class: 2
 - Language: ru
@@ -3951,7 +4199,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 246. Повторение. Рождество
 - URL: https://www.opiq.ee/kit/165/chapter/9266
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.8
 - Class: 2
 - Language: ru
@@ -3967,7 +4216,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 247. Повторение. Рождество (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9275
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 4.9
 - Class: 2
 - Language: ru
@@ -3983,7 +4233,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 248. Числа до 1000
 - URL: https://www.opiq.ee/kit/165/chapter/9279
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.1
 - Class: 2
 - Language: ru
@@ -3999,7 +4250,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 249. Сравнение чисел от 0 до 1000
 - URL: https://www.opiq.ee/kit/165/chapter/9280
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.2
 - Class: 2
 - Language: ru
@@ -4015,7 +4267,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 250. Сложение целых десятков и сотен в пределах 1000
 - URL: https://www.opiq.ee/kit/165/chapter/9281
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.3
 - Class: 2
 - Language: ru
@@ -4031,7 +4284,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 251. Вычитание целых десятков и сотен в пределах 1000
 - URL: https://www.opiq.ee/kit/165/chapter/9282
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.4
 - Class: 2
 - Language: ru
@@ -4047,7 +4301,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 252. Километр
 - URL: https://www.opiq.ee/kit/165/chapter/9283
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.5
 - Class: 2
 - Language: ru
@@ -4063,7 +4318,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 253. Повторение. Числа до тысячи, километр
 - URL: https://www.opiq.ee/kit/165/chapter/9285
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.6
 - Class: 2
 - Language: ru
@@ -4079,7 +4335,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 254. Сложение в пределах 100 (3)
 - URL: https://www.opiq.ee/kit/165/chapter/9287
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.7
 - Class: 2
 - Language: ru
@@ -4095,7 +4352,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 255. Сложение в пределах 100 (4)
 - URL: https://www.opiq.ee/kit/165/chapter/9288
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 5.8
 - Class: 2
 - Language: ru
@@ -4111,7 +4369,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 256. Вычитание в пределах 100
 - URL: https://www.opiq.ee/kit/165/chapter/9315
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.1
 - Class: 2
 - Language: ru
@@ -4127,7 +4386,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 257. Цилиндр, конус, шар
 - URL: https://www.opiq.ee/kit/165/chapter/9248
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.10
 - Class: 2
 - Language: ru
@@ -4143,7 +4403,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 258. Повторение. Объёмные фигуры
 - URL: https://www.opiq.ee/kit/165/chapter/9271
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.11
 - Class: 2
 - Language: ru
@@ -4159,7 +4420,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 259. Вычитание в пределах 100 с переходом через десяток (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9289
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.2
 - Class: 2
 - Language: ru
@@ -4175,7 +4437,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 260. Вычитание в пределах 100 с переходом через десяток (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9290
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.3
 - Class: 2
 - Language: ru
@@ -4191,7 +4454,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 261. Килограмм, грамм (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9316
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.4
 - Class: 2
 - Language: ru
@@ -4207,7 +4471,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 262. Килограмм, грамм (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9317
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.5
 - Class: 2
 - Language: ru
@@ -4223,7 +4488,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 263. Повторение. Сложение и вычитание в пределах 100, килограмм, грамм
 - URL: https://www.opiq.ee/kit/165/chapter/9291
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.6
 - Class: 2
 - Language: ru
@@ -4239,7 +4505,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 264. Параллелепипед и куб
 - URL: https://www.opiq.ee/kit/165/chapter/9249
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.7
 - Class: 2
 - Language: ru
@@ -4255,7 +4522,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 265. Что такое развёртка?
 - URL: https://www.opiq.ee/kit/165/chapter/24567
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.8
 - Class: 2
 - Language: ru
@@ -4271,7 +4539,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 266. Пирамида
 - URL: https://www.opiq.ee/kit/165/chapter/9250
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 6.9
 - Class: 2
 - Language: ru
@@ -4287,7 +4556,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 267. Повторение. Сложение и вычитание в пределах 100
 - URL: https://www.opiq.ee/kit/165/chapter/9314
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.1
 - Class: 2
 - Language: ru
@@ -4303,7 +4573,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 268. Половина
 - URL: https://www.opiq.ee/kit/165/chapter/9321
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.10
 - Class: 2
 - Language: ru
@@ -4319,7 +4590,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 269. Часы. Время
 - URL: https://www.opiq.ee/kit/165/chapter/9295
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.11
 - Class: 2
 - Language: ru
@@ -4335,7 +4607,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 270. Умножение числа 4 и на 4
 - URL: https://www.opiq.ee/kit/165/chapter/9296
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.12
 - Class: 2
 - Language: ru
@@ -4351,7 +4624,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 271. Повторение
 - URL: https://www.opiq.ee/kit/165/chapter/9297
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.13
 - Class: 2
 - Language: ru
@@ -4367,7 +4641,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 272. Повторение. Четырёхугольники, вычисления с целыми десятками и сотнями, единицы измерения длины
 - URL: https://www.opiq.ee/kit/165/chapter/9286
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.2
 - Class: 2
 - Language: ru
@@ -4383,7 +4658,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 273. Повторение. Прямоугольник, квадрат, треугольник, круг
 - URL: https://www.opiq.ee/kit/165/chapter/9270
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.3
 - Class: 2
 - Language: ru
@@ -4399,7 +4675,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 274. Умножение как действие, заменяющее сложение одинаковых слагаемых
 - URL: https://www.opiq.ee/kit/165/chapter/9318
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.4
 - Class: 2
 - Language: ru
@@ -4415,7 +4692,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 275. Закон умножения
 - URL: https://www.opiq.ee/kit/165/chapter/9292
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.5
 - Class: 2
 - Language: ru
@@ -4431,7 +4709,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 276. Умножение числа 2 (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9293
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.6
 - Class: 2
 - Language: ru
@@ -4447,7 +4726,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 277. Умножение числа 2 и на 2 (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9319
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.7
 - Class: 2
 - Language: ru
@@ -4463,7 +4743,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 278. Умножение числа 3 (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9294
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.8
 - Class: 2
 - Language: ru
@@ -4479,7 +4760,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 279. Умножение числа 3 и на 3 (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9320
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 7.9
 - Class: 2
 - Language: ru
@@ -4495,7 +4777,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 280. Деление. Действие, обратное умножению
 - URL: https://www.opiq.ee/kit/165/chapter/9298
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.1
 - Class: 2
 - Language: ru
@@ -4511,7 +4794,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 281. Деление на число 2
 - URL: https://www.opiq.ee/kit/165/chapter/9299
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.2
 - Class: 2
 - Language: ru
@@ -4527,7 +4811,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 282. Деление на число 3
 - URL: https://www.opiq.ee/kit/165/chapter/9300
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.3
 - Class: 2
 - Language: ru
@@ -4543,7 +4828,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 283. Деление на числа 2 и 3
 - URL: https://www.opiq.ee/kit/165/chapter/9301
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.4
 - Class: 2
 - Language: ru
@@ -4559,7 +4845,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 284. Четверть, три четверти
 - URL: https://www.opiq.ee/kit/165/chapter/9322
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.5
 - Class: 2
 - Language: ru
@@ -4575,7 +4862,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 285. Деление на число 4
 - URL: https://www.opiq.ee/kit/165/chapter/9302
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.6
 - Class: 2
 - Language: ru
@@ -4591,7 +4879,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 286. Порядок действий в выражениях
 - URL: https://www.opiq.ee/kit/165/chapter/9303
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.7
 - Class: 2
 - Language: ru
@@ -4607,7 +4896,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 287. Умножение числа 4 и деление на 4
 - URL: https://www.opiq.ee/kit/165/chapter/9304
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.8
 - Class: 2
 - Language: ru
@@ -4623,7 +4913,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 288. Умножение числа 5 и на 5
 - URL: https://www.opiq.ee/kit/165/chapter/9305
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 8.9
 - Class: 2
 - Language: ru
@@ -4639,7 +4930,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 289. Деление на число 5
 - URL: https://www.opiq.ee/kit/165/chapter/9306
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.1
 - Class: 2
 - Language: ru
@@ -4655,7 +4947,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 290. Умножение числа 9
 - URL: https://www.opiq.ee/kit/165/chapter/9326
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.10
 - Class: 2
 - Language: ru
@@ -4671,7 +4964,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 291. Математические хитрости
 - URL: https://www.opiq.ee/kit/165/chapter/9327
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.11
 - Class: 2
 - Language: ru
@@ -4687,7 +4981,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 292. Повторение. Сложение и вычитание в пределах 100
 - URL: https://www.opiq.ee/kit/165/chapter/9328
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.12
 - Class: 2
 - Language: ru
@@ -4703,7 +4998,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 293. Повторение. Сложение и вычитание в пределах 1000
 - URL: https://www.opiq.ee/kit/165/chapter/9312
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.13
 - Class: 2
 - Language: ru
@@ -4719,7 +5015,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 294. Литр
 - URL: https://www.opiq.ee/kit/165/chapter/9307
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.2
 - Class: 2
 - Language: ru
@@ -4735,7 +5032,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 295. Повторение
 - URL: https://www.opiq.ee/kit/165/chapter/9323
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.3
 - Class: 2
 - Language: ru
@@ -4751,7 +5049,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 296. Таблица умножения
 - URL: https://www.opiq.ee/kit/165/chapter/9324
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.4
 - Class: 2
 - Language: ru
@@ -4767,7 +5066,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 297. Умножение числа 6 и деление на 6
 - URL: https://www.opiq.ee/kit/165/chapter/9308
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.5
 - Class: 2
 - Language: ru
@@ -4783,7 +5083,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 298. Умножение числа 7 и деление на 7
 - URL: https://www.opiq.ee/kit/165/chapter/9325
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.6
 - Class: 2
 - Language: ru
@@ -4799,7 +5100,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 299. Температура (1)
 - URL: https://www.opiq.ee/kit/165/chapter/9309
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.7
 - Class: 2
 - Language: ru
@@ -4815,7 +5117,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 300. Температура (2)
 - URL: https://www.opiq.ee/kit/165/chapter/9310
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.8
 - Class: 2
 - Language: ru
@@ -4831,7 +5134,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 301. Умножение числа 8 и деление на 8
 - URL: https://www.opiq.ee/kit/165/chapter/9311
 - Book: Математика для 2 класса
-- Book ID: avita_математика_2_ru
+- Book ID: avita_математика_2_ru__kit165
+- Source Book ID: avita_математика_2_ru
 - Chapter ID: 9.9
 - Class: 2
 - Language: ru
@@ -4846,8 +5150,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 302. Arv 18
 - URL: https://www.opiq.ee/kit/274/chapter/15477
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -4863,7 +5168,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 303. Geomeetria
 - URL: https://www.opiq.ee/kit/272/chapter/15429
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.10
 - Class: 2
 - Language: et
@@ -4878,8 +5184,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 304. Arvurida 1–18
 - URL: https://www.opiq.ee/kit/274/chapter/15478
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -4894,8 +5201,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 305. Arvu 18 kümnendkoostis
 - URL: https://www.opiq.ee/kit/274/chapter/15479
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -4910,8 +5218,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 306. Võrdlemine 18 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15480
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -4926,8 +5235,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 307. Liitmine ja lahutamine 18 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15481
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -4943,7 +5253,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 308. Arvu 10 koostis
 - URL: https://www.opiq.ee/kit/272/chapter/15425
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -4959,7 +5270,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 309. Liitmine ja lahutamine 10 piires
 - URL: https://www.opiq.ee/kit/272/chapter/15426
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -4975,7 +5287,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 310. Aeg
 - URL: https://www.opiq.ee/kit/272/chapter/15427
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -4991,7 +5304,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 311. Rahaühikud
 - URL: https://www.opiq.ee/kit/272/chapter/15428
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -5006,8 +5320,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 312. Arv 19
 - URL: https://www.opiq.ee/kit/274/chapter/15482
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -5022,8 +5337,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 313. Arvurida 1–19
 - URL: https://www.opiq.ee/kit/274/chapter/15483
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -5038,8 +5354,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 314. Arvu 19 kümnendkoostis
 - URL: https://www.opiq.ee/kit/274/chapter/15484
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -5054,8 +5371,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 315. Võrdlemine 19 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15485
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -5070,8 +5388,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 316. Liitmine ja lahutamine 19 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15486
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -5086,8 +5405,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 317. Arv 20
 - URL: https://www.opiq.ee/kit/274/chapter/15487
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -5102,8 +5422,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 318. Arvurida 1–20
 - URL: https://www.opiq.ee/kit/274/chapter/15488
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -5118,8 +5439,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 319. Arvu 20 kümnendkoostis
 - URL: https://www.opiq.ee/kit/274/chapter/15489
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -5134,8 +5456,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 320. Võrdlemine 20 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15490
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -5150,8 +5473,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 321. Liitmine ja lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15491
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -5166,8 +5490,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 322. Kahekohalisest arvust kahekohalise arvu lahutamine 20 piires
 - URL: https://www.opiq.ee/kit/274/chapter/15492
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -5182,8 +5507,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 323. Mitme arvu liitmine
 - URL: https://www.opiq.ee/kit/274/chapter/15493
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -5198,8 +5524,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 324. Mitme arvu lahutamine
 - URL: https://www.opiq.ee/kit/274/chapter/15494
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -5214,8 +5541,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 325. Mitme arvu liitmine ja lahutamine
 - URL: https://www.opiq.ee/kit/274/chapter/15495
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -5230,8 +5558,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 326. Liitmine kahekümneni
 - URL: https://www.opiq.ee/kit/274/chapter/15496
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -5246,8 +5575,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 327. Ühekohalise arvu lahutamine kahekümnest
 - URL: https://www.opiq.ee/kit/274/chapter/15497
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -5262,8 +5592,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 328. Kahekohalise arvu lahutamine kahekümnest
 - URL: https://www.opiq.ee/kit/274/chapter/15498
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.7
 - Class: 2
 - Language: et
@@ -5278,8 +5609,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 329. Liitmine kümneni ja kümnele
 - URL: https://www.opiq.ee/kit/274/chapter/15499
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.8
 - Class: 2
 - Language: et
@@ -5294,8 +5626,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 330. Lahutamine kümneni ja kümnest
 - URL: https://www.opiq.ee/kit/274/chapter/15500
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 4.9
 - Class: 2
 - Language: et
@@ -5310,8 +5643,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 331. Kolmnurk. Nelinurk
 - URL: https://www.opiq.ee/kit/274/chapter/15501
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -5326,8 +5660,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 332. Sentimeeter
 - URL: https://www.opiq.ee/kit/273/chapter/15458
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -5343,7 +5678,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 333. Arvu 12 kümnendkoostis
 - URL: https://www.opiq.ee/kit/272/chapter/15439
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -5359,7 +5695,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 334. Võrdlemine 12 piires
 - URL: https://www.opiq.ee/kit/272/chapter/15440
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 5.4
 - Class: 2
 - Language: et
@@ -5375,7 +5712,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 335. Liitmine ja lahutamine 12 piires
 - URL: https://www.opiq.ee/kit/272/chapter/15441
 - Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book ID: harno_matemaatik_2_et__kit272
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 5.5
 - Class: 2
 - Language: et
@@ -5390,8 +5728,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 336. Rahatähtede ja müntide vahetamine suuremaks või väiksemaks
 - URL: https://www.opiq.ee/kit/274/chapter/15502
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -5406,8 +5745,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 337. Rahatähtedest ja müntidest vajaliku summa moodustamine
 - URL: https://www.opiq.ee/kit/274/chapter/15503
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 6.2
 - Class: 2
 - Language: et
@@ -5422,8 +5762,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 338. Aja määramine (enne-pärast)
 - URL: https://www.opiq.ee/kit/274/chapter/15504
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 6.3
 - Class: 2
 - Language: et
@@ -5438,8 +5779,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 339. Aja määramine (varem-hiljem)
 - URL: https://www.opiq.ee/kit/274/chapter/15505
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 6.4
 - Class: 2
 - Language: et
@@ -5454,8 +5796,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 340. Nimega arvude liitmine ja lahutamine
 - URL: https://www.opiq.ee/kit/274/chapter/15506
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 6.5
 - Class: 2
 - Language: et
@@ -5470,8 +5813,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 341. Kordamine
 - URL: https://www.opiq.ee/kit/274/chapter/15507
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 6.6
 - Class: 2
 - Language: et
@@ -5486,8 +5830,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 342. Metoodilised juhised õpetajale õppevara kasutamiseks
 - URL: https://www.opiq.ee/kit/274/chapter/15509
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 7.2
 - Class: 2
 - Language: et
@@ -5502,8 +5847,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 343. Matemaatika õpik 2. klassile, 3. osa (PDF-versioon)
 - URL: https://www.opiq.ee/kit/274/chapter/15510
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, III osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit274
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 7.3
 - Class: 2
 - Language: et
@@ -5518,8 +5864,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 344. Võrdlemine 16 piires
 - URL: https://www.opiq.ee/kit/273/chapter/15467
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 7.4
 - Class: 2
 - Language: et
@@ -5534,8 +5881,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 345. Liitmine ja lahutamine 16 piires
 - URL: https://www.opiq.ee/kit/273/chapter/15468
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 7.5
 - Class: 2
 - Language: et
@@ -5550,8 +5898,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 346. Arv 17
 - URL: https://www.opiq.ee/kit/273/chapter/15469
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 8.1
 - Class: 2
 - Language: et
@@ -5566,8 +5915,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 347. Arvurida 1–17
 - URL: https://www.opiq.ee/kit/273/chapter/15470
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 8.2
 - Class: 2
 - Language: et
@@ -5582,8 +5932,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 348. Arvu 17 kümnendkoostis
 - URL: https://www.opiq.ee/kit/273/chapter/15471
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 8.3
 - Class: 2
 - Language: et
@@ -5598,8 +5949,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 349. Võrdlemine 17 piires
 - URL: https://www.opiq.ee/kit/273/chapter/15472
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 8.4
 - Class: 2
 - Language: et
@@ -5614,8 +5966,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 350. Liitmine ja lahutamine 17 piires
 - URL: https://www.opiq.ee/kit/273/chapter/15473
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 8.5
 - Class: 2
 - Language: et
@@ -5630,8 +5983,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 351. Metoodilised juhised õpetajale õppevara kasutamiseks
 - URL: https://www.opiq.ee/kit/273/chapter/15475
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 9.2
 - Class: 2
 - Language: et
@@ -5646,8 +6000,9 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 
 ### 352. Matemaatika õpik 2. klassile, 2. osa (PDF-versioon)
 - URL: https://www.opiq.ee/kit/273/chapter/15476
-- Book: Matemaatika 2. klassile, I osa. Lihtsustatud õppekava
-- Book ID: harno_matemaatik_2_et
+- Book: Matemaatika 2. klassile, II osa. Lihtsustatud õppekava
+- Book ID: harno_matemaatik_2_et__kit273
+- Source Book ID: harno_matemaatik_2_et
 - Chapter ID: 9.3
 - Class: 2
 - Language: et
@@ -5663,7 +6018,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 353. Kordamine ja süvendamine
 - URL: https://www.opiq.ee/kit/107/chapter/5184
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -5679,7 +6035,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 354. Arvud 1 kuni 20 (1)
 - URL: https://www.opiq.ee/kit/107/chapter/5185
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -5695,7 +6052,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 355. Arvud 1 kuni 20 (2)
 - URL: https://www.opiq.ee/kit/107/chapter/5186
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -5711,7 +6069,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 356. Liitmine ja lahutamine 20 piires (1)
 - URL: https://www.opiq.ee/kit/107/chapter/5187
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -5727,7 +6086,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 357. Liitmine ja lahutamine 20 piires (2)
 - URL: https://www.opiq.ee/kit/107/chapter/5188
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -5743,7 +6103,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 358. Tekstülesande lahendamine
 - URL: https://www.opiq.ee/kit/107/chapter/5189
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -5759,7 +6120,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 359. Täht arvu tähisena (1)
 - URL: https://www.opiq.ee/kit/107/chapter/5190
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -5775,7 +6137,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 360. Täht arvu tähisena (2)
 - URL: https://www.opiq.ee/kit/107/chapter/5191
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -5791,7 +6154,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 361. Korrutamine
 - URL: https://www.opiq.ee/kit/107/chapter/10747
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.1
 - Class: 2
 - Language: et
@@ -5807,7 +6171,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 362. Jagamine arvuga 5
 - URL: https://www.opiq.ee/kit/107/chapter/10756
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.10
 - Class: 2
 - Language: et
@@ -5823,7 +6188,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 363. Korrutamine arvuga 2
 - URL: https://www.opiq.ee/kit/107/chapter/10748
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.2
 - Class: 2
 - Language: et
@@ -5839,7 +6205,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 364. Korrutamine arvuga 3
 - URL: https://www.opiq.ee/kit/107/chapter/10749
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.3
 - Class: 2
 - Language: et
@@ -5855,7 +6222,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 365. Korrutamine arvuga 4
 - URL: https://www.opiq.ee/kit/107/chapter/10750
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.4
 - Class: 2
 - Language: et
@@ -5871,7 +6239,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 366. Korrutamine arvuga 5
 - URL: https://www.opiq.ee/kit/107/chapter/10751
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.5
 - Class: 2
 - Language: et
@@ -5887,7 +6256,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 367. Jagamine
 - URL: https://www.opiq.ee/kit/107/chapter/10752
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.6
 - Class: 2
 - Language: et
@@ -5903,7 +6273,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 368. Jagamine arvuga 2
 - URL: https://www.opiq.ee/kit/107/chapter/10753
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.7
 - Class: 2
 - Language: et
@@ -5919,7 +6290,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 369. Jagamine arvuga 3
 - URL: https://www.opiq.ee/kit/107/chapter/10754
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.8
 - Class: 2
 - Language: et
@@ -5935,7 +6307,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 370. Jagamine arvuga 4
 - URL: https://www.opiq.ee/kit/107/chapter/10755
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 10.9
 - Class: 2
 - Language: et
@@ -5951,7 +6324,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 371. Kordamine (1)
 - URL: https://www.opiq.ee/kit/107/chapter/10757
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 11.1
 - Class: 2
 - Language: et
@@ -5967,7 +6341,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 372. Kordamine (2)
 - URL: https://www.opiq.ee/kit/107/chapter/10758
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 11.2
 - Class: 2
 - Language: et
@@ -5983,7 +6358,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 373. Arvud tuhandeni
 - URL: https://www.opiq.ee/kit/107/chapter/10759
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 12.1
 - Class: 2
 - Language: et
@@ -5999,7 +6375,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 374. Täiskümnete ja täissadade liitmine ning lahutamine
 - URL: https://www.opiq.ee/kit/107/chapter/10760
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 12.2
 - Class: 2
 - Language: et
@@ -6015,7 +6392,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 375. Pikkusühik kilomeeter
 - URL: https://www.opiq.ee/kit/107/chapter/10761
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 13.1
 - Class: 2
 - Language: et
@@ -6031,7 +6409,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 376. Massiühikud gramm ja kilogramm
 - URL: https://www.opiq.ee/kit/107/chapter/10762
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 13.2
 - Class: 2
 - Language: et
@@ -6047,7 +6426,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 377. Kordamine
 - URL: https://www.opiq.ee/kit/107/chapter/10763
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 14.1
 - Class: 2
 - Language: et
@@ -6063,7 +6443,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 378. Kas oskad?
 - URL: https://www.opiq.ee/kit/107/chapter/10764
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 15.1
 - Class: 2
 - Language: et
@@ -6079,7 +6460,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 379. Ülesanded 1–5
 - URL: https://www.opiq.ee/kit/107/chapter/10765
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.1
 - Class: 2
 - Language: et
@@ -6095,7 +6477,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 380. Ülesanded 6–10
 - URL: https://www.opiq.ee/kit/107/chapter/10766
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.2
 - Class: 2
 - Language: et
@@ -6111,7 +6494,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 381. Ülesanded 11–15
 - URL: https://www.opiq.ee/kit/107/chapter/10767
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.3
 - Class: 2
 - Language: et
@@ -6127,7 +6511,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 382. Ülesanded 16–20
 - URL: https://www.opiq.ee/kit/107/chapter/10768
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.4
 - Class: 2
 - Language: et
@@ -6143,7 +6528,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 383. Ülesanded 21–25
 - URL: https://www.opiq.ee/kit/107/chapter/10769
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.5
 - Class: 2
 - Language: et
@@ -6159,7 +6545,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 384. Ülesanded 26–30
 - URL: https://www.opiq.ee/kit/107/chapter/10770
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.6
 - Class: 2
 - Language: et
@@ -6175,7 +6562,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 385. Ülesanded 31–35
 - URL: https://www.opiq.ee/kit/107/chapter/10771
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.7
 - Class: 2
 - Language: et
@@ -6191,7 +6579,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 386. Ülesanded 36–40
 - URL: https://www.opiq.ee/kit/107/chapter/10772
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.8
 - Class: 2
 - Language: et
@@ -6207,7 +6596,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 387. Ülesanded 41–48
 - URL: https://www.opiq.ee/kit/107/chapter/10773
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 16.9
 - Class: 2
 - Language: et
@@ -6223,7 +6613,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 388. Mängud
 - URL: https://www.opiq.ee/kit/107/chapter/10774
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 17.1
 - Class: 2
 - Language: et
@@ -6239,7 +6630,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 389. Väikese matemaatiku meelespea
 - URL: https://www.opiq.ee/kit/107/chapter/10775
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 18.1
 - Class: 2
 - Language: et
@@ -6255,7 +6647,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 390. Linnadevahelised kaugused
 - URL: https://www.opiq.ee/kit/107/chapter/10776
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 18.2
 - Class: 2
 - Language: et
@@ -6271,7 +6664,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 391. Kordamine (1)
 - URL: https://www.opiq.ee/kit/107/chapter/5192
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -6287,7 +6681,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 392. Kordamine (2)
 - URL: https://www.opiq.ee/kit/107/chapter/5193
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -6303,7 +6698,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 393. Geomeetrilised kujundid (1)
 - URL: https://www.opiq.ee/kit/107/chapter/10731
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -6319,7 +6715,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 394. Geomeetrilised kujundid (2)
 - URL: https://www.opiq.ee/kit/107/chapter/10732
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -6335,7 +6732,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 395. Pikkuse mõõtmine
 - URL: https://www.opiq.ee/kit/107/chapter/10733
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -6351,7 +6749,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 396. Massi mõõtmine
 - URL: https://www.opiq.ee/kit/107/chapter/10734
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -6367,7 +6766,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 397. Mahu mõõtmine
 - URL: https://www.opiq.ee/kit/107/chapter/10735
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -6383,7 +6783,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 398. Arvud sajani
 - URL: https://www.opiq.ee/kit/107/chapter/10736
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et
@@ -6399,7 +6800,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 399. Ühekohaliste arvude liitmine ja lahutamine 100 piires (1)
 - URL: https://www.opiq.ee/kit/107/chapter/10737
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: et
@@ -6415,7 +6817,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 400. Ühekohaliste arvude liitmine ja lahutamine 100 piires (2)
 - URL: https://www.opiq.ee/kit/107/chapter/10738
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: et
@@ -6431,7 +6834,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 401. Arvutused rahaga
 - URL: https://www.opiq.ee/kit/107/chapter/10739
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: et
@@ -6447,7 +6851,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 402. Ülesanded 1–5
 - URL: https://www.opiq.ee/kit/107/chapter/10740
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 7.1
 - Class: 2
 - Language: et
@@ -6463,7 +6868,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 403. Ülesanded 6–10
 - URL: https://www.opiq.ee/kit/107/chapter/10741
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 7.2
 - Class: 2
 - Language: et
@@ -6479,7 +6885,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 404. Ülesanded 11–15
 - URL: https://www.opiq.ee/kit/107/chapter/10742
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 7.3
 - Class: 2
 - Language: et
@@ -6495,7 +6902,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 405. Ülesanded 16–23
 - URL: https://www.opiq.ee/kit/107/chapter/10743
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 7.4
 - Class: 2
 - Language: et
@@ -6511,7 +6919,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 406. Mängud
 - URL: https://www.opiq.ee/kit/107/chapter/10744
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 8.1
 - Class: 2
 - Language: et
@@ -6527,7 +6936,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 407. Aja mõõtmine
 - URL: https://www.opiq.ee/kit/107/chapter/10745
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 9.1
 - Class: 2
 - Language: et
@@ -6543,7 +6953,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 408. Temperatuuri mõõtmine
 - URL: https://www.opiq.ee/kit/107/chapter/10746
 - Book: MATEMAATIKA 2. klassile
-- Book ID: koolibri_matemaatik_2_et
+- Book ID: koolibri_matemaatik_2_et__kit107
+- Source Book ID: koolibri_matemaatik_2_et
 - Chapter ID: 9.2
 - Class: 2
 - Language: et
@@ -6559,7 +6970,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 409. Повторяем и углубляем знания
 - URL: https://www.opiq.ee/kit/361/chapter/19848
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: ru
@@ -6575,7 +6987,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 410. Числа от 1 до 20 (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19841
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: ru
@@ -6591,7 +7004,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 411. Числа от 1 до 20 (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19842
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: ru
@@ -6607,7 +7021,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 412. Сложение и вычитание в пределах 20 (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19843
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: ru
@@ -6623,7 +7038,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 413. Сложение и вычитание в пределах 20 (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19844
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: ru
@@ -6639,7 +7055,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 414. Решение текстовых задач
 - URL: https://www.opiq.ee/kit/361/chapter/19845
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: ru
@@ -6655,7 +7072,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 415. Обозначение числа буквой (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19846
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: ru
@@ -6671,7 +7089,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 416. Обозначение числа буквой (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19847
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: ru
@@ -6687,7 +7106,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 417. Умножение
 - URL: https://www.opiq.ee/kit/361/chapter/19867
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.1
 - Class: 2
 - Language: ru
@@ -6703,7 +7123,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 418. Деление на число 5
 - URL: https://www.opiq.ee/kit/361/chapter/19876
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.10
 - Class: 2
 - Language: ru
@@ -6719,7 +7140,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 419. Умножение числа 2
 - URL: https://www.opiq.ee/kit/361/chapter/19868
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.2
 - Class: 2
 - Language: ru
@@ -6735,7 +7157,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 420. Умножение числа 3
 - URL: https://www.opiq.ee/kit/361/chapter/19869
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.3
 - Class: 2
 - Language: ru
@@ -6751,7 +7174,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 421. Умножение числа 4
 - URL: https://www.opiq.ee/kit/361/chapter/19870
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.4
 - Class: 2
 - Language: ru
@@ -6767,7 +7191,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 422. Умножение числа 5
 - URL: https://www.opiq.ee/kit/361/chapter/19871
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.5
 - Class: 2
 - Language: ru
@@ -6783,7 +7208,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 423. Деление
 - URL: https://www.opiq.ee/kit/361/chapter/19872
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.6
 - Class: 2
 - Language: ru
@@ -6799,7 +7225,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 424. Деление на число 2
 - URL: https://www.opiq.ee/kit/361/chapter/19873
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.7
 - Class: 2
 - Language: ru
@@ -6815,7 +7242,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 425. Деление на число 3
 - URL: https://www.opiq.ee/kit/361/chapter/19874
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.8
 - Class: 2
 - Language: ru
@@ -6831,7 +7259,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 426. Деление на число 4
 - URL: https://www.opiq.ee/kit/361/chapter/19875
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 10.9
 - Class: 2
 - Language: ru
@@ -6847,7 +7276,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 427. Повторение (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19877
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 11.1
 - Class: 2
 - Language: ru
@@ -6863,7 +7293,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 428. Повторение (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19878
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 11.2
 - Class: 2
 - Language: ru
@@ -6879,7 +7310,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 429. Числа до тысячи
 - URL: https://www.opiq.ee/kit/361/chapter/19879
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 12.1
 - Class: 2
 - Language: ru
@@ -6895,7 +7327,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 430. Сложение и вычитание круглых десятков и сотен
 - URL: https://www.opiq.ee/kit/361/chapter/19880
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 12.2
 - Class: 2
 - Language: ru
@@ -6911,7 +7344,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 431. Единица измерения расстояния – километр
 - URL: https://www.opiq.ee/kit/361/chapter/19881
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 13.1
 - Class: 2
 - Language: ru
@@ -6927,7 +7361,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 432. Единицы измерения массы грамм и килограмм
 - URL: https://www.opiq.ee/kit/361/chapter/19882
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 13.2
 - Class: 2
 - Language: ru
@@ -6943,7 +7378,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 433. Повторение
 - URL: https://www.opiq.ee/kit/361/chapter/19883
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 14.1
 - Class: 2
 - Language: ru
@@ -6959,7 +7395,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 434. Проверь себя!
 - URL: https://www.opiq.ee/kit/361/chapter/19884
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 15.1
 - Class: 2
 - Language: ru
@@ -6975,7 +7412,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 435. Задания 1–5
 - URL: https://www.opiq.ee/kit/361/chapter/19885
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.1
 - Class: 2
 - Language: ru
@@ -6991,7 +7429,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 436. Задания 6–10
 - URL: https://www.opiq.ee/kit/361/chapter/19886
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.2
 - Class: 2
 - Language: ru
@@ -7007,7 +7446,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 437. Задания 11–15
 - URL: https://www.opiq.ee/kit/361/chapter/19887
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.3
 - Class: 2
 - Language: ru
@@ -7023,7 +7463,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 438. Задания 16–20
 - URL: https://www.opiq.ee/kit/361/chapter/19888
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.4
 - Class: 2
 - Language: ru
@@ -7039,7 +7480,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 439. Задания 21–25
 - URL: https://www.opiq.ee/kit/361/chapter/19889
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.5
 - Class: 2
 - Language: ru
@@ -7055,7 +7497,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 440. Задания 26–30
 - URL: https://www.opiq.ee/kit/361/chapter/19890
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.6
 - Class: 2
 - Language: ru
@@ -7071,7 +7514,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 441. Задания 31–35
 - URL: https://www.opiq.ee/kit/361/chapter/19891
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.7
 - Class: 2
 - Language: ru
@@ -7087,7 +7531,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 442. Задания 36–40
 - URL: https://www.opiq.ee/kit/361/chapter/19892
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.8
 - Class: 2
 - Language: ru
@@ -7103,7 +7548,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 443. Задания 41–48
 - URL: https://www.opiq.ee/kit/361/chapter/19893
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 16.9
 - Class: 2
 - Language: ru
@@ -7119,7 +7565,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 444. Игры
 - URL: https://www.opiq.ee/kit/361/chapter/19894
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 17.1
 - Class: 2
 - Language: ru
@@ -7135,7 +7582,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 445. Словарик юного математика
 - URL: https://www.opiq.ee/kit/361/chapter/19895
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 18.1
 - Class: 2
 - Language: ru
@@ -7151,7 +7599,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 446. Таблица расстояний между городами
 - URL: https://www.opiq.ee/kit/361/chapter/19896
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 18.2
 - Class: 2
 - Language: ru
@@ -7167,7 +7616,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 447. Повторение (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19849
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: ru
@@ -7183,7 +7633,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 448. Повторение (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19850
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: ru
@@ -7199,7 +7650,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 449. Геометрические фигуры (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19851
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: ru
@@ -7215,7 +7667,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 450. Геометрические фигуры (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19852
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: ru
@@ -7231,7 +7684,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 451. Измерение длины
 - URL: https://www.opiq.ee/kit/361/chapter/19853
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: ru
@@ -7247,7 +7701,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 452. Взвешивание
 - URL: https://www.opiq.ee/kit/361/chapter/19854
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: ru
@@ -7263,7 +7718,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 453. Измерение объёма
 - URL: https://www.opiq.ee/kit/361/chapter/19855
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: ru
@@ -7279,7 +7735,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 454. Числа в пределах ста
 - URL: https://www.opiq.ee/kit/361/chapter/19856
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: ru
@@ -7295,7 +7752,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 455. Сложение и вычитание однозначных чисел в пределах 100 (1)
 - URL: https://www.opiq.ee/kit/361/chapter/19857
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 5.2
 - Class: 2
 - Language: ru
@@ -7311,7 +7769,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 456. Сложение и вычитание однозначных чисел в пределах 100 (2)
 - URL: https://www.opiq.ee/kit/361/chapter/19858
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 5.3
 - Class: 2
 - Language: ru
@@ -7327,7 +7786,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 457. Считаем деньги
 - URL: https://www.opiq.ee/kit/361/chapter/19859
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 6.1
 - Class: 2
 - Language: ru
@@ -7343,7 +7803,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 458. Задания 1–5
 - URL: https://www.opiq.ee/kit/361/chapter/19860
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 7.1
 - Class: 2
 - Language: ru
@@ -7359,7 +7820,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 459. Задания 6–10
 - URL: https://www.opiq.ee/kit/361/chapter/19861
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 7.2
 - Class: 2
 - Language: ru
@@ -7375,7 +7837,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 460. Задания 11–15
 - URL: https://www.opiq.ee/kit/361/chapter/19862
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 7.3
 - Class: 2
 - Language: ru
@@ -7391,7 +7854,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 461. Задания 16–23
 - URL: https://www.opiq.ee/kit/361/chapter/19863
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 7.4
 - Class: 2
 - Language: ru
@@ -7407,7 +7871,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 462. Игры
 - URL: https://www.opiq.ee/kit/361/chapter/19864
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 8.1
 - Class: 2
 - Language: ru
@@ -7423,7 +7888,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 463. Измерение времени
 - URL: https://www.opiq.ee/kit/361/chapter/19865
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 9.1
 - Class: 2
 - Language: ru
@@ -7439,7 +7905,8 @@ Use this file to answer grade 2 mathematics requests only. Match queries against
 ### 464. Измерение температуры
 - URL: https://www.opiq.ee/kit/361/chapter/19866
 - Book: МАТЕМАТИКА 2 класс
-- Book ID: koolibri_математика_2_et
+- Book ID: koolibri_математика_2_et__kit361
+- Source Book ID: koolibri_математика_2_et
 - Chapter ID: 9.2
 - Class: 2
 - Language: ru

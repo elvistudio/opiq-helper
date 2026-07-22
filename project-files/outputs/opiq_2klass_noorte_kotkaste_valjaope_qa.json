@@ -6,21 +6,21 @@
   "format_version": "2.0",
   "generation": {
     "status": "generated",
-    "generated_at": "2026-07-22T11:01:28.524Z",
+    "generated_at": "2026-07-22T06:41:31.773Z",
     "generator": "scripts/generate-grade-2-source-indexes.mjs",
-    "generator_version": "1.3",
-    "note": "Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown."
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "c74f484260d9e3a5504367cb89d42c456598015f3a4b40f2162b1888d8c5de5d",
-    "output_file_sha256": "0f8f6a3686f9ba160e9fb52dbdd1925360503930ed0f0659955cef4fc1589836"
+    "output_file_sha256": "ddfe70b0d978076011b0284a3a278500d8dc04eca2cb27098d0f80812f068ccb"
   },
   "source_records": 155,
   "page_records_included": 27,
   "cover_detail_records_excluded": 12,
   "administrative_records_excluded": 0,
-  "mixed_subject_page_records_excluded": 0,
-  "out_of_scope_page_records_excluded": 116,
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 116,
   "grades": {
     "2": 27
   },
@@ -28,6 +28,9 @@
     "et": 27
   },
   "books": {
+    "kaitseliit_noorte_kot_2_et": 27
+  },
+  "source_books": {
     "kaitseliit_noorte_kot_2_et": 27
   },
   "kits": {
@@ -260,30 +263,6 @@
       "source_subject": "mathematics / matemaatika / математика",
       "canonical_subject": "Young Eagles training / Noorte Kotkaste väljaõpe / подготовка Noorte Kotkad",
       "decision": "correct_automatic_subject_label"
-    }
-  ],
-  "language_normalization_records": 3,
-  "language_normalization_audit": [
-    {
-      "source_position": 84,
-      "url": "https://www.opiq.ee/kit/594/chapter/33634",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
-    },
-    {
-      "source_position": 88,
-      "url": "https://www.opiq.ee/kit/594/chapter/33638",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
-    },
-    {
-      "source_position": 89,
-      "url": "https://www.opiq.ee/kit/594/chapter/33639",
-      "source_language": "en",
-      "canonical_language": "et",
-      "decision": "correct_automatic_language_label"
     }
   ],
   "duplicate_url_audit": {
@@ -946,40 +925,32 @@
     ]
   },
   "excluded_book_audit": [],
-  "source_scope_exclusion_audit": [
-    {
-      "kit": "231",
-      "source_page_records_excluded": 27,
-      "reason": "Koduõpe contains mixed teaching examples explicitly labelled for grades 1–9 and requires a separate multi-grade route design."
-    },
-    {
-      "kit": "357",
-      "source_page_records_excluded": 48,
-      "reason": "Kodutütarde VI järk is a different progression level and is outside the requested I järk sources."
-    },
-    {
-      "kit": "593",
-      "source_page_records_excluded": 41,
-      "reason": "Kodutütarde I järk is routed separately so the two youth organisations remain distinguishable."
-    }
-  ],
   "book_id_language_suffix_anomalies": [],
   "book_metadata_audit": {
     "kaitseliit_noorte_kot_2_et": {
       "title": "Noorte Kotkaste I järk (2026)",
+      "source_book_id": "kaitseliit_noorte_kot_2_et",
       "publisher": "Kaitseliit",
       "language": "et",
       "kits": [
         "594"
       ],
       "page_records": 27,
-      "programme_type": "supplementary"
+      "programme_type": "supplementary",
+      "title_evidence": "cover_detail"
     }
   },
   "metadata_limitations": [
-    "Three Estonian pages are automatically labelled as English; canonical language is normalized from source book and page content evidence.",
-    "The route is supplementary youth-organisation training, not an official school-subject curriculum map."
+    "Three Estonian pages are automatically labelled English and normalized from book and page evidence.",
+    "This is supplementary youth-organisation training, not ordinary school curriculum."
   ],
+  "source_scope": {
+    "included_kit_ids": [
+      "594"
+    ],
+    "source_records_out_of_scope": 116,
+    "decision": "exact_kit_scope"
+  },
   "records_without_headings": 0,
   "missing_urls": 0,
   "archive_index": {

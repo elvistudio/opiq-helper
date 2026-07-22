@@ -550,7 +550,44 @@ cases:
         origin_source_id: grade-2-estonian
         source_id: grade-1-estonian
         url: https://www.opiq.ee/kit/232/chapter/15700
-    evidence: "The explicit Tähed ja häälikud heading belongs to the grade 2 Estonian route and its exact page is absent from grade 1 Estonian."
+      - kind: url_absent
+        origin_source_id: grade-2-estonian
+        source_id: grade-2-estonian-second-language
+        url: https://www.opiq.ee/kit/232/chapter/15700
+      - kind: book_id_absent
+        source_id: grade-2-estonian
+        book_id: koolibri_koos_on_lõ_2_et
+    evidence: "The explicit Tähed ja häälikud heading belongs to grade 2 first-language Estonian. Its page and the second-language book are absent from the second-language boundary."
+
+  - id: grade-2-estonian-second-language-greeting
+    grade: 2
+    subject: estonian_second_language
+    topic: "supported greeting and classroom response"
+    status: present
+    expected_source_id: grade-2-estonian-second-language
+    expected_md_path: project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-estonian-second-language
+        url: https://www.opiq.ee/kit/129/chapter/6937
+        expected:
+          class: 2
+          book_id: koolibri_koos_on_lõ_2_et
+          title: Tere!
+          subject:
+            en: Estonian as a second language
+            et: eesti keel teise keelena
+            ru: эстонский как второй язык
+          headings_any:
+            - VASTA KÜSIMUSTELE
+      - kind: url_absent
+        origin_source_id: grade-2-estonian-second-language
+        source_id: grade-2-estonian
+        url: https://www.opiq.ee/kit/129/chapter/6937
+      - kind: book_id_absent
+        source_id: grade-2-estonian-second-language
+        book_id: avita_eesti_keel_2_et
+    evidence: "The Koos on lõbus greeting activity belongs only to the second-language route."
 
   - id: grade-2-mathematics-arithmetic-review
     grade: 2
@@ -565,7 +602,7 @@ cases:
         url: https://www.opiq.ee/kit/95/chapter/4622
         expected:
           class: 2
-          book_id: avita_matemaatik_2_et
+          book_id: avita_matemaatik_2_et__kit95
           title: Kordamine. Arvude võrdlemine, liitmine ja lahutamine 20 piires
           subject:
             en: mathematics
@@ -613,6 +650,66 @@ cases:
         source_id: grade-2-science
         book_id: avita_природа_и__2_ru
     evidence: "The weather task is verified in a pure grade 2 science book and absent from grade 3 science. Both audited mixed human-studies/science Book IDs remain outside the canonical science route."
+
+  - id: grade-2-science-planeet-grade-routing
+    grade: 2
+    subject: science
+    topic: "water cycle and weather in the supplementary cross-curricular book"
+    status: present
+    expected_source_id: grade-2-science
+    expected_md_path: project-files/outputs/opiq_2klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-science
+        url: https://www.opiq.ee/kit/330/chapter/18523
+        expected:
+          class: 2
+          book_id: avita_minu_väike_2_et
+          title: Veeringlus. Ilmastik
+          subject:
+            en: science
+            et: loodusõpetus
+            ru: природоведение
+          headings_any:
+            - Veepiisa teekond
+      - kind: url_absent
+        origin_source_id: grade-2-science
+        source_id: grade-1-science
+        url: https://www.opiq.ee/kit/330/chapter/18523
+      - kind: url_absent
+        origin_source_id: grade-2-science
+        source_id: grade-1-estonian
+        url: https://www.opiq.ee/kit/330/chapter/18523
+    evidence: "The dedicated kit 330 archive identifies grade 2; its canonical page is absent from both legacy grade-1 routes."
+
+  - id: grade-2-nature-and-human-studies-water-cycle
+    grade: 2
+    subject: science_and_human_studies
+    topic: "water cycle in the combined Russian source"
+    status: present
+    expected_source_id: grade-2-nature-and-human-studies
+    expected_md_path: project-files/outputs/opiq_2klass_priroda_i_chelovek.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-nature-and-human-studies
+        url: https://www.opiq.ee/kit/86/chapter/4199
+        expected:
+          class: 2
+          book_id: avita_природа_и__2_ru__kit86
+          title: Круговорот воды в природе
+          subject:
+            en: science and human studies
+            et: loodus- ja inimeseõpetus
+            ru: природа и человек
+      - kind: url_absent
+        origin_source_id: grade-2-nature-and-human-studies
+        source_id: grade-2-science
+        url: https://www.opiq.ee/kit/86/chapter/4199
+      - kind: url_absent
+        origin_source_id: grade-2-nature-and-human-studies
+        source_id: grade-2-human-studies
+        url: https://www.opiq.ee/kit/86/chapter/4199
+    evidence: "Kit 86 is exposed only through its dedicated mixed-subject route; no page-level subject split is invented."
 
   - id: grade-2-arts-and-crafts-button-sewing
     grade: 2
@@ -773,7 +870,7 @@ cases:
         url: https://www.opiq.ee/kit/494/chapter/27188
         expected:
           class: 2
-          book_id: avita_inimeseõpe_2_et
+          book_id: avita_inimeseõpe_2_et__kit494
           title: VEEOHUTUS I
           headings_any:
             - UJUMINE UJULAS VÕI VEEKOGUS
