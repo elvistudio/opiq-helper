@@ -117,6 +117,81 @@ const configurations = [
     ],
     excludedBookIds: new Map(),
   },
+  {
+    sourceId: 'grade-2-kodututarde-training',
+    generatorVersion: '1.3',
+    expectedSourceRecords: 155,
+    expectedCanonicalRecords: 31,
+    expectedCoverRecords: 12,
+    expectedAdministrativeRecords: 0,
+    expectedDuplicateGroups: 38,
+    expectedOutOfScopeRecords: 102,
+    subject: { en: 'Kodututred training', et: 'Kodutütarde väljaõpe', ru: 'подготовка Kodututred' },
+    title: '2. klass Kodutütarde väljaõpe',
+    queryDescription: 'grade 2 Kodututred training',
+    pageLanguageLabel: 'Estonian',
+    canonicalLanguage: 'et',
+    simplifiedBookIds: new Set(),
+    supplementaryBookIds: new Set(['kodutütarde_i_järk_(2026)']),
+    canonicalBookTitles: new Map(),
+    canonicalBookVariantsByKit: new Map([
+      ['593', { bookId: 'kodutütarde_i_järk_(2026)', title: 'Kodutütarde I järk (2026)' }],
+    ]),
+    expectedBooks: new Map([
+      ['kodutütarde_i_järk_(2026)', { kit: '593', language: 'et', pages: 31 }],
+    ]),
+    includedKitIds: new Set(['593']),
+    excludedKitReasons: new Map([
+      ['231', 'Koduõpe contains mixed teaching examples explicitly labelled for grades 1–9 and requires a separate multi-grade route design.'],
+      ['357', 'Kodutütarde VI järk is a different progression level and is outside the requested I järk route.'],
+      ['594', 'Noorte Kotkaste I järk is routed separately so the two youth organisations remain distinguishable.'],
+    ]),
+    deduplicateCanonicalUrls: true,
+    allowInstructionalDuplicates: true,
+    metadataLimitations: [
+      'The archive repeats ten kit 593 instructional URLs under two source Book IDs; one canonical record is retained per URL.',
+      'Three unique Estonian pages are automatically labelled as English; canonical language is normalized from source book and page content evidence.',
+      'The route is supplementary youth-organisation training, not an official school-subject curriculum map.',
+    ],
+    excludedBookIds: new Map(),
+  },
+  {
+    sourceId: 'grade-2-noorte-kotkaste-training',
+    generatorVersion: '1.3',
+    expectedSourceRecords: 155,
+    expectedCanonicalRecords: 27,
+    expectedCoverRecords: 12,
+    expectedAdministrativeRecords: 0,
+    expectedDuplicateGroups: 38,
+    expectedOutOfScopeRecords: 116,
+    subject: { en: 'Young Eagles training', et: 'Noorte Kotkaste väljaõpe', ru: 'подготовка Noorte Kotkad' },
+    title: '2. klass Noorte Kotkaste väljaõpe',
+    queryDescription: 'grade 2 Young Eagles training',
+    pageLanguageLabel: 'Estonian',
+    canonicalLanguage: 'et',
+    simplifiedBookIds: new Set(),
+    supplementaryBookIds: new Set(['kaitseliit_noorte_kot_2_et']),
+    canonicalBookTitles: new Map(),
+    canonicalBookVariantsByKit: new Map([
+      ['594', { bookId: 'kaitseliit_noorte_kot_2_et', title: 'Noorte Kotkaste I järk (2026)' }],
+    ]),
+    expectedBooks: new Map([
+      ['kaitseliit_noorte_kot_2_et', { kit: '594', language: 'et', pages: 27 }],
+    ]),
+    includedKitIds: new Set(['594']),
+    excludedKitReasons: new Map([
+      ['231', 'Koduõpe contains mixed teaching examples explicitly labelled for grades 1–9 and requires a separate multi-grade route design.'],
+      ['357', 'Kodutütarde VI järk is a different progression level and is outside the requested I järk sources.'],
+      ['593', 'Kodutütarde I järk is routed separately so the two youth organisations remain distinguishable.'],
+    ]),
+    deduplicateCanonicalUrls: true,
+    allowInstructionalDuplicates: true,
+    metadataLimitations: [
+      'Three Estonian pages are automatically labelled as English; canonical language is normalized from source book and page content evidence.',
+      'The route is supplementary youth-organisation training, not an official school-subject curriculum map.',
+    ],
+    excludedBookIds: new Map(),
+  },
 ];
 
 function assert(condition, message) {
@@ -162,7 +237,7 @@ function parseJsonl(text, label) {
     ]) assert(Object.hasOwn(record, field), `${label} line ${index + 1} is missing ${field}.`);
     assert(/^https:\/\/(?:www\.)?opiq\.ee\//iu.test(record.url), `${label} line ${index + 1} has an invalid Opiq URL.`);
     assert(record.grade === 2, `${label} line ${index + 1} has grade ${record.grade}; expected 2.`);
-    assert(['et', 'ru'].includes(record.language), `${label} line ${index + 1} has unsupported page language ${record.language}.`);
+    assert(['et', 'ru', 'en'].includes(record.language), `${label} line ${index + 1} has unsupported page language ${record.language}.`);
     for (const field of ['topics_et', 'topics_ru', 'topics_en', 'headings', 'task_examples']) {
       assert(Array.isArray(record[field]), `${label} line ${index + 1} field ${field} must be an array.`);
     }
@@ -226,16 +301,17 @@ function normalizeTopicList(values, forbiddenAliases, requiredAlias) {
 }
 
 function normalizeRecord(record, configuration) {
-  const canonicalBookId = normalizeText(record.book_id);
+  const canonicalVariant = configuration.canonicalBookVariantsByKit?.get(kitId(record.url));
+  const canonicalBookId = canonicalVariant?.bookId ?? normalizeText(record.book_id);
   const normalized = {
     ...record,
     title: normalizeText(record.title),
     url: normalizeText(record.url),
-    book: configuration.canonicalBookTitles.get(canonicalBookId)
+    book: canonicalVariant?.title ?? configuration.canonicalBookTitles.get(canonicalBookId)
       ?? normalizeText(record.book).replace(/\s+2\s+klass$/iu, ''),
     book_id: canonicalBookId,
     chapter_id: normalizeText(record.chapter_id),
-    language: normalizeText(record.language).toLowerCase(),
+    language: configuration.canonicalLanguage ?? normalizeText(record.language).toLowerCase(),
     publisher: normalizeText(record.publisher),
     headings: record.headings.map(normalizeText).filter(Boolean),
     task_examples: record.task_examples.map(normalizeText).filter(Boolean),
@@ -268,15 +344,29 @@ function auditDuplicateUrls(records, configuration) {
   const duplicateGroups = [...groupBy(records, (record) => record.url).entries()].filter(([, matches]) => matches.length > 1);
   assert(duplicateGroups.length === configuration.expectedDuplicateGroups, `${configuration.sourceId}: duplicate URL group count changed.`);
   const entries = duplicateGroups.map(([url, matches]) => {
-    assert(matches.length === 2, `${configuration.sourceId}: duplicate ${url} must contain exactly two records.`);
-    assert(matches.every(isCoverDetail), `${configuration.sourceId}: non-cover duplicate requires manual review: ${url}`);
+    const coverDetail = matches.every(isCoverDetail);
+    if (!coverDetail) {
+      assert(configuration.allowInstructionalDuplicates === true, `${configuration.sourceId}: non-cover duplicate requires manual review: ${url}`);
+      assert(matches.every((record) => !isCoverDetail(record)), `${configuration.sourceId}: duplicate ${url} mixes cover and instructional records.`);
+      const comparable = (record) => JSON.stringify({
+        title: normalizeText(record.title),
+        url: normalizeText(record.url),
+        chapter_id: normalizeText(record.chapter_id),
+        language: normalizeText(record.language),
+        headings: record.headings.map(normalizeText),
+        task_examples: record.task_examples.map(normalizeText),
+      });
+      assert(new Set(matches.map(comparable)).size === 1, `${configuration.sourceId}: duplicate instructional records differ in content: ${url}`);
+    }
     return {
       url,
       source_positions: matches.map((record) => record.source_position),
       book_ids: [...new Set(matches.map((record) => normalizeText(record.book_id)))],
       chapter_ids: matches.map((record) => normalizeText(record.chapter_id)),
-      decision: 'exclude_all_cover_detail_records',
-      reason: 'The repeated URL is a kit detail page, not a chapter-level instructional page.',
+      decision: coverDetail ? 'exclude_all_cover_detail_records' : 'retain_one_identical_instructional_record',
+      reason: coverDetail
+        ? 'The repeated URL is a kit detail page, not a chapter-level instructional page.'
+        : 'The same canonical chapter was exported under multiple source Book IDs; one normalized record is sufficient.',
     };
   });
   return { duplicateGroups, entries };
@@ -309,10 +399,17 @@ function canonicalize(records, configuration) {
   const administrativeRecords = records.filter((record) => !isCoverDetail(record) && isAdministrative(record));
   const excludedBookRecords = records.filter((record) => !isCoverDetail(record)
     && !isAdministrative(record) && configuration.excludedBookIds.has(normalizeText(record.book_id)));
+  const outOfScopeRecords = records.filter((record) => !isCoverDetail(record)
+    && !isAdministrative(record)
+    && configuration.includedKitIds
+    && !configuration.includedKitIds.has(kitId(record.url)));
   const candidates = records.filter((record) => !isCoverDetail(record)
-    && !isAdministrative(record) && !configuration.excludedBookIds.has(normalizeText(record.book_id)));
+    && !isAdministrative(record)
+    && !configuration.excludedBookIds.has(normalizeText(record.book_id))
+    && (!configuration.includedKitIds || configuration.includedKitIds.has(kitId(record.url))));
   const subjectNormalizationAudit = [];
-  const canonicalRecords = candidates.map((record) => {
+  const languageNormalizationAudit = [];
+  const normalizedCandidates = candidates.map((record) => {
     const normalized = normalizeRecord(record, configuration);
     if (sourceSubject(record) !== canonicalSubject(configuration.subject)) {
       subjectNormalizationAudit.push({
@@ -324,19 +421,40 @@ function canonicalize(records, configuration) {
         decision: 'correct_automatic_subject_label',
       });
     }
+    if (normalized.language !== normalizeText(record.language).toLowerCase()) {
+      languageNormalizationAudit.push({
+        source_position: record.source_position,
+        url: record.url,
+        source_language: normalizeText(record.language).toLowerCase(),
+        canonical_language: normalized.language,
+        decision: 'correct_automatic_language_label',
+      });
+    }
     return normalized;
   });
+  const canonicalRecords = configuration.deduplicateCanonicalUrls
+    ? [...new Map(normalizedCandidates.map((record) => [record.url, record])).values()]
+    : normalizedCandidates;
   const urls = canonicalRecords.map((record) => record.url);
   assert(new Set(urls).size === urls.length, `${configuration.sourceId}: canonical records contain duplicate URLs.`);
   assert(canonicalRecords.length === configuration.expectedCanonicalRecords, `${configuration.sourceId}: canonical count is ${canonicalRecords.length}; expected ${configuration.expectedCanonicalRecords}.`);
   assert(coverRecords.length === configuration.expectedCoverRecords, `${configuration.sourceId}: cover count changed.`);
   assert(administrativeRecords.length === configuration.expectedAdministrativeRecords, `${configuration.sourceId}: administrative count changed.`);
   assert(canonicalRecords.every((record) => sourceSubject(record) === canonicalSubject(configuration.subject)), `${configuration.sourceId}: canonical subject normalization failed.`);
-  return { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords, subjectNormalizationAudit };
+  assert(outOfScopeRecords.length === (configuration.expectedOutOfScopeRecords ?? 0), `${configuration.sourceId}: out-of-scope record count changed.`);
+  return {
+    canonicalRecords,
+    coverRecords,
+    administrativeRecords,
+    excludedBookRecords,
+    outOfScopeRecords,
+    subjectNormalizationAudit,
+    languageNormalizationAudit,
+  };
 }
 
 function renderMarkdown(configuration, source, index, state, duplicateAudit) {
-  const { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords } = state;
+  const { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords, outOfScopeRecords } = state;
   const bookGroups = [...groupBy(canonicalRecords, (record) => record.book_id).entries()]
     .sort(([left], [right]) => left.localeCompare(right));
   const lines = [
@@ -351,13 +469,16 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
     `- Subject ET: ${configuration.subject.et}`,
     `- Subject RU: ${configuration.subject.ru}`,
     `- Subject EN: ${configuration.subject.en}`,
-    '- Page languages: Estonian, Russian',
+    `- Page languages: ${configuration.pageLanguageLabel ?? 'Estonian, Russian'}`,
     `- Source records: ${index.recordCount}`,
     `- Page records included: ${canonicalRecords.length}`,
     `- Cover/detail records excluded: ${coverRecords.length}`,
     `- Administrative records excluded: ${administrativeRecords.length}`,
-    `- Duplicate source URL groups: ${duplicateAudit.duplicateGroups.length}; all were excluded kit-detail records`,
+    `- Duplicate source URL groups: ${duplicateAudit.duplicateGroups.length}; ${configuration.allowInstructionalDuplicates
+      ? 'cover duplicates were excluded and repeated instructional URLs were deduplicated'
+      : 'all were excluded kit-detail records'}`,
     `- Mixed-subject page records excluded: ${excludedBookRecords.length}`,
+    ...(outOfScopeRecords.length > 0 ? [`- Out-of-scope page records excluded: ${outOfScopeRecords.length}`] : []),
     '- Curriculum coverage: not verified',
     '',
     '## Books',
@@ -373,6 +494,13 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
     for (const [bookId, reason] of configuration.excludedBookIds) {
       const count = excludedBookRecords.filter((record) => normalizeText(record.book_id) === bookId).length;
       lines.push(`- \`${bookId}\`: ${count} instructional pages excluded. ${reason}`);
+    }
+  }
+  if (configuration.excludedKitReasons?.size > 0) {
+    lines.push('', '## Source-scope exclusions');
+    for (const [kit, reason] of configuration.excludedKitReasons) {
+      const count = outOfScopeRecords.filter((record) => kitId(record.url) === kit).length;
+      lines.push(`- Kit ${kit}: ${count} source page records excluded. ${reason}`);
     }
   }
   lines.push('', '## Pages', '');
@@ -472,7 +600,9 @@ async function generateSource(manifest, configuration) {
       assert(matches.length === expected.pages, `${configuration.sourceId}: ${bookId} has ${matches.length} pages; expected ${expected.pages}.`);
       assert(matches.every((record) => record.language === expected.language), `${configuration.sourceId}: ${bookId} language differs from ${expected.language}.`);
       assert(JSON.stringify([...new Set(matches.map((record) => kitId(record.url)))]) === JSON.stringify([expected.kit]), `${configuration.sourceId}: ${bookId} kit differs from ${expected.kit}.`);
-      assert(matches.every((record) => record.book === configuration.canonicalBookTitles.get(bookId)), `${configuration.sourceId}: ${bookId} canonical title normalization failed.`);
+      const expectedTitle = configuration.canonicalBookTitles.get(bookId)
+        ?? [...(configuration.canonicalBookVariantsByKit?.values() ?? [])].find((variant) => variant.bookId === bookId)?.title;
+      assert(matches.every((record) => record.book === expectedTitle), `${configuration.sourceId}: ${bookId} canonical title normalization failed.`);
     }
   }
   const existingQa = await readFile(qaPath, 'utf8').then((contents) => parseJson(contents, source.qa_path), () => null);
@@ -511,6 +641,7 @@ async function generateSource(manifest, configuration) {
     cover_detail_records_excluded: state.coverRecords.length,
     administrative_records_excluded: state.administrativeRecords.length,
     mixed_subject_page_records_excluded: state.excludedBookRecords.length,
+    ...(state.outOfScopeRecords.length > 0 ? { out_of_scope_page_records_excluded: state.outOfScopeRecords.length } : {}),
     grades: countBy(canonicalRecords, (record) => record.grade),
     languages: countBy(canonicalRecords, (record) => record.language),
     books: countBy(canonicalRecords, (record) => record.book_id),
@@ -520,6 +651,10 @@ async function generateSource(manifest, configuration) {
     canonical_subject_counts: countBy(canonicalRecords, sourceSubject),
     subject_normalization_records: state.subjectNormalizationAudit.length,
     subject_normalization_audit: state.subjectNormalizationAudit,
+    ...(state.languageNormalizationAudit.length > 0 ? {
+      language_normalization_records: state.languageNormalizationAudit.length,
+      language_normalization_audit: state.languageNormalizationAudit,
+    } : {}),
     duplicate_url_audit: {
       source_duplicate_groups: duplicateAudit.duplicateGroups.length,
       source_duplicate_records: records.length - new Set(records.map((record) => record.url)).size,
@@ -528,10 +663,19 @@ async function generateSource(manifest, configuration) {
     },
     ...(duplicateTitleAudit ? { duplicate_title_audit: duplicateTitleAudit } : {}),
     excluded_book_audit: excludedBookAudit,
+    ...(configuration.excludedKitReasons?.size > 0 ? {
+      source_scope_exclusion_audit: [...configuration.excludedKitReasons].map(([kit, reason]) => ({
+        kit,
+        source_page_records_excluded: state.outOfScopeRecords.filter((record) => kitId(record.url) === kit).length,
+        reason,
+      })),
+    } : {}),
     book_id_language_suffix_anomalies: suffixAnomalies,
     book_metadata_audit: bookMetadataAudit(canonicalRecords, configuration),
     ...(configuration.canonicalBookTitles.size > 0 ? {
       book_metadata_normalization_audit: bookMetadataNormalizationAudit(records, canonicalRecords, configuration),
+    } : {}),
+    ...(configuration.metadataLimitations ? {
       metadata_limitations: configuration.metadataLimitations,
     } : {}),
     records_without_headings: canonicalRecords.filter((record) => record.headings.length === 0).length,
