@@ -45,7 +45,7 @@ Page titles, URLs, headings, and tasks are not rewritten for these book-inventor
 
 The committed combined science/human-studies archive still contains 60 instructional pages for kit 86, Source Book ID `avita_природа_и__2_ru` (`Природа и человек для 2 класса`). They remain excluded from `grade-2-science` and are not silently added to `grade-2-human-studies`, whose manifest route currently declares a different single source archive.
 
-The smallest truthful follow-up is either:
+The manifest now supports explicit additional book-level archives for a canonical route, first used by the separately audited kit 330 capture. Adding kit 86 still requires a focused follow-up that applies that mechanism to the mixed Russian book, updates source selection, and proves that its URLs do not collide with existing human-studies records. The truthful options remain:
 
 1. extend one canonical route with explicit multi-archive provenance and per-record archive ownership; or
 2. introduce another non-ambiguous aggregation mechanism that preserves each source archive and prevents duplicate URLs.

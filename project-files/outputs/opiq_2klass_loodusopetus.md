@@ -4,22 +4,24 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 
 ## Source Summary
 - Source archive: `project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip`
+- Additional source archive: `project-files/inputs/final-zips/opiq_2klass_minu_vaike_kallis_planeet_v2.zip` (supplementary_book_capture)
 - Format version: 2.0
 - Class: 2
 - Subject ET: loodusõpetus
 - Subject RU: природоведение
 - Subject EN: science
 - Page languages: Estonian, Russian
-- Source records: 428
-- Page records included: 286
-- Cover/detail records excluded: 18
-- Administrative records excluded: 5
-- Duplicate source URL groups: 9; all were excluded kit-detail records
+- Source records: 458
+- Page records included: 313
+- Cover/detail records excluded: 20
+- Administrative records excluded: 6
+- Duplicate source URL groups: 10; all were excluded kit-detail records
 - Subject-boundary page records excluded: 119
 - Curriculum coverage: not verified
 
 ## Books
 - `avita_loodusõpet_2_et` — Loodusõpetus 2. klassile (2022); Source Book ID `avita_loodusõpet_2_et`; Avita; language et; kit 379; 27 pages; ordinary curriculum.
+- `avita_minu_väike_2_et` — Minu väike kallis planeet 2 klass; Source Book ID `avita_minu_väike_2_et`; Avita; language et; kit 330; 27 pages; ordinary curriculum.
 - `avita_природовед_2_ru` — Природоведение для 2 класса; Source Book ID `avita_природовед_2_ru`; Avita; language ru; kit 570; 23 pages; ordinary curriculum.
 - `koolibri_loodusõpet_2_et` — Loodusõpetus 2. klassile; Source Book ID `koolibri_loodusõpet_2_et`; Koolibri; language et; kit 121; 64 pages; ordinary curriculum.
 - `koolibri_природове_2_ru` — Природоведение 2 класс; Source Book ID `koolibri_природове_2_ru`; Koolibri; language ru; kit 132; 67 pages; ordinary curriculum.
@@ -4893,4 +4895,463 @@ Use this file to answer grade 2 science requests only. Match queries against tit
 - Topics RU: природоведение
 - Topics EN: science
 - Headings: Milline on Eesti kaart?; Video; Eesti kaart; Katse. Eesti kaardi joonistamine; Tööleht
+- Task examples:
+
+### 287. Sissejuhatus
+- URL: https://www.opiq.ee/kit/330/chapter/18522
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.1
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; loodus; keskkond; sissejuhatus; muusika; teksti; mõistmine
+- Topics RU: природоведение; природа; окружающая среда
+- Topics EN: science; nature; environment
+- Headings: Sissejuhatus; Muusika; Teksti mõistmine; Matemaatika; Loodusõpetus
+- Task examples:
+
+### 288. Vaikus ja müra
+- URL: https://www.opiq.ee/kit/330/chapter/18531
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.10
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; inimene; keha; meeled; tervis; vaikus; müra; plärakast; hiirvaikseke; lugu; lärmist; vaikusest; laula; kaasa
+- Topics RU: природоведение; человек; тело; чувства; здоровье
+- Topics EN: science; human; body; senses; health
+- Headings: Vaikus ja müra; Plärakast ja Hiirvaikseke; Lugu lärmist ja vaikusest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Inimese meeled; Müratase koolimajas; Kas tead?
+- Task examples:
+
+### 289. Mis saab jäätmetest?
+- URL: https://www.opiq.ee/kit/330/chapter/18532
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.11
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; saab; jäätmetest; võluprügikast; lugu; sellest; kuidas; jäätmeid; paremini; kasutada
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Mis saab jäätmetest?; Võluprügikast; Lugu jäätmetest ja sellest, kuidas jäätmeid paremini ära kasutada; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Prügi sortimine; Säästan elektrit; Kas tead?
+- Task examples:
+
+### 290. Tarbimine ja pakendid
+- URL: https://www.opiq.ee/kit/330/chapter/18533
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.12
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; tarbimine; pakendid; pakendimäed; lugu; prügist; pakenditest; laula; kaasa; nuputa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Tarbimine ja pakendid; Pakendimäed; Lugu prügist ja pakenditest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Loodushoiu uuring; Pakendiprügi; Kas tead?
+- Task examples:
+
+### 291. Põlispuu tugevus ja haprus
+- URL: https://www.opiq.ee/kit/330/chapter/18534
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.13
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; põlispuu; tugevus; haprus; salapärane; mets; lugu; metsast; vanadest; puudest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Põlispuu tugevus ja haprus; Salapärane mets; Lugu metsast, vanadest puudest ja Kuu valgusest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus 1a; Harjutus 1b; Kas oskad?; Metsloomade kaal; Metsa puud; Kuula ja vaata; Kas tunned muusikastiile?; Kas tead?
+- Task examples:
+
+### 292. Planeedi kopsud
+- URL: https://www.opiq.ee/kit/330/chapter/18535
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.14
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; planeedi; kopsud; sõbrad; puud; lugu; metsast; puudest; laula; kaasa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Planeedi kopsud; Mu sõbrad puud; Lugu metsast ja puudest; Laula kaasa; Nuputa; Kas oskad?; Puidust esemed; Puud ja hapnik; Kas tead?
+- Task examples:
+
+### 293. Suur aineringlus
+- URL: https://www.opiq.ee/kit/330/chapter/18536
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.15
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; suur; aineringlus; millimeetri; sügavusel; lugu; sellest; juhtub; surnud; liblika
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Suur aineringlus; 20 millimeetri sügavusel maa all; Lugu sellest, mis juhtub surnud liblika ja maha langenud puulehega; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Vihmaussid; Lagundamine; Kas tead?
+- Task examples:
+
+### 294. Loomade jäljed
+- URL: https://www.opiq.ee/kit/330/chapter/18537
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.16
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; loomade; jäljed; järele; talle; lugu; kavalast; rebasest; jälgedest; laula
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Loomade jäljed; Järele talle!; Lugu kavalast rebasest ja loomade jälgedest; Laula kaasa; Nuputa; Kas oskad?; Kelle jäljed?; Jäljed lumel; Kas tead?
+- Task examples:
+
+### 295. Taastuvad energiaallikad
+- URL: https://www.opiq.ee/kit/330/chapter/18538
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.17
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; taastuvad; energiaallikad; jänes; kilpkonn; lugu; tuule; jõust; mootorpaadist; purjekast
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Taastuvad energiaallikad; Jänes ja kilpkonn; Lugu tuule jõust, mootorpaadist ja purjekast; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Kas kütusest piisab?; Tuul; Kas tead?
+- Task examples:
+
+### 296. Hoiame elektrit kokku!
+- URL: https://www.opiq.ee/kit/330/chapter/18539
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.18
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; liitmine; liida; summa; kokku; hoiame; elektrit; kohtumine; jõuga; lugu; sellest; miks; vaja
+- Topics RU: природоведение; сложение; сложи; сумма
+- Topics EN: science; addition; add; sum
+- Headings: Hoiame elektrit kokku!; Kohtumine jõuga; Lugu sellest, miks on vaja toast lahkudes tuli kustutada; Laula kaasa; Nuputa; Kas oskad?; Elektri tootmine; Valgustite ostmine; Kas tead?
+- Task examples:
+
+### 297. Saastunud õhk levib
+- URL: https://www.opiq.ee/kit/330/chapter/18540
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.19
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; saastunud; levib; sügeluse; pulber; lugu; sellest; mida; tuul; pilved
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Saastunud õhk levib; Sügeluse pulber; Lugu sellest, mida tuul ja pilved meieni kanda võivad; Laula kaasa; Nuputa; Kas oskad?; Keskkonnaprobleemid; Maailmakoristuspäev; Kas tead?
+- Task examples:
+
+### 298. Veeringlus. Ilmastik
+- URL: https://www.opiq.ee/kit/330/chapter/18523
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.2
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; veeringlus; ilmastik; veepiisa; teekond; lugu; vihmast; pilvedest; ilmast; laula
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Veeringlus. Ilmastik; Veepiisa teekond; Lugu vihmast, pilvedest ja ilmast​; Laula kaasa; Kes on kes?; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Veeringlus; Vihmavee kogus; Järgarvud; Kas tead?
+- Task examples:
+
+### 299. Teaduslikud avastused
+- URL: https://www.opiq.ee/kit/330/chapter/18541
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.20
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; teaduslikud; avastused; teadlase; juhtum; lugu; liiga; agarast; teadlasest; lehmast
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Teaduslikud avastused; Teadlase juhtum; Lugu liiga agarast teadlasest, lehmast ja vasikast; Laula kaasa; Lugemissoovitus; Kas oskad?; Kas tead?
+- Task examples:
+
+### 300. Ravimtaimed
+- URL: https://www.opiq.ee/kit/330/chapter/18542
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.21
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; ravimtaimed; võlujuur; lugu; ravimtaimest; selle; korjamisest; laula; kaasa; nuputa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Ravimtaimed; Võlujuur; Lugu ravimtaimest ja selle korjamisest; Laula kaasa; Nuputa; Kas oskad?; Taime osad; Pärnaõietee; Kas tead?
+- Task examples:
+
+### 301. Kuidas maastik on muutunud?
+- URL: https://www.opiq.ee/kit/330/chapter/18543
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.22
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; kuidas; maastik; muutunud; inimesed; lugu; sellest; vanasti; põldu; hariti
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Kuidas maastik on muutunud?; Inimesed ja maastik; Lugu sellest, kuidas vanasti põldu hariti; Laula kaasa; Nuputa; Lugemissoovitus; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Teraviljatooted; Vanaaegsed põllutööriistad; Kas tead?
+- Task examples:
+
+### 302. Talgud
+- URL: https://www.opiq.ee/kit/330/chapter/18544
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.23
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; talgud; vana; küün; lugu; sellest; kuidas; üheskoos; jõuab; palju
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Talgud; Vana küün; Lugu sellest, kuidas üheskoos jõuab palju head teha; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Sorteerime vanu asju; „Teeme ära“ talgupäev; Kas tead?
+- Task examples:
+
+### 303. Maailma rikkus ja ebavõrdsus
+- URL: https://www.opiq.ee/kit/330/chapter/18545
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.24
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; maailma; rikkus; ebavõrdsus; kaks; last; kõrbes; lugu; aafrika; lastest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Maailma rikkus ja ebavõrdsus; Kaks last kõrbes; Lugu Aafrika lastest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Toiduained; Arvuta; Banaanitaim; Kas tead?
+- Task examples:
+
+### 304. Fotosüntees ja elu suur ringkäik
+- URL: https://www.opiq.ee/kit/330/chapter/18546
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.25
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; fotosüntees; suur; ringkäik; mootor; lugu; taimedest; õhust; hingamisest; suurest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Fotosüntees ja elu suur ringkäik; Elu mootor; Lugu taimedest, õhust, hingamisest ja elu suurest ringkäigust; Laula kaasa; Nuputa; Lugemissoovitus; Kas oskad?; Toiduahelad; Arvuta; Kas tead?
+- Task examples:
+
+### 305. Prügi ookeanis ja mageveevarud
+- URL: https://www.opiq.ee/kit/330/chapter/18547
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.26
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; inimene; keha; meeled; tervis; prügi; ookeanis; mageveevarud; ookean; lugu; ookeanist; prügist; magedast; veest
+- Topics RU: природоведение; человек; тело; чувства; здоровье
+- Topics EN: science; human; body; senses; health
+- Headings: Prügi ookeanis ja mageveevarud; Ookean; Lugu ookeanist, prügist ja magedast veest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1d; Harjutus 1a; Harjutus 1b; Harjutus 1c; Kas oskad?; Kala keha; Ookeani sügavus; Kas tead?
+- Task examples:
+
+### 306. Tiigi elanikud
+- URL: https://www.opiq.ee/kit/330/chapter/18548
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.27
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; tiigi; elanikud; kiiliprintsess; lugu; elanikest; kiili; vastsest; kellest; saab
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Tiigi elanikud; Kiiliprintsess; Lugu tiigi elanikest ja kiili vastsest, kellest saab printsess; Laula kaasa; Nuputa; Kas oskad?; Konna areng; Arvuta; Kas tead?
+- Task examples:
+
+### 307. Toiduahel. Tunded
+- URL: https://www.opiq.ee/kit/330/chapter/18524
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.3
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; loom; loomad; linnud; putukad; toiduahel; tunded; hirmsad; elukad; lugu; lõksu; jäänud; hundist; laula
+- Topics RU: природоведение; животное; животные; птицы; насекомые
+- Topics EN: science; animal; animals; birds; insects
+- Headings: Toiduahel. Tunded; Hirmsad elukad; Lugu lõksu jäänud hundist; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus; Harjutus 1a; Harjutus 1b; Kas oskad?; Lõpulaulu loomad; Hunt; Hundi nädala söögikogus; Kas tead?
+- Task examples:
+
+### 308. Puu eluring. Linnaloodus
+- URL: https://www.opiq.ee/kit/330/chapter/18525
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.4
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; taim; taimed; puu; lill; eluring; linnaloodus; väike; park; lugu; vanast; tammest; tõrudest; kopast
+- Topics RU: природоведение; растение; растения; дерево; цветок
+- Topics EN: science; plant; plants; tree; flower
+- Headings: Puu eluring. Linnaloodus; Väike park; Lugu vanast tammest, tõrudest ja kopast; Laula kaasa; Nuputa; Kas oskad?; Puude viljad; Tõrud ja pähklid; Eesti 100 tamme; Kas tead?
+- Task examples:
+
+### 309. Looduslik tasakaal. Putukatõrje
+- URL: https://www.opiq.ee/kit/330/chapter/18526
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.5
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; looduslik; tasakaal; putukatõrje; lepatriinu; lehetäi; lugu; põllul; aias; elavatest
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Looduslik tasakaal. Putukatõrje; Lepatriinu ja lehetäi; Lugu põllul ja aias elavatest putukatest ning putukatõrjest; Laula kaasa; Nuputa; Kas oskad?; Toiduahel; Lepatriinu; Kas tead?
+- Task examples:
+
+### 310. Milleks on vaja hekki?
+- URL: https://www.opiq.ee/kit/330/chapter/18527
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.6
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; milleks; vaja; hekki; armunud; siil; lugu; lindude; loomade; putukate
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Milleks on vaja hekki?; Armunud siil; Lugu lindude, loomade ja putukate kodust; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1c; Harjutus 1a; Harjutus 1b; Kas oskad?; Mida siil sööb?; Heki istutamine; Kas tead?
+- Task examples:
+
+### 311. Saastatud linnaõhk
+- URL: https://www.opiq.ee/kit/330/chapter/18528
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.7
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; saastatud; linnaõhk; õhku; lugu; sõidukitest; linnaõhust; laula; kaasa; nuputa
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Saastatud linnaõhk; Õhku, õhku!; Lugu sõidukitest ja linnaõhust; Laula kaasa; Nuputa; Kas tead?; Õhukiht; Kooli autoga või jalgrattaga?
+- Task examples:
+
+### 312. Reostunud jõevesi
+- URL: https://www.opiq.ee/kit/330/chapter/18529
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.8
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; vesi; veeohutus; veekogu; reostunud; jõevesi; lugu; puhtast; reostatud; jõeveest; laula; kaasa
+- Topics RU: природоведение; вода; безопасность на воде; водоём
+- Topics EN: science; water; water safety; body of water
+- Headings: Reostunud jõevesi; Vesi on elu; Lugu puhtast ja reostatud jõeveest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1a; Kas oskad?; Vee kasutus; Reovesi; Kas tead?
+- Task examples:
+
+### 313. Reovee puhastamine
+- URL: https://www.opiq.ee/kit/330/chapter/18530
+- Book: Minu väike kallis planeet 2 klass
+- Book ID: avita_minu_väike_2_et
+- Source Book ID: avita_minu_väike_2_et
+- Chapter ID: 1.9
+- Class: 2
+- Language: et
+- Publisher: Avita
+- Subject: science / loodusõpetus / природоведение
+- Programme type: ordinary_curriculum
+- Topics ET: loodusõpetus; reovee; puhastamine; lugu; puhastamisest; laula; kaasa; nuputa; sõnad; selgeks
+- Topics RU: природоведение
+- Topics EN: science
+- Headings: Reovee puhastamine; Vee lugu; Lugu vee puhastamisest; Laula kaasa; Nuputa; Sõnad selgeks; Harjutus 1b; Harjutus 1a; Kas oskad?; Vee omadused; Veepuhastusjaam; Kas tead?
 - Task examples:

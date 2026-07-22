@@ -13,13 +13,13 @@
   },
   "checksums": {
     "source_archive_sha256": "7622d8b9db98cc5b3c1d84b1f6372448d5e77745ee559dd6f94b639aaec85fea",
-    "output_file_sha256": "d620270c296dff45aef4a3d5cc4633bc6544b1a3395896345e7bb7758ea666c3"
+    "output_file_sha256": "9896546d8a5737155b19f99e8800d3915b7e25c71447ae9c0720000a57595589"
   },
   "source_records": 532,
-  "page_records_included": 496,
+  "page_records_included": 468,
   "cover_detail_records_excluded": 10,
   "subject_boundary_records_excluded": 25,
-  "administrative_records_excluded": 1,
+  "administrative_records_excluded": 2,
   "normalized_subject": {
     "et": "eesti keel",
     "ru": "эстонский язык",
@@ -31,10 +31,10 @@
     "topics_en": 616
   },
   "grades": {
-    "1": 496
+    "1": 468
   },
   "languages": {
-    "et": 496
+    "et": 468
   },
   "books": {
     "1k_eesti_keel_koolibri4_est": 38,
@@ -43,7 +43,6 @@
     "1k_eesti_keel_koolibri_est": 69,
     "1k_eesti_keel_avita2_est": 104,
     "1k_eesti_keel_koolibri3_est": 72,
-    "1k_minu_vaike_kallis_planeet_est": 28,
     "1k_eesti_keel_kuulamis_est": 4,
     "1k_eesti_keel_koolibri2_est": 75
   },
@@ -57,5 +56,16 @@
     "retained": 0,
     "instructional_records_excluded": 25,
     "administrative_records_excluded": 1
+  },
+  "grade_boundary_records_excluded": 27,
+  "grade_boundary_audit": {
+    "report": "docs/audits/grade-2-minu-vaike-kallis-planeet.md",
+    "source_book_id": "1k_minu_vaike_kallis_planeet_est",
+    "canonical_book_id": "avita_minu_väike_2_et",
+    "source_kit": "330",
+    "records_removed": 28,
+    "instructional_records_reassigned": 27,
+    "administrative_records_removed": 1,
+    "canonical_destination": "grade-2-science"
   }
 }

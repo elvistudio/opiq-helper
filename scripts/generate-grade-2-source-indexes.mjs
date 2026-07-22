@@ -12,7 +12,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
 const manifestPath = path.join(repositoryRoot, 'source-manifest.json');
 const generatorPath = 'scripts/generate-grade-2-source-indexes.mjs';
-const generatorVersion = '2.0';
+const generatorVersion = '3.0';
 const checkOnly = process.argv.slice(2).includes('--check');
 const unknownArguments = process.argv.slice(2).filter((argument) => argument !== '--check');
 
@@ -104,14 +104,22 @@ const configurations = [
   },
   {
     sourceId: 'grade-2-science',
-    expectedSourceRecords: 428,
-    expectedCanonicalRecords: 286,
-    expectedCoverRecords: 18,
-    expectedAdministrativeRecords: 5,
-    expectedDuplicateGroups: 9,
-    expectedDuplicateRecords: 9,
+    expectedSourceRecords: 458,
+    expectedCanonicalRecords: 313,
+    expectedCoverRecords: 20,
+    expectedAdministrativeRecords: 6,
+    expectedDuplicateGroups: 10,
+    expectedDuplicateRecords: 10,
     expectedExcludedBookRecords: 119,
-    expectedCanonicalBooks: 7,
+    expectedCanonicalBooks: 8,
+    additionalArchiveExpectations: new Map([
+      ['project-files/inputs/final-zips/opiq_2klass_minu_vaike_kallis_planeet_v2.zip', {
+        expectedSourceRecords: 30,
+        expectedCanonicalRecords: 27,
+        role: 'supplementary_book_capture',
+        sourceBookIds: ['avita_minu_väike_2_et'],
+      }],
+    ]),
     subject: { en: 'science', et: 'loodusõpetus', ru: 'природоведение' },
     title: '2. klass loodusõpetus',
     queryDescription: 'grade 2 science',
@@ -122,6 +130,7 @@ const configurations = [
     ]),
     bookVariants: new Map([
       ['avita_loodusõpet_2_et::379', { canonicalBookId: 'avita_loodusõpet_2_et', title: 'Loodusõpetus 2. klassile (2022)', expectedCoverTitle: 'Loodusõpetus 2. klassile (2022)', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
+      ['avita_minu_väike_2_et::330', { canonicalBookId: 'avita_minu_väike_2_et', title: 'Minu väike kallis planeet 2 klass', expectedCoverTitle: 'Minu väike kallis planeet', publisher: 'Avita', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'index_json and cover_detail' }],
       ['avita_природовед_2_ru::570', { canonicalBookId: 'avita_природовед_2_ru', title: 'Природоведение для 2 класса', expectedCoverTitle: 'Loodusõpetus 2. klassile', publisher: 'Avita', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'index_json; cover is Estonian' }],
       ['koolibri_loodusõpet_2_et::121', { canonicalBookId: 'koolibri_loodusõpet_2_et', title: 'Loodusõpetus 2. klassile', expectedCoverTitle: 'Loodusõpetus 2. klassile', publisher: 'Koolibri', language: 'et', programmeType: 'ordinary_curriculum', titleEvidence: 'cover_detail' }],
       ['koolibri_природове_2_ru::132', { canonicalBookId: 'koolibri_природове_2_ru', title: 'Природоведение 2 класс', expectedCoverTitle: 'Природоведение 2 клacc', publisher: 'Koolibri', language: 'ru', programmeType: 'ordinary_curriculum', titleEvidence: 'confirmed Cyrillic/Latin typo correction' }],
@@ -158,12 +167,149 @@ const configurations = [
   },
 ];
 
+const gradeOneRelocations = [
+  {
+    sourceId: 'grade-1-estonian',
+    expectedRecordsBefore: 496,
+    expectedRecordsAfter: 468,
+    expectedRemovedRecords: 28,
+  },
+  {
+    sourceId: 'grade-1-science',
+    expectedRecordsBefore: 472,
+    expectedRecordsAfter: 443,
+    expectedRemovedRecords: 29,
+  },
+];
+const relocatedKitUrlPrefixes = [
+  'https://www.opiq.ee/kit/330/',
+  'https://www.opiq.ee/Kit/Details/330',
+];
+
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function splitMarkdownDocument(markdown) {
+  const numberedStarts = [...markdown.matchAll(/^###\s+\d+\.\s+.+$/gmu)];
+  const compactStarts = [...markdown.matchAll(/^##\s+.+$/gmu)];
+  const normalized = numberedStarts.length > 0;
+  const starts = normalized ? numberedStarts : compactStarts;
+  assert(starts.length > 0, 'Legacy Markdown has no recognizable records.');
+  return {
+    normalized,
+    prefix: markdown.slice(0, starts[0].index).trimEnd(),
+    blocks: starts.map((match, index) => markdown.slice(
+      match.index,
+      index + 1 < starts.length ? starts[index + 1].index : markdown.length,
+    ).trim()),
+  };
+}
+
+function markdownRecordUrl(block) {
+  return block.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/miu)?.[1] ?? '';
+}
+
+function renderMarkdownDocument(document, blocks) {
+  const renderedBlocks = blocks.map((block, index) => document.normalized
+    ? block.replace(/^###\s+\d+\.\s+/u, `### ${index + 1}. `)
+    : block);
+  return `${document.prefix ? `${document.prefix}\n\n` : ''}${renderedBlocks.join('\n\n')}\n`;
+}
+
+async function updateGradeOneEstonianQa(manifest, markdown) {
+  const source = manifest.sources.find((entry) => entry.id === 'grade-1-estonian');
+  assert(source?.qa_path, 'grade-1-estonian QA path is required.');
+  const qaPath = repositoryPath(source.qa_path, 'grade-1-estonian QA path');
+  const qa = parseJson(await readFile(qaPath, 'utf8'), source.qa_path);
+  qa.checksums.output_file_sha256 = sha256(Buffer.from(markdown, 'utf8'));
+  qa.page_records_included = 468;
+  qa.administrative_records_excluded = 2;
+  qa.grade_boundary_records_excluded = 27;
+  qa.grades = { 1: 468 };
+  qa.languages = { et: 468 };
+  delete qa.books['1k_minu_vaike_kallis_planeet_est'];
+  qa.grade_boundary_audit = {
+    report: 'docs/audits/grade-2-minu-vaike-kallis-planeet.md',
+    source_book_id: '1k_minu_vaike_kallis_planeet_est',
+    canonical_book_id: 'avita_minu_väike_2_et',
+    source_kit: '330',
+    records_removed: 28,
+    instructional_records_reassigned: 27,
+    administrative_records_removed: 1,
+    canonical_destination: 'grade-2-science',
+  };
+  assert(
+    qa.page_records_included
+      + qa.cover_detail_records_excluded
+      + qa.subject_boundary_records_excluded
+      + qa.administrative_records_excluded
+      + qa.grade_boundary_records_excluded === qa.source_records,
+    'grade-1-estonian QA source record accounting is incomplete.',
+  );
+  const qaContents = `${JSON.stringify(qa, null, 2)}\n`;
+  const currentQa = await readFile(qaPath, 'utf8');
+  if (checkOnly) {
+    assert(currentQa === qaContents, `${source.qa_path} is stale; run ${generatorPath} without --check.`);
+  } else if (currentQa !== qaContents) {
+    await writeFile(qaPath, qaContents, 'utf8');
+  }
+}
+
+async function relocateLegacyGradeOneRecords(manifest) {
+  for (const relocation of gradeOneRelocations) {
+    const source = manifest.sources.find((entry) => entry.id === relocation.sourceId);
+    assert(source, `Manifest source ${relocation.sourceId} was not found.`);
+    assert(source.record_count === relocation.expectedRecordsAfter, `${relocation.sourceId}: manifest record_count must be ${relocation.expectedRecordsAfter}.`);
+    assert(
+      JSON.stringify(source.routing_boundary?.forbidden_url_prefixes) === JSON.stringify(relocatedKitUrlPrefixes),
+      `${relocation.sourceId}: routing boundary must forbid both kit 330 URL forms.`,
+    );
+    const markdownPath = repositoryPath(source.md_path, `${relocation.sourceId} Markdown path`);
+    const current = await readFile(markdownPath, 'utf8');
+    const document = splitMarkdownDocument(current);
+    assert(
+      [relocation.expectedRecordsBefore, relocation.expectedRecordsAfter].includes(document.blocks.length),
+      `${relocation.sourceId}: found ${document.blocks.length} legacy records; expected ${relocation.expectedRecordsBefore} before or ${relocation.expectedRecordsAfter} after relocation.`,
+    );
+    const removed = document.blocks.filter((block) => relocatedKitUrlPrefixes.some(
+      (prefix) => markdownRecordUrl(block).startsWith(prefix),
+    ));
+    assert(
+      removed.length === 0 || removed.length === relocation.expectedRemovedRecords,
+      `${relocation.sourceId}: found ${removed.length} kit 330 records; expected 0 or ${relocation.expectedRemovedRecords}.`,
+    );
+    const retained = document.blocks.filter((block) => !removed.includes(block));
+    assert(retained.length === relocation.expectedRecordsAfter, `${relocation.sourceId}: relocation leaves ${retained.length} records; expected ${relocation.expectedRecordsAfter}.`);
+    const rendered = renderMarkdownDocument(document, retained);
+    if (checkOnly) {
+      assert(current === rendered, `${source.md_path} still contains grade-2 kit 330 records or stale numbering.`);
+    } else if (current !== rendered) {
+      await writeFile(markdownPath, rendered, 'utf8');
+    }
+    if (relocation.sourceId === 'grade-1-estonian') {
+      await updateGradeOneEstonianQa(manifest, rendered);
+    }
+    console.log(`${relocation.sourceId} relocation ${checkOnly ? 'check passed' : 'complete'}: ${relocation.expectedRecordsAfter} records, no kit 330 URLs.`);
+  }
+}
+
+async function validateRelocatedUrlOwnership(manifest, scienceRecords) {
+  const relocatedRecords = scienceRecords.filter((record) => record.source_book_id === 'avita_minu_väike_2_et');
+  assert(relocatedRecords.length === 27, `grade-2-science: expected 27 relocated kit 330 instructional pages; found ${relocatedRecords.length}.`);
+  const relocatedUrls = new Set(relocatedRecords.map((record) => record.url));
+  for (const source of manifest.sources) {
+    if (source.id === 'grade-2-science') continue;
+    const markdown = await readFile(repositoryPath(source.md_path, `${source.id} Markdown path`), 'utf8');
+    const routeUrls = new Set([...markdown.matchAll(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/gmiu)].map((match) => match[1]));
+    const overlap = [...relocatedUrls].filter((url) => routeUrls.has(url));
+    assert(overlap.length === 0, `${source.id}: relocated grade-2 kit 330 URL remains canonical in another route: ${overlap[0]}.`);
+  }
+  console.log('Grade 2 kit 330 ownership passed: 27 canonical pages, 0 URLs in other manifest routes.');
 }
 
 function repositoryPath(relativePath, label) {
@@ -207,6 +353,50 @@ function parseJsonl(text, label) {
     }
     return { ...record, source_position: index + 1 };
   });
+}
+
+async function loadRegisteredArchive(source, configuration, registration, expectedSourceRecords) {
+  const archivePath = await requireFile(registration.path, `${configuration.sourceId} source archive`);
+  const archive = await readCompactZip(archivePath);
+  for (const member of ['index.json', 'opiq_lookup.jsonl', 'opiq_lookup.md', 'topic_map.json']) {
+    requireZipMember(archive, member);
+  }
+  const index = parseJson(
+    readZipText(archive, 'index.json'),
+    `${configuration.sourceId} ${registration.path} index.json`,
+  );
+  const records = parseJsonl(
+    readZipText(archive, 'opiq_lookup.jsonl'),
+    `${configuration.sourceId} ${registration.path} opiq_lookup.jsonl`,
+  ).map((record) => ({ ...record, source_archive_path: registration.path }));
+  assert(index.formatVersion === source.format_version, `${configuration.sourceId}: ${registration.path} format version differs from manifest.`);
+  assert(index.recordCount === records.length, `${configuration.sourceId}: ${registration.path} index count differs from JSONL.`);
+  assert(index.recordCount === expectedSourceRecords, `${configuration.sourceId}: ${registration.path} source record count changed.`);
+  assert(index.rawArchiveIncluded === true, `${configuration.sourceId}: ${registration.path} must contain raw source data.`);
+  assert(isPlainObject(parseJson(readZipText(archive, 'topic_map.json'), `${configuration.sourceId} ${registration.path} topic_map.json`)), `${configuration.sourceId}: ${registration.path} topic map root must be an object.`);
+  assert(readZipText(archive, 'opiq_lookup.md').trim(), `${configuration.sourceId}: ${registration.path} compact Markdown is empty.`);
+  assert(typeof index.generatedAt === 'string' && index.generatedAt, `${configuration.sourceId}: ${registration.path} index has no generatedAt value.`);
+
+  const indexedBookIds = new Set((index.books ?? []).map((book) => normalizeText(book.id)));
+  const recordBookIds = [...new Set(records.map((record) => normalizeText(record.book_id)))].sort();
+  for (const bookId of recordBookIds) {
+    assert(indexedBookIds.has(bookId), `${configuration.sourceId}: record Book ID ${bookId} is absent from ${registration.path} index.json.`);
+  }
+  if (registration.sourceBookIds) {
+    assert(
+      JSON.stringify(recordBookIds) === JSON.stringify([...registration.sourceBookIds].sort()),
+      `${configuration.sourceId}: ${registration.path} contains source Book IDs ${recordBookIds.join(', ')}; expected ${registration.sourceBookIds.join(', ')}.`,
+    );
+  }
+
+  return {
+    ...registration,
+    archivePath,
+    archiveBytes: await readFile(archivePath),
+    index,
+    records,
+    sourceBookIds: recordBookIds,
+  };
 }
 
 function normalizeText(value) {
@@ -387,8 +577,9 @@ function canonicalize(records, configuration) {
   return { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords, subjectNormalizationAudit };
 }
 
-function renderMarkdown(configuration, source, index, state, duplicateAudit) {
+function renderMarkdown(configuration, source, archiveSources, state, duplicateAudit) {
   const { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords } = state;
+  const sourceRecordCount = archiveSources.reduce((total, archiveSource) => total + archiveSource.records.length, 0);
   const bookGroups = [...groupBy(canonicalRecords, (record) => record.book_id).entries()]
     .sort(([left], [right]) => left.localeCompare(right));
   const lines = [
@@ -398,13 +589,14 @@ function renderMarkdown(configuration, source, index, state, duplicateAudit) {
     '',
     '## Source Summary',
     `- Source archive: \`${source.source_archive}\``,
+    ...archiveSources.slice(1).map((archiveSource) => `- Additional source archive: \`${archiveSource.path}\` (${archiveSource.role})`),
     `- Format version: ${source.format_version}`,
     '- Class: 2',
     `- Subject ET: ${configuration.subject.et}`,
     `- Subject RU: ${configuration.subject.ru}`,
     `- Subject EN: ${configuration.subject.en}`,
     `- Page languages: ${configuration.pageLanguageNames.join(', ')}`,
-    `- Source records: ${index.recordCount}`,
+    `- Source records: ${sourceRecordCount}`,
     `- Page records included: ${canonicalRecords.length}`,
     `- Cover/detail records excluded: ${coverRecords.length}`,
     `- Administrative records excluded: ${administrativeRecords.length}`,
@@ -483,30 +675,56 @@ async function generateSource(manifest, configuration) {
     const expectedBoundary = [...configuration.excludedBookIds.keys()].sort();
     assert(JSON.stringify(manifestBoundary) === JSON.stringify(expectedBoundary), `${configuration.sourceId}: manifest subject boundary differs from generator configuration.`);
   }
-  const archivePath = await requireFile(source.source_archive, `${configuration.sourceId} source archive`);
   const markdownPath = repositoryPath(source.md_path, `${configuration.sourceId} Markdown path`);
   const qaPath = repositoryPath(source.qa_path, `${configuration.sourceId} QA path`);
-  const archive = await readCompactZip(archivePath);
-  for (const member of ['index.json', 'opiq_lookup.jsonl', 'opiq_lookup.md', 'topic_map.json']) requireZipMember(archive, member);
-  const index = parseJson(readZipText(archive, 'index.json'), `${configuration.sourceId} index.json`);
-  const records = parseJsonl(readZipText(archive, 'opiq_lookup.jsonl'), `${configuration.sourceId} opiq_lookup.jsonl`);
-  assert(index.formatVersion === source.format_version, `${configuration.sourceId}: archive format version differs from manifest.`);
-  assert(index.recordCount === records.length, `${configuration.sourceId}: archive index count differs from JSONL.`);
-  assert(index.recordCount === configuration.expectedSourceRecords, `${configuration.sourceId}: source record count changed.`);
-  assert(index.rawArchiveIncluded === true, `${configuration.sourceId}: expected an archive with raw source data.`);
-  assert(isPlainObject(parseJson(readZipText(archive, 'topic_map.json'), `${configuration.sourceId} topic_map.json`)), `${configuration.sourceId}: topic map root must be an object.`);
-  assert(readZipText(archive, 'opiq_lookup.md').trim(), `${configuration.sourceId}: bundled compact Markdown is empty.`);
-  const indexedBookIds = new Set((index.books ?? []).map((book) => normalizeText(book.id)));
-  for (const bookId of new Set(records.map((record) => normalizeText(record.book_id)))) {
-    assert(indexedBookIds.has(bookId), `${configuration.sourceId}: record Book ID ${bookId} is absent from index.json.`);
+  const expectedAdditional = configuration.additionalArchiveExpectations ?? new Map();
+  const registeredAdditional = source.additional_source_archives ?? [];
+  assert(Array.isArray(registeredAdditional), `${configuration.sourceId}: additional_source_archives must be an array.`);
+  assert(registeredAdditional.length === expectedAdditional.size, `${configuration.sourceId}: additional source archive count differs from generator configuration.`);
+  for (const entry of registeredAdditional) {
+    const expectation = expectedAdditional.get(entry.path);
+    assert(expectation, `${configuration.sourceId}: unexpected additional source archive ${entry.path}.`);
+    assert(entry.role === expectation.role, `${configuration.sourceId}: additional archive ${entry.path} role differs from generator configuration.`);
+    assert(JSON.stringify(entry.source_book_ids) === JSON.stringify(expectation.sourceBookIds), `${configuration.sourceId}: additional archive ${entry.path} source_book_ids differ from generator configuration.`);
   }
+  const additionalExpectedSourceRecords = [...expectedAdditional.values()]
+    .reduce((total, expectation) => total + expectation.expectedSourceRecords, 0);
+  const archiveRegistrations = [
+    {
+      path: source.source_archive,
+      role: 'primary',
+      expectedSourceRecords: configuration.expectedSourceRecords - additionalExpectedSourceRecords,
+    },
+    ...registeredAdditional.map((entry) => ({
+      path: entry.path,
+      role: entry.role,
+      sourceBookIds: entry.source_book_ids,
+      expectedSourceRecords: expectedAdditional.get(entry.path).expectedSourceRecords,
+    })),
+  ];
+  const archiveSources = [];
+  for (const registration of archiveRegistrations) {
+    archiveSources.push(await loadRegisteredArchive(
+      source,
+      configuration,
+      registration,
+      registration.expectedSourceRecords,
+    ));
+  }
+  const records = archiveSources.flatMap((archiveSource) => archiveSource.records);
+  assert(records.length === configuration.expectedSourceRecords, `${configuration.sourceId}: combined source record count changed.`);
   validateBookVariantEvidence(records, configuration);
   const duplicateAudit = auditDuplicateUrls(records, configuration);
   const state = canonicalize(records, configuration);
-  const markdown = renderMarkdown(configuration, source, index, state, duplicateAudit);
+  const markdown = renderMarkdown(configuration, source, archiveSources, state, duplicateAudit);
   const canonicalRecords = state.canonicalRecords;
-  assert(typeof index.generatedAt === 'string' && index.generatedAt, `${configuration.sourceId}: archive index has no generatedAt value.`);
-  const sourceArchiveBytes = await readFile(archivePath);
+  for (const archiveSource of archiveSources.slice(1)) {
+    const expectation = expectedAdditional.get(archiveSource.path);
+    const included = canonicalRecords.filter((record) => record.source_archive_path === archiveSource.path).length;
+    assert(included === expectation.expectedCanonicalRecords, `${configuration.sourceId}: ${archiveSource.path} contributes ${included} canonical pages; expected ${expectation.expectedCanonicalRecords}.`);
+  }
+  const primaryArchive = archiveSources[0];
+  const generationTimestamp = archiveSources.map((archiveSource) => archiveSource.index.generatedAt).sort().at(-1);
   const canonicalSourceBookIds = [...new Set(canonicalRecords.map((record) => record.source_book_id))];
   const suffixAnomalies = canonicalSourceBookIds.filter((bookId) => bookId.endsWith('_et')
     && canonicalRecords.some((record) => record.source_book_id === bookId && record.language === 'ru'));
@@ -524,15 +742,27 @@ async function generateSource(manifest, configuration) {
     format_version: source.format_version,
     generation: {
       status: 'generated',
-      generated_at: index.generatedAt,
+      generated_at: generationTimestamp,
       generator: generatorPath,
       generator_version: generatorVersion,
-      note: 'Generated deterministically from the committed original export; cover/detail and administrative records are excluded from the canonical Markdown.',
+      note: 'Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown.',
     },
     checksums: {
-      source_archive_sha256: sha256(sourceArchiveBytes),
+      source_archive_sha256: sha256(primaryArchive.archiveBytes),
       output_file_sha256: sha256(Buffer.from(markdown, 'utf8')),
     },
+    ...(archiveSources.length > 1 ? {
+      source_archives: archiveSources.map((archiveSource) => ({
+        path: archiveSource.path,
+        role: archiveSource.role,
+        source_book_ids: archiveSource.sourceBookIds,
+        sha256: sha256(archiveSource.archiveBytes),
+        source_records: archiveSource.records.length,
+        page_records_included: canonicalRecords.filter(
+          (record) => record.source_archive_path === archiveSource.path,
+        ).length,
+      })),
+    } : {}),
     source_records: records.length,
     page_records_included: canonicalRecords.length,
     cover_detail_records_excluded: state.coverRecords.length,
@@ -567,9 +797,9 @@ async function generateSource(manifest, configuration) {
     records_without_headings: canonicalRecords.filter((record) => record.headings.length === 0).length,
     missing_urls: canonicalRecords.filter((record) => !record.url).length,
     archive_index: {
-      generated_at: index.generatedAt,
-      raw_archive_included: index.rawArchiveIncluded,
-      declared_books: (index.books ?? []).length,
+      generated_at: primaryArchive.index.generatedAt,
+      raw_archive_included: primaryArchive.index.rawArchiveIncluded,
+      declared_books: (primaryArchive.index.books ?? []).length,
     },
   };
   const qaContents = `${JSON.stringify(qa, null, 2)}\n`;
@@ -594,6 +824,7 @@ if (unknownArguments.length > 0) {
 } else {
   try {
     const manifest = parseJson(await readFile(manifestPath, 'utf8'), 'source-manifest.json');
+    await relocateLegacyGradeOneRecords(manifest);
     const results = [];
     for (const configuration of configurations) results.push(await generateSource(manifest, configuration));
     const firstLanguage = results.find((result) => result.source.id === 'grade-2-estonian');
@@ -605,6 +836,9 @@ if (unknownArguments.length > 0) {
     assert(overlap.length === 0, `Grade 2 Estonian routes overlap on canonical URL ${overlap[0]}.`);
     assert(firstUrls.size + secondUrls.size === 444, 'Grade 2 Estonian route union must contain 444 instructional pages.');
     console.log('Grade 2 Estonian route partition passed: 372 first-language pages, 72 second-language pages, 0 overlapping URLs.');
+    const science = results.find((result) => result.source.id === 'grade-2-science');
+    assert(science, 'grade-2-science generation result is required.');
+    await validateRelocatedUrlOwnership(manifest, science.canonicalRecords);
   } catch (error) {
     console.error(`Grade 2 source generation failed: ${error.message}`);
     process.exitCode = 1;
