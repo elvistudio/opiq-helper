@@ -12,11 +12,13 @@ on:
       - teacher-packs/**
       - pedagogical-reviews/**
       - annual-courses/**
+      - external-sources/**
       - schemas/**
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/teacher-pack-content-fingerprint.md
+      - docs/topic-synthesis-policy.md
       - docs/templates/**
       - README.md
       - .github/ISSUE_TEMPLATE/**
@@ -36,11 +38,13 @@ on:
       - teacher-packs/**
       - pedagogical-reviews/**
       - annual-courses/**
+      - external-sources/**
       - schemas/**
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/teacher-pack-content-fingerprint.md
+      - docs/topic-synthesis-policy.md
       - docs/templates/**
       - README.md
       - .github/ISSUE_TEMPLATE/**
@@ -87,6 +91,9 @@ jobs:
 
       - name: Check bilingual teaching plans
         run: npm run check:plans
+
+      - name: Test multilingual topic synthesis
+        run: npm run test:synthesis
 
       - name: Test teacher-pack validator
         run: npm run test:teacher-packs
