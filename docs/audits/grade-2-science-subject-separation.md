@@ -7,9 +7,9 @@ The canonical `grade-2-science` route uses only books whose declared subject is 
 | Source Book ID | Language | Source records | Instructional pages excluded | Decision |
 | --- | --- | ---: | ---: | --- |
 | `avita_loodus-_ja_2_et` | et | 62 | 59 | Keep outside the science route; the same 59 URLs already exist in `grade-2-human-studies` |
-| `avita_природа_и__2_ru` | ru | 63 | 60 | Keep outside the science route to avoid silently treating combined human-studies content as science |
+| `avita_природа_и__2_ru` | ru | 63 | 60 | Route through `grade-2-nature-and-human-studies`; keep outside both subject-pure routes |
 
-The remaining records consist of seven science books: six ordinary Estonian/Russian sources (including the workbook and video collections) and one clearly labelled simplified-curriculum source. The science route does not use the simplified source as an ordinary default.
+The primary archive contributes seven science books: six ordinary Estonian/Russian sources (including the workbook and video collections) and one clearly labelled simplified-curriculum source. The separately registered kit 330 capture contributes one supplementary cross-curricular book. The science route does not use simplified or supplementary sources as an ordinary default.
 
 ## Source inconsistencies corrected
 
@@ -21,4 +21,4 @@ One Russian Koolibri Book ID contains the invisible discretionary soft-hyphen ch
 
 ## Boundary and limitations
 
-The manifest forbids both mixed Book IDs in `grade-2-science`, and the regression suite checks that a pure science page resolves only through the new route. This separation is a retrieval decision, not an assertion that the repository covers the complete official grade-2 curriculum. Human-studies requests continue to use `grade-2-human-studies`.
+The manifest forbids both mixed Book IDs in `grade-2-science`. The Russian kit 86 source is available only through `grade-2-nature-and-human-studies`, while the Estonian kit 56 source remains part of the audited human-studies route. This separation is a retrieval decision, not an assertion that the repository covers the complete official grade-2 curriculum.

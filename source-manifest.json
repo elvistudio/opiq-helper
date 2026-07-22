@@ -20,11 +20,13 @@
       "md_path": "project-files/outputs/opiq_1klass_eesti_keel.md",
       "source_archive": "project-files/inputs/final-zips/opiq_1klass_eesti_keel.zip",
       "qa_path": "project-files/outputs/opiq_1klass_eesti_keel_qa.json",
-      "record_count": 496,
+      "record_count": 468,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
       "quality_status": "qa_snapshot_available",
-      "known_issues": [],
+      "known_issues": [
+        "The legacy source archive labels kit 330 as grade 1 and contains incomplete book metadata. A later dedicated capture identifies it as Minu väike kallis planeet 2 klass; its 28 legacy chapter records are excluded from this route."
+      ],
       "subject_boundary": {
         "forbidden_book_ids": [
           "1k_eesti_teise_keelena_avita_est"
@@ -32,7 +34,16 @@
         "audit_path": "docs/audits/grade-1-estonian-subject-separation.md",
         "reason": "Kit 537 was audited as Estonian-as-a-second-language content and must not re-enter the first-language route."
       },
-      "notes": "Use for first-language Estonian queries only. All 26 audited kit 537 records were removed; the route is protected from that second-language book by a CI-validated subject boundary."
+      "routing_boundary": {
+        "forbidden_book_ids": ["1k_minu_vaike_kallis_planeet_est"],
+        "forbidden_url_prefixes": [
+          "https://www.opiq.ee/kit/330/",
+          "https://www.opiq.ee/Kit/Details/330"
+        ],
+        "audit_path": "docs/audits/grade-2-minu-vaike-kallis-planeet.md",
+        "reason": "The dedicated capture identifies kit 330 as grade 2; it must not remain in the grade-1 first-language Estonian route."
+      },
+      "notes": "Use for first-language Estonian queries only. Audited kit 537 second-language records and the misgraded kit 330 records are excluded by CI-validated boundaries."
     },
     {
       "id": "grade-1-estonian-second-language",
@@ -63,16 +74,26 @@
       "md_path": "project-files/outputs/opiq_1klass_loodusopetus.md",
       "source_archive": null,
       "qa_path": null,
-      "record_count": 472,
+      "record_count": 443,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
       "quality_status": "needs_review",
       "known_issues": [
         "No source archive is stored under project-files/inputs/final-zips.",
         "No QA snapshot is committed.",
-        "The Markdown index contains two duplicate URL occurrences."
+        "The Markdown index contains two duplicate URL occurrences.",
+        "Twenty-nine legacy kit 330 chapter/detail records were removed after a dedicated source capture identified the book as grade 2."
       ],
-      "notes": "A derived compact ZIP exists at project-files/outputs/1klass-loodusõpetus-compact.zip."
+      "routing_boundary": {
+        "forbidden_book_ids": ["1k_minu_vaike_kallis_planeet_est"],
+        "forbidden_url_prefixes": [
+          "https://www.opiq.ee/kit/330/",
+          "https://www.opiq.ee/Kit/Details/330"
+        ],
+        "audit_path": "docs/audits/grade-2-minu-vaike-kallis-planeet.md",
+        "reason": "The dedicated capture identifies kit 330 as grade 2; it must not remain in the grade-1 science route."
+      },
+      "notes": "A derived compact ZIP exists at project-files/outputs/1klass-loodusõpetus-compact.zip. Kit 330 is routed only through grade-2-science."
     },
     {
       "id": "grade-1-mathematics",
@@ -122,14 +143,65 @@
       "md_path": "project-files/outputs/opiq_2klass_eesti_keel.md",
       "source_archive": "project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip",
       "qa_path": "project-files/outputs/opiq_2klass_eesti_keel_qa.json",
-      "record_count": 444,
+      "record_count": 372,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
       "quality_status": "qa_snapshot_available",
       "known_issues": [
-        "The source archive contains automatic subject labels; the canonical Markdown index is normalized."
+        "The source archive contains automatic mathematics subject labels; the canonical Markdown index is normalized.",
+        "The shared export also contains 72 Koos on lõbus. Janno jutud pages, which are routed exclusively as Estonian as a second language."
       ],
-      "notes": "Route first-language Estonian queries here."
+      "subject_boundary": {
+        "forbidden_book_ids": ["koolibri_koos_on_lõ_2_et"],
+        "audit_path": "docs/audits/grade-2-estonian-subject-separation.md",
+        "reason": "Koos on lõbus. Janno jutud is routed as Estonian as a second language and must not appear in first-language Estonian."
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian language",
+          "et": "eesti keel",
+          "ru": "эстонский язык"
+        }
+      },
+      "notes": "Route first-language Estonian queries here. The canonical route contains 372 instructional pages from three books and does not claim curriculum completeness."
+    },
+    {
+      "id": "grade-2-estonian-second-language",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "estonian_second_language",
+      "subject_et": "eesti keel teise keelena",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_eesti_keel_teise_keelena_qa.json",
+      "record_count": 72,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "The original export groups first-language and second-language Estonian books and automatically labels every record as mathematics; the canonical route corrects both boundaries.",
+        "This route truthfully reuses the same committed original archive as grade-2-estonian; no dedicated second-language archive is claimed."
+      ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "avita_eesti_keel_2_et",
+          "koolibri_ilus_emake_2_et",
+          "koolibri_mina_loen__2_et"
+        ],
+        "audit_path": "docs/audits/grade-2-estonian-subject-separation.md",
+        "reason": "The three forbidden books belong to first-language Estonian and must not appear in the second-language route."
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian as a second language",
+          "et": "eesti keel teise keelena",
+          "ru": "эстонский как второй язык"
+        }
+      },
+      "notes": "Use only for grade 2 Estonian-as-a-second-language queries. The route contains 72 Koos on lõbus. Janno jutud pages and does not claim curriculum completeness."
     },
     {
       "id": "grade-2-mathematics",
@@ -147,7 +219,8 @@
       "quality_status": "qa_snapshot_available",
       "known_issues": [
         "Sixteen cover/detail records and five administrative records are excluded; all eight duplicate source URL groups were repeated kit-detail pages.",
-        "Two Russian source Book IDs end in _et despite Language ru. The source IDs are retained for provenance; the explicit Language field is authoritative.",
+        "Two Russian source Book IDs end in _et despite Language ru. Canonical Book IDs include kit identity while Source Book ID preserves the archive identifier.",
+        "Kit 578 has an Estonian cover title and Estonian-primary bilingual headings although its source language is ru; the archive language is retained and the title follows the captured cover.",
         "One simplified-curriculum book is included and labelled per book and record; it must not be used as the ordinary default."
       ],
       "canonical_url_policy": {
@@ -160,7 +233,7 @@
           "ru": "математика"
         }
       },
-      "notes": "Canonical Markdown is reproducibly generated from the committed original export. It contains 464 unique chapter-level pages and does not claim curriculum completeness."
+      "notes": "Canonical Markdown is reproducibly generated from eight source-book-plus-kit variants in the committed original export. It contains 464 unique chapter-level pages and does not claim curriculum completeness."
     },
     {
       "id": "grade-2-science",
@@ -171,17 +244,27 @@
       "languages": ["et", "ru"],
       "md_path": "project-files/outputs/opiq_2klass_loodusopetus.md",
       "source_archive": "project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip",
+      "additional_source_archives": [
+        {
+          "path": "project-files/inputs/final-zips/opiq_2klass_minu_vaike_kallis_planeet_v2.zip",
+          "role": "supplementary_book_capture",
+          "source_book_ids": ["avita_minu_väike_2_et"],
+          "notes": "Dedicated grade-2 capture for kit 330; its canonical URLs were removed from two legacy grade-1 routes rather than duplicated."
+        }
+      ],
       "qa_path": "project-files/outputs/opiq_2klass_loodusopetus_qa.json",
-      "record_count": 286,
+      "record_count": 313,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
       "quality_status": "qa_snapshot_available",
       "known_issues": [
-        "Eighteen cover/detail records and five administrative records are excluded; all nine duplicate source URL groups were repeated kit-detail pages.",
+        "Across both registered archives, twenty cover/detail records and six administrative records are excluded; all ten duplicate source URL groups were repeated kit-detail pages.",
         "The source mislabeled 156 records as mathematics. Ninety eligible Russian-language science pages are normalized to the science subject in the canonical index.",
         "Two mixed loodus- ja inimeseõpetus books are excluded from this subject-pure route; their 119 instructional pages are documented in the subject-boundary audit.",
         "One Russian source Book ID contains a discretionary soft hyphen. The canonical ID removes only that invisible character and otherwise retains the source identifier.",
-        "One simplified-curriculum book is included and labelled per book and record; it must not be used as the ordinary default."
+        "The Koolibri Russian title is normalized from Природоведение 2 клacc to Природоведение 2 класс; the Ministry publisher label receives source-supported title casing only.",
+        "One simplified-curriculum book is included and labelled per book and record; it must not be used as the ordinary default.",
+        "Minu väike kallis planeet is a cross-curricular supplementary book. It is routed here because the dedicated archive identifies grade 2 and canonical science metadata; its presence does not establish curriculum coverage."
       ],
       "subject_boundary": {
         "forbidden_book_ids": [
@@ -201,7 +284,7 @@
           "ru": "природоведение"
         }
       },
-      "notes": "Canonical Markdown is reproducibly generated from seven science books in the committed original export. It contains 286 unique chapter-level pages and does not claim curriculum completeness."
+      "notes": "Canonical Markdown is reproducibly generated from eight books across one primary and one additional committed source archive. It contains 313 unique chapter-level pages and does not claim curriculum completeness."
     },
     {
       "id": "grade-2-human-studies",
@@ -218,9 +301,71 @@
       "coverage_status": "available_not_curriculum_verified",
       "quality_status": "qa_snapshot_available",
       "known_issues": [
-        "The source archive contains automatic subject labels; the canonical Markdown index is normalized."
+        "The source archive contains automatic mathematics/science subject labels; the canonical Markdown index is normalized.",
+        "One source Book ID spans kits 449 and 494. Canonical Book IDs include kit identity and preserve the original Source Book ID.",
+        "The simplified-curriculum book is labelled per book and record and must not be used as the ordinary default."
       ],
-      "notes": "The source collection includes a combined loodus- ja inimeseõpetus book, while the canonical route is human studies."
+      "subject_boundary": {
+        "forbidden_book_ids": ["avita_природа_и__2_ru"],
+        "audit_path": "docs/audits/grade-2-nature-and-human-studies-source-audit.md",
+        "reason": "The Russian combined nature-and-human-studies book is routed separately and must not enter the subject-pure human-studies route."
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "human studies",
+          "et": "inimeseõpetus",
+          "ru": "человековедение"
+        }
+      },
+      "notes": "The source collection includes a combined loodus- ja inimeseõpetus book. Cover evidence distinguishes Avita kits 449 and 494 as I and II osa; the canonical route contains seven source-book-plus-kit variants."
+    },
+    {
+      "id": "grade-2-nature-and-human-studies",
+      "grade": 2,
+      "grade_group": "1-4",
+      "subject": "science_and_human_studies",
+      "subject_et": "loodus- ja inimeseõpetus",
+      "languages": ["ru"],
+      "md_path": "project-files/outputs/opiq_2klass_priroda_i_chelovek.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip",
+      "qa_path": "project-files/outputs/opiq_2klass_priroda_i_chelovek_qa.json",
+      "record_count": 60,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "This is a mixed-subject source and must not be treated as either a subject-pure science or subject-pure human-studies route.",
+        "The committed archive does not provide reliable page-level evidence for splitting the sixty instructional pages between the two subjects."
+      ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "avita_loodus-_ja_2_et",
+          "avita_loodusõpet_2_et",
+          "avita_природовед_2_ru",
+          "koolibri_loodusõpet_2_et",
+          "koolibri_природове_2_ru",
+          "ministeerium_loodusõpet_2_et",
+          "skriibus_loodusõpet_2_et",
+          "star cloud_loodusõpet_2_et"
+        ],
+        "audit_path": "docs/audits/grade-2-nature-and-human-studies-source-audit.md",
+        "reason": "Only source kit 86 belongs to this exact mixed-subject route; all other books in the shared archive remain outside it."
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "science and human studies",
+          "et": "loodus- ja inimeseõpetus",
+          "ru": "природа и человек"
+        }
+      },
+      "source_scope": {
+        "included_kit_ids": ["86"],
+        "programme_type": "mixed_subject",
+        "audit_path": "docs/audits/grade-2-nature-and-human-studies-source-audit.md"
+      },
+      "notes": "Canonical Markdown is reproducibly generated only from kit 86 in the already committed shared archive. Its 60 pages are available without a new capture and do not establish curriculum completeness."
     },
     {
       "id": "grade-2-arts-and-crafts",

@@ -14,18 +14,13 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - Page records included: 27
 - Cover/detail records excluded: 12
 - Administrative records excluded: 0
-- Duplicate source URL groups: 38; cover duplicates were excluded and repeated instructional URLs were deduplicated
-- Mixed-subject page records excluded: 0
-- Out-of-scope page records excluded: 116
+- Duplicate source URL groups: 38; canonical duplicates are removed only after exact content checks
+- Subject-boundary page records excluded: 0
+- Out-of-scope instructional records excluded: 116
 - Curriculum coverage: not verified
 
 ## Books
-- `kaitseliit_noorte_kot_2_et` — Noorte Kotkaste I järk (2026); Kaitseliit; language et; kit 594; 27 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
-
-## Source-scope exclusions
-- Kit 231: 27 source page records excluded. Koduõpe contains mixed teaching examples explicitly labelled for grades 1–9 and requires a separate multi-grade route design.
-- Kit 357: 48 source page records excluded. Kodutütarde VI järk is a different progression level and is outside the requested I järk sources.
-- Kit 593: 41 source page records excluded. Kodutütarde I järk is routed separately so the two youth organisations remain distinguishable.
+- `kaitseliit_noorte_kot_2_et` — Noorte Kotkaste I järk (2026); Source Book ID `kaitseliit_noorte_kot_2_et`; Kaitseliit; language et; kit 594; 27 pages; supplementary material; do not treat as the ordinary core without explicit labelling.
 
 ## Pages
 
@@ -33,6 +28,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33620
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.1
 - Class: 2
 - Language: et
@@ -49,6 +45,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33621
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.2
 - Class: 2
 - Language: et
@@ -65,6 +62,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33622
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.3
 - Class: 2
 - Language: et
@@ -81,6 +79,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33623
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.4
 - Class: 2
 - Language: et
@@ -97,6 +96,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33624
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.5
 - Class: 2
 - Language: et
@@ -113,6 +113,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33625
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.6
 - Class: 2
 - Language: et
@@ -129,6 +130,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33626
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.7
 - Class: 2
 - Language: et
@@ -145,6 +147,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33627
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.8
 - Class: 2
 - Language: et
@@ -161,6 +164,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33628
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 1.9
 - Class: 2
 - Language: et
@@ -177,6 +181,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33629
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 2.1
 - Class: 2
 - Language: et
@@ -193,6 +198,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33633
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 2.2
 - Class: 2
 - Language: et
@@ -209,6 +215,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33630
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 2.3
 - Class: 2
 - Language: et
@@ -225,6 +232,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33631
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 2.4
 - Class: 2
 - Language: et
@@ -241,6 +249,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33632
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 2.5
 - Class: 2
 - Language: et
@@ -257,6 +266,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33634
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 3.1
 - Class: 2
 - Language: et
@@ -273,6 +283,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33635
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 3.2
 - Class: 2
 - Language: et
@@ -289,6 +300,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33636
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 3.3
 - Class: 2
 - Language: et
@@ -305,6 +317,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33637
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 3.4
 - Class: 2
 - Language: et
@@ -321,6 +334,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33638
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 3.5
 - Class: 2
 - Language: et
@@ -337,6 +351,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33639
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 3.6
 - Class: 2
 - Language: et
@@ -353,6 +368,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33640
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 4.1
 - Class: 2
 - Language: et
@@ -369,6 +385,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33641
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 4.2
 - Class: 2
 - Language: et
@@ -385,6 +402,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33642
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 4.3
 - Class: 2
 - Language: et
@@ -401,6 +419,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33643
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 4.4
 - Class: 2
 - Language: et
@@ -417,6 +436,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33644
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 4.5
 - Class: 2
 - Language: et
@@ -433,6 +453,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33645
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 4.6
 - Class: 2
 - Language: et
@@ -449,6 +470,7 @@ Use this file to answer grade 2 Young Eagles training requests only. Match queri
 - URL: https://www.opiq.ee/kit/594/chapter/33646
 - Book: Noorte Kotkaste I järk (2026)
 - Book ID: kaitseliit_noorte_kot_2_et
+- Source Book ID: kaitseliit_noorte_kot_2_et
 - Chapter ID: 5.1
 - Class: 2
 - Language: et

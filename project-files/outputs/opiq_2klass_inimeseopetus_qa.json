@@ -5,39 +5,22 @@
   "output_file": "project-files/outputs/opiq_2klass_inimeseopetus.md",
   "format_version": "2.0",
   "generation": {
-    "status": "legacy_migrated",
-    "generated_at": null,
-    "generator": null,
-    "generator_version": null,
-    "note": "Original generation metadata was not recorded."
+    "status": "generated",
+    "generated_at": "2026-07-19T05:32:56.135Z",
+    "generator": "scripts/generate-grade-2-source-indexes.mjs",
+    "generator_version": "3.0",
+    "note": "Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown."
   },
   "checksums": {
     "source_archive_sha256": "6468ad67870177c8a7428380e07cb9f4f6cc86c3c8d5ac35fe2aaab28c6cb705",
-    "output_file_sha256": "99a2e2ed8b8197e7ef54bb695bac057c39281c63f7a754dd2a40fdf1810b0eeb"
+    "output_file_sha256": "77db24fe203bab68bb39df680dd27477393f534ede0b5986569ccaec423bdf9d"
   },
   "source_records": 262,
   "page_records_included": 243,
   "cover_detail_records_excluded": 14,
   "administrative_records_excluded": 5,
-  "normalized_grade": 2,
-  "normalized_subject": {
-    "et": "inimeseõpetus",
-    "ru": "человековедение",
-    "en": "human studies"
-  },
-  "normalized_book_titles": {
-    "avita_inimeseõpe_2_et": "Inimeseõpetus algklassidele, I–II osa. 2023 ÕK",
-    "avita_inimeseõpe_2_ru": "Inimeseõpetus algklassidele. II osa",
-    "avita_loodus-_ja_2_et": "Loodus- ja inimeseõpetus 2. klassile",
-    "harno_inimeseõpe_2_et": "Inimeseõpetus 2. klassile. Lihtsustatud õppekava",
-    "koolibri_in2_2._kla_2_et": "IN2. 2. klassi inimeseõpetus",
-    "koolibri_мой_мир._ч_2_ru": "Мой мир. Человековедение 2 класс"
-  },
-  "removed_wrong_subject_aliases": {
-    "topics_et": 243,
-    "topics_ru": 243,
-    "topics_en": 243
-  },
+  "subject_boundary_page_records_excluded": 0,
+  "out_of_scope_records_excluded": 0,
   "grades": {
     "2": 243
   },
@@ -46,6 +29,15 @@
     "ru": 61
   },
   "books": {
+    "avita_inimeseõpe_2_et__kit449": 13,
+    "avita_inimeseõpe_2_et__kit494": 35,
+    "avita_inimeseõpe_2_ru__kit579": 23,
+    "avita_loodus-_ja_2_et__kit56": 59,
+    "harno_inimeseõpe_2_et__kit286": 37,
+    "koolibri_in2_2._kla_2_et__kit142": 38,
+    "koolibri_мой_мир._ч_2_ru__kit229": 38
+  },
+  "source_books": {
     "avita_inimeseõpe_2_et": 48,
     "avita_inimeseõpe_2_ru": 23,
     "avita_loodus-_ja_2_et": 59,
@@ -53,9 +45,2193 @@
     "koolibri_in2_2._kla_2_et": 38,
     "koolibri_мой_мир._ч_2_ru": 38
   },
+  "kits": {
+    "56": 59,
+    "142": 38,
+    "229": 38,
+    "286": 37,
+    "449": 13,
+    "494": 35,
+    "579": 23
+  },
+  "programme_types": {
+    "ordinary_curriculum": 206,
+    "simplified_curriculum": 37
+  },
+  "source_subject_counts": {
+    "mathematics / matemaatika / математика": 195,
+    "science / loodusõpetus / природоведение": 67
+  },
+  "canonical_subject_counts": {
+    "human studies / inimeseõpetus / человековедение": 243
+  },
+  "subject_normalization_records": 243,
+  "subject_normalization_audit": [
+    {
+      "source_position": 5,
+      "url": "https://www.opiq.ee/kit/494/chapter/27186",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 6,
+      "url": "https://www.opiq.ee/kit/494/chapter/27187",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 7,
+      "url": "https://www.opiq.ee/kit/494/chapter/27188",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 8,
+      "url": "https://www.opiq.ee/kit/494/chapter/27189",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 9,
+      "url": "https://www.opiq.ee/kit/494/chapter/27190",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 10,
+      "url": "https://www.opiq.ee/kit/494/chapter/27191",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 11,
+      "url": "https://www.opiq.ee/kit/494/chapter/27192",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 12,
+      "url": "https://www.opiq.ee/kit/494/chapter/27193",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 13,
+      "url": "https://www.opiq.ee/kit/494/chapter/27194",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 14,
+      "url": "https://www.opiq.ee/kit/494/chapter/27833",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 15,
+      "url": "https://www.opiq.ee/kit/494/chapter/27834",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 16,
+      "url": "https://www.opiq.ee/kit/494/chapter/27835",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 17,
+      "url": "https://www.opiq.ee/kit/494/chapter/27836",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 18,
+      "url": "https://www.opiq.ee/kit/494/chapter/27837",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 19,
+      "url": "https://www.opiq.ee/kit/494/chapter/27838",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 20,
+      "url": "https://www.opiq.ee/kit/494/chapter/27839",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 21,
+      "url": "https://www.opiq.ee/kit/494/chapter/27840",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 22,
+      "url": "https://www.opiq.ee/kit/494/chapter/28143",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 23,
+      "url": "https://www.opiq.ee/kit/494/chapter/28144",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 24,
+      "url": "https://www.opiq.ee/kit/494/chapter/28145",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 25,
+      "url": "https://www.opiq.ee/kit/494/chapter/28146",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 26,
+      "url": "https://www.opiq.ee/kit/494/chapter/28147",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 27,
+      "url": "https://www.opiq.ee/kit/494/chapter/28148",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 28,
+      "url": "https://www.opiq.ee/kit/494/chapter/28149",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 29,
+      "url": "https://www.opiq.ee/kit/449/chapter/24919",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 30,
+      "url": "https://www.opiq.ee/kit/494/chapter/28150",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 31,
+      "url": "https://www.opiq.ee/kit/494/chapter/28151",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 32,
+      "url": "https://www.opiq.ee/kit/494/chapter/28152",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 33,
+      "url": "https://www.opiq.ee/kit/449/chapter/24915",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 34,
+      "url": "https://www.opiq.ee/kit/449/chapter/24916",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 35,
+      "url": "https://www.opiq.ee/kit/449/chapter/24921",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 36,
+      "url": "https://www.opiq.ee/kit/449/chapter/24917",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 37,
+      "url": "https://www.opiq.ee/kit/449/chapter/24918",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 38,
+      "url": "https://www.opiq.ee/kit/494/chapter/28153",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 39,
+      "url": "https://www.opiq.ee/kit/494/chapter/28154",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 40,
+      "url": "https://www.opiq.ee/kit/494/chapter/28155",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 41,
+      "url": "https://www.opiq.ee/kit/494/chapter/28156",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 42,
+      "url": "https://www.opiq.ee/kit/494/chapter/28157",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 43,
+      "url": "https://www.opiq.ee/kit/494/chapter/28158",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 44,
+      "url": "https://www.opiq.ee/kit/494/chapter/28159",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 45,
+      "url": "https://www.opiq.ee/kit/449/chapter/24928",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 46,
+      "url": "https://www.opiq.ee/kit/494/chapter/27195",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 48,
+      "url": "https://www.opiq.ee/kit/449/chapter/26255",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 49,
+      "url": "https://www.opiq.ee/kit/449/chapter/26256",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 50,
+      "url": "https://www.opiq.ee/kit/449/chapter/26257",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 51,
+      "url": "https://www.opiq.ee/kit/449/chapter/26258",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 52,
+      "url": "https://www.opiq.ee/kit/449/chapter/26259",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 53,
+      "url": "https://www.opiq.ee/kit/449/chapter/26260",
+      "book_id": "avita_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 57,
+      "url": "https://www.opiq.ee/kit/579/chapter/32046",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 58,
+      "url": "https://www.opiq.ee/kit/579/chapter/32047",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 59,
+      "url": "https://www.opiq.ee/kit/579/chapter/32048",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 60,
+      "url": "https://www.opiq.ee/kit/579/chapter/32049",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 61,
+      "url": "https://www.opiq.ee/kit/579/chapter/32441",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 62,
+      "url": "https://www.opiq.ee/kit/579/chapter/32442",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 63,
+      "url": "https://www.opiq.ee/kit/579/chapter/32443",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 64,
+      "url": "https://www.opiq.ee/kit/579/chapter/32444",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 65,
+      "url": "https://www.opiq.ee/kit/579/chapter/32445",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 66,
+      "url": "https://www.opiq.ee/kit/579/chapter/32446",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 67,
+      "url": "https://www.opiq.ee/kit/579/chapter/32447",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 68,
+      "url": "https://www.opiq.ee/kit/579/chapter/32448",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 69,
+      "url": "https://www.opiq.ee/kit/579/chapter/32449",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 70,
+      "url": "https://www.opiq.ee/kit/579/chapter/32450",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 71,
+      "url": "https://www.opiq.ee/kit/579/chapter/32451",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 72,
+      "url": "https://www.opiq.ee/kit/579/chapter/32452",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 73,
+      "url": "https://www.opiq.ee/kit/579/chapter/32453",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 74,
+      "url": "https://www.opiq.ee/kit/579/chapter/32454",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 75,
+      "url": "https://www.opiq.ee/kit/579/chapter/33048",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 76,
+      "url": "https://www.opiq.ee/kit/579/chapter/33049",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 77,
+      "url": "https://www.opiq.ee/kit/579/chapter/33050",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 78,
+      "url": "https://www.opiq.ee/kit/579/chapter/33388",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 79,
+      "url": "https://www.opiq.ee/kit/579/chapter/33389",
+      "book_id": "avita_inimeseõpe_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 83,
+      "url": "https://www.opiq.ee/kit/56/chapter/2749",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 84,
+      "url": "https://www.opiq.ee/kit/56/chapter/2758",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 85,
+      "url": "https://www.opiq.ee/kit/56/chapter/2759",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 86,
+      "url": "https://www.opiq.ee/kit/56/chapter/2760",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 87,
+      "url": "https://www.opiq.ee/kit/56/chapter/2761",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 88,
+      "url": "https://www.opiq.ee/kit/56/chapter/2762",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 89,
+      "url": "https://www.opiq.ee/kit/56/chapter/2763",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 90,
+      "url": "https://www.opiq.ee/kit/56/chapter/2764",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 91,
+      "url": "https://www.opiq.ee/kit/56/chapter/2765",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 92,
+      "url": "https://www.opiq.ee/kit/56/chapter/2766",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 93,
+      "url": "https://www.opiq.ee/kit/56/chapter/2767",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 94,
+      "url": "https://www.opiq.ee/kit/56/chapter/2750",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 95,
+      "url": "https://www.opiq.ee/kit/56/chapter/2768",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 96,
+      "url": "https://www.opiq.ee/kit/56/chapter/2769",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 97,
+      "url": "https://www.opiq.ee/kit/56/chapter/2770",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 98,
+      "url": "https://www.opiq.ee/kit/56/chapter/2771",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 99,
+      "url": "https://www.opiq.ee/kit/56/chapter/2751",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 100,
+      "url": "https://www.opiq.ee/kit/56/chapter/2752",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 101,
+      "url": "https://www.opiq.ee/kit/56/chapter/2753",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 102,
+      "url": "https://www.opiq.ee/kit/56/chapter/2754",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 103,
+      "url": "https://www.opiq.ee/kit/56/chapter/2755",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 104,
+      "url": "https://www.opiq.ee/kit/56/chapter/2756",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 105,
+      "url": "https://www.opiq.ee/kit/56/chapter/2757",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 106,
+      "url": "https://www.opiq.ee/kit/56/chapter/3345",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 107,
+      "url": "https://www.opiq.ee/kit/56/chapter/3477",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 108,
+      "url": "https://www.opiq.ee/kit/56/chapter/3478",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 109,
+      "url": "https://www.opiq.ee/kit/56/chapter/3479",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 110,
+      "url": "https://www.opiq.ee/kit/56/chapter/3502",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 111,
+      "url": "https://www.opiq.ee/kit/56/chapter/3503",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 112,
+      "url": "https://www.opiq.ee/kit/56/chapter/3504",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 113,
+      "url": "https://www.opiq.ee/kit/56/chapter/3505",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 114,
+      "url": "https://www.opiq.ee/kit/56/chapter/3611",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 115,
+      "url": "https://www.opiq.ee/kit/56/chapter/3612",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 116,
+      "url": "https://www.opiq.ee/kit/56/chapter/3613",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 117,
+      "url": "https://www.opiq.ee/kit/56/chapter/3346",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 118,
+      "url": "https://www.opiq.ee/kit/56/chapter/3614",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 119,
+      "url": "https://www.opiq.ee/kit/56/chapter/7625",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 120,
+      "url": "https://www.opiq.ee/kit/56/chapter/7626",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 121,
+      "url": "https://www.opiq.ee/kit/56/chapter/7627",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 122,
+      "url": "https://www.opiq.ee/kit/56/chapter/7628",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 123,
+      "url": "https://www.opiq.ee/kit/56/chapter/7629",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 124,
+      "url": "https://www.opiq.ee/kit/56/chapter/7701",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 125,
+      "url": "https://www.opiq.ee/kit/56/chapter/7702",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 126,
+      "url": "https://www.opiq.ee/kit/56/chapter/7703",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 127,
+      "url": "https://www.opiq.ee/kit/56/chapter/7704",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 128,
+      "url": "https://www.opiq.ee/kit/56/chapter/3347",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 129,
+      "url": "https://www.opiq.ee/kit/56/chapter/7705",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 130,
+      "url": "https://www.opiq.ee/kit/56/chapter/7706",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 131,
+      "url": "https://www.opiq.ee/kit/56/chapter/7707",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 132,
+      "url": "https://www.opiq.ee/kit/56/chapter/7708",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 133,
+      "url": "https://www.opiq.ee/kit/56/chapter/7709",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 134,
+      "url": "https://www.opiq.ee/kit/56/chapter/7710",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 135,
+      "url": "https://www.opiq.ee/kit/56/chapter/3348",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 136,
+      "url": "https://www.opiq.ee/kit/56/chapter/3349",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 137,
+      "url": "https://www.opiq.ee/kit/56/chapter/3350",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 138,
+      "url": "https://www.opiq.ee/kit/56/chapter/3351",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 139,
+      "url": "https://www.opiq.ee/kit/56/chapter/3352",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 140,
+      "url": "https://www.opiq.ee/kit/56/chapter/3353",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 142,
+      "url": "https://www.opiq.ee/kit/56/chapter/2773",
+      "book_id": "avita_loodus-_ja_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 145,
+      "url": "https://www.opiq.ee/kit/286/chapter/15950",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 146,
+      "url": "https://www.opiq.ee/kit/286/chapter/15951",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 147,
+      "url": "https://www.opiq.ee/kit/286/chapter/16084",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 148,
+      "url": "https://www.opiq.ee/kit/286/chapter/16085",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 149,
+      "url": "https://www.opiq.ee/kit/286/chapter/16577",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 150,
+      "url": "https://www.opiq.ee/kit/286/chapter/16578",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 151,
+      "url": "https://www.opiq.ee/kit/286/chapter/16790",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 152,
+      "url": "https://www.opiq.ee/kit/286/chapter/16791",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 153,
+      "url": "https://www.opiq.ee/kit/286/chapter/16792",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 154,
+      "url": "https://www.opiq.ee/kit/286/chapter/16912",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 155,
+      "url": "https://www.opiq.ee/kit/286/chapter/16913",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 156,
+      "url": "https://www.opiq.ee/kit/286/chapter/16916",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 157,
+      "url": "https://www.opiq.ee/kit/286/chapter/16914",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 158,
+      "url": "https://www.opiq.ee/kit/286/chapter/16917",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 159,
+      "url": "https://www.opiq.ee/kit/286/chapter/16915",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 160,
+      "url": "https://www.opiq.ee/kit/286/chapter/17080",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 161,
+      "url": "https://www.opiq.ee/kit/286/chapter/17081",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 162,
+      "url": "https://www.opiq.ee/kit/286/chapter/17082",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 163,
+      "url": "https://www.opiq.ee/kit/286/chapter/17083",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 164,
+      "url": "https://www.opiq.ee/kit/286/chapter/17084",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 165,
+      "url": "https://www.opiq.ee/kit/286/chapter/17085",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 166,
+      "url": "https://www.opiq.ee/kit/286/chapter/17527",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 167,
+      "url": "https://www.opiq.ee/kit/286/chapter/17528",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 168,
+      "url": "https://www.opiq.ee/kit/286/chapter/17529",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 169,
+      "url": "https://www.opiq.ee/kit/286/chapter/17530",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 170,
+      "url": "https://www.opiq.ee/kit/286/chapter/17531",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 171,
+      "url": "https://www.opiq.ee/kit/286/chapter/17532",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 172,
+      "url": "https://www.opiq.ee/kit/286/chapter/17533",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 173,
+      "url": "https://www.opiq.ee/kit/286/chapter/17534",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 174,
+      "url": "https://www.opiq.ee/kit/286/chapter/17535",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 175,
+      "url": "https://www.opiq.ee/kit/286/chapter/17536",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 176,
+      "url": "https://www.opiq.ee/kit/286/chapter/17537",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 177,
+      "url": "https://www.opiq.ee/kit/286/chapter/17538",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 178,
+      "url": "https://www.opiq.ee/kit/286/chapter/15952",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 179,
+      "url": "https://www.opiq.ee/kit/286/chapter/15953",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 180,
+      "url": "https://www.opiq.ee/kit/286/chapter/15954",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 181,
+      "url": "https://www.opiq.ee/kit/286/chapter/17079",
+      "book_id": "harno_inimeseõpe_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 185,
+      "url": "https://www.opiq.ee/kit/142/chapter/7988",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 186,
+      "url": "https://www.opiq.ee/kit/142/chapter/7989",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 187,
+      "url": "https://www.opiq.ee/kit/142/chapter/7990",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 188,
+      "url": "https://www.opiq.ee/kit/142/chapter/7991",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 189,
+      "url": "https://www.opiq.ee/kit/142/chapter/7992",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 190,
+      "url": "https://www.opiq.ee/kit/142/chapter/7993",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 191,
+      "url": "https://www.opiq.ee/kit/142/chapter/7994",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 192,
+      "url": "https://www.opiq.ee/kit/142/chapter/7995",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 193,
+      "url": "https://www.opiq.ee/kit/142/chapter/7996",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 194,
+      "url": "https://www.opiq.ee/kit/142/chapter/7997",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 195,
+      "url": "https://www.opiq.ee/kit/142/chapter/7998",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 196,
+      "url": "https://www.opiq.ee/kit/142/chapter/7999",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 197,
+      "url": "https://www.opiq.ee/kit/142/chapter/8000",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 198,
+      "url": "https://www.opiq.ee/kit/142/chapter/8001",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 199,
+      "url": "https://www.opiq.ee/kit/142/chapter/8002",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 200,
+      "url": "https://www.opiq.ee/kit/142/chapter/8003",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 201,
+      "url": "https://www.opiq.ee/kit/142/chapter/8004",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 202,
+      "url": "https://www.opiq.ee/kit/142/chapter/8005",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 203,
+      "url": "https://www.opiq.ee/kit/142/chapter/8006",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 204,
+      "url": "https://www.opiq.ee/kit/142/chapter/8007",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 205,
+      "url": "https://www.opiq.ee/kit/142/chapter/8008",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 206,
+      "url": "https://www.opiq.ee/kit/142/chapter/8009",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 207,
+      "url": "https://www.opiq.ee/kit/142/chapter/8010",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 208,
+      "url": "https://www.opiq.ee/kit/142/chapter/8011",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 209,
+      "url": "https://www.opiq.ee/kit/142/chapter/8012",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 210,
+      "url": "https://www.opiq.ee/kit/142/chapter/8013",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 211,
+      "url": "https://www.opiq.ee/kit/142/chapter/8014",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 212,
+      "url": "https://www.opiq.ee/kit/142/chapter/8015",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 213,
+      "url": "https://www.opiq.ee/kit/142/chapter/8016",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 214,
+      "url": "https://www.opiq.ee/kit/142/chapter/8017",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 215,
+      "url": "https://www.opiq.ee/kit/142/chapter/8018",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 216,
+      "url": "https://www.opiq.ee/kit/142/chapter/8019",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 217,
+      "url": "https://www.opiq.ee/kit/142/chapter/8020",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 218,
+      "url": "https://www.opiq.ee/kit/142/chapter/8021",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "science / loodusõpetus / природоведение",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 219,
+      "url": "https://www.opiq.ee/kit/142/chapter/8022",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 220,
+      "url": "https://www.opiq.ee/kit/142/chapter/8023",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 221,
+      "url": "https://www.opiq.ee/kit/142/chapter/8024",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 222,
+      "url": "https://www.opiq.ee/kit/142/chapter/8025",
+      "book_id": "koolibri_in2_2._kla_2_et",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 225,
+      "url": "https://www.opiq.ee/kit/229/chapter/13074",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 226,
+      "url": "https://www.opiq.ee/kit/229/chapter/13075",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 227,
+      "url": "https://www.opiq.ee/kit/229/chapter/13076",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 228,
+      "url": "https://www.opiq.ee/kit/229/chapter/13077",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 229,
+      "url": "https://www.opiq.ee/kit/229/chapter/13078",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 230,
+      "url": "https://www.opiq.ee/kit/229/chapter/13079",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 231,
+      "url": "https://www.opiq.ee/kit/229/chapter/13111",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 232,
+      "url": "https://www.opiq.ee/kit/229/chapter/13080",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 233,
+      "url": "https://www.opiq.ee/kit/229/chapter/13081",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 234,
+      "url": "https://www.opiq.ee/kit/229/chapter/13082",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 235,
+      "url": "https://www.opiq.ee/kit/229/chapter/13083",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 236,
+      "url": "https://www.opiq.ee/kit/229/chapter/13084",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 237,
+      "url": "https://www.opiq.ee/kit/229/chapter/13085",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 238,
+      "url": "https://www.opiq.ee/kit/229/chapter/13086",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 239,
+      "url": "https://www.opiq.ee/kit/229/chapter/13087",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 240,
+      "url": "https://www.opiq.ee/kit/229/chapter/13088",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 241,
+      "url": "https://www.opiq.ee/kit/229/chapter/13089",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 242,
+      "url": "https://www.opiq.ee/kit/229/chapter/13090",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 243,
+      "url": "https://www.opiq.ee/kit/229/chapter/13091",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 244,
+      "url": "https://www.opiq.ee/kit/229/chapter/13092",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 245,
+      "url": "https://www.opiq.ee/kit/229/chapter/13093",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 246,
+      "url": "https://www.opiq.ee/kit/229/chapter/13094",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 247,
+      "url": "https://www.opiq.ee/kit/229/chapter/13095",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 248,
+      "url": "https://www.opiq.ee/kit/229/chapter/13096",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 249,
+      "url": "https://www.opiq.ee/kit/229/chapter/13097",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 250,
+      "url": "https://www.opiq.ee/kit/229/chapter/13098",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 251,
+      "url": "https://www.opiq.ee/kit/229/chapter/13099",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 252,
+      "url": "https://www.opiq.ee/kit/229/chapter/13100",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 253,
+      "url": "https://www.opiq.ee/kit/229/chapter/13101",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 254,
+      "url": "https://www.opiq.ee/kit/229/chapter/13102",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 255,
+      "url": "https://www.opiq.ee/kit/229/chapter/13103",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 256,
+      "url": "https://www.opiq.ee/kit/229/chapter/13104",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 257,
+      "url": "https://www.opiq.ee/kit/229/chapter/13105",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 258,
+      "url": "https://www.opiq.ee/kit/229/chapter/13106",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 259,
+      "url": "https://www.opiq.ee/kit/229/chapter/13107",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 260,
+      "url": "https://www.opiq.ee/kit/229/chapter/13108",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 261,
+      "url": "https://www.opiq.ee/kit/229/chapter/13109",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    },
+    {
+      "source_position": 262,
+      "url": "https://www.opiq.ee/kit/229/chapter/13110",
+      "book_id": "koolibri_мой_мир._ч_2_ru",
+      "source_subject": "mathematics / matemaatika / математика",
+      "canonical_subject": "human studies / inimeseõpetus / человековедение",
+      "decision": "correct_automatic_subject_label"
+    }
+  ],
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 7,
+    "source_duplicate_records": 7,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/449",
+        "source_positions": [
+          1,
+          2
+        ],
+        "book_ids": [
+          "avita_inimeseõpe_2_et"
+        ],
+        "chapter_ids": [
+          "41",
+          "88"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/494",
+        "source_positions": [
+          3,
+          4
+        ],
+        "book_ids": [
+          "avita_inimeseõpe_2_et"
+        ],
+        "chapter_ids": [
+          "169",
+          "174"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/579",
+        "source_positions": [
+          55,
+          56
+        ],
+        "book_ids": [
+          "avita_inimeseõpe_2_ru"
+        ],
+        "chapter_ids": [
+          "175",
+          "200"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/56",
+        "source_positions": [
+          81,
+          82
+        ],
+        "book_ids": [
+          "avita_loodus-_ja_2_et"
+        ],
+        "chapter_ids": [
+          "201",
+          "262"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/286",
+        "source_positions": [
+          143,
+          144
+        ],
+        "book_ids": [
+          "harno_inimeseõpe_2_et"
+        ],
+        "chapter_ids": [
+          "129",
+          "168"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/142",
+        "source_positions": [
+          183,
+          184
+        ],
+        "book_ids": [
+          "koolibri_in2_2._kla_2_et"
+        ],
+        "chapter_ids": [
+          "89",
+          "128"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/229",
+        "source_positions": [
+          223,
+          224
+        ],
+        "book_ids": [
+          "koolibri_мой_мир._ч_2_ru"
+        ],
+        "chapter_ids": [
+          "1",
+          "40"
+        ],
+        "decision": "exclude_all_cover_detail_records",
+        "reason": "The repeated URL is a kit detail page, not a chapter-level instructional page."
+      }
+    ]
+  },
+  "excluded_book_audit": [
+    {
+      "book_id": "avita_природа_и__2_ru",
+      "source_records": 0,
+      "page_records_excluded": 0,
+      "reason": "The Russian combined book is routed only through grade-2-nature-and-human-studies."
+    }
+  ],
+  "book_id_language_suffix_anomalies": [],
+  "book_metadata_audit": {
+    "avita_inimeseõpe_2_et__kit449": {
+      "title": "Inimeseõpetus algklassidele, I osa. 2023 ÕK",
+      "source_book_id": "avita_inimeseõpe_2_et",
+      "publisher": "Avita",
+      "language": "et",
+      "kits": [
+        "449"
+      ],
+      "page_records": 13,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "avita_inimeseõpe_2_et__kit494": {
+      "title": "Inimeseõpetus algklassidele, II osa. 2023 ÕK",
+      "source_book_id": "avita_inimeseõpe_2_et",
+      "publisher": "Avita",
+      "language": "et",
+      "kits": [
+        "494"
+      ],
+      "page_records": 35,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "avita_inimeseõpe_2_ru__kit579": {
+      "title": "Inimeseõpetus algklassidele. II osa",
+      "source_book_id": "avita_inimeseõpe_2_ru",
+      "publisher": "Avita",
+      "language": "ru",
+      "kits": [
+        "579"
+      ],
+      "page_records": 23,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "avita_loodus-_ja_2_et__kit56": {
+      "title": "Loodus- ja inimeseõpetus 2. klassile",
+      "source_book_id": "avita_loodus-_ja_2_et",
+      "publisher": "Avita",
+      "language": "et",
+      "kits": [
+        "56"
+      ],
+      "page_records": 59,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "harno_inimeseõpe_2_et__kit286": {
+      "title": "Inimeseõpetus 2. klassile. Lihtsustatud õppekava",
+      "source_book_id": "harno_inimeseõpe_2_et",
+      "publisher": "Harno",
+      "language": "et",
+      "kits": [
+        "286"
+      ],
+      "page_records": 37,
+      "programme_type": "simplified_curriculum",
+      "title_evidence": "cover_detail"
+    },
+    "koolibri_in2_2._kla_2_et__kit142": {
+      "title": "IN2. 2. klassi inimeseõpetus",
+      "source_book_id": "koolibri_in2_2._kla_2_et",
+      "publisher": "Koolibri",
+      "language": "et",
+      "kits": [
+        "142"
+      ],
+      "page_records": 38,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "index_json and cover_detail"
+    },
+    "koolibri_мой_мир._ч_2_ru__kit229": {
+      "title": "Мой мир. Человековедение 2 класс",
+      "source_book_id": "koolibri_мой_мир._ч_2_ru",
+      "publisher": "Koolibri",
+      "language": "ru",
+      "kits": [
+        "229"
+      ],
+      "page_records": 38,
+      "programme_type": "ordinary_curriculum",
+      "title_evidence": "cover_detail; discretionary soft hyphen removed"
+    }
+  },
+  "metadata_limitations": [],
   "records_without_headings": 0,
   "missing_urls": 0,
-  "duplicate_urls": 0,
-  "topics_et_with_cyrillic": 0,
-  "topics_ru_with_latin_script": 0
+  "archive_index": {
+    "generated_at": "2026-07-19T05:32:56.135Z",
+    "raw_archive_included": true,
+    "declared_books": 6
+  }
 }
