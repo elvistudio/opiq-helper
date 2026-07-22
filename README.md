@@ -57,6 +57,8 @@ Example:
 
 `grade 3 + loodusõpetus` → entry `grade-3-science` in `source-manifest.json` → `project-files/outputs/opiq_3klass_loodusopetus.md`.
 
+For grade 3 language sources, route the subject before searching: `eesti keel` uses `grade-3-estonian`, while `eesti keel teise keelena` uses `grade-3-estonian-second-language`. Their canonical URL sets are disjoint.
+
 Validate routing metadata with:
 
 ```sh
@@ -101,6 +103,16 @@ node scripts/generate-grade-3-mathematics-qa.mjs --check
 ```
 
 The grade 3 generator verifies all 657 ZIP members and 643 source rows, excludes non-instructional details and Impressum pages, produces 619 unique instructional records, and compares them with the former compact snapshot. The old compact ZIP is retained only as noncanonical historical comparison evidence. The deterministic QA timestamp comes from the original capture. Run the general refresh and manifest checks afterward.
+
+Grade 3 first-language Estonian and Estonian as a second language are generated from one committed original export and are deliberately kept in separate canonical routes:
+
+```sh
+npm run generate:grade-3-estonian
+npm run check:grade-3-estonian
+npm run test:grade-3-estonian
+```
+
+The generator verifies all 435 ZIP members and accounts for all 426 source rows. It produces a disjoint 363/54 instructional-page partition, excludes four unique and four duplicate Kit Details records plus one Impressum page, and records two page-language corrections and deterministic control-character repairs. Kit 590 (`Mina loen ja kirjutan 3`) is captured cover-only and cannot be used as page-level evidence; only its instructional chapters require a targeted recapture. See the [grade 3 Estonian source-separation audit](docs/audits/grade-3-estonian-source-separation.md). These indexes do not establish curriculum completeness.
 
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
