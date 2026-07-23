@@ -1,0 +1,324 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-3-english",
+  "source_archive": "project-files/inputs/final-zips/opiq_3klass_english_step_by_step_1_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_3klass_inglise_keel.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-23T06:48:16.949Z",
+    "generator": "scripts/generate-grade-3-english-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from the immutable supplied archive; programme type and publisher remain unverified."
+  },
+  "checksums": {
+    "source_archive_sha256": "502bd7a8d03e0af2be85ae80f7da0b9d46a1d63c9d05bf2d772f66fd57d6f57b",
+    "output_file_sha256": "6bfb6b8e3c363ca40bfb8750af9747915c50137ebb762c1ae6687cee30e58aad"
+  },
+  "archive": {
+    "path": "project-files/inputs/final-zips/opiq_3klass_english_step_by_step_1_opiq_v2.zip",
+    "sha256": "502bd7a8d03e0af2be85ae80f7da0b9d46a1d63c9d05bf2d772f66fd57d6f57b",
+    "byte_size": 1935103,
+    "uncompressed_size": 1898081,
+    "member_count": 204,
+    "crc_verified_members": 204,
+    "declared_and_actual_sizes_verified": 204,
+    "unique_stored_member_names": 204,
+    "safe_relative_member_names": 204,
+    "local_central_filename_matches": 204,
+    "compression_methods": {
+      "stored": 204,
+      "deflate": 0
+    },
+    "capture_timestamp": "2026-07-23T06:48:16.949Z"
+  },
+  "filename_encoding_audit": {
+    "member_count": 204,
+    "ascii_only_names": 204,
+    "utf8_flag_set": 0,
+    "utf8_flag_absent": 204,
+    "stored_name_collisions": 0
+  },
+  "source_records": 197,
+  "page_records_included": 193,
+  "cover_detail_records_excluded": 4,
+  "administrative_records_excluded": 0,
+  "duplicate_records_excluded": 0,
+  "source_accounting": {
+    "kit_452_source_rows": 91,
+    "kit_452_instructional_pages": 89,
+    "kit_452_details_rows": 2,
+    "kit_369_source_rows": 106,
+    "kit_369_instructional_pages": 104,
+    "kit_369_details_rows": 2,
+    "total_source_rows": 197,
+    "total_canonical_pages": 193,
+    "unexplained_rows": 0
+  },
+  "source_representation_audit": {
+    "compact_jsonl_vs_markdown": {
+      "compared_records": 197,
+      "unexplained_differences": 0
+    },
+    "compact_vs_raw": {
+      "raw_chapter_records": 197,
+      "headings_by_kit": {
+        "369": 4066,
+        "452": 1780
+      },
+      "images_by_kit": {
+        "369": 3731,
+        "452": 289
+      },
+      "raw_task_rows": 0,
+      "compact_headings_missing_from_raw": 0,
+      "unexplained_differences": 0
+    },
+    "index_vs_raw_index": {
+      "compared_books": 2,
+      "unexplained_differences": 0
+    },
+    "topic_map": {
+      "validated": true,
+      "unexplained_differences": 0
+    }
+  },
+  "captured_book_inventory": [
+    {
+      "source_book_id": "english_step_by_step_1",
+      "canonical_book_id": "english_step_by_step_1__kit452",
+      "kit_id": "452",
+      "captured_title": "English step by step 1 – Opiq",
+      "canonical_title": "English step by step 1",
+      "index_language": "en",
+      "raw_book_language": "ru",
+      "canonical_page_languages": {
+        "en": 79,
+        "et": 10
+      },
+      "publisher": "",
+      "programme_type": "unknown",
+      "source_rows": 91,
+      "instructional_pages": 89
+    },
+    {
+      "source_book_id": "inglise_keel_3._klassile",
+      "canonical_book_id": "inglise_keel_3._klassile__kit369",
+      "kit_id": "369",
+      "captured_title": "High Five! 3 – Opiq",
+      "canonical_title": "High Five! 3",
+      "index_language": "et",
+      "raw_book_language": "ru",
+      "canonical_page_languages": {
+        "en": 43,
+        "et": 57,
+        "ru": 4
+      },
+      "publisher": "",
+      "programme_type": "unknown",
+      "source_rows": 106,
+      "instructional_pages": 104
+    }
+  ],
+  "raw_grade_counts": {
+    "3": 197
+  },
+  "raw_subject_counts": {
+    "mathematics / matemaatika / математика": 197
+  },
+  "canonical_subject_counts": {
+    "english / inglise keel / английский язык": 193
+  },
+  "raw_language_counts": {
+    "en": 122,
+    "et": 71,
+    "ru": 4
+  },
+  "canonical_language_counts": {
+    "en": 122,
+    "et": 67,
+    "ru": 4
+  },
+  "subject_normalization_audit": {
+    "corrected_source_rows": 197,
+    "canonical_page_records": 193,
+    "source_subject": "mathematics / matemaatika / математика",
+    "canonical_subject": "english / inglise keel / английский язык",
+    "generated_mathematics_aliases_removed": true,
+    "source_text_changed": false
+  },
+  "language_normalization_audit": {
+    "index_book_languages": {
+      "en": 1,
+      "et": 1
+    },
+    "raw_book_languages": {
+      "ru": 2
+    },
+    "source_page_languages_including_details": {
+      "en": 122,
+      "et": 71,
+      "ru": 4
+    },
+    "canonical_page_languages": {
+      "en": 122,
+      "et": 67,
+      "ru": 4
+    },
+    "decision": "Preserve page-level language values; retain index/raw-book anomalies as provenance."
+  },
+  "duplicate_url_audit": [
+    {
+      "url": "https://www.opiq.ee/Kit/Details/369",
+      "kit_id": "369",
+      "chapter_ids": [
+        "1",
+        "106"
+      ],
+      "differing_fields": [
+        "chapter_id"
+      ],
+      "decision": "exclude_both_cover_detail_records"
+    },
+    {
+      "url": "https://www.opiq.ee/Kit/Details/452",
+      "kit_id": "452",
+      "chapter_ids": [
+        "107",
+        "197"
+      ],
+      "differing_fields": [
+        "chapter_id"
+      ],
+      "decision": "exclude_both_cover_detail_records"
+    }
+  ],
+  "repeated_title_groups": {
+    "groups": 2,
+    "records": 18,
+    "entries": [
+      {
+        "title": "Definitions",
+        "urls": [
+          "https://www.opiq.ee/kit/369/chapter/23950",
+          "https://www.opiq.ee/kit/452/chapter/24657"
+        ],
+        "decision": "retain_distinct_canonical_chapters"
+      },
+      {
+        "title": "Let’s Practise!",
+        "urls": [
+          "https://www.opiq.ee/kit/369/chapter/21386",
+          "https://www.opiq.ee/kit/369/chapter/21387",
+          "https://www.opiq.ee/kit/369/chapter/21388",
+          "https://www.opiq.ee/kit/369/chapter/21389",
+          "https://www.opiq.ee/kit/369/chapter/21634",
+          "https://www.opiq.ee/kit/369/chapter/21635",
+          "https://www.opiq.ee/kit/369/chapter/21636",
+          "https://www.opiq.ee/kit/369/chapter/21637",
+          "https://www.opiq.ee/kit/369/chapter/21862",
+          "https://www.opiq.ee/kit/369/chapter/21863",
+          "https://www.opiq.ee/kit/369/chapter/21864",
+          "https://www.opiq.ee/kit/369/chapter/21865",
+          "https://www.opiq.ee/kit/369/chapter/21923",
+          "https://www.opiq.ee/kit/369/chapter/21924",
+          "https://www.opiq.ee/kit/369/chapter/21925",
+          "https://www.opiq.ee/kit/369/chapter/21926"
+        ],
+        "decision": "retain_distinct_canonical_chapters"
+      }
+    ]
+  },
+  "content_repair_audit": {
+    "zero_width_space_removed": 1,
+    "affected_url": "https://www.opiq.ee/kit/369/chapter/20964",
+    "affected_heading_visible_text": "[t] and [d]",
+    "visible_educational_text_changed": false,
+    "other_chapter_content_repairs": 0
+  },
+  "content_quality_audit": {
+    "hard_errors": {
+      "replacement_character": 0,
+      "forbidden_control_character": 0,
+      "invisible_character": 0,
+      "html_mathml_or_json_payload": 0,
+      "malformed_url": 0,
+      "missing_title": 0,
+      "missing_headings": 0
+    },
+    "classified_warnings": {
+      "empty_task_examples": {
+        "records": 193,
+        "classification": "capture_limitation_confirmed_in_compact_and_raw_arrays"
+      },
+      "missing_publisher": {
+        "records": 193,
+        "classification": "source_metadata_absent_do_not_invent"
+      },
+      "programme_type_unknown": {
+        "records": 193,
+        "classification": "not_verifiable_from_supplied_capture"
+      },
+      "repeated_titles": {
+        "records": 18,
+        "groups": 2,
+        "classification": "distinct_direct_urls_retained"
+      },
+      "source_book_language_anomaly": {
+        "raw_book_objects_ru": 2,
+        "canonical_page_languages": {
+          "en": 122,
+          "et": 67,
+          "ru": 4
+        },
+        "classification": "page_level_language_is_authoritative_raw_anomaly_preserved"
+      }
+    }
+  },
+  "records_without_task_examples": 193,
+  "publisher_limitations": {
+    "publisher_values_present": 0,
+    "canonical_publishers_invented": 0,
+    "decision": "Publisher metadata is absent and remains empty."
+  },
+  "programme_type_audit": {
+    "value": "unknown",
+    "canonical_records": 193,
+    "ordinary_curriculum_inferred": false,
+    "simplified_curriculum_inferred": false
+  },
+  "canonical_url_audit": {
+    "unique": true,
+    "duplicate_count": 0,
+    "direct_chapter_urls": 193,
+    "cross_route": {
+      "checked_routes": 28,
+      "overlap_count": 0,
+      "overlaps": []
+    },
+    "final_owner": "grade-3-english"
+  },
+  "grades": {
+    "3": 193
+  },
+  "languages": {
+    "en": 122,
+    "et": 67,
+    "ru": 4
+  },
+  "books": {
+    "english_step_by_step_1__kit452": 89,
+    "inglise_keel_3._klassile__kit369": 104
+  },
+  "kits": {
+    "369": 104,
+    "452": 89
+  },
+  "known_limitations": [
+    "All 193 instructional pages lack structured task arrays in both compact and raw captures.",
+    "Publisher metadata is absent and is not invented.",
+    "Programme type is not verifiable from the supplied capture and remains unknown.",
+    "Raw book language is ru for both books; canonical records preserve page-level en/et/ru values.",
+    "This import does not establish official-curriculum or current live-catalogue completeness."
+  ]
+}

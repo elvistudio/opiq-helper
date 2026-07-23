@@ -150,6 +150,16 @@ npm run test:grade-3-arts-and-crafts
 
 The [grade 3 arts-and-crafts audit](docs/audits/grade-3-arts-and-crafts-source-import.md) accounts for all 178 source rows. Ordinary kit 196 contributes 89 canonical grade-3 pages. Supplementary kit 200 is captured in both grade exports, but all 85 stable compact/raw records and image references match; it therefore retains one canonical owner in `grade-2-arts-and-crafts` and is excluded from the grade-3 route without URL loss. The automatic mathematics subject and raw-book `ru` language anomalies are corrected only from captured page-level evidence. All 174 instructional rows lack structured task arrays, so no craft steps are invented; a targeted task-body capture is optional and a full recapture is not required for routing.
 
+The grade-3 English route is generated and audited separately:
+
+```bash
+node scripts/generate-grade-3-english-sources.mjs
+npm run check:grade-3-english
+npm run test:grade-3-english
+```
+
+The [grade 3 English audit](docs/audits/grade-3-english-source-import.md) accounts for all 197 supplied source rows: four repeated Kit Details records are excluded and 193 unique direct chapter URLs remain. Kits 369 and 452 are normalized from the export’s incorrect mathematics subject to English while page-level `en`, `et`, and `ru` language values are preserved. Publisher and programme type remain unverified rather than inferred. The result indexes the supplied capture; it is not a claim of official-curriculum or current live Opiq catalogue completeness.
+
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
 ```sh

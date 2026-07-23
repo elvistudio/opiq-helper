@@ -1044,6 +1044,77 @@ cases:
         url: https://www.opiq.ee/kit/196/chapter/11290
     evidence: "Kit 196 provides explicit grade 3 craft headings and distinct canonical chapter URLs. Equal titles such as Liblikas remain separate chapters, while the automatic mathematics label and the already-owned grade 2 supplementary kit are excluded from this route."
 
+  - id: grade-3-english-source-routing
+    grade: 3
+    subject: english
+    topic: "English lessons, classroom language, and multilingual review pages"
+    status: present
+    expected_source_id: grade-3-english
+    expected_md_path: project-files/outputs/opiq_3klass_inglise_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-english
+        url: https://www.opiq.ee/kit/452/chapter/24569
+        expected:
+          class: 3
+          book_id: english_step_by_step_1__kit452
+          title: LESSON ONE
+          subject:
+            en: english
+            et: inglise keel
+            ru: английский язык
+          headings_any:
+            - WE ARE BACK AT SCHOOL
+            - Grammar and structures
+      - kind: record_present
+        source_id: grade-3-english
+        url: https://www.opiq.ee/kit/369/chapter/20206
+        expected:
+          class: 3
+          book_id: inglise_keel_3._klassile__kit369
+          title: Hello!
+          subject:
+            en: english
+            et: inglise keel
+            ru: английский язык
+          headings_any:
+            - Nice to meet you!
+            - Let’s speak!
+      - kind: record_present
+        source_id: grade-3-english
+        url: https://www.opiq.ee/kit/369/chapter/20209
+        expected:
+          class: 3
+          book_id: inglise_keel_3._klassile__kit369
+          title: Module 1 Review
+          subject:
+            en: english
+            et: inglise keel
+            ru: английский язык
+          headings_any:
+            - Countries and characters
+            - Nii õpin inglise keelt!
+      - kind: book_id_absent
+        source_id: grade-3-english
+        book_id: matemaatika_3._klassile__kit54
+      - kind: url_absent
+        origin_source_id: grade-3-english
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/452/chapter/24569
+      - kind: url_absent
+        origin_source_id: grade-3-english
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/369/chapter/20206
+      - kind: url_absent
+        origin_source_id: grade-3-english
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/369/chapter/20209
+      - kind: url_absent
+        origin_source_id: grade-3-english
+        source_id: grade-2-mathematics
+        url: https://www.opiq.ee/kit/452/chapter/24569
+    evidence: "Kits 452 and 369 provide English-learning chapters with exact direct URLs. Their automatic mathematics labels are corrected from captured book/kit/title and chapter evidence; the URLs remain absent from mathematics, Estonian, Russian, and adjacent-grade routes."
+
   - id: grade-2-arts-and-crafts-shared-holiday-cards-owner
     grade: 2
     subject: arts_and_crafts

@@ -24,6 +24,7 @@ const gradeThreeEstonianRouteIds = new Set([
   'grade-3-estonian-second-language',
 ]);
 const gradeThreeArtsRouteId = 'grade-3-arts-and-crafts';
+const gradeThreeEnglishRouteId = 'grade-3-english';
 
 function fail(message) {
   errors.push(message);
@@ -713,6 +714,100 @@ async function validateQaSnapshot(
     validateCountMap(qa, sourceLabel, 'canonical_subject_counts', 89);
     validateCountMap(qa, sourceLabel, 'raw_language_counts', 178);
     validateCountMap(qa, sourceLabel, 'canonical_language_counts', 89);
+  }
+
+  if (source.id === gradeThreeEnglishRouteId && !compactMetadata) {
+    const requiredFields = [
+      'archive',
+      'filename_encoding_audit',
+      'source_accounting',
+      'source_representation_audit',
+      'captured_book_inventory',
+      'raw_grade_counts',
+      'raw_subject_counts',
+      'canonical_subject_counts',
+      'raw_language_counts',
+      'canonical_language_counts',
+      'subject_normalization_audit',
+      'language_normalization_audit',
+      'duplicate_url_audit',
+      'repeated_title_groups',
+      'content_repair_audit',
+      'content_quality_audit',
+      'publisher_limitations',
+      'programme_type_audit',
+      'canonical_url_audit',
+      'kits',
+    ];
+    requiredFields.forEach((field) => {
+      if (!Object.hasOwn(qa, field)) {
+        fail(`${sourceLabel}: missing grade-3 English original-archive QA field ${field}.`);
+      }
+    });
+    if (qa.source_records !== 197
+      || qa.page_records_included !== 193
+      || qa.cover_detail_records_excluded !== 4
+      || qa.administrative_records_excluded !== 0) {
+      fail(`${sourceLabel}: original archive must account for 197 rows, four details exclusions, and 193 pages.`);
+    }
+    if (qa.page_records_included + qa.cover_detail_records_excluded !== qa.source_records) {
+      fail(`${sourceLabel}: grade-3 English source accounting is incomplete.`);
+    }
+    if (qa.archive?.member_count !== 204
+      || qa.archive?.crc_verified_members !== 204
+      || qa.archive?.uncompressed_size !== 1898081
+      || qa.archive?.compression_methods?.stored !== 204) {
+      fail(`${sourceLabel}: all 204 stored ZIP members must be size- and CRC-verified.`);
+    }
+    if (qa.filename_encoding_audit?.ascii_only_names !== 204
+      || qa.filename_encoding_audit?.utf8_flag_set !== 0
+      || qa.filename_encoding_audit?.stored_name_collisions !== 0) {
+      fail(`${sourceLabel}: ZIP filename audit differs from the 204 ASCII stored names.`);
+    }
+    if (qa.source_representation_audit?.compact_jsonl_vs_markdown?.unexplained_differences !== 0
+      || qa.source_representation_audit?.compact_vs_raw?.unexplained_differences !== 0
+      || qa.source_representation_audit?.index_vs_raw_index?.unexplained_differences !== 0
+      || qa.source_representation_audit?.topic_map?.unexplained_differences !== 0) {
+      fail(`${sourceLabel}: source representations contain unexplained differences.`);
+    }
+    if (qa.source_representation_audit?.compact_vs_raw?.raw_chapter_records !== 197
+      || qa.source_representation_audit?.compact_vs_raw?.raw_task_rows !== 0
+      || qa.source_representation_audit?.compact_vs_raw?.images_by_kit?.['452'] !== 289
+      || qa.source_representation_audit?.compact_vs_raw?.images_by_kit?.['369'] !== 3731) {
+      fail(`${sourceLabel}: raw chapter/task/image evidence differs from the audited capture.`);
+    }
+    if (qa.duplicate_url_audit?.length !== 2
+      || qa.repeated_title_groups?.groups !== 2
+      || qa.repeated_title_groups?.records !== 18) {
+      fail(`${sourceLabel}: duplicate details or repeated-title classification differs.`);
+    }
+    const hardErrors = qa.content_quality_audit?.hard_errors;
+    if (!isPlainObject(hardErrors) || Object.values(hardErrors).some((count) => count !== 0)) {
+      fail(`${sourceLabel}: canonical content-quality audit contains hard errors.`);
+    }
+    if (qa.publisher_limitations?.canonical_publishers_invented !== 0
+      || qa.programme_type_audit?.value !== 'unknown'
+      || qa.programme_type_audit?.ordinary_curriculum_inferred !== false) {
+      fail(`${sourceLabel}: publisher or programme type was inferred without evidence.`);
+    }
+    if (qa.content_repair_audit?.zero_width_space_removed !== 1
+      || qa.content_repair_audit?.affected_url !== 'https://www.opiq.ee/kit/369/chapter/20964'
+      || qa.content_repair_audit?.visible_educational_text_changed !== false
+      || qa.content_repair_audit?.other_chapter_content_repairs !== 0) {
+      fail(`${sourceLabel}: technical heading-repair audit differs from the supplied capture.`);
+    }
+    if (qa.canonical_url_audit?.duplicate_count !== 0
+      || qa.canonical_url_audit?.cross_route?.overlap_count !== 0) {
+      fail(`${sourceLabel}: canonical URLs are duplicated within or across routes.`);
+    }
+    if (JSON.stringify(qa.canonical_language_counts) !== JSON.stringify({ en: 122, et: 67, ru: 4 })) {
+      fail(`${sourceLabel}: canonical page-language partition must be en 122, et 67, ru 4.`);
+    }
+    validateCountMap(qa, sourceLabel, 'raw_grade_counts', 197);
+    validateCountMap(qa, sourceLabel, 'raw_subject_counts', 197);
+    validateCountMap(qa, sourceLabel, 'canonical_subject_counts', 193);
+    validateCountMap(qa, sourceLabel, 'raw_language_counts', 197);
+    validateCountMap(qa, sourceLabel, 'canonical_language_counts', 193);
   }
 
   validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
