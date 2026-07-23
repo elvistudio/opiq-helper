@@ -165,7 +165,7 @@ All members pass central-directory, local/central filename, declared-size, CRC-3
 | 369 | \`inglise_keel_3._klassile\` | \`inglise_keel_3._klassile__kit369\` | High Five! 3 | 106 | 104 |
 | **Total** |  |  |  | **197** | **193** |
 
-The captured \` – Opiq\` UI suffix is removed only from canonical book titles. Source Book IDs, page titles, headings, URLs, and source order remain unchanged. Publishers are empty in index, raw-book, and compact records, so none are invented. Programme type cannot be proven from the supplied archive and remains explicitly \`unknown\`.
+The captured \` – Opiq\` UI suffix is removed only from canonical book titles. Source Book IDs, page titles, visible heading text, URLs, and source order remain unchanged. One zero-width space before \`[t] and [d]\` on [kit 369 chapter 20964](https://www.opiq.ee/kit/369/chapter/20964) is removed as a documented technical control-character repair; the visible educational text is unchanged. Publishers are empty in index, raw-book, and compact records, so none are invented. Programme type cannot be proven from the supplied archive and remains explicitly \`unknown\`.
 
 ## Excluded duplicate details
 
@@ -228,6 +228,15 @@ async function main() {
   const rawValidation = validateRawChapters(sourceRecords, archive, readZipText);
   const books = validateRawBooks(archive);
   const catalog = buildCatalog(sourceRecords);
+  const zeroWidthHeadingRecords = sourceRecords.filter(
+    (record) => record.headings.some((heading) => heading.includes('\u200b')),
+  );
+  assertGrade3(
+    zeroWidthHeadingRecords.length === 1
+      && zeroWidthHeadingRecords[0].url === 'https://www.opiq.ee/kit/369/chapter/20964'
+      && zeroWidthHeadingRecords[0].headings.includes('\u200b[t] and [d]'),
+    'Source zero-width heading anomaly differs from the audited chapter.',
+  );
   const quality = auditCanonicalContentQuality(catalog.canonical_records);
   const crossRoute = await crossRouteAudit(manifest, catalog.canonical_records);
   const markdown = renderMarkdown(catalog);
@@ -312,6 +321,13 @@ async function main() {
       groups: catalog.repeated_title_groups.length,
       records: catalog.repeated_title_groups.reduce((total, entry) => total + entry.urls.length, 0),
       entries: catalog.repeated_title_groups,
+    },
+    content_repair_audit: {
+      zero_width_space_removed: 1,
+      affected_url: 'https://www.opiq.ee/kit/369/chapter/20964',
+      affected_heading_visible_text: '[t] and [d]',
+      visible_educational_text_changed: false,
+      other_chapter_content_repairs: 0,
     },
     content_quality_audit: quality,
     records_without_task_examples: 193,

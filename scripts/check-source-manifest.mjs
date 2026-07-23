@@ -732,6 +732,7 @@ async function validateQaSnapshot(
       'language_normalization_audit',
       'duplicate_url_audit',
       'repeated_title_groups',
+      'content_repair_audit',
       'content_quality_audit',
       'publisher_limitations',
       'programme_type_audit',
@@ -788,6 +789,12 @@ async function validateQaSnapshot(
       || qa.programme_type_audit?.value !== 'unknown'
       || qa.programme_type_audit?.ordinary_curriculum_inferred !== false) {
       fail(`${sourceLabel}: publisher or programme type was inferred without evidence.`);
+    }
+    if (qa.content_repair_audit?.zero_width_space_removed !== 1
+      || qa.content_repair_audit?.affected_url !== 'https://www.opiq.ee/kit/369/chapter/20964'
+      || qa.content_repair_audit?.visible_educational_text_changed !== false
+      || qa.content_repair_audit?.other_chapter_content_repairs !== 0) {
+      fail(`${sourceLabel}: technical heading-repair audit differs from the supplied capture.`);
     }
     if (qa.canonical_url_audit?.duplicate_count !== 0
       || qa.canonical_url_audit?.cross_route?.overlap_count !== 0) {

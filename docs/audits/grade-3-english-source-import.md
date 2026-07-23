@@ -22,7 +22,7 @@ All members pass central-directory, local/central filename, declared-size, CRC-3
 | 369 | `inglise_keel_3._klassile` | `inglise_keel_3._klassile__kit369` | High Five! 3 | 106 | 104 |
 | **Total** |  |  |  | **197** | **193** |
 
-The captured ` – Opiq` UI suffix is removed only from canonical book titles. Source Book IDs, page titles, headings, URLs, and source order remain unchanged. Publishers are empty in index, raw-book, and compact records, so none are invented. Programme type cannot be proven from the supplied archive and remains explicitly `unknown`.
+The captured ` – Opiq` UI suffix is removed only from canonical book titles. Source Book IDs, page titles, visible heading text, URLs, and source order remain unchanged. One zero-width space before `[t] and [d]` on [kit 369 chapter 20964](https://www.opiq.ee/kit/369/chapter/20964) is removed as a documented technical control-character repair; the visible educational text is unchanged. Publishers are empty in index, raw-book, and compact records, so none are invented. Programme type cannot be proven from the supplied archive and remains explicitly `unknown`.
 
 ## Excluded duplicate details
 

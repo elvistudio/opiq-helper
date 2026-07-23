@@ -198,6 +198,22 @@ test('normalizes the subject without changing direct source content', () => {
   assert.ok(!canonical.topics_en.includes('mathematics'));
 });
 
+test('removes only the audited zero-width heading control', () => {
+  const source = sourceRecords.find(
+    (record) => record.url === 'https://www.opiq.ee/kit/369/chapter/20964',
+  );
+  const canonical = catalog.canonical_records.find((record) => record.url === source.url);
+  assert.ok(source.headings.includes('\u200b[t] and [d]'));
+  assert.ok(canonical.headings.includes('[t] and [d]'));
+  assert.ok(!canonical.headings.some((heading) => heading.includes('\u200b')));
+  const otherHeadingChanges = catalog.canonical_records.filter((record) => {
+    if (record.url === source.url) return false;
+    const original = sourceRecords.find((candidate) => candidate.url === record.url);
+    return JSON.stringify(record.headings) !== JSON.stringify(original.headings);
+  });
+  assert.equal(otherHeadingChanges.length, 0);
+});
+
 test('preserves exact page-language partition', () => {
   const counts = Object.groupBy
     ? Object.fromEntries(Object.entries(Object.groupBy(catalog.canonical_records, (record) => record.language)).map(([key, rows]) => [key, rows.length]))
@@ -313,6 +329,7 @@ test('production QA records the exact archive and page counts', { skip: Object.k
   assert.equal(productionQa.source_records, 197);
   assert.equal(productionQa.page_records_included, 193);
   assert.deepEqual(productionQa.languages, { en: 122, et: 67, ru: 4 });
+  assert.equal(productionQa.content_repair_audit.zero_width_space_removed, 1);
 });
 
 test('generated Markdown and QA are current', { skip: Object.keys(productionQa).length === 0 }, async () => {
