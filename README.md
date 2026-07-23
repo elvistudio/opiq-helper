@@ -102,6 +102,15 @@ node scripts/generate-grade-3-mathematics-qa.mjs --check
 
 The grade 3 generator verifies all 657 ZIP members and 643 source rows, excludes non-instructional details and Impressum pages, produces 619 unique instructional records, and compares them with the former compact snapshot. The old compact ZIP is retained only as noncanonical historical comparison evidence. The deterministic QA timestamp comes from the original capture. Run the general refresh and manifest checks afterward.
 
+Grade 3 Russian is likewise generated from its committed original export:
+
+```sh
+node scripts/generate-grade-3-russian-sources.mjs
+npm run check:grade-3-russian
+```
+
+Its audit accounts for 488 source rows and 478 instructional pages across kits 503, 250, 94, and 568. The exporter-wide mathematics label is corrected to the Russian-language subject from book, Kit Details, heading, task, and subject-filter evidence. Kit 568 is owned only by this grade-3 route; its 52 URLs were removed from `grade-2-russian` after a stable old/new archive comparison.
+
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
 ```sh
@@ -111,7 +120,7 @@ npm run check:grade-2-sources
 
 The generator removes repeated kit-detail covers and administrative pages, requires unique canonical chapter URLs, preserves source-book-plus-kit provenance, and labels simplified, supplementary, mixed-subject, and youth-training records. First-language Estonian and Estonian as a second language are a disjoint 372/72 partition of their shared capture. The Russian combined kit 86 is exposed only through `grade-2-nature-and-human-studies`, not silently assigned to either subject-pure route. Kit 330 is a supplementary grade-2 science capture and no longer appears in grade-1 routes. See the [complete captured grade 2 catalogue](docs/audits/grade-2-complete-captured-catalog.md).
 
-The reproducible [grade 2 content-quality audit](docs/audits/grade-2-content-quality.md) checks all 11 routes, 42 book/kit variants, and 2,535 canonical pages. Run `npm run check:grade-2-content-quality` to verify the committed machine-readable report. Classified warnings and targeted recapture recommendations do not establish live Opiq or official-curriculum completeness.
+The reproducible [grade 2 content-quality audit](docs/audits/grade-2-content-quality.md) checks all 11 routes, 41 book/kit variants, and 2,483 canonical pages after the kit 568 grade correction. Run `npm run check:grade-2-content-quality` to verify the committed machine-readable report. Classified warnings and targeted recapture recommendations do not establish live Opiq or official-curriculum completeness.
 
 The arts-and-crafts route contains two ordinary Estonian/Russian part-2 books and one supplementary Estonian holiday-card collection. Its source metadata corrections, book identities, duplicate decision, and limitations are recorded in the [grade 2 arts-and-crafts source audit](docs/audits/grade-2-arts-and-crafts-source-audit.md). These routes are searchable source indexes, not verified curriculum maps.
 
