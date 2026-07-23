@@ -14,7 +14,7 @@ The represented subjects are:
 - combined nature and human studies (`loodus- ja inimeseõpetus`) when the source itself is not safely divisible;
 - Estonian (`eesti keel`);
 - Estonian as a second language (`eesti keel teise keelena`);
-- Russian;
+- Russian language and separately routed Russian reading sources;
 - arts and crafts (`kunst ja tööõpetus`);
 - music (`muusika`);
 - supplementary Kodututred and Noorte Kotkad youth-organisation training;
@@ -110,6 +110,15 @@ npm run check:grade-3-russian
 ```
 
 Its audit accounts for 488 source rows and 478 instructional pages across kits 503, 250, 94, and 568. The exporter-wide mathematics label is corrected to the Russian-language subject from book, Kit Details, heading, task, and subject-filter evidence. Kit 568 is owned only by this grade-3 route; its 52 URLs were removed from `grade-2-russian` after a stable old/new archive comparison.
+
+Grade 3 Russian reading is kept in a separate source-specific route:
+
+```sh
+node scripts/generate-grade-3-russian-reading-sources.mjs
+npm run check:grade-3-russian-reading
+```
+
+The Kit 504 archive contains 57 source rows: 55 literary chapters and two repeated Kit Details records. Its automatic mathematics label is replaced with `Russian reading / vene keele lugemine / чтение на русском языке` from the Source Book ID, visible reading title, literary headings, and complete chapter sequence. This separation improves retrieval precision but does not claim an independent official exact-grade subject allocation. Publisher metadata is absent, structured task examples are not reconstructed, and no further capture is required for canonical routing.
 
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
