@@ -14,7 +14,7 @@ import {
   textScriptProfile,
 } from './lib/grade-2-content-quality.mjs';
 
-test('catalogue invariant declares 11 routes, 42 variants, and 2535 pages', () => {
+test('catalogue invariant declares 11 routes, 41 variants, and 2483 pages after kit 568 migration', () => {
   assert.equal(Object.keys(expectedGrade2Catalog).length, expectedGrade2RouteCount);
   const variants = Object.values(expectedGrade2Catalog).flat();
   assert.equal(variants.length, expectedGrade2BookVariantCount);

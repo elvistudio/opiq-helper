@@ -59,15 +59,14 @@ export const expectedGrade2Catalog = Object.freeze({
   ],
   'grade-2-russian': [
     ['avita_русский_язык_2_класс_kit292', '292', 192, 'ru', 'ordinary_curriculum', 'Avita'],
-    ['avita_русский_язык_i_ступень_часть_3_kit568', '568', 52, 'ru', 'ordinary_curriculum', 'Avita'],
     ['koolibri_русский_яз_2_ru', '186', 30, 'ru', 'ordinary_curriculum', 'Koolibri'],
     ['koolibri_светлячок._2_ru', '454', 99, 'ru', 'ordinary_curriculum', 'Koolibri'],
   ],
 });
 
 export const expectedGrade2RouteCount = 11;
-export const expectedGrade2BookVariantCount = 42;
-export const expectedGrade2PageCount = 2535;
+export const expectedGrade2BookVariantCount = 41;
+export const expectedGrade2PageCount = 2483;
 
 export function normalizeQualityText(value) {
   return String(value ?? '')

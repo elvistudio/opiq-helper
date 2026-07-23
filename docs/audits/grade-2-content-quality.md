@@ -4,7 +4,7 @@
 
 Complete canonical content-quality audit of the supplied and registered grade-2 captures currently available in the repository. It is not an independently verified live Opiq catalogue or an official-curriculum completeness audit.
 
-The audit checked **11 routes**, **42 canonical book/kit variants**, and **2,535 canonical instructional pages**. It found **0 unexplained hard errors** and 384 classified warning groups. The captured sources are structurally suitable for beginning home-course architecture, subject to the non-blocking targeted checks below. This is not proof of live Opiq catalogue completeness or official curriculum completeness.
+The audit checked **11 routes**, **41 canonical book/kit variants**, and **2,483 canonical instructional pages**. It found **0 unexplained hard errors** and 372 classified warning groups. The captured sources are structurally suitable for beginning home-course architecture, subject to the non-blocking targeted checks below. This is not proof of live Opiq catalogue completeness or official curriculum completeness.
 
 Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed-subject, and youth-training records are not interchangeable defaults.
 
@@ -17,11 +17,11 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 | Code | Groups | URLs | Classifications |
 | --- | ---: | ---: | --- |
 | `anomalous_punctuation` | 1 | 1 | targeted_recapture_recommended |
-| `duplicate_compact_content` | 45 | 103 | distinct_canonical_context |
-| `duplicate_title` | 253 | 594 | distinct_canonical_context |
+| `duplicate_compact_content` | 45 | 101 | distinct_canonical_context |
+| `duplicate_title` | 243 | 567 | distinct_canonical_context |
 | `missing_publisher` | 8 | 580 | source_supported_metadata_limitation |
-| `missing_task_examples` | 37 | 1538 | acceptable_source_structure |
-| `mixed_script_word` | 7 | 29 | known_bilingual_extraction_boundary, targeted_recapture_recommended |
+| `missing_task_examples` | 36 | 1530 | acceptable_source_structure |
+| `mixed_script_word` | 6 | 27 | known_bilingual_extraction_boundary, targeted_recapture_recommended |
 | `single_symbol_title` | 3 | 4 | acceptable_book_structure, targeted_recapture_recommended |
 | `source_book_id_language_suffix_mismatch` | 2 | 141 | source_identifier_anomaly |
 | `source_canonical_language_mismatch` | 4 | 8 | proven_canonical_normalization |
@@ -42,7 +42,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 | `grade-2-music` | 5 | 317 | 56 |
 | `grade-2-nature-and-human-studies` | 1 | 60 | 12 |
 | `grade-2-noorte-kotkaste-training` | 1 | 27 | 39 |
-| `grade-2-russian` | 4 | 373 | 37 |
+| `grade-2-russian` | 3 | 321 | 24 |
 | `grade-2-science` | 8 | 313 | 58 |
 
 ## Archive-proven repairs
@@ -64,7 +64,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
   - [grade-2-science / Aasta](https://www.opiq.ee/kit/501/chapter/27405)
   - [grade-2-mathematics / Kordamine. Tasandilised kujundid](https://www.opiq.ee/kit/578/chapter/32209)
   - [grade-2-mathematics / Kordamine. Tasapinnalised kujundid](https://www.opiq.ee/kit/95/chapter/4649)
-- 39 pages had invisible zero-width spacing controls removed from extracted task summaries.
+- 37 pages had invisible zero-width spacing controls removed from extracted task summaries.
   - [grade-2-human-studies / Mina](https://www.opiq.ee/kit/142/chapter/7988)
   - [grade-2-human-studies / Mina looduses](https://www.opiq.ee/kit/142/chapter/8021)
   - [grade-2-mathematics / Дециметр](https://www.opiq.ee/kit/165/chapter/9258)
@@ -81,8 +81,6 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
   - [grade-2-russian / Обобщение по теме «Части речи»](https://www.opiq.ee/kit/292/chapter/17808)
   - [grade-2-russian / Что я знаю о предложении?](https://www.opiq.ee/kit/292/chapter/17829)
   - [grade-2-science / Kevad ja kevadkuud](https://www.opiq.ee/kit/501/chapter/27398)
-  - [grade-2-russian / Главные члены предложения – подлежащее и сказуемое](https://www.opiq.ee/kit/568/chapter/31770)
-  - [grade-2-russian / Как подбирать проверочные слова? (2)](https://www.opiq.ee/kit/568/chapter/31804)
   - [grade-2-mathematics / Arvude võrdlemine](https://www.opiq.ee/kit/578/chapter/32032)
   - [grade-2-mathematics / Sirglõik. Millimeeter](https://www.opiq.ee/kit/578/chapter/32039)
   - [grade-2-mathematics / Pikkuse mõõtmine millimeetrites](https://www.opiq.ee/kit/578/chapter/32040)
@@ -143,8 +141,6 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 - **Kit 229 — [Мои увлечения](https://www.opiq.ee/kit/229/chapter/13076):** Task label currently extracted as Заданиe. Resolves: Latin e and Cyrillic letters are mixed in one word. Programme architecture can continue without it: **yes**.
 - **Kit 292 — [Звуки и буквы](https://www.opiq.ee/kit/292/chapter/16123):** Words with the currently mixed-script stressed vowels. Resolves: Precomposed Latin accented letters occur inside Cyrillic words. Programme architecture can continue without it: **yes**.
 - **Kit 292 — [Повторение (1)](https://www.opiq.ee/kit/292/chapter/17761):** Word currently extracted as словá. Resolves: A precomposed Latin accented letter occurs inside a Cyrillic word. Programme architecture can continue without it: **yes**.
-- **Kit 568 — [Татьяна Александрова. Домовёнок ______](https://www.opiq.ee/kit/568/chapter/31778):** Word currently extracted as свóриться. Resolves: A precomposed Latin accented letter occurs inside a Cyrillic word. Programme architecture can continue without it: **yes**.
-- **Kit 568 — [Где поставить ударение?](https://www.opiq.ee/kit/568/chapter/31793):** Stressed words and the рекиPausEsita extraction boundary. Resolves: Mixed-script stressed vowels and a media-control label are concatenated with lesson text. Programme architecture can continue without it: **yes**.
 - **Kit 454 — [СУМАCШЕДШАЯ ПТИЦА](https://www.opiq.ee/kit/454/chapter/24744):** Page title and first heading. Resolves: Latin C occurs inside a Cyrillic word. Programme architecture can continue without it: **yes**.
 
 ### Full kits
@@ -735,30 +731,28 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0045</code> — <code>duplicate_compact_content</code> — 3 distinct URLs have equal compact title, headings, and task examples.</summary>
+<details><summary><code>g2q-0045</code> — <code>duplicate_compact_content</code> — 2 distinct URLs have equal compact title, headings, and task examples.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-nature-and-human-studies`, `grade-2-russian`
-- Books: `avita_природа_и__2_ru__kit86`, `avita_русский_язык_i_ступень_часть_3_kit568`, `koolibri_светлячок._2_ru`
-- Kits: 454, 568, 86
+- Books: `avita_природа_и__2_ru__kit86`, `koolibri_светлячок._2_ru`
+- Kits: 454, 86
 - Action: Retain unless the underlying archived records also share a URL. The compact fields can legitimately match for glossaries, parallel youth programmes, editions, or repeated craft/music activities.
 - Exact URLs:
   - https://www.opiq.ee/kit/454/chapter/24790
-  - https://www.opiq.ee/kit/568/chapter/31807
   - https://www.opiq.ee/kit/86/chapter/12121
 
 </details>
 
-<details><summary><code>g2q-0046</code> — <code>duplicate_compact_content</code> — 3 distinct URLs have equal compact title, headings, and task examples.</summary>
+<details><summary><code>g2q-0046</code> — <code>duplicate_compact_content</code> — 2 distinct URLs have equal compact title, headings, and task examples.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-nature-and-human-studies`, `grade-2-russian`
-- Books: `avita_природа_и__2_ru__kit86`, `avita_русский_язык_i_ступень_часть_3_kit568`, `koolibri_светлячок._2_ru`
-- Kits: 454, 568, 86
+- Books: `avita_природа_и__2_ru__kit86`, `koolibri_светлячок._2_ru`
+- Kits: 454, 86
 - Action: Retain unless the underlying archived records also share a URL. The compact fields can legitimately match for glossaries, parallel youth programmes, editions, or repeated craft/music activities.
 - Exact URLs:
   - https://www.opiq.ee/kit/454/chapter/24791
-  - https://www.opiq.ee/kit/568/chapter/31808
   - https://www.opiq.ee/kit/86/chapter/4233
 
 </details>
@@ -1878,25 +1872,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0129</code> — <code>duplicate_title</code> — Title “Повторение” occurs at 7 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-mathematics`, `grade-2-russian`
-- Books: `avita_математика_2_ru__kit165`, `avita_русский_язык_i_ступень_часть_3_kit568`, `koolibri_математика_2_et__kit361`
-- Kits: 165, 361, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/165/chapter/9267
-  - https://www.opiq.ee/kit/165/chapter/9297
-  - https://www.opiq.ee/kit/165/chapter/9323
-  - https://www.opiq.ee/kit/165/chapter/9330
-  - https://www.opiq.ee/kit/361/chapter/19883
-  - https://www.opiq.ee/kit/568/chapter/31776
-  - https://www.opiq.ee/kit/568/chapter/31796
-
-</details>
-
-<details><summary><code>g2q-0130</code> — <code>duplicate_title</code> — Title “Повторение (1)” occurs at 6 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0129</code> — <code>duplicate_title</code> — Title “Повторение (1)” occurs at 6 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-russian`
@@ -1913,7 +1889,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0131</code> — <code>duplicate_title</code> — Title “Повторение (2)” occurs at 6 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0130</code> — <code>duplicate_title</code> — Title “Повторение (2)” occurs at 6 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-russian`
@@ -1930,7 +1906,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0132</code> — <code>duplicate_title</code> — Title “Проверь себя!” occurs at 7 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0131</code> — <code>duplicate_title</code> — Title “Проверь себя!” occurs at 7 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-russian`
@@ -1948,7 +1924,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0133</code> — <code>duplicate_title</code> — Title “Eesti-vene sõnastik” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0132</code> — <code>duplicate_title</code> — Title “Eesti-vene sõnastik” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-science`
@@ -1961,7 +1937,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0134</code> — <code>duplicate_title</code> — Title “Vene-eesti sõnastik” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0133</code> — <code>duplicate_title</code> — Title “Vene-eesti sõnastik” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-science`
@@ -1974,7 +1950,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0135</code> — <code>duplicate_title</code> — Title “Aeg” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0134</code> — <code>duplicate_title</code> — Title “Aeg” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-science`
@@ -1987,7 +1963,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0136</code> — <code>duplicate_title</code> — Title “Взвешивание” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0135</code> — <code>duplicate_title</code> — Title “Взвешивание” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`, `grade-2-science`
@@ -2000,7 +1976,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0137</code> — <code>duplicate_title</code> — Title “Kordamine” occurs at 7 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0136</code> — <code>duplicate_title</code> — Title “Kordamine” occurs at 7 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2018,7 +1994,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0138</code> — <code>duplicate_title</code> — Title “Liitmine ja lahutamine 20 piires” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0137</code> — <code>duplicate_title</code> — Title “Liitmine ja lahutamine 20 piires” occurs at 3 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2032,7 +2008,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0139</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 4” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0138</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 4” occurs at 3 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2046,7 +2022,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0140</code> — <code>duplicate_title</code> — Title “Arvud tuhandeni” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0139</code> — <code>duplicate_title</code> — Title “Arvud tuhandeni” occurs at 3 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2060,7 +2036,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0141</code> — <code>duplicate_title</code> — Title “Arvude järjestamine” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0140</code> — <code>duplicate_title</code> — Title “Arvude järjestamine” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2073,7 +2049,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0142</code> — <code>duplicate_title</code> — Title “Kümnelised ja ühelised (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0141</code> — <code>duplicate_title</code> — Title “Kümnelised ja ühelised (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2086,7 +2062,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0143</code> — <code>duplicate_title</code> — Title “Kümnelised ja ühelised (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0142</code> — <code>duplicate_title</code> — Title “Kümnelised ja ühelised (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2099,7 +2075,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0144</code> — <code>duplicate_title</code> — Title “Arvude võrdlemine” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0143</code> — <code>duplicate_title</code> — Title “Arvude võrdlemine” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2112,7 +2088,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0145</code> — <code>duplicate_title</code> — Title “Liitmine 20 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0144</code> — <code>duplicate_title</code> — Title “Liitmine 20 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2125,7 +2101,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0146</code> — <code>duplicate_title</code> — Title “Lahutamine 20 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0145</code> — <code>duplicate_title</code> — Title “Lahutamine 20 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2138,7 +2114,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0147</code> — <code>duplicate_title</code> — Title “Liitmise ja lahutamise seos” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0146</code> — <code>duplicate_title</code> — Title “Liitmise ja lahutamise seos” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2151,7 +2127,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0148</code> — <code>duplicate_title</code> — Title “Kordamine. Arvude võrdlemine, liitmine ja lahutamine 20 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0147</code> — <code>duplicate_title</code> — Title “Kordamine. Arvude võrdlemine, liitmine ja lahutamine 20 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2164,7 +2140,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0149</code> — <code>duplicate_title</code> — Title “Sirglõik” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0148</code> — <code>duplicate_title</code> — Title “Sirglõik” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2177,7 +2153,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0150</code> — <code>duplicate_title</code> — Title “Sirglõik. Millimeeter” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0149</code> — <code>duplicate_title</code> — Title “Sirglõik. Millimeeter” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2190,7 +2166,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0151</code> — <code>duplicate_title</code> — Title “Pikkuse mõõtmine millimeetrites” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0150</code> — <code>duplicate_title</code> — Title “Pikkuse mõõtmine millimeetrites” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2203,7 +2179,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0152</code> — <code>duplicate_title</code> — Title “Kordamine. Sirglõigu pikkus, arvutamine 20 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0151</code> — <code>duplicate_title</code> — Title “Kordamine. Sirglõigu pikkus, arvutamine 20 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2216,7 +2192,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0153</code> — <code>duplicate_title</code> — Title “Kujundid” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0152</code> — <code>duplicate_title</code> — Title “Kujundid” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2229,7 +2205,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0154</code> — <code>duplicate_title</code> — Title “Täisnurk” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0153</code> — <code>duplicate_title</code> — Title “Täisnurk” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2242,7 +2218,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0155</code> — <code>duplicate_title</code> — Title “Nelinurgad” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0154</code> — <code>duplicate_title</code> — Title “Nelinurgad” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2255,7 +2231,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0156</code> — <code>duplicate_title</code> — Title “Ristkülik” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0155</code> — <code>duplicate_title</code> — Title “Ristkülik” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2268,7 +2244,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0157</code> — <code>duplicate_title</code> — Title “Ruut” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0156</code> — <code>duplicate_title</code> — Title “Ruut” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2281,7 +2257,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0158</code> — <code>duplicate_title</code> — Title “Ringjoon, ring, ringjoone keskpunkt” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0157</code> — <code>duplicate_title</code> — Title “Ringjoon, ring, ringjoone keskpunkt” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2294,7 +2270,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0159</code> — <code>duplicate_title</code> — Title “Kolmnurk” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0158</code> — <code>duplicate_title</code> — Title “Kolmnurk” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2307,7 +2283,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0160</code> — <code>duplicate_title</code> — Title “Täisnurkne kolmnurk” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0159</code> — <code>duplicate_title</code> — Title “Täisnurkne kolmnurk” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2320,7 +2296,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0161</code> — <code>duplicate_title</code> — Title “Võrdhaarne kolmnurk” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0160</code> — <code>duplicate_title</code> — Title “Võrdhaarne kolmnurk” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2333,7 +2309,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0162</code> — <code>duplicate_title</code> — Title “Võrdkülgne kolmnurk” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0161</code> — <code>duplicate_title</code> — Title “Võrdkülgne kolmnurk” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2346,7 +2322,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0163</code> — <code>duplicate_title</code> — Title “Romb” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0162</code> — <code>duplicate_title</code> — Title “Romb” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2359,7 +2335,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0164</code> — <code>duplicate_title</code> — Title “Täht arvu tähisena” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0163</code> — <code>duplicate_title</code> — Title “Täht arvu tähisena” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2372,7 +2348,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0165</code> — <code>duplicate_title</code> — Title “Ühelised, kümnelised, sajalised” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0164</code> — <code>duplicate_title</code> — Title “Ühelised, kümnelised, sajalised” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2385,7 +2361,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0166</code> — <code>duplicate_title</code> — Title “Kahekohaline arv kümneliste ja üheliste summana” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0165</code> — <code>duplicate_title</code> — Title “Kahekohaline arv kümneliste ja üheliste summana” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2398,7 +2374,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0167</code> — <code>duplicate_title</code> — Title “Täiskümnetest üheliste lahutamine” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0166</code> — <code>duplicate_title</code> — Title “Täiskümnetest üheliste lahutamine” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2411,7 +2387,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0168</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires üleminekuta” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0167</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires üleminekuta” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2424,7 +2400,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0169</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires üleminekuta” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0168</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires üleminekuta” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2437,7 +2413,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0170</code> — <code>duplicate_title</code> — Title “Järgmine kümme täis” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0169</code> — <code>duplicate_title</code> — Title “Järgmine kümme täis” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2450,7 +2426,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0171</code> — <code>duplicate_title</code> — Title “Meeter, sentimeeter” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0170</code> — <code>duplicate_title</code> — Title “Meeter, sentimeeter” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2463,7 +2439,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0172</code> — <code>duplicate_title</code> — Title “Detsimeeter” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0171</code> — <code>duplicate_title</code> — Title “Detsimeeter” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2476,7 +2452,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0173</code> — <code>duplicate_title</code> — Title “Pikkusühikud: m, dm, cm, mm” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0172</code> — <code>duplicate_title</code> — Title “Pikkusühikud: m, dm, cm, mm” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2489,7 +2465,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0174</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires üleminekuga (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0173</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires üleminekuga (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2502,7 +2478,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0175</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires üleminekuga (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0174</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires üleminekuga (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2515,7 +2491,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0176</code> — <code>duplicate_title</code> — Title “Kalender (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0175</code> — <code>duplicate_title</code> — Title “Kalender (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2528,7 +2504,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0177</code> — <code>duplicate_title</code> — Title “Kalender (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0176</code> — <code>duplicate_title</code> — Title “Kalender (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2541,7 +2517,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0178</code> — <code>duplicate_title</code> — Title “Tund, minut” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0177</code> — <code>duplicate_title</code> — Title “Tund, minut” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2554,7 +2530,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0179</code> — <code>duplicate_title</code> — Title “Sekund” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0178</code> — <code>duplicate_title</code> — Title “Sekund” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2567,7 +2543,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0180</code> — <code>duplicate_title</code> — Title “Kordamine. Ajaühikud, kestus” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0179</code> — <code>duplicate_title</code> — Title “Kordamine. Ajaühikud, kestus” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2580,7 +2556,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0181</code> — <code>duplicate_title</code> — Title “Kordamine. Jõulud (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0180</code> — <code>duplicate_title</code> — Title “Kordamine. Jõulud (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2593,7 +2569,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0182</code> — <code>duplicate_title</code> — Title “Kordamine. Jõulud (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0181</code> — <code>duplicate_title</code> — Title “Kordamine. Jõulud (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2606,7 +2582,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0183</code> — <code>duplicate_title</code> — Title “Matemaatilised pähklid” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0182</code> — <code>duplicate_title</code> — Title “Matemaatilised pähklid” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2619,7 +2595,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0184</code> — <code>duplicate_title</code> — Title “Arvude 0–1000 võrdlemine” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0183</code> — <code>duplicate_title</code> — Title “Arvude 0–1000 võrdlemine” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2632,7 +2608,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0185</code> — <code>duplicate_title</code> — Title “Täiskümnete ja ‑sadade liitmine 1000 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0184</code> — <code>duplicate_title</code> — Title “Täiskümnete ja ‑sadade liitmine 1000 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2645,7 +2621,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0186</code> — <code>duplicate_title</code> — Title “Täiskümnete ja ‑sadade lahutamine 1000 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0185</code> — <code>duplicate_title</code> — Title “Täiskümnete ja ‑sadade lahutamine 1000 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2658,7 +2634,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0187</code> — <code>duplicate_title</code> — Title “Kilomeeter” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0186</code> — <code>duplicate_title</code> — Title “Kilomeeter” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2671,7 +2647,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0188</code> — <code>duplicate_title</code> — Title “Kordamine. Arvud tuhandeni, kilomeeter” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0187</code> — <code>duplicate_title</code> — Title “Kordamine. Arvud tuhandeni, kilomeeter” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2684,7 +2660,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0189</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires (3)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0188</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires (3)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2697,7 +2673,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0190</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires (4)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0189</code> — <code>duplicate_title</code> — Title “Liitmine 100 piires (4)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2710,7 +2686,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0191</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0190</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2723,7 +2699,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0192</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires üleminekuga (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0191</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires üleminekuga (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2736,7 +2712,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0193</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires üleminekuga (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0192</code> — <code>duplicate_title</code> — Title “Lahutamine 100 piires üleminekuga (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2749,7 +2725,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0194</code> — <code>duplicate_title</code> — Title “Kilogramm, gramm (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0193</code> — <code>duplicate_title</code> — Title “Kilogramm, gramm (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2762,7 +2738,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0195</code> — <code>duplicate_title</code> — Title “Kilogramm, gramm (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0194</code> — <code>duplicate_title</code> — Title “Kilogramm, gramm (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2775,7 +2751,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0196</code> — <code>duplicate_title</code> — Title “Kordamine. Liitmine ja lahutamine 100 piires, kilogramm, gramm” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0195</code> — <code>duplicate_title</code> — Title “Kordamine. Liitmine ja lahutamine 100 piires, kilogramm, gramm” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2788,7 +2764,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0197</code> — <code>duplicate_title</code> — Title “Risttahukas ja kuup” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0196</code> — <code>duplicate_title</code> — Title “Risttahukas ja kuup” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2801,7 +2777,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0198</code> — <code>duplicate_title</code> — Title “Mis on pinnalaotus?” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0197</code> — <code>duplicate_title</code> — Title “Mis on pinnalaotus?” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2814,7 +2790,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0199</code> — <code>duplicate_title</code> — Title “Püramiid” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0198</code> — <code>duplicate_title</code> — Title “Püramiid” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2827,7 +2803,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0200</code> — <code>duplicate_title</code> — Title “Silinder, koonus, kera” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0199</code> — <code>duplicate_title</code> — Title “Silinder, koonus, kera” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2840,7 +2816,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0201</code> — <code>duplicate_title</code> — Title “Kordamine. Ruumilised kujundid” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0200</code> — <code>duplicate_title</code> — Title “Kordamine. Ruumilised kujundid” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2853,7 +2829,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0202</code> — <code>duplicate_title</code> — Title “Kordamine. Liitmine ja lahutamine 100 piires” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0201</code> — <code>duplicate_title</code> — Title “Kordamine. Liitmine ja lahutamine 100 piires” occurs at 3 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2867,7 +2843,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0203</code> — <code>duplicate_title</code> — Title “Kordamine. Nelinurgad, arvutamine täiskümnete ja ‑sadadega, pikkusühikud” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0202</code> — <code>duplicate_title</code> — Title “Kordamine. Nelinurgad, arvutamine täiskümnete ja ‑sadadega, pikkusühikud” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2880,7 +2856,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0204</code> — <code>duplicate_title</code> — Title “Kordamine. Ristkülik, ruut, kolmnurk, ring” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0203</code> — <code>duplicate_title</code> — Title “Kordamine. Ristkülik, ruut, kolmnurk, ring” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2893,7 +2869,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0205</code> — <code>duplicate_title</code> — Title “Korrutamise seos liitmisega” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0204</code> — <code>duplicate_title</code> — Title “Korrutamise seos liitmisega” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2906,7 +2882,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0206</code> — <code>duplicate_title</code> — Title “Korrutamise seadus” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0205</code> — <code>duplicate_title</code> — Title “Korrutamise seadus” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2919,7 +2895,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0207</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 2 (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0206</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 2 (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2932,7 +2908,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0208</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 2 (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0207</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 2 (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2945,7 +2921,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0209</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 3 (1)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0208</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 3 (1)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2958,7 +2934,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0210</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 3 (2)” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0209</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 3 (2)” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2971,7 +2947,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0211</code> — <code>duplicate_title</code> — Title “Pool” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0210</code> — <code>duplicate_title</code> — Title “Pool” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2984,7 +2960,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0212</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 5” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0211</code> — <code>duplicate_title</code> — Title “Korrutamine arvuga 5” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -2997,7 +2973,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0213</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 2” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0212</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 2” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -3010,7 +2986,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0214</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 3” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0213</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 3” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -3023,7 +2999,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0215</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 4” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0214</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 4” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -3036,7 +3012,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0216</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 5” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0215</code> — <code>duplicate_title</code> — Title “Jagamine arvuga 5” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-mathematics`
@@ -3046,6 +3022,22 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 - Exact URLs:
   - https://www.opiq.ee/kit/107/chapter/10756
   - https://www.opiq.ee/kit/95/chapter/6430
+
+</details>
+
+<details><summary><code>g2q-0216</code> — <code>duplicate_title</code> — Title “Повторение” occurs at 5 distinct canonical URLs.</summary>
+
+- Classification: `distinct_canonical_context`
+- Routes: `grade-2-mathematics`
+- Books: `avita_математика_2_ru__kit165`, `koolibri_математика_2_et__kit361`
+- Kits: 165, 361
+- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
+- Exact URLs:
+  - https://www.opiq.ee/kit/165/chapter/9267
+  - https://www.opiq.ee/kit/165/chapter/9297
+  - https://www.opiq.ee/kit/165/chapter/9323
+  - https://www.opiq.ee/kit/165/chapter/9330
+  - https://www.opiq.ee/kit/361/chapter/19883
 
 </details>
 
@@ -3623,30 +3615,28 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0261</code> — <code>duplicate_title</code> — Title “Понятия” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0261</code> — <code>duplicate_title</code> — Title “Понятия” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-nature-and-human-studies`, `grade-2-russian`
-- Books: `avita_природа_и__2_ru__kit86`, `avita_русский_язык_i_ступень_часть_3_kit568`, `koolibri_светлячок._2_ru`
-- Kits: 454, 568, 86
+- Books: `avita_природа_и__2_ru__kit86`, `koolibri_светлячок._2_ru`
+- Kits: 454, 86
 - Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
 - Exact URLs:
   - https://www.opiq.ee/kit/454/chapter/24790
-  - https://www.opiq.ee/kit/568/chapter/31807
   - https://www.opiq.ee/kit/86/chapter/12121
 
 </details>
 
-<details><summary><code>g2q-0262</code> — <code>duplicate_title</code> — Title “Толкование слов” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0262</code> — <code>duplicate_title</code> — Title “Толкование слов” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-nature-and-human-studies`, `grade-2-russian`
-- Books: `avita_природа_и__2_ru__kit86`, `avita_русский_язык_i_ступень_часть_3_kit568`, `koolibri_светлячок._2_ru`
-- Kits: 454, 568, 86
+- Books: `avita_природа_и__2_ru__kit86`, `koolibri_светлячок._2_ru`
+- Kits: 454, 86
 - Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
 - Exact URLs:
   - https://www.opiq.ee/kit/454/chapter/24791
-  - https://www.opiq.ee/kit/568/chapter/31808
   - https://www.opiq.ee/kit/86/chapter/4233
 
 </details>
@@ -3703,125 +3693,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0267</code> — <code>duplicate_title</code> — Title “Язык и речь. Вступление” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/16114
-  - https://www.opiq.ee/kit/568/chapter/31760
-
-</details>
-
-<details><summary><code>g2q-0268</code> — <code>duplicate_title</code> — Title “Алфавит” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/16127
-  - https://www.opiq.ee/kit/568/chapter/31800
-
-</details>
-
-<details><summary><code>g2q-0269</code> — <code>duplicate_title</code> — Title “Имена собственные” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/16132
-  - https://www.opiq.ee/kit/568/chapter/31769
-
-</details>
-
-<details><summary><code>g2q-0270</code> — <code>duplicate_title</code> — Title “Звуки и буквы. Вступление” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/16143
-  - https://www.opiq.ee/kit/568/chapter/31797
-
-</details>
-
-<details><summary><code>g2q-0271</code> — <code>duplicate_title</code> — Title “Работа с текстом” occurs at 3 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/16169
-  - https://www.opiq.ee/kit/292/chapter/17802
-  - https://www.opiq.ee/kit/568/chapter/31773
-
-</details>
-
-<details><summary><code>g2q-0272</code> — <code>duplicate_title</code> — Title “Как подбирать проверочные слова? (1)” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/17772
-  - https://www.opiq.ee/kit/568/chapter/31803
-
-</details>
-
-<details><summary><code>g2q-0273</code> — <code>duplicate_title</code> — Title “Как подбирать проверочные слова? (2)” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/17773
-  - https://www.opiq.ee/kit/568/chapter/31804
-
-</details>
-
-<details><summary><code>g2q-0274</code> — <code>duplicate_title</code> — Title “Главные члены предложения – подлежащее и сказуемое” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/17826
-  - https://www.opiq.ee/kit/568/chapter/31770
-
-</details>
-
-<details><summary><code>g2q-0275</code> — <code>duplicate_title</code> — Title “Распространённые и нераспространённые предложения” occurs at 2 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_2_класс_kit292`, `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 292, 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/292/chapter/17827
-  - https://www.opiq.ee/kit/568/chapter/31771
-
-</details>
-
-<details><summary><code>g2q-0276</code> — <code>duplicate_title</code> — Title “Типы текстов” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0267</code> — <code>duplicate_title</code> — Title “Типы текстов” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-russian`
@@ -3834,7 +3706,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0277</code> — <code>duplicate_title</code> — Title “Советуем почитать” occurs at 6 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0268</code> — <code>duplicate_title</code> — Title “Советуем почитать” occurs at 6 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-russian`
@@ -3851,7 +3723,20 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0278</code> — <code>duplicate_title</code> — Title “По следам прочитанных произведений” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0269</code> — <code>duplicate_title</code> — Title “Работа с текстом” occurs at 2 distinct canonical URLs.</summary>
+
+- Classification: `distinct_canonical_context`
+- Routes: `grade-2-russian`
+- Books: `avita_русский_язык_2_класс_kit292`
+- Kits: 292
+- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
+- Exact URLs:
+  - https://www.opiq.ee/kit/292/chapter/16169
+  - https://www.opiq.ee/kit/292/chapter/17802
+
+</details>
+
+<details><summary><code>g2q-0270</code> — <code>duplicate_title</code> — Title “По следам прочитанных произведений” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-russian`
@@ -3864,7 +3749,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0279</code> — <code>duplicate_title</code> — Title “Предложение и текст” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0271</code> — <code>duplicate_title</code> — Title “Предложение и текст” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-russian`
@@ -3877,35 +3762,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0280</code> — <code>duplicate_title</code> — Title “Я знаю и умею” occurs at 3 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/568/chapter/31772
-  - https://www.opiq.ee/kit/568/chapter/31789
-  - https://www.opiq.ee/kit/568/chapter/31794
-
-</details>
-
-<details><summary><code>g2q-0281</code> — <code>duplicate_title</code> — Title “Я работаю самостоятельно” occurs at 3 distinct canonical URLs.</summary>
-
-- Classification: `distinct_canonical_context`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 568
-- Action: Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.
-- Exact URLs:
-  - https://www.opiq.ee/kit/568/chapter/31775
-  - https://www.opiq.ee/kit/568/chapter/31795
-  - https://www.opiq.ee/kit/568/chapter/31805
-
-</details>
-
-<details><summary><code>g2q-0282</code> — <code>duplicate_title</code> — Title “ОСЕННЕЕ УТРО” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0272</code> — <code>duplicate_title</code> — Title “ОСЕННЕЕ УТРО” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-russian`
@@ -3918,7 +3775,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0283</code> — <code>duplicate_title</code> — Title “Puud” occurs at 3 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0273</code> — <code>duplicate_title</code> — Title “Puud” occurs at 3 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -3932,7 +3789,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0284</code> — <code>duplicate_title</code> — Title “Tere jälle!” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0274</code> — <code>duplicate_title</code> — Title “Tere jälle!” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -3945,7 +3802,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0285</code> — <code>duplicate_title</code> — Title “Aardejaht” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0275</code> — <code>duplicate_title</code> — Title “Aardejaht” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -3958,7 +3815,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0286</code> — <code>duplicate_title</code> — Title “Soomaal” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0276</code> — <code>duplicate_title</code> — Title “Soomaal” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -3971,7 +3828,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0287</code> — <code>duplicate_title</code> — Title “Sootaimed” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0277</code> — <code>duplicate_title</code> — Title “Sootaimed” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -3984,7 +3841,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0288</code> — <code>duplicate_title</code> — Title “Puhmad ja rohttaimed” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0278</code> — <code>duplicate_title</code> — Title “Puhmad ja rohttaimed” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -3997,7 +3854,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0289</code> — <code>duplicate_title</code> — Title “Veeringlus” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0279</code> — <code>duplicate_title</code> — Title “Veeringlus” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4010,7 +3867,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0290</code> — <code>duplicate_title</code> — Title “Vooremaal” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0280</code> — <code>duplicate_title</code> — Title “Vooremaal” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4023,7 +3880,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0291</code> — <code>duplicate_title</code> — Title “Loomade kehaosad” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0281</code> — <code>duplicate_title</code> — Title “Loomade kehaosad” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4036,7 +3893,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0292</code> — <code>duplicate_title</code> — Title “Kes näris õunapuud?” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0282</code> — <code>duplicate_title</code> — Title “Kes näris õunapuud?” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4049,7 +3906,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0293</code> — <code>duplicate_title</code> — Title “Kes sõi kana ära?” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0283</code> — <code>duplicate_title</code> — Title “Kes sõi kana ära?” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4062,7 +3919,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0294</code> — <code>duplicate_title</code> — Title “Kuidas olla terve?” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0284</code> — <code>duplicate_title</code> — Title “Kuidas olla terve?” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4075,7 +3932,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0295</code> — <code>duplicate_title</code> — Title “Tallinnas” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0285</code> — <code>duplicate_title</code> — Title “Tallinnas” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4088,7 +3945,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0296</code> — <code>duplicate_title</code> — Title “Rõuges” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0286</code> — <code>duplicate_title</code> — Title “Rõuges” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4101,7 +3958,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0297</code> — <code>duplicate_title</code> — Title “Veeloomad ja -taimed” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0287</code> — <code>duplicate_title</code> — Title “Veeloomad ja -taimed” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4114,7 +3971,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0298</code> — <code>duplicate_title</code> — Title “Köögiviljad” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0288</code> — <code>duplicate_title</code> — Title “Köögiviljad” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4127,7 +3984,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0299</code> — <code>duplicate_title</code> — Title “Lemmikloomad” occurs at 2 distinct canonical URLs.</summary>
+<details><summary><code>g2q-0289</code> — <code>duplicate_title</code> — Title “Lemmikloomad” occurs at 2 distinct canonical URLs.</summary>
 
 - Classification: `distinct_canonical_context`
 - Routes: `grade-2-science`
@@ -4140,7 +3997,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0300</code> — <code>missing_publisher</code> — Publisher is absent for kunsti-_ja_tööõpetus._2._osa (kit 192).</summary>
+<details><summary><code>g2q-0290</code> — <code>missing_publisher</code> — Publisher is absent for kunsti-_ja_tööõpetus._2._osa (kit 192).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-arts-and-crafts`
@@ -4240,7 +4097,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0301</code> — <code>missing_publisher</code> — Publisher is absent for kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid (kit 200).</summary>
+<details><summary><code>g2q-0291</code> — <code>missing_publisher</code> — Publisher is absent for kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid (kit 200).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-arts-and-crafts`
@@ -4336,7 +4193,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0302</code> — <code>missing_publisher</code> — Publisher is absent for трудовое_обучение_и_искусство._2_часть (kit 371).</summary>
+<details><summary><code>g2q-0292</code> — <code>missing_publisher</code> — Publisher is absent for трудовое_обучение_и_искусство._2_часть (kit 371).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-arts-and-crafts`
@@ -4436,7 +4293,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0303</code> — <code>missing_publisher</code> — Publisher is absent for 2._klassi_muusikaõpetus (kit 188).</summary>
+<details><summary><code>g2q-0293</code> — <code>missing_publisher</code> — Publisher is absent for 2._klassi_muusikaõpetus (kit 188).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-music`
@@ -4563,7 +4420,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0304</code> — <code>missing_publisher</code> — Publisher is absent for eesti_pärimusmuusika_keskuse_õppevideod (kit 465).</summary>
+<details><summary><code>g2q-0294</code> — <code>missing_publisher</code> — Publisher is absent for eesti_pärimusmuusika_keskuse_õppevideod (kit 465).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-music`
@@ -4607,7 +4464,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0305</code> — <code>missing_publisher</code> — Publisher is absent for muusikaõpik_2._klassile_2024 (kit 556).</summary>
+<details><summary><code>g2q-0295</code> — <code>missing_publisher</code> — Publisher is absent for muusikaõpik_2._klassile_2024 (kit 556).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-music`
@@ -4646,7 +4503,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0306</code> — <code>missing_publisher</code> — Publisher is absent for muusikaõpik_2._klassile (kit 193).</summary>
+<details><summary><code>g2q-0296</code> — <code>missing_publisher</code> — Publisher is absent for muusikaõpik_2._klassile (kit 193).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-music`
@@ -4686,7 +4543,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0307</code> — <code>missing_publisher</code> — Publisher is absent for музыка_–_волшебная_страна._2_класс (kit 238).</summary>
+<details><summary><code>g2q-0297</code> — <code>missing_publisher</code> — Publisher is absent for музыка_–_волшебная_страна._2_класс (kit 238).</summary>
 
 - Classification: `source_supported_metadata_limitation`
 - Routes: `grade-2-music`
@@ -4808,7 +4665,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0308</code> — <code>missing_task_examples</code> — 89 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0298</code> — <code>missing_task_examples</code> — 89 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-arts-and-crafts`
@@ -4908,7 +4765,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0309</code> — <code>missing_task_examples</code> — 85 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0299</code> — <code>missing_task_examples</code> — 85 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-arts-and-crafts`
@@ -5004,7 +4861,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0310</code> — <code>missing_task_examples</code> — 89 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0300</code> — <code>missing_task_examples</code> — 89 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-arts-and-crafts`
@@ -5104,7 +4961,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0311</code> — <code>missing_task_examples</code> — 72 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0301</code> — <code>missing_task_examples</code> — 72 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-estonian-second-language`
@@ -5187,7 +5044,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0312</code> — <code>missing_task_examples</code> — 149 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0302</code> — <code>missing_task_examples</code> — 149 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-estonian`
@@ -5347,7 +5204,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0313</code> — <code>missing_task_examples</code> — 182 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0303</code> — <code>missing_task_examples</code> — 182 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-estonian`
@@ -5540,7 +5397,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0314</code> — <code>missing_task_examples</code> — 41 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0304</code> — <code>missing_task_examples</code> — 41 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-estonian`
@@ -5592,7 +5449,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0315</code> — <code>missing_task_examples</code> — 2 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0305</code> — <code>missing_task_examples</code> — 2 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-human-studies`
@@ -5605,7 +5462,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0316</code> — <code>missing_task_examples</code> — 1 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0306</code> — <code>missing_task_examples</code> — 1 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-human-studies`
@@ -5617,7 +5474,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0317</code> — <code>missing_task_examples</code> — 59 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0307</code> — <code>missing_task_examples</code> — 59 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-human-studies`
@@ -5687,7 +5544,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0318</code> — <code>missing_task_examples</code> — 36 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0308</code> — <code>missing_task_examples</code> — 36 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-human-studies`
@@ -5734,7 +5591,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0319</code> — <code>missing_task_examples</code> — 31 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0309</code> — <code>missing_task_examples</code> — 31 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-kodututarde-training`
@@ -5776,7 +5633,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0320</code> — <code>missing_task_examples</code> — 4 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0310</code> — <code>missing_task_examples</code> — 4 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-mathematics`
@@ -5791,7 +5648,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0321</code> — <code>missing_task_examples</code> — 8 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0311</code> — <code>missing_task_examples</code> — 8 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-mathematics`
@@ -5810,7 +5667,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0322</code> — <code>missing_task_examples</code> — 10 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0312</code> — <code>missing_task_examples</code> — 10 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-mathematics`
@@ -5831,7 +5688,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0323</code> — <code>missing_task_examples</code> — 33 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0313</code> — <code>missing_task_examples</code> — 33 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-mathematics`
@@ -5875,7 +5732,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0324</code> — <code>missing_task_examples</code> — 5 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0314</code> — <code>missing_task_examples</code> — 5 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-mathematics`
@@ -5891,7 +5748,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0325</code> — <code>missing_task_examples</code> — 5 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0315</code> — <code>missing_task_examples</code> — 5 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-mathematics`
@@ -5907,7 +5764,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0326</code> — <code>missing_task_examples</code> — 50 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0316</code> — <code>missing_task_examples</code> — 50 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-music`
@@ -5968,7 +5825,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0327</code> — <code>missing_task_examples</code> — 33 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0317</code> — <code>missing_task_examples</code> — 33 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-music`
@@ -6012,7 +5869,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0328</code> — <code>missing_task_examples</code> — 6 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0318</code> — <code>missing_task_examples</code> — 6 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-music`
@@ -6029,7 +5886,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0329</code> — <code>missing_task_examples</code> — 6 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0319</code> — <code>missing_task_examples</code> — 6 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-music`
@@ -6046,7 +5903,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0330</code> — <code>missing_task_examples</code> — 30 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0320</code> — <code>missing_task_examples</code> — 30 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-music`
@@ -6087,7 +5944,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0331</code> — <code>missing_task_examples</code> — 60 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0321</code> — <code>missing_task_examples</code> — 60 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-nature-and-human-studies`
@@ -6158,7 +6015,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0332</code> — <code>missing_task_examples</code> — 27 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0322</code> — <code>missing_task_examples</code> — 27 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-noorte-kotkaste-training`
@@ -6196,7 +6053,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0333</code> — <code>missing_task_examples</code> — 57 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0323</code> — <code>missing_task_examples</code> — 57 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-russian`
@@ -6264,26 +6121,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0334</code> — <code>missing_task_examples</code> — 8 canonical records have no extracted task examples.</summary>
-
-- Classification: `acceptable_source_structure`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 568
-- Action: Treat these as informational, section, glossary, media, or teacher-support records unless page inspection proves otherwise; absence in the compact capture is not proof that the Opiq page has no activity.
-- Exact URLs:
-  - https://www.opiq.ee/kit/568/chapter/31758
-  - https://www.opiq.ee/kit/568/chapter/31759
-  - https://www.opiq.ee/kit/568/chapter/31766
-  - https://www.opiq.ee/kit/568/chapter/31776
-  - https://www.opiq.ee/kit/568/chapter/31806
-  - https://www.opiq.ee/kit/568/chapter/31807
-  - https://www.opiq.ee/kit/568/chapter/31808
-  - https://www.opiq.ee/kit/568/chapter/31809
-
-</details>
-
-<details><summary><code>g2q-0335</code> — <code>missing_task_examples</code> — 30 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0324</code> — <code>missing_task_examples</code> — 30 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-russian`
@@ -6324,7 +6162,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0336</code> — <code>missing_task_examples</code> — 99 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0325</code> — <code>missing_task_examples</code> — 99 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-russian`
@@ -6434,7 +6272,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0337</code> — <code>missing_task_examples</code> — 1 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0326</code> — <code>missing_task_examples</code> — 1 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6446,7 +6284,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0338</code> — <code>missing_task_examples</code> — 27 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0327</code> — <code>missing_task_examples</code> — 27 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6484,7 +6322,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0339</code> — <code>missing_task_examples</code> — 3 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0328</code> — <code>missing_task_examples</code> — 3 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6498,7 +6336,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0340</code> — <code>missing_task_examples</code> — 61 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0329</code> — <code>missing_task_examples</code> — 61 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6570,7 +6408,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0341</code> — <code>missing_task_examples</code> — 67 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0330</code> — <code>missing_task_examples</code> — 67 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6648,7 +6486,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0342</code> — <code>missing_task_examples</code> — 3 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0331</code> — <code>missing_task_examples</code> — 3 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6662,7 +6500,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0343</code> — <code>missing_task_examples</code> — 28 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0332</code> — <code>missing_task_examples</code> — 28 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6701,7 +6539,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0344</code> — <code>missing_task_examples</code> — 41 canonical records have no extracted task examples.</summary>
+<details><summary><code>g2q-0333</code> — <code>missing_task_examples</code> — 41 canonical records have no extracted task examples.</summary>
 
 - Classification: `acceptable_source_structure`
 - Routes: `grade-2-science`
@@ -6753,7 +6591,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0345</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
+<details><summary><code>g2q-0334</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-human-studies`
@@ -6765,7 +6603,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0346</code> — <code>mixed_script_word</code> — 21 records contain a word token combining Cyrillic and Latin characters.</summary>
+<details><summary><code>g2q-0335</code> — <code>mixed_script_word</code> — 21 records contain a word token combining Cyrillic and Latin characters.</summary>
 
 - Classification: `known_bilingual_extraction_boundary`
 - Routes: `grade-2-mathematics`
@@ -6797,7 +6635,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0347</code> — <code>mixed_script_word</code> — 2 records contain a word token combining Cyrillic and Latin characters.</summary>
+<details><summary><code>g2q-0336</code> — <code>mixed_script_word</code> — 2 records contain a word token combining Cyrillic and Latin characters.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-russian`
@@ -6810,20 +6648,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0348</code> — <code>mixed_script_word</code> — 2 records contain a word token combining Cyrillic and Latin characters.</summary>
-
-- Classification: `targeted_recapture_recommended`
-- Routes: `grade-2-russian`
-- Books: `avita_русский_язык_i_ступень_часть_3_kit568`
-- Kits: 568
-- Action: Do not auto-correct look-alike letters. Recapture only the listed page when exact task wording is required.
-- Exact URLs:
-  - https://www.opiq.ee/kit/568/chapter/31778
-  - https://www.opiq.ee/kit/568/chapter/31793
-
-</details>
-
-<details><summary><code>g2q-0349</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
+<details><summary><code>g2q-0337</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-russian`
@@ -6835,7 +6660,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0350</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
+<details><summary><code>g2q-0338</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-science`
@@ -6847,7 +6672,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0351</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
+<details><summary><code>g2q-0339</code> — <code>mixed_script_word</code> — 1 records contain a word token combining Cyrillic and Latin characters.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-science`
@@ -6859,7 +6684,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0352</code> — <code>single_symbol_title</code> — 1 records use one letter or punctuation-only text as the page title.</summary>
+<details><summary><code>g2q-0340</code> — <code>single_symbol_title</code> — 1 records use one letter or punctuation-only text as the page title.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-estonian`
@@ -6871,7 +6696,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0353</code> — <code>single_symbol_title</code> — 2 records use one letter or punctuation-only text as the page title.</summary>
+<details><summary><code>g2q-0341</code> — <code>single_symbol_title</code> — 2 records use one letter or punctuation-only text as the page title.</summary>
 
 - Classification: `acceptable_book_structure`
 - Routes: `grade-2-estonian`
@@ -6884,7 +6709,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0354</code> — <code>single_symbol_title</code> — 1 records use one letter or punctuation-only text as the page title.</summary>
+<details><summary><code>g2q-0342</code> — <code>single_symbol_title</code> — 1 records use one letter or punctuation-only text as the page title.</summary>
 
 - Classification: `acceptable_book_structure`
 - Routes: `grade-2-human-studies`
@@ -6896,7 +6721,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0355</code> — <code>source_book_id_language_suffix_mismatch</code> — Source Book ID language suffix conflicts with canonical Language for avita_математика_2_et__kit578.</summary>
+<details><summary><code>g2q-0343</code> — <code>source_book_id_language_suffix_mismatch</code> — Source Book ID language suffix conflicts with canonical Language for avita_математика_2_et__kit578.</summary>
 
 - Classification: `source_identifier_anomaly`
 - Routes: `grade-2-mathematics`
@@ -6992,7 +6817,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0356</code> — <code>source_book_id_language_suffix_mismatch</code> — Source Book ID language suffix conflicts with canonical Language for koolibri_математика_2_et__kit361.</summary>
+<details><summary><code>g2q-0344</code> — <code>source_book_id_language_suffix_mismatch</code> — Source Book ID language suffix conflicts with canonical Language for koolibri_математика_2_et__kit361.</summary>
 
 - Classification: `source_identifier_anomaly`
 - Routes: `grade-2-mathematics`
@@ -7059,7 +6884,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0357</code> — <code>source_canonical_language_mismatch</code> — 1 records have canonical Language different from every raw compact-record language value.</summary>
+<details><summary><code>g2q-0345</code> — <code>source_canonical_language_mismatch</code> — 1 records have canonical Language different from every raw compact-record language value.</summary>
 
 - Classification: `proven_canonical_normalization`
 - Routes: `grade-2-human-studies`
@@ -7071,7 +6896,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0358</code> — <code>source_canonical_language_mismatch</code> — 1 records have canonical Language different from every raw compact-record language value.</summary>
+<details><summary><code>g2q-0346</code> — <code>source_canonical_language_mismatch</code> — 1 records have canonical Language different from every raw compact-record language value.</summary>
 
 - Classification: `proven_canonical_normalization`
 - Routes: `grade-2-human-studies`
@@ -7083,7 +6908,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0359</code> — <code>source_canonical_language_mismatch</code> — 3 records have canonical Language different from every raw compact-record language value.</summary>
+<details><summary><code>g2q-0347</code> — <code>source_canonical_language_mismatch</code> — 3 records have canonical Language different from every raw compact-record language value.</summary>
 
 - Classification: `proven_canonical_normalization`
 - Routes: `grade-2-kodututarde-training`
@@ -7097,7 +6922,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0360</code> — <code>source_canonical_language_mismatch</code> — 3 records have canonical Language different from every raw compact-record language value.</summary>
+<details><summary><code>g2q-0348</code> — <code>source_canonical_language_mismatch</code> — 3 records have canonical Language different from every raw compact-record language value.</summary>
 
 - Classification: `proven_canonical_normalization`
 - Routes: `grade-2-noorte-kotkaste-training`
@@ -7111,7 +6936,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0361</code> — <code>text_language_mismatch</code> — 1 records are dominated by a script that differs from canonical Language.</summary>
+<details><summary><code>g2q-0349</code> — <code>text_language_mismatch</code> — 1 records are dominated by a script that differs from canonical Language.</summary>
 
 - Classification: `source_language_requires_targeted_review`
 - Routes: `grade-2-human-studies`
@@ -7123,7 +6948,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0362</code> — <code>text_language_mismatch</code> — 69 records are dominated by a script that differs from canonical Language.</summary>
+<details><summary><code>g2q-0350</code> — <code>text_language_mismatch</code> — 69 records are dominated by a script that differs from canonical Language.</summary>
 
 - Classification: `known_source_metadata_anomaly`
 - Routes: `grade-2-mathematics`
@@ -7203,7 +7028,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0363</code> — <code>text_language_mismatch</code> — 6 records are dominated by a script that differs from canonical Language.</summary>
+<details><summary><code>g2q-0351</code> — <code>text_language_mismatch</code> — 6 records are dominated by a script that differs from canonical Language.</summary>
 
 - Classification: `acceptable_bilingual_source_content`
 - Routes: `grade-2-music`
@@ -7220,7 +7045,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0364</code> — <code>text_language_mismatch</code> — 1 records are dominated by a script that differs from canonical Language.</summary>
+<details><summary><code>g2q-0352</code> — <code>text_language_mismatch</code> — 1 records are dominated by a script that differs from canonical Language.</summary>
 
 - Classification: `acceptable_bilingual_source_content`
 - Routes: `grade-2-russian`
@@ -7232,7 +7057,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0365</code> — <code>text_language_mismatch</code> — 22 records are dominated by a script that differs from canonical Language.</summary>
+<details><summary><code>g2q-0353</code> — <code>text_language_mismatch</code> — 22 records are dominated by a script that differs from canonical Language.</summary>
 
 - Classification: `known_source_metadata_anomaly`
 - Routes: `grade-2-science`
@@ -7265,7 +7090,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0366</code> — <code>unusually_short_record</code> — 12 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0354</code> — <code>unusually_short_record</code> — 12 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-arts-and-crafts`
@@ -7288,7 +7113,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0367</code> — <code>unusually_short_record</code> — 3 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0355</code> — <code>unusually_short_record</code> — 3 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-arts-and-crafts`
@@ -7302,7 +7127,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0368</code> — <code>unusually_short_record</code> — 4 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0356</code> — <code>unusually_short_record</code> — 4 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-estonian`
@@ -7317,7 +7142,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0369</code> — <code>unusually_short_record</code> — 1 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0357</code> — <code>unusually_short_record</code> — 1 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-music`
@@ -7329,7 +7154,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0370</code> — <code>unusually_short_record</code> — 1 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0358</code> — <code>unusually_short_record</code> — 1 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-music`
@@ -7341,7 +7166,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0371</code> — <code>unusually_short_record</code> — 2 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0359</code> — <code>unusually_short_record</code> — 2 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-music`
@@ -7354,7 +7179,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0372</code> — <code>unusually_short_record</code> — 1 compact records contain fewer than 10 visible title/heading/task characters.</summary>
+<details><summary><code>g2q-0360</code> — <code>unusually_short_record</code> — 1 compact records contain fewer than 10 visible title/heading/task characters.</summary>
 
 - Classification: `source_supported_short_summary`
 - Routes: `grade-2-science`
@@ -7366,7 +7191,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0373</code> — <code>very_short_title</code> — 3 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0361</code> — <code>very_short_title</code> — 3 records have titles of three characters or fewer.</summary>
 
 - Classification: `targeted_recapture_recommended`
 - Routes: `grade-2-estonian`
@@ -7380,7 +7205,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0374</code> — <code>very_short_title</code> — 2 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0362</code> — <code>very_short_title</code> — 2 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-estonian`
@@ -7393,7 +7218,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0375</code> — <code>very_short_title</code> — 3 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0363</code> — <code>very_short_title</code> — 3 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-human-studies`
@@ -7407,7 +7232,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0376</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0364</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-human-studies`
@@ -7419,7 +7244,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0377</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0365</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-mathematics`
@@ -7431,7 +7256,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0378</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0366</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-music`
@@ -7443,7 +7268,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0379</code> — <code>very_short_title</code> — 2 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0367</code> — <code>very_short_title</code> — 2 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-nature-and-human-studies`
@@ -7456,7 +7281,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0380</code> — <code>very_short_title</code> — 3 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0368</code> — <code>very_short_title</code> — 3 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-russian`
@@ -7470,7 +7295,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0381</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0369</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-science`
@@ -7482,7 +7307,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0382</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0370</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-science`
@@ -7494,7 +7319,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0383</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0371</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-science`
@@ -7506,7 +7331,7 @@ Programme boundaries remain explicit: ordinary, simplified, supplementary, mixed
 
 </details>
 
-<details><summary><code>g2q-0384</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
+<details><summary><code>g2q-0372</code> — <code>very_short_title</code> — 1 records have titles of three characters or fewer.</summary>
 
 - Classification: `source_supported_short_title`
 - Routes: `grade-2-science`

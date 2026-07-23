@@ -190,6 +190,76 @@ const configurations = [
     ]),
   },
   {
+    sourceId: 'grade-2-russian',
+    generatorVersion: '3.2',
+    expectedSourceRecords: 582,
+    expectedCanonicalRecords: 321,
+    expectedCoverRecords: 15,
+    expectedAdministrativeRecords: 0,
+    expectedDuplicateGroups: 196,
+    expectedDuplicateRecords: 205,
+    expectedExcludedBookRecords: 0,
+    expectedOutOfScopeRecords: 54,
+    expectedLegacyAliasRecords: 192,
+    expectedCanonicalBooks: 3,
+    subject: { en: 'Russian language', et: 'vene keel', ru: 'русский язык' },
+    title: '2. klass vene keel',
+    queryDescription: 'grade 2 Russian-language subject',
+    pageLanguageNames: ['Russian'],
+    normalizeContentLists: true,
+    excludedBookIds: new Map(),
+    legacyAliasBookIds: new Map([
+      ['avita_русский_яз_2_ru', 'Legacy duplicate export identity; the complete kit 292 source-book record supersedes it, and its kit 568 rows move to grade 3.'],
+    ]),
+    includedKitIds: new Set(['186', '292', '454']),
+    requireManifestSourceScope: true,
+    sourceScopeProgrammeType: 'ordinary_curriculum',
+    manifestForbiddenBookIds: [
+      'русский_язык._3_класс_(2023_г.)__kit503',
+      'русский_язык_3_класс__kit250',
+      'русский_язык_для_3_класса__kit94',
+      'русский_язык_для_i_ступени._часть_3__kit568',
+    ],
+    allowInstructionalDuplicates: true,
+    auditedLegacyDuplicateDifferences: new Map([
+      ['https://www.opiq.ee/kit/292/chapter/16105', ['task_examples']],
+      ['https://www.opiq.ee/kit/292/chapter/17754', ['headings', 'task_examples']],
+    ]),
+    bookVariants: new Map([
+      ['avita_русский_язык_2_класс_kit292::292', {
+        canonicalBookId: 'avita_русский_язык_2_класс_kit292',
+        title: 'Русский язык для 2 класса',
+        expectedCoverTitle: 'Русский язык для 2 класса',
+        publisher: 'Avita',
+        language: 'ru',
+        programmeType: 'ordinary_curriculum',
+        titleEvidence: 'complete source-book record and Kit Details',
+      }],
+      ['koolibri_русский_яз_2_ru::186', {
+        canonicalBookId: 'koolibri_русский_яз_2_ru',
+        title: 'РУССКИЙ ЯЗЫК 2 класс',
+        expectedCoverTitle: 'РУССКИЙ ЯЗЫК 2 класс',
+        publisher: 'Koolibri',
+        language: 'ru',
+        programmeType: 'ordinary_curriculum',
+        titleEvidence: 'Kit Details',
+      }],
+      ['koolibri_светлячок._2_ru::454', {
+        canonicalBookId: 'koolibri_светлячок._2_ru',
+        title: 'СВЕТЛЯЧОК. Чтение для 2 класса',
+        expectedCoverTitle: 'СВЕТЛЯЧОК. Чтение для 2 клacca',
+        publisher: 'Koolibri',
+        language: 'ru',
+        programmeType: 'ordinary_curriculum',
+        titleEvidence: 'audited Cyrillic/Latin cover-title correction',
+      }],
+    ]),
+    metadataLimitations: [
+      'Kit 568 is excluded from grade 2 because a dedicated grade-3 capture proves grade-3 ownership.',
+      'The archive retains legacy duplicate Source Book IDs; only the complete kit-specific identities are canonical.',
+    ],
+  },
+  {
     sourceId: 'grade-2-arts-and-crafts',
     expectedSourceRecords: 269,
     expectedCanonicalRecords: 263,
@@ -724,17 +794,37 @@ function auditDuplicateUrls(records, configuration) {
         headings: record.headings.map(normalizeText),
         task_examples: record.task_examples.map(normalizeText),
       });
-      assert(new Set(matches.map(comparable)).size === 1, `${configuration.sourceId}: duplicate instructional records differ in content: ${url}`);
+      const comparableValues = new Set(matches.map(comparable));
+      if (comparableValues.size !== 1) {
+        const expectedDifferences = configuration.auditedLegacyDuplicateDifferences?.get(url);
+        assert(expectedDifferences, `${configuration.sourceId}: duplicate instructional records differ in content: ${url}`);
+        const differingFields = ['title', 'url', 'chapter_id', 'language', 'headings', 'task_examples']
+          .filter((field) => new Set(matches.map((record) => JSON.stringify(record[field]))).size > 1);
+        assert(
+          JSON.stringify(differingFields) === JSON.stringify(expectedDifferences),
+          `${configuration.sourceId}: audited duplicate ${url} now differs in ${differingFields.join(', ')}; expected ${expectedDifferences.join(', ')}.`,
+        );
+        assert(
+          matches.some((record) => !configuration.legacyAliasBookIds?.has(normalizeText(record.book_id))),
+          `${configuration.sourceId}: audited duplicate ${url} has no complete canonical source-book record.`,
+        );
+      }
     }
     return {
       url,
       source_positions: matches.map((record) => record.source_position),
       book_ids: [...new Set(matches.map((record) => normalizeText(record.book_id)))],
       chapter_ids: matches.map((record) => normalizeText(record.chapter_id)),
-      decision: coverDetail ? 'exclude_all_cover_detail_records' : 'retain_one_identical_instructional_record',
+      decision: coverDetail
+        ? 'exclude_all_cover_detail_records'
+        : configuration.auditedLegacyDuplicateDifferences?.has(url)
+          ? 'retain_complete_kit_specific_source_record'
+          : 'retain_one_identical_instructional_record',
       reason: coverDetail
         ? 'The repeated URL is a kit detail page, not a chapter-level instructional page.'
-        : 'The same canonical chapter was exported under multiple source Book IDs; one normalized record is sufficient.',
+        : configuration.auditedLegacyDuplicateDifferences?.has(url)
+          ? 'The legacy and complete kit-specific rows differ only in audited extractor detail; the complete kit-specific source record is retained.'
+          : 'The same canonical chapter was exported under multiple source Book IDs; one normalized record is sufficient.',
     };
   });
   return { duplicateGroups, duplicateRecords, entries };
@@ -765,15 +855,22 @@ function auditDuplicateTitles(records, configuration) {
 function canonicalize(records, configuration) {
   const coverRecords = records.filter(isCoverDetail);
   const administrativeRecords = records.filter((record) => !isCoverDetail(record) && isAdministrative(record));
+  const legacyAliasRecords = records.filter((record) => !isCoverDetail(record)
+    && !isAdministrative(record)
+    && configuration.legacyAliasBookIds?.has(normalizeText(record.book_id)));
   const excludedBookRecords = records.filter((record) => !isCoverDetail(record)
-    && !isAdministrative(record) && configuration.excludedBookIds.has(normalizeText(record.book_id)));
+    && !isAdministrative(record)
+    && !configuration.legacyAliasBookIds?.has(normalizeText(record.book_id))
+    && configuration.excludedBookIds.has(normalizeText(record.book_id)));
   const outOfScopeRecords = records.filter((record) => !isCoverDetail(record)
     && !isAdministrative(record)
+    && !configuration.legacyAliasBookIds?.has(normalizeText(record.book_id))
     && !configuration.excludedBookIds.has(normalizeText(record.book_id))
     && configuration.includedKitIds
     && !configuration.includedKitIds.has(kitId(record.url)));
   const candidates = records.filter((record) => !isCoverDetail(record)
     && !isAdministrative(record)
+    && !configuration.legacyAliasBookIds?.has(normalizeText(record.book_id))
     && !configuration.excludedBookIds.has(normalizeText(record.book_id))
     && (!configuration.includedKitIds || configuration.includedKitIds.has(kitId(record.url))));
   const subjectNormalizationAudit = [];
@@ -803,15 +900,32 @@ function canonicalize(records, configuration) {
   assert(administrativeRecords.length === configuration.expectedAdministrativeRecords, `${configuration.sourceId}: administrative count changed.`);
   assert(excludedBookRecords.length === configuration.expectedExcludedBookRecords, `${configuration.sourceId}: subject-boundary exclusion count changed.`);
   assert(outOfScopeRecords.length === (configuration.expectedOutOfScopeRecords ?? 0), `${configuration.sourceId}: out-of-scope instructional count changed.`);
+  assert(legacyAliasRecords.length === (configuration.expectedLegacyAliasRecords ?? 0), `${configuration.sourceId}: legacy alias record count changed.`);
   assert(new Set(deduplicatedRecords.map((record) => record.book_id)).size === configuration.expectedCanonicalBooks, `${configuration.sourceId}: canonical book count changed.`);
-  assert(canonicalRecords.length + coverRecords.length + administrativeRecords.length + excludedBookRecords.length + outOfScopeRecords.length === records.length,
+  assert(canonicalRecords.length + coverRecords.length + administrativeRecords.length
+    + legacyAliasRecords.length + excludedBookRecords.length + outOfScopeRecords.length === records.length,
     `${configuration.sourceId}: source record accounting is incomplete.`);
   assert(deduplicatedRecords.every((record) => sourceSubject(record) === canonicalSubject(configuration.subject)), `${configuration.sourceId}: canonical subject normalization failed.`);
-  return { canonicalRecords: deduplicatedRecords, coverRecords, administrativeRecords, excludedBookRecords, outOfScopeRecords, subjectNormalizationAudit };
+  return {
+    canonicalRecords: deduplicatedRecords,
+    coverRecords,
+    administrativeRecords,
+    legacyAliasRecords,
+    excludedBookRecords,
+    outOfScopeRecords,
+    subjectNormalizationAudit,
+  };
 }
 
 function renderMarkdown(configuration, source, archiveSources, state, duplicateAudit) {
-  const { canonicalRecords, coverRecords, administrativeRecords, excludedBookRecords, outOfScopeRecords } = state;
+  const {
+    canonicalRecords,
+    coverRecords,
+    administrativeRecords,
+    legacyAliasRecords,
+    excludedBookRecords,
+    outOfScopeRecords,
+  } = state;
   const sourceRecordCount = archiveSources.reduce((total, archiveSource) => total + archiveSource.records.length, 0);
   const bookGroups = [...groupBy(canonicalRecords, (record) => record.book_id).entries()]
     .sort(([left], [right]) => left.localeCompare(right));
@@ -833,6 +947,9 @@ function renderMarkdown(configuration, source, archiveSources, state, duplicateA
     `- Page records included: ${canonicalRecords.length}`,
     `- Cover/detail records excluded: ${coverRecords.length}`,
     `- Administrative records excluded: ${administrativeRecords.length}`,
+    ...(configuration.legacyAliasBookIds?.size > 0
+      ? [`- Legacy duplicate source records excluded: ${legacyAliasRecords.length}`]
+      : []),
     `- Duplicate source URL groups: ${duplicateAudit.duplicateGroups.length}; canonical duplicates are removed only after exact content checks`,
     `- Subject-boundary page records excluded: ${excludedBookRecords.length}`,
     `- Out-of-scope instructional records excluded: ${outOfScopeRecords.length}`,
@@ -920,11 +1037,12 @@ async function generateSource(manifest, configuration) {
       JSON.stringify(source.source_scope?.included_kit_ids) === JSON.stringify([...configuration.includedKitIds]),
       `${configuration.sourceId}: manifest exact kit scope differs from generator configuration.`,
     );
-    assert(source.source_scope?.programme_type === 'mixed_subject', `${configuration.sourceId}: mixed source_scope programme type is required.`);
+    const requiredProgrammeType = configuration.sourceScopeProgrammeType ?? 'mixed_subject';
+    assert(source.source_scope?.programme_type === requiredProgrammeType, `${configuration.sourceId}: source_scope programme type must be ${requiredProgrammeType}.`);
   }
-  if (configuration.excludedBookIds.size > 0) {
+  if (configuration.excludedBookIds.size > 0 || configuration.manifestForbiddenBookIds) {
     const manifestBoundary = [...(source.subject_boundary?.forbidden_book_ids ?? [])].sort();
-    const expectedBoundary = [...configuration.excludedBookIds.keys()].sort();
+    const expectedBoundary = [...(configuration.manifestForbiddenBookIds ?? configuration.excludedBookIds.keys())].sort();
     assert(JSON.stringify(manifestBoundary) === JSON.stringify(expectedBoundary), `${configuration.sourceId}: manifest subject boundary differs from generator configuration.`);
   }
   const markdownPath = repositoryPath(source.md_path, `${configuration.sourceId} Markdown path`);
@@ -1002,7 +1120,7 @@ async function generateSource(manifest, configuration) {
       status: 'generated',
       generated_at: generationTimestamp,
       generator: generatorPath,
-      generator_version: generatorVersion,
+      generator_version: configuration.generatorVersion ?? generatorVersion,
       note: 'Generated deterministically from every archive registered for this route; cover/detail and administrative records are excluded from the canonical Markdown.',
     },
     checksums: {
@@ -1025,6 +1143,9 @@ async function generateSource(manifest, configuration) {
     page_records_included: canonicalRecords.length,
     cover_detail_records_excluded: state.coverRecords.length,
     administrative_records_excluded: state.administrativeRecords.length,
+    ...(configuration.legacyAliasBookIds?.size > 0
+      ? { legacy_alias_records_excluded: state.legacyAliasRecords.length }
+      : {}),
     subject_boundary_page_records_excluded: state.excludedBookRecords.length,
     out_of_scope_records_excluded: state.outOfScopeRecords.length,
     grades: countBy(canonicalRecords, (record) => record.grade),
@@ -1085,65 +1206,6 @@ async function generateSource(manifest, configuration) {
   return { source, canonicalRecords };
 }
 
-async function normalizeLegacyRussianTaskPayloads(manifest) {
-  const source = manifest.sources.find((entry) => entry.id === 'grade-2-russian');
-  assert(source, 'Manifest source grade-2-russian was not found.');
-  const archivePath = await requireFile(source.source_archive, 'grade-2-russian source archive');
-  const archive = await readCompactZip(archivePath);
-  requireZipMember(archive, 'opiq_lookup.jsonl');
-  const sourceRecords = parseJsonl(
-    readZipText(archive, 'opiq_lookup.jsonl'),
-    'grade-2-russian opiq_lookup.jsonl',
-  );
-  const affectedByUrl = groupBy(
-    sourceRecords.filter((record) => record.task_examples.some((value) => value.includes('{"d'))),
-    (record) => normalizeText(record.url),
-  );
-  assert(affectedByUrl.size === 6, `grade-2-russian embedded task payload URL count is ${affectedByUrl.size}; expected 6.`);
-
-  const markdownPath = repositoryPath(source.md_path, 'grade-2-russian Markdown path');
-  const qaPath = repositoryPath(source.qa_path, 'grade-2-russian QA path');
-  const currentMarkdown = await readFile(markdownPath, 'utf8');
-  const starts = [...currentMarkdown.matchAll(/^###\s+(\d+)\.\s+.+$/gmu)];
-  assert(starts.length === source.record_count, `grade-2-russian Markdown has ${starts.length} records; expected ${source.record_count}.`);
-  const affectedCanonicalUrls = new Set();
-  let expectedMarkdown = currentMarkdown.slice(0, starts[0].index);
-  starts.forEach((start, index) => {
-    const blockEnd = index + 1 < starts.length ? starts[index + 1].index : currentMarkdown.length;
-    let block = currentMarkdown.slice(start.index, blockEnd);
-    const url = block.match(/^- URL:\s*(\S+)\s*$/mu)?.[1];
-    assert(url, `grade-2-russian record ${index + 1} has no URL field.`);
-    const sourceMatches = affectedByUrl.get(url);
-    if (sourceMatches) {
-      const taskVariants = [...new Set(sourceMatches.map((record) => JSON.stringify(
-        record.task_examples.map((value) => sanitizeCapturedTaskExample(value).text).filter(Boolean),
-      )))];
-      assert(taskVariants.length === 1, `grade-2-russian source duplicates disagree after payload repair: ${url}`);
-      const repairedTasks = JSON.parse(taskVariants[0]);
-      const taskLine = `- Task examples: ${repairedTasks.join('; ')}`;
-      assert(/^- Task examples:.*$/mu.test(block), `grade-2-russian affected record has no Task examples field: ${url}`);
-      block = block.replace(/^- Task examples:.*$/mu, taskLine);
-      affectedCanonicalUrls.add(url);
-    }
-    expectedMarkdown += block;
-  });
-  assert(affectedCanonicalUrls.size === 6, `grade-2-russian canonical repair count is ${affectedCanonicalUrls.size}; expected 6.`);
-
-  const qa = parseJson(await readFile(qaPath, 'utf8'), source.qa_path);
-  qa.checksums.output_file_sha256 = sha256(Buffer.from(expectedMarkdown, 'utf8'));
-  const expectedQa = `${JSON.stringify(qa, null, 2)}\n`;
-  const currentQa = await readFile(qaPath, 'utf8');
-  if (checkOnly) {
-    assert(currentMarkdown === expectedMarkdown, `${source.md_path} contains unprocessed embedded task payloads; run ${generatorPath} without --check.`);
-    assert(currentQa === expectedQa, `${source.qa_path} is stale after deterministic task-payload repair.`);
-    console.log('grade-2-russian legacy content check passed: 6 archive-proven task payload repairs.');
-  } else {
-    if (currentMarkdown !== expectedMarkdown) await writeFile(markdownPath, expectedMarkdown, 'utf8');
-    if (currentQa !== expectedQa) await writeFile(qaPath, expectedQa, 'utf8');
-    console.log('grade-2-russian legacy content normalization complete: 6 archive-proven task payload repairs.');
-  }
-}
-
 if (unknownArguments.length > 0) {
   console.error(`Unknown argument(s): ${unknownArguments.join(', ')}`);
   console.error(`Usage: node ${generatorPath} [--check]`);
@@ -1153,7 +1215,6 @@ if (unknownArguments.length > 0) {
     const manifest = parseJson(await readFile(manifestPath, 'utf8'), 'source-manifest.json');
     await validateImmutableArchiveSet();
     await relocateLegacyGradeOneRecords(manifest);
-    await normalizeLegacyRussianTaskPayloads(manifest);
     const results = [];
     for (const configuration of configurations) results.push(await generateSource(manifest, configuration));
     const firstLanguage = results.find((result) => result.source.id === 'grade-2-estonian');

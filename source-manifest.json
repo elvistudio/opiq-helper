@@ -508,14 +508,81 @@
       "md_path": "project-files/outputs/opiq_2klass_vene_keel.md",
       "source_archive": "project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip",
       "qa_path": "project-files/outputs/opiq_2klass_vene_keel_qa.json",
-      "record_count": 373,
+      "record_count": 321,
       "format_version": "2.0",
       "coverage_status": "available_not_curriculum_verified",
-      "quality_status": "qa_snapshot_available",
+      "quality_status": "original_archive_audited",
       "known_issues": [
-        "Duplicate legacy chapter records are present in the source archive and excluded from the canonical Markdown index."
+        "Duplicate legacy chapter records are present in the source archive and excluded from the canonical Markdown index.",
+        "Kit 568 is excluded because the dedicated grade-3 capture identifies Русский язык для I ступени. Часть 3 as grade 3."
       ],
-      "notes": "Use for Russian-language subject queries, not for Russian translations of other subjects."
+      "source_scope": {
+        "included_kit_ids": ["186", "292", "454"],
+        "programme_type": "ordinary_curriculum",
+        "audit_path": "docs/audits/grade-3-russian-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "русский_язык._3_класс_(2023_г.)__kit503",
+          "русский_язык_3_класс__kit250",
+          "русский_язык_для_3_класса__kit94",
+          "русский_язык_для_i_ступени._часть_3__kit568"
+        ],
+        "audit_path": "docs/audits/grade-3-russian-source-import.md",
+        "reason": "The dedicated grade-3 archive supersedes the legacy grade-2 ownership of kit 568 and keeps every grade-3 Russian book outside the grade-2 route."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Russian language",
+          "et": "vene keel",
+          "ru": "русский язык"
+        }
+      },
+      "notes": "Use only for grade-2 Russian-language subject queries, not for Russian translations of other subjects. The deterministic route contains kits 186, 292, and 454; kit 568 is owned only by grade-3-russian."
+    },
+    {
+      "id": "grade-3-russian",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "russian",
+      "subject_et": "vene keel",
+      "languages": ["ru"],
+      "md_path": "project-files/outputs/opiq_3klass_vene_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_3_2023_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_vene_keel_qa.json",
+      "record_count": 478,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "All source rows carry the automatic mathematics subject and are normalized to Russian language only from book, Kit Details, heading, task, and Opiq subject-filter evidence.",
+        "The kit 94 index and raw book title are Varamu – Opiq because a search-results row was captured; the two Kit Details records establish Русский язык для 3 класса.",
+        "Publisher metadata is absent from this archive. Avita for kit 568 is retained only from the separately audited older kit-specific archive; no other publisher is invented.",
+        "Technical extraction artifacts are repaired deterministically and recorded by URL, field, source hash, canonical hash, category, and transformation rule."
+      ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "avita_русский_язык_2_класс_kit292",
+          "koolibri_русский_яз_2_ru",
+          "koolibri_светлячок._2_ru"
+        ],
+        "audit_path": "docs/audits/grade-3-russian-source-import.md",
+        "reason": "Grade-2 Russian books remain in grade-2-russian; kit 568 moves to grade 3 after exact URL and content comparison."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Russian language",
+          "et": "vene keel",
+          "ru": "русский язык"
+        }
+      },
+      "notes": "Use for grade-3 Russian-language subject queries only. The route contains 478 instructional pages from four audited kits and does not claim curriculum or live Opiq catalogue completeness."
     },
     {
       "id": "grade-3-human-studies",
