@@ -87,6 +87,13 @@ component, timing component, accepted or rejected override, and deterministic
 digest. Automatically generated DNA remains proposed, unreviewed, untested,
 not classroom-ready, and makes no effectiveness claim.
 
+Teacher overrides are conflict-safe: IDs and slot targets are unique, and
+`accepted` means that the exact slot/target appears in the selected
+composition. Delivery and preferred-group-format components are emitted only
+when their documented fit condition is true. Total learner
+productive-language demand is constrained separately from Estonian A1–A2
+compatibility; the catalog does not yet provide per-language demand ratings.
+
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.
 See [`docs/pedagogical-taxonomy.md`](../../docs/pedagogical-taxonomy.md) for

@@ -204,7 +204,10 @@ demands, homeschool roles, misuse risks, and concrete execution profiles. Its
 query helper performs filtering without ranking. The separate selection engine
 uses versioned project-authored weights to compose an explainable proposed
 `lesson_dna`; its score means operational fit, not effectiveness, approval, or
-classroom readiness. Neither tool changes production artifacts.
+classroom readiness. Teacher overrides are accepted only when applied to the
+selected slot, delivery and preferred-group bonuses reflect actual fit, and
+total learner productive-language demand is kept distinct from Estonian A1–A2
+support. Neither tool changes production artifacts.
 
 ```sh
 npm run test:pedagogy

@@ -186,19 +186,114 @@
         "total": {"type": "integer"},
         "components": {
           "type": "object",
-          "propertyNames": {"pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+          "propertyNames": {"$ref": "#/$defs/scoreComponentName"},
           "additionalProperties": {"type": "integer"}
         }
+      }
+    },
+    "scoreComponentName": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "a1_a2_fit",
+            "adaptable_delivery_fit",
+            "content_type_match",
+            "direct_delivery_fit",
+            "effort_headroom",
+            "execution_profile_specificity",
+            "limited_a1_a2",
+            "limited_delivery_fit",
+            "pattern_activity_option",
+            "pattern_phase_fit",
+            "preferred_group_format_fit",
+            "preferred_pattern",
+            "preferred_target",
+            "previous_target",
+            "provisional_taxonomy",
+            "recent_target",
+            "resource_simplicity",
+            "source_access_fit",
+            "unknown_taxonomy"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^(?:required|desired)_[a-z0-9]+(?:_[a-z0-9]+)*$"
+        }
+      ]
+    },
+    "deliveryFit": {
+      "enum": [
+        "directly_supported",
+        "adaptable",
+        "limited",
+        "not_recommended",
+        "unknown"
+      ]
+    },
+    "groupFormatSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selected", "preferred", "fallback_used"],
+      "properties": {
+        "selected": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/groupFormat"
+            }
+          ]
+        },
+        "preferred": {"type": "boolean"},
+        "fallback_used": {"type": "boolean"}
+      }
+    },
+    "operationalFit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["delivery_fit", "delivery_dimensions", "group_format_selection"],
+      "properties": {
+        "delivery_fit": {"$ref": "#/$defs/deliveryFit"},
+        "delivery_dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["dimension", "fit"],
+            "properties": {
+              "dimension": {
+                "enum": [
+                  "declared_delivery_mode",
+                  "homeschool_adaptation",
+                  "large_class",
+                  "one_learner",
+                  "remote_delivery"
+                ]
+              },
+              "fit": {"$ref": "#/$defs/deliveryFit"}
+            }
+          }
+        },
+        "group_format_selection": {"$ref": "#/$defs/groupFormatSelection"}
       }
     },
     "candidate": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["target_id", "hard_filter_passed", "hard_filter_reasons", "score"],
+      "required": [
+        "target_id",
+        "hard_filter_passed",
+        "hard_filter_reasons",
+        "operational_fit",
+        "score"
+      ],
       "properties": {
         "target_id": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"},
         "hard_filter_passed": {"type": "boolean"},
         "hard_filter_reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "operational_fit": {"$ref": "#/$defs/operationalFit"},
         "score": {
           "oneOf": [
             {"type": "null"},

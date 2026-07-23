@@ -52,8 +52,7 @@
             "duration_minutes",
             "delivery_mode",
             "group_size",
-            "primary_instruction_language",
-            "estonian_support_level"
+            "language_policy"
           ],
           "properties": {
             "request_id": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"},
@@ -63,8 +62,50 @@
             "duration_minutes": {"type": "integer", "minimum": 10, "maximum": 180},
             "delivery_mode": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/deliveryMode"},
             "group_size": {"type": "integer", "minimum": 1, "maximum": 60},
-            "primary_instruction_language": {"enum": ["ru", "et", "en"]},
-            "estonian_support_level": {"enum": ["A1-A2", "not_applicable"]}
+            "language_policy": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "primary_instruction_language",
+                "maximum_total_productive_language_demand",
+                "estonian_support"
+              ],
+              "properties": {
+                "primary_instruction_language": {"enum": ["ru", "et", "en"]},
+                "maximum_total_productive_language_demand": {
+                  "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/demandLevel"
+                },
+                "estonian_support": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "enabled",
+                    "learner_level",
+                    "allowed_roles",
+                    "subject_explanation_language"
+                  ],
+                  "properties": {
+                    "enabled": {"type": "boolean"},
+                    "learner_level": {"enum": ["A1-A2", "not_applicable"]},
+                    "allowed_roles": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "items": {
+                        "enum": [
+                          "terminology",
+                          "labels",
+                          "familiar_instruction",
+                          "sentence_frame",
+                          "short_oral_response",
+                          "short_written_response"
+                        ]
+                      }
+                    },
+                    "subject_explanation_language": {"enum": ["ru", "et", "en"]}
+                  }
+                }
+              }
+            }
           }
         },
         "pattern": {
@@ -114,7 +155,16 @@
           "type": "array",
           "minItems": 2,
           "uniqueItems": true,
-          "items": {"enum": ["taxonomy_ratings_provisional", "selection_weights_provisional", "teacher_review_pending", "classroom_trial_not_started", "no_effectiveness_claim"]}
+          "items": {
+            "enum": [
+              "taxonomy_ratings_provisional",
+              "selection_weights_provisional",
+              "teacher_review_pending",
+              "classroom_trial_not_started",
+              "no_effectiveness_claim",
+              "per_language_productive_demand_not_modelled"
+            ]
+          }
         }
       }
     },

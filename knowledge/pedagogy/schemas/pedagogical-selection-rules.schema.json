@@ -14,6 +14,8 @@
     "claim_origin",
     "confidence",
     "hard_constraints",
+    "delivery_fit",
+    "group_format_selection",
     "scoring",
     "timing",
     "combination_rules",
@@ -33,6 +35,57 @@
       "type": "object",
       "additionalProperties": {"const": true},
       "minProperties": 1
+    },
+    "delivery_fit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "restriction_order_most_to_least",
+        "homeschool_status_mapping",
+        "hard_reject",
+        "large_class_group_size_threshold"
+      ],
+      "properties": {
+        "restriction_order_most_to_least": {
+          "const": ["unknown", "not_recommended", "limited", "adaptable", "directly_supported"]
+        },
+        "homeschool_status_mapping": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["adaptable", "directly_suitable", "limited", "not_recommended"],
+          "properties": {
+            "adaptable": {"const": "adaptable"},
+            "directly_suitable": {"const": "directly_supported"},
+            "limited": {"const": "limited"},
+            "not_recommended": {"const": "not_recommended"}
+          }
+        },
+        "hard_reject": {"const": ["not_recommended", "unknown"]},
+        "large_class_group_size_threshold": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 60
+        }
+      }
+    },
+    "group_format_selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preference_semantics", "fallback_order"],
+      "properties": {
+        "preference_semantics": {"const": "unordered_set"},
+        "fallback_order": {
+          "const": [
+            "individual",
+            "pair",
+            "triad",
+            "small_group",
+            "medium_group",
+            "rotating_stations",
+            "whole_class"
+          ]
+        }
+      }
     },
     "scoring": {
       "type": "object",
@@ -80,14 +133,14 @@
         "practical_requires_evidence_conclusion",
         "reflection_only_is_not_subject_assessment",
         "retrieval_requires_later_correction",
-        "maximum_language_heavy_phase_share_percent_a1_a2",
+        "maximum_total_language_heavy_phase_share_percent_for_a1_a2_supported_lessons",
         "repeated_target_forbidden"
       ],
       "properties": {
         "practical_requires_evidence_conclusion": {"const": true},
         "reflection_only_is_not_subject_assessment": {"const": true},
         "retrieval_requires_later_correction": {"const": true},
-        "maximum_language_heavy_phase_share_percent_a1_a2": {"type": "integer", "minimum": 1, "maximum": 100},
+        "maximum_total_language_heavy_phase_share_percent_for_a1_a2_supported_lessons": {"type": "integer", "minimum": 1, "maximum": 100},
         "repeated_target_forbidden": {"const": true}
       }
     },

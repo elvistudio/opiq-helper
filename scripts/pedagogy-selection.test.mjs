@@ -8,6 +8,7 @@ import {
   normalizePedagogySelectionRequest,
   selectLessonPedagogy,
   stablePedagogyJson,
+  validateTeacherOverrideSet,
   validatePedagogySelection,
 } from './lib/pedagogy-selection.mjs';
 
@@ -226,6 +227,13 @@ test('required capability weight exceeds desired capability weight', () => {
   assert.ok(weights.required_capability_supporting > weights.desired_capability_supporting);
 });
 
+test('versioned delivery scoring orders direct above adaptable above limited', () => {
+  const { weights, penalties } = repository.rules.data.scoring;
+  assert.ok(weights.direct_delivery_fit > weights.adaptable_delivery_fit);
+  assert.ok(weights.adaptable_delivery_fit > penalties.limited_delivery_fit);
+  assert.ok(penalties.limited_delivery_fit < 0);
+});
+
 test('preferred target contributes an explicit score component', () => {
   const result = run('grade5-concept-introduction');
   const guided = candidate(result, 'guided-reading');
@@ -256,6 +264,171 @@ test('every score trace total equals the visible integer components', () => {
       );
     }
   }
+});
+
+test('direct delivery fit receives only the direct delivery component', () => {
+  const row = candidate(run('grade5-concept-introduction'), 'guided-reading');
+  assert.equal(row.operational_fit.delivery_fit, 'directly_supported');
+  assert.equal(
+    row.score.components.direct_delivery_fit,
+    repository.rules.data.scoring.weights.direct_delivery_fit,
+  );
+  assert.equal(row.score.components.adaptable_delivery_fit, undefined);
+  assert.equal(row.score.components.limited_delivery_fit, undefined);
+});
+
+test('adaptable delivery fit receives the smaller adaptable component', () => {
+  const row = candidate(run('grade5-concept-introduction'), 'concept-map');
+  assert.equal(row.operational_fit.delivery_fit, 'adaptable');
+  assert.equal(
+    row.score.components.adaptable_delivery_fit,
+    repository.rules.data.scoring.weights.adaptable_delivery_fit,
+  );
+  assert.equal(row.score.components.direct_delivery_fit, undefined);
+});
+
+test('limited delivery fit receives only the documented penalty', () => {
+  const row = candidate(run('grade5-concept-introduction'), 'retrieval-self-test');
+  assert.equal(row.operational_fit.delivery_fit, 'limited');
+  assert.equal(
+    row.score.components.limited_delivery_fit,
+    repository.rules.data.scoring.penalties.limited_delivery_fit,
+  );
+  assert.equal(row.score.components.direct_delivery_fit, undefined);
+  assert.equal(row.score.components.adaptable_delivery_fit, undefined);
+});
+
+test('not-recommended effective delivery fit is a hard rejection', () => {
+  const changed = structuredClone(repository);
+  changed.knowledge.activities.data.activities.find(
+    (activity) => activity.activity_id === 'concept-map',
+  ).compatibility.large_class = 'not_recommended';
+  const result = selectLessonPedagogy(changed, request('grade5-concept-introduction'));
+  const row = candidate(result, 'concept-map');
+  assert.equal(row.hard_filter_passed, false);
+  assert.equal(row.operational_fit.delivery_fit, 'not_recommended');
+  assert.ok(row.hard_filter_reasons.includes(
+    'effective delivery fit not_recommended is not allowed',
+  ));
+});
+
+test('direct fit scores above adaptable fit when the same target metadata is otherwise equal', () => {
+  const adaptable = candidate(run('grade5-concept-introduction'), 'concept-map');
+  const changed = structuredClone(repository);
+  changed.knowledge.activities.data.activities.find(
+    (activity) => activity.activity_id === 'concept-map',
+  ).compatibility.large_class = 'directly_supported';
+  const direct = candidate(
+    selectLessonPedagogy(changed, request('grade5-concept-introduction')),
+    'concept-map',
+  );
+  assert.equal(
+    direct.score.total - adaptable.score.total,
+    repository.rules.data.scoring.weights.direct_delivery_fit
+      - repository.rules.data.scoring.weights.adaptable_delivery_fit,
+  );
+});
+
+test('candidate trace exposes every effective delivery dimension', () => {
+  const row = candidate(run('grade5-concept-introduction'), 'concept-map');
+  assert.deepEqual(row.operational_fit.delivery_dimensions, [
+    { dimension: 'declared_delivery_mode', fit: 'directly_supported' },
+    { dimension: 'large_class', fit: 'adaptable' },
+  ]);
+});
+
+test('individual-study delivery fit includes one-learner compatibility', () => {
+  const row = candidate(run('grade5-independent-retrieval'), 'retrieval-self-test');
+  assert.ok(row.operational_fit.delivery_dimensions.some(
+    (item) => item.dimension === 'one_learner' && item.fit === 'directly_supported',
+  ));
+});
+
+test('remote delivery fit uses the remote-delivery compatibility dimension', () => {
+  const changed = structuredClone(repository);
+  changed.knowledge.patterns.find(
+    (artifact) => artifact.data.patterns.some(
+      (pattern) => pattern.pattern_id === 'independent-homeschool-study',
+    ),
+  ).data.patterns.find(
+    (pattern) => pattern.pattern_id === 'independent-homeschool-study',
+  ).delivery_modes.push('remote');
+  const selectedRequest = request('grade5-independent-retrieval');
+  selectedRequest.learner_context.delivery_mode = 'remote';
+  const row = candidate(
+    selectLessonPedagogy(changed, selectedRequest),
+    'retrieval-self-test',
+  );
+  assert.ok(row.operational_fit.delivery_dimensions.some(
+    (item) => item.dimension === 'remote_delivery',
+  ));
+});
+
+test('homeschool delivery fit maps homeschool-adaptation status through versioned rules', () => {
+  const selectedRequest = request('grade5-independent-retrieval');
+  selectedRequest.learner_context.delivery_mode = 'homeschool';
+  const row = candidate(selectLessonPedagogy(repository, selectedRequest), 'retrieval-self-test');
+  const activity = repository.knowledge.activities.data.activities.find(
+    (item) => item.activity_id === 'retrieval-self-test',
+  );
+  const expected = repository.rules.data.delivery_fit.homeschool_status_mapping[
+    activity.homeschool_adaptation.status
+  ];
+  assert.ok(row.operational_fit.delivery_dimensions.some(
+    (item) => item.dimension === 'homeschool_adaptation' && item.fit === expected,
+  ));
+});
+
+test('preferred group format receives the versioned preference bonus', () => {
+  const row = candidate(run('grade5-concept-introduction'), 'brainstorming');
+  assert.deepEqual(row.operational_fit.group_format_selection, {
+    selected: 'individual',
+    preferred: true,
+    fallback_used: false,
+  });
+  assert.equal(
+    row.score.components.preferred_group_format_fit,
+    repository.rules.data.scoring.weights.preferred_group_format_fit,
+  );
+});
+
+test('valid fallback group format receives no preference bonus', () => {
+  const result = run('grade5-concept-introduction', (selectedRequest) => {
+    selectedRequest.preferences.preferred_group_formats = [];
+  });
+  const row = candidate(result, 'brainstorming');
+  assert.deepEqual(row.operational_fit.group_format_selection, {
+    selected: 'individual',
+    preferred: false,
+    fallback_used: true,
+  });
+  assert.equal(row.score.components.preferred_group_format_fit, undefined);
+});
+
+test('changing the preferred-format set changes the selected format predictably', () => {
+  const result = run('grade5-concept-introduction', (selectedRequest) => {
+    selectedRequest.preferences.preferred_group_formats = ['pair'];
+  });
+  const row = candidate(result, 'brainstorming');
+  assert.equal(row.operational_fit.group_format_selection.selected, 'pair');
+  assert.equal(row.operational_fit.group_format_selection.preferred, true);
+});
+
+test('legacy unconditional group-format score is absent from every trace', () => {
+  const result = run('grade5-concept-introduction');
+  for (const slot of result.decision.slot_decisions) {
+    for (const row of slot.considered_candidates.filter((item) => item.score)) {
+      assert.equal(row.score.components.group_format_fit, undefined);
+    }
+  }
+});
+
+test('unknown score components fail strict decision validation', () => {
+  const decision = structuredClone(run('grade5-concept-introduction').decision);
+  const row = decision.slot_decisions[0].considered_candidates.find((item) => item.score);
+  row.score.components.hidden_bonus = 99;
+  row.score.total += 99;
+  assert.equal(validators.decision(decision), false);
 });
 
 test('grade mismatch is a hard-filter reason', () => {
@@ -319,7 +492,7 @@ test('internet requirement is enforced when a target declares it', () => {
 test('pair-only target cannot satisfy an individual-only request', () => {
   const result = run('grade5-map-diagram', (selectedRequest) => {
     selectedRequest.learner_context.supported_group_formats = ['individual'];
-    selectedRequest.language_profile.estonian_support.maximum_productive_language_demand = 'high';
+    selectedRequest.language_profile.maximum_total_productive_language_demand = 'high';
   });
   const row = candidate(result, 'back-to-back-description');
   assert.ok(row.hard_filter_reasons.includes('no requested group format is compatible with the execution range'));
@@ -339,10 +512,63 @@ test('duration overflow returns a structured failure', () => {
   assert.equal(result.decision.failure.code, 'duration_overflow');
 });
 
-test('high productive-language target is rejected under a medium A1-A2 ceiling', () => {
+test('high productive-language target is rejected under the medium total-demand ceiling', () => {
   const result = run('grade5-concept-introduction');
   const row = candidate(result, 'self-explanation');
-  assert.ok(row.hard_filter_reasons.some((reason) => reason.includes('productive-language demand high')));
+  assert.ok(row.hard_filter_reasons.some(
+    (reason) => reason.includes('total productive-language demand high'),
+  ));
+});
+
+test('legacy Estonian-nested total-demand field is rejected by the request schema', () => {
+  const invalid = request('grade5-concept-introduction');
+  delete invalid.language_profile.maximum_total_productive_language_demand;
+  invalid.language_profile.estonian_support.maximum_productive_language_demand = 'medium';
+  assert.equal(validators.request(invalid), false);
+});
+
+test('high total productive-language demand is allowed when the total ceiling is high', () => {
+  const result = run('grade5-concept-introduction', (selectedRequest) => {
+    selectedRequest.language_profile.maximum_total_productive_language_demand = 'high';
+  });
+  const row = candidate(result, 'self-explanation');
+  assert.ok(!row.hard_filter_reasons.some(
+    (reason) => reason.includes('total productive-language demand'),
+  ));
+});
+
+test('Estonian A1-A2 compatibility is enforced separately from total demand', () => {
+  const changed = structuredClone(repository);
+  changed.knowledge.activities.data.activities.find(
+    (activity) => activity.activity_id === 'self-explanation',
+  ).learner_demands.estonian_a1_a2_compatibility = 'not_recommended';
+  const selectedRequest = request('grade5-concept-introduction');
+  selectedRequest.language_profile.maximum_total_productive_language_demand = 'high';
+  const row = candidate(selectLessonPedagogy(changed, selectedRequest), 'self-explanation');
+  assert.ok(row.hard_filter_reasons.includes(
+    'Estonian A1-A2 compatibility is not_recommended',
+  ));
+});
+
+test('request digest changes when the total productive-language ceiling changes', () => {
+  const medium = run('grade5-concept-introduction');
+  const high = run('grade5-concept-introduction', (selectedRequest) => {
+    selectedRequest.language_profile.maximum_total_productive_language_demand = 'high';
+  });
+  assert.notEqual(medium.decision.request_digest, high.decision.request_digest);
+});
+
+test('the heavy-share rule uses explicit total-demand semantics', () => {
+  assert.equal(
+    repository.rules.data.combination_rules
+      .maximum_total_language_heavy_phase_share_percent_for_a1_a2_supported_lessons,
+    50,
+  );
+  assert.equal(
+    repository.rules.data.combination_rules
+      .maximum_language_heavy_phase_share_percent_a1_a2,
+    undefined,
+  );
 });
 
 test('supervised practical target is rejected without adult supervision', () => {
@@ -477,9 +703,15 @@ test('not every lesson DNA is forced to contain every pattern component', () => 
 
 test('short scaffolded Estonian output is represented without changing instruction language', () => {
   const dna = run('grade5-oral-answer').lessonDna;
-  assert.equal(dna.context.primary_instruction_language, 'ru');
+  assert.equal(dna.context.language_policy.primary_instruction_language, 'ru');
+  assert.equal(dna.context.language_policy.estonian_support.learner_level, 'A1-A2');
+  assert.equal(dna.context.language_policy.maximum_total_productive_language_demand, 'medium');
+  assert.ok(dna.context.language_policy.estonian_support.allowed_roles.includes(
+    'short_oral_response',
+  ));
   assert.ok(dna.phases.some((phase) => phase.language_role.estonian_roles.includes('short_oral_response')));
   assert.ok(dna.differentiation.scaffolds.some((item) => item.includes('sentence frame')));
+  assert.ok(dna.known_limits.includes('per_language_productive_demand_not_modelled'));
 });
 
 test('complex subject explanation remains Russian in every grade-5 fixture', () => {
@@ -507,9 +739,186 @@ test('Estonian assessment is enabled only when explicitly requested', () => {
 
 test('valid teacher override is accepted and preserved in DNA', () => {
   const result = run('grade5-teacher-override');
-  assert.equal(result.decision.teacher_override_results[0].status, 'accepted');
+  const override = result.decision.teacher_override_results[0];
+  assert.equal(override.status, 'accepted');
+  const slot = result.decision.slot_decisions.find(
+    (item) => item.slot_id === override.slot_id,
+  );
+  assert.equal(slot.selected_target_id, override.requested_target_id);
   assert.equal(result.lessonDna.teacher_overrides[0].target_id, 'concept-map');
   assert.match(result.lessonDna.teacher_overrides[0].rationale_ru, /тихая индивидуальная работа/u);
+});
+
+test('two different targets for one override slot fail before pattern selection', () => {
+  const result = run('grade5-concept-introduction', (selectedRequest) => {
+    selectedRequest.preferences.teacher_overrides = [
+      {
+        override_id: 'collaborative-method',
+        slot_id: 'guided-practice',
+        requested_target_id: 'gallery-walk',
+        rationale_ru: 'Учитель хочет проверить групповую альтернативу.',
+        author_role: 'teacher',
+      },
+      {
+        override_id: 'quiet-method',
+        slot_id: 'guided-practice',
+        requested_target_id: 'concept-map',
+        rationale_ru: 'Учитель выбирает тихую письменную работу.',
+        author_role: 'teacher',
+      },
+    ];
+  });
+  assert.equal(result.decision.failure.code, 'invalid_teacher_override');
+  assert.equal(result.decision.failure.message, 'Teacher overrides are ambiguous.');
+  assert.deepEqual(
+    result.decision.teacher_override_results.map((item) => item.status),
+    ['rejected', 'rejected'],
+  );
+  assert.deepEqual(result.decision.failure.details, [
+    'multiple overrides target slot guided-practice',
+  ]);
+});
+
+test('the same target repeated for one override slot is rejected', () => {
+  const selectedRequest = request('grade5-concept-introduction');
+  selectedRequest.preferences.teacher_overrides = [
+    {
+      override_id: 'first',
+      slot_id: 'guided-practice',
+      requested_target_id: 'concept-map',
+      rationale_ru: 'Первый выбор учителя.',
+      author_role: 'teacher',
+    },
+    {
+      override_id: 'second',
+      slot_id: 'guided-practice',
+      requested_target_id: 'concept-map',
+      rationale_ru: 'Повторный выбор того же target.',
+      author_role: 'teacher',
+    },
+  ];
+  const semantic = validateTeacherOverrideSet(selectedRequest);
+  assert.equal(semantic.valid, false);
+  assert.deepEqual(semantic.details, ['multiple overrides target slot guided-practice']);
+});
+
+test('one override ID used for different slots is rejected', () => {
+  const selectedRequest = request('grade5-concept-introduction');
+  selectedRequest.preferences.teacher_overrides = [
+    {
+      override_id: 'same-id',
+      slot_id: 'explanation',
+      requested_target_id: 'guided-reading',
+      rationale_ru: 'Выбор объяснения.',
+      author_role: 'teacher',
+    },
+    {
+      override_id: 'same-id',
+      slot_id: 'guided-practice',
+      requested_target_id: 'concept-map',
+      rationale_ru: 'Выбор практики.',
+      author_role: 'teacher',
+    },
+  ];
+  const result = selectLessonPedagogy(repository, selectedRequest);
+  assert.equal(result.decision.failure.code, 'invalid_teacher_override');
+  assert.deepEqual(result.decision.failure.details, ['duplicate override id same-id']);
+});
+
+test('different teacher overrides for different slots are both applied', () => {
+  const result = run('grade5-concept-introduction', (selectedRequest) => {
+    selectedRequest.preferences.teacher_overrides = [
+      {
+        override_id: 'explanation-choice',
+        slot_id: 'explanation',
+        requested_target_id: 'guided-reading',
+        rationale_ru: 'Учитель выбирает поддержанное чтение для объяснения.',
+        author_role: 'teacher',
+      },
+      {
+        override_id: 'practice-choice',
+        slot_id: 'guided-practice',
+        requested_target_id: 'concept-map',
+        rationale_ru: 'Учитель выбирает карту понятий для практики.',
+        author_role: 'teacher',
+      },
+    ];
+  });
+  assert.equal(result.decision.status, 'success');
+  assert.deepEqual(
+    result.decision.teacher_override_results.map((item) => [item.override_id, item.status]),
+    [['explanation-choice', 'accepted'], ['practice-choice', 'accepted']],
+  );
+  for (const override of result.decision.teacher_override_results) {
+    const matching = result.decision.slot_decisions.filter((slot) => (
+      slot.slot_id === override.slot_id
+      && slot.selected_target_id === override.requested_target_id
+    ));
+    assert.equal(matching.length, 1);
+  }
+});
+
+test('eligible but unapplied override is never reported as accepted', () => {
+  const result = run('grade5-teacher-override', (selectedRequest) => {
+    selectedRequest.learner_context.lesson_duration_minutes = 10;
+  });
+  assert.equal(result.decision.status, 'failure');
+  assert.equal(result.decision.teacher_override_results[0].status, 'rejected');
+  assert.match(
+    result.decision.teacher_override_results[0].reason,
+    /no valid composition could apply/u,
+  );
+});
+
+test('conflicting override diagnostics are bytewise deterministic', () => {
+  const selectedRequest = request('grade5-concept-introduction');
+  selectedRequest.preferences.teacher_overrides = [
+    {
+      override_id: 'z-choice',
+      slot_id: 'guided-practice',
+      requested_target_id: 'concept-map',
+      rationale_ru: 'Поздний по ID вариант.',
+      author_role: 'teacher',
+    },
+    {
+      override_id: 'a-choice',
+      slot_id: 'guided-practice',
+      requested_target_id: 'gallery-walk',
+      rationale_ru: 'Ранний по ID вариант.',
+      author_role: 'teacher',
+    },
+  ];
+  const first = selectLessonPedagogy(repository, selectedRequest);
+  selectedRequest.preferences.teacher_overrides.reverse();
+  const second = selectLessonPedagogy(repository, selectedRequest);
+  assert.equal(stablePedagogyJson(first), stablePedagogyJson(second));
+  assert.deepEqual(
+    first.decision.teacher_override_results.map((item) => item.override_id),
+    ['a-choice', 'z-choice'],
+  );
+});
+
+test('conflicting override failure remains schema-valid', () => {
+  const selectedRequest = request('grade5-concept-introduction');
+  selectedRequest.preferences.teacher_overrides = [
+    {
+      override_id: 'first',
+      slot_id: 'guided-practice',
+      requested_target_id: 'concept-map',
+      rationale_ru: 'Первый вариант.',
+      author_role: 'teacher',
+    },
+    {
+      override_id: 'second',
+      slot_id: 'guided-practice',
+      requested_target_id: 'gallery-walk',
+      rationale_ru: 'Второй вариант.',
+      author_role: 'teacher',
+    },
+  ];
+  const result = selectLessonPedagogy(repository, selectedRequest);
+  assert.equal(validators.decision(result.decision), true);
+  assert.equal(result.lessonDna, null);
 });
 
 test('teacher override without rationale fails request schema', () => {

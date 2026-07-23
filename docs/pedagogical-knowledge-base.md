@@ -196,6 +196,12 @@ A discussion-heavy method cannot claim zero or low interaction demand merely
 because it is silent or structured. A short Estonian term or sentence frame
 does not make a complex discussion low-language.
 
+Productive-language demand is the activity's total learner speaking and
+writing demand, not a language-specific Estonian measure. The selector applies
+that total ceiling at the language-profile level and evaluates Estonian A1–A2
+support separately. Per-language Russian and Estonian demand ratings are not
+yet available and remain a documented modeling gap.
+
 Homeschool applicability is not a boolean. It records one of
 `directly_suitable`, `adaptable`, `limited`, or `not_recommended`, plus:
 

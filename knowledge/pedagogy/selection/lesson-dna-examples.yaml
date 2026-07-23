@@ -14,18 +14,26 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
       engine: "1.0"
     context:
       request_id: grade5-concept-introduction
-      request_digest: 836ab25e66afa0399990a1d54859e434a203cc96d8ff7bbc53e4a923aaf22a54
+      request_digest: 83345e1db9484e7b3b9fc18ae0ac3355cdc7111bda78e6282a1fdcd3b05646c9
       grade: 5
       subject: science
       duration_minutes: 45
       delivery_mode: classroom
       group_size: 28
-      primary_instruction_language: ru
-      estonian_support_level: A1-A2
+      language_policy:
+        primary_instruction_language: ru
+        maximum_total_productive_language_demand: medium
+        estonian_support:
+          enabled: true
+          learner_level: A1-A2
+          allowed_roles:
+            - short_oral_response
+            - terminology
+          subject_explanation_language: ru
     pattern:
       pattern_id: concept-introduction-classroom
       selection_origin: request_required
@@ -262,6 +270,7 @@ examples:
     known_limits:
       - classroom_trial_not_started
       - no_effectiveness_claim
+      - per_language_productive_demand_not_modelled
       - selection_weights_provisional
       - taxonomy_ratings_provisional
       - teacher_review_pending
@@ -278,18 +287,25 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
       engine: "1.0"
     context:
       request_id: grade5-independent-retrieval
-      request_digest: e0272ef6da25c784169b55b76c161cc670162b0ebe0e36463cb6d5f66c98d7f4
+      request_digest: 8679202ea760f50adcd3e434bf43bd3691ea0dcbeacb1b64afb2c2fd40c88a3f
       grade: 5
       subject: science
       duration_minutes: 45
       delivery_mode: independent_study
       group_size: 1
-      primary_instruction_language: ru
-      estonian_support_level: A1-A2
+      language_policy:
+        primary_instruction_language: ru
+        maximum_total_productive_language_demand: medium
+        estonian_support:
+          enabled: true
+          learner_level: A1-A2
+          allowed_roles:
+            - terminology
+          subject_explanation_language: ru
     pattern:
       pattern_id: independent-homeschool-study
       selection_origin: request_required
@@ -482,6 +498,7 @@ examples:
     known_limits:
       - classroom_trial_not_started
       - no_effectiveness_claim
+      - per_language_productive_demand_not_modelled
       - selection_weights_provisional
       - taxonomy_ratings_provisional
       - teacher_review_pending
@@ -498,18 +515,26 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
       engine: "1.0"
     context:
       request_id: grade5-map-diagram
-      request_digest: 27da8cbbe99311fc39384d4c3766ef288bfc3ffe84942d2312ba037948c54956
+      request_digest: 3911a76b9ee1d70df4fd839f9e04c529ee15ea99a1d3d1b81907327b32dfe4f5
       grade: 5
       subject: science
       duration_minutes: 45
       delivery_mode: classroom
       group_size: 28
-      primary_instruction_language: ru
-      estonian_support_level: A1-A2
+      language_policy:
+        primary_instruction_language: ru
+        maximum_total_productive_language_demand: low
+        estonian_support:
+          enabled: true
+          learner_level: A1-A2
+          allowed_roles:
+            - labels
+            - terminology
+          subject_explanation_language: ru
     pattern:
       pattern_id: concept-introduction-classroom
       selection_origin: request_required
@@ -669,6 +694,7 @@ examples:
     known_limits:
       - classroom_trial_not_started
       - no_effectiveness_claim
+      - per_language_productive_demand_not_modelled
       - selection_weights_provisional
       - taxonomy_ratings_provisional
       - teacher_review_pending
@@ -685,18 +711,28 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
       engine: "1.0"
     context:
       request_id: grade5-safe-practical
-      request_digest: 214a0430fe4e75fdd95ddc20dc85c848db9fdab2e25042d37809cb896d14279f
+      request_digest: 023bf09a27becea78190f18d15d6106cde5846353c8ffa508f1c25885979e938
       grade: 5
       subject: science
       duration_minutes: 90
       delivery_mode: classroom
       group_size: 24
-      primary_instruction_language: ru
-      estonian_support_level: A1-A2
+      language_policy:
+        primary_instruction_language: ru
+        maximum_total_productive_language_demand: medium
+        estonian_support:
+          enabled: true
+          learner_level: A1-A2
+          allowed_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - terminology
+          subject_explanation_language: ru
     pattern:
       pattern_id: safe-practical-investigation
       selection_origin: request_required
@@ -708,22 +744,21 @@ examples:
         purpose_ru: Сделать цель, критерии наблюдения и ограничения безопасности явными.
         required: true
         target:
-          target_id: true-false-anticipation
-          activity_id: true-false-anticipation
+          target_id: brainstorming
+          activity_id: brainstorming
           execution_profile_id: null
-        activity_minutes: 5
-        setup_minutes: 4
+        activity_minutes: 3
+        setup_minutes: 2
         cleanup_minutes: 0
         transition_minutes: 0
-        group_format: individual
+        group_format: small_group
         capabilities:
           primary:
-            - misconception_detection
             - prior_knowledge_activation
           supporting:
-            - causal_reasoning
-            - error_correction
+            - collaborative_practice
             - formative_assessment
+            - oral_production
         source_access:
           first_attempt: allowed
         language_role:
@@ -736,13 +771,12 @@ examples:
         resources:
           required:
             - paper
-            - textbook_or_source_text
             - writing_tool
         safety:
           requires_adult_supervision: false
           controls_ru: []
-        rationale_ru: Target true-false-anticipation прошёл hard constraints и получил наивысший допустимый
-          вклад в согласованную композицию; это не effectiveness ranking.
+        rationale_ru: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
       - phase_id: practical-work
         phase: guided_practice
         purpose_ru: Выполнить разрешённые действия и фиксировать наблюдаемые данные.
@@ -754,8 +788,8 @@ examples:
         activity_minutes: 20
         setup_minutes: 10
         cleanup_minutes: 10
-        transition_minutes: 1
-        group_format: rotating_stations
+        transition_minutes: 0
+        group_format: small_group
         capabilities:
           primary:
             - evidence_based_conclusion
@@ -794,25 +828,25 @@ examples:
         purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
         required: true
         target:
-          target_id: error-correction
-          activity_id: error-correction
+          target_id: sorting-and-sequencing
+          activity_id: sorting-and-sequencing
           execution_profile_id: null
-        activity_minutes: 3
-        setup_minutes: 4
+        activity_minutes: 5
+        setup_minutes: 2
         cleanup_minutes: 0
-        transition_minutes: 1
-        group_format: individual
+        transition_minutes: 0
+        group_format: small_group
         capabilities:
           primary:
-            - error_correction
-            - error_detection
+            - classification
+            - sequencing
           supporting:
-            - formative_assessment
-            - misconception_detection
-            - reflection
-            - self_assessment
+            - comparison
+            - guided_practice
+            - independent_practice
+            - transfer_and_application
         source_access:
-          first_attempt: required
+          first_attempt: allowed
         language_role:
           primary_language: ru
           estonian_roles:
@@ -822,36 +856,35 @@ examples:
             - terminology
         resources:
           required:
-            - paper
-            - textbook_or_source_text
-            - writing_tool
+            - manipulatives
         safety:
           requires_adult_supervision: false
           controls_ru: []
-        rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
-          согласованную композицию; это не effectiveness ranking.
+        rationale_ru: Target sorting-and-sequencing прошёл hard constraints и получил наивысший допустимый
+          вклад в согласованную композицию; это не effectiveness ranking.
       - phase_id: conclusion
         phase: retrieval
         purpose_ru: Сформулировать предметный вывод без копирования инструкции.
         required: true
         target:
-          target_id: retrieval-self-test
-          activity_id: retrieval-self-test
+          target_id: concept-map
+          activity_id: concept-map
           execution_profile_id: null
-        activity_minutes: 5
-        setup_minutes: 4
+        activity_minutes: 8
+        setup_minutes: 2
         cleanup_minutes: 0
         transition_minutes: 0
-        group_format: individual
+        group_format: small_group
         capabilities:
           primary:
-            - formative_assessment
-            - independent_practice
-            - retrieval
-            - self_assessment
+            - concept_formation
+            - visual_representation
           supporting:
-            - error_correction
-            - error_detection
+            - classification
+            - comparison
+            - diagram_interpretation
+            - formative_assessment
+            - retrieval
         source_access:
           first_attempt: prohibited
         language_role:
@@ -864,21 +897,20 @@ examples:
         resources:
           required:
             - paper
-            - textbook_or_source_text
             - writing_tool
         safety:
           requires_adult_supervision: false
           controls_ru: []
-        rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
-          вклад в согласованную композицию; это не effectiveness ranking.
+        rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
     timing:
-      activity_minutes: 33
-      setup_minutes: 22
+      activity_minutes: 36
+      setup_minutes: 16
       cleanup_minutes: 10
-      transition_minutes: 2
+      transition_minutes: 0
       reserve_minutes: 3
-      total_planned_minutes: 70
-      unallocated_minutes: 20
+      total_planned_minutes: 65
+      unallocated_minutes: 25
       fits: true
     assessment:
       separation_policy: separate_subject_and_estonian_language_evidence
@@ -911,6 +943,7 @@ examples:
     known_limits:
       - classroom_trial_not_started
       - no_effectiveness_claim
+      - per_language_productive_demand_not_modelled
       - selection_weights_provisional
       - taxonomy_ratings_provisional
       - teacher_review_pending

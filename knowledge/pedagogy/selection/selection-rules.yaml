@@ -24,6 +24,32 @@ hard_constraints:
   safety_supervision: true
   source_access_policy: true
   teacher_override_cannot_bypass: true
+delivery_fit:
+  restriction_order_most_to_least:
+    - unknown
+    - not_recommended
+    - limited
+    - adaptable
+    - directly_supported
+  homeschool_status_mapping:
+    adaptable: adaptable
+    directly_suitable: directly_supported
+    limited: limited
+    not_recommended: not_recommended
+  hard_reject:
+    - not_recommended
+    - unknown
+  large_class_group_size_threshold: 24
+group_format_selection:
+  preference_semantics: unordered_set
+  fallback_order:
+    - individual
+    - pair
+    - triad
+    - small_group
+    - medium_group
+    - rotating_stations
+    - whole_class
 scoring:
   capability_levels:
     incidental: 1
@@ -36,6 +62,7 @@ scoring:
   weights:
     a1_a2_direct_fit: 6
     a1_a2_scaffolded_fit: 3
+    adaptable_delivery_fit: 2
     content_type_match: 2
     desired_capability_incidental: 1
     desired_capability_primary: 8
@@ -43,7 +70,7 @@ scoring:
     direct_delivery_fit: 5
     effort_headroom: 2
     execution_profile_specificity: 2
-    group_format_fit: 4
+    preferred_group_format_fit: 4
     pattern_activity_option: 6
     pattern_phase_fit: 10
     preferred_pattern: 5
@@ -53,6 +80,7 @@ scoring:
     resource_simplicity: 1
     source_access_fit: 3
   penalties:
+    limited_delivery_fit: -2
     limited_a1_a2: -8
     provisional_taxonomy: -1
     recent_target: -5
@@ -67,7 +95,7 @@ combination_rules:
   practical_requires_evidence_conclusion: true
   reflection_only_is_not_subject_assessment: true
   retrieval_requires_later_correction: true
-  maximum_language_heavy_phase_share_percent_a1_a2: 50
+  maximum_total_language_heavy_phase_share_percent_for_a1_a2_supported_lessons: 50
   repeated_target_forbidden: true
 purpose_policies:
   - purpose: collaborative_practice

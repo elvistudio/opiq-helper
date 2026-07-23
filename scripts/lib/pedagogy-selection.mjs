@@ -52,18 +52,10 @@ const SET_ARRAY_KEYS = new Set([
   'supported_group_formats',
   'unavailable',
 ]);
-const FORMAT_PREFERRED_ORDER = [
-  'individual',
-  'pair',
-  'triad',
-  'small_group',
-  'medium_group',
-  'rotating_stations',
-  'whole_class',
-];
 const REQUIRED_SELECTION_WEIGHT_KEYS = [
   'a1_a2_direct_fit',
   'a1_a2_scaffolded_fit',
+  'adaptable_delivery_fit',
   'content_type_match',
   'desired_capability_incidental',
   'desired_capability_primary',
@@ -71,7 +63,7 @@ const REQUIRED_SELECTION_WEIGHT_KEYS = [
   'direct_delivery_fit',
   'effort_headroom',
   'execution_profile_specificity',
-  'group_format_fit',
+  'preferred_group_format_fit',
   'pattern_activity_option',
   'pattern_phase_fit',
   'preferred_pattern',
@@ -82,6 +74,7 @@ const REQUIRED_SELECTION_WEIGHT_KEYS = [
   'source_access_fit',
 ];
 const REQUIRED_SELECTION_PENALTY_KEYS = [
+  'limited_delivery_fit',
   'limited_a1_a2',
   'provisional_taxonomy',
   'recent_target',
@@ -176,6 +169,69 @@ export function normalizePedagogySelectionRequest(request) {
   return normalizeRequestValue(structuredClone(request));
 }
 
+function compareOverrideIdentity(left, right) {
+  return compareBytewise(left.override_id, right.override_id)
+    || compareBytewise(left.slot_id, right.slot_id)
+    || compareBytewise(left.requested_target_id, right.requested_target_id);
+}
+
+export function validateTeacherOverrideSet(request) {
+  const overrides = request.preferences?.teacher_overrides ?? [];
+  const idCounts = new Map();
+  const slotCounts = new Map();
+  for (const override of overrides) {
+    idCounts.set(override.override_id, (idCounts.get(override.override_id) ?? 0) + 1);
+    slotCounts.set(override.slot_id, (slotCounts.get(override.slot_id) ?? 0) + 1);
+  }
+  const duplicateIds = sorted(
+    [...idCounts.entries()].filter(([, count]) => count > 1).map(([id]) => id),
+  );
+  const duplicateSlots = sorted(
+    [...slotCounts.entries()].filter(([, count]) => count > 1).map(([id]) => id),
+  );
+  const missingRationaleIds = sorted(overrides
+    .filter((override) => (
+      typeof override.rationale_ru !== 'string' || override.rationale_ru.trim().length === 0
+    ))
+    .map((override) => override.override_id));
+  if (
+    duplicateIds.length === 0
+    && duplicateSlots.length === 0
+    && missingRationaleIds.length === 0
+  ) {
+    return { valid: true, details: [], overrideResults: [] };
+  }
+  const overrideResults = overrides.map((override) => {
+    const reasons = [];
+    if (idCounts.get(override.override_id) > 1) reasons.push('Override ID is duplicated.');
+    if (slotCounts.get(override.slot_id) > 1) {
+      reasons.push('Multiple overrides target the same slot.');
+    }
+    if (typeof override.rationale_ru !== 'string' || override.rationale_ru.trim().length === 0) {
+      reasons.push('Teacher override rationale is required.');
+    }
+    if (reasons.length === 0) {
+      reasons.push('Selection request contains another invalid teacher override.');
+    }
+    return {
+      override_id: override.override_id,
+      status: 'rejected',
+      slot_id: override.slot_id,
+      requested_target_id: override.requested_target_id,
+      reason: reasons.sort(compareBytewise).join(' '),
+    };
+  }).sort(compareOverrideIdentity);
+  return {
+    valid: false,
+    details: [
+      ...duplicateIds.map((id) => `duplicate override id ${id}`),
+      ...duplicateSlots.map((slotId) => `multiple overrides target slot ${slotId}`),
+      ...missingRationaleIds.map((id) => `override ${id} has no rationale`),
+    ].sort(compareBytewise),
+    overrideResults,
+  };
+}
+
 function selectionTargetIdentity(target) {
   const { activity, operational } = target;
   return {
@@ -191,6 +247,7 @@ function selectionTargetIdentity(target) {
     delivery_constraints: stableValue(operational.delivery_constraints),
     duration: stableValue(operational.duration),
     effort: stableValue(operational.effort),
+    homeschool_adaptation: stableValue(operational.homeschool_adaptation),
     resource_requirements: stableValue(operational.resource_requirements),
     learner_demands: stableValue(operational.learner_demands),
     compatibility: stableValue(operational.compatibility),
@@ -277,7 +334,7 @@ function groupFormatSize(format, groupSize) {
   return groupSize;
 }
 
-function selectGroupFormat(target, request) {
+function selectGroupFormat(target, request, rules) {
   const supported = target.operational.delivery_constraints.supported_group_formats;
   const allowed = request.learner_context.supported_group_formats;
   const candidates = allowed.filter((format) => {
@@ -286,11 +343,85 @@ function selectGroupFormat(target, request) {
     const range = target.operational.delivery_constraints.group_size;
     return range.min <= size && size <= range.max;
   });
-  const preferred = [
-    ...request.preferences.preferred_group_formats,
-    ...FORMAT_PREFERRED_ORDER,
-  ];
-  return preferred.find((format) => candidates.includes(format)) ?? null;
+  const fallbackOrder = rules.group_format_selection.fallback_order;
+  const candidateSet = new Set(candidates);
+  const preferredSet = new Set(request.preferences.preferred_group_formats);
+  const preferred = fallbackOrder.find(
+    (format) => candidateSet.has(format) && preferredSet.has(format),
+  );
+  if (preferred) {
+    return {
+      selected: preferred,
+      preferred: true,
+      fallback_used: false,
+    };
+  }
+  const fallback = fallbackOrder.find((format) => candidateSet.has(format)) ?? null;
+  return {
+    selected: fallback,
+    preferred: false,
+    fallback_used: fallback !== null,
+  };
+}
+
+function homeschoolDeliveryFit(status, rules) {
+  return rules.delivery_fit.homeschool_status_mapping[status] ?? 'unknown';
+}
+
+function mostRestrictiveDeliveryFit(dimensions, rules) {
+  const order = rules.delivery_fit.restriction_order_most_to_least;
+  return dimensions.reduce((current, item) => (
+    order.indexOf(item.fit) < order.indexOf(current) ? item.fit : current
+  ), 'directly_supported');
+}
+
+function determineDeliveryFit(target, request, rules) {
+  const { operational } = target;
+  const learner = request.learner_context;
+  const dimensions = [{
+    dimension: 'declared_delivery_mode',
+    fit: operational.delivery_constraints.delivery_modes.includes(learner.delivery_mode)
+      ? 'directly_supported'
+      : 'not_recommended',
+  }];
+  if (['homeschool', 'parent_supported'].includes(learner.delivery_mode)) {
+    dimensions.push({
+      dimension: 'homeschool_adaptation',
+      fit: homeschoolDeliveryFit(operational.homeschool_adaptation.status, rules),
+    });
+  }
+  if (learner.delivery_mode === 'remote') {
+    dimensions.push({
+      dimension: 'remote_delivery',
+      fit: operational.compatibility.remote_delivery,
+    });
+  }
+  if (
+    learner.study_context === 'individual_study'
+    || learner.delivery_mode === 'independent_study'
+    || learner.group_size === 1
+  ) {
+    dimensions.push({
+      dimension: 'one_learner',
+      fit: operational.compatibility.one_learner,
+    });
+  }
+  if (
+    learner.study_context === 'classroom'
+    && learner.group_size >= rules.delivery_fit.large_class_group_size_threshold
+  ) {
+    dimensions.push({
+      dimension: 'large_class',
+      fit: operational.compatibility.large_class,
+    });
+  }
+  const sortedDimensions = dimensions.sort(
+    (left, right) => compareBytewise(left.dimension, right.dimension),
+  );
+  return {
+    delivery_fit: mostRestrictiveDeliveryFit(sortedDimensions, rules),
+    delivery_dimensions: sortedDimensions,
+  };
 }
 
 function effectiveAvailableResources(request) {
@@ -308,13 +439,18 @@ function effectiveAvailableResources(request) {
   return resources;
 }
 
-function hardFilterTarget(target, pattern, component, slot, request) {
+function hardFilterTarget(target, pattern, component, slot, request, rules) {
   const reasons = [];
   const { activity, operational } = target;
   const learner = request.learner_context;
   const resources = effectiveAvailableResources(request);
   const unavailable = new Set(request.resources.unavailable);
-  const groupFormat = selectGroupFormat(target, request);
+  const groupFormatSelection = selectGroupFormat(target, request, rules);
+  const delivery = determineDeliveryFit(target, request, rules);
+  const operationalFit = {
+    ...delivery,
+    group_format_selection: groupFormatSelection,
+  };
 
   if (!(activity.suitable_grades.min <= learner.grade && learner.grade <= activity.suitable_grades.max)) {
     reasons.push(`grade ${learner.grade} outside ${activity.suitable_grades.min}-${activity.suitable_grades.max}`);
@@ -328,7 +464,12 @@ function hardFilterTarget(target, pattern, component, slot, request) {
   if (!operational.delivery_constraints.delivery_modes.includes(learner.delivery_mode)) {
     reasons.push(`delivery mode ${learner.delivery_mode} is not supported`);
   }
-  if (!groupFormat) reasons.push('no requested group format is compatible with the execution range');
+  if (rules.delivery_fit.hard_reject.includes(delivery.delivery_fit)) {
+    reasons.push(`effective delivery fit ${delivery.delivery_fit} is not allowed`);
+  }
+  if (!groupFormatSelection.selected) {
+    reasons.push('no requested group format is compatible with the execution range');
+  }
   for (const resourceId of operational.resource_requirements.required) {
     if (!resources.has(resourceId) || unavailable.has(resourceId)) {
       reasons.push(`required resource ${resourceId} is unavailable`);
@@ -365,14 +506,13 @@ function hardFilterTarget(target, pattern, component, slot, request) {
       + request.constraints.max_parent_effort,
     );
   }
-  const maximumLanguage = request.language_profile.estonian_support.maximum_productive_language_demand;
+  const maximumLanguage = request.language_profile.maximum_total_productive_language_demand;
   if (
-    request.language_profile.estonian_support.enabled
-    && DEMAND_ORDER.get(operational.learner_demands.productive_language)
+    DEMAND_ORDER.get(operational.learner_demands.productive_language)
       > DEMAND_ORDER.get(maximumLanguage)
   ) {
     reasons.push(
-      `productive-language demand ${operational.learner_demands.productive_language} exceeds `
+      `total productive-language demand ${operational.learner_demands.productive_language} exceeds `
       + maximumLanguage,
     );
   }
@@ -406,7 +546,13 @@ function hardFilterTarget(target, pattern, component, slot, request) {
   ) {
     reasons.push('practical-work slot requires observation, measurement, or experimentation');
   }
-  return { passed: reasons.length === 0, reasons, groupFormat, pattern, component };
+  return {
+    passed: reasons.length === 0,
+    reasons,
+    operationalFit,
+    pattern,
+    component,
+  };
 }
 
 function addScore(components, name, value) {
@@ -425,7 +571,7 @@ function capabilityScore(level, required, weights) {
   return 0;
 }
 
-function scoreTarget(target, pattern, component, slot, request, rules, groupFormat) {
+function scoreTarget(target, pattern, component, slot, request, rules, operationalFit) {
   const { activity, operational } = target;
   const { weights, penalties, parameters } = rules.scoring;
   const components = {};
@@ -450,8 +596,22 @@ function scoreTarget(target, pattern, component, slot, request, rules, groupForm
   if (component.activity_options.includes(activity.activity_id)) {
     addScore(components, 'pattern_activity_option', weights.pattern_activity_option);
   }
-  addScore(components, 'direct_delivery_fit', weights.direct_delivery_fit);
-  addScore(components, 'group_format_fit', weights.group_format_fit);
+  if (operationalFit.delivery_fit === 'directly_supported') {
+    addScore(components, 'direct_delivery_fit', weights.direct_delivery_fit);
+  }
+  if (operationalFit.delivery_fit === 'adaptable') {
+    addScore(components, 'adaptable_delivery_fit', weights.adaptable_delivery_fit);
+  }
+  if (operationalFit.delivery_fit === 'limited') {
+    addScore(components, 'limited_delivery_fit', penalties.limited_delivery_fit);
+  }
+  if (operationalFit.group_format_selection.preferred) {
+    addScore(
+      components,
+      'preferred_group_format_fit',
+      weights.preferred_group_format_fit,
+    );
+  }
   if (target.execution_profile_id) {
     addScore(components, 'execution_profile_specificity', weights.execution_profile_specificity);
   }
@@ -501,7 +661,8 @@ function scoreTarget(target, pattern, component, slot, request, rules, groupForm
   return {
     total: Object.values(orderedComponents).reduce((total, value) => total + value, 0),
     components: orderedComponents,
-    groupFormat,
+    groupFormat: operationalFit.group_format_selection.selected,
+    operationalFit,
   };
 }
 
@@ -512,12 +673,12 @@ function patternComponent(pattern, phase) {
 function candidateRowsForSlot(targets, pattern, slot, request, rules) {
   const component = patternComponent(pattern, slot.phase);
   return targets.map((target) => {
-    const hard = hardFilterTarget(target, pattern, component, slot, request);
+    const hard = hardFilterTarget(target, pattern, component, slot, request, rules);
     return {
       target,
       hard,
       score: hard.passed
-        ? scoreTarget(target, pattern, component, slot, request, rules, hard.groupFormat)
+        ? scoreTarget(target, pattern, component, slot, request, rules, hard.operationalFit)
         : null,
     };
   }).sort((left, right) => {
@@ -656,11 +817,12 @@ function evaluateCombination(choices, pattern, request, rules) {
     if (
       totalActivity > 0
       && (heavy * 100) / totalActivity
-        > rules.combination_rules.maximum_language_heavy_phase_share_percent_a1_a2
+        > rules.combination_rules
+          .maximum_total_language_heavy_phase_share_percent_for_a1_a2_supported_lessons
     ) {
       failures.push({
         code: 'language_profile_incompatible',
-        detail: 'language-heavy targets occupy too much of an A1-A2 supported lesson',
+        detail: 'total productive-language-heavy targets occupy too much of an A1-A2 supported lesson',
       });
     }
   }
@@ -691,16 +853,16 @@ function enumerateCompositions(slotRows, pattern, request, rules) {
       choices.pop();
       return;
     }
-    const acceptedOverride = rows.find((row) => row.overrideAccepted);
-    const candidates = acceptedOverride
-      ? [acceptedOverride]
+    const eligibleOverride = rows.find((row) => row.overrideEligible);
+    const candidates = eligibleOverride
+      ? [eligibleOverride]
       : rows.filter((row) => row.hard.passed);
     for (const row of candidates) {
       choices.push({ ...row, slot });
       visit(index + 1);
       choices.pop();
     }
-    if (slot.requirement === 'optional') {
+    if (slot.requirement === 'optional' && !eligibleOverride) {
       choices.push(null);
       visit(index + 1);
       choices.pop();
@@ -770,6 +932,7 @@ function candidateTrace(row) {
     target_id: row.target.target_id,
     hard_filter_passed: row.hard.passed,
     hard_filter_reasons: uniqueSorted(row.hard.reasons),
+    operational_fit: row.hard.operationalFit,
     score: row.score ? { total: row.score.total, components: row.score.components } : null,
   };
 }
@@ -993,8 +1156,18 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
       duration_minutes: request.learner_context.lesson_duration_minutes,
       delivery_mode: request.learner_context.delivery_mode,
       group_size: request.learner_context.group_size,
-      primary_instruction_language: request.language_profile.primary_instruction_language,
-      estonian_support_level: request.language_profile.estonian_support.learner_level,
+      language_policy: {
+        primary_instruction_language: request.language_profile.primary_instruction_language,
+        maximum_total_productive_language_demand:
+          request.language_profile.maximum_total_productive_language_demand,
+        estonian_support: {
+          enabled: request.language_profile.estonian_support.enabled,
+          learner_level: request.language_profile.estonian_support.learner_level,
+          allowed_roles: sorted(request.language_profile.estonian_support.allowed_roles),
+          subject_explanation_language:
+            request.language_profile.estonian_support.subject_explanation_language,
+        },
+      },
     },
     pattern: {
       pattern_id: pattern.pattern_id,
@@ -1030,6 +1203,7 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
     known_limits: [
       'classroom_trial_not_started',
       'no_effectiveness_claim',
+      'per_language_productive_demand_not_modelled',
       'selection_weights_provisional',
       'taxonomy_ratings_provisional',
       'teacher_review_pending',
@@ -1066,6 +1240,56 @@ function validateOverrideForPattern(override, patternPolicy, rowsBySlot, targetI
   return null;
 }
 
+function finalizeSelectedOverrideResults(request, selectedPattern) {
+  return request.preferences.teacher_overrides.map((override) => {
+    const evaluation = selectedPattern.overrideEvaluations.find(
+      (item) => item.override.override_id === override.override_id,
+    );
+    if (evaluation?.reason) {
+      return {
+        override_id: override.override_id,
+        status: 'rejected',
+        slot_id: override.slot_id,
+        requested_target_id: override.requested_target_id,
+        reason: evaluation.reason,
+      };
+    }
+    const selectedChoice = selectedPattern.composition.choices.find(
+      (choice) => choice?.slot.slot_id === override.slot_id,
+    );
+    const applied = selectedChoice?.target.target_id === override.requested_target_id;
+    return {
+      override_id: override.override_id,
+      status: applied ? 'accepted' : 'rejected',
+      slot_id: override.slot_id,
+      requested_target_id: override.requested_target_id,
+      reason: applied
+        ? 'Override satisfies every hard constraint and is applied in the selected composition.'
+        : 'Override passed hard constraints but was not applied in the selected composition.',
+    };
+  }).sort(compareOverrideIdentity);
+}
+
+function aggregateFailedOverrideResults(request, patternResults) {
+  return request.preferences.teacher_overrides.map((override) => {
+    const evaluations = patternResults.map((patternResult) => (
+      patternResult.overrideEvaluations.find(
+        (item) => item.override.override_id === override.override_id,
+      )
+    )).filter(Boolean);
+    const reasons = uniqueSorted(evaluations.map((evaluation) => evaluation.reason).filter(Boolean));
+    return {
+      override_id: override.override_id,
+      status: 'rejected',
+      slot_id: override.slot_id,
+      requested_target_id: override.requested_target_id,
+      reason: reasons.length > 0
+        ? reasons.join('; ')
+        : 'Override was eligible but no valid composition could apply it.',
+    };
+  }).sort(compareOverrideIdentity);
+}
+
 export function selectLessonPedagogy(selectionRepository, rawRequest) {
   const request = normalizePedagogySelectionRequest(rawRequest);
   const { knowledge } = selectionRepository;
@@ -1075,6 +1299,19 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
   const targets = expandPedagogyActivityTargets(activities);
   const targetIds = new Set(targets.map((target) => target.target_id));
   const versions = requestVersionBlock(knowledge, rules);
+  const overrideSet = validateTeacherOverrideSet(request);
+  if (!overrideSet.valid) {
+    return {
+      decision: createFailureDecision(request, versions, {
+        code: 'invalid_teacher_override',
+        message: 'Teacher overrides are ambiguous.',
+        details: overrideSet.details,
+        overrideResults: overrideSet.overrideResults,
+        targetsConsidered: targets.length,
+      }),
+      lessonDna: null,
+    };
+  }
   const purposePolicy = rules.purpose_policies.find(
     (policy) => policy.purpose === request.lesson_context.purpose,
   );
@@ -1092,11 +1329,20 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
     && pattern.delivery_modes.includes(request.learner_context.delivery_mode)
   ));
   if (patternCandidates.length === 0) {
+    const overrideResults = request.preferences.teacher_overrides.map((override) => ({
+      override_id: override.override_id,
+      status: 'rejected',
+      slot_id: override.slot_id,
+      requested_target_id: override.requested_target_id,
+      reason: 'No eligible pattern was available to apply the override.',
+    })).sort(compareOverrideIdentity);
     return {
       decision: createFailureDecision(request, versions, {
         code: 'no_pattern_match',
         message: 'No flexible pattern satisfies the request context.',
         details: patternIds.length > 0 ? patternIds : ['purpose has no registered pattern policy'],
+        overrideResults,
+        targetsConsidered: targets.length,
       }),
       lessonDna: null,
     };
@@ -1123,7 +1369,7 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
         : [],
     }));
     const rowsBySlot = new Map(slotRows.map(({ slot, rows }) => [slot.slot_id, rows]));
-    const overrideResults = [];
+    const overrideEvaluations = [];
     let invalidOverride = false;
     for (const override of request.preferences.teacher_overrides) {
       const reason = validateOverrideForPattern(
@@ -1132,18 +1378,12 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
         rowsBySlot,
         targetIds,
       );
-      overrideResults.push({
-        override_id: override.override_id,
-        status: reason ? 'rejected' : 'accepted',
-        slot_id: override.slot_id,
-        requested_target_id: override.requested_target_id,
-        reason: reason ?? 'override satisfies every hard constraint and is applied to the requested slot',
-      });
+      overrideEvaluations.push({ override, reason });
       if (reason) invalidOverride = true;
       else {
         const row = rowsBySlot.get(override.slot_id)
           .find((candidate) => candidate.target.target_id === override.requested_target_id);
-        row.overrideAccepted = true;
+        row.overrideEligible = override.override_id;
       }
     }
     if (invalidOverride) {
@@ -1151,13 +1391,15 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
         pattern,
         patternPolicy: effectivePatternPolicy,
         slotRows,
-        overrideResults,
+        overrideEvaluations,
         compositions: {
           valid: [],
           failures: [{ code: 'invalid_teacher_override', detail: 'teacher override violates a hard constraint' }],
           invalidEvaluations: [[{ code: 'invalid_teacher_override', detail: 'teacher override violates a hard constraint' }]],
         },
-        reasons: overrideResults.filter((result) => result.status === 'rejected').map((result) => result.reason),
+        reasons: overrideEvaluations
+          .filter((evaluation) => evaluation.reason)
+          .map((evaluation) => evaluation.reason),
       });
       continue;
     }
@@ -1192,7 +1434,7 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
         pattern,
         patternPolicy: effectivePatternPolicy,
         slotRows,
-        overrideResults,
+        overrideEvaluations,
         compositions: {
           valid: [],
           failures: [{ code, detail: `no target for required slot ${requiredEmpty.slot.slot_id}` }],
@@ -1207,7 +1449,7 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
       pattern,
       patternPolicy: effectivePatternPolicy,
       slotRows,
-      overrideResults,
+      overrideEvaluations,
       compositions,
       reasons: compositions.valid.length > 0
         ? []
@@ -1237,13 +1479,14 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
           pattern_id: result.pattern.pattern_id,
           reasons: result.reasons.length > 0 ? result.reasons : ['no valid composition'],
         })),
-        overrideResults: patternResults.flatMap((result) => result.overrideResults),
+        overrideResults: aggregateFailedOverrideResults(request, patternResults),
         targetsConsidered: targets.length,
       }),
       lessonDna: null,
     };
   }
   const selected = validPatterns[0];
+  selected.overrideResults = finalizeSelectedOverrideResults(request, selected);
   const decision = buildDecision(request, versions, selected, patternResults, targets);
   decision.selected_pattern.rationale_ru = patternRationale(
     selected.pattern,
@@ -1281,6 +1524,48 @@ function addSchemaDiagnostics(errors, validate, file, data) {
 
 function compareExample(expected, actual) {
   return stablePedagogyJson(expected) === stablePedagogyJson(actual);
+}
+
+function teacherOverrideInvariantErrors(request, result) {
+  const errors = [];
+  const results = result.decision.teacher_override_results;
+  const ordered = [...results].sort(compareOverrideIdentity);
+  if (stablePedagogyJson(results) !== stablePedagogyJson(ordered)) {
+    errors.push('teacher override diagnostics must be bytewise sorted');
+  }
+  const accepted = results.filter((item) => item.status === 'accepted');
+  for (const item of accepted) {
+    const matchingSlots = result.decision.slot_decisions.filter((slot) => (
+      slot.slot_id === item.slot_id && slot.selected_target_id === item.requested_target_id
+    ));
+    if (matchingSlots.length !== 1) {
+      errors.push(`accepted override ${item.override_id} is not applied exactly once`);
+    }
+  }
+  for (const override of request.preferences.teacher_overrides) {
+    const matchingSlots = result.decision.slot_decisions.filter((slot) => (
+      slot.slot_id === override.slot_id
+      && slot.selected_target_id === override.requested_target_id
+    ));
+    const acceptedResults = accepted.filter((item) => item.override_id === override.override_id);
+    if (matchingSlots.length === 1 && acceptedResults.length !== 1) {
+      errors.push(`applied override ${override.override_id} is not accepted exactly once`);
+    }
+  }
+  const dnaOverrides = result.lessonDna?.teacher_overrides ?? [];
+  if (dnaOverrides.length !== accepted.length) {
+    errors.push('lesson DNA accepted overrides differ from the public decision');
+  }
+  for (const item of dnaOverrides) {
+    if (!accepted.some((acceptedItem) => (
+      acceptedItem.override_id === item.override_id
+      && acceptedItem.slot_id === item.slot_id
+      && acceptedItem.requested_target_id === item.target_id
+    ))) {
+      errors.push(`lesson DNA override ${item.override_id} has no accepted decision result`);
+    }
+  }
+  return errors;
 }
 
 export function validatePedagogySelection(selectionRepository, {
@@ -1459,6 +1744,8 @@ export function validatePedagogySelection(selectionRepository, {
       const result = selectLessonPedagogy(selectionRepository, fixture.request);
       if (!addSchemaDiagnostics(errors, validators.decision, `${fixture.fixture_id}:decision`, result.decision)) continue;
       if (result.lessonDna && !addSchemaDiagnostics(errors, validators.lessonDna, `${fixture.fixture_id}:lesson-dna`, result.lessonDna)) continue;
+      errors.push(...teacherOverrideInvariantErrors(fixture.request, result)
+        .map((reason) => `${fixture.fixture_id}: ${reason}`));
       if (result.decision.status !== fixture.expected.status) {
         errors.push(`${fixture.fixture_id}: expected ${fixture.expected.status}, got ${result.decision.status}`);
       }

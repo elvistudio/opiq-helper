@@ -156,9 +156,16 @@
     "languageProfile": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["primary_instruction_language", "estonian_support"],
+      "required": [
+        "primary_instruction_language",
+        "maximum_total_productive_language_demand",
+        "estonian_support"
+      ],
       "properties": {
         "primary_instruction_language": {"enum": ["ru", "et", "en"]},
+        "maximum_total_productive_language_demand": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/demandLevel"
+        },
         "estonian_support": {
           "type": "object",
           "additionalProperties": false,
@@ -168,7 +175,6 @@
             "learner_level",
             "allowed_roles",
             "subject_explanation_language",
-            "maximum_productive_language_demand",
             "sentence_frames_required",
             "word_bank_required",
             "assessment_requested"
@@ -183,7 +189,6 @@
               "items": {"enum": ["terminology", "labels", "familiar_instruction", "sentence_frame", "short_oral_response", "short_written_response"]}
             },
             "subject_explanation_language": {"enum": ["ru", "et", "en"]},
-            "maximum_productive_language_demand": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/demandLevel"},
             "sentence_frames_required": {"type": "boolean"},
             "word_bank_required": {"type": "boolean"},
             "assessment_requested": {"type": "boolean"}

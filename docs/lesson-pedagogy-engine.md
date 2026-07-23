@@ -68,8 +68,9 @@ No generated timestamp is part of the deterministic core.
   formats, duration, and classroom/individual-study context;
 - lesson context: purpose, content types, required and desired capabilities,
   phase needs, recent targets, and later retrieval windows;
-- language profile: main explanation language, Estonian support level and
-  roles, productive-language ceiling, and required scaffolds;
+- language profile: main explanation language, a total learner
+  productive-language ceiling, and a separate Estonian support level, role
+  set, and required scaffolds;
 - resources: exact available/unavailable vocabulary and explicit equipment,
   access, and supervision flags;
 - effort limits: preparation, facilitation, learner setup, and parent support;
@@ -104,7 +105,8 @@ The engine checks:
 - printer, internet, equipment, and outdoor availability;
 - preparation, facilitation, learner, and parent effort ceilings;
 - adult safety supervision;
-- productive-language demand and Estonian A1–A2 compatibility;
+- total learner productive-language demand;
+- Estonian A1–A2 compatibility as a separate support-language constraint;
 - source access during a retrieval attempt;
 - concrete execution-profile identity;
 - explicit target exclusions;
@@ -126,7 +128,8 @@ Scoring considers:
   supporting;
 - content-type and pattern-phase fit;
 - whether the target is a pattern's documented activity option;
-- group, delivery, language, resource, and effort fit;
+- effective delivery fit, preferred group-format fit, language, resource, and
+  effort fit;
 - concrete execution-profile specificity;
 - explicit preferences;
 - recent-method repetition;
@@ -135,6 +138,41 @@ Scoring considers:
 Required capability coverage is also a whole-composition hard check. A high
 score cannot hide an uncovered required capability. Ties use bytewise target
 IDs and composition signatures. The code has no unlisted score component.
+
+### Delivery fit
+
+The engine derives one effective delivery fit from the request and the
+activity or execution profile. The bounded levels, from strongest to most
+restrictive, are:
+
+```text
+directly_supported > adaptable > limited > not_recommended > unknown
+```
+
+For homeschool requests, `homeschool_adaptation.status` is mapped to this
+vocabulary. Remote delivery uses `compatibility.remote_delivery`; individual
+study and one-learner requests use `compatibility.one_learner`. Large-class
+compatibility is consulted only at the versioned threshold stored in the
+rules. When several dimensions apply, the most restrictive result wins.
+
+`directly_supported` receives `direct_delivery_fit`; `adaptable` receives the
+smaller `adaptable_delivery_fit`; and `limited` receives the visible
+`limited_delivery_fit` penalty. `not_recommended` and `unknown` are hard
+rejections in version 1.0. The trace lists the contributing dimensions, so no
+delivery score is granted merely because a target passed another hard filter.
+
+### Group-format fit
+
+`preferred_group_formats` is an unordered set, not a ranking. The selector
+intersects the request formats with the target's supported formats and
+participant range, prefers any member of the preference set, and otherwise
+uses the versioned byte-stable fallback order in `selection-rules.yaml`.
+Reordering the request array cannot change the result.
+
+Only a selected preferred format receives
+`preferred_group_format_fit`. A valid fallback receives no non-zero format
+bonus. Candidate traces record the selected format, whether it was preferred,
+and whether fallback was used.
 
 ## Pattern choice and flexible slots
 
@@ -183,7 +221,7 @@ The composition validator also rejects:
 - retrieval without later correction when the request is retrieval-focused;
 - practical work without observation/measurement and an evidence-based
   conclusion;
-- excessive high productive-language time under A1–A2 support;
+- excessive high total productive-language time in an A1–A2-supported lesson;
 - reflection-only evidence represented as full subject assessment.
 
 If no valid composition fits, the engine returns a schema-valid failure rather
@@ -207,6 +245,7 @@ The grade-5 science fixtures preserve:
 
 ```yaml
 primary_instruction_language: ru
+maximum_total_productive_language_demand: medium
 estonian_support:
   learner_level: A1-A2
   subject_explanation_language: ru
@@ -217,9 +256,27 @@ correction, and complete subject answers. Estonian roles are bounded to
 terminology, labels, familiar instructions, sentence frames, and short oral or
 written output as explicitly requested.
 
-The productive-language ceiling hard-filters unsuitable targets. A
-scaffold-compatible short output may be selected; a discussion-heavy method
-does not become low-demand because the support language is Estonian.
+`maximum_total_productive_language_demand` limits all learner speaking and
+writing required by the activity, regardless of language. It is not an
+Estonian-output limit. Estonian suitability is checked separately through the
+activity's `estonian_a1_a2_compatibility`, allowed Estonian roles, and requested
+sentence-frame and word-bank scaffolds.
+
+A high-demand activity may therefore remain available when the total ceiling is
+high, while complex subject reasoning remains Russian-primary and Estonian is
+bounded to the requested A1–A2 roles. Conversely, a discussion-heavy activity
+does not become low-demand merely because only its short support-language
+output is Estonian.
+
+The combination rule
+`maximum_total_language_heavy_phase_share_percent_for_a1_a2_supported_lessons`
+also concerns total learner productive-language demand. It does not claim that
+all language-heavy time occurs in Estonian.
+
+Known limitation: the activity taxonomy currently describes total learner
+productive-language demand, not separate Russian and Estonian demand values.
+That operational classification and the scoring weights remain provisional
+until teacher validation.
 
 ## Separate assessment
 
@@ -248,11 +305,21 @@ calendar, thematic plan, or production lesson.
 
 ## Teacher overrides
 
-An override identifies a slot and concrete target and requires a Russian
-rationale plus `author_role: teacher`.
+An override identifies a slot and concrete target and requires a unique
+`override_id`, a Russian rationale, and `author_role: teacher`. A request may
+contain at most one override per slot. Duplicate override IDs and duplicate
+slot targets are rejected before pattern selection and composition
+enumeration, with deterministic diagnostics sorted bytewise by override ID.
 
-A valid override substitutes the target and remains visible in both decision
-trace and DNA. It does not set `teacher_review: approved`.
+Passing the target's hard filters makes an override only internally eligible.
+It is not publicly accepted at that point. `accepted` means the final selected
+composition contains exactly the requested target in exactly the requested
+slot. Every accepted override maps to one selected slot decision, and every
+overridden selected slot maps back to one accepted override. Eligible but
+unapplied overrides are rejected rather than presented as accepted.
+
+An applied override remains visible in both decision trace and DNA. It does not
+set `teacher_review: approved`.
 
 The engine rejects an override that uses:
 
@@ -264,7 +331,8 @@ The engine rejects an override that uses:
 - missing safety supervision.
 
 Rejected overrides produce `invalid_teacher_override` with the concrete hard
-reason.
+reason. An ambiguous override set returns the schema-valid message `Teacher
+overrides are ambiguous.` and marks every conflicting override rejected.
 
 ## Failure model
 
