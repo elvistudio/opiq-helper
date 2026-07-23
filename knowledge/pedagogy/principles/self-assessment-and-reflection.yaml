@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: self-assessment-and-reflection
+names:
+  en: Self-assessment and reflection
+  et: Enesehindamine ja refleksioon
+  ru: Самооценка и рефлексия
+category: metacognition
+summary_ru: >-
+  Ученик сопоставляет свою работу с понятными критериями, называет освоенное,
+  затруднение и следующий шаг, не подменяя этим проверку предметной точности.
+provenance_claims:
+  - claim_id: reflection-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует самооценку, взаимную обратную связь и осмысление учебной работы.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Самооценка ученика не является автоматически точной оценкой достижения.
+  - claim_id: reflection-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект разделяет предметную проверку, языковую самооценку и план следующего действия.
+    reference_ids: []
+    boundary_ru: Такое разделение является проектной структурой.
+intended_outcomes: [metacognitive_awareness, understanding_check, planning_accuracy]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Выбрать понятный значок и назвать один удавшийся шаг.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Ответить на вопросы «что получилось» и «что проверить».", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Сопоставить ответ с критериями и записать конкретное действие для повторения.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: reflection-without-evidence
+    description_ru: Ученик оценивает настроение вместо качества выполненной работы.
+    mitigation_ru: Привязать самооценку к образцу, критерию или наблюдаемому результату.
+not_equivalent_to: [self-grading-only, mood-check-only]
+limitations_ru:
+  - Самооценка дополняет, но не заменяет предметную обратную связь компетентного учителя.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: После опыта ученик отмечает точность наблюдения отдельно от краткого эстонского ответа.
+  homeschool_example_ru: Ребёнок сверяет работу с ключом и выбирает один вопрос для недельного повторения.
+confidence:
+  level: high
+  rationale: Самооценка и обратная связь явно поддержаны источником; конкретное разделение оценивания создано проектом.

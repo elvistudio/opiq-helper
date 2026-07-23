@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: attention-and-distraction-management
+names:
+  en: Attention and distraction management
+  et: Tähelepanu ja segajate juhtimine
+  ru: Управление вниманием и отвлекающими факторами
+category: attention_and_environment
+summary_ru: >-
+  Учебная среда и рабочие правила должны помогать удерживать внимание:
+  лишние уведомления, шум и не относящиеся к задаче материалы убираются заранее.
+provenance_claims:
+  - claim_id: attention-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует тихую среду, рабочие рутины и устранение отвлекающих факторов.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Это пересказ рекомендации, а не измерение эффекта для конкретного ученика.
+  - claim_id: attention-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект применяет принцип через короткие этапы и заранее подготовленное рабочее место.
+    reference_ids: []
+    boundary_ru: Конкретная организация этапов является проектным решением и требует проверки учителем.
+intended_outcomes: [attention_control, task_completion]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Оставить на столе только один набор материалов и дать одну короткую инструкцию.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Использовать видимый список из двух-трёх шагов и короткий таймер.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Предложить ученику самостоятельно отключить уведомления и выбрать тихое место.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: attention-as-discipline
+    description_ru: Трудности внимания ошибочно трактуются только как непослушание.
+    mitigation_ru: Сначала изменить среду и объём шага, затем обсуждать индивидуальную поддержку.
+not_equivalent_to: [absolute-silence, punishment-for-distraction]
+limitations_ru:
+  - Условия среды не устраняют все индивидуальные причины трудностей внимания.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Перед работой с картой оставить на парте карту, карандаш и карточку терминов.
+  homeschool_example_ru: До занятия закрыть лишние вкладки и записать один достижимый учебный шаг.
+confidence:
+  level: high
+  rationale: Высока уверенность в явной поддержке рекомендации источником; эффективность конкретной организации отдельно не проверялась.

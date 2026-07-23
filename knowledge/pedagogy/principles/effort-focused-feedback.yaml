@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: effort-focused-feedback
+names:
+  en: Effort-focused feedback
+  et: Pingutusele ja strateegiale suunatud tagasiside
+  ru: Обратная связь об усилиях и стратегии
+category: assessment_for_learning
+summary_ru: >-
+  Обратная связь отмечает не личные качества, а конкретные усилия, стратегию,
+  точность и следующий исправимый шаг.
+provenance_claims:
+  - claim_id: effort-feedback-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует признавать усилия и использовать самооценку и обратную связь.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Источник задаёт направление, но не подтверждает любую формулу похвалы как эффективную.
+  - claim_id: effort-feedback-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект связывает комментарий с наблюдаемой стратегией и следующим действием.
+    reference_ids: []
+    boundary_ru: Формулировки обратной связи должны проходить педагогическую проверку.
+intended_outcomes: [quality_feedback, motivation, metacognitive_awareness]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Назвать одно полезное действие и один следующий шаг.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Связать комментарий со стратегией проверки ответа.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Предложить ученику выбрать, какую часть рассуждения улучшить первой.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: praise-without-evidence
+    description_ru: Похвала усилиям даётся независимо от реального действия или результата.
+    mitigation_ru: Указывать наблюдаемую стратегию и проверять научную корректность ответа отдельно.
+not_equivalent_to: [praise-only, ignoring-accuracy]
+limitations_ru:
+  - Усилия не заменяют корректирующую обратную связь по содержанию.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Отметить, что ученик сравнил наблюдение с таблицей, и предложить уточнить причинный вывод.
+  homeschool_example_ru: Взрослый говорит, какая проверка была полезной, а не оценивает ребёнка как способного или неспособного.
+confidence:
+  level: medium
+  rationale: Общий принцип поддержан источником; точная формулировка и эффект обратной связи требуют контекстной проверки.

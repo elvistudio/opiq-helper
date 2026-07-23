@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: autonomy-support
+names:
+  en: Autonomy support
+  et: Autonoomia toetamine
+  ru: Поддержка автономии
+category: motivation
+summary_ru: >-
+  Ученик получает понятные границы и осмысленный выбор способа работы, порядка
+  допустимых действий или формы ответа, сохраняя ответственность за результат.
+provenance_claims:
+  - claim_id: autonomy-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство связывает мотивацию с удовлетворением потребности в автономии.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Источник поддерживает общий принцип, но не задаёт универсальный набор вариантов выбора.
+  - claim_id: autonomy-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект предлагает ограниченный выбор формы ответа без изменения предметной цели.
+    reference_ids: []
+    boundary_ru: Этот способ реализации создан проектом и должен соответствовать возрасту и задаче.
+intended_outcomes: [learner_autonomy, motivation, task_completion]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Предложить выбор между рисунком и коротким устным ответом.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Дать выбор порядка двух равноценных заданий.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Разрешить выбрать формат заметок или пример при неизменных критериях.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: unbounded-choice
+    description_ru: Слишком широкий выбор увеличивает нагрузку и размывает цель.
+    mitigation_ru: Предлагать два-три равноценных варианта с общими критериями успеха.
+not_equivalent_to: [absence-of-guidance, optional-learning-goals]
+limitations_ru:
+  - Автономия не отменяет обязательные требования безопасности и содержания.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Ученик выбирает таблицу или схему для сравнения экосистем при одинаковых научных критериях.
+  homeschool_example_ru: Ребёнок выбирает, начать с рисунка или чтения, а взрослый не подсказывает готовый вывод.
+confidence:
+  level: high
+  rationale: Принцип прямо назван в предоставленной методике; предлагаемые формы выбора являются проектной адаптацией.

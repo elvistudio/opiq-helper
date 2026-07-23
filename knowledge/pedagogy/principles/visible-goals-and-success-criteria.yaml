@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: visible-goals-and-success-criteria
+names:
+  en: Visible goals and success criteria
+  et: Nähtavad eesmärgid ja edukriteeriumid
+  ru: Видимые цели и критерии успеха
+category: assessment_for_learning
+summary_ru: >-
+  Ученик до работы понимает, что должен узнать или уметь сделать и по каким
+  наблюдаемым признакам можно проверить результат.
+provenance_claims:
+  - claim_id: visible-goals-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует делать цели урока видимыми.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Видимость формулировки сама по себе не доказывает понимание цели учеником.
+  - claim_id: visible-goals-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект формулирует отдельные предметные и языковые результаты в наблюдаемых действиях.
+    reference_ids: []
+    boundary_ru: Разделение результатов является проектным дизайном и не приписывается источнику.
+intended_outcomes: [task_completion, understanding_check, learner_autonomy, quality_feedback]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Показать цель одним действием и примером результата.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Назвать цель и два коротких критерия перед началом.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Разделить содержание, способ доказательства и языковой выход.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: criteria-as-checklist-only
+    description_ru: Критерии превращаются в формальную отметку без понимания качества.
+    mitigation_ru: Показать пример, обсудить признак и вернуться к нему при самооценке.
+not_equivalent_to: [lesson-agenda-only, answer-reveal]
+limitations_ru:
+  - Не все исследовательские результаты можно полностью предсказать заранее.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Отдельно показать цель объяснить русло реки по-русски и цель назвать два термина по-эстонски.
+  homeschool_example_ru: Ребёнок читает цель, отмечает готовый результат и объясняет, что ещё нужно проверить.
+confidence:
+  level: high
+  rationale: Видимые цели прямо поддержаны источником; наблюдаемые критерии и языковое разделение разработаны проектом.

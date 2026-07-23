@@ -13,10 +13,13 @@ on:
       - pedagogical-reviews/**
       - annual-courses/**
       - external-sources/**
+      - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
+      - docs/pedagogical-knowledge-base.md
+      - docs/pedagogical-taxonomy.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -39,10 +42,13 @@ on:
       - pedagogical-reviews/**
       - annual-courses/**
       - external-sources/**
+      - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
+      - docs/pedagogical-knowledge-base.md
+      - docs/pedagogical-taxonomy.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -112,6 +118,12 @@ jobs:
 
       - name: Check pedagogical review workflow
         run: npm run check:reviews
+
+      - name: Test pedagogical knowledge
+        run: npm run test:pedagogy
+
+      - name: Check pedagogical knowledge
+        run: npm run check:pedagogy
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

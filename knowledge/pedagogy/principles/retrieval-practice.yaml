@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: retrieval-practice
+names:
+  en: Retrieval practice
+  et: Meenutamine
+  ru: Активное воспроизведение
+category: learning_science
+summary_ru: >-
+  Ученик пытается воспроизвести изученное без просмотра источника, после чего
+  сравнивает ответ с материалом и исправляет ошибки.
+provenance_claims:
+  - claim_id: retrieval-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует свободное воспроизведение, пересказ, самопроверку и карты понятий по памяти.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Уверенность относится к наличию рекомендации, а не к экспериментальной оценке эффекта.
+  - claim_id: retrieval-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект требует самостоятельной попытки до просмотра ответа и последующей корректирующей сверки.
+    reference_ids: []
+    boundary_ru: Порядок шагов является проектной операционализацией принципа.
+intended_outcomes: [long_term_retention, understanding_check, misconception_detection]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Короткий устный ответ, рисунок или 1–3 слова без просмотра источника.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Короткий пересказ, список признаков или простая схема по памяти.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Связный пересказ, причинное объяснение и самопроверка.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: unsupported-recall
+    description_ru: Ошибочный ответ остаётся без проверки и закрепляется.
+    mitigation_ru: После самостоятельной попытки предоставить надёжный ответ и время на исправление.
+not_equivalent_to: [repeated-rereading, copying-from-source]
+limitations_ru:
+  - Воспроизведение не заменяет первоначального точного объяснения и практического применения.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Закрыть схему круговорота воды и восстановить этапы по памяти, затем сверить.
+  homeschool_example_ru: Перед повторным чтением записать три факта и одним цветом внести исправления после проверки.
+confidence:
+  level: high
+  rationale: Принцип и несколько его форм прямо представлены в предоставленной методике; это не отдельная оценка эффективности.

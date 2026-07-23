@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: varied-context-and-representation
+names:
+  en: Varied context and representation
+  et: Vahelduv kontekst ja esitusviis
+  ru: Чередование контекстов и представлений
+category: learning_science
+summary_ru: >-
+  Существенная идея рассматривается в разных примерах и формах — тексте, схеме,
+  наблюдении или устном объяснении — при сохранении одной научной модели.
+provenance_claims:
+  - claim_id: varied-context-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует чередовать контексты и формы представления материала.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Варьирование не означает одновременное предъявление множества несвязанных форм.
+  - claim_id: varied-context-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект вводит представления последовательно и явно связывает их общими терминами.
+    reference_ids: []
+    boundary_ru: Выбор последовательности является проектной и учительской задачей.
+intended_outcomes: [knowledge_transfer, understanding_check, long_term_retention]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Связать реальный объект с одним рисунком и знакомым словом.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Сопоставить короткий текст, таблицу и наблюдение.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Переходить между диаграммой, данными и причинным объяснением.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: representation-overload
+    description_ru: Несколько новых форм предъявляются одновременно и увеличивают когнитивную нагрузку.
+    mitigation_ru: Вводить формы поочерёдно и просить ученика назвать связь между ними.
+not_equivalent_to: [decorative-variety, unrelated-activities]
+limitations_ru:
+  - Разные представления могут содержать собственные условности, которые нужно объяснить.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Сопоставить карту, фотографию и русское объяснение формы рельефа, затем подписать термин по-эстонски.
+  homeschool_example_ru: После текста изобразить процесс стрелками и объяснить взрослому, что обозначает каждая стрелка.
+confidence:
+  level: high
+  rationale: Варьирование контекстов и представлений прямо рекомендовано источником; организация форм создана проектом.

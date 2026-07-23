@@ -1,0 +1,185 @@
+schema_version: "1.0"
+artifact_type: pedagogical_pattern_catalog
+patterns:
+  - pattern_id: concept-introduction-classroom
+    names:
+      en: Classroom concept introduction
+      et: Mõiste tutvustamine klassis
+      ru: Введение понятия в классе
+    purpose_ru: >-
+      Рекомендованная гибкая последовательность для построения точной исходной
+      модели, её поддержанного применения, воспроизведения и диагностики ошибок.
+    delivery_modes: [classroom]
+    subjects: [cross_curricular, science, geography]
+    suitable_grades: {min: 1, max: 12}
+    applicable_when: [new_concept, language_supported_output]
+    recommended_components:
+      - sequence: 1
+        phase: activation
+        purpose_ru: Активировать прежние знания и сделать предварительные идеи видимыми.
+        linked_principle_ids: [retrieval-practice, visible-goals-and-success-criteria]
+        activity_options: [brainstorming, kwl-table, prediction-with-keywords, prior-knowledge-free-write]
+      - sequence: 2
+        phase: explanation
+        purpose_ru: Построить точную предметную модель в доступной форме.
+        linked_principle_ids: [optimal-challenge, varied-context-and-representation]
+        activity_options: [frayer-model, guided-reading, visual-representation]
+      - sequence: 3
+        phase: guided_practice
+        purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
+        linked_principle_ids: [competence-support, learning-from-errors]
+        activity_options: [concept-map, self-explanation, sorting-and-sequencing]
+      - sequence: 4
+        phase: retrieval
+        purpose_ru: Восстановить главную связь без просмотра источника.
+        linked_principle_ids: [retrieval-practice]
+        activity_options: [one-minute-recall, retrieval-summary, retrieval-self-test]
+      - sequence: 5
+        phase: formative_assessment
+        purpose_ru: Найти устойчивое заблуждение и определить следующий шаг.
+        linked_principle_ids: [self-assessment-and-reflection, visible-goals-and-success-criteria]
+        activity_options: [error-correction, exit-ticket, true-false-anticipation]
+    variation_policy:
+      variation_allowed: true
+      required_exception_rationale: false
+      notes_ru: Компоненты и активности выбираются по цели, возрасту, языковой нагрузке и времени; это не обязательный шаблон урока.
+    role_boundaries:
+      child_responsibility_ru: Делать самостоятельную попытку, пользоваться согласованными опорами и объяснять результат.
+      adult_support_ru: Учитель моделирует новую идею, выбирает опоры и даёт корректирующую обратную связь.
+      adult_safety_supervision_ru: Если вводится практический объект или демонстрация, учитель отдельно определяет надзор и ограничения.
+      subject_teacher_responsibility_ru: Учитель отвечает за научную точность, возрастную пригодность и критерии предметного результата.
+    source_provenance:
+      - claim_id: concept-pattern-source
+        claim_origin: source_supported
+        statement_ru: Источники поддерживают активацию знаний, видимые цели, разные формы работы, воспроизведение и формативную рефлексию.
+        reference_ids: [gag-opiraam-opistrateegiad, oppeulesanded-method-catalog]
+        boundary_ru: Полная последовательность не заимствована из источника и является проектной рекомендацией.
+      - claim_id: concept-pattern-design
+        claim_origin: project_authored_design
+        statement_ru: Проект объединяет поддержанные элементы в гибкий паттерн для будущего механизма выбора.
+        reference_ids: []
+        boundary_ru: Паттерн не внедрён в production lessons и требует teacher review при применении.
+    limitations_ru:
+      - Исследовательское открытие или повторение знакомого понятия может требовать другой последовательности.
+      - Структурная валидность не доказывает эффективность выбранной комбинации.
+    confidence:
+      level: provisional
+      rationale: Отдельные элементы поддержаны источниками, но их проектная комбинация не прошла независимое педагогическое ревью.
+  - pattern_id: retrieval-and-consolidation
+    names:
+      en: Retrieval and consolidation
+      et: Meenutamine ja kinnistamine
+      ru: Воспроизведение и закрепление
+    purpose_ru: >-
+      Организовать самостоятельное воспроизведение, точную сверку, исправление
+      и последующее отложенное возвращение к существенному содержанию.
+    delivery_modes: [classroom, homeschool, independent_study, parent_supported]
+    subjects: [cross_curricular, science]
+    suitable_grades: {min: 1, max: 12}
+    applicable_when: [cumulative_review, misconception_check, language_supported_output]
+    recommended_components:
+      - sequence: 1
+        phase: retrieval
+        purpose_ru: Восстановить существенное без просмотра ответа.
+        linked_principle_ids: [retrieval-practice]
+        activity_options: [concept-map, one-minute-recall, retrieval-self-test, retrieval-summary]
+      - sequence: 2
+        phase: formative_assessment
+        purpose_ru: Сопоставить попытку с надёжным ответом и найти расхождение.
+        linked_principle_ids: [learning-from-errors, effort-focused-feedback]
+        activity_options: [error-correction, exit-ticket, self-explanation]
+      - sequence: 3
+        phase: consolidation
+        purpose_ru: Повторно организовать исправленное знание в другой форме.
+        linked_principle_ids: [varied-context-and-representation]
+        activity_options: [concept-map, sorting-and-sequencing, visual-representation]
+      - sequence: 4
+        phase: delayed_review
+        purpose_ru: Вернуться к знанию после интервала и проверить сохранение.
+        linked_principle_ids: [spacing, time-estimation-and-planning]
+        activity_options: [delayed-homework-retrieval, retrieval-self-test, three-two-one-reflection]
+    variation_policy:
+      variation_allowed: true
+      required_exception_rationale: false
+      notes_ru: Объём, форма и интервал зависят от содержания; каждое занятие не обязано включать все компоненты.
+    role_boundaries:
+      child_responsibility_ru: Делать честную попытку до ключа, отмечать исправления и планировать следующий повтор.
+      adult_support_ru: Сохранять ключ закрытым до попытки и помогать организовать сверку без диктовки ответа.
+      adult_safety_supervision_ru: Для обычного письменного или устного повторения отдельный надзор безопасности не нужен.
+      subject_teacher_responsibility_ru: Подготовить точный ключ, диагностичные вопросы и определить разумный интервал.
+    source_provenance:
+      - claim_id: retrieval-pattern-source
+        claim_origin: source_supported
+        statement_ru: Методическое руководство поддерживает воспроизведение без источника, исправление ошибок, интервалы и отложенное задание.
+        reference_ids: [gag-opiraam-opistrateegiad]
+        boundary_ru: Состав компонентов и интервалы не являются дословной схемой источника.
+      - claim_id: retrieval-pattern-design
+        claim_origin: project_authored_design
+        statement_ru: Проект объединяет попытку, сверку, исправление и поздний возврат в рекомендуемый паттерн.
+        reference_ids: []
+        boundary_ru: Конкретное расписание требует предметного и педагогического решения.
+    limitations_ru:
+      - Паттерн не заменяет точное первоначальное объяснение и применение.
+      - Отложенный повтор не должен задерживать исправление опасной ошибки.
+    confidence:
+      level: medium
+      rationale: Компоненты прямо поддержаны источником; проектная сборка и интервалы требуют проверки в контексте.
+  - pattern_id: safe-practical-investigation
+    names:
+      en: Safe practical investigation
+      et: Turvaline praktiline uurimine
+      ru: Безопасное практическое исследование
+    purpose_ru: >-
+      Рекомендованная рамка для безопасного наблюдения или опыта: ясная цель,
+      границы действий, фиксация данных, доказательный вывод и рефлексия.
+    delivery_modes: [classroom, homeschool, parent_supported]
+    subjects: [science]
+    suitable_grades: {min: 1, max: 12}
+    applicable_when: [practical_investigation, misconception_check, language_supported_output]
+    recommended_components:
+      - sequence: 1
+        phase: orientation
+        purpose_ru: Сделать цель, критерии наблюдения и ограничения безопасности явными.
+        linked_principle_ids: [attention-and-distraction-management, visible-goals-and-success-criteria]
+        activity_options: [sorting-and-sequencing, true-false-anticipation, visual-representation]
+      - sequence: 2
+        phase: guided_practice
+        purpose_ru: Выполнить разрешённые действия и фиксировать наблюдаемые данные.
+        linked_principle_ids: [optimal-challenge, task-chunking]
+        activity_options: [learning-stations, two-column-journal, visual-representation]
+      - sequence: 3
+        phase: formative_assessment
+        purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
+        linked_principle_ids: [learning-from-errors, self-assessment-and-reflection]
+        activity_options: [error-correction, self-explanation, two-column-journal]
+      - sequence: 4
+        phase: retrieval
+        purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+        linked_principle_ids: [retrieval-practice]
+        activity_options: [exit-ticket, retrieval-summary, visual-representation]
+    variation_policy:
+      variation_allowed: true
+      required_exception_rationale: false
+      notes_ru: Паттерн задаёт вопросы проектирования, но не разрешает конкретный опыт и не заменяет отдельную оценку риска.
+    role_boundaries:
+      child_responsibility_ru: Выполнять только разрешённые шаги, фиксировать наблюдаемое и сразу сообщать о проблеме.
+      adult_support_ru: Взрослый помогает прочитать последовательность, но не подменяет наблюдение и вывод ребёнка.
+      adult_safety_supervision_ru: Учитель или уполномоченный взрослый оценивает риск, контролирует материалы, остановку и утилизацию.
+      subject_teacher_responsibility_ru: Предметный учитель определяет научную цель, безопасную процедуру, ожидаемые данные и границы модели.
+    source_provenance:
+      - claim_id: practical-pattern-source
+        claim_origin: common_pedagogical_knowledge
+        statement_ru: Практическая работа требует различать наблюдение, данные и вывод и обеспечивать явные правила безопасности.
+        reference_ids: []
+        boundary_ru: Это общая педагогическая рамка, а не утверждение, приписанное двум переданным документам.
+      - claim_id: practical-pattern-design
+        claim_origin: project_authored_design
+        statement_ru: Проект связывает гибкие учебные активности с обязательной отдельной оценкой риска.
+        reference_ids: []
+        boundary_ru: Паттерн не делает ни один опыт безопасным автоматически.
+    limitations_ru:
+      - Для каждого опыта всё равно нужны конкретные материалы, риски, надзор и процедура остановки.
+      - Домашнее выполнение допустимо только при явном разрешении и взрослых границах.
+    confidence:
+      level: provisional
+      rationale: Структура является проектным дизайном на основе общих требований безопасности и ещё не прошла teacher review.

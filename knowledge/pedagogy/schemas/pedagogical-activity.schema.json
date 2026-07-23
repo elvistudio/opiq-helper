@@ -1,0 +1,617 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-activity.schema.json",
+  "title": "Pedagogical activity catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "activities"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/schemaVersion"
+    },
+    "artifact_type": {
+      "const": "pedagogical_activity_catalog"
+    },
+    "activities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/activity"
+      }
+    }
+  },
+  "$defs": {
+    "activity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "activity_id",
+        "names",
+        "category",
+        "short_description_ru",
+        "linked_principle_ids",
+        "suitable_lesson_phases",
+        "suitable_grades",
+        "content_types",
+        "subjects",
+        "accessibility",
+        "risks_and_misuse",
+        "contraindications_ru",
+        "assessment_roles",
+        "source_provenance",
+        "project_authored_guidance",
+        "grade5_science_applicability",
+        "confidence"
+      ],
+      "properties": {
+        "activity_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "names": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/localizedNames"
+        },
+        "category": {
+          "enum": [
+            "activation",
+            "reading_and_comprehension",
+            "retrieval_and_consolidation",
+            "concept_organization",
+            "collaborative_learning",
+            "reflection_and_assessment",
+            "error_analysis",
+            "visual_and_multimodal"
+          ]
+        },
+        "short_description_ru": {
+          "type": "string",
+          "minLength": 1
+        },
+        "execution_profiles": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/executionProfile"
+          }
+        },
+        "capabilities": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+          },
+          "additionalProperties": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/capabilityLevel"
+          }
+        },
+        "linked_principle_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+          }
+        },
+        "suitable_lesson_phases": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/lessonPhase"
+          }
+        },
+        "suitable_grades": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/gradeRange"
+        },
+        "content_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "conceptual_text",
+              "vocabulary",
+              "process",
+              "comparison",
+              "classification",
+              "sequence",
+              "practical_observation",
+              "map_and_spatial",
+              "data_and_evidence",
+              "misconception",
+              "oral_explanation",
+              "visual_representation"
+            ]
+          }
+        },
+        "subjects": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "cross_curricular",
+              "science",
+              "geography",
+              "mathematics",
+              "language_learning",
+              "human_studies",
+              "arts_and_crafts",
+              "music"
+            ]
+          }
+        },
+        "delivery_constraints": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "group_size",
+            "supported_group_formats",
+            "delivery_modes",
+            "source_access_during_first_attempt"
+          ],
+          "properties": {
+            "group_size": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "min",
+                "max"
+              ],
+              "properties": {
+                "min": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 60
+                },
+                "max": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 60
+                }
+              }
+            },
+            "supported_group_formats": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/groupFormat"
+              }
+            },
+            "delivery_modes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/deliveryMode"
+              }
+            },
+            "source_access_during_first_attempt": {
+              "enum": [
+                "allowed",
+                "required",
+                "prohibited",
+                "not_applicable",
+                "unknown"
+              ]
+            }
+          }
+        },
+        "duration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "min_minutes",
+            "max_minutes"
+          ],
+          "properties": {
+            "min_minutes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 180
+            },
+            "max_minutes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 180
+            }
+          }
+        },
+        "effort": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "teacher_preparation",
+            "teacher_facilitation",
+            "learner_setup",
+            "homeschool_parent"
+          ],
+          "properties": {
+            "teacher_preparation": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/effortRating"
+            },
+            "teacher_facilitation": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/effortRating"
+            },
+            "learner_setup": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/effortRating"
+            },
+            "homeschool_parent": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "level",
+                "role",
+                "role_description_ru",
+                "rationale_ru"
+              ],
+              "properties": {
+                "level": {
+                  "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/effortLevel"
+                },
+                "role": {
+                  "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/parentRole"
+                },
+                "role_description_ru": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rationale_ru": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "learner_independence": {
+          "enum": [
+            "low_supported",
+            "developing",
+            "high"
+          ]
+        },
+        "homeschool_adaptation": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/homeschoolAdaptation"
+        },
+        "resource_requirements": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required",
+            "optional",
+            "printer_required",
+            "internet_required",
+            "shared_display_required",
+            "outdoor_access_required",
+            "laboratory_materials_required",
+            "reusable_materials",
+            "consumable_materials",
+            "setup_minutes",
+            "cleanup_minutes"
+          ],
+          "properties": {
+            "required": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+              }
+            },
+            "optional": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+              }
+            },
+            "printer_required": {
+              "type": "boolean"
+            },
+            "internet_required": {
+              "type": "boolean"
+            },
+            "shared_display_required": {
+              "type": "boolean"
+            },
+            "outdoor_access_required": {
+              "type": "boolean"
+            },
+            "laboratory_materials_required": {
+              "type": "boolean"
+            },
+            "reusable_materials": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+              }
+            },
+            "consumable_materials": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+              }
+            },
+            "setup_minutes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 60
+            },
+            "cleanup_minutes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 60
+            }
+          }
+        },
+        "learner_demands": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/learnerDemands"
+        },
+        "compatibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "offline",
+            "no_printer",
+            "one_learner",
+            "large_class",
+            "mixed_ability_group",
+            "remote_delivery"
+          ],
+          "properties": {
+            "offline": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/compatibilityLevel"
+            },
+            "no_printer": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/compatibilityLevel"
+            },
+            "one_learner": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/compatibilityLevel"
+            },
+            "large_class": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/compatibilityLevel"
+            },
+            "mixed_ability_group": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/compatibilityLevel"
+            },
+            "remote_delivery": {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/compatibilityLevel"
+            }
+          }
+        },
+        "accessibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "supports_ru",
+            "barriers_ru",
+            "adaptations_ru"
+          ],
+          "properties": {
+            "supports_ru": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "barriers_ru": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "adaptations_ru": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "safety": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/safety"
+        },
+        "risks_and_misuse": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "risk_id",
+              "description_ru",
+              "mitigation_ru"
+            ],
+            "properties": {
+              "risk_id": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+              },
+              "description_ru": {
+                "type": "string",
+                "minLength": 1
+              },
+              "mitigation_ru": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "contraindications_ru": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "assessment_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "none",
+              "formative",
+              "summative_support",
+              "reflection_only"
+            ]
+          }
+        },
+        "source_provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/provenanceClaim"
+          }
+        },
+        "project_authored_guidance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "claim_origin",
+            "implementation_steps_ru",
+            "adaptation_boundary_ru"
+          ],
+          "properties": {
+            "claim_origin": {
+              "const": "project_authored_design"
+            },
+            "implementation_steps_ru": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "adaptation_boundary_ru": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "grade5_science_applicability": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/grade5ScienceApplicability"
+        },
+        "taxonomy_assessment": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyAssessment"
+        },
+        "confidence": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/confidence"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "capabilities",
+            "delivery_constraints",
+            "duration",
+            "effort",
+            "learner_independence",
+            "homeschool_adaptation",
+            "resource_requirements",
+            "learner_demands",
+            "compatibility",
+            "safety",
+            "taxonomy_assessment"
+          ],
+          "properties": {
+            "capabilities": true,
+            "delivery_constraints": true,
+            "duration": true,
+            "effort": true,
+            "learner_independence": true,
+            "homeschool_adaptation": true,
+            "resource_requirements": true,
+            "learner_demands": true,
+            "compatibility": true,
+            "safety": true,
+            "taxonomy_assessment": true
+          }
+        },
+        {
+          "required": [
+            "execution_profiles"
+          ],
+          "properties": {
+            "execution_profiles": true
+          }
+        }
+      ]
+    },
+    "executionProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_id",
+        "names",
+        "description_ru",
+        "capabilities",
+        "delivery_constraints",
+        "duration",
+        "effort",
+        "learner_independence",
+        "homeschool_adaptation",
+        "resource_requirements",
+        "learner_demands",
+        "compatibility",
+        "safety",
+        "taxonomy_assessment"
+      ],
+      "properties": {
+        "profile_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "names": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/localizedNames"
+        },
+        "description_ru": {
+          "type": "string",
+          "minLength": 1
+        },
+        "capabilities": {
+          "$ref": "#/$defs/activity/properties/capabilities"
+        },
+        "delivery_constraints": {
+          "$ref": "#/$defs/activity/properties/delivery_constraints"
+        },
+        "duration": {
+          "$ref": "#/$defs/activity/properties/duration"
+        },
+        "effort": {
+          "$ref": "#/$defs/activity/properties/effort"
+        },
+        "learner_independence": {
+          "$ref": "#/$defs/activity/properties/learner_independence"
+        },
+        "homeschool_adaptation": {
+          "$ref": "#/$defs/activity/properties/homeschool_adaptation"
+        },
+        "resource_requirements": {
+          "$ref": "#/$defs/activity/properties/resource_requirements"
+        },
+        "learner_demands": {
+          "$ref": "#/$defs/activity/properties/learner_demands"
+        },
+        "compatibility": {
+          "$ref": "#/$defs/activity/properties/compatibility"
+        },
+        "safety": {
+          "$ref": "#/$defs/activity/properties/safety"
+        },
+        "taxonomy_assessment": {
+          "$ref": "#/$defs/activity/properties/taxonomy_assessment"
+        }
+      }
+    }
+  }
+}
