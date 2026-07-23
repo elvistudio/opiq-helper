@@ -140,5 +140,11 @@ jobs:
       - name: Test grade 3 Russian original-source migration
         run: npm run test:grade-3-russian
 
+      - name: Verify generated grade 3 Russian-reading source
+        run: npm run check:grade-3-russian-reading
+
+      - name: Test grade 3 Russian-reading source import
+        run: npm run test:grade-3-russian-reading
+
       - name: Validate source manifest
         run: node scripts/check-source-manifest.mjs

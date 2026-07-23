@@ -1061,6 +1061,42 @@ cases:
         url: https://www.opiq.ee/kit/503/chapter/27482
     evidence: "The canonical route contains explicit reading/literature evidence, not a Russian translation of another school subject."
 
+  - id: grade-3-russian-reading-kit-504
+    grade: 3
+    subject: russian_reading
+    topic: "литературное чтение, обсуждение и задания"
+    status: present
+    expected_source_id: grade-3-russian-reading
+    expected_md_path: project-files/outputs/opiq_3klass_vene_lugemine.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-russian-reading
+        url: https://www.opiq.ee/kit/504/chapter/27658
+        expected:
+          class: 3
+          book_id: русское_слово._чтение_для_3_класса__kit504
+          title: ИВАН БУНИН. Листопад
+          subject:
+            en: Russian reading
+            et: vene keele lugemine
+            ru: чтение на русском языке
+          headings_any:
+            - Давай обсудим
+            - Задания
+      - kind: url_absent
+        origin_source_id: grade-3-russian-reading
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/504/chapter/27658
+      - kind: url_absent
+        origin_source_id: grade-3-russian-reading
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/504/chapter/27658
+      - kind: url_absent
+        origin_source_id: grade-3-russian-reading
+        source_id: grade-2-russian
+        url: https://www.opiq.ee/kit/504/chapter/27658
+    evidence: "Kit 504 is a grade-3 Russian-reading source with literary texts, discussion prompts, and assignment headings. It is absent from Russian grammar/language, mathematics, and grade-2 routes."
+
   - id: grade-3-human-studies-water-safety
     grade: 3
     subject: human_studies
