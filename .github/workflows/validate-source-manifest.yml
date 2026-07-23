@@ -158,5 +158,11 @@ jobs:
       - name: Test grade 3 Estonian source import
         run: npm run test:grade-3-estonian
 
+      - name: Verify generated grade 3 arts-and-crafts source
+        run: npm run check:grade-3-arts-and-crafts
+
+      - name: Test grade 3 arts-and-crafts source import
+        run: npm run test:grade-3-arts-and-crafts
+
       - name: Validate source manifest
         run: node scripts/check-source-manifest.mjs
