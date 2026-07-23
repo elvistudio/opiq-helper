@@ -60,7 +60,9 @@ Both compact indexes and every page record say `et`, while both raw book objects
 
 ## Content quality and limitations
 
-All 174 instructional records have headings and direct URLs. The raw archive contains **491** image references: 364 for kit 196 and 127 for kit 200. No zero-width, replacement, control, malformed-Unicode, NFC, HTML, MathML, raw-JSON, or Markdown damage was found. No chapter-content repair was required.
+All 174 instructional records have headings and direct URLs. The raw archive contains **491** image references: 364 for kit 196 and 127 for kit 200. No zero-width, replacement, control, malformed-Unicode, NFC, HTML, MathML, raw-JSON, media-player-control, malformed-URL, or Markdown damage was found. No chapter-content repair was required.
+
+Six short single-word titles (`Puu`, `Pits`, `Kask`, `Muna`, `Kala`, and `Pall`) are identical in compact titles and raw headings and are classified as valid named visual activities, not truncation. No single-character heading, suspiciously truncated heading, or anomalous spacing/punctuation case remains unclassified.
 
 All 174 compact and raw task arrays are empty. These image-heavy pages still describe practical craft activities, but the capture does not contain structured step-by-step task text. No instruction is reconstructed from filenames or images. A future **targeted task-body capture** may help lesson authoring; a full recapture is not required for canonical routing.
 

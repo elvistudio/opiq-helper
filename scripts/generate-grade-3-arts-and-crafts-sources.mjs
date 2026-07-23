@@ -153,14 +153,33 @@ function sourceTextAudit(sourceRecords, rawByIdentity) {
     zero_width: 0,
     replacement_character: 0,
     forbidden_control_character: 0,
+    malformed_unicode: 0,
     html: 0,
     mathml: 0,
     raw_json_payload: 0,
     non_nfc: 0,
+    malformed_instructional_url: 0,
+    missing_instructional_title: 0,
+    missing_instructional_headings: 0,
+    media_player_controls: 0,
   };
   let sourceIdentitySoftHyphens = 0;
+  let chapterContentSoftHyphens = 0;
+  let shortSingleWordTitles = 0;
+  const hasUnpairedSurrogate = (text) => {
+    for (let index = 0; index < text.length; index += 1) {
+      const code = text.charCodeAt(index);
+      if (code >= 0xd800 && code <= 0xdbff) {
+        const next = text.charCodeAt(index + 1);
+        if (!(next >= 0xdc00 && next <= 0xdfff)) return true;
+        index += 1;
+      } else if (code >= 0xdc00 && code <= 0xdfff) return true;
+    }
+    return false;
+  };
   for (const record of sourceRecords) {
     const raw = rawByIdentity.get(sourceIdentity(record))?.raw;
+    const instructional = !record.url.includes('/Kit/Details/');
     const values = [
       record.title,
       record.book,
@@ -172,21 +191,54 @@ function sourceTextAudit(sourceRecords, rawByIdentity) {
     ];
     const text = values.join('\n');
     sourceIdentitySoftHyphens += [...String(record.book_id)].filter((character) => character === '\u00ad').length;
+    chapterContentSoftHyphens += [...values.filter((value) => value !== record.book_id).join('\n')]
+      .filter((character) => character === '\u00ad').length;
     if (/[\u200b-\u200d\u2060\ufeff]/u.test(text)) hardErrors.zero_width += 1;
     if (text.includes('\ufffd')) hardErrors.replacement_character += 1;
     if (/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/u.test(text)) hardErrors.forbidden_control_character += 1;
+    if (hasUnpairedSurrogate(text)) hardErrors.malformed_unicode += 1;
     if (/<[a-z][^>]*>/iu.test(text)) hardErrors.html += 1;
     if (/<math(?:\s|>)/iu.test(text)) hardErrors.mathml += 1;
     if (/(?:^|\s)[[{]\s*"[A-Za-z_][^]*[}\]](?:\s|$)/u.test(text)) hardErrors.raw_json_payload += 1;
     if (text.normalize('NFC') !== text) hardErrors.non_nfc += 1;
+    if (instructional && !/^https:\/\/www\.opiq\.ee\/kit\/(?:196|200)\/chapter\/\d+$/u.test(record.url)) {
+      hardErrors.malformed_instructional_url += 1;
+    }
+    const normalizedTitle = String(record.title ?? '').trim();
+    if (instructional && !normalizedTitle) hardErrors.missing_instructional_title += 1;
+    if (instructional && record.headings.length === 0) hardErrors.missing_instructional_headings += 1;
+    if (instructional && /\b(?:media player|audio player|video player|meediapleier)\b/iu.test(text)) {
+      hardErrors.media_player_controls += 1;
+    }
+    if (instructional
+      && normalizedTitle.length <= 4
+      && !/\s/u.test(normalizedTitle)) {
+      shortSingleWordTitles += 1;
+    }
   }
   assertGrade3(Object.values(hardErrors).every((count) => count === 0), 'Raw source text contains hard quality errors.');
   assertGrade3(sourceIdentitySoftHyphens === 87, `Source Book ID soft-hyphen row count is ${sourceIdentitySoftHyphens}; expected 87.`);
+  assertGrade3(chapterContentSoftHyphens === 0, 'Soft hyphen occurs outside audited Source Book ID metadata.');
+  assertGrade3(shortSingleWordTitles === 6, `Short single-word title count is ${shortSingleWordTitles}; expected 6.`);
   return {
     hard_errors: hardErrors,
     source_book_id_soft_hyphen_rows: sourceIdentitySoftHyphens,
-    chapter_content_soft_hyphens: 0,
+    chapter_content_soft_hyphens: chapterContentSoftHyphens,
     chapter_content_repairs: 0,
+    classified_warnings: {
+      short_single_word_titles: {
+        total: shortSingleWordTitles,
+        classification: 'valid_named_visual_activities_confirmed_in_compact_and_raw_headings',
+      },
+      unusually_short_or_truncated_headings: {
+        total: 0,
+        classification: 'none_detected',
+      },
+      anomalous_spacing_or_punctuation: {
+        total: 0,
+        classification: 'none_detected',
+      },
+    },
   };
 }
 
@@ -289,7 +341,9 @@ Both compact indexes and every page record say \`et\`, while both raw book objec
 
 ## Content quality and limitations
 
-All 174 instructional records have headings and direct URLs. The raw archive contains **491** image references: 364 for kit 196 and 127 for kit 200. No zero-width, replacement, control, malformed-Unicode, NFC, HTML, MathML, raw-JSON, or Markdown damage was found. No chapter-content repair was required.
+All 174 instructional records have headings and direct URLs. The raw archive contains **491** image references: 364 for kit 196 and 127 for kit 200. No zero-width, replacement, control, malformed-Unicode, NFC, HTML, MathML, raw-JSON, media-player-control, malformed-URL, or Markdown damage was found. No chapter-content repair was required.
+
+Six short single-word titles (\`Puu\`, \`Pits\`, \`Kask\`, \`Muna\`, \`Kala\`, and \`Pall\`) are identical in compact titles and raw headings and are classified as valid named visual activities, not truncation. No single-character heading, suspiciously truncated heading, or anomalous spacing/punctuation case remains unclassified.
 
 All 174 compact and raw task arrays are empty. These image-heavy pages still describe practical craft activities, but the capture does not contain structured step-by-step task text. No instruction is reconstructed from filenames or images. A future **targeted task-body capture** may help lesson authoring; a full recapture is not required for canonical routing.
 

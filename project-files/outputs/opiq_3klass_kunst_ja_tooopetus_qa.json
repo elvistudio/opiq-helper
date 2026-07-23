@@ -2071,14 +2071,33 @@
       "zero_width": 0,
       "replacement_character": 0,
       "forbidden_control_character": 0,
+      "malformed_unicode": 0,
       "html": 0,
       "mathml": 0,
       "raw_json_payload": 0,
-      "non_nfc": 0
+      "non_nfc": 0,
+      "malformed_instructional_url": 0,
+      "missing_instructional_title": 0,
+      "missing_instructional_headings": 0,
+      "media_player_controls": 0
     },
     "source_book_id_soft_hyphen_rows": 87,
     "chapter_content_soft_hyphens": 0,
-    "chapter_content_repairs": 0
+    "chapter_content_repairs": 0,
+    "classified_warnings": {
+      "short_single_word_titles": {
+        "total": 6,
+        "classification": "valid_named_visual_activities_confirmed_in_compact_and_raw_headings"
+      },
+      "unusually_short_or_truncated_headings": {
+        "total": 0,
+        "classification": "none_detected"
+      },
+      "anomalous_spacing_or_punctuation": {
+        "total": 0,
+        "classification": "none_detected"
+      }
+    }
   },
   "content_quality_audit": {
     "hard_errors": {

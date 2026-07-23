@@ -739,6 +739,17 @@ export function auditCanonicalContentQuality(records) {
     missing_title: 0,
     missing_headings: 0,
   };
+  const hasUnpairedSurrogate = (text) => {
+    for (let index = 0; index < text.length; index += 1) {
+      const code = text.charCodeAt(index);
+      if (code >= 0xd800 && code <= 0xdbff) {
+        const next = text.charCodeAt(index + 1);
+        if (!(next >= 0xdc00 && next <= 0xdfff)) return true;
+        index += 1;
+      } else if (code >= 0xdc00 && code <= 0xdfff) return true;
+    }
+    return false;
+  };
   for (const record of records) {
     const text = [
       record.title,
@@ -752,6 +763,7 @@ export function auditCanonicalContentQuality(records) {
     if (text.includes('\ufffd')) hardErrors.replacement_character += 1;
     if (forbiddenControlPattern.test(text)) hardErrors.forbidden_control_character += 1;
     if (invisiblePattern.test(text)) hardErrors.invisible_character += 1;
+    if (hasUnpairedSurrogate(text)) hardErrors.malformed_unicode += 1;
     if (text.normalize('NFC') !== text) hardErrors.non_nfc_text += 1;
     if (containsUnprocessedPayload(text)) hardErrors.html_mathml_or_json_payload += 1;
     if (!directChapterUrl.test(record.url)) hardErrors.malformed_url += 1;

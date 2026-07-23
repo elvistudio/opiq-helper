@@ -556,6 +556,15 @@ test('production QA records the immutable archive, route accounting, and ownersh
   assert.equal(productionQa.canonical_ownership.kit_200, 'grade-2-arts-and-crafts');
   assert.equal(productionQa.canonical_url_audit.duplicate_count, 0);
   assert.equal(productionQa.content_repair_audit.chapter_content_repairs, 0);
+  assert.ok(
+    Object.values(productionQa.raw_content_quality_audit.hard_errors)
+      .every((count) => count === 0),
+  );
+  assert.equal(
+    productionQa.raw_content_quality_audit
+      .classified_warnings.short_single_word_titles.total,
+    6,
+  );
 });
 
 test('production metadata, Markdown hash, and audit timestamp are deterministic', async () => {
