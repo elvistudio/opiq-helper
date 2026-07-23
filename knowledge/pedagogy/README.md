@@ -26,8 +26,15 @@ The initial catalog contains:
   has materially different operational forms.
 - `queries/grade-5-query-fixtures.yaml` proves deterministic filtering without
   weighted ranking or lesson composition.
+- `selection/selection-rules.yaml` stores visible versioned hard constraints,
+  integer scoring, timing, and combination rules.
+- `selection/grade-5-selection-fixtures.yaml` contains seven successful and two
+  structured-failure requests.
+- `selection/lesson-dna-examples.yaml` stores four generated, machine-validated
+  proposed DNA examples.
 - `patterns/*.yaml` combines principles and activity options into flexible
-  recommendations. Patterns are not lesson templates or production `lesson_dna`.
+  recommendations. They become selectable slots but remain flexible rather
+  than universal lesson templates.
 - `schemas/*.schema.json` contains strict JSON Schemas shared by the validator.
 
 Every source-supported claim names a registered reference. Project-authored
@@ -57,6 +64,9 @@ npm run test:pedagogy
 npm run check:pedagogy
 npm run query:pedagogy
 npm run query:pedagogy -- --fixture homeschool-low-support-retrieval
+npm run test:pedagogy-selection
+npm run check:pedagogy-selection
+npm run select:pedagogy
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -71,7 +81,15 @@ either component. Profiles inherit family identity, provenance, principles,
 phases, grades, and subjects, but own the complete operational metadata block.
 They do not rank methods or define lesson DNA.
 
+Selection expands exactly these validated targets, then checks a complete
+lesson composition. The result records every hard-filter reason, integer score
+component, timing component, accepted or rejected override, and deterministic
+digest. Automatically generated DNA remains proposed, unreviewed, untested,
+not classroom-ready, and makes no effectiveness claim.
+
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.
 See [`docs/pedagogical-taxonomy.md`](../../docs/pedagogical-taxonomy.md) for
 taxonomy semantics and filtering boundaries.
+See [`docs/lesson-pedagogy-engine.md`](../../docs/lesson-pedagogy-engine.md) for
+selection requests, versioned rules, lesson DNA, failures, and CLI usage.

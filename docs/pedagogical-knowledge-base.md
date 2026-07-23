@@ -17,15 +17,15 @@ It is not:
 
 - an official curriculum source;
 - a claim that a method is experimentally effective in every context;
-- an automatic method-selection engine;
 - a production lesson schema or `lesson_dna`;
 - a homeschool package generator;
 - a replacement for teacher review or classroom trial.
 
-Issue #59 can use these validated records to implement deterministic,
-explainable lesson-method selection and `lesson_dna`. Issue #60 can then use the
-same activity and role metadata to build homeschool packages and parent-support
-rules. Neither behavior is implemented here.
+The issue #59 selector now consumes these validated records and produces a
+deterministic, explainable proposed `lesson_dna` without changing production
+lessons. Issue #60 can use the same activity and role metadata to build
+homeschool packages and parent-support rules. The knowledge catalog itself
+remains independent from both behaviors.
 
 ## Relationship to Opiq evidence
 
@@ -54,6 +54,9 @@ knowledge/pedagogy/
   activities/activity-catalog.yaml
   taxonomy/pedagogical-taxonomy.yaml
   queries/grade-5-query-fixtures.yaml
+  selection/selection-rules.yaml
+  selection/grade-5-selection-fixtures.yaml
+  selection/lesson-dna-examples.yaml
   patterns/classroom-patterns.yaml
   patterns/homeschool-patterns.yaml
   schemas/*.schema.json
@@ -64,6 +67,9 @@ scripts/
   pedagogy-knowledge.test.mjs
   pedagogy-taxonomy.test.mjs
   query-pedagogy-activities.mjs
+  select-lesson-pedagogy.mjs
+  check-pedagogy-selection.mjs
+  pedagogy-selection.test.mjs
 ```
 
 All YAML is parsed in strict mode: duplicate keys, aliases, tabs, unexpected
@@ -262,7 +268,7 @@ learner_estonian_level: A1-A2
 delivery_modes: [classroom, homeschool]
 ```
 
-This is applicability metadata, not a production selection. Future #59 logic
+This is applicability metadata, not a production selection. The #59 selector
 can inspect it for examples such as:
 
 | Need | Candidate principles and activities |
@@ -287,6 +293,9 @@ npm run test:pedagogy
 npm run check:pedagogy
 npm run query:pedagogy
 npm run query:pedagogy -- --fixture concept-introduction-whole-class
+npm run test:pedagogy-selection
+npm run check:pedagogy-selection
+npm run select:pedagogy
 ```
 
 The validator checks:
@@ -313,7 +322,8 @@ effectiveness, learner fit, scientific accuracy of future lesson content, or
 classroom readiness. Qualified teacher review remains required before a
 selection affects production materials.
 
-The current profiles and taxonomy ratings remain provisional and are not yet
-teacher-validated. Profiling is intentionally limited to methods with
-meaningful operational differences. Weighted selection and composition are
-deferred to #59; homeschool package generation is deferred to #60.
+The current profiles, taxonomy ratings, and selection weights remain
+provisional and are not yet teacher-validated. Profiling is intentionally
+limited to methods with meaningful operational differences. Selection produces
+only proposed DNA with no readiness or effectiveness claim; homeschool package
+generation is deferred to #60.

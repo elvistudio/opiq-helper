@@ -24,4 +24,3 @@ try {
   console.error(`ERROR ${error.message}`);
   process.exitCode = 1;
 }
-

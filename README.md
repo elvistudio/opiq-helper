@@ -33,7 +33,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
 - `pedagogical-reviews/` contains unfilled review/trial instruments and the privacy-safe evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
-- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, and taxonomy 1.0; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md) and [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md).
+- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, and the deterministic lesson-pedagogy selector; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), and [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md).
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
 - `external-sources/registry.yaml` is the shared registry for optional verified non-Opiq supplements; it is currently empty.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
@@ -200,16 +200,21 @@ The regression set checks representative positive evidence and wrong-route bound
 
 The pedagogical knowledge base normalizes source provenance, copyright status,
 confidence, capabilities, delivery constraints, effort, resources, learner
-demands, homeschool roles, misuse risks, and concrete execution profiles when
-one method family has materially different resource or safety forms. Its
-deterministic query helper filters validated targets but does not rank
-effectiveness, compose lessons, or change production artifacts.
+demands, homeschool roles, misuse risks, and concrete execution profiles. Its
+query helper performs filtering without ranking. The separate selection engine
+uses versioned project-authored weights to compose an explainable proposed
+`lesson_dna`; its score means operational fit, not effectiveness, approval, or
+classroom readiness. Neither tool changes production artifacts.
 
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy
 npm run query:pedagogy
 npm run query:pedagogy -- --fixture map-diagram-low-language
+npm run test:pedagogy-selection
+npm run check:pedagogy-selection
+npm run select:pedagogy
+npm run select:pedagogy -- --fixture grade5-concept-introduction --debug
 ```
 
 ## Curriculum maps and bilingual courses
