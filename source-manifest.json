@@ -567,10 +567,11 @@
         "forbidden_book_ids": [
           "avita_русский_язык_2_класс_kit292",
           "koolibri_русский_яз_2_ru",
-          "koolibri_светлячок._2_ru"
+          "koolibri_светлячок._2_ru",
+          "русское_слово._чтение_для_3_класса__kit504"
         ],
         "audit_path": "docs/audits/grade-3-russian-source-import.md",
-        "reason": "Grade-2 Russian books remain in grade-2-russian; kit 568 moves to grade 3 after exact URL and content comparison."
+        "reason": "Grade-2 Russian books remain in grade 2 after the audited kit 568 migration; the source-specific Kit 504 reading collection is routed separately from the grade-3 Russian grammar/language index."
       },
       "canonical_url_policy": {
         "require_unique": true
@@ -583,6 +584,62 @@
         }
       },
       "notes": "Use for grade-3 Russian-language subject queries only. The route contains 478 instructional pages from four audited kits and does not claim curriculum or live Opiq catalogue completeness."
+    },
+    {
+      "id": "grade-3-russian-reading",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "russian_reading",
+      "subject_et": "vene keele lugemine",
+      "languages": ["ru"],
+      "md_path": "project-files/outputs/opiq_3klass_vene_lugemine.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_3_acca_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_vene_lugemine_qa.json",
+      "record_count": 55,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "All compact source rows carry the automatic mathematics subject while the raw per-book subject is empty. The canonical reading classification is supported by the Source Book ID, Kit Details title, literary headings, and complete chapter sequence.",
+        "The captured title and Source Book ID spell the Russian word класса with Latin lookalikes as клacca. The canonical book identity repairs this deterministic mixed-script error while QA preserves the raw values.",
+        "Publisher metadata is absent and is not invented.",
+        "The compact capture has no structured task examples, although many pages contain a Задания heading. Exact task bodies are not reconstructed."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["504"],
+        "programme_type": "ordinary_curriculum",
+        "audit_path": "docs/audits/grade-3-russian-reading-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "русский_язык._3_класс_(2023_г.)__kit503",
+          "русский_язык_3_класс__kit250",
+          "русский_язык_для_3_класса__kit94",
+          "русский_язык_для_i_ступени._часть_3__kit568",
+          "matemaatika_3._klassile__kit54",
+          "matemaatika_3._klassile_2023_õk__kit531",
+          "математика_для_3_класса__kit92",
+          "matemaatika_3._klassile_koolibri__kit134",
+          "математика_3_класс__kit308",
+          "matemaatika_3._klassile,_i_osa._lihtsustatud_õppekava__kit497",
+          "matemaatika_3._klassile,_ii_osa._lihtsustatud_õppekava__kit498",
+          "matemaatika_3._klassile,_iii_osa._lihtsustatud_õppekava__kit499",
+          "matemaatika_3._klassile,_iv_osa._lihtsustatud_õppekava__kit500"
+        ],
+        "audit_path": "docs/audits/grade-3-russian-reading-source-import.md",
+        "reason": "Kit 504 is a dedicated Russian-reading source and must not absorb Russian grammar/language or mathematics books."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Russian reading",
+          "et": "vene keele lugemine",
+          "ru": "чтение на русском языке"
+        }
+      },
+      "notes": "Use for grade-3 Russian-reading source queries only. This source-specific route does not claim an independent official exact-grade subject allocation or complete curriculum/live Opiq coverage."
     },
     {
       "id": "grade-3-human-studies",
@@ -641,6 +698,13 @@
         "Two environmental-context calculation pages are normalized from science aliases to mathematics using stable URL and raw-task evidence.",
         "The historical compact snapshot remains committed only for noncanonical semantic comparison."
       ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "русское_слово._чтение_для_3_класса__kit504"
+        ],
+        "audit_path": "docs/audits/grade-3-russian-reading-source-import.md",
+        "reason": "The Kit 504 Russian-reading source is distinct from mathematics despite the exporter's automatic mathematics subject label."
+      },
       "canonical_url_policy": {
         "require_unique": true
       },
