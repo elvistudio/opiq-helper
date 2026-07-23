@@ -1097,6 +1097,121 @@ cases:
         url: https://www.opiq.ee/kit/504/chapter/27658
     evidence: "Kit 504 is a grade-3 Russian-reading source with literary texts, discussion prompts, and assignment headings. It is absent from Russian grammar/language, mathematics, and grade-2 routes."
 
+  - id: grade-3-music-four-kit-route
+    grade: 3
+    subject: music
+    topic: "songs, singing, notation and rhythm"
+    status: present
+    expected_source_id: grade-3-music
+    expected_md_path: project-files/outputs/opiq_3klass_muusika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-music
+        url: https://www.opiq.ee/kit/195/chapter/11090
+        expected:
+          class: 3
+          book_id: muusikamaa__kit195
+          title: Tere hommikust!
+          subject:
+            en: music
+            et: muusika
+            ru: музыка
+          headings_any:
+            - TERE
+          task_examples_any:
+            - rütm
+            - lauldes
+      - kind: record_present
+        source_id: grade-3-music
+        url: https://www.opiq.ee/kit/163/chapter/9187
+        expected:
+          class: 3
+          book_id: muusikaõpik_3._klassile__kit163
+          title: Noot
+          headings_any:
+            - Noodipikkused
+      - kind: record_present
+        source_id: grade-3-music
+        url: https://www.opiq.ee/kit/592/chapter/33403
+        expected:
+          class: 3
+          book_id: muusikaõpik_3._klassile_2025__kit592
+          title: Laul ja pill
+          headings_any:
+            - Kuidas laulu õppida?
+      - kind: record_present
+        source_id: grade-3-music
+        url: https://www.opiq.ee/kit/239/chapter/13560
+        expected:
+          class: 3
+          book_id: музыка_–_волшебная_страна._3_класс__kit239
+          title: Здравствуй, дружок! Tere sõber!
+      - kind: record_present
+        source_id: grade-3-music
+        url: https://www.opiq.ee/kit/163/chapter/9185
+        expected:
+          class: 3
+          book_id: muusikaõpik_3._klassile__kit163
+          title: Talvelaulud
+          headings_any:
+            - Muusika piltides
+      - kind: record_present
+        source_id: grade-3-music
+        url: https://www.opiq.ee/kit/592/chapter/33417
+        expected:
+          class: 3
+          book_id: muusikaõpik_3._klassile_2025__kit592
+          title: Talvelaulud
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/195/chapter/11090
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/163/chapter/9187
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/592/chapter/33403
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/239/chapter/13560
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/239/chapter/13560
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-3-russian-reading
+        url: https://www.opiq.ee/kit/239/chapter/13560
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-2-music
+        url: https://www.opiq.ee/kit/195/chapter/11090
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-2-music
+        url: https://www.opiq.ee/kit/163/chapter/9187
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-2-music
+        url: https://www.opiq.ee/kit/592/chapter/33403
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-2-music
+        url: https://www.opiq.ee/kit/239/chapter/13560
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-2-estonian
+        url: https://www.opiq.ee/kit/195/chapter/11090
+      - kind: url_absent
+        origin_source_id: grade-3-music
+        source_id: grade-2-estonian-second-language
+        url: https://www.opiq.ee/kit/163/chapter/9187
+    evidence: "All four grade-3 music kits are independently retrievable. The kit 163 and 592 Talvelaulud pages remain separate editions; the grade-3 URLs are absent from mathematics, Russian, grade-2 music, and available Estonian-language routes. No grade-3 Estonian-language route currently exists."
+
   - id: grade-3-human-studies-water-safety
     grade: 3
     subject: human_studies

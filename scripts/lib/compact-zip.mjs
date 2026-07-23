@@ -87,7 +87,8 @@ export async function readCompactZip(filePath) {
       throw new Error(`Unsupported ZIP compression method ${compressionMethod}.`);
     }
 
-    const name = buffer.toString('utf8', nameStart, nameEnd);
+    const nameBytes = Buffer.from(buffer.subarray(nameStart, nameEnd));
+    const name = nameBytes.toString('utf8');
     validateMemberName(name);
     if (entries.has(name)) throw new Error(`ZIP contains duplicate member name: ${name}`);
 
@@ -106,8 +107,9 @@ export async function readCompactZip(filePath) {
     const dataEnd = dataStart + compressedSize;
     if (dataEnd > buffer.length) throw new Error(`ZIP member ${name} is truncated.`);
 
-    const localName = buffer.toString('utf8', localNameStart, localNameEnd);
-    if (localName !== name) throw new Error(`ZIP member name mismatch for ${name}.`);
+    const localNameBytes = Buffer.from(buffer.subarray(localNameStart, localNameEnd));
+    const localName = localNameBytes.toString('utf8');
+    if (!localNameBytes.equals(nameBytes)) throw new Error(`ZIP member name mismatch for ${name}.`);
 
     const compressed = buffer.subarray(dataStart, dataEnd);
     const contents = compressionMethod === 0 ? Buffer.from(compressed) : inflateRawSync(compressed);
@@ -124,6 +126,10 @@ export async function readCompactZip(filePath) {
       compressed_size: compressedSize,
       uncompressed_size: uncompressedSize,
       crc32: expectedCrc.toString(16).padStart(8, '0'),
+      general_purpose_flags: flags,
+      utf8_filename_flag: Boolean(flags & 0x0800),
+      stored_name_hex: nameBytes.toString('hex'),
+      logical_name_utf8: name,
     });
     cursor = nameEnd + extraLength + commentLength;
   }
