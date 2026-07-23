@@ -1,0 +1,2152 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-3-arts-and-crafts",
+  "source_archive": "project-files/inputs/final-zips/opiq_3klass_kasitootuba_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_3klass_kunst_ja_tooopetus.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-23T07:15:58.130Z",
+    "generator": "scripts/generate-grade-3-arts-and-crafts-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from the immutable original archive. Kit 200 remains canonically owned by the grade-2 supplementary route after complete stable comparison."
+  },
+  "checksums": {
+    "source_archive_sha256": "8f4ef248fd74db31d3239b793644c9e2e97404d080d22d8fa75b1e22bd637997",
+    "output_file_sha256": "88c14b622928ef7b61940016fd218adc2cd39e8e5d95bce6e9ec56d95cafc319"
+  },
+  "archive": {
+    "path": "project-files/inputs/final-zips/opiq_3klass_kasitootuba_opiq_v2.zip",
+    "sha256": "8f4ef248fd74db31d3239b793644c9e2e97404d080d22d8fa75b1e22bd637997",
+    "byte_size": 592932,
+    "uncompressed_size": 552718,
+    "member_count": 185,
+    "crc_verified_members": 185,
+    "declared_and_actual_sizes_verified": 185,
+    "unique_stored_member_names": 185,
+    "safe_relative_member_names": 185,
+    "local_central_filename_matches": 185,
+    "compression_methods": {
+      "stored": 185,
+      "deflate": 0
+    },
+    "capture_timestamp": "2026-07-23T07:15:58.130Z"
+  },
+  "filename_encoding_audit": {
+    "specification": "stored CP437 display -> byte-for-byte CP437 re-encoding -> fatal UTF-8 decoding",
+    "member_count": 185,
+    "utf8_flag_set": 0,
+    "utf8_flag_absent": 185,
+    "ascii_only_names": 5,
+    "non_ascii_recoveries": 180,
+    "round_trip_verified": 185,
+    "decoded_name_collisions": 0,
+    "entries": [
+      {
+        "stored_name_cp437": "raw/Opiq-DB/books/kunsti-_ja_t├╢├╢├╡petus._3._osa.json",
+        "stored_name_hex": "7261772f4f7069712d44422f626f6f6b732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/books/kunsti-_ja_tööõpetus._3._osa.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/books/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid.json",
+        "stored_name_hex": "7261772f4f7069712d44422f626f6f6b732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/books/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/88.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f38382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/88.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/178.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f3137382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/178.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.11.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e31312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.11.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.12.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e31322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.12.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.13.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e31332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.13.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.14.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e31342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.14.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/1.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f312e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/1.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.11.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.11.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.12.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.12.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.13.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.13.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.14.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.14.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.15.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.15.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.16.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.16.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.17.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.17.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.18.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.18.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.19.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e31392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.19.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.20.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.20.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.21.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.21.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.22.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.22.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.23.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.23.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.24.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.24.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.25.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.25.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.26.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.26.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.27.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.27.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.28.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.28.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.29.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e32392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.29.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/2.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f322e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/2.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.11.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.11.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.12.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.12.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.13.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.13.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.14.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.14.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.15.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.15.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.16.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.16.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.17.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.17.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.18.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.18.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.19.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e31392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.19.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.20.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.20.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.21.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.21.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.22.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.22.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.23.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.23.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.24.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.24.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.25.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.25.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.26.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.26.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.27.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.27.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.28.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.28.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.29.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e32392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.29.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.30.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e33302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.30.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.31.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e33312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.31.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.32.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e33322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.32.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.33.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e33332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.33.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.34.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e33342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.34.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.35.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e33352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.35.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/3.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f332e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/3.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.11.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e31312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.11.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._3._osa/4.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f332e5f6f73612f342e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._3._osa/4.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._3._osa",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/87.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f38372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/87.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/1.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f312e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/1.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/1.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f312e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/1.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/1.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f312e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/1.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/2.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f322e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/2.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.11.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.11.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.12.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.12.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.13.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.13.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.14.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.14.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.15.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.15.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.16.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.16.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.17.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.17.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.18.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.18.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.19.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e31392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.19.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.20.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.20.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.21.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.21.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.22.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.22.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.23.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.23.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.24.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.24.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.25.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.25.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.26.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.26.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.27.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.27.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.28.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.28.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.29.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e32392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.29.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.30.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.30.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.31.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.31.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.32.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.32.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.33.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.33.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.34.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.34.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.35.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.35.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.36.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e33362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.36.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/3.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f332e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/3.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/4.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f342e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/4.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/4.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f342e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/4.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/4.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f342e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/4.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/4.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f342e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/4.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/5.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f352e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/5.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/5.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f352e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/5.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/5.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f352e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/5.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/5.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f352e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/5.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.11.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.11.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.12.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.12.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.13.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.13.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.14.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.14.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.15.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.15.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.16.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.16.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.17.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.17.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.18.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.18.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.19.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e31392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.19.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/6.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f362e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/6.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.1.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e312e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.1.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.10.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e31302e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.10.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.2.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e322e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.2.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.3.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e332e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.3.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.4.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e342e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.4.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.5.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e352e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.5.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.6.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e362e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.6.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.7.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e372e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.7.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.8.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e382e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.8.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      },
+      {
+        "stored_name_cp437": "raw/Opiq-DB/chapters/kunsti-_ja_t├╢├╢├╡petus._4._osa._t├ñhtp├ñeva┬¡kaardid/7.9.json",
+        "stored_name_hex": "7261772f4f7069712d44422f63686170746572732f6b756e7374692d5f6a615f74c3b6c3b6c3b570657475732e5f342e5f6f73612e5f74c3a4687470c3a4657661c2ad6b6161726469642f372e392e6a736f6e",
+        "decoded_logical_name": "raw/Opiq-DB/chapters/kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid/7.9.json",
+        "utf8_filename_flag": false,
+        "recovery_applied": true,
+        "source_book_id": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+        "cp437_round_trip_verified": true,
+        "utf8_round_trip_verified": true
+      }
+    ]
+  },
+  "source_records": 178,
+  "page_records_included": 89,
+  "cover_detail_records_excluded": 2,
+  "administrative_records_excluded": 0,
+  "duplicate_records_excluded": 2,
+  "subject_boundary_page_records_excluded": 85,
+  "source_accounting": {
+    "kit_196_instructional_pages": 89,
+    "kit_200_already_owned_shared_supplementary_pages": 85,
+    "unique_kit_details": 2,
+    "duplicate_kit_detail_aliases": 2,
+    "unexplained_rows": 0,
+    "total": 178
+  },
+  "source_representation_audit": {
+    "compact_jsonl_vs_markdown": {
+      "compared_records": 178,
+      "unexplained_differences": 0
+    },
+    "compact_vs_raw": {
+      "raw_chapter_records": 178,
+      "compact_headings_missing_from_raw": 0,
+      "raw_empty_task_arrays": 178,
+      "raw_image_references": 491,
+      "images_by_kit": {
+        "196": 364,
+        "200": 127
+      },
+      "service_heading_occurrences": 555,
+      "unexplained_differences": 0
+    },
+    "index_vs_raw_index": {
+      "compared_books": 2,
+      "unexplained_differences": 0
+    },
+    "topic_map": {
+      "validated": true,
+      "unexplained_differences": 0
+    }
+  },
+  "captured_book_inventory": [
+    {
+      "source_book_id_raw": "kunsti-_ja_tööõpetus._3._osa",
+      "source_book_id_canonical": "kunsti-_ja_tööõpetus._3._osa",
+      "kit_id": "196",
+      "raw_title": "Käsitöötuba – Opiq",
+      "canonical_title": "Kunsti- ja tööõpetus. 3. osa",
+      "raw_grade": 3,
+      "canonical_grade": 3,
+      "index_language": "et",
+      "raw_book_language": "ru",
+      "canonical_language": "et",
+      "publisher": "",
+      "programme_type": "ordinary_curriculum",
+      "instructional_pages": 89,
+      "canonical_owner": "grade-3-arts-and-crafts"
+    },
+    {
+      "source_book_id_raw": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+      "source_book_id_canonical": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "kit_id": "200",
+      "raw_title": "Käsitöötuba – Opiq",
+      "canonical_title": "Kunsti- ja tööõpetus. 4. osa. Tähtpäevakaardid",
+      "raw_grade": 3,
+      "canonical_grade": 2,
+      "index_language": "et",
+      "raw_book_language": "ru",
+      "canonical_language": "et",
+      "publisher": "",
+      "programme_type": "supplementary",
+      "instructional_pages": 85,
+      "canonical_owner": "grade-2-arts-and-crafts"
+    }
+  ],
+  "raw_grade_counts": {
+    "3": 178
+  },
+  "raw_subject_counts": {
+    "mathematics / matemaatika / математика": 178
+  },
+  "canonical_subject_counts": {
+    "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство": 89
+  },
+  "raw_language_counts": {
+    "et": 178
+  },
+  "canonical_language_counts": {
+    "et": 89
+  },
+  "subject_normalization_audit": {
+    "corrected_source_rows": 178,
+    "canonical_page_records": 89,
+    "source_subject": "mathematics / matemaatika / математика",
+    "canonical_subject": "arts and crafts / kunst ja tööõpetus / трудовое обучение и искусство",
+    "generated_mathematics_aliases_removed": true,
+    "evidence": "Source Book IDs, kits 196/200, complete craft chapter sequences, Estonian craft headings, and 491 raw image references."
+  },
+  "language_normalization_audit": {
+    "compact_page_language": {
+      "et": 178
+    },
+    "index_book_language": {
+      "et": 2
+    },
+    "raw_book_language": {
+      "ru": 2
+    },
+    "canonical_page_language": {
+      "et": 89
+    },
+    "decision": "Use compact index and page-level Estonian evidence; retain the raw-book ru anomaly in QA."
+  },
+  "identity_normalization_audit": {
+    "source_book_id_raw": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+    "source_book_id_canonical": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+    "soft_hyphen_removed_from_identity_only": true,
+    "educational_content_changed": false
+  },
+  "duplicate_url_audit": [
+    {
+      "url": "https://www.opiq.ee/Kit/Details/196",
+      "kit_id": "196",
+      "source_book_id_raw": "kunsti-_ja_tööõpetus._3._osa",
+      "source_book_id_canonical": "kunsti-_ja_tööõpetus._3._osa",
+      "chapter_ids": [
+        "88",
+        "178"
+      ],
+      "differing_fields": [
+        "chapter_id"
+      ],
+      "decision": "exclude_unique_kit_detail_and_duplicate_alias"
+    },
+    {
+      "url": "https://www.opiq.ee/Kit/Details/200",
+      "kit_id": "200",
+      "source_book_id_raw": "kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid",
+      "source_book_id_canonical": "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+      "chapter_ids": [
+        "1",
+        "87"
+      ],
+      "differing_fields": [
+        "chapter_id"
+      ],
+      "decision": "exclude_unique_kit_detail_and_duplicate_alias"
+    }
+  ],
+  "kit_200_comparison": {
+    "kit_id": "200",
+    "instructional_pages_per_capture": 85,
+    "url_set_matches": 85,
+    "chapter_order_matches": 85,
+    "compact_stable_field_matches": 85,
+    "compact_grade_context_differences": 85,
+    "raw_stable_field_matches": 85,
+    "raw_capture_timestamp_differences": 85,
+    "raw_image_reference_hash_matches": 85,
+    "source_book_id_matches_after_soft_hyphen_normalization": 85,
+    "grade2_canonical_page_matches": 85,
+    "canonical_owner": "grade-2-arts-and-crafts",
+    "grade3_classification": "already_owned_shared_supplementary",
+    "cross_route_overlap_after_import": 0,
+    "lost_urls": 0,
+    "decision": "retain_existing_grade_2_supplementary_owner",
+    "reason": "All stable instructional fields and image references match. Only automatic grade context and capture timestamps differ, which is not intrinsic grade-specific evidence."
+  },
+  "canonical_ownership": {
+    "kit_196": "grade-3-arts-and-crafts",
+    "kit_200": "grade-2-arts-and-crafts",
+    "lost_urls": 0,
+    "duplicate_canonical_ownership": 0
+  },
+  "image_audit": {
+    "196": 364,
+    "200": 127
+  },
+  "repeated_title_groups": {
+    "groups": 3,
+    "records": 6,
+    "entries": [
+      {
+        "title": "Liblikas",
+        "kit_ids": [
+          "196"
+        ],
+        "urls": [
+          "https://www.opiq.ee/kit/196/chapter/11215",
+          "https://www.opiq.ee/kit/196/chapter/11244"
+        ],
+        "decision": "retain_distinct_canonical_chapters"
+      },
+      {
+        "title": "Pop-up-tehnikas kaart",
+        "kit_ids": [
+          "200"
+        ],
+        "urls": [
+          "https://www.opiq.ee/kit/200/chapter/11399",
+          "https://www.opiq.ee/kit/200/chapter/11429"
+        ],
+        "decision": "retain_distinct_canonical_chapters"
+      },
+      {
+        "title": "Volditud lill",
+        "kit_ids": [
+          "200"
+        ],
+        "urls": [
+          "https://www.opiq.ee/kit/200/chapter/11445",
+          "https://www.opiq.ee/kit/200/chapter/11446"
+        ],
+        "decision": "retain_distinct_canonical_chapters"
+      }
+    ]
+  },
+  "content_repair_audit": {
+    "identity_soft_hyphen_normalization": 1,
+    "chapter_content_repairs": 0,
+    "invented_publishers": 0,
+    "invented_tasks": 0
+  },
+  "raw_content_quality_audit": {
+    "hard_errors": {
+      "zero_width": 0,
+      "replacement_character": 0,
+      "forbidden_control_character": 0,
+      "html": 0,
+      "mathml": 0,
+      "raw_json_payload": 0,
+      "non_nfc": 0
+    },
+    "source_book_id_soft_hyphen_rows": 87,
+    "chapter_content_soft_hyphens": 0,
+    "chapter_content_repairs": 0
+  },
+  "content_quality_audit": {
+    "hard_errors": {
+      "replacement_character": 0,
+      "forbidden_control_character": 0,
+      "invisible_character": 0,
+      "malformed_unicode": 0,
+      "non_nfc_text": 0,
+      "html_mathml_or_json_payload": 0,
+      "malformed_url": 0,
+      "missing_title": 0,
+      "missing_headings": 0
+    },
+    "classified_warnings": {
+      "missing_structured_task_examples": {
+        "total": 89,
+        "classification": "capture_limitation_for_image_heavy_craft_pages"
+      },
+      "missing_publishers": {
+        "total": 89,
+        "classification": "source_metadata_absent_do_not_invent"
+      },
+      "repeated_titles": {
+        "total": 2,
+        "groups": 1,
+        "classification": "distinct_urls_and_chapter_contexts_retained"
+      }
+    }
+  },
+  "records_without_task_examples": 89,
+  "source_instructional_records_without_tasks": 174,
+  "publisher_limitations": {
+    "publisher_values_present": 0,
+    "canonical_publishers_invented": 0,
+    "decision": "Publisher metadata is absent and remains empty."
+  },
+  "canonical_url_audit": {
+    "unique": true,
+    "duplicate_count": 0,
+    "direct_chapter_urls": 89,
+    "cross_route": {
+      "checked_routes": 27,
+      "kit_196_overlap_count": 0,
+      "kit_200_owner_routes": [
+        {
+          "source_id": "grade-2-arts-and-crafts",
+          "url_count": 85
+        }
+      ],
+      "kit_200_owner_count": 1
+    },
+    "final_owner": "grade-3-arts-and-crafts"
+  },
+  "grades": {
+    "3": 89
+  },
+  "languages": {
+    "et": 89
+  },
+  "books": {
+    "kunsti-_ja_tööõpetus._3._osa__kit196": 89
+  },
+  "kits": {
+    "196": 89
+  },
+  "known_limitations": [
+    "All 174 instructional pages in the source archive lack structured task arrays; no image-based instructions are reconstructed.",
+    "Publisher metadata is absent and is not invented.",
+    "This import does not establish official-curriculum or live-catalogue completeness."
+  ]
+}

@@ -23,6 +23,7 @@ const gradeThreeEstonianRouteIds = new Set([
   'grade-3-estonian',
   'grade-3-estonian-second-language',
 ]);
+const gradeThreeArtsRouteId = 'grade-3-arts-and-crafts';
 
 function fail(message) {
   errors.push(message);
@@ -601,6 +602,119 @@ async function validateQaSnapshot(
     validateCountMap(qa, sourceLabel, 'canonical_language_counts', qa.page_records_included);
   }
 
+  if (source.id === gradeThreeArtsRouteId && !compactMetadata) {
+    const requiredFields = [
+      'archive',
+      'filename_encoding_audit',
+      'source_accounting',
+      'source_representation_audit',
+      'cover_detail_records_excluded',
+      'administrative_records_excluded',
+      'duplicate_records_excluded',
+      'subject_boundary_page_records_excluded',
+      'captured_book_inventory',
+      'raw_grade_counts',
+      'raw_subject_counts',
+      'canonical_subject_counts',
+      'raw_language_counts',
+      'canonical_language_counts',
+      'subject_normalization_audit',
+      'language_normalization_audit',
+      'identity_normalization_audit',
+      'duplicate_url_audit',
+      'kit_200_comparison',
+      'canonical_ownership',
+      'image_audit',
+      'repeated_title_groups',
+      'content_repair_audit',
+      'raw_content_quality_audit',
+      'content_quality_audit',
+      'records_without_task_examples',
+      'source_instructional_records_without_tasks',
+      'publisher_limitations',
+      'canonical_url_audit',
+      'kits',
+    ];
+    requiredFields.forEach((field) => {
+      if (!Object.hasOwn(qa, field)) {
+        fail(`${sourceLabel}: missing grade-3 arts original-archive QA field ${field}.`);
+      }
+    });
+    if (qa.source_records !== 178 || qa.page_records_included !== 89) {
+      fail(`${sourceLabel}: original archive must account for 178 rows and 89 canonical pages.`);
+    }
+    const accountedSourceRecords = qa.page_records_included
+      + qa.cover_detail_records_excluded
+      + qa.administrative_records_excluded
+      + qa.duplicate_records_excluded
+      + qa.subject_boundary_page_records_excluded;
+    if (accountedSourceRecords !== qa.source_records) {
+      fail(`${sourceLabel}: route ownership and exclusions account for ${accountedSourceRecords} rows, expected 178.`);
+    }
+    if (qa.archive?.member_count !== 185
+      || qa.archive?.crc_verified_members !== 185
+      || qa.archive?.uncompressed_size !== 552718
+      || qa.archive?.compression_methods?.stored !== 185) {
+      fail(`${sourceLabel}: all 185 stored ZIP members must be size- and CRC-verified.`);
+    }
+    if (qa.filename_encoding_audit?.non_ascii_recoveries !== 180
+      || qa.filename_encoding_audit?.ascii_only_names !== 5
+      || qa.filename_encoding_audit?.decoded_name_collisions !== 0
+      || qa.filename_encoding_audit?.round_trip_verified !== 185) {
+      fail(`${sourceLabel}: ZIP filename recovery must cover 180 non-ASCII and five ASCII-only members without collisions.`);
+    }
+    if (qa.source_representation_audit?.compact_jsonl_vs_markdown?.unexplained_differences !== 0
+      || qa.source_representation_audit?.compact_vs_raw?.unexplained_differences !== 0
+      || qa.source_representation_audit?.index_vs_raw_index?.unexplained_differences !== 0
+      || qa.source_representation_audit?.topic_map?.unexplained_differences !== 0) {
+      fail(`${sourceLabel}: source representations contain unexplained differences.`);
+    }
+    const comparison = qa.kit_200_comparison;
+    if (comparison?.instructional_pages_per_capture !== 85
+      || comparison?.url_set_matches !== 85
+      || comparison?.compact_stable_field_matches !== 85
+      || comparison?.raw_stable_field_matches !== 85
+      || comparison?.raw_image_reference_hash_matches !== 85
+      || comparison?.canonical_owner !== 'grade-2-arts-and-crafts'
+      || comparison?.grade3_classification !== 'already_owned_shared_supplementary'
+      || comparison?.cross_route_overlap_after_import !== 0
+      || comparison?.lost_urls !== 0) {
+      fail(`${sourceLabel}: kit 200 existing-owner comparison is incomplete.`);
+    }
+    if (qa.canonical_ownership?.kit_196 !== gradeThreeArtsRouteId
+      || qa.canonical_ownership?.kit_200 !== 'grade-2-arts-and-crafts'
+      || qa.canonical_ownership?.lost_urls !== 0
+      || qa.canonical_ownership?.duplicate_canonical_ownership !== 0) {
+      fail(`${sourceLabel}: canonical kit ownership differs from the audited decision.`);
+    }
+    if (qa.image_audit?.['196'] !== 364 || qa.image_audit?.['200'] !== 127) {
+      fail(`${sourceLabel}: raw image-reference counts differ from the audited archive.`);
+    }
+    if (qa.records_without_task_examples !== 89
+      || qa.source_instructional_records_without_tasks !== 174
+      || qa.content_repair_audit?.chapter_content_repairs !== 0
+      || qa.content_repair_audit?.invented_publishers !== 0
+      || qa.content_repair_audit?.invented_tasks !== 0) {
+      fail(`${sourceLabel}: content limitation or repair counts differ from the audited source.`);
+    }
+    const rawQualityErrors = qa.raw_content_quality_audit?.hard_errors;
+    const canonicalQualityErrors = qa.content_quality_audit?.hard_errors;
+    if (!isPlainObject(rawQualityErrors)
+      || Object.values(rawQualityErrors).some((count) => count !== 0)
+      || !isPlainObject(canonicalQualityErrors)
+      || Object.values(canonicalQualityErrors).some((count) => count !== 0)) {
+      fail(`${sourceLabel}: source or canonical content-quality audit contains hard errors.`);
+    }
+    if (qa.publisher_limitations?.canonical_publishers_invented !== 0) {
+      fail(`${sourceLabel}: publisher metadata must not be invented.`);
+    }
+    validateCountMap(qa, sourceLabel, 'raw_grade_counts', 178);
+    validateCountMap(qa, sourceLabel, 'raw_subject_counts', 178);
+    validateCountMap(qa, sourceLabel, 'canonical_subject_counts', 89);
+    validateCountMap(qa, sourceLabel, 'raw_language_counts', 178);
+    validateCountMap(qa, sourceLabel, 'canonical_language_counts', 89);
+  }
+
   validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'languages', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'books', qa.page_records_included);
@@ -787,6 +901,32 @@ async function validateSourceScopeConfig(source, sourceLabel) {
     fail(`${sourceLabel}: source_scope.included_kit_ids must contain unique numeric strings.`);
   }
   if (!isNonEmptyString(scope.programme_type)) fail(`${sourceLabel}: source_scope.programme_type must be a non-empty string.`);
+  if (Object.hasOwn(scope, 'excluded_existing_owner_kits')) {
+    const excluded = scope.excluded_existing_owner_kits;
+    if (!Array.isArray(excluded) || excluded.length === 0) {
+      fail(`${sourceLabel}: source_scope.excluded_existing_owner_kits must be a non-empty array.`);
+    } else {
+      const included = new Set(scope.included_kit_ids ?? []);
+      const seen = new Set();
+      for (const [index, entry] of excluded.entries()) {
+        const entryLabel = `${sourceLabel}: source_scope.excluded_existing_owner_kits[${index}]`;
+        if (!isPlainObject(entry)) {
+          fail(`${entryLabel} must be an object.`);
+          continue;
+        }
+        const allowed = new Set(['kit_id', 'owner_source_id', 'role']);
+        for (const field of Object.keys(entry)) {
+          if (!allowed.has(field)) fail(`${entryLabel} contains unknown field ${field}.`);
+        }
+        if (!/^\d+$/u.test(entry.kit_id ?? '')) fail(`${entryLabel}.kit_id must be a numeric string.`);
+        else if (included.has(entry.kit_id)) fail(`${entryLabel}.kit_id must not also appear in included_kit_ids.`);
+        else if (seen.has(entry.kit_id)) fail(`${entryLabel}.kit_id is duplicated.`);
+        else seen.add(entry.kit_id);
+        if (!isNonEmptyString(entry.owner_source_id)) fail(`${entryLabel}.owner_source_id must be a non-empty string.`);
+        if (!isNonEmptyString(entry.role)) fail(`${entryLabel}.role must be a non-empty string.`);
+      }
+    }
+  }
   await requireFile(scope.audit_path, `${sourceLabel} source_scope.audit_path`);
 }
 
