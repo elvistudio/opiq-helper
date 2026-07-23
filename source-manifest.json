@@ -890,6 +890,63 @@
       "notes": "Use for grade-3 arts-and-crafts requests only. The canonical route contains 89 ordinary kit 196 pages; kit 200 is audited as already-owned shared supplementary material and is not duplicated. This is not proof of curriculum or live-catalogue completeness."
     },
     {
+      "id": "grade-3-english",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "english",
+      "subject_et": "inglise keel",
+      "languages": ["en", "et", "ru"],
+      "md_path": "project-files/outputs/opiq_3klass_inglise_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_english_step_by_step_1_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_inglise_keel_qa.json",
+      "record_count": 193,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "qa_snapshot_available",
+      "known_issues": [
+        "All 197 compact source rows carry the incorrect automatic mathematics subject. Canonical instructional rows are normalized to English from the two Source Book IDs, kits, titles, and complete English-learning chapter evidence.",
+        "Both raw book objects say ru, while index and page-level language evidence are multilingual. Canonical pages preserve their 122 en, 67 et, and 4 ru source values.",
+        "Publisher metadata is absent and is not invented.",
+        "Programme type is not verifiable from the supplied archive and remains unknown rather than being guessed as ordinary curriculum.",
+        "All compact and raw structured task arrays are empty. This is a capture limitation and is not treated as proof that the books contain no exercises."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["369", "452"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-3-english-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "matemaatika_3._klassile__kit54",
+          "matemaatika_3._klassile_2023_õk__kit531",
+          "математика_для_3_класса__kit92",
+          "matemaatika_3._klassile_koolibri__kit134",
+          "математика_3_класс__kit308",
+          "matemaatika_3._klassile,_i_osa._lihtsustatud_õppekava__kit497",
+          "matemaatika_3._klassile,_ii_osa._lihtsustatud_õppekava__kit498",
+          "matemaatika_3._klassile,_iii_osa._lihtsustatud_õppekava__kit499",
+          "matemaatika_3._klassile,_iv_osa._lihtsustatud_õppekava__kit500",
+          "eesti_keele_õpik_3._klassile",
+          "ilus_emakeel._3._klassi_eesti_keel",
+          "koos_on_vahva._sõprade_seiklused._eesti_keel_teise_keelena_3._klassile",
+          "mina_loen_ja_kirjutan_3"
+        ],
+        "audit_path": "docs/audits/grade-3-english-source-import.md",
+        "reason": "Grade-3 English is separate from mathematics, first-language Estonian, Estonian as a second language, Russian, and adjacent grades. Only kits 369 and 452 from the registered capture belong to this route."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "english",
+          "et": "inglise keel",
+          "ru": "английский язык"
+        }
+      },
+      "notes": "Use for grade-3 English requests only. This route accounts for the complete supplied capture, not verified official-curriculum or current live Opiq catalogue completeness."
+    },
+    {
       "id": "grade-3-human-studies",
       "grade": 3,
       "grade_group": "1-4",
