@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: competence-support
+names:
+  en: Competence support
+  et: Kompetentsustunde toetamine
+  ru: Поддержка чувства компетентности
+category: motivation
+summary_ru: >-
+  Задание должно позволять ученику увидеть достижимый прогресс: критерии ясны,
+  поддержка доступна, а следующий шаг немного сложнее уже освоенного.
+provenance_claims:
+  - claim_id: competence-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство связывает мотивацию с переживанием компетентности и посильного успеха.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Это методическая рекомендация, а не гарантия мотивации каждого ученика.
+  - claim_id: competence-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект делает прогресс видимым через короткие критерии и последовательные уровни поддержки.
+    reference_ids: []
+    boundary_ru: Формат критериев является проектным решением.
+intended_outcomes: [sense_of_competence, motivation, task_completion]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Показать один понятный признак успешного ответа.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Разделить результат на два-три наблюдаемых критерия.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Предложить базовый уровень и содержательное усложнение без снижения основной цели.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: empty-praise
+    description_ru: Общая похвала не показывает, что именно ученик освоил.
+    mitigation_ru: Связывать обратную связь с конкретным действием, стратегией или улучшением.
+not_equivalent_to: [constant-easy-work, unearned-praise]
+limitations_ru:
+  - Чувство успеха не должно создаваться снижением предметного содержания.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Сначала ученик верно называет части схемы, затем объясняет одну причинную связь по-русски.
+  homeschool_example_ru: Взрослый отмечает правильно выбранный способ наблюдения, не заменяя ребёнка в формулировке вывода.
+confidence:
+  level: high
+  rationale: Потребность в компетентности явно представлена в источнике; конкретные критерии разработаны проектом.

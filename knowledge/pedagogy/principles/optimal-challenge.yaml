@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: optimal-challenge
+names:
+  en: Optimal challenge
+  et: Optimaalne raskus
+  ru: Оптимальная трудность
+category: motivation
+summary_ru: >-
+  Задача должна требовать содержательного усилия, но оставаться выполнимой с
+  доступной поддержкой; трудность регулируется опорами, а не обеднением цели.
+provenance_claims:
+  - claim_id: challenge-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует оптимальную трудность учебной задачи.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Источник не задаёт единого численного порога трудности для всех учеников.
+  - claim_id: challenge-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект регулирует трудность через модели, словари, частично заполненные схемы и постепенное снятие опор.
+    reference_ids: []
+    boundary_ru: Выбор опоры зависит от предмета, языка и наблюдаемой потребности.
+intended_outcomes: [motivation, sense_of_competence, knowledge_transfer]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Оставить одну новую операцию и дать визуальный образец.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Сочетать знакомое содержание с одним новым способом действия.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Сохранить научную цель, варьируя объём языковой и организационной поддержки.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: productive-struggle-overload
+    description_ru: Сложность превышает доступные знания, язык или рабочую память.
+    mitigation_ru: Проверить предпосылки, сократить одновременную новизну и дать временную опору.
+not_equivalent_to: [permanent-easy-work, unsupported-struggle]
+limitations_ru:
+  - Уровень трудности требует наблюдения за конкретным учеником и может меняться.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Научное сравнение экосистем выполняется по-русски, а эстонский ответ ограничен одной освоенной рамкой.
+  homeschool_example_ru: Взрослый предлагает подсказку к шагу, но не заменяет ребёнка в наблюдении и выводе.
+confidence:
+  level: high
+  rationale: Оптимальная трудность прямо названа источником; подбор конкретных опор остаётся проектной и учительской задачей.

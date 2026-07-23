@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: time-estimation-and-planning
+names:
+  en: Time estimation and planning
+  et: Aja hindamine ja planeerimine
+  ru: Оценка времени и планирование
+category: planning_and_self_management
+summary_ru: >-
+  До начала работы ученик оценивает продолжительность, выбирает порядок шагов
+  и перерывов, а после сравнивает план с фактическим временем.
+provenance_claims:
+  - claim_id: planning-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство включает оценку времени, планирование, списки задач и способы организации времени.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Ни один таймер или техника организации времени не является универсально обязательным.
+  - claim_id: planning-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект предлагает записывать прогноз, фактическое время и причину заметного расхождения.
+    reference_ids: []
+    boundary_ru: Такой журнал является проектной адаптацией.
+intended_outcomes: [planning_accuracy, learner_autonomy, task_completion]
+suitable_grades: {min: 2, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Взрослый предлагает два понятных временных отрезка и помогает заметить окончание.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Ученик выбирает оценку из нескольких вариантов и отмечает фактическое время.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Ученик планирует этапы, короткий перерыв и корректирует будущую оценку.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: timer-pressure
+    description_ru: Таймер создаёт спешку и мешает вдумчивому выполнению.
+    mitigation_ru: Использовать время как ориентир, разрешать обоснованную корректировку и не превращать её в соревнование.
+not_equivalent_to: [speed-as-quality, rigid-pomodoro]
+limitations_ru:
+  - Техника Pomodoro является одним из вариантов и не подходит автоматически каждому ученику.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Перед картографическим заданием оценить время на чтение легенды, нанесение объектов и проверку.
+  homeschool_example_ru: Запланировать два коротких учебных отрезка с перерывом и сравнить прогноз с фактом.
+confidence:
+  level: high
+  rationale: Планирование и оценка времени явно представлены в источнике; конкретные инструменты остаются вариантами.

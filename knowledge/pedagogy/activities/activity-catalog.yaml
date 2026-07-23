@@ -1,0 +1,1713 @@
+schema_version: "1.0"
+artifact_type: pedagogical_activity_catalog
+activities:
+  - activity_id: back-to-back-description
+    names: {en: Back-to-back description, et: Seljad vastamisi kirjeldamine, ru: Описание спиной к спине}
+    category: collaborative_learning
+    short_description_ru: Один участник описывает изображение или схему, не показывая её, второй восстанавливает содержание по описанию.
+    pedagogical_purposes: [explain_reasoning, practice_language, vary_representation]
+    linked_principle_ids: [peer-explanation, varied-context-and-representation]
+    suitable_lesson_phases: [guided_practice, collaborative_practice]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [map_and_spatial, oral_explanation, vocabulary]
+    subjects: [cross_curricular, science, geography, language_learning]
+    delivery_modes: [classroom, homeschool, remote, parent_supported]
+    group_formats: [pair, parent_child]
+    duration: {min_minutes: 5, max_minutes: 15}
+    language_demand:
+      receptive: moderate
+      productive: high
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Банк слов, Модель фразы, Разрешение сначала описать по-русски]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: adaptable
+      variants: [parent_child, remote_peer]
+      child_responsibility_ru: Описывать признаки по порядку и уточнять непонятое.
+      adult_role_ru: Следовать только услышанному описанию и не угадывать за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Проверить точность терминов и подготовить подходящее изображение.
+      limitations_ru: [Парный обмен дома не воспроизводит разнообразие ответов группы.]
+    materials_ru: [Две версии изображения или перегородка, Лист для рисунка]
+    accessibility:
+      supports_ru: [Устный и визуальный каналы связаны явной задачей.]
+      barriers_ru: [Высокая нагрузка на устную речь и пространственные обозначения.]
+      adaptations_ru: [Разрешить жесты направлений только после первой попытки, Дать последовательность вопросов.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: guessing-instead-of-listening, description_ru: "Второй участник угадывает объект вместо точного следования описанию.", mitigation_ru: "Требовать уточняющий вопрос и сравнить результат с исходником."}
+    contraindications_ru: [Не использовать как самостоятельную проверку предметного понимания без последующего объяснения.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: back-to-back-source, claim_origin: source_supported, statement_ru: "Каталог методов включает описание без визуального контакта как учебную активность.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Конкретная последовательность и языковые опоры сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Сначала дать время изучить изображение и слова, Затем провести описание без показа, В конце сравнить и исправить неточности.]
+      adaptation_boundary_ru: Не считать точный рисунок доказательством научного понимания без вопроса о связях.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Описать партнёру простую карту реки по-русски и использовать две эстонские подписи.
+      homeschool_example_ru: Описать взрослому схему круговорота, затем вместе сверить расположение стрелок.
+    confidence:
+      level: medium
+      rationale: Метод присутствует в предоставленном каталоге; проектные языковые и домашние варианты не проходили независимое ревью.
+  - activity_id: brainstorming
+    names: {en: Brainstorming, et: Ajurünnak, ru: Мозговой штурм}
+    category: activation
+    short_description_ru: Участники быстро предлагают возможные идеи по вопросу, временно отделяя сбор вариантов от их последующей проверки.
+    pedagogical_purposes: [activate_prior_knowledge, elicit_predictions, collaborate]
+    linked_principle_ids: [autonomy-support, relatedness-and-safe-climate]
+    suitable_lesson_phases: [activation, orientation]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [conceptual_text, misconception, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, remote, parent_supported]
+    group_formats: [individual, pair, small_group, whole_class, parent_child]
+    duration: {min_minutes: 3, max_minutes: 12}
+    language_demand:
+      receptive: moderate
+      productive: moderate
+      interaction: high
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Разрешить одно слово или рисунок, Собирать идеи по-русски и выделять только целевые термины по-эстонски]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: adaptable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Сначала записать собственные идеи без проверки источника.
+      adult_role_ru: Задать вопрос и фиксировать ответы, не исправляя их до этапа проверки.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Выбрать вопрос и обеспечить последующую научную проверку идей.
+      limitations_ru: [Один ребёнок не получает разнообразия идей полноценной группы.]
+    materials_ru: [Доска или лист, Таймер при необходимости]
+    accessibility:
+      supports_ru: [Принимаются короткие ответы и разные формы представления.]
+      barriers_ru: [Быстрый темп и публичность могут мешать неспешному мышлению.]
+      adaptations_ru: [Сначала дать тихое индивидуальное время, Разрешить передать идею письменно.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: unverified-ideas, description_ru: "Предложенные идеи остаются без проверки и воспринимаются как факты.", mitigation_ru: "После сбора отдельно классифицировать и проверять утверждения."}
+    contraindications_ru: [Не использовать как единственный источник научного объяснения.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: brainstorming-source, claim_origin: source_supported, statement_ru: "Мозговой штурм включён в предоставленный каталог учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Описание процедуры и ограничения являются оригинальной проектной формулировкой."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Задать узкий вопрос и дать тихую паузу, Собрать варианты без немедленной оценки, Перейти к проверке и группировке идей.]
+      adaptation_boundary_ru: Не считать количество идей показателем правильного понимания.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Собрать предположения о том, куда уходит дождевая вода, затем проверить по схеме.
+      homeschool_example_ru: Ребёнок за две минуты записывает способы экономить воду, после чего сверяет их с критериями.
+    confidence:
+      level: medium
+      rationale: Наличие метода подтверждено каталогом; заявляется пригодность при условиях, а не доказанный эффект.
+  - activity_id: concept-map
+    names: {en: Concept map, et: Mõistekaart, ru: Карта понятий}
+    category: concept_organization
+    short_description_ru: Ученик размещает ключевые понятия и подписывает смысловые связи между ними.
+    pedagogical_purposes: [organize_concepts, retrieve_without_source, vary_representation]
+    linked_principle_ids: [retrieval-practice, varied-context-and-representation]
+    suitable_lesson_phases: [guided_practice, retrieval, consolidation, formative_assessment]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, process, comparison, vocabulary]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, small_group, parent_child]
+    duration: {min_minutes: 8, max_minutes: 30}
+    language_demand:
+      receptive: moderate
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Список ключевых терминов, Начальная пара узлов, Подписи связей по-русски]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Сначала построить карту по памяти и объяснить одну связь.
+      adult_role_ru: Попросить объяснить стрелки и предложить сверку, не перестраивая карту за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Проверить научную корректность связей и выбрать разумный объём понятий.
+      limitations_ru: [Без собеседника труднее заметить двусмысленную подпись связи.]
+    materials_ru: [Лист или цифровое поле, Карточки терминов при поддержке]
+    accessibility:
+      supports_ru: [Видимая структура уменьшает нагрузку на длинный текст.]
+      barriers_ru: [Пространственное размещение и формулировка связей могут быть сложны.]
+      adaptations_ru: [Дать крупные карточки, Разрешить линейную схему вместо сети.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: decorative-map, description_ru: "Карта содержит слова и линии без обозначенного смысла.", mitigation_ru: "Требовать глагол или короткую подпись на каждой существенной связи."}
+    contraindications_ru: [Не использовать сложную свободную сеть до первоначального точного объяснения понятий.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: concept-map-source, claim_origin: source_supported, statement_ru: "Карты понятий представлены в обоих методических материалах, включая воспроизведение по памяти.", reference_ids: [gag-opiraam-opistrateegiad, oppeulesanded-method-catalog], boundary_ru: "Проект не воспроизводит исходные таблицы или примеры."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Выбрать ограниченный набор понятий, Построить и подписать связи без источника, Сверить и исправить карту другим цветом.]
+      adaptation_boundary_ru: Карта должна показывать отношения, а не служить декоративным перечнем.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Связать водоём, испарение, облако и осадки русскими подписями и эстонскими терминами.
+      homeschool_example_ru: Восстановить карту темы по памяти, затем объяснить взрослому одну причинную стрелку.
+    confidence:
+      level: high
+      rationale: Метод и его retrieval-вариант прямо поддержаны предоставленными материалами; проектный формат ограничивает нагрузку.
+  - activity_id: delayed-homework-retrieval
+    names: {en: Delayed homework retrieval, et: Viivitatud kodune meenutamine, ru: Отложенное домашнее воспроизведение}
+    category: retrieval_and_consolidation
+    short_description_ru: Через заданный интервал ученик сначала отвечает без источника, затем проверяет и исправляет ответ.
+    pedagogical_purposes: [retrieve_without_source, plan_follow_up, detect_misconceptions]
+    linked_principle_ids: [retrieval-practice, spacing, time-estimation-and-planning]
+    suitable_lesson_phases: [homework, delayed_review]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, process, vocabulary, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [homeschool, independent_study, remote, parent_supported, classroom]
+    group_formats: [individual, parent_child]
+    duration: {min_minutes: 5, max_minutes: 15}
+    language_demand:
+      receptive: low
+      productive: moderate
+      interaction: none
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Короткие вопросы по-русски, Ограниченный список эстонских терминов, Образец самопроверки]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Выполнить первую попытку без источника, затем сверить и исправить другим цветом.
+      adult_role_ru: Напомнить порядок и выслушать ответ, не показывая ключ до попытки.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Подготовить короткий проверяемый вопрос и надёжный ключ.
+      limitations_ru: [Требует договорённости о сроке и доступности корректного ответа.]
+    materials_ru: [Карточка вопроса, Закрытый до проверки ответ или ссылка на источник, Цветной карандаш]
+    accessibility:
+      supports_ru: [Короткая длительность и предсказуемый порядок.]
+      barriers_ru: [Зависимость от саморегуляции и памяти о сроке.]
+      adaptations_ru: [Поставить нейтральное напоминание, Разрешить устный ответ с аудиозаписью.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: answer-before-attempt, description_ru: "Ученик смотрит ответ до самостоятельного воспроизведения.", mitigation_ru: "Физически или цифрово отделить ключ и открыть его после отметки первой попытки."}
+    contraindications_ru: [Не задавать как отложенную проверку ещё не объяснённого содержания.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: delayed-retrieval-source, claim_origin: source_supported, statement_ru: "Методическое руководство рекомендует отложенное домашнее задание и воспроизведение после интервала.", reference_ids: [gag-opiraam-opistrateegiad], boundary_ru: "Конкретная длительность и процедура сверки разработаны проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Назначить короткий вопрос и интервал, Выполнить ответ без источника, Открыть ключ и отметить исправления.]
+      adaptation_boundary_ru: Домашняя работа не должна требовать от родителя предметного преподавания.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: На следующем уроке восстановить три этапа круговорота до показа схемы.
+      homeschool_example_ru: Через два дня записать этапы круговорота и три термина, затем сверить и исправить.
+    confidence:
+      level: high
+      rationale: Отложенное повторение поддержано источником; выбранные интервалы и домашние роли остаются проектными.
+  - activity_id: error-correction
+    names: {en: Error correction, et: Vigade parandamine, ru: Самостоятельное исправление ошибки}
+    category: error_analysis
+    short_description_ru: Ученик сравнивает свою попытку с обратной связью, находит конкретное расхождение и исправляет его с объяснением.
+    pedagogical_purposes: [detect_misconceptions, explain_reasoning, provide_formative_evidence]
+    linked_principle_ids: [learning-from-errors, effort-focused-feedback]
+    suitable_lesson_phases: [guided_practice, formative_assessment, reflection, consolidation]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [conceptual_text, data_and_evidence, misconception]
+    subjects: [cross_curricular, science, mathematics, language_learning]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 3, max_minutes: 15}
+    language_demand:
+      receptive: moderate
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Образец корректного ответа, Рамка «Я изменил…, потому что…», Разрешение объяснить причину по-русски]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Сохранить первую попытку, найти расхождение и записать исправление.
+      adult_role_ru: Указать место для проверки вопросом, но не переписывать ответ за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Обеспечить научно точный ключ и проверить устойчивое заблуждение.
+      limitations_ru: [Без ясного ключа ребёнок может заменить один неверный ответ другим.]
+    materials_ru: [Первая попытка, Ключ или обратная связь, Карандаш другого цвета]
+    accessibility:
+      supports_ru: [Видно изменение между первой и исправленной попыткой.]
+      barriers_ru: [Исправление может восприниматься как наказание.]
+      adaptations_ru: [Ограничить исправление одним существенным местом, Дать устное объяснение вместо длинной записи.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: copying-correction, description_ru: "Ученик механически переписывает ключ без объяснения ошибки.", mitigation_ru: "Попросить назвать причину изменения или выбрать правило, которое помогло."}
+    contraindications_ru: [Не проводить публичное сравнение индивидуальных ошибок без безопасных правил.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: error-correction-source, claim_origin: source_supported, statement_ru: "Самостоятельное исправление и обучение на ошибках явно описаны в методическом руководстве.", reference_ids: [gag-opiraam-opistrateegiad], boundary_ru: "Цветовая маркировка и вопросы объяснения являются проектными."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Сохранить исходный ответ, Сравнить с критерием или ключом, Исправить и коротко объяснить причину.]
+      adaptation_boundary_ru: Исправление не заменяет исходного обучения и безопасной обратной связи.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Исправить утверждение «прозрачная вода всегда питьевая» и объяснить причину по-русски.
+      homeschool_example_ru: Сверить подписи схемы, выделить одно исправление и объяснить его взрослому.
+    confidence:
+      level: high
+      rationale: Базовая процедура прямо поддержана источником; точные средства фиксации разработаны проектом.
+  - activity_id: exit-ticket
+    names: {en: Exit ticket, et: Väljumispilet, ru: Выходной билет}
+    category: reflection_and_assessment
+    short_description_ru: В конце занятия ученик даёт один-два коротких ответа, показывающих понимание и потребность в повторении.
+    pedagogical_purposes: [provide_formative_evidence, reflect_on_learning, plan_follow_up]
+    linked_principle_ids: [self-assessment-and-reflection, visible-goals-and-success-criteria]
+    suitable_lesson_phases: [formative_assessment, reflection, consolidation]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [conceptual_text, misconception, vocabulary, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, parent_child]
+    duration: {min_minutes: 2, max_minutes: 7}
+    language_demand:
+      receptive: low
+      productive: low
+      interaction: none
+      estonian_a1_a2_support: directly_suitable
+      scaffolds_ru: [Один вопрос за раз, Рамка короткой фразы, Возможность ответа рисунком]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Ответить до просмотра ключа и отметить вопрос для повторения.
+      adult_role_ru: Собрать или выслушать ответ без немедленной подсказки.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Выбрать диагностичный вопрос и определить последующее действие.
+      limitations_ru: [Один короткий ответ не показывает всё понимание темы.]
+    materials_ru: [Небольшая карточка или цифровая форма]
+    accessibility:
+      supports_ru: [Малый объём и постоянная структура.]
+      barriers_ru: [Ограниченное время может мешать письменному ответу.]
+      adaptations_ru: [Разрешить устный ответ, Не оценивать скорость.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: exit-ticket-as-grade, description_ru: "Короткую диагностическую попытку используют как высокозначимую отметку.", mitigation_ru: "Использовать результат для обратной связи и планирования, если иное заранее не обосновано."}
+    contraindications_ru: [Не делать вывод о полном освоении темы по одному вопросу.]
+    assessment_roles: [formative, reflection_only]
+    source_provenance:
+      - {claim_id: exit-ticket-source, claim_origin: source_supported, statement_ru: "Выходной билет включён в предоставленный каталог учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Вопросы и оценочная политика создаются проектом и учителем."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Выбрать один предметный и при необходимости один языковой вопрос, Получить самостоятельный ответ, Использовать результат для следующего шага.]
+      adaptation_boundary_ru: Предметный и эстонский языковой ответы следует интерпретировать отдельно.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: По-русски объяснить один вывод, затем подписать один термин по-эстонски.
+      homeschool_example_ru: Записать главное открытие и вопрос, который нужно повторить завтра.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; диагностическая ценность зависит от качества вопроса и интерпретации.
+  - activity_id: falsified-text-error-detection
+    names: {en: Falsified-text error detection, et: Vigadega teksti tuvastamine, ru: Поиск ошибок в искажённом тексте}
+    category: error_analysis
+    short_description_ru: Ученик находит намеренно внесённые содержательные ошибки, объясняет их и предлагает корректную формулировку.
+    pedagogical_purposes: [detect_misconceptions, explain_reasoning, retrieve_without_source]
+    linked_principle_ids: [learning-from-errors, retrieval-practice]
+    suitable_lesson_phases: [guided_practice, formative_assessment, consolidation]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [conceptual_text, misconception, process]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, small_group, parent_child]
+    duration: {min_minutes: 7, max_minutes: 20}
+    language_demand:
+      receptive: high
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Короткий текст по-русски, Ограниченное число ошибок, Рамка объяснения]
+    teacher_preparation: high
+    learner_independence: developing
+    homeschool_adaptation:
+      status: adaptable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Отметить сомнительное место и обосновать исправление.
+      adult_role_ru: Просить доказательство, не сообщая заранее количество и расположение ошибок.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Создать однозначные ошибки и проверить научную корректность ключа.
+      limitations_ru: [Без предметного учителя спорная формулировка может остаться неразрешённой.]
+    materials_ru: [Короткий авторский текст с ошибками, Ключ и объяснения]
+    accessibility:
+      supports_ru: [Ошибки можно выделять визуально.]
+      barriers_ru: [Высокая нагрузка на чтение и риск закрепить ложную формулировку.]
+      adaptations_ru: [Использовать отдельные предложения, Сразу после попытки показать корректный вариант.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: falsehood-retention, description_ru: "Искажённая формулировка запоминается без коррекции.", mitigation_ru: "Всегда завершать явным корректным объяснением и самостоятельным исправлением."}
+    contraindications_ru: [Не использовать до первоначального точного введения сложного понятия.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: falsified-text-source, claim_origin: source_supported, statement_ru: "Работа с текстом, содержащим намеренные ошибки, включена в каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Тексты и примеры должны быть авторскими; исходные примеры не копируются."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Дать короткий текст с однозначными ошибками, Попросить найти и обосновать исправление, Сверить с точной версией.]
+      adaptation_boundary_ru: Не использовать двусмысленные или потенциально опасные ложные утверждения без немедленной коррекции.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Найти ошибку в авторском описании испарения и объяснить правильную причинную связь.
+      homeschool_example_ru: Исправить два предложения по ключу и устно объяснить взрослому одно изменение.
+    confidence:
+      level: medium
+      rationale: Метод присутствует в каталоге; его безопасность и полезность зависят от точности созданного текста и коррекции.
+  - activity_id: frayer-model
+    names: {en: Frayer model, et: Frayeri mudel, ru: Модель Фрайера}
+    category: concept_organization
+    short_description_ru: Понятие раскрывается через определение, существенные признаки, примеры и непримеры.
+    pedagogical_purposes: [organize_concepts, compare_and_classify, detect_misconceptions]
+    linked_principle_ids: [varied-context-and-representation, visible-goals-and-success-criteria]
+    suitable_lesson_phases: [explanation, guided_practice, consolidation]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [conceptual_text, classification, vocabulary, misconception]
+    subjects: [cross_curricular, science, geography, language_learning]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, small_group, parent_child]
+    duration: {min_minutes: 10, max_minutes: 25}
+    language_demand:
+      receptive: moderate
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Двуязычный термин, Готовые варианты для сортировки, Определение по-русски]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Заполнить разделы и объяснить различие между примером и непримером.
+      adult_role_ru: Задать уточняющий вопрос о признаке, не диктуя определение.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Проверить существенность признаков и корректность непримеров.
+      limitations_ru: [Некоторые процессы хуже представляются четырьмя статичными разделами.]
+    materials_ru: [Четырёхчастный шаблон, Источник для последующей сверки]
+    accessibility:
+      supports_ru: [Постоянная визуальная структура понятия.]
+      barriers_ru: [Пустой шаблон требует значительной письменной продукции.]
+      adaptations_ru: [Дать карточки для распределения, Разрешить рисунки и устные подписи.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: superficial-examples, description_ru: "Примеры выбираются по внешнему сходству, а не по существенному признаку.", mitigation_ru: "Просить объяснить, какой критерий включает или исключает пример."}
+    contraindications_ru: [Не применять механически к понятию без ясных границ.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: frayer-source, claim_origin: source_supported, statement_ru: "Модель Фрайера включена в предоставленный каталог учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Содержание ячеек и инструкции сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Уточнить изучаемое понятие, Заполнить признаки и примеры с обоснованием, Сверить определение и исправить границы.]
+      adaptation_boundary_ru: Не требовать самостоятельного эстонского определения при уровне A1–A2 без опоры.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Разобрать понятие «болото» через признаки, примеры и непримеры по-русски с термином soo.
+      homeschool_example_ru: Разложить карточки примеров и объяснить взрослому один существенный признак.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; его применение к конкретному научному понятию требует предметной проверки.
+  - activity_id: gallery-walk
+    names: {en: Gallery walk, et: Galeriikõnd, ru: Галерейный обход}
+    category: collaborative_learning
+    short_description_ru: Группы последовательно рассматривают размещённые работы, оставляют содержательную обратную связь и сравнивают решения.
+    pedagogical_purposes: [collaborate, compare_and_classify, provide_formative_evidence]
+    linked_principle_ids: [peer-explanation, relatedness-and-safe-climate, varied-context-and-representation]
+    suitable_lesson_phases: [collaborative_practice, formative_assessment, reflection]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [visual_representation, comparison, data_and_evidence]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, remote, homeschool, parent_supported]
+    group_formats: [small_group, whole_class]
+    duration: {min_minutes: 15, max_minutes: 35}
+    language_demand:
+      receptive: moderate
+      productive: moderate
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Рамки комментария, Значки для типов обратной связи, Возможность писать по-русски]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: limited
+      variants: [remote_peer, small_sibling_group]
+      child_responsibility_ru: Изучить каждую работу и оставить конкретный вопрос или наблюдение.
+      adult_role_ru: Организовать доступ к нескольким работам и следить за уважительным комментарием.
+      adult_safety_supervision_ru: Организовать безопасное перемещение или заменить его сидячей цифровой галереей.
+      subject_teacher_responsibility_ru: Проверить задания, правила обратной связи и итоговую научную коррекцию.
+      limitations_ru: [Без нескольких участников метод теряет основное разнообразие решений.]
+    materials_ru: [Размещённые работы, Карточки обратной связи, Маршрут обхода]
+    accessibility:
+      supports_ru: [Можно изучать визуальные работы в собственном темпе.]
+      barriers_ru: [Перемещение, шум и большой объём чтения.]
+      adaptations_ru: [Организовать сидячую цифровую галерею, Сократить число станций.]
+    safety: {risk_level: low, requires_adult_supervision: true, controls_ru: [Организовать безопасные проходы и спокойный порядок перемещения.]}
+    risks_and_misuse:
+      - {risk_id: popularity-voting, description_ru: "Обратная связь превращается в голосование за красивую работу.", mitigation_ru: "Связать комментарии с предметными критериями и вопросами."}
+    contraindications_ru: [Не использовать при невозможности безопасно организовать движение или анонимную уважительную обратную связь.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: gallery-walk-source, claim_origin: source_supported, statement_ru: "Галерейный обход включён в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Правила движения и комментариев разработаны проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Задать критерий просмотра и безопасный маршрут, Дать время на каждую работу, Обобщить повторяющиеся идеи и исправить ошибки.]
+      adaptation_boundary_ru: Не подменять предметную обратную связь эстетической оценкой.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Сравнить групповые схемы экосистем по двум научным критериям и оставить короткую подпись.
+      homeschool_example_ru: Использовать цифровую галерею только при наличии работ других учеников и правил приватности.
+    confidence:
+      level: provisional
+      rationale: Метод каталогизирован, но домашний вариант ограничен и требует организационной и приватностной проверки.
+  - activity_id: guided-reading
+    names: {en: Guided reading, et: Juhendatud lugemine, ru: Направляемое чтение}
+    category: reading_and_comprehension
+    short_description_ru: Чтение делится на смысловые участки с заранее заданной целью, вопросами и остановками для проверки понимания.
+    pedagogical_purposes: [guide_comprehension, detect_misconceptions, organize_concepts]
+    linked_principle_ids: [attention-and-distraction-management, task-chunking, visible-goals-and-success-criteria]
+    suitable_lesson_phases: [explanation, guided_practice, independent_practice]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [conceptual_text, process, vocabulary]
+    subjects: [cross_curricular, science, language_learning]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, teacher_led, parent_child]
+    duration: {min_minutes: 8, max_minutes: 30}
+    language_demand:
+      receptive: high
+      productive: low
+      interaction: low
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Русское объяснение сложного содержания, Короткие участки, Двуязычный словарь, Вопрос перед чтением]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Читать участок с целью и отвечать до перехода дальше.
+      adult_role_ru: Напомнить вопрос и попросить показать место в тексте, не пересказывать вместо ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Отобрать точный текст, определить остановки и ответы.
+      limitations_ru: [Родитель не обязан объяснять незнакомое предметное содержание.]
+    materials_ru: [Короткий проверенный текст, Вопросы и маркеры остановок, Словарь при необходимости]
+    accessibility:
+      supports_ru: [Текст разделён на предсказуемые части.]
+      barriers_ru: [Высокая нагрузка на чтение и рабочую память.]
+      adaptations_ru: [Дать аудиоверсию при наличии прав, Уменьшить объём участка, Разрешить устный ответ.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: question-hunt, description_ru: "Ученик ищет отдельные слова для ответа без построения модели.", mitigation_ru: "Добавить вопрос на объяснение связи и краткое воспроизведение после закрытия текста."}
+    contraindications_ru: [Не использовать длинный исходный текст без проверки языка и возрастной доступности.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: guided-reading-source, claim_origin: source_supported, statement_ru: "Направляемое чтение включено в предоставленный каталог учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Выбор текста, остановок и вопросов является проектной и учительской работой."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Сформулировать цель до чтения, Читать короткими участками с проверкой, Закрыть текст и восстановить главное.]
+      adaptation_boundary_ru: Эстонский исходный текст не должен заменять русское предметное объяснение для заявленной модели.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Прочитать короткий русский фрагмент о подземной воде и найти на схеме путь воды.
+      homeschool_example_ru: Читать по одному абзацу, отвечать на вопрос и в конце пересказать главное без текста.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; качество зависит от отбора текста, вопросов и языковых опор.
+  - activity_id: insert-reading
+    names: {en: INSERT reading, et: INSERT-lugemine, ru: Чтение с пометками INSERT}
+    category: reading_and_comprehension
+    short_description_ru: Ученик помечает в тексте известное, новое, противоречащее ожиданию и требующее уточнения.
+    pedagogical_purposes: [guide_comprehension, detect_misconceptions, reflect_on_learning]
+    linked_principle_ids: [self-assessment-and-reflection, learning-from-errors]
+    suitable_lesson_phases: [guided_practice, independent_practice, reflection]
+    suitable_grades: {min: 4, max: 12}
+    content_types: [conceptual_text, misconception, vocabulary]
+    subjects: [cross_curricular, science, language_learning]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 10, max_minutes: 30}
+    language_demand:
+      receptive: high
+      productive: low
+      interaction: none
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Легенда из ограниченного числа знаков, Русский текст или переводная опора, Разбор одного примера пометки]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Поставить пометки осознанно и выбрать один вопрос для проверки.
+      adult_role_ru: Спросить, почему выбрана пометка, и помочь найти надёжный ответ после чтения.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Предоставить точный текст и канал для разрешения вопросов.
+      limitations_ru: [Без последующего обсуждения знак вопроса не превращается в понимание.]
+    materials_ru: [Проверенный текст, Легенда знаков, Средство для пометок]
+    accessibility:
+      supports_ru: [Пометки внешне фиксируют реакцию на отдельные места.]
+      barriers_ru: [Одновременное чтение и кодирование увеличивает нагрузку.]
+      adaptations_ru: [Использовать два знака вместо четырёх, Делать пометки после каждого короткого абзаца.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: mechanical-marking, description_ru: "Ученик распределяет знаки механически без объяснения.", mitigation_ru: "Попросить обосновать одну пометку и сформулировать вопрос."}
+    contraindications_ru: [Не применять к тексту, который уже слишком сложен по языку или содержанию.]
+    assessment_roles: [formative, reflection_only]
+    source_provenance:
+      - {claim_id: insert-source, claim_origin: source_supported, statement_ru: "INSERT представлен в предоставленном каталоге учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Система опор и ограничения сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Объяснить ограниченную легенду знаков, Читать короткими участками и обосновывать пометки, Разрешить вопросы и восстановить главное.]
+      adaptation_boundary_ru: Пометки не являются самостоятельной предметной оценкой.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Отметить известное и новое в русском тексте о воздухе, затем обсудить один вопрос.
+      homeschool_example_ru: Сделать две категории пометок и передать учителю вопрос, который взрослый не может проверить.
+    confidence:
+      level: medium
+      rationale: Метод присутствует в каталоге; языковая нагрузка и качество последующей работы требуют проверки.
+  - activity_id: jigsaw
+    names: {en: Jigsaw, et: Mosaiikõpe, ru: Метод «Мозаика»}
+    category: collaborative_learning
+    short_description_ru: Каждый участник изучает одну часть материала, затем отвечает за её точное объяснение новой группе.
+    pedagogical_purposes: [collaborate, explain_reasoning, organize_concepts]
+    linked_principle_ids: [peer-explanation, relatedness-and-safe-climate, task-chunking]
+    suitable_lesson_phases: [guided_practice, collaborative_practice, consolidation]
+    suitable_grades: {min: 4, max: 12}
+    content_types: [conceptual_text, comparison, oral_explanation]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, remote, homeschool, parent_supported]
+    group_formats: [small_group]
+    duration: {min_minutes: 25, max_minutes: 60}
+    language_demand:
+      receptive: high
+      productive: high
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Короткие русские источники, Экспертная карточка, Рамки объяснения, Эстонские термины без требования длинной речи]
+    teacher_preparation: high
+    learner_independence: developing
+    homeschool_adaptation:
+      status: limited
+      variants: [remote_peer, small_sibling_group]
+      child_responsibility_ru: Освоить свою часть и объяснить её, а также слушать другие части.
+      adult_role_ru: Организовать участников и время, не заменяя экспертное объяснение ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Обеспечить равнозначные части, точные источники и итоговое объединение.
+      limitations_ru: [Один ребёнок дома не может воспроизвести взаимозависимость нескольких экспертов.]
+    materials_ru: [Разделённые экспертные материалы, Карточки общего результата, Таймер]
+    accessibility:
+      supports_ru: [У каждого участника есть ясная ограниченная ответственность.]
+      barriers_ru: [Высокая языковая и социальная нагрузка, зависимость группы от каждого участника.]
+      adaptations_ru: [Дать аудио или схему, Разрешить заранее подготовленное русское объяснение, Уменьшить число частей.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: expert-gap, description_ru: "Ошибка одного эксперта распространяется на всю группу или пассивный участник остаётся без части содержания.", mitigation_ru: "Проверить экспертные группы и завершить общей корректной сводкой."}
+    contraindications_ru: [Не использовать, если отсутствует время на экспертную подготовку и итоговую коррекцию.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: jigsaw-source, claim_origin: source_supported, statement_ru: "Метод «Мозаика» включён в предоставленный каталог учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Распределение частей, опоры и контроль точности разработаны проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Разделить содержание на взаимосвязанные части, Подготовить экспертов и проверить понимание, Перегруппировать учеников и завершить общей сводкой.]
+      adaptation_boundary_ru: Метод не подходит как обязательный шаблон каждого урока и требует реальной групповой структуры.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Эксперты изучают разные факторы экосистемы по-русски и при объединении используют общие эстонские термины.
+      homeschool_example_ru: Возможен только в организованной дистанционной группе; индивидуально заменить на другое задание.
+    confidence:
+      level: provisional
+      rationale: Метод подтверждён каталогом, но качество сильно зависит от групповой организации и языковой поддержки.
+  - activity_id: kwl-table
+    names: {en: KWL table, et: TTS-tabel, ru: Таблица «Знаю — хочу узнать — узнал»}
+    category: activation
+    short_description_ru: Ученик фиксирует прежние знания, вопросы и итоговое понимание в трёх явно разделённых этапах.
+    pedagogical_purposes: [activate_prior_knowledge, elicit_predictions, reflect_on_learning]
+    linked_principle_ids: [visible-goals-and-success-criteria, self-assessment-and-reflection]
+    suitable_lesson_phases: [activation, orientation, reflection, consolidation]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, misconception, vocabulary]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, whole_class, parent_child]
+    duration: {min_minutes: 5, max_minutes: 20}
+    language_demand:
+      receptive: low
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Русские вопросы столбцов, Возможность рисунка, Небольшой банк эстонских терминов]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Заполнить первый и второй столбцы до чтения, третий — после самостоятельной проверки.
+      adult_role_ru: Задавать уточняющий вопрос, не исправляя предварительные знания до изучения материала.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Разрешить существенные вопросы и проверить итоговые утверждения.
+      limitations_ru: [Вопросы, на которые семья не нашла ответ, требуют связи с предметным учителем.]
+    materials_ru: [Трёхколоночный шаблон]
+    accessibility:
+      supports_ru: [Предсказуемая структура отделяет исходные идеи от результата.]
+      barriers_ru: [Письменный объём может отвлекать от содержания.]
+      adaptations_ru: [Разрешить ключевые слова или диктовку, Использовать один вопрос в каждом столбце.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: know-column-as-fact, description_ru: "Предварительные идеи в столбце «знаю» остаются без проверки.", mitigation_ru: "В конце явно вернуться к ним и отметить подтверждение или исправление."}
+    contraindications_ru: [Не использовать как формальную таблицу без возврата к первоначальным идеям.]
+    assessment_roles: [formative, reflection_only]
+    source_provenance:
+      - {claim_id: kwl-source, claim_origin: source_supported, statement_ru: "KWL/TTS включена в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Формулировки инструкций и языковые варианты созданы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [До источника зафиксировать знания и вопросы, Изучить материал, Вернуться к первой колонке и записать проверенный результат.]
+      adaptation_boundary_ru: Не оценивать ошибочные предварительные идеи как итоговое незнание.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: До темы воздуха записать предположения и вопросы, после — исправить модель состава воздуха.
+      homeschool_example_ru: Заполнить по одному пункту в каждой колонке и передать нерешённый вопрос учителю.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; образовательная ценность зависит от возврата к идеям и точной проверки.
+  - activity_id: learning-stations
+    names: {en: Learning stations, et: Õpijaamad, ru: Учебные станции}
+    category: collaborative_learning
+    short_description_ru: Ученики последовательно выполняют разные короткие задания на станциях, объединённых одной целью.
+    pedagogical_purposes: [apply_knowledge, vary_representation, collaborate]
+    linked_principle_ids: [varied-context-and-representation, task-chunking, autonomy-support]
+    suitable_lesson_phases: [guided_practice, collaborative_practice, independent_practice]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, practical_observation, classification, data_and_evidence]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, homeschool, parent_supported]
+    group_formats: [individual, pair, small_group]
+    duration: {min_minutes: 20, max_minutes: 60}
+    language_demand:
+      receptive: moderate
+      productive: moderate
+      interaction: moderate
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Одинаковый формат инструкций, Значки действий, Русское объяснение и короткие эстонские команды]
+    teacher_preparation: high
+    learner_independence: developing
+    homeschool_adaptation:
+      status: adaptable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Следовать маршруту, завершать запись на каждой станции и убирать материалы.
+      adult_role_ru: Разложить материалы и следить за временем, не выполнять задания вместо ребёнка.
+      adult_safety_supervision_ru: Контролировать любые практические материалы в соответствии с инструкцией учителя.
+      subject_teacher_responsibility_ru: Разработать связанные задания, маршрут, ответы и правила безопасности.
+      limitations_ru: [Домашняя последовательность не даёт взаимодействия нескольких групп.]
+    materials_ru: [Карточки станций, Маршрутный лист, Наборы материалов]
+    accessibility:
+      supports_ru: [Короткие разнообразные этапы и возможность движения.]
+      barriers_ru: [Переходы, шум, необходимость быстро менять правила.]
+      adaptations_ru: [Сократить число станций, Дать фиксированный порядок, Организовать сидячие станции.]
+    safety: {risk_level: low, requires_adult_supervision: true, controls_ru: [Проверить проходы, материалы и отдельные инструкции безопасности каждой станции.]}
+    risks_and_misuse:
+      - {risk_id: station-busywork, description_ru: "Станции становятся набором несвязанных быстрых заданий.", mitigation_ru: "Связать каждую станцию с общей целью и завершить общей сводкой."}
+    contraindications_ru: [Не включать практическую станцию без отдельной оценки риска и надзора.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: learning-stations-source, claim_origin: source_supported, statement_ru: "Учебные станции включены в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Станции, маршруты и безопасность должны быть разработаны заново."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Определить общую цель и разные роли станций, Дать единый маршрут и критерии, Завершить объединением результатов.]
+      adaptation_boundary_ru: Разнообразие форм не оправдывает лишнюю когнитивную нагрузку или небезопасные переходы.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Станции по распознаванию минералов, чтению таблицы и терминологии с общей итоговой классификацией.
+      homeschool_example_ru: Разложить три последовательных мини-задания и выполнить их по маршрутному листу с взрослым надзором.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; подготовка, безопасность и связность определяют пригодность конкретной реализации.
+  - activity_id: one-minute-recall
+    names: {en: One-minute recall, et: Ühe minuti meenutamine, ru: Минутное воспроизведение}
+    category: retrieval_and_consolidation
+    short_description_ru: В течение примерно одной минуты ученик записывает или говорит главное по памяти, затем проверяет точность.
+    pedagogical_purposes: [retrieve_without_source, provide_formative_evidence, detect_misconceptions]
+    linked_principle_ids: [retrieval-practice, attention-and-distraction-management]
+    suitable_lesson_phases: [retrieval, formative_assessment, consolidation]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [conceptual_text, vocabulary, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 2, max_minutes: 5}
+    language_demand:
+      receptive: low
+      productive: moderate
+      interaction: none
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Один узкий вопрос, Возможность рисунка или ключевых слов, Отдельный короткий эстонский термин]
+    teacher_preparation: none
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Не открывать источник до сигнала проверки и записать честную первую попытку.
+      adult_role_ru: Засечь ориентировочное время и открыть ключ только после попытки.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Задать узкий вопрос и обеспечить коррекцию.
+      limitations_ru: [Скорость письма не должна влиять на оценку понимания.]
+    materials_ru: [Короткий вопрос, Лист или устная запись, Проверочный источник]
+    accessibility:
+      supports_ru: [Очень короткая и предсказуемая активность.]
+      barriers_ru: [Таймер может вызывать давление; письмо ограничивает объём ответа.]
+      adaptations_ru: [Использовать приблизительное время без соревнования, Разрешить устный ответ.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: speed-scoring, description_ru: "Количество записанных слов ошибочно становится оценкой знаний.", mitigation_ru: "Оценивать точность ключевой идеи и не сравнивать скорость учеников."}
+    contraindications_ru: [Не использовать как высокозначимую суммативную проверку.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: one-minute-source, claim_origin: source_supported, statement_ru: "Минутное воспроизведение включено в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Тайминг является ориентиром, а правила оценки сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Закрыть источник и задать узкий вопрос, Дать короткое спокойное время на ответ, Сверить и исправить главное.]
+      adaptation_boundary_ru: Не превращать ограничение времени в соревнование или проверку скорости письма.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Восстановить три признака реки по памяти и после сверки назвать один термин по-эстонски.
+      homeschool_example_ru: Устно назвать главное по теме взрослому, затем открыть источник и исправить одно место.
+    confidence:
+      level: high
+      rationale: Метод подтверждён каталогом и соответствует поддержанному принципу retrieval; формат оценки ограничен.
+  - activity_id: peer-teaching
+    names: {en: Peer teaching, et: Kaaslase õpetamine, ru: Взаимообучение}
+    category: collaborative_learning
+    short_description_ru: Ученик готовит короткое точное объяснение или демонстрацию для партнёра и отвечает на уточняющий вопрос.
+    pedagogical_purposes: [explain_reasoning, collaborate, retrieve_without_source]
+    linked_principle_ids: [peer-explanation, retrieval-practice, relatedness-and-safe-climate]
+    suitable_lesson_phases: [guided_practice, collaborative_practice, consolidation]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, process, oral_explanation, vocabulary]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, remote, parent_supported]
+    group_formats: [pair, small_group, parent_child]
+    duration: {min_minutes: 8, max_minutes: 25}
+    language_demand:
+      receptive: moderate
+      productive: high
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [План объяснения, Схема или объект, Русское полное объяснение, Одна эстонская модельная фраза]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: adaptable
+      variants: [parent_child, remote_peer]
+      child_responsibility_ru: Подготовить и дать объяснение своими словами, затем ответить на вопрос.
+      adult_role_ru: Слушать как ученик и задавать уточняющий вопрос, не исправляя заранее.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Проверить материал и предоставить точную коррекцию после объяснения.
+      limitations_ru: [Взрослый дома не обязан подтверждать предметную точность без ключа.]
+    materials_ru: [Короткий план, Схема или предмет, Проверочный ключ]
+    accessibility:
+      supports_ru: [Объяснение можно готовить заранее с визуальной опорой.]
+      barriers_ru: [Публичная речь и импровизация создают высокую нагрузку.]
+      adaptations_ru: [Разрешить запись аудио, Сначала репетировать по-русски, Дать партнёру вопросы.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: peer-teacher-substitution, description_ru: "Ученик должен объяснить ещё не освоенный материал или исправлять партнёра без проверки.", mitigation_ru: "Дать подготовку и завершить учительской сверкой."}
+    contraindications_ru: [Не передавать ученику ответственность за первичное объяснение сложного или опасного содержания.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: peer-teaching-source, claim_origin: source_supported, statement_ru: "Обучение другого и peer teaching представлены в предоставленных материалах.", reference_ids: [gag-opiraam-opistrateegiad, oppeulesanded-method-catalog], boundary_ru: "План объяснения и коррекционная процедура созданы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Дать время освоить и спланировать объяснение, Провести короткое объяснение с вопросом, Сверить точность и исправить пробел.]
+      adaptation_boundary_ru: Партнёрское объяснение дополняет, но не заменяет компетентного предметного учителя.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Объяснить партнёру чтение простой карты по-русски и показать две эстонские подписи.
+      homeschool_example_ru: Объяснить взрослому различие испарения и конденсации, затем сверить по схеме.
+    confidence:
+      level: high
+      rationale: Базовый метод явно поддержан обоими источниками; требования подготовки и коррекции добавлены проектом.
+  - activity_id: prediction-with-keywords
+    names: {en: Prediction with keywords, et: Võtmesõnade põhjal ennustamine, ru: Прогноз по ключевым словам}
+    category: activation
+    short_description_ru: До изучения материала ученик предполагает содержание или связи по небольшому набору ключевых слов, затем проверяет прогноз.
+    pedagogical_purposes: [activate_prior_knowledge, elicit_predictions, organize_concepts]
+    linked_principle_ids: [visible-goals-and-success-criteria, learning-from-errors]
+    suitable_lesson_phases: [activation, orientation]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, vocabulary, sequence]
+    subjects: [cross_curricular, science, language_learning]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 4, max_minutes: 12}
+    language_demand:
+      receptive: low
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Перевод ключевых терминов, Рисунки, Рамка предположения по-русски]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Сформулировать прогноз до просмотра материала и позже отметить изменение.
+      adult_role_ru: Попросить связать слова, не сообщая правильный сюжет или процесс.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Выбрать диагностичные слова и обеспечить точное последующее объяснение.
+      limitations_ru: [Прогноз не должен оцениваться как уже освоенное знание.]
+    materials_ru: [Набор ключевых слов или карточек, Место для первоначального и исправленного прогноза]
+    accessibility:
+      supports_ru: [Небольшой объём входной информации.]
+      barriers_ru: [Незнакомые слова могут превратить задачу в угадывание.]
+      adaptations_ru: [Добавить рисунки, Уменьшить число слов, Дать русские эквиваленты.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: prediction-as-quiz, description_ru: "Предварительное предположение оценивают как правильный или неправильный итоговый ответ.", mitigation_ru: "Оценивать последующую проверку и изменение модели, а не начальную догадку."}
+    contraindications_ru: [Не использовать ключевые слова, которые раскрывают ответ или не имеют понятной связи.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: keyword-prediction-source, claim_origin: source_supported, statement_ru: "Прогнозирование по ключевым словам включено в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Набор слов и порядок проверки создаются проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Показать ограниченный набор слов, Зафиксировать прогноз с основанием, После изучения сравнить и исправить.]
+      adaptation_boundary_ru: Предварительная ошибка является материалом для обучения, а не отметкой.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Связать слова «испарение», «облако», «осадки» до работы со схемой круговорота.
+      homeschool_example_ru: Составить предполагаемую последовательность из карточек, затем сверить с объяснением.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; полезность зависит от качества слов и обязательной последующей проверки.
+  - activity_id: prior-knowledge-free-write
+    names: {en: Prior-knowledge free-write, et: Eelteadmiste vabakirjutamine, ru: Свободная запись прежних знаний}
+    category: activation
+    short_description_ru: Ученик в течение короткого времени записывает всё, что уже помнит по теме, не пользуясь источником и не редактируя первую попытку.
+    pedagogical_purposes: [activate_prior_knowledge, retrieve_without_source, detect_misconceptions]
+    linked_principle_ids: [retrieval-practice, learning-from-errors]
+    suitable_lesson_phases: [activation, retrieval]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [conceptual_text, misconception, vocabulary]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual]
+    duration: {min_minutes: 3, max_minutes: 10}
+    language_demand:
+      receptive: none
+      productive: moderate
+      interaction: none
+      estonian_a1_a2_support: directly_suitable
+      scaffolds_ru: [Ответ по-русски, Разрешение использовать ключевые слова и рисунок, Отдельная строка для эстонских терминов]
+    teacher_preparation: none
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent]
+      child_responsibility_ru: Писать без источника и сохранить текст для последующего сравнения.
+      adult_role_ru: Обеспечить спокойное время и не диктовать идеи.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Определить тему и обеспечить проверку возможных заблуждений.
+      limitations_ru: [Без последующей сверки запись только фиксирует, но не исправляет понимание.]
+    materials_ru: [Лист или цифровая заметка, Таймер как ориентир]
+    accessibility:
+      supports_ru: [Нет требования к форме и полным предложениям.]
+      barriers_ru: [Письмо может ограничить демонстрацию знаний.]
+      adaptations_ru: [Разрешить голосовую запись, Рисовать и подписывать отдельные слова.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: free-write-graded-for-form, description_ru: "Черновую попытку оценивают за орфографию или объём.", mitigation_ru: "Использовать её для активации и сравнения, не как итоговую письменную работу."}
+    contraindications_ru: [Не оставлять научные ошибки из первоначальной записи без возвращения и коррекции.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: free-write-source, claim_origin: source_supported, statement_ru: "Свободное письмо включено в каталог, а воспроизведение без источника поддержано методическим руководством.", reference_ids: [gag-opiraam-opistrateegiad, oppeulesanded-method-catalog], boundary_ru: "Конкретные правила и языковые опоры созданы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Закрыть источники и назвать тему, Записать всё существенное без редактирования, После обучения сравнить и отметить изменения.]
+      adaptation_boundary_ru: Не оценивать первую попытку как итоговую предметную или языковую продукцию.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: За три минуты записать по-русски всё известное о болоте и выделить знакомый термин soo.
+      homeschool_example_ru: Сделать короткую запись до чтения и позже другим цветом добавить исправления.
+    confidence:
+      level: high
+      rationale: Базовые элементы поддержаны обоими источниками; правила оценивания и коррекции являются проектными.
+  - activity_id: question-circle
+    names: {en: Question circle, et: Küsimustering, ru: Круг вопросов}
+    category: collaborative_learning
+    short_description_ru: Участники по очереди задают и уточняют содержательные вопросы, соблюдая заданные правила слушания и ответа.
+    pedagogical_purposes: [collaborate, explain_reasoning, detect_misconceptions]
+    linked_principle_ids: [relatedness-and-safe-climate, peer-explanation]
+    suitable_lesson_phases: [activation, collaborative_practice, reflection]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [conceptual_text, oral_explanation, misconception]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, remote, homeschool, parent_supported]
+    group_formats: [small_group, whole_class, parent_child]
+    duration: {min_minutes: 8, max_minutes: 25}
+    language_demand:
+      receptive: high
+      productive: high
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Карточки типов вопросов, Время на подготовку, Право отвечать по-русски, Одна эстонская рамка]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: limited
+      variants: [parent_child, remote_peer]
+      child_responsibility_ru: Подготовить вопрос, выслушать ответ и сформулировать уточнение.
+      adult_role_ru: Отвечать кратко или возвращать вопрос ребёнку, не превращая разговор в лекцию.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Задать правила, проверить спорные ответы и поддержать безопасное участие.
+      limitations_ru: [Диалог ребёнка и взрослого не воспроизводит разнообразие вопросов класса.]
+    materials_ru: [Карточки вопросов или общая тема, Правила очередности]
+    accessibility:
+      supports_ru: [Можно заранее подготовить вопрос и использовать опору.]
+      barriers_ru: [Высокая нагрузка на слушание, спонтанную речь и публичность.]
+      adaptations_ru: [Разрешить письменный вопрос, Дать дополнительное время, Использовать малую группу.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: rapid-fire-questioning, description_ru: "Круг превращается в проверку на скорость или доминирование нескольких участников.", mitigation_ru: "Дать паузу, право пропустить и равную очередность."}
+    contraindications_ru: [Не использовать без правил психологической безопасности и возможности не раскрывать личную информацию.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: question-circle-source, claim_origin: source_supported, statement_ru: "Круг вопросов включён в предоставленный каталог учебных методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Правила участия и языковые рамки разработаны проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Дать время подготовить содержательный вопрос, Провести круг с правилами слушания, Проверить спорные научные ответы.]
+      adaptation_boundary_ru: Не использовать публичную устную форму как единственный способ показать понимание.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Задать вопрос о связи погоды и измерения, ответить по-русски и назвать один эстонский термин.
+      homeschool_example_ru: Ребёнок готовит два вопроса взрослому, а нерешённые вопросы записываются для учителя.
+    confidence:
+      level: provisional
+      rationale: Метод подтверждён каталогом; его качество зависит от безопасного климата, правил речи и предметной коррекции.
+  - activity_id: reciprocal-teaching
+    names: {en: Reciprocal teaching, et: Vastastikune õpetamine, ru: Взаимное обучение чтению}
+    category: reading_and_comprehension
+    short_description_ru: Участники по очереди прогнозируют, задают вопросы, проясняют трудности и кратко обобщают текст.
+    pedagogical_purposes: [guide_comprehension, collaborate, explain_reasoning]
+    linked_principle_ids: [peer-explanation, self-assessment-and-reflection, task-chunking]
+    suitable_lesson_phases: [guided_practice, collaborative_practice]
+    suitable_grades: {min: 4, max: 12}
+    content_types: [conceptual_text, process, oral_explanation]
+    subjects: [cross_curricular, science, language_learning]
+    delivery_modes: [classroom, remote, homeschool, parent_supported]
+    group_formats: [pair, small_group, parent_child]
+    duration: {min_minutes: 20, max_minutes: 45}
+    language_demand:
+      receptive: high
+      productive: high
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Карточки четырёх ролей, Русский текст, Модель вопросов, Короткие эстонские термины отдельно]
+    teacher_preparation: high
+    learner_independence: developing
+    homeschool_adaptation:
+      status: adaptable
+      variants: [parent_child, remote_peer]
+      child_responsibility_ru: Выполнять свою роль и постепенно брать несколько операций понимания.
+      adult_role_ru: Моделировать роль только в начале и возвращать управление ребёнку.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Выбрать доступный точный текст, обучить ролям и проверить обобщение.
+      limitations_ru: [В паре с взрослым распределение ролей менее равноправно.]
+    materials_ru: [Короткий текст, Карточки прогнозирования, вопросов, прояснения и обобщения]
+    accessibility:
+      supports_ru: [Сложное чтение разделено на явные операции.]
+      barriers_ru: [Очень высокая совмещённая нагрузка на чтение, речь и координацию.]
+      adaptations_ru: [Вводить по одной роли, Использовать пары, Дать готовые начала вопросов.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: role-performance-only, description_ru: "Участники формально произносят реплики ролей без понимания текста.", mitigation_ru: "Оценивать точность общего смысла и моделировать качественный пример."}
+    contraindications_ru: [Не вводить все роли одновременно при недостаточной языковой или читательской готовности.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: reciprocal-source, claim_origin: source_supported, statement_ru: "Reciprocal teaching включён в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Порядок освоения ролей и языковые опоры созданы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Смоделировать роли на коротком фрагменте, Передавать роли ученикам постепенно, Завершить точным общим резюме.]
+      adaptation_boundary_ru: При A1–A2 операции выполняются преимущественно по-русски, а эстонский слой остаётся коротким и поддержанным.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: В парах разобрать короткий русский текст о загрязнении воды и выделить эстонские термины.
+      homeschool_example_ru: Ребёнок и взрослый меняются двумя освоенными ролями, а полный ответ сверяется с ключом учителя.
+    confidence:
+      level: provisional
+      rationale: Метод каталогизирован; корректная реализация требует обучения ролям и значительной языковой поддержки.
+  - activity_id: retrieval-self-test
+    names: {en: Retrieval self-test, et: Meenutamise enesetest, ru: Самопроверочный тест по памяти}
+    category: retrieval_and_consolidation
+    short_description_ru: Ученик отвечает на короткие вопросы без источника, отмечает уверенность, затем сверяет и исправляет ответы.
+    pedagogical_purposes: [retrieve_without_source, detect_misconceptions, plan_follow_up]
+    linked_principle_ids: [retrieval-practice, learning-from-errors, self-assessment-and-reflection]
+    suitable_lesson_phases: [retrieval, formative_assessment, homework, delayed_review]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, process, vocabulary, misconception]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, parent_child]
+    duration: {min_minutes: 5, max_minutes: 20}
+    language_demand:
+      receptive: low
+      productive: low
+      interaction: none
+      estonian_a1_a2_support: directly_suitable
+      scaffolds_ru: [Короткие вопросы по-русски, Эстонские задания на узнавание, Отдельный ключ]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Ответить без подсказки, отметить уверенность и выполнить исправление после сверки.
+      adult_role_ru: Хранить ключ закрытым до попытки и обсуждать стратегию, а не ставить отметку.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Подготовить корректные вопросы, ответы и дальнейшую поддержку по ошибкам.
+      limitations_ru: [Закрытые вопросы могут не показать причинное понимание.]
+    materials_ru: [Короткий тест, Отдельный ключ, Средство отметить уверенность и исправление]
+    accessibility:
+      supports_ru: [Предсказуемый формат и немедленная возможность коррекции.]
+      barriers_ru: [Тестовый формат может вызывать тревогу или стимулировать угадывание.]
+      adaptations_ru: [Не ставить отметку, Добавить открытый русский вопрос, Разрешить устный ответ.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: self-test-as-summative, description_ru: "Учебный самотест превращают в отметочную контрольную или показывают ответы заранее.", mitigation_ru: "Отделить ключ, разрешить исправление и использовать результат для планирования повторения."}
+    contraindications_ru: [Не использовать только вопросы на узнавание для вывода о глубоком понимании.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: self-test-source, claim_origin: source_supported, statement_ru: "Самопроверочные тесты и воспроизведение без источника рекомендуются методическим руководством.", reference_ids: [gag-opiraam-opistrateegiad], boundary_ru: "Формат вопросов, уверенности и коррекции создан проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Скрыть источник и ключ, Выполнить вопросы и отметить уверенность, Сверить, исправить и выбрать тему повторения.]
+      adaptation_boundary_ru: Самотест является инструментом обучения и не доказывает эффективность метода или полное освоение темы.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Ответить на три русских вопроса о подземной воде и распознать два эстонских термина.
+      homeschool_example_ru: Самостоятельно пройти карточки, открыть ключ и запланировать повтор одного ошибочного вопроса.
+    confidence:
+      level: high
+      rationale: Самопроверка и retrieval прямо поддержаны источником; конкретная диагностическая структура создана проектом.
+  - activity_id: retrieval-summary
+    names: {en: Retrieval summary, et: Meenutamise kokkuvõte, ru: Резюме по памяти}
+    category: retrieval_and_consolidation
+    short_description_ru: После закрытия источника ученик своими словами восстанавливает главную идею, ключевые связи и один пример.
+    pedagogical_purposes: [retrieve_without_source, explain_reasoning, provide_formative_evidence]
+    linked_principle_ids: [retrieval-practice, visible-goals-and-success-criteria]
+    suitable_lesson_phases: [retrieval, formative_assessment, consolidation, delayed_review]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, process, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 4, max_minutes: 15}
+    language_demand:
+      receptive: low
+      productive: high
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [План из трёх пунктов, Русский полный ответ, Короткая отдельная эстонская рамка]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Закрыть источник, сформулировать резюме и после сверки исправить существенное.
+      adult_role_ru: Выслушать до конца и задать один уточняющий вопрос, не подсказывая содержание.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Определить обязательные идеи и предоставить корректирующую обратную связь.
+      limitations_ru: [Взрослый без ключа не обязан оценивать научную полноту.]
+    materials_ru: [Короткий план ответа, Источник для последующей сверки]
+    accessibility:
+      supports_ru: [Можно выбрать устную или письменную форму.]
+      barriers_ru: [Связное воспроизведение требует высокой продуктивной речи.]
+      adaptations_ru: [Разрешить ключевые слова и стрелки, Дать начала предложений.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: summary-from-open-source, description_ru: "Ученик переписывает фразы из открытого источника вместо воспроизведения.", mitigation_ru: "Закрыть материал на первую попытку и открыть только для сверки."}
+    contraindications_ru: [Не требовать длинного эстонского резюме при уровне A1–A2.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: retrieval-summary-source, claim_origin: source_supported, statement_ru: "Устный и письменный пересказ без просмотра источника поддержан методическим руководством.", reference_ids: [gag-opiraam-opistrateegiad], boundary_ru: "Трёхчастная структура и языковое разделение созданы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Закрыть источник и назвать обязательную цель, Дать резюме своими словами, Сверить главные связи и исправить.]
+      adaptation_boundary_ru: Связность русского ответа нельзя заменять механическим повторением эстонских терминов.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: По памяти объяснить по-русски, почему образуются осадки, затем сказать одну модельную фразу по-эстонски.
+      homeschool_example_ru: Рассказать взрослому три главные связи, открыть схему и исправить пропущенную.
+    confidence:
+      level: high
+      rationale: Пересказ по памяти прямо поддержан источником; объём и языковая форма адаптируются проектом.
+  - activity_id: self-explanation
+    names: {en: Self-explanation, et: Eneseselgitus, ru: Самообъяснение}
+    category: retrieval_and_consolidation
+    short_description_ru: Ученик проговаривает, почему шаг, признак или вывод имеет смысл, связывая новое с уже известным.
+    pedagogical_purposes: [explain_reasoning, detect_misconceptions, apply_knowledge]
+    linked_principle_ids: [retrieval-practice, peer-explanation, self-assessment-and-reflection]
+    suitable_lesson_phases: [guided_practice, independent_practice, retrieval, reflection]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [conceptual_text, process, data_and_evidence, oral_explanation]
+    subjects: [cross_curricular, science, mathematics]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 3, max_minutes: 12}
+    language_demand:
+      receptive: low
+      productive: high
+      interaction: low
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Вопрос «почему?», Русские причинные рамки, Короткий эстонский термин или одна модельная фраза]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Объяснить связь своими словами до сверки с образцом.
+      adult_role_ru: Задать вопрос «почему?» и дать время, не заканчивая фразу за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Предоставить точную модель и исправить неверную причинную связь.
+      limitations_ru: [Без предметной проверки уверенное объяснение может оставаться неверным.]
+    materials_ru: [Решённый шаг, схема или наблюдение, Проверочный образец]
+    accessibility:
+      supports_ru: [Можно говорить, писать или указывать на схему.]
+      barriers_ru: [Высокая нагрузка на причинную речь.]
+      adaptations_ru: [Дать выбор из связок «потому что» и «поэтому», Разрешить запись аудио.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: fluent-but-false, description_ru: "Свободная речь принимается за понимание без проверки научной связи.", mitigation_ru: "Сопоставить объяснение с наблюдением, моделью или корректным ключом."}
+    contraindications_ru: [Не требовать самостоятельного сложного объяснения на языке поддержки A1–A2.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: self-explanation-source, claim_origin: source_supported, statement_ru: "Самообъяснение включено в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Вопросы, опоры и предметная проверка сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Выбрать один осмысленный шаг или вывод, Попросить объяснить причинную связь, Сопоставить объяснение с доказательством и исправить.]
+      adaptation_boundary_ru: Самообъяснение не считается точным без сверки содержания.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Объяснить по-русски, почему вода после модельного фильтра не обязательно питьевая.
+      homeschool_example_ru: Ребёнок объясняет взрослому одну стрелку на схеме, затем сверяет с ключом.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; точность и нагрузка зависят от вопроса и корректирующей проверки.
+  - activity_id: silent-discussion
+    names: {en: Silent discussion, et: Vaikne arutelu, ru: Молчаливая письменная дискуссия}
+    category: collaborative_learning
+    short_description_ru: Участники письменно отвечают на общий вопрос и комментарии друг друга без устного разговора.
+    pedagogical_purposes: [collaborate, explain_reasoning, provide_formative_evidence]
+    linked_principle_ids: [relatedness-and-safe-climate, autonomy-support, peer-explanation]
+    suitable_lesson_phases: [activation, collaborative_practice, reflection]
+    suitable_grades: {min: 4, max: 12}
+    content_types: [conceptual_text, comparison, misconception]
+    subjects: [cross_curricular, science, human_studies]
+    delivery_modes: [classroom, remote, homeschool, parent_supported]
+    group_formats: [small_group, whole_class]
+    duration: {min_minutes: 10, max_minutes: 30}
+    language_demand:
+      receptive: high
+      productive: high
+      interaction: high
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Русский основной вопрос, Рамки письменного комментария, Возможность рисунка или значка]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: limited
+      variants: [remote_peer, small_sibling_group]
+      child_responsibility_ru: Прочитать чужую идею, добавить содержательный вопрос или связь и соблюдать приватность.
+      adult_role_ru: Организовать безопасный обмен, не исправляя комментарии за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Задать правила, модерировать содержание и исправить научные ошибки.
+      limitations_ru: [Индивидуальная домашняя запись не является дискуссией без других участников.]
+    materials_ru: [Большой лист или защищённое цифровое поле, Рамки комментария]
+    accessibility:
+      supports_ru: [Даёт время подумать без конкуренции за устную очередь.]
+      barriers_ru: [Высокая нагрузка на чтение и письмо, риск раскрытия авторства комментариев.]
+      adaptations_ru: [Разрешить короткие значки и стрелки, Использовать небольшие группы, Не собирать персональные данные.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: anonymous-harm, description_ru: "Письменный формат используется для резких или идентифицирующих комментариев.", mitigation_ru: "Установить правила, модерировать записи и не собирать лишние персональные данные."}
+    contraindications_ru: [Не использовать без безопасной модерации и доступа всех участников к письменному формату.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: silent-discussion-source, claim_origin: source_supported, statement_ru: "Молчаливая дискуссия включена в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Правила приватности и домашние ограничения добавлены проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Задать узкий вопрос и правила комментария, Дать циклы чтения и письменного ответа, Обобщить идеи и исправить неточности.]
+      adaptation_boundary_ru: Письменное молчание не означает низкую языковую нагрузку.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Письменно обсудить причины охраны воды по-русски и отметить целевые эстонские термины.
+      homeschool_example_ru: Возможна только защищённая дистанционная версия с одноклассниками; в одиночку выбрать другой метод.
+    confidence:
+      level: provisional
+      rationale: Метод каталогизирован, но требует высокой письменной нагрузки, модерации и приватностной проверки.
+  - activity_id: sorting-and-sequencing
+    names: {en: Sorting and sequencing, et: Rühmitamine ja järjestamine, ru: Сортировка и упорядочивание}
+    category: concept_organization
+    short_description_ru: Ученик распределяет элементы по обоснованным категориям или располагает этапы в смысловом порядке.
+    pedagogical_purposes: [compare_and_classify, organize_concepts, apply_knowledge]
+    linked_principle_ids: [varied-context-and-representation, optimal-challenge]
+    suitable_lesson_phases: [guided_practice, independent_practice, formative_assessment]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [classification, sequence, process, vocabulary]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, small_group, parent_child]
+    duration: {min_minutes: 5, max_minutes: 20}
+    language_demand:
+      receptive: low
+      productive: low
+      interaction: low
+      estonian_a1_a2_support: directly_suitable
+      scaffolds_ru: [Карточки с рисунками, Двуязычные подписи, Готовые названия категорий]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Разложить карточки и объяснить правило хотя бы для одного решения.
+      adult_role_ru: Попросить обоснование и не переставлять карточки без ответа ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Подготовить однозначные элементы, допустимые варианты и ключ.
+      limitations_ru: [Без объяснения сортировка может быть результатом угадывания.]
+    materials_ru: [Карточки или цифровые элементы, Поле категорий или последовательности]
+    accessibility:
+      supports_ru: [Низкий объём письма и возможность физически менять решение.]
+      barriers_ru: [Мелкие карточки и большое число элементов могут быть неудобны.]
+      adaptations_ru: [Увеличить элементы, Сократить выбор, Дать частично заполненный порядок.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: sorting-without-rule, description_ru: "Правильное расположение принимается без объяснения критерия.", mitigation_ru: "Попросить назвать признак категории или причинную связь между двумя этапами."}
+    contraindications_ru: [Не использовать спорную единственную классификацию там, где научно допустимы разные критерии.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: sorting-source, claim_origin: source_supported, statement_ru: "Сортировка и упорядочивание включены в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Карточки, критерии и ключи должны быть авторскими или разрешёнными."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Предъявить ограниченный набор и цель, Дать самостоятельную сортировку или порядок, Попросить обосновать и сверить.]
+      adaptation_boundary_ru: Низкая языковая нагрузка задания не отменяет необходимости предметного объяснения.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Упорядочить этапы круговорота воды и подписать четыре элемента по-эстонски.
+      homeschool_example_ru: Разложить карточки животных по признакам и объяснить взрослому одно решение по-русски.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; его диагностичность зависит от требования обоснования и качества элементов.
+  - activity_id: three-two-one-reflection
+    names: {en: 3-2-1 reflection, et: 3-2-1 refleksioon, ru: Рефлексия «3-2-1»}
+    category: reflection_and_assessment
+    short_description_ru: Ученик фиксирует три освоенных пункта, две связи или детали и один оставшийся вопрос по заданной версии структуры.
+    pedagogical_purposes: [reflect_on_learning, retrieve_without_source, plan_follow_up]
+    linked_principle_ids: [self-assessment-and-reflection, retrieval-practice]
+    suitable_lesson_phases: [reflection, consolidation, homework]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [conceptual_text, vocabulary, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 5, max_minutes: 12}
+    language_demand:
+      receptive: low
+      productive: moderate
+      interaction: none
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Короткие русские пункты, Ключевые слова вместо предложений, Один эстонский языковой пункт отдельно]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Заполнить структуру по памяти и честно оставить нерешённый вопрос.
+      adult_role_ru: Выслушать и помочь передать вопрос учителю, не придумывая ответ.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Настроить формулировки пунктов и ответить на существенные вопросы.
+      limitations_ru: [Фиксированные числа могут создавать лишнее заполнение при узкой теме.]
+    materials_ru: [Шаблон 3-2-1]
+    accessibility:
+      supports_ru: [Предсказуемая короткая структура.]
+      barriers_ru: [Требование ровно трёх пунктов может быть искусственным.]
+      adaptations_ru: [Разрешить меньше пунктов с объяснением, Использовать рисунки или устный ответ.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: filler-reflection, description_ru: "Ученик добавляет малозначимые пункты только ради количества.", mitigation_ru: "Настраивать категории и разрешать обоснованно сократить число."}
+    contraindications_ru: [Не требовать раскрытия личных эмоций или опыта.]
+    assessment_roles: [formative, reflection_only]
+    source_provenance:
+      - {claim_id: three-two-one-source, claim_origin: source_supported, statement_ru: "Рефлексия 3-2-1 включена в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Конкретные категории и возможность адаптации сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Выбрать содержательные категории 3-2-1, Выполнить по памяти, Использовать вопрос и пробелы для следующего шага.]
+      adaptation_boundary_ru: Числовая форма является вариантом, а не обязательным шаблоном каждого урока.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Записать три факта об экосистеме, две связи и один вопрос; эстонский — только ключевые термины.
+      homeschool_example_ru: Использовать структуру в конце недели и выбрать один вопрос для обращения к учителю.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; фиксированная форма требует гибкой адаптации к объёму темы.
+  - activity_id: true-false-anticipation
+    names: {en: True-false anticipation, et: Tõene-väär eeloletus, ru: Предварительные утверждения «верно/неверно»}
+    category: activation
+    short_description_ru: До изучения темы ученик отмечает предварительную позицию по утверждениям, а после возвращается к каждому и обосновывает изменение.
+    pedagogical_purposes: [activate_prior_knowledge, elicit_predictions, detect_misconceptions]
+    linked_principle_ids: [learning-from-errors, visible-goals-and-success-criteria]
+    suitable_lesson_phases: [activation, orientation, reflection]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [misconception, conceptual_text, data_and_evidence]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 5, max_minutes: 15}
+    language_demand:
+      receptive: moderate
+      productive: low
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Утверждения по-русски, Изображения, Рамка обоснования, Эстонские термины отдельно]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Отметить первоначальный ответ до источника и позже записать основание изменения.
+      adult_role_ru: Не сообщать правильность первой попытки и попросить доказательство после изучения.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Создать однозначные утверждения, ключ и точные объяснения.
+      limitations_ru: [Двоичный выбор упрощает научные утверждения с условиями.]
+    materials_ru: [Лист утверждений с двумя колонками ответов, Ключ и объяснения]
+    accessibility:
+      supports_ru: [Низкий объём продуктивной речи на первой попытке.]
+      barriers_ru: [Сложный синтаксис и отрицания могут проверять чтение вместо понятия.]
+      adaptations_ru: [Упростить язык без потери точности, Читать вслух, Добавить вариант «недостаточно данных».]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: guessing-credit, description_ru: "Угаданный двоичный ответ принимается за понимание.", mitigation_ru: "Требовать последующее основание и фиксировать изменение после материала."}
+    contraindications_ru: [Не использовать неоднозначные утверждения или несколько отрицаний.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: true-false-source, claim_origin: source_supported, statement_ru: "Предварительные true/false утверждения включены в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Утверждения, ключ и правила интерпретации создаются проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Ответить до источника без отметки, Изучить доказательства, Вернуться к каждому утверждению и обосновать итог.]
+      adaptation_boundary_ru: Первая попытка диагностирует исходную модель и не является итоговой оценкой.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Проверить утверждения о прозрачной и питьевой воде и обосновать итог по-русски.
+      homeschool_example_ru: Отметить ответы до чтения, затем исправить их другим цветом с одной причиной.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; валидность зависит от однозначности утверждений и требования обоснования.
+  - activity_id: two-column-journal
+    names: {en: Two-column journal, et: Kaheveeruline päevik, ru: Двухколоночный журнал}
+    category: reading_and_comprehension
+    short_description_ru: В одной колонке ученик фиксирует факт, наблюдение или фрагмент, во второй — объяснение, вопрос или связь.
+    pedagogical_purposes: [guide_comprehension, explain_reasoning, reflect_on_learning]
+    linked_principle_ids: [self-assessment-and-reflection, varied-context-and-representation]
+    suitable_lesson_phases: [guided_practice, independent_practice, reflection]
+    suitable_grades: {min: 3, max: 12}
+    content_types: [conceptual_text, data_and_evidence, oral_explanation]
+    subjects: [cross_curricular, science]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, parent_child]
+    duration: {min_minutes: 8, max_minutes: 25}
+    language_demand:
+      receptive: moderate
+      productive: high
+      interaction: none
+      estonian_a1_a2_support: high_scaffolding_required
+      scaffolds_ru: [Подписи колонок по-русски, Рамки объяснения, Эстонские термины только в отдельной позиции]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Выбрать существенный факт и записать собственное объяснение или вопрос.
+      adult_role_ru: Просить уточнить связь, не заполняя вторую колонку за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Установить назначение колонок и ответить на нерешённые вопросы.
+      limitations_ru: [Без обратной связи ошибочные объяснения во второй колонке могут сохраниться.]
+    materials_ru: [Двухколоночный шаблон, Проверенный источник или данные]
+    accessibility:
+      supports_ru: [Фактическая информация явно отделена от интерпретации.]
+      barriers_ru: [Требуется заметный объём письма.]
+      adaptations_ru: [Разрешить рисунок или голосовую заметку, Ограничить число строк.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: copied-both-columns, description_ru: "Обе колонки заполняются копированием текста без собственной связи.", mitigation_ru: "Дать разные функции колонок и попросить устно объяснить одну пару."}
+    contraindications_ru: [Не использовать без ясной разницы между данными и интерпретацией.]
+    assessment_roles: [formative, reflection_only]
+    source_provenance:
+      - {claim_id: two-column-source, claim_origin: source_supported, statement_ru: "Двухколоночный журнал включён в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Назначение колонок и языковые опоры сформулированы проектом."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Задать разные функции колонок, Заполнять пары факт–объяснение или наблюдение–вывод, Проверить одну существенную связь.]
+      adaptation_boundary_ru: Журнал не должен становиться переписыванием учебника.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Записать наблюдение за фильтрацией слева и ограниченный научный вывод справа.
+      homeschool_example_ru: После чтения выбрать два факта и объяснить взрослому их значение, затем отправить вопрос учителю.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; корректность зависит от ясных функций колонок и предметной обратной связи.
+  - activity_id: venn-diagram
+    names: {en: Venn diagram, et: Venni diagramm, ru: Диаграмма Венна}
+    category: concept_organization
+    short_description_ru: Два или три объекта сравниваются через общие и отличительные признаки в пересекающихся областях.
+    pedagogical_purposes: [compare_and_classify, organize_concepts, vary_representation]
+    linked_principle_ids: [varied-context-and-representation, optimal-challenge]
+    suitable_lesson_phases: [guided_practice, independent_practice, consolidation]
+    suitable_grades: {min: 2, max: 12}
+    content_types: [comparison, classification, conceptual_text]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, small_group, parent_child]
+    duration: {min_minutes: 7, max_minutes: 20}
+    language_demand:
+      receptive: low
+      productive: moderate
+      interaction: low
+      estonian_a1_a2_support: supported
+      scaffolds_ru: [Карточки признаков, Русские полные формулировки, Эстонские подписи объектов]
+    teacher_preparation: low
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Разместить признаки и объяснить хотя бы один общий и один различающий.
+      adult_role_ru: Спросить о критерии размещения, не двигать элементы за ребёнка.
+      adult_safety_supervision_ru: null
+      subject_teacher_responsibility_ru: Выбрать сопоставимые объекты и проверить точность признаков.
+      limitations_ru: [Диаграмма плохо показывает причинность и последовательность.]
+    materials_ru: [Шаблон пересекающихся кругов, Карточки или карандаш]
+    accessibility:
+      supports_ru: [Общие и отличительные признаки видны пространственно.]
+      barriers_ru: [Пересечение может быть абстрактным; мелкие области ограничивают запись.]
+      adaptations_ru: [Использовать таблицу вместо кругов, Дать крупные карточки.]
+    safety: {risk_level: none, requires_adult_supervision: false, controls_ru: []}
+    risks_and_misuse:
+      - {risk_id: forced-similarity, description_ru: "Ученик придумывает несущественные общие признаки ради заполнения пересечения.", mitigation_ru: "Заранее определить предметный критерий сравнения и разрешить пустую область."}
+    contraindications_ru: [Не использовать для процессов, где важнее временной порядок или причинные связи.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: venn-source, claim_origin: source_supported, statement_ru: "Диаграмма Венна включена в предоставленный каталог методов.", reference_ids: [oppeulesanded-method-catalog], boundary_ru: "Объекты, признаки и критерии создаются проектом или учителем."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Назвать объекты и критерий, Разместить признаки с обоснованием, Сформулировать одно обобщение и одно различие.]
+      adaptation_boundary_ru: Визуальное размещение не заменяет научного объяснения признака.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Сравнить озеро и реку по движению воды, границам и живым организмам.
+      homeschool_example_ru: Разложить карточки признаков двух экосистем и объяснить один общий признак взрослому.
+    confidence:
+      level: medium
+      rationale: Метод подтверждён каталогом; его качество зависит от научно содержательного критерия сравнения.
+  - activity_id: visual-representation
+    names: {en: Visual representation, et: Visuaalne esitus, ru: Визуальное представление}
+    category: visual_and_multimodal
+    short_description_ru: Ученик преобразует содержание в схему, рисунок, модель, таблицу или диаграмму и объясняет соответствие исходной идее.
+    pedagogical_purposes: [vary_representation, organize_concepts, explain_reasoning]
+    linked_principle_ids: [varied-context-and-representation, retrieval-practice]
+    suitable_lesson_phases: [explanation, guided_practice, independent_practice, consolidation]
+    suitable_grades: {min: 1, max: 12}
+    content_types: [visual_representation, process, map_and_spatial, data_and_evidence]
+    subjects: [cross_curricular, science, geography]
+    delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+    group_formats: [individual, pair, small_group, parent_child]
+    duration: {min_minutes: 8, max_minutes: 35}
+    language_demand:
+      receptive: low
+      productive: low
+      interaction: low
+      estonian_a1_a2_support: directly_suitable
+      scaffolds_ru: [Готовые условные обозначения, Двуязычные подписи, Частично заполненная схема]
+    teacher_preparation: moderate
+    learner_independence: developing
+    homeschool_adaptation:
+      status: directly_suitable
+      variants: [independent, parent_child]
+      child_responsibility_ru: Создать представление и объяснить смысл элементов и связей.
+      adult_role_ru: Спросить, что обозначает каждый элемент, не исправляя оформление за ребёнка.
+      adult_safety_supervision_ru: Контролировать инструменты и материалы, если создаётся физическая модель.
+      subject_teacher_responsibility_ru: Проверить научную модель, условные обозначения и безопасность материалов.
+      limitations_ru: [Красивое изображение не гарантирует точного понимания.]
+    materials_ru: [Бумага или разрешённый цифровой инструмент, Условные обозначения, Материалы модели при необходимости]
+    accessibility:
+      supports_ru: [Снижает зависимость от длинной письменной речи.]
+      barriers_ru: [Графические навыки могут ошибочно влиять на оценку содержания.]
+      adaptations_ru: [Дать готовые элементы, Оценивать смысл, а не художественное качество, Разрешить таблицу.]
+    safety: {risk_level: low, requires_adult_supervision: true, controls_ru: [Отдельно оценить инструменты и материалы физической модели.]}
+    risks_and_misuse:
+      - {risk_id: decorative-visual, description_ru: "Изображение оценивается по оформлению, а не по точности модели.", mitigation_ru: "Требовать объяснение условных обозначений и связей по предметным критериям."}
+    contraindications_ru: [Не использовать опасные материалы или инструменты без отдельной инструкции и надзора.]
+    assessment_roles: [formative]
+    source_provenance:
+      - {claim_id: visual-source, claim_origin: source_supported, statement_ru: "Визуальное представление включено в предоставленный каталог методов, а чередование форм поддержано руководством.", reference_ids: [gag-opiraam-opistrateegiad, oppeulesanded-method-catalog], boundary_ru: "Конкретные визуальные задания являются проектно-авторскими."}
+    project_authored_guidance:
+      claim_origin: project_authored_design
+      implementation_steps_ru: [Выбрать идею и подходящую визуальную форму, Создать и подписать существенные элементы, Объяснить соответствие исходной модели и исправить.]
+      adaptation_boundary_ru: Авторская схема не должна копировать защищённые изображения источника без права на распространение.
+    grade5_science_applicability:
+      grade: 5
+      subject: science
+      instruction_language: ru
+      subject_support_language: et
+      learner_estonian_level: A1-A2
+      delivery_modes: [classroom, homeschool]
+      classroom_example_ru: Создать авторскую схему пищевой сети и подписать организмы короткими эстонскими терминами.
+      homeschool_example_ru: Нарисовать процесс по памяти, объяснить взрослому стрелки и сверить научную точность.
+    confidence:
+      level: medium
+      rationale: Метод поддержан каталогом и общим принципом вариативности; качество зависит от научной проверки и формы.

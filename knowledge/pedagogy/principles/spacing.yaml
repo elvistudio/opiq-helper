@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: spacing
+names:
+  en: Spacing
+  et: Hajutatud õppimine
+  ru: Интервальное обучение
+category: learning_science
+summary_ru: >-
+  Существенное содержание возвращается после паузы в нескольких коротких
+  учебных эпизодах, а не сосредоточивается в одном длительном повторении.
+provenance_claims:
+  - claim_id: spacing-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует интервальное обучение и отложенное домашнее воспроизведение.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Источник не устанавливает один обязательный интервал для всех тем и возрастов.
+  - claim_id: spacing-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект планирует короткое воспроизведение в конце урока, позже дома и на недельном повторении.
+    reference_ids: []
+    boundary_ru: Конкретные интервалы являются проектной гипотезой и адаптируются учителем.
+intended_outcomes: [long_term_retention, knowledge_transfer, planning_accuracy]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Вернуться к одному рисунку или термину через день.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Повторить короткий набор вопросов в разные дни.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Планировать воспроизведение после урока, через несколько дней и при накопительном повторении.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: spacing-without-retrieval
+    description_ru: Интервалы превращаются только в повторное перечитывание.
+    mitigation_ru: Начинать каждый повтор с короткой попытки воспроизведения без источника.
+not_equivalent_to: [single-cramming-session, delayed-first-instruction]
+limitations_ru:
+  - Интервал не должен откладывать необходимую коррекцию опасной или существенной ошибки.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Термины состояния воды возвращаются в следующем тематическом блоке при объяснении круговорота.
+  homeschool_example_ru: Коротко восстановить схему сегодня, через два дня и в конце недели до сверки с ответом.
+confidence:
+  level: high
+  rationale: Интервальное и отложенное повторение прямо поддержаны источником; оптимальные интервалы отдельно не доказаны.

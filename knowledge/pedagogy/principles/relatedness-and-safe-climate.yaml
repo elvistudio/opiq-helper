@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: relatedness-and-safe-climate
+names:
+  en: Relatedness and a safe climate
+  et: Seotus ja turvaline õhkkond
+  ru: Связанность и безопасная атмосфера
+category: motivation
+summary_ru: >-
+  Ученик лучше включается в работу, когда чувствует уважение, принадлежность и
+  право на ошибку без унижения; взаимодействие строится предсказуемо и безопасно.
+provenance_claims:
+  - claim_id: relatedness-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство связывает мотивацию с потребностью в связанности и эмоциональной безопасностью.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Общий принцип не описывает все способы создания безопасного климата.
+  - claim_id: relatedness-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект исключает публичное стыжение за ошибку и требует ясных правил обратной связи.
+    reference_ids: []
+    boundary_ru: Конкретные правила должны быть согласованы учителем и группой.
+intended_outcomes: [psychological_safety, motivation, collaborative_understanding]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Использовать постоянную доброжелательную рутину ответа и исправления.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Заранее обсудить, как задавать вопрос и не высмеивать ошибку.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Разделять критику идеи и оценку личности, давать право уточнить ответ.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, remote, parent_supported]
+risks:
+  - risk_id: forced-disclosure
+    description_ru: Под видом связанности ученика принуждают делиться личным опытом.
+    mitigation_ru: Разрешить нейтральный пример и не требовать личного раскрытия.
+not_equivalent_to: [absence-of-boundaries, forced-participation]
+limitations_ru:
+  - Педагогические записи не заменяют школьные правила защиты и поддержки ребёнка.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Перед устным ответом по-эстонски разрешить репетицию в паре и нейтральное исправление.
+  homeschool_example_ru: Взрослый выслушивает объяснение до конца и обсуждает ошибку как исправимый шаг.
+confidence:
+  level: high
+  rationale: Потребность в связанности и безопасной среде явно отражена в источнике; процедуры являются проектными.

@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: learning-from-errors
+names:
+  en: Learning from errors
+  et: Vigadest õppimine
+  ru: Обучение на ошибках
+category: learning_science
+summary_ru: >-
+  Ошибка используется как диагностический материал: ученик замечает расхождение,
+  объясняет его и самостоятельно исправляет ответ после обратной связи.
+provenance_claims:
+  - claim_id: errors-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство описывает обучение на ошибках и самостоятельное исправление.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Источник поддерживает процедуру исправления, но не делает любую ошибку педагогически полезной автоматически.
+  - claim_id: errors-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект рекомендует сохранять первую попытку и отмечать исправление другим цветом.
+    reference_ids: []
+    boundary_ru: Цветовая маркировка является проектной адаптацией, а не требованием источника.
+intended_outcomes: [misconception_detection, understanding_check, metacognitive_awareness]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Исправить один ответ после короткого объяснения взрослого.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Найти место расхождения и подписать правильный признак.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Объяснить причину ошибки и переписать только ошибочную часть рассуждения.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: error-shaming
+    description_ru: Ошибку используют для публичного сравнения или стыда.
+    mitigation_ru: Обсуждать ход мысли безопасно и оценивать исправление как часть обучения.
+not_equivalent_to: [punishment-for-error, answer-copying]
+limitations_ru:
+  - Ошибочная информация не должна оставаться без своевременного корректного объяснения.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: После неверного утверждения о фильтрованной воде ученик сравнивает его с наблюдением и исправляет вывод.
+  homeschool_example_ru: Ребёнок сначала отмечает собственный ответ, затем сверяет и исправляет его другим цветом.
+confidence:
+  level: high
+  rationale: Процедура работы с ошибками прямо поддержана методическим источником; конкретное оформление создано проектом.

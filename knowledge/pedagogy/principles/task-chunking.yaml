@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: task-chunking
+names:
+  en: Task chunking
+  et: Ülesande jaotamine osadeks
+  ru: Дробление задачи на шаги
+category: planning_and_self_management
+summary_ru: >-
+  Большая задача делится на короткие видимые этапы с отдельным результатом,
+  порядком выполнения и точкой самопроверки.
+provenance_claims:
+  - claim_id: chunking-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство рекомендует дробить большие задачи и использовать рабочие списки.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Рекомендация не означает, что содержание нужно упрощать или удалять.
+  - claim_id: chunking-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект связывает каждый шаг с наблюдаемым результатом и проверкой перед переходом дальше.
+    reference_ids: []
+    boundary_ru: Количество и размер шагов выбираются проектом и учителем.
+intended_outcomes: [task_completion, attention_control, sense_of_competence]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Показывать один шаг и один материал одновременно.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Использовать список из двух-четырёх отмечаемых шагов.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Предлагать ученику самому уточнить порядок и контрольную точку.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, independent_study, remote, parent_supported]
+risks:
+  - risk_id: fragmented-understanding
+    description_ru: Ученик выполняет отдельные шаги, но не видит общей научной цели.
+    mitigation_ru: В начале и конце показать, как части соединяются в общий результат.
+not_equivalent_to: [reduced-content, disconnected-busywork]
+limitations_ru:
+  - Некоторые задачи требуют целостного обзора до детального пошагового выполнения.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Практическую работу разделить на безопасность, наблюдение, запись данных и вывод.
+  homeschool_example_ru: Ребёнок отмечает подготовку, чтение, самостоятельный ответ, сверку и исправление.
+confidence:
+  level: high
+  rationale: Дробление задач явно рекомендовано источником; конкретная структура шагов является проектной.

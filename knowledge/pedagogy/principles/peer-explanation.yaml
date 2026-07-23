@@ -1,0 +1,48 @@
+schema_version: "1.0"
+artifact_type: pedagogical_principle
+principle_id: peer-explanation
+names:
+  en: Peer explanation
+  et: Kaaslasele selgitamine
+  ru: Объяснение другому
+category: social_learning
+summary_ru: >-
+  Объясняя идею другому человеку своими словами, ученик организует знания,
+  замечает пробелы и получает возможность уточнить рассуждение.
+provenance_claims:
+  - claim_id: peer-explanation-source-guidance
+    claim_origin: source_supported
+    statement_ru: Методическое руководство включает обучение другого человека как способ учиться.
+    reference_ids: [gag-opiraam-opistrateegiad]
+    boundary_ru: Упоминание метода не доказывает одинаковую пользу при любой организации пары.
+  - claim_id: peer-explanation-project-application
+    claim_origin: project_authored_design
+    statement_ru: Проект предлагает короткий вопрос, время на подготовку и проверку научной точности после объяснения.
+    reference_ids: []
+    boundary_ru: Такая последовательность является проектной рекомендацией.
+intended_outcomes: [oral_explanation, understanding_check, collaborative_understanding]
+suitable_grades: {min: 1, max: 12}
+grade_adaptations:
+  - {grade_band: "1-2", guidance_ru: "Показать предмет или рисунок и назвать один признак.", claim_origin: project_authored_design}
+  - {grade_band: "3-4", guidance_ru: "Объяснить партнёру два шага с опорой на схему.", claim_origin: project_authored_design}
+  - {grade_band: "5-7", guidance_ru: "Дать краткое причинное объяснение и ответить на уточняющий вопрос.", claim_origin: project_authored_design}
+delivery_modes: [classroom, homeschool, remote, parent_supported]
+risks:
+  - risk_id: peer-misinformation
+    description_ru: Ученик уверенно передаёт партнёру ошибочное объяснение.
+    mitigation_ru: Завершать сверкой с надёжным материалом или корректирующей обратной связью учителя.
+not_equivalent_to: [answer-dictation, unmonitored-group-talk]
+limitations_ru:
+  - Партнёрская форма может требовать языковых рамок и распределения времени.
+grade5_science_applicability:
+  grade: 5
+  subject: science
+  instruction_language: ru
+  subject_support_language: et
+  learner_estonian_level: A1-A2
+  delivery_modes: [classroom, homeschool]
+  classroom_example_ru: Ученик объясняет по-русски, почему меняется состояние воды, затем произносит одну модельную фразу по-эстонски.
+  homeschool_example_ru: Ребёнок объясняет материал взрослому, а взрослый задаёт вопрос и не подсказывает ответ заранее.
+confidence:
+  level: high
+  rationale: Объяснение другому явно поддержано источником; организационные условия сформулированы проектом.

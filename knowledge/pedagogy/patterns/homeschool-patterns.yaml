@@ -1,0 +1,68 @@
+schema_version: "1.0"
+artifact_type: pedagogical_pattern_catalog
+patterns:
+  - pattern_id: independent-homeschool-study
+    names:
+      en: Independent homeschool study
+      et: Iseseisev koduõppe õppimine
+      ru: Самостоятельное домашнее занятие
+    purpose_ru: >-
+      Организовать короткое самостоятельное занятие с видимой целью, планом,
+      воспроизведением до ключа, самопроверкой, исправлением и отложенным повтором.
+    delivery_modes: [homeschool, independent_study, parent_supported]
+    subjects: [cross_curricular, science, geography]
+    suitable_grades: {min: 2, max: 12}
+    applicable_when: [independent_home_session, cumulative_review, language_supported_output]
+    recommended_components:
+      - sequence: 1
+        phase: orientation
+        purpose_ru: Подготовить тихое место, видимую цель, короткие шаги и оценку времени.
+        linked_principle_ids: [attention-and-distraction-management, task-chunking, time-estimation-and-planning]
+        activity_options: [kwl-table, prediction-with-keywords, prior-knowledge-free-write]
+      - sequence: 2
+        phase: independent_practice
+        purpose_ru: Изучить один ограниченный фрагмент и зафиксировать собственное понимание.
+        linked_principle_ids: [autonomy-support, optimal-challenge]
+        activity_options: [guided-reading, two-column-journal, visual-representation]
+      - sequence: 3
+        phase: retrieval
+        purpose_ru: Закрыть источник и воспроизвести главное до просмотра ключа.
+        linked_principle_ids: [retrieval-practice]
+        activity_options: [concept-map, one-minute-recall, retrieval-self-test, retrieval-summary]
+      - sequence: 4
+        phase: reflection
+        purpose_ru: Сверить, исправить другим цветом и определить нерешённый вопрос.
+        linked_principle_ids: [learning-from-errors, self-assessment-and-reflection]
+        activity_options: [error-correction, exit-ticket, three-two-one-reflection]
+      - sequence: 5
+        phase: delayed_review
+        purpose_ru: Вернуться к существенному материалу после паузы и на недельном повторении.
+        linked_principle_ids: [spacing, time-estimation-and-planning]
+        activity_options: [delayed-homework-retrieval, retrieval-self-test, retrieval-summary]
+    variation_policy:
+      variation_allowed: true
+      required_exception_rationale: false
+      notes_ru: Продолжительность, число шагов и формы ответа меняются по возрасту и теме; не все компоненты обязательны в каждой сессии.
+    role_boundaries:
+      child_responsibility_ru: Начать по видимому плану, выполнить попытку до ключа, исправить ошибки и сообщить о нерешённом вопросе.
+      adult_support_ru: Подготовить условия, выслушать объяснение и не давать ответ до самостоятельной попытки.
+      adult_safety_supervision_ru: Разрешать практические действия только по инструкции предметного учителя и обеспечивать требуемый надзор.
+      subject_teacher_responsibility_ru: Выбрать содержание, проверить научную точность, дать ключ и решить вопросы, выходящие за компетентность семьи.
+    source_provenance:
+      - claim_id: homeschool-pattern-source
+        claim_origin: source_supported
+        statement_ru: Методическое руководство поддерживает внимание, планирование, дробление задач, самостоятельную проверку, исправление и интервальное повторение.
+        reference_ids: [gag-opiraam-opistrateegiad]
+        boundary_ru: Источник не задаёт этот полный домашний workflow как обязательную последовательность.
+      - claim_id: homeschool-pattern-design
+        claim_origin: project_authored_design
+        statement_ru: Проект объединяет поддержанные элементы и явно разделяет ответственность ребёнка, взрослого и предметного учителя.
+        reference_ids: []
+        boundary_ru: Домашняя адаптация является проектной и ожидает teacher review.
+    limitations_ru:
+      - Родитель не считается предметным учителем и не обязан разрешать научную неопределённость.
+      - Паттерн не является полным homeschool engine и не генерирует материалы.
+      - Практические задания требуют отдельного разрешения и оценки риска.
+    confidence:
+      level: provisional
+      rationale: Базовые стратегии поддержаны источником, но собранный домашний паттерн является проектной адаптацией без независимого ревью.
