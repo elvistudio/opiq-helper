@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-reference.schema.json",
+  "title": "Pedagogical reference registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "references"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/schemaVersion"
+    },
+    "artifact_type": {
+      "const": "pedagogical_reference_registry"
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/reference"
+      }
+    }
+  },
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reference_id",
+        "title",
+        "language",
+        "source_type",
+        "publisher_or_owner",
+        "publication_date",
+        "access_type",
+        "original_file_committed",
+        "redistribution_status",
+        "quotation_policy",
+        "official_curriculum_authority",
+        "used_for",
+        "notes"
+      ],
+      "properties": {
+        "reference_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "enum": [
+            "et",
+            "ru",
+            "en"
+          ]
+        },
+        "source_type": {
+          "enum": [
+            "school_methodology_guide",
+            "teaching_method_catalog",
+            "research_synthesis",
+            "official_guidance",
+            "professional_reference"
+          ]
+        },
+        "publisher_or_owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publication_date": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}(?:-[0-9]{2}(?:-[0-9]{2})?)?$"
+            }
+          ]
+        },
+        "access_type": {
+          "enum": [
+            "user_supplied",
+            "public_url",
+            "library_access",
+            "institutional_access"
+          ]
+        },
+        "original_file_committed": {
+          "type": "boolean"
+        },
+        "redistribution_status": {
+          "enum": [
+            "not_verified",
+            "permission_confirmed",
+            "public_domain",
+            "open_license"
+          ]
+        },
+        "quotation_policy": {
+          "enum": [
+            "summaries_only",
+            "short_attributed_quotes",
+            "license_permitted_reuse"
+          ]
+        },
+        "official_curriculum_authority": {
+          "const": false
+        },
+        "used_for": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "pedagogical_principles",
+              "classroom_methods",
+              "homeschool_adaptation",
+              "pedagogical_patterns"
+            ]
+          }
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "redistribution_status": {
+                "const": "not_verified"
+              }
+            },
+            "required": [
+              "redistribution_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "original_file_committed": {
+                "const": false
+              },
+              "quotation_policy": {
+                "const": "summaries_only"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
