@@ -421,6 +421,16 @@
         "Thirty-one canonical title groups repeat across distinct chapter URLs. They are retained because title equality does not prove duplicate instructional content, particularly across editions and languages.",
         "The heritage-music video collection is supplementary material and must not be treated as the ordinary core without explicit labelling."
       ],
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "muusikamaa__kit195",
+          "muusikaõpik_3._klassile__kit163",
+          "muusikaõpik_3._klassile_2025__kit592",
+          "музыка_–_волшебная_страна._3_класс__kit239"
+        ],
+        "audit_path": "docs/audits/grade-3-music-source-import.md",
+        "reason": "The grade-3 music books have a dedicated route and must not be substituted with or absorbed into grade-2 music."
+      },
       "canonical_url_policy": {
         "require_unique": true
       },
@@ -568,10 +578,14 @@
           "avita_русский_язык_2_класс_kit292",
           "koolibri_русский_яз_2_ru",
           "koolibri_светлячок._2_ru",
-          "русское_слово._чтение_для_3_класса__kit504"
+          "русское_слово._чтение_для_3_класса__kit504",
+          "muusikamaa__kit195",
+          "muusikaõpik_3._klassile__kit163",
+          "muusikaõpik_3._klassile_2025__kit592",
+          "музыка_–_волшебная_страна._3_класс__kit239"
         ],
         "audit_path": "docs/audits/grade-3-russian-source-import.md",
-        "reason": "Grade-2 Russian books remain in grade 2 after the audited kit 568 migration; the source-specific Kit 504 reading collection is routed separately from the grade-3 Russian grammar/language index."
+        "reason": "Grade-2 Russian books remain in grade 2 after the audited kit 568 migration; the source-specific Kit 504 reading collection and all grade-3 music books are routed separately from the grade-3 Russian grammar/language index."
       },
       "canonical_url_policy": {
         "require_unique": true
@@ -624,10 +638,14 @@
           "matemaatika_3._klassile,_i_osa._lihtsustatud_õppekava__kit497",
           "matemaatika_3._klassile,_ii_osa._lihtsustatud_õppekava__kit498",
           "matemaatika_3._klassile,_iii_osa._lihtsustatud_õppekava__kit499",
-          "matemaatika_3._klassile,_iv_osa._lihtsustatud_õppekava__kit500"
+          "matemaatika_3._klassile,_iv_osa._lihtsustatud_õppekava__kit500",
+          "muusikamaa__kit195",
+          "muusikaõpik_3._klassile__kit163",
+          "muusikaõpik_3._klassile_2025__kit592",
+          "музыка_–_волшебная_страна._3_класс__kit239"
         ],
         "audit_path": "docs/audits/grade-3-russian-reading-source-import.md",
-        "reason": "Kit 504 is a dedicated Russian-reading source and must not absorb Russian grammar/language or mathematics books."
+        "reason": "Kit 504 is a dedicated Russian-reading source and must not absorb Russian grammar/language, mathematics, or music books."
       },
       "canonical_url_policy": {
         "require_unique": true
@@ -640,6 +658,70 @@
         }
       },
       "notes": "Use for grade-3 Russian-reading source queries only. This source-specific route does not claim an independent official exact-grade subject allocation or complete curriculum/live Opiq coverage."
+    },
+    {
+      "id": "grade-3-music",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "music",
+      "subject_et": "muusika",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_3klass_muusika.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_muusikamaa_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_muusika_qa.json",
+      "record_count": 305,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "All 315 source rows carry the automatic mathematics subject while the raw per-book subject is empty. Canonical music classification is supported by Source Book IDs, Kit Details titles, music chapter sequences, notation, rhythm, singing headings, and pupil tasks.",
+        "The three Estonian raw book objects are incorrectly marked ru, while index.json and all 183 instructional page records consistently mark them et. Canonical language follows the compact index and page-level evidence; raw values remain in QA.",
+        "Publisher metadata is absent for all four source-book-plus-kit variants and is not invented.",
+        "The archive stores 195 non-ASCII member paths as UTF-8 bytes without setting the ZIP UTF-8 filename flag. The generator verifies reversible CP437-to-UTF-8 recovery without rewriting the archive.",
+        "After recovering 40 richer raw task arrays, 129 instructional pages still lack structured task examples; this is a capture limitation rather than proof that the pages contain no activity.",
+        "Kits 163 and 592 remain distinct editions even though 30 of their 31 compact instructional records are equivalent."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["163", "195", "239", "592"],
+        "programme_type": "ordinary_curriculum",
+        "audit_path": "docs/audits/grade-3-music-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "2._klassi_muusikaõpetus",
+          "eesti_pärimusmuusika_keskuse_õppevideod",
+          "muusikaõpik_2._klassile",
+          "muusikaõpik_2._klassile_2024",
+          "музыка_–_волшебная_страна._2_класс",
+          "matemaatika_3._klassile__kit54",
+          "matemaatika_3._klassile_2023_õk__kit531",
+          "математика_для_3_класса__kit92",
+          "matemaatika_3._klassile_koolibri__kit134",
+          "математика_3_класс__kit308",
+          "matemaatika_3._klassile,_i_osa._lihtsustatud_õppekava__kit497",
+          "matemaatika_3._klassile,_ii_osa._lihtsustatud_õppekava__kit498",
+          "matemaatika_3._klassile,_iii_osa._lihtsustatud_õppekava__kit499",
+          "matemaatika_3._klassile,_iv_osa._lihtsustatud_õppekava__kit500",
+          "русский_язык._3_класс_(2023_г.)__kit503",
+          "русский_язык_3_класс__kit250",
+          "русский_язык_для_3_класса__kit94",
+          "русский_язык_для_i_ступени._часть_3__kit568",
+          "русское_слово._чтение_для_3_класса__kit504"
+        ],
+        "audit_path": "docs/audits/grade-3-music-source-import.md",
+        "reason": "Grade-3 music is separate from grade-2 music, mathematics, Russian language, and Russian reading. No grade-3 Estonian-language route currently exists."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "music",
+          "et": "muusika",
+          "ru": "музыка"
+        }
+      },
+      "notes": "Use for grade-3 music requests only. The route contains three Estonian and one Russian ordinary-curriculum book/kit variants; it is not a verified curriculum map or proof of the complete current live Opiq catalogue."
     },
     {
       "id": "grade-3-human-studies",
@@ -700,10 +782,14 @@
       ],
       "subject_boundary": {
         "forbidden_book_ids": [
-          "русское_слово._чтение_для_3_класса__kit504"
+          "русское_слово._чтение_для_3_класса__kit504",
+          "muusikamaa__kit195",
+          "muusikaõpik_3._klassile__kit163",
+          "muusikaõpik_3._klassile_2025__kit592",
+          "музыка_–_волшебная_страна._3_класс__kit239"
         ],
-        "audit_path": "docs/audits/grade-3-russian-reading-source-import.md",
-        "reason": "The Kit 504 Russian-reading source is distinct from mathematics despite the exporter's automatic mathematics subject label."
+        "audit_path": "docs/audits/grade-3-music-source-import.md",
+        "reason": "Russian-reading Kit 504 and all four grade-3 music kits are distinct from mathematics despite the exporter's automatic mathematics subject label."
       },
       "canonical_url_policy": {
         "require_unique": true
