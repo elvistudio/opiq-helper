@@ -2,7 +2,7 @@
 
 ## Scope and claim
 
-This is the complete canonical catalogue of the supplied and audited grade-2 captures currently available in the repository. It contains 42 canonical book/kit variants across eleven routes. It is not an independently verified snapshot of every book currently visible on the live Opiq website and it is not a curriculum-completeness claim.
+This is the complete canonical catalogue of the supplied and audited grade-2 captures currently available in the repository. It contains 41 canonical book/kit variants across eleven routes. Kit 568 is no longer counted here because the dedicated grade-3 archive proves grade-3 ownership; its 52 pages are now canonical only in `grade-3-russian`. This is not an independently verified snapshot of every book currently visible on the live Opiq website and it is not a curriculum-completeness claim.
 
 All page totals below come from the canonical Markdown and QA snapshots. `ordinary`, `simplified`, `supplementary`, `mixed`, and `youth` are retrieval/use classifications; simplified and supplementary sources are never ordinary defaults.
 
@@ -64,7 +64,6 @@ Every listed route has `qa_snapshot_available`; the `quality/limitation` column 
 | `grade-2-human-studies` / human studies | `koolibri_in2_2._kla_2_et__kit142` | `koolibri_in2_2._kla_2_et` | 142 | IN2. 2. klassi inimeseõpetus | Koolibri | et | ordinary | 38 | H | index plus cover evidence |
 | `grade-2-human-studies` / human studies | `koolibri_мой_мир._ч_2_ru__kit229` | `koolibri_мой_мир._ч_2_ru` | 229 | Мой мир. Человековедение 2 класс | Koolibri | ru | ordinary | 38 | H | discretionary soft hyphen removed from identity |
 | `grade-2-russian` / Russian | `avita_русский_язык_2_класс_kit292` | same | 292 | Русский язык для 2 класса | Avita | ru | ordinary | 192 | R | canonical kit identity |
-| `grade-2-russian` / Russian | `avita_русский_язык_i_ступень_часть_3_kit568` | same | 568 | Русский язык для I ступени. Часть 3 | Avita | ru | ordinary | 52 | R | canonical kit identity |
 | `grade-2-russian` / Russian | `koolibri_русский_яз_2_ru` | same | 186 | РУССКИЙ ЯЗЫК 2 класс | Koolibri | ru | ordinary | 30 | R | audited legacy route |
 | `grade-2-russian` / Russian | `koolibri_светлячок._2_ru` | same | 454 | СВЕТЛЯЧОК. Чтение для 2 класса | Koolibri | ru | ordinary | 99 | R | audited legacy route |
 | `grade-2-arts-and-crafts` / arts and crafts | `kunsti-_ja_tööõpetus._2._osa` | same | 192 | Kunsti- ja tööõpetus. 2. osa | not recorded | et | ordinary | 89 | A | publisher not supplied |
@@ -88,12 +87,12 @@ Every listed route has `qa_snapshot_available`; the `quality/limitation` column 
 | grade-2-mathematics | 8 | 464 |
 | grade-2-science | 8 | 313 |
 | grade-2-human-studies | 7 | 243 |
-| grade-2-russian | 4 | 373 |
+| grade-2-russian | 3 | 321 |
 | grade-2-arts-and-crafts | 3 | 263 |
 | grade-2-music | 5 | 317 |
 | grade-2-kodututarde-training | 1 | 31 |
 | grade-2-noorte-kotkaste-training | 1 | 27 |
 | grade-2-nature-and-human-studies | 1 | 60 |
-| **Total** | **42** | **2,535** |
+| **Total** | **41** | **2,483** |
 
-`Koduõpe` and `Kodutütarde VI järk` are intentionally not counted as grade-2 books. Exact source accounting, excluded cover/administrative records, duplicate decisions, and SHA-256 values are recorded in the route QA snapshots and generator checks.
+`Koduõpe` and `Kodutütarde VI järk` are intentionally not counted as grade-2 books. Kit 568 remains present in the immutable historical grade-2 source ZIP but is deliberately filtered from the grade-2 canonical route. Exact source accounting, excluded cover/administrative records, duplicate decisions, and SHA-256 values are recorded in the route QA snapshots and generator checks.

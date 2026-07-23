@@ -387,8 +387,6 @@ function targetedRecapturePlan() {
       { kit_id: '229', title: 'Мои увлечения', url: 'https://www.opiq.ee/kit/229/chapter/13076', capture: 'Task label currently extracted as Заданиe', uncertainty: 'Latin e and Cyrillic letters are mixed in one word.', programme_can_start_without: true },
       { kit_id: '292', title: 'Звуки и буквы', url: 'https://www.opiq.ee/kit/292/chapter/16123', capture: 'Words with the currently mixed-script stressed vowels', uncertainty: 'Precomposed Latin accented letters occur inside Cyrillic words.', programme_can_start_without: true },
       { kit_id: '292', title: 'Повторение (1)', url: 'https://www.opiq.ee/kit/292/chapter/17761', capture: 'Word currently extracted as словá', uncertainty: 'A precomposed Latin accented letter occurs inside a Cyrillic word.', programme_can_start_without: true },
-      { kit_id: '568', title: 'Татьяна Александрова. Домовёнок ______', url: 'https://www.opiq.ee/kit/568/chapter/31778', capture: 'Word currently extracted as свóриться', uncertainty: 'A precomposed Latin accented letter occurs inside a Cyrillic word.', programme_can_start_without: true },
-      { kit_id: '568', title: 'Где поставить ударение?', url: 'https://www.opiq.ee/kit/568/chapter/31793', capture: 'Stressed words and the рекиPausEsita extraction boundary', uncertainty: 'Mixed-script stressed vowels and a media-control label are concatenated with lesson text.', programme_can_start_without: true },
       { kit_id: '454', title: 'СУМАCШЕДШАЯ ПТИЦА', url: 'https://www.opiq.ee/kit/454/chapter/24744', capture: 'Page title and first heading', uncertainty: 'Latin C occurs inside a Cyrillic word.', programme_can_start_without: true },
     ],
     full_kits: [],
@@ -560,7 +558,7 @@ async function buildReport() {
     const qaBookIds = qa
       ? Object.keys(qa.books ?? qa.normalized_books ?? {}).sort()
       : [];
-    if (qa && JSON.stringify(qaBookIds) !== JSON.stringify(expectedBookIds)) fail('qa_book_inventory', `${route.id}: QA book inventory differs from the 42-variant catalogue.`, { route_id: route.id });
+    if (qa && JSON.stringify(qaBookIds) !== JSON.stringify(expectedBookIds)) fail('qa_book_inventory', `${route.id}: QA book inventory differs from the ${expectedGrade2BookVariantCount}-variant catalogue.`, { route_id: route.id });
   }
   if (actualBookVariantCount !== expectedGrade2BookVariantCount) fail('book_variant_count', `Found ${actualBookVariantCount} book/kit variants; expected ${expectedGrade2BookVariantCount}.`);
 

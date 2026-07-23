@@ -947,6 +947,120 @@ cases:
         url: https://www.opiq.ee/kit/292/chapter/16114
     evidence: "The record is the Russian-language school subject, not a Russian-language mathematics page; its exact URL is absent from grade 3 mathematics."
 
+  - id: grade-3-russian-original-route-variants
+    grade: 3
+    subject: russian
+    topic: "four original Russian-language book variants and route exclusions"
+    status: present
+    expected_source_id: grade-3-russian
+    expected_md_path: project-files/outputs/opiq_3klass_vene_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/503/chapter/27466
+        expected:
+          class: 3
+          book_id: русский_язык._3_класс_(2023_г.)__kit503
+          title: Вступление
+          subject:
+            en: Russian language
+            et: vene keel
+            ru: русский язык
+          headings_any:
+            - Чтение, слушание, говорение или письмо?
+      - kind: record_present
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/250/chapter/14047
+        expected:
+          class: 3
+          book_id: русский_язык_3_класс__kit250
+          title: ЛЕКСИКА
+          headings_any:
+            - Слово и его лексическое значение
+      - kind: record_present
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/94/chapter/4532
+        expected:
+          class: 3
+          book_id: русский_язык_для_3_класса__kit94
+          title: Язык и речь
+          headings_any:
+            - Что такое родной язык?
+      - kind: record_present
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/568/chapter/31760
+        expected:
+          class: 3
+          book_id: русский_язык_для_i_ступени._часть_3__kit568
+          title: Язык и речь. Вступление
+          headings_any:
+            - Что такое хорошая речь?
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/503/chapter/27466
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/250/chapter/14047
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/94/chapter/4532
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/568/chapter/31760
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-2-russian
+        url: https://www.opiq.ee/kit/568/chapter/31760
+    evidence: "All four audited kits contribute direct grade-3 Russian-language subject pages. Mathematics, Kit Details, Impressum, search results, and the former grade-2 ownership are explicitly excluded."
+
+  - id: grade-3-russian-grammar
+    grade: 3
+    subject: russian
+    topic: "лексика, значение слова и грамматика"
+    status: present
+    expected_source_id: grade-3-russian
+    expected_md_path: project-files/outputs/opiq_3klass_vene_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/250/chapter/14048
+        expected:
+          class: 3
+          title: Однозначные и многозначные слова
+          headings_any:
+            - ОБРАТИ ВНИМАНИЕ!
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/250/chapter/14048
+    evidence: "A canonical grade-3 Russian-language page explicitly teaches lexical meaning and is absent from mathematics."
+
+  - id: grade-3-russian-reading-literature
+    grade: 3
+    subject: russian
+    topic: "чтение и литературный текст"
+    status: present
+    expected_source_id: grade-3-russian
+    expected_md_path: project-files/outputs/opiq_3klass_vene_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/503/chapter/27482
+        expected:
+          class: 3
+          title: Дядя Фёдор и лето в Простоквашино. Эдуард Успенский
+          headings_any:
+            - Читаем
+      - kind: url_absent
+        origin_source_id: grade-3-russian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/503/chapter/27482
+    evidence: "The canonical route contains explicit reading/literature evidence, not a Russian translation of another school subject."
+
   - id: grade-3-human-studies-water-safety
     grade: 3
     subject: human_studies

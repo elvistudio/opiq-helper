@@ -458,6 +458,56 @@ async function validateQaSnapshot(
     validateCountMap(qa, sourceLabel, 'canonical_subject_counts', qa.page_records_included);
   }
 
+  if (source.id === 'grade-3-russian' && !compactMetadata) {
+    const originalRequiredFields = [
+      'archive',
+      'source_representation_audit',
+      'cover_detail_records_excluded',
+      'administrative_records_excluded',
+      'search_records_excluded',
+      'duplicate_records_excluded',
+      'duplicate_url_audit',
+      'grade_audit',
+      'language_audit',
+      'subject_normalization_audit',
+      'content_repair_audit',
+      'content_quality_audit',
+      'kit_568_migration',
+      'source_subject_counts',
+      'canonical_subject_counts',
+      'kits',
+    ];
+    originalRequiredFields.forEach((field) => {
+      if (!Object.hasOwn(qa, field)) fail(`${sourceLabel}: missing original-archive QA field ${field}.`);
+    });
+    if (qa.source_records !== 488) fail(`${sourceLabel}: original archive must account for 488 source records.`);
+    const accountedSourceRecords = qa.page_records_included
+      + qa.cover_detail_records_excluded
+      + qa.administrative_records_excluded
+      + qa.search_records_excluded
+      + qa.duplicate_records_excluded;
+    if (accountedSourceRecords !== qa.source_records) {
+      fail(`${sourceLabel}: included and excluded QA counters account for ${accountedSourceRecords} source records, expected ${qa.source_records}.`);
+    }
+    if (qa.archive?.member_count !== 497 || qa.archive?.crc_verified_members !== 497) {
+      fail(`${sourceLabel}: all 497 original ZIP members must be present and CRC-verified.`);
+    }
+    if (qa.source_representation_audit?.unexplained_differences !== 0) {
+      fail(`${sourceLabel}: original archive representations contain unexplained differences.`);
+    }
+    if (qa.kit_568_migration?.final_owner !== 'grade-3-russian'
+      || qa.kit_568_migration?.url_count !== 52
+      || qa.kit_568_migration?.cross_route_overlap !== 0) {
+      fail(`${sourceLabel}: kit 568 migration evidence is incomplete.`);
+    }
+    const qualityErrors = qa.content_quality_audit?.hard_errors;
+    if (!isPlainObject(qualityErrors) || Object.values(qualityErrors).some((count) => count !== 0)) {
+      fail(`${sourceLabel}: canonical content-quality audit must contain zero hard errors.`);
+    }
+    validateCountMap(qa, sourceLabel, 'source_subject_counts', qa.source_records);
+    validateCountMap(qa, sourceLabel, 'canonical_subject_counts', qa.page_records_included);
+  }
+
   validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'languages', qa.page_records_included);
   validateCountMap(qa, sourceLabel, 'books', qa.page_records_included);
@@ -1018,18 +1068,18 @@ if (!manifest) {
     }
   }
 
-  const gradeThreeMathematics = manifest.sources.find((source) => source.id === 'grade-3-mathematics');
-  if (gradeThreeMathematics) {
-    const targetMarkdown = await readFile(path.join(repositoryRoot, gradeThreeMathematics.md_path), 'utf8');
+  const globallyExclusiveRoutes = manifest.sources.filter((source) => ['grade-3-mathematics', 'grade-3-russian'].includes(source.id));
+  for (const exclusiveRoute of globallyExclusiveRoutes) {
+    const targetMarkdown = await readFile(path.join(repositoryRoot, exclusiveRoute.md_path), 'utf8');
     const targetUrls = new Set(splitMarkdownRecords(targetMarkdown)
       .map((record) => record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1])
       .filter(Boolean));
-    for (const source of manifest.sources.filter((entry) => entry.id !== gradeThreeMathematics.id)) {
+    for (const source of manifest.sources.filter((entry) => entry.id !== exclusiveRoute.id)) {
       const markdown = await readFile(path.join(repositoryRoot, source.md_path), 'utf8');
       for (const record of splitMarkdownRecords(markdown)) {
         const url = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1];
         if (url && targetUrls.has(url)) {
-          fail(`grade-3 mathematics canonical URL overlap: ${url} also belongs to ${source.id}.`);
+          fail(`${exclusiveRoute.id} canonical URL overlap: ${url} also belongs to ${source.id}.`);
         }
       }
     }

@@ -4,7 +4,7 @@
   "scope_claim": "Complete canonical content-quality audit of the supplied and registered grade-2 captures currently available in the repository. It is not an independently verified live Opiq catalogue or an official-curriculum completeness audit.",
   "audit_basis": {
     "manifest_path": "source-manifest.json",
-    "manifest_sha256": "f9ca16bb7210877d464d07d6de1762a3fd0f6ccf8467793a83ebdac44d0042d0",
+    "manifest_sha256": "1cc445832f8b0298ef57761abf5cbd241d8ce52d0eb4fd8b85f77cbd8e0fee40",
     "grade": 2,
     "routes": [
       {
@@ -111,14 +111,14 @@
   "summary": {
     "status": "pass_with_classified_warnings",
     "routes_checked": 11,
-    "book_variants_checked": 42,
-    "page_records_checked": 2535,
+    "book_variants_checked": 41,
+    "page_records_checked": 2483,
     "qa_snapshots_checked": 11,
     "hard_error_count": 0,
-    "warning_count": 384,
-    "suspicious_url_count": 2131,
+    "warning_count": 372,
+    "suspicious_url_count": 2097,
     "targeted_recapture_kit_detail_count": 11,
-    "targeted_recapture_page_count": 10,
+    "targeted_recapture_page_count": 8,
     "targeted_recapture_full_kit_count": 0
   },
   "route_summary": [
@@ -178,9 +178,9 @@
     },
     {
       "route_id": "grade-2-russian",
-      "book_variants": 4,
-      "pages": 373,
-      "warning_groups": 37
+      "book_variants": 3,
+      "pages": 321,
+      "warning_groups": 24
     },
     {
       "route_id": "grade-2-science",
@@ -202,15 +202,15 @@
     {
       "code": "duplicate_compact_content",
       "groups": 45,
-      "urls": 103,
+      "urls": 101,
       "classifications": [
         "distinct_canonical_context"
       ]
     },
     {
       "code": "duplicate_title",
-      "groups": 253,
-      "urls": 594,
+      "groups": 243,
+      "urls": 567,
       "classifications": [
         "distinct_canonical_context"
       ]
@@ -225,16 +225,16 @@
     },
     {
       "code": "missing_task_examples",
-      "groups": 37,
-      "urls": 1538,
+      "groups": 36,
+      "urls": 1530,
       "classifications": [
         "acceptable_source_structure"
       ]
     },
     {
       "code": "mixed_script_word",
-      "groups": 7,
-      "urls": 29,
+      "groups": 6,
+      "urls": 27,
       "classifications": [
         "known_bilingual_extraction_boundary",
         "targeted_recapture_recommended"
@@ -2016,15 +2016,13 @@
       ],
       "book_ids": [
         "avita_природа_и__2_ru__kit86",
-        "avita_русский_язык_i_ступень_часть_3_kit568",
         "koolibri_светлячок._2_ru"
       ],
       "kit_ids": [
         "454",
-        "568",
         "86"
       ],
-      "message": "3 distinct URLs have equal compact title, headings, and task examples.",
+      "message": "2 distinct URLs have equal compact title, headings, and task examples.",
       "action": "Retain unless the underlying archived records also share a URL. The compact fields can legitimately match for glossaries, parallel youth programmes, editions, or repeated craft/music activities.",
       "observations": [
         {
@@ -2032,12 +2030,6 @@
           "title": "Понятия",
           "route_id": "grade-2-nature-and-human-studies",
           "book_id": "avita_природа_и__2_ru__kit86"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31807",
-          "title": "Понятия",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24790",
@@ -2048,7 +2040,6 @@
       ],
       "urls": [
         "https://www.opiq.ee/kit/454/chapter/24790",
-        "https://www.opiq.ee/kit/568/chapter/31807",
         "https://www.opiq.ee/kit/86/chapter/12121"
       ]
     },
@@ -2063,15 +2054,13 @@
       ],
       "book_ids": [
         "avita_природа_и__2_ru__kit86",
-        "avita_русский_язык_i_ступень_часть_3_kit568",
         "koolibri_светлячок._2_ru"
       ],
       "kit_ids": [
         "454",
-        "568",
         "86"
       ],
-      "message": "3 distinct URLs have equal compact title, headings, and task examples.",
+      "message": "2 distinct URLs have equal compact title, headings, and task examples.",
       "action": "Retain unless the underlying archived records also share a URL. The compact fields can legitimately match for glossaries, parallel youth programmes, editions, or repeated craft/music activities.",
       "observations": [
         {
@@ -2079,12 +2068,6 @@
           "title": "Толкование слов",
           "route_id": "grade-2-nature-and-human-studies",
           "book_id": "avita_природа_и__2_ru__kit86"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31808",
-          "title": "Толкование слов",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24791",
@@ -2095,7 +2078,6 @@
       ],
       "urls": [
         "https://www.opiq.ee/kit/454/chapter/24791",
-        "https://www.opiq.ee/kit/568/chapter/31808",
         "https://www.opiq.ee/kit/86/chapter/4233"
       ]
     },
@@ -5341,74 +5323,6 @@
         "grade-2-russian"
       ],
       "book_ids": [
-        "avita_математика_2_ru__kit165",
-        "avita_русский_язык_i_ступень_часть_3_kit568",
-        "koolibri_математика_2_et__kit361"
-      ],
-      "kit_ids": [
-        "165",
-        "361",
-        "568"
-      ],
-      "message": "Title “Повторение” occurs at 7 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/165/chapter/9267",
-          "route_id": "grade-2-mathematics",
-          "book_id": "avita_математика_2_ru__kit165"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/165/chapter/9330",
-          "route_id": "grade-2-mathematics",
-          "book_id": "avita_математика_2_ru__kit165"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/165/chapter/9297",
-          "route_id": "grade-2-mathematics",
-          "book_id": "avita_математика_2_ru__kit165"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/165/chapter/9323",
-          "route_id": "grade-2-mathematics",
-          "book_id": "avita_математика_2_ru__kit165"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/361/chapter/19883",
-          "route_id": "grade-2-mathematics",
-          "book_id": "koolibri_математика_2_et__kit361"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31776",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31796",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/165/chapter/9267",
-        "https://www.opiq.ee/kit/165/chapter/9297",
-        "https://www.opiq.ee/kit/165/chapter/9323",
-        "https://www.opiq.ee/kit/165/chapter/9330",
-        "https://www.opiq.ee/kit/361/chapter/19883",
-        "https://www.opiq.ee/kit/568/chapter/31776",
-        "https://www.opiq.ee/kit/568/chapter/31796"
-      ]
-    },
-    {
-      "id": "g2q-0130",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-mathematics",
-        "grade-2-russian"
-      ],
-      "book_ids": [
         "avita_русский_язык_2_класс_kit292",
         "koolibri_математика_2_et__kit361"
       ],
@@ -5460,7 +5374,7 @@
       ]
     },
     {
-      "id": "g2q-0131",
+      "id": "g2q-0130",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5520,7 +5434,7 @@
       ]
     },
     {
-      "id": "g2q-0132",
+      "id": "g2q-0131",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5586,7 +5500,7 @@
       ]
     },
     {
-      "id": "g2q-0133",
+      "id": "g2q-0132",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5622,7 +5536,7 @@
       ]
     },
     {
-      "id": "g2q-0134",
+      "id": "g2q-0133",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5658,7 +5572,7 @@
       ]
     },
     {
-      "id": "g2q-0135",
+      "id": "g2q-0134",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5694,7 +5608,7 @@
       ]
     },
     {
-      "id": "g2q-0136",
+      "id": "g2q-0135",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5730,7 +5644,7 @@
       ]
     },
     {
-      "id": "g2q-0137",
+      "id": "g2q-0136",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5799,7 +5713,7 @@
       ]
     },
     {
-      "id": "g2q-0138",
+      "id": "g2q-0137",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5842,7 +5756,7 @@
       ]
     },
     {
-      "id": "g2q-0139",
+      "id": "g2q-0138",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5885,7 +5799,7 @@
       ]
     },
     {
-      "id": "g2q-0140",
+      "id": "g2q-0139",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5928,7 +5842,7 @@
       ]
     },
     {
-      "id": "g2q-0141",
+      "id": "g2q-0140",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5963,7 +5877,7 @@
       ]
     },
     {
-      "id": "g2q-0142",
+      "id": "g2q-0141",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -5998,7 +5912,7 @@
       ]
     },
     {
-      "id": "g2q-0143",
+      "id": "g2q-0142",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6033,7 +5947,7 @@
       ]
     },
     {
-      "id": "g2q-0144",
+      "id": "g2q-0143",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6068,7 +5982,7 @@
       ]
     },
     {
-      "id": "g2q-0145",
+      "id": "g2q-0144",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6103,7 +6017,7 @@
       ]
     },
     {
-      "id": "g2q-0146",
+      "id": "g2q-0145",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6138,7 +6052,7 @@
       ]
     },
     {
-      "id": "g2q-0147",
+      "id": "g2q-0146",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6173,7 +6087,7 @@
       ]
     },
     {
-      "id": "g2q-0148",
+      "id": "g2q-0147",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6208,7 +6122,7 @@
       ]
     },
     {
-      "id": "g2q-0149",
+      "id": "g2q-0148",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6243,7 +6157,7 @@
       ]
     },
     {
-      "id": "g2q-0150",
+      "id": "g2q-0149",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6278,7 +6192,7 @@
       ]
     },
     {
-      "id": "g2q-0151",
+      "id": "g2q-0150",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6313,7 +6227,7 @@
       ]
     },
     {
-      "id": "g2q-0152",
+      "id": "g2q-0151",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6348,7 +6262,7 @@
       ]
     },
     {
-      "id": "g2q-0153",
+      "id": "g2q-0152",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6383,7 +6297,7 @@
       ]
     },
     {
-      "id": "g2q-0154",
+      "id": "g2q-0153",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6418,7 +6332,7 @@
       ]
     },
     {
-      "id": "g2q-0155",
+      "id": "g2q-0154",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6453,7 +6367,7 @@
       ]
     },
     {
-      "id": "g2q-0156",
+      "id": "g2q-0155",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6488,7 +6402,7 @@
       ]
     },
     {
-      "id": "g2q-0157",
+      "id": "g2q-0156",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6523,7 +6437,7 @@
       ]
     },
     {
-      "id": "g2q-0158",
+      "id": "g2q-0157",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6558,7 +6472,7 @@
       ]
     },
     {
-      "id": "g2q-0159",
+      "id": "g2q-0158",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6593,7 +6507,7 @@
       ]
     },
     {
-      "id": "g2q-0160",
+      "id": "g2q-0159",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6628,7 +6542,7 @@
       ]
     },
     {
-      "id": "g2q-0161",
+      "id": "g2q-0160",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6663,7 +6577,7 @@
       ]
     },
     {
-      "id": "g2q-0162",
+      "id": "g2q-0161",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6698,7 +6612,7 @@
       ]
     },
     {
-      "id": "g2q-0163",
+      "id": "g2q-0162",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6733,7 +6647,7 @@
       ]
     },
     {
-      "id": "g2q-0164",
+      "id": "g2q-0163",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6768,7 +6682,7 @@
       ]
     },
     {
-      "id": "g2q-0165",
+      "id": "g2q-0164",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6803,7 +6717,7 @@
       ]
     },
     {
-      "id": "g2q-0166",
+      "id": "g2q-0165",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6838,7 +6752,7 @@
       ]
     },
     {
-      "id": "g2q-0167",
+      "id": "g2q-0166",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6873,7 +6787,7 @@
       ]
     },
     {
-      "id": "g2q-0168",
+      "id": "g2q-0167",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6908,7 +6822,7 @@
       ]
     },
     {
-      "id": "g2q-0169",
+      "id": "g2q-0168",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6943,7 +6857,7 @@
       ]
     },
     {
-      "id": "g2q-0170",
+      "id": "g2q-0169",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -6978,7 +6892,7 @@
       ]
     },
     {
-      "id": "g2q-0171",
+      "id": "g2q-0170",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7013,7 +6927,7 @@
       ]
     },
     {
-      "id": "g2q-0172",
+      "id": "g2q-0171",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7048,7 +6962,7 @@
       ]
     },
     {
-      "id": "g2q-0173",
+      "id": "g2q-0172",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7083,7 +6997,7 @@
       ]
     },
     {
-      "id": "g2q-0174",
+      "id": "g2q-0173",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7118,7 +7032,7 @@
       ]
     },
     {
-      "id": "g2q-0175",
+      "id": "g2q-0174",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7153,7 +7067,7 @@
       ]
     },
     {
-      "id": "g2q-0176",
+      "id": "g2q-0175",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7188,7 +7102,7 @@
       ]
     },
     {
-      "id": "g2q-0177",
+      "id": "g2q-0176",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7223,7 +7137,7 @@
       ]
     },
     {
-      "id": "g2q-0178",
+      "id": "g2q-0177",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7258,7 +7172,7 @@
       ]
     },
     {
-      "id": "g2q-0179",
+      "id": "g2q-0178",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7293,7 +7207,7 @@
       ]
     },
     {
-      "id": "g2q-0180",
+      "id": "g2q-0179",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7328,7 +7242,7 @@
       ]
     },
     {
-      "id": "g2q-0181",
+      "id": "g2q-0180",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7363,7 +7277,7 @@
       ]
     },
     {
-      "id": "g2q-0182",
+      "id": "g2q-0181",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7398,7 +7312,7 @@
       ]
     },
     {
-      "id": "g2q-0183",
+      "id": "g2q-0182",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7433,7 +7347,7 @@
       ]
     },
     {
-      "id": "g2q-0184",
+      "id": "g2q-0183",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7468,7 +7382,7 @@
       ]
     },
     {
-      "id": "g2q-0185",
+      "id": "g2q-0184",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7503,7 +7417,7 @@
       ]
     },
     {
-      "id": "g2q-0186",
+      "id": "g2q-0185",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7538,7 +7452,7 @@
       ]
     },
     {
-      "id": "g2q-0187",
+      "id": "g2q-0186",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7573,7 +7487,7 @@
       ]
     },
     {
-      "id": "g2q-0188",
+      "id": "g2q-0187",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7608,7 +7522,7 @@
       ]
     },
     {
-      "id": "g2q-0189",
+      "id": "g2q-0188",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7643,7 +7557,7 @@
       ]
     },
     {
-      "id": "g2q-0190",
+      "id": "g2q-0189",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7678,7 +7592,7 @@
       ]
     },
     {
-      "id": "g2q-0191",
+      "id": "g2q-0190",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7713,7 +7627,7 @@
       ]
     },
     {
-      "id": "g2q-0192",
+      "id": "g2q-0191",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7748,7 +7662,7 @@
       ]
     },
     {
-      "id": "g2q-0193",
+      "id": "g2q-0192",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7783,7 +7697,7 @@
       ]
     },
     {
-      "id": "g2q-0194",
+      "id": "g2q-0193",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7818,7 +7732,7 @@
       ]
     },
     {
-      "id": "g2q-0195",
+      "id": "g2q-0194",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7853,7 +7767,7 @@
       ]
     },
     {
-      "id": "g2q-0196",
+      "id": "g2q-0195",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7888,7 +7802,7 @@
       ]
     },
     {
-      "id": "g2q-0197",
+      "id": "g2q-0196",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7923,7 +7837,7 @@
       ]
     },
     {
-      "id": "g2q-0198",
+      "id": "g2q-0197",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7958,7 +7872,7 @@
       ]
     },
     {
-      "id": "g2q-0199",
+      "id": "g2q-0198",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -7993,7 +7907,7 @@
       ]
     },
     {
-      "id": "g2q-0200",
+      "id": "g2q-0199",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8028,7 +7942,7 @@
       ]
     },
     {
-      "id": "g2q-0201",
+      "id": "g2q-0200",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8063,7 +7977,7 @@
       ]
     },
     {
-      "id": "g2q-0202",
+      "id": "g2q-0201",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8104,7 +8018,7 @@
       ]
     },
     {
-      "id": "g2q-0203",
+      "id": "g2q-0202",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8139,7 +8053,7 @@
       ]
     },
     {
-      "id": "g2q-0204",
+      "id": "g2q-0203",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8174,7 +8088,7 @@
       ]
     },
     {
-      "id": "g2q-0205",
+      "id": "g2q-0204",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8209,7 +8123,7 @@
       ]
     },
     {
-      "id": "g2q-0206",
+      "id": "g2q-0205",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8244,7 +8158,7 @@
       ]
     },
     {
-      "id": "g2q-0207",
+      "id": "g2q-0206",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8279,7 +8193,7 @@
       ]
     },
     {
-      "id": "g2q-0208",
+      "id": "g2q-0207",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8314,7 +8228,7 @@
       ]
     },
     {
-      "id": "g2q-0209",
+      "id": "g2q-0208",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8349,7 +8263,7 @@
       ]
     },
     {
-      "id": "g2q-0210",
+      "id": "g2q-0209",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8384,7 +8298,7 @@
       ]
     },
     {
-      "id": "g2q-0211",
+      "id": "g2q-0210",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8419,7 +8333,7 @@
       ]
     },
     {
-      "id": "g2q-0212",
+      "id": "g2q-0211",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8454,7 +8368,7 @@
       ]
     },
     {
-      "id": "g2q-0213",
+      "id": "g2q-0212",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8489,7 +8403,7 @@
       ]
     },
     {
-      "id": "g2q-0214",
+      "id": "g2q-0213",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8524,7 +8438,7 @@
       ]
     },
     {
-      "id": "g2q-0215",
+      "id": "g2q-0214",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8559,7 +8473,7 @@
       ]
     },
     {
-      "id": "g2q-0216",
+      "id": "g2q-0215",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -8591,6 +8505,59 @@
       "urls": [
         "https://www.opiq.ee/kit/107/chapter/10756",
         "https://www.opiq.ee/kit/95/chapter/6430"
+      ]
+    },
+    {
+      "id": "g2q-0216",
+      "code": "duplicate_title",
+      "classification": "distinct_canonical_context",
+      "blocking": false,
+      "route_ids": [
+        "grade-2-mathematics"
+      ],
+      "book_ids": [
+        "avita_математика_2_ru__kit165",
+        "koolibri_математика_2_et__kit361"
+      ],
+      "kit_ids": [
+        "165",
+        "361"
+      ],
+      "message": "Title “Повторение” occurs at 5 distinct canonical URLs.",
+      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
+      "observations": [
+        {
+          "url": "https://www.opiq.ee/kit/165/chapter/9267",
+          "route_id": "grade-2-mathematics",
+          "book_id": "avita_математика_2_ru__kit165"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/165/chapter/9330",
+          "route_id": "grade-2-mathematics",
+          "book_id": "avita_математика_2_ru__kit165"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/165/chapter/9297",
+          "route_id": "grade-2-mathematics",
+          "book_id": "avita_математика_2_ru__kit165"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/165/chapter/9323",
+          "route_id": "grade-2-mathematics",
+          "book_id": "avita_математика_2_ru__kit165"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/361/chapter/19883",
+          "route_id": "grade-2-mathematics",
+          "book_id": "koolibri_математика_2_et__kit361"
+        }
+      ],
+      "urls": [
+        "https://www.opiq.ee/kit/165/chapter/9267",
+        "https://www.opiq.ee/kit/165/chapter/9297",
+        "https://www.opiq.ee/kit/165/chapter/9323",
+        "https://www.opiq.ee/kit/165/chapter/9330",
+        "https://www.opiq.ee/kit/361/chapter/19883"
       ]
     },
     {
@@ -10136,26 +10103,19 @@
       ],
       "book_ids": [
         "avita_природа_и__2_ru__kit86",
-        "avita_русский_язык_i_ступень_часть_3_kit568",
         "koolibri_светлячок._2_ru"
       ],
       "kit_ids": [
         "454",
-        "568",
         "86"
       ],
-      "message": "Title “Понятия” occurs at 3 distinct canonical URLs.",
+      "message": "Title “Понятия” occurs at 2 distinct canonical URLs.",
       "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
       "observations": [
         {
           "url": "https://www.opiq.ee/kit/86/chapter/12121",
           "route_id": "grade-2-nature-and-human-studies",
           "book_id": "avita_природа_и__2_ru__kit86"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31807",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24790",
@@ -10165,7 +10125,6 @@
       ],
       "urls": [
         "https://www.opiq.ee/kit/454/chapter/24790",
-        "https://www.opiq.ee/kit/568/chapter/31807",
         "https://www.opiq.ee/kit/86/chapter/12121"
       ]
     },
@@ -10180,26 +10139,19 @@
       ],
       "book_ids": [
         "avita_природа_и__2_ru__kit86",
-        "avita_русский_язык_i_ступень_часть_3_kit568",
         "koolibri_светлячок._2_ru"
       ],
       "kit_ids": [
         "454",
-        "568",
         "86"
       ],
-      "message": "Title “Толкование слов” occurs at 3 distinct canonical URLs.",
+      "message": "Title “Толкование слов” occurs at 2 distinct canonical URLs.",
       "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
       "observations": [
         {
           "url": "https://www.opiq.ee/kit/86/chapter/4233",
           "route_id": "grade-2-nature-and-human-studies",
           "book_id": "avita_природа_и__2_ru__kit86"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31808",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24791",
@@ -10209,7 +10161,6 @@
       ],
       "urls": [
         "https://www.opiq.ee/kit/454/chapter/24791",
-        "https://www.opiq.ee/kit/568/chapter/31808",
         "https://www.opiq.ee/kit/86/chapter/4233"
       ]
     },
@@ -10366,327 +10317,6 @@
         "grade-2-russian"
       ],
       "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Язык и речь. Вступление” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16114",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31760",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/16114",
-        "https://www.opiq.ee/kit/568/chapter/31760"
-      ]
-    },
-    {
-      "id": "g2q-0268",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Алфавит” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16127",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31800",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/16127",
-        "https://www.opiq.ee/kit/568/chapter/31800"
-      ]
-    },
-    {
-      "id": "g2q-0269",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Имена собственные” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16132",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31769",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/16132",
-        "https://www.opiq.ee/kit/568/chapter/31769"
-      ]
-    },
-    {
-      "id": "g2q-0270",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Звуки и буквы. Вступление” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16143",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31797",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/16143",
-        "https://www.opiq.ee/kit/568/chapter/31797"
-      ]
-    },
-    {
-      "id": "g2q-0271",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Работа с текстом” occurs at 3 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16169",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17802",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31773",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/16169",
-        "https://www.opiq.ee/kit/292/chapter/17802",
-        "https://www.opiq.ee/kit/568/chapter/31773"
-      ]
-    },
-    {
-      "id": "g2q-0272",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Как подбирать проверочные слова? (1)” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17772",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31803",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/17772",
-        "https://www.opiq.ee/kit/568/chapter/31803"
-      ]
-    },
-    {
-      "id": "g2q-0273",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Как подбирать проверочные слова? (2)” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17773",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31804",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/17773",
-        "https://www.opiq.ee/kit/568/chapter/31804"
-      ]
-    },
-    {
-      "id": "g2q-0274",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Главные члены предложения – подлежащее и сказуемое” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17826",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31770",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/17826",
-        "https://www.opiq.ee/kit/568/chapter/31770"
-      ]
-    },
-    {
-      "id": "g2q-0275",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_2_класс_kit292",
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "292",
-        "568"
-      ],
-      "message": "Title “Распространённые и нераспространённые предложения” occurs at 2 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17827",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_2_класс_kit292"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31771",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/292/chapter/17827",
-        "https://www.opiq.ee/kit/568/chapter/31771"
-      ]
-    },
-    {
-      "id": "g2q-0276",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
         "avita_русский_язык_2_класс_kit292"
       ],
       "kit_ids": [
@@ -10712,7 +10342,7 @@
       ]
     },
     {
-      "id": "g2q-0277",
+      "id": "g2q-0268",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -10769,7 +10399,40 @@
       ]
     },
     {
-      "id": "g2q-0278",
+      "id": "g2q-0269",
+      "code": "duplicate_title",
+      "classification": "distinct_canonical_context",
+      "blocking": false,
+      "route_ids": [
+        "grade-2-russian"
+      ],
+      "book_ids": [
+        "avita_русский_язык_2_класс_kit292"
+      ],
+      "kit_ids": [
+        "292"
+      ],
+      "message": "Title “Работа с текстом” occurs at 2 distinct canonical URLs.",
+      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
+      "observations": [
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/16169",
+          "route_id": "grade-2-russian",
+          "book_id": "avita_русский_язык_2_класс_kit292"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17802",
+          "route_id": "grade-2-russian",
+          "book_id": "avita_русский_язык_2_класс_kit292"
+        }
+      ],
+      "urls": [
+        "https://www.opiq.ee/kit/292/chapter/16169",
+        "https://www.opiq.ee/kit/292/chapter/17802"
+      ]
+    },
+    {
+      "id": "g2q-0270",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -10802,7 +10465,7 @@
       ]
     },
     {
-      "id": "g2q-0279",
+      "id": "g2q-0271",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -10819,12 +10482,12 @@
       "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
       "observations": [
         {
-          "url": "https://www.opiq.ee/kit/292/chapter/17835",
+          "url": "https://www.opiq.ee/kit/292/chapter/17831",
           "route_id": "grade-2-russian",
           "book_id": "avita_русский_язык_2_класс_kit292"
         },
         {
-          "url": "https://www.opiq.ee/kit/292/chapter/17831",
+          "url": "https://www.opiq.ee/kit/292/chapter/17835",
           "route_id": "grade-2-russian",
           "book_id": "avita_русский_язык_2_класс_kit292"
         }
@@ -10835,85 +10498,7 @@
       ]
     },
     {
-      "id": "g2q-0280",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "568"
-      ],
-      "message": "Title “Я знаю и умею” occurs at 3 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31772",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31789",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31794",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/568/chapter/31772",
-        "https://www.opiq.ee/kit/568/chapter/31789",
-        "https://www.opiq.ee/kit/568/chapter/31794"
-      ]
-    },
-    {
-      "id": "g2q-0281",
-      "code": "duplicate_title",
-      "classification": "distinct_canonical_context",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "568"
-      ],
-      "message": "Title “Я работаю самостоятельно” occurs at 3 distinct canonical URLs.",
-      "action": "Retain all URLs. Equal page titles across chapters, editions, books, or youth programmes are not sufficient evidence of duplicate content.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31775",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31795",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31805",
-          "route_id": "grade-2-russian",
-          "book_id": "avita_русский_язык_i_ступень_часть_3_kit568"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/568/chapter/31775",
-        "https://www.opiq.ee/kit/568/chapter/31795",
-        "https://www.opiq.ee/kit/568/chapter/31805"
-      ]
-    },
-    {
-      "id": "g2q-0282",
+      "id": "g2q-0272",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -10946,7 +10531,7 @@
       ]
     },
     {
-      "id": "g2q-0283",
+      "id": "g2q-0273",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -10989,7 +10574,7 @@
       ]
     },
     {
-      "id": "g2q-0284",
+      "id": "g2q-0274",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11024,7 +10609,7 @@
       ]
     },
     {
-      "id": "g2q-0285",
+      "id": "g2q-0275",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11059,7 +10644,7 @@
       ]
     },
     {
-      "id": "g2q-0286",
+      "id": "g2q-0276",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11094,7 +10679,7 @@
       ]
     },
     {
-      "id": "g2q-0287",
+      "id": "g2q-0277",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11129,7 +10714,7 @@
       ]
     },
     {
-      "id": "g2q-0288",
+      "id": "g2q-0278",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11164,7 +10749,7 @@
       ]
     },
     {
-      "id": "g2q-0289",
+      "id": "g2q-0279",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11199,7 +10784,7 @@
       ]
     },
     {
-      "id": "g2q-0290",
+      "id": "g2q-0280",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11234,7 +10819,7 @@
       ]
     },
     {
-      "id": "g2q-0291",
+      "id": "g2q-0281",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11269,7 +10854,7 @@
       ]
     },
     {
-      "id": "g2q-0292",
+      "id": "g2q-0282",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11304,7 +10889,7 @@
       ]
     },
     {
-      "id": "g2q-0293",
+      "id": "g2q-0283",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11339,7 +10924,7 @@
       ]
     },
     {
-      "id": "g2q-0294",
+      "id": "g2q-0284",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11374,7 +10959,7 @@
       ]
     },
     {
-      "id": "g2q-0295",
+      "id": "g2q-0285",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11409,7 +10994,7 @@
       ]
     },
     {
-      "id": "g2q-0296",
+      "id": "g2q-0286",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11444,7 +11029,7 @@
       ]
     },
     {
-      "id": "g2q-0297",
+      "id": "g2q-0287",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11479,7 +11064,7 @@
       ]
     },
     {
-      "id": "g2q-0298",
+      "id": "g2q-0288",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11514,7 +11099,7 @@
       ]
     },
     {
-      "id": "g2q-0299",
+      "id": "g2q-0289",
       "code": "duplicate_title",
       "classification": "distinct_canonical_context",
       "blocking": false,
@@ -11549,7 +11134,7 @@
       ]
     },
     {
-      "id": "g2q-0300",
+      "id": "g2q-0290",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -11658,7 +11243,7 @@
       ]
     },
     {
-      "id": "g2q-0301",
+      "id": "g2q-0291",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -11763,7 +11348,7 @@
       ]
     },
     {
-      "id": "g2q-0302",
+      "id": "g2q-0292",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -11872,7 +11457,7 @@
       ]
     },
     {
-      "id": "g2q-0303",
+      "id": "g2q-0293",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -12008,7 +11593,7 @@
       ]
     },
     {
-      "id": "g2q-0304",
+      "id": "g2q-0294",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -12061,7 +11646,7 @@
       ]
     },
     {
-      "id": "g2q-0305",
+      "id": "g2q-0295",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -12109,7 +11694,7 @@
       ]
     },
     {
-      "id": "g2q-0306",
+      "id": "g2q-0296",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -12158,7 +11743,7 @@
       ]
     },
     {
-      "id": "g2q-0307",
+      "id": "g2q-0297",
       "code": "missing_publisher",
       "classification": "source_supported_metadata_limitation",
       "blocking": false,
@@ -12289,7 +11874,7 @@
       ]
     },
     {
-      "id": "g2q-0308",
+      "id": "g2q-0298",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -12755,7 +12340,7 @@
       ]
     },
     {
-      "id": "g2q-0309",
+      "id": "g2q-0299",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -13201,7 +12786,7 @@
       ]
     },
     {
-      "id": "g2q-0310",
+      "id": "g2q-0300",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -13667,7 +13252,7 @@
       ]
     },
     {
-      "id": "g2q-0311",
+      "id": "g2q-0301",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -14048,7 +13633,7 @@
       ]
     },
     {
-      "id": "g2q-0312",
+      "id": "g2q-0302",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -14814,7 +14399,7 @@
       ]
     },
     {
-      "id": "g2q-0313",
+      "id": "g2q-0303",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -15745,7 +15330,7 @@
       ]
     },
     {
-      "id": "g2q-0314",
+      "id": "g2q-0304",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -15971,7 +15556,7 @@
       ]
     },
     {
-      "id": "g2q-0315",
+      "id": "g2q-0305",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16002,7 +15587,7 @@
       ]
     },
     {
-      "id": "g2q-0316",
+      "id": "g2q-0306",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16028,7 +15613,7 @@
       ]
     },
     {
-      "id": "g2q-0317",
+      "id": "g2q-0307",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16344,7 +15929,7 @@
       ]
     },
     {
-      "id": "g2q-0318",
+      "id": "g2q-0308",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16545,7 +16130,7 @@
       ]
     },
     {
-      "id": "g2q-0319",
+      "id": "g2q-0309",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16721,7 +16306,7 @@
       ]
     },
     {
-      "id": "g2q-0320",
+      "id": "g2q-0310",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16762,7 +16347,7 @@
       ]
     },
     {
-      "id": "g2q-0321",
+      "id": "g2q-0311",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16823,7 +16408,7 @@
       ]
     },
     {
-      "id": "g2q-0322",
+      "id": "g2q-0312",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -16894,7 +16479,7 @@
       ]
     },
     {
-      "id": "g2q-0323",
+      "id": "g2q-0313",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17080,7 +16665,7 @@
       ]
     },
     {
-      "id": "g2q-0324",
+      "id": "g2q-0314",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17126,7 +16711,7 @@
       ]
     },
     {
-      "id": "g2q-0325",
+      "id": "g2q-0315",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17172,7 +16757,7 @@
       ]
     },
     {
-      "id": "g2q-0326",
+      "id": "g2q-0316",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17443,7 +17028,7 @@
       ]
     },
     {
-      "id": "g2q-0327",
+      "id": "g2q-0317",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17629,7 +17214,7 @@
       ]
     },
     {
-      "id": "g2q-0328",
+      "id": "g2q-0318",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17680,7 +17265,7 @@
       ]
     },
     {
-      "id": "g2q-0329",
+      "id": "g2q-0319",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17731,7 +17316,7 @@
       ]
     },
     {
-      "id": "g2q-0330",
+      "id": "g2q-0320",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -17902,7 +17487,7 @@
       ]
     },
     {
-      "id": "g2q-0331",
+      "id": "g2q-0321",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -18223,7 +17808,7 @@
       ]
     },
     {
-      "id": "g2q-0332",
+      "id": "g2q-0322",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -18379,7 +17964,7 @@
       ]
     },
     {
-      "id": "g2q-0333",
+      "id": "g2q-0323",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -18398,10 +17983,6 @@
         {
           "url": "https://www.opiq.ee/kit/292/chapter/16113",
           "title": "Это присказка, а сказка будет впереди"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16115",
-          "title": "Сказка начинается"
         },
         {
           "url": "https://www.opiq.ee/kit/292/chapter/16094",
@@ -18428,6 +18009,18 @@
           "title": "Сказка – складка, послушать сладко"
         },
         {
+          "url": "https://www.opiq.ee/kit/292/chapter/16115",
+          "title": "Сказка начинается"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/16131",
+          "title": "Дневник фокса Микки. Саша Чёрный"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/16139",
+          "title": "Опасные очки. Владимир Данько"
+        },
+        {
           "url": "https://www.opiq.ee/kit/292/chapter/16145",
           "title": "Звуки речи и звуки вокруг нас"
         },
@@ -18440,20 +18033,24 @@
           "title": "Слушая сказку, вопросов не задают"
         },
         {
-          "url": "https://www.opiq.ee/kit/292/chapter/16131",
-          "title": "Дневник фокса Микки. Саша Чёрный"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16139",
-          "title": "Опасные очки. Владимир Данько"
-        },
-        {
           "url": "https://www.opiq.ee/kit/292/chapter/16166",
           "title": "Лексика. Слово и его значение. Вступление"
         },
         {
+          "url": "https://www.opiq.ee/kit/292/chapter/16168",
+          "title": "Советуем почитать"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/16170",
+          "title": "По следам прочитанных произведений"
+        },
+        {
           "url": "https://www.opiq.ee/kit/292/chapter/16152",
           "title": "Домовёнок ______ Татьяна Александрова"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/16171",
+          "title": "Говорят, под Новый год..."
         },
         {
           "url": "https://www.opiq.ee/kit/292/chapter/16155",
@@ -18466,18 +18063,6 @@
         {
           "url": "https://www.opiq.ee/kit/292/chapter/16158",
           "title": "Волшебник Изумрудного города. Александр Волков (1)"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16168",
-          "title": "Советуем почитать"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16170",
-          "title": "По следам прочитанных произведений"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/16171",
-          "title": "Говорят, под Новый год..."
         },
         {
           "url": "https://www.opiq.ee/kit/292/chapter/17764",
@@ -18496,18 +18081,6 @@
           "title": "Советуем почитать"
         },
         {
-          "url": "https://www.opiq.ee/kit/292/chapter/17782",
-          "title": "Кто много читает, тот много знает"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17768",
-          "title": "Зимние пейзажи в стихах русских поэтов"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17783",
-          "title": "38 попугаев. Григорий Остер"
-        },
-        {
           "url": "https://www.opiq.ee/kit/292/chapter/17784",
           "title": "Знакомьтесь: мягкий и твёрдый разделительные знаки"
         },
@@ -18520,12 +18093,20 @@
           "title": "Лучший друг медуз. Маша Вайсман"
         },
         {
+          "url": "https://www.opiq.ee/kit/292/chapter/17782",
+          "title": "Кто много читает, тот много знает"
+        },
+        {
           "url": "https://www.opiq.ee/kit/292/chapter/17787",
           "title": "Советуем почитать"
         },
         {
-          "url": "https://www.opiq.ee/kit/292/chapter/17814",
-          "title": "Винни-Пух и Все-Все-Все. Алан Милн"
+          "url": "https://www.opiq.ee/kit/292/chapter/17768",
+          "title": "Зимние пейзажи в стихах русских поэтов"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17783",
+          "title": "38 попугаев. Григорий Остер"
         },
         {
           "url": "https://www.opiq.ee/kit/292/chapter/17815",
@@ -18542,6 +18123,10 @@
         {
           "url": "https://www.opiq.ee/kit/292/chapter/17817",
           "title": "Незнайка в Солнечном городе. Николай Носов"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17814",
+          "title": "Винни-Пух и Все-Все-Все. Алан Милн"
         },
         {
           "url": "https://www.opiq.ee/kit/292/chapter/17818",
@@ -18564,22 +18149,6 @@
           "title": "Советуем почитать рассказы Николая Носова"
         },
         {
-          "url": "https://www.opiq.ee/kit/292/chapter/17835",
-          "title": "Предложение и текст"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17836",
-          "title": "Муфта, Полботинка и Моховая Борода. Эно Рауд"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17837",
-          "title": "Читаем и сравниваем"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/292/chapter/17838",
-          "title": "Каждому своё счастье"
-        },
-        {
           "url": "https://www.opiq.ee/kit/292/chapter/17839",
           "title": "Колюшка-храбрюшка. Геннадий Снегирёв"
         },
@@ -18594,6 +18163,22 @@
         {
           "url": "https://www.opiq.ee/kit/292/chapter/17841",
           "title": "Советуем почитать"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17835",
+          "title": "Предложение и текст"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17836",
+          "title": "Муфта, Полботинка и Моховая Борода. Эно Рауд"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17837",
+          "title": "Читаем и сравниваем"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/292/chapter/17838",
+          "title": "Каждому своё счастье"
         },
         {
           "url": "https://www.opiq.ee/kit/292/chapter/17842",
@@ -18685,68 +18270,7 @@
       ]
     },
     {
-      "id": "g2q-0334",
-      "code": "missing_task_examples",
-      "classification": "acceptable_source_structure",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "568"
-      ],
-      "message": "8 canonical records have no extracted task examples.",
-      "action": "Treat these as informational, section, glossary, media, or teacher-support records unless page inspection proves otherwise; absence in the compact capture is not proof that the Opiq page has no activity.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31758",
-          "title": "Познакомься с героями"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31759",
-          "title": "Осенние стихи"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31766",
-          "title": "Джани Родари. Машинка для приготовления уроков"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31776",
-          "title": "Повторение"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31806",
-          "title": "Геннадий Снегирёв. Осьминожек"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31807",
-          "title": "Понятия"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31808",
-          "title": "Толкование слов"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31809",
-          "title": "Словарные слова"
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/568/chapter/31758",
-        "https://www.opiq.ee/kit/568/chapter/31759",
-        "https://www.opiq.ee/kit/568/chapter/31766",
-        "https://www.opiq.ee/kit/568/chapter/31776",
-        "https://www.opiq.ee/kit/568/chapter/31806",
-        "https://www.opiq.ee/kit/568/chapter/31807",
-        "https://www.opiq.ee/kit/568/chapter/31808",
-        "https://www.opiq.ee/kit/568/chapter/31809"
-      ]
-    },
-    {
-      "id": "g2q-0335",
+      "id": "g2q-0324",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -18795,6 +18319,14 @@
           "title": "КОРЕНЬ СЛОВА"
         },
         {
+          "url": "https://www.opiq.ee/kit/186/chapter/10449",
+          "title": "СУФФИКС"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/186/chapter/10450",
+          "title": "ОСНОВА СЛОВА"
+        },
+        {
           "url": "https://www.opiq.ee/kit/186/chapter/10441",
           "title": "Правописание безударных гласных в корне слова"
         },
@@ -18825,14 +18357,6 @@
         {
           "url": "https://www.opiq.ee/kit/186/chapter/10448",
           "title": "Разделительный Ъ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/186/chapter/10449",
-          "title": "СУФФИКС"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/186/chapter/10450",
-          "title": "ОСНОВА СЛОВА"
         },
         {
           "url": "https://www.opiq.ee/kit/186/chapter/10451",
@@ -18917,7 +18441,7 @@
       ]
     },
     {
-      "id": "g2q-0336",
+      "id": "g2q-0325",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -18938,8 +18462,92 @@
           "title": "ДОРОГОЙ ВТОРОКЛАССНИК!"
         },
         {
+          "url": "https://www.opiq.ee/kit/454/chapter/24778",
+          "title": "ДОРОГА"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24776",
+          "title": "ВОИНСТВЕННЫЙ ЖАКО"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24777",
+          "title": "РУСАЧОК"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24779",
+          "title": "АЛЁШКИНЫ МЫСЛИ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24772",
+          "title": "КАК ХОДЯТ РАКИ?"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24780",
+          "title": "ПРОФЕССИИ ВЕТРОВ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24781",
+          "title": "КАК ВЕТЕР ИСКАЛ ДРУГА"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24773",
+          "title": "ЯНТАРНАЯ СКАЗКА"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24782",
+          "title": "ЯНТАРЬ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24774",
+          "title": "НУБЛИК ПОКАЗЫВАЕТ, НА ЧТО ОН СПОСОБЕН"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24775",
+          "title": "БУДУЩАЯ ПРОФЕССИЯ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24786",
+          "title": "ЛЕТО"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24783",
+          "title": "ПРОГУЛКА В ЛЕС"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24787",
+          "title": "ЛЕСНОЙ ГОЛОСОК"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24788",
+          "title": "ГОЛОС В ЛЕСУ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24784",
+          "title": "ХРОМКА"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24785",
+          "title": "ОН ЖИВОЙ И СВЕТИТСЯ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24789",
+          "title": "ПЕСЕНКА О ЛЕТЕ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24790",
+          "title": "Понятия"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24791",
+          "title": "Толкование слов"
+        },
+        {
           "url": "https://www.opiq.ee/kit/454/chapter/24700",
           "title": "ЛЕТО И ОСЕНЬ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24699",
+          "title": "ПЕППИ ИДЁТ В ШКОЛУ"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24694",
@@ -18974,44 +18582,8 @@
           "title": "ЛУЧШИЙ ДРУГ"
         },
         {
-          "url": "https://www.opiq.ee/kit/454/chapter/24699",
-          "title": "ПЕППИ ИДЁТ В ШКОЛУ"
-        },
-        {
           "url": "https://www.opiq.ee/kit/454/chapter/24704",
           "title": "ОСЕННЕЕ УТРО"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24705",
-          "title": "ОСЕННЕЕ УТРО"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24706",
-          "title": "СЕНТЯБРЬ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24713",
-          "title": "УНЫЛАЯ ПОРА! ОЧЕЙ ОЧАРОВАНЬЕ!.."
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24714",
-          "title": "«СКУЧНАЯ КАРТИНА!..»"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24715",
-          "title": "ЭХО"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24716",
-          "title": "ЛЕС ОСЕНЬЮ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24717",
-          "title": "ЗАЙЧИК"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24707",
-          "title": "БЕЛКИНА СУШИЛЬНЯ"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24708",
@@ -19050,8 +18622,52 @@
           "title": "ОСЕННИЕ ЗАДАНИЯ"
         },
         {
+          "url": "https://www.opiq.ee/kit/454/chapter/24705",
+          "title": "ОСЕННЕЕ УТРО"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24706",
+          "title": "СЕНТЯБРЬ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24713",
+          "title": "УНЫЛАЯ ПОРА! ОЧЕЙ ОЧАРОВАНЬЕ!.."
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24714",
+          "title": "«СКУЧНАЯ КАРТИНА!..»"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24715",
+          "title": "ЭХО"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24716",
+          "title": "ЛЕС ОСЕНЬЮ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24717",
+          "title": "ЗАЙЧИК"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24707",
+          "title": "БЕЛКИНА СУШИЛЬНЯ"
+        },
+        {
           "url": "https://www.opiq.ee/kit/454/chapter/24725",
           "title": "ОПАСНЫЕ ОЧКИ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24732",
+          "title": "ДА ИЛИ НЕТ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24724",
+          "title": "КААРИ СТИРАЕТ НОСКИ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24733",
+          "title": "ВРЕДНЫЕ СОВЕТЫ"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24722",
@@ -19084,18 +18700,6 @@
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24723",
           "title": "ТАЙНА СИПСИКА"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24732",
-          "title": "ДА ИЛИ НЕТ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24724",
-          "title": "КААРИ СТИРАЕТ НОСКИ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24733",
-          "title": "ВРЕДНЫЕ СОВЕТЫ"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24734",
@@ -19134,6 +18738,10 @@
           "title": "ГОРОД ЗИМНИЙ..."
         },
         {
+          "url": "https://www.opiq.ee/kit/454/chapter/24751",
+          "title": "ДЕТСТВО"
+        },
+        {
           "url": "https://www.opiq.ee/kit/454/chapter/24742",
           "title": "ЛЕТЯТ СНЕЖНЫЕ ПУШИНКИ"
         },
@@ -19164,10 +18772,6 @@
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24744",
           "title": "СУМАCШЕДШАЯ ПТИЦА"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24751",
-          "title": "ДЕТСТВО"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24752",
@@ -19248,86 +18852,6 @@
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24771",
           "title": "О ПЧЁЛАХ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24778",
-          "title": "ДОРОГА"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24779",
-          "title": "АЛЁШКИНЫ МЫСЛИ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24772",
-          "title": "КАК ХОДЯТ РАКИ?"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24780",
-          "title": "ПРОФЕССИИ ВЕТРОВ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24781",
-          "title": "КАК ВЕТЕР ИСКАЛ ДРУГА"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24773",
-          "title": "ЯНТАРНАЯ СКАЗКА"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24782",
-          "title": "ЯНТАРЬ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24774",
-          "title": "НУБЛИК ПОКАЗЫВАЕТ, НА ЧТО ОН СПОСОБЕН"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24775",
-          "title": "БУДУЩАЯ ПРОФЕССИЯ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24776",
-          "title": "ВОИНСТВЕННЫЙ ЖАКО"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24777",
-          "title": "РУСАЧОК"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24786",
-          "title": "ЛЕТО"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24783",
-          "title": "ПРОГУЛКА В ЛЕС"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24787",
-          "title": "ЛЕСНОЙ ГОЛОСОК"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24788",
-          "title": "ГОЛОС В ЛЕСУ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24784",
-          "title": "ХРОМКА"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24785",
-          "title": "ОН ЖИВОЙ И СВЕТИТСЯ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24789",
-          "title": "ПЕСЕНКА О ЛЕТЕ"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24790",
-          "title": "Понятия"
-        },
-        {
-          "url": "https://www.opiq.ee/kit/454/chapter/24791",
-          "title": "Толкование слов"
         }
       ],
       "urls": [
@@ -19433,7 +18957,7 @@
       ]
     },
     {
-      "id": "g2q-0337",
+      "id": "g2q-0326",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -19459,7 +18983,7 @@
       ]
     },
     {
-      "id": "g2q-0338",
+      "id": "g2q-0327",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -19615,7 +19139,7 @@
       ]
     },
     {
-      "id": "g2q-0339",
+      "id": "g2q-0328",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -19651,7 +19175,7 @@
       ]
     },
     {
-      "id": "g2q-0340",
+      "id": "g2q-0329",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -19977,7 +19501,7 @@
       ]
     },
     {
-      "id": "g2q-0341",
+      "id": "g2q-0330",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -20333,7 +19857,7 @@
       ]
     },
     {
-      "id": "g2q-0342",
+      "id": "g2q-0331",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -20369,7 +19893,7 @@
       ]
     },
     {
-      "id": "g2q-0343",
+      "id": "g2q-0332",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -20530,7 +20054,7 @@
       ]
     },
     {
-      "id": "g2q-0344",
+      "id": "g2q-0333",
       "code": "missing_task_examples",
       "classification": "acceptable_source_structure",
       "blocking": false,
@@ -20756,7 +20280,7 @@
       ]
     },
     {
-      "id": "g2q-0345",
+      "id": "g2q-0334",
       "code": "mixed_script_word",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -20785,7 +20309,7 @@
       ]
     },
     {
-      "id": "g2q-0346",
+      "id": "g2q-0335",
       "code": "mixed_script_word",
       "classification": "known_bilingual_extraction_boundary",
       "blocking": false,
@@ -20978,7 +20502,7 @@
       ]
     },
     {
-      "id": "g2q-0347",
+      "id": "g2q-0336",
       "code": "mixed_script_word",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -21016,47 +20540,7 @@
       ]
     },
     {
-      "id": "g2q-0348",
-      "code": "mixed_script_word",
-      "classification": "targeted_recapture_recommended",
-      "blocking": false,
-      "route_ids": [
-        "grade-2-russian"
-      ],
-      "book_ids": [
-        "avita_русский_язык_i_ступень_часть_3_kit568"
-      ],
-      "kit_ids": [
-        "568"
-      ],
-      "message": "2 records contain a word token combining Cyrillic and Latin characters.",
-      "action": "Do not auto-correct look-alike letters. Recapture only the listed page when exact task wording is required.",
-      "observations": [
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31778",
-          "title": "Татьяна Александрова. Домовёнок ______",
-          "mixed_words": [
-            "свóриться"
-          ]
-        },
-        {
-          "url": "https://www.opiq.ee/kit/568/chapter/31793",
-          "title": "Где поставить ударение?",
-          "mixed_words": [
-            "бéрег",
-            "бéрега",
-            "берегá",
-            "рекиPausEsita"
-          ]
-        }
-      ],
-      "urls": [
-        "https://www.opiq.ee/kit/568/chapter/31778",
-        "https://www.opiq.ee/kit/568/chapter/31793"
-      ]
-    },
-    {
-      "id": "g2q-0349",
+      "id": "g2q-0337",
       "code": "mixed_script_word",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -21085,7 +20569,7 @@
       ]
     },
     {
-      "id": "g2q-0350",
+      "id": "g2q-0338",
       "code": "mixed_script_word",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -21114,7 +20598,7 @@
       ]
     },
     {
-      "id": "g2q-0351",
+      "id": "g2q-0339",
       "code": "mixed_script_word",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -21143,7 +20627,7 @@
       ]
     },
     {
-      "id": "g2q-0352",
+      "id": "g2q-0340",
       "code": "single_symbol_title",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -21169,7 +20653,7 @@
       ]
     },
     {
-      "id": "g2q-0353",
+      "id": "g2q-0341",
       "code": "single_symbol_title",
       "classification": "acceptable_book_structure",
       "blocking": false,
@@ -21200,7 +20684,7 @@
       ]
     },
     {
-      "id": "g2q-0354",
+      "id": "g2q-0342",
       "code": "single_symbol_title",
       "classification": "acceptable_book_structure",
       "blocking": false,
@@ -21226,7 +20710,7 @@
       ]
     },
     {
-      "id": "g2q-0355",
+      "id": "g2q-0343",
       "code": "source_book_id_language_suffix_mismatch",
       "classification": "source_identifier_anomaly",
       "blocking": false,
@@ -21337,7 +20821,7 @@
       ]
     },
     {
-      "id": "g2q-0356",
+      "id": "g2q-0344",
       "code": "source_book_id_language_suffix_mismatch",
       "classification": "source_identifier_anomaly",
       "blocking": false,
@@ -21419,7 +20903,7 @@
       ]
     },
     {
-      "id": "g2q-0357",
+      "id": "g2q-0345",
       "code": "source_canonical_language_mismatch",
       "classification": "proven_canonical_normalization",
       "blocking": false,
@@ -21449,7 +20933,7 @@
       ]
     },
     {
-      "id": "g2q-0358",
+      "id": "g2q-0346",
       "code": "source_canonical_language_mismatch",
       "classification": "proven_canonical_normalization",
       "blocking": false,
@@ -21479,7 +20963,7 @@
       ]
     },
     {
-      "id": "g2q-0359",
+      "id": "g2q-0347",
       "code": "source_canonical_language_mismatch",
       "classification": "proven_canonical_normalization",
       "blocking": false,
@@ -21527,7 +21011,7 @@
       ]
     },
     {
-      "id": "g2q-0360",
+      "id": "g2q-0348",
       "code": "source_canonical_language_mismatch",
       "classification": "proven_canonical_normalization",
       "blocking": false,
@@ -21575,7 +21059,7 @@
       ]
     },
     {
-      "id": "g2q-0361",
+      "id": "g2q-0349",
       "code": "text_language_mismatch",
       "classification": "source_language_requires_targeted_review",
       "blocking": false,
@@ -21606,7 +21090,7 @@
       ]
     },
     {
-      "id": "g2q-0362",
+      "id": "g2q-0350",
       "code": "text_language_mismatch",
       "classification": "known_source_metadata_anomaly",
       "blocking": false,
@@ -22317,7 +21801,7 @@
       ]
     },
     {
-      "id": "g2q-0363",
+      "id": "g2q-0351",
       "code": "text_language_mismatch",
       "classification": "acceptable_bilingual_source_content",
       "blocking": false,
@@ -22398,7 +21882,7 @@
       ]
     },
     {
-      "id": "g2q-0364",
+      "id": "g2q-0352",
       "code": "text_language_mismatch",
       "classification": "acceptable_bilingual_source_content",
       "blocking": false,
@@ -22429,7 +21913,7 @@
       ]
     },
     {
-      "id": "g2q-0365",
+      "id": "g2q-0353",
       "code": "text_language_mismatch",
       "classification": "known_source_metadata_anomaly",
       "blocking": false,
@@ -22670,7 +22154,7 @@
       ]
     },
     {
-      "id": "g2q-0366",
+      "id": "g2q-0354",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22763,7 +22247,7 @@
       ]
     },
     {
-      "id": "g2q-0367",
+      "id": "g2q-0355",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22802,7 +22286,7 @@
       ]
     },
     {
-      "id": "g2q-0368",
+      "id": "g2q-0356",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22847,7 +22331,7 @@
       ]
     },
     {
-      "id": "g2q-0369",
+      "id": "g2q-0357",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22874,7 +22358,7 @@
       ]
     },
     {
-      "id": "g2q-0370",
+      "id": "g2q-0358",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22901,7 +22385,7 @@
       ]
     },
     {
-      "id": "g2q-0371",
+      "id": "g2q-0359",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22934,7 +22418,7 @@
       ]
     },
     {
-      "id": "g2q-0372",
+      "id": "g2q-0360",
       "code": "unusually_short_record",
       "classification": "source_supported_short_summary",
       "blocking": false,
@@ -22961,7 +22445,7 @@
       ]
     },
     {
-      "id": "g2q-0373",
+      "id": "g2q-0361",
       "code": "very_short_title",
       "classification": "targeted_recapture_recommended",
       "blocking": false,
@@ -22997,7 +22481,7 @@
       ]
     },
     {
-      "id": "g2q-0374",
+      "id": "g2q-0362",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23028,7 +22512,7 @@
       ]
     },
     {
-      "id": "g2q-0375",
+      "id": "g2q-0363",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23064,7 +22548,7 @@
       ]
     },
     {
-      "id": "g2q-0376",
+      "id": "g2q-0364",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23090,7 +22574,7 @@
       ]
     },
     {
-      "id": "g2q-0377",
+      "id": "g2q-0365",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23116,7 +22600,7 @@
       ]
     },
     {
-      "id": "g2q-0378",
+      "id": "g2q-0366",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23142,7 +22626,7 @@
       ]
     },
     {
-      "id": "g2q-0379",
+      "id": "g2q-0367",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23173,7 +22657,7 @@
       ]
     },
     {
-      "id": "g2q-0380",
+      "id": "g2q-0368",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23190,12 +22674,12 @@
       "action": "No repair: archive title and first heading agree, and the short title is meaningful in the source structure.",
       "observations": [
         {
-          "url": "https://www.opiq.ee/kit/454/chapter/24715",
-          "title": "ЭХО"
-        },
-        {
           "url": "https://www.opiq.ee/kit/454/chapter/24709",
           "title": "ЁЖ"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/454/chapter/24715",
+          "title": "ЭХО"
         },
         {
           "url": "https://www.opiq.ee/kit/454/chapter/24729",
@@ -23209,7 +22693,7 @@
       ]
     },
     {
-      "id": "g2q-0381",
+      "id": "g2q-0369",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23235,7 +22719,7 @@
       ]
     },
     {
-      "id": "g2q-0382",
+      "id": "g2q-0370",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23261,7 +22745,7 @@
       ]
     },
     {
-      "id": "g2q-0383",
+      "id": "g2q-0371",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23287,7 +22771,7 @@
       ]
     },
     {
-      "id": "g2q-0384",
+      "id": "g2q-0372",
       "code": "very_short_title",
       "classification": "source_supported_short_title",
       "blocking": false,
@@ -23540,20 +23024,6 @@
         "kit_id": "501",
         "title": "Kevad ja kevadkuud",
         "url": "https://www.opiq.ee/kit/501/chapter/27398"
-      },
-      {
-        "route_id": "grade-2-russian",
-        "book_id": "avita_русский_язык_i_ступень_часть_3_kit568",
-        "kit_id": "568",
-        "title": "Главные члены предложения – подлежащее и сказуемое",
-        "url": "https://www.opiq.ee/kit/568/chapter/31770"
-      },
-      {
-        "route_id": "grade-2-russian",
-        "book_id": "avita_русский_язык_i_ступень_часть_3_kit568",
-        "kit_id": "568",
-        "title": "Как подбирать проверочные слова? (2)",
-        "url": "https://www.opiq.ee/kit/568/chapter/31804"
       },
       {
         "route_id": "grade-2-mathematics",
@@ -23884,22 +23354,6 @@
         "url": "https://www.opiq.ee/kit/292/chapter/17761",
         "capture": "Word currently extracted as словá",
         "uncertainty": "A precomposed Latin accented letter occurs inside a Cyrillic word.",
-        "programme_can_start_without": true
-      },
-      {
-        "kit_id": "568",
-        "title": "Татьяна Александрова. Домовёнок ______",
-        "url": "https://www.opiq.ee/kit/568/chapter/31778",
-        "capture": "Word currently extracted as свóриться",
-        "uncertainty": "A precomposed Latin accented letter occurs inside a Cyrillic word.",
-        "programme_can_start_without": true
-      },
-      {
-        "kit_id": "568",
-        "title": "Где поставить ударение?",
-        "url": "https://www.opiq.ee/kit/568/chapter/31793",
-        "capture": "Stressed words and the рекиPausEsita extraction boundary",
-        "uncertainty": "Mixed-script stressed vowels and a media-control label are concatenated with lesson text.",
         "programme_can_start_without": true
       },
       {
