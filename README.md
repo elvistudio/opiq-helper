@@ -120,6 +120,16 @@ npm run check:grade-3-russian-reading
 
 The Kit 504 archive contains 57 source rows: 55 literary chapters and two repeated Kit Details records. Its automatic mathematics label is replaced with `Russian reading / vene keele lugemine / чтение на русском языке` from the Source Book ID, visible reading title, literary headings, and complete chapter sequence. This separation improves retrieval precision but does not claim an independent official exact-grade subject allocation. Publisher metadata is absent, structured task examples are not reconstructed, and no further capture is required for canonical routing.
 
+Grade 3 music is generated from its committed four-book original export:
+
+```sh
+node scripts/generate-grade-3-music-sources.mjs
+npm run check:grade-3-music
+npm run test:grade-3-music
+```
+
+The [grade 3 music audit](docs/audits/grade-3-music-source-import.md) accounts for all 315 source rows, excludes four unique and four duplicate Kit Details rows plus two Impressum pages, and produces 305 direct instructional records: 183 Estonian and 122 Russian. The automatic mathematics label is replaced by music from kit, title, chapter, notation, rhythm, singing, and task evidence. Forty richer task arrays are recovered from the same raw chapter records; 129 pages remain without structured task examples and are classified as a non-blocking capture limitation. The generator also verifies reversible decoding of 195 non-ASCII ZIP member names whose UTF-8 flag is absent, without rewriting the archive. Publisher metadata is absent, grade-2 music is not substituted, and the route is not a curriculum-completeness claim.
+
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
 ```sh
