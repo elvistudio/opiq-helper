@@ -386,8 +386,21 @@
         "The export automatically labels 268 source records as mathematics and one as science. Canonical records are normalized to arts and crafts without changing page titles, headings, tasks or URLs.",
         "Publisher names are absent from the archive.",
         "Raw per-book files incorrectly label the two Estonian books as Russian; the compact index and record-level Language fields consistently identify them as Estonian.",
-        "The holiday-card collection is supplementary material and must not be treated as the ordinary core without explicit labelling."
+        "The holiday-card collection is supplementary material and must not be treated as the ordinary core without explicit labelling.",
+        "The same kit 200 supplementary capture also occurs in the grade-3 arts archive. Stable compact/raw comparison confirms identical instructional content; this grade-2 route remains its only canonical owner."
       ],
+      "source_scope": {
+        "included_kit_ids": ["192", "200", "371"],
+        "programme_type": "ordinary_and_supplementary",
+        "audit_path": "docs/audits/grade-2-arts-and-crafts-source-audit.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "kunsti-_ja_tööõpetus._3._osa__kit196"
+        ],
+        "audit_path": "docs/audits/grade-3-arts-and-crafts-source-import.md",
+        "reason": "Kit 196 belongs only to the grade-3 arts-and-crafts route; shared supplementary kit 200 remains owned only by this grade-2 route."
+      },
       "canonical_url_policy": {
         "require_unique": true
       },
@@ -398,7 +411,7 @@
           "ru": "трудовое обучение и искусство"
         }
       },
-      "notes": "Canonical Markdown is reproducibly generated from three source books in the committed original export: Estonian and Russian part 2 books plus the supplementary Estonian holiday-card collection. This route does not claim curriculum completeness."
+      "notes": "Canonical Markdown is reproducibly generated from three source books in the committed original export: Estonian and Russian part 2 books plus the supplementary Estonian holiday-card collection. Kit 200 has exactly one canonical owner here despite appearing in a later grade capture. This route does not claim curriculum completeness."
     },
     {
       "id": "grade-2-music",
@@ -823,6 +836,60 @@
       "notes": "Use for grade-3 music requests only. The route contains three Estonian and one Russian ordinary-curriculum book/kit variants; it is not a verified curriculum map or proof of the complete current live Opiq catalogue."
     },
     {
+      "id": "grade-3-arts-and-crafts",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "arts_and_crafts",
+      "subject_et": "kunst ja tööõpetus",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_3klass_kunst_ja_tooopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_kasitootuba_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_kunst_ja_tooopetus_qa.json",
+      "record_count": 89,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "All 178 source rows carry the automatic mathematics subject. Kit 196 canonical pages are normalized to arts and crafts from the Source Book ID, kit identity, complete craft chapter sequence, headings, and image evidence.",
+        "Both raw book objects are incorrectly marked ru, while index.json and every compact page record consistently mark them et. Canonical language follows page-level evidence; raw values remain in QA.",
+        "Publisher metadata is absent and is not invented.",
+        "All 174 instructional rows lack structured task arrays. The pages are image-heavy craft activities; no step-by-step instruction is reconstructed from image filenames.",
+        "Kit 200 also appears in this archive but is content-equivalent to the supplementary capture already owned by grade-2-arts-and-crafts, so its 85 URLs are excluded here to prevent cross-grade duplication."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["196"],
+        "excluded_existing_owner_kits": [
+          {
+            "kit_id": "200",
+            "owner_source_id": "grade-2-arts-and-crafts",
+            "role": "shared_supplementary"
+          }
+        ],
+        "programme_type": "ordinary_curriculum",
+        "audit_path": "docs/audits/grade-3-arts-and-crafts-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "kunsti-_ja_tööõpetus._2._osa",
+          "kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid",
+          "трудовое_обучение_и_искусство._2_часть"
+        ],
+        "audit_path": "docs/audits/grade-3-arts-and-crafts-source-import.md",
+        "reason": "Only ordinary kit 196 belongs to grade-3 arts and crafts. Grade-2 ordinary books remain grade 2, while shared supplementary kit 200 retains its single canonical owner in grade 2."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "arts and crafts",
+          "et": "kunst ja tööõpetus",
+          "ru": "трудовое обучение и искусство"
+        }
+      },
+      "notes": "Use for grade-3 arts-and-crafts requests only. The canonical route contains 89 ordinary kit 196 pages; kit 200 is audited as already-owned shared supplementary material and is not duplicated. This is not proof of curriculum or live-catalogue completeness."
+    },
+    {
       "id": "grade-3-human-studies",
       "grade": 3,
       "grade_group": "1-4",
@@ -889,6 +956,16 @@
         ],
         "audit_path": "docs/audits/grade-3-music-source-import.md",
         "reason": "Russian-reading Kit 504 and all four grade-3 music kits are distinct from mathematics despite the exporter's automatic mathematics subject label."
+      },
+      "routing_boundary": {
+        "forbidden_book_ids": [
+          "kunsti-_ja_tööõpetus._3._osa__kit196"
+        ],
+        "forbidden_url_prefixes": [
+          "https://www.opiq.ee/kit/196/"
+        ],
+        "audit_path": "docs/audits/grade-3-arts-and-crafts-source-import.md",
+        "reason": "The arts-and-crafts exporter also uses the automatic mathematics label; kit 196 remains exclusive to grade-3 arts and crafts."
       },
       "canonical_url_policy": {
         "require_unique": true

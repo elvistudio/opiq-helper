@@ -140,6 +140,16 @@ npm run test:grade-3-estonian
 
 The [grade 3 Estonian import audit](docs/audits/grade-3-estonian-source-import.md) accounts for all 470 source rows and creates a strict 405/54 partition: kits 135, 179, and 590 belong to first-language Estonian, while kit 140 belongs only to Estonian as a second language. The dedicated archive completes kit 590 with 42 unique instructional chapters; its shared-archive cover evidence remains audited but is not duplicated. Grade, automatic mathematics-subject, and isolated language anomalies are normalized only from captured evidence. All 459 pages lack structured task arrays, so no exercises are invented; a targeted task-body capture is optional only if exact image-based exercises are needed. The routes do not claim official curriculum or live Opiq catalogue completeness.
 
+Grade 3 arts and crafts is generated from its committed two-kit capture:
+
+```sh
+node scripts/generate-grade-3-arts-and-crafts-sources.mjs
+npm run check:grade-3-arts-and-crafts
+npm run test:grade-3-arts-and-crafts
+```
+
+The [grade 3 arts-and-crafts audit](docs/audits/grade-3-arts-and-crafts-source-import.md) accounts for all 178 source rows. Ordinary kit 196 contributes 89 canonical grade-3 pages. Supplementary kit 200 is captured in both grade exports, but all 85 stable compact/raw records and image references match; it therefore retains one canonical owner in `grade-2-arts-and-crafts` and is excluded from the grade-3 route without URL loss. The automatic mathematics subject and raw-book `ru` language anomalies are corrected only from captured page-level evidence. All 174 instructional rows lack structured task arrays, so no craft steps are invented; a targeted task-body capture is optional and a full recapture is not required for routing.
+
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
 ```sh

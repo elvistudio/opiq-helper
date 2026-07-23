@@ -941,6 +941,136 @@ cases:
         url: https://www.opiq.ee/kit/371/chapter/20322
     evidence: "The matching Estonian and Russian button-sewing chapters are canonical arts-and-crafts records. Their exact URLs are absent from the grade 2 mathematics and science routes despite the archive's incorrect automatic subject labels."
 
+  - id: grade-3-arts-and-crafts-techniques
+    grade: 3
+    subject: arts_and_crafts
+    topic: "painting, collage, paper engineering, and distinct repeated craft titles"
+    status: present
+    expected_source_id: grade-3-arts-and-crafts
+    expected_md_path: project-files/outputs/opiq_3klass_kunst_ja_tooopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11239
+        expected:
+          class: 3
+          book_id: kunsti-_ja_tööõpetus._3._osa__kit196
+          title: Kilele maalimine
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Kilele maalimine
+      - kind: record_present
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11250
+        expected:
+          class: 3
+          book_id: kunsti-_ja_tööõpetus._3._osa__kit196
+          title: Merepõhi (kollaaž)
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Merepõhi (kollaaž)
+      - kind: record_present
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11290
+        expected:
+          class: 3
+          book_id: kunsti-_ja_tööõpetus._3._osa__kit196
+          title: Talvine maastik (pop-up-tehnika)
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Talvine maastik (pop-up-tehnika)
+      - kind: record_present
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11212
+        expected:
+          class: 3
+          book_id: kunsti-_ja_tööõpetus._3._osa__kit196
+          title: Puu
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Puu
+      - kind: record_present
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11215
+        expected:
+          class: 3
+          book_id: kunsti-_ja_tööõpetus._3._osa__kit196
+          title: Liblikas
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Liblikas
+      - kind: record_present
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11244
+        expected:
+          class: 3
+          book_id: kunsti-_ja_tööõpetus._3._osa__kit196
+          title: Liblikas
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Liblikas
+      - kind: book_id_absent
+        source_id: grade-3-arts-and-crafts
+        book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+      - kind: url_absent
+        origin_source_id: grade-3-arts-and-crafts
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/196/chapter/11239
+      - kind: url_absent
+        origin_source_id: grade-3-arts-and-crafts
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/196/chapter/11250
+      - kind: url_absent
+        origin_source_id: grade-3-arts-and-crafts
+        source_id: grade-2-arts-and-crafts
+        url: https://www.opiq.ee/kit/196/chapter/11290
+    evidence: "Kit 196 provides explicit grade 3 craft headings and distinct canonical chapter URLs. Equal titles such as Liblikas remain separate chapters, while the automatic mathematics label and the already-owned grade 2 supplementary kit are excluded from this route."
+
+  - id: grade-2-arts-and-crafts-shared-holiday-cards-owner
+    grade: 2
+    subject: arts_and_crafts
+    topic: "single canonical ownership of the shared supplementary holiday-card kit"
+    status: present
+    expected_source_id: grade-2-arts-and-crafts
+    expected_md_path: project-files/outputs/opiq_2klass_kunst_ja_tooopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-2-arts-and-crafts
+        url: https://www.opiq.ee/kit/200/chapter/11374
+        expected:
+          class: 2
+          book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
+          title: Tööks vajalikud materjalid
+          subject:
+            en: arts and crafts
+            et: kunst ja tööõpetus
+            ru: трудовое обучение и искусство
+          headings_any:
+            - Tööks vajalikud materjalid
+      - kind: url_absent
+        origin_source_id: grade-2-arts-and-crafts
+        source_id: grade-3-arts-and-crafts
+        url: https://www.opiq.ee/kit/200/chapter/11374
+    evidence: "The same kit 200 capture appears in both supplied ZIPs, but all compact and raw instructional evidence is stable. Grade 2 remains the only canonical owner, so the shared supplementary URL is intentionally absent from grade 3."
+
   - id: grade-2-music-rhythm
     grade: 2
     subject: music
