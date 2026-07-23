@@ -20,7 +20,9 @@ try {
     console.log(
       `Pedagogical knowledge valid: ${result.counts.references} references, `
       + `${result.counts.principles} principles, ${result.counts.activities} activities, `
-      + `${result.counts.patterns} patterns, ${result.warnings.length} warnings.`,
+      + `${result.counts.patterns} patterns, ${result.counts.capabilities} capabilities, `
+      + `${result.counts.resources} resources, ${result.counts.queryFixtures} query fixtures, `
+      + `${result.warnings.length} warnings.`,
     );
   }
 } catch (error) {

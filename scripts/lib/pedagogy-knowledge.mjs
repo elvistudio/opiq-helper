@@ -2,10 +2,13 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import { parseDocument } from 'yaml';
+import { filterPedagogyActivities } from './pedagogy-query.mjs';
 
 const KNOWLEDGE_ROOT = 'knowledge/pedagogy';
 const REFERENCE_FILE = `${KNOWLEDGE_ROOT}/references/references.yaml`;
 const ACTIVITY_FILE = `${KNOWLEDGE_ROOT}/activities/activity-catalog.yaml`;
+const TAXONOMY_FILE = `${KNOWLEDGE_ROOT}/taxonomy/pedagogical-taxonomy.yaml`;
+const QUERY_FILE = `${KNOWLEDGE_ROOT}/queries/grade-5-query-fixtures.yaml`;
 const PRINCIPLE_DIRECTORY = `${KNOWLEDGE_ROOT}/principles`;
 const PATTERN_DIRECTORY = `${KNOWLEDGE_ROOT}/patterns`;
 const SCHEMA_DIRECTORY = `${KNOWLEDGE_ROOT}/schemas`;
@@ -16,6 +19,8 @@ const SCHEMA_FILES = {
   principle: `${SCHEMA_DIRECTORY}/pedagogical-principle.schema.json`,
   activity: `${SCHEMA_DIRECTORY}/pedagogical-activity.schema.json`,
   pattern: `${SCHEMA_DIRECTORY}/pedagogical-pattern.schema.json`,
+  taxonomy: `${SCHEMA_DIRECTORY}/pedagogical-taxonomy.schema.json`,
+  query: `${SCHEMA_DIRECTORY}/pedagogical-query-fixtures.schema.json`,
 };
 
 const DISCUSSION_HEAVY_ACTIVITIES = new Set([
@@ -38,6 +43,37 @@ const CATEGORY_PHASES = {
   reflection_and_assessment: new Set(['formative_assessment', 'reflection', 'consolidation', 'homework']),
   error_analysis: new Set(['guided_practice', 'formative_assessment', 'reflection', 'consolidation']),
   visual_and_multimodal: new Set(['explanation', 'guided_practice', 'independent_practice', 'consolidation']),
+};
+
+const POSITIVE_COMPATIBILITY = new Set(['directly_supported', 'adaptable']);
+const DISCUSSION_DEMAND_LEVELS = new Set(['medium', 'high', 'very_high']);
+const WHOLE_CLASS_MINIMUM_MAX = 12;
+const EXPECTED_CONTROLLED_VOCABULARY = {
+  capability_levels: ['incidental', 'none', 'primary', 'supporting', 'unknown'],
+  compatibility_levels: ['adaptable', 'directly_supported', 'limited', 'not_recommended', 'unknown'],
+  delivery_modes: ['classroom', 'homeschool', 'independent_study', 'parent_supported', 'remote'],
+  demand_levels: ['high', 'low', 'medium', 'none', 'unknown', 'very_high', 'very_low'],
+  effort_levels: ['high', 'intensive', 'low', 'medium', 'minimal', 'none', 'unknown'],
+  estonian_a1_a2_compatibility: [
+    'directly_supported',
+    'limited',
+    'not_applicable',
+    'not_recommended',
+    'supported_with_scaffold',
+    'unknown',
+  ],
+  group_formats: ['individual', 'medium_group', 'pair', 'rotating_stations', 'small_group', 'triad', 'whole_class'],
+  parent_roles: [
+    'active_participant',
+    'check_answers',
+    'listening_partner',
+    'logistical_support',
+    'none',
+    'safety_supervision',
+    'subject_explanation_required',
+    'unknown',
+  ],
+  support_requirements: ['not_required', 'optional', 'recommended', 'required', 'unknown'],
 };
 
 function isPlainObject(value) {
@@ -146,6 +182,56 @@ function checkClaims(errors, claims, referenceIds, file, field, { requireSourceS
   }
 }
 
+function checkTaxonomyAssessment(
+  errors,
+  assessment,
+  referenceIds,
+  file,
+  field,
+  sourceClaims = [],
+) {
+  if (!isPlainObject(assessment)) return;
+  const ids = normalizeIdentifierList(assessment.reference_ids);
+  for (const referenceId of ids) {
+    if (!referenceIds.has(referenceId)) {
+      errors.push(diagnostic('error', file, `${field}/reference_ids`, `unknown pedagogical reference ${referenceId}`));
+    }
+  }
+  if (assessment.claim_origin === 'project_authored_design' && ids.length > 0) {
+    errors.push(diagnostic(
+      'error',
+      file,
+      field,
+      'project-authored taxonomy assessment must not be attributed to a source',
+    ));
+  }
+  if (assessment.claim_origin === 'source_supported') {
+    const hasExplicitEvidence = sourceClaims.some((claim) => (
+      claim?.claim_origin === 'source_supported'
+      && String(claim?.claim_id ?? '').endsWith('taxonomy-assessment')
+      && ids.some((referenceId) => claim.reference_ids?.includes(referenceId))
+    ));
+    if (!hasExplicitEvidence) {
+      errors.push(diagnostic(
+        'error',
+        file,
+        field,
+        'source_supported taxonomy assessment requires an explicit taxonomy-assessment provenance claim',
+      ));
+    }
+  }
+}
+
+function checkResourceList(errors, values, resourceIds, file, field) {
+  if (!Array.isArray(values)) return;
+  checkSorted(errors, values, file, field, 'resources');
+  for (const resourceId of values) {
+    if (!resourceIds.has(resourceId)) {
+      errors.push(diagnostic('error', file, field, `unknown pedagogical resource ${resourceId}`));
+    }
+  }
+}
+
 async function listFiles(directory) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
   const files = [];
@@ -228,9 +314,11 @@ export async function loadPedagogyKnowledge({
       await readJson(path.join(absoluteRoot, repositoryPath)),
     ]),
   );
-  const [references, activities, principles, patterns] = await Promise.all([
+  const [references, activities, taxonomy, queries, principles, patterns] = await Promise.all([
     readYamlArtifact(absoluteRoot, path.join(absoluteRoot, REFERENCE_FILE)),
     readYamlArtifact(absoluteRoot, path.join(absoluteRoot, ACTIVITY_FILE)),
+    readYamlArtifact(absoluteRoot, path.join(absoluteRoot, TAXONOMY_FILE)),
+    readYamlArtifact(absoluteRoot, path.join(absoluteRoot, QUERY_FILE)),
     Promise.all(principleFiles.map((file) => readYamlArtifact(absoluteRoot, file))),
     Promise.all(patternFiles.map((file) => readYamlArtifact(absoluteRoot, file))),
   ]);
@@ -241,6 +329,8 @@ export async function loadPedagogyKnowledge({
     schemas: Object.fromEntries(schemaEntries),
     references,
     activities,
+    taxonomy,
+    queries,
     principles,
     patterns,
     allFiles: tree.files.map((file) => displayPath(absoluteRoot, file)).sort(compareBytewise),
@@ -260,6 +350,8 @@ export function createPedagogySchemaValidators(schemas) {
     principle: ajv.compile(schemas.principle),
     activity: ajv.compile(schemas.activity),
     pattern: ajv.compile(schemas.pattern),
+    taxonomy: ajv.compile(schemas.taxonomy),
+    query: ajv.compile(schemas.query),
   };
 }
 
@@ -277,7 +369,15 @@ export function validatePedagogyKnowledge(repository, {
       valid: false,
       errors,
       warnings,
-      counts: { references: 0, principles: 0, activities: 0, patterns: 0 },
+      counts: {
+        references: 0,
+        principles: 0,
+        activities: 0,
+        patterns: 0,
+        capabilities: 0,
+        resources: 0,
+        queryFixtures: 0,
+      },
     };
   }
 
@@ -292,6 +392,18 @@ export function validatePedagogyKnowledge(repository, {
     validators.activity,
     repository.activities.file,
     repository.activities.data,
+  );
+  const taxonomyValid = addSchemaDiagnostics(
+    errors,
+    validators.taxonomy,
+    repository.taxonomy.file,
+    repository.taxonomy.data,
+  );
+  const queriesValid = addSchemaDiagnostics(
+    errors,
+    validators.query,
+    repository.queries.file,
+    repository.queries.data,
   );
   const validPrinciples = repository.principles.map((artifact) => addSchemaDiagnostics(
     errors,
@@ -316,12 +428,24 @@ export function validatePedagogyKnowledge(repository, {
   const patterns = repository.patterns.flatMap((artifact) => (
     Array.isArray(artifact.data?.patterns) ? artifact.data.patterns : []
   ));
+  const capabilities = Array.isArray(repository.taxonomy.data?.capabilities)
+    ? repository.taxonomy.data.capabilities
+    : [];
+  const resources = Array.isArray(repository.taxonomy.data?.resource_vocabulary)
+    ? repository.taxonomy.data.resource_vocabulary
+    : [];
+  const queryFixtures = Array.isArray(repository.queries.data?.fixtures)
+    ? repository.queries.data.fixtures
+    : [];
 
   const counts = {
     references: references.length,
     principles: principles.length,
     activities: activities.length,
     patterns: patterns.length,
+    capabilities: capabilities.length,
+    resources: resources.length,
+    queryFixtures: queryFixtures.length,
   };
 
   for (const symlink of repository.symlinks ?? []) {
@@ -337,22 +461,62 @@ export function validatePedagogyKnowledge(repository, {
   const principleIdsList = principles.map((principle) => principle?.principle_id).filter(Boolean);
   const activityIdsList = activities.map((activity) => activity?.activity_id).filter(Boolean);
   const patternIdsList = patterns.map((pattern) => pattern?.pattern_id).filter(Boolean);
+  const capabilityIdsList = capabilities.map((capability) => capability?.capability_id).filter(Boolean);
+  const resourceIdsList = resources.map((resource) => resource?.resource_id).filter(Boolean);
+  const queryIdsList = queryFixtures.map((fixture) => fixture?.query_id).filter(Boolean);
   const referenceIds = new Set(referenceIdsList);
   const principleIds = new Set(principleIdsList);
   const activityIds = new Set(activityIdsList);
+  const capabilityIds = new Set(capabilityIdsList);
+  const resourceIds = new Set(resourceIdsList);
 
   addDuplicateDiagnostics(errors, referenceIdsList, repository.references.file, '/references', 'reference ID');
   addDuplicateDiagnostics(errors, principleIdsList, PRINCIPLE_DIRECTORY, '/', 'principle ID');
   addDuplicateDiagnostics(errors, activityIdsList, repository.activities.file, '/activities', 'activity ID');
   addDuplicateDiagnostics(errors, patternIdsList, PATTERN_DIRECTORY, '/', 'pattern ID');
+  addDuplicateDiagnostics(errors, capabilityIdsList, repository.taxonomy.file, '/capabilities', 'capability ID');
+  addDuplicateDiagnostics(errors, resourceIdsList, repository.taxonomy.file, '/resource_vocabulary', 'resource ID');
+  addDuplicateDiagnostics(errors, queryIdsList, repository.queries.file, '/fixtures', 'query fixture ID');
   checkSorted(errors, referenceIdsList, repository.references.file, '/references', 'references');
   checkSorted(errors, principleIdsList, PRINCIPLE_DIRECTORY, '/', 'principle files');
   checkSorted(errors, activityIdsList, repository.activities.file, '/activities', 'activities');
+  checkSorted(errors, capabilityIdsList, repository.taxonomy.file, '/capabilities', 'capabilities');
+  checkSorted(errors, resourceIdsList, repository.taxonomy.file, '/resource_vocabulary', 'resources');
+  checkSorted(errors, queryIdsList, repository.queries.file, '/fixtures', 'query fixtures');
   for (const artifact of repository.patterns) {
     const ids = Array.isArray(artifact.data?.patterns)
       ? artifact.data.patterns.map((pattern) => pattern?.pattern_id).filter(Boolean)
       : [];
     checkSorted(errors, ids, artifact.file, '/patterns', 'patterns');
+  }
+
+  if (taxonomyValid) {
+    if (repository.taxonomy.data.taxonomy_version !== repository.queries.data?.taxonomy_version) {
+      errors.push(diagnostic(
+        'error',
+        repository.queries.file,
+        '/taxonomy_version',
+        'query fixtures must use the current pedagogical taxonomy version',
+      ));
+    }
+    for (const [name, expected] of Object.entries(EXPECTED_CONTROLLED_VOCABULARY)) {
+      const values = repository.taxonomy.data.controlled_vocabulary[name];
+      if (JSON.stringify(values) !== JSON.stringify(expected)) {
+        errors.push(diagnostic(
+          'error',
+          repository.taxonomy.file,
+          `/controlled_vocabulary/${name}`,
+          `${name} must equal the documented sorted vocabulary: ${expected.join(', ')}`,
+        ));
+      }
+    }
+    checkTaxonomyAssessment(
+      errors,
+      repository.taxonomy.data.assessment,
+      referenceIds,
+      repository.taxonomy.file,
+      '/assessment',
+    );
   }
 
   if (referencesValid) {
@@ -436,6 +600,88 @@ export function validatePedagogyKnowledge(repository, {
           'duration minimum must not exceed duration maximum',
         ));
       }
+      const capabilityEntries = Object.entries(activity.capabilities);
+      checkSorted(
+        errors,
+        capabilityEntries.map(([capabilityId]) => capabilityId),
+        repository.activities.file,
+        `${field}/capabilities`,
+        'capabilities',
+      );
+      if (!capabilityEntries.some(([, level]) => level === 'primary')) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/capabilities`,
+          'every activity must declare at least one primary capability',
+        ));
+      }
+      for (const [capabilityId] of capabilityEntries) {
+        if (!capabilityIds.has(capabilityId)) {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `${field}/capabilities`,
+            `unknown pedagogical capability ${capabilityId}`,
+          ));
+        }
+      }
+      const { min: groupMin, max: groupMax } = activity.delivery_constraints.group_size;
+      const groupFormats = new Set(activity.delivery_constraints.supported_group_formats);
+      if (groupMin > groupMax) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/delivery_constraints/group_size`,
+          'group-size minimum must not exceed group-size maximum',
+        ));
+      }
+      if (groupFormats.has('individual') && !(groupMin <= 1 && groupMax >= 1)) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/delivery_constraints`,
+          'individual group format requires a range containing 1',
+        ));
+      }
+      if (groupFormats.has('pair') && !(groupMin <= 2 && groupMax >= 2)) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/delivery_constraints`,
+          'pair group format requires a range containing 2',
+        ));
+      }
+      if (groupFormats.has('whole_class') && groupMax < WHOLE_CLASS_MINIMUM_MAX) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/delivery_constraints`,
+          `whole_class requires a maximum group size of at least ${WHOLE_CLASS_MINIMUM_MAX}`,
+        ));
+      }
+      if (
+        activity.compatibility.one_learner === 'directly_supported'
+        && (!groupFormats.has('individual') || groupMin > 1 || groupMax < 1)
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/compatibility/one_learner`,
+          'direct one-learner compatibility requires individual format and a range containing 1',
+        ));
+      }
+      if (
+        !groupFormats.has('individual')
+        && activity.homeschool_adaptation.status === 'directly_suitable'
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/homeschool_adaptation/status`,
+          'group-based activity cannot be directly suitable for homeschool without an individual format',
+        ));
+      }
       const compatiblePhases = CATEGORY_PHASES[activity.category];
       if (
         compatiblePhases
@@ -450,25 +696,198 @@ export function validatePedagogyKnowledge(repository, {
       }
       if (
         DISCUSSION_HEAVY_ACTIVITIES.has(activity.activity_id)
-        && ['none', 'low'].includes(activity.language_demand.interaction)
+        && !DISCUSSION_DEMAND_LEVELS.has(activity.learner_demands.interaction)
       ) {
         errors.push(diagnostic(
           'error',
           repository.activities.file,
-          `${field}/language_demand/interaction`,
-          `${activity.activity_id} is interaction-heavy and cannot have ${activity.language_demand.interaction} interaction demand`,
+          `${field}/learner_demands/interaction`,
+          `${activity.activity_id} is interaction-heavy and cannot have ${activity.learner_demands.interaction} interaction demand`,
         ));
       }
       const homeschoolStatus = activity.homeschool_adaptation.status;
       if (
         homeschoolStatus !== 'not_recommended'
-        && !activity.delivery_modes.some((mode) => mode === 'homeschool' || mode === 'parent_supported')
+        && !activity.delivery_constraints.delivery_modes
+          .some((mode) => mode === 'homeschool' || mode === 'parent_supported')
       ) {
         errors.push(diagnostic(
           'error',
           repository.activities.file,
-          `${field}/delivery_modes`,
+          `${field}/delivery_constraints/delivery_modes`,
           `homeschool adaptation status ${homeschoolStatus} requires a compatible delivery mode`,
+        ));
+      }
+      const parentEffort = activity.effort.homeschool_parent;
+      if (
+        ['active_participant', 'safety_supervision', 'subject_explanation_required'].includes(parentEffort.role)
+        && (!parentEffort.role_description_ru.trim() || parentEffort.level === 'none')
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/effort/homeschool_parent`,
+          `${parentEffort.role} requires a non-zero effort level and explicit role description`,
+        ));
+      }
+      if (
+        parentEffort.role === 'none'
+        && !['none', 'minimal'].includes(parentEffort.level)
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/effort/homeschool_parent`,
+          'parent role none cannot carry more than minimal effort',
+        ));
+      }
+      if (
+        parentEffort.role === 'subject_explanation_required'
+        && !['limited', 'not_recommended'].includes(homeschoolStatus)
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/effort/homeschool_parent/role`,
+          'subject_explanation_required must be represented as a homeschool limitation',
+        ));
+      }
+      const requirement = activity.resource_requirements;
+      for (const key of ['required', 'optional', 'reusable_materials', 'consumable_materials']) {
+        checkResourceList(
+          errors,
+          requirement[key],
+          resourceIds,
+          repository.activities.file,
+          `${field}/resource_requirements/${key}`,
+        );
+      }
+      const requiredResources = new Set(requirement.required);
+      const optionalResources = new Set(requirement.optional);
+      const overlaps = [...requiredResources].filter((resourceId) => optionalResources.has(resourceId));
+      if (overlaps.length > 0) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements`,
+          `required and optional resources overlap: ${overlaps.join(', ')}`,
+        ));
+      }
+      if (
+        requirement.printer_required
+        && !requiredResources.has('printed_worksheet')
+        && !requiredResources.has('printable_cards')
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements/printer_required`,
+          'printer_required true requires printed_worksheet or printable_cards in required resources',
+        ));
+      }
+      if (
+        requirement.internet_required
+        && POSITIVE_COMPATIBILITY.has(activity.compatibility.offline)
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/compatibility/offline`,
+          'internet-required activity cannot claim positive offline compatibility',
+        ));
+      }
+      if (
+        requirement.printer_required
+        && POSITIVE_COMPATIBILITY.has(activity.compatibility.no_printer)
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/compatibility/no_printer`,
+          'printer-required activity cannot claim positive no-printer compatibility',
+        ));
+      }
+      if (requirement.internet_required && !requiredResources.has('internet')) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements/required`,
+          'internet_required true requires internet in required resources',
+        ));
+      }
+      if (requirement.shared_display_required && !requiredResources.has('shared_display')) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements/required`,
+          'shared_display_required true requires shared_display in required resources',
+        ));
+      }
+      if (
+        requirement.laboratory_materials_required
+        && !requiredResources.has('laboratory_materials')
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements/required`,
+          'laboratory_materials_required true requires laboratory_materials in required resources',
+        ));
+      }
+      if (requirement.outdoor_access_required && !requiredResources.has('outdoor_access')) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements/required`,
+          'outdoor_access_required true requires outdoor_access in required resources',
+        ));
+      }
+      const declaresLaboratoryMaterials = requiredResources.has('laboratory_materials')
+        || optionalResources.has('laboratory_materials');
+      if (declaresLaboratoryMaterials && !activity.safety.requires_adult_supervision) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/safety`,
+          'laboratory materials require explicit adult safety supervision',
+        ));
+      }
+      if (
+        requirement.outdoor_access_required
+        && (
+          !activity.safety.requires_adult_supervision
+          || activity.homeschool_adaptation.limitations_ru.length === 0
+        )
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/resource_requirements/outdoor_access_required`,
+          'outdoor access requires safety supervision and an explicit delivery limitation',
+        ));
+      }
+      if (
+        activity.learner_demands.productive_language === 'high'
+        || activity.learner_demands.productive_language === 'very_high'
+      ) {
+        if (activity.learner_demands.estonian_a1_a2_compatibility === 'directly_supported') {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `${field}/learner_demands/estonian_a1_a2_compatibility`,
+            'high productive-language demand cannot be directly supported at Estonian A1-A2 without scaffolding',
+          ));
+        }
+      }
+      if (
+        POSITIVE_COMPATIBILITY.has(activity.compatibility.remote_delivery)
+        && !activity.delivery_constraints.delivery_modes.includes('remote')
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/compatibility/remote_delivery`,
+          'positive remote compatibility requires remote delivery mode',
         ));
       }
       if (
@@ -494,6 +913,18 @@ export function validatePedagogyKnowledge(repository, {
         ));
       }
       if (
+        activity.safety.requires_adult_supervision
+        && homeschoolStatus !== 'not_recommended'
+        && parentEffort.role === 'none'
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/effort/homeschool_parent/role`,
+          'safety-supervised homeschool activity cannot declare parent role none',
+        ));
+      }
+      if (
         activity.assessment_roles.includes('none')
         && activity.assessment_roles.length > 1
       ) {
@@ -512,6 +943,14 @@ export function validatePedagogyKnowledge(repository, {
         `${field}/source_provenance`,
         { requireSourceSupported: true },
       );
+      checkTaxonomyAssessment(
+        errors,
+        activity.taxonomy_assessment,
+        referenceIds,
+        repository.activities.file,
+        `${field}/taxonomy_assessment`,
+        activity.source_provenance,
+      );
       const grade5Modes = new Set(activity.grade5_science_applicability.delivery_modes);
       for (const mode of ['classroom', 'homeschool']) {
         if (!grade5Modes.has(mode)) {
@@ -520,6 +959,16 @@ export function validatePedagogyKnowledge(repository, {
             repository.activities.file,
             `${field}/grade5_science_applicability/delivery_modes`,
             `grade 5 science applicability must include ${mode}`,
+          ));
+        }
+      }
+      for (const mode of grade5Modes) {
+        if (!activity.delivery_constraints.delivery_modes.includes(mode)) {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `${field}/grade5_science_applicability/delivery_modes`,
+            `grade 5 science delivery mode ${mode} is outside general delivery constraints`,
           ));
         }
       }
@@ -535,6 +984,81 @@ export function validatePedagogyKnowledge(repository, {
           ));
         } else {
           namesByLanguage[language].set(normalized, activity.activity_id);
+        }
+      }
+    }
+  }
+
+  if (queriesValid && activityCatalogValid && taxonomyValid) {
+    for (const [index, fixture] of queryFixtures.entries()) {
+      const field = `/fixtures/${index}`;
+      if (
+        fixture.filters.group_size_range
+        && fixture.filters.group_size_range.min > fixture.filters.group_size_range.max
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.queries.file,
+          `${field}/filters/group_size_range`,
+          'query group-size minimum must not exceed maximum',
+        ));
+      }
+      for (const key of ['required_capabilities_all', 'required_capabilities_any']) {
+        const requested = fixture.filters[key] ?? [];
+        checkSorted(errors, requested, repository.queries.file, `${field}/filters/${key}`, 'capabilities');
+        for (const capabilityId of requested) {
+          if (!capabilityIds.has(capabilityId)) {
+            errors.push(diagnostic(
+              'error',
+              repository.queries.file,
+              `${field}/filters/${key}`,
+              `unknown pedagogical capability ${capabilityId}`,
+            ));
+          }
+        }
+      }
+      for (const key of ['expected_include_ids', 'expected_exclude_ids']) {
+        checkSorted(errors, fixture[key], repository.queries.file, `${field}/${key}`, 'activity IDs');
+        for (const activityId of fixture[key]) {
+          if (!activityIds.has(activityId)) {
+            errors.push(diagnostic(
+              'error',
+              repository.queries.file,
+              `${field}/${key}`,
+              `unknown pedagogical activity ${activityId}`,
+            ));
+          }
+        }
+      }
+      const overlaps = fixture.expected_include_ids
+        .filter((activityId) => fixture.expected_exclude_ids.includes(activityId));
+      if (overlaps.length > 0) {
+        errors.push(diagnostic(
+          'error',
+          repository.queries.file,
+          field,
+          `fixture cannot include and exclude the same activity: ${overlaps.join(', ')}`,
+        ));
+      }
+      const queryResult = filterPedagogyActivities(activities, fixture.filters);
+      for (const activityId of fixture.expected_include_ids) {
+        if (!queryResult.activity_ids.includes(activityId)) {
+          errors.push(diagnostic(
+            'error',
+            repository.queries.file,
+            `${field}/expected_include_ids`,
+            `query fixture ${fixture.query_id} must include ${activityId}`,
+          ));
+        }
+      }
+      for (const activityId of fixture.expected_exclude_ids) {
+        if (queryResult.activity_ids.includes(activityId)) {
+          errors.push(diagnostic(
+            'error',
+            repository.queries.file,
+            `${field}/expected_exclude_ids`,
+            `query fixture ${fixture.query_id} must exclude ${activityId}`,
+          ));
         }
       }
     }
@@ -598,7 +1122,15 @@ export function validatePedagogyKnowledge(repository, {
   }
 
   if (enforceMinimumProductionCounts) {
-    const minimums = { references: 2, principles: 15, activities: 20, patterns: 4 };
+    const minimums = {
+      references: 2,
+      principles: 15,
+      activities: 30,
+      patterns: 4,
+      capabilities: 33,
+      resources: 22,
+      queryFixtures: 6,
+    };
     for (const [name, minimum] of Object.entries(minimums)) {
       if (counts[name] < minimum) {
         errors.push(diagnostic(
@@ -631,6 +1163,8 @@ export const pedagogyKnowledgePaths = {
   root: KNOWLEDGE_ROOT,
   referenceFile: REFERENCE_FILE,
   activityFile: ACTIVITY_FILE,
+  taxonomyFile: TAXONOMY_FILE,
+  queryFile: QUERY_FILE,
   principleDirectory: PRINCIPLE_DIRECTORY,
   patternDirectory: PATTERN_DIRECTORY,
   schemaDirectory: SCHEMA_DIRECTORY,

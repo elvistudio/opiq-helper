@@ -33,12 +33,18 @@ test('production pedagogical knowledge validates', () => {
     principles: 15,
     activities: 30,
     patterns: 4,
+    capabilities: 33,
+    resources: 22,
+    queryFixtures: 6,
   });
 });
 
-test('all five JSON schemas compile in strict mode', () => {
+test('all seven JSON schemas compile in strict mode', () => {
   const validators = createPedagogySchemaValidators(production.schemas);
-  assert.deepEqual(Object.keys(validators).sort(), ['activity', 'pattern', 'principle', 'reference']);
+  assert.deepEqual(
+    Object.keys(validators).sort(),
+    ['activity', 'pattern', 'principle', 'query', 'reference', 'taxonomy'],
+  );
 });
 
 test('private supplied references have conservative copyright metadata', () => {
@@ -206,7 +212,7 @@ test('discussion-heavy activity cannot claim zero interaction demand', () => {
   const repository = fresh();
   const activity = repository.activities.data.activities
     .find((candidate) => candidate.activity_id === 'silent-discussion');
-  activity.language_demand.interaction = 'none';
+  activity.learner_demands.interaction = 'none';
   expectInvalid(repository, /interaction-heavy and cannot have none/u);
 });
 
@@ -290,7 +296,8 @@ test('activity grade 5 applicability requires homeschool', () => {
 
 test('activity with incompatible homeschool declaration fails', () => {
   const repository = fresh();
-  repository.activities.data.activities[0].delivery_modes = ['classroom', 'remote'];
+  repository.activities.data.activities[0].delivery_constraints.delivery_modes =
+    ['classroom', 'remote'];
   expectInvalid(repository, /requires a compatible delivery mode/u);
 });
 

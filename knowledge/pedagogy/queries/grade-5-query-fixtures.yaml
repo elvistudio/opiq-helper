@@ -1,0 +1,91 @@
+schema_version: "1.0"
+artifact_type: pedagogical_query_fixtures
+taxonomy_version: "1.0"
+selection_mode: deterministic_filtering_without_ranking
+fixtures:
+  - query_id: collaborative-large-class
+    description_ru: Совместная классная работа для 24–30 учеников с подготовкой не выше средней.
+    filters:
+      grade: 5
+      subject: science
+      delivery_mode: classroom
+      group_size_range: {min: 24, max: 30}
+      required_capabilities_all: [collaborative_practice]
+      minimum_capability_level: supporting
+      max_teacher_preparation: medium
+    expected_include_ids: [brainstorming, gallery-walk]
+    expected_exclude_ids: [jigsaw, learning-stations]
+    ordering: activity_id_bytewise
+  - query_id: concept-introduction-whole-class
+    description_ru: >-
+      Введение природоведческого понятия в целом классе с русским объяснением
+      и поддерживаемой короткой эстонской устной продукцией A1–A2.
+    filters:
+      grade: 5
+      subject: science
+      lesson_phase: explanation
+      delivery_mode: classroom
+      group_size: 28
+      group_formats_any: [whole_class]
+      required_capabilities_all: [concept_formation, oral_production]
+      minimum_capability_level: supporting
+      estonian_a1_a2_compatibility: [directly_supported, supported_with_scaffold]
+      max_duration_minutes: 45
+    expected_include_ids: [guided-reading]
+    expected_exclude_ids: [jigsaw, prior-knowledge-free-write]
+    ordering: activity_id_bytewise
+  - query_id: homeschool-low-support-retrieval
+    description_ru: >-
+      Самостоятельное домашнее воспроизведение или самообъяснение без сети и
+      принтера, с минимальным участием взрослого.
+    filters:
+      grade: 5
+      subject: science
+      lesson_phase: retrieval
+      delivery_mode: homeschool
+      group_size: 1
+      group_formats_any: [individual]
+      required_capabilities_any: [explanation_and_modelling, retrieval]
+      minimum_capability_level: supporting
+      max_parent_effort: minimal
+      offline: true
+      no_printer: true
+    expected_include_ids: [one-minute-recall, retrieval-self-test, self-explanation]
+    expected_exclude_ids: [jigsaw, peer-teaching]
+    ordering: activity_id_bytewise
+  - query_id: map-diagram-low-language
+    description_ru: Индивидуальная или парная работа с картой или схемой при низкой продуктивной языковой нагрузке.
+    filters:
+      grade: 5
+      subject: science
+      group_size: 1
+      group_formats_any: [individual, pair]
+      required_capabilities_any: [diagram_interpretation, map_interpretation]
+      minimum_capability_level: supporting
+      max_productive_language: low
+    expected_include_ids: [visual-representation]
+    expected_exclude_ids: [back-to-back-description, jigsaw]
+    ordering: activity_id_bytewise
+  - query_id: retrieval-with-error-correction
+    description_ru: Воспроизведение и исправление ошибки без доступа к источнику во время первой попытки.
+    filters:
+      grade: 5
+      subject: science
+      required_capabilities_all: [error_correction, retrieval]
+      minimum_capability_level: supporting
+      source_access_during_first_attempt: prohibited
+    expected_include_ids: [delayed-homework-retrieval, retrieval-self-test]
+    expected_exclude_ids: [error-correction, guided-reading]
+    ordering: activity_id_bytewise
+  - query_id: safe-practical-observation
+    description_ru: Безопасная практическая работа с наблюдением или измерением под контролем взрослого.
+    filters:
+      grade: 5
+      subject: science
+      delivery_mode: parent_supported
+      required_capabilities_any: [measurement, observation]
+      minimum_capability_level: supporting
+      adult_safety_supervision_required: true
+    expected_include_ids: [learning-stations]
+    expected_exclude_ids: [retrieval-self-test, visual-representation]
+    ordering: activity_id_bytewise
