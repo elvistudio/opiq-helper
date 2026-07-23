@@ -19,6 +19,10 @@ const legacyGenerationNote = 'Original generation metadata was not recorded.';
 const sha256Pattern = /^[0-9a-f]{64}$/;
 const isoUtcPattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
 const isoTimestampWithZonePattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
+const gradeThreeEstonianRouteIds = new Set([
+  'grade-3-estonian',
+  'grade-3-estonian-second-language',
+]);
 
 function fail(message) {
   errors.push(message);
@@ -506,6 +510,95 @@ async function validateQaSnapshot(
     }
     validateCountMap(qa, sourceLabel, 'source_subject_counts', qa.source_records);
     validateCountMap(qa, sourceLabel, 'canonical_subject_counts', qa.page_records_included);
+  }
+
+  if (gradeThreeEstonianRouteIds.has(source.id) && !compactMetadata) {
+    const requiredFields = [
+      'archive',
+      'source_accounting',
+      'source_representation_audit',
+      'cover_detail_records_excluded',
+      'administrative_records_excluded',
+      'duplicate_records_excluded',
+      'subject_boundary_page_records_excluded',
+      'duplicate_url_audit',
+      'grade_normalization_audit',
+      'subject_normalization_audit',
+      'language_normalization_audit',
+      'content_repair_audit',
+      'content_quality_audit',
+      'book_metadata_audit',
+      'captured_book_inventory',
+      'kit_590_completion_audit',
+      'kit_590_content_quality_audit',
+      'publisher_limitations',
+      'raw_grade_counts',
+      'raw_subject_counts',
+      'canonical_subject_counts',
+      'raw_language_counts',
+      'canonical_language_counts',
+      'route_partition',
+      'kits',
+    ];
+    requiredFields.forEach((field) => {
+      if (!Object.hasOwn(qa, field)) {
+        fail(`${sourceLabel}: missing grade-3 Estonian original-archive QA field ${field}.`);
+      }
+    });
+    const expectedSourceRows = source.id === 'grade-3-estonian' ? 470 : 426;
+    if (qa.source_records !== expectedSourceRows) {
+      fail(`${sourceLabel}: registered archives must account for ${expectedSourceRows} source records.`);
+    }
+    const accountedSourceRecords = qa.page_records_included
+      + qa.cover_detail_records_excluded
+      + qa.administrative_records_excluded
+      + qa.duplicate_records_excluded
+      + qa.subject_boundary_page_records_excluded;
+    if (accountedSourceRecords !== qa.source_records) {
+      fail(`${sourceLabel}: route partition and exclusions account for ${accountedSourceRecords} rows, expected ${qa.source_records}.`);
+    }
+    if (qa.archive?.member_count !== 435 || qa.archive?.crc_verified_members !== 435) {
+      fail(`${sourceLabel}: all 435 primary ZIP members must be present and CRC-verified.`);
+    }
+    const representationAudits = Object.values(qa.source_representation_audit ?? {});
+    const expectedRepresentationCount = source.id === 'grade-3-estonian' ? 2 : 1;
+    if (representationAudits.length !== expectedRepresentationCount
+      || representationAudits.some((audit) => audit?.unexplained_differences !== 0)) {
+      fail(`${sourceLabel}: registered archive representations contain unexplained differences.`);
+    }
+    if (qa.route_partition?.expected_union_page_records !== 459
+      || qa.route_partition?.canonical_overlap_urls !== 0) {
+      fail(`${sourceLabel}: grade-3 Estonian route partition must contain 459 disjoint instructional URLs.`);
+    }
+    const completion = qa.kit_590_completion_audit;
+    if (completion?.kit_id !== '590'
+      || completion?.complete_capture?.canonical_instructional_pages !== 42
+      || completion?.shared_capture?.canonical_instructional_pages !== 0
+      || completion?.canonical_chapter_urls_unique !== 42
+      || completion?.recapture_required !== false) {
+      fail(`${sourceLabel}: kit 590 cover and complete-capture evidence is incomplete.`);
+    }
+    const kit590Quality = qa.kit_590_content_quality_audit;
+    if (kit590Quality?.instructional_pages !== 42
+      || kit590Quality?.pages_with_headings !== 42
+      || kit590Quality?.pages_without_structured_task_examples !== 42
+      || kit590Quality?.raw_pages_with_empty_task_arrays !== 42
+      || !isPlainObject(kit590Quality?.raw_text_quality)
+      || Object.values(kit590Quality.raw_text_quality).some((count) => count !== 0)) {
+      fail(`${sourceLabel}: kit 590 content-quality findings differ from the audited capture.`);
+    }
+    const qualityErrors = qa.content_quality_audit?.hard_errors;
+    if (!isPlainObject(qualityErrors) || Object.values(qualityErrors).some((count) => count !== 0)) {
+      fail(`${sourceLabel}: canonical content-quality audit must contain zero hard errors.`);
+    }
+    if (qa.publisher_limitations?.canonical_publishers_invented !== 0) {
+      fail(`${sourceLabel}: publisher metadata must not be invented.`);
+    }
+    validateCountMap(qa, sourceLabel, 'raw_grade_counts', expectedSourceRows);
+    validateCountMap(qa, sourceLabel, 'raw_subject_counts', expectedSourceRows);
+    validateCountMap(qa, sourceLabel, 'canonical_subject_counts', qa.page_records_included);
+    validateCountMap(qa, sourceLabel, 'raw_language_counts', expectedSourceRows);
+    validateCountMap(qa, sourceLabel, 'canonical_language_counts', qa.page_records_included);
   }
 
   validateCountMap(qa, sourceLabel, 'grades', qa.page_records_included);
@@ -1065,6 +1158,37 @@ if (!manifest) {
       if (previous && previous !== source.id) {
         fail(`grade-2 cross-route canonical URL overlap: ${url} belongs to both ${previous} and ${source.id}.`);
       } else gradeTwoUrlOwners.set(url, source.id);
+    }
+  }
+
+  const gradeThreeEstonianSources = manifest.sources.filter(
+    (source) => gradeThreeEstonianRouteIds.has(source.id),
+  );
+  if (gradeThreeEstonianSources.length !== 2) {
+    fail(`grade-3 Estonian routing requires exactly two subject routes; found ${gradeThreeEstonianSources.length}.`);
+  } else {
+    const targetOwners = new Map();
+    for (const source of gradeThreeEstonianSources) {
+      const markdown = await readFile(path.join(repositoryRoot, source.md_path), 'utf8');
+      for (const record of splitMarkdownRecords(markdown)) {
+        const url = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1];
+        if (!url) continue;
+        const previous = targetOwners.get(url);
+        if (previous) fail(`grade-3 Estonian route overlap: ${url} belongs to both ${previous} and ${source.id}.`);
+        else targetOwners.set(url, source.id);
+      }
+    }
+    if (targetOwners.size !== 459) {
+      fail(`grade-3 Estonian route union contains ${targetOwners.size} URLs; expected 459.`);
+    }
+    for (const source of manifest.sources.filter((entry) => !gradeThreeEstonianRouteIds.has(entry.id))) {
+      const markdown = await readFile(path.join(repositoryRoot, source.md_path), 'utf8');
+      for (const record of splitMarkdownRecords(markdown)) {
+        const url = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1];
+        if (url && targetOwners.has(url)) {
+          fail(`grade-3 Estonian canonical URL overlap: ${url} also belongs to ${source.id}.`);
+        }
+      }
     }
   }
 

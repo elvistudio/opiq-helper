@@ -152,5 +152,11 @@ jobs:
       - name: Test grade 3 music source import
         run: npm run test:grade-3-music
 
+      - name: Verify generated grade 3 Estonian sources
+        run: npm run check:grade-3-estonian
+
+      - name: Test grade 3 Estonian source import
+        run: npm run test:grade-3-estonian
+
       - name: Validate source manifest
         run: node scripts/check-source-manifest.mjs
