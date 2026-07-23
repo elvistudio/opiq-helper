@@ -8,7 +8,9 @@ IDs and explicit applicability metadata instead of relying on unstructured
 method names.
 
 The initial production data contains 2 references, 15 principles, 30
-activities, and 4 patterns. The catalog is intentionally not exhaustive.
+activities, 4 patterns, taxonomy 1.0 with 33 capabilities and 22 resource
+values, and 6 grade-5 filtering fixtures. The catalog is intentionally not
+exhaustive.
 
 It is not:
 
@@ -49,13 +51,18 @@ knowledge/pedagogy/
   references/references.yaml
   principles/*.yaml
   activities/activity-catalog.yaml
+  taxonomy/pedagogical-taxonomy.yaml
+  queries/grade-5-query-fixtures.yaml
   patterns/classroom-patterns.yaml
   patterns/homeschool-patterns.yaml
   schemas/*.schema.json
 scripts/
   check-pedagogy-knowledge.mjs
   lib/pedagogy-knowledge.mjs
+  lib/pedagogy-query.mjs
   pedagogy-knowledge.test.mjs
+  pedagogy-taxonomy.test.mjs
+  query-pedagogy-activities.mjs
 ```
 
 All YAML is parsed in strict mode: duplicate keys, aliases, tabs, unexpected
@@ -151,18 +158,17 @@ adaptations to remain visibly separate.
 
 ## Adding an activity
 
-An activity record includes phase, grade, content type, subject, mode, group
-format, duration, language demand, preparation, learner independence, materials,
-accessibility, safety, misuse risks, assessment role, provenance, and
-confidence.
+An activity record includes capabilities, phase, grade, content type, subject,
+group and delivery constraints, duration, separate preparation/facilitation/
+learner/parent effort, learner independence, required and optional resources,
+learner demands, accessibility, safety, misuse risks, assessment role,
+provenance, and confidence.
 
-Language demand is multidimensional:
-
-- `receptive`;
-- `productive`;
-- `interaction`;
-- suitability for Estonian A1–A2 support;
-- required scaffolds.
+Learner demand is multidimensional: receptive and productive language,
+interaction, reading, writing, step complexity, movement, sensory demand,
+strategy familiarity, teacher modelling, Estonian A1–A2 compatibility, and
+scaffolds. It is an operational planning description, not a scientific
+cognitive-load score.
 
 A discussion-heavy method cannot claim zero or low interaction demand merely
 because it is silent or structured. A short Estonian term or sentence frame
@@ -178,6 +184,13 @@ Homeschool applicability is not a boolean. It records one of
 - limitations.
 
 The parent or supporting adult is not assumed to be a science teacher.
+
+The separate [pedagogical taxonomy](pedagogical-taxonomy.md) documents
+capability strength, resource vocabulary, effort levels, delivery logic,
+project-authored rating provenance, and deterministic filtering. Omitted sparse
+capabilities mean `none`; every activity still requires a `primary`
+capability. The six query fixtures demonstrate filtering only—there is no
+weighted ranking, lesson composition, or effectiveness claim.
 
 ## Flexible patterns
 
@@ -256,6 +269,7 @@ Run:
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy
+npm run query:pedagogy -- --fixture concept-introduction-whole-class
 ```
 
 The validator checks:
@@ -265,12 +279,16 @@ The validator checks:
 - unique and sorted IDs;
 - valid references between sources, principles, activities, and patterns;
 - grade and duration ranges;
-- phase/category and delivery compatibility;
-- discussion-language demand;
+- phase/category, group-size, delivery, and compatibility logic;
+- registered capability and resource vocabulary;
+- separate preparation, facilitation, learner, and parent effort;
+- discussion, reading, writing, interaction, and Estonian A1–A2 demand;
+- printer, internet, laboratory, outdoor, setup, and cleanup rules;
 - homeschool roles and safety supervision;
 - copyright and official-authority boundaries;
 - source versus project attribution;
 - confidence rationale;
+- six deterministic query fixtures without ranking;
 - absence of PDFs and symlinks.
 
 Schema validation proves internal consistency only. It cannot establish

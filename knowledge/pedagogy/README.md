@@ -8,7 +8,9 @@ The initial catalog contains:
 - two privately supplied Estonian methodological references;
 - 15 pedagogical principles;
 - 30 classroom and homeschool-adaptable activities;
-- four flexible pedagogical patterns.
+- four flexible pedagogical patterns;
+- taxonomy 1.0 with 33 capabilities, 22 resource values, and six deterministic
+  grade-5 filtering fixtures.
 
 ## Structure
 
@@ -16,8 +18,13 @@ The initial catalog contains:
   boundaries, and allowed use.
 - `principles/*.yaml` describes reusable principles and distinguishes sourced
   guidance from project interpretation.
-- `activities/activity-catalog.yaml` describes applicability, language demand,
-  duration, safety, misuse risks, homeschool roles, and provenance.
+- `taxonomy/pedagogical-taxonomy.yaml` defines bounded capabilities, resources,
+  demand, effort, group, delivery, and compatibility vocabulary.
+- `activities/activity-catalog.yaml` describes capability strength, delivery
+  constraints, resources, effort, learner demands, safety, homeschool roles,
+  and provenance.
+- `queries/grade-5-query-fixtures.yaml` proves deterministic filtering without
+  weighted ranking or lesson composition.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. Patterns are not lesson templates or production `lesson_dna`.
 - `schemas/*.schema.json` contains strict JSON Schemas shared by the validator.
@@ -47,12 +54,16 @@ examples, or long passages.
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy
+npm run query:pedagogy -- --fixture homeschool-low-support-retrieval
 ```
 
-The check validates schemas, strict YAML, IDs, links, age and duration ranges,
-language and homeschool metadata, safety roles, copyright rules, provenance,
-confidence, and deterministic ordering. Structural validity does not prove
+The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
+capability strength, group logic, effort, resources, learner demands,
+homeschool and safety roles, copyright rules, provenance, confidence, query
+fixtures, and deterministic ordering. Structural validity does not prove
 pedagogical effectiveness; application still requires teacher review.
 
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.
+See [`docs/pedagogical-taxonomy.md`](../../docs/pedagogical-taxonomy.md) for
+taxonomy semantics and filtering boundaries.
