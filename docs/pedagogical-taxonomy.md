@@ -36,6 +36,56 @@ For example, `peer_explanation: primary` does not imply that the method works
 with one learner, and `one_learner: directly_supported` does not establish any
 pedagogical purpose.
 
+## Activity families and execution profiles
+
+Most activities have one unambiguous operational form and keep their
+capabilities, constraints, demands, resources, effort, compatibility, safety,
+and taxonomy assessment directly on the activity. An activity family may
+instead declare `execution_profiles` when those operational facts materially
+differ between valid implementations.
+
+The inheritance rule is intentionally strict:
+
+- the activity family owns its stable ID, names, category, principles, phases,
+  grade range, content and subject scope, accessibility, general misuse risks,
+  provenance, project guidance, assessment roles, and grade-5 examples;
+- each profile owns the complete operational block: capabilities, delivery
+  constraints, duration, effort, learner independence, homeschool adaptation,
+  resources, learner demands, compatibility, safety, and taxonomy assessment;
+- a profiled activity may not also declare activity-level operational fields.
+  There is therefore no implicit merge and no ambiguous override order.
+
+`profile_id` follows the normal stable-ID syntax and cannot contain `::`.
+Filtering addresses a profile as `<activity_id>::<profile_id>`. Unprofiled
+activities keep the plain activity ID. The separator is part of specification
+1.0 and is rejected anywhere inside either component ID.
+
+The initial profiled family is `learning-stations`:
+
+| Query target | Operational meaning | Safety |
+| --- | --- | --- |
+| `learning-stations::paper-classification` | handwritten/card classification and short retrieval stations | no adult safety supervision |
+| `learning-stations::map-data` | map, diagram, table, and dataset interpretation | no adult safety supervision |
+| `learning-stations::practical-observation-measurement` | observation and measurement with laboratory and measuring materials | explicit adult safety supervision |
+
+This keeps safety attached to the actual materials and actions. A generic
+method name neither creates nor removes a safety requirement. Add a profile
+only when a real operational difference changes filtering; profiles are not
+lesson phases, lesson DNA, or minor stylistic variants.
+
+To add a profile:
+
+1. document the operational difference from the family and choose a stable
+   profile ID;
+2. keep profiles bytewise sorted by ID;
+3. provide the full operational block rather than relying on partial fallback;
+4. rate capability, demands, resources, effort, compatibility, and safety from
+   that concrete execution;
+5. retain `project_authored_design`, provisional confidence, and a rationale
+   until teacher review supplies stronger evidence;
+6. add positive and exclusion fixtures only where the declared filters
+   genuinely match.
+
 ## Capability levels
 
 Every activity declares a sparse capability map. An omitted capability is
@@ -163,20 +213,32 @@ effectiveness, age fit, or classroom feasibility.
 
 ### Migration status
 
-All 30 activities from the #58 catalog were migrated. The records do not reuse
-one mechanical profile: primary and supporting capabilities, participant
+All 30 activities from the #58 catalog were migrated. Twenty-nine retain one
+operational block; `learning-stations` has three execution profiles, producing
+32 deterministic query targets. The records do not reuse one mechanical
+rating: primary and supporting capabilities, participant
 ranges, facilitation effort, parent role, resources, and learner demands were
-assessed from each normalized method description. The production taxonomy has
-no `unknown` capability, demand, resource, or effort ratings at this revision,
-but all 30 `taxonomy_assessment` blocks remain `provisional` because a
-qualified teacher has not reviewed the classifications. Existing method-level
-confidence continues to express source and procedure confidence separately.
+assessed from each normalized method description and, where present, concrete
+execution profile. The production taxonomy has no `unknown` capability,
+demand, resource, or effort ratings at this revision, but every activity- or
+profile-level `taxonomy_assessment` remains `provisional` because a qualified
+teacher has not reviewed the classifications. Existing method-level confidence
+continues to express source and procedure confidence separately.
 
 ## Deterministic filtering
 
-The helper filters validated records and returns activity IDs in bytewise
-order. It does not calculate a weighted score, rank effectiveness, compose
-lesson phases, call a network service, or use AI.
+The helper filters validated execution targets and returns structured
+`target_id`, `activity_id`, and nullable `execution_profile_id` values in
+bytewise target order. It retains a deduplicated `activity_ids` list for
+backward-compatible inspection, but profile identity is never discarded. It
+does not calculate a weighted score, rank effectiveness, compose lesson phases,
+call a network service, or use AI.
+
+Run all committed fixtures:
+
+```sh
+npm run query:pedagogy
+```
 
 Run a committed fixture:
 
@@ -198,10 +260,10 @@ npm run query:pedagogy -- \
   --no-printer
 ```
 
-Use `--debug` to see deterministic exclusion reasons. The six production
-fixtures cover concept introduction, low-support homeschool retrieval, safe
-practical work, map/diagram work, retrieval with error correction, and
-large-class collaboration.
+Use `--debug` to see deterministic target-specific exclusion reasons. The seven
+production fixtures cover concept introduction, low-support homeschool
+retrieval, low-support paper stations, safe practical work, map/diagram work,
+retrieval with error correction, and large-class collaboration.
 
 ## Future use
 
@@ -217,3 +279,8 @@ Teacher review can later change a rating with evidence and updated confidence.
 Until then, the taxonomy remains a useful provisional classification. It does
 not modify production lessons, annual courses, teacher packs, review evidence,
 readiness, or content fingerprints.
+
+Only methods with a demonstrated operational difference are profiled. The
+profile ratings do not prove effectiveness, teacher validation is still
+pending, selection or combination of profiles remains #59 scope, and full
+homeschool generation remains #60 scope.

@@ -166,8 +166,8 @@
         "query_id",
         "description_ru",
         "filters",
-        "expected_include_ids",
-        "expected_exclude_ids",
+        "expected_include_target_ids",
+        "expected_exclude_target_ids",
         "ordering"
       ],
       "properties": {
@@ -181,24 +181,24 @@
         "filters": {
           "$ref": "#/$defs/filters"
         },
-        "expected_include_ids": {
+        "expected_include_target_ids": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"
           }
         },
-        "expected_exclude_ids": {
+        "expected_exclude_target_ids": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"
           }
         },
         "ordering": {
-          "const": "activity_id_bytewise"
+          "const": "target_id_bytewise"
         }
       }
     }

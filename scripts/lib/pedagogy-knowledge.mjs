@@ -2,7 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import { parseDocument } from 'yaml';
-import { filterPedagogyActivities } from './pedagogy-query.mjs';
+import {
+  expandPedagogyActivityTargets,
+  filterPedagogyActivities,
+} from './pedagogy-query.mjs';
 
 const KNOWLEDGE_ROOT = 'knowledge/pedagogy';
 const REFERENCE_FILE = `${KNOWLEDGE_ROOT}/references/references.yaml`;
@@ -48,6 +51,19 @@ const CATEGORY_PHASES = {
 const POSITIVE_COMPATIBILITY = new Set(['directly_supported', 'adaptable']);
 const DISCUSSION_DEMAND_LEVELS = new Set(['medium', 'high', 'very_high']);
 const WHOLE_CLASS_MINIMUM_MAX = 12;
+const OPERATIONAL_ACTIVITY_FIELDS = [
+  'capabilities',
+  'compatibility',
+  'delivery_constraints',
+  'duration',
+  'effort',
+  'homeschool_adaptation',
+  'learner_demands',
+  'learner_independence',
+  'resource_requirements',
+  'safety',
+  'taxonomy_assessment',
+];
 const EXPECTED_CONTROLLED_VOCABULARY = {
   capability_levels: ['incidental', 'none', 'primary', 'supporting', 'unknown'],
   compatibility_levels: ['adaptable', 'directly_supported', 'limited', 'not_recommended', 'unknown'],
@@ -377,6 +393,10 @@ export function validatePedagogyKnowledge(repository, {
         capabilities: 0,
         resources: 0,
         queryFixtures: 0,
+        profiledActivities: 0,
+        executionProfiles: 0,
+        queryTargets: 0,
+        unprofiledActivities: 0,
       },
     };
   }
@@ -437,6 +457,11 @@ export function validatePedagogyKnowledge(repository, {
   const queryFixtures = Array.isArray(repository.queries.data?.fixtures)
     ? repository.queries.data.fixtures
     : [];
+  const profiledActivities = activities.filter((activity) => (
+    Array.isArray(activity?.execution_profiles)
+  ));
+  const executionProfiles = profiledActivities.flatMap((activity) => activity.execution_profiles);
+  const expandedTargets = activityCatalogValid ? expandPedagogyActivityTargets(activities) : [];
 
   const counts = {
     references: references.length,
@@ -446,6 +471,10 @@ export function validatePedagogyKnowledge(repository, {
     capabilities: capabilities.length,
     resources: resources.length,
     queryFixtures: queryFixtures.length,
+    profiledActivities: profiledActivities.length,
+    executionProfiles: executionProfiles.length,
+    queryTargets: expandedTargets.length,
+    unprofiledActivities: activities.length - profiledActivities.length,
   };
 
   for (const symlink of repository.symlinks ?? []) {
@@ -467,12 +496,21 @@ export function validatePedagogyKnowledge(repository, {
   const referenceIds = new Set(referenceIdsList);
   const principleIds = new Set(principleIdsList);
   const activityIds = new Set(activityIdsList);
+  const queryTargetIdsList = expandedTargets.map((target) => target.target_id);
+  const queryTargetIds = new Set(queryTargetIdsList);
   const capabilityIds = new Set(capabilityIdsList);
   const resourceIds = new Set(resourceIdsList);
 
   addDuplicateDiagnostics(errors, referenceIdsList, repository.references.file, '/references', 'reference ID');
   addDuplicateDiagnostics(errors, principleIdsList, PRINCIPLE_DIRECTORY, '/', 'principle ID');
   addDuplicateDiagnostics(errors, activityIdsList, repository.activities.file, '/activities', 'activity ID');
+  addDuplicateDiagnostics(
+    errors,
+    queryTargetIdsList,
+    repository.activities.file,
+    '/activities',
+    'query target ID',
+  );
   addDuplicateDiagnostics(errors, patternIdsList, PATTERN_DIRECTORY, '/', 'pattern ID');
   addDuplicateDiagnostics(errors, capabilityIdsList, repository.taxonomy.file, '/capabilities', 'capability ID');
   addDuplicateDiagnostics(errors, resourceIdsList, repository.taxonomy.file, '/resource_vocabulary', 'resource ID');
@@ -480,6 +518,13 @@ export function validatePedagogyKnowledge(repository, {
   checkSorted(errors, referenceIdsList, repository.references.file, '/references', 'references');
   checkSorted(errors, principleIdsList, PRINCIPLE_DIRECTORY, '/', 'principle files');
   checkSorted(errors, activityIdsList, repository.activities.file, '/activities', 'activities');
+  checkSorted(
+    errors,
+    queryTargetIdsList,
+    repository.activities.file,
+    '/activities',
+    'query targets',
+  );
   checkSorted(errors, capabilityIdsList, repository.taxonomy.file, '/capabilities', 'capabilities');
   checkSorted(errors, resourceIdsList, repository.taxonomy.file, '/resource_vocabulary', 'resources');
   checkSorted(errors, queryIdsList, repository.queries.file, '/fixtures', 'query fixtures');
@@ -579,8 +624,95 @@ export function validatePedagogyKnowledge(repository, {
 
   if (activityCatalogValid) {
     const namesByLanguage = { en: new Map(), et: new Map(), ru: new Map() };
-    for (const [index, activity] of activities.entries()) {
-      const field = `/activities/${index}`;
+    const operationalEntries = [];
+    for (const [activityIndex, baseActivity] of activities.entries()) {
+      const activityField = `/activities/${activityIndex}`;
+      for (const language of ['en', 'et', 'ru']) {
+        const normalized = normalizeName(baseActivity.names[language]);
+        const previous = namesByLanguage[language].get(normalized);
+        if (previous) {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `${activityField}/names/${language}`,
+            `duplicate ${language} activity name also used by ${previous}`,
+          ));
+        } else {
+          namesByLanguage[language].set(normalized, baseActivity.activity_id);
+        }
+      }
+      const grade5Modes = new Set(baseActivity.grade5_science_applicability.delivery_modes);
+      for (const mode of ['classroom', 'homeschool']) {
+        if (!grade5Modes.has(mode)) {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `${activityField}/grade5_science_applicability/delivery_modes`,
+            `grade 5 science applicability must include ${mode}`,
+          ));
+        }
+      }
+      const deliveryCoverage = new Set(
+        (baseActivity.execution_profiles ?? [baseActivity])
+          .flatMap((operational) => operational.delivery_constraints?.delivery_modes ?? []),
+      );
+      for (const mode of grade5Modes) {
+        if (!deliveryCoverage.has(mode)) {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `${activityField}/grade5_science_applicability/delivery_modes`,
+            `grade 5 science delivery mode ${mode} is outside all execution targets`,
+          ));
+        }
+      }
+      if (Array.isArray(baseActivity.execution_profiles)) {
+        const ambiguousFields = OPERATIONAL_ACTIVITY_FIELDS
+          .filter((name) => Object.hasOwn(baseActivity, name));
+        if (ambiguousFields.length > 0) {
+          errors.push(diagnostic(
+            'error',
+            repository.activities.file,
+            `/activities/${activityIndex}`,
+            `profiled activity must not also declare activity-level operational fields: ${ambiguousFields.join(', ')}`,
+          ));
+        }
+        const profileIds = baseActivity.execution_profiles.map((profile) => profile.profile_id);
+        addDuplicateDiagnostics(
+          errors,
+          profileIds,
+          repository.activities.file,
+          `/activities/${activityIndex}/execution_profiles`,
+          `execution profile ID for ${baseActivity.activity_id}`,
+        );
+        checkSorted(
+          errors,
+          profileIds,
+          repository.activities.file,
+          `/activities/${activityIndex}/execution_profiles`,
+          'execution profiles',
+        );
+        for (const [profileIndex, profile] of baseActivity.execution_profiles.entries()) {
+          operationalEntries.push({
+            activity: {
+              ...baseActivity,
+              ...profile,
+              activity_id: baseActivity.activity_id,
+              names: baseActivity.names,
+            },
+            field: `/activities/${activityIndex}/execution_profiles/${profileIndex}`,
+            isProfile: true,
+          });
+        }
+      } else {
+        operationalEntries.push({
+          activity: baseActivity,
+          field: `/activities/${activityIndex}`,
+          isProfile: false,
+        });
+      }
+    }
+    for (const { activity, field, isProfile } of operationalEntries) {
       checkGradeRange(errors, activity.suitable_grades, repository.activities.file, `${field}/suitable_grades`);
       for (const principleId of activity.linked_principle_ids) {
         if (!principleIds.has(principleId)) {
@@ -902,6 +1034,17 @@ export function validatePedagogyKnowledge(repository, {
         ));
       }
       if (
+        activity.safety.risk_level === 'none'
+        && activity.safety.requires_adult_supervision
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/safety`,
+          'a no-risk execution target cannot require adult safety supervision',
+        ));
+      }
+      if (
         activity.safety.requires_adult_supervision
         && !String(activity.homeschool_adaptation.adult_safety_supervision_ru ?? '').trim()
       ) {
@@ -922,6 +1065,17 @@ export function validatePedagogyKnowledge(repository, {
           repository.activities.file,
           `${field}/effort/homeschool_parent/role`,
           'safety-supervised homeschool activity cannot declare parent role none',
+        ));
+      }
+      if (
+        !activity.safety.requires_adult_supervision
+        && parentEffort.role === 'safety_supervision'
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/effort/homeschool_parent/role`,
+          'parent role safety_supervision requires an execution target with a safety need',
         ));
       }
       if (
@@ -951,40 +1105,19 @@ export function validatePedagogyKnowledge(repository, {
         `${field}/taxonomy_assessment`,
         activity.source_provenance,
       );
-      const grade5Modes = new Set(activity.grade5_science_applicability.delivery_modes);
-      for (const mode of ['classroom', 'homeschool']) {
-        if (!grade5Modes.has(mode)) {
-          errors.push(diagnostic(
-            'error',
-            repository.activities.file,
-            `${field}/grade5_science_applicability/delivery_modes`,
-            `grade 5 science applicability must include ${mode}`,
-          ));
-        }
-      }
-      for (const mode of grade5Modes) {
-        if (!activity.delivery_constraints.delivery_modes.includes(mode)) {
-          errors.push(diagnostic(
-            'error',
-            repository.activities.file,
-            `${field}/grade5_science_applicability/delivery_modes`,
-            `grade 5 science delivery mode ${mode} is outside general delivery constraints`,
-          ));
-        }
-      }
-      for (const language of ['en', 'et', 'ru']) {
-        const normalized = normalizeName(activity.names[language]);
-        const previous = namesByLanguage[language].get(normalized);
-        if (previous) {
-          errors.push(diagnostic(
-            'error',
-            repository.activities.file,
-            `${field}/names/${language}`,
-            `duplicate ${language} activity name also used by ${previous}`,
-          ));
-        } else {
-          namesByLanguage[language].set(normalized, activity.activity_id);
-        }
+      if (
+        isProfile
+        && (
+          activity.taxonomy_assessment.claim_origin !== 'project_authored_design'
+          || activity.taxonomy_assessment.confidence.level !== 'provisional'
+        )
+      ) {
+        errors.push(diagnostic(
+          'error',
+          repository.activities.file,
+          `${field}/taxonomy_assessment`,
+          'execution-profile taxonomy assessment must be project_authored_design with provisional confidence',
+        ));
       }
     }
   }
@@ -1017,47 +1150,48 @@ export function validatePedagogyKnowledge(repository, {
           }
         }
       }
-      for (const key of ['expected_include_ids', 'expected_exclude_ids']) {
-        checkSorted(errors, fixture[key], repository.queries.file, `${field}/${key}`, 'activity IDs');
-        for (const activityId of fixture[key]) {
-          if (!activityIds.has(activityId)) {
+      for (const key of ['expected_include_target_ids', 'expected_exclude_target_ids']) {
+        checkSorted(errors, fixture[key], repository.queries.file, `${field}/${key}`, 'query target IDs');
+        for (const targetId of fixture[key]) {
+          if (!queryTargetIds.has(targetId)) {
             errors.push(diagnostic(
               'error',
               repository.queries.file,
               `${field}/${key}`,
-              `unknown pedagogical activity ${activityId}`,
+              `unknown pedagogical query target ${targetId}`,
             ));
           }
         }
       }
-      const overlaps = fixture.expected_include_ids
-        .filter((activityId) => fixture.expected_exclude_ids.includes(activityId));
+      const overlaps = fixture.expected_include_target_ids
+        .filter((targetId) => fixture.expected_exclude_target_ids.includes(targetId));
       if (overlaps.length > 0) {
         errors.push(diagnostic(
           'error',
           repository.queries.file,
           field,
-          `fixture cannot include and exclude the same activity: ${overlaps.join(', ')}`,
+          `fixture cannot include and exclude the same query target: ${overlaps.join(', ')}`,
         ));
       }
       const queryResult = filterPedagogyActivities(activities, fixture.filters);
-      for (const activityId of fixture.expected_include_ids) {
-        if (!queryResult.activity_ids.includes(activityId)) {
+      const selectedTargetIds = queryResult.targets.map((target) => target.target_id);
+      for (const targetId of fixture.expected_include_target_ids) {
+        if (!selectedTargetIds.includes(targetId)) {
           errors.push(diagnostic(
             'error',
             repository.queries.file,
-            `${field}/expected_include_ids`,
-            `query fixture ${fixture.query_id} must include ${activityId}`,
+            `${field}/expected_include_target_ids`,
+            `query fixture ${fixture.query_id} must include ${targetId}`,
           ));
         }
       }
-      for (const activityId of fixture.expected_exclude_ids) {
-        if (queryResult.activity_ids.includes(activityId)) {
+      for (const targetId of fixture.expected_exclude_target_ids) {
+        if (selectedTargetIds.includes(targetId)) {
           errors.push(diagnostic(
             'error',
             repository.queries.file,
-            `${field}/expected_exclude_ids`,
-            `query fixture ${fixture.query_id} must exclude ${activityId}`,
+            `${field}/expected_exclude_target_ids`,
+            `query fixture ${fixture.query_id} must exclude ${targetId}`,
           ));
         }
       }
@@ -1129,7 +1263,7 @@ export function validatePedagogyKnowledge(repository, {
       patterns: 4,
       capabilities: 33,
       resources: 22,
-      queryFixtures: 6,
+      queryFixtures: 7,
     };
     for (const [name, minimum] of Object.entries(minimums)) {
       if (counts[name] < minimum) {

@@ -22,6 +22,10 @@ try {
       + `${result.counts.principles} principles, ${result.counts.activities} activities, `
       + `${result.counts.patterns} patterns, ${result.counts.capabilities} capabilities, `
       + `${result.counts.resources} resources, ${result.counts.queryFixtures} query fixtures, `
+      + `${result.counts.profiledActivities} profiled activities, `
+      + `${result.counts.executionProfiles} execution profiles, `
+      + `${result.counts.queryTargets} deterministic query targets, `
+      + `${result.counts.unprofiledActivities} activities without profiles, `
       + `${result.warnings.length} warnings.`,
     );
   }

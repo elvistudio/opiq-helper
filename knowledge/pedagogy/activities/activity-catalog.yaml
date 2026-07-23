@@ -2265,14 +2265,360 @@ activities:
       ru: Учебные станции
     category: collaborative_learning
     short_description_ru: Ученики последовательно выполняют разные короткие задания на станциях, объединённых одной целью.
-    capabilities:
-      collaborative_practice: primary
-      evidence_based_conclusion: supporting
-      guided_practice: primary
-      independent_practice: supporting
-      measurement: supporting
-      observation: supporting
-      transfer_and_application: supporting
+    execution_profiles:
+      - profile_id: map-data
+        names:
+          en: Map and data stations
+          et: Kaardi- ja andmejaamad
+          ru: Станции с картами и данными
+        description_ru: >-
+          Последовательность станций для чтения карт, схем, таблиц и измерительных
+          данных без практических материалов, требующих надзора.
+        capabilities:
+          classification: supporting
+          comparison: supporting
+          data_interpretation: primary
+          diagram_interpretation: primary
+          guided_practice: supporting
+          independent_practice: primary
+          map_interpretation: primary
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 35
+          supported_group_formats:
+            - individual
+            - pair
+            - small_group
+            - rotating_stations
+          delivery_modes:
+            - classroom
+            - homeschool
+            - independent_study
+            - parent_supported
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 15
+          max_minutes: 45
+        effort:
+          teacher_preparation:
+            level: medium
+            rationale_ru: Учитель подбирает согласованный набор карт, схем и данных с единым маршрутом.
+          teacher_facilitation:
+            level: medium
+            rationale_ru: Учитель моделирует условные обозначения и проверяет переход между представлениями.
+          learner_setup:
+            level: low
+            rationale_ru: Ученик раскладывает готовые источники и ведёт один маршрутный лист.
+          homeschool_parent:
+            level: minimal
+            role: logistical_support
+            role_description_ru: Взрослый выдаёт подготовленные материалы и при наличии ключа помогает сверить комплектность.
+            rationale_ru: Предметное объяснение и постоянное участие взрослого не требуются.
+        learner_independence: developing
+        homeschool_adaptation:
+          status: directly_suitable
+          variants:
+            - independent
+            - parent_child
+          child_responsibility_ru: Самостоятельно читать условные обозначения, выполнять маршрут и сверять записи с заданием.
+          adult_role_ru: Подготовить материалы или ключ и не объяснять предметное содержание вместо ребёнка.
+          adult_safety_supervision_ru: null
+          subject_teacher_responsibility_ru: Подобрать возрастные карты, схемы и данные и дать проверяемые вопросы.
+          limitations_ru:
+            - Домашний вариант не воспроизводит обмен выводами между группами.
+        resource_requirements:
+          required:
+            - dataset
+            - diagram
+            - map
+            - paper
+            - writing_tool
+          optional:
+            - timer
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: false
+          reusable_materials:
+            - diagram
+            - map
+          consumable_materials:
+            - paper
+          setup_minutes: 5
+          cleanup_minutes: 1
+        learner_demands:
+          receptive_language: medium
+          productive_language: low
+          interaction: low
+          reading_load: medium
+          writing_load: low
+          step_complexity: medium
+          working_memory_support: recommended
+          movement_demand: medium
+          sensory_demand: low
+          strategy_familiarity_required: low
+          teacher_modelling: recommended
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Одинаковые значки действий на каждой станции
+            - Русское объяснение условных обозначений
+            - Короткие эстонские подписи и команды
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: directly_supported
+          mixed_ability_group: adaptable
+          remote_delivery: limited
+        safety:
+          risk_level: none
+          requires_adult_supervision: false
+          controls_ru: []
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: >-
+              Операционный профиль карт и данных выведен из нормализованного
+              описания учебных станций и ожидает teacher review.
+      - profile_id: paper-classification
+        names:
+          en: Paper and classification stations
+          et: Paberi- ja liigitamisjaamad
+          ru: Станции с письменными заданиями и классификацией
+        description_ru: >-
+          Короткие письменные, карточные, классификационные и retrieval-задания,
+          которые можно выполнить по общему маршруту без специальных материалов.
+        capabilities:
+          classification: primary
+          formative_assessment: supporting
+          guided_practice: primary
+          independent_practice: primary
+          retrieval: supporting
+          transfer_and_application: supporting
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 35
+          supported_group_formats:
+            - individual
+            - pair
+            - small_group
+            - rotating_stations
+          delivery_modes:
+            - classroom
+            - homeschool
+            - independent_study
+            - parent_supported
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 15
+          max_minutes: 45
+        effort:
+          teacher_preparation:
+            level: medium
+            rationale_ru: Учитель готовит несколько коротких связанных заданий и единый маршрут.
+          teacher_facilitation:
+            level: medium
+            rationale_ru: Учитель объясняет порядок переходов и даёт точечную обратную связь.
+          learner_setup:
+            level: low
+            rationale_ru: Ученик готовит бумагу, письменную принадлежность и при необходимости готовые карточки.
+          homeschool_parent:
+            level: none
+            role: none
+            role_description_ru: Участие взрослого не требуется после выдачи подготовленного маршрута.
+            rationale_ru: Профиль рассчитан на самостоятельное выполнение безопасных бумажных заданий.
+        learner_independence: developing
+        homeschool_adaptation:
+          status: directly_suitable
+          variants:
+            - independent
+            - parent_child
+          child_responsibility_ru: Следовать маршруту, выполнить каждое короткое задание и собрать материалы.
+          adult_role_ru: При необходимости только выдать заранее подготовленный маршрут, не подсказывая ответы.
+          adult_safety_supervision_ru: null
+          subject_teacher_responsibility_ru: Связать станции общей целью и предоставить критерии или ключ самопроверки.
+          limitations_ru:
+            - Один ученик не получает группового обмена, но сохраняет последовательность заданий.
+        resource_requirements:
+          required:
+            - paper
+            - writing_tool
+          optional:
+            - manipulatives
+            - printable_cards
+            - textbook_or_source_text
+            - timer
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: false
+          reusable_materials:
+            - manipulatives
+            - printable_cards
+          consumable_materials:
+            - paper
+          setup_minutes: 5
+          cleanup_minutes: 2
+        learner_demands:
+          receptive_language: low
+          productive_language: low
+          interaction: low
+          reading_load: low
+          writing_load: medium
+          step_complexity: medium
+          working_memory_support: recommended
+          movement_demand: medium
+          sensory_demand: low
+          strategy_familiarity_required: low
+          teacher_modelling: recommended
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Одинаковый формат коротких инструкций
+            - Значки действий и пример первой станции
+            - Русское объяснение и короткие эстонские команды
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: directly_supported
+          mixed_ability_group: adaptable
+          remote_delivery: limited
+        safety:
+          risk_level: none
+          requires_adult_supervision: false
+          controls_ru: []
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: >-
+              Операционный профиль бумажной классификации выведен из
+              нормализованного описания учебных станций и ожидает teacher review.
+      - profile_id: practical-observation-measurement
+        names:
+          en: Practical observation and measurement stations
+          et: Vaatlus- ja mõõtmisjaamad
+          ru: Практические станции наблюдения и измерения
+        description_ru: >-
+          Безопасные наблюдения и измерения на нескольких станциях с возвратом
+          оборудования; профиль не подразумевает эксперимент без управляемого
+          изменения условий.
+        capabilities:
+          evidence_based_conclusion: primary
+          guided_practice: primary
+          independent_practice: supporting
+          measurement: primary
+          observation: primary
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 24
+          supported_group_formats:
+            - individual
+            - pair
+            - small_group
+            - rotating_stations
+          delivery_modes:
+            - classroom
+            - homeschool
+            - parent_supported
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 20
+          max_minutes: 60
+        effort:
+          teacher_preparation:
+            level: high
+            rationale_ru: Учитель проверяет оборудование, инструкции, риски, маршрут и порядок возврата материалов.
+          teacher_facilitation:
+            level: high
+            rationale_ru: Взрослый наблюдает за действиями, контролирует безопасность и обсуждает связь данных с выводом.
+          learner_setup:
+            level: medium
+            rationale_ru: Ученик получает, проверяет и возвращает измерительные материалы по инструкции.
+          homeschool_parent:
+            level: medium
+            role: safety_supervision
+            role_description_ru: Взрослый контролирует материалы, безопасные действия, остановку работы и уборку.
+            rationale_ru: Надзор требуется из-за практического оборудования, но взрослый не заменяет предметное объяснение.
+        learner_independence: developing
+        homeschool_adaptation:
+          status: adaptable
+          variants:
+            - parent_child
+          child_responsibility_ru: Следовать инструкции, записывать наблюдения и измерения и возвращать оборудование.
+          adult_role_ru: Контролировать безопасные действия и порядок, не формулировать вывод вместо ребёнка.
+          adult_safety_supervision_ru: Находиться рядом при работе с оборудованием, иметь право остановить действие и обеспечить уборку.
+          subject_teacher_responsibility_ru: Выбрать безопасные материалы, оценить риски и определить допустимые действия ученика.
+          limitations_ru:
+            - Домашний вариант допустим только с заранее одобренным безопасным набором материалов.
+        resource_requirements:
+          required:
+            - laboratory_materials
+            - measuring_tools
+            - paper
+            - writing_tool
+          optional:
+            - timer
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: true
+          reusable_materials:
+            - laboratory_materials
+            - measuring_tools
+          consumable_materials:
+            - paper
+          setup_minutes: 10
+          cleanup_minutes: 10
+        learner_demands:
+          receptive_language: medium
+          productive_language: low
+          interaction: low
+          reading_load: low
+          writing_load: medium
+          step_complexity: high
+          working_memory_support: required
+          movement_demand: high
+          sensory_demand: medium
+          strategy_familiarity_required: medium
+          teacher_modelling: required
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Пошаговая русская инструкция с пиктограммами
+            - Таблица наблюдений с готовыми колонками
+            - Короткие эстонские команды и подписи инструментов
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: limited
+          mixed_ability_group: adaptable
+          remote_delivery: not_recommended
+        safety:
+          risk_level: low
+          requires_adult_supervision: true
+          controls_ru:
+            - Использовать только заранее проверенные безопасные материалы.
+            - Показать обращение с измерительными инструментами до начала работы.
+            - Немедленно убрать разлив или повреждённое оборудование.
+            - Выполнить уборку и возврат материалов под контролем взрослого.
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: >-
+              Операционный профиль практического наблюдения и измерения выведен
+              из нормализованного описания учебных станций и ожидает teacher review.
     linked_principle_ids:
       - varied-context-and-representation
       - task-chunking
@@ -2293,94 +2639,6 @@ activities:
       - cross_curricular
       - science
       - geography
-    delivery_constraints:
-      group_size:
-        min: 1
-        max: 35
-      supported_group_formats:
-        - individual
-        - pair
-        - small_group
-        - rotating_stations
-      delivery_modes:
-        - classroom
-        - homeschool
-        - parent_supported
-      source_access_during_first_attempt: allowed
-    duration:
-      min_minutes: 20
-      max_minutes: 60
-    effort:
-      teacher_preparation:
-        level: high
-        rationale_ru: Подготовка материалов для «Учебные станции» оценена отдельно от ведения работы.
-      teacher_facilitation:
-        level: high
-        rationale_ru: Уровень учитывает объём моделирования, наблюдения и обратной связи во время «Учебные станции».
-      learner_setup:
-        level: medium
-        rationale_ru: Ученик готовит только перечисленные обязательные ресурсы.
-      homeschool_parent:
-        level: medium
-        role: safety_supervision
-        role_description_ru: Взрослый контролирует безопасное использование материалов и право остановить работу.
-        rationale_ru: Роль ограничена организационной, слушающей, проверочной или безопасностной поддержкой.
-    learner_independence: developing
-    homeschool_adaptation:
-      status: adaptable
-      variants:
-        - independent
-        - parent_child
-      child_responsibility_ru: Следовать маршруту, завершать запись на каждой станции и убирать материалы.
-      adult_role_ru: Разложить материалы и следить за временем, не выполнять задания вместо ребёнка.
-      adult_safety_supervision_ru: Контролировать любые практические материалы в соответствии с инструкцией учителя.
-      subject_teacher_responsibility_ru: Разработать связанные задания, маршрут, ответы и правила безопасности.
-      limitations_ru:
-        - Домашняя последовательность не даёт взаимодействия нескольких групп.
-    resource_requirements:
-      required:
-        - manipulatives
-        - paper
-        - writing_tool
-      optional:
-        - laboratory_materials
-        - measuring_tools
-        - timer
-      printer_required: false
-      internet_required: false
-      shared_display_required: false
-      outdoor_access_required: false
-      laboratory_materials_required: false
-      reusable_materials:
-        - manipulatives
-      consumable_materials:
-        - paper
-      setup_minutes: 10
-      cleanup_minutes: 5
-    learner_demands:
-      receptive_language: medium
-      productive_language: medium
-      interaction: medium
-      reading_load: low
-      writing_load: medium
-      step_complexity: medium
-      working_memory_support: recommended
-      movement_demand: high
-      sensory_demand: medium
-      strategy_familiarity_required: low
-      teacher_modelling: required
-      estonian_a1_a2_compatibility: supported_with_scaffold
-      scaffolds_ru:
-        - Одинаковый формат инструкций
-        - Значки действий
-        - Русское объяснение и короткие эстонские команды
-    compatibility:
-      offline: directly_supported
-      no_printer: directly_supported
-      one_learner: directly_supported
-      large_class: directly_supported
-      mixed_ability_group: adaptable
-      remote_delivery: not_recommended
     accessibility:
       supports_ru:
         - Короткие разнообразные этапы и возможность движения.
@@ -2392,12 +2650,6 @@ activities:
         - Сократить число станций
         - Дать фиксированный порядок
         - Организовать сидячие станции.
-    safety:
-      risk_level: low
-      requires_adult_supervision: true
-      controls_ru:
-        - Проверить проходы
-        - материалы и отдельные инструкции безопасности каждой станции.
     risks_and_misuse:
       - risk_id: station-busywork
         description_ru: Станции становятся набором несвязанных быстрых заданий.
@@ -2431,12 +2683,6 @@ activities:
         - homeschool
       classroom_example_ru: Станции по распознаванию минералов, чтению таблицы и терминологии с общей итоговой классификацией.
       homeschool_example_ru: Разложить три последовательных мини-задания и выполнить их по маршрутному листу с взрослым надзором.
-    taxonomy_assessment:
-      claim_origin: project_authored_design
-      reference_ids: []
-      confidence:
-        level: provisional
-        rationale: Операционная классификация «Учебные станции» выведена из нормализованного описания и ожидает teacher review.
     confidence:
       level: medium
       rationale: Метод подтверждён каталогом; подготовка, безопасность и связность определяют пригодность конкретной реализации.

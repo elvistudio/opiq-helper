@@ -9,8 +9,9 @@ method names.
 
 The initial production data contains 2 references, 15 principles, 30
 activities, 4 patterns, taxonomy 1.0 with 33 capabilities and 22 resource
-values, and 6 grade-5 filtering fixtures. The catalog is intentionally not
-exhaustive.
+values, and 7 grade-5 filtering fixtures. One activity family has 3 execution
+profiles, so the catalog exposes 32 deterministic query targets. The catalog
+is intentionally not exhaustive.
 
 It is not:
 
@@ -164,6 +165,21 @@ learner/parent effort, learner independence, required and optional resources,
 learner demands, accessibility, safety, misuse risks, assessment role,
 provenance, and confidence.
 
+Usually those operational fields live directly on the activity. When one
+method family has materially different resource, safety, effort, demand, or
+delivery forms, it may instead use `execution_profiles`. Family fields
+(identity, principles, phases, grades, subjects, provenance, guidance, and
+general risks) are inherited. Every profile then supplies one complete
+operational block; profiled activities cannot also declare competing
+activity-level operational ratings.
+
+Queries use the plain activity ID for an unprofiled method and
+`activity-id::profile-id` for a concrete profile. In the initial catalog,
+paper, map/data, and practical observation/measurement learning stations are
+separate targets. Only the practical profile requires adult safety
+supervision. Profiles describe executable constraints; they are not lesson DNA
+and do not prescribe a lesson sequence.
+
 Learner demand is multidimensional: receptive and productive language,
 interaction, reading, writing, step complexity, movement, sensory demand,
 strategy familiarity, teacher modelling, Estonian A1–A2 compatibility, and
@@ -189,7 +205,7 @@ The separate [pedagogical taxonomy](pedagogical-taxonomy.md) documents
 capability strength, resource vocabulary, effort levels, delivery logic,
 project-authored rating provenance, and deterministic filtering. Omitted sparse
 capabilities mean `none`; every activity still requires a `primary`
-capability. The six query fixtures demonstrate filtering only—there is no
+capability. The seven query fixtures demonstrate filtering only—there is no
 weighted ranking, lesson composition, or effectiveness claim.
 
 ## Flexible patterns
@@ -252,8 +268,8 @@ can inspect it for examples such as:
 | Need | Candidate principles and activities |
 | --- | --- |
 | Introduce a new science concept | prior-knowledge free-write or prediction → guided reading or visual representation → self-explanation → retrieval summary |
-| Conduct a practical investigation | safe-practical pattern, visible criteria, chunked steps, two-column observation, explicit adult safety role |
-| Work with a map | visual representation, sorting and sequencing, or supported back-to-back description |
+| Conduct a practical investigation | safe-practical pattern, practical observation/measurement stations, visible criteria, chunked steps, and explicit adult safety role |
+| Work with a map | map/data stations, visual representation, sorting and sequencing, or supported back-to-back description |
 | Compare ecosystems | Venn diagram, concept map, sorting, or Frayer model with a Russian scientific explanation |
 | Produce an Estonian A1–A2 oral answer | Russian concept formation followed by a model sentence, peer rehearsal, and one short supported output |
 | Study independently at home | independent-homeschool pattern with delayed retrieval, protected answer access, correction, and weekly review |
@@ -269,6 +285,7 @@ Run:
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy
+npm run query:pedagogy
 npm run query:pedagogy -- --fixture concept-introduction-whole-class
 ```
 
@@ -288,10 +305,15 @@ The validator checks:
 - copyright and official-authority boundaries;
 - source versus project attribution;
 - confidence rationale;
-- six deterministic query fixtures without ranking;
+- seven deterministic query fixtures and 32 profile-aware targets without ranking;
 - absence of PDFs and symlinks.
 
 Schema validation proves internal consistency only. It cannot establish
 effectiveness, learner fit, scientific accuracy of future lesson content, or
 classroom readiness. Qualified teacher review remains required before a
 selection affects production materials.
+
+The current profiles and taxonomy ratings remain provisional and are not yet
+teacher-validated. Profiling is intentionally limited to methods with
+meaningful operational differences. Weighted selection and composition are
+deferred to #59; homeschool package generation is deferred to #60.

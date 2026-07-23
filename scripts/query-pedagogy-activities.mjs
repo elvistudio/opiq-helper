@@ -94,55 +94,66 @@ try {
     throw new Error(`pedagogical knowledge is invalid (${validation.errors.length} errors)`);
   }
   const parsed = parseArguments(process.argv.slice(2));
-  let filters = parsed.filters;
-  if (parsed.fixtureId) {
-    const fixture = repository.queries.data.fixtures
-      .find((candidate) => candidate.query_id === parsed.fixtureId);
-    if (!fixture) throw new Error(`unknown query fixture ${parsed.fixtureId}`);
-    filters = fixture.filters;
-  } else {
-    const validators = createPedagogySchemaValidators(repository.schemas);
-    const probe = {
-      schema_version: '1.0',
-      artifact_type: 'pedagogical_query_fixtures',
-      taxonomy_version: repository.taxonomy.data.taxonomy_version,
+  if (process.argv.slice(2).length === 0) {
+    const fixtures = repository.queries.data.fixtures.map((fixture) => ({
+      query_id: fixture.query_id,
+      ...filterPedagogyActivities(repository.activities.data.activities, fixture.filters),
+    }));
+    console.log(`${JSON.stringify({
       selection_mode: 'deterministic_filtering_without_ranking',
-      fixtures: [{
-        query_id: 'cli-query',
-        description_ru: 'Проверка параметров командной строки.',
-        filters,
-        expected_include_ids: [repository.activities.data.activities[0].activity_id],
-        expected_exclude_ids: [repository.activities.data.activities[1].activity_id],
-        ordering: 'activity_id_bytewise',
-      }],
-    };
-    if (!validators.query(probe)) {
-      throw new Error(`invalid query filters: ${validators.query.errors.map((item) => item.message).join('; ')}`);
-    }
-    if (
-      filters.group_size_range
-      && filters.group_size_range.min > filters.group_size_range.max
-    ) {
-      throw new Error('invalid query filters: group-size minimum must not exceed maximum');
-    }
-    const capabilityIds = new Set(
-      repository.taxonomy.data.capabilities.map((item) => item.capability_id),
-    );
-    for (const capabilityId of [
-      ...(filters.required_capabilities_all ?? []),
-      ...(filters.required_capabilities_any ?? []),
-    ]) {
-      if (!capabilityIds.has(capabilityId)) {
-        throw new Error(`invalid query filters: unknown capability ${capabilityId}`);
+      fixtures,
+    }, null, 2)}\n`);
+  } else {
+    let filters = parsed.filters;
+    if (parsed.fixtureId) {
+      const fixture = repository.queries.data.fixtures
+        .find((candidate) => candidate.query_id === parsed.fixtureId);
+      if (!fixture) throw new Error(`unknown query fixture ${parsed.fixtureId}`);
+      filters = fixture.filters;
+    } else {
+      const validators = createPedagogySchemaValidators(repository.schemas);
+      const probe = {
+        schema_version: '1.0',
+        artifact_type: 'pedagogical_query_fixtures',
+        taxonomy_version: repository.taxonomy.data.taxonomy_version,
+        selection_mode: 'deterministic_filtering_without_ranking',
+        fixtures: [{
+          query_id: 'cli-query',
+          description_ru: 'Проверка параметров командной строки.',
+          filters,
+          expected_include_target_ids: [repository.activities.data.activities[0].activity_id],
+          expected_exclude_target_ids: [repository.activities.data.activities[1].activity_id],
+          ordering: 'target_id_bytewise',
+        }],
+      };
+      if (!validators.query(probe)) {
+        throw new Error(`invalid query filters: ${validators.query.errors.map((item) => item.message).join('; ')}`);
+      }
+      if (
+        filters.group_size_range
+        && filters.group_size_range.min > filters.group_size_range.max
+      ) {
+        throw new Error('invalid query filters: group-size minimum must not exceed maximum');
+      }
+      const capabilityIds = new Set(
+        repository.taxonomy.data.capabilities.map((item) => item.capability_id),
+      );
+      for (const capabilityId of [
+        ...(filters.required_capabilities_all ?? []),
+        ...(filters.required_capabilities_any ?? []),
+      ]) {
+        if (!capabilityIds.has(capabilityId)) {
+          throw new Error(`invalid query filters: unknown capability ${capabilityId}`);
+        }
       }
     }
+    const output = filterPedagogyActivities(
+      repository.activities.data.activities,
+      filters,
+      { debug: parsed.debug },
+    );
+    console.log(`${JSON.stringify({ filters, ...output }, null, 2)}\n`);
   }
-  const output = filterPedagogyActivities(
-    repository.activities.data.activities,
-    filters,
-    { debug: parsed.debug },
-  );
-  console.log(`${JSON.stringify({ filters, ...output }, null, 2)}\n`);
 } catch (error) {
   console.error(`Pedagogical activity query failed: ${error.message}`);
   process.exitCode = 1;

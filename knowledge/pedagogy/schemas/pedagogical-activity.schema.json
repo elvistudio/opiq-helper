@@ -33,29 +33,18 @@
         "names",
         "category",
         "short_description_ru",
-        "capabilities",
         "linked_principle_ids",
         "suitable_lesson_phases",
         "suitable_grades",
         "content_types",
         "subjects",
-        "delivery_constraints",
-        "duration",
-        "effort",
-        "learner_independence",
-        "homeschool_adaptation",
-        "resource_requirements",
-        "learner_demands",
-        "compatibility",
         "accessibility",
-        "safety",
         "risks_and_misuse",
         "contraindications_ru",
         "assessment_roles",
         "source_provenance",
         "project_authored_guidance",
         "grade5_science_applicability",
-        "taxonomy_assessment",
         "confidence"
       ],
       "properties": {
@@ -80,6 +69,13 @@
         "short_description_ru": {
           "type": "string",
           "minLength": 1
+        },
+        "execution_profiles": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/executionProfile"
+          }
         },
         "capabilities": {
           "type": "object",
@@ -511,6 +507,109 @@
         },
         "confidence": {
           "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/confidence"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "capabilities",
+            "delivery_constraints",
+            "duration",
+            "effort",
+            "learner_independence",
+            "homeschool_adaptation",
+            "resource_requirements",
+            "learner_demands",
+            "compatibility",
+            "safety",
+            "taxonomy_assessment"
+          ],
+          "properties": {
+            "capabilities": true,
+            "delivery_constraints": true,
+            "duration": true,
+            "effort": true,
+            "learner_independence": true,
+            "homeschool_adaptation": true,
+            "resource_requirements": true,
+            "learner_demands": true,
+            "compatibility": true,
+            "safety": true,
+            "taxonomy_assessment": true
+          }
+        },
+        {
+          "required": [
+            "execution_profiles"
+          ],
+          "properties": {
+            "execution_profiles": true
+          }
+        }
+      ]
+    },
+    "executionProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_id",
+        "names",
+        "description_ru",
+        "capabilities",
+        "delivery_constraints",
+        "duration",
+        "effort",
+        "learner_independence",
+        "homeschool_adaptation",
+        "resource_requirements",
+        "learner_demands",
+        "compatibility",
+        "safety",
+        "taxonomy_assessment"
+      ],
+      "properties": {
+        "profile_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "names": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/localizedNames"
+        },
+        "description_ru": {
+          "type": "string",
+          "minLength": 1
+        },
+        "capabilities": {
+          "$ref": "#/$defs/activity/properties/capabilities"
+        },
+        "delivery_constraints": {
+          "$ref": "#/$defs/activity/properties/delivery_constraints"
+        },
+        "duration": {
+          "$ref": "#/$defs/activity/properties/duration"
+        },
+        "effort": {
+          "$ref": "#/$defs/activity/properties/effort"
+        },
+        "learner_independence": {
+          "$ref": "#/$defs/activity/properties/learner_independence"
+        },
+        "homeschool_adaptation": {
+          "$ref": "#/$defs/activity/properties/homeschool_adaptation"
+        },
+        "resource_requirements": {
+          "$ref": "#/$defs/activity/properties/resource_requirements"
+        },
+        "learner_demands": {
+          "$ref": "#/$defs/activity/properties/learner_demands"
+        },
+        "compatibility": {
+          "$ref": "#/$defs/activity/properties/compatibility"
+        },
+        "safety": {
+          "$ref": "#/$defs/activity/properties/safety"
+        },
+        "taxonomy_assessment": {
+          "$ref": "#/$defs/activity/properties/taxonomy_assessment"
         }
       }
     }

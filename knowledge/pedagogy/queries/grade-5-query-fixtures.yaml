@@ -13,9 +13,9 @@ fixtures:
       required_capabilities_all: [collaborative_practice]
       minimum_capability_level: supporting
       max_teacher_preparation: medium
-    expected_include_ids: [brainstorming, gallery-walk]
-    expected_exclude_ids: [jigsaw, learning-stations]
-    ordering: activity_id_bytewise
+    expected_include_target_ids: [brainstorming, gallery-walk]
+    expected_exclude_target_ids: [jigsaw, "learning-stations::paper-classification"]
+    ordering: target_id_bytewise
   - query_id: concept-introduction-whole-class
     description_ru: >-
       Введение природоведческого понятия в целом классе с русским объяснением
@@ -31,9 +31,9 @@ fixtures:
       minimum_capability_level: supporting
       estonian_a1_a2_compatibility: [directly_supported, supported_with_scaffold]
       max_duration_minutes: 45
-    expected_include_ids: [guided-reading]
-    expected_exclude_ids: [jigsaw, prior-knowledge-free-write]
-    ordering: activity_id_bytewise
+    expected_include_target_ids: [guided-reading]
+    expected_exclude_target_ids: [jigsaw, prior-knowledge-free-write]
+    ordering: target_id_bytewise
   - query_id: homeschool-low-support-retrieval
     description_ru: >-
       Самостоятельное домашнее воспроизведение или самообъяснение без сети и
@@ -50,9 +50,31 @@ fixtures:
       max_parent_effort: minimal
       offline: true
       no_printer: true
-    expected_include_ids: [one-minute-recall, retrieval-self-test, self-explanation]
-    expected_exclude_ids: [jigsaw, peer-teaching]
-    ordering: activity_id_bytewise
+    expected_include_target_ids: [one-minute-recall, retrieval-self-test, self-explanation]
+    expected_exclude_target_ids: [jigsaw, peer-teaching]
+    ordering: target_id_bytewise
+  - query_id: homeschool-paper-stations-low-support
+    description_ru: >-
+      Бумажные станции для одного ученика дома без сети, принтера и надзора
+      по безопасности, с участием взрослого не выше низкого.
+    filters:
+      grade: 5
+      subject: science
+      lesson_phase: independent_practice
+      delivery_mode: homeschool
+      group_size: 1
+      group_formats_any: [individual]
+      required_capabilities_all: [classification, retrieval]
+      minimum_capability_level: supporting
+      max_parent_effort: low
+      offline: true
+      no_printer: true
+      adult_safety_supervision_required: false
+    expected_include_target_ids: ["learning-stations::paper-classification"]
+    expected_exclude_target_ids:
+      - "learning-stations::map-data"
+      - "learning-stations::practical-observation-measurement"
+    ordering: target_id_bytewise
   - query_id: map-diagram-low-language
     description_ru: Индивидуальная или парная работа с картой или схемой при низкой продуктивной языковой нагрузке.
     filters:
@@ -63,9 +85,12 @@ fixtures:
       required_capabilities_any: [diagram_interpretation, map_interpretation]
       minimum_capability_level: supporting
       max_productive_language: low
-    expected_include_ids: [visual-representation]
-    expected_exclude_ids: [back-to-back-description, jigsaw]
-    ordering: activity_id_bytewise
+    expected_include_target_ids: ["learning-stations::map-data", visual-representation]
+    expected_exclude_target_ids:
+      - back-to-back-description
+      - "learning-stations::paper-classification"
+      - "learning-stations::practical-observation-measurement"
+    ordering: target_id_bytewise
   - query_id: retrieval-with-error-correction
     description_ru: Воспроизведение и исправление ошибки без доступа к источнику во время первой попытки.
     filters:
@@ -74,9 +99,9 @@ fixtures:
       required_capabilities_all: [error_correction, retrieval]
       minimum_capability_level: supporting
       source_access_during_first_attempt: prohibited
-    expected_include_ids: [delayed-homework-retrieval, retrieval-self-test]
-    expected_exclude_ids: [error-correction, guided-reading]
-    ordering: activity_id_bytewise
+    expected_include_target_ids: [delayed-homework-retrieval, retrieval-self-test]
+    expected_exclude_target_ids: [error-correction, guided-reading]
+    ordering: target_id_bytewise
   - query_id: safe-practical-observation
     description_ru: Безопасная практическая работа с наблюдением или измерением под контролем взрослого.
     filters:
@@ -86,6 +111,10 @@ fixtures:
       required_capabilities_any: [measurement, observation]
       minimum_capability_level: supporting
       adult_safety_supervision_required: true
-    expected_include_ids: [learning-stations]
-    expected_exclude_ids: [retrieval-self-test, visual-representation]
-    ordering: activity_id_bytewise
+    expected_include_target_ids: ["learning-stations::practical-observation-measurement"]
+    expected_exclude_target_ids:
+      - "learning-stations::map-data"
+      - "learning-stations::paper-classification"
+      - retrieval-self-test
+      - visual-representation
+    ordering: target_id_bytewise

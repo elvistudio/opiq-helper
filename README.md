@@ -200,13 +200,15 @@ The regression set checks representative positive evidence and wrong-route bound
 
 The pedagogical knowledge base normalizes source provenance, copyright status,
 confidence, capabilities, delivery constraints, effort, resources, learner
-demands, homeschool roles, and misuse risks. Its deterministic query helper
-filters validated records but does not rank effectiveness, compose lessons, or
-change production artifacts.
+demands, homeschool roles, misuse risks, and concrete execution profiles when
+one method family has materially different resource or safety forms. Its
+deterministic query helper filters validated targets but does not rank
+effectiveness, compose lessons, or change production artifacts.
 
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy
+npm run query:pedagogy
 npm run query:pedagogy -- --fixture map-diagram-low-language
 ```
 

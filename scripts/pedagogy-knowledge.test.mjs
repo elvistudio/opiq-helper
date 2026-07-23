@@ -35,7 +35,11 @@ test('production pedagogical knowledge validates', () => {
     patterns: 4,
     capabilities: 33,
     resources: 22,
-    queryFixtures: 6,
+    queryFixtures: 7,
+    profiledActivities: 1,
+    executionProfiles: 3,
+    queryTargets: 32,
+    unprofiledActivities: 29,
   });
 });
 
@@ -454,10 +458,12 @@ test('production patterns remain recommendations rather than lesson DNA', () => 
 
 test('production homeschool records separate child, adult, safety, and teacher roles', () => {
   for (const activity of production.activities.data.activities) {
-    assert.ok(activity.homeschool_adaptation.child_responsibility_ru);
-    assert.ok(activity.homeschool_adaptation.adult_role_ru);
-    assert.ok(Object.hasOwn(activity.homeschool_adaptation, 'adult_safety_supervision_ru'));
-    assert.ok(activity.homeschool_adaptation.subject_teacher_responsibility_ru);
+    for (const operational of activity.execution_profiles ?? [activity]) {
+      assert.ok(operational.homeschool_adaptation.child_responsibility_ru);
+      assert.ok(operational.homeschool_adaptation.adult_role_ru);
+      assert.ok(Object.hasOwn(operational.homeschool_adaptation, 'adult_safety_supervision_ru'));
+      assert.ok(operational.homeschool_adaptation.subject_teacher_responsibility_ru);
+    }
   }
   for (const artifact of production.patterns) {
     for (const pattern of artifact.data.patterns) {

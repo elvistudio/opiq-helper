@@ -9,8 +9,8 @@ The initial catalog contains:
 - 15 pedagogical principles;
 - 30 classroom and homeschool-adaptable activities;
 - four flexible pedagogical patterns;
-- taxonomy 1.0 with 33 capabilities, 22 resource values, and six deterministic
-  grade-5 filtering fixtures.
+- taxonomy 1.0 with 33 capabilities, 22 resource values, seven deterministic
+  grade-5 filtering fixtures, and 32 query targets.
 
 ## Structure
 
@@ -22,7 +22,8 @@ The initial catalog contains:
   demand, effort, group, delivery, and compatibility vocabulary.
 - `activities/activity-catalog.yaml` describes capability strength, delivery
   constraints, resources, effort, learner demands, safety, homeschool roles,
-  and provenance.
+  and provenance. It may use strict execution profiles when one method family
+  has materially different operational forms.
 - `queries/grade-5-query-fixtures.yaml` proves deterministic filtering without
   weighted ranking or lesson composition.
 - `patterns/*.yaml` combines principles and activity options into flexible
@@ -54,6 +55,7 @@ examples, or long passages.
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy
+npm run query:pedagogy
 npm run query:pedagogy -- --fixture homeschool-low-support-retrieval
 ```
 
@@ -62,6 +64,12 @@ capability strength, group logic, effort, resources, learner demands,
 homeschool and safety roles, copyright rules, provenance, confidence, query
 fixtures, and deterministic ordering. Structural validity does not prove
 pedagogical effectiveness; application still requires teacher review.
+
+An unprofiled method is queried by its `activity_id`. A concrete execution
+profile uses `activity_id::profile_id`; `::` is reserved and forbidden inside
+either component. Profiles inherit family identity, provenance, principles,
+phases, grades, and subjects, but own the complete operational metadata block.
+They do not rank methods or define lesson DNA.
 
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.

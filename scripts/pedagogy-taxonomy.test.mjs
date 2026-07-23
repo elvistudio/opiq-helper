@@ -1,14 +1,18 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import test from 'node:test';
 import {
   clonePedagogyKnowledge,
+  createPedagogySchemaValidators,
   loadPedagogyKnowledge,
   validatePedagogyKnowledge,
 } from './lib/pedagogy-knowledge.mjs';
 import {
+  expandPedagogyActivityTargets,
   explainPedagogyActivityMatch,
   filterPedagogyActivities,
+  PEDAGOGY_TARGET_SEPARATOR,
 } from './lib/pedagogy-query.mjs';
 
 const production = await loadPedagogyKnowledge();
@@ -21,6 +25,17 @@ function fresh() {
 function activity(repository, activityId) {
   return repository.activities.data.activities
     .find((candidate) => candidate.activity_id === activityId);
+}
+
+function profile(repository, activityId, profileId) {
+  return activity(repository, activityId).execution_profiles
+    .find((candidate) => candidate.profile_id === profileId);
+}
+
+function operationalRecords(repository = production) {
+  return repository.activities.data.activities.flatMap((candidate) => (
+    candidate.execution_profiles ?? [candidate]
+  ));
 }
 
 function messages(result) {
@@ -42,14 +57,19 @@ test('taxonomy 1.0 exposes the required production vocabulary', () => {
 test('all 30 production activities have migrated taxonomy metadata', () => {
   assert.equal(activities.length, 30);
   for (const candidate of activities) {
-    assert.ok(Object.values(candidate.capabilities).includes('primary'), candidate.activity_id);
-    assert.ok(candidate.delivery_constraints.group_size, candidate.activity_id);
-    assert.ok(candidate.effort.teacher_preparation.rationale_ru, candidate.activity_id);
-    assert.ok(candidate.effort.teacher_facilitation.rationale_ru, candidate.activity_id);
-    assert.ok(candidate.effort.homeschool_parent.role_description_ru, candidate.activity_id);
-    assert.ok(candidate.resource_requirements, candidate.activity_id);
-    assert.ok(candidate.learner_demands, candidate.activity_id);
-    assert.ok(candidate.taxonomy_assessment.confidence.rationale, candidate.activity_id);
+    for (const operational of candidate.execution_profiles ?? [candidate]) {
+      const label = candidate.execution_profiles
+        ? `${candidate.activity_id}${PEDAGOGY_TARGET_SEPARATOR}${operational.profile_id}`
+        : candidate.activity_id;
+      assert.ok(Object.values(operational.capabilities).includes('primary'), label);
+      assert.ok(operational.delivery_constraints.group_size, label);
+      assert.ok(operational.effort.teacher_preparation.rationale_ru, label);
+      assert.ok(operational.effort.teacher_facilitation.rationale_ru, label);
+      assert.ok(operational.effort.homeschool_parent.role_description_ru, label);
+      assert.ok(operational.resource_requirements, label);
+      assert.ok(operational.learner_demands, label);
+      assert.ok(operational.taxonomy_assessment.confidence.rationale, label);
+    }
   }
 });
 
@@ -91,13 +111,272 @@ test('back-to-back description remains a pair and oral method', () => {
   assert.equal(candidate.compatibility.one_learner, 'adaptable');
 });
 
-test('learning stations expose supervised practical capabilities', () => {
+test('learning stations expose three distinct execution profiles', () => {
   const candidate = activities.find((item) => item.activity_id === 'learning-stations');
-  assert.equal(candidate.capabilities.observation, 'supporting');
-  assert.equal(candidate.capabilities.measurement, 'supporting');
-  assert.equal(candidate.safety.requires_adult_supervision, true);
-  assert.equal(candidate.effort.homeschool_parent.role, 'safety_supervision');
-  assert.ok(candidate.resource_requirements.optional.includes('laboratory_materials'));
+  assert.deepEqual(
+    candidate.execution_profiles.map((item) => item.profile_id),
+    ['map-data', 'paper-classification', 'practical-observation-measurement'],
+  );
+  const paper = candidate.execution_profiles[1];
+  const practical = candidate.execution_profiles[2];
+  assert.equal(paper.safety.requires_adult_supervision, false);
+  assert.equal(paper.effort.homeschool_parent.role, 'none');
+  assert.ok(!paper.resource_requirements.required.includes('laboratory_materials'));
+  assert.equal(practical.capabilities.observation, 'primary');
+  assert.equal(practical.capabilities.measurement, 'primary');
+  assert.equal(practical.safety.requires_adult_supervision, true);
+  assert.equal(practical.effort.homeschool_parent.role, 'safety_supervision');
+  assert.ok(practical.resource_requirements.required.includes('laboratory_materials'));
+});
+
+test('profiled learning-stations catalog passes the strict activity schema', () => {
+  const validators = createPedagogySchemaValidators(production.schemas);
+  const candidate = activity(production, 'learning-stations');
+  assert.equal(validators.activity({
+    schema_version: '1.0',
+    artifact_type: 'pedagogical_activity_catalog',
+    activities: [candidate],
+  }), true);
+});
+
+test('duplicate execution profile ID fails', () => {
+  const repository = fresh();
+  const candidate = activity(repository, 'learning-stations');
+  candidate.execution_profiles[2].profile_id = candidate.execution_profiles[1].profile_id;
+  expectInvalid(repository, /duplicate execution profile ID/u);
+});
+
+test('execution profile missing an operational field fails', () => {
+  const repository = fresh();
+  delete profile(repository, 'learning-stations', 'map-data').learner_demands;
+  expectInvalid(repository, /execution_profiles|learner_demands/u);
+});
+
+test('activity cannot mix execution profiles with activity-level operational ratings', () => {
+  const repository = fresh();
+  activity(repository, 'learning-stations').capabilities = { classification: 'primary' };
+  expectInvalid(repository, /profiled activity must not also declare activity-level operational fields/u);
+});
+
+test('invalid composed query target separator fails', () => {
+  const repository = fresh();
+  repository.queries.data.fixtures[0].expected_exclude_target_ids[0] = 'jigsaw/pair';
+  expectInvalid(repository, /expected_exclude_target_ids|must match pattern/u);
+});
+
+test('execution profile with dangling capability fails', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'paper-classification')
+    .capabilities.telepathy = 'primary';
+  expectInvalid(repository, /unknown pedagogical capability telepathy/u);
+});
+
+test('execution profile with dangling resource fails', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'map-data')
+    .resource_requirements.optional.push('hologram');
+  expectInvalid(repository, /unknown pedagogical resource hologram/u);
+});
+
+test('no-risk paper station cannot require adult safety supervision', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'paper-classification')
+    .safety.requires_adult_supervision = true;
+  expectInvalid(repository, /no-risk execution target cannot require adult safety supervision/u);
+});
+
+test('no-risk paper station cannot assign parent safety-supervision role', () => {
+  const repository = fresh();
+  const parent = profile(repository, 'learning-stations', 'paper-classification')
+    .effort.homeschool_parent;
+  parent.level = 'medium';
+  parent.role = 'safety_supervision';
+  expectInvalid(repository, /parent role safety_supervision requires an execution target with a safety need/u);
+});
+
+test('practical profile has coherent safety supervision and parent role', () => {
+  const practical = profile(
+    production,
+    'learning-stations',
+    'practical-observation-measurement',
+  );
+  assert.equal(practical.safety.risk_level, 'low');
+  assert.equal(practical.safety.requires_adult_supervision, true);
+  assert.equal(practical.effort.homeschool_parent.role, 'safety_supervision');
+  assert.ok(practical.homeschool_adaptation.adult_safety_supervision_ru);
+});
+
+test('laboratory requirement needs laboratory material in required resources', () => {
+  const repository = fresh();
+  const practical = profile(
+    repository,
+    'learning-stations',
+    'practical-observation-measurement',
+  );
+  practical.resource_requirements.required =
+    practical.resource_requirements.required.filter((resource) => resource !== 'laboratory_materials');
+  expectInvalid(repository, /laboratory_materials_required true requires laboratory_materials/u);
+});
+
+test('profile printer requirement needs a printable required resource', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'paper-classification')
+    .resource_requirements.printer_required = true;
+  expectInvalid(repository, /printer_required true requires printed_worksheet or printable_cards/u);
+});
+
+test('profile required and optional resources remain distinct', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'paper-classification')
+    .resource_requirements.optional.unshift('paper');
+  expectInvalid(repository, /required and optional resources overlap/u);
+});
+
+test('profile internet requirement contradicts direct offline compatibility', () => {
+  const repository = fresh();
+  const mapData = profile(repository, 'learning-stations', 'map-data');
+  mapData.resource_requirements.required.unshift('internet');
+  mapData.resource_requirements.internet_required = true;
+  expectInvalid(repository, /internet-required activity cannot claim positive offline compatibility/u);
+});
+
+test('profile positive remote compatibility requires remote delivery mode', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'map-data').compatibility.remote_delivery =
+    'adaptable';
+  expectInvalid(repository, /positive remote compatibility requires remote delivery mode/u);
+});
+
+test('profile-specific delivery restriction is valid when another profile covers family homeschool use', () => {
+  const repository = fresh();
+  const mapData = profile(repository, 'learning-stations', 'map-data');
+  mapData.delivery_constraints.delivery_modes = ['classroom'];
+  mapData.homeschool_adaptation.status = 'not_recommended';
+  const result = validatePedagogyKnowledge(repository);
+  assert.equal(result.valid, true, messages(result));
+});
+
+test('execution profile taxonomy assessment remains project-authored and provisional', () => {
+  const repository = fresh();
+  profile(repository, 'learning-stations', 'map-data')
+    .taxonomy_assessment.confidence.level = 'medium';
+  expectInvalid(repository, /execution-profile taxonomy assessment must be project_authored_design with provisional confidence/u);
+});
+
+test('unprofiled activity expands to a plain deterministic target', () => {
+  const targets = expandPedagogyActivityTargets([
+    activity(production, 'one-minute-recall'),
+  ]);
+  assert.deepEqual(targets.map((target) => ({
+    target_id: target.target_id,
+    activity_id: target.activity_id,
+    execution_profile_id: target.execution_profile_id,
+  })), [{
+    target_id: 'one-minute-recall',
+    activity_id: 'one-minute-recall',
+    execution_profile_id: null,
+  }]);
+});
+
+test('profiled activity expands to composed deterministic targets', () => {
+  const targets = expandPedagogyActivityTargets([
+    activity(production, 'learning-stations'),
+  ]);
+  assert.deepEqual(
+    targets.map((target) => target.target_id),
+    [
+      'learning-stations::map-data',
+      'learning-stations::paper-classification',
+      'learning-stations::practical-observation-measurement',
+    ],
+  );
+});
+
+test('safe practical filtering selects only the practical learning-stations profile', () => {
+  const fixture = production.queries.data.fixtures
+    .find((candidate) => candidate.query_id === 'safe-practical-observation');
+  const result = filterPedagogyActivities(activities, fixture.filters);
+  assert.deepEqual(
+    result.targets.filter((target) => target.activity_id === 'learning-stations'),
+    [{
+      target_id: 'learning-stations::practical-observation-measurement',
+      activity_id: 'learning-stations',
+      execution_profile_id: 'practical-observation-measurement',
+    }],
+  );
+});
+
+test('low-support homeschool filtering selects the paper profile without safety supervision', () => {
+  const fixture = production.queries.data.fixtures
+    .find((candidate) => candidate.query_id === 'homeschool-paper-stations-low-support');
+  const result = filterPedagogyActivities(activities, fixture.filters);
+  assert.ok(result.targets.some(
+    (target) => target.target_id === 'learning-stations::paper-classification',
+  ));
+  assert.ok(!result.targets.some(
+    (target) => target.target_id === 'learning-stations::practical-observation-measurement',
+  ));
+});
+
+test('map filtering selects only the map-data learning-stations profile', () => {
+  const fixture = production.queries.data.fixtures
+    .find((candidate) => candidate.query_id === 'map-diagram-low-language');
+  const result = filterPedagogyActivities(activities, fixture.filters);
+  assert.deepEqual(
+    result.targets
+      .filter((target) => target.activity_id === 'learning-stations')
+      .map((target) => target.target_id),
+    ['learning-stations::map-data'],
+  );
+});
+
+test('profile debug exclusions name the composed target and profile-specific safety reason', () => {
+  const result = filterPedagogyActivities(activities, {
+    grade: 5,
+    subject: 'science',
+    adult_safety_supervision_required: true,
+  }, { debug: true });
+  const excluded = result.excluded.find(
+    (target) => target.target_id === 'learning-stations::paper-classification',
+  );
+  assert.equal(excluded.execution_profile_id, 'paper-classification');
+  assert.ok(excluded.reasons.includes(
+    'adult safety supervision is not required by this execution target',
+  ));
+});
+
+test('query response remains filtering output without ranking fields', () => {
+  const result = filterPedagogyActivities(activities, { grade: 5, subject: 'science' });
+  assert.equal(result.selection_mode, 'deterministic_filtering_without_ranking');
+  assert.ok(!Object.hasOwn(result, 'scores'));
+  assert.ok(!Object.hasOwn(result, 'ranking'));
+});
+
+test('only learning-stations is profiled and the 29 other activity records retain operational blocks', () => {
+  assert.equal(activities.length, 30);
+  assert.deepEqual(
+    activities.filter((candidate) => candidate.execution_profiles).map((candidate) => candidate.activity_id),
+    ['learning-stations'],
+  );
+  for (const candidate of activities.filter((item) => !item.execution_profiles)) {
+    assert.ok(candidate.capabilities, candidate.activity_id);
+    assert.ok(candidate.delivery_constraints, candidate.activity_id);
+    assert.ok(candidate.resource_requirements, candidate.activity_id);
+  }
+});
+
+test('all 29 non-profiled activity records preserve their pre-profile semantic data', () => {
+  const records = activities.filter((candidate) => candidate.activity_id !== 'learning-stations');
+  const digest = createHash('sha256').update(JSON.stringify(records)).digest('hex');
+  assert.equal(digest, 'c66a1634abb66b96996a37dbc80d221b4631ae7b24377810e4bdc12bc0b7c0de');
+});
+
+test('query target expansion is deterministic across reversed catalog traversal', () => {
+  const forward = expandPedagogyActivityTargets(activities).map((target) => target.target_id);
+  const reversed = expandPedagogyActivityTargets([...activities].reverse())
+    .map((target) => target.target_id);
+  assert.deepEqual(reversed, forward);
+  assert.equal(forward.length, 32);
 });
 
 test('offline no-printer retrieval query returns an individual activity', () => {
@@ -134,11 +413,14 @@ test('map or diagram query finds a low-language visual method', () => {
     required_capabilities_any: ['map_interpretation', 'diagram_interpretation'],
     max_productive_language: 'low',
   });
-  assert.deepEqual(result.activity_ids, ['visual-representation']);
+  assert.deepEqual(
+    result.targets.map((target) => target.target_id),
+    ['learning-stations::map-data', 'visual-representation'],
+  );
 });
 
 test('taxonomy ratings remain project-authored and provisional', () => {
-  for (const candidate of activities) {
+  for (const candidate of operationalRecords()) {
     assert.equal(candidate.taxonomy_assessment.claim_origin, 'project_authored_design');
     assert.deepEqual(candidate.taxonomy_assessment.reference_ids, []);
     assert.equal(candidate.taxonomy_assessment.confidence.level, 'provisional');
@@ -153,7 +435,7 @@ test('preparation and facilitation effort remain distinct dimensions', () => {
 
 test('parents are not classified as subject teachers in production metadata', () => {
   assert.equal(
-    activities.filter((candidate) => (
+    operationalRecords().filter((candidate) => (
       candidate.effort.homeschool_parent.role === 'subject_explanation_required'
     )).length,
     0,
@@ -161,22 +443,24 @@ test('parents are not classified as subject teachers in production metadata', ()
 });
 
 for (const fixture of production.queries.data.fixtures) {
-  test(`query fixture ${fixture.query_id} includes and excludes its asserted activities`, () => {
+  test(`query fixture ${fixture.query_id} includes and excludes its asserted targets`, () => {
     const result = filterPedagogyActivities(activities, fixture.filters);
-    for (const activityId of fixture.expected_include_ids) {
-      assert.ok(result.activity_ids.includes(activityId), `${fixture.query_id} missing ${activityId}`);
+    const targetIds = result.targets.map((target) => target.target_id);
+    for (const targetId of fixture.expected_include_target_ids) {
+      assert.ok(targetIds.includes(targetId), `${fixture.query_id} missing ${targetId}`);
     }
-    for (const activityId of fixture.expected_exclude_ids) {
-      assert.ok(!result.activity_ids.includes(activityId), `${fixture.query_id} retained ${activityId}`);
+    for (const targetId of fixture.expected_exclude_target_ids) {
+      assert.ok(!targetIds.includes(targetId), `${fixture.query_id} retained ${targetId}`);
     }
   });
 }
 
-test('query results use deterministic bytewise activity ordering', () => {
+test('query results use deterministic bytewise target ordering', () => {
   const filters = production.queries.data.fixtures[0].filters;
   const result = filterPedagogyActivities(activities, filters);
-  const expected = [...result.activity_ids].sort((left, right) => Buffer.from(left).compare(Buffer.from(right)));
-  assert.deepEqual(result.activity_ids, expected);
+  const targetIds = result.targets.map((target) => target.target_id);
+  const expected = [...targetIds].sort((left, right) => Buffer.from(left).compare(Buffer.from(right)));
+  assert.deepEqual(targetIds, expected);
 });
 
 test('query results do not depend on catalog traversal order', () => {
@@ -281,7 +565,11 @@ test('internet-required activity cannot claim offline compatibility', () => {
 
 test('laboratory material without safety supervision fails', () => {
   const repository = fresh();
-  const candidate = activity(repository, 'learning-stations');
+  const candidate = profile(
+    repository,
+    'learning-stations',
+    'practical-observation-measurement',
+  );
   candidate.safety.risk_level = 'none';
   candidate.safety.requires_adult_supervision = false;
   expectInvalid(repository, /laboratory materials require explicit adult safety supervision/u);
@@ -289,7 +577,11 @@ test('laboratory material without safety supervision fails', () => {
 
 test('safety-supervised homeschool method with parent role none fails', () => {
   const repository = fresh();
-  const candidate = activity(repository, 'learning-stations');
+  const candidate = profile(
+    repository,
+    'learning-stations',
+    'practical-observation-measurement',
+  );
   candidate.effort.homeschool_parent.level = 'none';
   candidate.effort.homeschool_parent.role = 'none';
   expectInvalid(repository, /safety-supervised homeschool activity cannot declare parent role none/u);
@@ -330,13 +622,15 @@ test('unknown effort enum fails', () => {
 
 test('negative setup time fails', () => {
   const repository = fresh();
-  activity(repository, 'learning-stations').resource_requirements.setup_minutes = -1;
+  profile(repository, 'learning-stations', 'paper-classification')
+    .resource_requirements.setup_minutes = -1;
   expectInvalid(repository, /setup_minutes|must be >= 0/u);
 });
 
 test('negative cleanup time fails', () => {
   const repository = fresh();
-  activity(repository, 'learning-stations').resource_requirements.cleanup_minutes = -1;
+  profile(repository, 'learning-stations', 'paper-classification')
+    .resource_requirements.cleanup_minutes = -1;
   expectInvalid(repository, /cleanup_minutes|must be >= 0/u);
 });
 
@@ -366,14 +660,14 @@ test('query fixture with dangling capability fails', () => {
 
 test('query fixture with unknown activity fails', () => {
   const repository = fresh();
-  repository.queries.data.fixtures[0].expected_include_ids = ['missing-method'];
-  expectInvalid(repository, /unknown pedagogical activity missing-method/u);
+  repository.queries.data.fixtures[0].expected_include_target_ids = ['missing-method'];
+  expectInvalid(repository, /unknown pedagogical query target missing-method/u);
 });
 
 test('query fixture cannot include an activity filtered out by its constraints', () => {
   const repository = fresh();
-  repository.queries.data.fixtures[0].expected_include_ids.push('jigsaw');
-  repository.queries.data.fixtures[0].expected_include_ids.sort();
+  repository.queries.data.fixtures[0].expected_include_target_ids.push('jigsaw');
+  repository.queries.data.fixtures[0].expected_include_target_ids.sort();
   expectInvalid(repository, /must include jigsaw/u);
 });
 
@@ -407,7 +701,7 @@ test('remote compatibility without remote delivery mode fails', () => {
 
 test('all production resource lists are registered and disjoint', () => {
   const resourceIds = new Set(production.taxonomy.data.resource_vocabulary.map((item) => item.resource_id));
-  for (const candidate of activities) {
+  for (const candidate of operationalRecords()) {
     const required = new Set(candidate.resource_requirements.required);
     for (const resourceId of [
       ...candidate.resource_requirements.required,
@@ -424,7 +718,7 @@ test('all production resource lists are registered and disjoint', () => {
 });
 
 test('no production activity uses unknown capability or effort ratings', () => {
-  for (const candidate of activities) {
+  for (const candidate of operationalRecords()) {
     assert.ok(!Object.values(candidate.capabilities).includes('unknown'), candidate.activity_id);
     assert.notEqual(candidate.effort.teacher_preparation.level, 'unknown', candidate.activity_id);
     assert.notEqual(candidate.effort.teacher_facilitation.level, 'unknown', candidate.activity_id);
