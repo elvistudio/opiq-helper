@@ -1,0 +1,1360 @@
+{
+  "qa_schema_version": "1.0",
+  "source_id": "grade-3-estonian",
+  "source_archive": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_3klass_eesti_keel.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-23T07:29:00.718Z",
+    "generator": "scripts/generate-grade-3-estonian-sources.mjs",
+    "generator_version": "2.0",
+    "note": "Generated deterministically from the registered original captures; routes are split by audited subject, Source Book ID, and kit identity."
+  },
+  "checksums": {
+    "source_archive_sha256": "76745111aa9ac75736418d6a3cb2958c0541182192522d71100a2140716972c7",
+    "output_file_sha256": "14948e259f988805416b6dce0d6065f742e3d8549b1af39edf6ecae6eb3daa76"
+  },
+  "archive": {
+    "byte_size": 2272881,
+    "member_count": 435,
+    "crc_verified_members": 435,
+    "unsafe_member_paths": 0
+  },
+  "source_records": 470,
+  "page_records_included": 405,
+  "cover_detail_records_excluded": 4,
+  "duplicate_records_excluded": 6,
+  "administrative_records_excluded": 1,
+  "subject_boundary_page_records_excluded": 54,
+  "source_accounting": {
+    "shared_archive_rows": 426,
+    "complete_kit_590_archive_rows": 44,
+    "combined_source_rows": 470,
+    "first_language_instructional_pages": 405,
+    "second_language_instructional_pages": 54,
+    "unique_kit_details": 4,
+    "duplicate_kit_detail_aliases": 6,
+    "administrative_impressum": 1,
+    "canonical_instructional_pages": 459,
+    "total": 470
+  },
+  "grades": {
+    "3": 405
+  },
+  "languages": {
+    "et": 405
+  },
+  "books": {
+    "3._klassi_eesti_keel__kit135": 185,
+    "eesti_keele_õpik_3._klassile__kit179": 178,
+    "mina_loen_ja_kirjutan_3__kit590": 42
+  },
+  "kits": {
+    "135": 185,
+    "179": 178,
+    "590": 42
+  },
+  "programme_types": {
+    "ordinary_curriculum": 405
+  },
+  "raw_grade_counts": {
+    "2": 368,
+    "3": 102
+  },
+  "route_source_grade_counts": {
+    "2": 368,
+    "3": 46
+  },
+  "canonical_grade_counts": {
+    "3": 405
+  },
+  "raw_subject_counts": {
+    "mathematics / matemaatika / математика": 470
+  },
+  "canonical_subject_counts": {
+    "Estonian language / eesti keel / эстонский язык": 405
+  },
+  "raw_language_counts": {
+    "en": 1,
+    "et": 468,
+    "ru": 1
+  },
+  "route_source_language_counts": {
+    "en": 1,
+    "et": 413
+  },
+  "canonical_language_counts": {
+    "et": 405
+  },
+  "route_partition": {
+    "paired_source_id": "grade-3-estonian-second-language",
+    "expected_union_page_records": 459,
+    "canonical_overlap_urls": 0,
+    "included_source_book_ids": [
+      "3._klassi_eesti_keel",
+      "eesti_keele_õpik_3._klassile",
+      "mina_loen_ja_kirjutan_3"
+    ],
+    "forbidden_book_ids": [
+      "eesti_keel_teise_keelena_3._klassile__kit140"
+    ]
+  },
+  "source_representation_audit": {
+    "shared_grade_3_estonian_capture": {
+      "compact_jsonl_records": 426,
+      "compact_markdown_records": 426,
+      "raw_chapter_records": 426,
+      "raw_compact_title_whitespace_normalizations": 5,
+      "raw_compact_task_representation_differences": 0,
+      "platform_heading_occurrences_filtered": 4284,
+      "text_quality": {
+        "unicode_replacement_characters": 0,
+        "zero_width_characters": 16,
+        "discretionary_soft_hyphens": 19,
+        "forbidden_control_characters": 0,
+        "html_mathml_or_json_payloads": 0,
+        "nfc_violations": 0
+      },
+      "topic_map": {
+        "topic_count": 1751,
+        "reference_count": 3161
+      },
+      "unexplained_differences": 0
+    },
+    "complete_kit_590_capture": {
+      "compact_jsonl_records": 44,
+      "compact_markdown_records": 44,
+      "raw_chapter_records": 44,
+      "raw_compact_title_whitespace_normalizations": 0,
+      "raw_compact_task_representation_differences": 0,
+      "platform_heading_occurrences_filtered": 927,
+      "text_quality": {
+        "unicode_replacement_characters": 0,
+        "zero_width_characters": 0,
+        "discretionary_soft_hyphens": 0,
+        "forbidden_control_characters": 0,
+        "html_mathml_or_json_payloads": 0,
+        "nfc_violations": 0
+      },
+      "topic_map": {
+        "topic_count": 58,
+        "reference_count": 190
+      },
+      "unexplained_differences": 0
+    }
+  },
+  "duplicate_url_audit": {
+    "source_duplicate_groups": 4,
+    "source_duplicate_records": 6,
+    "canonical_duplicate_groups": 0,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/Kit/Details/135",
+        "kit_id": "135",
+        "source_book_id": "3._klassi_eesti_keel",
+        "chapter_ids": [
+          "182",
+          "368"
+        ],
+        "source_archives": [
+          "shared_grade_3_estonian_capture"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "The rows represent one content-equivalent non-instructional Kit Details URL and differ only by synthetic chapter ID."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/140",
+        "kit_id": "140",
+        "source_book_id": "eesti_keel_teise_keelena_3._klassile",
+        "chapter_ids": [
+          "369",
+          "424"
+        ],
+        "source_archives": [
+          "shared_grade_3_estonian_capture"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "The rows represent one content-equivalent non-instructional Kit Details URL and differ only by synthetic chapter ID."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/179",
+        "kit_id": "179",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "chapter_ids": [
+          "1",
+          "181"
+        ],
+        "source_archives": [
+          "shared_grade_3_estonian_capture"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "The rows represent one content-equivalent non-instructional Kit Details URL and differ only by synthetic chapter ID."
+      },
+      {
+        "url": "https://www.opiq.ee/Kit/Details/590",
+        "kit_id": "590",
+        "source_book_id": "mina_loen_ja_kirjutan_3",
+        "chapter_ids": [
+          "425",
+          "426",
+          "1",
+          "44"
+        ],
+        "source_archives": [
+          "shared_grade_3_estonian_capture",
+          "complete_kit_590_capture"
+        ],
+        "differing_fields": [
+          "chapter_id"
+        ],
+        "decision": "exclude_unique_detail_and_duplicate_alias",
+        "reason": "The rows represent one content-equivalent non-instructional Kit Details URL and differ only by synthetic chapter ID."
+      }
+    ]
+  },
+  "grade_normalization_audit": [
+    {
+      "source_book_id": "3._klassi_eesti_keel",
+      "kit_id": "135",
+      "source_grade": 2,
+      "canonical_grade": 3,
+      "records": 185,
+      "decision": "normalize_grade_2_to_3",
+      "evidence": "Captured Kit Details title, Source Book ID, kit identity, raw book title, and chapter context all identify a grade-3 book."
+    },
+    {
+      "source_book_id": "eesti_keele_õpik_3._klassile",
+      "kit_id": "179",
+      "source_grade": 2,
+      "canonical_grade": 3,
+      "records": 178,
+      "decision": "normalize_grade_2_to_3",
+      "evidence": "Captured Kit Details title, Source Book ID, kit identity, raw book title, and chapter context all identify a grade-3 book."
+    },
+    {
+      "source_book_id": "mina_loen_ja_kirjutan_3",
+      "kit_id": "590",
+      "source_grade": 3,
+      "canonical_grade": 3,
+      "records": 42,
+      "decision": "retain_grade_3",
+      "evidence": "Captured Kit Details title, Source Book ID, kit identity, raw book title, and chapter context all identify a grade-3 book."
+    }
+  ],
+  "subject_normalization_audit": {
+    "records": 405,
+    "source_subject": "mathematics / matemaatika / математика",
+    "canonical_subject": "Estonian language / eesti keel / эстонский язык",
+    "decision": "replace automatic mathematics subject with the audited Estonian subject route",
+    "evidence": "Book identities, Kit Details titles, headings, and instructional context consistently identify Estonian-language study rather than mathematics."
+  },
+  "language_normalization_audit": [
+    {
+      "url": "https://www.opiq.ee/kit/135/chapter/7352",
+      "source_book_id": "3._klassi_eesti_keel",
+      "kit_id": "135",
+      "source_language": "en",
+      "canonical_language": "et",
+      "headings": [
+        "Napakas jutt number kaheksateist",
+        "Lisaülesanne 13",
+        "Lisaülesanne 14",
+        "Lisaülesanne 15"
+      ],
+      "task_examples": [],
+      "decision": "normalize_to_et",
+      "evidence": "The title and every captured heading are Estonian; no English instructional text is present."
+    }
+  ],
+  "content_repair_audit": {
+    "changed_records": 10,
+    "entries": [
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/10056",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "title",
+            "source_value": "Vastand­tähen­dusega sõnad ehk antonüümid",
+            "canonical_value": "Vastandtähendusega sõnad ehk antonüümid"
+          },
+          {
+            "field": "headings",
+            "source_value": [
+              "Vastand­tähen­dusega sõnad ehk antonüümid",
+              "Vastandtähendusega sõnad",
+              "Harjutus 1c",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Pea meeles!",
+              "Naljakad mõtted",
+              "Harjutus 2",
+              "Harjutus 2c",
+              "Harjutus 2a",
+              "Harjutus 2b",
+              "Harjutus 3",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 4"
+            ],
+            "canonical_value": [
+              "Vastandtähendusega sõnad ehk antonüümid",
+              "Vastandtähendusega sõnad",
+              "Harjutus 1c",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Pea meeles!",
+              "Naljakad mõtted",
+              "Harjutus 2",
+              "Harjutus 2c",
+              "Harjutus 2a",
+              "Harjutus 2b",
+              "Harjutus 3",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 4"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/10059",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "title",
+            "source_value": "Suur päkapiku­raamat",
+            "canonical_value": "Suur päkapikuraamat"
+          },
+          {
+            "field": "headings",
+            "source_value": [
+              "Suur päkapiku­raamat",
+              "Päkapikkude elupaigad",
+              "Päkapikkude levik Eestis",
+              "Harjutus 1",
+              "Harjutus 1c",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Ajaarvamine",
+              "Jalajäljed",
+              "Harjutus 2",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 3"
+            ],
+            "canonical_value": [
+              "Suur päkapikuraamat",
+              "Päkapikkude elupaigad",
+              "Päkapikkude levik Eestis",
+              "Harjutus 1",
+              "Harjutus 1c",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Ajaarvamine",
+              "Jalajäljed",
+              "Harjutus 2",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 3"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/10075",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "title",
+            "source_value": "Sama­tähendus­likud sõnad ehk sünonüümid",
+            "canonical_value": "Samatähenduslikud sõnad ehk sünonüümid"
+          },
+          {
+            "field": "headings",
+            "source_value": [
+              "Sama­tähendus­likud sõnad ehk sünonüümid",
+              "Sünonüümid rikastavad keelt",
+              "Harjutus 1",
+              "Harjutus 2",
+              "Harjutus 4c",
+              "Harjutus 4a",
+              "Harjutus 4b",
+              "Milliseid sünonüüme kasutada?",
+              "Harjutus 3",
+              "Harjutus 3b",
+              "Harjutus 3a",
+              "Harjutus 4",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 5"
+            ],
+            "canonical_value": [
+              "Samatähenduslikud sõnad ehk sünonüümid",
+              "Sünonüümid rikastavad keelt",
+              "Harjutus 1",
+              "Harjutus 2",
+              "Harjutus 4c",
+              "Harjutus 4a",
+              "Harjutus 4b",
+              "Milliseid sünonüüme kasutada?",
+              "Harjutus 3",
+              "Harjutus 3b",
+              "Harjutus 3a",
+              "Harjutus 4",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 5"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/12555",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Tegevuskoht",
+              "Tegevuskoha kirjeldus",
+              "Harjutus 1",
+              "Harjutus 1e",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Harjutus 1c",
+              "Harjutus 1d",
+              "Mõnikord saab tegevus­kohta väljendada hoopis pildiga",
+              "Harjutus 2",
+              "Arutle",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 3",
+              "Harjutus 4"
+            ],
+            "canonical_value": [
+              "Tegevuskoht",
+              "Tegevuskoha kirjeldus",
+              "Harjutus 1",
+              "Harjutus 1e",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Harjutus 1c",
+              "Harjutus 1d",
+              "Mõnikord saab tegevuskohta väljendada hoopis pildiga",
+              "Harjutus 2",
+              "Arutle",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 3",
+              "Harjutus 4"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/12583",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "title",
+            "source_value": "Täishääliku­ühend",
+            "canonical_value": "Täishäälikuühend"
+          },
+          {
+            "field": "headings",
+            "source_value": [
+              "Täishääliku­ühend",
+              "Täishäälikuühend",
+              "Harjutus 1",
+              "Tuleta meelde!",
+              "Harjutus 2",
+              "Harjutus 2c",
+              "Harjutus 2a",
+              "Harjutus 2b",
+              "Mõista, mõista, mis see on!",
+              "Harjutus 3",
+              "Tegevus 2",
+              "Tegevus 2b",
+              "Harjutus 4",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 5",
+              "Rühmatöö",
+              "Uuri"
+            ],
+            "canonical_value": [
+              "Täishäälikuühend",
+              "Harjutus 1",
+              "Tuleta meelde!",
+              "Harjutus 2",
+              "Harjutus 2c",
+              "Harjutus 2a",
+              "Harjutus 2b",
+              "Mõista, mõista, mis see on!",
+              "Harjutus 3",
+              "Tegevus 2",
+              "Tegevus 2b",
+              "Harjutus 4",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 5",
+              "Rühmatöö",
+              "Uuri"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/19331",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "title",
+            "source_value": "Sulghäälik pika täishääliku ja täishääliku­ühendi järel",
+            "canonical_value": "Sulghäälik pika täishääliku ja täishäälikuühendi järel"
+          },
+          {
+            "field": "headings",
+            "source_value": [
+              "Sulghäälik pika täishääliku ja täishääliku­ühendi järel",
+              "Sulghäälik pika täishääliku järel",
+              "Pane tähele!",
+              "Mitmekülgne lehmatädi",
+              "Harjutus 1",
+              "Harjutus 2",
+              "Harjutus 3",
+              "Sulghäälik täishäälikuühendi järel",
+              "Harjutus 4",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 5"
+            ],
+            "canonical_value": [
+              "Sulghäälik pika täishääliku ja täishäälikuühendi järel",
+              "Sulghäälik pika täishääliku järel",
+              "Pane tähele!",
+              "Mitmekülgne lehmatädi",
+              "Harjutus 1",
+              "Harjutus 2",
+              "Harjutus 3",
+              "Sulghäälik täishäälikuühendi järel",
+              "Harjutus 4",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 5"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/12588",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "title",
+            "source_value": "Kaashääliku­ühend",
+            "canonical_value": "Kaashäälikuühend"
+          },
+          {
+            "field": "headings",
+            "source_value": [
+              "Kaashääliku­ühend",
+              "Kordamiseks",
+              "Harjutus 1",
+              "Harjutus 2",
+              "Harjutus 3",
+              "Kaashäälikuühend",
+              "Tuleta meelde!",
+              "Harjutusi",
+              "Harjutus 4b",
+              "Harjutus 4a",
+              "Harjutus 5",
+              "Harjutus 6",
+              "Sõnamängud",
+              "Harjutus 7",
+              "Harjutus 8",
+              "Pane tähele!",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 9",
+              "Kirjuta"
+            ],
+            "canonical_value": [
+              "Kaashäälikuühend",
+              "Kordamiseks",
+              "Harjutus 1",
+              "Harjutus 2",
+              "Harjutus 3",
+              "Tuleta meelde!",
+              "Harjutusi",
+              "Harjutus 4b",
+              "Harjutus 4a",
+              "Harjutus 5",
+              "Harjutus 6",
+              "Sõnamängud",
+              "Harjutus 7",
+              "Harjutus 8",
+              "Pane tähele!",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 9",
+              "Kirjuta"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/12761",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Sõnaraamatud",
+              "Õigekeelsus­sõnaraamat ehk ÕS",
+              "Harjutus 1",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Harjutus 1c",
+              "Harjutus 1d",
+              "Harjutus 2",
+              "Harjutus 3",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 4",
+              "Harjutus 5b",
+              "Harjutus 5a",
+              "Uuri"
+            ],
+            "canonical_value": [
+              "Sõnaraamatud",
+              "Õigekeelsussõnaraamat ehk ÕS",
+              "Harjutus 1",
+              "Harjutus 1a",
+              "Harjutus 1b",
+              "Harjutus 1c",
+              "Harjutus 1d",
+              "Harjutus 2",
+              "Harjutus 3",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 4",
+              "Harjutus 5b",
+              "Harjutus 5a",
+              "Uuri"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/12767",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "invisible_spacing_control_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Reisiraamatud",
+              "Pariis. Laste reisijuht",
+              "Valguse linn",
+              "Harjutus 1b",
+              "Harjutus 1a",
+              "Harjutus 2b",
+              "Harjutus 2a",
+              "Pariisi tuntumad ehitised",
+              "Eiffeli torn",
+              "Harjutus 3a",
+              "Harjutus 3b",
+              "Harjutus 3c",
+              "Jumalaema kirik ehk ​Notre-Dame’i[sõnaseletus: Notre-Dame – loe: notre dam] katedraal",
+              "Harjutus 4",
+              "Louvre[sõnaseletus: Louvre – loe: luuvr]",
+              "Harjutus 5a",
+              "Harjutus 5b",
+              "Harjutus 5c",
+              "Arutle",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 6",
+              "Harjutus 6a",
+              "Harjutus 6b",
+              "Harjutus 6c",
+              "Harjutus 6d",
+              "Harjutus 6e",
+              "Harjutus 6f",
+              "Harjutus 6g",
+              "Harjutus 6h",
+              "Harjutus 7"
+            ],
+            "canonical_value": [
+              "Reisiraamatud",
+              "Pariis. Laste reisijuht",
+              "Valguse linn",
+              "Harjutus 1b",
+              "Harjutus 1a",
+              "Harjutus 2b",
+              "Harjutus 2a",
+              "Pariisi tuntumad ehitised",
+              "Eiffeli torn",
+              "Harjutus 3a",
+              "Harjutus 3b",
+              "Harjutus 3c",
+              "Jumalaema kirik ehk Notre-Dame’i[sõnaseletus: Notre-Dame – loe: notre dam] katedraal",
+              "Harjutus 4",
+              "Louvre[sõnaseletus: Louvre – loe: luuvr]",
+              "Harjutus 5a",
+              "Harjutus 5b",
+              "Harjutus 5c",
+              "Arutle",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 6",
+              "Harjutus 6a",
+              "Harjutus 6b",
+              "Harjutus 6c",
+              "Harjutus 6d",
+              "Harjutus 6e",
+              "Harjutus 6f",
+              "Harjutus 6g",
+              "Harjutus 6h",
+              "Harjutus 7"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      },
+      {
+        "url": "https://www.opiq.ee/kit/179/chapter/12776",
+        "source_book_id": "eesti_keele_õpik_3._klassile",
+        "kit_id": "179",
+        "categories": [
+          "discretionary_soft_hyphen_removed"
+        ],
+        "changes": [
+          {
+            "field": "headings",
+            "source_value": [
+              "Rosinad. Lood lastekirjanike lapsepõlvest",
+              "Rosinad. Lood laste­kirjanike lapsepõlvest",
+              "Suved maal",
+              "Harjutus 1a",
+              "Harjutus 1",
+              "Linnalehmapiim",
+              "Arutle",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 2",
+              "Harjutus 3"
+            ],
+            "canonical_value": [
+              "Rosinad. Lood lastekirjanike lapsepõlvest",
+              "Suved maal",
+              "Harjutus 1a",
+              "Harjutus 1",
+              "Linnalehmapiim",
+              "Arutle",
+              "Mõtle ja tegutse edasi",
+              "Harjutus 2",
+              "Harjutus 3"
+            ]
+          }
+        ],
+        "evidence": "The canonical text is a deterministic normalization of the same captured source record.",
+        "transformation": "NFC; remove discretionary soft hyphens; replace zero-width spacing controls with spaces; collapse whitespace; apply an audited same-record heading correction where declared.",
+        "source_archive_id": "shared_grade_3_estonian_capture"
+      }
+    ],
+    "policy": "Only deterministic technical normalization from the same captured record is allowed; educational prose is not rewritten."
+  },
+  "content_quality_audit": {
+    "hard_errors": {
+      "malformed_urls": 0,
+      "duplicate_canonical_urls": 0,
+      "empty_titles": 0,
+      "missing_all_headings": 0,
+      "unicode_replacement_characters": 0,
+      "forbidden_control_characters": 0,
+      "unprocessed_json_or_html_payloads": 0,
+      "broken_markdown_records": 0
+    },
+    "classified_warnings": {
+      "missing_task_examples": 405,
+      "mixed_script_observations": [],
+      "unusually_short_records": [
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7362",
+          "title": "HÄÄLIKUÜHENDID",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7363",
+          "title": "Kassid tulevad",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7354",
+          "title": "VÕÕRSÕNAD",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7364",
+          "title": "OMASÕNAD",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7356",
+          "title": "Sõna „nutma”",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20808",
+          "title": "Kontrolltöö 1",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7344",
+          "title": "TÄHESTIK",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7347",
+          "title": "Jälle kooli",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7383",
+          "title": "Sügis",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7372",
+          "title": "Kunksmoor",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20813",
+          "title": "Kontrolltöö 2",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7402",
+          "title": "Mure ja amour",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7397",
+          "title": "I JA J",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7399",
+          "title": "Kes ma olen?",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7400",
+          "title": "TIIA TOOMET",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7387",
+          "title": "Mina ise",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7404",
+          "title": "Ime",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20815",
+          "title": "Kontrolltöö 3",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7420",
+          "title": "Seebilugu",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20817",
+          "title": "Kontrolltöö 4",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7433",
+          "title": "KÜSISÕNAD",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7424",
+          "title": "Kirjad tulevad",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7429",
+          "title": "Härra Huu",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7417",
+          "title": "Raha minu elus",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20820",
+          "title": "Kontrolltöö 5",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7469",
+          "title": "Sõnategu",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7435",
+          "title": "Kodulaul",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7472",
+          "title": "SUUR ALGUSTÄHT",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7473",
+          "title": "Lapsed endast",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7454",
+          "title": "Maailma maad",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7455",
+          "title": "KOMA LOETELUS",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7456",
+          "title": "Minek",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7476",
+          "title": "Siiditee",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7459",
+          "title": "Vapper keefir",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7460",
+          "title": "Naljapäevad",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20825",
+          "title": "Kontrolltöö 6",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7503",
+          "title": "Pisike puu",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7498",
+          "title": "Kevad",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7495",
+          "title": "Nahavärv",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/20829",
+          "title": "Kontrolltöö 7",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/135/chapter/7504",
+          "title": "Sõnaseletused",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/179/chapter/10079",
+          "title": "Sõnaseletused",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33252",
+          "title": "TÄHESTIK",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33265",
+          "title": "KORDAMINE",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33259",
+          "title": "õ, õõ",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33260",
+          "title": "ä, ää",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33261",
+          "title": "ö, öö",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33262",
+          "title": "ü, üü",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33269",
+          "title": "r, rr",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33270",
+          "title": "s, ss",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33271",
+          "title": "h",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33272",
+          "title": "v, f",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33273",
+          "title": "j",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33290",
+          "title": "d, t",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33291",
+          "title": "t, tt",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33280",
+          "title": "g, k",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33281",
+          "title": "k, kk",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33284",
+          "title": "b, pp",
+          "classification": "valid_short_source_section"
+        },
+        {
+          "url": "https://www.opiq.ee/kit/590/chapter/33286",
+          "title": "p, pp",
+          "classification": "valid_short_source_section"
+        }
+      ],
+      "repeated_title_groups": [
+        {
+          "title": "TÄHESTIK",
+          "urls": [
+            "https://www.opiq.ee/kit/135/chapter/7344",
+            "https://www.opiq.ee/kit/590/chapter/33252"
+          ],
+          "classification": "distinct_direct_URLs_across_sections_or_books"
+        },
+        {
+          "title": "SILBITAMINE JA POOLITAMINE",
+          "urls": [
+            "https://www.opiq.ee/kit/135/chapter/7380",
+            "https://www.opiq.ee/kit/590/chapter/33276"
+          ],
+          "classification": "distinct_direct_URLs_across_sections_or_books"
+        },
+        {
+          "title": "Sõnaseletused",
+          "urls": [
+            "https://www.opiq.ee/kit/135/chapter/7504",
+            "https://www.opiq.ee/kit/179/chapter/10079"
+          ],
+          "classification": "distinct_direct_URLs_across_sections_or_books"
+        },
+        {
+          "title": "KORDAMINE",
+          "urls": [
+            "https://www.opiq.ee/kit/590/chapter/33265",
+            "https://www.opiq.ee/kit/590/chapter/33277",
+            "https://www.opiq.ee/kit/590/chapter/33293"
+          ],
+          "classification": "distinct_direct_URLs_across_sections_or_books"
+        }
+      ],
+      "repeated_title_group_count": 4,
+      "note": "The capture contains no task examples. Missing tasks, repeated titles, and short section headings are source-structure observations, not automatic errors."
+    }
+  },
+  "book_metadata_audit": {
+    "3._klassi_eesti_keel__kit135": {
+      "source_book_id": "3._klassi_eesti_keel",
+      "kit_id": "135",
+      "canonical_title": "ILUS EMAKEEL",
+      "publisher": null,
+      "publisher_evidence": "not captured; not invented",
+      "source_languages": {
+        "en": 1,
+        "et": 186
+      },
+      "canonical_language": "et",
+      "programme_type": "ordinary_curriculum",
+      "source_records": 187,
+      "canonical_instructional_pages": 185,
+      "title_evidence": "captured Kit Details title, source Book ID, index inventory, and raw book metadata"
+    },
+    "eesti_keele_õpik_3._klassile__kit179": {
+      "source_book_id": "eesti_keele_õpik_3._klassile",
+      "kit_id": "179",
+      "canonical_title": "Eesti keele õpik 3. klassile",
+      "publisher": null,
+      "publisher_evidence": "not captured; not invented",
+      "source_languages": {
+        "et": 181
+      },
+      "canonical_language": "et",
+      "programme_type": "ordinary_curriculum",
+      "source_records": 181,
+      "canonical_instructional_pages": 178,
+      "title_evidence": "captured Kit Details title, source Book ID, index inventory, and raw book metadata"
+    },
+    "mina_loen_ja_kirjutan_3__kit590": {
+      "source_book_id": "mina_loen_ja_kirjutan_3",
+      "kit_id": "590",
+      "canonical_title": "Mina loen ja kirjutan 3",
+      "publisher": null,
+      "publisher_evidence": "not captured; not invented",
+      "source_languages": {
+        "et": 46
+      },
+      "canonical_language": "et",
+      "programme_type": "ordinary_curriculum",
+      "source_records": 46,
+      "canonical_instructional_pages": 42,
+      "title_evidence": "captured Kit Details title, source Book ID, index inventory, and raw book metadata"
+    }
+  },
+  "captured_book_inventory": {
+    "3._klassi_eesti_keel": {
+      "kit_id": "135",
+      "title": "ILUS EMAKEEL",
+      "source_records": 187,
+      "instructional_pages": 185,
+      "route_id": "grade-3-estonian",
+      "cover_only": false,
+      "publisher": null
+    },
+    "eesti_keel_teise_keelena_3._klassile": {
+      "kit_id": "140",
+      "title": "KOOS ON VAHVA. Sõprade seiklused",
+      "source_records": 56,
+      "instructional_pages": 54,
+      "route_id": "grade-3-estonian-second-language",
+      "cover_only": false,
+      "publisher": null
+    },
+    "eesti_keele_õpik_3._klassile": {
+      "kit_id": "179",
+      "title": "Eesti keele õpik 3. klassile",
+      "source_records": 181,
+      "instructional_pages": 178,
+      "route_id": "grade-3-estonian",
+      "cover_only": false,
+      "publisher": null
+    },
+    "mina_loen_ja_kirjutan_3": {
+      "kit_id": "590",
+      "title": "Mina loen ja kirjutan 3",
+      "source_records": 46,
+      "instructional_pages": 42,
+      "route_id": "grade-3-estonian",
+      "cover_only": false,
+      "publisher": null
+    }
+  },
+  "kit_590_completion_audit": {
+    "source_book_id": "mina_loen_ja_kirjutan_3",
+    "canonical_book_id": "mina_loen_ja_kirjutan_3__kit590",
+    "kit_id": "590",
+    "title": "Mina loen ja kirjutan 3",
+    "shared_capture": {
+      "source_records": 2,
+      "detail_rows": 2,
+      "canonical_instructional_pages": 0,
+      "status": "cover_only_evidence"
+    },
+    "complete_capture": {
+      "source_records": 44,
+      "detail_rows": 2,
+      "canonical_instructional_pages": 42,
+      "section_distribution": {
+        "1": 2,
+        "2": 12,
+        "3": 12,
+        "4": 15,
+        "5": 1
+      },
+      "status": "canonical_page_level_source"
+    },
+    "detail_url": "https://www.opiq.ee/Kit/Details/590",
+    "detail_rows_across_captures": 4,
+    "detail_aliases_excluded": 3,
+    "canonical_chapter_urls_unique": 42,
+    "raw_book_language": "ru",
+    "compact_and_page_language": "et",
+    "recapture_required": false,
+    "optional_future_capture": "A targeted task-body capture is optional only when exact exercises are required; a full kit recapture is not required."
+  },
+  "kit_590_content_quality_audit": {
+    "instructional_pages": 42,
+    "pages_with_headings": 42,
+    "pages_without_structured_task_examples": 42,
+    "raw_pages_with_empty_task_arrays": 42,
+    "platform_heading_occurrences_filtered": 927,
+    "raw_text_quality": {
+      "unicode_replacement_characters": 0,
+      "zero_width_characters": 0,
+      "discretionary_soft_hyphens": 0,
+      "forbidden_control_characters": 0,
+      "html_mathml_or_json_payloads": 0,
+      "nfc_violations": 0
+    },
+    "repeated_title_groups": [
+      {
+        "title": "KORDAMINE",
+        "count": 3,
+        "urls": [
+          "https://www.opiq.ee/kit/590/chapter/33265",
+          "https://www.opiq.ee/kit/590/chapter/33277",
+          "https://www.opiq.ee/kit/590/chapter/33293"
+        ],
+        "classification": "distinct_section_contexts_and_chapter_URLs_retained"
+      }
+    ],
+    "task_capture_classification": "Image-based numbered instructional headings are present; empty task arrays are a capture limitation and no task bodies are invented."
+  },
+  "publisher_limitations": {
+    "archive_publishers_present": 0,
+    "canonical_publishers_invented": 0,
+    "note": "Publisher metadata is absent from this archive and is left empty."
+  },
+  "known_limitations": [
+    "The compact exporter labels every source record as mathematics; canonical subjects are evidence-backed by book/kit identity and page content.",
+    "The compact index says et for all four books while raw per-book metadata says ru; page-level compact language and instructional text are used for the two audited corrections.",
+    "All canonical pages lack structured task examples in the supplied captures; image-based numbered instructional headings are retained and no exercises are invented.",
+    "The dedicated kit 590 capture provides all 42 canonical chapters; the shared capture remains cover-only evidence for that book.",
+    "The route catalogue does not establish complete official-curriculum coverage.",
+    "The supplied captures do not prove completeness of the current live Opiq catalogue."
+  ],
+  "records_without_headings": 0,
+  "records_without_task_examples": 405,
+  "missing_urls": 0,
+  "source_archives": [
+    {
+      "path": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+      "role": "primary",
+      "source_book_ids": [
+        "3._klassi_eesti_keel",
+        "eesti_keel_teise_keelena_3._klassile",
+        "eesti_keele_õpik_3._klassile",
+        "mina_loen_ja_kirjutan_3"
+      ],
+      "sha256": "76745111aa9ac75736418d6a3cb2958c0541182192522d71100a2140716972c7",
+      "source_records": 426,
+      "page_records_included": 363
+    },
+    {
+      "path": "project-files/inputs/final-zips/opiq_3klass_mina_loen_ja_kirjutan_3_opiq_v2.zip",
+      "role": "complete_kit_590_capture",
+      "source_book_ids": [
+        "mina_loen_ja_kirjutan_3"
+      ],
+      "sha256": "53a62c9adf43af838132fa6cf7ec8901ea0a1e263f8df6c05dedc70307ca9fbc",
+      "source_records": 44,
+      "page_records_included": 42
+    }
+  ]
+}

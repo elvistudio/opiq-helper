@@ -660,6 +660,105 @@
       "notes": "Use for grade-3 Russian-reading source queries only. This source-specific route does not claim an independent official exact-grade subject allocation or complete curriculum/live Opiq coverage."
     },
     {
+      "id": "grade-3-estonian",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "estonian",
+      "subject_et": "eesti keel",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_3klass_eesti_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+      "additional_source_archives": [
+        {
+          "path": "project-files/inputs/final-zips/opiq_3klass_mina_loen_ja_kirjutan_3_opiq_v2.zip",
+          "role": "complete_kit_590_capture",
+          "source_book_ids": ["mina_loen_ja_kirjutan_3"],
+          "notes": "Dedicated complete capture supplying the 42 instructional chapters absent from the shared archive; shared cover evidence remains audited without duplicate canonical detail records."
+        }
+      ],
+      "qa_path": "project-files/outputs/opiq_3klass_eesti_keel_qa.json",
+      "record_count": 405,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archives_audited",
+      "known_issues": [
+        "The shared original export combines first-language Estonian and Estonian as a second language and automatically labels every source row as mathematics; the canonical routes correct both boundaries.",
+        "Kits 135 and 179 are source-labelled grade 2 and are normalized to grade 3 from captured Kit Details titles, Source Book IDs, kit identities, visible book titles, and chapter context.",
+        "The raw per-book object for kit 590 says language ru while its index, all compact rows, headings, and instructional content say et; canonical language is et and the anomaly remains in QA.",
+        "All 405 canonical pages lack structured task examples in the supplied captures. Image-based numbered headings are retained and no exercises are synthesized.",
+        "Publisher metadata is absent and is not invented."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["135", "179", "590"],
+        "programme_type": "ordinary_curriculum",
+        "audit_path": "docs/audits/grade-3-estonian-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "eesti_keel_teise_keelena_3._klassile__kit140"
+        ],
+        "audit_path": "docs/audits/grade-3-estonian-source-import.md",
+        "reason": "KOOS ON VAHVA. Sõprade seiklused belongs only to Estonian as a second language; kits 135, 179, and 590 belong only to first-language Estonian."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian language",
+          "et": "eesti keel",
+          "ru": "эстонский язык"
+        }
+      },
+      "notes": "Use only for grade-3 first-language Estonian. The route contains 405 instructional pages from kits 135, 179, and 590 and does not claim curriculum or live-catalogue completeness."
+    },
+    {
+      "id": "grade-3-estonian-second-language",
+      "grade": 3,
+      "grade_group": "1-4",
+      "subject": "estonian_second_language",
+      "subject_et": "eesti keel teise keelena",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_3klass_eesti_keel_teise_keelena.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_3klass_ilus_emakeel_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_3klass_eesti_keel_teise_keelena_qa.json",
+      "record_count": 54,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "The shared original export combines first-language Estonian and Estonian as a second language and automatically labels every source row as mathematics; the canonical routes correct both boundaries.",
+        "One kit 140 page is source-labelled ru but contains Estonian instruction with a retained Russian vocabulary gloss; it is normalized to et from page-level evidence.",
+        "All 54 canonical pages lack structured task examples in the supplied capture; no exercises are synthesized.",
+        "Publisher metadata is absent and is not invented."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["140"],
+        "programme_type": "ordinary_curriculum",
+        "audit_path": "docs/audits/grade-3-estonian-source-import.md"
+      },
+      "subject_boundary": {
+        "forbidden_book_ids": [
+          "3._klassi_eesti_keel__kit135",
+          "eesti_keele_õpik_3._klassile__kit179",
+          "mina_loen_ja_kirjutan_3__kit590"
+        ],
+        "audit_path": "docs/audits/grade-3-estonian-source-import.md",
+        "reason": "Kits 135, 179, and 590 belong only to first-language Estonian; kit 140 belongs only to Estonian as a second language."
+      },
+      "canonical_url_policy": {
+        "require_unique": true
+      },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian as a second language",
+          "et": "eesti keel teise keelena",
+          "ru": "эстонский язык как второй"
+        }
+      },
+      "notes": "Use only for grade-3 Estonian-as-a-second-language queries. The route contains 54 KOOS ON VAHVA pages from kit 140 and does not claim curriculum or live-catalogue completeness."
+    },
+    {
       "id": "grade-3-music",
       "grade": 3,
       "grade_group": "1-4",
@@ -709,7 +808,7 @@
           "русское_слово._чтение_для_3_класса__kit504"
         ],
         "audit_path": "docs/audits/grade-3-music-source-import.md",
-        "reason": "Grade-3 music is separate from grade-2 music, mathematics, Russian language, and Russian reading. No grade-3 Estonian-language route currently exists."
+        "reason": "Grade-3 music is separate from grade-2 music, mathematics, Russian language, Russian reading, and both grade-3 Estonian-language subjects."
       },
       "canonical_url_policy": {
         "require_unique": true
