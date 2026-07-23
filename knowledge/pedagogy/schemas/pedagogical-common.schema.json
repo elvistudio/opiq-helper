@@ -10,6 +10,10 @@
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
+    "taxonomyId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
     "localizedNames": {
       "type": "object",
       "additionalProperties": false,
@@ -193,41 +197,99 @@
         "delayed_review"
       ]
     },
-    "languageDemandLevel": {
+    "capabilityLevel": {
       "enum": [
+        "primary",
+        "supporting",
+        "incidental",
         "none",
-        "low",
-        "moderate",
-        "high"
+        "unknown"
       ]
     },
-    "languageDemand": {
+    "demandLevel": {
+      "enum": [
+        "none",
+        "very_low",
+        "low",
+        "medium",
+        "high",
+        "very_high",
+        "unknown"
+      ]
+    },
+    "supportRequirement": {
+      "enum": [
+        "not_required",
+        "optional",
+        "recommended",
+        "required",
+        "unknown"
+      ]
+    },
+    "estonianA1A2Compatibility": {
+      "enum": [
+        "directly_supported",
+        "supported_with_scaffold",
+        "limited",
+        "not_recommended",
+        "not_applicable",
+        "unknown"
+      ]
+    },
+    "learnerDemands": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "receptive",
-        "productive",
+        "receptive_language",
+        "productive_language",
         "interaction",
-        "estonian_a1_a2_support",
+        "reading_load",
+        "writing_load",
+        "step_complexity",
+        "working_memory_support",
+        "movement_demand",
+        "sensory_demand",
+        "strategy_familiarity_required",
+        "teacher_modelling",
+        "estonian_a1_a2_compatibility",
         "scaffolds_ru"
       ],
       "properties": {
-        "receptive": {
-          "$ref": "#/$defs/languageDemandLevel"
+        "receptive_language": {
+          "$ref": "#/$defs/demandLevel"
         },
-        "productive": {
-          "$ref": "#/$defs/languageDemandLevel"
+        "productive_language": {
+          "$ref": "#/$defs/demandLevel"
         },
         "interaction": {
-          "$ref": "#/$defs/languageDemandLevel"
+          "$ref": "#/$defs/demandLevel"
         },
-        "estonian_a1_a2_support": {
-          "enum": [
-            "directly_suitable",
-            "supported",
-            "high_scaffolding_required",
-            "not_recommended"
-          ]
+        "reading_load": {
+          "$ref": "#/$defs/demandLevel"
+        },
+        "writing_load": {
+          "$ref": "#/$defs/demandLevel"
+        },
+        "step_complexity": {
+          "$ref": "#/$defs/demandLevel"
+        },
+        "working_memory_support": {
+          "$ref": "#/$defs/supportRequirement"
+        },
+        "movement_demand": {
+          "$ref": "#/$defs/demandLevel"
+        },
+        "sensory_demand": {
+          "$ref": "#/$defs/demandLevel"
+        },
+        "strategy_familiarity_required": {
+          "$ref": "#/$defs/demandLevel"
+        },
+        "teacher_modelling": {
+          "$ref": "#/$defs/supportRequirement"
+        },
+        "estonian_a1_a2_compatibility": {
+          "$ref": "#/$defs/estonianA1A2Compatibility"
         },
         "scaffolds_ru": {
           "type": "array",
@@ -238,6 +300,132 @@
           }
         }
       }
+    },
+    "groupFormat": {
+      "enum": [
+        "individual",
+        "pair",
+        "triad",
+        "small_group",
+        "medium_group",
+        "whole_class",
+        "rotating_stations"
+      ]
+    },
+    "effortLevel": {
+      "enum": [
+        "none",
+        "minimal",
+        "low",
+        "medium",
+        "high",
+        "intensive",
+        "unknown"
+      ]
+    },
+    "parentRole": {
+      "enum": [
+        "none",
+        "logistical_support",
+        "listening_partner",
+        "check_answers",
+        "active_participant",
+        "safety_supervision",
+        "subject_explanation_required",
+        "unknown"
+      ]
+    },
+    "effortRating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "rationale_ru"
+      ],
+      "properties": {
+        "level": {
+          "$ref": "#/$defs/effortLevel"
+        },
+        "rationale_ru": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "compatibilityLevel": {
+      "enum": [
+        "directly_supported",
+        "adaptable",
+        "limited",
+        "not_recommended",
+        "unknown"
+      ]
+    },
+    "taxonomyAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_origin",
+        "reference_ids",
+        "confidence"
+      ],
+      "properties": {
+        "claim_origin": {
+          "$ref": "#/$defs/claimOrigin"
+        },
+        "reference_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "claim_origin": {
+                "const": "source_supported"
+              }
+            },
+            "required": [
+              "claim_origin"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reference_ids": {
+                "type": "array",
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "claim_origin": {
+                "const": "project_authored_design"
+              }
+            },
+            "required": [
+              "claim_origin"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reference_ids": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
     },
     "homeschoolAdaptation": {
       "type": "object",

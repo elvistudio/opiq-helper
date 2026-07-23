@@ -1,0 +1,177 @@
+schema_version: "1.0"
+artifact_type: pedagogical_taxonomy
+taxonomy_version: "1.0"
+capabilities:
+  - capability_id: causal_reasoning
+    category: learning_and_knowledge
+    names: {en: Causal reasoning, et: Põhjuslik arutlemine, ru: Причинное рассуждение}
+    definition_ru: Установление и объяснение причинно-следственной связи.
+  - capability_id: classification
+    category: learning_and_knowledge
+    names: {en: Classification, et: Liigitamine, ru: Классификация}
+    definition_ru: Распределение объектов или признаков по содержательно обоснованным категориям.
+  - capability_id: collaborative_practice
+    category: learning_process
+    names: {en: Collaborative practice, et: Koostöine harjutamine, ru: Совместная практика}
+    definition_ru: Выполнение учебной задачи через взаимозависимую работу нескольких учеников.
+  - capability_id: comparison
+    category: learning_and_knowledge
+    names: {en: Comparison, et: Võrdlemine, ru: Сравнение}
+    definition_ru: Выделение научно значимых сходств и различий.
+  - capability_id: concept_formation
+    category: learning_and_knowledge
+    names: {en: Concept formation, et: Mõiste kujundamine, ru: Формирование понятия}
+    definition_ru: Построение точного значения понятия через признаки, примеры и границы.
+  - capability_id: data_interpretation
+    category: expression_and_representation
+    names: {en: Data interpretation, et: Andmete tõlgendamine, ru: Интерпретация данных}
+    definition_ru: Чтение и содержательное объяснение таблиц, измерений или иных данных.
+  - capability_id: diagram_interpretation
+    category: expression_and_representation
+    names: {en: Diagram interpretation, et: Skeemi tõlgendamine, ru: Интерпретация схем}
+    definition_ru: Чтение условных обозначений, частей и связей на диаграмме или схеме.
+  - capability_id: error_correction
+    category: learning_and_knowledge
+    names: {en: Error correction, et: Vigade parandamine, ru: Исправление ошибок}
+    definition_ru: Исправление собственной или предложенной ошибки после проверки.
+  - capability_id: error_detection
+    category: learning_and_knowledge
+    names: {en: Error detection, et: Vigade tuvastamine, ru: Обнаружение ошибок}
+    definition_ru: Нахождение расхождения между ответом и достоверным содержанием.
+  - capability_id: evidence_based_conclusion
+    category: investigation
+    names: {en: Evidence-based conclusion, et: Tõenduspõhine järeldus, ru: Вывод на основе данных}
+    definition_ru: Формулирование вывода, явно связанного с наблюдением или данными.
+  - capability_id: experimentation
+    category: investigation
+    names: {en: Experimentation, et: Katsetamine, ru: Экспериментирование}
+    definition_ru: Управляемое изменение условий для проверки вопроса с соблюдением безопасности.
+  - capability_id: explanation_and_modelling
+    category: learning_and_knowledge
+    names: {en: Explanation and modelling, et: Selgitamine ja modelleerimine, ru: Объяснение и моделирование}
+    definition_ru: Построение доступного объяснения или модели явления, процесса либо решения.
+  - capability_id: formative_assessment
+    category: learning_process
+    names: {en: Formative assessment, et: Kujundav hindamine, ru: Формативное оценивание}
+    definition_ru: Получение данных о текущем понимании для выбора следующего учебного шага.
+  - capability_id: guided_practice
+    category: learning_process
+    names: {en: Guided practice, et: Juhendatud harjutamine, ru: Практика с поддержкой}
+    definition_ru: Применение знания с временной моделью, подсказкой или обратной связью.
+  - capability_id: independent_practice
+    category: learning_process
+    names: {en: Independent practice, et: Iseseisev harjutamine, ru: Самостоятельная практика}
+    definition_ru: Выполнение учебного действия без непосредственного ведения взрослым.
+  - capability_id: learner_autonomy
+    category: learning_process
+    names: {en: Learner autonomy, et: Õppija autonoomia, ru: Автономия ученика}
+    definition_ru: Самостоятельный выбор допустимого способа действия и ответственность за попытку.
+  - capability_id: map_interpretation
+    category: expression_and_representation
+    names: {en: Map interpretation, et: Kaardi tõlgendamine, ru: Интерпретация карты}
+    definition_ru: Чтение условных обозначений, положения и пространственных связей на карте.
+  - capability_id: measurement
+    category: investigation
+    names: {en: Measurement, et: Mõõtmine, ru: Измерение}
+    definition_ru: Получение и запись величины с подходящим инструментом и единицей.
+  - capability_id: metacognition
+    category: learning_process
+    names: {en: Metacognition, et: Metakognitsioon, ru: Метапознание}
+    definition_ru: Осознание выбранной стратегии, трудности и качества собственного понимания.
+  - capability_id: misconception_detection
+    category: learning_and_knowledge
+    names: {en: Misconception detection, et: Väärarusaama tuvastamine, ru: Выявление заблуждений}
+    definition_ru: Диагностика устойчивой неверной модели, а не только случайной ошибки.
+  - capability_id: observation
+    category: investigation
+    names: {en: Observation, et: Vaatlus, ru: Наблюдение}
+    definition_ru: Целенаправленная фиксация видимых признаков или изменений.
+  - capability_id: oral_production
+    category: expression_and_representation
+    names: {en: Oral production, et: Suuline väljendus, ru: Устная продукция}
+    definition_ru: Формулирование понятного устного ответа, описания или объяснения.
+  - capability_id: peer_explanation
+    category: learning_process
+    names: {en: Peer explanation, et: Kaaslasele selgitamine, ru: Объяснение сверстнику}
+    definition_ru: Объяснение содержания другому ученику с возможностью уточнения.
+  - capability_id: planning_and_time_management
+    category: learning_process
+    names: {en: Planning and time management, et: Planeerimine ja ajajuhtimine, ru: Планирование и управление временем}
+    definition_ru: Разбиение работы на шаги, оценка времени и контроль выполнения.
+  - capability_id: prior_knowledge_activation
+    category: learning_and_knowledge
+    names: {en: Prior knowledge activation, et: Eelteadmiste aktiveerimine, ru: Активация прежних знаний}
+    definition_ru: Вызов уже имеющихся представлений до введения или применения нового содержания.
+  - capability_id: reflection
+    category: learning_process
+    names: {en: Reflection, et: Refleksioon, ru: Рефлексия}
+    definition_ru: Осмысление результата, трудности и следующего шага после работы.
+  - capability_id: retrieval
+    category: learning_and_knowledge
+    names: {en: Retrieval, et: Meenutamine, ru: Активное воспроизведение}
+    definition_ru: Попытка восстановить изученное без просмотра ответа или источника.
+  - capability_id: self_assessment
+    category: learning_process
+    names: {en: Self-assessment, et: Enesehindamine, ru: Самооценка}
+    definition_ru: Сопоставление собственной работы с понятными критериями или ключом.
+  - capability_id: sequencing
+    category: learning_and_knowledge
+    names: {en: Sequencing, et: Järjestamine, ru: Установление последовательности}
+    definition_ru: Расположение этапов, событий или элементов в обоснованном порядке.
+  - capability_id: symbolic_representation
+    category: expression_and_representation
+    names: {en: Symbolic representation, et: Sümbolesitus, ru: Символическое представление}
+    definition_ru: Представление содержания с помощью знаков, формул или условных обозначений.
+  - capability_id: transfer_and_application
+    category: learning_and_knowledge
+    names: {en: Transfer and application, et: Ülekanne ja rakendamine, ru: Перенос и применение}
+    definition_ru: Использование знания в новой задаче, примере или контексте.
+  - capability_id: visual_representation
+    category: expression_and_representation
+    names: {en: Visual representation, et: Visuaalne esitus, ru: Визуальное представление}
+    definition_ru: Создание или преобразование рисунка, схемы, модели либо другой визуальной формы.
+  - capability_id: written_production
+    category: expression_and_representation
+    names: {en: Written production, et: Kirjalik väljendus, ru: Письменная продукция}
+    definition_ru: Формулирование содержательного письменного ответа или записи.
+resource_vocabulary:
+  - {resource_id: board, category: reusable, names: {en: Board, et: Tahvel, ru: Доска}}
+  - {resource_id: dataset, category: information, names: {en: Dataset, et: Andmestik, ru: Набор данных}}
+  - {resource_id: device, category: equipment, names: {en: Device, et: Seade, ru: Устройство}}
+  - {resource_id: diagram, category: information, names: {en: Diagram, et: Skeem, ru: Схема}}
+  - {resource_id: glue, category: consumable, names: {en: Glue, et: Liim, ru: Клей}}
+  - {resource_id: internet, category: access, names: {en: Internet, et: Internet, ru: Интернет}}
+  - {resource_id: laboratory_materials, category: equipment, names: {en: Laboratory materials, et: Katsevahendid, ru: Материалы для опыта}}
+  - {resource_id: manipulatives, category: reusable, names: {en: Manipulatives, et: Õppevahendid, ru: Манипулятивные материалы}}
+  - {resource_id: map, category: information, names: {en: Map, et: Kaart, ru: Карта}}
+  - {resource_id: markers, category: consumable, names: {en: Markers, et: Markerid, ru: Маркеры}}
+  - {resource_id: measuring_tools, category: equipment, names: {en: Measuring tools, et: Mõõtevahendid, ru: Измерительные инструменты}}
+  - {resource_id: outdoor_access, category: access, names: {en: Outdoor access, et: Õueala kasutus, ru: Доступ на улицу}}
+  - {resource_id: paper, category: consumable, names: {en: Paper, et: Paber, ru: Бумага}}
+  - {resource_id: printable_cards, category: reusable, names: {en: Printable cards, et: Prinditavad kaardid, ru: Печатные карточки}}
+  - {resource_id: printed_worksheet, category: consumable, names: {en: Printed worksheet, et: Prinditud tööleht, ru: Печатный рабочий лист}}
+  - {resource_id: projector, category: equipment, names: {en: Projector, et: Projektor, ru: Проектор}}
+  - {resource_id: scissors, category: equipment, names: {en: Scissors, et: Käärid, ru: Ножницы}}
+  - {resource_id: shared_display, category: equipment, names: {en: Shared display, et: Ühisekraan, ru: Общий экран}}
+  - {resource_id: sticky_notes, category: consumable, names: {en: Sticky notes, et: Märkmepaberid, ru: Стикеры}}
+  - {resource_id: textbook_or_source_text, category: information, names: {en: Textbook or source text, et: Õpik või lähtetekst, ru: Учебник или исходный текст}}
+  - {resource_id: timer, category: equipment, names: {en: Timer, et: Taimer, ru: Таймер}}
+  - {resource_id: writing_tool, category: equipment, names: {en: Writing tool, et: Kirjutusvahend, ru: Письменная принадлежность}}
+controlled_vocabulary:
+  capability_levels: [incidental, none, primary, supporting, unknown]
+  compatibility_levels: [adaptable, directly_supported, limited, not_recommended, unknown]
+  delivery_modes: [classroom, homeschool, independent_study, parent_supported, remote]
+  demand_levels: [high, low, medium, none, unknown, very_high, very_low]
+  effort_levels: [high, intensive, low, medium, minimal, none, unknown]
+  estonian_a1_a2_compatibility: [directly_supported, limited, not_applicable, not_recommended, supported_with_scaffold, unknown]
+  group_formats: [individual, medium_group, pair, rotating_stations, small_group, triad, whole_class]
+  parent_roles: [active_participant, check_answers, listening_partner, logistical_support, none, safety_supervision, subject_explanation_required, unknown]
+  support_requirements: [not_required, optional, recommended, required, unknown]
+assessment:
+  claim_origin: project_authored_design
+  reference_ids: []
+  confidence:
+    level: provisional
+    rationale: >-
+      Словарь создан проектом как операционная классификация методов для
+      детерминированной фильтрации и требует последующей проверки учителями.

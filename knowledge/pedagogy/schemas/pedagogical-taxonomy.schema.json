@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-taxonomy.schema.json",
+  "title": "Pedagogical operational taxonomy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "taxonomy_version",
+    "capabilities",
+    "resource_vocabulary",
+    "controlled_vocabulary",
+    "assessment"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/schemaVersion"
+    },
+    "artifact_type": {
+      "const": "pedagogical_taxonomy"
+    },
+    "taxonomy_version": {
+      "const": "1.0"
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "capability_id",
+          "category",
+          "names",
+          "definition_ru"
+        ],
+        "properties": {
+          "capability_id": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+          },
+          "category": {
+            "enum": [
+              "expression_and_representation",
+              "investigation",
+              "learning_and_knowledge",
+              "learning_process"
+            ]
+          },
+          "names": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/localizedNames"
+          },
+          "definition_ru": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "resource_vocabulary": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "resource_id",
+          "category",
+          "names"
+        ],
+        "properties": {
+          "resource_id": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+          },
+          "category": {
+            "enum": [
+              "access",
+              "consumable",
+              "equipment",
+              "information",
+              "reusable"
+            ]
+          },
+          "names": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/localizedNames"
+          }
+        }
+      }
+    },
+    "controlled_vocabulary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capability_levels",
+        "compatibility_levels",
+        "delivery_modes",
+        "demand_levels",
+        "effort_levels",
+        "estonian_a1_a2_compatibility",
+        "group_formats",
+        "parent_roles",
+        "support_requirements"
+      ],
+      "properties": {
+        "capability_levels": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "compatibility_levels": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "delivery_modes": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "demand_levels": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "effort_levels": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "estonian_a1_a2_compatibility": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "group_formats": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "parent_roles": {
+          "$ref": "#/$defs/taxonomyValues"
+        },
+        "support_requirements": {
+          "$ref": "#/$defs/taxonomyValues"
+        }
+      }
+    },
+    "assessment": {
+      "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyAssessment"
+    }
+  },
+  "$defs": {
+    "taxonomyValues": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/taxonomyId"
+      }
+    }
+  }
+}
