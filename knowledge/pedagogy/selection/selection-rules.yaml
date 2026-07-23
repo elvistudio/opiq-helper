@@ -1,0 +1,119 @@
+schema_version: "1.0"
+artifact_type: pedagogical_selection_rules
+taxonomy_version: "1.0"
+selection_rules_version: "1.0"
+lesson_dna_schema_version: "1.0"
+engine_version: "1.0"
+claim_origin: project_authored_design
+confidence:
+  level: provisional
+  rationale: >-
+    Правила и веса являются операционным дизайном проекта для объяснимого
+    подбора. Они ещё не подтверждены независимым учителем и не выражают
+    сравнительную эффективность методов.
+hard_constraints:
+  adult_role_constraints: true
+  duration_and_reserve: true
+  execution_profile_required_for_profiled_activity: true
+  grade_and_subject: true
+  group_and_delivery: true
+  language_profile: true
+  lesson_phase: true
+  prohibited_targets: true
+  required_resources: true
+  safety_supervision: true
+  source_access_policy: true
+  teacher_override_cannot_bypass: true
+scoring:
+  capability_levels:
+    incidental: 1
+    none: 0
+    primary: 3
+    supporting: 2
+    unknown: -1
+  parameters:
+    resource_simplicity_required_resource_ceiling: 5
+  weights:
+    a1_a2_direct_fit: 6
+    a1_a2_scaffolded_fit: 3
+    content_type_match: 2
+    desired_capability_incidental: 1
+    desired_capability_primary: 8
+    desired_capability_supporting: 5
+    direct_delivery_fit: 5
+    effort_headroom: 2
+    execution_profile_specificity: 2
+    group_format_fit: 4
+    pattern_activity_option: 6
+    pattern_phase_fit: 10
+    preferred_pattern: 5
+    preferred_target: 6
+    required_capability_primary: 20
+    required_capability_supporting: 12
+    resource_simplicity: 1
+    source_access_fit: 3
+  penalties:
+    limited_a1_a2: -8
+    provisional_taxonomy: -1
+    recent_target: -5
+    unknown_taxonomy: -6
+  tie_break: target_id_bytewise
+timing:
+  reserve_minutes: 3
+  transition_minutes_when_group_format_changes: 1
+  maximum_distinct_group_formats: 3
+  use_activity_minimum_minutes_for_proposal: true
+combination_rules:
+  practical_requires_evidence_conclusion: true
+  reflection_only_is_not_subject_assessment: true
+  retrieval_requires_later_correction: true
+  maximum_language_heavy_phase_share_percent_a1_a2: 50
+  repeated_target_forbidden: true
+purpose_policies:
+  - purpose: collaborative_practice
+    pattern_ids: [concept-introduction-classroom]
+  - purpose: concept_introduction
+    pattern_ids: [concept-introduction-classroom]
+  - purpose: formative_assessment
+    pattern_ids: [retrieval-and-consolidation]
+  - purpose: guided_application
+    pattern_ids: [concept-introduction-classroom]
+  - purpose: independent_practice
+    pattern_ids: [concept-introduction-classroom, independent-homeschool-study]
+  - purpose: map_or_data_interpretation
+    pattern_ids: [concept-introduction-classroom]
+  - purpose: oral_answer_preparation
+    pattern_ids: [concept-introduction-classroom, retrieval-and-consolidation]
+  - purpose: practical_investigation
+    pattern_ids: [safe-practical-investigation]
+  - purpose: retrieval_and_consolidation
+    pattern_ids: [independent-homeschool-study, retrieval-and-consolidation]
+  - purpose: revision
+    pattern_ids: [independent-homeschool-study, retrieval-and-consolidation]
+pattern_policies:
+  - pattern_id: concept-introduction-classroom
+    slots:
+      - {slot_id: activation, phase: activation, requirement: optional, consumes_lesson_time: true}
+      - {slot_id: explanation, phase: explanation, requirement: required, consumes_lesson_time: true}
+      - {slot_id: guided-practice, phase: guided_practice, requirement: required, consumes_lesson_time: true}
+      - {slot_id: retrieval, phase: retrieval, requirement: optional, consumes_lesson_time: true}
+      - {slot_id: formative-check, phase: formative_assessment, requirement: optional, consumes_lesson_time: true}
+  - pattern_id: independent-homeschool-study
+    slots:
+      - {slot_id: orientation, phase: orientation, requirement: required, consumes_lesson_time: true}
+      - {slot_id: independent-practice, phase: independent_practice, requirement: required, consumes_lesson_time: true}
+      - {slot_id: retrieval, phase: retrieval, requirement: required, consumes_lesson_time: true}
+      - {slot_id: reflection, phase: reflection, requirement: required, consumes_lesson_time: true}
+      - {slot_id: delayed-review, phase: delayed_review, requirement: optional, consumes_lesson_time: false}
+  - pattern_id: retrieval-and-consolidation
+    slots:
+      - {slot_id: retrieval, phase: retrieval, requirement: required, consumes_lesson_time: true}
+      - {slot_id: correction, phase: formative_assessment, requirement: required, consumes_lesson_time: true}
+      - {slot_id: consolidation, phase: consolidation, requirement: optional, consumes_lesson_time: true}
+      - {slot_id: delayed-review, phase: delayed_review, requirement: optional, consumes_lesson_time: false}
+  - pattern_id: safe-practical-investigation
+    slots:
+      - {slot_id: safety-orientation, phase: orientation, requirement: required, consumes_lesson_time: true}
+      - {slot_id: practical-work, phase: guided_practice, requirement: required, consumes_lesson_time: true}
+      - {slot_id: evidence-check, phase: formative_assessment, requirement: required, consumes_lesson_time: true}
+      - {slot_id: conclusion, phase: retrieval, requirement: required, consumes_lesson_time: true}

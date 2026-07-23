@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/lesson-dna-examples.schema.json",
+  "title": "Lesson DNA example catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "examples"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "artifact_type": {"const": "lesson_dna_examples"},
+    "examples": {
+      "type": "array",
+      "minItems": 4,
+      "items": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/lesson-dna.schema.json#/$defs/lessonDna"}
+    }
+  }
+}

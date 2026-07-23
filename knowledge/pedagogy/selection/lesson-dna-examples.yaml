@@ -1,0 +1,916 @@
+schema_version: "1.0"
+artifact_type: lesson_dna_examples
+examples:
+  - schema_version: "1.0"
+    artifact_type: lesson_dna
+    lesson_dna_id: grade5-science-concept-introduction-example
+    status:
+      structural_state: proposed
+      teacher_review: pending
+      classroom_trial: not_started
+      classroom_ready: false
+      effectiveness_claimed: false
+    versions:
+      taxonomy: "1.0"
+      selection_rules: "1.0"
+      lesson_dna_schema: "1.0"
+      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      engine: "1.0"
+    context:
+      request_id: grade5-concept-introduction
+      request_digest: 836ab25e66afa0399990a1d54859e434a203cc96d8ff7bbc53e4a923aaf22a54
+      grade: 5
+      subject: science
+      duration_minutes: 45
+      delivery_mode: classroom
+      group_size: 28
+      primary_instruction_language: ru
+      estonian_support_level: A1-A2
+    pattern:
+      pattern_id: concept-introduction-classroom
+      selection_origin: request_required
+      rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+        оценкой эффективности.
+    phases:
+      - phase_id: activation
+        phase: activation
+        purpose_ru: Активировать прежние знания и сделать предварительные идеи видимыми.
+        required: true
+        target:
+          target_id: brainstorming
+          activity_id: brainstorming
+          execution_profile_id: null
+        activity_minutes: 3
+        setup_minutes: 2
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - prior_knowledge_activation
+          supporting:
+            - collaborative_practice
+            - formative_assessment
+            - oral_production
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - short_oral_response
+            - terminology
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: explanation
+        phase: explanation
+        purpose_ru: Построить точную предметную модель в доступной форме.
+        required: true
+        target:
+          target_id: guided-reading
+          activity_id: guided-reading
+          execution_profile_id: null
+        activity_minutes: 8
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - guided_practice
+          supporting:
+            - concept_formation
+            - explanation_and_modelling
+            - formative_assessment
+            - oral_production
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - short_oral_response
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: guided-practice
+        phase: guided_practice
+        purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
+        required: true
+        target:
+          target_id: concept-map
+          activity_id: concept-map
+          execution_profile_id: null
+        activity_minutes: 8
+        setup_minutes: 2
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - concept_formation
+            - visual_representation
+          supporting:
+            - classification
+            - comparison
+            - diagram_interpretation
+            - formative_assessment
+            - retrieval
+        source_access:
+          first_attempt: prohibited
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - short_oral_response
+            - terminology
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: retrieval
+        phase: retrieval
+        purpose_ru: Восстановить главную связь без просмотра источника.
+        required: true
+        target:
+          target_id: one-minute-recall
+          activity_id: one-minute-recall
+          execution_profile_id: null
+        activity_minutes: 2
+        setup_minutes: 2
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - retrieval
+          supporting:
+            - formative_assessment
+            - oral_production
+            - written_production
+        source_access:
+          first_attempt: prohibited
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - short_oral_response
+            - terminology
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
+          в согласованную композицию; это не effectiveness ranking.
+      - phase_id: formative-check
+        phase: formative_assessment
+        purpose_ru: Найти устойчивое заблуждение и определить следующий шаг.
+        required: true
+        target:
+          target_id: retrieval-self-test
+          activity_id: retrieval-self-test
+          execution_profile_id: null
+        activity_minutes: 5
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - formative_assessment
+            - independent_practice
+            - retrieval
+            - self_assessment
+          supporting:
+            - error_correction
+            - error_detection
+        source_access:
+          first_attempt: prohibited
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - short_oral_response
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
+          вклад в согласованную композицию; это не effectiveness ranking.
+    timing:
+      activity_minutes: 26
+      setup_minutes: 14
+      cleanup_minutes: 0
+      transition_minutes: 0
+      reserve_minutes: 3
+      total_planned_minutes: 43
+      unallocated_minutes: 2
+      fits: true
+    assessment:
+      separation_policy: separate_subject_and_estonian_language_evidence
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - formative-check
+        notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+          предметный результат.
+      estonian_language_assessment:
+        enabled: false
+        target_phase_ids: []
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
+    retrieval_plan:
+      immediate_phase_id: retrieval
+      correction_phase_id: formative-check
+      delayed:
+        - after_days: 7
+          capability: retrieval
+        - after_lessons: 1
+          capability: retrieval
+    differentiation:
+      scaffolds:
+        - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+        - Provide a bounded Estonian word bank for the selected terminology or labels.
+      extensions: []
+    teacher_overrides: []
+    warnings:
+      - Capability ratings and selection weights are provisional project-authored metadata.
+      - The proposal requires teacher review and does not claim learning effectiveness.
+    known_limits:
+      - classroom_trial_not_started
+      - no_effectiveness_claim
+      - selection_weights_provisional
+      - taxonomy_ratings_provisional
+      - teacher_review_pending
+  - schema_version: "1.0"
+    artifact_type: lesson_dna
+    lesson_dna_id: grade5-science-independent-retrieval-example
+    status:
+      structural_state: proposed
+      teacher_review: pending
+      classroom_trial: not_started
+      classroom_ready: false
+      effectiveness_claimed: false
+    versions:
+      taxonomy: "1.0"
+      selection_rules: "1.0"
+      lesson_dna_schema: "1.0"
+      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      engine: "1.0"
+    context:
+      request_id: grade5-independent-retrieval
+      request_digest: e0272ef6da25c784169b55b76c161cc670162b0ebe0e36463cb6d5f66c98d7f4
+      grade: 5
+      subject: science
+      duration_minutes: 45
+      delivery_mode: independent_study
+      group_size: 1
+      primary_instruction_language: ru
+      estonian_support_level: A1-A2
+    pattern:
+      pattern_id: independent-homeschool-study
+      selection_origin: request_required
+      rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+        оценкой эффективности.
+    phases:
+      - phase_id: orientation
+        phase: orientation
+        purpose_ru: Подготовить тихое место, видимую цель, короткие шаги и оценку времени.
+        required: true
+        target:
+          target_id: kwl-table
+          activity_id: kwl-table
+          execution_profile_id: null
+        activity_minutes: 5
+        setup_minutes: 2
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - prior_knowledge_activation
+          supporting:
+            - metacognition
+            - reflection
+            - self_assessment
+            - written_production
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - terminology
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target kwl-table прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: independent-practice
+        phase: independent_practice
+        purpose_ru: Изучить один ограниченный фрагмент и зафиксировать собственное понимание.
+        required: true
+        target:
+          target_id: insert-reading
+          activity_id: insert-reading
+          execution_profile_id: null
+        activity_minutes: 10
+        setup_minutes: 2
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - guided_practice
+            - metacognition
+          supporting:
+            - concept_formation
+            - self_assessment
+            - symbolic_representation
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - terminology
+        resources:
+          required:
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target insert-reading прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: retrieval
+        phase: retrieval
+        purpose_ru: Закрыть источник и воспроизвести главное до просмотра ключа.
+        required: true
+        target:
+          target_id: retrieval-self-test
+          activity_id: retrieval-self-test
+          execution_profile_id: null
+        activity_minutes: 5
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - formative_assessment
+            - independent_practice
+            - retrieval
+            - self_assessment
+          supporting:
+            - error_correction
+            - error_detection
+        source_access:
+          first_attempt: prohibited
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
+          вклад в согласованную композицию; это не effectiveness ranking.
+      - phase_id: reflection
+        phase: reflection
+        purpose_ru: Сверить, исправить другим цветом и определить нерешённый вопрос.
+        required: true
+        target:
+          target_id: error-correction
+          activity_id: error-correction
+          execution_profile_id: null
+        activity_minutes: 3
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - error_correction
+            - error_detection
+          supporting:
+            - formative_assessment
+            - misconception_detection
+            - reflection
+            - self_assessment
+        source_access:
+          first_attempt: required
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+    timing:
+      activity_minutes: 23
+      setup_minutes: 12
+      cleanup_minutes: 0
+      transition_minutes: 0
+      reserve_minutes: 3
+      total_planned_minutes: 38
+      unallocated_minutes: 7
+      fits: true
+    assessment:
+      separation_policy: separate_subject_and_estonian_language_evidence
+      subject_assessment:
+        enabled: true
+        target_phase_ids: []
+        notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+          предметный результат.
+      estonian_language_assessment:
+        enabled: false
+        target_phase_ids: []
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
+    retrieval_plan:
+      immediate_phase_id: retrieval
+      correction_phase_id: reflection
+      delayed:
+        - after_days: 7
+          capability: retrieval
+    differentiation:
+      scaffolds:
+        - Provide a bounded Estonian word bank for the selected terminology or labels.
+      extensions: []
+    teacher_overrides: []
+    warnings:
+      - Capability ratings and selection weights are provisional project-authored metadata.
+      - The proposal requires teacher review and does not claim learning effectiveness.
+    known_limits:
+      - classroom_trial_not_started
+      - no_effectiveness_claim
+      - selection_weights_provisional
+      - taxonomy_ratings_provisional
+      - teacher_review_pending
+  - schema_version: "1.0"
+    artifact_type: lesson_dna
+    lesson_dna_id: grade5-science-map-data-example
+    status:
+      structural_state: proposed
+      teacher_review: pending
+      classroom_trial: not_started
+      classroom_ready: false
+      effectiveness_claimed: false
+    versions:
+      taxonomy: "1.0"
+      selection_rules: "1.0"
+      lesson_dna_schema: "1.0"
+      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      engine: "1.0"
+    context:
+      request_id: grade5-map-diagram
+      request_digest: 27da8cbbe99311fc39384d4c3766ef288bfc3ffe84942d2312ba037948c54956
+      grade: 5
+      subject: science
+      duration_minutes: 45
+      delivery_mode: classroom
+      group_size: 28
+      primary_instruction_language: ru
+      estonian_support_level: A1-A2
+    pattern:
+      pattern_id: concept-introduction-classroom
+      selection_origin: request_required
+      rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+        оценкой эффективности.
+    phases:
+      - phase_id: explanation
+        phase: explanation
+        purpose_ru: Построить точную предметную модель в доступной форме.
+        required: true
+        target:
+          target_id: guided-reading
+          activity_id: guided-reading
+          execution_profile_id: null
+        activity_minutes: 8
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - guided_practice
+          supporting:
+            - concept_formation
+            - explanation_and_modelling
+            - formative_assessment
+            - oral_production
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - labels
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: guided-practice
+        phase: guided_practice
+        purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
+        required: true
+        target:
+          target_id: learning-stations::map-data
+          activity_id: learning-stations
+          execution_profile_id: map-data
+        activity_minutes: 15
+        setup_minutes: 5
+        cleanup_minutes: 1
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - data_interpretation
+            - diagram_interpretation
+            - independent_practice
+            - map_interpretation
+          supporting:
+            - classification
+            - comparison
+            - guided_practice
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - labels
+            - terminology
+        resources:
+          required:
+            - dataset
+            - diagram
+            - map
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target learning-stations::map-data прошёл hard constraints и получил наивысший
+          допустимый вклад в согласованную композицию; это не effectiveness ranking.
+      - phase_id: formative-check
+        phase: formative_assessment
+        purpose_ru: Найти устойчивое заблуждение и определить следующий шаг.
+        required: false
+        target:
+          target_id: exit-ticket
+          activity_id: exit-ticket
+          execution_profile_id: null
+        activity_minutes: 2
+        setup_minutes: 2
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - formative_assessment
+          supporting:
+            - reflection
+            - retrieval
+            - written_production
+        source_access:
+          first_attempt: prohibited
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - labels
+            - terminology
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target exit-ticket прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+    timing:
+      activity_minutes: 25
+      setup_minutes: 11
+      cleanup_minutes: 1
+      transition_minutes: 0
+      reserve_minutes: 3
+      total_planned_minutes: 40
+      unallocated_minutes: 5
+      fits: true
+    assessment:
+      separation_policy: separate_subject_and_estonian_language_evidence
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - formative-check
+        notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+          предметный результат.
+      estonian_language_assessment:
+        enabled: false
+        target_phase_ids: []
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
+    retrieval_plan:
+      immediate_phase_id: null
+      correction_phase_id: null
+      delayed: []
+    differentiation:
+      scaffolds:
+        - Provide a bounded Estonian word bank for the selected terminology or labels.
+      extensions: []
+    teacher_overrides: []
+    warnings:
+      - Capability ratings and selection weights are provisional project-authored metadata.
+      - The proposal requires teacher review and does not claim learning effectiveness.
+    known_limits:
+      - classroom_trial_not_started
+      - no_effectiveness_claim
+      - selection_weights_provisional
+      - taxonomy_ratings_provisional
+      - teacher_review_pending
+  - schema_version: "1.0"
+    artifact_type: lesson_dna
+    lesson_dna_id: grade5-science-safe-practical-example
+    status:
+      structural_state: proposed
+      teacher_review: pending
+      classroom_trial: not_started
+      classroom_ready: false
+      effectiveness_claimed: false
+    versions:
+      taxonomy: "1.0"
+      selection_rules: "1.0"
+      lesson_dna_schema: "1.0"
+      activity_catalog_digest: f73fafde870a9abe4ed3f51e9b92af1947f3660347c4ff1a546f5540a7ae3a1c
+      engine: "1.0"
+    context:
+      request_id: grade5-safe-practical
+      request_digest: 214a0430fe4e75fdd95ddc20dc85c848db9fdab2e25042d37809cb896d14279f
+      grade: 5
+      subject: science
+      duration_minutes: 90
+      delivery_mode: classroom
+      group_size: 24
+      primary_instruction_language: ru
+      estonian_support_level: A1-A2
+    pattern:
+      pattern_id: safe-practical-investigation
+      selection_origin: request_required
+      rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+        оценкой эффективности.
+    phases:
+      - phase_id: safety-orientation
+        phase: orientation
+        purpose_ru: Сделать цель, критерии наблюдения и ограничения безопасности явными.
+        required: true
+        target:
+          target_id: true-false-anticipation
+          activity_id: true-false-anticipation
+          execution_profile_id: null
+        activity_minutes: 5
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - misconception_detection
+            - prior_knowledge_activation
+          supporting:
+            - causal_reasoning
+            - error_correction
+            - formative_assessment
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target true-false-anticipation прошёл hard constraints и получил наивысший допустимый
+          вклад в согласованную композицию; это не effectiveness ranking.
+      - phase_id: practical-work
+        phase: guided_practice
+        purpose_ru: Выполнить разрешённые действия и фиксировать наблюдаемые данные.
+        required: true
+        target:
+          target_id: learning-stations::practical-observation-measurement
+          activity_id: learning-stations
+          execution_profile_id: practical-observation-measurement
+        activity_minutes: 20
+        setup_minutes: 10
+        cleanup_minutes: 10
+        transition_minutes: 1
+        group_format: rotating_stations
+        capabilities:
+          primary:
+            - evidence_based_conclusion
+            - guided_practice
+            - measurement
+            - observation
+          supporting:
+            - independent_practice
+        source_access:
+          first_attempt: allowed
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - terminology
+        resources:
+          required:
+            - laboratory_materials
+            - measuring_tools
+            - paper
+            - writing_tool
+        safety:
+          requires_adult_supervision: true
+          controls_ru:
+            - Использовать только заранее проверенные безопасные материалы.
+            - Показать обращение с измерительными инструментами до начала работы.
+            - Немедленно убрать разлив или повреждённое оборудование.
+            - Выполнить уборку и возврат материалов под контролем взрослого.
+        rationale_ru: Target learning-stations::practical-observation-measurement прошёл hard constraints и
+          получил наивысший допустимый вклад в согласованную композицию; это не effectiveness
+          ranking.
+      - phase_id: evidence-check
+        phase: formative_assessment
+        purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
+        required: true
+        target:
+          target_id: error-correction
+          activity_id: error-correction
+          execution_profile_id: null
+        activity_minutes: 3
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 1
+        group_format: individual
+        capabilities:
+          primary:
+            - error_correction
+            - error_detection
+          supporting:
+            - formative_assessment
+            - misconception_detection
+            - reflection
+            - self_assessment
+        source_access:
+          first_attempt: required
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+      - phase_id: conclusion
+        phase: retrieval
+        purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+        required: true
+        target:
+          target_id: retrieval-self-test
+          activity_id: retrieval-self-test
+          execution_profile_id: null
+        activity_minutes: 5
+        setup_minutes: 4
+        cleanup_minutes: 0
+        transition_minutes: 0
+        group_format: individual
+        capabilities:
+          primary:
+            - formative_assessment
+            - independent_practice
+            - retrieval
+            - self_assessment
+          supporting:
+            - error_correction
+            - error_detection
+        source_access:
+          first_attempt: prohibited
+        language_role:
+          primary_language: ru
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - terminology
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          requires_adult_supervision: false
+          controls_ru: []
+        rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
+          вклад в согласованную композицию; это не effectiveness ranking.
+    timing:
+      activity_minutes: 33
+      setup_minutes: 22
+      cleanup_minutes: 10
+      transition_minutes: 2
+      reserve_minutes: 3
+      total_planned_minutes: 70
+      unallocated_minutes: 20
+      fits: true
+    assessment:
+      separation_policy: separate_subject_and_estonian_language_evidence
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - evidence-check
+        notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+          предметный результат.
+      estonian_language_assessment:
+        enabled: false
+        target_phase_ids: []
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
+    retrieval_plan:
+      immediate_phase_id: conclusion
+      correction_phase_id: null
+      delayed:
+        - after_lessons: 1
+          capability: retrieval
+    differentiation:
+      scaffolds:
+        - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+        - Provide a bounded Estonian word bank for the selected terminology or labels.
+      extensions: []
+    teacher_overrides: []
+    warnings:
+      - Capability ratings and selection weights are provisional project-authored metadata.
+      - The proposal requires teacher review and does not claim learning effectiveness.
+    known_limits:
+      - classroom_trial_not_started
+      - no_effectiveness_claim
+      - selection_weights_provisional
+      - taxonomy_ratings_provisional
+      - teacher_review_pending
