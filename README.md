@@ -130,6 +130,16 @@ npm run test:grade-3-music
 
 The [grade 3 music audit](docs/audits/grade-3-music-source-import.md) accounts for all 315 source rows, excludes four unique and four duplicate Kit Details rows plus two Impressum pages, and produces 305 direct instructional records: 183 Estonian and 122 Russian. The automatic mathematics label is replaced by music from kit, title, chapter, notation, rhythm, singing, and task evidence. Forty richer task arrays are recovered from the same raw chapter records; 129 pages remain without structured task examples and are classified as a non-blocking capture limitation. The generator also verifies reversible decoding of 195 non-ASCII ZIP member names whose UTF-8 flag is absent, without rewriting the archive. Publisher metadata is absent, grade-2 music is not substituted, and the route is not a curriculum-completeness claim.
 
+Grade 3 Estonian is generated from one shared four-book capture and one dedicated complete kit 590 capture:
+
+```sh
+node scripts/generate-grade-3-estonian-sources.mjs
+npm run check:grade-3-estonian
+npm run test:grade-3-estonian
+```
+
+The [grade 3 Estonian import audit](docs/audits/grade-3-estonian-source-import.md) accounts for all 470 source rows and creates a strict 405/54 partition: kits 135, 179, and 590 belong to first-language Estonian, while kit 140 belongs only to Estonian as a second language. The dedicated archive completes kit 590 with 42 unique instructional chapters; its shared-archive cover evidence remains audited but is not duplicated. Grade, automatic mathematics-subject, and isolated language anomalies are normalized only from captured evidence. All 459 pages lack structured task arrays, so no exercises are invented; a targeted task-body capture is optional only if exact image-based exercises are needed. The routes do not claim official curriculum or live Opiq catalogue completeness.
+
 Grade 2 Estonian, Estonian as a second language, mathematics, science, human studies, combined nature-and-human-studies, arts-and-crafts, music, and supplementary youth-training indexes are reproducibly generated from committed original export archives:
 
 ```sh

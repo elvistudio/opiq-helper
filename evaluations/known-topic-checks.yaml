@@ -514,6 +514,152 @@ cases:
         url: https://www.opiq.ee/kit/92/chapter/4471
     evidence: "The original capture preserves ordinary Russian kit 92 and explicitly labelled simplified Estonian kit 497 as different programme types; their direct chapter URLs remain unique to the mathematics route."
 
+  - id: grade-3-estonian-first-language-route
+    grade: 3
+    subject: estonian
+    topic: "first-language Estonian kits 135, 179, and 590 remain separate from second-language and mathematics routes"
+    status: present
+    expected_source_id: grade-3-estonian
+    expected_md_path: project-files/outputs/opiq_3klass_eesti_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/135/chapter/7362
+        expected:
+          class: 3
+          book_id: 3._klassi_eesti_keel__kit135
+          title: HÄÄLIKUÜHENDID
+          subject:
+            en: Estonian language
+            et: eesti keel
+            ru: эстонский язык
+          headings_any:
+            - HÄÄLIKUÜHENDID
+      - kind: record_present
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/179/chapter/10003
+        expected:
+          class: 3
+          book_id: eesti_keele_õpik_3._klassile__kit179
+          title: I osa. Tere tulemast emakeele tundi!
+          subject:
+            en: Estonian language
+            et: eesti keel
+            ru: эстонский язык
+          headings_any:
+            - Mida õpid I osas?
+      - kind: record_present
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/590/chapter/33253
+        expected:
+          class: 3
+          book_id: mina_loen_ja_kirjutan_3__kit590
+          title: HÄÄLIKUD JA TÄHED
+          subject:
+            en: Estonian language
+            et: eesti keel
+            ru: эстонский язык
+          headings_any:
+            - HÄÄLIKUD JA TÄHED
+      - kind: record_present
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/590/chapter/33252
+        expected:
+          class: 3
+          book_id: mina_loen_ja_kirjutan_3__kit590
+          title: TÄHESTIK
+          headings_any:
+            - "1."
+      - kind: record_present
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/590/chapter/33265
+        expected:
+          class: 3
+          book_id: mina_loen_ja_kirjutan_3__kit590
+          title: KORDAMINE
+          headings_any:
+            - "3."
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-3-estonian-second-language
+        url: https://www.opiq.ee/kit/135/chapter/7362
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-3-estonian-second-language
+        url: https://www.opiq.ee/kit/590/chapter/33253
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/179/chapter/10003
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/135/chapter/7362
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/590/chapter/33253
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-3-russian
+        url: https://www.opiq.ee/kit/590/chapter/33253
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-2-estonian
+        url: https://www.opiq.ee/kit/135/chapter/7362
+      - kind: url_absent
+        origin_source_id: grade-3-estonian
+        source_id: grade-2-estonian
+        url: https://www.opiq.ee/kit/590/chapter/33252
+      - kind: book_id_absent
+        source_id: grade-3-estonian
+        book_id: eesti_keel_teise_keelena_3._klassile__kit140
+    evidence: "Kits 135, 179, and 590 are captured grade-3 first-language Estonian books. Kit 590's complete dedicated capture supplies 42 instructional pages; its raw-book ru anomaly does not override Estonian compact and page evidence."
+
+  - id: grade-3-estonian-second-language-route
+    grade: 3
+    subject: estonian_second_language
+    topic: "KOOS ON VAHVA belongs only to Estonian as a second language"
+    status: present
+    expected_source_id: grade-3-estonian-second-language
+    expected_md_path: project-files/outputs/opiq_3klass_eesti_keel_teise_keelena.md
+    assertions:
+      - kind: record_present
+        source_id: grade-3-estonian-second-language
+        url: https://www.opiq.ee/kit/140/chapter/7775
+        expected:
+          class: 3
+          book_id: eesti_keel_teise_keelena_3._klassile__kit140
+          title: Tere jälle, armas sõber!
+          subject:
+            en: Estonian as a second language
+            et: eesti keel teise keelena
+            ru: эстонский язык как второй
+          headings_any:
+            - VASTA KÜSIMUSTELE!
+      - kind: url_absent
+        origin_source_id: grade-3-estonian-second-language
+        source_id: grade-3-estonian
+        url: https://www.opiq.ee/kit/140/chapter/7775
+      - kind: url_absent
+        origin_source_id: grade-3-estonian-second-language
+        source_id: grade-3-mathematics
+        url: https://www.opiq.ee/kit/140/chapter/7775
+      - kind: url_absent
+        origin_source_id: grade-3-estonian-second-language
+        source_id: grade-2-estonian-second-language
+        url: https://www.opiq.ee/kit/140/chapter/7775
+      - kind: book_id_absent
+        source_id: grade-3-estonian-second-language
+        book_id: 3._klassi_eesti_keel__kit135
+      - kind: book_id_absent
+        source_id: grade-3-estonian-second-language
+        book_id: eesti_keele_õpik_3._klassile__kit179
+      - kind: book_id_absent
+        source_id: grade-3-estonian-second-language
+        book_id: mina_loen_ja_kirjutan_3__kit590
+    evidence: "Kit 140 is explicitly an Estonian-as-a-second-language book. It is absent from first-language, mathematics, and grade-2 routes; reciprocal boundaries exclude all three first-language kits from this route."
+
   - id: grade-1-estonian-subject-separation
     grade: 1
     subject: estonian
@@ -1210,7 +1356,7 @@ cases:
         origin_source_id: grade-3-music
         source_id: grade-2-estonian-second-language
         url: https://www.opiq.ee/kit/163/chapter/9187
-    evidence: "All four grade-3 music kits are independently retrievable. The kit 163 and 592 Talvelaulud pages remain separate editions; the grade-3 URLs are absent from mathematics, Russian, grade-2 music, and available Estonian-language routes. No grade-3 Estonian-language route currently exists."
+    evidence: "All four grade-3 music kits are independently retrievable. The kit 163 and 592 Talvelaulud pages remain separate editions; the grade-3 URLs are absent from mathematics, Russian, grade-2 music, and both grade-3 Estonian-language routes."
 
   - id: grade-3-human-studies-water-safety
     grade: 3
