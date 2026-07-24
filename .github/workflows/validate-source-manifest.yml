@@ -21,6 +21,7 @@ on:
       - docs/pedagogical-knowledge-base.md
       - docs/pedagogical-taxonomy.md
       - docs/lesson-pedagogy-engine.md
+      - docs/homeschool-learning-engine.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -51,6 +52,7 @@ on:
       - docs/pedagogical-knowledge-base.md
       - docs/pedagogical-taxonomy.md
       - docs/lesson-pedagogy-engine.md
+      - docs/homeschool-learning-engine.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -135,6 +137,12 @@ jobs:
 
       - name: Inspect deterministic pedagogy fixtures
         run: npm run select:pedagogy
+
+      - name: Test homeschool pedagogy adaptation
+        run: npm run test:pedagogy-homeschool
+
+      - name: Check homeschool pedagogy adaptation
+        run: npm run check:pedagogy-homeschool
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

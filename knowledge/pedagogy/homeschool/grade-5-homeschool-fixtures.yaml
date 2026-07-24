@@ -1,0 +1,619 @@
+schema_version: "1.0"
+artifact_type: homeschool_adaptation_fixtures
+fixtures:
+  - fixture_id: homeschool-concept-independent
+    description_ru: Самостоятельное введение понятия без интернета и принтера.
+    source_fixture_id: grade5-concept-introduction
+    adaptation_context:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [diagram, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, printed_worksheet, printable_cards, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: [working_memory_support]
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [guided-reading, retrieval-self-test]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [concept-activation-card], task_refs: [concept-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [concept-source-segment], task_refs: [concept-reading-task], answer_key_refs: [], teacher_explanation_refs: [concept-teacher-explanation], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [concept-check-card], task_refs: [concept-check-task], answer_key_refs: [concept-check-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [concept-practice-card], task_refs: [concept-practice-task], answer_key_refs: [concept-practice-key], teacher_explanation_refs: [], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [concept-retrieval-card], task_refs: [concept-retrieval-task], answer_key_refs: [concept-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: independent-homeschool-study
+      variant: independent
+      include_target_ids: []
+      exclude_target_ids: [jigsaw]
+      warning_codes: []
+      example_id: independent-concept-package
+  - fixture_id: homeschool-limited-disallowed
+    description_ru: Явно предпочитаемая ограниченная групповая адаптация запрещена политикой запроса.
+    source_fixture_id: grade5-concept-introduction
+    adaptation_context:
+      variant: small_sibling_group
+      learner_count: 3
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: true
+        max_support_minutes: 20
+        max_effort: medium
+        allowed_roles: [active_participant, logistical_support]
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: []
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [jigsaw]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [concept-activation-card], task_refs: [concept-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [concept-source-segment], task_refs: [concept-reading-task], answer_key_refs: [], teacher_explanation_refs: [concept-teacher-explanation], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [concept-check-card], task_refs: [concept-check-task], answer_key_refs: [concept-check-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [concept-practice-card], task_refs: [concept-practice-task], answer_key_refs: [concept-practice-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [concept-retrieval-card], task_refs: [concept-retrieval-task], answer_key_refs: [concept-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: failure
+      failure_code: limited_adaptation_not_allowed
+      pattern_id: null
+      variant: small_sibling_group
+      include_target_ids: []
+      exclude_target_ids: []
+      warning_codes: []
+      example_id: null
+  - fixture_id: homeschool-map-independent
+    description_ru: Самостоятельная работа с картой и схемой при низкой продуктивной языковой нагрузке.
+    source_fixture_id: grade5-map-diagram
+    adaptation_context:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 25
+      maximum_sessions: 5
+      resources:
+        available: [dataset, diagram, map, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: [low_writing_load, working_memory_support]
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [learning-stations::map-data]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: explanation, learner_material_refs: [map-source-segment], task_refs: [map-reading-task], answer_key_refs: [], teacher_explanation_refs: [map-teacher-explanation], estonian_support_refs: [map-estonian-labels], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [map-check-card], task_refs: [map-check-task], answer_key_refs: [map-check-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [map-diagram], task_refs: [map-interpretation-task], answer_key_refs: [map-interpretation-key], teacher_explanation_refs: [], estonian_support_refs: [map-estonian-labels], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: independent-homeschool-study
+      variant: independent
+      include_target_ids: [learning-stations::map-data]
+      exclude_target_ids: [back-to-back-description]
+      warning_codes: []
+      example_id: null
+  - fixture_id: homeschool-oral-parent-child
+    description_ru: Подготовка короткого ответа по-эстонски с взрослым в роли слушателя.
+    source_fixture_id: grade5-oral-answer
+    adaptation_context:
+      variant: parent_child
+      learner_count: 1
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [diagram, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: true
+        max_support_minutes: 30
+        max_effort: medium
+        allowed_roles: [check_answers, listening_partner, logistical_support]
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: [working_memory_support]
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: adult_managed
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [self-explanation]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [oral-activation-card], task_refs: [oral-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [oral-word-bank], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [oral-source-segment], task_refs: [oral-reading-task], answer_key_refs: [], teacher_explanation_refs: [oral-teacher-explanation], estonian_support_refs: [oral-word-bank], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [oral-check-card], task_refs: [oral-check-task], answer_key_refs: [oral-check-key], teacher_explanation_refs: [], estonian_support_refs: [oral-sentence-frame], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [oral-practice-card], task_refs: [oral-practice-task], answer_key_refs: [oral-practice-key], teacher_explanation_refs: [], estonian_support_refs: [oral-sentence-frame, oral-word-bank], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [oral-retrieval-card], task_refs: [oral-retrieval-task], answer_key_refs: [oral-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [oral-sentence-frame], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: independent-homeschool-study
+      variant: parent_child
+      include_target_ids: []
+      exclude_target_ids: [jigsaw]
+      warning_codes: []
+      example_id: parent-child-oral-package
+  - fixture_id: homeschool-parent-effort-limit
+    description_ru: Нулевой лимит взрослого несовместим с вариантом parent-child.
+    source_fixture_id: grade5-concept-introduction
+    adaptation_context:
+      variant: parent_child
+      learner_count: 1
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [diagram, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: true
+        max_support_minutes: 0
+        max_effort: medium
+        allowed_roles: [listening_partner, logistical_support]
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: []
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: adult_managed
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: []
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [concept-activation-card], task_refs: [concept-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [concept-source-segment], task_refs: [concept-reading-task], answer_key_refs: [], teacher_explanation_refs: [concept-teacher-explanation], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [concept-check-card], task_refs: [concept-check-task], answer_key_refs: [concept-check-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [concept-practice-card], task_refs: [concept-practice-task], answer_key_refs: [concept-practice-key], teacher_explanation_refs: [], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [concept-retrieval-card], task_refs: [concept-retrieval-task], answer_key_refs: [concept-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: failure
+      failure_code: adult_effort_exceeds_limit
+      pattern_id: null
+      variant: parent_child
+      include_target_ids: []
+      exclude_target_ids: []
+      warning_codes: []
+      example_id: null
+  - fixture_id: homeschool-practical-no-supervision
+    description_ru: Практическая работа отклоняется без подтверждённого надзора взрослого.
+    source_fixture_id: grade5-safe-practical
+    adaptation_context:
+      variant: parent_child
+      learner_count: 1
+      learner_session_minutes: 45
+      maximum_sessions: 6
+      resources:
+        available: [laboratory_materials, measuring_tools, paper, writing_tool]
+        unavailable: [internet]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: true
+        measuring_tools_available: true
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: true
+        max_support_minutes: 60
+        max_effort: medium
+        allowed_roles: [logistical_support, safety_supervision]
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: []
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: adult_managed
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [learning-stations::practical-observation-measurement]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: conclusion, learner_material_refs: [practical-conclusion-card], task_refs: [practical-conclusion-task], answer_key_refs: [practical-conclusion-key], teacher_explanation_refs: [], estonian_support_refs: [practical-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: evidence-check, learner_material_refs: [practical-observation-table], task_refs: [practical-evidence-task], answer_key_refs: [practical-evidence-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: practical-work, learner_material_refs: [practical-observation-table], task_refs: [practical-observation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [practical-estonian-support], procedure_refs: [practical-procedure], safety_refs: [practical-safety-card]}
+      - {phase_id: safety-orientation, learner_material_refs: [practical-safety-card], task_refs: [practical-safety-check], answer_key_refs: [], teacher_explanation_refs: [practical-teacher-explanation], estonian_support_refs: [], procedure_refs: [practical-procedure], safety_refs: [practical-safety-card]}
+    expected:
+      status: failure
+      failure_code: safety_supervision_unavailable
+      pattern_id: null
+      variant: parent_child
+      include_target_ids: []
+      exclude_target_ids: []
+      warning_codes: []
+      example_id: null
+  - fixture_id: homeschool-practical-supervised
+    description_ru: Практическое исследование с материалами, разрешением учителя и надзором взрослого.
+    source_fixture_id: grade5-safe-practical
+    adaptation_context:
+      variant: parent_child
+      learner_count: 1
+      learner_session_minutes: 45
+      maximum_sessions: 6
+      resources:
+        available: [laboratory_materials, measuring_tools, paper, writing_tool]
+        unavailable: [internet]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: true
+        measuring_tools_available: true
+        outdoor_access_available: false
+        adult_safety_supervision_available: true
+      adult_context:
+        available: true
+        max_support_minutes: 75
+        max_effort: medium
+        allowed_roles: [check_answers, listening_partner, logistical_support, safety_supervision]
+        safety_supervision_available: true
+        subject_explanation_available: false
+      accessibility_priorities: [working_memory_support]
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: adult_managed
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [learning-stations::practical-observation-measurement]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: conclusion, learner_material_refs: [practical-conclusion-card], task_refs: [practical-conclusion-task], answer_key_refs: [practical-conclusion-key], teacher_explanation_refs: [], estonian_support_refs: [practical-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: evidence-check, learner_material_refs: [practical-observation-table], task_refs: [practical-evidence-task], answer_key_refs: [practical-evidence-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: practical-work, learner_material_refs: [practical-observation-table], task_refs: [practical-observation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [practical-estonian-support], procedure_refs: [practical-procedure], safety_refs: [practical-safety-card]}
+      - {phase_id: safety-orientation, learner_material_refs: [practical-safety-card], task_refs: [practical-safety-check], answer_key_refs: [], teacher_explanation_refs: [practical-teacher-explanation], estonian_support_refs: [], procedure_refs: [practical-procedure], safety_refs: [practical-safety-card]}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: safe-practical-investigation
+      variant: parent_child
+      include_target_ids: [learning-stations::practical-observation-measurement]
+      exclude_target_ids: []
+      warning_codes: [adaptable_homeschool_target]
+      example_id: supervised-practical-package
+  - fixture_id: homeschool-remote-peer
+    description_ru: Дистанционная репетиция объяснения двумя учениками без участия взрослого.
+    source_fixture_id: grade5-oral-answer
+    adaptation_context:
+      variant: remote_peer
+      learner_count: 2
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [device, internet, paper, textbook_or_source_text, writing_tool]
+        unavailable: [projector]
+        printer_available: false
+        internet_available: true
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: []
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [back-to-back-description]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [oral-activation-card], task_refs: [oral-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [oral-word-bank], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [oral-source-segment], task_refs: [oral-reading-task], answer_key_refs: [], teacher_explanation_refs: [oral-teacher-explanation], estonian_support_refs: [oral-word-bank], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [oral-check-card], task_refs: [oral-check-task], answer_key_refs: [oral-check-key], teacher_explanation_refs: [], estonian_support_refs: [oral-sentence-frame], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [oral-practice-card], task_refs: [oral-practice-task], answer_key_refs: [oral-practice-key], teacher_explanation_refs: [], estonian_support_refs: [oral-sentence-frame, oral-word-bank], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [oral-retrieval-card], task_refs: [oral-retrieval-task], answer_key_refs: [oral-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [oral-sentence-frame], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: independent-homeschool-study
+      variant: remote_peer
+      include_target_ids: []
+      exclude_target_ids: [jigsaw]
+      warning_codes: []
+      example_id: null
+  - fixture_id: homeschool-retrieval-independent
+    description_ru: Самостоятельное воспроизведение, сверка и исправление при минимальной помощи взрослого.
+    source_fixture_id: grade5-retrieval-correction
+    adaptation_context:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [paper, textbook_or_source_text, timer, writing_tool]
+        unavailable: [internet, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: [working_memory_support]
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [retrieval-self-test]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: consolidation, learner_material_refs: [retrieval-consolidation-card], task_refs: [retrieval-consolidation-task], answer_key_refs: [retrieval-consolidation-key], teacher_explanation_refs: [], estonian_support_refs: [retrieval-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: correction, learner_material_refs: [retrieval-correction-card], task_refs: [retrieval-correction-task], answer_key_refs: [retrieval-correction-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [retrieval-card], task_refs: [retrieval-task], answer_key_refs: [retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: retrieval-and-consolidation
+      variant: independent
+      include_target_ids: [retrieval-self-test]
+      exclude_target_ids: [jigsaw]
+      warning_codes: []
+      example_id: retrieval-self-check-package
+  - fixture_id: homeschool-retrieval-missing-key
+    description_ru: Самопроверка отклоняется, когда ключ ответа не связан с retrieval phase.
+    source_fixture_id: grade5-retrieval-correction
+    adaptation_context:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 20
+      maximum_sessions: 6
+      resources:
+        available: [paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: []
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [retrieval-self-test]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: consolidation, learner_material_refs: [retrieval-consolidation-card], task_refs: [retrieval-consolidation-task], answer_key_refs: [retrieval-consolidation-key], teacher_explanation_refs: [], estonian_support_refs: [retrieval-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: correction, learner_material_refs: [retrieval-correction-card], task_refs: [retrieval-correction-task], answer_key_refs: [retrieval-correction-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [retrieval-card], task_refs: [retrieval-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: failure
+      failure_code: answer_key_binding_missing
+      pattern_id: null
+      variant: independent
+      include_target_ids: []
+      exclude_target_ids: []
+      warning_codes: []
+      example_id: null
+  - fixture_id: homeschool-russian-only
+    description_ru: Самостоятельный пакет полностью на русском без эстонского педагогического слоя.
+    source_fixture_id: grade5-russian-only-concept-introduction
+    adaptation_context:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [diagram, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: [working_memory_support]
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [guided-reading]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [russian-activation-card], task_refs: [russian-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [russian-source-segment], task_refs: [russian-reading-task], answer_key_refs: [], teacher_explanation_refs: [russian-teacher-explanation], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [russian-check-card], task_refs: [russian-check-task], answer_key_refs: [russian-check-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [russian-practice-card], task_refs: [russian-practice-task], answer_key_refs: [russian-practice-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [russian-retrieval-card], task_refs: [russian-retrieval-task], answer_key_refs: [russian-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: independent-homeschool-study
+      variant: independent
+      include_target_ids: []
+      exclude_target_ids: [jigsaw]
+      warning_codes: []
+      example_id: russian-only-package
+  - fixture_id: homeschool-sibling-group
+    description_ru: Небольшая группа siblings выполняет поддержанную парную и групповую работу.
+    source_fixture_id: grade5-concept-introduction
+    adaptation_context:
+      variant: small_sibling_group
+      learner_count: 2
+      learner_session_minutes: 25
+      maximum_sessions: 6
+      resources:
+        available: [diagram, manipulatives, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, projector]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      adult_context:
+        available: true
+        max_support_minutes: 30
+        max_effort: medium
+        allowed_roles: [active_participant, check_answers, listening_partner, logistical_support]
+        safety_supervision_available: false
+        subject_explanation_available: false
+      accessibility_priorities: []
+      answer_access_policy:
+        first_attempt_without_answer: true
+        key_release: adult_managed
+        corrections_visible: true
+        correction_method: separate_colour
+        unresolved_question_recorded: true
+      teacher_override_policy: require_preservation
+      limited_adaptation_policy: disallow
+      homeschool_preferences:
+        preferred_target_ids: [sorting-and-sequencing]
+        excluded_target_ids: []
+    content_bindings:
+      - {phase_id: activation, learner_material_refs: [concept-activation-card], task_refs: [concept-activation-task], answer_key_refs: [], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: explanation, learner_material_refs: [concept-source-segment], task_refs: [concept-reading-task], answer_key_refs: [], teacher_explanation_refs: [concept-teacher-explanation], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: formative-check, learner_material_refs: [concept-check-card], task_refs: [concept-check-task], answer_key_refs: [concept-check-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+      - {phase_id: guided-practice, learner_material_refs: [concept-practice-card], task_refs: [concept-practice-task], answer_key_refs: [concept-practice-key], teacher_explanation_refs: [], estonian_support_refs: [concept-estonian-support], procedure_refs: [], safety_refs: []}
+      - {phase_id: retrieval, learner_material_refs: [concept-retrieval-card], task_refs: [concept-retrieval-task], answer_key_refs: [concept-retrieval-key], teacher_explanation_refs: [], estonian_support_refs: [], procedure_refs: [], safety_refs: []}
+    expected:
+      status: success
+      failure_code: null
+      pattern_id: independent-homeschool-study
+      variant: small_sibling_group
+      include_target_ids: []
+      exclude_target_ids: [jigsaw]
+      warning_codes: []
+      example_id: null
