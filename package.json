@@ -36,7 +36,10 @@
     "test:reviews": "node --test scripts/pedagogical-reviews.test.mjs",
     "test:teacher-packs": "node --test scripts/teacher-packs.test.mjs",
     "test:synthesis": "node --test scripts/topic-synthesis.test.mjs",
-    "test:topics": "node --test scripts/known-topic-regressions.test.mjs"
+    "test:topics": "node --test scripts/known-topic-regressions.test.mjs",
+    "test:pedagogy-selection": "node --test scripts/pedagogy-selection.test.mjs",
+    "check:pedagogy-selection": "node scripts/check-pedagogy-selection.mjs",
+    "select:pedagogy": "node scripts/select-pedagogy.mjs"
   },
   "devDependencies": {
     "ajv": "8.20.0",

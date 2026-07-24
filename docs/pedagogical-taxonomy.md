@@ -284,3 +284,7 @@ Only methods with a demonstrated operational difference are profiled. The
 profile ratings do not prove effectiveness, teacher validation is still
 pending, selection or combination of profiles remains #59 scope, and full
 homeschool generation remains #60 scope.
+
+## Estonian A1–A2 compatibility boundary
+
+The taxonomy field `estonian_a1_a2_compatibility` is provisional metadata for requests where Estonian support is enabled. Russian-only requests with `estonian_support.enabled: false` do not use that metadata for hard filtering or scoring, although total productive-language demand still applies.

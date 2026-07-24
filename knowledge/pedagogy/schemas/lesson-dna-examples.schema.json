@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/lesson-dna.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "selected_pattern_id", "phases", "context", "scaffolds", "assessment"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "request_id": {"type": "string"},
+    "selected_pattern_id": {"type": "string"},
+    "phases": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["phase_id", "activity_id", "language_role"], "properties": {"phase_id": {"type": "string"}, "activity_id": {"type": "string"}, "language_role": {"type": "object", "additionalProperties": false, "required": ["primary_language", "estonian_roles"], "properties": {"primary_language": {"const": "ru"}, "estonian_roles": {"type": "array", "items": {"type": "string"}}}}}}},
+    "context": {"type": "object", "additionalProperties": true, "required": ["language_policy"], "properties": {"language_policy": {"type": "object"}}},
+    "scaffolds": {"type": "array"},
+    "assessment": {"type": "object", "additionalProperties": false, "required": ["estonian_language_assessment"], "properties": {"estonian_language_assessment": {"type": "object", "additionalProperties": false, "required": ["enabled", "target_phase_ids"], "properties": {"enabled": {"type": "boolean"}, "target_phase_ids": {"type": "array", "items": {"type": "string"}}}}}}
+  }
+}

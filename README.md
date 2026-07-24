@@ -258,3 +258,7 @@ npm run check:fingerprints
 ```
 
 Validation reuses the curriculum-map route loader and canonical Opiq checks. It verifies cross-file links, timing, source ownership, programme type, provenance, bilingual objectives, lesson- and unit-scale vocabulary recycling, scaffold release, budget reconciliation, separate assessment, and honest annual implementation declarations. These design controls do not guarantee learning outcomes.
+
+### Lesson pedagogy selection language modes
+
+The provisional lesson pedagogy selection engine treats Estonian support as either enabled A1–A2 support or a strict disabled state. Disabled support keeps Russian-primary instruction, uses `learner_level: not_applicable`, emits no Estonian roles, scaffolds, or assessment, and ignores A1–A2 compatibility metadata while preserving total productive-language demand limits.

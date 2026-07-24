@@ -75,3 +75,7 @@ See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base
 for the data model, contribution workflow, homeschool boundaries, and examples.
 See [`docs/pedagogical-taxonomy.md`](../../docs/pedagogical-taxonomy.md) for
 taxonomy semantics and filtering boundaries.
+
+## Lesson pedagogy selection fixtures
+
+Selection fixtures include nine enabled-support scenarios plus the Russian-only `grade5-russian-only-concept-introduction` scenario, for ten total fixtures in the PR scope. Disabled Estonian support is strict: `learner_level` is `not_applicable`, roles are empty, scaffolds are false, assessment is false, and A1–A2 compatibility metadata is ignored for selection scoring and filtering.
