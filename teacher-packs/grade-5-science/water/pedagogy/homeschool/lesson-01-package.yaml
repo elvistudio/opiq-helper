@@ -1,0 +1,258 @@
+artifact_type: homeschool_package
+assessment:
+  estonian_language_assessment: false
+  separation_policy: separate_subject_and_estonian_language_evidence
+  subject_assessment: true
+context:
+  estonian_support:
+    allowed_roles:
+      - familiar_instruction
+      - labels
+      - sentence_frame
+      - short_oral_response
+      - short_written_response
+      - terminology
+    enabled: true
+    learner_level: A1-A2
+  grade: 5
+  homeschool_lesson_dna_id: grade-5-water-01-properties-homeschool-adaptation-selection-dna
+  learner_count: 1
+  learner_session_minutes: 30
+  maximum_sessions: 8
+  primary_instruction_language: ru
+  subject: science
+  variant: independent
+known_limits:
+  - homeschool_rules_provisional
+  - teacher_review_pending
+  - home_trial_not_started
+  - no_effectiveness_claim
+  - teacher_provided_content_not_rendered
+learner_plan:
+  breaks: []
+  contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+  correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+  reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+  retrieval_ru: Сначала восстанови главное без открытого источника.
+  self_check_ru: Открой ключ только после самостоятельной попытки.
+  steps:
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+      learner_minutes: 9
+      material_refs:
+        - water-sample-visual
+      phase_id: orientation
+      safety_controls_ru: []
+      source_access: open
+      step_id: step-01-orientation
+      task_refs:
+        - grade-5-water-01-properties/activation-task
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Открой указанный материал и выполни одно задание своими словами.
+      learner_minutes: 12
+      material_refs:
+        - water-property-table
+        - water-sample-visual
+      phase_id: independent-practice
+      safety_controls_ru: []
+      source_access: open
+      step_id: step-02-independent-practice
+      task_refs:
+        - grade-5-water-01-properties/explanation-task
+        - grade-5-water-01-properties/guided-practice-task
+    - adult_involvement: none
+      completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Закрой источник и выполни попытку по памяти.
+      learner_minutes: 10
+      material_refs:
+        - water-property-exit-card
+      phase_id: retrieval
+      safety_controls_ru: []
+      source_access: closed
+      step_id: step-03-retrieval
+      task_refs:
+        - grade-5-water-01-properties/retrieval-task
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Открой ключ после попытки и исправь ошибку другим цветом.
+      learner_minutes: 7
+      material_refs:
+        - water-property-exit-card
+      phase_id: reflection
+      safety_controls_ru: []
+      source_access: open
+      step_id: step-04-reflection
+      task_refs:
+        - grade-5-water-01-properties/formative-check-task
+  success_criteria_refs:
+    - grade-5-water-01-properties-homeschool-adaptation-success-criteria
+  visible_goal_ref: grade-5-water-01-properties-homeschool-adaptation-visible-goal
+materials:
+  answer_key_refs:
+    - lesson-01-answer-key
+  cleanup_steps_ru:
+    - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+  consumable_materials:
+    - paper
+  learner_material_refs:
+    - water-property-exit-card
+    - water-property-table
+    - water-sample-visual
+  phase_binding_summary:
+    - adapted_phase_id: independent-practice
+      answer_key_refs:
+        - lesson-01-answer-key
+      binding_origin: mapped_source
+      learner_material_refs:
+        - water-property-table
+        - water-sample-visual
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: not_applicable
+      review_capable: false
+      safety_refs: []
+      source_access_policy: open
+      source_phase_ids:
+        - explanation
+        - guided-practice
+      teacher_explanation_refs:
+        - water-lesson-01-guide
+      valid: true
+    - adapted_phase_id: orientation
+      answer_key_refs: []
+      binding_origin: mapped_source
+      learner_material_refs:
+        - water-sample-visual
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: not_applicable
+      review_capable: false
+      safety_refs: []
+      source_access_policy: open
+      source_phase_ids:
+        - activation
+      teacher_explanation_refs:
+        - water-lesson-01-guide
+      valid: true
+    - adapted_phase_id: reflection
+      answer_key_refs:
+        - lesson-01-answer-key
+      binding_origin: mapped_source
+      learner_material_refs:
+        - water-property-exit-card
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: self_managed_after_attempt
+      review_capable: false
+      safety_refs: []
+      source_access_policy: open
+      source_phase_ids:
+        - formative-check
+      teacher_explanation_refs:
+        - water-lesson-01-guide
+      valid: true
+    - adapted_phase_id: retrieval
+      answer_key_refs:
+        - lesson-01-answer-key
+      binding_origin: exact_adapted
+      learner_material_refs:
+        - water-property-exit-card
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: self_managed_after_attempt
+      review_capable: true
+      safety_refs: []
+      source_access_policy: closed
+      source_phase_ids:
+        - retrieval
+      teacher_explanation_refs:
+        - water-lesson-01-guide
+      valid: true
+  preparation_steps_ru:
+    - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+  reusable_materials:
+    - printable_cards
+package_id: grade-5-water-01-properties-homeschool-adaptation-package
+parent_guidance_ref: grade-5-water-01-properties-homeschool-adaptation-parent-guidance
+review_binding_summary:
+  - adapted_phase_ids:
+      - retrieval
+    answer_key_refs:
+      - lesson-01-answer-key
+    origins:
+      - exact_adapted
+    release_policy: self_managed_after_attempt
+    session_index: 3
+safety:
+  adapted_supervision_required: false
+  adult_supervision_required: false
+  controls_ru: []
+  effective_supervision_required: false
+  risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+  source_supervision_required: false
+  stop_conditions_ru:
+    - Остановись, если инструкция, материал или условие безопасности неясны.
+    - Не продолжай практическое действие без требуемого взрослого.
+  teacher_authorization_required: false
+schema_version: "1.0"
+source_identity:
+  source_lesson_dna_digest: e87dcd1c73d00a0ca566041e939c4e1613520ab4e61b4965bc39556e56a6c822
+  source_lesson_dna_id: grade-5-water-01-properties-classroom-selection-dna
+  source_request_digest: 49f9723c2e5386ce1572a798f78b6b0408436a26136a014ee33ac20b70ad57bc
+  source_request_id: grade-5-water-01-properties-classroom-selection
+  source_selection_versions:
+    activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+    engine: "1.1"
+    lesson_dna_schema: "1.0"
+    selection_rules: "1.0"
+    taxonomy: "1.0"
+status:
+  effectiveness_claimed: false
+  home_trial: not_started
+  homeschool_ready: false
+  structural_state: proposed
+  teacher_review: pending
+teacher_override_adaptations: []
+timing:
+  adult_minutes: 0
+  break_minutes: 0
+  cleanup_minutes: 0
+  contingency_minutes: 2
+  delayed_retrieval_minutes: 6
+  learner_activity_minutes: 24
+  setup_minutes: 14
+  total_learner_minutes: 46
+  transition_minutes: 0
+  weekly_review_minutes: 0
+warnings: []
+weekly_study_plan_ref: grade-5-water-01-properties-homeschool-adaptation-weekly-plan

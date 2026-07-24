@@ -1,0 +1,490 @@
+adaptation_context:
+  accessibility_priorities:
+    - working_memory_support
+  adult_context:
+    allowed_roles:
+      - check_answers
+      - listening_partner
+      - logistical_support
+      - safety_supervision
+    available: true
+    max_effort: medium
+    max_support_minutes: 90
+    safety_supervision_available: true
+    subject_explanation_available: false
+  answer_access_policy:
+    correction_method: separate_colour
+    corrections_visible: true
+    first_attempt_without_answer: true
+    key_release: adult_managed
+    unresolved_question_recorded: true
+  homeschool_preferences:
+    excluded_target_ids: []
+    preferred_target_ids: []
+  learner_count: 1
+  learner_session_minutes: 30
+  limited_adaptation_policy: allow_with_warning
+  maximum_sessions: 8
+  maximum_total_productive_language_demand: high
+  resources:
+    adult_safety_supervision_available: true
+    available:
+      - diagram
+      - laboratory_materials
+      - manipulatives
+      - measuring_tools
+      - paper
+      - textbook_or_source_text
+      - writing_tool
+    internet_available: false
+    laboratory_materials_available: true
+    measuring_tools_available: true
+    outdoor_access_available: false
+    printer_available: false
+    projector_available: false
+    unavailable:
+      - internet
+  teacher_override_policy: require_preservation
+  variant: parent_child
+artifact_type: homeschool_adaptation_request
+content_bindings:
+  - answer_key_refs: []
+    estonian_support_refs:
+      - question-condensation-origin
+    learner_material_refs:
+      - practical-safety-card
+    phase_id: safety-orientation
+    procedure_refs:
+      - grade-5-water-03-melting-condensation/approved-procedure
+    safety_refs:
+      - grade-5-water-03-melting-condensation/safety-controls
+    task_refs:
+      - grade-5-water-03-melting-condensation/safety-orientation-task
+    teacher_explanation_refs:
+      - water-lesson-03-guide
+  - answer_key_refs: []
+    estonian_support_refs:
+      - question-melting-data
+    learner_material_refs:
+      - melting-condensation-table
+      - practical-safety-card
+    phase_id: practical-work
+    procedure_refs:
+      - grade-5-water-03-melting-condensation/approved-procedure
+    safety_refs:
+      - grade-5-water-03-melting-condensation/safety-controls
+    task_refs:
+      - grade-5-water-03-melting-condensation/practical-work-task
+    teacher_explanation_refs:
+      - water-lesson-03-guide
+  - answer_key_refs:
+      - lesson-03-answer-key
+    estonian_support_refs:
+      - question-condensation-origin
+    learner_material_refs:
+      - phase-change-diagram
+    phase_id: evidence-check
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-03-melting-condensation/evidence-check-task
+    teacher_explanation_refs:
+      - water-lesson-03-guide
+  - answer_key_refs:
+      - lesson-03-answer-key
+    estonian_support_refs:
+      - question-condensation-origin
+      - question-melting-data
+    learner_material_refs:
+      - separate-practical-exit-card
+    phase_id: conclusion
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-03-melting-condensation/conclusion-task
+    teacher_explanation_refs:
+      - water-lesson-03-guide
+request_id: grade-5-water-03-melting-condensation-homeschool-adaptation
+schema_version: "1.0"
+source:
+  lesson_dna:
+    artifact_type: lesson_dna
+    assessment:
+      estonian_language_assessment:
+        enabled: false
+        notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+        target_phase_ids: []
+      separation_policy: separate_subject_and_estonian_language_evidence
+      subject_assessment:
+        enabled: true
+        notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+          предметный результат.
+        target_phase_ids:
+          - evidence-check
+    context:
+      delivery_mode: classroom
+      duration_minutes: 45
+      grade: 5
+      group_size: 24
+      language_policy:
+        estonian_support:
+          allowed_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          enabled: true
+          learner_level: A1-A2
+          subject_explanation_language: ru
+        maximum_total_productive_language_demand: high
+        primary_instruction_language: ru
+      request_digest: c340b4d7895265b4841001523e2148c46542b47bfb98f6d1ed229a0b076aa1de
+      request_id: grade-5-water-03-melting-condensation-classroom-selection
+      subject: science
+    differentiation:
+      extensions: []
+      scaffolds:
+        - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+        - Provide a bounded Estonian word bank for the selected terminology or labels.
+    known_limits:
+      - classroom_trial_not_started
+      - no_effectiveness_claim
+      - per_language_productive_demand_not_modelled
+      - selection_weights_provisional
+      - taxonomy_ratings_provisional
+      - teacher_review_pending
+    lesson_dna_id: grade-5-water-03-melting-condensation-classroom-selection-dna
+    pattern:
+      pattern_id: safe-practical-investigation
+      rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+        оценкой эффективности.
+      selection_origin: request_required
+    phases:
+      - activity_minutes: 3
+        capabilities:
+          primary:
+            - prior_knowledge_activation
+          supporting:
+            - collaborative_practice
+            - formative_assessment
+            - oral_production
+        cleanup_minutes: 0
+        group_format: small_group
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: orientation
+        phase_id: safety-orientation
+        purpose_ru: Сделать цель, критерии наблюдения и ограничения безопасности явными.
+        rationale_ru: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: allowed
+        target:
+          activity_id: brainstorming
+          execution_profile_id: null
+          target_id: brainstorming
+        transition_minutes: 0
+      - activity_minutes: 10
+        capabilities:
+          primary:
+            - evidence_based_conclusion
+            - guided_practice
+            - observation
+          supporting:
+            - measurement
+        cleanup_minutes: 2
+        group_format: small_group
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: guided_practice
+        phase_id: practical-work
+        purpose_ru: Выполнить разрешённые действия и фиксировать наблюдаемые данные.
+        rationale_ru: Target learning-stations::practical-compact-teacher-prepared-observation прошёл hard
+          constraints и получил наивысший допустимый вклад в согласованную композицию; это не
+          effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - laboratory_materials
+            - measuring_tools
+            - paper
+            - writing_tool
+        safety:
+          controls_ru:
+            - Использовать только заранее проверенные учителем безопасные материалы.
+            - Учитель выдаёт материалы после объяснения границ действий.
+            - Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.
+            - Уборку и возврат материалов контролирует взрослый.
+          requires_adult_supervision: true
+        setup_minutes: 2
+        source_access:
+          first_attempt: allowed
+        target:
+          activity_id: learning-stations
+          execution_profile_id: practical-compact-teacher-prepared-observation
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+        transition_minutes: 0
+      - activity_minutes: 8
+        capabilities:
+          primary:
+            - concept_formation
+            - visual_representation
+          supporting:
+            - classification
+            - comparison
+            - diagram_interpretation
+            - formative_assessment
+            - retrieval
+        cleanup_minutes: 0
+        group_format: small_group
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: formative_assessment
+        phase_id: evidence-check
+        purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
+        rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: prohibited
+        target:
+          activity_id: concept-map
+          execution_profile_id: null
+          target_id: concept-map
+        transition_minutes: 0
+      - activity_minutes: 4
+        capabilities:
+          primary:
+            - retrieval
+          supporting:
+            - explanation_and_modelling
+            - formative_assessment
+            - oral_production
+            - written_production
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: retrieval
+        phase_id: conclusion
+        purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+        rationale_ru: Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад
+          в согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 4
+        source_access:
+          first_attempt: prohibited
+        target:
+          activity_id: retrieval-summary
+          execution_profile_id: null
+          target_id: retrieval-summary
+        transition_minutes: 1
+    retrieval_plan:
+      correction_phase_id: null
+      delayed:
+        - after_lessons: 1
+          capability: retrieval
+      immediate_phase_id: conclusion
+    schema_version: "1.0"
+    status:
+      classroom_ready: false
+      classroom_trial: not_started
+      effectiveness_claimed: false
+      structural_state: proposed
+      teacher_review: pending
+    teacher_overrides:
+      - override_id: preserve-compact-observation
+        rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не ротацию
+          нескольких станций.
+        slot_id: practical-work
+        status: accepted
+        target_id: learning-stations::practical-compact-teacher-prepared-observation
+      - override_id: preserve-existing-conclusion
+        rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+        slot_id: conclusion
+        status: accepted
+        target_id: retrieval-summary
+    timing:
+      activity_minutes: 25
+      cleanup_minutes: 2
+      fits: true
+      reserve_minutes: 3
+      setup_minutes: 10
+      total_planned_minutes: 41
+      transition_minutes: 1
+      unallocated_minutes: 4
+    versions:
+      activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+      engine: "1.1"
+      lesson_dna_schema: "1.0"
+      selection_rules: "1.0"
+      taxonomy: "1.0"
+    warnings:
+      - Capability ratings and selection weights are provisional project-authored metadata.
+      - The proposal requires teacher review and does not claim learning effectiveness.
+  selection_request:
+    artifact_type: pedagogical_selection_request
+    constraints:
+      accessibility_priorities:
+        - working_memory_support
+      max_learner_setup: medium
+      max_parent_effort: medium
+      max_teacher_facilitation: high
+      max_teacher_preparation: high
+      retrieval_first_attempt_without_source: true
+    language_profile:
+      estonian_support:
+        allowed_roles:
+          - familiar_instruction
+          - labels
+          - sentence_frame
+          - short_oral_response
+          - short_written_response
+          - terminology
+        assessment_requested: false
+        enabled: true
+        language: et
+        learner_level: A1-A2
+        sentence_frames_required: true
+        subject_explanation_language: ru
+        word_bank_required: true
+      maximum_total_productive_language_demand: high
+      primary_instruction_language: ru
+    learner_context:
+      delivery_mode: classroom
+      grade: 5
+      group_size: 24
+      lesson_duration_minutes: 45
+      study_context: classroom
+      subject: science
+      supported_group_formats:
+        - individual
+        - pair
+        - small_group
+        - whole_class
+    lesson_context:
+      content_types:
+        - data_and_evidence
+        - practical_observation
+      context_flags:
+        assessment: true
+        map_or_data: false
+        practical: true
+        retrieval: false
+      desired_capabilities:
+        - formative_assessment
+        - guided_practice
+        - retrieval
+      future_retrieval_windows:
+        - after_lessons: 1
+          capability: retrieval
+      phase_needs:
+        - formative_assessment
+        - guided_practice
+        - orientation
+        - retrieval
+      previous_target_ids: []
+      purpose: practical_investigation
+      required_capabilities:
+        - evidence_based_conclusion
+        - measurement
+        - observation
+      required_pattern_id: safe-practical-investigation
+    preferences:
+      avoid_recent_target_ids: []
+      excluded_target_ids: []
+      preferred_group_formats:
+        - small_group
+        - whole_class
+      preferred_pattern_ids:
+        - safe-practical-investigation
+      preferred_target_ids:
+        - learning-stations::practical-compact-teacher-prepared-observation
+        - retrieval-summary
+      teacher_overrides:
+        - author_role: teacher
+          override_id: preserve-compact-observation
+          rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не ротацию
+            нескольких станций.
+          requested_target_id: learning-stations::practical-compact-teacher-prepared-observation
+          slot_id: practical-work
+        - author_role: teacher
+          override_id: preserve-existing-conclusion
+          rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+          requested_target_id: retrieval-summary
+          slot_id: conclusion
+    request_id: grade-5-water-03-melting-condensation-classroom-selection
+    resources:
+      adult_safety_supervision_available: true
+      available:
+        - diagram
+        - laboratory_materials
+        - manipulatives
+        - measuring_tools
+        - paper
+        - textbook_or_source_text
+        - writing_tool
+      internet_available: false
+      laboratory_materials_available: true
+      measuring_tools_available: true
+      outdoor_access_available: false
+      printer_available: false
+      projector_available: false
+      unavailable:
+        - internet
+    schema_version: "1.0"

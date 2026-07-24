@@ -39,3 +39,14 @@ ___________________________________________________________________________
 Коротко ET по рамке: `__________ muutub __________, kui temperatuur __________.`
 
 Provenance: `author_created_worksheet`, cumulative lesson 04 revision based on the validated water unit. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review audience=student -->
+## Самостоятельная попытка и исправление
+
+1. Закрой учебник и ключ. Запиши или скажи свой первый ответ.
+2. Ответь по-русски: **Какие изменения воды являются противоположными и что определяет направление?**
+3. После первой попытки открой ключ, сравни и исправь неточность другим цветом.
+4. Коротко по-эстонски: **Mis juhtub veega soojenemisel või jahtumisel?**
+
+Первая попытка выполняется без ответа. Выбранная структура содержит 3 проверяемых этапа(ов), но технические названия ребёнку не нужны.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review audience=student -->

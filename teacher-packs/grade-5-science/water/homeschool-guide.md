@@ -2,6 +2,22 @@
 
 > Самостоятельно составленный дополнительный материал для семейного обучения. Не является отдельной официальной программой.
 
+## Generated package index
+
+- `homeschool/lesson-01-independent-study.md`
+- `homeschool/lesson-02-independent-study.md`
+- `homeschool/lesson-03-parent-supported.md`
+- `homeschool/lesson-04-independent-study.md`
+
+Каждый файл воспроизводит classroom lesson DNA, но меняет delivery context.
+Ключ открывается только после первой попытки; исправление сохраняется видимым.
+Взрослый обеспечивает только заявленную организационную поддержку или
+безопасность и не заменяет предметного учителя. Machine-readable package,
+guidance и relative weekly plan находятся в `pedagogy/homeschool/`.
+
+Статус всех вариантов: teacher review pending, home trial not started,
+`homeschool_ready: false`.
+
 ## Что должен понять ребёнок
 
 Вода — вещество с наблюдаемыми свойствами. Она бывает в твёрдом, жидком и газообразном состояниях. Получая или отдавая тепло, вода плавится, замерзает, испаряется или конденсируется. Наблюдение и измерение — это данные; вывод объясняет данные.

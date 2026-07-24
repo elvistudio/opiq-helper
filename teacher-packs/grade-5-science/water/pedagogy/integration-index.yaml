@@ -1,0 +1,588 @@
+schema_version: "1.0"
+artifact_type: pedagogy_generation_integration_index
+integration_version: "1.0"
+unit_id: grade-5-water-four-lesson-plan
+unit_content_identity:
+  specification_version: "1.0"
+  algorithm: sha256
+  value: 74bbe42dbe3b6256ad35090b338642abd14c05110ab69d0ea6be0fd4391d6c76
+lessons:
+  - lesson_id: grade-5-water-01-properties
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: 0f2349bf0578585a1d0ed4db3d9fe2953214529ffb779d22d9c52c4c60238442
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml
+    selection_request_digest: 49f9723c2e5386ce1572a798f78b6b0408436a26136a014ee33ac20b70ad57bc
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml
+    lesson_dna_digest: e87dcd1c73d00a0ca566041e939c4e1613520ab4e61b4965bc39556e56a6c822
+    selected_pattern_id: concept-introduction-classroom
+    selected_target_ids:
+      - brainstorming
+      - guided-reading
+      - concept-map
+      - one-minute-recall
+      - retrieval-self-test
+    task_bindings:
+      - task_id: grade-5-water-01-properties/activation-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: activation
+        target_id: brainstorming
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs: []
+        oral_answer_refs:
+          - question-water-property
+      - task_id: grade-5-water-01-properties/explanation-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: explanation
+        target_id: guided-reading
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs: []
+        oral_answer_refs:
+          - question-water-property
+      - task_id: grade-5-water-01-properties/guided-practice-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: guided-practice
+        target_id: concept-map
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - water-property-exit-card
+        oral_answer_refs:
+          - question-water-property
+      - task_id: grade-5-water-01-properties/retrieval-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: retrieval
+        target_id: one-minute-recall
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - water-property-exit-card
+        oral_answer_refs:
+          - question-water-property
+      - task_id: grade-5-water-01-properties/formative-check-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: formative-check
+        target_id: retrieval-self-test
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - water-property-exit-card
+        oral_answer_refs:
+          - question-water-property
+    timing_reconciliation:
+      lesson_id: grade-5-water-01-properties
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 43
+      dna_unallocated_minutes: 2
+      phases:
+        - phase_id: activation
+          target_id: brainstorming
+          lesson_stage_ids:
+            - activate-water
+          activity_minutes: 3
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 5
+          source_access_policy: open
+          status: reconciled
+        - phase_id: explanation
+          target_id: guided-reading
+          lesson_stage_ids:
+            - explain-properties-ru
+            - bridge-properties-et
+          activity_minutes: 8
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 18
+          source_access_policy: open
+          status: reconciled
+        - phase_id: guided-practice
+          target_id: concept-map
+          lesson_stage_ids:
+            - observe-water
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 12
+          source_access_policy: open
+          status: reconciled
+        - phase_id: retrieval
+          target_id: one-minute-recall
+          lesson_stage_ids:
+            - homework-launch
+          activity_minutes: 2
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 3
+          source_access_policy: closed_first_attempt
+          status: reconciled
+        - phase_id: formative-check
+          target_id: retrieval-self-test
+          lesson_stage_ids:
+            - independent-summary
+          activity_minutes: 5
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 7
+          source_access_policy: closed_first_attempt
+          status: reconciled
+      non_dna_stage_roles: []
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+      - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+      - teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+  - lesson_id: grade-5-water-02-states
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: 5c8b38d9daccc03a7b22117f6aad9a9418572a6c7edec4552a7a8b1acbecb78d
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml
+    selection_request_digest: 58a86b341a3deaf6a21da9d35b119035038aaa9b54839026fe1aa0051ca49108
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml
+    lesson_dna_digest: 3889d63ee96d8b27b69ad9025487619be2730191be30da9718b61d08f0255685
+    selected_pattern_id: concept-introduction-classroom
+    selected_target_ids:
+      - brainstorming
+      - frayer-model
+      - concept-map
+      - one-minute-recall
+      - retrieval-self-test
+    task_bindings:
+      - task_id: grade-5-water-02-states/activation-task
+        lesson_id: grade-5-water-02-states
+        phase_id: activation
+        target_id: brainstorming
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs: []
+        oral_answer_refs:
+          - question-three-states
+      - task_id: grade-5-water-02-states/explanation-task
+        lesson_id: grade-5-water-02-states
+        phase_id: explanation
+        target_id: frayer-model
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs: []
+        oral_answer_refs:
+          - question-three-states
+      - task_id: grade-5-water-02-states/guided-practice-task
+        lesson_id: grade-5-water-02-states
+        phase_id: guided-practice
+        target_id: concept-map
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - states-exit-card
+        oral_answer_refs:
+          - question-three-states
+      - task_id: grade-5-water-02-states/retrieval-task
+        lesson_id: grade-5-water-02-states
+        phase_id: retrieval
+        target_id: one-minute-recall
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - states-exit-card
+        oral_answer_refs:
+          - question-three-states
+      - task_id: grade-5-water-02-states/formative-check-task
+        lesson_id: grade-5-water-02-states
+        phase_id: formative-check
+        target_id: retrieval-self-test
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - states-exit-card
+        oral_answer_refs:
+          - question-three-states
+    timing_reconciliation:
+      lesson_id: grade-5-water-02-states
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 45
+      dna_unallocated_minutes: 0
+      phases:
+        - phase_id: activation
+          target_id: brainstorming
+          lesson_stage_ids:
+            - activate-properties
+          activity_minutes: 3
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 5
+          source_access_policy: open
+          status: reconciled
+        - phase_id: explanation
+          target_id: frayer-model
+          lesson_stage_ids:
+            - explain-three-states-ru
+          activity_minutes: 10
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 12
+          source_access_policy: open
+          status: reconciled
+        - phase_id: guided-practice
+          target_id: concept-map
+          lesson_stage_ids:
+            - classify-states
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 12
+          source_access_policy: open
+          status: reconciled
+        - phase_id: retrieval
+          target_id: one-minute-recall
+          lesson_stage_ids:
+            - label-states-et
+          activity_minutes: 2
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 8
+          source_access_policy: closed_first_attempt
+          status: reconciled
+        - phase_id: formative-check
+          target_id: retrieval-self-test
+          lesson_stage_ids:
+            - state-summary
+          activity_minutes: 5
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 8
+          source_access_policy: closed_first_attempt
+          status: reconciled
+      non_dna_stage_roles: []
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+      - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+      - teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+  - lesson_id: grade-5-water-03-melting-condensation
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: 32a3430cb83af3d6c64aa8450d868a15de6797f3f94575697ae25199f8934204
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml
+    selection_request_digest: c340b4d7895265b4841001523e2148c46542b47bfb98f6d1ed229a0b076aa1de
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml
+    lesson_dna_digest: 3eee4d3fa0d4ff93c9724f103de6a6e1329a161c2fcda78616f66884c69f46d0
+    selected_pattern_id: safe-practical-investigation
+    selected_target_ids:
+      - brainstorming
+      - learning-stations::practical-compact-teacher-prepared-observation
+      - concept-map
+      - retrieval-summary
+    task_bindings:
+      - task_id: grade-5-water-03-melting-condensation/safety-orientation-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: safety-orientation
+        target_id: brainstorming
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        source_access_policy: teacher_managed
+        answer_access_policy: after_first_attempt
+        assessment_refs: []
+        oral_answer_refs:
+          - question-condensation-origin
+      - task_id: grade-5-water-03-melting-condensation/practical-work-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: practical-work
+        target_id: learning-stations::practical-compact-teacher-prepared-observation
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        source_access_policy: teacher_managed
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - separate-practical-exit-card
+        oral_answer_refs:
+          - question-melting-data
+      - task_id: grade-5-water-03-melting-condensation/evidence-check-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: evidence-check
+        target_id: concept-map
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - separate-practical-exit-card
+        oral_answer_refs:
+          - question-condensation-origin
+      - task_id: grade-5-water-03-melting-condensation/conclusion-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: conclusion
+        target_id: retrieval-summary
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - separate-practical-exit-card
+        oral_answer_refs:
+          - question-condensation-origin
+          - question-melting-data
+    timing_reconciliation:
+      lesson_id: grade-5-water-03-melting-condensation
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 41
+      dna_unallocated_minutes: 4
+      phases:
+        - phase_id: safety-orientation
+          target_id: brainstorming
+          lesson_stage_ids:
+            - activate-state-model
+          activity_minutes: 3
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 5
+          source_access_policy: teacher_managed
+          status: reconciled
+        - phase_id: practical-work
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+          lesson_stage_ids:
+            - observe-changes
+          activity_minutes: 10
+          setup_minutes: 2
+          cleanup_minutes: 2
+          transition_minutes: 0
+          linked_stage_minutes: 15
+          source_access_policy: teacher_managed
+          status: reconciled
+        - phase_id: evidence-check
+          target_id: concept-map
+          lesson_stage_ids:
+            - explain-changes-ru
+            - bridge-process-terms-et
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 15
+          source_access_policy: open
+          status: reconciled
+        - phase_id: conclusion
+          target_id: retrieval-summary
+          lesson_stage_ids:
+            - separate-conclusions
+          activity_minutes: 4
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 1
+          linked_stage_minutes: 7
+          source_access_policy: closed_first_attempt
+          status: reconciled
+      non_dna_stage_roles:
+        - lesson_stage_id: homework-launch
+          role: homework_launch
+          rationale_ru: Стадия задаёт отдельную безопасную домашнюю границу и не потребляет classroom DNA phase.
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/lessons/lesson-03.md
+      - teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+      - teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+  - lesson_id: grade-5-water-04-changes-review
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: f5a824360088414a60778d5d32b7c9f03f4857744f021b820242a1dcd8be7bc5
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml
+    selection_request_digest: 6a3b25de91d7efa943658eb6541b88825e88f7f39aa79b0a78a34878ebc77ff3
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml
+    lesson_dna_digest: 45162c36b928493d21a09861e2860032231b97a839023709ae9ee70afb831959
+    selected_pattern_id: retrieval-and-consolidation
+    selected_target_ids:
+      - retrieval-self-test
+      - error-correction
+      - concept-map
+    task_bindings:
+      - task_id: grade-5-water-04-changes-review/retrieval-task
+        lesson_id: grade-5-water-04-changes-review
+        phase_id: retrieval
+        target_id: retrieval-self-test
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - unit-separate-assessment
+        oral_answer_refs:
+          - question-opposite-processes
+      - task_id: grade-5-water-04-changes-review/correction-task
+        lesson_id: grade-5-water-04-changes-review
+        phase_id: correction
+        target_id: error-correction
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - unit-separate-assessment
+        oral_answer_refs:
+          - question-opposite-processes
+      - task_id: grade-5-water-04-changes-review/consolidation-task
+        lesson_id: grade-5-water-04-changes-review
+        phase_id: consolidation
+        target_id: concept-map
+        student_artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        assessment_refs:
+          - unit-separate-assessment
+        oral_answer_refs:
+          - question-opposite-processes
+    timing_reconciliation:
+      lesson_id: grade-5-water-04-changes-review
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 29
+      dna_unallocated_minutes: 16
+      phases:
+        - phase_id: retrieval
+          target_id: retrieval-self-test
+          lesson_stage_ids:
+            - retrieve-water-unit
+          activity_minutes: 5
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 6
+          source_access_policy: closed_first_attempt
+          status: reconciled
+        - phase_id: correction
+          target_id: error-correction
+          lesson_stage_ids:
+            - complete-change-model-ru
+          activity_minutes: 3
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 9
+          source_access_policy: open
+          status: reconciled
+        - phase_id: consolidation
+          target_id: concept-map
+          lesson_stage_ids:
+            - revision-stations
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          linked_stage_minutes: 15
+          source_access_policy: open
+          status: reconciled
+      non_dna_stage_roles:
+        - lesson_stage_id: add-final-terms-et
+          role: language_bridge
+          rationale_ru: Отдельная bounded A1–A2 языковая стадия сохраняет предметную и языковую оценку
+            раздельными.
+        - lesson_stage_id: separate-unit-assessment
+          role: assessment_separation
+          rationale_ru: Итоговая предметная и языковая фиксация остаётся authoritative assessment вне method
+            selection.
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/lessons/lesson-04.md
+      - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+      - teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+determinism:
+  ordering: bytewise
+  ai_used: false
+  network_used: false
+  randomness_used: false
+  volatile_timestamps: false

@@ -30,3 +30,14 @@ Lesson: `grade-5-water-02-states`
 `Veeaur on __________________________.`
 
 Provenance: `author_created_bridge` + `author_created_worksheet`, lesson 02; terminology: https://www.opiq.ee/kit/525/chapter/29515. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states audience=student -->
+## Самостоятельная попытка и исправление
+
+1. Закрой учебник и ключ. Запиши или скажи свой первый ответ.
+2. Ответь по-русски: **Чем жидкая вода отличается от льда и водяного пара?**
+3. После первой попытки открой ключ, сравни и исправь неточность другим цветом.
+4. Коротко по-эстонски: **Mis olekus võivad vesi ja jää olla?**
+
+Первая попытка выполняется без ответа. Выбранная структура содержит 5 проверяемых этапа(ов), но технические названия ребёнку не нужны.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states audience=student -->

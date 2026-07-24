@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 artifact_type: bilingual_lesson
 lesson_id: grade-5-water-04-changes-review
 grade: 5
@@ -574,6 +574,112 @@ artifact_readiness:
     notes: Урок ещё не апробирован в классе.
   classroom_ready: false
   readiness_status: teacher_pack_complete_pending_review
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: f5a824360088414a60778d5d32b7c9f03f4857744f021b820242a1dcd8be7bc5
+  selection_input:
+    purpose: retrieval_and_consolidation
+    content_types: [classification, conceptual_text, process]
+    required_capabilities: [error_correction, retrieval]
+    desired_capabilities: [formative_assessment, reflection, visual_representation]
+    phase_needs: [consolidation, formative_assessment, retrieval]
+    context_flags: {practical: false, map_or_data: false, retrieval: true, assessment: true}
+    maximum_total_productive_language_demand: medium
+    delivery:
+      group_size: 24
+      supported_group_formats: [individual, pair, small_group, whole_class]
+    resources:
+      available: [diagram, manipulatives, paper, printable_cards, textbook_or_source_text, writing_tool]
+      unavailable: [internet]
+      printer_available: true
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: false
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: medium
+      max_teacher_facilitation: high
+      max_learner_setup: medium
+      max_parent_effort: minimal
+      accessibility_priorities: [working_memory_support]
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: retrieval-and-consolidation
+      preferred_target_ids: [error-correction, retrieval-self-test]
+      excluded_target_ids: []
+      preferred_group_formats: [individual, pair]
+      teacher_overrides: []
+    homeschool:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 30
+      maximum_sessions: 8
+      maximum_total_productive_language_demand: medium
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      answer_key_release: self_managed_after_attempt
+    future_retrieval_windows:
+      - window: {next_unit: true}
+        capability: retrieval
+  phase_bindings:
+    - dna_phase_id: retrieval
+      lesson_stage_ids: [retrieve-water-unit]
+      teacher_material_ids: [water-lesson-04-guide]
+      student_material_ids: [unit-revision-stations]
+      answer_key_material_ids: [lesson-04-answer-key]
+      assessment_refs: [unit-separate-assessment]
+      oral_answer_refs: [question-opposite-processes]
+      source_access_policy: closed_first_attempt
+    - dna_phase_id: correction
+      lesson_stage_ids: [complete-change-model-ru]
+      teacher_material_ids: [water-lesson-04-guide]
+      student_material_ids: [complete-phase-cycle]
+      answer_key_material_ids: [lesson-04-answer-key]
+      assessment_refs: [unit-separate-assessment]
+      oral_answer_refs: [question-opposite-processes]
+      source_access_policy: open
+    - dna_phase_id: consolidation
+      lesson_stage_ids: [revision-stations]
+      teacher_material_ids: [water-lesson-04-guide]
+      student_material_ids: [unit-revision-stations]
+      answer_key_material_ids: [lesson-04-answer-key]
+      assessment_refs: [unit-separate-assessment]
+      oral_answer_refs: [question-opposite-processes]
+      source_access_policy: open
+  non_dna_stage_roles:
+    - lesson_stage_id: add-final-terms-et
+      role: language_bridge
+      rationale_ru: Отдельная bounded A1–A2 языковая стадия сохраняет предметную и языковую оценку раздельными.
+    - lesson_stage_id: separate-unit-assessment
+      role: assessment_separation
+      rationale_ru: Итоговая предметная и языковая фиксация остаётся authoritative assessment вне method selection.
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md
+  status:
+    structural_state: generated
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    effectiveness_claimed: false
 provenance:
   category: author_created_bridge
   source_reference: issue 10 grade-5 water lesson 04

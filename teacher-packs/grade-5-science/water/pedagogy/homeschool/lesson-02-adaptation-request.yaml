@@ -1,0 +1,510 @@
+adaptation_context:
+  accessibility_priorities:
+    - working_memory_support
+  adult_context:
+    allowed_roles: []
+    available: false
+    max_effort: none
+    max_support_minutes: 0
+    safety_supervision_available: false
+    subject_explanation_available: false
+  answer_access_policy:
+    correction_method: separate_colour
+    corrections_visible: true
+    first_attempt_without_answer: true
+    key_release: self_managed_after_attempt
+    unresolved_question_recorded: true
+  homeschool_preferences:
+    excluded_target_ids: []
+    preferred_target_ids: []
+  learner_count: 1
+  learner_session_minutes: 30
+  limited_adaptation_policy: allow_with_warning
+  maximum_sessions: 8
+  maximum_total_productive_language_demand: medium
+  resources:
+    adult_safety_supervision_available: false
+    available:
+      - diagram
+      - manipulatives
+      - paper
+      - printable_cards
+      - textbook_or_source_text
+      - writing_tool
+    internet_available: false
+    laboratory_materials_available: false
+    measuring_tools_available: false
+    outdoor_access_available: false
+    printer_available: true
+    projector_available: false
+    unavailable:
+      - internet
+  teacher_override_policy: require_preservation
+  variant: independent
+artifact_type: homeschool_adaptation_request
+content_bindings:
+  - answer_key_refs: []
+    estonian_support_refs:
+      - question-three-states
+    learner_material_refs:
+      - three-states-diagram
+    phase_id: activation
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-02-states/activation-task
+    teacher_explanation_refs:
+      - water-lesson-02-guide
+  - answer_key_refs: []
+    estonian_support_refs:
+      - question-three-states
+    learner_material_refs:
+      - three-states-diagram
+    phase_id: explanation
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-02-states/explanation-task
+    teacher_explanation_refs:
+      - water-lesson-02-guide
+  - answer_key_refs:
+      - lesson-02-answer-key
+    estonian_support_refs:
+      - question-three-states
+    learner_material_refs:
+      - state-sort-cards
+    phase_id: guided-practice
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-02-states/guided-practice-task
+    teacher_explanation_refs:
+      - water-lesson-02-guide
+  - answer_key_refs:
+      - lesson-02-answer-key
+    estonian_support_refs:
+      - question-three-states
+    learner_material_refs:
+      - three-states-diagram
+    phase_id: retrieval
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-02-states/retrieval-task
+    teacher_explanation_refs:
+      - water-lesson-02-guide
+  - answer_key_refs:
+      - lesson-02-answer-key
+    estonian_support_refs:
+      - question-three-states
+    learner_material_refs:
+      - states-exit-card
+    phase_id: formative-check
+    procedure_refs: []
+    safety_refs: []
+    task_refs:
+      - grade-5-water-02-states/formative-check-task
+    teacher_explanation_refs:
+      - water-lesson-02-guide
+request_id: grade-5-water-02-states-homeschool-adaptation
+schema_version: "1.0"
+source:
+  lesson_dna:
+    artifact_type: lesson_dna
+    assessment:
+      estonian_language_assessment:
+        enabled: false
+        notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+        target_phase_ids: []
+      separation_policy: separate_subject_and_estonian_language_evidence
+      subject_assessment:
+        enabled: true
+        notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+          предметный результат.
+        target_phase_ids:
+          - formative-check
+    context:
+      delivery_mode: classroom
+      duration_minutes: 45
+      grade: 5
+      group_size: 24
+      language_policy:
+        estonian_support:
+          allowed_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          enabled: true
+          learner_level: A1-A2
+          subject_explanation_language: ru
+        maximum_total_productive_language_demand: medium
+        primary_instruction_language: ru
+      request_digest: 58a86b341a3deaf6a21da9d35b119035038aaa9b54839026fe1aa0051ca49108
+      request_id: grade-5-water-02-states-classroom-selection
+      subject: science
+    differentiation:
+      extensions: []
+      scaffolds:
+        - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+        - Provide a bounded Estonian word bank for the selected terminology or labels.
+    known_limits:
+      - classroom_trial_not_started
+      - no_effectiveness_claim
+      - per_language_productive_demand_not_modelled
+      - selection_weights_provisional
+      - taxonomy_ratings_provisional
+      - teacher_review_pending
+    lesson_dna_id: grade-5-water-02-states-classroom-selection-dna
+    pattern:
+      pattern_id: concept-introduction-classroom
+      rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+        оценкой эффективности.
+      selection_origin: request_required
+    phases:
+      - activity_minutes: 3
+        capabilities:
+          primary:
+            - prior_knowledge_activation
+          supporting:
+            - collaborative_practice
+            - formative_assessment
+            - oral_production
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: activation
+        phase_id: activation
+        purpose_ru: Активировать прежние знания и сделать предварительные идеи видимыми.
+        rationale_ru: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: allowed
+        target:
+          activity_id: brainstorming
+          execution_profile_id: null
+          target_id: brainstorming
+        transition_minutes: 0
+      - activity_minutes: 10
+        capabilities:
+          primary:
+            - concept_formation
+          supporting:
+            - classification
+            - comparison
+            - guided_practice
+            - independent_practice
+            - visual_representation
+            - written_production
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: explanation
+        phase_id: explanation
+        purpose_ru: Построить точную предметную модель в доступной форме.
+        rationale_ru: Target frayer-model прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 4
+        source_access:
+          first_attempt: allowed
+        target:
+          activity_id: frayer-model
+          execution_profile_id: null
+          target_id: frayer-model
+        transition_minutes: 0
+      - activity_minutes: 8
+        capabilities:
+          primary:
+            - concept_formation
+            - visual_representation
+          supporting:
+            - classification
+            - comparison
+            - diagram_interpretation
+            - formative_assessment
+            - retrieval
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: guided_practice
+        phase_id: guided-practice
+        purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
+        rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: prohibited
+        target:
+          activity_id: concept-map
+          execution_profile_id: null
+          target_id: concept-map
+        transition_minutes: 0
+      - activity_minutes: 2
+        capabilities:
+          primary:
+            - retrieval
+          supporting:
+            - formative_assessment
+            - oral_production
+            - written_production
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: retrieval
+        phase_id: retrieval
+        purpose_ru: Восстановить главную связь без просмотра источника.
+        rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
+          в согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: prohibited
+        target:
+          activity_id: one-minute-recall
+          execution_profile_id: null
+          target_id: one-minute-recall
+        transition_minutes: 0
+      - activity_minutes: 5
+        capabilities:
+          primary:
+            - formative_assessment
+            - independent_practice
+            - retrieval
+            - self_assessment
+          supporting:
+            - error_correction
+            - error_detection
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: formative_assessment
+        phase_id: formative-check
+        purpose_ru: Найти устойчивое заблуждение и определить следующий шаг.
+        rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
+          вклад в согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - textbook_or_source_text
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 4
+        source_access:
+          first_attempt: prohibited
+        target:
+          activity_id: retrieval-self-test
+          execution_profile_id: null
+          target_id: retrieval-self-test
+        transition_minutes: 0
+    retrieval_plan:
+      correction_phase_id: formative-check
+      delayed:
+        - after_lessons: 1
+          capability: retrieval
+      immediate_phase_id: retrieval
+    schema_version: "1.0"
+    status:
+      classroom_ready: false
+      classroom_trial: not_started
+      effectiveness_claimed: false
+      structural_state: proposed
+      teacher_review: pending
+    teacher_overrides: []
+    timing:
+      activity_minutes: 28
+      cleanup_minutes: 0
+      fits: true
+      reserve_minutes: 3
+      setup_minutes: 14
+      total_planned_minutes: 45
+      transition_minutes: 0
+      unallocated_minutes: 0
+    versions:
+      activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+      engine: "1.1"
+      lesson_dna_schema: "1.0"
+      selection_rules: "1.0"
+      taxonomy: "1.0"
+    warnings:
+      - Capability ratings and selection weights are provisional project-authored metadata.
+      - The proposal requires teacher review and does not claim learning effectiveness.
+  selection_request:
+    artifact_type: pedagogical_selection_request
+    constraints:
+      accessibility_priorities:
+        - working_memory_support
+      max_learner_setup: medium
+      max_parent_effort: minimal
+      max_teacher_facilitation: high
+      max_teacher_preparation: medium
+      retrieval_first_attempt_without_source: true
+    language_profile:
+      estonian_support:
+        allowed_roles:
+          - familiar_instruction
+          - labels
+          - sentence_frame
+          - short_oral_response
+          - short_written_response
+          - terminology
+        assessment_requested: false
+        enabled: true
+        language: et
+        learner_level: A1-A2
+        sentence_frames_required: true
+        subject_explanation_language: ru
+        word_bank_required: true
+      maximum_total_productive_language_demand: medium
+      primary_instruction_language: ru
+    learner_context:
+      delivery_mode: classroom
+      grade: 5
+      group_size: 24
+      lesson_duration_minutes: 45
+      study_context: classroom
+      subject: science
+      supported_group_formats:
+        - individual
+        - pair
+        - small_group
+        - whole_class
+    lesson_context:
+      content_types:
+        - classification
+        - conceptual_text
+        - visual_representation
+      context_flags:
+        assessment: true
+        map_or_data: false
+        practical: false
+        retrieval: true
+      desired_capabilities:
+        - formative_assessment
+        - retrieval
+        - visual_representation
+      future_retrieval_windows:
+        - after_lessons: 1
+          capability: retrieval
+      phase_needs:
+        - activation
+        - explanation
+        - formative_assessment
+        - guided_practice
+        - retrieval
+      previous_target_ids: []
+      purpose: concept_introduction
+      required_capabilities:
+        - classification
+        - concept_formation
+      required_pattern_id: concept-introduction-classroom
+    preferences:
+      avoid_recent_target_ids: []
+      excluded_target_ids: []
+      preferred_group_formats:
+        - individual
+        - pair
+        - whole_class
+      preferred_pattern_ids:
+        - concept-introduction-classroom
+      preferred_target_ids:
+        - frayer-model
+        - sorting-and-sequencing
+        - visual-representation
+      teacher_overrides: []
+    request_id: grade-5-water-02-states-classroom-selection
+    resources:
+      adult_safety_supervision_available: true
+      available:
+        - diagram
+        - manipulatives
+        - paper
+        - printable_cards
+        - textbook_or_source_text
+        - writing_tool
+      internet_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: false
+      printer_available: true
+      projector_available: false
+      unavailable:
+        - internet
+    schema_version: "1.0"

@@ -15,6 +15,25 @@ Teacher-ready комплект для четырёх уроков 5 класса
 
 Машинный реестр находится в [materials-index.yaml](materials-index.yaml). Он связывает материал с уроком, аудиторией, языками, печатностью, ключом ответа и provenance.
 
+## Pedagogy integration
+
+`pedagogy/integration-index.yaml` связывает content identity, classroom
+selection request/decision, lesson DNA, stage timing, homeschool package,
+parent guidance и weekly plan. Teacher-facing lesson files показывают
+сгенерированную структуру в ограниченных marker-регионах; child-facing
+материалы не показывают taxonomy/scoring. Четыре готовых домашних варианта
+находятся в `homeschool/`, а подготовка устного ответа — в
+`student/water-oral-answer-preparation.md`.
+
+Проверка воспроизводима без AI, сети, случайности и timestamp:
+
+```bash
+npm run generate:pedagogy-water-pilot -- --check
+```
+
+Classroom и homeschool используют одну scientific content identity. Это не
+означает, что методика независимо проверена.
+
 ## Независимая проверка и апробация
 
 Для независимого review используйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md), а для урока — печатную [обезличенную форму наблюдения](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Сначала вычислите content fingerprint и сохраните commit SHA только как provenance. Fingerprint охватывает связанные lesson/thematic YAML и реальные teacher/student/answer/parent материалы; rebase или squash не инвалидирует unchanged content. Пустые templates помогают оформить будущую запись, но не являются доказательством выполненного review или trial.

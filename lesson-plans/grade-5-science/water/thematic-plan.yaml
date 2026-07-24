@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 artifact_type: bilingual_thematic_plan
 unit_id: grade-5-water-four-lesson-plan
 title_ru: Вода как вещество и состояния воды
@@ -383,6 +383,71 @@ teacher_pack:
     trial_record_paths: []
     status: not_tested
   classroom_ready: false
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  unit_content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: 74bbe42dbe3b6256ad35090b338642abd14c05110ab69d0ea6be0fd4391d6c76
+  lesson_content_identities:
+    - lesson_id: grade-5-water-01-properties
+      content_identity:
+        specification_version: "1.0"
+        algorithm: sha256
+        value: 0f2349bf0578585a1d0ed4db3d9fe2953214529ffb779d22d9c52c4c60238442
+    - lesson_id: grade-5-water-02-states
+      content_identity:
+        specification_version: "1.0"
+        algorithm: sha256
+        value: 5c8b38d9daccc03a7b22117f6aad9a9418572a6c7edec4552a7a8b1acbecb78d
+    - lesson_id: grade-5-water-03-melting-condensation
+      content_identity:
+        specification_version: "1.0"
+        algorithm: sha256
+        value: 32a3430cb83af3d6c64aa8450d868a15de6797f3f94575697ae25199f8934204
+    - lesson_id: grade-5-water-04-changes-review
+      content_identity:
+        specification_version: "1.0"
+        algorithm: sha256
+        value: f5a824360088414a60778d5d32b7c9f03f4857744f021b820242a1dcd8be7bc5
+  classroom_artifacts:
+    integration_index_path: teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml
+  homeschool_artifacts:
+    unit_index_path: teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml
+    lesson_package_paths:
+      - teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml
+      - teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml
+      - teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml
+      - teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml
+  delayed_retrieval_links:
+    - source_lesson_id: grade-5-water-01-properties
+      target_lesson_id: grade-5-water-02-states
+      relative_window: {after_lessons: 1}
+      capability: retrieval
+      rationale_ru: Свойства и понятие вещества восстанавливаются перед классификацией состояний воды.
+    - source_lesson_id: grade-5-water-02-states
+      target_lesson_id: grade-5-water-03-melting-condensation
+      relative_window: {after_lessons: 1}
+      capability: retrieval
+      rationale_ru: Три состояния восстанавливаются перед наблюдением переходов между ними.
+    - source_lesson_id: grade-5-water-03-melting-condensation
+      target_lesson_id: grade-5-water-04-changes-review
+      relative_window: {after_lessons: 1}
+      capability: retrieval
+      rationale_ru: Наблюдения и причинные выводы повторяются в накопительном уроке проверки.
+    - source_lesson_id: grade-5-water-04-changes-review
+      target_lesson_id: next_unit
+      relative_window: {next_unit: true}
+      capability: retrieval
+      rationale_ru: Следующий тематический unit должен вернуть ключевые water terms; точный lesson target пока не создан.
+  status:
+    structural_state: generated
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    homeschool_ready: false
+    effectiveness_claimed: false
 completeness:
   status: incomplete_curriculum_coverage
   declared_complete: false

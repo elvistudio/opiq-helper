@@ -75,3 +75,31 @@ RU: «Лёд получает тепло и плавится, переходя �
 - Ключ учителя: `answers/lesson-03-answer-key.md`
 
 Provenance: `author_created_bridge` по lesson-03 golden YAML и четырём указанным canonical ordinary records.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-03-melting-condensation audience=teacher -->
+## Сгенерированная педагогическая структура
+
+Паттерн: **safe-practical-investigation**. Это операционное предложение,
+которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
+
+| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
+|---|---|---|---|---:|---|
+| safety-orientation | Мозговой штурм | `brainstorming` | activate-state-model | 3 + 2 setup + 0 cleanup | allowed |
+| practical-work | Короткое наблюдение, подготовленное учителем | `learning-stations::practical-compact-teacher-prepared-observation` | observe-changes | 10 + 2 setup + 2 cleanup | allowed |
+| evidence-check | Карта понятий | `concept-map` | explain-changes-ru, bridge-process-terms-et | 8 + 2 setup + 0 cleanup | prohibited |
+| conclusion | Резюме по памяти | `retrieval-summary` | separate-conclusions | 4 + 4 setup + 0 cleanup | prohibited |
+
+### Обоснование выбора
+
+- **safety-orientation:** Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **practical-work:** Target learning-stations::practical-compact-teacher-prepared-observation прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **evidence-check:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **conclusion:** Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+Действия учителя, ожидаемое свидетельство ученика, безопасность,
+дифференциация и оценивание остаются в связанных стадиях этого руководства;
+генератор не заменяет их новой научной формулировкой.
+
+Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
+терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-03-melting-condensation audience=teacher -->

@@ -37,3 +37,14 @@ Lesson: `grade-5-water-01-properties`
 `Vee omadus on ________________________.`
 
 Provenance: `author_created_worksheet`, lesson 01 observation task; canonical terminology support: https://www.opiq.ee/kit/525/chapter/29514. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties audience=student -->
+## Самостоятельная попытка и исправление
+
+1. Закрой учебник и ключ. Запиши или скажи свой первый ответ.
+2. Ответь по-русски: **Почему прозрачность можно назвать свойством воды?**
+3. После первой попытки открой ключ, сравни и исправь неточность другим цветом.
+4. Коротко по-эстонски: **Milline omadus on puhtal veel?**
+
+Первая попытка выполняется без ответа. Выбранная структура содержит 5 проверяемых этапа(ов), но технические названия ребёнку не нужны.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties audience=student -->

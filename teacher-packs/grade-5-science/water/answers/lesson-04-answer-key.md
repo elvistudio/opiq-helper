@@ -38,3 +38,25 @@
 Возвращайте одну ошибочную стрелку к реальному примеру и русскому причинному вопросу. Давайте отдельную языковую тренировку после восстановления понятия. Не объединяйте четыре строки rubric в один недифференцированный балл.
 
 Provenance: `author_created_assessment`, cumulative lesson 04 criteria and expected answers.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review audience=answer-key -->
+## Сгенерированная привязка попытки и ключа
+
+| Task ID | Phase ID | Target ID | Student artifact | Answer key | Доступ к ключу |
+|---|---|---|---|---|---|
+| `grade-5-water-04-changes-review/retrieval-task` | `retrieval` | `retrieval-self-test` | `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md` | after_first_attempt |
+| `grade-5-water-04-changes-review/correction-task` | `correction` | `error-correction` | `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md` | after_first_attempt |
+| `grade-5-water-04-changes-review/consolidation-task` | `consolidation` | `concept-map` | `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md` | after_first_attempt |
+
+Lesson ID: `grade-5-water-04-changes-review`. Доступ к ключу разрешён только после
+самостоятельной первой попытки.
+
+Правильный предметный ответ: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла.
+
+Допустимый короткий эстонский ответ: Soojenemisel jää sulab; jahtumisel vesi jäätub.
+
+Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+
+Предметное понимание оценивается по научному смыслу русского ответа. Качество
+эстонской формы фиксируется отдельно и не снижает предметный результат автоматически.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review audience=answer-key -->

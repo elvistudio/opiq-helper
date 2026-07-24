@@ -74,3 +74,29 @@ RU: «При получении тепла лёд плавится, а жидк�
 - Общая rubric: `assessment-rubric.md`
 
 Provenance: `author_created_bridge` по lesson-04 YAML и указанным canonical ordinary Opiq records.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review audience=teacher -->
+## Сгенерированная педагогическая структура
+
+Паттерн: **retrieval-and-consolidation**. Это операционное предложение,
+которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
+
+| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
+|---|---|---|---|---:|---|
+| retrieval | Самопроверочный тест по памяти | `retrieval-self-test` | retrieve-water-unit | 5 + 4 setup + 0 cleanup | prohibited |
+| correction | Самостоятельное исправление ошибки | `error-correction` | complete-change-model-ru | 3 + 4 setup + 0 cleanup | required |
+| consolidation | Карта понятий | `concept-map` | revision-stations | 8 + 2 setup + 0 cleanup | prohibited |
+
+### Обоснование выбора
+
+- **retrieval:** Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **correction:** Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **consolidation:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+Действия учителя, ожидаемое свидетельство ученика, безопасность,
+дифференциация и оценивание остаются в связанных стадиях этого руководства;
+генератор не заменяет их новой научной формулировкой.
+
+Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
+терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review audience=teacher -->

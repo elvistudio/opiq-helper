@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 artifact_type: bilingual_lesson
 lesson_id: grade-5-water-03-melting-condensation
 grade: 5
@@ -666,6 +666,125 @@ artifact_readiness:
     notes: Урок ещё не апробирован в классе.
   classroom_ready: false
   readiness_status: teacher_pack_complete_pending_review
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: 32a3430cb83af3d6c64aa8450d868a15de6797f3f94575697ae25199f8934204
+  selection_input:
+    purpose: practical_investigation
+    content_types: [data_and_evidence, practical_observation]
+    required_capabilities: [evidence_based_conclusion, measurement, observation]
+    desired_capabilities: [formative_assessment, guided_practice, retrieval]
+    phase_needs: [formative_assessment, guided_practice, orientation, retrieval]
+    context_flags: {practical: true, map_or_data: false, retrieval: false, assessment: true}
+    maximum_total_productive_language_demand: high
+    delivery:
+      group_size: 24
+      supported_group_formats: [individual, pair, small_group, whole_class]
+    resources:
+      available: [diagram, laboratory_materials, manipulatives, measuring_tools, paper, textbook_or_source_text, writing_tool]
+      unavailable: [internet]
+      printer_available: false
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: true
+      measuring_tools_available: true
+      outdoor_access_available: false
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: high
+      max_teacher_facilitation: high
+      max_learner_setup: medium
+      max_parent_effort: medium
+      accessibility_priorities: [working_memory_support]
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: safe-practical-investigation
+      preferred_target_ids: [learning-stations::practical-compact-teacher-prepared-observation, retrieval-summary]
+      excluded_target_ids: []
+      preferred_group_formats: [small_group, whole_class]
+      teacher_overrides:
+        - override_id: preserve-compact-observation
+          slot_id: practical-work
+          requested_target_id: learning-stations::practical-compact-teacher-prepared-observation
+          rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не ротацию нескольких станций.
+        - override_id: preserve-existing-conclusion
+          slot_id: conclusion
+          requested_target_id: retrieval-summary
+          rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+    homeschool:
+      variant: parent_child
+      learner_count: 1
+      learner_session_minutes: 30
+      maximum_sessions: 8
+      maximum_total_productive_language_demand: high
+      adult_context:
+        available: true
+        max_support_minutes: 90
+        max_effort: medium
+        allowed_roles: [check_answers, listening_partner, logistical_support, safety_supervision]
+        safety_supervision_available: true
+        subject_explanation_available: false
+      answer_key_release: adult_managed
+    future_retrieval_windows:
+      - window: {after_lessons: 1}
+        capability: retrieval
+  phase_bindings:
+    - dna_phase_id: safety-orientation
+      lesson_stage_ids: [activate-state-model]
+      teacher_material_ids: [water-lesson-03-guide]
+      student_material_ids: [practical-safety-card]
+      answer_key_material_ids: [lesson-03-answer-key]
+      assessment_refs: []
+      oral_answer_refs: [question-condensation-origin]
+      source_access_policy: teacher_managed
+    - dna_phase_id: practical-work
+      lesson_stage_ids: [observe-changes]
+      teacher_material_ids: [water-lesson-03-guide]
+      student_material_ids: [melting-condensation-table, practical-safety-card]
+      answer_key_material_ids: [lesson-03-answer-key]
+      assessment_refs: [separate-practical-exit-card]
+      oral_answer_refs: [question-melting-data]
+      source_access_policy: teacher_managed
+    - dna_phase_id: evidence-check
+      lesson_stage_ids: [explain-changes-ru, bridge-process-terms-et]
+      teacher_material_ids: [water-lesson-03-guide]
+      student_material_ids: [phase-change-diagram]
+      answer_key_material_ids: [lesson-03-answer-key]
+      assessment_refs: [separate-practical-exit-card]
+      oral_answer_refs: [question-condensation-origin]
+      source_access_policy: open
+    - dna_phase_id: conclusion
+      lesson_stage_ids: [separate-conclusions]
+      teacher_material_ids: [water-lesson-03-guide]
+      student_material_ids: [separate-practical-exit-card]
+      answer_key_material_ids: [lesson-03-answer-key]
+      assessment_refs: [separate-practical-exit-card]
+      oral_answer_refs: [question-condensation-origin, question-melting-data]
+      source_access_policy: closed_first_attempt
+  non_dna_stage_roles:
+    - lesson_stage_id: homework-launch
+      role: homework_launch
+      rationale_ru: Стадия задаёт отдельную безопасную домашнюю границу и не потребляет classroom DNA phase.
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md
+  status:
+    structural_state: generated
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    effectiveness_claimed: false
 provenance:
   category: author_created_bridge
   source_reference: issue 10 grade-5 water golden lesson 03

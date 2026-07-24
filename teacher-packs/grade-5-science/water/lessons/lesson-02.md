@@ -72,3 +72,33 @@ RU: «Лёд сохраняет форму; жидкая вода течёт и 
 - Ключ учителя: `answers/lesson-02-answer-key.md`
 
 Provenance: `author_created_bridge` по lesson-02 YAML и указанным canonical ordinary records.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states audience=teacher -->
+## Сгенерированная педагогическая структура
+
+Паттерн: **concept-introduction-classroom**. Это операционное предложение,
+которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
+
+| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
+|---|---|---|---|---:|---|
+| activation | Мозговой штурм | `brainstorming` | activate-properties | 3 + 2 setup + 0 cleanup | allowed |
+| explanation | Модель Фрайера | `frayer-model` | explain-three-states-ru | 10 + 4 setup + 0 cleanup | allowed |
+| guided-practice | Карта понятий | `concept-map` | classify-states | 8 + 2 setup + 0 cleanup | prohibited |
+| retrieval | Минутное воспроизведение | `one-minute-recall` | label-states-et | 2 + 2 setup + 0 cleanup | prohibited |
+| formative-check | Самопроверочный тест по памяти | `retrieval-self-test` | state-summary | 5 + 4 setup + 0 cleanup | prohibited |
+
+### Обоснование выбора
+
+- **activation:** Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **explanation:** Target frayer-model прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **guided-practice:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **retrieval:** Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **formative-check:** Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+Действия учителя, ожидаемое свидетельство ученика, безопасность,
+дифференциация и оценивание остаются в связанных стадиях этого руководства;
+генератор не заменяет их новой научной формулировкой.
+
+Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
+терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states audience=teacher -->

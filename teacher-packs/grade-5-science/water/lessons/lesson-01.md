@@ -71,3 +71,33 @@ RU: «Вода — вещество. Чистая вода прозрачна, �
 - Ключ учителя: `answers/lesson-01-answer-key.md`
 
 Provenance: `author_created_bridge` по lesson-01 YAML и двум каноническим ordinary Opiq records; без копирования учебникового текста.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties audience=teacher -->
+## Сгенерированная педагогическая структура
+
+Паттерн: **concept-introduction-classroom**. Это операционное предложение,
+которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
+
+| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
+|---|---|---|---|---:|---|
+| activation | Мозговой штурм | `brainstorming` | activate-water | 3 + 2 setup + 0 cleanup | allowed |
+| explanation | Направляемое чтение | `guided-reading` | explain-properties-ru, bridge-properties-et | 8 + 4 setup + 0 cleanup | allowed |
+| guided-practice | Карта понятий | `concept-map` | observe-water | 8 + 2 setup + 0 cleanup | prohibited |
+| retrieval | Минутное воспроизведение | `one-minute-recall` | homework-launch | 2 + 2 setup + 0 cleanup | prohibited |
+| formative-check | Самопроверочный тест по памяти | `retrieval-self-test` | independent-summary | 5 + 4 setup + 0 cleanup | prohibited |
+
+### Обоснование выбора
+
+- **activation:** Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **explanation:** Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **guided-practice:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **retrieval:** Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- **formative-check:** Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+Действия учителя, ожидаемое свидетельство ученика, безопасность,
+дифференциация и оценивание остаются в связанных стадиях этого руководства;
+генератор не заменяет их новой научной формулировкой.
+
+Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
+терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties audience=teacher -->
