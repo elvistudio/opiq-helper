@@ -8,9 +8,12 @@ import {
   adaptLessonForHomeschool,
   createPedagogyHomeschoolValidators,
   deriveHomeschoolSelectionRequest,
+  finalSafetyState,
   loadPedagogyHomeschoolRepository,
   materializeHomeschoolFixture,
   serializeHomeschoolYaml,
+  validateAdaptedBindings,
+  validateFinalSafety,
   validatePedagogyHomeschool,
 } from './lib/pedagogy-homeschool.mjs';
 import { parseStrictPedagogyYaml } from './lib/pedagogy-knowledge.mjs';
@@ -38,6 +41,15 @@ function clone(value) {
 
 function selectedTargets(result) {
   return result.homeschoolLessonDna?.phases.map((phase) => phase.target.target_id) ?? [];
+}
+
+function selectedDeliveryDimensions(result) {
+  return result.decision.derived_selection_decision.slot_decisions.flatMap((slot) => {
+    const selected = slot.considered_candidates.find(
+      (candidate) => candidate.target_id === slot.selected_target_id,
+    );
+    return selected?.operational_fit.delivery_dimensions ?? [];
+  });
 }
 
 function overrideRequest(policy) {
@@ -72,9 +84,9 @@ test('production homeschool repository validates', () => {
     errors: [],
     warnings: [],
     counts: {
-      fixtures: 12,
-      successfulFixtures: 8,
-      failureFixtures: 4,
+      fixtures: 15,
+      successfulFixtures: 9,
+      failureFixtures: 6,
       examples: 5,
       schemas: 7,
     },
@@ -404,7 +416,8 @@ test('parent guidance never requires subject explanation', () => {
 test('require-preservation rejects an override that moves to a different mapped phase', () => {
   const result = adaptLessonForHomeschool(repository, overrideRequest('require_preservation'));
   assert.equal(result.decision.failure.code, 'teacher_override_not_preserved');
-  assert.match(result.decision.failure.details.join(' '), /concept-map/);
+  assert.equal(result.decision.teacher_override_adaptations[0].source_target_id, 'concept-map');
+  assert.equal(result.decision.teacher_override_adaptations[0].status, 'rejected');
 });
 
 test('allow-reselection exposes the override replacement in the phase trace', () => {
@@ -473,6 +486,8 @@ test('learner timing total reconciles', () => {
       + timing.cleanup_minutes
       + timing.transition_minutes
       + timing.break_minutes
+      + timing.delayed_retrieval_minutes
+      + timing.weekly_review_minutes
       + timing.contingency_minutes,
   );
 });
@@ -615,6 +630,370 @@ test('weekly review is included when delayed windows exist', () => {
 test('weekly plan stores no dates or progress state', () => {
   const paths = objectKeys(resultFor('homeschool-concept-independent').weeklyStudyPlan);
   assert.ok(paths.every((item) => !/(date|completed|progress_history)$/.test(item)));
+});
+
+test('after-days retrieval window creates a counted delayed session', () => {
+  const session = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions.find(
+    (item) => item.retrieval_type === 'delayed_after_days',
+  );
+  assert.deepEqual(session.relative_window, { after_days: 7, capability: 'retrieval' });
+  assert.equal(session.purpose, 'delayed_retrieval');
+  assert.equal(session.source_access_policy, 'closed');
+});
+
+test('after-lessons retrieval window creates a counted delayed session', () => {
+  const session = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions.find(
+    (item) => item.retrieval_type === 'delayed_after_lessons',
+  );
+  assert.deepEqual(session.relative_window, { after_lessons: 1, capability: 'retrieval' });
+  assert.equal(session.purpose, 'delayed_retrieval');
+});
+
+test('next-unit retrieval window creates a real weekly-review session', () => {
+  const session = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions.find(
+    (item) => item.retrieval_type === 'next_unit_review',
+  );
+  assert.deepEqual(session.relative_window, { capability: 'retrieval', next_unit: true });
+  assert.equal(session.purpose, 'weekly_review');
+  assert.equal(session.learner_minutes, repository.rules.data.timing.weekly_review_minutes);
+});
+
+test('every review session is included in the maximum-session count', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const plan = resultFor('homeschool-concept-independent').weeklyStudyPlan;
+  assert.equal(plan.sessions.length, 5);
+  assert.ok(plan.sessions.length <= request.adaptation_context.maximum_sessions);
+});
+
+test('review sessions are included in both weekly and package learner totals', () => {
+  const result = resultFor('homeschool-concept-independent');
+  assert.equal(
+    result.weeklyStudyPlan.total_learner_minutes,
+    result.package.timing.total_learner_minutes,
+  );
+  const reviewMinutes = result.weeklyStudyPlan.sessions
+    .filter((session) => session.relative_window)
+    .reduce((sum, session) => sum + session.learner_minutes, 0);
+  assert.equal(
+    reviewMinutes,
+    result.package.timing.delayed_retrieval_minutes
+      + result.package.timing.weekly_review_minutes,
+  );
+});
+
+test('review-session overflow returns timing-unrealistic without dropping a window', () => {
+  const result = resultFor('homeschool-supplemental-review-session-overflow');
+  assert.equal(result.decision.failure.code, 'timing_unrealistic');
+  assert.match(result.decision.failure.details.join(' '), /5 core and review sessions/);
+});
+
+test('review sessions contain no absolute dates and keep answer release after attempt', () => {
+  const reviewSessions = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions
+    .filter((session) => session.relative_window);
+  assert.ok(reviewSessions.every((session) => session.answer_access === 'self_managed_after_attempt'));
+  assert.ok(objectKeys(reviewSessions).every((item) => !/(date|timestamp)$/.test(item)));
+});
+
+test('weekly-review minutes are a visible numeric timing component', () => {
+  const timing = resultFor('homeschool-concept-independent').package.timing;
+  assert.equal(timing.weekly_review_minutes, 8);
+  assert.equal(timing.delayed_retrieval_minutes, 12);
+});
+
+test('remote peer selected-target traces never apply one-learner compatibility', () => {
+  assert.ok(selectedDeliveryDimensions(resultFor('homeschool-remote-peer')).every(
+    (dimension) => dimension.dimension !== 'one_learner',
+  ));
+});
+
+test('sibling group selected-target traces never apply one-learner compatibility', () => {
+  assert.ok(selectedDeliveryDimensions(resultFor('homeschool-sibling-group')).every(
+    (dimension) => dimension.dimension !== 'one_learner',
+  ));
+});
+
+test('independent learner selected-target traces retain one-learner compatibility', () => {
+  assert.ok(selectedDeliveryDimensions(resultFor('homeschool-concept-independent')).some(
+    (dimension) => dimension.dimension === 'one_learner',
+  ));
+});
+
+test('parent-child keeps one learner while adult support remains separate', () => {
+  const result = resultFor('homeschool-oral-parent-child');
+  assert.equal(result.package.context.learner_count, 1);
+  assert.ok(selectedDeliveryDimensions(result).some(
+    (dimension) => dimension.dimension === 'one_learner',
+  ));
+});
+
+test('homeschool variant rules use collaborative study for real learner groups', () => {
+  assert.equal(repository.rules.data.variants.remote_peer.study_context, 'collaborative_study');
+  assert.equal(
+    repository.rules.data.variants.small_sibling_group.study_context,
+    'collaborative_study',
+  );
+});
+
+test('adapted supervised target is detected even when source safety is false', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const dna = clone(resultFor('homeschool-concept-independent').homeschoolLessonDna);
+  dna.phases[0].safety.requires_adult_supervision = true;
+  dna.phases[0].safety.controls_ru = ['Adapted safety control.'];
+  const state = finalSafetyState(request, dna);
+  assert.equal(state.source_supervision_required, false);
+  assert.equal(state.adapted_supervision_required, true);
+  assert.equal(state.effective_supervision_required, true);
+});
+
+test('adapted supervision without adult availability fails final-DNA safety validation', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const dna = clone(resultFor('homeschool-concept-independent').homeschoolLessonDna);
+  dna.phases[0].safety.requires_adult_supervision = true;
+  request.adaptation_context.resources.adult_safety_supervision_available = true;
+  request.adaptation_context.adult_context.safety_supervision_available = true;
+  request.adaptation_context.adult_context.allowed_roles = ['safety_supervision'];
+  const failure = validateFinalSafety(request, finalSafetyState(request, dna));
+  assert.ok(failure.details.includes('missing adult_context.available'));
+});
+
+test('adapted supervision without the resource flag fails final-DNA safety validation', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const dna = clone(resultFor('homeschool-concept-independent').homeschoolLessonDna);
+  dna.phases[0].safety.requires_adult_supervision = true;
+  request.adaptation_context.adult_context.available = true;
+  request.adaptation_context.adult_context.safety_supervision_available = true;
+  request.adaptation_context.adult_context.allowed_roles = ['safety_supervision'];
+  const failure = validateFinalSafety(request, finalSafetyState(request, dna));
+  assert.ok(failure.details.includes('missing resources.adult_safety_supervision_available'));
+});
+
+test('adapted supervision without an allowed safety role fails final-DNA validation', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const dna = clone(resultFor('homeschool-concept-independent').homeschoolLessonDna);
+  dna.phases[0].safety.requires_adult_supervision = true;
+  request.adaptation_context.adult_context.available = true;
+  request.adaptation_context.adult_context.safety_supervision_available = true;
+  request.adaptation_context.resources.adult_safety_supervision_available = true;
+  const failure = validateFinalSafety(request, finalSafetyState(request, dna));
+  assert.ok(failure.details.includes('missing adult_context.allowed_roles safety_supervision'));
+});
+
+test('source supervision cannot disappear from final homeschool DNA', () => {
+  const request = requestFor('homeschool-practical-supervised');
+  const dna = clone(resultFor('homeschool-practical-supervised').homeschoolLessonDna);
+  for (const phase of dna.phases) phase.safety.requires_adult_supervision = false;
+  const failure = validateFinalSafety(request, finalSafetyState(request, dna));
+  assert.equal(failure.code, 'safety_requirement_not_preserved');
+});
+
+test('package and parent guidance expose source-adapted-effective safety separately', () => {
+  const result = resultFor('homeschool-practical-supervised');
+  for (const safety of [result.package.safety, result.parentGuidance.safety]) {
+    assert.equal(safety.source_supervision_required, true);
+    assert.equal(safety.adapted_supervision_required, true);
+    assert.equal(safety.effective_supervision_required, true);
+    assert.equal(safety.adult_supervision_required, true);
+  }
+});
+
+test('adult safety minutes equal the final supervised-phase activity and handling time', () => {
+  const result = resultFor('homeschool-practical-supervised');
+  const expected = result.homeschoolLessonDna.phases
+    .filter((phase) => phase.safety.requires_adult_supervision)
+    .reduce((sum, phase) => (
+      sum + phase.activity_minutes + phase.setup_minutes + phase.cleanup_minutes
+    ), 0);
+  assert.equal(result.parentGuidance.timing.adult_safety_minutes, expected);
+});
+
+test('final safety controls are the deterministic source-adapted union', () => {
+  const request = requestFor('homeschool-practical-supervised');
+  const dna = clone(resultFor('homeschool-practical-supervised').homeschoolLessonDna);
+  dna.phases[0].safety.controls_ru.push('Additional adapted control.');
+  const controls = finalSafetyState(request, dna).controls_ru;
+  assert.ok(controls.includes('Additional adapted control.'));
+  assert.deepEqual(controls, [...controls].sort((left, right) => (
+    Buffer.from(left).compare(Buffer.from(right))
+  )));
+  assert.equal(new Set(controls).size, controls.length);
+});
+
+test('successful safety decision trace records all four final-DNA checks', () => {
+  assert.deepEqual(
+    resultFor('homeschool-practical-supervised').decision.safety_checks.map((item) => item.code),
+    [
+      'source_safety_checked',
+      'adapted_safety_checked',
+      'safety_not_relaxed',
+      'supervision_availability_checked',
+    ],
+  );
+});
+
+test('adapted retrieval without an exact or mapped key exposes phase-level provenance', () => {
+  const result = resultFor('homeschool-retrieval-missing-key');
+  const trace = result.decision.answer_binding_decisions.find(
+    (decision) => decision.adapted_phase_id === 'retrieval',
+  );
+  assert.equal(trace.binding_origin, 'none');
+  assert.deepEqual(trace.source_phase_ids, []);
+  assert.deepEqual(trace.answer_key_refs, []);
+  assert.equal(trace.valid, false);
+});
+
+test('mapped source key is valid only for its explicitly mapped adapted phase', () => {
+  const trace = resultFor('homeschool-concept-independent')
+    .decision.answer_binding_decisions.find(
+      (decision) => decision.binding_origin === 'mapped_source'
+        && decision.answer_key_refs.length > 0,
+    );
+  assert.ok(trace);
+  assert.ok(trace.source_phase_ids.length > 0);
+  assert.equal(trace.valid, true);
+});
+
+test('exact adapted-phase key is accepted with exact provenance', () => {
+  const trace = resultFor('homeschool-map-independent').decision.answer_binding_decisions.find(
+    (decision) => decision.adapted_phase_id === 'retrieval',
+  );
+  assert.equal(trace.binding_origin, 'exact_adapted');
+  assert.deepEqual(trace.answer_key_refs, ['map-check-key']);
+  assert.equal(trace.valid, true);
+});
+
+test('adapted practical phase retains procedure and safety references', () => {
+  const trace = resultFor('homeschool-practical-supervised')
+    .decision.answer_binding_decisions.find(
+      (decision) => decision.adapted_phase_id === 'practical-work',
+    );
+  assert.deepEqual(trace.procedure_refs, ['practical-procedure']);
+  assert.deepEqual(trace.safety_refs, ['practical-safety-card']);
+  assert.equal(trace.valid, true);
+});
+
+test('adapted explanation replacement requires explanation or source-segment binding', () => {
+  const request = requestFor('homeschool-concept-independent');
+  request.content_bindings.push({
+    phase_id: 'independent-practice',
+    learner_material_refs: [],
+    task_refs: ['adapted-explanation-task'],
+    answer_key_refs: [],
+    teacher_explanation_refs: [],
+    estonian_support_refs: [],
+    procedure_refs: [],
+    safety_refs: [],
+  });
+  const result = adaptLessonForHomeschool(repository, request);
+  assert.equal(result.decision.failure.code, 'explanation_binding_missing');
+});
+
+test('answer-access check passes only after post-adaptation binding validation', () => {
+  const valid = resultFor('homeschool-concept-independent');
+  const invalid = resultFor('homeschool-retrieval-missing-key');
+  assert.equal(
+    valid.decision.answer_access_checks.find(
+      (item) => item.code === 'answer_access_after_attempt',
+    ).passed,
+    true,
+  );
+  assert.deepEqual(invalid.decision.answer_access_checks, []);
+});
+
+test('binding order does not change phase-level provenance or output', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const reordered = clone(request);
+  reordered.content_bindings.reverse();
+  assert.equal(
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+    stablePedagogyJson(adaptLessonForHomeschool(repository, reordered)),
+  );
+});
+
+test('preserved teacher override keeps identity, rationale, phase, and target', () => {
+  const result = resultFor('homeschool-teacher-override-preserved');
+  assert.deepEqual(result.decision.teacher_override_adaptations, [{
+    override_id: 'keep-retrieval-self-test',
+    teacher_rationale_ru:
+      'Учитель сохраняет знакомую форму самопроверки, чтобы ребёнок мог исправить ошибки самостоятельно.',
+    source_slot_id: 'retrieval',
+    source_target_id: 'retrieval-self-test',
+    adapted_phase_id: 'retrieval',
+    adapted_target_id: 'retrieval-self-test',
+    status: 'preserved',
+    policy: 'require_preservation',
+    rationale_ru: 'Override identity, rationale, mapped phase, and exact target are preserved.',
+  }]);
+  assert.equal(result.homeschoolLessonDna.teacher_overrides[0].status, 'accepted');
+});
+
+test('reselected override keeps identity and rationale but is not accepted in DNA', () => {
+  const result = adaptLessonForHomeschool(
+    repository,
+    overrideRequest('allow_reselection_with_warning'),
+  );
+  const trace = result.decision.teacher_override_adaptations[0];
+  assert.equal(trace.override_id, 'quiet-individual-concept-map');
+  assert.match(trace.teacher_rationale_ru, /тихая индивидуальная работа/);
+  assert.equal(trace.status, 'reselected');
+  assert.deepEqual(result.homeschoolLessonDna.teacher_overrides, []);
+});
+
+test('reject-all returns a sorted rejected override trace', () => {
+  const result = adaptLessonForHomeschool(repository, overrideRequest('reject_all'));
+  assert.equal(result.decision.teacher_override_adaptations[0].status, 'rejected');
+  assert.equal(result.decision.teacher_override_adaptations[0].policy, 'reject_all');
+});
+
+test('require-preservation cannot accept the same target in an unrelated phase', () => {
+  const result = adaptLessonForHomeschool(
+    repository,
+    overrideRequest('require_preservation'),
+  );
+  assert.equal(result.decision.failure.code, 'teacher_override_not_preserved');
+  assert.ok(result.decision.teacher_override_adaptations.every(
+    (trace) => trace.status !== 'preserved',
+  ));
+});
+
+test('preserved override trace is copied unchanged into the package', () => {
+  const result = resultFor('homeschool-teacher-override-preserved');
+  assert.deepEqual(
+    result.package.teacher_override_adaptations,
+    result.decision.teacher_override_adaptations,
+  );
+});
+
+test('retrieval-window order does not change review sessions or output', () => {
+  const reorderedRepository = clone(repository);
+  reorderedRepository.selection.fixtures.data.fixtures.find(
+    (item) => item.fixture_id === 'grade5-concept-introduction',
+  ).request.lesson_context.future_retrieval_windows.reverse();
+  const reorderedRequest = materializeHomeschoolFixture(
+    reorderedRepository,
+    reorderedRepository.fixtures.data.fixtures.find(
+      (item) => item.fixture_id === 'homeschool-concept-independent',
+    ),
+  );
+  assert.equal(
+    stablePedagogyJson(resultFor('homeschool-concept-independent')),
+    stablePedagogyJson(adaptLessonForHomeschool(reorderedRepository, reorderedRequest)),
+  );
+});
+
+test('new focused failure output remains byte-identical', () => {
+  const request = requestFor('homeschool-supplemental-safety-unavailable');
+  assert.equal(
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+  );
+});
+
+test('override adaptation trace is bytewise sorted', () => {
+  const traces = resultFor('homeschool-teacher-override-preserved')
+    .decision.teacher_override_adaptations;
+  assert.deepEqual(traces.map((trace) => trace.override_id), [...traces]
+    .map((trace) => trace.override_id)
+    .sort((left, right) => Buffer.from(left).compare(Buffer.from(right))));
 });
 
 test('repeated success output is byte-identical', () => {

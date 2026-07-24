@@ -9,6 +9,7 @@ import {
   selectLessonPedagogy,
   stablePedagogyJson,
   validateEstonianSupportState,
+  validateLearnerContextState,
   validateTeacherOverrideSet,
   validatePedagogySelection,
 } from './lib/pedagogy-selection.mjs';
@@ -59,9 +60,9 @@ test('production selection repository validates', () => {
   assert.deepEqual(result.counts, {
     patterns: 4,
     targets: 32,
-    fixtures: 10,
+    fixtures: 11,
     examples: 4,
-    successfulFixtures: 8,
+    successfulFixtures: 9,
     failureFixtures: 2,
   });
 });
@@ -79,6 +80,7 @@ for (const fixtureId of [
   'grade5-oral-answer',
   'grade5-practical-no-supervision',
   'grade5-retrieval-correction',
+  'grade5-retrieval-override-preservable',
   'grade5-russian-only-concept-introduction',
   'grade5-safe-practical',
   'grade5-teacher-override',
@@ -118,7 +120,7 @@ test('selection results persist all version identities and digests', () => {
       lessonDna: result.decision.versions.lesson_dna_schema,
       engine: result.decision.versions.engine,
     },
-    { taxonomy: '1.0', selectionRules: '1.0', lessonDna: '1.0', engine: '1.0' },
+    { taxonomy: '1.0', selectionRules: '1.0', lessonDna: '1.0', engine: '1.1' },
   );
   assert.match(result.decision.versions.activity_catalog_digest, /^[0-9a-f]{64}$/u);
   assert.match(result.decision.request_digest, /^[0-9a-f]{64}$/u);
@@ -352,6 +354,43 @@ test('individual-study delivery fit includes one-learner compatibility', () => {
   assert.ok(row.operational_fit.delivery_dimensions.some(
     (item) => item.dimension === 'one_learner' && item.fit === 'directly_supported',
   ));
+});
+
+test('selection engine exposes the corrected 1.1 group-compatibility semantics', () => {
+  assert.equal(repository.rules.data.engine_version, '1.1');
+});
+
+test('individual study semantically rejects a group of two learners', () => {
+  const selectedRequest = request('grade5-independent-retrieval');
+  selectedRequest.learner_context.group_size = 2;
+  assert.deepEqual(validateLearnerContextState(selectedRequest), {
+    valid: false,
+    diagnostics: ['individual_study requires group_size 1'],
+  });
+  assert.equal(validators.request(selectedRequest), false);
+});
+
+test('collaborative study semantically rejects one learner', () => {
+  const selectedRequest = request('grade5-independent-retrieval');
+  selectedRequest.learner_context.study_context = 'collaborative_study';
+  assert.deepEqual(validateLearnerContextState(selectedRequest), {
+    valid: false,
+    diagnostics: ['collaborative_study requires group_size at least 2'],
+  });
+  assert.equal(validators.request(selectedRequest), false);
+});
+
+test('collaborative study accepts a real pair', () => {
+  const selectedRequest = request('grade5-independent-retrieval');
+  selectedRequest.learner_context.study_context = 'collaborative_study';
+  selectedRequest.learner_context.delivery_mode = 'remote';
+  selectedRequest.learner_context.group_size = 2;
+  selectedRequest.learner_context.supported_group_formats = ['pair'];
+  assert.deepEqual(validateLearnerContextState(selectedRequest), {
+    valid: true,
+    diagnostics: [],
+  });
+  assert.equal(validators.request(selectedRequest), true);
 });
 
 test('remote delivery fit uses the remote-delivery compatibility dimension', () => {
@@ -803,7 +842,7 @@ test('disabled lesson DNA schema rejects the per-language demand known limit', (
   assert.equal(validators.lessonDna(dna), false);
 });
 
-test('the nine original fixtures retain their committed selections', () => {
+test('the ten pre-follow-up fixtures retain their committed selections', () => {
   const originalFixtureIds = [
     'grade5-concept-introduction',
     'grade5-independent-retrieval',
@@ -811,6 +850,7 @@ test('the nine original fixtures retain their committed selections', () => {
     'grade5-oral-answer',
     'grade5-practical-no-supervision',
     'grade5-retrieval-correction',
+    'grade5-russian-only-concept-introduction',
     'grade5-safe-practical',
     'grade5-teacher-override',
     'grade5-unsafe-override',

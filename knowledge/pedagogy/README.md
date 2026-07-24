@@ -28,14 +28,14 @@ The initial catalog contains:
   weighted ranking or lesson composition.
 - `selection/selection-rules.yaml` stores visible versioned hard constraints,
   integer scoring, timing, and combination rules.
-- `selection/grade-5-selection-fixtures.yaml` contains seven successful and two
+- `selection/grade-5-selection-fixtures.yaml` contains nine successful and two
   structured-failure requests.
 - `selection/lesson-dna-examples.yaml` stores four generated, machine-validated
   proposed DNA examples.
 - `homeschool/homeschool-rules.yaml` defines versioned phase, timing,
   answer-access, adult-role, and package rules.
-- `homeschool/grade-5-homeschool-fixtures.yaml` contains 12 adaptation
-  scenarios: eight success cases and four structured failures.
+- `homeschool/grade-5-homeschool-fixtures.yaml` contains 15 adaptation
+  scenarios: nine success cases and six structured failures.
 - `homeschool/homeschool-package-examples.yaml` stores five deterministic
   proposed packages with parent guidance and relative weekly plans.
 - `patterns/*.yaml` combines principles and activity options into flexible
@@ -106,6 +106,14 @@ scaffolds, and optional assessment. Disabled support requires
 `not_applicable` and removes that layer entirely while retaining the total
 productive-language constraint. The catalog does not yet provide per-language
 demand ratings.
+
+Selection engine 1.1 also distinguishes real one-learner study from
+collaborative remote/sibling study. The homeschool adapter turns relative
+retrieval windows into counted sessions, validates source/adapted/effective
+safety on the final DNA, resolves answer and procedure bindings per adapted
+phase, and preserves teacher override identity through an explicit adaptation
+trace. These checks establish structural consistency only; all packages remain
+proposed, pending teacher review and home trial.
 
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.

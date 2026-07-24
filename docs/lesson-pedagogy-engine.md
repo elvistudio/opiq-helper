@@ -1,4 +1,4 @@
-# Lesson pedagogy selection engine 1.0
+# Lesson pedagogy selection engine 1.1
 
 ## Purpose
 
@@ -46,7 +46,7 @@ Selection has independent versions:
 | `taxonomy_version` | `1.0` | capability, resource, demand, effort, group, and compatibility vocabulary |
 | `selection_rules_version` | `1.0` | hard constraints, integer weights, penalties, timing, and composition policies |
 | `lesson_dna_schema_version` | `1.0` | structure of a proposed lesson pedagogy composition |
-| `engine_version` | `1.0` | deterministic implementation semantics |
+| `engine_version` | `1.1` | deterministic implementation semantics, including corrected learner-group compatibility |
 
 Every decision and DNA also stores:
 
@@ -151,7 +151,10 @@ directly_supported > adaptable > limited > not_recommended > unknown
 
 For homeschool requests, `homeschool_adaptation.status` is mapped to this
 vocabulary. Remote delivery uses `compatibility.remote_delivery`; individual
-study and one-learner requests use `compatibility.one_learner`. Large-class
+study and actual one-learner requests use `compatibility.one_learner`.
+`individual_study` requires group size 1 and `collaborative_study` requires at
+least two learners. Thus remote pairs and sibling groups do not receive the
+`one_learner` dimension. Large-class
 compatibility is consulted only at the versioned threshold stored in the
 rules. When several dimensions apply, the most restrictive result wins.
 
@@ -353,6 +356,10 @@ or feedback later in the lesson. Relative future windows use only:
 The engine records these recommendations but does not edit an annual course,
 calendar, thematic plan, or production lesson.
 
+The homeschool adapter turns these relative recommendations into counted
+machine-readable review sessions. The selector itself continues to describe
+future windows rather than inventing calendar dates.
+
 ## Teacher overrides
 
 An override identifies a slot and concrete target and requires a unique
@@ -370,6 +377,10 @@ unapplied overrides are rejected rather than presented as accepted.
 
 An applied override remains visible in both decision trace and DNA. It does not
 set `teacher_review: approved`.
+
+When a classroom DNA is adapted for home study, the separate homeschool trace
+preserves the override ID and teacher rationale plus source and adapted phase
+identity. An exact target in an unrelated phase is not preservation.
 
 The engine rejects an override that uses:
 

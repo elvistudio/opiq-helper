@@ -32,13 +32,13 @@ variants:
   remote_peer:
     delivery_mode: remote
     learner_count: {min: 2, max: 2}
-    study_context: individual_study
+    study_context: collaborative_study
     supported_group_formats: [pair]
     preferred_group_formats: [pair]
   small_sibling_group:
     delivery_mode: homeschool
     learner_count: {min: 2, max: 4}
-    study_context: individual_study
+    study_context: collaborative_study
     supported_group_formats: [pair, small_group, triad]
     preferred_group_formats: [pair, small_group, triad]
 pattern_policy:
@@ -125,7 +125,10 @@ failure_priority:
   - source_selection_not_reproducible
   - unsupported_homeschool_variant
   - safety_supervision_unavailable
+  - safety_requirement_not_preserved
   - answer_key_binding_missing
+  - practical_binding_missing
+  - explanation_binding_missing
   - missing_home_resource
   - adult_effort_exceeds_limit
   - limited_adaptation_not_allowed

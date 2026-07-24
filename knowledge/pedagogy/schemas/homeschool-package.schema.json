@@ -18,6 +18,7 @@
         "learner_plan",
         "parent_guidance_ref",
         "weekly_study_plan_ref",
+        "teacher_override_adaptations",
         "assessment",
         "safety",
         "timing",
@@ -107,6 +108,7 @@
           "required": [
             "learner_material_refs",
             "answer_key_refs",
+            "phase_binding_summary",
             "reusable_materials",
             "consumable_materials",
             "preparation_steps_ru",
@@ -115,6 +117,12 @@
           "properties": {
             "learner_material_refs": {"$ref": "#/$defs/refList"},
             "answer_key_refs": {"$ref": "#/$defs/refList"},
+            "phase_binding_summary": {
+              "type": "array",
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-adaptation-decision.schema.json#/$defs/answerBindingDecision"
+              }
+            },
             "reusable_materials": {"$ref": "#/$defs/refList"},
             "consumable_materials": {"$ref": "#/$defs/refList"},
             "preparation_steps_ru": {"$ref": "#/$defs/stringList"},
@@ -165,6 +173,12 @@
         },
         "parent_guidance_ref": {"type": "string", "minLength": 1},
         "weekly_study_plan_ref": {"type": "string", "minLength": 1},
+        "teacher_override_adaptations": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-adaptation-decision.schema.json#/$defs/teacherOverrideAdaptation"
+          }
+        },
         "assessment": {
           "type": "object",
           "additionalProperties": false,
@@ -180,6 +194,9 @@
           "additionalProperties": false,
           "required": [
             "risk_summary_ru",
+            "source_supervision_required",
+            "adapted_supervision_required",
+            "effective_supervision_required",
             "adult_supervision_required",
             "controls_ru",
             "stop_conditions_ru",
@@ -187,6 +204,9 @@
           ],
           "properties": {
             "risk_summary_ru": {"type": "string", "minLength": 1},
+            "source_supervision_required": {"type": "boolean"},
+            "adapted_supervision_required": {"type": "boolean"},
+            "effective_supervision_required": {"type": "boolean"},
             "adult_supervision_required": {"type": "boolean"},
             "controls_ru": {"type": "array", "items": {"type": "string", "minLength": 1}},
             "stop_conditions_ru": {"type": "array", "items": {"type": "string", "minLength": 1}},
@@ -202,6 +222,8 @@
             "cleanup_minutes",
             "transition_minutes",
             "break_minutes",
+            "delayed_retrieval_minutes",
+            "weekly_review_minutes",
             "contingency_minutes",
             "total_learner_minutes",
             "adult_minutes"
@@ -212,6 +234,8 @@
             "cleanup_minutes": {"type": "integer", "minimum": 0},
             "transition_minutes": {"type": "integer", "minimum": 0},
             "break_minutes": {"type": "integer", "minimum": 0},
+            "delayed_retrieval_minutes": {"type": "integer", "minimum": 0},
+            "weekly_review_minutes": {"type": "integer", "minimum": 0},
             "contingency_minutes": {"type": "integer", "minimum": 0},
             "total_learner_minutes": {"type": "integer", "minimum": 1},
             "adult_minutes": {"type": "integer", "minimum": 0}

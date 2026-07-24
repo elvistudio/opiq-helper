@@ -130,6 +130,7 @@
                 "safety_supervision_unavailable",
                 "language_profile_incompatible",
                 "invalid_teacher_override",
+                "invalid_learner_context",
                 "unsatisfied_required_capability",
                 "incompatible_phase_combination"
               ]
@@ -170,7 +171,7 @@
         "selection_rules": {"const": "1.0"},
         "lesson_dna_schema": {"const": "1.0"},
         "activity_catalog_digest": {"$ref": "#/$defs/sha256"},
-        "engine": {"const": "1.0"}
+        "engine": {"const": "1.1"}
       }
     },
     "nonEmptyStrings": {

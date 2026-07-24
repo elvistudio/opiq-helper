@@ -79,7 +79,9 @@
         "break_minutes",
         "source_access_policy",
         "retrieval_type",
-        "answer_access"
+        "answer_access",
+        "relative_window",
+        "review_instruction_ru"
       ],
       "properties": {
         "session_index": {"type": "integer", "minimum": 1, "maximum": 10},
@@ -101,12 +103,52 @@
           "enum": ["mixed_by_step", "open", "closed", "not_applicable"]
         },
         "retrieval_type": {
-          "enum": ["none", "immediate", "delayed_after_days", "weekly"]
+          "enum": [
+            "none",
+            "immediate",
+            "delayed_after_days",
+            "delayed_after_lessons",
+            "next_unit_review",
+            "weekly"
+          ]
         },
         "answer_access": {
           "enum": ["closed", "after_attempt", "adult_managed", "self_managed_after_attempt"]
+        },
+        "relative_window": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/retrievalWindow"
+            }
+          ]
+        },
+        "review_instruction_ru": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "minLength": 1}
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "purpose": {"enum": ["delayed_retrieval", "weekly_review"]}
+            },
+            "required": ["purpose"]
+          },
+          "then": {
+            "properties": {
+              "source_access_policy": {"const": "closed"},
+              "relative_window": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/retrievalWindow"
+              },
+              "review_instruction_ru": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      ]
     }
   }
 }

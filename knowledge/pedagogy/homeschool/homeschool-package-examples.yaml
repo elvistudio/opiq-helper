@@ -29,7 +29,7 @@ examples:
             subject_explanation_language: ru
           maximum_total_productive_language_demand: medium
           primary_instruction_language: ru
-        request_digest: ea3db4d2ce5a7b131907fcc5099525e12b67a64bd948a827c181df84cf11805a
+        request_digest: 3133d87a350468ac8b0a18cc523dd4c7647f55938f9e36dc9727c72d8b823582
         request_id: homeschool-concept-independent-selection
         subject: science
       differentiation:
@@ -212,6 +212,8 @@ examples:
             capability: retrieval
           - after_lessons: 1
             capability: retrieval
+          - capability: retrieval
+            next_unit: true
         immediate_phase_id: retrieval
       schema_version: "1.0"
       status:
@@ -232,7 +234,7 @@ examples:
         unallocated_minutes: 109
       versions:
         activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-        engine: "1.0"
+        engine: "1.1"
         lesson_dna_schema: "1.0"
         selection_rules: "1.0"
         taxonomy: "1.0"
@@ -348,6 +350,60 @@ examples:
           - concept-practice-card
           - concept-retrieval-card
           - concept-source-segment
+        phase_binding_summary:
+          - adapted_phase_id: independent-practice
+            answer_key_refs:
+              - concept-practice-key
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids:
+              - explanation
+              - guided-practice
+            teacher_explanation_refs:
+              - concept-teacher-explanation
+            valid: true
+          - adapted_phase_id: orientation
+            answer_key_refs: []
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids:
+              - activation
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: reflection
+            answer_key_refs:
+              - concept-check-key
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            safety_refs: []
+            source_phase_ids:
+              - formative-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            safety_refs: []
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
         preparation_steps_ru:
           - Подготовь только перечисленные материалы и убери отвлекающие предметы.
         reusable_materials:
@@ -355,22 +411,25 @@ examples:
       package_id: homeschool-concept-independent-package
       parent_guidance_ref: homeschool-concept-independent-parent-guidance
       safety:
+        adapted_supervision_required: false
         adult_supervision_required: false
         controls_ru: []
+        effective_supervision_required: false
         risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
         stop_conditions_ru:
           - Остановись, если инструкция, материал или условие безопасности неясны.
           - Не продолжай практическое действие без требуемого взрослого.
         teacher_authorization_required: false
       schema_version: "1.0"
       source_identity:
-        source_lesson_dna_digest: e1410e9acc3e2e3822cc3a966bef154d7fd39aa68a6ade24e1b516158a98acc1
+        source_lesson_dna_digest: 8a26b6120fe3feadbb4e3454a4cbdd86cd049189997b02b59513f070a39d451f
         source_lesson_dna_id: grade5-concept-introduction-dna
-        source_request_digest: 83345e1db9484e7b3b9fc18ae0ac3355cdc7111bda78e6282a1fdcd3b05646c9
+        source_request_digest: 1400dcca2b19811ab5d3dfbb07b1806008e7bfda79466fe1913eb23df0315f94
         source_request_id: grade5-concept-introduction
         source_selection_versions:
           activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-          engine: "1.0"
+          engine: "1.1"
           lesson_dna_schema: "1.0"
           selection_rules: "1.0"
           taxonomy: "1.0"
@@ -380,15 +439,18 @@ examples:
         homeschool_ready: false
         structural_state: proposed
         teacher_review: pending
+      teacher_override_adaptations: []
       timing:
         adult_minutes: 0
         break_minutes: 0
         cleanup_minutes: 0
         contingency_minutes: 2
+        delayed_retrieval_minutes: 12
         learner_activity_minutes: 24
         setup_minutes: 14
-        total_learner_minutes: 40
+        total_learner_minutes: 60
         transition_minutes: 0
+        weekly_review_minutes: 8
       warnings: []
       weekly_study_plan_ref: homeschool-concept-independent-weekly-plan
     parent_guidance:
@@ -435,8 +497,11 @@ examples:
         subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
           процедуру и разрешение практической работы.
       safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
         controls_ru: []
-        supervision_required: false
+        effective_supervision_required: false
+        source_supervision_required: false
         teacher_authorization_required: false
       schema_version: "1.0"
       status:
@@ -464,7 +529,9 @@ examples:
             - step-01-orientation
             - step-02-independent-practice
           purpose: core_learning
+          relative_window: null
           retrieval_type: none
+          review_instruction_ru: null
           session_index: 1
           source_access_policy: open
         - adult_minutes: 0
@@ -475,24 +542,72 @@ examples:
             - step-03-retrieval
             - step-04-reflection
           purpose: retrieval_and_correction
+          relative_window: null
           retrieval_type: immediate
+          review_instruction_ru: null
           session_index: 2
           source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_days: 7
+            capability: retrieval
+          retrieval_type: delayed_after_days
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 4
+          source_access_policy: closed
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 8
+          package_step_ids:
+            - step-03-retrieval
+          purpose: weekly_review
+          relative_window:
+            capability: retrieval
+            next_unit: true
+          retrieval_type: next_unit_review
+          review_instruction_ru: В следующем тематическом блоке восстанови главное без источника, затем сверь ответ.
+          session_index: 5
+          source_access_policy: closed
       total_adult_minutes: 0
-      total_learner_minutes: 40
+      total_learner_minutes: 60
       week_structure:
         learner_session_minutes: 25
         maximum_sessions: 6
         schedule_type: relative
       weekly_review:
         included: true
-        notes_ru: Повтори главное примерно 8 минут в указанные относительные окна; абсолютные даты не
-          создаются.
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
         relative_windows:
           - after_days: 7
             capability: retrieval
           - after_lessons: 1
             capability: retrieval
+          - capability: retrieval
+            next_unit: true
   - example_id: parent-child-oral-package
     homeschool_lesson_dna:
       artifact_type: lesson_dna
@@ -728,7 +843,7 @@ examples:
         unallocated_minutes: 115
       versions:
         activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-        engine: "1.0"
+        engine: "1.1"
         lesson_dna_schema: "1.0"
         selection_rules: "1.0"
         taxonomy: "1.0"
@@ -855,28 +970,85 @@ examples:
           - oral-practice-card
           - oral-retrieval-card
           - oral-source-segment
+        phase_binding_summary:
+          - adapted_phase_id: independent-practice
+            answer_key_refs:
+              - oral-practice-key
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids:
+              - explanation
+              - guided-practice
+            teacher_explanation_refs:
+              - oral-teacher-explanation
+            valid: true
+          - adapted_phase_id: orientation
+            answer_key_refs: []
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids:
+              - activation
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: reflection
+            answer_key_refs:
+              - oral-check-key
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            safety_refs: []
+            source_phase_ids:
+              - formative-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - oral-retrieval-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            safety_refs: []
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
         preparation_steps_ru:
           - Подготовь только перечисленные материалы и убери отвлекающие предметы.
         reusable_materials: []
       package_id: homeschool-oral-parent-child-package
       parent_guidance_ref: homeschool-oral-parent-child-parent-guidance
       safety:
+        adapted_supervision_required: false
         adult_supervision_required: false
         controls_ru: []
+        effective_supervision_required: false
         risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
         stop_conditions_ru:
           - Остановись, если инструкция, материал или условие безопасности неясны.
           - Не продолжай практическое действие без требуемого взрослого.
         teacher_authorization_required: false
       schema_version: "1.0"
       source_identity:
-        source_lesson_dna_digest: 887b783e0937d93053657ca6c1ed31f779114c16a7df5bb58488d8abb599b283
+        source_lesson_dna_digest: 55fe0bee048b1becec02e7472d8e8ab7fe5d47522727fbed6c342c3ca7b4af7b
         source_lesson_dna_id: grade5-oral-answer-dna
         source_request_digest: ee9dde4322181e7199263863c981b4d92a9f9f1ba762fe45d72454fabc2282ae
         source_request_id: grade5-oral-answer
         source_selection_versions:
           activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-          engine: "1.0"
+          engine: "1.1"
           lesson_dna_schema: "1.0"
           selection_rules: "1.0"
           taxonomy: "1.0"
@@ -886,15 +1058,18 @@ examples:
         homeschool_ready: false
         structural_state: proposed
         teacher_review: pending
+      teacher_override_adaptations: []
       timing:
         adult_minutes: 9
         break_minutes: 0
         cleanup_minutes: 0
         contingency_minutes: 2
+        delayed_retrieval_minutes: 6
         learner_activity_minutes: 18
         setup_minutes: 14
-        total_learner_minutes: 34
+        total_learner_minutes: 40
         transition_minutes: 0
+        weekly_review_minutes: 0
       warnings: []
       weekly_study_plan_ref: homeschool-oral-parent-child-weekly-plan
     parent_guidance:
@@ -947,8 +1122,11 @@ examples:
         subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
           процедуру и разрешение практической работы.
       safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
         controls_ru: []
-        supervision_required: false
+        effective_supervision_required: false
+        source_supervision_required: false
         teacher_authorization_required: false
       schema_version: "1.0"
       status:
@@ -976,7 +1154,9 @@ examples:
             - step-01-orientation
             - step-02-independent-practice
           purpose: core_learning
+          relative_window: null
           retrieval_type: none
+          review_instruction_ru: null
           session_index: 1
           source_access_policy: open
         - adult_minutes: 2
@@ -987,19 +1167,36 @@ examples:
             - step-03-retrieval
             - step-04-reflection
           purpose: retrieval_and_correction
+          relative_window: null
           retrieval_type: immediate
+          review_instruction_ru: null
           session_index: 2
           source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          answer_access: adult_managed
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
       total_adult_minutes: 9
-      total_learner_minutes: 34
+      total_learner_minutes: 40
       week_structure:
         learner_session_minutes: 25
         maximum_sessions: 6
         schedule_type: relative
       weekly_review:
         included: true
-        notes_ru: Повтори главное примерно 8 минут в указанные относительные окна; абсолютные даты не
-          создаются.
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
         relative_windows:
           - after_lessons: 1
             capability: retrieval
@@ -1191,7 +1388,7 @@ examples:
         unallocated_minutes: 127
       versions:
         activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-        engine: "1.0"
+        engine: "1.1"
         lesson_dna_schema: "1.0"
         selection_rules: "1.0"
         taxonomy: "1.0"
@@ -1247,22 +1444,17 @@ examples:
               - retrieval-task
           - adult_involvement: none
             completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
-            estonian_roles:
-              - terminology
+            estonian_roles: []
             instruction_ru: Открой ключ после попытки и исправь ошибку другим цветом.
             learner_minutes: 7
             material_refs:
-              - retrieval-card
-              - retrieval-consolidation-card
               - retrieval-correction-card
             phase_id: correction
             safety_controls_ru: []
             source_access: open
             step_id: step-02-correction
             task_refs:
-              - retrieval-consolidation-task
               - retrieval-correction-task
-              - retrieval-task
           - adult_involvement: none
             completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
             estonian_roles:
@@ -1270,17 +1462,13 @@ examples:
             instruction_ru: Выполни указанный шаг и сохрани результат для проверки.
             learner_minutes: 4
             material_refs:
-              - retrieval-card
               - retrieval-consolidation-card
-              - retrieval-correction-card
             phase_id: consolidation
             safety_controls_ru: []
             source_access: closed
             step_id: step-03-consolidation
             task_refs:
               - retrieval-consolidation-task
-              - retrieval-correction-task
-              - retrieval-task
         success_criteria_refs:
           - homeschool-retrieval-independent-success-criteria
         visible_goal_ref: homeschool-retrieval-independent-visible-goal
@@ -1297,28 +1485,69 @@ examples:
           - retrieval-card
           - retrieval-consolidation-card
           - retrieval-correction-card
+        phase_binding_summary:
+          - adapted_phase_id: consolidation
+            answer_key_refs:
+              - retrieval-consolidation-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids: []
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: correction
+            answer_key_refs:
+              - retrieval-correction-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            safety_refs: []
+            source_phase_ids: []
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - retrieval-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            safety_refs: []
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
         preparation_steps_ru:
           - Подготовь только перечисленные материалы и убери отвлекающие предметы.
         reusable_materials: []
       package_id: homeschool-retrieval-independent-package
       parent_guidance_ref: homeschool-retrieval-independent-parent-guidance
       safety:
+        adapted_supervision_required: false
         adult_supervision_required: false
         controls_ru: []
+        effective_supervision_required: false
         risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
         stop_conditions_ru:
           - Остановись, если инструкция, материал или условие безопасности неясны.
           - Не продолжай практическое действие без требуемого взрослого.
         teacher_authorization_required: false
       schema_version: "1.0"
       source_identity:
-        source_lesson_dna_digest: 22fb4d3282794751a3634e2eee089dd0e8856f026f4a25be7a02cbc01e37bf4e
+        source_lesson_dna_digest: dac516596956d8ddef1fb55e8a89060924103e8b79adb21bbb363caf735e8b36
         source_lesson_dna_id: grade5-retrieval-correction-dna
         source_request_digest: de7a61617eacc384a2d72cc6ead690acf3f09bb4579e1a32fc8e9f8760728b58
         source_request_id: grade5-retrieval-correction
         source_selection_versions:
           activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-          engine: "1.0"
+          engine: "1.1"
           lesson_dna_schema: "1.0"
           selection_rules: "1.0"
           taxonomy: "1.0"
@@ -1328,15 +1557,18 @@ examples:
         homeschool_ready: false
         structural_state: proposed
         teacher_review: pending
+      teacher_override_adaptations: []
       timing:
         adult_minutes: 0
         break_minutes: 0
         cleanup_minutes: 0
         contingency_minutes: 2
+        delayed_retrieval_minutes: 12
         learner_activity_minutes: 10
         setup_minutes: 10
-        total_learner_minutes: 22
+        total_learner_minutes: 34
         transition_minutes: 0
+        weekly_review_minutes: 0
       warnings: []
       weekly_study_plan_ref: homeschool-retrieval-independent-weekly-plan
     parent_guidance:
@@ -1383,8 +1615,11 @@ examples:
         subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
           процедуру и разрешение практической работы.
       safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
         controls_ru: []
-        supervision_required: false
+        effective_supervision_required: false
+        source_supervision_required: false
         teacher_authorization_required: false
       schema_version: "1.0"
       status:
@@ -1413,19 +1648,53 @@ examples:
             - step-02-correction
             - step-03-consolidation
           purpose: retrieval_and_correction
+          relative_window: null
           retrieval_type: immediate
+          review_instruction_ru: null
           session_index: 1
           source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-01-retrieval
+            - step-03-consolidation
+          purpose: delayed_retrieval
+          relative_window:
+            after_days: 7
+            capability: retrieval
+          retrieval_type: delayed_after_days
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 2
+          source_access_policy: closed
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-01-retrieval
+            - step-03-consolidation
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
       total_adult_minutes: 0
-      total_learner_minutes: 22
+      total_learner_minutes: 34
       week_structure:
         learner_session_minutes: 25
         maximum_sessions: 6
         schedule_type: relative
       weekly_review:
         included: true
-        notes_ru: Повтори главное примерно 8 минут в указанные относительные окна; абсолютные даты не
-          создаются.
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
         relative_windows:
           - after_days: 7
             capability: retrieval
@@ -1650,7 +1919,7 @@ examples:
         unallocated_minutes: 109
       versions:
         activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-        engine: "1.0"
+        engine: "1.1"
         lesson_dna_schema: "1.0"
         selection_rules: "1.0"
         taxonomy: "1.0"
@@ -1762,6 +2031,60 @@ examples:
           - russian-practice-card
           - russian-retrieval-card
           - russian-source-segment
+        phase_binding_summary:
+          - adapted_phase_id: independent-practice
+            answer_key_refs:
+              - russian-practice-key
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids:
+              - explanation
+              - guided-practice
+            teacher_explanation_refs:
+              - russian-teacher-explanation
+            valid: true
+          - adapted_phase_id: orientation
+            answer_key_refs: []
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs: []
+            source_phase_ids:
+              - activation
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: reflection
+            answer_key_refs:
+              - russian-check-key
+            binding_origin: mapped_source
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            safety_refs: []
+            source_phase_ids:
+              - formative-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - russian-retrieval-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            safety_refs: []
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
         preparation_steps_ru:
           - Подготовь только перечисленные материалы и убери отвлекающие предметы.
         reusable_materials:
@@ -1769,22 +2092,25 @@ examples:
       package_id: homeschool-russian-only-package
       parent_guidance_ref: homeschool-russian-only-parent-guidance
       safety:
+        adapted_supervision_required: false
         adult_supervision_required: false
         controls_ru: []
+        effective_supervision_required: false
         risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
         stop_conditions_ru:
           - Остановись, если инструкция, материал или условие безопасности неясны.
           - Не продолжай практическое действие без требуемого взрослого.
         teacher_authorization_required: false
       schema_version: "1.0"
       source_identity:
-        source_lesson_dna_digest: 584a88a8dd6ae81bdb30f90c30ac253fe89f46c02a8a9d6638d717df0d5f32be
+        source_lesson_dna_digest: 7ad5e23447e699677bf6db91990c7a7d273c1285a7da03e4f4ece300d3688609
         source_lesson_dna_id: grade5-russian-only-concept-introduction-dna
         source_request_digest: 32fb8839c618aab19b6e9deff8aa65a48f3921fcebb8be31b636707db8900c68
         source_request_id: grade5-russian-only-concept-introduction
         source_selection_versions:
           activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-          engine: "1.0"
+          engine: "1.1"
           lesson_dna_schema: "1.0"
           selection_rules: "1.0"
           taxonomy: "1.0"
@@ -1794,15 +2120,18 @@ examples:
         homeschool_ready: false
         structural_state: proposed
         teacher_review: pending
+      teacher_override_adaptations: []
       timing:
         adult_minutes: 0
         break_minutes: 0
         cleanup_minutes: 0
         contingency_minutes: 2
+        delayed_retrieval_minutes: 12
         learner_activity_minutes: 24
         setup_minutes: 14
-        total_learner_minutes: 40
+        total_learner_minutes: 52
         transition_minutes: 0
+        weekly_review_minutes: 0
       warnings: []
       weekly_study_plan_ref: homeschool-russian-only-weekly-plan
     parent_guidance:
@@ -1849,8 +2178,11 @@ examples:
         subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
           процедуру и разрешение практической работы.
       safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
         controls_ru: []
-        supervision_required: false
+        effective_supervision_required: false
+        source_supervision_required: false
         teacher_authorization_required: false
       schema_version: "1.0"
       status:
@@ -1878,7 +2210,9 @@ examples:
             - step-01-orientation
             - step-02-independent-practice
           purpose: core_learning
+          relative_window: null
           retrieval_type: none
+          review_instruction_ru: null
           session_index: 1
           source_access_policy: open
         - adult_minutes: 0
@@ -1889,19 +2223,51 @@ examples:
             - step-03-retrieval
             - step-04-reflection
           purpose: retrieval_and_correction
+          relative_window: null
           retrieval_type: immediate
+          review_instruction_ru: null
           session_index: 2
           source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_days: 7
+            capability: retrieval
+          retrieval_type: delayed_after_days
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+        - adult_minutes: 0
+          answer_access: self_managed_after_attempt
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 4
+          source_access_policy: closed
       total_adult_minutes: 0
-      total_learner_minutes: 40
+      total_learner_minutes: 52
       week_structure:
         learner_session_minutes: 25
         maximum_sessions: 6
         schedule_type: relative
       weekly_review:
         included: true
-        notes_ru: Повтори главное примерно 8 минут в указанные относительные окна; абсолютные даты не
-          создаются.
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
         relative_windows:
           - after_days: 7
             capability: retrieval
@@ -2149,7 +2515,7 @@ examples:
         unallocated_minutes: 118
       versions:
         activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-        engine: "1.0"
+        engine: "1.1"
         lesson_dna_schema: "1.0"
         selection_rules: "1.0"
         taxonomy: "1.0"
@@ -2272,6 +2638,62 @@ examples:
           - practical-conclusion-card
           - practical-observation-table
           - practical-safety-card
+        phase_binding_summary:
+          - adapted_phase_id: conclusion
+            answer_key_refs:
+              - practical-conclusion-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            safety_refs: []
+            source_phase_ids:
+              - conclusion
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: evidence-check
+            answer_key_refs:
+              - practical-evidence-key
+            binding_origin: exact_adapted
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            safety_refs: []
+            source_phase_ids:
+              - evidence-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: practical-work
+            answer_key_refs: []
+            binding_origin: exact_adapted
+            procedure_refs:
+              - practical-procedure
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs:
+              - practical-safety-card
+            source_phase_ids:
+              - practical-work
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: safety-orientation
+            answer_key_refs: []
+            binding_origin: exact_adapted
+            procedure_refs:
+              - practical-procedure
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            safety_refs:
+              - practical-safety-card
+            source_phase_ids:
+              - safety-orientation
+            teacher_explanation_refs:
+              - practical-teacher-explanation
+            valid: true
         preparation_steps_ru:
           - Подготовь только перечисленные материалы и убери отвлекающие предметы.
         reusable_materials:
@@ -2282,26 +2704,29 @@ examples:
       package_id: homeschool-practical-supervised-package
       parent_guidance_ref: homeschool-practical-supervised-parent-guidance
       safety:
+        adapted_supervision_required: true
         adult_supervision_required: true
         controls_ru:
           - Выполнить уборку и возврат материалов под контролем взрослого.
           - Использовать только заранее проверенные безопасные материалы.
           - Немедленно убрать разлив или повреждённое оборудование.
           - Показать обращение с измерительными инструментами до начала работы.
+        effective_supervision_required: true
         risk_summary_ru: Есть практический этап с обязательным надзором взрослого.
+        source_supervision_required: true
         stop_conditions_ru:
           - Остановись, если инструкция, материал или условие безопасности неясны.
           - Не продолжай практическое действие без требуемого взрослого.
         teacher_authorization_required: true
       schema_version: "1.0"
       source_identity:
-        source_lesson_dna_digest: ea06b5910e81d75342df08ff76774789ba20fe899b40ed5d07e4d38053507d8e
+        source_lesson_dna_digest: 8202b6aa931069a0a1c932c6c2236d8af86e73fa80d462d8e429fd5f0e111f93
         source_lesson_dna_id: grade5-safe-practical-dna
         source_request_digest: 023bf09a27becea78190f18d15d6106cde5846353c8ffa508f1c25885979e938
         source_request_id: grade5-safe-practical
         source_selection_versions:
           activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
-          engine: "1.0"
+          engine: "1.1"
           lesson_dna_schema: "1.0"
           selection_rules: "1.0"
           taxonomy: "1.0"
@@ -2311,15 +2736,18 @@ examples:
         homeschool_ready: false
         structural_state: proposed
         teacher_review: pending
+      teacher_override_adaptations: []
       timing:
         adult_minutes: 49
         break_minutes: 0
         cleanup_minutes: 10
         contingency_minutes: 2
+        delayed_retrieval_minutes: 6
         learner_activity_minutes: 33
         setup_minutes: 16
-        total_learner_minutes: 61
+        total_learner_minutes: 67
         transition_minutes: 0
+        weekly_review_minutes: 0
       warnings:
         - code: adaptable_homeschool_target
           rationale_ru: Target brainstorming требует явно описанной homeschool adaptation.
@@ -2377,12 +2805,15 @@ examples:
         subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
           процедуру и разрешение практической работы.
       safety:
+        adapted_supervision_required: true
+        adult_supervision_required: true
         controls_ru:
           - Выполнить уборку и возврат материалов под контролем взрослого.
           - Использовать только заранее проверенные безопасные материалы.
           - Немедленно убрать разлив или повреждённое оборудование.
           - Показать обращение с измерительными инструментами до начала работы.
-        supervision_required: true
+        effective_supervision_required: true
+        source_supervision_required: true
         teacher_authorization_required: true
       schema_version: "1.0"
       status:
@@ -2410,7 +2841,9 @@ examples:
             - step-01-safety-orientation
             - step-02-practical-work
           purpose: core_learning
+          relative_window: null
           retrieval_type: none
+          review_instruction_ru: null
           session_index: 1
           source_access_policy: open
         - adult_minutes: 2
@@ -2421,19 +2854,37 @@ examples:
             - step-03-evidence-check
             - step-04-conclusion
           purpose: core_learning
+          relative_window: null
           retrieval_type: none
+          review_instruction_ru: null
           session_index: 2
           source_access_policy: closed
+        - adult_minutes: 0
+          answer_access: adult_managed
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-evidence-check
+            - step-04-conclusion
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
       total_adult_minutes: 49
-      total_learner_minutes: 61
+      total_learner_minutes: 67
       week_structure:
         learner_session_minutes: 45
         maximum_sessions: 6
         schedule_type: relative
       weekly_review:
         included: true
-        notes_ru: Повтори главное примерно 8 минут в указанные относительные окна; абсолютные даты не
-          создаются.
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
         relative_windows:
           - after_lessons: 1
             capability: retrieval

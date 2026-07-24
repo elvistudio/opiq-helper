@@ -295,6 +295,17 @@ already support remote-peer or two-learner sibling use. The adapter enforces
 the declared variant, never turns a supporting adult into a subject teacher,
 and records adaptable or limited use in its decision.
 
+Selection engine 1.1 applies `one_learner` only to an actual one-learner or
+`independent_study` request. Remote peers and sibling groups use the separate
+`collaborative_study` context, so their operational fit is not accidentally
+improved or restricted by single-learner metadata. This is still an
+operational compatibility judgement, not evidence of effectiveness.
+
+Final homeschool safety is not inferred from the activity family name. The
+adapter compares source, adapted, and effective supervision requirements on
+the selected execution profiles, preserves the union of controls, and
+revalidates adult/resource availability after composition.
+
 Teacher review can later change a rating with evidence and updated confidence.
 Until then, the taxonomy remains a useful provisional classification. It does
 not modify production lessons, annual courses, teacher packs, review evidence,

@@ -92,7 +92,11 @@ function debugView(result) {
     failure: result.decision.failure,
     warnings: result.decision.warnings,
     phase_adaptations: result.decision.phase_adaptations,
+    teacher_override_adaptations: result.decision.teacher_override_adaptations,
+    answer_binding_decisions: result.decision.answer_binding_decisions,
     adult_role_decisions: result.decision.adult_role_decisions,
+    safety_checks: result.decision.safety_checks,
+    answer_access_checks: result.decision.answer_access_checks,
     timing_checks: result.decision.timing_checks,
   };
 }

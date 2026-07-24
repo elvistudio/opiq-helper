@@ -28,6 +28,7 @@ fixtures:
         future_retrieval_windows:
           - {after_lessons: 1, capability: retrieval}
           - {after_days: 7, capability: retrieval}
+          - {next_unit: true, capability: retrieval}
         required_pattern_id: concept-introduction-classroom
       language_profile:
         primary_instruction_language: ru
@@ -421,6 +422,81 @@ fixtures:
       exclude_target_ids: [guided-reading]
       failure_code: null
       accepted_override_ids: []
+      rejected_override_ids: []
+      example_id: null
+  - fixture_id: grade5-retrieval-override-preservable
+    description_ru: Retrieval override использует target, который можно сохранить в одноимённой homeschool phase.
+    request:
+      schema_version: "1.0"
+      artifact_type: pedagogical_selection_request
+      request_id: grade5-retrieval-override-preservable
+      learner_context:
+        grade: 5
+        subject: science
+        delivery_mode: classroom
+        group_size: 28
+        supported_group_formats: [individual, pair]
+        lesson_duration_minutes: 45
+        study_context: classroom
+      lesson_context:
+        purpose: retrieval_and_consolidation
+        content_types: [conceptual_text, misconception, process]
+        required_capabilities: [error_correction, retrieval]
+        desired_capabilities: [formative_assessment, self_assessment]
+        phase_needs: [formative_assessment, retrieval]
+        context_flags: {practical: false, map_or_data: false, retrieval: true, assessment: true}
+        previous_target_ids: []
+        future_retrieval_windows:
+          - {after_lessons: 1, capability: retrieval}
+        required_pattern_id: retrieval-and-consolidation
+      language_profile:
+        primary_instruction_language: ru
+        maximum_total_productive_language_demand: medium
+        estonian_support:
+          enabled: true
+          language: et
+          learner_level: A1-A2
+          allowed_roles: [terminology]
+          subject_explanation_language: ru
+          sentence_frames_required: false
+          word_bank_required: true
+          assessment_requested: false
+      resources:
+        available: [diagram, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      constraints:
+        max_teacher_preparation: medium
+        max_teacher_facilitation: medium
+        max_learner_setup: medium
+        max_parent_effort: minimal
+        accessibility_priorities: [working_memory_support]
+        retrieval_first_attempt_without_source: true
+      preferences:
+        preferred_pattern_ids: [retrieval-and-consolidation]
+        preferred_target_ids: [error-correction, retrieval-self-test]
+        excluded_target_ids: []
+        avoid_recent_target_ids: []
+        preferred_group_formats: [individual, pair]
+        teacher_overrides:
+          - override_id: keep-retrieval-self-test
+            slot_id: retrieval
+            requested_target_id: retrieval-self-test
+            rationale_ru: Учитель сохраняет знакомую форму самопроверки, чтобы ребёнок мог исправить ошибки самостоятельно.
+            author_role: teacher
+    expected:
+      status: success
+      pattern_id: retrieval-and-consolidation
+      include_target_ids: [error-correction, retrieval-self-test]
+      exclude_target_ids: [guided-reading]
+      failure_code: null
+      accepted_override_ids: [keep-retrieval-self-test]
       rejected_override_ids: []
       example_id: null
   - fixture_id: grade5-russian-only-concept-introduction

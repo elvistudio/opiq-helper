@@ -48,6 +48,8 @@ existing selectLessonPedagogy()
         ↓
 homeschool lesson DNA
         ↓
+final-DNA safety + phase-level binding validation
+        ↓
 package + parent guidance + weekly plan
 ```
 
@@ -80,6 +82,12 @@ passed to the selector so that the minimum viable composition can be packed
 into visible home sessions afterward. The resulting actual minutes, breaks,
 and contingency are reported; added time is not hidden.
 
+The adapter consumes selection engine `1.1`. `individual_study` is valid only
+for one learner, while `remote_peer` and `small_sibling_group` use
+`collaborative_study`. Therefore `compatibility.one_learner` is considered
+only for a real one-learner request or `independent_study`, never merely
+because a home variant exists.
+
 ## Variants
 
 | Variant | Delivery | Learners | Adult boundary |
@@ -88,6 +96,12 @@ and contingency are reported; added time is not hidden.
 | `parent_child` | `parent_supported` | 1 | The adult is not counted as a learner and may use only allowed catalog roles. |
 | `remote_peer` | `remote` | 2 | The peer is a learner, not a parent; remote compatibility and resources still apply. |
 | `small_sibling_group` | `homeschool` | 2–4 | Pair/triad/small-group metadata is enforced; group status does not bypass safety. |
+
+The two one-learner variants use `individual_study`; the two learner-group
+variants use `collaborative_study`. The semantic validator rejects
+`individual_study` with a group of two or more and `collaborative_study` with
+one learner. Candidate traces for remote peers and sibling groups consequently
+contain no `one_learner` compatibility dimension.
 
 An activity must declare the selected variant and satisfy its delivery,
 participant, group-format, effort, resource, language, and safety constraints.
@@ -135,6 +149,31 @@ For retrieval:
 Opaque key references never become first-attempt learner materials. An absent
 key for retrieval or self-check is a structured failure.
 
+Bindings are revalidated after the final homeschool DNA has been selected.
+Each adapted phase may use only an exact binding for its own phase ID or
+bindings from explicitly mapped source phases. There is no global fallback to
+unrelated keys. Retrieval, formative self-check, correction reflection, and
+delayed review require a relevant answer key; an explanation replacement
+requires a teacher explanation or supplied source segment; practical work
+requires procedure and safety references. `answer_binding_decisions` records
+the phase, mapped source phases, `mapped_source` or `exact_adapted` origin,
+refs, release policy, and validation result. The package retains this
+phase-level provenance alongside any deduplicated material index.
+
+## Teacher override adaptation
+
+The internal home selector may use mapped slots, but the public adaptation
+trace never loses the source teacher decision. For every accepted source
+override it records the override ID, teacher rationale, source slot and target,
+adapted phase and target, policy, and one of `preserved`, `reselected`, or
+`rejected`.
+
+`require_preservation` succeeds only for the exact target in the explicitly
+mapped adapted phase after all home hard constraints pass.
+`allow_reselection_with_warning` retains the trace and emits
+`teacher_override_reselected`, but does not mark the replacement override
+accepted in homeschool DNA. `reject_all` returns a structured failure.
+
 ## Parent and teacher responsibility
 
 The model keeps four responsibilities separate:
@@ -161,10 +200,24 @@ support, and safety time. A session cannot exceed
 `learner_session_minutes`, and the plan cannot exceed `maximum_sessions`.
 Safety time is never shortened to make the plan fit.
 
-The weekly plan uses relative windows only. It can express immediate retrieval
-inside a core session and preserve source-DNA windows such as `after_days`,
-`after_lessons`, or `next_unit`. It does not invent a calendar date, completion
-state, progress history, or learner identity.
+The weekly plan uses relative windows only. Immediate retrieval remains inside
+a core session. Every `after_days` and `after_lessons` window creates a real
+`delayed_retrieval` session; every `next_unit` window creates a real
+`weekly_review` session. Each session has a relative window, closed-source
+policy, after-attempt answer release, instruction, and visible learner
+minutes. The versioned `delayed_retrieval_minutes` and
+`weekly_review_minutes` are included in:
+
+- each session limit;
+- the `maximum_sessions` count;
+- weekly-plan learner total;
+- package learner total;
+- deterministic timing checks.
+
+If core plus review sessions exceed the declared count, the engine returns
+`timing_unrealistic`; it never drops a review window silently. It does not
+invent a calendar date, completion state, progress history, or learner
+identity.
 
 ## Language and assessment
 
@@ -181,11 +234,24 @@ The engine does not invent Estonian scientific terms.
 
 ## Safety
 
-Source safety constraints and selected-target safety constraints are
-preserved. Practical work fails when the required adult role, resource flag,
-procedure reference, safety reference, or support time is unavailable. The
-package still requires subject-teacher authorization. Structural output is not
-permission to perform an activity.
+Safety is evaluated in three explicit states:
+
+```text
+source_supervision_required
+adapted_supervision_required
+effective_supervision_required = source OR adapted
+```
+
+The final homeschool DNA is checked phase by phase. Source supervision may not
+disappear (`safety_requirement_not_preserved`). Any effective requirement
+needs an available adult, the adult and resource supervision flags, and the
+allowed `safety_supervision` role. Controls are the deterministic union of
+source and adapted controls; adult safety minutes come from the final
+supervised phases. Package and parent guidance expose all three states and the
+effective adult requirement. Practical work also fails when a required
+procedure or safety reference is unavailable. The package still requires
+subject-teacher authorization. Structural output is not permission to perform
+an activity.
 
 ## Provenance, readiness, and privacy
 
@@ -209,7 +275,7 @@ synthetic artifact references only.
 
 Core output has bytewise ordering, no timestamps, no randomness, no AI, and no
 network access. Committed examples are regenerated from committed fixtures and
-must match exactly. The validator checks 12 fixtures (8 success and 4
+must match exactly. The validator checks 15 fixtures (9 success and 6
 structured failure) and five generated examples.
 
 ## CLI

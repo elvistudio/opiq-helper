@@ -212,6 +212,13 @@ removes its filtering, scoring, roles, scaffolds, and language assessment
 without relaxing the total productive-language limit. Neither tool changes
 production artifacts.
 
+Selection engine 1.1 applies single-learner compatibility only to a real solo
+learner. Its homeschool layer represents delayed and next-unit retrieval as
+counted sessions, revalidates safety and material bindings on the final
+adapted DNA, and carries teacher override ID and rationale through a bounded
+adaptation trace. These outputs remain structural proposals: teacher review
+and a home trial are still pending.
+
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy

@@ -14,7 +14,7 @@ import {
   pedagogyQueryOrders,
 } from './pedagogy-query.mjs';
 
-export const PEDAGOGY_SELECTION_ENGINE_VERSION = '1.0';
+export const PEDAGOGY_SELECTION_ENGINE_VERSION = '1.1';
 export const PEDAGOGY_SELECTION_ROOT = 'knowledge/pedagogy/selection';
 export const PEDAGOGY_SELECTION_RULES = `${PEDAGOGY_SELECTION_ROOT}/selection-rules.yaml`;
 export const PEDAGOGY_SELECTION_FIXTURES = `${PEDAGOGY_SELECTION_ROOT}/grade-5-selection-fixtures.yaml`;
@@ -213,6 +213,21 @@ export function validateEstonianSupportState(request) {
     if (support.assessment_requested !== false) {
       diagnostics.push('estonian_support is disabled but assessment_requested is true');
     }
+  }
+  return {
+    valid: diagnostics.length === 0,
+    diagnostics: diagnostics.sort(compareBytewise),
+  };
+}
+
+export function validateLearnerContextState(request) {
+  const learner = request.learner_context;
+  const diagnostics = [];
+  if (learner?.study_context === 'individual_study' && learner.group_size !== 1) {
+    diagnostics.push('individual_study requires group_size 1');
+  }
+  if (learner?.study_context === 'collaborative_study' && learner.group_size < 2) {
+    diagnostics.push('collaborative_study requires group_size at least 2');
   }
   return {
     valid: diagnostics.length === 0,
@@ -447,11 +462,7 @@ function determineDeliveryFit(target, request, rules) {
       fit: operational.compatibility.remote_delivery,
     });
   }
-  if (
-    learner.study_context === 'individual_study'
-    || learner.delivery_mode === 'independent_study'
-    || learner.group_size === 1
-  ) {
+  if (learner.delivery_mode === 'independent_study' || learner.group_size === 1) {
     dimensions.push({
       dimension: 'one_learner',
       fit: operational.compatibility.one_learner,
@@ -1363,6 +1374,18 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
   const targets = expandPedagogyActivityTargets(activities);
   const targetIds = new Set(targets.map((target) => target.target_id));
   const versions = requestVersionBlock(knowledge, rules);
+  const learnerContextState = validateLearnerContextState(request);
+  if (!learnerContextState.valid) {
+    return {
+      decision: createFailureDecision(request, versions, {
+        code: 'invalid_learner_context',
+        message: 'Learner study context and group size are inconsistent.',
+        details: learnerContextState.diagnostics,
+        targetsConsidered: targets.length,
+      }),
+      lessonDna: null,
+    };
+  }
   const estonianSupportState = validateEstonianSupportState(request);
   if (!estonianSupportState.valid) {
     return {

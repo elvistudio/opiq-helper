@@ -110,9 +110,19 @@
         "safety": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["supervision_required", "teacher_authorization_required", "controls_ru"],
+          "required": [
+            "source_supervision_required",
+            "adapted_supervision_required",
+            "effective_supervision_required",
+            "adult_supervision_required",
+            "teacher_authorization_required",
+            "controls_ru"
+          ],
           "properties": {
-            "supervision_required": {"type": "boolean"},
+            "source_supervision_required": {"type": "boolean"},
+            "adapted_supervision_required": {"type": "boolean"},
+            "effective_supervision_required": {"type": "boolean"},
+            "adult_supervision_required": {"type": "boolean"},
             "teacher_authorization_required": {"type": "boolean"},
             "controls_ru": {"type": "array", "items": {"type": "string", "minLength": 1}}
           }
