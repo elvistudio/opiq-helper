@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/parent-guidance.schema.json",
+  "title": "Homeschool parent guidance",
+  "$ref": "#/$defs/parentGuidance",
+  "$defs": {
+    "parentGuidance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "guidance_id",
+        "status",
+        "responsibility_boundary",
+        "allowed_actions_ru",
+        "prohibited_actions_ru",
+        "escalation_triggers_ru",
+        "adult_roles",
+        "timing",
+        "answer_access",
+        "safety",
+        "known_limits"
+      ],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "artifact_type": {"const": "parent_guidance"},
+        "guidance_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["teacher_review", "home_trial", "homeschool_ready"],
+          "properties": {
+            "teacher_review": {"const": "pending"},
+            "home_trial": {"const": "not_started"},
+            "homeschool_ready": {"const": false}
+          }
+        },
+        "responsibility_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "child_responsibility_ru",
+            "adult_support_ru",
+            "adult_safety_supervision_ru",
+            "subject_teacher_responsibility_ru"
+          ],
+          "properties": {
+            "child_responsibility_ru": {"type": "string", "minLength": 1},
+            "adult_support_ru": {"type": "string", "minLength": 1},
+            "adult_safety_supervision_ru": {"type": "string", "minLength": 1},
+            "subject_teacher_responsibility_ru": {"type": "string", "minLength": 1}
+          }
+        },
+        "allowed_actions_ru": {"$ref": "#/$defs/nonEmptyStrings"},
+        "prohibited_actions_ru": {"$ref": "#/$defs/nonEmptyStrings"},
+        "escalation_triggers_ru": {"$ref": "#/$defs/nonEmptyStrings"},
+        "adult_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "purpose_ru", "bounded_action_ru"],
+            "properties": {
+              "role": {
+                "enum": [
+                  "none",
+                  "logistical_support",
+                  "listening_partner",
+                  "check_answers",
+                  "active_participant",
+                  "safety_supervision"
+                ]
+              },
+              "purpose_ru": {"type": "string", "minLength": 1},
+              "bounded_action_ru": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "timing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "adult_preparation_minutes",
+            "adult_live_support_minutes",
+            "adult_safety_minutes",
+            "adult_answer_access_minutes",
+            "total_adult_minutes"
+          ],
+          "properties": {
+            "adult_preparation_minutes": {"type": "integer", "minimum": 0},
+            "adult_live_support_minutes": {"type": "integer", "minimum": 0},
+            "adult_safety_minutes": {"type": "integer", "minimum": 0},
+            "adult_answer_access_minutes": {"type": "integer", "minimum": 0},
+            "total_adult_minutes": {"type": "integer", "minimum": 0}
+          }
+        },
+        "answer_access": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["first_attempt_without_answer", "key_release", "correction_method"],
+          "properties": {
+            "first_attempt_without_answer": {"const": true},
+            "key_release": {
+              "enum": ["after_attempt", "adult_managed", "self_managed_after_attempt"]
+            },
+            "correction_method": {"const": "separate_colour"}
+          }
+        },
+        "safety": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_supervision_required",
+            "adapted_supervision_required",
+            "effective_supervision_required",
+            "adult_supervision_required",
+            "teacher_authorization_required",
+            "controls_ru"
+          ],
+          "properties": {
+            "source_supervision_required": {"type": "boolean"},
+            "adapted_supervision_required": {"type": "boolean"},
+            "effective_supervision_required": {"type": "boolean"},
+            "adult_supervision_required": {"type": "boolean"},
+            "teacher_authorization_required": {"type": "boolean"},
+            "controls_ru": {"type": "array", "items": {"type": "string", "minLength": 1}}
+          }
+        },
+        "known_limits": {"$ref": "#/$defs/nonEmptyStrings"}
+      }
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}

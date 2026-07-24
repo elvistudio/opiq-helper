@@ -365,10 +365,10 @@ test('only learning-stations is profiled and the 29 other activity records retai
   }
 });
 
-test('all 29 non-profiled activity records preserve their pre-profile semantic data', () => {
+test('all 29 non-profiled activity records preserve the reviewed homeschool semantic digest', () => {
   const records = activities.filter((candidate) => candidate.activity_id !== 'learning-stations');
   const digest = createHash('sha256').update(JSON.stringify(records)).digest('hex');
-  assert.equal(digest, 'c66a1634abb66b96996a37dbc80d221b4631ae7b24377810e4bdc12bc0b7c0de');
+  assert.equal(digest, '8147588e4de42a0f2db8109523402927dabcfda0be1eba2fc2aa5a9e81dcd16d');
 });
 
 test('query target expansion is deterministic across reversed catalog traversal', () => {

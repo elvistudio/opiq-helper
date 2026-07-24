@@ -1,0 +1,406 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-adaptation-decision.schema.json",
+  "title": "Homeschool adaptation decision",
+  "$ref": "#/$defs/decision",
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "decision_id",
+        "request_id",
+        "status",
+        "versions",
+        "source_identity",
+        "derived_selection_request_digest",
+        "derived_selection_decision",
+        "selected_variant",
+        "phase_adaptations",
+        "teacher_override_adaptations",
+        "answer_binding_decisions",
+        "adult_role_decisions",
+        "resource_checks",
+        "safety_checks",
+        "language_checks",
+        "answer_access_checks",
+        "timing_checks",
+        "warnings",
+        "determinism",
+        "failure"
+      ],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "artifact_type": {"const": "homeschool_adaptation_decision"},
+        "decision_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "request_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "status": {"enum": ["success", "failure"]},
+        "versions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "homeschool_engine_version",
+            "homeschool_rules_version",
+            "homeschool_package_schema_version",
+            "parent_guidance_schema_version",
+            "weekly_study_plan_schema_version",
+            "selection_engine_version",
+            "selection_rules_version",
+            "lesson_dna_schema_version",
+            "taxonomy_version",
+            "activity_catalog_digest"
+          ],
+          "properties": {
+            "homeschool_engine_version": {"const": "1.0"},
+            "homeschool_rules_version": {"const": "1.0"},
+            "homeschool_package_schema_version": {"const": "1.0"},
+            "parent_guidance_schema_version": {"const": "1.0"},
+            "weekly_study_plan_schema_version": {"const": "1.0"},
+            "selection_engine_version": {"const": "1.1"},
+            "selection_rules_version": {"const": "1.0"},
+            "lesson_dna_schema_version": {"const": "1.0"},
+            "taxonomy_version": {"const": "1.0"},
+            "activity_catalog_digest": {"$ref": "#/$defs/sha256"}
+          }
+        },
+        "source_identity": {"$ref": "#/$defs/sourceIdentity"},
+        "derived_selection_request_digest": {
+          "oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]
+        },
+        "derived_selection_decision": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-decision.schema.json"
+            }
+          ]
+        },
+        "selected_variant": {
+          "enum": ["independent", "parent_child", "remote_peer", "small_sibling_group"]
+        },
+        "phase_adaptations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/phaseAdaptation"}
+        },
+        "teacher_override_adaptations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/teacherOverrideAdaptation"}
+        },
+        "answer_binding_decisions": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/answerBindingDecision"}
+        },
+        "adult_role_decisions": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/adultRoleDecision"}
+        },
+        "resource_checks": {"$ref": "#/$defs/checkList"},
+        "safety_checks": {"$ref": "#/$defs/checkList"},
+        "language_checks": {"$ref": "#/$defs/checkList"},
+        "answer_access_checks": {"$ref": "#/$defs/checkList"},
+        "timing_checks": {"$ref": "#/$defs/checkList"},
+        "warnings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/warning"}
+        },
+        "determinism": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ordering",
+            "ai_used",
+            "network_used",
+            "randomness_used",
+            "volatile_timestamp_in_core"
+          ],
+          "properties": {
+            "ordering": {"const": "bytewise"},
+            "ai_used": {"const": false},
+            "network_used": {"const": false},
+            "randomness_used": {"const": false},
+            "volatile_timestamp_in_core": {"const": false}
+          }
+        },
+        "failure": {
+          "oneOf": [{"type": "null"}, {"$ref": "#/$defs/failure"}]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"status": {"const": "success"}},
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "derived_selection_request_digest": {"$ref": "#/$defs/sha256"},
+              "derived_selection_decision": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-decision.schema.json"
+              },
+              "failure": {"type": "null"},
+              "phase_adaptations": {"type": "array", "minItems": 1}
+            }
+          },
+          "else": {
+            "properties": {
+              "failure": {"$ref": "#/$defs/failure"}
+            }
+          }
+        }
+      ]
+    },
+    "sourceIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_request_id",
+        "source_request_digest",
+        "source_lesson_dna_id",
+        "source_lesson_dna_digest",
+        "source_selection_versions"
+      ],
+      "properties": {
+        "source_request_id": {"type": "string", "minLength": 1},
+        "source_request_digest": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "source_lesson_dna_id": {"type": "string", "minLength": 1},
+        "source_lesson_dna_digest": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "source_selection_versions": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-decision.schema.json#/$defs/versions"
+            }
+          ]
+        }
+      }
+    },
+    "phaseAdaptation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_phase_id",
+        "source_target_id",
+        "adapted_phase_id",
+        "adapted_target_id",
+        "action",
+        "rationale_ru"
+      ],
+      "properties": {
+        "source_phase_id": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+        "source_target_id": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+        "adapted_phase_id": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+        "adapted_target_id": {"oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]},
+        "action": {
+          "enum": [
+            "preserved",
+            "adapted",
+            "reselected",
+            "omitted_with_reason",
+            "added_by_homeschool_rules"
+          ]
+        },
+        "rationale_ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "adultRoleDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_id",
+        "role",
+        "effort_level",
+        "support_minutes",
+        "allowed",
+        "rationale_ru"
+      ],
+      "properties": {
+        "target_id": {"type": "string", "minLength": 1},
+        "role": {
+          "enum": [
+            "none",
+            "logistical_support",
+            "listening_partner",
+            "check_answers",
+            "active_participant",
+            "safety_supervision"
+          ]
+        },
+        "effort_level": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/effortLevel"
+        },
+        "support_minutes": {"type": "integer", "minimum": 0},
+        "allowed": {"type": "boolean"},
+        "rationale_ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "teacherOverrideAdaptation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "override_id",
+        "teacher_rationale_ru",
+        "source_slot_id",
+        "source_target_id",
+        "adapted_phase_id",
+        "adapted_target_id",
+        "status",
+        "policy",
+        "rationale_ru"
+      ],
+      "properties": {
+        "override_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "teacher_rationale_ru": {"type": "string", "minLength": 1},
+        "source_slot_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "source_target_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"
+        },
+        "adapted_phase_id": {
+          "oneOf": [{"type": "null"}, {"type": "string", "minLength": 1}]
+        },
+        "adapted_target_id": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"
+            }
+          ]
+        },
+        "status": {"enum": ["preserved", "reselected", "rejected"]},
+        "policy": {
+          "enum": [
+            "require_preservation",
+            "allow_reselection_with_warning",
+            "reject_all"
+          ]
+        },
+        "rationale_ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "answerBindingDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapted_phase_id",
+        "source_phase_ids",
+        "binding_origin",
+        "answer_key_refs",
+        "learner_material_refs",
+        "teacher_explanation_refs",
+        "procedure_refs",
+        "safety_refs",
+        "source_access_policy",
+        "review_capable",
+        "release_policy",
+        "valid",
+        "rationale_ru"
+      ],
+      "properties": {
+        "adapted_phase_id": {"type": "string", "minLength": 1},
+        "source_phase_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "binding_origin": {"enum": ["mapped_source", "exact_adapted", "none"]},
+        "answer_key_refs": {"$ref": "#/$defs/refList"},
+        "learner_material_refs": {"$ref": "#/$defs/refList"},
+        "teacher_explanation_refs": {"$ref": "#/$defs/refList"},
+        "procedure_refs": {"$ref": "#/$defs/refList"},
+        "safety_refs": {"$ref": "#/$defs/refList"},
+        "source_access_policy": {
+          "enum": ["open", "closed", "not_applicable"]
+        },
+        "review_capable": {"type": "boolean"},
+        "release_policy": {
+          "enum": [
+            "not_applicable",
+            "after_attempt",
+            "adult_managed",
+            "self_managed_after_attempt"
+          ]
+        },
+        "valid": {"type": "boolean"},
+        "rationale_ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "checkList": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/check"}
+    },
+    "refList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "passed", "rationale_ru"],
+      "properties": {
+        "code": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+        "passed": {"type": "boolean"},
+        "rationale_ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "warning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "rationale_ru"],
+      "properties": {
+        "code": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+        "rationale_ru": {"type": "string", "minLength": 1}
+      }
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message", "details"],
+      "properties": {
+        "code": {
+          "enum": [
+            "invalid_source_selection_request",
+            "invalid_source_lesson_dna",
+            "source_request_digest_mismatch",
+            "stale_source_lesson_dna",
+            "source_selection_not_reproducible",
+            "unsupported_homeschool_variant",
+            "adult_managed_answer_access_unavailable",
+            "no_homeschool_composition",
+            "missing_home_resource",
+            "adult_effort_exceeds_limit",
+            "safety_supervision_unavailable",
+            "safety_requirement_not_preserved",
+            "answer_key_binding_missing",
+            "explanation_binding_missing",
+            "practical_binding_missing",
+            "teacher_override_slot_unresolvable",
+            "teacher_override_not_preserved",
+            "language_profile_incompatible",
+            "timing_unrealistic",
+            "limited_adaptation_not_allowed"
+          ]
+        },
+        "message": {"type": "string", "minLength": 1},
+        "details": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

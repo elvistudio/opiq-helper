@@ -1,0 +1,141 @@
+schema_version: "1.0"
+artifact_type: homeschool_adaptation_rules
+versions:
+  homeschool_engine_version: "1.0"
+  homeschool_rules_version: "1.0"
+  homeschool_package_schema_version: "1.0"
+  parent_guidance_schema_version: "1.0"
+  weekly_study_plan_schema_version: "1.0"
+provenance:
+  claim_origin: project_authored_design
+  confidence:
+    level: provisional
+    rationale: >-
+      Operational mappings and timing thresholds are project-authored and have not
+      received independent teacher review or a home trial.
+  boundary_ru: >-
+    Правила обеспечивают воспроизводимую структуру, но не доказывают сравнительную
+    эффективность и не означают готовность пакета к домашнему применению.
+variants:
+  independent:
+    delivery_mode: independent_study
+    learner_count: {min: 1, max: 1}
+    study_context: individual_study
+    supported_group_formats: [individual]
+    preferred_group_formats: [individual]
+  parent_child:
+    delivery_mode: parent_supported
+    learner_count: {min: 1, max: 1}
+    study_context: individual_study
+    supported_group_formats: [individual]
+    preferred_group_formats: [individual]
+  remote_peer:
+    delivery_mode: remote
+    learner_count: {min: 2, max: 2}
+    study_context: collaborative_study
+    supported_group_formats: [pair]
+    preferred_group_formats: [pair]
+  small_sibling_group:
+    delivery_mode: homeschool
+    learner_count: {min: 2, max: 4}
+    study_context: collaborative_study
+    supported_group_formats: [pair, small_group, triad]
+    preferred_group_formats: [pair, small_group, triad]
+pattern_policy:
+  practical: safe-practical-investigation
+  retrieval_purposes:
+    cumulative_review: retrieval-and-consolidation
+    retrieval_and_correction: retrieval-and-consolidation
+    retrieval_and_consolidation: retrieval-and-consolidation
+  non_practical_default: independent-homeschool-study
+phase_mappings:
+  activation: orientation
+  collaborative_practice: independent_practice
+  consolidation: independent_practice
+  delayed_review: delayed_review
+  explanation: independent_practice
+  formative_assessment: reflection
+  guided_practice: independent_practice
+  homework: delayed_review
+  independent_practice: independent_practice
+  orientation: orientation
+  reflection: reflection
+  retrieval: retrieval
+practical_phase_mappings:
+  activation: orientation
+  collaborative_practice: guided_practice
+  consolidation: retrieval
+  delayed_review: delayed_review
+  explanation: orientation
+  formative_assessment: formative_assessment
+  guided_practice: guided_practice
+  homework: delayed_review
+  independent_practice: guided_practice
+  orientation: orientation
+  reflection: formative_assessment
+  retrieval: retrieval
+timing:
+  break_after_continuous_minutes: 18
+  break_minutes: 3
+  contingency_minutes: 2
+  delayed_retrieval_minutes: 6
+  weekly_review_minutes: 8
+  adult_preparation_minutes_when_needed: 3
+  adult_key_release_minutes_per_session: 1
+  adult_support_minutes_by_effort:
+    high: 12
+    intensive: 20
+    low: 4
+    medium: 7
+    minimal: 2
+    none: 0
+    unknown: 20
+answer_access:
+  retrieval_phases: [formative_assessment, retrieval]
+  source_closed_phases: [retrieval]
+  correction_phases: [formative_assessment, reflection]
+parent_guidance:
+  allowed_actions_ru:
+    - Подготовить место и материалы.
+    - Убрать отвлекающие факторы и помочь запустить таймер.
+    - Хранить ключ закрытым до самостоятельной попытки.
+    - Выслушать объяснение, не заканчивая ответ за ребёнка.
+    - Напомнить сверить ответ и отметить исправление другим цветом.
+    - Обеспечить только явно требуемый надзор безопасности.
+    - Помочь передать нерешённый вопрос предметному учителю.
+  prohibited_actions_ru:
+    - Не давать ответ до самостоятельной попытки.
+    - Не придумывать предметное объяснение и не менять научные утверждения учителя.
+    - Не менять процедуру или меры безопасности.
+    - Не считать эстонскую беглость доказательством предметного понимания.
+    - Не снижать предметный результат только из-за формы эстонского ответа.
+    - Не разрешать практическую работу без разрешения предметного учителя.
+  escalation_triggers_ru:
+    - Ребёнок не понимает предоставленное учителем объяснение.
+    - Ключ и учебный материал противоречат друг другу.
+    - Практическая инструкция неясна или условие безопасности не выполнено.
+    - Повторяющаяся ошибка не исправляется после сверки.
+    - Требуется новое предметное объяснение.
+    - Нужный ресурс недоступен.
+    - Запланированное время систематически нереалистично.
+failure_priority:
+  - invalid_source_selection_request
+  - invalid_source_lesson_dna
+  - source_request_digest_mismatch
+  - stale_source_lesson_dna
+  - source_selection_not_reproducible
+  - unsupported_homeschool_variant
+  - adult_managed_answer_access_unavailable
+  - safety_supervision_unavailable
+  - safety_requirement_not_preserved
+  - answer_key_binding_missing
+  - practical_binding_missing
+  - explanation_binding_missing
+  - missing_home_resource
+  - adult_effort_exceeds_limit
+  - limited_adaptation_not_allowed
+  - teacher_override_slot_unresolvable
+  - teacher_override_not_preserved
+  - language_profile_incompatible
+  - timing_unrealistic
+  - no_homeschool_composition

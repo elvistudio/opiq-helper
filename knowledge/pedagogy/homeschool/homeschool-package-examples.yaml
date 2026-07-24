@@ -1,0 +1,3202 @@
+artifact_type: homeschool_package_examples
+examples:
+  - example_id: independent-concept-package
+    homeschool_lesson_dna:
+      artifact_type: lesson_dna
+      assessment:
+        estonian_language_assessment:
+          enabled: false
+          notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+          target_phase_ids: []
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment:
+          enabled: true
+          notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+            предметный результат.
+          target_phase_ids: []
+      context:
+        delivery_mode: independent_study
+        duration_minutes: 150
+        grade: 5
+        group_size: 1
+        language_policy:
+          estonian_support:
+            allowed_roles:
+              - short_oral_response
+              - terminology
+            enabled: true
+            learner_level: A1-A2
+            subject_explanation_language: ru
+          maximum_total_productive_language_demand: medium
+          primary_instruction_language: ru
+        request_digest: 3133d87a350468ac8b0a18cc523dd4c7647f55938f9e36dc9727c72d8b823582
+        request_id: homeschool-concept-independent-selection
+        subject: science
+      differentiation:
+        extensions: []
+        scaffolds:
+          - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+          - Provide a bounded Estonian word bank for the selected terminology or labels.
+      known_limits:
+        - classroom_trial_not_started
+        - no_effectiveness_claim
+        - per_language_productive_demand_not_modelled
+        - selection_weights_provisional
+        - taxonomy_ratings_provisional
+        - teacher_review_pending
+      lesson_dna_id: homeschool-concept-independent-selection-dna
+      pattern:
+        pattern_id: independent-homeschool-study
+        rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+          оценкой эффективности.
+        selection_origin: request_required
+      phases:
+        - activity_minutes: 5
+          capabilities:
+            primary:
+              - misconception_detection
+              - prior_knowledge_activation
+            supporting:
+              - causal_reasoning
+              - error_correction
+              - formative_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: orientation
+          phase_id: orientation
+          purpose_ru: Подготовить тихое место, видимую цель, короткие шаги и оценку времени.
+          rationale_ru: Target true-false-anticipation прошёл hard constraints и получил наивысший допустимый
+            вклад в согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: true-false-anticipation
+            execution_profile_id: null
+            target_id: true-false-anticipation
+          transition_minutes: 0
+        - activity_minutes: 8
+          capabilities:
+            primary:
+              - guided_practice
+            supporting:
+              - concept_formation
+              - explanation_and_modelling
+              - formative_assessment
+              - oral_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: independent_practice
+          phase_id: independent-practice
+          purpose_ru: Изучить один ограниченный фрагмент и зафиксировать собственное понимание.
+          rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: guided-reading
+            execution_profile_id: null
+            target_id: guided-reading
+          transition_minutes: 0
+        - activity_minutes: 8
+          capabilities:
+            primary:
+              - concept_formation
+              - visual_representation
+            supporting:
+              - classification
+              - comparison
+              - diagram_interpretation
+              - formative_assessment
+              - retrieval
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: retrieval
+          phase_id: retrieval
+          purpose_ru: Закрыть источник и воспроизвести главное до просмотра ключа.
+          rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: concept-map
+            execution_profile_id: null
+            target_id: concept-map
+          transition_minutes: 0
+        - activity_minutes: 3
+          capabilities:
+            primary:
+              - error_correction
+              - error_detection
+            supporting:
+              - formative_assessment
+              - misconception_detection
+              - reflection
+              - self_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: reflection
+          phase_id: reflection
+          purpose_ru: Сверить, исправить другим цветом и определить нерешённый вопрос.
+          rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: required
+          target:
+            activity_id: error-correction
+            execution_profile_id: null
+            target_id: error-correction
+          transition_minutes: 0
+      retrieval_plan:
+        correction_phase_id: reflection
+        delayed:
+          - after_days: 7
+            capability: retrieval
+          - after_lessons: 1
+            capability: retrieval
+          - capability: retrieval
+            next_unit: true
+        immediate_phase_id: retrieval
+      schema_version: "1.0"
+      status:
+        classroom_ready: false
+        classroom_trial: not_started
+        effectiveness_claimed: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_overrides: []
+      timing:
+        activity_minutes: 24
+        cleanup_minutes: 0
+        fits: true
+        reserve_minutes: 3
+        setup_minutes: 14
+        total_planned_minutes: 41
+        transition_minutes: 0
+        unallocated_minutes: 109
+      versions:
+        activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+        engine: "1.1"
+        lesson_dna_schema: "1.0"
+        selection_rules: "1.0"
+        taxonomy: "1.0"
+      warnings:
+        - Capability ratings and selection weights are provisional project-authored metadata.
+        - The proposal requires teacher review and does not claim learning effectiveness.
+    package:
+      artifact_type: homeschool_package
+      assessment:
+        estonian_language_assessment: false
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment: true
+      context:
+        estonian_support:
+          allowed_roles:
+            - short_oral_response
+            - terminology
+          enabled: true
+          learner_level: A1-A2
+        grade: 5
+        homeschool_lesson_dna_id: homeschool-concept-independent-selection-dna
+        learner_count: 1
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        primary_instruction_language: ru
+        subject: science
+        variant: independent
+      known_limits:
+        - homeschool_rules_provisional
+        - teacher_review_pending
+        - home_trial_not_started
+        - no_effectiveness_claim
+        - teacher_provided_content_not_rendered
+      learner_plan:
+        breaks: []
+        contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+        correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+        reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+        retrieval_ru: Сначала восстанови главное без открытого источника.
+        self_check_ru: Открой ключ только после самостоятельной попытки.
+        steps:
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+            learner_minutes: 9
+            material_refs:
+              - concept-activation-card
+            phase_id: orientation
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-01-orientation
+            task_refs:
+              - concept-activation-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles:
+              - short_oral_response
+              - terminology
+            instruction_ru: Открой указанный материал и выполни одно задание своими словами.
+            learner_minutes: 12
+            material_refs:
+              - concept-practice-card
+              - concept-source-segment
+            phase_id: independent-practice
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-02-independent-practice
+            task_refs:
+              - concept-practice-task
+              - concept-reading-task
+          - adult_involvement: none
+            completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+            estonian_roles: []
+            instruction_ru: Закрой источник и выполни попытку по памяти.
+            learner_minutes: 10
+            material_refs:
+              - concept-retrieval-card
+            phase_id: retrieval
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-03-retrieval
+            task_refs:
+              - concept-retrieval-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Открой ключ после попытки и исправь ошибку другим цветом.
+            learner_minutes: 7
+            material_refs:
+              - concept-check-card
+            phase_id: reflection
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-04-reflection
+            task_refs:
+              - concept-check-task
+        success_criteria_refs:
+          - homeschool-concept-independent-success-criteria
+        visible_goal_ref: homeschool-concept-independent-visible-goal
+      materials:
+        answer_key_refs:
+          - concept-check-key
+          - concept-practice-key
+          - concept-retrieval-key
+        cleanup_steps_ru:
+          - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+        consumable_materials:
+          - paper
+        learner_material_refs:
+          - concept-activation-card
+          - concept-check-card
+          - concept-practice-card
+          - concept-retrieval-card
+          - concept-source-segment
+        phase_binding_summary:
+          - adapted_phase_id: independent-practice
+            answer_key_refs:
+              - concept-practice-key
+            binding_origin: mapped_source
+            learner_material_refs:
+              - concept-practice-card
+              - concept-source-segment
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - explanation
+              - guided-practice
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: orientation
+            answer_key_refs: []
+            binding_origin: mapped_source
+            learner_material_refs:
+              - concept-activation-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - activation
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: reflection
+            answer_key_refs:
+              - concept-check-key
+            binding_origin: mapped_source
+            learner_material_refs:
+              - concept-check-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - formative-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - concept-retrieval-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
+        preparation_steps_ru:
+          - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+        reusable_materials:
+          - printable_cards
+      package_id: homeschool-concept-independent-package
+      parent_guidance_ref: homeschool-concept-independent-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - concept-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 3
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - concept-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 4
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - concept-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 5
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
+        stop_conditions_ru:
+          - Остановись, если инструкция, материал или условие безопасности неясны.
+          - Не продолжай практическое действие без требуемого взрослого.
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      source_identity:
+        source_lesson_dna_digest: 8a26b6120fe3feadbb4e3454a4cbdd86cd049189997b02b59513f070a39d451f
+        source_lesson_dna_id: grade5-concept-introduction-dna
+        source_request_digest: 1400dcca2b19811ab5d3dfbb07b1806008e7bfda79466fe1913eb23df0315f94
+        source_request_id: grade5-concept-introduction
+        source_selection_versions:
+          activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+          engine: "1.1"
+          lesson_dna_schema: "1.0"
+          selection_rules: "1.0"
+          taxonomy: "1.0"
+      status:
+        effectiveness_claimed: false
+        home_trial: not_started
+        homeschool_ready: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_override_adaptations: []
+      timing:
+        adult_minutes: 0
+        break_minutes: 0
+        cleanup_minutes: 0
+        contingency_minutes: 2
+        delayed_retrieval_minutes: 12
+        learner_activity_minutes: 24
+        setup_minutes: 14
+        total_learner_minutes: 60
+        transition_minutes: 0
+        weekly_review_minutes: 8
+      warnings: []
+      weekly_study_plan_ref: homeschool-concept-independent-weekly-plan
+    parent_guidance:
+      adult_roles:
+        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
+          purpose_ru: Участие взрослого в выполнении не требуется.
+          role: none
+      allowed_actions_ru:
+        - Подготовить место и материалы.
+        - Убрать отвлекающие факторы и помочь запустить таймер.
+        - Хранить ключ закрытым до самостоятельной попытки.
+        - Выслушать объяснение, не заканчивая ответ за ребёнка.
+        - Напомнить сверить ответ и отметить исправление другим цветом.
+        - Обеспечить только явно требуемый надзор безопасности.
+        - Помочь передать нерешённый вопрос предметному учителю.
+      answer_access:
+        correction_method: separate_colour
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+      artifact_type: parent_guidance
+      escalation_triggers_ru:
+        - Ребёнок не понимает предоставленное учителем объяснение.
+        - Ключ и учебный материал противоречат друг другу.
+        - Практическая инструкция неясна или условие безопасности не выполнено.
+        - Повторяющаяся ошибка не исправляется после сверки.
+        - Требуется новое предметное объяснение.
+        - Нужный ресурс недоступен.
+        - Запланированное время систематически нереалистично.
+      guidance_id: homeschool-concept-independent-parent-guidance
+      known_limits:
+        - Взрослый не считается предметным учителем.
+        - Инструкции и временные оценки требуют teacher review и домашней апробации.
+      prohibited_actions_ru:
+        - Не давать ответ до самостоятельной попытки.
+        - Не придумывать предметное объяснение и не менять научные утверждения учителя.
+        - Не менять процедуру или меры безопасности.
+        - Не считать эстонскую беглость доказательством предметного понимания.
+        - Не снижать предметный результат только из-за формы эстонского ответа.
+        - Не разрешать практическую работу без разрешения предметного учителя.
+      responsibility_boundary:
+        adult_safety_supervision_ru: Взрослый выполняет только указанный надзор и не меняет процедуру.
+        adult_support_ru: Взрослый организует условия и разрешённую поддержку, но не создаёт предметный ответ.
+        child_responsibility_ru: Ребёнок выполняет попытку, объясняет, сверяет и отмечает нерешённый вопрос.
+        subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
+          процедуру и разрешение практической работы.
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        source_supervision_required: false
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      status:
+        home_trial: not_started
+        homeschool_ready: false
+        teacher_review: pending
+      timing:
+        adult_answer_access_minutes: 0
+        adult_live_support_minutes: 0
+        adult_preparation_minutes: 0
+        adult_safety_minutes: 0
+        total_adult_minutes: 0
+    weekly_study_plan:
+      artifact_type: weekly_study_plan
+      contingency:
+        minutes: 2
+        use_ru: Используй резерв только для повторного чтения инструкции или записи вопроса учителю.
+      plan_id: homeschool-concept-independent-weekly-plan
+      schema_version: "1.0"
+      sessions:
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: closed
+          answer_binding: null
+          break_minutes: 0
+          learner_minutes: 21
+          package_step_ids:
+            - step-01-orientation
+            - step-02-independent-practice
+          purpose: core_learning
+          relative_window: null
+          retrieval_type: none
+          review_instruction_ru: null
+          session_index: 1
+          source_access_policy: open
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - reflection
+              - retrieval
+            answer_key_refs:
+              - concept-check-key
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
+              - mapped_source
+          break_minutes: 0
+          learner_minutes: 17
+          package_step_ids:
+            - step-03-retrieval
+            - step-04-reflection
+          purpose: retrieval_and_correction
+          relative_window: null
+          retrieval_type: immediate
+          review_instruction_ru: null
+          session_index: 2
+          source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_days: 7
+            capability: retrieval
+          retrieval_type: delayed_after_days
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 4
+          source_access_policy: closed
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 8
+          package_step_ids:
+            - step-03-retrieval
+          purpose: weekly_review
+          relative_window:
+            capability: retrieval
+            next_unit: true
+          retrieval_type: next_unit_review
+          review_instruction_ru: В следующем тематическом блоке восстанови главное без источника, затем сверь ответ.
+          session_index: 5
+          source_access_policy: closed
+      total_adult_minutes: 0
+      total_learner_minutes: 60
+      week_structure:
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        schedule_type: relative
+      weekly_review:
+        included: true
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
+        relative_windows:
+          - after_days: 7
+            capability: retrieval
+          - after_lessons: 1
+            capability: retrieval
+          - capability: retrieval
+            next_unit: true
+  - example_id: parent-child-oral-package
+    homeschool_lesson_dna:
+      artifact_type: lesson_dna
+      assessment:
+        estonian_language_assessment:
+          enabled: true
+          notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+            предметного понимания.
+          target_phase_ids:
+            - independent-practice
+            - retrieval
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment:
+          enabled: true
+          notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+            предметный результат.
+          target_phase_ids: []
+      context:
+        delivery_mode: parent_supported
+        duration_minutes: 150
+        grade: 5
+        group_size: 1
+        language_policy:
+          estonian_support:
+            allowed_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            enabled: true
+            learner_level: A1-A2
+            subject_explanation_language: ru
+          maximum_total_productive_language_demand: medium
+          primary_instruction_language: ru
+        request_digest: eccc038fb03944daae6711081881b922dc4fb661bfb2ee485d2c27af6d52c7f8
+        request_id: homeschool-oral-parent-child-selection
+        subject: science
+      differentiation:
+        extensions: []
+        scaffolds:
+          - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+          - Provide a bounded Estonian word bank for the selected terminology or labels.
+      known_limits:
+        - classroom_trial_not_started
+        - no_effectiveness_claim
+        - per_language_productive_demand_not_modelled
+        - selection_weights_provisional
+        - taxonomy_ratings_provisional
+        - teacher_review_pending
+      lesson_dna_id: homeschool-oral-parent-child-selection-dna
+      pattern:
+        pattern_id: independent-homeschool-study
+        rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+          оценкой эффективности.
+        selection_origin: request_required
+      phases:
+        - activity_minutes: 5
+          capabilities:
+            primary:
+              - misconception_detection
+              - prior_knowledge_activation
+            supporting:
+              - causal_reasoning
+              - error_correction
+              - formative_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: orientation
+          phase_id: orientation
+          purpose_ru: Подготовить тихое место, видимую цель, короткие шаги и оценку времени.
+          rationale_ru: Target true-false-anticipation прошёл hard constraints и получил наивысший допустимый
+            вклад в согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: true-false-anticipation
+            execution_profile_id: null
+            target_id: true-false-anticipation
+          transition_minutes: 0
+        - activity_minutes: 8
+          capabilities:
+            primary:
+              - guided_practice
+            supporting:
+              - concept_formation
+              - explanation_and_modelling
+              - formative_assessment
+              - oral_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: independent_practice
+          phase_id: independent-practice
+          purpose_ru: Изучить один ограниченный фрагмент и зафиксировать собственное понимание.
+          rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: guided-reading
+            execution_profile_id: null
+            target_id: guided-reading
+          transition_minutes: 0
+        - activity_minutes: 2
+          capabilities:
+            primary:
+              - retrieval
+            supporting:
+              - formative_assessment
+              - oral_production
+              - written_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: retrieval
+          phase_id: retrieval
+          purpose_ru: Закрыть источник и воспроизвести главное до просмотра ключа.
+          rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
+            в согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: one-minute-recall
+            execution_profile_id: null
+            target_id: one-minute-recall
+          transition_minutes: 0
+        - activity_minutes: 3
+          capabilities:
+            primary:
+              - error_correction
+              - error_detection
+            supporting:
+              - formative_assessment
+              - misconception_detection
+              - reflection
+              - self_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            primary_language: ru
+          phase: reflection
+          phase_id: reflection
+          purpose_ru: Сверить, исправить другим цветом и определить нерешённый вопрос.
+          rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: required
+          target:
+            activity_id: error-correction
+            execution_profile_id: null
+            target_id: error-correction
+          transition_minutes: 0
+      retrieval_plan:
+        correction_phase_id: reflection
+        delayed:
+          - after_lessons: 1
+            capability: retrieval
+        immediate_phase_id: retrieval
+      schema_version: "1.0"
+      status:
+        classroom_ready: false
+        classroom_trial: not_started
+        effectiveness_claimed: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_overrides: []
+      timing:
+        activity_minutes: 18
+        cleanup_minutes: 0
+        fits: true
+        reserve_minutes: 3
+        setup_minutes: 14
+        total_planned_minutes: 35
+        transition_minutes: 0
+        unallocated_minutes: 115
+      versions:
+        activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+        engine: "1.1"
+        lesson_dna_schema: "1.0"
+        selection_rules: "1.0"
+        taxonomy: "1.0"
+      warnings:
+        - Capability ratings and selection weights are provisional project-authored metadata.
+        - The proposal requires teacher review and does not claim learning effectiveness.
+    package:
+      artifact_type: homeschool_package
+      assessment:
+        estonian_language_assessment: true
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment: true
+      context:
+        estonian_support:
+          allowed_roles:
+            - sentence_frame
+            - short_oral_response
+            - terminology
+          enabled: true
+          learner_level: A1-A2
+        grade: 5
+        homeschool_lesson_dna_id: homeschool-oral-parent-child-selection-dna
+        learner_count: 1
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        primary_instruction_language: ru
+        subject: science
+        variant: parent_child
+      known_limits:
+        - homeschool_rules_provisional
+        - teacher_review_pending
+        - home_trial_not_started
+        - no_effectiveness_claim
+        - teacher_provided_content_not_rendered
+      learner_plan:
+        breaks: []
+        contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+        correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+        reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+        retrieval_ru: Сначала восстанови главное без открытого источника.
+        self_check_ru: Открой ключ только после самостоятельной попытки.
+        steps:
+          - adult_involvement: check_answers
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+            learner_minutes: 9
+            material_refs:
+              - oral-activation-card
+            phase_id: orientation
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-01-orientation
+            task_refs:
+              - oral-activation-task
+          - adult_involvement: logistical_support
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            instruction_ru: Открой указанный материал и выполни одно задание своими словами.
+            learner_minutes: 12
+            material_refs:
+              - oral-practice-card
+              - oral-source-segment
+            phase_id: independent-practice
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-02-independent-practice
+            task_refs:
+              - oral-practice-task
+              - oral-reading-task
+          - adult_involvement: none
+            completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            instruction_ru: Закрой источник и выполни попытку по памяти.
+            learner_minutes: 4
+            material_refs:
+              - oral-retrieval-card
+            phase_id: retrieval
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-03-retrieval
+            task_refs:
+              - oral-retrieval-task
+          - adult_involvement: check_answers
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles:
+              - sentence_frame
+              - short_oral_response
+              - terminology
+            instruction_ru: Попроси взрослого открыть ключ после попытки и исправь ошибку другим цветом.
+            learner_minutes: 7
+            material_refs:
+              - oral-check-card
+            phase_id: reflection
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-04-reflection
+            task_refs:
+              - oral-check-task
+        success_criteria_refs:
+          - homeschool-oral-parent-child-success-criteria
+        visible_goal_ref: homeschool-oral-parent-child-visible-goal
+      materials:
+        answer_key_refs:
+          - oral-check-key
+          - oral-practice-key
+          - oral-retrieval-key
+        cleanup_steps_ru:
+          - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+        consumable_materials:
+          - paper
+        learner_material_refs:
+          - oral-activation-card
+          - oral-check-card
+          - oral-practice-card
+          - oral-retrieval-card
+          - oral-source-segment
+        phase_binding_summary:
+          - adapted_phase_id: independent-practice
+            answer_key_refs:
+              - oral-practice-key
+            binding_origin: mapped_source
+            learner_material_refs:
+              - oral-practice-card
+              - oral-source-segment
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - explanation
+              - guided-practice
+            teacher_explanation_refs:
+              - oral-teacher-explanation
+            valid: true
+          - adapted_phase_id: orientation
+            answer_key_refs: []
+            binding_origin: mapped_source
+            learner_material_refs:
+              - oral-activation-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - activation
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: reflection
+            answer_key_refs:
+              - oral-check-key
+            binding_origin: mapped_source
+            learner_material_refs:
+              - oral-check-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - formative-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - oral-retrieval-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - oral-retrieval-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
+        preparation_steps_ru:
+          - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+        reusable_materials: []
+      package_id: homeschool-oral-parent-child-package
+      parent_guidance_ref: homeschool-oral-parent-child-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - oral-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: adult_managed
+          session_index: 3
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
+        stop_conditions_ru:
+          - Остановись, если инструкция, материал или условие безопасности неясны.
+          - Не продолжай практическое действие без требуемого взрослого.
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      source_identity:
+        source_lesson_dna_digest: 55fe0bee048b1becec02e7472d8e8ab7fe5d47522727fbed6c342c3ca7b4af7b
+        source_lesson_dna_id: grade5-oral-answer-dna
+        source_request_digest: ee9dde4322181e7199263863c981b4d92a9f9f1ba762fe45d72454fabc2282ae
+        source_request_id: grade5-oral-answer
+        source_selection_versions:
+          activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+          engine: "1.1"
+          lesson_dna_schema: "1.0"
+          selection_rules: "1.0"
+          taxonomy: "1.0"
+      status:
+        effectiveness_claimed: false
+        home_trial: not_started
+        homeschool_ready: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_override_adaptations: []
+      timing:
+        adult_minutes: 11
+        break_minutes: 0
+        cleanup_minutes: 0
+        contingency_minutes: 2
+        delayed_retrieval_minutes: 6
+        learner_activity_minutes: 18
+        setup_minutes: 14
+        total_learner_minutes: 40
+        transition_minutes: 0
+        weekly_review_minutes: 0
+      warnings: []
+      weekly_study_plan_ref: homeschool-oral-parent-child-weekly-plan
+    parent_guidance:
+      adult_roles:
+        - bounded_action_ru: Не объяснять предметный ответ и не исправлять работу вместо ребёнка.
+          purpose_ru: Открывать релевантный ключ только после завершённой самостоятельной попытки.
+          role: check_answers
+        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
+          purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
+          role: logistical_support
+      allowed_actions_ru:
+        - Подготовить место и материалы.
+        - Убрать отвлекающие факторы и помочь запустить таймер.
+        - Хранить ключ закрытым до самостоятельной попытки.
+        - Выслушать объяснение, не заканчивая ответ за ребёнка.
+        - Напомнить сверить ответ и отметить исправление другим цветом.
+        - Обеспечить только явно требуемый надзор безопасности.
+        - Помочь передать нерешённый вопрос предметному учителю.
+      answer_access:
+        correction_method: separate_colour
+        first_attempt_without_answer: true
+        key_release: adult_managed
+      artifact_type: parent_guidance
+      escalation_triggers_ru:
+        - Ребёнок не понимает предоставленное учителем объяснение.
+        - Ключ и учебный материал противоречат друг другу.
+        - Практическая инструкция неясна или условие безопасности не выполнено.
+        - Повторяющаяся ошибка не исправляется после сверки.
+        - Требуется новое предметное объяснение.
+        - Нужный ресурс недоступен.
+        - Запланированное время систематически нереалистично.
+      guidance_id: homeschool-oral-parent-child-parent-guidance
+      known_limits:
+        - Взрослый не считается предметным учителем.
+        - Инструкции и временные оценки требуют teacher review и домашней апробации.
+      prohibited_actions_ru:
+        - Не давать ответ до самостоятельной попытки.
+        - Не придумывать предметное объяснение и не менять научные утверждения учителя.
+        - Не менять процедуру или меры безопасности.
+        - Не считать эстонскую беглость доказательством предметного понимания.
+        - Не снижать предметный результат только из-за формы эстонского ответа.
+        - Не разрешать практическую работу без разрешения предметного учителя.
+      responsibility_boundary:
+        adult_safety_supervision_ru: Взрослый выполняет только указанный надзор и не меняет процедуру.
+        adult_support_ru: Взрослый организует условия и разрешённую поддержку, но не создаёт предметный ответ.
+        child_responsibility_ru: Ребёнок выполняет попытку, объясняет, сверяет и отмечает нерешённый вопрос.
+        subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
+          процедуру и разрешение практической работы.
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        source_supervision_required: false
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      status:
+        home_trial: not_started
+        homeschool_ready: false
+        teacher_review: pending
+      timing:
+        adult_answer_access_minutes: 2
+        adult_live_support_minutes: 6
+        adult_preparation_minutes: 3
+        adult_safety_minutes: 0
+        total_adult_minutes: 11
+    weekly_study_plan:
+      artifact_type: weekly_study_plan
+      contingency:
+        minutes: 2
+        use_ru: Используй резерв только для повторного чтения инструкции или записи вопроса учителю.
+      plan_id: homeschool-oral-parent-child-weekly-plan
+      schema_version: "1.0"
+      sessions:
+        - adult_minutes: 4
+          adult_roles:
+            - check_answers
+            - logistical_support
+          answer_access: closed
+          answer_binding: null
+          break_minutes: 0
+          learner_minutes: 21
+          package_step_ids:
+            - step-01-orientation
+            - step-02-independent-practice
+          purpose: core_learning
+          relative_window: null
+          retrieval_type: none
+          review_instruction_ru: null
+          session_index: 1
+          source_access_policy: open
+        - adult_minutes: 3
+          adult_roles:
+            - check_answers
+          answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - reflection
+              - retrieval
+            answer_key_refs:
+              - oral-check-key
+              - oral-retrieval-key
+            origins:
+              - exact_adapted
+              - mapped_source
+          break_minutes: 0
+          learner_minutes: 11
+          package_step_ids:
+            - step-03-retrieval
+            - step-04-reflection
+          purpose: retrieval_and_correction
+          relative_window: null
+          retrieval_type: immediate
+          review_instruction_ru: null
+          session_index: 2
+          source_access_policy: mixed_by_step
+        - adult_minutes: 1
+          adult_roles:
+            - check_answers
+          answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - oral-retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+      total_adult_minutes: 11
+      total_learner_minutes: 40
+      week_structure:
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        schedule_type: relative
+      weekly_review:
+        included: true
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
+        relative_windows:
+          - after_lessons: 1
+            capability: retrieval
+  - example_id: retrieval-self-check-package
+    homeschool_lesson_dna:
+      artifact_type: lesson_dna
+      assessment:
+        estonian_language_assessment:
+          enabled: false
+          notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+          target_phase_ids: []
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment:
+          enabled: true
+          notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+            предметный результат.
+          target_phase_ids:
+            - correction
+      context:
+        delivery_mode: independent_study
+        duration_minutes: 150
+        grade: 5
+        group_size: 1
+        language_policy:
+          estonian_support:
+            allowed_roles:
+              - terminology
+            enabled: true
+            learner_level: A1-A2
+            subject_explanation_language: ru
+          maximum_total_productive_language_demand: medium
+          primary_instruction_language: ru
+        request_digest: 980eae1a16a0ec7c5391d069f450ea9bde64c5c8de0178de1fd21b6c8ec6809a
+        request_id: homeschool-retrieval-independent-selection
+        subject: science
+      differentiation:
+        extensions: []
+        scaffolds:
+          - Provide a bounded Estonian word bank for the selected terminology or labels.
+      known_limits:
+        - classroom_trial_not_started
+        - no_effectiveness_claim
+        - per_language_productive_demand_not_modelled
+        - selection_weights_provisional
+        - taxonomy_ratings_provisional
+        - teacher_review_pending
+      lesson_dna_id: homeschool-retrieval-independent-selection-dna
+      pattern:
+        pattern_id: retrieval-and-consolidation
+        rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+          оценкой эффективности.
+        selection_origin: request_required
+      phases:
+        - activity_minutes: 5
+          capabilities:
+            primary:
+              - formative_assessment
+              - independent_practice
+              - retrieval
+              - self_assessment
+            supporting:
+              - error_correction
+              - error_detection
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - terminology
+            primary_language: ru
+          phase: retrieval
+          phase_id: retrieval
+          purpose_ru: Восстановить существенное без просмотра ответа.
+          rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
+            вклад в согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: retrieval-self-test
+            execution_profile_id: null
+            target_id: retrieval-self-test
+          transition_minutes: 0
+        - activity_minutes: 3
+          capabilities:
+            primary:
+              - error_correction
+              - error_detection
+            supporting:
+              - formative_assessment
+              - misconception_detection
+              - reflection
+              - self_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - terminology
+            primary_language: ru
+          phase: formative_assessment
+          phase_id: correction
+          purpose_ru: Сопоставить попытку с надёжным ответом и найти расхождение.
+          rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: required
+          target:
+            activity_id: error-correction
+            execution_profile_id: null
+            target_id: error-correction
+          transition_minutes: 0
+        - activity_minutes: 2
+          capabilities:
+            primary:
+              - formative_assessment
+            supporting:
+              - reflection
+              - retrieval
+              - written_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - terminology
+            primary_language: ru
+          phase: consolidation
+          phase_id: consolidation
+          purpose_ru: Повторно организовать исправленное знание в другой форме.
+          rationale_ru: Target exit-ticket прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: false
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: exit-ticket
+            execution_profile_id: null
+            target_id: exit-ticket
+          transition_minutes: 0
+      retrieval_plan:
+        correction_phase_id: correction
+        delayed:
+          - after_days: 7
+            capability: retrieval
+          - after_lessons: 1
+            capability: retrieval
+        immediate_phase_id: retrieval
+      schema_version: "1.0"
+      status:
+        classroom_ready: false
+        classroom_trial: not_started
+        effectiveness_claimed: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_overrides: []
+      timing:
+        activity_minutes: 10
+        cleanup_minutes: 0
+        fits: true
+        reserve_minutes: 3
+        setup_minutes: 10
+        total_planned_minutes: 23
+        transition_minutes: 0
+        unallocated_minutes: 127
+      versions:
+        activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+        engine: "1.1"
+        lesson_dna_schema: "1.0"
+        selection_rules: "1.0"
+        taxonomy: "1.0"
+      warnings:
+        - Capability ratings and selection weights are provisional project-authored metadata.
+        - The proposal requires teacher review and does not claim learning effectiveness.
+    package:
+      artifact_type: homeschool_package
+      assessment:
+        estonian_language_assessment: false
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment: true
+      context:
+        estonian_support:
+          allowed_roles:
+            - terminology
+          enabled: true
+          learner_level: A1-A2
+        grade: 5
+        homeschool_lesson_dna_id: homeschool-retrieval-independent-selection-dna
+        learner_count: 1
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        primary_instruction_language: ru
+        subject: science
+        variant: independent
+      known_limits:
+        - homeschool_rules_provisional
+        - teacher_review_pending
+        - home_trial_not_started
+        - no_effectiveness_claim
+        - teacher_provided_content_not_rendered
+      learner_plan:
+        breaks: []
+        contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+        correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+        reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+        retrieval_ru: Сначала восстанови главное без открытого источника.
+        self_check_ru: Открой ключ только после самостоятельной попытки.
+        steps:
+          - adult_involvement: none
+            completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+            estonian_roles: []
+            instruction_ru: Закрой источник и выполни попытку по памяти.
+            learner_minutes: 9
+            material_refs:
+              - retrieval-card
+            phase_id: retrieval
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-01-retrieval
+            task_refs:
+              - retrieval-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Открой ключ после попытки и исправь ошибку другим цветом.
+            learner_minutes: 7
+            material_refs:
+              - retrieval-correction-card
+            phase_id: correction
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-02-correction
+            task_refs:
+              - retrieval-correction-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles:
+              - terminology
+            instruction_ru: Выполни указанный шаг и сохрани результат для проверки.
+            learner_minutes: 4
+            material_refs:
+              - retrieval-consolidation-card
+            phase_id: consolidation
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-03-consolidation
+            task_refs:
+              - retrieval-consolidation-task
+        success_criteria_refs:
+          - homeschool-retrieval-independent-success-criteria
+        visible_goal_ref: homeschool-retrieval-independent-visible-goal
+      materials:
+        answer_key_refs:
+          - retrieval-consolidation-key
+          - retrieval-correction-key
+          - retrieval-key
+        cleanup_steps_ru:
+          - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+        consumable_materials:
+          - paper
+        learner_material_refs:
+          - retrieval-card
+          - retrieval-consolidation-card
+          - retrieval-correction-card
+        phase_binding_summary:
+          - adapted_phase_id: consolidation
+            answer_key_refs:
+              - retrieval-consolidation-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - retrieval-consolidation-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids: []
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: correction
+            answer_key_refs:
+              - retrieval-correction-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - retrieval-correction-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids: []
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - retrieval-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - retrieval-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
+        preparation_steps_ru:
+          - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+        reusable_materials: []
+      package_id: homeschool-retrieval-independent-package
+      parent_guidance_ref: homeschool-retrieval-independent-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - consolidation
+            - retrieval
+          answer_key_refs:
+            - retrieval-consolidation-key
+            - retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 2
+        - adapted_phase_ids:
+            - consolidation
+            - retrieval
+          answer_key_refs:
+            - retrieval-consolidation-key
+            - retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 3
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
+        stop_conditions_ru:
+          - Остановись, если инструкция, материал или условие безопасности неясны.
+          - Не продолжай практическое действие без требуемого взрослого.
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      source_identity:
+        source_lesson_dna_digest: dac516596956d8ddef1fb55e8a89060924103e8b79adb21bbb363caf735e8b36
+        source_lesson_dna_id: grade5-retrieval-correction-dna
+        source_request_digest: de7a61617eacc384a2d72cc6ead690acf3f09bb4579e1a32fc8e9f8760728b58
+        source_request_id: grade5-retrieval-correction
+        source_selection_versions:
+          activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+          engine: "1.1"
+          lesson_dna_schema: "1.0"
+          selection_rules: "1.0"
+          taxonomy: "1.0"
+      status:
+        effectiveness_claimed: false
+        home_trial: not_started
+        homeschool_ready: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_override_adaptations: []
+      timing:
+        adult_minutes: 0
+        break_minutes: 0
+        cleanup_minutes: 0
+        contingency_minutes: 2
+        delayed_retrieval_minutes: 12
+        learner_activity_minutes: 10
+        setup_minutes: 10
+        total_learner_minutes: 34
+        transition_minutes: 0
+        weekly_review_minutes: 0
+      warnings: []
+      weekly_study_plan_ref: homeschool-retrieval-independent-weekly-plan
+    parent_guidance:
+      adult_roles:
+        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
+          purpose_ru: Участие взрослого в выполнении не требуется.
+          role: none
+      allowed_actions_ru:
+        - Подготовить место и материалы.
+        - Убрать отвлекающие факторы и помочь запустить таймер.
+        - Хранить ключ закрытым до самостоятельной попытки.
+        - Выслушать объяснение, не заканчивая ответ за ребёнка.
+        - Напомнить сверить ответ и отметить исправление другим цветом.
+        - Обеспечить только явно требуемый надзор безопасности.
+        - Помочь передать нерешённый вопрос предметному учителю.
+      answer_access:
+        correction_method: separate_colour
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+      artifact_type: parent_guidance
+      escalation_triggers_ru:
+        - Ребёнок не понимает предоставленное учителем объяснение.
+        - Ключ и учебный материал противоречат друг другу.
+        - Практическая инструкция неясна или условие безопасности не выполнено.
+        - Повторяющаяся ошибка не исправляется после сверки.
+        - Требуется новое предметное объяснение.
+        - Нужный ресурс недоступен.
+        - Запланированное время систематически нереалистично.
+      guidance_id: homeschool-retrieval-independent-parent-guidance
+      known_limits:
+        - Взрослый не считается предметным учителем.
+        - Инструкции и временные оценки требуют teacher review и домашней апробации.
+      prohibited_actions_ru:
+        - Не давать ответ до самостоятельной попытки.
+        - Не придумывать предметное объяснение и не менять научные утверждения учителя.
+        - Не менять процедуру или меры безопасности.
+        - Не считать эстонскую беглость доказательством предметного понимания.
+        - Не снижать предметный результат только из-за формы эстонского ответа.
+        - Не разрешать практическую работу без разрешения предметного учителя.
+      responsibility_boundary:
+        adult_safety_supervision_ru: Взрослый выполняет только указанный надзор и не меняет процедуру.
+        adult_support_ru: Взрослый организует условия и разрешённую поддержку, но не создаёт предметный ответ.
+        child_responsibility_ru: Ребёнок выполняет попытку, объясняет, сверяет и отмечает нерешённый вопрос.
+        subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
+          процедуру и разрешение практической работы.
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        source_supervision_required: false
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      status:
+        home_trial: not_started
+        homeschool_ready: false
+        teacher_review: pending
+      timing:
+        adult_answer_access_minutes: 0
+        adult_live_support_minutes: 0
+        adult_preparation_minutes: 0
+        adult_safety_minutes: 0
+        total_adult_minutes: 0
+    weekly_study_plan:
+      artifact_type: weekly_study_plan
+      contingency:
+        minutes: 2
+        use_ru: Используй резерв только для повторного чтения инструкции или записи вопроса учителю.
+      plan_id: homeschool-retrieval-independent-weekly-plan
+      schema_version: "1.0"
+      sessions:
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - correction
+              - retrieval
+            answer_key_refs:
+              - retrieval-correction-key
+              - retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 20
+          package_step_ids:
+            - step-01-retrieval
+            - step-02-correction
+            - step-03-consolidation
+          purpose: retrieval_and_correction
+          relative_window: null
+          retrieval_type: immediate
+          review_instruction_ru: null
+          session_index: 1
+          source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - consolidation
+              - retrieval
+            answer_key_refs:
+              - retrieval-consolidation-key
+              - retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-01-retrieval
+            - step-03-consolidation
+          purpose: delayed_retrieval
+          relative_window:
+            after_days: 7
+            capability: retrieval
+          retrieval_type: delayed_after_days
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 2
+          source_access_policy: closed
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - consolidation
+              - retrieval
+            answer_key_refs:
+              - retrieval-consolidation-key
+              - retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-01-retrieval
+            - step-03-consolidation
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+      total_adult_minutes: 0
+      total_learner_minutes: 34
+      week_structure:
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        schedule_type: relative
+      weekly_review:
+        included: true
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
+        relative_windows:
+          - after_days: 7
+            capability: retrieval
+          - after_lessons: 1
+            capability: retrieval
+  - example_id: russian-only-package
+    homeschool_lesson_dna:
+      artifact_type: lesson_dna
+      assessment:
+        estonian_language_assessment:
+          enabled: false
+          notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+          target_phase_ids: []
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment:
+          enabled: true
+          notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+            предметный результат.
+          target_phase_ids: []
+      context:
+        delivery_mode: independent_study
+        duration_minutes: 150
+        grade: 5
+        group_size: 1
+        language_policy:
+          estonian_support:
+            allowed_roles: []
+            enabled: false
+            learner_level: not_applicable
+            subject_explanation_language: ru
+          maximum_total_productive_language_demand: medium
+          primary_instruction_language: ru
+        request_digest: f69799937f1684eceb5c64a3247775852dade45f10b0ddbc4a8254609065c338
+        request_id: homeschool-russian-only-selection
+        subject: science
+      differentiation:
+        extensions: []
+        scaffolds: []
+      known_limits:
+        - classroom_trial_not_started
+        - no_effectiveness_claim
+        - selection_weights_provisional
+        - taxonomy_ratings_provisional
+        - teacher_review_pending
+      lesson_dna_id: homeschool-russian-only-selection-dna
+      pattern:
+        pattern_id: independent-homeschool-study
+        rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+          оценкой эффективности.
+        selection_origin: request_required
+      phases:
+        - activity_minutes: 5
+          capabilities:
+            primary:
+              - misconception_detection
+              - prior_knowledge_activation
+            supporting:
+              - causal_reasoning
+              - error_correction
+              - formative_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles: []
+            primary_language: ru
+          phase: orientation
+          phase_id: orientation
+          purpose_ru: Подготовить тихое место, видимую цель, короткие шаги и оценку времени.
+          rationale_ru: Target true-false-anticipation прошёл hard constraints и получил наивысший допустимый
+            вклад в согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: true-false-anticipation
+            execution_profile_id: null
+            target_id: true-false-anticipation
+          transition_minutes: 0
+        - activity_minutes: 8
+          capabilities:
+            primary:
+              - guided_practice
+            supporting:
+              - concept_formation
+              - explanation_and_modelling
+              - formative_assessment
+              - oral_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles: []
+            primary_language: ru
+          phase: independent_practice
+          phase_id: independent-practice
+          purpose_ru: Изучить один ограниченный фрагмент и зафиксировать собственное понимание.
+          rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: guided-reading
+            execution_profile_id: null
+            target_id: guided-reading
+          transition_minutes: 0
+        - activity_minutes: 8
+          capabilities:
+            primary:
+              - concept_formation
+              - visual_representation
+            supporting:
+              - classification
+              - comparison
+              - diagram_interpretation
+              - formative_assessment
+              - retrieval
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles: []
+            primary_language: ru
+          phase: retrieval
+          phase_id: retrieval
+          purpose_ru: Закрыть источник и воспроизвести главное до просмотра ключа.
+          rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: concept-map
+            execution_profile_id: null
+            target_id: concept-map
+          transition_minutes: 0
+        - activity_minutes: 3
+          capabilities:
+            primary:
+              - error_correction
+              - error_detection
+            supporting:
+              - formative_assessment
+              - misconception_detection
+              - reflection
+              - self_assessment
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles: []
+            primary_language: ru
+          phase: reflection
+          phase_id: reflection
+          purpose_ru: Сверить, исправить другим цветом и определить нерешённый вопрос.
+          rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - textbook_or_source_text
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 4
+          source_access:
+            first_attempt: required
+          target:
+            activity_id: error-correction
+            execution_profile_id: null
+            target_id: error-correction
+          transition_minutes: 0
+      retrieval_plan:
+        correction_phase_id: reflection
+        delayed:
+          - after_days: 7
+            capability: retrieval
+          - after_lessons: 1
+            capability: retrieval
+        immediate_phase_id: retrieval
+      schema_version: "1.0"
+      status:
+        classroom_ready: false
+        classroom_trial: not_started
+        effectiveness_claimed: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_overrides: []
+      timing:
+        activity_minutes: 24
+        cleanup_minutes: 0
+        fits: true
+        reserve_minutes: 3
+        setup_minutes: 14
+        total_planned_minutes: 41
+        transition_minutes: 0
+        unallocated_minutes: 109
+      versions:
+        activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+        engine: "1.1"
+        lesson_dna_schema: "1.0"
+        selection_rules: "1.0"
+        taxonomy: "1.0"
+      warnings:
+        - Capability ratings and selection weights are provisional project-authored metadata.
+        - The proposal requires teacher review and does not claim learning effectiveness.
+    package:
+      artifact_type: homeschool_package
+      assessment:
+        estonian_language_assessment: false
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment: true
+      context:
+        estonian_support:
+          allowed_roles: []
+          enabled: false
+          learner_level: not_applicable
+        grade: 5
+        homeschool_lesson_dna_id: homeschool-russian-only-selection-dna
+        learner_count: 1
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        primary_instruction_language: ru
+        subject: science
+        variant: independent
+      known_limits:
+        - homeschool_rules_provisional
+        - teacher_review_pending
+        - home_trial_not_started
+        - no_effectiveness_claim
+        - teacher_provided_content_not_rendered
+      learner_plan:
+        breaks: []
+        contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+        correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+        reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+        retrieval_ru: Сначала восстанови главное без открытого источника.
+        self_check_ru: Открой ключ только после самостоятельной попытки.
+        steps:
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+            learner_minutes: 9
+            material_refs:
+              - russian-activation-card
+            phase_id: orientation
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-01-orientation
+            task_refs:
+              - russian-activation-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Открой указанный материал и выполни одно задание своими словами.
+            learner_minutes: 12
+            material_refs:
+              - russian-practice-card
+              - russian-source-segment
+            phase_id: independent-practice
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-02-independent-practice
+            task_refs:
+              - russian-practice-task
+              - russian-reading-task
+          - adult_involvement: none
+            completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+            estonian_roles: []
+            instruction_ru: Закрой источник и выполни попытку по памяти.
+            learner_minutes: 10
+            material_refs:
+              - russian-retrieval-card
+            phase_id: retrieval
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-03-retrieval
+            task_refs:
+              - russian-retrieval-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Открой ключ после попытки и исправь ошибку другим цветом.
+            learner_minutes: 7
+            material_refs:
+              - russian-check-card
+            phase_id: reflection
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-04-reflection
+            task_refs:
+              - russian-check-task
+        success_criteria_refs:
+          - homeschool-russian-only-success-criteria
+        visible_goal_ref: homeschool-russian-only-visible-goal
+      materials:
+        answer_key_refs:
+          - russian-check-key
+          - russian-practice-key
+          - russian-retrieval-key
+        cleanup_steps_ru:
+          - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+        consumable_materials:
+          - paper
+        learner_material_refs:
+          - russian-activation-card
+          - russian-check-card
+          - russian-practice-card
+          - russian-retrieval-card
+          - russian-source-segment
+        phase_binding_summary:
+          - adapted_phase_id: independent-practice
+            answer_key_refs:
+              - russian-practice-key
+            binding_origin: mapped_source
+            learner_material_refs:
+              - russian-practice-card
+              - russian-source-segment
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - explanation
+              - guided-practice
+            teacher_explanation_refs:
+              - russian-teacher-explanation
+            valid: true
+          - adapted_phase_id: orientation
+            answer_key_refs: []
+            binding_origin: mapped_source
+            learner_material_refs:
+              - russian-activation-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - activation
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: reflection
+            answer_key_refs:
+              - russian-check-key
+            binding_origin: mapped_source
+            learner_material_refs:
+              - russian-check-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            review_capable: false
+            safety_refs: []
+            source_access_policy: open
+            source_phase_ids:
+              - formative-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: retrieval
+            answer_key_refs:
+              - russian-retrieval-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - russian-retrieval-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: self_managed_after_attempt
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids:
+              - retrieval
+            teacher_explanation_refs: []
+            valid: true
+        preparation_steps_ru:
+          - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+        reusable_materials:
+          - printable_cards
+      package_id: homeschool-russian-only-package
+      parent_guidance_ref: homeschool-russian-only-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - russian-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 3
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - russian-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 4
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+        source_supervision_required: false
+        stop_conditions_ru:
+          - Остановись, если инструкция, материал или условие безопасности неясны.
+          - Не продолжай практическое действие без требуемого взрослого.
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      source_identity:
+        source_lesson_dna_digest: 7ad5e23447e699677bf6db91990c7a7d273c1285a7da03e4f4ece300d3688609
+        source_lesson_dna_id: grade5-russian-only-concept-introduction-dna
+        source_request_digest: 32fb8839c618aab19b6e9deff8aa65a48f3921fcebb8be31b636707db8900c68
+        source_request_id: grade5-russian-only-concept-introduction
+        source_selection_versions:
+          activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+          engine: "1.1"
+          lesson_dna_schema: "1.0"
+          selection_rules: "1.0"
+          taxonomy: "1.0"
+      status:
+        effectiveness_claimed: false
+        home_trial: not_started
+        homeschool_ready: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_override_adaptations: []
+      timing:
+        adult_minutes: 0
+        break_minutes: 0
+        cleanup_minutes: 0
+        contingency_minutes: 2
+        delayed_retrieval_minutes: 12
+        learner_activity_minutes: 24
+        setup_minutes: 14
+        total_learner_minutes: 52
+        transition_minutes: 0
+        weekly_review_minutes: 0
+      warnings: []
+      weekly_study_plan_ref: homeschool-russian-only-weekly-plan
+    parent_guidance:
+      adult_roles:
+        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
+          purpose_ru: Участие взрослого в выполнении не требуется.
+          role: none
+      allowed_actions_ru:
+        - Подготовить место и материалы.
+        - Убрать отвлекающие факторы и помочь запустить таймер.
+        - Хранить ключ закрытым до самостоятельной попытки.
+        - Выслушать объяснение, не заканчивая ответ за ребёнка.
+        - Напомнить сверить ответ и отметить исправление другим цветом.
+        - Обеспечить только явно требуемый надзор безопасности.
+        - Помочь передать нерешённый вопрос предметному учителю.
+      answer_access:
+        correction_method: separate_colour
+        first_attempt_without_answer: true
+        key_release: self_managed_after_attempt
+      artifact_type: parent_guidance
+      escalation_triggers_ru:
+        - Ребёнок не понимает предоставленное учителем объяснение.
+        - Ключ и учебный материал противоречат друг другу.
+        - Практическая инструкция неясна или условие безопасности не выполнено.
+        - Повторяющаяся ошибка не исправляется после сверки.
+        - Требуется новое предметное объяснение.
+        - Нужный ресурс недоступен.
+        - Запланированное время систематически нереалистично.
+      guidance_id: homeschool-russian-only-parent-guidance
+      known_limits:
+        - Взрослый не считается предметным учителем.
+        - Инструкции и временные оценки требуют teacher review и домашней апробации.
+      prohibited_actions_ru:
+        - Не давать ответ до самостоятельной попытки.
+        - Не придумывать предметное объяснение и не менять научные утверждения учителя.
+        - Не менять процедуру или меры безопасности.
+        - Не считать эстонскую беглость доказательством предметного понимания.
+        - Не снижать предметный результат только из-за формы эстонского ответа.
+        - Не разрешать практическую работу без разрешения предметного учителя.
+      responsibility_boundary:
+        adult_safety_supervision_ru: Взрослый выполняет только указанный надзор и не меняет процедуру.
+        adult_support_ru: Взрослый организует условия и разрешённую поддержку, но не создаёт предметный ответ.
+        child_responsibility_ru: Ребёнок выполняет попытку, объясняет, сверяет и отмечает нерешённый вопрос.
+        subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
+          процедуру и разрешение практической работы.
+      safety:
+        adapted_supervision_required: false
+        adult_supervision_required: false
+        controls_ru: []
+        effective_supervision_required: false
+        source_supervision_required: false
+        teacher_authorization_required: false
+      schema_version: "1.0"
+      status:
+        home_trial: not_started
+        homeschool_ready: false
+        teacher_review: pending
+      timing:
+        adult_answer_access_minutes: 0
+        adult_live_support_minutes: 0
+        adult_preparation_minutes: 0
+        adult_safety_minutes: 0
+        total_adult_minutes: 0
+    weekly_study_plan:
+      artifact_type: weekly_study_plan
+      contingency:
+        minutes: 2
+        use_ru: Используй резерв только для повторного чтения инструкции или записи вопроса учителю.
+      plan_id: homeschool-russian-only-weekly-plan
+      schema_version: "1.0"
+      sessions:
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: closed
+          answer_binding: null
+          break_minutes: 0
+          learner_minutes: 21
+          package_step_ids:
+            - step-01-orientation
+            - step-02-independent-practice
+          purpose: core_learning
+          relative_window: null
+          retrieval_type: none
+          review_instruction_ru: null
+          session_index: 1
+          source_access_policy: open
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - reflection
+              - retrieval
+            answer_key_refs:
+              - russian-check-key
+              - russian-retrieval-key
+            origins:
+              - exact_adapted
+              - mapped_source
+          break_minutes: 0
+          learner_minutes: 17
+          package_step_ids:
+            - step-03-retrieval
+            - step-04-reflection
+          purpose: retrieval_and_correction
+          relative_window: null
+          retrieval_type: immediate
+          review_instruction_ru: null
+          session_index: 2
+          source_access_policy: mixed_by_step
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - russian-retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_days: 7
+            capability: retrieval
+          retrieval_type: delayed_after_days
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+        - adult_minutes: 0
+          adult_roles: []
+          answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - russian-retrieval-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-retrieval
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 4
+          source_access_policy: closed
+      total_adult_minutes: 0
+      total_learner_minutes: 52
+      week_structure:
+        learner_session_minutes: 25
+        maximum_sessions: 6
+        schedule_type: relative
+      weekly_review:
+        included: true
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
+        relative_windows:
+          - after_days: 7
+            capability: retrieval
+          - after_lessons: 1
+            capability: retrieval
+  - example_id: supervised-practical-package
+    homeschool_lesson_dna:
+      artifact_type: lesson_dna
+      assessment:
+        estonian_language_assessment:
+          enabled: false
+          notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+          target_phase_ids: []
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment:
+          enabled: true
+          notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+            предметный результат.
+          target_phase_ids:
+            - evidence-check
+      context:
+        delivery_mode: parent_supported
+        duration_minutes: 180
+        grade: 5
+        group_size: 1
+        language_policy:
+          estonian_support:
+            allowed_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            enabled: true
+            learner_level: A1-A2
+            subject_explanation_language: ru
+          maximum_total_productive_language_demand: medium
+          primary_instruction_language: ru
+        request_digest: b836f80fcf61aabc5ec23fdfcdfaacc4a9aa8d25fedfc9e44fe551218ea11d2b
+        request_id: homeschool-practical-supervised-selection
+        subject: science
+      differentiation:
+        extensions: []
+        scaffolds:
+          - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+          - Provide a bounded Estonian word bank for the selected terminology or labels.
+      known_limits:
+        - classroom_trial_not_started
+        - no_effectiveness_claim
+        - per_language_productive_demand_not_modelled
+        - selection_weights_provisional
+        - taxonomy_ratings_provisional
+        - teacher_review_pending
+      lesson_dna_id: homeschool-practical-supervised-selection-dna
+      pattern:
+        pattern_id: safe-practical-investigation
+        rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+          оценкой эффективности.
+        selection_origin: request_required
+      phases:
+        - activity_minutes: 3
+          capabilities:
+            primary:
+              - prior_knowledge_activation
+            supporting:
+              - collaborative_practice
+              - formative_assessment
+              - oral_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            primary_language: ru
+          phase: orientation
+          phase_id: safety-orientation
+          purpose_ru: Сделать цель, критерии наблюдения и ограничения безопасности явными.
+          rationale_ru: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: brainstorming
+            execution_profile_id: null
+            target_id: brainstorming
+          transition_minutes: 0
+        - activity_minutes: 20
+          capabilities:
+            primary:
+              - evidence_based_conclusion
+              - guided_practice
+              - measurement
+              - observation
+            supporting:
+              - independent_practice
+          cleanup_minutes: 10
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            primary_language: ru
+          phase: guided_practice
+          phase_id: practical-work
+          purpose_ru: Выполнить разрешённые действия и фиксировать наблюдаемые данные.
+          rationale_ru: Target learning-stations::practical-observation-measurement прошёл hard constraints и
+            получил наивысший допустимый вклад в согласованную композицию; это не effectiveness
+            ranking.
+          required: true
+          resources:
+            required:
+              - laboratory_materials
+              - measuring_tools
+              - paper
+              - writing_tool
+          safety:
+            controls_ru:
+              - Использовать только заранее проверенные безопасные материалы.
+              - Показать обращение с измерительными инструментами до начала работы.
+              - Немедленно убрать разлив или повреждённое оборудование.
+              - Выполнить уборку и возврат материалов под контролем взрослого.
+            requires_adult_supervision: true
+          setup_minutes: 10
+          source_access:
+            first_attempt: allowed
+          target:
+            activity_id: learning-stations
+            execution_profile_id: practical-observation-measurement
+            target_id: learning-stations::practical-observation-measurement
+          transition_minutes: 0
+        - activity_minutes: 2
+          capabilities:
+            primary:
+              - formative_assessment
+            supporting:
+              - reflection
+              - retrieval
+              - written_production
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            primary_language: ru
+          phase: formative_assessment
+          phase_id: evidence-check
+          purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
+          rationale_ru: Target exit-ticket прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: exit-ticket
+            execution_profile_id: null
+            target_id: exit-ticket
+          transition_minutes: 0
+        - activity_minutes: 8
+          capabilities:
+            primary:
+              - concept_formation
+              - visual_representation
+            supporting:
+              - classification
+              - comparison
+              - diagram_interpretation
+              - formative_assessment
+              - retrieval
+          cleanup_minutes: 0
+          group_format: individual
+          language_role:
+            estonian_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            primary_language: ru
+          phase: retrieval
+          phase_id: conclusion
+          purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+          rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
+            согласованную композицию; это не effectiveness ranking.
+          required: true
+          resources:
+            required:
+              - paper
+              - writing_tool
+          safety:
+            controls_ru: []
+            requires_adult_supervision: false
+          setup_minutes: 2
+          source_access:
+            first_attempt: prohibited
+          target:
+            activity_id: concept-map
+            execution_profile_id: null
+            target_id: concept-map
+          transition_minutes: 0
+      retrieval_plan:
+        correction_phase_id: null
+        delayed:
+          - after_lessons: 1
+            capability: retrieval
+        immediate_phase_id: conclusion
+      schema_version: "1.0"
+      status:
+        classroom_ready: false
+        classroom_trial: not_started
+        effectiveness_claimed: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_overrides: []
+      timing:
+        activity_minutes: 33
+        cleanup_minutes: 10
+        fits: true
+        reserve_minutes: 3
+        setup_minutes: 16
+        total_planned_minutes: 62
+        transition_minutes: 0
+        unallocated_minutes: 118
+      versions:
+        activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+        engine: "1.1"
+        lesson_dna_schema: "1.0"
+        selection_rules: "1.0"
+        taxonomy: "1.0"
+      warnings:
+        - Capability ratings and selection weights are provisional project-authored metadata.
+        - The proposal requires teacher review and does not claim learning effectiveness.
+    package:
+      artifact_type: homeschool_package
+      assessment:
+        estonian_language_assessment: false
+        separation_policy: separate_subject_and_estonian_language_evidence
+        subject_assessment: true
+      context:
+        estonian_support:
+          allowed_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - terminology
+          enabled: true
+          learner_level: A1-A2
+        grade: 5
+        homeschool_lesson_dna_id: homeschool-practical-supervised-selection-dna
+        learner_count: 1
+        learner_session_minutes: 45
+        maximum_sessions: 6
+        primary_instruction_language: ru
+        subject: science
+        variant: parent_child
+      known_limits:
+        - homeschool_rules_provisional
+        - teacher_review_pending
+        - home_trial_not_started
+        - no_effectiveness_claim
+        - teacher_provided_content_not_rendered
+      learner_plan:
+        breaks: []
+        contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+        correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+        reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+        retrieval_ru: Сначала восстанови главное без открытого источника.
+        self_check_ru: Открой ключ только после самостоятельной попытки.
+        steps:
+          - adult_involvement: listening_partner
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+            learner_minutes: 5
+            material_refs:
+              - practical-safety-card
+            phase_id: safety-orientation
+            safety_controls_ru: []
+            source_access: open
+            step_id: step-01-safety-orientation
+            task_refs:
+              - practical-safety-check
+          - adult_involvement: safety_supervision
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            instruction_ru: Выполни только разрешённое действие вместе со взрослым и запиши наблюдение.
+            learner_minutes: 40
+            material_refs:
+              - practical-observation-table
+            phase_id: practical-work
+            safety_controls_ru:
+              - Выполнить уборку и возврат материалов под контролем взрослого.
+              - Использовать только заранее проверенные безопасные материалы.
+              - Немедленно убрать разлив или повреждённое оборудование.
+              - Показать обращение с измерительными инструментами до начала работы.
+            source_access: open
+            step_id: step-02-practical-work
+            task_refs:
+              - practical-observation-task
+          - adult_involvement: none
+            completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+            estonian_roles: []
+            instruction_ru: Попроси взрослого открыть ключ после попытки и исправь ошибку другим цветом.
+            learner_minutes: 4
+            material_refs:
+              - practical-observation-table
+            phase_id: evidence-check
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-03-evidence-check
+            task_refs:
+              - practical-evidence-task
+          - adult_involvement: logistical_support
+            completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+            estonian_roles:
+              - familiar_instruction
+              - labels
+              - sentence_frame
+              - terminology
+            instruction_ru: Закрой источник и выполни попытку по памяти.
+            learner_minutes: 10
+            material_refs:
+              - practical-conclusion-card
+            phase_id: conclusion
+            safety_controls_ru: []
+            source_access: closed
+            step_id: step-04-conclusion
+            task_refs:
+              - practical-conclusion-task
+        success_criteria_refs:
+          - homeschool-practical-supervised-success-criteria
+        visible_goal_ref: homeschool-practical-supervised-visible-goal
+      materials:
+        answer_key_refs:
+          - practical-conclusion-key
+          - practical-evidence-key
+        cleanup_steps_ru:
+          - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+        consumable_materials:
+          - paper
+        learner_material_refs:
+          - practical-conclusion-card
+          - practical-observation-table
+          - practical-safety-card
+        phase_binding_summary:
+          - adapted_phase_id: conclusion
+            answer_key_refs:
+              - practical-conclusion-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-conclusion-card
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids:
+              - conclusion
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: evidence-check
+            answer_key_refs:
+              - practical-evidence-key
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-observation-table
+            procedure_refs: []
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: adult_managed
+            review_capable: true
+            safety_refs: []
+            source_access_policy: closed
+            source_phase_ids:
+              - evidence-check
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: practical-work
+            answer_key_refs: []
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-observation-table
+            procedure_refs:
+              - practical-procedure
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs:
+              - practical-safety-card
+            source_access_policy: open
+            source_phase_ids:
+              - practical-work
+            teacher_explanation_refs: []
+            valid: true
+          - adapted_phase_id: safety-orientation
+            answer_key_refs: []
+            binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-safety-card
+            procedure_refs:
+              - practical-procedure
+            rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
+              phases.
+            release_policy: not_applicable
+            review_capable: false
+            safety_refs:
+              - practical-safety-card
+            source_access_policy: open
+            source_phase_ids:
+              - safety-orientation
+            teacher_explanation_refs:
+              - practical-teacher-explanation
+            valid: true
+        preparation_steps_ru:
+          - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+        reusable_materials:
+          - board
+          - laboratory_materials
+          - measuring_tools
+          - printable_cards
+      package_id: homeschool-practical-supervised-package
+      parent_guidance_ref: homeschool-practical-supervised-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - conclusion
+            - evidence-check
+          answer_key_refs:
+            - practical-conclusion-key
+            - practical-evidence-key
+          origins:
+            - exact_adapted
+          release_policy: adult_managed
+          session_index: 3
+      safety:
+        adapted_supervision_required: true
+        adult_supervision_required: true
+        controls_ru:
+          - Выполнить уборку и возврат материалов под контролем взрослого.
+          - Использовать только заранее проверенные безопасные материалы.
+          - Немедленно убрать разлив или повреждённое оборудование.
+          - Показать обращение с измерительными инструментами до начала работы.
+        effective_supervision_required: true
+        risk_summary_ru: Есть практический этап с обязательным надзором взрослого.
+        source_supervision_required: true
+        stop_conditions_ru:
+          - Остановись, если инструкция, материал или условие безопасности неясны.
+          - Не продолжай практическое действие без требуемого взрослого.
+        teacher_authorization_required: true
+      schema_version: "1.0"
+      source_identity:
+        source_lesson_dna_digest: 8202b6aa931069a0a1c932c6c2236d8af86e73fa80d462d8e429fd5f0e111f93
+        source_lesson_dna_id: grade5-safe-practical-dna
+        source_request_digest: 023bf09a27becea78190f18d15d6106cde5846353c8ffa508f1c25885979e938
+        source_request_id: grade5-safe-practical
+        source_selection_versions:
+          activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+          engine: "1.1"
+          lesson_dna_schema: "1.0"
+          selection_rules: "1.0"
+          taxonomy: "1.0"
+      status:
+        effectiveness_claimed: false
+        home_trial: not_started
+        homeschool_ready: false
+        structural_state: proposed
+        teacher_review: pending
+      teacher_override_adaptations: []
+      timing:
+        adult_minutes: 51
+        break_minutes: 0
+        cleanup_minutes: 10
+        contingency_minutes: 2
+        delayed_retrieval_minutes: 6
+        learner_activity_minutes: 33
+        setup_minutes: 16
+        total_learner_minutes: 67
+        transition_minutes: 0
+        weekly_review_minutes: 0
+      warnings:
+        - code: adaptable_homeschool_target
+          rationale_ru: Target brainstorming требует явно описанной homeschool adaptation.
+      weekly_study_plan_ref: homeschool-practical-supervised-weekly-plan
+    parent_guidance:
+      adult_roles:
+        - bounded_action_ru: Не объяснять предметный ответ и не исправлять работу вместо ребёнка.
+          purpose_ru: Открывать релевантный ключ только после завершённой самостоятельной попытки.
+          role: check_answers
+        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
+          purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
+          role: listening_partner
+        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
+          purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
+          role: logistical_support
+        - bounded_action_ru: Контролировать только разрешённые материалы, остановку и уборку.
+          purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
+          role: safety_supervision
+      allowed_actions_ru:
+        - Подготовить место и материалы.
+        - Убрать отвлекающие факторы и помочь запустить таймер.
+        - Хранить ключ закрытым до самостоятельной попытки.
+        - Выслушать объяснение, не заканчивая ответ за ребёнка.
+        - Напомнить сверить ответ и отметить исправление другим цветом.
+        - Обеспечить только явно требуемый надзор безопасности.
+        - Помочь передать нерешённый вопрос предметному учителю.
+      answer_access:
+        correction_method: separate_colour
+        first_attempt_without_answer: true
+        key_release: adult_managed
+      artifact_type: parent_guidance
+      escalation_triggers_ru:
+        - Ребёнок не понимает предоставленное учителем объяснение.
+        - Ключ и учебный материал противоречат друг другу.
+        - Практическая инструкция неясна или условие безопасности не выполнено.
+        - Повторяющаяся ошибка не исправляется после сверки.
+        - Требуется новое предметное объяснение.
+        - Нужный ресурс недоступен.
+        - Запланированное время систематически нереалистично.
+      guidance_id: homeschool-practical-supervised-parent-guidance
+      known_limits:
+        - Взрослый не считается предметным учителем.
+        - Инструкции и временные оценки требуют teacher review и домашней апробации.
+      prohibited_actions_ru:
+        - Не давать ответ до самостоятельной попытки.
+        - Не придумывать предметное объяснение и не менять научные утверждения учителя.
+        - Не менять процедуру или меры безопасности.
+        - Не считать эстонскую беглость доказательством предметного понимания.
+        - Не снижать предметный результат только из-за формы эстонского ответа.
+        - Не разрешать практическую работу без разрешения предметного учителя.
+      responsibility_boundary:
+        adult_safety_supervision_ru: Взрослый выполняет только указанный надзор и не меняет процедуру.
+        adult_support_ru: Взрослый организует условия и разрешённую поддержку, но не создаёт предметный ответ.
+        child_responsibility_ru: Ребёнок выполняет попытку, объясняет, сверяет и отмечает нерешённый вопрос.
+        subject_teacher_responsibility_ru: Предметный учитель отвечает за научное объяснение, ключ,
+          процедуру и разрешение практической работы.
+      safety:
+        adapted_supervision_required: true
+        adult_supervision_required: true
+        controls_ru:
+          - Выполнить уборку и возврат материалов под контролем взрослого.
+          - Использовать только заранее проверенные безопасные материалы.
+          - Немедленно убрать разлив или повреждённое оборудование.
+          - Показать обращение с измерительными инструментами до начала работы.
+        effective_supervision_required: true
+        source_supervision_required: true
+        teacher_authorization_required: true
+      schema_version: "1.0"
+      status:
+        home_trial: not_started
+        homeschool_ready: false
+        teacher_review: pending
+      timing:
+        adult_answer_access_minutes: 2
+        adult_live_support_minutes: 6
+        adult_preparation_minutes: 3
+        adult_safety_minutes: 40
+        total_adult_minutes: 51
+    weekly_study_plan:
+      artifact_type: weekly_study_plan
+      contingency:
+        minutes: 2
+        use_ru: Используй резерв только для повторного чтения инструкции или записи вопроса учителю.
+      plan_id: homeschool-practical-supervised-weekly-plan
+      schema_version: "1.0"
+      sessions:
+        - adult_minutes: 44
+          adult_roles:
+            - listening_partner
+            - safety_supervision
+          answer_access: closed
+          answer_binding: null
+          break_minutes: 0
+          learner_minutes: 45
+          package_step_ids:
+            - step-01-safety-orientation
+            - step-02-practical-work
+          purpose: core_learning
+          relative_window: null
+          retrieval_type: none
+          review_instruction_ru: null
+          session_index: 1
+          source_access_policy: open
+        - adult_minutes: 3
+          adult_roles:
+            - check_answers
+            - logistical_support
+          answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - conclusion
+              - evidence-check
+            answer_key_refs:
+              - practical-conclusion-key
+              - practical-evidence-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 14
+          package_step_ids:
+            - step-03-evidence-check
+            - step-04-conclusion
+          purpose: core_learning
+          relative_window: null
+          retrieval_type: immediate
+          review_instruction_ru: null
+          session_index: 2
+          source_access_policy: closed
+        - adult_minutes: 1
+          adult_roles:
+            - check_answers
+          answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - conclusion
+              - evidence-check
+            answer_key_refs:
+              - practical-conclusion-key
+              - practical-evidence-key
+            origins:
+              - exact_adapted
+          break_minutes: 0
+          learner_minutes: 6
+          package_step_ids:
+            - step-03-evidence-check
+            - step-04-conclusion
+          purpose: delayed_retrieval
+          relative_window:
+            after_lessons: 1
+            capability: retrieval
+          retrieval_type: delayed_after_lessons
+          review_instruction_ru: В указанное относительное окно сначала ответь без источника, затем открой
+            ключ и исправь ошибку.
+          session_index: 3
+          source_access_policy: closed
+      total_adult_minutes: 51
+      total_learner_minutes: 67
+      week_structure:
+        learner_session_minutes: 45
+        maximum_sessions: 6
+        schedule_type: relative
+      weekly_review:
+        included: true
+        notes_ru: Каждое относительное окно представлено отдельной machine-readable review session;
+          абсолютные даты не создаются.
+        relative_windows:
+          - after_lessons: 1
+            capability: retrieval
+schema_version: "1.0"

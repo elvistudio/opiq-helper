@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/weekly-study-plan.schema.json",
+  "title": "Relative homeschool weekly study plan",
+  "$ref": "#/$defs/weeklyStudyPlan",
+  "$defs": {
+    "weeklyStudyPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "plan_id",
+        "week_structure",
+        "sessions",
+        "weekly_review",
+        "contingency",
+        "total_learner_minutes",
+        "total_adult_minutes"
+      ],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "artifact_type": {"const": "weekly_study_plan"},
+        "plan_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "week_structure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schedule_type", "maximum_sessions", "learner_session_minutes"],
+          "properties": {
+            "schedule_type": {"const": "relative"},
+            "maximum_sessions": {"type": "integer", "minimum": 1, "maximum": 10},
+            "learner_session_minutes": {"type": "integer", "minimum": 10, "maximum": 60}
+          }
+        },
+        "sessions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/session"}
+        },
+        "weekly_review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["included", "relative_windows", "notes_ru"],
+          "properties": {
+            "included": {"type": "boolean"},
+            "relative_windows": {
+              "type": "array",
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/retrievalWindow"
+              }
+            },
+            "notes_ru": {"type": "string", "minLength": 1}
+          }
+        },
+        "contingency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["minutes", "use_ru"],
+          "properties": {
+            "minutes": {"type": "integer", "minimum": 0},
+            "use_ru": {"type": "string", "minLength": 1}
+          }
+        },
+        "total_learner_minutes": {"type": "integer", "minimum": 1},
+        "total_adult_minutes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "session_index",
+        "purpose",
+        "package_step_ids",
+        "learner_minutes",
+        "adult_minutes",
+        "adult_roles",
+        "break_minutes",
+        "source_access_policy",
+        "retrieval_type",
+        "answer_access",
+        "answer_binding",
+        "relative_window",
+        "review_instruction_ru"
+      ],
+      "properties": {
+        "session_index": {"type": "integer", "minimum": 1, "maximum": 10},
+        "purpose": {
+          "enum": ["core_learning", "retrieval_and_correction", "delayed_retrieval", "weekly_review"]
+        },
+        "package_step_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+          }
+        },
+        "learner_minutes": {"type": "integer", "minimum": 1},
+        "adult_minutes": {"type": "integer", "minimum": 0},
+        "adult_roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "logistical_support",
+              "listening_partner",
+              "check_answers",
+              "active_participant",
+              "safety_supervision"
+            ]
+          }
+        },
+        "break_minutes": {"type": "integer", "minimum": 0},
+        "source_access_policy": {
+          "enum": ["mixed_by_step", "open", "closed", "not_applicable"]
+        },
+        "retrieval_type": {
+          "enum": [
+            "none",
+            "immediate",
+            "delayed_after_days",
+            "delayed_after_lessons",
+            "next_unit_review",
+            "weekly"
+          ]
+        },
+        "answer_access": {
+          "enum": ["closed", "after_attempt", "adult_managed", "self_managed_after_attempt"]
+        },
+        "answer_binding": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/answerBinding"}
+          ]
+        },
+        "relative_window": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/retrievalWindow"
+            }
+          ]
+        },
+        "review_instruction_ru": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "minLength": 1}
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "purpose": {"enum": ["delayed_retrieval", "weekly_review"]}
+            },
+            "required": ["purpose"]
+          },
+          "then": {
+            "properties": {
+              "source_access_policy": {"const": "closed"},
+              "relative_window": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/retrievalWindow"
+              },
+              "review_instruction_ru": {"type": "string", "minLength": 1},
+              "answer_binding": {"$ref": "#/$defs/answerBinding"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"answer_access": {"const": "adult_managed"}},
+            "required": ["answer_access"]
+          },
+          "then": {
+            "properties": {
+              "adult_minutes": {"type": "integer", "minimum": 1},
+              "adult_roles": {
+                "type": "array",
+                "contains": {"const": "check_answers"}
+              },
+              "answer_binding": {"$ref": "#/$defs/answerBinding"}
+            }
+          }
+        }
+      ]
+    },
+    "answerBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapted_phase_ids", "answer_key_refs", "origins"],
+      "properties": {
+        "adapted_phase_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "answer_key_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "origins": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["exact_adapted", "mapped_source"]}
+        }
+      }
+    }
+  }
+}

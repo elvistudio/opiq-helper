@@ -14,11 +14,11 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
-      engine: "1.0"
+      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      engine: "1.1"
     context:
       request_id: grade5-concept-introduction
-      request_digest: 83345e1db9484e7b3b9fc18ae0ac3355cdc7111bda78e6282a1fdcd3b05646c9
+      request_digest: 1400dcca2b19811ab5d3dfbb07b1806008e7bfda79466fe1913eb23df0315f94
       grade: 5
       subject: science
       duration_minutes: 45
@@ -257,6 +257,8 @@ examples:
           capability: retrieval
         - after_lessons: 1
           capability: retrieval
+        - capability: retrieval
+          next_unit: true
     differentiation:
       scaffolds:
         - Use one short Estonian sentence frame while retaining Russian subject reasoning.
@@ -286,8 +288,8 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
-      engine: "1.0"
+      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      engine: "1.1"
     context:
       request_id: grade5-independent-retrieval
       request_digest: 8679202ea760f50adcd3e434bf43bd3691ea0dcbeacb1b64afb2c2fd40c88a3f
@@ -513,8 +515,8 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
-      engine: "1.0"
+      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      engine: "1.1"
     context:
       request_id: grade5-map-diagram
       request_digest: 3911a76b9ee1d70df4fd839f9e04c529ee15ea99a1d3d1b81907327b32dfe4f5
@@ -708,8 +710,8 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: aa5499af7583345f3bffe892d7f26fe94c2bc4fa4ffed760269e58a45b0ceec1
-      engine: "1.0"
+      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      engine: "1.1"
     context:
       request_id: grade5-safe-practical
       request_digest: 023bf09a27becea78190f18d15d6106cde5846353c8ffa508f1c25885979e938

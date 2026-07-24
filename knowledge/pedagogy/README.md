@@ -28,10 +28,16 @@ The initial catalog contains:
   weighted ranking or lesson composition.
 - `selection/selection-rules.yaml` stores visible versioned hard constraints,
   integer scoring, timing, and combination rules.
-- `selection/grade-5-selection-fixtures.yaml` contains seven successful and two
+- `selection/grade-5-selection-fixtures.yaml` contains ten successful and two
   structured-failure requests.
 - `selection/lesson-dna-examples.yaml` stores four generated, machine-validated
   proposed DNA examples.
+- `homeschool/homeschool-rules.yaml` defines versioned phase, timing,
+  answer-access, adult-role, and package rules.
+- `homeschool/grade-5-homeschool-fixtures.yaml` contains 18 adaptation
+  scenarios: 11 success cases and seven structured failures.
+- `homeschool/homeschool-package-examples.yaml` stores five deterministic
+  proposed packages with parent guidance and relative weekly plans.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.
@@ -67,6 +73,9 @@ npm run query:pedagogy -- --fixture homeschool-low-support-retrieval
 npm run test:pedagogy-selection
 npm run check:pedagogy-selection
 npm run select:pedagogy
+npm run test:pedagogy-homeschool
+npm run check:pedagogy-homeschool
+npm run adapt:homeschool
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -98,9 +107,28 @@ scaffolds, and optional assessment. Disabled support requires
 productive-language constraint. The catalog does not yet provide per-language
 demand ratings.
 
+Selection engine 1.1 also distinguishes real one-learner study from
+collaborative remote/sibling study. The homeschool adapter turns relative
+retrieval windows into counted sessions, validates source/adapted/effective
+safety on the final DNA, resolves answer and procedure bindings per adapted
+phase, and preserves teacher override identity through actual versioned
+pattern slots. Review sessions retain relevant closed-source key provenance.
+`adult_managed` answer access requires an available `check_answers` adult and
+visible provisional answer-access time. Core sessions derive that access only
+from validated answer-binding decisions after session packing, so retrieval,
+correction, and self-check phases share one contract without phase-ID
+heuristics. Optional keys do not trigger release, and one affected session gets
+one provisional release minute even when it contains multiple bound phases. A
+source explanation may instead use a bounded teacher-provided source segment.
+These checks establish structural consistency only; all packages remain
+proposed, pending teacher review and home trial.
+
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.
 See [`docs/pedagogical-taxonomy.md`](../../docs/pedagogical-taxonomy.md) for
 taxonomy semantics and filtering boundaries.
 See [`docs/lesson-pedagogy-engine.md`](../../docs/lesson-pedagogy-engine.md) for
 selection requests, versioned rules, lesson DNA, failures, and CLI usage.
+See [`docs/homeschool-learning-engine.md`](../../docs/homeschool-learning-engine.md)
+for source/DNA validation, home variants, parent boundaries, answer access,
+weekly plans, and readiness limits.

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-fixtures.schema.json",
+  "title": "Grade 5 homeschool adaptation fixtures",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "fixtures"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "artifact_type": {"const": "homeschool_adaptation_fixtures"},
+    "fixtures": {
+      "type": "array",
+      "minItems": 10,
+      "items": {"$ref": "#/$defs/fixture"}
+    }
+  },
+  "$defs": {
+    "fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixture_id",
+        "description_ru",
+        "source_fixture_id",
+        "adaptation_context",
+        "content_bindings",
+        "expected"
+      ],
+      "properties": {
+        "fixture_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "description_ru": {"type": "string", "minLength": 1},
+        "source_fixture_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "adaptation_context": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-adaptation-request.schema.json#/$defs/adaptationContext"
+        },
+        "content_bindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-adaptation-request.schema.json#/$defs/contentBinding"
+          }
+        },
+        "expected": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "failure_code",
+            "pattern_id",
+            "variant",
+            "include_target_ids",
+            "exclude_target_ids",
+            "warning_codes",
+            "example_id"
+          ],
+          "properties": {
+            "status": {"enum": ["success", "failure"]},
+            "failure_code": {
+              "oneOf": [
+                {"type": "null"},
+                {
+                  "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-adaptation-decision.schema.json#/$defs/failure/properties/code"
+                }
+              ]
+            },
+            "pattern_id": {
+              "oneOf": [
+                {"type": "null"},
+                {
+                  "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+                }
+              ]
+            },
+            "variant": {
+              "enum": ["independent", "parent_child", "remote_peer", "small_sibling_group"]
+            },
+            "include_target_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"
+              }
+            },
+            "exclude_target_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"
+              }
+            },
+            "warning_codes": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"}
+            },
+            "example_id": {
+              "oneOf": [
+                {"type": "null"},
+                {
+                  "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

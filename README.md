@@ -33,7 +33,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
 - `pedagogical-reviews/` contains unfilled review/trial instruments and the privacy-safe evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
-- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, and the deterministic lesson-pedagogy selector; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), and [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md).
+- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, the deterministic lesson-pedagogy selector, and the structural homeschool adaptation engine; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md), and [`docs/homeschool-learning-engine.md`](docs/homeschool-learning-engine.md).
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
 - `external-sources/registry.yaml` is the shared registry for optional verified non-Opiq supplements; it is currently empty.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
@@ -211,6 +211,16 @@ support. Enabled support applies the bounded A1–A2 layer; disabled support
 removes its filtering, scoring, roles, scaffolds, and language assessment
 without relaxing the total productive-language limit. Neither tool changes
 production artifacts.
+
+Selection engine 1.1 applies single-learner compatibility only to a real solo
+learner. Its homeschool layer represents delayed and next-unit retrieval as
+counted sessions, revalidates safety and material bindings on the final
+adapted DNA, binds each review session to relevant phase-level answer-key
+provenance, and carries teacher override ID and rationale through a real
+versioned pattern slot. Adult-managed key release requires an available
+`check_answers` adult and visible answer-access minutes; explanation binding
+may use a bounded teacher-provided source segment. These outputs remain
+structural proposals: teacher review and a home trial are still pending.
 
 ```sh
 npm run test:pedagogy

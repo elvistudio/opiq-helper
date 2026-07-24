@@ -54,8 +54,28 @@
           "items": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/groupFormat"}
         },
         "lesson_duration_minutes": {"type": "integer", "minimum": 10, "maximum": 180},
-        "study_context": {"enum": ["classroom", "individual_study"]}
-      }
+        "study_context": {"enum": ["classroom", "individual_study", "collaborative_study"]}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"study_context": {"const": "individual_study"}},
+            "required": ["study_context"]
+          },
+          "then": {
+            "properties": {"group_size": {"type": "integer", "const": 1}}
+          }
+        },
+        {
+          "if": {
+            "properties": {"study_context": {"const": "collaborative_study"}},
+            "required": ["study_context"]
+          },
+          "then": {
+            "properties": {"group_size": {"type": "integer", "minimum": 2}}
+          }
+        }
+      ]
     },
     "lessonContext": {
       "type": "object",
