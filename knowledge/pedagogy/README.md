@@ -114,10 +114,14 @@ safety on the final DNA, resolves answer and procedure bindings per adapted
 phase, and preserves teacher override identity through actual versioned
 pattern slots. Review sessions retain relevant closed-source key provenance.
 `adult_managed` answer access requires an available `check_answers` adult and
-visible provisional answer-access time; a source explanation may instead use
-a bounded teacher-provided source segment. These checks establish structural
-consistency only; all packages remain proposed, pending teacher review and
-home trial.
+visible provisional answer-access time. Core sessions derive that access only
+from validated answer-binding decisions after session packing, so retrieval,
+correction, and self-check phases share one contract without phase-ID
+heuristics. Optional keys do not trigger release, and one affected session gets
+one provisional release minute even when it contains multiple bound phases. A
+source explanation may instead use a bounded teacher-provided source segment.
+These checks establish structural consistency only; all packages remain
+proposed, pending teacher review and home trial.
 
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.

@@ -12,6 +12,7 @@ import {
   loadPedagogyHomeschoolRepository,
   materializeHomeschoolFixture,
   resolveHomeschoolOverrideSlot,
+  resolveSessionAnswerAccess,
   serializeHomeschoolYaml,
   validateAdaptedBindings,
   validateFinalSafety,
@@ -34,6 +35,27 @@ function requestFor(id) {
 
 function resultFor(id) {
   return adaptLessonForHomeschool(repository, requestFor(id));
+}
+
+function splitCorrectionRequest(keyRelease = 'adult_managed') {
+  const request = requestFor('homeschool-adult-managed-retrieval');
+  request.adaptation_context.learner_session_minutes = 9;
+  request.adaptation_context.answer_access_policy.key_release = keyRelease;
+  return request;
+}
+
+function splitCorrectionResult(keyRelease = 'adult_managed') {
+  return adaptLessonForHomeschool(
+    repository,
+    splitCorrectionRequest(keyRelease),
+  );
+}
+
+function coreSessionForPhase(result, phaseId) {
+  return result.weeklyStudyPlan.sessions.find((session) => (
+    session.relative_window === null
+    && session.package_step_ids.some((stepId) => stepId.endsWith(`-${phaseId}`))
+  ));
 }
 
 function clone(value) {
@@ -1271,6 +1293,187 @@ test('after-attempt answer release creates neither adult role nor adult answer-a
     (session) => !session.adult_roles.includes('check_answers'),
   ));
   assert.equal(result.parentGuidance.timing.adult_answer_access_minutes, 0);
+});
+
+test('a separate correction core session receives adult-managed answer access', () => {
+  const session = coreSessionForPhase(splitCorrectionResult(), 'correction');
+  assert.equal(session.answer_access, 'adult_managed');
+  assert.ok(session.answer_binding.answer_key_refs.length > 0);
+});
+
+test('a separate adult-managed correction core session receives check-answers role', () => {
+  const session = coreSessionForPhase(splitCorrectionResult(), 'correction');
+  assert.deepEqual(session.adult_roles, ['check_answers']);
+});
+
+test('a separate adult-managed correction core session receives one answer-access minute', () => {
+  const session = coreSessionForPhase(splitCorrectionResult(), 'correction');
+  assert.equal(
+    session.adult_minutes,
+    repository.rules.data.timing.adult_key_release_minutes_per_session,
+  );
+});
+
+test('split retrieval and correction are counted as two affected core sessions', () => {
+  const result = splitCorrectionResult();
+  const core = result.weeklyStudyPlan.sessions.filter(
+    (session) => session.relative_window === null && session.answer_access === 'adult_managed',
+  );
+  const reviews = result.weeklyStudyPlan.sessions.filter(
+    (session) => session.relative_window !== null && session.answer_access === 'adult_managed',
+  );
+  assert.deepEqual(core.map((session) => session.session_index), [1, 2]);
+  assert.equal(reviews.length, 2);
+  assert.equal(result.parentGuidance.timing.adult_answer_access_minutes, 4);
+});
+
+test('multiple answer-bearing phases in one core session add one release minute', () => {
+  const result = resultFor('homeschool-adult-managed-retrieval');
+  const session = result.weeklyStudyPlan.sessions.find(
+    (item) => item.relative_window === null,
+  );
+  assert.deepEqual(session.answer_binding.adapted_phase_ids, ['correction', 'retrieval']);
+  assert.equal(
+    session.adult_minutes,
+    repository.rules.data.timing.adult_key_release_minutes_per_session,
+  );
+});
+
+test('reflection without a release-capable binding remains closed and unbound', () => {
+  const result = resultFor('homeschool-map-independent');
+  const access = resolveSessionAnswerAccess({
+    phaseIds: ['reflection'],
+    answerBindingDecisions: result.decision.answer_binding_decisions,
+    requestedReleasePolicy: 'self_managed_after_attempt',
+  });
+  assert.deepEqual(access, {
+    required: false,
+    release_policy: 'closed',
+    answer_binding: null,
+  });
+});
+
+test('self-managed release applies to a separate correction core session', () => {
+  const session = coreSessionForPhase(
+    splitCorrectionResult('self_managed_after_attempt'),
+    'correction',
+  );
+  assert.equal(session.answer_access, 'self_managed_after_attempt');
+  assert.ok(session.answer_binding.answer_key_refs.length > 0);
+});
+
+test('self-managed correction adds neither adult role nor adult time', () => {
+  const session = coreSessionForPhase(
+    splitCorrectionResult('self_managed_after_attempt'),
+    'correction',
+  );
+  assert.deepEqual(session.adult_roles, []);
+  assert.equal(session.adult_minutes, 0);
+});
+
+test('after-attempt release applies to a separate correction core session', () => {
+  const session = coreSessionForPhase(
+    splitCorrectionResult('after_attempt'),
+    'correction',
+  );
+  assert.equal(session.answer_access, 'after_attempt');
+  assert.ok(session.answer_binding.answer_key_refs.length > 0);
+});
+
+test('after-attempt correction adds neither adult role nor adult time', () => {
+  const session = coreSessionForPhase(
+    splitCorrectionResult('after_attempt'),
+    'correction',
+  );
+  assert.deepEqual(session.adult_roles, []);
+  assert.equal(session.adult_minutes, 0);
+});
+
+test('core-session binding contains only phase IDs packed into that session', () => {
+  const result = splitCorrectionResult();
+  for (const session of result.weeklyStudyPlan.sessions.filter(
+    (item) => item.relative_window === null && item.answer_binding,
+  )) {
+    assert.ok(session.answer_binding.adapted_phase_ids.every((phaseId) => (
+      session.package_step_ids.some((stepId) => stepId.endsWith(`-${phaseId}`))
+    )));
+  }
+});
+
+test('a separate correction binding excludes keys from unrelated sessions', () => {
+  const session = coreSessionForPhase(splitCorrectionResult(), 'correction');
+  assert.deepEqual(session.answer_binding, {
+    adapted_phase_ids: ['correction'],
+    answer_key_refs: ['retrieval-correction-key'],
+    origins: ['exact_adapted'],
+  });
+});
+
+test('session answer access is invariant to answer-binding decision order', () => {
+  const result = splitCorrectionResult();
+  const argumentsValue = {
+    phaseIds: ['retrieval', 'correction'],
+    answerBindingDecisions: result.decision.answer_binding_decisions,
+    requestedReleasePolicy: 'adult_managed',
+  };
+  assert.deepEqual(
+    resolveSessionAnswerAccess(argumentsValue),
+    resolveSessionAnswerAccess({
+      ...argumentsValue,
+      answerBindingDecisions: [...argumentsValue.answerBindingDecisions].reverse(),
+    }),
+  );
+});
+
+test('repeated adult-managed split-session output is byte-identical', () => {
+  assert.equal(
+    stablePedagogyJson(splitCorrectionResult()),
+    stablePedagogyJson(splitCorrectionResult()),
+  );
+});
+
+test('adult budget one minute below split-session total fails visibly', () => {
+  const baseline = splitCorrectionResult();
+  const request = splitCorrectionRequest();
+  request.adaptation_context.adult_context.max_support_minutes =
+    baseline.parentGuidance.timing.total_adult_minutes - 1;
+  assert.equal(
+    adaptLessonForHomeschool(repository, request).decision.failure.code,
+    'adult_effort_exceeds_limit',
+  );
+});
+
+test('delayed and weekly review session behavior remains stable', () => {
+  const sessions = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions;
+  assert.equal(sessions.filter((session) => session.purpose === 'delayed_retrieval').length, 2);
+  assert.equal(sessions.filter((session) => session.purpose === 'weekly_review').length, 1);
+  assert.ok(sessions.filter((session) => session.relative_window).every(
+    (session) => session.answer_binding.answer_key_refs.length > 0,
+  ));
+});
+
+test('practical override fixture retains its selected target and override identity', () => {
+  const result = resultFor('homeschool-practical-override-preserved');
+  assert.equal(result.decision.derived_selection_decision.selected_pattern.pattern_id,
+    'safe-practical-investigation');
+  assert.equal(
+    result.decision.teacher_override_adaptations[0].adapted_target_id,
+    'learning-stations::practical-observation-measurement',
+  );
+  assert.equal(result.decision.teacher_override_adaptations[0].status, 'preserved');
+});
+
+test('existing retrieval pattern and selected targets remain unchanged', () => {
+  const result = splitCorrectionResult();
+  assert.equal(
+    result.decision.derived_selection_decision.selected_pattern.pattern_id,
+    'retrieval-and-consolidation',
+  );
+  assert.deepEqual(selectedTargets(result), [
+    'retrieval-self-test',
+    'error-correction',
+    'exit-ticket',
+  ]);
 });
 
 test('every delayed review session has a nonempty validated answer-key binding', () => {

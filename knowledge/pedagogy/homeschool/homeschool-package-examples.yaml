@@ -566,13 +566,7 @@ examples:
         - adult_minutes: 0
           adult_roles: []
           answer_access: closed
-          answer_binding:
-            adapted_phase_ids:
-              - independent-practice
-            answer_key_refs:
-              - concept-practice-key
-            origins:
-              - mapped_source
+          answer_binding: null
           break_minutes: 0
           learner_minutes: 21
           package_step_ids:
@@ -1260,13 +1254,7 @@ examples:
             - check_answers
             - logistical_support
           answer_access: closed
-          answer_binding:
-            adapted_phase_ids:
-              - independent-practice
-            answer_key_refs:
-              - oral-practice-key
-            origins:
-              - mapped_source
+          answer_binding: null
           break_minutes: 0
           learner_minutes: 21
           package_step_ids:
@@ -1818,11 +1806,9 @@ examples:
           answer_access: self_managed_after_attempt
           answer_binding:
             adapted_phase_ids:
-              - consolidation
               - correction
               - retrieval
             answer_key_refs:
-              - retrieval-consolidation-key
               - retrieval-correction-key
               - retrieval-key
             origins:
@@ -2446,13 +2432,7 @@ examples:
         - adult_minutes: 0
           adult_roles: []
           answer_access: closed
-          answer_binding:
-            adapted_phase_ids:
-              - independent-practice
-            answer_key_refs:
-              - russian-practice-key
-            origins:
-              - mapped_source
+          answer_binding: null
           break_minutes: 0
           learner_minutes: 21
           package_step_ids:
@@ -3041,7 +3021,7 @@ examples:
         teacher_review: pending
       teacher_override_adaptations: []
       timing:
-        adult_minutes: 50
+        adult_minutes: 51
         break_minutes: 0
         cleanup_minutes: 10
         contingency_minutes: 2
@@ -3124,11 +3104,11 @@ examples:
         homeschool_ready: false
         teacher_review: pending
       timing:
-        adult_answer_access_minutes: 1
+        adult_answer_access_minutes: 2
         adult_live_support_minutes: 6
         adult_preparation_minutes: 3
         adult_safety_minutes: 40
-        total_adult_minutes: 50
+        total_adult_minutes: 51
     weekly_study_plan:
       artifact_type: weekly_study_plan
       contingency:
@@ -3154,10 +3134,11 @@ examples:
           review_instruction_ru: null
           session_index: 1
           source_access_policy: open
-        - adult_minutes: 2
+        - adult_minutes: 3
           adult_roles:
+            - check_answers
             - logistical_support
-          answer_access: closed
+          answer_access: adult_managed
           answer_binding:
             adapted_phase_ids:
               - conclusion
@@ -3174,7 +3155,7 @@ examples:
             - step-04-conclusion
           purpose: core_learning
           relative_window: null
-          retrieval_type: none
+          retrieval_type: immediate
           review_instruction_ru: null
           session_index: 2
           source_access_policy: closed
@@ -3205,7 +3186,7 @@ examples:
             ключ и исправь ошибку.
           session_index: 3
           source_access_policy: closed
-      total_adult_minutes: 50
+      total_adult_minutes: 51
       total_learner_minutes: 67
       week_structure:
         learner_session_minutes: 45

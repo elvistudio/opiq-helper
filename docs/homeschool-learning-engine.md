@@ -217,6 +217,18 @@ parent is not a science teacher. Even
 `subject_explanation_available: true` cannot authorize invention or alteration
 of subject content.
 
+Core-session answer access is resolved only from validated phase-level
+`answer_binding_decisions` after all session steps have been packed. Retrieval,
+formative correction, and reflection with error correction therefore use the
+same binding and release contract; a phase or slot ID never grants answer
+access. A valid decision must require release, contain a relevant key, and
+belong to the current session. Optional keys with `release_policy:
+not_applicable` do not create a session binding. Adult-managed release adds the
+versioned provisional minute once per affected session, even when that session
+contains several answer-bearing phases. This structural validation establishes
+key provenance and timing consistency; it does not establish the scientific or
+pedagogical quality of the answer key.
+
 ## Timing and weekly plan
 
 Timing parameters in `homeschool-rules.yaml` are project-authored,

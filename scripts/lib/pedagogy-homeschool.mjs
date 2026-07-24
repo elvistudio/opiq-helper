@@ -1050,6 +1050,46 @@ function answerBindingForPhaseIds(answerBindingDecisions, phaseIds, { reviewOnly
   };
 }
 
+export function resolveSessionAnswerAccess({
+  phaseIds,
+  answerBindingDecisions,
+  requestedReleasePolicy,
+}) {
+  const allowedPhaseIds = new Set(uniqueSorted(phaseIds));
+  const rows = answerBindingDecisions
+    .filter((decision) => decision.valid)
+    .filter((decision) => decision.answer_key_refs.length > 0)
+    .filter((decision) => decision.binding_origin !== 'none')
+    .filter((decision) => decision.release_policy !== 'not_applicable')
+    .filter((decision) => allowedPhaseIds.has(decision.adapted_phase_id))
+    .sort((left, right) => compareBytewise(left.adapted_phase_id, right.adapted_phase_id));
+  if (rows.length === 0) {
+    return {
+      required: false,
+      release_policy: 'closed',
+      answer_binding: null,
+    };
+  }
+  const releasePolicies = uniqueSorted(rows.map((row) => row.release_policy));
+  if (
+    releasePolicies.length !== 1
+    || releasePolicies[0] !== requestedReleasePolicy
+  ) {
+    throw new Error(
+      'validated session answer bindings do not match the requested release policy',
+    );
+  }
+  return {
+    required: true,
+    release_policy: releasePolicies[0],
+    answer_binding: {
+      adapted_phase_ids: uniqueSorted(rows.map((row) => row.adapted_phase_id)),
+      answer_key_refs: uniqueSorted(rows.flatMap((row) => row.answer_key_refs)),
+      origins: uniqueSorted(rows.map((row) => row.binding_origin)),
+    },
+  };
+}
+
 function instructionForPhase(phase, hasAdult, answerPolicy) {
   if (phase.safety.requires_adult_supervision) {
     return 'Выполни только разрешённое действие вместе со взрослым и запиши наблюдение.';
@@ -1140,6 +1180,7 @@ function buildLearnerSteps(request, homeschoolDna, adaptations, targets) {
 function packSessions(
   steps,
   roleByPhase,
+  phaseTypeById,
   request,
   repository,
   answerBindingDecisions,
@@ -1151,13 +1192,17 @@ function packSessions(
   let current = null;
   function finish() {
     if (!current) return;
-    current.answer_binding = answerBindingForPhaseIds(
+    const answerAccess = resolveSessionAnswerAccess({
+      phaseIds: current.phase_ids,
       answerBindingDecisions,
-      current.phase_ids,
-    );
+      requestedReleasePolicy:
+        request.adaptation_context.answer_access_policy.key_release,
+    });
+    current.answer_binding = answerAccess.answer_binding;
+    current.answer_access = answerAccess.release_policy;
     if (
-      current.answer_access === 'adult_managed'
-      && current.answer_binding
+      answerAccess.required
+      && answerAccess.release_policy === 'adult_managed'
     ) {
       current.adult_minutes += rules.adult_key_release_minutes_per_session;
       current.adult_roles = uniqueSorted([...current.adult_roles, 'check_answers']);
@@ -1173,7 +1218,7 @@ function packSessions(
     if (!current) {
       current = {
         session_index: sessions.length + 1,
-        purpose: step.phase_id.includes('retrieval')
+        purpose: phaseTypeById.get(step.phase_id) === 'retrieval'
           ? 'retrieval_and_correction'
           : 'core_learning',
         package_step_ids: [],
@@ -1197,7 +1242,7 @@ function packSessions(
       finish();
       current = {
         session_index: sessions.length + 1,
-        purpose: step.phase_id.includes('retrieval')
+        purpose: phaseTypeById.get(step.phase_id) === 'retrieval'
           ? 'retrieval_and_correction'
           : 'core_learning',
         package_step_ids: [],
@@ -1236,9 +1281,8 @@ function packSessions(
       : current.source_access_policy === step.source_access
         ? step.source_access
         : 'mixed_by_step';
-    if (step.phase_id.includes('retrieval')) {
+    if (phaseTypeById.get(step.phase_id) === 'retrieval') {
       current.retrieval_type = 'immediate';
-      current.answer_access = request.adaptation_context.answer_access_policy.key_release;
     }
   }
   finish();
@@ -2072,9 +2116,14 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
     phase.phase_id,
     roleDecisions.find((row) => row.target_id === phase.target.target_id),
   ]));
+  const phaseTypeById = new Map(homeschoolDna.phases.map((phase) => [
+    phase.phase_id,
+    phase.phase,
+  ]));
   const packed = packSessions(
     steps,
     roleByPhase,
+    phaseTypeById,
     request,
     repository,
     bindingValidation.decisions,
