@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-package-examples.schema.json",
+  "title": "Generated homeschool package examples",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "examples"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "artifact_type": {"const": "homeschool_package_examples"},
+    "examples": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "example_id",
+          "homeschool_lesson_dna",
+          "package",
+          "parent_guidance",
+          "weekly_study_plan"
+        ],
+        "properties": {
+          "example_id": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+          },
+          "homeschool_lesson_dna": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/lesson-dna.schema.json#/$defs/lessonDna"
+          },
+          "package": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/homeschool-package.schema.json#/$defs/package"
+          },
+          "parent_guidance": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/parent-guidance.schema.json#/$defs/parentGuidance"
+          },
+          "weekly_study_plan": {
+            "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/weekly-study-plan.schema.json#/$defs/weeklyStudyPlan"
+          }
+        }
+      }
+    }
+  }
+}
