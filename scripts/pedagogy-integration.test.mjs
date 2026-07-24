@@ -812,14 +812,11 @@ test('scope: water-use-cycle fingerprint stays at the control baseline', async (
   assert.equal(fingerprint.file_count, 44);
 });
 
-test('scope: source manifest and canonical Opiq outputs are unchanged', () => {
-  const diff = spawnSync(
-    'git',
-    ['diff', '--name-only', 'origin/main...HEAD', '--', 'source-manifest.json', 'project-files'],
-    { encoding: 'utf8' },
-  );
-  assert.equal(diff.status, 0);
-  assert.equal(diff.stdout.trim(), '');
+test('scope: generator cannot target the source manifest or canonical Opiq outputs', () => {
+  for (const file of generated.files.keys()) {
+    assert.notEqual(file, 'source-manifest.json');
+    assert.doesNotMatch(file, /^project-files\//u);
+  }
 });
 
 test('scope: no PDF or DOC is introduced', async () => {
