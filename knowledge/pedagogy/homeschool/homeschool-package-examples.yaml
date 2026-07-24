@@ -355,25 +355,33 @@ examples:
             answer_key_refs:
               - concept-practice-key
             binding_origin: mapped_source
+            learner_material_refs:
+              - concept-practice-card
+              - concept-source-segment
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - explanation
               - guided-practice
-            teacher_explanation_refs:
-              - concept-teacher-explanation
+            teacher_explanation_refs: []
             valid: true
           - adapted_phase_id: orientation
             answer_key_refs: []
             binding_origin: mapped_source
+            learner_material_refs:
+              - concept-activation-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - activation
             teacher_explanation_refs: []
@@ -382,11 +390,15 @@ examples:
             answer_key_refs:
               - concept-check-key
             binding_origin: mapped_source
+            learner_material_refs:
+              - concept-check-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: self_managed_after_attempt
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - formative-check
             teacher_explanation_refs: []
@@ -395,11 +407,15 @@ examples:
             answer_key_refs:
               - concept-retrieval-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - concept-retrieval-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: self_managed_after_attempt
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids:
               - retrieval
             teacher_explanation_refs: []
@@ -410,6 +426,31 @@ examples:
           - printable_cards
       package_id: homeschool-concept-independent-package
       parent_guidance_ref: homeschool-concept-independent-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - concept-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 3
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - concept-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 4
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - concept-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 5
       safety:
         adapted_supervision_required: false
         adult_supervision_required: false
@@ -509,6 +550,7 @@ examples:
         homeschool_ready: false
         teacher_review: pending
       timing:
+        adult_answer_access_minutes: 0
         adult_live_support_minutes: 0
         adult_preparation_minutes: 0
         adult_safety_minutes: 0
@@ -522,7 +564,15 @@ examples:
       schema_version: "1.0"
       sessions:
         - adult_minutes: 0
+          adult_roles: []
           answer_access: closed
+          answer_binding:
+            adapted_phase_ids:
+              - independent-practice
+            answer_key_refs:
+              - concept-practice-key
+            origins:
+              - mapped_source
           break_minutes: 0
           learner_minutes: 21
           package_step_ids:
@@ -535,7 +585,18 @@ examples:
           session_index: 1
           source_access_policy: open
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - reflection
+              - retrieval
+            answer_key_refs:
+              - concept-check-key
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
+              - mapped_source
           break_minutes: 0
           learner_minutes: 17
           package_step_ids:
@@ -548,7 +609,15 @@ examples:
           session_index: 2
           source_access_policy: mixed_by_step
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -563,7 +632,15 @@ examples:
           session_index: 3
           source_access_policy: closed
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -578,7 +655,15 @@ examples:
           session_index: 4
           source_access_policy: closed
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - concept-retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 8
           package_step_ids:
@@ -975,11 +1060,16 @@ examples:
             answer_key_refs:
               - oral-practice-key
             binding_origin: mapped_source
+            learner_material_refs:
+              - oral-practice-card
+              - oral-source-segment
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - explanation
               - guided-practice
@@ -989,11 +1079,15 @@ examples:
           - adapted_phase_id: orientation
             answer_key_refs: []
             binding_origin: mapped_source
+            learner_material_refs:
+              - oral-activation-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - activation
             teacher_explanation_refs: []
@@ -1002,11 +1096,15 @@ examples:
             answer_key_refs:
               - oral-check-key
             binding_origin: mapped_source
+            learner_material_refs:
+              - oral-check-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: adult_managed
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - formative-check
             teacher_explanation_refs: []
@@ -1015,11 +1113,15 @@ examples:
             answer_key_refs:
               - oral-retrieval-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - oral-retrieval-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: adult_managed
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids:
               - retrieval
             teacher_explanation_refs: []
@@ -1029,6 +1131,15 @@ examples:
         reusable_materials: []
       package_id: homeschool-oral-parent-child-package
       parent_guidance_ref: homeschool-oral-parent-child-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - oral-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: adult_managed
+          session_index: 3
       safety:
         adapted_supervision_required: false
         adult_supervision_required: false
@@ -1060,7 +1171,7 @@ examples:
         teacher_review: pending
       teacher_override_adaptations: []
       timing:
-        adult_minutes: 9
+        adult_minutes: 11
         break_minutes: 0
         cleanup_minutes: 0
         contingency_minutes: 2
@@ -1074,15 +1185,12 @@ examples:
       weekly_study_plan_ref: homeschool-oral-parent-child-weekly-plan
     parent_guidance:
       adult_roles:
-        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
-          purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
+        - bounded_action_ru: Не объяснять предметный ответ и не исправлять работу вместо ребёнка.
+          purpose_ru: Открывать релевантный ключ только после завершённой самостоятельной попытки.
           role: check_answers
         - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
           purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
           role: logistical_support
-        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
-          purpose_ru: Участие взрослого в выполнении не требуется.
-          role: none
       allowed_actions_ru:
         - Подготовить место и материалы.
         - Убрать отвлекающие факторы и помочь запустить таймер.
@@ -1134,10 +1242,11 @@ examples:
         homeschool_ready: false
         teacher_review: pending
       timing:
+        adult_answer_access_minutes: 2
         adult_live_support_minutes: 6
         adult_preparation_minutes: 3
         adult_safety_minutes: 0
-        total_adult_minutes: 9
+        total_adult_minutes: 11
     weekly_study_plan:
       artifact_type: weekly_study_plan
       contingency:
@@ -1147,7 +1256,17 @@ examples:
       schema_version: "1.0"
       sessions:
         - adult_minutes: 4
+          adult_roles:
+            - check_answers
+            - logistical_support
           answer_access: closed
+          answer_binding:
+            adapted_phase_ids:
+              - independent-practice
+            answer_key_refs:
+              - oral-practice-key
+            origins:
+              - mapped_source
           break_minutes: 0
           learner_minutes: 21
           package_step_ids:
@@ -1159,8 +1278,20 @@ examples:
           review_instruction_ru: null
           session_index: 1
           source_access_policy: open
-        - adult_minutes: 2
+        - adult_minutes: 3
+          adult_roles:
+            - check_answers
           answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - reflection
+              - retrieval
+            answer_key_refs:
+              - oral-check-key
+              - oral-retrieval-key
+            origins:
+              - exact_adapted
+              - mapped_source
           break_minutes: 0
           learner_minutes: 11
           package_step_ids:
@@ -1172,8 +1303,17 @@ examples:
           review_instruction_ru: null
           session_index: 2
           source_access_policy: mixed_by_step
-        - adult_minutes: 0
+        - adult_minutes: 1
+          adult_roles:
+            - check_answers
           answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - oral-retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -1187,7 +1327,7 @@ examples:
             ключ и исправь ошибку.
           session_index: 3
           source_access_policy: closed
-      total_adult_minutes: 9
+      total_adult_minutes: 11
       total_learner_minutes: 40
       week_structure:
         learner_session_minutes: 25
@@ -1490,11 +1630,15 @@ examples:
             answer_key_refs:
               - retrieval-consolidation-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - retrieval-consolidation-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids: []
             teacher_explanation_refs: []
             valid: true
@@ -1502,11 +1646,15 @@ examples:
             answer_key_refs:
               - retrieval-correction-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - retrieval-correction-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: self_managed_after_attempt
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids: []
             teacher_explanation_refs: []
             valid: true
@@ -1514,11 +1662,15 @@ examples:
             answer_key_refs:
               - retrieval-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - retrieval-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: self_managed_after_attempt
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids:
               - retrieval
             teacher_explanation_refs: []
@@ -1528,6 +1680,27 @@ examples:
         reusable_materials: []
       package_id: homeschool-retrieval-independent-package
       parent_guidance_ref: homeschool-retrieval-independent-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - consolidation
+            - retrieval
+          answer_key_refs:
+            - retrieval-consolidation-key
+            - retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 2
+        - adapted_phase_ids:
+            - consolidation
+            - retrieval
+          answer_key_refs:
+            - retrieval-consolidation-key
+            - retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 3
       safety:
         adapted_supervision_required: false
         adult_supervision_required: false
@@ -1627,6 +1800,7 @@ examples:
         homeschool_ready: false
         teacher_review: pending
       timing:
+        adult_answer_access_minutes: 0
         adult_live_support_minutes: 0
         adult_preparation_minutes: 0
         adult_safety_minutes: 0
@@ -1640,7 +1814,19 @@ examples:
       schema_version: "1.0"
       sessions:
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - consolidation
+              - correction
+              - retrieval
+            answer_key_refs:
+              - retrieval-consolidation-key
+              - retrieval-correction-key
+              - retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 20
           package_step_ids:
@@ -1654,7 +1840,17 @@ examples:
           session_index: 1
           source_access_policy: mixed_by_step
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - consolidation
+              - retrieval
+            answer_key_refs:
+              - retrieval-consolidation-key
+              - retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -1670,7 +1866,17 @@ examples:
           session_index: 2
           source_access_policy: closed
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - consolidation
+              - retrieval
+            answer_key_refs:
+              - retrieval-consolidation-key
+              - retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -2036,11 +2242,16 @@ examples:
             answer_key_refs:
               - russian-practice-key
             binding_origin: mapped_source
+            learner_material_refs:
+              - russian-practice-card
+              - russian-source-segment
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - explanation
               - guided-practice
@@ -2050,11 +2261,15 @@ examples:
           - adapted_phase_id: orientation
             answer_key_refs: []
             binding_origin: mapped_source
+            learner_material_refs:
+              - russian-activation-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - activation
             teacher_explanation_refs: []
@@ -2063,11 +2278,15 @@ examples:
             answer_key_refs:
               - russian-check-key
             binding_origin: mapped_source
+            learner_material_refs:
+              - russian-check-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: self_managed_after_attempt
+            review_capable: false
             safety_refs: []
+            source_access_policy: open
             source_phase_ids:
               - formative-check
             teacher_explanation_refs: []
@@ -2076,11 +2295,15 @@ examples:
             answer_key_refs:
               - russian-retrieval-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - russian-retrieval-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: self_managed_after_attempt
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids:
               - retrieval
             teacher_explanation_refs: []
@@ -2091,6 +2314,23 @@ examples:
           - printable_cards
       package_id: homeschool-russian-only-package
       parent_guidance_ref: homeschool-russian-only-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - russian-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 3
+        - adapted_phase_ids:
+            - retrieval
+          answer_key_refs:
+            - russian-retrieval-key
+          origins:
+            - exact_adapted
+          release_policy: self_managed_after_attempt
+          session_index: 4
       safety:
         adapted_supervision_required: false
         adult_supervision_required: false
@@ -2190,6 +2430,7 @@ examples:
         homeschool_ready: false
         teacher_review: pending
       timing:
+        adult_answer_access_minutes: 0
         adult_live_support_minutes: 0
         adult_preparation_minutes: 0
         adult_safety_minutes: 0
@@ -2203,7 +2444,15 @@ examples:
       schema_version: "1.0"
       sessions:
         - adult_minutes: 0
+          adult_roles: []
           answer_access: closed
+          answer_binding:
+            adapted_phase_ids:
+              - independent-practice
+            answer_key_refs:
+              - russian-practice-key
+            origins:
+              - mapped_source
           break_minutes: 0
           learner_minutes: 21
           package_step_ids:
@@ -2216,7 +2465,18 @@ examples:
           session_index: 1
           source_access_policy: open
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - reflection
+              - retrieval
+            answer_key_refs:
+              - russian-check-key
+              - russian-retrieval-key
+            origins:
+              - exact_adapted
+              - mapped_source
           break_minutes: 0
           learner_minutes: 17
           package_step_ids:
@@ -2229,7 +2489,15 @@ examples:
           session_index: 2
           source_access_policy: mixed_by_step
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - russian-retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -2244,7 +2512,15 @@ examples:
           session_index: 3
           source_access_policy: closed
         - adult_minutes: 0
+          adult_roles: []
           answer_access: self_managed_after_attempt
+          answer_binding:
+            adapted_phase_ids:
+              - retrieval
+            answer_key_refs:
+              - russian-retrieval-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -2643,11 +2919,15 @@ examples:
             answer_key_refs:
               - practical-conclusion-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-conclusion-card
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: adult_managed
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids:
               - conclusion
             teacher_explanation_refs: []
@@ -2656,11 +2936,15 @@ examples:
             answer_key_refs:
               - practical-evidence-key
             binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-observation-table
             procedure_refs: []
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: adult_managed
+            review_capable: true
             safety_refs: []
+            source_access_policy: closed
             source_phase_ids:
               - evidence-check
             teacher_explanation_refs: []
@@ -2668,13 +2952,17 @@ examples:
           - adapted_phase_id: practical-work
             answer_key_refs: []
             binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-observation-table
             procedure_refs:
               - practical-procedure
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs:
               - practical-safety-card
+            source_access_policy: open
             source_phase_ids:
               - practical-work
             teacher_explanation_refs: []
@@ -2682,13 +2970,17 @@ examples:
           - adapted_phase_id: safety-orientation
             answer_key_refs: []
             binding_origin: exact_adapted
+            learner_material_refs:
+              - practical-safety-card
             procedure_refs:
               - practical-procedure
             rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source
               phases.
             release_policy: not_applicable
+            review_capable: false
             safety_refs:
               - practical-safety-card
+            source_access_policy: open
             source_phase_ids:
               - safety-orientation
             teacher_explanation_refs:
@@ -2703,6 +2995,17 @@ examples:
           - printable_cards
       package_id: homeschool-practical-supervised-package
       parent_guidance_ref: homeschool-practical-supervised-parent-guidance
+      review_binding_summary:
+        - adapted_phase_ids:
+            - conclusion
+            - evidence-check
+          answer_key_refs:
+            - practical-conclusion-key
+            - practical-evidence-key
+          origins:
+            - exact_adapted
+          release_policy: adult_managed
+          session_index: 3
       safety:
         adapted_supervision_required: true
         adult_supervision_required: true
@@ -2738,7 +3041,7 @@ examples:
         teacher_review: pending
       teacher_override_adaptations: []
       timing:
-        adult_minutes: 49
+        adult_minutes: 50
         break_minutes: 0
         cleanup_minutes: 10
         contingency_minutes: 2
@@ -2754,15 +3057,15 @@ examples:
       weekly_study_plan_ref: homeschool-practical-supervised-weekly-plan
     parent_guidance:
       adult_roles:
+        - bounded_action_ru: Не объяснять предметный ответ и не исправлять работу вместо ребёнка.
+          purpose_ru: Открывать релевантный ключ только после завершённой самостоятельной попытки.
+          role: check_answers
         - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
           purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
           role: listening_partner
         - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
           purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
           role: logistical_support
-        - bounded_action_ru: Не давать предметный ответ и не завершать действие вместо ребёнка.
-          purpose_ru: Участие взрослого в выполнении не требуется.
-          role: none
         - bounded_action_ru: Контролировать только разрешённые материалы, остановку и уборку.
           purpose_ru: Поддержать выполнение в пределах указанной операционной роли.
           role: safety_supervision
@@ -2821,10 +3124,11 @@ examples:
         homeschool_ready: false
         teacher_review: pending
       timing:
+        adult_answer_access_minutes: 1
         adult_live_support_minutes: 6
         adult_preparation_minutes: 3
         adult_safety_minutes: 40
-        total_adult_minutes: 49
+        total_adult_minutes: 50
     weekly_study_plan:
       artifact_type: weekly_study_plan
       contingency:
@@ -2834,7 +3138,11 @@ examples:
       schema_version: "1.0"
       sessions:
         - adult_minutes: 44
+          adult_roles:
+            - listening_partner
+            - safety_supervision
           answer_access: closed
+          answer_binding: null
           break_minutes: 0
           learner_minutes: 45
           package_step_ids:
@@ -2847,7 +3155,18 @@ examples:
           session_index: 1
           source_access_policy: open
         - adult_minutes: 2
+          adult_roles:
+            - logistical_support
           answer_access: closed
+          answer_binding:
+            adapted_phase_ids:
+              - conclusion
+              - evidence-check
+            answer_key_refs:
+              - practical-conclusion-key
+              - practical-evidence-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 14
           package_step_ids:
@@ -2859,8 +3178,19 @@ examples:
           review_instruction_ru: null
           session_index: 2
           source_access_policy: closed
-        - adult_minutes: 0
+        - adult_minutes: 1
+          adult_roles:
+            - check_answers
           answer_access: adult_managed
+          answer_binding:
+            adapted_phase_ids:
+              - conclusion
+              - evidence-check
+            answer_key_refs:
+              - practical-conclusion-key
+              - practical-evidence-key
+            origins:
+              - exact_adapted
           break_minutes: 0
           learner_minutes: 6
           package_step_ids:
@@ -2875,7 +3205,7 @@ examples:
             ключ и исправь ошибку.
           session_index: 3
           source_access_policy: closed
-      total_adult_minutes: 49
+      total_adult_minutes: 50
       total_learner_minutes: 67
       week_structure:
         learner_session_minutes: 45

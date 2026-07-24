@@ -36,6 +36,8 @@ const HOMESCHOOL_SCHEMA_FILES = {
 };
 
 const FAILURE_MESSAGES = {
+  adult_managed_answer_access_unavailable:
+    'Adult-managed answer access requires an available adult with the check-answers role.',
   adult_effort_exceeds_limit: 'Adult support exceeds the declared homeschool limit.',
   answer_key_binding_missing: 'A retrieval or self-check phase has no answer-key binding.',
   explanation_binding_missing: 'An adapted explanation phase has no relevant explanation binding.',
@@ -52,6 +54,8 @@ const FAILURE_MESSAGES = {
   source_selection_not_reproducible: 'The source selection cannot be reproduced.',
   stale_source_lesson_dna: 'The source lesson DNA is stale for the current pedagogy catalogue.',
   teacher_override_not_preserved: 'An accepted source teacher override was not preserved.',
+  teacher_override_slot_unresolvable:
+    'An accepted source teacher override cannot be mapped to one real target-pattern slot.',
   timing_unrealistic: 'The adapted plan does not fit the declared sessions.',
   unsupported_homeschool_variant: 'The homeschool variant is unsupported.',
 };
@@ -305,41 +309,78 @@ function validateVariant(repository, request) {
   return errors;
 }
 
+function validateAdultManagedAnswerAccess(request) {
+  if (request.adaptation_context.answer_access_policy.key_release !== 'adult_managed') {
+    return [];
+  }
+  const adult = request.adaptation_context.adult_context;
+  const missing = [];
+  if (!adult.available) missing.push('adult_context.available');
+  if (!adult.allowed_roles.includes('check_answers')) {
+    missing.push('adult_context.allowed_roles check_answers');
+  }
+  return missing.map((item) => `adult-managed answer access requires ${item}`);
+}
+
 function bindingMap(request) {
   return new Map(request.content_bindings.map((binding) => [binding.phase_id, binding]));
 }
 
-function validateBindings(request) {
+function explanationBindingSatisfied(rows) {
+  return mergedBindingValues(rows, 'teacher_explanation_refs').length > 0
+    || mergedBindingValues(rows, 'learner_material_refs').length > 0;
+}
+
+function validateSourceBindings(request) {
   const sourceDna = request.source.lesson_dna;
   const bindings = bindingMap(request);
-  const errors = [];
+  const failures = [];
   if (bindings.size !== request.content_bindings.length) {
-    errors.push('content binding phase IDs must be unique');
+    failures.push({
+      code: 'missing_home_resource',
+      detail: 'content binding phase IDs must be unique',
+    });
   }
   for (const phase of sourceDna.phases) {
     const binding = bindings.get(phase.phase_id);
     if (!binding) {
-      errors.push(`missing content binding for source phase ${phase.phase_id}`);
+      failures.push({
+        code: 'missing_home_resource',
+        detail: `missing content binding for source phase ${phase.phase_id}`,
+      });
       continue;
     }
-    if (phase.phase === 'explanation' && binding.teacher_explanation_refs.length === 0) {
-      errors.push(`explanation phase ${phase.phase_id} has no teacher explanation reference`);
+    if (phase.phase === 'explanation' && !explanationBindingSatisfied([binding])) {
+      failures.push({
+        code: 'explanation_binding_missing',
+        detail:
+          `explanation phase ${phase.phase_id} has neither a teacher explanation `
+          + 'nor a bounded learner source segment',
+      });
     }
     if (
       ['retrieval', 'formative_assessment'].includes(phase.phase)
       && binding.answer_key_refs.length === 0
     ) {
-      errors.push(`answer key is missing for ${phase.phase_id}`);
+      failures.push({
+        code: 'answer_key_binding_missing',
+        detail: `answer key is missing for ${phase.phase_id}`,
+      });
     }
     if (
       request.source.selection_request.lesson_context.context_flags.practical
       && phase.safety.requires_adult_supervision
       && (binding.procedure_refs.length === 0 || binding.safety_refs.length === 0)
     ) {
-      errors.push(`practical phase ${phase.phase_id} needs procedure and safety references`);
+      failures.push({
+        code: 'practical_binding_missing',
+        detail: `practical phase ${phase.phase_id} needs procedure and safety references`,
+      });
     }
   }
-  return errors;
+  return failures.sort(
+    (left, right) => compareBytewise(`${left.code}:${left.detail}`, `${right.code}:${right.detail}`),
+  );
 }
 
 function stricterDemand(sourceLevel, requestedLevel) {
@@ -368,7 +409,118 @@ function requiredPattern(sourceRequest, repository) {
   ] ?? repository.rules.data.pattern_policy.non_practical_default;
 }
 
-export function deriveHomeschoolSelectionRequest(repository, request, sourceOverrides = []) {
+export function resolveHomeschoolOverrideSlot({
+  sourceOverride,
+  sourceLessonDna,
+  sourcePatternId,
+  targetPatternId,
+  phaseMappings,
+  patternPolicies,
+}) {
+  const sourcePhase = sourceLessonDna.phases.find(
+    (phase) => phase.phase_id === sourceOverride.slot_id,
+  ) ?? null;
+  const sourcePolicy = patternPolicies.find(
+    (policy) => policy.pattern_id === sourcePatternId,
+  ) ?? null;
+  const targetPolicy = patternPolicies.find(
+    (policy) => policy.pattern_id === targetPatternId,
+  ) ?? null;
+  const sourceSlot = sourcePolicy?.slots.find(
+    (slot) => slot.slot_id === sourceOverride.slot_id,
+  ) ?? null;
+  if (!sourcePhase || !sourceSlot || sourceSlot.phase !== sourcePhase.phase || !targetPolicy) {
+    return {
+      override_id: sourceOverride.override_id,
+      status: 'unresolvable',
+      source_slot_id: sourceOverride.slot_id,
+      source_phase: sourcePhase?.phase ?? null,
+      target_pattern_id: targetPatternId,
+      target_slot_id: null,
+      target_phase: null,
+      reason:
+        `Cannot resolve source slot ${sourceOverride.slot_id} from pattern `
+        + `${sourcePatternId} into target pattern ${targetPatternId}.`,
+    };
+  }
+  const candidatePhases = [];
+  const mappedPhase = phaseMappings[sourcePhase.phase] ?? null;
+  if (mappedPhase) candidatePhases.push(mappedPhase);
+  if (!candidatePhases.includes(sourcePhase.phase)) candidatePhases.push(sourcePhase.phase);
+  for (const candidatePhase of candidatePhases) {
+    const matchingSlots = targetPolicy.slots
+      .filter((slot) => slot.phase === candidatePhase)
+      .sort((left, right) => compareBytewise(left.slot_id, right.slot_id));
+    if (matchingSlots.length === 1) {
+      return {
+        override_id: sourceOverride.override_id,
+        status: 'resolved',
+        source_slot_id: sourceOverride.slot_id,
+        source_phase: sourcePhase.phase,
+        target_pattern_id: targetPatternId,
+        target_slot_id: matchingSlots[0].slot_id,
+        target_phase: matchingSlots[0].phase,
+        reason:
+          `Source phase ${sourcePhase.phase} resolves through the real `
+          + `${targetPatternId} slot ${matchingSlots[0].slot_id}.`,
+      };
+    }
+    if (matchingSlots.length > 1) {
+      return {
+        override_id: sourceOverride.override_id,
+        status: 'unresolvable',
+        source_slot_id: sourceOverride.slot_id,
+        source_phase: sourcePhase.phase,
+        target_pattern_id: targetPatternId,
+        target_slot_id: null,
+        target_phase: candidatePhase,
+        reason:
+          `Target pattern ${targetPatternId} has ambiguous slots for phase `
+          + `${candidatePhase}: ${matchingSlots.map((slot) => slot.slot_id).join(', ')}.`,
+      };
+    }
+  }
+  return {
+    override_id: sourceOverride.override_id,
+    status: 'unresolvable',
+    source_slot_id: sourceOverride.slot_id,
+    source_phase: sourcePhase.phase,
+    target_pattern_id: targetPatternId,
+    target_slot_id: null,
+    target_phase: null,
+    reason:
+      `Target pattern ${targetPatternId} has no real slot for mapped phase `
+      + `${mappedPhase ?? sourcePhase.phase} or source phase ${sourcePhase.phase}.`,
+  };
+}
+
+function resolveHomeschoolOverrideSlots(
+  repository,
+  request,
+  sourceOverrides,
+  sourcePatternId,
+) {
+  const source = normalizePedagogySelectionRequest(request.source.selection_request);
+  const targetPatternId = requiredPattern(source, repository);
+  const phaseMappings = source.lesson_context.context_flags.practical
+    ? repository.rules.data.practical_phase_mappings
+    : repository.rules.data.phase_mappings;
+  return sourceOverrides.map((sourceOverride) => resolveHomeschoolOverrideSlot({
+    sourceOverride,
+    sourceLessonDna: request.source.lesson_dna,
+    sourcePatternId,
+    targetPatternId,
+    phaseMappings,
+    patternPolicies: repository.selection.rules.data.pattern_policies,
+  })).sort((left, right) => compareBytewise(left.override_id, right.override_id));
+}
+
+export function deriveHomeschoolSelectionRequest(
+  repository,
+  request,
+  sourceOverrides = [],
+  overrideSlotResolutions = [],
+) {
   const source = normalizePedagogySelectionRequest(request.source.selection_request);
   const context = request.adaptation_context;
   const variant = variantRule(repository, context.variant);
@@ -386,25 +538,21 @@ export function deriveHomeschoolSelectionRequest(repository, request, sourceOver
     ...context.homeschool_preferences.excluded_target_ids,
   ]);
   const patternId = requiredPattern(source, repository);
-  const practical = source.lesson_context.context_flags.practical;
-  const mappings = practical
-    ? repository.rules.data.practical_phase_mappings
-    : repository.rules.data.phase_mappings;
+  const resolutionById = new Map(
+    overrideSlotResolutions.map((resolution) => [resolution.override_id, resolution]),
+  );
   const mappedTeacherOverrides =
     context.teacher_override_policy === 'require_preservation'
-      ? sourceOverrides.map((override) => ({
-        override_id: override.override_id,
-        slot_id: (
-          mappings[
-            request.source.lesson_dna.phases.find(
-              (phase) => phase.phase_id === override.slot_id,
-            )?.phase ?? override.slot_id
-          ] ?? override.slot_id
-        ).replaceAll('_', '-'),
-        requested_target_id: override.requested_target_id,
-        rationale_ru: override.teacher_rationale_ru,
-        author_role: 'teacher',
-      }))
+      ? sourceOverrides.map((override) => {
+        const resolution = resolutionById.get(override.override_id);
+        return {
+          override_id: override.override_id,
+          slot_id: resolution?.target_slot_id ?? override.slot_id,
+          requested_target_id: override.requested_target_id,
+          rationale_ru: override.teacher_rationale_ru,
+          author_role: 'teacher',
+        };
+      })
       : [];
   return normalizePedagogySelectionRequest({
     ...source,
@@ -693,14 +841,25 @@ function phaseAdaptations(request, homeschoolDna, repository) {
   ));
 }
 
-function teacherOverrideAdaptations(sourceOverrides, adaptations, policy) {
+function teacherOverrideAdaptations(
+  sourceOverrides,
+  slotResolutions,
+  homeschoolDna,
+  policy,
+) {
+  const resolutionById = new Map(
+    slotResolutions.map((resolution) => [resolution.override_id, resolution]),
+  );
   return sourceOverrides.map((override) => {
-    const mapped = adaptations.find(
-      (adaptation) => adaptation.source_phase_id === override.slot_id,
-    ) ?? null;
+    const resolution = resolutionById.get(override.override_id) ?? null;
+    const adapted = resolution?.target_slot_id
+      ? homeschoolDna?.phases.find(
+        (phase) => phase.phase_id === resolution.target_slot_id,
+      ) ?? null
+      : null;
     let status = 'rejected';
-    if (policy !== 'reject_all' && mapped?.adapted_phase_id) {
-      status = mapped.adapted_target_id === override.requested_target_id
+    if (policy !== 'reject_all' && resolution?.status === 'resolved' && adapted) {
+      status = adapted.target.target_id === override.requested_target_id
         ? 'preserved'
         : 'reselected';
     }
@@ -709,15 +868,17 @@ function teacherOverrideAdaptations(sourceOverrides, adaptations, policy) {
       teacher_rationale_ru: override.teacher_rationale_ru,
       source_slot_id: override.slot_id,
       source_target_id: override.requested_target_id,
-      adapted_phase_id: mapped?.adapted_phase_id ?? null,
-      adapted_target_id: mapped?.adapted_target_id ?? null,
+      adapted_phase_id: resolution?.target_slot_id ?? null,
+      adapted_target_id: adapted?.target.target_id ?? null,
       status,
       policy,
-      rationale_ru: status === 'preserved'
-        ? 'Override identity, rationale, mapped phase, and exact target are preserved.'
-        : status === 'reselected'
-          ? 'Mapped homeschool phase uses a different target after homeschool hard constraints.'
-          : 'Override is rejected by policy or has no explicit mapped homeschool phase.',
+      rationale_ru: resolution?.status !== 'resolved'
+        ? resolution?.reason ?? 'No deterministic target-pattern slot resolution exists.'
+        : status === 'preserved'
+          ? 'Override identity, rationale, real target-pattern slot, and exact target are preserved.'
+          : status === 'reselected'
+            ? 'Resolved target-pattern slot uses a different target after homeschool hard constraints.'
+            : 'Override is rejected by policy.',
     };
   }).sort((left, right) => compareBytewise(left.override_id, right.override_id));
 }
@@ -809,11 +970,7 @@ export function validateAdaptedBindings(request, adaptations, homeschoolDna) {
     const safetyRefs = mergedBindingValues(resolution.rows, 'safety_refs');
     const missing = [];
     if (answerRequired && answerKeyRefs.length === 0) missing.push('answer_key');
-    if (
-      explanationRequired
-      && teacherExplanationRefs.length === 0
-      && learnerMaterialRefs.length === 0
-    ) {
+    if (explanationRequired && !explanationBindingSatisfied(resolution.rows)) {
       missing.push('teacher_explanation_or_source_segment');
     }
     if (practicalRequired && procedureRefs.length === 0) missing.push('procedure');
@@ -823,9 +980,21 @@ export function validateAdaptedBindings(request, adaptations, homeschoolDna) {
       source_phase_ids: resolution.sourcePhaseIds,
       binding_origin: resolution.origin,
       answer_key_refs: answerKeyRefs,
+      learner_material_refs: learnerMaterialRefs,
       teacher_explanation_refs: teacherExplanationRefs,
       procedure_refs: procedureRefs,
       safety_refs: safetyRefs,
+      source_access_policy:
+        phase.source_access.first_attempt === 'prohibited' ? 'closed'
+          : phase.source_access.first_attempt === 'not_applicable' ? 'not_applicable' : 'open',
+      review_capable:
+        phase.source_access.first_attempt === 'prohibited'
+        && (
+          ['retrieval', 'formative_assessment', 'reflection', 'delayed_review']
+            .includes(phase.phase)
+          || phaseHasCapability(phase, 'retrieval')
+          || phaseHasCapability(phase, 'error_correction')
+        ),
       release_policy: answerRequired
         ? request.adaptation_context.answer_access_policy.key_release
         : 'not_applicable',
@@ -858,6 +1027,26 @@ export function validateAdaptedBindings(request, adaptations, homeschoolDna) {
     failures: failures.sort(
       (left, right) => compareBytewise(`${left.code}:${left.detail}`, `${right.code}:${right.detail}`),
     ),
+  };
+}
+
+function answerBindingForPhaseIds(answerBindingDecisions, phaseIds, { reviewOnly = false } = {}) {
+  const allowedPhaseIds = new Set(phaseIds);
+  const rows = answerBindingDecisions
+    .filter((decision) => decision.valid)
+    .filter((decision) => decision.answer_key_refs.length > 0)
+    .filter((decision) => decision.binding_origin !== 'none')
+    .filter((decision) => !reviewOnly || (
+      decision.review_capable && decision.source_access_policy === 'closed'
+    ))
+    .filter((decision) => allowedPhaseIds.size === 0
+      || allowedPhaseIds.has(decision.adapted_phase_id))
+    .sort((left, right) => compareBytewise(left.adapted_phase_id, right.adapted_phase_id));
+  if (rows.length === 0) return null;
+  return {
+    adapted_phase_ids: rows.map((row) => row.adapted_phase_id),
+    answer_key_refs: uniqueSorted(rows.flatMap((row) => row.answer_key_refs)),
+    origins: uniqueSorted(rows.map((row) => row.binding_origin)),
   };
 }
 
@@ -948,7 +1137,13 @@ function buildLearnerSteps(request, homeschoolDna, adaptations, targets) {
   });
 }
 
-function packSessions(steps, roleByPhase, request, repository) {
+function packSessions(
+  steps,
+  roleByPhase,
+  request,
+  repository,
+  answerBindingDecisions,
+) {
   const limit = request.adaptation_context.learner_session_minutes;
   const rules = repository.rules.data.timing;
   const sessions = [];
@@ -956,6 +1151,18 @@ function packSessions(steps, roleByPhase, request, repository) {
   let current = null;
   function finish() {
     if (!current) return;
+    current.answer_binding = answerBindingForPhaseIds(
+      answerBindingDecisions,
+      current.phase_ids,
+    );
+    if (
+      current.answer_access === 'adult_managed'
+      && current.answer_binding
+    ) {
+      current.adult_minutes += rules.adult_key_release_minutes_per_session;
+      current.adult_roles = uniqueSorted([...current.adult_roles, 'check_answers']);
+    }
+    delete current.phase_ids;
     sessions.push(current);
     current = null;
   }
@@ -970,12 +1177,15 @@ function packSessions(steps, roleByPhase, request, repository) {
           ? 'retrieval_and_correction'
           : 'core_learning',
         package_step_ids: [],
+        phase_ids: [],
         learner_minutes: 0,
         adult_minutes: 0,
+        adult_roles: [],
         break_minutes: 0,
         source_access_policy: 'not_applicable',
         retrieval_type: 'none',
         answer_access: 'closed',
+        answer_binding: null,
         relative_window: null,
         review_instruction_ru: null,
       };
@@ -991,12 +1201,15 @@ function packSessions(steps, roleByPhase, request, repository) {
           ? 'retrieval_and_correction'
           : 'core_learning',
         package_step_ids: [],
+        phase_ids: [],
         learner_minutes: 0,
         adult_minutes: 0,
+        adult_roles: [],
         break_minutes: 0,
         source_access_policy: 'not_applicable',
         retrieval_type: 'none',
         answer_access: 'closed',
+        answer_binding: null,
         relative_window: null,
         review_instruction_ru: null,
       };
@@ -1011,8 +1224,13 @@ function packSessions(steps, roleByPhase, request, repository) {
       });
     }
     current.package_step_ids.push(step.step_id);
+    current.phase_ids.push(step.phase_id);
     current.learner_minutes += step.learner_minutes;
-    current.adult_minutes += roleByPhase.get(step.phase_id)?.support_minutes ?? 0;
+    const adultDecision = roleByPhase.get(step.phase_id);
+    current.adult_minutes += adultDecision?.support_minutes ?? 0;
+    if (adultDecision?.role && adultDecision.role !== 'none') {
+      current.adult_roles = uniqueSorted([...current.adult_roles, adultDecision.role]);
+    }
     current.source_access_policy = current.source_access_policy === 'not_applicable'
       ? step.source_access
       : current.source_access_policy === step.source_access
@@ -1033,17 +1251,40 @@ function retrievalWindowType(window) {
   return 'next_unit_review';
 }
 
-function buildWeeklyPlan(request, steps, coreSessions, adultTotal, repository) {
+function buildWeeklyPlan(
+  request,
+  coreSessions,
+  answerBindingDecisions,
+  repository,
+) {
   const delayed = [...request.source.lesson_dna.retrieval_plan.delayed].sort(
     (left, right) => compareBytewise(stablePedagogyJson(left), stablePedagogyJson(right)),
   );
   const timingRules = repository.rules.data.timing;
-  const reviewStepIds = steps
-    .filter((step) => step.source_access === 'closed')
-    .map((step) => step.step_id);
-  const packageStepIds = reviewStepIds.length > 0
-    ? uniqueSorted(reviewStepIds)
-    : [steps.at(-1).step_id];
+  const reviewBinding = answerBindingForPhaseIds(
+    answerBindingDecisions,
+    [],
+    { reviewOnly: true },
+  );
+  if (delayed.length > 0 && !reviewBinding) {
+    return {
+      error: {
+        code: 'answer_key_binding_missing',
+        detail:
+          'relative retrieval windows have no validated closed-source review-capable answer binding',
+      },
+      plan: null,
+    };
+  }
+  const reviewPhaseIds = new Set(reviewBinding?.adapted_phase_ids ?? []);
+  const reviewStepIds = coreSessions.flatMap((session) => (
+    session.answer_binding
+      ? session.package_step_ids.filter((stepId) => (
+        [...reviewPhaseIds].some((phaseId) => stepId.endsWith(`-${phaseId}`))
+      ))
+      : []
+  ));
+  const packageStepIds = uniqueSorted(reviewStepIds);
   const reviewSessions = delayed.map((window, index) => {
     const retrievalType = retrievalWindowType(window);
     const weekly = retrievalType === 'next_unit_review';
@@ -1055,11 +1296,19 @@ function buildWeeklyPlan(request, steps, coreSessions, adultTotal, repository) {
       purpose: weekly ? 'weekly_review' : 'delayed_retrieval',
       package_step_ids: packageStepIds,
       learner_minutes: learnerMinutes,
-      adult_minutes: 0,
+      adult_minutes:
+        request.adaptation_context.answer_access_policy.key_release === 'adult_managed'
+          ? timingRules.adult_key_release_minutes_per_session
+          : 0,
+      adult_roles:
+        request.adaptation_context.answer_access_policy.key_release === 'adult_managed'
+          ? ['check_answers']
+          : [],
       break_minutes: 0,
       source_access_policy: 'closed',
       retrieval_type: retrievalType,
       answer_access: request.adaptation_context.answer_access_policy.key_release,
+      answer_binding: stableClone(reviewBinding),
       relative_window: stableClone(window),
       review_instruction_ru: weekly
         ? 'В следующем тематическом блоке восстанови главное без источника, затем сверь ответ.'
@@ -1069,9 +1318,12 @@ function buildWeeklyPlan(request, steps, coreSessions, adultTotal, repository) {
   const sessions = [...coreSessions, ...reviewSessions];
   if (sessions.length > request.adaptation_context.maximum_sessions) {
     return {
-      error:
-        `${sessions.length} core and review sessions exceed maximum `
-        + request.adaptation_context.maximum_sessions,
+      error: {
+        code: 'timing_unrealistic',
+        detail:
+          `${sessions.length} core and review sessions exceed maximum `
+          + request.adaptation_context.maximum_sessions,
+      },
       plan: null,
     };
   }
@@ -1080,9 +1332,12 @@ function buildWeeklyPlan(request, steps, coreSessions, adultTotal, repository) {
   );
   if (overLimit) {
     return {
-      error:
-        `review session ${overLimit.session_index} needs ${overLimit.learner_minutes} minutes, `
-        + `limit is ${request.adaptation_context.learner_session_minutes}`,
+      error: {
+        code: 'timing_unrealistic',
+        detail:
+          `review session ${overLimit.session_index} needs ${overLimit.learner_minutes} minutes, `
+          + `limit is ${request.adaptation_context.learner_session_minutes}`,
+      },
       plan: null,
     };
   }
@@ -1112,12 +1367,12 @@ function buildWeeklyPlan(request, steps, coreSessions, adultTotal, repository) {
     total_learner_minutes:
       sessions.reduce((sum, session) => sum + session.learner_minutes, 0)
       + timingRules.contingency_minutes,
-    total_adult_minutes: adultTotal,
+    total_adult_minutes: 0,
     },
   };
 }
 
-function adultTiming(request, dna, roleDecisions, repository) {
+function adultTiming(request, dna, roleDecisions, weeklyPlan, repository) {
   const adultNeeded = roleDecisions.some((row) => row.role !== 'none');
   const preparation = adultNeeded || request.adaptation_context.variant === 'parent_child'
     ? repository.rules.data.timing.adult_preparation_minutes_when_needed
@@ -1130,11 +1385,18 @@ function adultTiming(request, dna, roleDecisions, repository) {
   const live = roleDecisions.reduce((sum, row) => (
     sum + (row.role !== 'none' && row.role !== 'safety_supervision' ? row.support_minutes : 0)
   ), 0);
+  const answerAccess = weeklyPlan.sessions
+    .filter((session) => session.answer_access === 'adult_managed')
+    .reduce(
+      (sum) => sum + repository.rules.data.timing.adult_key_release_minutes_per_session,
+      0,
+    );
   return {
     adult_preparation_minutes: preparation,
     adult_live_support_minutes: live,
     adult_safety_minutes: safety,
-    total_adult_minutes: preparation + live + safety,
+    adult_answer_access_minutes: answerAccess,
+    total_adult_minutes: preparation + live + safety + answerAccess,
   };
 }
 
@@ -1145,7 +1407,15 @@ function buildParentGuidance(
   safetyState,
   repository,
 ) {
-  const roles = uniqueSorted(roleDecisions.map((row) => row.role));
+  const roleCandidates = uniqueSorted([
+    ...roleDecisions.map((row) => row.role),
+    ...(request.adaptation_context.answer_access_policy.key_release === 'adult_managed'
+      ? ['check_answers']
+      : []),
+  ]);
+  const roles = roleCandidates.some((role) => role !== 'none')
+    ? roleCandidates.filter((role) => role !== 'none')
+    : roleCandidates;
   return {
     schema_version: '1.0',
     artifact_type: 'parent_guidance',
@@ -1173,9 +1443,13 @@ function buildParentGuidance(
       role,
       purpose_ru: role === 'none'
         ? 'Участие взрослого в выполнении не требуется.'
+        : role === 'check_answers'
+          ? 'Открывать релевантный ключ только после завершённой самостоятельной попытки.'
         : 'Поддержать выполнение в пределах указанной операционной роли.',
       bounded_action_ru: role === 'safety_supervision'
         ? 'Контролировать только разрешённые материалы, остановку и уборку.'
+        : role === 'check_answers'
+          ? 'Не объяснять предметный ответ и не исправлять работу вместо ребёнка.'
         : 'Не давать предметный ответ и не завершать действие вместо ребёнка.',
     })),
     timing,
@@ -1338,6 +1612,15 @@ function buildPackage(
     },
     parent_guidance_ref: parentGuidance.guidance_id,
     weekly_study_plan_ref: weeklyPlan.plan_id,
+    review_binding_summary: weeklyPlan.sessions
+      .filter((session) => ['delayed_retrieval', 'weekly_review'].includes(session.purpose))
+      .map((session) => ({
+        session_index: session.session_index,
+        adapted_phase_ids: stableClone(session.answer_binding.adapted_phase_ids),
+        answer_key_refs: stableClone(session.answer_binding.answer_key_refs),
+        origins: stableClone(session.answer_binding.origins),
+        release_policy: session.answer_access,
+      })),
     teacher_override_adaptations: stableClone(overrideAdaptations),
     assessment: {
       subject_assessment: dna.assessment.subject_assessment.enabled,
@@ -1528,6 +1811,16 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
       { sourceIdentity: sourceIdentityValue },
     );
   }
+  const adultManagedErrors = validateAdultManagedAnswerAccess(request);
+  if (adultManagedErrors.length > 0) {
+    return failureResult(
+      repository,
+      request,
+      'adult_managed_answer_access_unavailable',
+      adultManagedErrors,
+      { sourceIdentity: sourceIdentityValue },
+    );
+  }
   if (
     request.adaptation_context.variant === 'parent_child'
     && request.adaptation_context.adult_context.max_support_minutes === 0
@@ -1541,22 +1834,18 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
     );
   }
 
-  const bindingErrors = validateBindings(request);
-  if (bindingErrors.some((error) => error.startsWith('answer key'))) {
+  const sourceBindingFailures = validateSourceBindings(request);
+  if (sourceBindingFailures.length > 0) {
+    const failureCode = repository.rules.data.failure_priority.find((code) => (
+      sourceBindingFailures.some((failure) => failure.code === code)
+    ));
     return failureResult(
       repository,
       request,
-      'answer_key_binding_missing',
-      bindingErrors,
-      { sourceIdentity: sourceIdentityValue },
-    );
-  }
-  if (bindingErrors.length > 0) {
-    return failureResult(
-      repository,
-      request,
-      'missing_home_resource',
-      bindingErrors,
+      failureCode,
+      sourceBindingFailures
+        .filter((failure) => failure.code === failureCode)
+        .map((failure) => failure.detail),
       { sourceIdentity: sourceIdentityValue },
     );
   }
@@ -1574,13 +1863,41 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
   }
 
   const sourceOverrides = sourceAcceptedOverrides(reproduced, request);
+  const overrideSlotResolutions = resolveHomeschoolOverrideSlots(
+    repository,
+    request,
+    sourceOverrides,
+    reproduced.decision.selected_pattern.pattern_id,
+  );
+  const unresolvedOverrides = overrideSlotResolutions.filter(
+    (resolution) => resolution.status === 'unresolvable',
+  );
+  if (unresolvedOverrides.length > 0) {
+    const overrideAdaptations = teacherOverrideAdaptations(
+      sourceOverrides,
+      overrideSlotResolutions,
+      null,
+      request.adaptation_context.teacher_override_policy,
+    );
+    return failureResult(
+      repository,
+      request,
+      'teacher_override_slot_unresolvable',
+      unresolvedOverrides.map((resolution) => resolution.reason),
+      {
+        sourceIdentity: sourceIdentityValue,
+        teacherOverrideAdaptations: overrideAdaptations,
+      },
+    );
+  }
   if (
     sourceOverrides.length > 0
     && request.adaptation_context.teacher_override_policy === 'reject_all'
   ) {
     const overrideAdaptations = teacherOverrideAdaptations(
       sourceOverrides,
-      [],
+      overrideSlotResolutions,
+      null,
       request.adaptation_context.teacher_override_policy,
     );
     return failureResult(
@@ -1599,6 +1916,7 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
     repository,
     request,
     sourceOverrides,
+    overrideSlotResolutions,
   );
   const selected = selectHomeschoolComposition(repository, request, derivedRequest, targets);
   if (!selected.result.lessonDna) {
@@ -1610,7 +1928,8 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
     const overrideAdaptations = preservationFailed
       ? teacherOverrideAdaptations(
         sourceOverrides,
-        [],
+        overrideSlotResolutions,
+        null,
         request.adaptation_context.teacher_override_policy,
       )
       : [];
@@ -1647,7 +1966,8 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
   const adaptations = phaseAdaptations(request, homeschoolDna, repository);
   const overrideAdaptations = teacherOverrideAdaptations(
     sourceOverrides,
-    adaptations,
+    overrideSlotResolutions,
+    homeschoolDna,
     request.adaptation_context.teacher_override_policy,
   );
   homeschoolDna.teacher_overrides = preservedTeacherOverridesForDna(overrideAdaptations);
@@ -1747,33 +2067,18 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
   }
 
   const roleDecisions = adultRoleDecisions(request, homeschoolDna, targets, repository);
-  const timing = adultTiming(request, homeschoolDna, roleDecisions, repository);
-  if (
-    timing.total_adult_minutes > request.adaptation_context.adult_context.max_support_minutes
-    || (!request.adaptation_context.adult_context.available && timing.total_adult_minutes > 0)
-  ) {
-    return failureResult(
-      repository,
-      request,
-      'adult_effort_exceeds_limit',
-      [
-        `adult total ${timing.total_adult_minutes} exceeds `
-        + `${request.adaptation_context.adult_context.max_support_minutes}`,
-      ],
-      {
-        sourceIdentity: sourceIdentityValue,
-        derivedSelectionRequestDigest: selected.result.decision.request_digest,
-        derivedSelectionDecision: selected.result.decision,
-      },
-    );
-  }
-
   const steps = buildLearnerSteps(request, homeschoolDna, adaptations, targets);
   const roleByPhase = new Map(homeschoolDna.phases.map((phase) => [
     phase.phase_id,
     roleDecisions.find((row) => row.target_id === phase.target.target_id),
   ]));
-  const packed = packSessions(steps, roleByPhase, request, repository);
+  const packed = packSessions(
+    steps,
+    roleByPhase,
+    request,
+    repository,
+    bindingValidation.decisions,
+  );
   if (packed.error) {
     return failureResult(
       repository,
@@ -1790,17 +2095,16 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
 
   const weekly = buildWeeklyPlan(
     request,
-    steps,
     packed.sessions,
-    timing.total_adult_minutes,
+    bindingValidation.decisions,
     repository,
   );
   if (weekly.error) {
     return failureResult(
       repository,
       request,
-      'timing_unrealistic',
-      [weekly.error],
+      weekly.error.code,
+      [weekly.error.detail],
       {
         sourceIdentity: sourceIdentityValue,
         derivedSelectionRequestDigest: selected.result.decision.request_digest,
@@ -1812,6 +2116,36 @@ export function adaptLessonForHomeschool(repository, rawRequest) {
     );
   }
   const weeklyPlan = weekly.plan;
+  const timing = adultTiming(
+    request,
+    homeschoolDna,
+    roleDecisions,
+    weeklyPlan,
+    repository,
+  );
+  if (
+    timing.total_adult_minutes > request.adaptation_context.adult_context.max_support_minutes
+    || (!request.adaptation_context.adult_context.available && timing.total_adult_minutes > 0)
+  ) {
+    return failureResult(
+      repository,
+      request,
+      'adult_effort_exceeds_limit',
+      [
+        `adult total ${timing.total_adult_minutes} exceeds `
+        + `${request.adaptation_context.adult_context.max_support_minutes}`,
+      ],
+      {
+        sourceIdentity: sourceIdentityValue,
+        derivedSelectionRequestDigest: selected.result.decision.request_digest,
+        derivedSelectionDecision: selected.result.decision,
+        phaseAdaptations: adaptations,
+        answerBindingDecisions: bindingValidation.decisions,
+        teacherOverrideAdaptations: overrideAdaptations,
+      },
+    );
+  }
+  weeklyPlan.total_adult_minutes = timing.total_adult_minutes;
   const parentGuidance = buildParentGuidance(
     request,
     roleDecisions,
@@ -1960,6 +2294,12 @@ function rulesErrors(repository) {
       errors.push(`${variant} must use collaborative_study`);
     }
   }
+  if (
+    !Number.isInteger(rules.timing?.adult_key_release_minutes_per_session)
+    || rules.timing.adult_key_release_minutes_per_session < 1
+  ) {
+    errors.push('adult_key_release_minutes_per_session must be a positive integer');
+  }
   return errors;
 }
 
@@ -2037,8 +2377,44 @@ function semanticResultErrors(request, result) {
     !== adult.adult_preparation_minutes
       + adult.adult_live_support_minutes
       + adult.adult_safety_minutes
+      + adult.adult_answer_access_minutes
   ) {
     errors.push('parent timing does not reconcile');
+  }
+  if (result.weeklyStudyPlan.total_adult_minutes !== adult.total_adult_minutes) {
+    errors.push('weekly plan and parent-guidance adult totals differ');
+  }
+  const visibleSessionAdultMinutes = result.weeklyStudyPlan.sessions.reduce(
+    (sum, session) => sum + session.adult_minutes,
+    0,
+  );
+  if (
+    adult.total_adult_minutes
+    !== adult.adult_preparation_minutes + visibleSessionAdultMinutes
+  ) {
+    errors.push('session adult minutes plus preparation do not reconcile with parent guidance');
+  }
+  const reviewSessions = result.weeklyStudyPlan.sessions.filter(
+    (session) => ['delayed_retrieval', 'weekly_review'].includes(session.purpose),
+  );
+  if (reviewSessions.some((session) => (
+    !session.answer_binding
+    || session.answer_binding.answer_key_refs.length === 0
+    || session.source_access_policy !== 'closed'
+  ))) {
+    errors.push('review session lacks a validated closed-source answer binding');
+  }
+  if (
+    request.adaptation_context.answer_access_policy.key_release === 'adult_managed'
+    && result.weeklyStudyPlan.sessions.some((session) => (
+      session.answer_access === 'adult_managed'
+      && (
+        session.adult_minutes < 1
+        || !session.adult_roles.includes('check_answers')
+      )
+    ))
+  ) {
+    errors.push('adult-managed session lacks check_answers time or role');
   }
   if (personalDataPaths(result).length > 0) {
     errors.push(`personal-data fields present: ${personalDataPaths(result).join(', ')}`);

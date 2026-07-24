@@ -60,9 +60,9 @@ test('production selection repository validates', () => {
   assert.deepEqual(result.counts, {
     patterns: 4,
     targets: 32,
-    fixtures: 11,
+    fixtures: 12,
     examples: 4,
-    successfulFixtures: 9,
+    successfulFixtures: 10,
     failureFixtures: 2,
   });
 });
@@ -79,6 +79,7 @@ for (const fixtureId of [
   'grade5-map-diagram',
   'grade5-oral-answer',
   'grade5-practical-no-supervision',
+  'grade5-practical-override-preservable',
   'grade5-retrieval-correction',
   'grade5-retrieval-override-preservable',
   'grade5-russian-only-concept-introduction',

@@ -86,12 +86,14 @@
             "adult_preparation_minutes",
             "adult_live_support_minutes",
             "adult_safety_minutes",
+            "adult_answer_access_minutes",
             "total_adult_minutes"
           ],
           "properties": {
             "adult_preparation_minutes": {"type": "integer", "minimum": 0},
             "adult_live_support_minutes": {"type": "integer", "minimum": 0},
             "adult_safety_minutes": {"type": "integer", "minimum": 0},
+            "adult_answer_access_minutes": {"type": "integer", "minimum": 0},
             "total_adult_minutes": {"type": "integer", "minimum": 0}
           }
         },

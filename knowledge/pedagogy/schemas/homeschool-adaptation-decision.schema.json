@@ -299,9 +299,12 @@
         "source_phase_ids",
         "binding_origin",
         "answer_key_refs",
+        "learner_material_refs",
         "teacher_explanation_refs",
         "procedure_refs",
         "safety_refs",
+        "source_access_policy",
+        "review_capable",
         "release_policy",
         "valid",
         "rationale_ru"
@@ -315,9 +318,14 @@
         },
         "binding_origin": {"enum": ["mapped_source", "exact_adapted", "none"]},
         "answer_key_refs": {"$ref": "#/$defs/refList"},
+        "learner_material_refs": {"$ref": "#/$defs/refList"},
         "teacher_explanation_refs": {"$ref": "#/$defs/refList"},
         "procedure_refs": {"$ref": "#/$defs/refList"},
         "safety_refs": {"$ref": "#/$defs/refList"},
+        "source_access_policy": {
+          "enum": ["open", "closed", "not_applicable"]
+        },
+        "review_capable": {"type": "boolean"},
         "release_policy": {
           "enum": [
             "not_applicable",
@@ -371,6 +379,7 @@
             "stale_source_lesson_dna",
             "source_selection_not_reproducible",
             "unsupported_homeschool_variant",
+            "adult_managed_answer_access_unavailable",
             "no_homeschool_composition",
             "missing_home_resource",
             "adult_effort_exceeds_limit",
@@ -379,6 +388,7 @@
             "answer_key_binding_missing",
             "explanation_binding_missing",
             "practical_binding_missing",
+            "teacher_override_slot_unresolvable",
             "teacher_override_not_preserved",
             "language_profile_incompatible",
             "timing_unrealistic",

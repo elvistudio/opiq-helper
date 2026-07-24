@@ -76,10 +76,12 @@
         "package_step_ids",
         "learner_minutes",
         "adult_minutes",
+        "adult_roles",
         "break_minutes",
         "source_access_policy",
         "retrieval_type",
         "answer_access",
+        "answer_binding",
         "relative_window",
         "review_instruction_ru"
       ],
@@ -98,6 +100,19 @@
         },
         "learner_minutes": {"type": "integer", "minimum": 1},
         "adult_minutes": {"type": "integer", "minimum": 0},
+        "adult_roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "logistical_support",
+              "listening_partner",
+              "check_answers",
+              "active_participant",
+              "safety_supervision"
+            ]
+          }
+        },
         "break_minutes": {"type": "integer", "minimum": 0},
         "source_access_policy": {
           "enum": ["mixed_by_step", "open", "closed", "not_applicable"]
@@ -114,6 +129,12 @@
         },
         "answer_access": {
           "enum": ["closed", "after_attempt", "adult_managed", "self_managed_after_attempt"]
+        },
+        "answer_binding": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/answerBinding"}
+          ]
         },
         "relative_window": {
           "oneOf": [
@@ -144,11 +165,53 @@
               "relative_window": {
                 "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/retrievalWindow"
               },
-              "review_instruction_ru": {"type": "string", "minLength": 1}
+              "review_instruction_ru": {"type": "string", "minLength": 1},
+              "answer_binding": {"$ref": "#/$defs/answerBinding"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"answer_access": {"const": "adult_managed"}},
+            "required": ["answer_access"]
+          },
+          "then": {
+            "properties": {
+              "adult_minutes": {"type": "integer", "minimum": 1},
+              "adult_roles": {
+                "type": "array",
+                "contains": {"const": "check_answers"}
+              },
+              "answer_binding": {"$ref": "#/$defs/answerBinding"}
             }
           }
         }
       ]
+    },
+    "answerBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapted_phase_ids", "answer_key_refs", "origins"],
+      "properties": {
+        "adapted_phase_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "answer_key_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "origins": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["exact_adapted", "mapped_source"]}
+        }
+      }
     }
   }
 }

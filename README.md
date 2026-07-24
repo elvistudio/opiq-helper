@@ -215,9 +215,12 @@ production artifacts.
 Selection engine 1.1 applies single-learner compatibility only to a real solo
 learner. Its homeschool layer represents delayed and next-unit retrieval as
 counted sessions, revalidates safety and material bindings on the final
-adapted DNA, and carries teacher override ID and rationale through a bounded
-adaptation trace. These outputs remain structural proposals: teacher review
-and a home trial are still pending.
+adapted DNA, binds each review session to relevant phase-level answer-key
+provenance, and carries teacher override ID and rationale through a real
+versioned pattern slot. Adult-managed key release requires an available
+`check_answers` adult and visible answer-access minutes; explanation binding
+may use a bounded teacher-provided source segment. These outputs remain
+structural proposals: teacher review and a home trial are still pending.
 
 ```sh
 npm run test:pedagogy

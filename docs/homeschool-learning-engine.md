@@ -160,6 +160,19 @@ the phase, mapped source phases, `mapped_source` or `exact_adapted` origin,
 refs, release policy, and validation result. The package retains this
 phase-level provenance alongside any deduplicated material index.
 
+Source and adapted explanation phases follow the same rule: either a
+teacher-provided explanation reference or a bounded learner source segment is
+required. The engine does not create an explanation. Missing both produces
+`explanation_binding_missing`.
+
+Every delayed or next-unit review session is built only from a valid,
+closed-source, review-capable phase binding. Its strict `answer_binding`
+contains adapted phase IDs, relevant key references, and exact-or-mapped
+origin. The package repeats this provenance in `review_binding_summary`.
+There is no fallback to the last learner step or to an unrelated key; a
+relative retrieval window without a relevant binding produces
+`answer_key_binding_missing`.
+
 ## Teacher override adaptation
 
 The internal home selector may use mapped slots, but the public adaptation
@@ -168,8 +181,14 @@ override it records the override ID, teacher rationale, source slot and target,
 adapted phase and target, policy, and one of `preserved`, `reselected`, or
 `rejected`.
 
-`require_preservation` succeeds only for the exact target in the explicitly
-mapped adapted phase after all home hard constraints pass.
+The adapter resolves each source override against the actual versioned
+`pattern_policies.slots` definitions. It maps the source phase, verifies the
+real target-pattern phase, and then uses that slot's registered `slot_id`; it
+never derives a slot ID by replacing underscores or hyphens. No match or more
+than one match produces `teacher_override_slot_unresolvable`.
+
+`require_preservation` succeeds only for the exact target in the unambiguously
+resolved target-pattern slot after all home hard constraints pass.
 `allow_reselection_with_warning` retains the trace and emits
 `teacher_override_reselected`, but does not mark the replacement override
 accepted in homeschool DNA. `reject_all` returns a structured failure.
@@ -186,8 +205,15 @@ The model keeps four responsibilities separate:
 | Subject teacher | Own scientific explanation, correct answers, assessment, procedure, authorization, and unresolved subject questions. |
 
 The parent guidance lists allowed actions, prohibited actions, escalation
-triggers, and separate preparation, live-support, and safety minutes. A parent
-is not a science teacher. Even
+triggers, and separate preparation, live-support, safety, and answer-access
+minutes. `adult_managed` requires an available adult, an allowed
+`check_answers` role, and enough support-minute budget. Each affected core or
+review session gets the provisional
+`adult_key_release_minutes_per_session` from the versioned rules. The adult
+opens only the relevant key after the completed attempt and neither explains
+nor corrects the answer for the child. `after_attempt` and
+`self_managed_after_attempt` do not add adult time or roles automatically. A
+parent is not a science teacher. Even
 `subject_explanation_available: true` cannot authorize invention or alteration
 of subject content.
 
@@ -196,7 +222,7 @@ of subject content.
 Timing parameters in `homeschool-rules.yaml` are project-authored,
 versioned, and provisional. Learner activity, setup, cleanup, transitions,
 breaks, and contingency reconcile separately from adult preparation, live
-support, and safety time. A session cannot exceed
+support, safety, and answer-access time. A session cannot exceed
 `learner_session_minutes`, and the plan cannot exceed `maximum_sessions`.
 Safety time is never shortened to make the plan fit.
 
@@ -275,7 +301,7 @@ synthetic artifact references only.
 
 Core output has bytewise ordering, no timestamps, no randomness, no AI, and no
 network access. Committed examples are regenerated from committed fixtures and
-must match exactly. The validator checks 15 fixtures (9 success and 6
+must match exactly. The validator checks 18 fixtures (11 success and 7
 structured failure) and five generated examples.
 
 ## CLI

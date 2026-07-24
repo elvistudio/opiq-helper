@@ -381,6 +381,10 @@ set `teacher_review: approved`.
 When a classroom DNA is adapted for home study, the separate homeschool trace
 preserves the override ID and teacher rationale plus source and adapted phase
 identity. An exact target in an unrelated phase is not preservation.
+The home adapter resolves this identity through the actual versioned
+target-pattern slot definitions. Phase mappings propose candidate phases, but
+only one registered `slot_id` can be used; string conversion of a phase name
+is not a slot-resolution rule.
 
 The engine rejects an override that uses:
 

@@ -11,6 +11,7 @@ import {
   finalSafetyState,
   loadPedagogyHomeschoolRepository,
   materializeHomeschoolFixture,
+  resolveHomeschoolOverrideSlot,
   serializeHomeschoolYaml,
   validateAdaptedBindings,
   validateFinalSafety,
@@ -59,6 +60,39 @@ function overrideRequest(policy) {
   return materializeHomeschoolFixture(repository, adaptedFixture);
 }
 
+function resolveFixtureSlot(
+  fixtureId,
+  sourceSlotId,
+  targetPatternId,
+  {
+    patternPolicies = repository.selection.rules.data.pattern_policies,
+    phaseMappings = null,
+  } = {},
+) {
+  const request = requestFor(fixtureId);
+  const sourcePhase = request.source.lesson_dna.phases.find(
+    (phase) => phase.phase_id === sourceSlotId,
+  );
+  const mappings = phaseMappings ?? (
+    request.source.selection_request.lesson_context.context_flags.practical
+      ? repository.rules.data.practical_phase_mappings
+      : repository.rules.data.phase_mappings
+  );
+  return resolveHomeschoolOverrideSlot({
+    sourceOverride: {
+      override_id: `resolve-${sourceSlotId}`,
+      slot_id: sourceSlotId,
+      requested_target_id: sourcePhase?.target.target_id ?? 'concept-map',
+      teacher_rationale_ru: 'Synthetic resolver test.',
+    },
+    sourceLessonDna: request.source.lesson_dna,
+    sourcePatternId: request.source.lesson_dna.pattern.pattern_id,
+    targetPatternId,
+    phaseMappings: mappings,
+    patternPolicies,
+  });
+}
+
 function objectKeys(value, currentPath = '') {
   if (Array.isArray(value)) {
     return value.flatMap((item, index) => objectKeys(item, `${currentPath}/${index}`));
@@ -84,9 +118,9 @@ test('production homeschool repository validates', () => {
     errors: [],
     warnings: [],
     counts: {
-      fixtures: 15,
-      successfulFixtures: 9,
-      failureFixtures: 6,
+      fixtures: 18,
+      successfulFixtures: 11,
+      failureFixtures: 7,
       examples: 5,
       schemas: 7,
     },
@@ -498,7 +532,8 @@ test('adult timing total reconciles separately', () => {
     timing.total_adult_minutes,
     timing.adult_preparation_minutes
       + timing.adult_live_support_minutes
-      + timing.adult_safety_minutes,
+      + timing.adult_safety_minutes
+      + timing.adult_answer_access_minutes,
   );
 });
 
@@ -921,7 +956,8 @@ test('preserved teacher override keeps identity, rationale, phase, and target', 
     adapted_target_id: 'retrieval-self-test',
     status: 'preserved',
     policy: 'require_preservation',
-    rationale_ru: 'Override identity, rationale, mapped phase, and exact target are preserved.',
+    rationale_ru:
+      'Override identity, rationale, real target-pattern slot, and exact target are preserved.',
   }]);
   assert.equal(result.homeschoolLessonDna.teacher_overrides[0].status, 'accepted');
 });
@@ -1121,6 +1157,473 @@ test('CLI returns exit code 2 for an outer-schema-invalid request', async () => 
     requestPath,
   ], { encoding: 'utf8' });
   assert.equal(result.status, 2);
+});
+
+test('adult-managed answer access rejects an unavailable adult', () => {
+  assert.equal(
+    resultFor('homeschool-adult-managed-unavailable').decision.failure.code,
+    'adult_managed_answer_access_unavailable',
+  );
+});
+
+test('adult-managed answer access rejects an adult without check-answers permission', () => {
+  const request = requestFor('homeschool-adult-managed-retrieval');
+  request.adaptation_context.adult_context.allowed_roles = [];
+  assert.equal(
+    adaptLessonForHomeschool(repository, request).decision.failure.code,
+    'adult_managed_answer_access_unavailable',
+  );
+});
+
+test('adult-managed answer access with a zero-minute budget fails visibly', () => {
+  const request = requestFor('homeschool-adult-managed-retrieval');
+  request.adaptation_context.adult_context.max_support_minutes = 0;
+  assert.equal(
+    adaptLessonForHomeschool(repository, request).decision.failure.code,
+    'adult_effort_exceeds_limit',
+  );
+});
+
+test('adult-managed core retrieval session has visible adult answer-access time', () => {
+  const session = resultFor('homeschool-adult-managed-retrieval').weeklyStudyPlan.sessions.find(
+    (item) => item.retrieval_type === 'immediate',
+  );
+  assert.ok(session.adult_minutes > 0);
+  assert.ok(session.adult_roles.includes('check_answers'));
+});
+
+test('adult-managed delayed review session has visible adult answer-access time', () => {
+  const session = resultFor('homeschool-adult-managed-retrieval').weeklyStudyPlan.sessions.find(
+    (item) => item.retrieval_type === 'delayed_after_days',
+  );
+  assert.ok(session.adult_minutes > 0);
+  assert.ok(session.adult_roles.includes('check_answers'));
+});
+
+test('adult-managed weekly review session has visible adult answer-access time', () => {
+  const request = requestFor('homeschool-concept-independent');
+  request.adaptation_context.adult_context = {
+    available: true,
+    max_support_minutes: 12,
+    max_effort: 'minimal',
+    allowed_roles: ['check_answers'],
+    safety_supervision_available: false,
+    subject_explanation_available: false,
+  };
+  request.adaptation_context.answer_access_policy.key_release = 'adult_managed';
+  const result = adaptLessonForHomeschool(repository, request);
+  const session = result.weeklyStudyPlan.sessions.find(
+    (item) => item.retrieval_type === 'next_unit_review',
+  );
+  assert.ok(session.adult_minutes > 0);
+  assert.deepEqual(session.adult_roles, ['check_answers']);
+});
+
+test('adult-managed parent guidance exposes the bounded check-answers role', () => {
+  const guidance = resultFor('homeschool-adult-managed-retrieval').parentGuidance;
+  const role = guidance.adult_roles.find((item) => item.role === 'check_answers');
+  assert.match(role.purpose_ru, /после завершённой самостоятельной попытки/u);
+  assert.match(role.bounded_action_ru, /Не объяснять предметный ответ/u);
+});
+
+test('adult answer-access minutes are an explicit reconciled timing component', () => {
+  const timing = resultFor('homeschool-adult-managed-retrieval').parentGuidance.timing;
+  assert.equal(timing.adult_answer_access_minutes, 3);
+  assert.equal(
+    timing.total_adult_minutes,
+    timing.adult_preparation_minutes
+      + timing.adult_live_support_minutes
+      + timing.adult_safety_minutes
+      + timing.adult_answer_access_minutes,
+  );
+});
+
+test('adult-managed session totals reconcile with answer-access timing without double counting', () => {
+  const result = resultFor('homeschool-adult-managed-retrieval');
+  const sessionAdultMinutes = result.weeklyStudyPlan.sessions.reduce(
+    (sum, session) => sum + session.adult_minutes,
+    0,
+  );
+  assert.equal(sessionAdultMinutes, result.parentGuidance.timing.adult_answer_access_minutes);
+  assert.equal(
+    result.weeklyStudyPlan.total_adult_minutes,
+    result.parentGuidance.timing.total_adult_minutes,
+  );
+  assert.equal(
+    result.parentGuidance.timing.total_adult_minutes,
+    result.parentGuidance.timing.adult_preparation_minutes + sessionAdultMinutes,
+  );
+});
+
+test('self-managed answer release creates neither adult role nor adult answer-access time', () => {
+  const result = resultFor('homeschool-concept-independent');
+  assert.ok(result.weeklyStudyPlan.sessions.every(
+    (session) => !session.adult_roles.includes('check_answers'),
+  ));
+  assert.equal(result.parentGuidance.timing.adult_answer_access_minutes, 0);
+});
+
+test('after-attempt answer release creates neither adult role nor adult answer-access time', () => {
+  const request = requestFor('homeschool-concept-independent');
+  request.adaptation_context.answer_access_policy.key_release = 'after_attempt';
+  const result = adaptLessonForHomeschool(repository, request);
+  assert.ok(result.weeklyStudyPlan.sessions.every(
+    (session) => !session.adult_roles.includes('check_answers'),
+  ));
+  assert.equal(result.parentGuidance.timing.adult_answer_access_minutes, 0);
+});
+
+test('every delayed review session has a nonempty validated answer-key binding', () => {
+  const sessions = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions.filter(
+    (session) => session.purpose === 'delayed_retrieval',
+  );
+  assert.ok(sessions.length > 0);
+  assert.ok(sessions.every((session) => session.answer_binding.answer_key_refs.length > 0));
+});
+
+test('weekly review session has a nonempty validated answer-key binding', () => {
+  const session = resultFor('homeschool-concept-independent').weeklyStudyPlan.sessions.find(
+    (item) => item.purpose === 'weekly_review',
+  );
+  assert.ok(session.answer_binding.answer_key_refs.length > 0);
+  assert.equal(session.source_access_policy, 'closed');
+});
+
+test('review answer-key references come only from valid phase-level decisions', () => {
+  const result = resultFor('homeschool-concept-independent');
+  const allowed = new Set(
+    result.decision.answer_binding_decisions
+      .filter((decision) => decision.valid && decision.review_capable)
+      .flatMap((decision) => decision.answer_key_refs),
+  );
+  for (const summary of result.package.review_binding_summary) {
+    assert.ok(summary.answer_key_refs.every((reference) => allowed.has(reference)));
+  }
+});
+
+test('an unrelated key on another phase cannot replace the retrieval key', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const retrieval = request.content_bindings.find((binding) => binding.phase_id === 'retrieval');
+  retrieval.answer_key_refs = [];
+  assert.ok(request.content_bindings.some(
+    (binding) => binding.phase_id !== 'retrieval' && binding.answer_key_refs.length > 0,
+  ));
+  assert.equal(
+    adaptLessonForHomeschool(repository, request).decision.failure.code,
+    'answer_key_binding_missing',
+  );
+});
+
+test('relative retrieval without a review-capable key returns exact binding failure', () => {
+  assert.equal(
+    resultFor('homeschool-retrieval-missing-key').decision.failure.code,
+    'answer_key_binding_missing',
+  );
+});
+
+test('review sessions do not fall back to an arbitrary final learner step', () => {
+  const result = resultFor('homeschool-concept-independent');
+  for (const session of result.weeklyStudyPlan.sessions.filter(
+    (item) => item.relative_window,
+  )) {
+    assert.ok(session.package_step_ids.length > 0);
+    assert.ok(session.package_step_ids.every((stepId) => (
+      session.answer_binding.adapted_phase_ids.some(
+        (phaseId) => stepId.endsWith(`-${phaseId}`),
+      )
+    )));
+  }
+});
+
+test('review binding summary is bytewise sorted by session and contained IDs', () => {
+  const summary = resultFor('homeschool-concept-independent').package.review_binding_summary;
+  assert.deepEqual(summary.map((item) => item.session_index), [3, 4, 5]);
+  for (const item of summary) {
+    assert.deepEqual(item.adapted_phase_ids, [...item.adapted_phase_ids].sort());
+    assert.deepEqual(item.answer_key_refs, [...item.answer_key_refs].sort());
+    assert.deepEqual(item.origins, [...item.origins].sort());
+  }
+});
+
+test('review binding provenance is invariant to source binding order', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const reordered = clone(request);
+  reordered.content_bindings.reverse();
+  assert.deepEqual(
+    adaptLessonForHomeschool(repository, reordered).package.review_binding_summary,
+    adaptLessonForHomeschool(repository, request).package.review_binding_summary,
+  );
+});
+
+test('source explanation with a teacher explanation reference remains valid', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const explanation = request.content_bindings.find(
+    (binding) => binding.phase_id === 'explanation',
+  );
+  explanation.teacher_explanation_refs = ['teacher-explanation'];
+  explanation.learner_material_refs = [];
+  assert.equal(adaptLessonForHomeschool(repository, request).decision.status, 'success');
+});
+
+test('source explanation with only a bounded learner source segment is valid', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const explanation = request.content_bindings.find(
+    (binding) => binding.phase_id === 'explanation',
+  );
+  assert.deepEqual(explanation.teacher_explanation_refs, []);
+  assert.deepEqual(explanation.learner_material_refs, ['concept-source-segment']);
+  assert.equal(adaptLessonForHomeschool(repository, request).decision.status, 'success');
+});
+
+test('source explanation without either allowed binding returns exact failure', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const explanation = request.content_bindings.find(
+    (binding) => binding.phase_id === 'explanation',
+  );
+  explanation.teacher_explanation_refs = [];
+  explanation.learner_material_refs = [];
+  assert.equal(
+    adaptLessonForHomeschool(repository, request).decision.failure.code,
+    'explanation_binding_missing',
+  );
+});
+
+test('source and adapted explanations apply the same explanation-or-segment contract', () => {
+  const result = resultFor('homeschool-concept-independent');
+  const decision = result.decision.answer_binding_decisions.find(
+    (item) => item.adapted_phase_id === 'independent-practice',
+  );
+  assert.equal(decision.valid, true);
+  assert.deepEqual(decision.teacher_explanation_refs, []);
+  assert.ok(decision.learner_material_refs.includes('concept-source-segment'));
+});
+
+test('the engine never invents an explanation reference', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const allowed = new Set(request.content_bindings.flatMap(
+    (binding) => binding.teacher_explanation_refs,
+  ));
+  const produced = resultFor('homeschool-concept-independent')
+    .decision.answer_binding_decisions.flatMap(
+      (decision) => decision.teacher_explanation_refs,
+    );
+  assert.ok(produced.every((reference) => allowed.has(reference)));
+});
+
+test('concept explanation override resolves through real independent-practice slot metadata', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-concept-independent',
+    'explanation',
+    'independent-homeschool-study',
+  );
+  assert.equal(resolution.status, 'resolved');
+  assert.equal(resolution.target_slot_id, 'independent-practice');
+});
+
+test('retrieval override resolves through the real retrieval slot', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-retrieval-independent',
+    'retrieval',
+    'retrieval-and-consolidation',
+  );
+  assert.equal(resolution.target_slot_id, 'retrieval');
+});
+
+test('retrieval formative override falls back to the real correction slot', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-retrieval-independent',
+    'correction',
+    'retrieval-and-consolidation',
+  );
+  assert.equal(resolution.target_slot_id, 'correction');
+});
+
+test('practical guided override resolves through the real practical-work slot', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-practical-supervised',
+    'practical-work',
+    'safe-practical-investigation',
+  );
+  assert.equal(resolution.target_slot_id, 'practical-work');
+});
+
+test('practical formative override resolves through the real evidence-check slot', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-practical-supervised',
+    'evidence-check',
+    'safe-practical-investigation',
+  );
+  assert.equal(resolution.target_slot_id, 'evidence-check');
+});
+
+test('practical retrieval override resolves through the real conclusion slot', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-practical-supervised',
+    'conclusion',
+    'safe-practical-investigation',
+  );
+  assert.equal(resolution.target_slot_id, 'conclusion');
+});
+
+test('practical orientation override resolves through the real safety-orientation slot', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-practical-supervised',
+    'safety-orientation',
+    'safe-practical-investigation',
+  );
+  assert.equal(resolution.target_slot_id, 'safety-orientation');
+});
+
+test('override resolver returns registered slot IDs rather than transformed phase strings', () => {
+  const resolution = resolveFixtureSlot(
+    'homeschool-concept-independent',
+    'guided-practice',
+    'independent-homeschool-study',
+  );
+  assert.equal(resolution.target_phase, 'independent_practice');
+  assert.equal(resolution.target_slot_id, 'independent-practice');
+  assert.notEqual(resolution.target_slot_id, resolution.target_phase);
+});
+
+test('missing target slot returns deterministic unresolvable metadata', () => {
+  const policies = clone(repository.selection.rules.data.pattern_policies);
+  const target = policies.find((policy) => policy.pattern_id === 'independent-homeschool-study');
+  target.slots = target.slots.filter((slot) => slot.phase !== 'independent_practice');
+  const resolution = resolveFixtureSlot(
+    'homeschool-concept-independent',
+    'explanation',
+    'independent-homeschool-study',
+    { patternPolicies: policies },
+  );
+  assert.equal(resolution.status, 'unresolvable');
+  assert.equal(resolution.target_slot_id, null);
+});
+
+test('unresolvable override slot returns the structured homeschool failure code', () => {
+  const changed = clone(repository);
+  const target = changed.selection.rules.data.pattern_policies.find(
+    (policy) => policy.pattern_id === 'independent-homeschool-study',
+  );
+  target.slots = target.slots.filter((slot) => slot.phase !== 'independent_practice');
+  const result = adaptLessonForHomeschool(
+    changed,
+    overrideRequest('require_preservation'),
+  );
+  assert.equal(result.decision.failure.code, 'teacher_override_slot_unresolvable');
+  assert.equal(result.decision.teacher_override_adaptations[0].status, 'rejected');
+  assert.equal(validators.decision(result.decision), true);
+});
+
+test('ambiguous target slots return a deterministic unresolvable reason', () => {
+  const policies = clone(repository.selection.rules.data.pattern_policies);
+  const target = policies.find((policy) => policy.pattern_id === 'independent-homeschool-study');
+  const slot = target.slots.find((item) => item.phase === 'independent_practice');
+  target.slots.push({ ...slot, slot_id: 'duplicate-independent-practice' });
+  const first = resolveFixtureSlot(
+    'homeschool-concept-independent',
+    'explanation',
+    'independent-homeschool-study',
+    { patternPolicies: policies },
+  );
+  const second = resolveFixtureSlot(
+    'homeschool-concept-independent',
+    'explanation',
+    'independent-homeschool-study',
+    { patternPolicies: policies },
+  );
+  assert.equal(first.status, 'unresolvable');
+  assert.equal(stablePedagogyJson(first), stablePedagogyJson(second));
+  assert.match(first.reason, /ambiguous slots/u);
+});
+
+test('exact target in the wrong target-pattern slot is not treated as preserved', () => {
+  const result = resultFor('homeschool-practical-override-preserved');
+  const trace = result.decision.teacher_override_adaptations[0];
+  assert.equal(trace.adapted_phase_id, 'practical-work');
+  assert.notEqual(trace.adapted_phase_id, 'evidence-check');
+  assert.equal(trace.status, 'preserved');
+});
+
+test('preserved practical override retains source identity and teacher rationale', () => {
+  const result = resultFor('homeschool-practical-override-preserved');
+  const trace = result.decision.teacher_override_adaptations[0];
+  assert.equal(trace.override_id, 'keep-practical-observation');
+  assert.match(trace.teacher_rationale_ru, /процедуру наблюдения и измерения/u);
+  assert.deepEqual(result.homeschoolLessonDna.teacher_overrides, [{
+    override_id: 'keep-practical-observation',
+    status: 'accepted',
+    slot_id: 'practical-work',
+    target_id: 'learning-stations::practical-observation-measurement',
+    rationale_ru:
+      'Учитель сохраняет проверяемую процедуру наблюдения и измерения в практическом этапе.',
+  }]);
+});
+
+test('teacher override cannot bypass final homeschool safety constraints', () => {
+  const request = requestFor('homeschool-practical-override-preserved');
+  request.adaptation_context.adult_context.safety_supervision_available = false;
+  request.adaptation_context.resources.adult_safety_supervision_available = false;
+  const result = adaptLessonForHomeschool(repository, request);
+  assert.equal(result.decision.status, 'failure');
+  assert.ok([
+    'teacher_override_not_preserved',
+    'safety_supervision_unavailable',
+  ].includes(result.decision.failure.code));
+});
+
+test('adult-managed success output is byte-identical', () => {
+  const request = requestFor('homeschool-adult-managed-retrieval');
+  assert.equal(
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+  );
+});
+
+test('adult-managed failure output is byte-identical', () => {
+  const request = requestFor('homeschool-adult-managed-unavailable');
+  assert.equal(
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+  );
+});
+
+test('override slot resolution output is byte-identical', () => {
+  const first = resolveFixtureSlot(
+    'homeschool-practical-supervised',
+    'practical-work',
+    'safe-practical-investigation',
+  );
+  const second = resolveFixtureSlot(
+    'homeschool-practical-supervised',
+    'practical-work',
+    'safe-practical-investigation',
+  );
+  assert.equal(stablePedagogyJson(first), stablePedagogyJson(second));
+});
+
+test('review binding result is byte-identical after set-array reordering', () => {
+  const request = requestFor('homeschool-concept-independent');
+  const reordered = clone(request);
+  reordered.content_bindings.reverse();
+  for (const binding of reordered.content_bindings) {
+    binding.answer_key_refs.reverse();
+    binding.learner_material_refs.reverse();
+  }
+  assert.equal(
+    stablePedagogyJson(adaptLessonForHomeschool(repository, request)),
+    stablePedagogyJson(adaptLessonForHomeschool(repository, reordered)),
+  );
+});
+
+test('new contracts retain no-AI, no-network, no-randomness, no-timestamp guarantees', () => {
+  const flags = resultFor('homeschool-adult-managed-retrieval').decision.determinism;
+  assert.deepEqual(flags, {
+    ordering: 'bytewise',
+    ai_used: false,
+    network_used: false,
+    randomness_used: false,
+    volatile_timestamp_in_core: false,
+  });
 });
 
 test('repository tracks no PDF or DOC pedagogical source files', () => {

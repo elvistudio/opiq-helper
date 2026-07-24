@@ -81,6 +81,7 @@ timing:
   delayed_retrieval_minutes: 6
   weekly_review_minutes: 8
   adult_preparation_minutes_when_needed: 3
+  adult_key_release_minutes_per_session: 1
   adult_support_minutes_by_effort:
     high: 12
     intensive: 20
@@ -124,6 +125,7 @@ failure_priority:
   - stale_source_lesson_dna
   - source_selection_not_reproducible
   - unsupported_homeschool_variant
+  - adult_managed_answer_access_unavailable
   - safety_supervision_unavailable
   - safety_requirement_not_preserved
   - answer_key_binding_missing
@@ -132,6 +134,7 @@ failure_priority:
   - missing_home_resource
   - adult_effort_exceeds_limit
   - limited_adaptation_not_allowed
+  - teacher_override_slot_unresolvable
   - teacher_override_not_preserved
   - language_profile_incompatible
   - timing_unrealistic
