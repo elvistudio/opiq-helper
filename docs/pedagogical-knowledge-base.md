@@ -263,6 +263,21 @@ The responsibility boundary is deliberate:
 
 No personal progress data is stored by this subsystem.
 
+## Homeschool adaptation layer
+
+Issue #60 adds a structural adapter without changing the knowledge provenance
+model. It validates a complete source selection request and its corresponding
+lesson DNA, proves that the selection is current and reproducible, derives a
+home delivery request, and calls the existing selector again. It then emits
+only structural learner steps, bounded parent guidance, and a relative weekly
+plan around opaque teacher-provided content and key references.
+
+This layer does not create scientific explanations or answers, does not treat
+the parent as a subject teacher, and does not authorize practical work.
+Packages remain proposed, pending teacher review, untried at home, not
+homeschool-ready, and without an effectiveness claim. See
+[`homeschool-learning-engine.md`](homeschool-learning-engine.md).
+
 ## Grade-5 science applicability
 
 Every principle and activity explicitly supports this pilot context:

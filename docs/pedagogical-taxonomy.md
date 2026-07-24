@@ -287,9 +287,13 @@ selected format belongs to that set. The complete model, trace, and limitations
 are documented in
 [`lesson-pedagogy-engine.md`](lesson-pedagogy-engine.md).
 
-Issue #60 can use parent effort, one-learner compatibility, offline/no-printer
-conditions, safety supervision, and delivery limitations to design homeschool
-support. It must preserve the parent/subject-teacher boundary.
+Issue #60 now consumes parent effort, one-learner compatibility,
+offline/no-printer conditions, safety supervision, participant ranges, and
+delivery limitations through the existing selector. Activity variants were
+extended only where the existing delivery mode, group range, and group format
+already support remote-peer or two-learner sibling use. The adapter enforces
+the declared variant, never turns a supporting adult into a subject teacher,
+and records adaptable or limited use in its decision.
 
 Teacher review can later change a rating with evidence and updated confidence.
 Until then, the taxonomy remains a useful provisional classification. It does
@@ -297,6 +301,7 @@ not modify production lessons, annual courses, teacher packs, review evidence,
 readiness, or content fingerprints.
 
 Only methods with a demonstrated operational difference are profiled. Profile
-ratings and selection weights do not prove effectiveness, teacher validation
-is still pending, production lessons are not migrated, and full homeschool
-generation remains #60 scope.
+ratings, selection weights, and homeschool variant metadata do not prove
+effectiveness. Teacher validation is still pending, and production lessons are
+not migrated. The homeschool engine produces only structural packages; real
+content integration remains issue #61.

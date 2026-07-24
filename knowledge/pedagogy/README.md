@@ -32,6 +32,12 @@ The initial catalog contains:
   structured-failure requests.
 - `selection/lesson-dna-examples.yaml` stores four generated, machine-validated
   proposed DNA examples.
+- `homeschool/homeschool-rules.yaml` defines versioned phase, timing,
+  answer-access, adult-role, and package rules.
+- `homeschool/grade-5-homeschool-fixtures.yaml` contains 12 adaptation
+  scenarios: eight success cases and four structured failures.
+- `homeschool/homeschool-package-examples.yaml` stores five deterministic
+  proposed packages with parent guidance and relative weekly plans.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.
@@ -67,6 +73,9 @@ npm run query:pedagogy -- --fixture homeschool-low-support-retrieval
 npm run test:pedagogy-selection
 npm run check:pedagogy-selection
 npm run select:pedagogy
+npm run test:pedagogy-homeschool
+npm run check:pedagogy-homeschool
+npm run adapt:homeschool
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -104,3 +113,6 @@ See [`docs/pedagogical-taxonomy.md`](../../docs/pedagogical-taxonomy.md) for
 taxonomy semantics and filtering boundaries.
 See [`docs/lesson-pedagogy-engine.md`](../../docs/lesson-pedagogy-engine.md) for
 selection requests, versioned rules, lesson DNA, failures, and CLI usage.
+See [`docs/homeschool-learning-engine.md`](../../docs/homeschool-learning-engine.md)
+for source/DNA validation, home variants, parent boundaries, answer access,
+weekly plans, and readiness limits.

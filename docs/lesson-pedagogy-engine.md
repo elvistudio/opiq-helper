@@ -470,11 +470,17 @@ classroom_ready: false
 effectiveness_claimed: false
 ```
 
-Issue #60 can consume individual-study, parent-effort, offline, no-printer, and
-safety metadata to build homeschool packages. It must not turn the selector
-into a subject teacher or relax supervision. A later production-integration
-issue can map DNA into real lesson artifacts only with explicit migration and
-review.
+Issue #60 now consumes individual-study, parent-effort, offline, no-printer,
+participant, variant, and safety metadata through a separate deterministic
+adapter. It validates and reproduces the source request/DNA pair, derives a
+home request, and calls this selector again; it does not copy this engine's
+scoring or hard filters. The resulting home DNA remains proposed and is
+wrapped only in structural learner steps, parent guidance, and relative
+scheduling. See
+[`homeschool-learning-engine.md`](homeschool-learning-engine.md).
+
+A later production-integration issue can map that package into real lesson
+artifacts only with explicit migration and review.
 
 This implementation does not modify production lessons, annual courses,
 curriculum maps, teacher packs, review/trial evidence, readiness, or content
