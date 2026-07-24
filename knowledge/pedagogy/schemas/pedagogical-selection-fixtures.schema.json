@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-fixtures.schema.json",
+  "title": "Pedagogical selection fixtures",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "taxonomy_version", "selection_rules_version", "fixtures"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "artifact_type": {"const": "pedagogical_selection_fixtures"},
+    "taxonomy_version": {"const": "1.0"},
+    "selection_rules_version": {"const": "1.0"},
+    "fixtures": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fixture_id", "description_ru", "request", "expected"],
+        "properties": {
+          "fixture_id": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"},
+          "description_ru": {"type": "string", "minLength": 1},
+          "request": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-selection-request.schema.json#/$defs/request"},
+          "expected": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "pattern_id", "include_target_ids", "exclude_target_ids", "failure_code", "accepted_override_ids", "rejected_override_ids", "example_id"],
+            "properties": {
+              "status": {"enum": ["success", "failure"]},
+              "pattern_id": {
+                "oneOf": [
+                  {"type": "null"},
+                  {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"}
+                ]
+              },
+              "include_target_ids": {"$ref": "#/$defs/targetIds"},
+              "exclude_target_ids": {"$ref": "#/$defs/targetIds"},
+              "failure_code": {"type": ["string", "null"]},
+              "accepted_override_ids": {"$ref": "#/$defs/stableIds"},
+              "rejected_override_ids": {"$ref": "#/$defs/stableIds"},
+              "example_id": {
+                "oneOf": [
+                  {"type": "null"},
+                  {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"}
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "targetIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/queryTargetId"}
+    },
+    "stableIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"}
+    }
+  }
+}

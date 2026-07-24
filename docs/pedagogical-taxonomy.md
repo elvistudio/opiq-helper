@@ -131,6 +131,15 @@ A method with high productive-language demand cannot claim
 actual output and supports. Discussion-heavy activities retain their real
 interaction demand even when pupils write rather than speak.
 
+`productive_language` describes the learner's total speaking and writing
+demand across languages. It is not an Estonian-only rating. The selection
+engine compares it with a top-level total-demand ceiling, then checks
+`estonian_a1_a2_compatibility` separately only when Estonian support is enabled.
+When support is disabled, the A1–A2 rating neither filters nor scores the
+activity, while total productive-language demand still applies. The taxonomy
+does not yet provide distinct Russian- and Estonian-demand ratings; do not
+infer them.
+
 ## Preparation, facilitation, and family effort
 
 Effort levels are `none`, `minimal`, `low`, `medium`, `high`, `intensive`, and
@@ -265,11 +274,18 @@ production fixtures cover concept introduction, low-support homeschool
 retrieval, low-support paper stations, safe practical work, map/diagram work,
 retrieval with error correction, and large-class collaboration.
 
-## Future use
+## Selection use
 
-Issue #59 can use these validated dimensions to filter method candidates before
-implementing explainable selection and lesson DNA. It must not reinterpret
-activity names as capabilities or treat current metadata as a ranking score.
+The issue #59 engine now uses these validated dimensions only after concrete
+target expansion. Hard constraints use delivery, resources, demand, effort,
+safety, and execution-profile facts. Visible project-authored integer weights
+express operational fit to one request; they do not convert taxonomy ratings
+into an effectiveness score. Effective delivery fit combines only applicable
+declared compatibility dimensions and uses the most restrictive result.
+Preferred group formats form an unordered set and receive a bonus only when the
+selected format belongs to that set. The complete model, trace, and limitations
+are documented in
+[`lesson-pedagogy-engine.md`](lesson-pedagogy-engine.md).
 
 Issue #60 can use parent effort, one-learner compatibility, offline/no-printer
 conditions, safety supervision, and delivery limitations to design homeschool
@@ -280,7 +296,7 @@ Until then, the taxonomy remains a useful provisional classification. It does
 not modify production lessons, annual courses, teacher packs, review evidence,
 readiness, or content fingerprints.
 
-Only methods with a demonstrated operational difference are profiled. The
-profile ratings do not prove effectiveness, teacher validation is still
-pending, selection or combination of profiles remains #59 scope, and full
-homeschool generation remains #60 scope.
+Only methods with a demonstrated operational difference are profiled. Profile
+ratings and selection weights do not prove effectiveness, teacher validation
+is still pending, production lessons are not migrated, and full homeschool
+generation remains #60 scope.

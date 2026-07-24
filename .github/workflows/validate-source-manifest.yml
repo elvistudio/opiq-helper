@@ -20,6 +20,7 @@ on:
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
       - docs/pedagogical-taxonomy.md
+      - docs/lesson-pedagogy-engine.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -49,6 +50,7 @@ on:
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
       - docs/pedagogical-taxonomy.md
+      - docs/lesson-pedagogy-engine.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -124,6 +126,15 @@ jobs:
 
       - name: Check pedagogical knowledge
         run: npm run check:pedagogy
+
+      - name: Test lesson pedagogy selection
+        run: npm run test:pedagogy-selection
+
+      - name: Check lesson pedagogy selection
+        run: npm run check:pedagogy-selection
+
+      - name: Inspect deterministic pedagogy fixtures
+        run: npm run select:pedagogy
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
