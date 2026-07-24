@@ -38,6 +38,8 @@ adaptation_context:
     projector_available: false
     unavailable:
       - internet
+      - laboratory_materials
+      - measuring_tools
   teacher_override_policy: require_preservation
   variant: independent
 artifact_type: homeschool_adaptation_request
@@ -112,9 +114,12 @@ source:
     artifact_type: lesson_dna
     assessment:
       estonian_language_assessment:
-        enabled: false
-        notes_ru: Эстонское языковое оценивание для этого запроса отключено.
-        target_phase_ids: []
+        enabled: true
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
+        target_phase_ids:
+          - activation
+          - guided-practice
       separation_policy: separate_subject_and_estonian_language_evidence
       subject_assessment:
         enabled: true
@@ -141,7 +146,7 @@ source:
           subject_explanation_language: ru
         maximum_total_productive_language_demand: medium
         primary_instruction_language: ru
-      request_digest: 49f9723c2e5386ce1572a798f78b6b0408436a26136a014ee33ac20b70ad57bc
+      request_digest: 5826190572f8963e7b113e49c388ab8b50089b697c95684f2a9b95d216320f42
       request_id: grade-5-water-01-properties-classroom-selection
       subject: science
     differentiation:
@@ -206,12 +211,12 @@ source:
       - activity_minutes: 8
         capabilities:
           primary:
-            - guided_practice
+            - diagram_interpretation
+            - independent_practice
+            - visual_representation
           supporting:
             - concept_formation
             - explanation_and_modelling
-            - formative_assessment
-            - oral_production
         cleanup_minutes: 0
         group_format: individual
         language_role:
@@ -226,24 +231,64 @@ source:
         phase: explanation
         phase_id: explanation
         purpose_ru: Построить точную предметную модель в доступной форме.
-        rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
+        rationale_ru: Target visual-representation::paper-diagram прошёл hard constraints и получил
+          наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - diagram
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: allowed
+        target:
+          activity_id: visual-representation
+          execution_profile_id: paper-diagram
+          target_id: visual-representation::paper-diagram
+        transition_minutes: 0
+      - activity_minutes: 7
+        capabilities:
+          primary:
+            - classification
+            - comparison
+          supporting:
+            - visual_representation
+            - written_production
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: guided_practice
+        phase_id: guided-practice
+        purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
+        rationale_ru: Target venn-diagram прошёл hard constraints и получил наивысший допустимый вклад в
           согласованную композицию; это не effectiveness ranking.
         required: true
         resources:
           required:
             - paper
-            - textbook_or_source_text
             - writing_tool
         safety:
           controls_ru: []
           requires_adult_supervision: false
-        setup_minutes: 4
+        setup_minutes: 2
         source_access:
           first_attempt: allowed
         target:
-          activity_id: guided-reading
+          activity_id: venn-diagram
           execution_profile_id: null
-          target_id: guided-reading
+          target_id: venn-diagram
         transition_minutes: 0
       - activity_minutes: 8
         capabilities:
@@ -267,9 +312,9 @@ source:
             - short_written_response
             - terminology
           primary_language: ru
-        phase: guided_practice
-        phase_id: guided-practice
-        purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
+        phase: retrieval
+        phase_id: retrieval
+        purpose_ru: Восстановить главную связь без просмотра источника.
         rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
           согласованную композицию; это не effectiveness ranking.
         required: true
@@ -288,56 +333,16 @@ source:
           execution_profile_id: null
           target_id: concept-map
         transition_minutes: 0
-      - activity_minutes: 2
+      - activity_minutes: 3
         capabilities:
           primary:
-            - retrieval
-          supporting:
-            - formative_assessment
-            - oral_production
-            - written_production
-        cleanup_minutes: 0
-        group_format: individual
-        language_role:
-          estonian_roles:
-            - familiar_instruction
-            - labels
-            - sentence_frame
-            - short_oral_response
-            - short_written_response
-            - terminology
-          primary_language: ru
-        phase: retrieval
-        phase_id: retrieval
-        purpose_ru: Восстановить главную связь без просмотра источника.
-        rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
-          в согласованную композицию; это не effectiveness ranking.
-        required: true
-        resources:
-          required:
-            - paper
-            - writing_tool
-        safety:
-          controls_ru: []
-          requires_adult_supervision: false
-        setup_minutes: 2
-        source_access:
-          first_attempt: prohibited
-        target:
-          activity_id: one-minute-recall
-          execution_profile_id: null
-          target_id: one-minute-recall
-        transition_minutes: 0
-      - activity_minutes: 5
-        capabilities:
-          primary:
-            - formative_assessment
-            - independent_practice
-            - retrieval
-            - self_assessment
-          supporting:
             - error_correction
             - error_detection
+          supporting:
+            - formative_assessment
+            - misconception_detection
+            - reflection
+            - self_assessment
         cleanup_minutes: 0
         group_format: individual
         language_role:
@@ -352,8 +357,8 @@ source:
         phase: formative_assessment
         phase_id: formative-check
         purpose_ru: Найти устойчивое заблуждение и определить следующий шаг.
-        rationale_ru: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый
-          вклад в согласованную композицию; это не effectiveness ranking.
+        rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
+          согласованную композицию; это не effectiveness ranking.
         required: true
         resources:
           required:
@@ -365,11 +370,11 @@ source:
           requires_adult_supervision: false
         setup_minutes: 4
         source_access:
-          first_attempt: prohibited
+          first_attempt: required
         target:
-          activity_id: retrieval-self-test
+          activity_id: error-correction
           execution_profile_id: null
-          target_id: retrieval-self-test
+          target_id: error-correction
         transition_minutes: 0
     retrieval_plan:
       correction_phase_id: formative-check
@@ -384,18 +389,24 @@ source:
       effectiveness_claimed: false
       structural_state: proposed
       teacher_review: pending
-    teacher_overrides: []
+    teacher_overrides:
+      - override_id: align-observation-comparison
+        rationale_ru: Сравнение воды и раствора в существующей практической таблице требует явного
+          отображения общего и различий.
+        slot_id: guided-practice
+        status: accepted
+        target_id: venn-diagram
     timing:
-      activity_minutes: 26
+      activity_minutes: 29
       cleanup_minutes: 0
       fits: true
       reserve_minutes: 3
-      setup_minutes: 14
-      total_planned_minutes: 43
+      setup_minutes: 12
+      total_planned_minutes: 44
       transition_minutes: 0
-      unallocated_minutes: 2
+      unallocated_minutes: 1
     versions:
-      activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
       lesson_dna_schema: "1.0"
       selection_rules: "1.0"
@@ -422,7 +433,7 @@ source:
           - short_oral_response
           - short_written_response
           - terminology
-        assessment_requested: false
+        assessment_requested: true
         enabled: true
         language: et
         learner_level: A1-A2
@@ -483,7 +494,13 @@ source:
       preferred_target_ids:
         - concept-map
         - one-minute-recall
-      teacher_overrides: []
+      teacher_overrides:
+        - author_role: teacher
+          override_id: align-observation-comparison
+          rationale_ru: Сравнение воды и раствора в существующей практической таблице требует явного
+            отображения общего и различий.
+          requested_target_id: venn-diagram
+          slot_id: guided-practice
     request_id: grade-5-water-01-properties-classroom-selection
     resources:
       adult_safety_supervision_available: true

@@ -40,22 +40,49 @@
 Provenance: `author_created_assessment`, cumulative lesson 04 criteria and expected answers.
 
 <!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review audience=answer-key -->
-## Сгенерированная привязка попытки и ключа
+## Сгенерированные evidence и ключи по этапам
 
-| Task ID | Phase ID | Target ID | Student artifact | Answer key | Доступ к ключу |
-|---|---|---|---|---|---|
-| `grade-5-water-04-changes-review/retrieval-task` | `retrieval` | `retrieval-self-test` | `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md` | after_first_attempt |
-| `grade-5-water-04-changes-review/correction-task` | `correction` | `error-correction` | `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md` | after_first_attempt |
-| `grade-5-water-04-changes-review/consolidation-task` | `consolidation` | `concept-map` | `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md` | after_first_attempt |
+Lesson ID: `grade-5-water-04-changes-review`.
 
-Lesson ID: `grade-5-water-04-changes-review`. Доступ к ключу разрешён только после
-самостоятельной первой попытки.
+### `grade-5-water-04-changes-review/retrieval-task`
 
-Правильный предметный ответ: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла.
+- Phase: `retrieval`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `stage:retrieve-water-unit:pupil_action_ru`.
+- Evidence source refs: `stage:retrieve-water-unit:expected_evidence_of_learning`, `assessment:assess-et-recognition-unit:acceptable_evidence`.
+- Ожидаемое evidence: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
+- Допустимая языковая опора: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
-Допустимый короткий эстонский ответ: Soojenemisel jää sulab; jahtumisel vesi jäätub.
+### `grade-5-water-04-changes-review/correction-task`
 
-Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Phase: `correction`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `stage:complete-change-model-ru:pupil_action_ru`.
+- Evidence source refs: `question:question-opposite-processes:full_expected_answer_ru`, `assessment:assess-subject-complete-cycle:acceptable_evidence`.
+- Ожидаемое evidence: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
+- Допустимая языковая опора: Одна поддержанная причинная фраза с двумя терминами..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
+### `grade-5-water-04-changes-review/consolidation-task`
+
+- Phase: `consolidation`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `stage:revision-stations:pupil_action_ru`, `stage:separate-unit-assessment:pupil_action_ru`.
+- Evidence source refs: `assessment:assess-subject-complete-cycle:acceptable_evidence`, `assessment:assess-et-independent-unit:acceptable_evidence`.
+- Ожидаемое evidence: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или переработанным термином.
+- Допустимая языковая опора: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
 
 Предметное понимание оценивается по научному смыслу русского ответа. Качество
 эстонской формы фиксируется отдельно и не снижает предметный результат автоматически.

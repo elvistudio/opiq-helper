@@ -47,47 +47,87 @@ mass migration.
 
 SHA-256 content identity covers source identity and URLs, content objectives,
 subject success criteria, misconceptions, existing questions and expected
-answers, practical procedure and safety, assessment, and the Russian-primary /
-Estonian-supported language-policy identity. It excludes selected methods,
-timing, generated paths, readiness, review/trial status, timestamps, and Git
-commit identity. Semantically set-like arrays are sorted bytewise.
+answers, assessment, and the Russian-primary / Estonian-supported
+language-policy identity. For practical work it projects the production
+`work_id`, safety requirements, ordered teacher-controlled and pupil steps,
+materials, observation table, expected observation and conclusion, Russian
+report target, short Estonian conclusion, Opiq record IDs, and provenance
+references. It excludes selected methods, timing, generated paths, readiness,
+review/trial status, timestamps, and Git commit identity.
+
+Canonicalization is path-aware. Opiq records are set-like by
+`record_id + canonical_url`; role, outcome, objective, provenance, language,
+acceptable-variant, and safety-reference sets are bytewise sorted. Scientific
+procedures, lesson stages, and recommended sequences retain their declared
+order. This keeps harmless source-record reordering stable while ensuring that
+changing a procedure step, expected observation, conclusion, or safety control
+changes the identity.
 
 Classroom and homeschool artifacts are linked to the same lesson content
 identity in `pedagogy/integration-index.yaml`. Changing a scientific answer,
 source URL, or safety control changes the identity; changing delivery timing or
 readiness does not.
 
-## Stage and timing reconciliation
+## Stage and component timing reconciliation
 
-Every consuming DNA phase binds to one or more existing stage IDs. The bound
-stage time must cover the activity minimum. DNA setup, cleanup, transitions,
-and reserve remain visible in the DNA total; the full proposal must fit the
-unchanged 45-minute lesson. Any unbound lesson stage needs an explicit non-DNA
-role and rationale. Duplicate, unknown, or missing stage bindings fail.
+Every DNA phase binds to explicit, non-overlapping minute allocations inside
+one or more existing lesson stages. Each allocation records activity, setup,
+cleanup, and transition minutes. Reserve and non-DNA minutes are separately
+assigned to a stage. For every stage:
+
+```text
+phase activity + setup + cleanup + transition + reserve + non-DNA
+= declared stage duration
+```
+
+Across the lesson, all stage partitions equal exactly 45 minutes. DNA component
+allocations plus reserve equal `lessonDna.timing.total_planned_minutes`;
+non-DNA allocations equal `unallocated_minutes`. Stage sharing is allowed only
+through explicit allocations, so no minute can be counted twice.
+
+Versioned compatibility rules 1.0 also check meaning, not only arithmetic:
+activation binds to activation, explanation to Russian concept explanation or
+an Estonian bridge, guided practice to supported/practical/classification
+work, retrieval and formative assessment to genuine output, revision, or
+assessment evidence, and orientation/reflection to their corresponding stage
+types. Narrow compatibility bases such as bounded language assessment or
+embedded formative evidence must be stated explicitly with a Russian
+rationale. Unknown stages, incompatible bindings, hidden overlap, or stage
+minutes without a phase/reserve/non-DNA role fail.
 
 The compact practical profile describes one teacher-prepared observation, not
 rotating stations. It keeps adult supervision, controlled materials, setup,
 cleanup, measurement, observation, and evidence-based conclusion visible while
 fitting the existing lesson.
 
-## Generated regions and audience boundaries
+## Phase-specific generated regions and evaluation
 
 The renderer owns only regions enclosed by:
 
 ```html
-<!-- OPIQ-PEDAGOGY:BEGIN lesson=… audience=… -->
-<!-- OPIQ-PEDAGOGY:END lesson=… audience=… -->
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=… phase=… audience=… -->
+<!-- OPIQ-PEDAGOGY:END lesson=… phase=… audience=… -->
 ```
 
 Manual text outside a region is preserved. Missing, duplicate, nested, or
-broken markers fail. Teacher regions show pattern/target metadata and
-reconciliation. Student regions show observable actions, source-open/closed
-rules, first attempt, and visible correction, without taxonomy IDs, scoring,
-or override internals. The integration index and answer-key regions bind each
-generated task ID to its lesson, DNA phase, exact target, student artifact,
-answer-key artifact, source-access rule, and post-attempt key-release policy.
-Answer guidance also keeps expected evidence, misconceptions, and separate
-subject/language evaluation visible.
+broken markers fail. A phase render contract states an execution mode,
+concrete learner instruction, evidence and language-support references,
+evaluation mode, answer-access policy, and binding rationale. The renderer
+materializes the selected method: concept maps require nodes and labelled
+links, recall closes the source before retrieval, self-tests preserve
+attempt/check/correction, and practical work exposes only approved procedure
+and evidence recording.
+
+Teacher regions show the target, minute allocation, learner and teacher
+actions, evidence, evaluation, language role, assessment references, safety,
+differentiation, and rationale. Student regions show observable actions,
+exact source/material access, first attempt, required evidence, key-release,
+and visible correction without taxonomy IDs, scoring, or override internals.
+`teacher_observation` phases have no fictitious key;
+`answer_key`/`evidence_criterion` phases resolve to a real key. The integration
+index binds each task to the exact student and teacher paths, prompt/evidence
+sources, evaluation mode, and access policy. Validation proves that no selected
+phase exists only as metadata.
 
 ## Language and assessment
 
@@ -98,19 +138,40 @@ responses already present in the lesson. Subject and Estonian evidence remain
 separate; an Estonian form error does not automatically reduce the science
 result.
 
+The shared `lessonRequestsEstonianAssessment()` rule follows structured
+criteria: `affects: language_assessment` or a recognized Estonian recognition,
+supported-production, or independent-production domain. This flag propagates
+through the selection request, lesson DNA, integration index, phase tasks,
+answer guidance, and homeschool package. Target phase IDs must contain actual
+language evidence; Russian scientific reasoning and A1–A2 Estonian output
+remain separately evaluated.
+
 ## Homeschool adaptation
 
 Each homeschool request reproduces the exact classroom request and lesson DNA
-before adaptation. Content bindings are phase-specific and refer to existing
-learner materials, answer keys, teacher explanations, Estonian support,
-procedure, and safety. Keys remain closed for the first attempt, corrections
-remain visible, and the parent is never made the subject teacher.
+before adaptation. A deterministic resolver expands every material ID to its
+title, repository path, audience, type, and answer key, and every task
+reference to a real task binding with a concrete instruction and expected
+evidence. Missing material, task, key, procedure, or safety references are
+integration errors. Child Markdown therefore names exact files and actions;
+opaque instructions such as “open the indicated material” are rejected. Keys
+remain closed for the first attempt, corrections remain visible, and the
+parent is never made the subject teacher.
 
 Lesson 3 is `parent_child`, requires teacher authorization and adult safety
 supervision, and permits only passive ice melting and cold-surface observation:
 no kettle, stove, open flame, or child handling of a hot vessel. Other lessons
 use the explicit `independent` variant. Variant selection is read from each
 lesson contract; it is never inferred from lesson position or prose.
+
+The lesson-3 boundary is also a strict machine-readable home-practical policy.
+It declares the source classroom target, safely adapted home target, allowed
+and forbidden materials, child and adult steps, prohibited actions, stop
+conditions, actual home resources, procedure/safety references, and the
+rationale relating the generated lesson to the simpler production homework.
+The final DNA, package, child Markdown, and parent Markdown must be equivalent
+to this policy. A resource-heavy classroom target is reselected rather than
+being falsely preserved when the home resource contract cannot support it.
 
 Delayed retrieval uses only `after_lessons`, `after_days`, or `next_unit`;
 absolute learner dates and personal progress storage are prohibited.

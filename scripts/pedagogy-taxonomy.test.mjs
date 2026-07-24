@@ -111,7 +111,7 @@ test('back-to-back description remains a pair and oral method', () => {
   assert.equal(candidate.compatibility.one_learner, 'adaptable');
 });
 
-test('learning stations expose four distinct execution profiles', () => {
+test('learning stations expose five distinct execution profiles', () => {
   const candidate = activities.find((item) => item.activity_id === 'learning-stations');
   assert.deepEqual(
     candidate.execution_profiles.map((item) => item.profile_id),
@@ -119,12 +119,14 @@ test('learning stations expose four distinct execution profiles', () => {
       'map-data',
       'paper-classification',
       'practical-compact-teacher-prepared-observation',
+      'practical-home-passive-ice-observation',
       'practical-observation-measurement',
     ],
   );
   const paper = candidate.execution_profiles[1];
   const compact = candidate.execution_profiles[2];
-  const practical = candidate.execution_profiles[3];
+  const home = candidate.execution_profiles[3];
+  const practical = candidate.execution_profiles[4];
   assert.equal(paper.safety.requires_adult_supervision, false);
   assert.equal(paper.effort.homeschool_parent.role, 'none');
   assert.ok(!paper.resource_requirements.required.includes('laboratory_materials'));
@@ -133,6 +135,9 @@ test('learning stations expose four distinct execution profiles', () => {
   assert.equal(compact.resource_requirements.setup_minutes, 2);
   assert.equal(compact.resource_requirements.cleanup_minutes, 2);
   assert.equal(compact.safety.requires_adult_supervision, true);
+  assert.equal(home.capabilities.observation, 'primary');
+  assert.equal(home.resource_requirements.laboratory_materials_required, false);
+  assert.equal(home.effort.homeschool_parent.role, 'safety_supervision');
   assert.equal(practical.capabilities.observation, 'primary');
   assert.equal(practical.capabilities.measurement, 'primary');
   assert.equal(practical.safety.requires_adult_supervision, true);
@@ -299,6 +304,7 @@ test('profiled activity expands to composed deterministic targets', () => {
       'learning-stations::map-data',
       'learning-stations::paper-classification',
       'learning-stations::practical-compact-teacher-prepared-observation',
+      'learning-stations::practical-home-passive-ice-observation',
       'learning-stations::practical-observation-measurement',
     ],
   );
@@ -315,6 +321,11 @@ test('safe practical filtering selects both supervised learning-stations profile
         target_id: 'learning-stations::practical-compact-teacher-prepared-observation',
         activity_id: 'learning-stations',
         execution_profile_id: 'practical-compact-teacher-prepared-observation',
+      },
+      {
+        target_id: 'learning-stations::practical-home-passive-ice-observation',
+        activity_id: 'learning-stations',
+        execution_profile_id: 'practical-home-passive-ice-observation',
       },
       {
         target_id: 'learning-stations::practical-observation-measurement',
@@ -371,11 +382,11 @@ test('query response remains filtering output without ranking fields', () => {
   assert.ok(!Object.hasOwn(result, 'ranking'));
 });
 
-test('only learning-stations is profiled and the 29 other activity records retain operational blocks', () => {
+test('learning-stations and visual-representation are profiled and 28 other records retain operational blocks', () => {
   assert.equal(activities.length, 30);
   assert.deepEqual(
     activities.filter((candidate) => candidate.execution_profiles).map((candidate) => candidate.activity_id),
-    ['learning-stations'],
+    ['learning-stations', 'visual-representation'],
   );
   for (const candidate of activities.filter((item) => !item.execution_profiles)) {
     assert.ok(candidate.capabilities, candidate.activity_id);
@@ -384,10 +395,12 @@ test('only learning-stations is profiled and the 29 other activity records retai
   }
 });
 
-test('all 29 non-profiled activity records preserve the reviewed homeschool semantic digest', () => {
-  const records = activities.filter((candidate) => candidate.activity_id !== 'learning-stations');
+test('all 28 unchanged non-profiled activity records preserve the reviewed homeschool semantic digest', () => {
+  const records = activities.filter(
+    (candidate) => !['learning-stations', 'visual-representation'].includes(candidate.activity_id),
+  );
   const digest = createHash('sha256').update(JSON.stringify(records)).digest('hex');
-  assert.equal(digest, '8147588e4de42a0f2db8109523402927dabcfda0be1eba2fc2aa5a9e81dcd16d');
+  assert.equal(digest, '447d3d31c755b7f01e229a72d943b347d7246515e88a0678df775649cb982766');
 });
 
 test('query target expansion is deterministic across reversed catalog traversal', () => {
@@ -395,7 +408,7 @@ test('query target expansion is deterministic across reversed catalog traversal'
   const reversed = expandPedagogyActivityTargets([...activities].reverse())
     .map((target) => target.target_id);
   assert.deepEqual(reversed, forward);
-  assert.equal(forward.length, 33);
+  assert.equal(forward.length, 35);
 });
 
 test('offline no-printer retrieval query returns an individual activity', () => {
@@ -434,7 +447,11 @@ test('map or diagram query finds a low-language visual method', () => {
   });
   assert.deepEqual(
     result.targets.map((target) => target.target_id),
-    ['learning-stations::map-data', 'visual-representation'],
+    [
+      'learning-stations::map-data',
+      'visual-representation::paper-diagram',
+      'visual-representation::physical-model',
+    ],
   );
 });
 

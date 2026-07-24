@@ -31,13 +31,68 @@ Lesson: `grade-5-water-02-states`
 
 Provenance: `author_created_bridge` + `author_created_worksheet`, lesson 02; terminology: https://www.opiq.ee/kit/525/chapter/29515. Чёрно-белая печать.
 
-<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states audience=student -->
-## Самостоятельная попытка и исправление
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=activation audience=student -->
+## Мозговой штурм
 
-1. Закрой учебник и ключ. Запиши или скажи свой первый ответ.
-2. Ответь по-русски: **Чем жидкая вода отличается от льда и водяного пара?**
-3. После первой попытки открой ключ, сравни и исправь неточность другим цветом.
-4. Коротко по-эстонски: **Mis olekus võivad vesi ja jää olla?**
+<!-- task_id: grade-5-water-02-states/activation-task -->
 
-Первая попытка выполняется без ответа. Выбранная структура содержит 5 проверяемых этапа(ов), но технические названия ребёнку не нужны.
-<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states audience=student -->
+Материал: **Двуязычная схема трёх состояний воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md`
+
+Инструкция: До объяснения запиши первоначальную идею о том, что общего у льда, жидкой воды и водяного пара.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Что должно остаться после работы: Предыдущее понятие вещества доступно для нового сравнения.
+
+Эстонская поддержка: Mis olekus võivad vesi ja jää olla?
+
+Ключ для этого действия не используется.
+
+Учитель или взрослый фиксирует наблюдаемое действие; скрытого ответа здесь нет.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=activation audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=explanation audience=student -->
+## Бумажная схема
+
+<!-- task_id: grade-5-water-02-states/explanation-task -->
+
+Материал: **Двуязычная схема трёх состояний воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md`
+
+Инструкция: Изобрази одну общую схему трёх состояний воды и подпиши рядом по одному наблюдаемому признаку каждого состояния.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Что должно остаться после работы: Ученик опирается на свойства состояния, а не только на бытовое название. Шесть корректно распределённых карточек и три русских обоснования.
+
+Эстонская поддержка: Правильное размещение терминов на схеме.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=explanation audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=retrieval audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-02-states/retrieval-task -->
+
+Материал: **Двуязычная схема трёх состояний воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md`
+
+Инструкция: Закрой источник и построй карту понятий по памяти: три узла состояний, признаки и подписанные связи с примерами.
+
+Закрой источник до завершения первой попытки.
+
+Что должно остаться после работы: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар является газом и заполняет доступное пространство. Одно понятное предложение без полной рамки.
+
+Эстонская поддержка: Jää on tahke ja vesi on vedel.; Одно понятное предложение без полной рамки.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=retrieval audience=student -->

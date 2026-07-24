@@ -1,28 +1,28 @@
 adult_role_decisions:
   - allowed: true
-    effort_level: medium
-    rationale_ru: Роль взята из validated activity metadata и ограничена homeschool request.
-    role: safety_supervision
-    support_minutes: 14
-    target_id: learning-stations::practical-compact-teacher-prepared-observation
-  - allowed: true
-    effort_level: minimal
-    rationale_ru: Роль взята из validated activity metadata и ограничена homeschool request.
-    role: check_answers
-    support_minutes: 2
-    target_id: retrieval-self-test
-  - allowed: true
-    effort_level: minimal
+    effort_level: low
     rationale_ru: Роль взята из validated activity metadata и ограничена homeschool request.
     role: listening_partner
-    support_minutes: 2
-    target_id: retrieval-summary
+    support_minutes: 4
+    target_id: brainstorming
   - allowed: true
-    effort_level: minimal
+    effort_level: none
+    rationale_ru: Этап не требует участия взрослого.
+    role: none
+    support_minutes: 0
+    target_id: exit-ticket
+  - allowed: true
+    effort_level: low
     rationale_ru: Роль взята из validated activity metadata и ограничена homeschool request.
-    role: check_answers
-    support_minutes: 2
-    target_id: true-false-anticipation
+    role: safety_supervision
+    support_minutes: 13
+    target_id: learning-stations::practical-home-passive-ice-observation
+  - allowed: true
+    effort_level: none
+    rationale_ru: Этап не требует участия взрослого.
+    role: none
+    support_minutes: 0
+    target_id: one-minute-recall
 answer_access_checks:
   - code: adapted_answer_bindings_validated
     passed: true
@@ -66,18 +66,21 @@ answer_binding_decisions:
       - water-lesson-03-guide
     valid: true
   - adapted_phase_id: practical-work
-    answer_key_refs: []
+    answer_key_refs:
+      - lesson-03-answer-key
     binding_origin: exact_adapted
     learner_material_refs:
       - melting-condensation-table
       - practical-safety-card
     procedure_refs:
-      - grade-5-water-03-melting-condensation/approved-procedure
+      - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
+      - policy:lesson-03-passive-ice-home-policy:child_steps_ru
     rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
     release_policy: not_applicable
     review_capable: false
     safety_refs:
-      - grade-5-water-03-melting-condensation/safety-controls
+      - policy:lesson-03-passive-ice-home-policy:safety_controls_ru
+      - policy:lesson-03-passive-ice-home-policy:stop_conditions_ru
     source_access_policy: open
     source_phase_ids:
       - practical-work
@@ -90,12 +93,14 @@ answer_binding_decisions:
     learner_material_refs:
       - practical-safety-card
     procedure_refs:
-      - grade-5-water-03-melting-condensation/approved-procedure
+      - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
+      - policy:lesson-03-passive-ice-home-policy:child_steps_ru
     rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
     release_policy: not_applicable
     review_capable: false
     safety_refs:
-      - grade-5-water-03-melting-condensation/safety-controls
+      - policy:lesson-03-passive-ice-home-policy:safety_controls_ru
+      - policy:lesson-03-passive-ice-home-policy:stop_conditions_ru
     source_access_policy: open
     source_phase_ids:
       - safety-orientation
@@ -108,11 +113,11 @@ derived_selection_decision:
   artifact_type: pedagogical_selection_decision
   candidate_summary:
     patterns_considered: 1
-    targets_considered: 33
-    valid_compositions: 28
+    targets_considered: 35
+    valid_compositions: 21
   combination_checks:
     - check_id: duration-and-reserve
-      details: planned 43 of 180 minutes including reserve
+      details: planned 29 of 180 minutes including reserve
       passed: true
     - check_id: required-capability-coverage
       details: "covered: evidence_based_conclusion, measurement, observation"
@@ -132,47 +137,17 @@ derived_selection_decision:
     volatile_timestamp_in_core: false
   failure: null
   rejected_patterns: []
-  request_digest: ec9af24de6887acaafb2457b4106643972cfe7110e6c330756ecdf2dad7d21c1
+  request_digest: 68b98fb42f2a676ceb5199b043bc1b4007ca660b9bc31b2ad8f98e2638f219ca
   request_id: grade-5-water-03-melting-condensation-homeschool-adaptation-selection
   schema_version: "1.0"
   selected_pattern:
     pattern_id: safe-practical-investigation
     rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
       оценкой эффективности.
-    score: 254
+    score: 233
     selection_origin: request_required
   slot_decisions:
     - considered_candidates:
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 3
-              content_type_match: 2
-              desired_formative_assessment: 5
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_activity_option: 6
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 2
-            total: 43
-          target_id: true-false-anticipation
         - hard_filter_passed: true
           hard_filter_reasons: []
           operational_fit:
@@ -259,6 +234,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase orientation is not supported
             - no requested group format is compatible with the execution range
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -295,6 +271,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -313,6 +290,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -349,6 +327,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -367,6 +346,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -406,6 +386,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -424,6 +405,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -444,6 +426,7 @@ derived_selection_decision:
             - effective delivery fit not_recommended is not allowed
             - lesson phase orientation is not supported
             - no requested group format is compatible with the execution range
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -463,6 +446,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase orientation is not supported
             - required resource dataset is unavailable
+            - required resource diagram is unavailable
             - required resource map is unavailable
           operational_fit:
             delivery_dimensions:
@@ -500,6 +484,8 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -518,6 +504,26 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-home-passive-ice-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase orientation is not supported
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -555,6 +561,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase orientation is not supported
             - no requested group format is compatible with the execution range
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -613,6 +620,7 @@ derived_selection_decision:
             - lesson phase orientation is not supported
             - no requested group format is compatible with the execution range
             - parent effort high exceeds medium
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -631,6 +639,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -649,6 +658,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -667,6 +677,8 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource diagram is unavailable
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -706,6 +718,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource manipulatives is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -741,7 +754,26 @@ derived_selection_decision:
           target_id: three-two-one-reflection
         - hard_filter_passed: false
           hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: true-false-anticipation
+        - hard_filter_passed: false
+          hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -778,6 +810,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase orientation is not supported
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -792,25 +825,43 @@ derived_selection_decision:
               preferred: true
               selected: individual
           score: null
-          target_id: visual-representation
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase orientation is not supported
+            - required resource diagram is unavailable
+            - required resource manipulatives is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
       phase: orientation
       required: true
       score:
         components:
           a1_a2_fit: 3
-          content_type_match: 2
+          adaptable_delivery_fit: 2
           desired_formative_assessment: 5
-          direct_delivery_fit: 5
           effort_headroom: 2
-          pattern_activity_option: 6
           pattern_phase_fit: 10
           preferred_group_format_fit: 4
           preferred_pattern: 5
           provisional_taxonomy: -1
-          resource_simplicity: 2
-        total: 43
+          resource_simplicity: 3
+        total: 33
       selected_group_format: individual
-      selected_target_id: true-false-anticipation
+      selected_target_id: brainstorming
       slot_id: safety-orientation
       tie_break: score_desc_then_target_id_bytewise
       unfilled_reason: null
@@ -822,10 +873,10 @@ derived_selection_decision:
               - dimension: declared_delivery_mode
                 fit: directly_supported
               - dimension: homeschool_adaptation
-                fit: adaptable
+                fit: directly_supported
               - dimension: one_learner
                 fit: directly_supported
-            delivery_fit: adaptable
+            delivery_fit: directly_supported
             group_format_selection:
               fallback_used: false
               preferred: true
@@ -833,60 +884,27 @@ derived_selection_decision:
           score:
             components:
               a1_a2_fit: 3
-              adaptable_delivery_fit: 2
               content_type_match: 4
-              desired_guided_practice: 8
+              desired_guided_practice: 5
+              direct_delivery_fit: 5
               effort_headroom: 2
               execution_profile_specificity: 2
               pattern_activity_option: 6
               pattern_phase_fit: 10
               preferred_group_format_fit: 4
               preferred_pattern: 5
-              preferred_target: 6
               provisional_taxonomy: -1
               required_evidence_based_conclusion: 20
               required_measurement: 12
               required_observation: 20
-              resource_simplicity: 1
-            total: 104
-          target_id: learning-stations::practical-compact-teacher-prepared-observation
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: adaptable
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: adaptable
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 3
-              adaptable_delivery_fit: 2
-              content_type_match: 4
-              desired_guided_practice: 8
-              execution_profile_specificity: 2
-              pattern_activity_option: 6
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              required_evidence_based_conclusion: 20
-              required_measurement: 20
-              required_observation: 20
-              resource_simplicity: 1
-            total: 104
-          target_id: learning-stations::practical-observation-measurement
+              resource_simplicity: 3
+            total: 100
+          target_id: learning-stations::practical-home-passive-ice-observation
         - hard_filter_passed: false
           hard_filter_reasons:
             - no requested group format is compatible with the execution range
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -943,6 +961,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase guided_practice is not supported
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -961,6 +980,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -998,6 +1018,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1016,6 +1037,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1056,6 +1078,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1074,6 +1097,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1094,6 +1118,7 @@ derived_selection_decision:
             - effective delivery fit not_recommended is not allowed
             - no requested group format is compatible with the execution range
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1132,6 +1157,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
             - required resource dataset is unavailable
+            - required resource diagram is unavailable
             - required resource map is unavailable
           operational_fit:
             delivery_dimensions:
@@ -1168,6 +1194,44 @@ derived_selection_decision:
           target_id: learning-stations::paper-classification
         - hard_filter_passed: false
           hard_filter_reasons:
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-observation-measurement
+        - hard_filter_passed: false
+          hard_filter_reasons:
             - lesson phase guided_practice is not supported
             - practical-work slot requires observation, measurement, or experimentation
           operational_fit:
@@ -1189,6 +1253,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - no requested group format is compatible with the execution range
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1268,6 +1333,7 @@ derived_selection_decision:
             - no requested group format is compatible with the execution range
             - parent effort high exceeds medium
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1287,6 +1353,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase guided_practice is not supported
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1306,6 +1373,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase guided_practice is not supported
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1324,6 +1392,8 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource diagram is unavailable
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1364,6 +1434,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource manipulatives is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1402,6 +1473,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase guided_practice is not supported
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1420,6 +1492,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1456,6 +1529,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - practical-work slot requires observation, measurement, or experimentation
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1470,63 +1544,53 @@ derived_selection_decision:
               preferred: true
               selected: individual
           score: null
-          target_id: visual-representation
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - practical-work slot requires observation, measurement, or experimentation
+            - required resource diagram is unavailable
+            - required resource manipulatives is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
       phase: guided_practice
       required: true
       score:
         components:
           a1_a2_fit: 3
-          adaptable_delivery_fit: 2
           content_type_match: 4
-          desired_guided_practice: 8
+          desired_guided_practice: 5
+          direct_delivery_fit: 5
           effort_headroom: 2
           execution_profile_specificity: 2
           pattern_activity_option: 6
           pattern_phase_fit: 10
           preferred_group_format_fit: 4
           preferred_pattern: 5
-          preferred_target: 6
           provisional_taxonomy: -1
           required_evidence_based_conclusion: 20
           required_measurement: 12
           required_observation: 20
-          resource_simplicity: 1
-        total: 104
+          resource_simplicity: 3
+        total: 100
       selected_group_format: individual
-      selected_target_id: learning-stations::practical-compact-teacher-prepared-observation
+      selected_target_id: learning-stations::practical-home-passive-ice-observation
       slot_id: practical-work
       tie_break: score_desc_then_target_id_bytewise
       unfilled_reason: null
     - considered_candidates:
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 6
-              desired_formative_assessment: 8
-              desired_retrieval: 8
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 2
-            total: 49
-          target_id: retrieval-self-test
         - hard_filter_passed: true
           hard_filter_reasons: []
           operational_fit:
@@ -1554,9 +1618,9 @@ derived_selection_decision:
               preferred_pattern: 5
               preferred_target: 6
               provisional_taxonomy: -1
-              resource_simplicity: 2
-            total: 49
-          target_id: retrieval-summary
+              resource_simplicity: 3
+            total: 50
+          target_id: one-minute-recall
         - hard_filter_passed: true
           hard_filter_reasons: []
           operational_fit:
@@ -1586,65 +1650,6 @@ derived_selection_decision:
               resource_simplicity: 3
             total: 47
           target_id: exit-ticket
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 3
-              desired_formative_assessment: 5
-              desired_retrieval: 8
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 3
-            total: 44
-          target_id: one-minute-recall
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 3
-              content_type_match: 2
-              desired_formative_assessment: 5
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_activity_option: 6
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 2
-            total: 43
-          target_id: error-correction
         - hard_filter_passed: true
           hard_filter_reasons: []
           operational_fit:
@@ -1674,65 +1679,11 @@ derived_selection_decision:
               resource_simplicity: 3
             total: 41
           target_id: concept-map
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 6
-              desired_guided_practice: 5
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 4
-            total: 40
-          target_id: sorting-and-sequencing
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: adaptable
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: adaptable
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              adaptable_delivery_fit: 2
-              desired_retrieval: 5
-              limited_a1_a2: -8
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 2
-            total: 19
-          target_id: falsified-text-error-detection
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
             - no requested group format is compatible with the execution range
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1769,6 +1720,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1786,7 +1738,44 @@ derived_selection_decision:
           target_id: delayed-homework-retrieval
         - hard_filter_passed: false
           hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: error-correction
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: falsified-text-error-detection
+        - hard_filter_passed: false
+          hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1825,6 +1814,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1843,6 +1833,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1863,6 +1854,7 @@ derived_selection_decision:
             - effective delivery fit not_recommended is not allowed
             - lesson phase formative_assessment is not supported
             - no requested group format is compatible with the execution range
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1900,6 +1892,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
             - required resource dataset is unavailable
+            - required resource diagram is unavailable
             - required resource map is unavailable
           operational_fit:
             delivery_dimensions:
@@ -1937,6 +1930,8 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -1960,6 +1955,26 @@ derived_selection_decision:
               - dimension: declared_delivery_mode
                 fit: directly_supported
               - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-home-passive-ice-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
                 fit: adaptable
               - dimension: one_learner
                 fit: directly_supported
@@ -1974,6 +1989,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
             - no requested group format is compatible with the execution range
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2050,6 +2066,7 @@ derived_selection_decision:
             - lesson phase formative_assessment is not supported
             - no requested group format is compatible with the execution range
             - parent effort high exceeds medium
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2067,7 +2084,45 @@ derived_selection_decision:
           target_id: reciprocal-teaching
         - hard_filter_passed: false
           hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-self-test
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-summary
+        - hard_filter_passed: false
+          hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource diagram is unavailable
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2106,6 +2161,24 @@ derived_selection_decision:
           target_id: silent-discussion
         - hard_filter_passed: false
           hard_filter_reasons:
+            - required resource manipulatives is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: sorting-and-sequencing
+        - hard_filter_passed: false
+          hard_filter_reasons:
             - lesson phase formative_assessment is not supported
           operational_fit:
             delivery_dimensions:
@@ -2125,6 +2198,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2143,6 +2217,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2179,6 +2254,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase formative_assessment is not supported
+            - required resource diagram is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2193,24 +2269,44 @@ derived_selection_decision:
               preferred: true
               selected: individual
           score: null
-          target_id: visual-representation
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+            - required resource diagram is unavailable
+            - required resource manipulatives is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
       phase: formative_assessment
       required: true
       score:
         components:
           a1_a2_fit: 6
           desired_formative_assessment: 8
-          desired_retrieval: 8
+          desired_retrieval: 5
           direct_delivery_fit: 5
           effort_headroom: 2
           pattern_phase_fit: 10
           preferred_group_format_fit: 4
           preferred_pattern: 5
           provisional_taxonomy: -1
-          resource_simplicity: 2
-        total: 49
+          resource_simplicity: 3
+        total: 47
       selected_group_format: individual
-      selected_target_id: retrieval-self-test
+      selected_target_id: exit-ticket
       slot_id: evidence-check
       tie_break: score_desc_then_target_id_bytewise
       unfilled_reason: null
@@ -2237,75 +2333,14 @@ derived_selection_decision:
               desired_retrieval: 8
               direct_delivery_fit: 5
               effort_headroom: 2
-              pattern_activity_option: 6
               pattern_phase_fit: 10
               preferred_group_format_fit: 4
               preferred_pattern: 5
               preferred_target: 6
               provisional_taxonomy: -1
-              resource_simplicity: 2
-              source_access_fit: 3
-            total: 58
-          target_id: retrieval-summary
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 6
-              desired_formative_assessment: 8
-              desired_retrieval: 8
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
-              resource_simplicity: 2
-              source_access_fit: 3
-            total: 52
-          target_id: retrieval-self-test
-        - hard_filter_passed: true
-          hard_filter_reasons: []
-          operational_fit:
-            delivery_dimensions:
-              - dimension: declared_delivery_mode
-                fit: directly_supported
-              - dimension: homeschool_adaptation
-                fit: directly_supported
-              - dimension: one_learner
-                fit: directly_supported
-            delivery_fit: directly_supported
-            group_format_selection:
-              fallback_used: false
-              preferred: true
-              selected: individual
-          score:
-            components:
-              a1_a2_fit: 3
-              desired_formative_assessment: 5
-              desired_retrieval: 8
-              direct_delivery_fit: 5
-              effort_headroom: 2
-              pattern_phase_fit: 10
-              preferred_group_format_fit: 4
-              preferred_pattern: 5
-              provisional_taxonomy: -1
               resource_simplicity: 3
               source_access_fit: 3
-            total: 47
+            total: 53
           target_id: one-minute-recall
         - hard_filter_passed: true
           hard_filter_reasons: []
@@ -2370,6 +2405,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase retrieval is not supported
             - no requested group format is compatible with the execution range
+            - required resource diagram is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2408,6 +2444,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
           operational_fit:
             delivery_dimensions:
               - dimension: declared_delivery_mode
@@ -2426,6 +2463,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2463,6 +2501,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2482,6 +2521,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2523,6 +2563,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2542,6 +2583,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2563,6 +2605,7 @@ derived_selection_decision:
             - effective delivery fit not_recommended is not allowed
             - lesson phase retrieval is not supported
             - no requested group format is compatible with the execution range
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2602,6 +2645,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase retrieval is not supported
             - required resource dataset is unavailable
+            - required resource diagram is unavailable
             - required resource map is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
@@ -2641,6 +2685,8 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2666,6 +2712,27 @@ derived_selection_decision:
               - dimension: declared_delivery_mode
                 fit: directly_supported
               - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-home-passive-ice-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
                 fit: adaptable
               - dimension: one_learner
                 fit: directly_supported
@@ -2680,6 +2747,7 @@ derived_selection_decision:
           hard_filter_reasons:
             - lesson phase retrieval is not supported
             - no requested group format is compatible with the execution range
+            - required resource diagram is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2741,6 +2809,7 @@ derived_selection_decision:
             - lesson phase retrieval is not supported
             - no requested group format is compatible with the execution range
             - parent effort high exceeds medium
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2759,6 +2828,44 @@ derived_selection_decision:
           target_id: reciprocal-teaching
         - hard_filter_passed: false
           hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-self-test
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - required resource textbook_or_source_text is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-summary
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - required resource diagram is unavailable
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2800,6 +2907,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource manipulatives is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2837,6 +2945,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2856,6 +2965,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource textbook_or_source_text is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2894,6 +3004,7 @@ derived_selection_decision:
         - hard_filter_passed: false
           hard_filter_reasons:
             - lesson phase retrieval is not supported
+            - required resource diagram is unavailable
             - retrieval first attempt must prohibit source access
           operational_fit:
             delivery_dimensions:
@@ -2909,7 +3020,28 @@ derived_selection_decision:
               preferred: true
               selected: individual
           score: null
-          target_id: visual-representation
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - required resource diagram is unavailable
+            - required resource manipulatives is unavailable
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: homeschool_adaptation
+                fit: adaptable
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: adaptable
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
       phase: retrieval
       required: true
       score:
@@ -2919,34 +3051,23 @@ derived_selection_decision:
           desired_retrieval: 8
           direct_delivery_fit: 5
           effort_headroom: 2
-          pattern_activity_option: 6
           pattern_phase_fit: 10
           preferred_group_format_fit: 4
           preferred_pattern: 5
           preferred_target: 6
           provisional_taxonomy: -1
-          resource_simplicity: 2
+          resource_simplicity: 3
           source_access_fit: 3
-        total: 58
+        total: 53
       selected_group_format: individual
-      selected_target_id: retrieval-summary
+      selected_target_id: one-minute-recall
       slot_id: conclusion
       tie_break: score_desc_then_target_id_bytewise
       unfilled_reason: null
   status: success
-  teacher_override_results:
-    - override_id: preserve-compact-observation
-      reason: Override satisfies every hard constraint and is applied in the selected composition.
-      requested_target_id: learning-stations::practical-compact-teacher-prepared-observation
-      slot_id: practical-work
-      status: accepted
-    - override_id: preserve-existing-conclusion
-      reason: Override satisfies every hard constraint and is applied in the selected composition.
-      requested_target_id: retrieval-summary
-      slot_id: conclusion
-      status: accepted
+  teacher_override_results: []
   versions:
-    activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
     engine: "1.1"
     lesson_dna_schema: "1.0"
     selection_rules: "1.0"
@@ -2954,7 +3075,7 @@ derived_selection_decision:
   warnings:
     - Capability ratings and selection weights are provisional project-authored metadata.
     - The proposal requires teacher review and does not claim learning effectiveness.
-derived_selection_request_digest: ec9af24de6887acaafb2457b4106643972cfe7110e6c330756ecdf2dad7d21c1
+derived_selection_request_digest: 68b98fb42f2a676ceb5199b043bc1b4007ca660b9bc31b2ad8f98e2638f219ca
 determinism:
   ai_used: false
   network_used: false
@@ -2969,25 +3090,25 @@ language_checks:
 phase_adaptations:
   - action: preserved
     adapted_phase_id: conclusion
-    adapted_target_id: retrieval-summary
+    adapted_target_id: one-minute-recall
     rationale_ru: Цель этапа retrieval сохранена через homeschool phase retrieval.
     source_phase_id: conclusion
-    source_target_id: retrieval-summary
+    source_target_id: one-minute-recall
   - action: reselected
     adapted_phase_id: evidence-check
-    adapted_target_id: retrieval-self-test
+    adapted_target_id: exit-ticket
     rationale_ru: Цель этапа formative_assessment сохранена через homeschool phase formative_assessment.
     source_phase_id: evidence-check
-    source_target_id: concept-map
-  - action: preserved
+    source_target_id: retrieval-summary
+  - action: reselected
     adapted_phase_id: practical-work
-    adapted_target_id: learning-stations::practical-compact-teacher-prepared-observation
+    adapted_target_id: learning-stations::practical-home-passive-ice-observation
     rationale_ru: Цель этапа guided_practice сохранена через homeschool phase guided_practice.
     source_phase_id: practical-work
     source_target_id: learning-stations::practical-compact-teacher-prepared-observation
-  - action: reselected
+  - action: preserved
     adapted_phase_id: safety-orientation
-    adapted_target_id: true-false-anticipation
+    adapted_target_id: brainstorming
     rationale_ru: Цель этапа orientation сохранена через homeschool phase orientation.
     source_phase_id: safety-orientation
     source_target_id: brainstorming
@@ -3012,12 +3133,12 @@ safety_checks:
 schema_version: "1.0"
 selected_variant: parent_child
 source_identity:
-  source_lesson_dna_digest: 3eee4d3fa0d4ff93c9724f103de6a6e1329a161c2fcda78616f66884c69f46d0
+  source_lesson_dna_digest: 3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2
   source_lesson_dna_id: grade-5-water-03-melting-condensation-classroom-selection-dna
-  source_request_digest: c340b4d7895265b4841001523e2148c46542b47bfb98f6d1ed229a0b076aa1de
+  source_request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
   source_request_id: grade-5-water-03-melting-condensation-classroom-selection
   source_selection_versions:
-    activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
     engine: "1.1"
     lesson_dna_schema: "1.0"
     selection_rules: "1.0"
@@ -3025,24 +3146,25 @@ source_identity:
 status: success
 teacher_override_adaptations:
   - adapted_phase_id: practical-work
-    adapted_target_id: learning-stations::practical-compact-teacher-prepared-observation
+    adapted_target_id: learning-stations::practical-home-passive-ice-observation
     override_id: preserve-compact-observation
-    policy: require_preservation
-    rationale_ru: Override identity, rationale, real target-pattern slot, and exact target are preserved.
+    policy: allow_reselection_with_warning
+    rationale_ru: Resolved target-pattern slot uses a different target after homeschool hard constraints.
     source_slot_id: practical-work
     source_target_id: learning-stations::practical-compact-teacher-prepared-observation
-    status: preserved
+    status: reselected
     teacher_rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не
       ротацию нескольких станций.
   - adapted_phase_id: conclusion
-    adapted_target_id: retrieval-summary
+    adapted_target_id: one-minute-recall
     override_id: preserve-existing-conclusion
-    policy: require_preservation
+    policy: allow_reselection_with_warning
     rationale_ru: Override identity, rationale, real target-pattern slot, and exact target are preserved.
     source_slot_id: conclusion
-    source_target_id: retrieval-summary
+    source_target_id: one-minute-recall
     status: preserved
-    teacher_rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+    teacher_rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+      сохраняет отдельный предметный вывод.
 timing_checks:
   - code: learner_time_reconciled
     passed: true
@@ -3057,7 +3179,7 @@ timing_checks:
     passed: true
     rationale_ru: Every relative retrieval window is represented by a counted review session.
 versions:
-  activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+  activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
   homeschool_engine_version: "1.0"
   homeschool_package_schema_version: "1.0"
   homeschool_rules_version: "1.0"
@@ -3069,5 +3191,6 @@ versions:
   weekly_study_plan_schema_version: "1.0"
 warnings:
   - code: adaptable_homeschool_target
-    rationale_ru: Target learning-stations::practical-compact-teacher-prepared-observation требует явно
-      описанной homeschool adaptation.
+    rationale_ru: Target brainstorming требует явно описанной homeschool adaptation.
+  - code: teacher_override_reselected
+    rationale_ru: Исходный teacher override не переносится как accepted без совпадающего target.

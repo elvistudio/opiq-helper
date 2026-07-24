@@ -36,10 +36,10 @@ test('production pedagogical knowledge validates', () => {
     capabilities: 33,
     resources: 22,
     queryFixtures: 7,
-    profiledActivities: 1,
-    executionProfiles: 4,
-    queryTargets: 33,
-    unprofiledActivities: 29,
+    profiledActivities: 2,
+    executionProfiles: 7,
+    queryTargets: 35,
+    unprofiledActivities: 28,
   });
 });
 

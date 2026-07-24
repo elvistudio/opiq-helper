@@ -358,6 +358,27 @@ content, age fit for an individual child, realistic timing in a real home,
 homeschool readiness, or teacher approval. It does not render Opiq content or
 create answers.
 
-Real lesson/content integration is deferred to issue #61. Broad quality gates
-are deferred to #62; teacher review and home-trial evidence to #63; and wider
-representative regression pilots to #64.
+The generic engine does not itself render source-backed lesson content. Issue
+#61 supplies the bounded water production integration described below. Broad
+quality gates remain deferred to #62; teacher review and home-trial evidence
+to #63; and wider representative regression pilots to #64.
+
+## Production material resolution
+
+The issue #61 water pilot adds a strict integration layer above the generic
+adapter. Every package material reference resolves through the teacher-pack
+index to an audience, type, repository path, and answer key; every task
+reference resolves to a concrete phase instruction and expected evidence.
+Adapted phases keep an exact or declared mapped source binding. Unresolved
+materials, tasks, keys, procedures, or safety references fail generation.
+Child output therefore names an exact file and action instead of an opaque
+placeholder.
+
+The lesson-3 home observation uses a separate strict policy artifact rather
+than a lesson-position heuristic. It records the classroom target, the
+resource-compatible home target, actual home resources, passive ice/cold
+surface procedure, adult supervision, teacher authorization, prohibited
+heating/tasting, and stop conditions. Machine package, child Markdown, and
+parent Markdown must express the same safety boundary. This is structural
+equivalence only: teacher review remains pending, the home trial is not
+started, and `homeschool_ready` remains false.

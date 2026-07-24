@@ -59,7 +59,7 @@ language_profile:
     subject_explanation_language: ru
     sentence_frames_required: true
     word_bank_required: true
-    assessment_requested: false
+    assessment_requested: true
 resources:
   available:
     - diagram
@@ -98,4 +98,10 @@ preferences:
     - individual
     - pair
     - whole_class
-  teacher_overrides: []
+  teacher_overrides:
+    - override_id: align-state-card-sorting
+      slot_id: guided-practice
+      requested_target_id: sorting-and-sequencing
+      rationale_ru: Существующая стадия использует карточки состояний и требует явной классификации, а не
+        абстрактной карты понятий.
+      author_role: teacher

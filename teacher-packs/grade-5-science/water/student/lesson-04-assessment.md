@@ -42,3 +42,25 @@ ___________________________________________________________________________
 ___________________________________________________________________________
 
 Provenance: `author_created_assessment`, separate subject and Estonian assessment for lesson 04. Чёрно-белая печать; ключ хранится отдельно.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review phase=consolidation audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-04-changes-review/consolidation-task -->
+
+Материал: **Раздельная итоговая проверка unit**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-04-assessment.md`
+
+Инструкция: Собери итоговую карту понятий: состояния как узлы, процессы как связи, затем выполни отдельные предметную и эстонскую части.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Что должно остаться после работы: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или переработанным термином.
+
+Эстонская поддержка: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review phase=consolidation audience=student -->

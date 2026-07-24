@@ -58,7 +58,7 @@ language_profile:
     subject_explanation_language: ru
     sentence_frames_required: true
     word_bank_required: true
-    assessment_requested: false
+    assessment_requested: true
 resources:
   available:
     - diagram
@@ -95,4 +95,10 @@ preferences:
     - individual
     - pair
     - whole_class
-  teacher_overrides: []
+  teacher_overrides:
+    - override_id: align-observation-comparison
+      slot_id: guided-practice
+      requested_target_id: venn-diagram
+      rationale_ru: Сравнение воды и раствора в существующей практической таблице требует явного
+        отображения общего и различий.
+      author_role: teacher

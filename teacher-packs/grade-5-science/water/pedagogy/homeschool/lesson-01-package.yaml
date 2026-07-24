@@ -1,6 +1,6 @@
 artifact_type: homeschool_package
 assessment:
-  estonian_language_assessment: false
+  estonian_language_assessment: true
   separation_policy: separate_subject_and_estonian_language_evidence
   subject_assessment: true
 context:
@@ -65,7 +65,7 @@ learner_plan:
         - short_written_response
         - terminology
       instruction_ru: Открой указанный материал и выполни одно задание своими словами.
-      learner_minutes: 12
+      learner_minutes: 9
       material_refs:
         - water-property-table
         - water-sample-visual
@@ -226,12 +226,12 @@ safety:
   teacher_authorization_required: false
 schema_version: "1.0"
 source_identity:
-  source_lesson_dna_digest: e87dcd1c73d00a0ca566041e939c4e1613520ab4e61b4965bc39556e56a6c822
+  source_lesson_dna_digest: e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe
   source_lesson_dna_id: grade-5-water-01-properties-classroom-selection-dna
-  source_request_digest: 49f9723c2e5386ce1572a798f78b6b0408436a26136a014ee33ac20b70ad57bc
+  source_request_digest: 5826190572f8963e7b113e49c388ab8b50089b697c95684f2a9b95d216320f42
   source_request_id: grade-5-water-01-properties-classroom-selection
   source_selection_versions:
-    activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
     engine: "1.1"
     lesson_dna_schema: "1.0"
     selection_rules: "1.0"
@@ -242,16 +242,26 @@ status:
   homeschool_ready: false
   structural_state: proposed
   teacher_review: pending
-teacher_override_adaptations: []
+teacher_override_adaptations:
+  - adapted_phase_id: independent-practice
+    adapted_target_id: venn-diagram
+    override_id: align-observation-comparison
+    policy: require_preservation
+    rationale_ru: Override identity, rationale, real target-pattern slot, and exact target are preserved.
+    source_slot_id: guided-practice
+    source_target_id: venn-diagram
+    status: preserved
+    teacher_rationale_ru: Сравнение воды и раствора в существующей практической таблице требует явного
+      отображения общего и различий.
 timing:
   adult_minutes: 0
   break_minutes: 0
   cleanup_minutes: 0
   contingency_minutes: 2
   delayed_retrieval_minutes: 6
-  learner_activity_minutes: 24
-  setup_minutes: 14
-  total_learner_minutes: 46
+  learner_activity_minutes: 23
+  setup_minutes: 12
+  total_learner_minutes: 43
   transition_minutes: 0
   weekly_review_minutes: 0
 warnings: []

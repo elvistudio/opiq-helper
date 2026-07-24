@@ -81,21 +81,71 @@ Provenance: `author_created_bridge` по lesson-04 YAML и указанным ca
 Паттерн: **retrieval-and-consolidation**. Это операционное предложение,
 которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
 
-| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
-|---|---|---|---|---:|---|
-| retrieval | Самопроверочный тест по памяти | `retrieval-self-test` | retrieve-water-unit | 5 + 4 setup + 0 cleanup | prohibited |
-| correction | Самостоятельное исправление ошибки | `error-correction` | complete-change-model-ru | 3 + 4 setup + 0 cleanup | required |
-| consolidation | Карта понятий | `concept-map` | revision-stations | 8 + 2 setup + 0 cleanup | prohibited |
+Timing compatibility rules: `1.0`.
+Все activity/setup/cleanup/transition минуты явно распределены по существующим стадиям.
 
-### Обоснование выбора
+### retrieval: Самопроверочный тест по памяти
 
-- **retrieval:** Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **correction:** Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **consolidation:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- Target: `retrieval-self-test`.
+- Execution mode: `retrieval_task`.
+- Ученическое действие: Закрой источник, выполни первую попытку по памяти, затем сверь схему и отметь одну связь для исправления.
+- Ожидаемое evidence: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
+- Действие учителя: Показывает неполную схему и принимает быстрые ответы сначала по-русски. Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-complete-cycle`, `assess-et-recognition-unit`, `assess-et-independent-unit`.
+- Language support: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином..
+- Safety: специальные меры не требуются.
+- Binding rationale: Retrieval self-test начинается в activation и использует setup первой revision station без скрытых минут.
 
-Действия учителя, ожидаемое свидетельство ученика, безопасность,
-дифференциация и оценивание остаются в связанных стадиях этого руководства;
-генератор не заменяет их новой научной формулировкой.
+**Распределение времени:**
+
+- `retrieve-water-unit`: activity 5, setup 1, cleanup 0, transition 0; compatibility `retrieval_activation`.
+- `revision-stations`: activity 0, setup 3, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### correction: Самостоятельное исправление ошибки
+
+- Target: `error-correction`.
+- Execution mode: `assessment_task`.
+- Ученическое действие: Сохрани первую схему, исправь одну неверную стрелку другим цветом и объясни причину исправления полным русским предложением.
+- Ожидаемое evidence: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
+- Действие учителя: Достраивает схему, сравнивает противоположные процессы и проверяет сохранение вещества. Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов.
+- Source access: `open`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-complete-cycle`, `assess-practical-data-reasoning`.
+- Language support: Одна поддержанная причинная фраза с двумя терминами..
+- Safety: специальные меры не требуются.
+- Binding rationale: Error correction выполняется в revision stage после сохранённой первой попытки и имеет явное объяснение исправления.
+
+**Распределение времени:**
+
+- `revision-stations`: activity 3, setup 4, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### consolidation: Карта понятий
+
+- Target: `concept-map`.
+- Execution mode: `assessment_task`.
+- Ученическое действие: Собери итоговую карту понятий: состояния как узлы, процессы как связи, затем выполни отдельные предметную и эстонскую части.
+- Ожидаемое evidence: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или переработанным термином.
+- Действие учителя: Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов. Оценивает русскую предметную часть и эстонскую языковую часть по отдельным критериям.
+- Source access: `open`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-complete-cycle`, `assess-practical-data-reasoning`, `assess-et-recognition-unit`, `assess-et-supported-unit`, `assess-et-independent-unit`.
+- Language support: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами..
+- Safety: специальные меры не требуются.
+- Binding rationale: Concept map делит время между revision и отдельной assessment stage, не смешивая предметный и языковой score.
+
+**Распределение времени:**
+
+- `revision-stations`: activity 4, setup 1, cleanup 0, transition 0; compatibility `standard`.
+- `separate-unit-assessment`: activity 4, setup 1, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
 
 Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
 терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.

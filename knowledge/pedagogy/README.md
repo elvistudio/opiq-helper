@@ -140,3 +140,13 @@ selection requests, versioned rules, lesson DNA, failures, and CLI usage.
 See [`docs/homeschool-learning-engine.md`](../../docs/homeschool-learning-engine.md)
 for source/DNA validation, home variants, parent boundaries, answer access,
 weekly plans, and readiness limits.
+
+The water production pilot also uses two bounded execution profiles:
+`visual-representation::paper-diagram` for a truthful paper-only diagram task
+and `learning-stations::practical-home-passive-ice-observation` for the authorized
+adult-supervised home observation. Profiles express operational resources and
+safety; their classification remains project-authored and provisional. They do
+not prove effectiveness or readiness. Integration validates component timing,
+semantic stage fit, phase-specific rendering, assessment propagation, and
+machine/Markdown safety equivalence without changing the general selection or
+homeschool engine versions.

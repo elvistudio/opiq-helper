@@ -22,3 +22,25 @@ ___________________________________________________________________________
 ___________________________________________________________________________
 
 Provenance: `author_created_assessment`, lesson 03 content/language separation. Чёрно-белая печать; ответов нет.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-03-melting-condensation phase=conclusion audience=student -->
+## Минутное воспроизведение
+
+<!-- task_id: grade-5-water-03-melting-condensation/conclusion-task -->
+
+Материал: **Выходная карточка содержания и языка**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md`
+
+Инструкция: Закрой источник и за одну минуту запиши русский вывод о выбранном процессе, затем добавь одну короткую эстонскую фразу.
+
+Закрой источник до завершения первой попытки.
+
+Что должно остаться после работы: При получении тепла лёд плавится, а при охлаждении у поверхности водяной пар конденсируется в жидкую воду. Одна или две понятные фразы с sulamine или veeldumine.
+
+Эстонская поддержка: Soojas jää sulab; külmal pinnal veeaur veeldub.; Veeaur jahtub ja veeldub veeks.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-03-melting-condensation phase=conclusion audience=student -->

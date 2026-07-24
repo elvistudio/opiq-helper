@@ -43,6 +43,160 @@
         "next_unit": { "const": true }
       }
     },
+    "resourceAvailability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "available",
+        "unavailable",
+        "printer_available",
+        "internet_available",
+        "projector_available",
+        "laboratory_materials_available",
+        "measuring_tools_available",
+        "outdoor_access_available",
+        "adult_safety_supervision_available"
+      ],
+      "properties": {
+        "available": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+        },
+        "unavailable": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+        },
+        "printer_available": { "type": "boolean" },
+        "internet_available": { "type": "boolean" },
+        "projector_available": { "type": "boolean" },
+        "laboratory_materials_available": { "type": "boolean" },
+        "measuring_tools_available": { "type": "boolean" },
+        "outdoor_access_available": { "type": "boolean" },
+        "adult_safety_supervision_available": { "type": "boolean" }
+      }
+    },
+    "homePracticalPolicyInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "artifact_path",
+        "applies_to_phase_ids",
+        "teacher_authorization_required",
+        "adult_supervision_required",
+        "allowed_materials_ru",
+        "forbidden_materials_ru",
+        "child_steps_ru",
+        "adult_steps_ru",
+        "prohibited_actions_ru",
+        "stop_conditions_ru",
+        "safety_controls_ru",
+        "procedure_source_refs",
+        "safety_source_refs",
+        "homework_relationship",
+        "status"
+      ],
+      "properties": {
+        "policy_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "artifact_path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "applies_to_phase_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        },
+        "teacher_authorization_required": { "const": true },
+        "adult_supervision_required": { "const": true },
+        "allowed_materials_ru": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "forbidden_materials_ru": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "child_steps_ru": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "adult_steps_ru": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "prohibited_actions_ru": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "stop_conditions_ru": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "safety_controls_ru": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "procedure_source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "safety_source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "homework_relationship": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "same_scientific_observation",
+            "homework_adult_support_expected",
+            "generated_lesson_adult_supervision_required",
+            "rationale_ru"
+          ],
+          "properties": {
+            "same_scientific_observation": { "type": "boolean" },
+            "homework_adult_support_expected": { "type": "boolean" },
+            "generated_lesson_adult_supervision_required": { "const": true },
+            "rationale_ru": { "type": "string", "minLength": 30 }
+          }
+        },
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "structural_state",
+            "teacher_review",
+            "home_trial",
+            "homeschool_ready"
+          ],
+          "properties": {
+            "structural_state": { "const": "proposed" },
+            "teacher_review": { "const": "pending" },
+            "home_trial": { "const": "not_started" },
+            "homeschool_ready": { "const": false }
+          }
+        }
+      }
+    },
     "selectionInput": {
       "type": "object",
       "additionalProperties": false,
@@ -136,40 +290,7 @@
             }
           }
         },
-        "resources": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "available",
-            "unavailable",
-            "printer_available",
-            "internet_available",
-            "projector_available",
-            "laboratory_materials_available",
-            "measuring_tools_available",
-            "outdoor_access_available",
-            "adult_safety_supervision_available"
-          ],
-          "properties": {
-            "available": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
-            },
-            "unavailable": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
-            },
-            "printer_available": { "type": "boolean" },
-            "internet_available": { "type": "boolean" },
-            "projector_available": { "type": "boolean" },
-            "laboratory_materials_available": { "type": "boolean" },
-            "measuring_tools_available": { "type": "boolean" },
-            "outdoor_access_available": { "type": "boolean" },
-            "adult_safety_supervision_available": { "type": "boolean" }
-          }
-        },
+        "resources": { "$ref": "#/$defs/resourceAvailability" },
         "constraints": {
           "type": "object",
           "additionalProperties": false,
@@ -261,8 +382,11 @@
             "learner_session_minutes",
             "maximum_sessions",
             "maximum_total_productive_language_demand",
+            "resources",
             "adult_context",
-            "answer_key_release"
+            "answer_key_release",
+            "teacher_override_policy",
+            "practical_policy"
           ],
           "properties": {
             "variant": {
@@ -274,6 +398,7 @@
             "maximum_total_productive_language_demand": {
               "enum": ["none", "very_low", "low", "medium", "high", "very_high", "unknown"]
             },
+            "resources": { "$ref": "#/$defs/resourceAvailability" },
             "adult_context": {
               "type": "object",
               "additionalProperties": false,
@@ -310,6 +435,15 @@
             },
             "answer_key_release": {
               "enum": ["after_attempt", "adult_managed", "self_managed_after_attempt"]
+            },
+            "teacher_override_policy": {
+              "enum": ["require_preservation", "allow_reselection_with_warning"]
+            },
+            "practical_policy": {
+              "oneOf": [
+                { "type": "null" },
+                { "$ref": "#/$defs/homePracticalPolicyInput" }
+              ]
             }
           }
         },
@@ -333,12 +467,15 @@
       "required": [
         "dna_phase_id",
         "lesson_stage_ids",
+        "timing_allocations",
         "teacher_material_ids",
         "student_material_ids",
         "answer_key_material_ids",
         "assessment_refs",
         "oral_answer_refs",
-        "source_access_policy"
+        "source_access_policy",
+        "render_contract",
+        "binding_rationale_ru"
       ],
       "properties": {
         "dna_phase_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -347,6 +484,37 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        },
+        "timing_allocations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lesson_stage_id",
+              "activity_minutes",
+              "setup_minutes",
+              "cleanup_minutes",
+              "transition_minutes",
+              "compatibility_basis"
+            ],
+            "properties": {
+              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "activity_minutes": { "type": "integer", "minimum": 0 },
+              "setup_minutes": { "type": "integer", "minimum": 0 },
+              "cleanup_minutes": { "type": "integer", "minimum": 0 },
+              "transition_minutes": { "type": "integer", "minimum": 0 },
+              "compatibility_basis": {
+                "enum": [
+                  "standard",
+                  "embedded_formative_evidence",
+                  "language_assessment",
+                  "retrieval_activation"
+                ]
+              }
+            }
+          }
         },
         "teacher_material_ids": {
           "type": "array",
@@ -373,7 +541,122 @@
           "uniqueItems": true,
           "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
         },
-        "source_access_policy": { "enum": ["open", "closed_first_attempt", "teacher_managed"] }
+        "source_access_policy": { "enum": ["open", "closed_first_attempt", "teacher_managed"] },
+        "render_contract": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "execution_mode",
+            "task_id",
+            "learner_instruction_ru",
+            "prompt_source_refs",
+            "expected_evidence_source_refs",
+            "teacher_action_source_refs",
+            "language_support_refs",
+            "evaluation_mode",
+            "answer_access_policy"
+          ],
+          "properties": {
+            "execution_mode": {
+              "enum": [
+                "teacher_led",
+                "learner_task",
+                "practical_task",
+                "retrieval_task",
+                "assessment_task",
+                "reflection_task"
+              ]
+            },
+            "task_id": { "type": "string", "pattern": "^[a-z0-9]+(?:[a-z0-9/-]*[a-z0-9])?$" },
+            "learner_instruction_ru": { "type": "string", "minLength": 20 },
+            "prompt_source_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 5 }
+            },
+            "expected_evidence_source_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 5 }
+            },
+            "teacher_action_source_refs": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 5 }
+            },
+            "language_support_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 5 }
+            },
+            "evaluation_mode": {
+              "enum": [
+                "answer_key",
+                "evidence_criterion",
+                "teacher_observation",
+                "open_reflection",
+                "not_applicable"
+              ]
+            },
+            "answer_access_policy": {
+              "enum": [
+                "not_applicable",
+                "after_first_attempt",
+                "adult_managed",
+                "self_managed_after_attempt"
+              ]
+            }
+          }
+        },
+        "binding_rationale_ru": { "type": "string", "minLength": 30 }
+      }
+    },
+    "timingReconciliationInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["compatibility_rules_version", "reserve_allocations", "non_dna_allocations"],
+      "properties": {
+        "compatibility_rules_version": { "const": "1.0" },
+        "reserve_allocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lesson_stage_id", "minutes", "rationale_ru"],
+            "properties": {
+              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "minutes": { "type": "integer", "minimum": 1 },
+              "rationale_ru": { "type": "string", "minLength": 20 }
+            }
+          }
+        },
+        "non_dna_allocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lesson_stage_id", "minutes", "role", "rationale_ru"],
+            "properties": {
+              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "minutes": { "type": "integer", "minimum": 1 },
+              "role": {
+                "enum": [
+                  "language_bridge",
+                  "content_explanation",
+                  "transition",
+                  "homework_launch",
+                  "safety_setup",
+                  "assessment_separation",
+                  "guided_content_practice"
+                ]
+              },
+              "rationale_ru": { "type": "string", "minLength": 20 }
+            }
+          }
+        }
       }
     },
     "lessonGeneratedArtifacts": {
@@ -388,7 +671,8 @@
         "homeschool_package_path",
         "parent_guidance_path",
         "weekly_study_plan_path",
-        "homeschool_rendered_path"
+        "homeschool_rendered_path",
+        "home_practical_policy_path"
       ],
       "properties": {
         "selection_request_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
@@ -399,7 +683,13 @@
         "homeschool_package_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
         "parent_guidance_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
         "weekly_study_plan_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
-        "homeschool_rendered_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" }
+        "homeschool_rendered_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
+        "home_practical_policy_path": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" }
+          ]
+        }
       }
     },
     "lessonIntegration": {
@@ -411,7 +701,7 @@
         "content_identity",
         "selection_input",
         "phase_bindings",
-        "non_dna_stage_roles",
+        "timing_reconciliation",
         "generated_artifacts",
         "status"
       ],
@@ -425,28 +715,7 @@
           "minItems": 1,
           "items": { "$ref": "#/$defs/phaseBinding" }
         },
-        "non_dna_stage_roles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["lesson_stage_id", "role", "rationale_ru"],
-            "properties": {
-              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
-              "role": {
-                "enum": [
-                  "language_bridge",
-                  "content_explanation",
-                  "transition",
-                  "homework_launch",
-                  "safety_setup",
-                  "assessment_separation"
-                ]
-              },
-              "rationale_ru": { "type": "string", "minLength": 20 }
-            }
-          }
-        },
+        "timing_reconciliation": { "$ref": "#/$defs/timingReconciliationInput" },
         "generated_artifacts": { "$ref": "#/$defs/lessonGeneratedArtifacts" },
         "status": { "$ref": "#/$defs/integrationStatus" }
       }

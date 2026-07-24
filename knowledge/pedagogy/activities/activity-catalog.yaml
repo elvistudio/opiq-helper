@@ -2625,6 +2625,117 @@ activities:
             rationale: >-
               Операционный профиль введён для честного описания одного короткого
               учительского наблюдения и требует независимого teacher review.
+      - profile_id: practical-home-passive-ice-observation
+        names:
+          en: Parent-supervised passive ice observation
+          et: Täiskasvanu järelevalvega passiivne jäävaatlus
+          ru: Пассивное наблюдение льда под надзором взрослого
+        description_ru: >-
+          Домашнее наблюдение одного кубика льда при комнатной температуре и
+          капель на заранее подготовленной холодной поверхности без нагревания,
+          лабораторных материалов или измерительных инструментов.
+        capabilities:
+          evidence_based_conclusion: primary
+          guided_practice: supporting
+          measurement: supporting
+          observation: primary
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 2
+          supported_group_formats:
+            - individual
+            - pair
+          delivery_modes:
+            - homeschool
+            - parent_supported
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 10
+          max_minutes: 20
+        effort:
+          teacher_preparation:
+            level: low
+            rationale_ru: Учитель заранее утверждает безопасную процедуру, таблицу и запреты домашнего варианта.
+          teacher_facilitation:
+            level: none
+            rationale_ru: Во время домашнего наблюдения учитель не присутствует; нерешённые вопросы сохраняются для него.
+          learner_setup:
+            level: low
+            rationale_ru: Ребёнок получает подготовленный взрослым лёд, безопасную ёмкость и рабочий лист.
+          homeschool_parent:
+            level: low
+            role: safety_supervision
+            role_description_ru: Взрослый готовит только разрешённые бытовые материалы, находится рядом и останавливает отклонение от процедуры.
+            rationale_ru: Взрослый отвечает за границы и безопасность, но не объясняет научный вывод вместо ребёнка.
+        learner_independence: developing
+        homeschool_adaptation:
+          status: directly_suitable
+          variants:
+            - parent_child
+          child_responsibility_ru: Наблюдать, записать видимые изменения и самостоятельно сформулировать вывод.
+          adult_role_ru: Подготовить разрешённые материалы, следить за безопасностью и не подсказывать предметный ответ.
+          adult_safety_supervision_ru: Находиться рядом, запретить нагревание и остановить любое изменение утверждённой процедуры.
+          subject_teacher_responsibility_ru: Утвердить процедуру, источники ожидаемого evidence и критерии безопасного завершения.
+          limitations_ru:
+            - Наблюдение не включает нагревание, кипячение или измерение температуры.
+            - Домашняя модель не заменяет классную демонстрацию конденсации с тёплой водой.
+        resource_requirements:
+          required:
+            - paper
+            - writing_tool
+          optional:
+            - timer
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: false
+          reusable_materials: []
+          consumable_materials:
+            - paper
+          setup_minutes: 2
+          cleanup_minutes: 1
+        learner_demands:
+          receptive_language: low
+          productive_language: low
+          interaction: low
+          reading_load: low
+          writing_load: low
+          step_complexity: low
+          working_memory_support: recommended
+          movement_demand: low
+          sensory_demand: low
+          strategy_familiarity_required: low
+          teacher_modelling: recommended
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Пошаговая русская инструкция
+            - Готовая таблица наблюдения
+            - Короткие эстонские подписи без требования полного объяснения
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: not_recommended
+          mixed_ability_group: adaptable
+          remote_delivery: not_recommended
+        safety:
+          risk_level: low
+          requires_adult_supervision: true
+          controls_ru:
+            - Использовать только один кубик льда, безопасную бытовую ёмкость и заранее охлаждённую поверхность.
+            - Не использовать чайник, плиту, открытый огонь, горячую воду или горячий сосуд.
+            - Взрослый готовит материалы и останавливает любое изменение утверждённой процедуры.
+            - После наблюдения убрать воду и вымыть руки.
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: >-
+              Домашний безопасный профиль создан для water pilot, основан на
+              существующей no-heating procedure и ожидает teacher review и home trial.
       - profile_id: practical-observation-measurement
         names:
           en: Practical observation and measurement stations
@@ -5408,14 +5519,214 @@ activities:
     category: visual_and_multimodal
     short_description_ru: Ученик преобразует содержание в схему, рисунок, модель, таблицу или диаграмму и объясняет
       соответствие исходной идее.
-    capabilities:
-      concept_formation: supporting
-      data_interpretation: supporting
-      diagram_interpretation: supporting
-      explanation_and_modelling: supporting
-      map_interpretation: supporting
-      symbolic_representation: supporting
-      visual_representation: primary
+    execution_profiles:
+      - profile_id: paper-diagram
+        names:
+          en: Paper diagram
+          et: Paberskeem
+          ru: Бумажная схема
+        description_ru: Ученик рисует или дополняет схему только на бумаге, без режущих инструментов, физической модели и лабораторных материалов.
+        capabilities:
+          concept_formation: supporting
+          diagram_interpretation: primary
+          explanation_and_modelling: supporting
+          independent_practice: primary
+          visual_representation: primary
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 35
+          supported_group_formats: [individual, pair, small_group, whole_class]
+          delivery_modes: [classroom, homeschool, independent_study, parent_supported, remote]
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 8
+          max_minutes: 35
+        effort:
+          teacher_preparation:
+            level: low
+            rationale_ru: Учитель задаёт проверяемые элементы схемы и предоставляет исходный предметный материал.
+          teacher_facilitation:
+            level: low
+            rationale_ru: После самостоятельной работы требуется только проверка научных связей.
+          learner_setup:
+            level: low
+            rationale_ru: Ученик готовит бумагу, письменные принадлежности и доступную диаграмму.
+          homeschool_parent:
+            level: none
+            role: none
+            role_description_ru: Взрослый не нужен для обычной бумажной схемы.
+            rationale_ru: Профиль исключает физическую модель, режущие инструменты и опасные материалы.
+        learner_independence: high
+        homeschool_adaptation:
+          status: directly_suitable
+          variants: [independent, parent_child]
+          child_responsibility_ru: Самостоятельно построить схему, подписать связи и объяснить их по критериям.
+          adult_role_ru: Не требуется; взрослый может только выслушать объяснение по просьбе ребёнка.
+          adult_safety_supervision_ru: null
+          subject_teacher_responsibility_ru: Задать обязательные элементы и предоставить критерии научной проверки.
+          limitations_ru:
+            - Профиль не разрешает создание объёмной модели или применение инструментов.
+        resource_requirements:
+          required: [diagram, paper, writing_tool]
+          optional: [textbook_or_source_text]
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: false
+          reusable_materials: [diagram]
+          consumable_materials: [paper]
+          setup_minutes: 2
+          cleanup_minutes: 0
+        learner_demands:
+          receptive_language: low
+          productive_language: low
+          interaction: none
+          reading_load: low
+          writing_load: low
+          step_complexity: low
+          working_memory_support: recommended
+          movement_demand: very_low
+          sensory_demand: low
+          strategy_familiarity_required: low
+          teacher_modelling: optional
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Готовая рамка схемы
+            - Короткие двуязычные подписи
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: adaptable
+          mixed_ability_group: adaptable
+          remote_delivery: directly_supported
+        safety:
+          risk_level: none
+          requires_adult_supervision: false
+          controls_ru: []
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: Бумажный профиль выделен из общего метода для честного различения безопасной схемы и физической модели; ожидает teacher review.
+      - profile_id: physical-model
+        names:
+          en: Physical visual model
+          et: Füüsiline visuaalne mudel
+          ru: Физическая визуальная модель
+        description_ru: >-
+          Ученик создаёт объёмную или манипулятивную модель из заранее
+          проверенных материалов и объясняет научный смысл её элементов.
+        capabilities:
+          concept_formation: supporting
+          diagram_interpretation: supporting
+          explanation_and_modelling: primary
+          independent_practice: supporting
+          symbolic_representation: supporting
+          visual_representation: primary
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 6
+          supported_group_formats:
+            - individual
+            - pair
+            - small_group
+          delivery_modes:
+            - classroom
+            - homeschool
+            - parent_supported
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 12
+          max_minutes: 35
+        effort:
+          teacher_preparation:
+            level: medium
+            rationale_ru: Учитель выбирает безопасные материалы и задаёт проверяемые элементы модели.
+          teacher_facilitation:
+            level: medium
+            rationale_ru: Учитель наблюдает за использованием материалов и проверяет научные связи.
+          learner_setup:
+            level: medium
+            rationale_ru: Ученик раскладывает заранее проверенные элементы модели и готовит место для работы.
+          homeschool_parent:
+            level: low
+            role: safety_supervision
+            role_description_ru: Взрослый выдаёт только утверждённые материалы и следит за безопасным использованием.
+            rationale_ru: Взрослый контролирует материалы, но не объясняет научную модель вместо ребёнка.
+        learner_independence: developing
+        homeschool_adaptation:
+          status: adaptable
+          variants:
+            - parent_child
+          child_responsibility_ru: Создать модель, подписать существенные элементы и объяснить их связи.
+          adult_role_ru: Подготовить утверждённые материалы и не подсказывать предметный ответ.
+          adult_safety_supervision_ru: Находиться рядом при работе с деталями и остановить неутверждённое использование материалов.
+          subject_teacher_responsibility_ru: Утвердить материалы, существенные элементы и критерии научной точности.
+          limitations_ru:
+            - Без проверенных материалов использовать бумажный профиль.
+            - Физическая привлекательность модели не доказывает научную точность.
+        resource_requirements:
+          required:
+            - diagram
+            - manipulatives
+            - paper
+            - writing_tool
+          optional: []
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: false
+          reusable_materials:
+            - diagram
+            - manipulatives
+          consumable_materials:
+            - paper
+          setup_minutes: 4
+          cleanup_minutes: 3
+        learner_demands:
+          receptive_language: low
+          productive_language: low
+          interaction: low
+          reading_load: low
+          writing_load: low
+          step_complexity: medium
+          working_memory_support: recommended
+          movement_demand: low
+          sensory_demand: low
+          strategy_familiarity_required: low
+          teacher_modelling: recommended
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Готовые условные обозначения
+            - Двуязычные подписи
+            - Перечень обязательных элементов
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: limited
+          mixed_ability_group: adaptable
+          remote_delivery: not_recommended
+        safety:
+          risk_level: low
+          requires_adult_supervision: true
+          controls_ru:
+            - Использовать только заранее утверждённые безопасные материалы.
+            - Взрослый контролирует мелкие детали и останавливает изменение набора материалов.
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: >-
+              Профиль отделяет физическую модель с надзором от безопасной
+              бумажной схемы и ожидает teacher review.
     linked_principle_ids:
       - varied-context-and-representation
       - retrieval-practice
@@ -5436,95 +5747,6 @@ activities:
       - cross_curricular
       - science
       - geography
-    delivery_constraints:
-      group_size:
-        min: 1
-        max: 6
-      supported_group_formats:
-        - individual
-        - pair
-        - small_group
-      delivery_modes:
-        - classroom
-        - homeschool
-        - independent_study
-        - remote
-        - parent_supported
-      source_access_during_first_attempt: allowed
-    duration:
-      min_minutes: 8
-      max_minutes: 35
-    effort:
-      teacher_preparation:
-        level: medium
-        rationale_ru: Подготовка материалов для «Визуальное представление» оценена отдельно от ведения работы.
-      teacher_facilitation:
-        level: medium
-        rationale_ru: Уровень учитывает объём моделирования, наблюдения и обратной связи во время «Визуальное представление».
-      learner_setup:
-        level: medium
-        rationale_ru: Ученик готовит только перечисленные обязательные ресурсы.
-      homeschool_parent:
-        level: minimal
-        role: logistical_support
-        role_description_ru: Взрослый помогает подготовить место и материалы, не подсказывая предметный ответ.
-        rationale_ru: Роль ограничена организационной, слушающей, проверочной или безопасностной поддержкой.
-    learner_independence: developing
-    homeschool_adaptation:
-      status: directly_suitable
-      variants:
-        - independent
-        - parent_child
-      child_responsibility_ru: Создать представление и объяснить смысл элементов и связей.
-      adult_role_ru: Спросить, что обозначает каждый элемент, не исправляя оформление за ребёнка.
-      adult_safety_supervision_ru: Контролировать инструменты и материалы, если создаётся физическая модель.
-      subject_teacher_responsibility_ru: Проверить научную модель, условные обозначения и безопасность материалов.
-      limitations_ru:
-        - Красивое изображение не гарантирует точного понимания.
-    resource_requirements:
-      required:
-        - diagram
-        - paper
-        - writing_tool
-      optional:
-        - device
-        - manipulatives
-      printer_required: false
-      internet_required: false
-      shared_display_required: false
-      outdoor_access_required: false
-      laboratory_materials_required: false
-      reusable_materials:
-        - diagram
-        - manipulatives
-      consumable_materials:
-        - paper
-      setup_minutes: 4
-      cleanup_minutes: 0
-    learner_demands:
-      receptive_language: low
-      productive_language: low
-      interaction: low
-      reading_load: low
-      writing_load: low
-      step_complexity: medium
-      working_memory_support: recommended
-      movement_demand: low
-      sensory_demand: low
-      strategy_familiarity_required: low
-      teacher_modelling: recommended
-      estonian_a1_a2_compatibility: directly_supported
-      scaffolds_ru:
-        - Готовые условные обозначения
-        - Двуязычные подписи
-        - Частично заполненная схема
-    compatibility:
-      offline: directly_supported
-      no_printer: directly_supported
-      one_learner: directly_supported
-      large_class: adaptable
-      mixed_ability_group: adaptable
-      remote_delivery: adaptable
     accessibility:
       supports_ru:
         - Снижает зависимость от длинной письменной речи.
@@ -5535,11 +5757,6 @@ activities:
         - Оценивать смысл
         - а не художественное качество
         - Разрешить таблицу.
-    safety:
-      risk_level: low
-      requires_adult_supervision: true
-      controls_ru:
-        - Отдельно оценить инструменты и материалы физической модели.
     risks_and_misuse:
       - risk_id: decorative-visual
         description_ru: Изображение оценивается по оформлению, а не по точности модели.
@@ -5575,13 +5792,6 @@ activities:
         - homeschool
       classroom_example_ru: Создать авторскую схему пищевой сети и подписать организмы короткими эстонскими терминами.
       homeschool_example_ru: Нарисовать процесс по памяти, объяснить взрослому стрелки и сверить научную точность.
-    taxonomy_assessment:
-      claim_origin: project_authored_design
-      reference_ids: []
-      confidence:
-        level: provisional
-        rationale: Операционная классификация «Визуальное представление» выведена из нормализованного описания и ожидает teacher
-          review.
     confidence:
       level: medium
       rationale: Метод поддержан каталогом и общим принципом вариативности; качество зависит от научной проверки и формы.

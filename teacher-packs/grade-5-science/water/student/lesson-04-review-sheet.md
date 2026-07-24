@@ -40,13 +40,68 @@ ___________________________________________________________________________
 
 Provenance: `author_created_worksheet`, cumulative lesson 04 revision based on the validated water unit. Чёрно-белая печать.
 
-<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review audience=student -->
-## Самостоятельная попытка и исправление
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review phase=retrieval audience=student -->
+## Самопроверочный тест по памяти
 
-1. Закрой учебник и ключ. Запиши или скажи свой первый ответ.
-2. Ответь по-русски: **Какие изменения воды являются противоположными и что определяет направление?**
-3. После первой попытки открой ключ, сравни и исправь неточность другим цветом.
-4. Коротко по-эстонски: **Mis juhtub veega soojenemisel või jahtumisel?**
+<!-- task_id: grade-5-water-04-changes-review/retrieval-task -->
 
-Первая попытка выполняется без ответа. Выбранная структура содержит 3 проверяемых этапа(ов), но технические названия ребёнку не нужны.
-<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review audience=student -->
+Материал: **Четыре станции повторения**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md`
+
+Инструкция: Закрой источник, выполни первую попытку по памяти, затем сверь схему и отметь одну связь для исправления.
+
+Закрой источник до завершения первой попытки.
+
+Что должно остаться после работы: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
+
+Эстонская поддержка: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review phase=retrieval audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review phase=correction audience=student -->
+## Самостоятельное исправление ошибки
+
+<!-- task_id: grade-5-water-04-changes-review/correction-task -->
+
+Материал: **Полная схема четырёх изменений воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md`
+
+Инструкция: Сохрани первую схему, исправь одну неверную стрелку другим цветом и объясни причину исправления полным русским предложением.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Что должно остаться после работы: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
+
+Эстонская поддержка: Одна поддержанная причинная фраза с двумя терминами.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review phase=correction audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review phase=consolidation audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-04-changes-review/consolidation-task -->
+
+Материал: **Четыре станции повторения**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md`
+
+Инструкция: Собери итоговую карту понятий: состояния как узлы, процессы как связи, затем выполни отдельные предметную и эстонскую части.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Что должно остаться после работы: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или переработанным термином.
+
+Эстонская поддержка: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review phase=consolidation audience=student -->

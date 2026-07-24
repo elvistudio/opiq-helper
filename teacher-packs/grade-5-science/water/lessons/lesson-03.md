@@ -82,23 +82,91 @@ Provenance: `author_created_bridge` по lesson-03 golden YAML и четырём
 Паттерн: **safe-practical-investigation**. Это операционное предложение,
 которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
 
-| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
-|---|---|---|---|---:|---|
-| safety-orientation | Мозговой штурм | `brainstorming` | activate-state-model | 3 + 2 setup + 0 cleanup | allowed |
-| practical-work | Короткое наблюдение, подготовленное учителем | `learning-stations::practical-compact-teacher-prepared-observation` | observe-changes | 10 + 2 setup + 2 cleanup | allowed |
-| evidence-check | Карта понятий | `concept-map` | explain-changes-ru, bridge-process-terms-et | 8 + 2 setup + 0 cleanup | prohibited |
-| conclusion | Резюме по памяти | `retrieval-summary` | separate-conclusions | 4 + 4 setup + 0 cleanup | prohibited |
+Timing compatibility rules: `1.0`.
+Все activity/setup/cleanup/transition минуты явно распределены по существующим стадиям.
 
-### Обоснование выбора
+### safety-orientation: Мозговой штурм
 
-- **safety-orientation:** Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **practical-work:** Target learning-stations::practical-compact-teacher-prepared-observation прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **evidence-check:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **conclusion:** Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- Target: `brainstorming`.
+- Execution mode: `teacher_led`.
+- Ученическое действие: До объяснения предложи безопасные ученические действия и отдельно укажи действия, которые выполняет только учитель.
+- Ожидаемое evidence: Предыдущая модель состояний готова для причинного объяснения.
+- Действие учителя: Показывает лёд, воду и схему, просит предсказать изменения по-русски. Ученики не кипятят воду и не касаются сосуда с тёплой водой. Тёплую воду наливает и демонстрационный сосуд перемещает только учитель. Термометры используются по инструкции; стеклянные приборы заменяются безопасными школьными моделями.
+- Source access: `teacher_managed`.
+- Evaluation: `teacher_observation`; answer access: `not_applicable`.
+- Assessment refs: нет.
+- Language support: tahke; vedel; veeaur.
+- Safety: специальные меры не требуются.
+- Binding rationale: Safety orientation полностью занимает activation stage и не создаёт фиктивного answer key.
 
-Действия учителя, ожидаемое свидетельство ученика, безопасность,
-дифференциация и оценивание остаются в связанных стадиях этого руководства;
-генератор не заменяет их новой научной формулировкой.
+**Распределение времени:**
+
+- `activate-state-model`: activity 3, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### practical-work: Короткое наблюдение, подготовленное учителем
+
+- Target: `learning-stations::practical-compact-teacher-prepared-observation`.
+- Execution mode: `practical_task`.
+- Ученическое действие: По команде учителя наблюдай лёд и холодную крышку, запиши данные до вывода и не касайся учительского сосуда.
+- Ожидаемое evidence: В более тёплом месте лёд быстрее превращается в жидкую воду; на холодной крышке появляются капли. Соблюдение всех ученических шагов и заполненная таблица.
+- Действие учителя: Учитель заранее проверяет безопасные термометры и готовит одинаковые кусочки льда. Учитель сам наливает тёплую воду в устойчивый прозрачный сосуд и закрывает его холодной крышкой. Учитель убирает тёплую воду сразу после наблюдения капель. Ученики не кипятят воду и не касаются сосуда с тёплой водой. Тёплую воду наливает и демонстрационный сосуд перемещает только учитель. Термометры используются по инструкции; стеклянные приборы заменяются безопасными школьными моделями.
+- Source access: `teacher_managed`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-practical-safe-observation`, `assess-subject-phase-change`.
+- Language support: Soojas jää sulab; külmal pinnal veeaur veeldub.; Два выполненных действия и одна поддержанная фраза..
+- Safety: Использовать только заранее проверенные учителем безопасные материалы.; Уборку и возврат материалов контролирует взрослый.; Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.; Учитель выдаёт материалы после объяснения границ действий..
+- Binding rationale: Compact teacher-prepared observation сохраняет десять минут наблюдения и отдельно учитывает setup и cleanup.
+
+**Распределение времени:**
+
+- `observe-changes`: activity 10, setup 2, cleanup 2, transition 0; compatibility `standard`.
+
+Selection rationale: Target learning-stations::practical-compact-teacher-prepared-observation прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### evidence-check: Резюме по памяти
+
+- Target: `retrieval-summary`.
+- Execution mode: `assessment_task`.
+- Ученическое действие: Закрой источник и по памяти сопоставь наблюдение с процессом, затем проверь стрелку и добавь короткий эстонский термин.
+- Ожидаемое evidence: Водяной пар у холодной поверхности охлаждается и превращается в капли жидкой воды; этот процесс называется конденсацией. Четыре корректных соответствия на схеме или в таблице.
+- Действие учителя: Моделирует термины на схеме и физически показывает действия mõõda и kirjuta. Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-phase-change`, `assess-et-recognition-processes`, `assess-et-supported-instructions`.
+- Language support: Veeaur jahtub ja veeldub veeks.; Два выполненных действия и одна поддержанная фраза..
+- Safety: специальные меры не требуются.
+- Binding rationale: Evidence check использует встроенное наблюдение, полный language bridge и переход к отдельному итоговому выводу.
+
+**Распределение времени:**
+
+- `observe-changes`: activity 1, setup 0, cleanup 0, transition 0; compatibility `embedded_formative_evidence`.
+- `bridge-process-terms-et`: activity 3, setup 4, cleanup 0, transition 0; compatibility `language_assessment`.
+- `separate-conclusions`: activity 0, setup 0, cleanup 0, transition 1; compatibility `standard`.
+
+Selection rationale: Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### conclusion: Минутное воспроизведение
+
+- Target: `one-minute-recall`.
+- Execution mode: `retrieval_task`.
+- Ученическое действие: Закрой источник и за одну минуту запиши русский вывод о выбранном процессе, затем добавь одну короткую эстонскую фразу.
+- Ожидаемое evidence: При получении тепла лёд плавится, а при охлаждении у поверхности водяной пар конденсируется в жидкую воду. Одна или две понятные фразы с sulamine или veeldumine.
+- Действие учителя: Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-phase-change`, `assess-et-independent-conclusion`.
+- Language support: Soojas jää sulab; külmal pinnal veeaur veeldub.; Veeaur jahtub ja veeldub veeks..
+- Safety: специальные меры не требуются.
+- Binding rationale: One-minute recall занимает четыре минуты с setup и сохраняет независимый русский вывод до короткого эстонского ответа.
+
+**Распределение времени:**
+
+- `separate-conclusions`: activity 2, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
 
 Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
 терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.

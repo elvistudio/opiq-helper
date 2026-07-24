@@ -7,19 +7,19 @@ versions:
   taxonomy: "1.0"
   selection_rules: "1.0"
   lesson_dna_schema: "1.0"
-  activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+  activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
   engine: "1.1"
-request_digest: c340b4d7895265b4841001523e2148c46542b47bfb98f6d1ed229a0b076aa1de
+request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
 selected_pattern:
   pattern_id: safe-practical-investigation
   selection_origin: request_required
-  score: 229
+  score: 222
   rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
     оценкой эффективности.
 candidate_summary:
   patterns_considered: 1
-  targets_considered: 33
-  valid_compositions: 26
+  targets_considered: 35
+  valid_compositions: 28
 slot_decisions:
   - slot_id: safety-orientation
     phase: orientation
@@ -360,6 +360,24 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: learning-stations::practical-home-passive-ice-observation
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - delivery mode classroom is not supported
+          - effective delivery fit not_recommended is not allowed
+          - lesson phase orientation is not supported
+        operational_fit:
+          delivery_fit: not_recommended
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: not_recommended
+            - dimension: large_class
+              fit: not_recommended
+          group_format_selection:
+            selected: individual
+            preferred: false
+            fallback_used: true
+        score: null
       - target_id: learning-stations::practical-observation-measurement
         hard_filter_passed: false
         hard_filter_reasons:
@@ -585,7 +603,7 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
-      - target_id: visual-representation
+      - target_id: visual-representation::paper-diagram
         hard_filter_passed: false
         hard_filter_reasons:
           - lesson phase orientation is not supported
@@ -596,6 +614,22 @@ slot_decisions:
               fit: directly_supported
             - dimension: large_class
               fit: adaptable
+          group_format_selection:
+            selected: small_group
+            preferred: true
+            fallback_used: false
+        score: null
+      - target_id: visual-representation::physical-model
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - lesson phase orientation is not supported
+        operational_fit:
+          delivery_fit: limited
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: directly_supported
+            - dimension: large_class
+              fit: limited
           group_format_selection:
             selected: small_group
             preferred: true
@@ -925,6 +959,23 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: learning-stations::practical-home-passive-ice-observation
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - delivery mode classroom is not supported
+          - effective delivery fit not_recommended is not allowed
+        operational_fit:
+          delivery_fit: not_recommended
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: not_recommended
+            - dimension: large_class
+              fit: not_recommended
+          group_format_selection:
+            selected: individual
+            preferred: false
+            fallback_used: true
+        score: null
       - target_id: one-minute-recall
         hard_filter_passed: false
         hard_filter_reasons:
@@ -1175,7 +1226,7 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
-      - target_id: visual-representation
+      - target_id: visual-representation::paper-diagram
         hard_filter_passed: false
         hard_filter_reasons:
           - practical-work slot requires observation, measurement, or experimentation
@@ -1191,26 +1242,42 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: visual-representation::physical-model
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - practical-work slot requires observation, measurement, or experimentation
+        operational_fit:
+          delivery_fit: limited
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: directly_supported
+            - dimension: large_class
+              fit: limited
+          group_format_selection:
+            selected: small_group
+            preferred: true
+            fallback_used: false
+        score: null
     tie_break: score_desc_then_target_id_bytewise
     unfilled_reason: null
   - slot_id: evidence-check
     phase: formative_assessment
     required: true
-    selected_target_id: concept-map
-    selected_group_format: small_group
+    selected_target_id: retrieval-summary
+    selected_group_format: individual
     score:
-      total: 38
+      total: 42
       components: &a3
         a1_a2_fit: 3
         adaptable_delivery_fit: 2
         desired_formative_assessment: 5
-        desired_retrieval: 5
+        desired_retrieval: 8
         effort_headroom: 2
         pattern_phase_fit: 10
-        preferred_group_format_fit: 4
         preferred_pattern: 5
+        preferred_target: 6
         provisional_taxonomy: -1
-        resource_simplicity: 3
+        resource_simplicity: 2
     considered_candidates:
       - target_id: retrieval-summary
         hard_filter_passed: true
@@ -1228,17 +1295,7 @@ slot_decisions:
             fallback_used: true
         score:
           total: 42
-          components:
-            a1_a2_fit: 3
-            adaptable_delivery_fit: 2
-            desired_formative_assessment: 5
-            desired_retrieval: 8
-            effort_headroom: 2
-            pattern_phase_fit: 10
-            preferred_pattern: 5
-            preferred_target: 6
-            provisional_taxonomy: -1
-            resource_simplicity: 2
+          components: *a3
       - target_id: concept-map
         hard_filter_passed: true
         hard_filter_reasons: []
@@ -1255,7 +1312,17 @@ slot_decisions:
             fallback_used: false
         score:
           total: 38
-          components: *a3
+          components:
+            a1_a2_fit: 3
+            adaptable_delivery_fit: 2
+            desired_formative_assessment: 5
+            desired_retrieval: 5
+            effort_headroom: 2
+            pattern_phase_fit: 10
+            preferred_group_format_fit: 4
+            preferred_pattern: 5
+            provisional_taxonomy: -1
+            resource_simplicity: 3
       - target_id: retrieval-self-test
         hard_filter_passed: true
         hard_filter_reasons: []
@@ -1607,6 +1674,24 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: learning-stations::practical-home-passive-ice-observation
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - delivery mode classroom is not supported
+          - effective delivery fit not_recommended is not allowed
+          - lesson phase formative_assessment is not supported
+        operational_fit:
+          delivery_fit: not_recommended
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: not_recommended
+            - dimension: large_class
+              fit: not_recommended
+          group_format_selection:
+            selected: individual
+            preferred: false
+            fallback_used: true
+        score: null
       - target_id: learning-stations::practical-observation-measurement
         hard_filter_passed: false
         hard_filter_reasons:
@@ -1800,7 +1885,7 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
-      - target_id: visual-representation
+      - target_id: visual-representation::paper-diagram
         hard_filter_passed: false
         hard_filter_reasons:
           - lesson phase formative_assessment is not supported
@@ -1816,27 +1901,41 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: visual-representation::physical-model
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - lesson phase formative_assessment is not supported
+        operational_fit:
+          delivery_fit: limited
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: directly_supported
+            - dimension: large_class
+              fit: limited
+          group_format_selection:
+            selected: small_group
+            preferred: true
+            fallback_used: false
+        score: null
     tie_break: score_desc_then_target_id_bytewise
     unfilled_reason: null
   - slot_id: conclusion
     phase: retrieval
     required: true
-    selected_target_id: retrieval-summary
+    selected_target_id: one-minute-recall
     selected_group_format: individual
     score:
-      total: 51
+      total: 40
       components: &a4
         a1_a2_fit: 3
         adaptable_delivery_fit: 2
         desired_formative_assessment: 5
         desired_retrieval: 8
         effort_headroom: 2
-        pattern_activity_option: 6
         pattern_phase_fit: 10
         preferred_pattern: 5
-        preferred_target: 6
         provisional_taxonomy: -1
-        resource_simplicity: 2
+        resource_simplicity: 3
         source_access_fit: 3
     considered_candidates:
       - target_id: retrieval-summary
@@ -1855,7 +1954,19 @@ slot_decisions:
             fallback_used: true
         score:
           total: 51
-          components: *a4
+          components:
+            a1_a2_fit: 3
+            adaptable_delivery_fit: 2
+            desired_formative_assessment: 5
+            desired_retrieval: 8
+            effort_headroom: 2
+            pattern_activity_option: 6
+            pattern_phase_fit: 10
+            preferred_pattern: 5
+            preferred_target: 6
+            provisional_taxonomy: -1
+            resource_simplicity: 2
+            source_access_fit: 3
       - target_id: concept-map
         hard_filter_passed: true
         hard_filter_reasons: []
@@ -1927,17 +2038,7 @@ slot_decisions:
             fallback_used: true
         score:
           total: 40
-          components:
-            a1_a2_fit: 3
-            adaptable_delivery_fit: 2
-            desired_formative_assessment: 5
-            desired_retrieval: 8
-            effort_headroom: 2
-            pattern_phase_fit: 10
-            preferred_pattern: 5
-            provisional_taxonomy: -1
-            resource_simplicity: 3
-            source_access_fit: 3
+          components: *a4
       - target_id: prior-knowledge-free-write
         hard_filter_passed: true
         hard_filter_reasons: []
@@ -2221,6 +2322,25 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: learning-stations::practical-home-passive-ice-observation
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - delivery mode classroom is not supported
+          - effective delivery fit not_recommended is not allowed
+          - lesson phase retrieval is not supported
+          - retrieval first attempt must prohibit source access
+        operational_fit:
+          delivery_fit: not_recommended
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: not_recommended
+            - dimension: large_class
+              fit: not_recommended
+          group_format_selection:
+            selected: individual
+            preferred: false
+            fallback_used: true
+        score: null
       - target_id: learning-stations::practical-observation-measurement
         hard_filter_passed: false
         hard_filter_reasons:
@@ -2424,7 +2544,7 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
-      - target_id: visual-representation
+      - target_id: visual-representation::paper-diagram
         hard_filter_passed: false
         hard_filter_reasons:
           - lesson phase retrieval is not supported
@@ -2441,13 +2561,30 @@ slot_decisions:
             preferred: true
             fallback_used: false
         score: null
+      - target_id: visual-representation::physical-model
+        hard_filter_passed: false
+        hard_filter_reasons:
+          - lesson phase retrieval is not supported
+          - retrieval first attempt must prohibit source access
+        operational_fit:
+          delivery_fit: limited
+          delivery_dimensions:
+            - dimension: declared_delivery_mode
+              fit: directly_supported
+            - dimension: large_class
+              fit: limited
+          group_format_selection:
+            selected: small_group
+            preferred: true
+            fallback_used: false
+        score: null
     tie_break: score_desc_then_target_id_bytewise
     unfilled_reason: null
 rejected_patterns: []
 combination_checks:
   - check_id: duration-and-reserve
     passed: true
-    details: planned 41 of 45 minutes including reserve
+    details: planned 35 of 45 minutes including reserve
   - check_id: required-capability-coverage
     passed: true
     details: "covered: evidence_based_conclusion, measurement, observation"
@@ -2466,7 +2603,7 @@ teacher_override_results:
   - override_id: preserve-existing-conclusion
     status: accepted
     slot_id: conclusion
-    requested_target_id: retrieval-summary
+    requested_target_id: one-minute-recall
     reason: Override satisfies every hard constraint and is applied in the selected composition.
 warnings:
   - Capability ratings and selection weights are provisional project-authored metadata.

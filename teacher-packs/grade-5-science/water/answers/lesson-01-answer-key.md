@@ -30,24 +30,49 @@
 Provenance: `author_created_assessment`, derived from lesson 01 criteria and expected answers.
 
 <!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties audience=answer-key -->
-## Сгенерированная привязка попытки и ключа
+## Сгенерированные evidence и ключи по этапам
 
-| Task ID | Phase ID | Target ID | Student artifact | Answer key | Доступ к ключу |
-|---|---|---|---|---|---|
-| `grade-5-water-01-properties/activation-task` | `activation` | `brainstorming` | `teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md` | after_first_attempt |
-| `grade-5-water-01-properties/explanation-task` | `explanation` | `guided-reading` | `teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md` | after_first_attempt |
-| `grade-5-water-01-properties/guided-practice-task` | `guided-practice` | `concept-map` | `teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md` | after_first_attempt |
-| `grade-5-water-01-properties/retrieval-task` | `retrieval` | `one-minute-recall` | `teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md` | `teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md` | after_first_attempt |
-| `grade-5-water-01-properties/formative-check-task` | `formative-check` | `retrieval-self-test` | `teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md` | `teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md` | after_first_attempt |
+Lesson ID: `grade-5-water-01-properties`.
 
-Lesson ID: `grade-5-water-01-properties`. Доступ к ключу разрешён только после
-самостоятельной первой попытки.
+### `grade-5-water-01-properties/guided-practice-task`
 
-Правильный предметный ответ: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому это свойство.
+- Phase: `guided-practice`.
+- Evaluation: `evidence_criterion`.
+- Prompt source refs: `stage:observe-water:pupil_action_ru`.
+- Evidence source refs: `stage:observe-water:expected_evidence_of_learning`, `assessment:assess-practical-observation:acceptable_evidence`.
+- Ожидаемое evidence: Таблица содержит наблюдение, а русский вывод не смешивает растворение с исчезновением. Заполненная таблица без дегустации или неподтверждённых утверждений.
+- Допустимая языковая опора: Milline omadus on puhtal veel?.
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
-Допустимый короткий эстонский ответ: Puhas vesi on läbipaistev.
+### `grade-5-water-01-properties/retrieval-task`
 
-Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Phase: `retrieval`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `question:question-water-property:question_ru`.
+- Evidence source refs: `question:question-water-property:full_expected_answer_ru`, `assessment:assess-subject-water-property:acceptable_evidence`.
+- Ожидаемое evidence: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому это свойство. Полный русский ответ или корректный вывод в таблице.
+- Допустимая языковая опора: Puhas vesi on läbipaistev.; Одна понятная самостоятельная фраза с aine или omadus..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
+### `grade-5-water-01-properties/formative-check-task`
+
+- Phase: `formative-check`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `stage:independent-summary:pupil_action_ru`.
+- Evidence source refs: `assessment:assess-subject-water-property:acceptable_evidence`, `assessment:assess-et-supported-property:acceptable_evidence`.
+- Ожидаемое evidence: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on ...» с поддержкой банка слов.
+- Допустимая языковая опора: Puhas vesi on läbipaistev.; Понятная фраза «Vesi on ...» с поддержкой банка слов..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
 
 Предметное понимание оценивается по научному смыслу русского ответа. Качество
 эстонской формы фиксируется отдельно и не снижает предметный результат автоматически.

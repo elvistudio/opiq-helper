@@ -30,24 +30,62 @@
 Provenance: `author_created_assessment`, lesson 02 expected answers and misconceptions.
 
 <!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states audience=answer-key -->
-## Сгенерированная привязка попытки и ключа
+## Сгенерированные evidence и ключи по этапам
 
-| Task ID | Phase ID | Target ID | Student artifact | Answer key | Доступ к ключу |
-|---|---|---|---|---|---|
-| `grade-5-water-02-states/activation-task` | `activation` | `brainstorming` | `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` | after_first_attempt |
-| `grade-5-water-02-states/explanation-task` | `explanation` | `frayer-model` | `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` | after_first_attempt |
-| `grade-5-water-02-states/guided-practice-task` | `guided-practice` | `concept-map` | `teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md` | `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` | after_first_attempt |
-| `grade-5-water-02-states/retrieval-task` | `retrieval` | `one-minute-recall` | `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md` | `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` | after_first_attempt |
-| `grade-5-water-02-states/formative-check-task` | `formative-check` | `retrieval-self-test` | `teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md` | `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` | after_first_attempt |
+Lesson ID: `grade-5-water-02-states`.
 
-Lesson ID: `grade-5-water-02-states`. Доступ к ключу разрешён только после
-самостоятельной первой попытки.
+### `grade-5-water-02-states/explanation-task`
 
-Правильный предметный ответ: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар является газом и заполняет доступное пространство.
+- Phase: `explanation`.
+- Evaluation: `evidence_criterion`.
+- Prompt source refs: `stage:explain-three-states-ru:pupil_action_ru`.
+- Evidence source refs: `stage:explain-three-states-ru:expected_evidence_of_learning`, `assessment:assess-subject-three-states:acceptable_evidence`.
+- Ожидаемое evidence: Ученик опирается на свойства состояния, а не только на бытовое название. Шесть корректно распределённых карточек и три русских обоснования.
+- Допустимая языковая опора: Правильное размещение терминов на схеме..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
-Допустимый короткий эстонский ответ: Jää on tahke ja vesi on vedel.
+### `grade-5-water-02-states/guided-practice-task`
 
-Типичная ошибка: Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+- Phase: `guided-practice`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `stage:classify-states:pupil_action_ru`.
+- Evidence source refs: `stage:classify-states:expected_evidence_of_learning`, `assessment:assess-subject-three-states:acceptable_evidence`.
+- Ожидаемое evidence: Шесть карточек классифицированы, а три решения объяснены по-русски. Шесть корректно распределённых карточек и три русских обоснования.
+- Допустимая языковая опора: Одна понятная фраза с названием состояния и опорой..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
+### `grade-5-water-02-states/retrieval-task`
+
+- Phase: `retrieval`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `question:question-three-states:question_ru`.
+- Evidence source refs: `question:question-three-states:full_expected_answer_ru`, `assessment:assess-et-independent-state:acceptable_evidence`.
+- Ожидаемое evidence: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар является газом и заполняет доступное пространство. Одно понятное предложение без полной рамки.
+- Допустимая языковая опора: Jää on tahke ja vesi on vedel.; Одно понятное предложение без полной рамки..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
+### `grade-5-water-02-states/formative-check-task`
+
+- Phase: `formative-check`.
+- Evaluation: `answer_key`.
+- Prompt source refs: `stage:classify-states:pupil_action_ru`.
+- Evidence source refs: `assessment:assess-subject-three-states:acceptable_evidence`, `assessment:assess-et-supported-state:acceptable_evidence`.
+- Ожидаемое evidence: Шесть корректно распределённых карточек и три русских обоснования. Одна понятная фраза с названием состояния и опорой.
+- Допустимая языковая опора: Jää on tahke ja vesi on vedel.; Одна понятная фраза с названием состояния и опорой..
+- Доступ: `after_first_attempt`; первая попытка сохраняется.
+- Типичная ошибка: Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+- Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
+- Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
+
 
 Предметное понимание оценивается по научному смыслу русского ответа. Качество
 эстонской формы фиксируется отдельно и не снижает предметный результат автоматически.

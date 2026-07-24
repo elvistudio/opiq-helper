@@ -11,11 +11,11 @@ versions:
   taxonomy: "1.0"
   selection_rules: "1.0"
   lesson_dna_schema: "1.0"
-  activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+  activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
   engine: "1.1"
 context:
   request_id: grade-5-water-03-melting-condensation-classroom-selection
-  request_digest: c340b4d7895265b4841001523e2148c46542b47bfb98f6d1ed229a0b076aa1de
+  request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
   grade: 5
   subject: science
   duration_minutes: 45
@@ -133,49 +133,6 @@ phases:
     purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
     required: true
     target:
-      target_id: concept-map
-      activity_id: concept-map
-      execution_profile_id: null
-    activity_minutes: 8
-    setup_minutes: 2
-    cleanup_minutes: 0
-    transition_minutes: 0
-    group_format: small_group
-    capabilities:
-      primary:
-        - concept_formation
-        - visual_representation
-      supporting:
-        - classification
-        - comparison
-        - diagram_interpretation
-        - formative_assessment
-        - retrieval
-    source_access:
-      first_attempt: prohibited
-    language_role:
-      primary_language: ru
-      estonian_roles:
-        - familiar_instruction
-        - labels
-        - sentence_frame
-        - short_oral_response
-        - short_written_response
-        - terminology
-    resources:
-      required:
-        - paper
-        - writing_tool
-    safety:
-      requires_adult_supervision: false
-      controls_ru: []
-    rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
-      согласованную композицию; это не effectiveness ranking.
-  - phase_id: conclusion
-    phase: retrieval
-    purpose_ru: Сформулировать предметный вывод без копирования инструкции.
-    required: true
-    target:
       target_id: retrieval-summary
       activity_id: retrieval-summary
       execution_profile_id: null
@@ -213,27 +170,71 @@ phases:
       controls_ru: []
     rationale_ru: Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад
       в согласованную композицию; это не effectiveness ranking.
+  - phase_id: conclusion
+    phase: retrieval
+    purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+    required: true
+    target:
+      target_id: one-minute-recall
+      activity_id: one-minute-recall
+      execution_profile_id: null
+    activity_minutes: 2
+    setup_minutes: 2
+    cleanup_minutes: 0
+    transition_minutes: 0
+    group_format: individual
+    capabilities:
+      primary:
+        - retrieval
+      supporting:
+        - formative_assessment
+        - oral_production
+        - written_production
+    source_access:
+      first_attempt: prohibited
+    language_role:
+      primary_language: ru
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+    resources:
+      required:
+        - paper
+        - writing_tool
+    safety:
+      requires_adult_supervision: false
+      controls_ru: []
+    rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
+      в согласованную композицию; это не effectiveness ranking.
 timing:
-  activity_minutes: 25
+  activity_minutes: 19
   setup_minutes: 10
   cleanup_minutes: 2
   transition_minutes: 1
   reserve_minutes: 3
-  total_planned_minutes: 41
-  unallocated_minutes: 4
+  total_planned_minutes: 35
+  unallocated_minutes: 10
   fits: true
 assessment:
   separation_policy: separate_subject_and_estonian_language_evidence
   subject_assessment:
     enabled: true
     target_phase_ids:
+      - conclusion
       - evidence-check
+      - practical-work
     notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
       предметный результат.
   estonian_language_assessment:
-    enabled: false
-    target_phase_ids: []
-    notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+    enabled: true
+    target_phase_ids:
+      - conclusion
+      - evidence-check
+    notes_ru: Короткое эстонское evidence A1–A2 фиксируется отдельно от русского предметного доказательства.
 retrieval_plan:
   immediate_phase_id: conclusion
   correction_phase_id: null
@@ -255,8 +256,9 @@ teacher_overrides:
   - override_id: preserve-existing-conclusion
     status: accepted
     slot_id: conclusion
-    target_id: retrieval-summary
-    rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+    target_id: one-minute-recall
+    rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+      сохраняет отдельный предметный вывод.
 warnings:
   - Capability ratings and selection weights are provisional project-authored metadata.
   - The proposal requires teacher review and does not claim learning effectiveness.

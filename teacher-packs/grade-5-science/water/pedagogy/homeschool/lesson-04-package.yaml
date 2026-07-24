@@ -1,6 +1,6 @@
 artifact_type: homeschool_package
 assessment:
-  estonian_language_assessment: false
+  estonian_language_assessment: true
   separation_policy: separate_subject_and_estonian_language_evidence
   subject_assessment: true
 context:
@@ -87,6 +87,7 @@ learner_plan:
       learner_minutes: 10
       material_refs:
         - unit-revision-stations
+        - unit-separate-assessment
       phase_id: consolidation
       safety_controls_ru: []
       source_access: closed
@@ -106,12 +107,15 @@ materials:
   learner_material_refs:
     - complete-phase-cycle
     - unit-revision-stations
+    - unit-separate-assessment
   phase_binding_summary:
     - adapted_phase_id: consolidation
-      answer_key_refs: []
+      answer_key_refs:
+        - lesson-04-answer-key
       binding_origin: exact_adapted
       learner_material_refs:
         - unit-revision-stations
+        - unit-separate-assessment
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
       release_policy: not_applicable
@@ -163,6 +167,7 @@ package_id: grade-5-water-04-changes-review-homeschool-adaptation-package
 parent_guidance_ref: grade-5-water-04-changes-review-homeschool-adaptation-parent-guidance
 review_binding_summary:
   - adapted_phase_ids:
+      - consolidation
       - retrieval
     answer_key_refs:
       - lesson-04-answer-key
@@ -183,12 +188,12 @@ safety:
   teacher_authorization_required: false
 schema_version: "1.0"
 source_identity:
-  source_lesson_dna_digest: 45162c36b928493d21a09861e2860032231b97a839023709ae9ee70afb831959
+  source_lesson_dna_digest: 7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94
   source_lesson_dna_id: grade-5-water-04-changes-review-classroom-selection-dna
-  source_request_digest: 6a3b25de91d7efa943658eb6541b88825e88f7f39aa79b0a78a34878ebc77ff3
+  source_request_digest: b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905
   source_request_id: grade-5-water-04-changes-review-classroom-selection
   source_selection_versions:
-    activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
     engine: "1.1"
     lesson_dna_schema: "1.0"
     selection_rules: "1.0"

@@ -50,10 +50,10 @@ safety:
   adapted_supervision_required: true
   adult_supervision_required: true
   controls_ru:
-    - Использовать только заранее проверенные учителем безопасные материалы.
-    - Уборку и возврат материалов контролирует взрослый.
-    - Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.
-    - Учитель выдаёт материалы после объяснения границ действий.
+    - Только учитель утверждает домашнюю процедуру до её применения.
+    - Взрослый находится рядом на протяжении всего наблюдения.
+    - Нагревание и пробование воды полностью запрещены.
+    - После наблюдения воду убирают, поверхность вытирают и руки моют.
   effective_supervision_required: true
   source_supervision_required: true
   teacher_authorization_required: true
@@ -63,8 +63,8 @@ status:
   homeschool_ready: false
   teacher_review: pending
 timing:
-  adult_answer_access_minutes: 2
-  adult_live_support_minutes: 6
+  adult_answer_access_minutes: 3
+  adult_live_support_minutes: 4
   adult_preparation_minutes: 3
-  adult_safety_minutes: 14
-  total_adult_minutes: 25
+  adult_safety_minutes: 13
+  total_adult_minutes: 23

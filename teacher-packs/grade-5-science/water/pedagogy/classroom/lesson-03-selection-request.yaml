@@ -58,7 +58,7 @@ language_profile:
     subject_explanation_language: ru
     sentence_frames_required: true
     word_bank_required: true
-    assessment_requested: false
+    assessment_requested: true
 resources:
   available:
     - diagram
@@ -105,6 +105,7 @@ preferences:
       author_role: teacher
     - override_id: preserve-existing-conclusion
       slot_id: conclusion
-      requested_target_id: retrieval-summary
-      rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+      requested_target_id: one-minute-recall
+      rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+        сохраняет отдельный предметный вывод.
       author_role: teacher

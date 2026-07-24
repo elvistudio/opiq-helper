@@ -23,3 +23,25 @@ Lesson: `grade-5-water-03-melting-condensation`
 Короткий вывод ET: _________________________________________________________
 
 Provenance: `author_created_worksheet`, safe lesson 03 observation table linked to https://www.opiq.ee/kit/122/chapter/6283. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-03-melting-condensation phase=practical-work audience=student -->
+## Короткое наблюдение, подготовленное учителем
+
+<!-- task_id: grade-5-water-03-melting-condensation/practical-work-task -->
+
+Материал: **Таблица измерений и наблюдений**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md`
+
+Инструкция: По команде учителя наблюдай лёд и холодную крышку, запиши данные до вывода и не касайся учительского сосуда.
+
+Используй только тот источник или материал, который открыл учитель или взрослый.
+
+Что должно остаться после работы: В более тёплом месте лёд быстрее превращается в жидкую воду; на холодной крышке появляются капли. Соблюдение всех ученических шагов и заполненная таблица.
+
+Эстонская поддержка: Soojas jää sulab; külmal pinnal veeaur veeldub.; Два выполненных действия и одна поддержанная фраза.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-03-melting-condensation phase=practical-work audience=student -->

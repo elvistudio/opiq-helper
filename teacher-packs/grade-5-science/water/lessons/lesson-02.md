@@ -79,25 +79,111 @@ Provenance: `author_created_bridge` по lesson-02 YAML и указанным ca
 Паттерн: **concept-introduction-classroom**. Это операционное предложение,
 которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
 
-| DNA phase | Метод | Target ID | Стадии урока | Время | Источник при первой попытке |
-|---|---|---|---|---:|---|
-| activation | Мозговой штурм | `brainstorming` | activate-properties | 3 + 2 setup + 0 cleanup | allowed |
-| explanation | Модель Фрайера | `frayer-model` | explain-three-states-ru | 10 + 4 setup + 0 cleanup | allowed |
-| guided-practice | Карта понятий | `concept-map` | classify-states | 8 + 2 setup + 0 cleanup | prohibited |
-| retrieval | Минутное воспроизведение | `one-minute-recall` | label-states-et | 2 + 2 setup + 0 cleanup | prohibited |
-| formative-check | Самопроверочный тест по памяти | `retrieval-self-test` | state-summary | 5 + 4 setup + 0 cleanup | prohibited |
+Timing compatibility rules: `1.0`.
+Все activity/setup/cleanup/transition минуты явно распределены по существующим стадиям.
 
-### Обоснование выбора
+### activation: Мозговой штурм
 
-- **activation:** Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **explanation:** Target frayer-model прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **guided-practice:** Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **retrieval:** Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
-- **formative-check:** Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+- Target: `brainstorming`.
+- Execution mode: `teacher_led`.
+- Ученическое действие: До объяснения запиши первоначальную идею о том, что общего у льда, жидкой воды и водяного пара.
+- Ожидаемое evidence: Предыдущее понятие вещества доступно для нового сравнения.
+- Действие учителя: Показывает лёд, воду и изображение водяного пара, задавая вопросы по-русски.
+- Source access: `open`.
+- Evaluation: `teacher_observation`; answer access: `not_applicable`.
+- Assessment refs: нет.
+- Language support: Mis olekus võivad vesi ja jää olla?.
+- Safety: специальные меры не требуются.
+- Binding rationale: Brainstorming занимает полную activation stage и сохраняет исходную гипотезу до построения модели.
 
-Действия учителя, ожидаемое свидетельство ученика, безопасность,
-дифференциация и оценивание остаются в связанных стадиях этого руководства;
-генератор не заменяет их новой научной формулировкой.
+**Распределение времени:**
+
+- `activate-properties`: activity 3, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### explanation: Бумажная схема
+
+- Target: `visual-representation::paper-diagram`.
+- Execution mode: `learner_task`.
+- Ученическое действие: Изобрази одну общую схему трёх состояний воды и подпиши рядом по одному наблюдаемому признаку каждого состояния.
+- Ожидаемое evidence: Ученик опирается на свойства состояния, а не только на бытовое название. Шесть корректно распределённых карточек и три русских обоснования.
+- Действие учителя: Объясняет признаки, демонстрирует изменение формы жидкости и обсуждает невидимость пара.
+- Source access: `open`.
+- Evaluation: `evidence_criterion`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`.
+- Language support: Правильное размещение терминов на схеме..
+- Safety: специальные меры не требуются.
+- Binding rationale: Visual representation полностью размещается в русской explanation stage и материализует модель состояний.
+
+**Распределение времени:**
+
+- `explain-three-states-ru`: activity 8, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target visual-representation::paper-diagram прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### guided-practice: Сортировка и упорядочивание
+
+- Target: `sorting-and-sequencing`.
+- Execution mode: `learner_task`.
+- Ученическое действие: Распредели карточки по трём состояниям, затем расположи спорные примеры в последовательности от твёрдого к газообразному.
+- Ожидаемое evidence: Шесть карточек классифицированы, а три решения объяснены по-русски. Шесть корректно распределённых карточек и три русских обоснования.
+- Действие учителя: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи схемы.
+- Source access: `open`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`, `assess-et-supported-state`.
+- Language support: Одна понятная фраза с названием состояния и опорой..
+- Safety: специальные меры не требуются.
+- Binding rationale: Sorting and sequencing прямо соответствует карточной классификации существующей guided-practice stage.
+
+**Распределение времени:**
+
+- `classify-states`: activity 5, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target sorting-and-sequencing прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### retrieval: Карта понятий
+
+- Target: `concept-map`.
+- Execution mode: `retrieval_task`.
+- Ученическое действие: Закрой источник и построй карту понятий по памяти: три узла состояний, признаки и подписанные связи с примерами.
+- Ожидаемое evidence: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар является газом и заполняет доступное пространство. Одно понятное предложение без полной рамки.
+- Действие учителя: Открывает подписи по одной, моделирует произношение и показывает действие liigita. Убирает подписи, принимает сначала полный русский ответ и отдельно фиксирует эстонскую продукцию.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`, `assess-et-independent-state`.
+- Language support: Jää on tahke ja vesi on vedel.; Одно понятное предложение без полной рамки..
+- Safety: специальные меры не требуются.
+- Binding rationale: Concept map использует independent-output stage и две минуты явного language retrieval из эстонского моста.
+
+**Распределение времени:**
+
+- `label-states-et`: activity 0, setup 2, cleanup 0, transition 0; compatibility `language_assessment`.
+- `state-summary`: activity 8, setup 0, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### formative-check: Самопроверочный тест по памяти
+
+- Target: `retrieval-self-test`.
+- Execution mode: `assessment_task`.
+- Ученическое действие: Сохрани первую попытку распределения, проверь её по ключу, исправь одну карточку и объясни причину.
+- Ожидаемое evidence: Шесть корректно распределённых карточек и три русских обоснования. Одна понятная фраза с названием состояния и опорой.
+- Действие учителя: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи схемы. Открывает подписи по одной, моделирует произношение и показывает действие liigita.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`, `assess-et-supported-state`, `assess-et-independent-state`.
+- Language support: Jää on tahke ja vesi on vedel.; Одна понятная фраза с названием состояния и опорой..
+- Safety: специальные меры не требуются.
+- Binding rationale: Error correction использует оставшееся время классификации и отдельно фиксирует короткое language evidence.
+
+**Распределение времени:**
+
+- `classify-states`: activity 1, setup 4, cleanup 0, transition 0; compatibility `embedded_formative_evidence`.
+- `label-states-et`: activity 4, setup 0, cleanup 0, transition 0; compatibility `language_assessment`.
+
+Selection rationale: Target retrieval-self-test прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
 
 Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
 терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.

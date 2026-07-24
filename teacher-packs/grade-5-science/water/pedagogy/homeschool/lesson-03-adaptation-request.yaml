@@ -29,22 +29,19 @@ adaptation_context:
   resources:
     adult_safety_supervision_available: true
     available:
-      - diagram
-      - laboratory_materials
-      - manipulatives
-      - measuring_tools
       - paper
-      - textbook_or_source_text
       - writing_tool
     internet_available: false
-    laboratory_materials_available: true
-    measuring_tools_available: true
+    laboratory_materials_available: false
+    measuring_tools_available: false
     outdoor_access_available: false
     printer_available: false
     projector_available: false
     unavailable:
       - internet
-  teacher_override_policy: require_preservation
+      - laboratory_materials
+      - measuring_tools
+  teacher_override_policy: allow_reselection_with_warning
   variant: parent_child
 artifact_type: homeschool_adaptation_request
 content_bindings:
@@ -55,14 +52,17 @@ content_bindings:
       - practical-safety-card
     phase_id: safety-orientation
     procedure_refs:
-      - grade-5-water-03-melting-condensation/approved-procedure
+      - policy:lesson-03-passive-ice-home-policy:child_steps_ru
+      - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
     safety_refs:
-      - grade-5-water-03-melting-condensation/safety-controls
+      - policy:lesson-03-passive-ice-home-policy:safety_controls_ru
+      - policy:lesson-03-passive-ice-home-policy:stop_conditions_ru
     task_refs:
       - grade-5-water-03-melting-condensation/safety-orientation-task
     teacher_explanation_refs:
       - water-lesson-03-guide
-  - answer_key_refs: []
+  - answer_key_refs:
+      - lesson-03-answer-key
     estonian_support_refs:
       - question-melting-data
     learner_material_refs:
@@ -70,9 +70,11 @@ content_bindings:
       - practical-safety-card
     phase_id: practical-work
     procedure_refs:
-      - grade-5-water-03-melting-condensation/approved-procedure
+      - policy:lesson-03-passive-ice-home-policy:child_steps_ru
+      - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
     safety_refs:
-      - grade-5-water-03-melting-condensation/safety-controls
+      - policy:lesson-03-passive-ice-home-policy:safety_controls_ru
+      - policy:lesson-03-passive-ice-home-policy:stop_conditions_ru
     task_refs:
       - grade-5-water-03-melting-condensation/practical-work-task
     teacher_explanation_refs:
@@ -111,9 +113,13 @@ source:
     artifact_type: lesson_dna
     assessment:
       estonian_language_assessment:
-        enabled: false
-        notes_ru: Эстонское языковое оценивание для этого запроса отключено.
-        target_phase_ids: []
+        enabled: true
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
+        target_phase_ids:
+          - safety-orientation
+          - evidence-check
+          - conclusion
       separation_policy: separate_subject_and_estonian_language_evidence
       subject_assessment:
         enabled: true
@@ -140,7 +146,7 @@ source:
           subject_explanation_language: ru
         maximum_total_productive_language_demand: high
         primary_instruction_language: ru
-      request_digest: c340b4d7895265b4841001523e2148c46542b47bfb98f6d1ed229a0b076aa1de
+      request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
       request_id: grade-5-water-03-melting-condensation-classroom-selection
       subject: science
     differentiation:
@@ -249,49 +255,6 @@ source:
           execution_profile_id: practical-compact-teacher-prepared-observation
           target_id: learning-stations::practical-compact-teacher-prepared-observation
         transition_minutes: 0
-      - activity_minutes: 8
-        capabilities:
-          primary:
-            - concept_formation
-            - visual_representation
-          supporting:
-            - classification
-            - comparison
-            - diagram_interpretation
-            - formative_assessment
-            - retrieval
-        cleanup_minutes: 0
-        group_format: small_group
-        language_role:
-          estonian_roles:
-            - familiar_instruction
-            - labels
-            - sentence_frame
-            - short_oral_response
-            - short_written_response
-            - terminology
-          primary_language: ru
-        phase: formative_assessment
-        phase_id: evidence-check
-        purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
-        rationale_ru: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в
-          согласованную композицию; это не effectiveness ranking.
-        required: true
-        resources:
-          required:
-            - paper
-            - writing_tool
-        safety:
-          controls_ru: []
-          requires_adult_supervision: false
-        setup_minutes: 2
-        source_access:
-          first_attempt: prohibited
-        target:
-          activity_id: concept-map
-          execution_profile_id: null
-          target_id: concept-map
-        transition_minutes: 0
       - activity_minutes: 4
         capabilities:
           primary:
@@ -312,9 +275,9 @@ source:
             - short_written_response
             - terminology
           primary_language: ru
-        phase: retrieval
-        phase_id: conclusion
-        purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+        phase: formative_assessment
+        phase_id: evidence-check
+        purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
         rationale_ru: Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад
           в согласованную композицию; это не effectiveness ranking.
         required: true
@@ -334,6 +297,46 @@ source:
           execution_profile_id: null
           target_id: retrieval-summary
         transition_minutes: 1
+      - activity_minutes: 2
+        capabilities:
+          primary:
+            - retrieval
+          supporting:
+            - formative_assessment
+            - oral_production
+            - written_production
+        cleanup_minutes: 0
+        group_format: individual
+        language_role:
+          estonian_roles:
+            - familiar_instruction
+            - labels
+            - sentence_frame
+            - short_oral_response
+            - short_written_response
+            - terminology
+          primary_language: ru
+        phase: retrieval
+        phase_id: conclusion
+        purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+        rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
+          в согласованную композицию; это не effectiveness ranking.
+        required: true
+        resources:
+          required:
+            - paper
+            - writing_tool
+        safety:
+          controls_ru: []
+          requires_adult_supervision: false
+        setup_minutes: 2
+        source_access:
+          first_attempt: prohibited
+        target:
+          activity_id: one-minute-recall
+          execution_profile_id: null
+          target_id: one-minute-recall
+        transition_minutes: 0
     retrieval_plan:
       correction_phase_id: null
       delayed:
@@ -355,21 +358,22 @@ source:
         status: accepted
         target_id: learning-stations::practical-compact-teacher-prepared-observation
       - override_id: preserve-existing-conclusion
-        rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
+        rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+          сохраняет отдельный предметный вывод.
         slot_id: conclusion
         status: accepted
-        target_id: retrieval-summary
+        target_id: one-minute-recall
     timing:
-      activity_minutes: 25
+      activity_minutes: 19
       cleanup_minutes: 2
       fits: true
       reserve_minutes: 3
       setup_minutes: 10
-      total_planned_minutes: 41
+      total_planned_minutes: 35
       transition_minutes: 1
-      unallocated_minutes: 4
+      unallocated_minutes: 10
     versions:
-      activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
       lesson_dna_schema: "1.0"
       selection_rules: "1.0"
@@ -396,7 +400,7 @@ source:
           - short_oral_response
           - short_written_response
           - terminology
-        assessment_requested: false
+        assessment_requested: true
         enabled: true
         language: et
         learner_level: A1-A2
@@ -465,8 +469,9 @@ source:
           slot_id: practical-work
         - author_role: teacher
           override_id: preserve-existing-conclusion
-          rationale_ru: Существующая стадия требует короткого самостоятельного вывода без просмотра источника.
-          requested_target_id: retrieval-summary
+          rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+            сохраняет отдельный предметный вывод.
+          requested_target_id: one-minute-recall
           slot_id: conclusion
     request_id: grade-5-water-03-melting-condensation-classroom-selection
     resources:

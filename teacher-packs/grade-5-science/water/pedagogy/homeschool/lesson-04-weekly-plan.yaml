@@ -33,6 +33,7 @@ sessions:
     answer_access: self_managed_after_attempt
     answer_binding:
       adapted_phase_ids:
+        - consolidation
         - retrieval
       answer_key_refs:
         - lesson-04-answer-key
@@ -42,6 +43,7 @@ sessions:
     learner_minutes: 8
     package_step_ids:
       - step-01-retrieval
+      - step-03-consolidation
     purpose: weekly_review
     relative_window:
       capability: retrieval

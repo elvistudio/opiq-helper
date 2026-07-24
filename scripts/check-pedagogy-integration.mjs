@@ -64,6 +64,27 @@ async function validateIntegration() {
       }
     }
     const row = generated.rows.get(lesson.lesson_id);
+    if (row.reconciliation.status !== 'reconciled') {
+      errors.push(`${lesson.lesson_id}: timing is not reconciled`);
+    }
+    if (
+      row.reconciliation.dna_total_planned_minutes
+        + row.reconciliation.non_dna_minutes
+      !== lesson.duration_minutes
+    ) {
+      errors.push(`${lesson.lesson_id}: 45-minute partition is incomplete`);
+    }
+    for (const stage of row.reconciliation.stage_partitions) {
+      if (stage.allocated_minutes !== stage.duration_minutes) {
+        errors.push(`${lesson.lesson_id}: stage ${stage.lesson_stage_id} is not exact`);
+      }
+    }
+    if (!row.lessonDna.assessment.estonian_language_assessment.enabled) {
+      errors.push(`${lesson.lesson_id}: Estonian assessment is disabled`);
+    }
+    if (!row.homeschool.package.assessment.estonian_language_assessment) {
+      errors.push(`${lesson.lesson_id}: homeschool Estonian assessment is disabled`);
+    }
     const taskIds = new Set();
     for (const task of row.taskBindings) {
       if (taskIds.has(task.task_id)) {
@@ -79,18 +100,32 @@ async function validateIntegration() {
       ))) {
         errors.push(`${lesson.lesson_id}: generated task ${task.task_id} is not bound to DNA`);
       }
-      if (task.answer_access_policy !== 'after_first_attempt') {
+      if (
+        task.answer_key_artifact_path
+        && task.answer_access_policy !== 'after_first_attempt'
+      ) {
         errors.push(`${lesson.lesson_id}: generated task ${task.task_id} exposes its key early`);
       }
+      if (
+        !task.answer_key_artifact_path
+        && task.answer_access_policy !== 'not_applicable'
+      ) {
+        errors.push(`${lesson.lesson_id}: no-key task ${task.task_id} has key access`);
+      }
       for (const artifactPath of [
-        task.student_artifact_path,
+        ...task.student_artifact_paths,
         task.answer_key_artifact_path,
-      ]) {
+      ].filter(Boolean)) {
         if (!generated.materialsIndex.materials.some(
           (entry) => entry.material.artifact_path === artifactPath,
         )) {
           errors.push(`${lesson.lesson_id}: generated task has unregistered ${artifactPath}`);
         }
+      }
+      if (!task.student_artifact_paths.some((artifactPath) => (
+        generated.files.get(artifactPath)?.includes(task.task_id)
+      ))) {
+        errors.push(`${lesson.lesson_id}: student regions miss ${task.task_id}`);
       }
     }
     if (taskIds.size !== row.lessonDna.phases.length) {
@@ -105,6 +140,16 @@ async function validateIntegration() {
     if (row.homeschool.package.status.homeschool_ready !== false) {
       errors.push(`${lesson.lesson_id}: homeschool_ready is not false`);
     }
+    const resolution = row.homeschoolRenderResolution;
+    if (![
+      resolution.content_refs_resolved,
+      resolution.task_refs_resolved,
+      resolution.answer_refs_resolved,
+      resolution.procedure_refs_resolved,
+      resolution.safety_refs_resolved,
+    ].every(Boolean)) {
+      errors.push(`${lesson.lesson_id}: homeschool refs are unresolved`);
+    }
     const rendered = generated.files.get(
       lesson.pedagogical_integration.generated_artifacts.homeschool_rendered_path,
     );
@@ -112,6 +157,9 @@ async function validateIntegration() {
       if (rendered.toLowerCase().includes(term)) {
         errors.push(`${lesson.lesson_id}: child-facing homeschool file exposes ${term}`);
       }
+    }
+    if (/указанный материал/iu.test(rendered)) {
+      errors.push(`${lesson.lesson_id}: child rendering contains an opaque material phrase`);
     }
   }
   const practical = generated.rows.get('grade-5-water-03-melting-condensation');
@@ -126,6 +174,22 @@ async function validateIntegration() {
   }
   if (practical.homeschool.package.context.variant !== 'parent_child') {
     errors.push('lesson 3 does not use parent_child adaptation');
+  }
+  if (!practical.homePracticalPolicy) {
+    errors.push('lesson 3 lacks a machine-readable home practical policy');
+  } else {
+    if (!practical.homePracticalPolicy.teacher_authorization_required) {
+      errors.push('lesson 3 policy lacks teacher authorization');
+    }
+    if (!practical.homePracticalPolicy.adult_supervision_required) {
+      errors.push('lesson 3 policy lacks adult supervision');
+    }
+    if (
+      JSON.stringify(practical.homeschool.package.safety.controls_ru)
+      !== JSON.stringify(practical.homePracticalPolicy.safety_controls_ru)
+    ) {
+      errors.push('lesson 3 package safety differs from policy');
+    }
   }
   const dirs = new Set(generated.materialsIndex.reviewable_content.directory_paths);
   for (const required of [

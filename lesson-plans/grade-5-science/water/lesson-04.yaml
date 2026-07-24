@@ -580,7 +580,7 @@ pedagogical_integration:
   content_identity:
     specification_version: "1.0"
     algorithm: sha256
-    value: f5a824360088414a60778d5d32b7c9f03f4857744f021b820242a1dcd8be7bc5
+    value: 14285bbe5a1a3cea4112fb96ba40f13de14170e3c3113644cae4638f91cf9da1
   selection_input:
     purpose: retrieval_and_consolidation
     content_types: [classification, conceptual_text, process]
@@ -621,6 +621,16 @@ pedagogical_integration:
       learner_session_minutes: 30
       maximum_sessions: 8
       maximum_total_productive_language_demand: medium
+      resources:
+        available: [diagram, manipulatives, paper, printable_cards, textbook_or_source_text, writing_tool]
+        unavailable: [internet, laboratory_materials, measuring_tools]
+        printer_available: true
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
       adult_context:
         available: false
         max_support_minutes: 0
@@ -629,41 +639,128 @@ pedagogical_integration:
         safety_supervision_available: false
         subject_explanation_available: false
       answer_key_release: self_managed_after_attempt
+      teacher_override_policy: require_preservation
+      practical_policy: null
     future_retrieval_windows:
       - window: {next_unit: true}
         capability: retrieval
   phase_bindings:
     - dna_phase_id: retrieval
-      lesson_stage_ids: [retrieve-water-unit]
+      lesson_stage_ids: [retrieve-water-unit, revision-stations]
+      timing_allocations:
+        - lesson_stage_id: retrieve-water-unit
+          activity_minutes: 5
+          setup_minutes: 1
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: retrieval_activation
+        - lesson_stage_id: revision-stations
+          activity_minutes: 0
+          setup_minutes: 3
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-04-guide]
       student_material_ids: [unit-revision-stations]
       answer_key_material_ids: [lesson-04-answer-key]
-      assessment_refs: [unit-separate-assessment]
+      assessment_refs:
+        [assess-subject-complete-cycle, assess-et-recognition-unit, assess-et-independent-unit]
       oral_answer_refs: [question-opposite-processes]
       source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: retrieval_task
+        task_id: grade-5-water-04-changes-review/retrieval-task
+        learner_instruction_ru: Закрой источник, выполни первую попытку по памяти, затем сверь схему и отметь одну связь для исправления.
+        prompt_source_refs: [stage:retrieve-water-unit:pupil_action_ru]
+        expected_evidence_source_refs:
+          [stage:retrieve-water-unit:expected_evidence_of_learning, assessment:assess-et-recognition-unit:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:retrieve-water-unit:teacher_action_ru, stage:revision-stations:teacher_action_ru]
+        language_support_refs:
+          [question:question-opposite-processes:short_oral_answer_et, assessment:assess-et-independent-unit:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Retrieval self-test начинается в activation и использует setup первой revision station без скрытых минут.
     - dna_phase_id: correction
-      lesson_stage_ids: [complete-change-model-ru]
+      lesson_stage_ids: [revision-stations]
+      timing_allocations:
+        - lesson_stage_id: revision-stations
+          activity_minutes: 3
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-04-guide]
       student_material_ids: [complete-phase-cycle]
       answer_key_material_ids: [lesson-04-answer-key]
-      assessment_refs: [unit-separate-assessment]
+      assessment_refs: [assess-subject-complete-cycle, assess-practical-data-reasoning]
       oral_answer_refs: [question-opposite-processes]
       source_access_policy: open
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-5-water-04-changes-review/correction-task
+        learner_instruction_ru: Сохрани первую схему, исправь одну неверную стрелку другим цветом и объясни причину исправления полным русским предложением.
+        prompt_source_refs: [stage:complete-change-model-ru:pupil_action_ru]
+        expected_evidence_source_refs:
+          [question:question-opposite-processes:full_expected_answer_ru, assessment:assess-subject-complete-cycle:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:complete-change-model-ru:teacher_action_ru, stage:revision-stations:teacher_action_ru]
+        language_support_refs: [assessment:assess-et-supported-unit:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Error correction выполняется в revision stage после сохранённой первой попытки и имеет явное объяснение исправления.
     - dna_phase_id: consolidation
-      lesson_stage_ids: [revision-stations]
+      lesson_stage_ids: [revision-stations, separate-unit-assessment]
+      timing_allocations:
+        - lesson_stage_id: revision-stations
+          activity_minutes: 4
+          setup_minutes: 1
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+        - lesson_stage_id: separate-unit-assessment
+          activity_minutes: 4
+          setup_minutes: 1
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-04-guide]
-      student_material_ids: [unit-revision-stations]
+      student_material_ids: [unit-revision-stations, unit-separate-assessment]
       answer_key_material_ids: [lesson-04-answer-key]
-      assessment_refs: [unit-separate-assessment]
+      assessment_refs:
+        [assess-subject-complete-cycle, assess-practical-data-reasoning, assess-et-recognition-unit, assess-et-supported-unit, assess-et-independent-unit]
       oral_answer_refs: [question-opposite-processes]
       source_access_policy: open
-  non_dna_stage_roles:
-    - lesson_stage_id: add-final-terms-et
-      role: language_bridge
-      rationale_ru: Отдельная bounded A1–A2 языковая стадия сохраняет предметную и языковую оценку раздельными.
-    - lesson_stage_id: separate-unit-assessment
-      role: assessment_separation
-      rationale_ru: Итоговая предметная и языковая фиксация остаётся authoritative assessment вне method selection.
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-5-water-04-changes-review/consolidation-task
+        learner_instruction_ru: "Собери итоговую карту понятий: состояния как узлы, процессы как связи, затем выполни отдельные предметную и эстонскую части."
+        prompt_source_refs:
+          [stage:revision-stations:pupil_action_ru, stage:separate-unit-assessment:pupil_action_ru]
+        expected_evidence_source_refs:
+          [assessment:assess-subject-complete-cycle:acceptable_evidence, assessment:assess-et-independent-unit:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:revision-stations:teacher_action_ru, stage:separate-unit-assessment:teacher_action_ru]
+        language_support_refs:
+          [question:question-opposite-processes:short_oral_answer_et, assessment:assess-et-supported-unit:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Concept map делит время между revision и отдельной assessment stage, не смешивая предметный и языковой score.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations:
+      - lesson_stage_id: separate-unit-assessment
+        minutes: 3
+        rationale_ru: Резерв сохраняется внутри раздельной итоговой проверки для индивидуального темпа.
+    non_dna_allocations:
+      - lesson_stage_id: complete-change-model-ru
+        minutes: 9
+        role: content_explanation
+        rationale_ru: Полная русская предметная модель остаётся authoritative content вне method selection.
+      - lesson_stage_id: add-final-terms-et
+        minutes: 7
+        role: language_bridge
+        rationale_ru: Отдельный bounded A1–A2 мост остаётся authoritative language support.
   generated_artifacts:
     selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml
@@ -674,6 +771,7 @@ pedagogical_integration:
     parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml
     weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml
     homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md
+    home_practical_policy_path: null
   status:
     structural_state: generated
     teacher_review: pending

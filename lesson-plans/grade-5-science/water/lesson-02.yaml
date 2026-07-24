@@ -525,7 +525,7 @@ pedagogical_integration:
   content_identity:
     specification_version: "1.0"
     algorithm: sha256
-    value: 5c8b38d9daccc03a7b22117f6aad9a9418572a6c7edec4552a7a8b1acbecb78d
+    value: 3708cc17ac3d5b3462060af7fd18a0c0b63d1ff8d918d0f6e72ce7aa218babcc
   selection_input:
     purpose: concept_introduction
     content_types: [classification, conceptual_text, visual_representation]
@@ -559,13 +559,27 @@ pedagogical_integration:
       preferred_target_ids: [frayer-model, sorting-and-sequencing, visual-representation]
       excluded_target_ids: []
       preferred_group_formats: [individual, pair, whole_class]
-      teacher_overrides: []
+      teacher_overrides:
+        - override_id: align-state-card-sorting
+          slot_id: guided-practice
+          requested_target_id: sorting-and-sequencing
+          rationale_ru: Существующая стадия использует карточки состояний и требует явной классификации, а не абстрактной карты понятий.
     homeschool:
       variant: independent
       learner_count: 1
       learner_session_minutes: 30
       maximum_sessions: 8
       maximum_total_productive_language_demand: medium
+      resources:
+        available: [diagram, manipulatives, paper, printable_cards, textbook_or_source_text, writing_tool]
+        unavailable: [internet, laboratory_materials, measuring_tools]
+        printer_available: true
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
       adult_context:
         available: false
         max_support_minutes: 0
@@ -574,51 +588,179 @@ pedagogical_integration:
         safety_supervision_available: false
         subject_explanation_available: false
       answer_key_release: self_managed_after_attempt
+      teacher_override_policy: allow_reselection_with_warning
+      practical_policy: null
     future_retrieval_windows:
       - window: {after_lessons: 1}
         capability: retrieval
   phase_bindings:
     - dna_phase_id: activation
       lesson_stage_ids: [activate-properties]
+      timing_allocations:
+        - lesson_stage_id: activate-properties
+          activity_minutes: 3
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-02-guide]
       student_material_ids: [three-states-diagram]
-      answer_key_material_ids: [lesson-02-answer-key]
+      answer_key_material_ids: []
       assessment_refs: []
       oral_answer_refs: [question-three-states]
       source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-5-water-02-states/activation-task
+        learner_instruction_ru: До объяснения запиши первоначальную идею о том, что общего у льда, жидкой воды и водяного пара.
+        prompt_source_refs: [question:question-three-states:question_ru]
+        expected_evidence_source_refs: [stage:activate-properties:expected_evidence_of_learning]
+        teacher_action_source_refs: [stage:activate-properties:teacher_action_ru]
+        language_support_refs: [question:question-three-states:question_et]
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Brainstorming занимает полную activation stage и сохраняет исходную гипотезу до построения модели.
     - dna_phase_id: explanation
       lesson_stage_ids: [explain-three-states-ru]
+      timing_allocations:
+        - lesson_stage_id: explain-three-states-ru
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-02-guide]
       student_material_ids: [three-states-diagram]
       answer_key_material_ids: [lesson-02-answer-key]
-      assessment_refs: []
+      assessment_refs: [assess-subject-three-states, assess-et-recognition-states]
       oral_answer_refs: [question-three-states]
       source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-5-water-02-states/explanation-task
+        learner_instruction_ru: Изобрази одну общую схему трёх состояний воды и подпиши рядом по одному наблюдаемому признаку каждого состояния.
+        prompt_source_refs: [stage:explain-three-states-ru:pupil_action_ru]
+        expected_evidence_source_refs:
+          [stage:explain-three-states-ru:expected_evidence_of_learning, assessment:assess-subject-three-states:acceptable_evidence]
+        teacher_action_source_refs: [stage:explain-three-states-ru:teacher_action_ru]
+        language_support_refs: [assessment:assess-et-recognition-states:acceptable_evidence]
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Visual representation полностью размещается в русской explanation stage и материализует модель состояний.
     - dna_phase_id: guided-practice
       lesson_stage_ids: [classify-states]
+      timing_allocations:
+        - lesson_stage_id: classify-states
+          activity_minutes: 5
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-02-guide]
       student_material_ids: [state-sort-cards]
       answer_key_material_ids: [lesson-02-answer-key]
-      assessment_refs: [states-exit-card]
+      assessment_refs:
+        [assess-subject-three-states, assess-et-recognition-states, assess-et-supported-state]
       oral_answer_refs: [question-three-states]
       source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-5-water-02-states/guided-practice-task
+        learner_instruction_ru: Распредели карточки по трём состояниям, затем расположи спорные примеры в последовательности от твёрдого к газообразному.
+        prompt_source_refs: [stage:classify-states:pupil_action_ru]
+        expected_evidence_source_refs:
+          [stage:classify-states:expected_evidence_of_learning, assessment:assess-subject-three-states:acceptable_evidence]
+        teacher_action_source_refs: [stage:classify-states:teacher_action_ru]
+        language_support_refs: [assessment:assess-et-supported-state:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Sorting and sequencing прямо соответствует карточной классификации существующей guided-practice stage.
     - dna_phase_id: retrieval
-      lesson_stage_ids: [label-states-et]
+      lesson_stage_ids: [label-states-et, state-summary]
+      timing_allocations:
+        - lesson_stage_id: label-states-et
+          activity_minutes: 0
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: language_assessment
+        - lesson_stage_id: state-summary
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-02-guide]
-      student_material_ids: [three-states-diagram]
+      student_material_ids: [three-states-diagram, states-exit-card]
       answer_key_material_ids: [lesson-02-answer-key]
-      assessment_refs: [states-exit-card]
+      assessment_refs:
+        [assess-subject-three-states, assess-et-recognition-states, assess-et-independent-state]
       oral_answer_refs: [question-three-states]
       source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: retrieval_task
+        task_id: grade-5-water-02-states/retrieval-task
+        learner_instruction_ru: "Закрой источник и построй карту понятий по памяти: три узла состояний, признаки и подписанные связи с примерами."
+        prompt_source_refs: [question:question-three-states:question_ru]
+        expected_evidence_source_refs:
+          [question:question-three-states:full_expected_answer_ru, assessment:assess-et-independent-state:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:label-states-et:teacher_action_ru, stage:state-summary:teacher_action_ru]
+        language_support_refs:
+          [question:question-three-states:short_oral_answer_et, assessment:assess-et-independent-state:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Concept map использует independent-output stage и две минуты явного language retrieval из эстонского моста.
     - dna_phase_id: formative-check
-      lesson_stage_ids: [state-summary]
+      lesson_stage_ids: [classify-states, label-states-et]
+      timing_allocations:
+        - lesson_stage_id: classify-states
+          activity_minutes: 1
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: embedded_formative_evidence
+        - lesson_stage_id: label-states-et
+          activity_minutes: 4
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: language_assessment
       teacher_material_ids: [water-lesson-02-guide]
       student_material_ids: [states-exit-card]
       answer_key_material_ids: [lesson-02-answer-key]
-      assessment_refs: [states-exit-card]
+      assessment_refs:
+        [assess-subject-three-states, assess-et-recognition-states, assess-et-supported-state, assess-et-independent-state]
       oral_answer_refs: [question-three-states]
       source_access_policy: closed_first_attempt
-  non_dna_stage_roles: []
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-5-water-02-states/formative-check-task
+        learner_instruction_ru: Сохрани первую попытку распределения, проверь её по ключу, исправь одну карточку и объясни причину.
+        prompt_source_refs: [stage:classify-states:pupil_action_ru]
+        expected_evidence_source_refs:
+          [assessment:assess-subject-three-states:acceptable_evidence, assessment:assess-et-supported-state:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:classify-states:teacher_action_ru, stage:label-states-et:teacher_action_ru]
+        language_support_refs:
+          [question:question-three-states:short_oral_answer_et, assessment:assess-et-supported-state:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Error correction использует оставшееся время классификации и отдельно фиксирует короткое language evidence.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations:
+      - lesson_stage_id: label-states-et
+        minutes: 2
+        rationale_ru: Две минуты резерва сохраняются в языковом мосте для повторного моделирования терминов.
+      - lesson_stage_id: explain-three-states-ru
+        minutes: 1
+        rationale_ru: Одна минута резерва остаётся на уточнение русской предметной модели.
+    non_dna_allocations:
+      - lesson_stage_id: explain-three-states-ru
+        minutes: 1
+        role: content_explanation
+        rationale_ru: Одна минута сохраняет исходный авторский переход между объяснением и визуальной схемой.
   generated_artifacts:
     selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml
@@ -629,6 +771,7 @@ pedagogical_integration:
     parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml
     weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml
     homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md
+    home_practical_policy_path: null
   status:
     structural_state: generated
     teacher_review: pending

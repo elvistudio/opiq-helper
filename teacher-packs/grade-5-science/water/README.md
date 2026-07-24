@@ -34,6 +34,20 @@ npm run generate:pedagogy-water-pilot -- --check
 Classroom и homeschool используют одну scientific content identity. Это не
 означает, что методика независимо проверена.
 
+Каждая selected phase теперь имеет собственное реальное задание, привязанное к
+конкретному student-файлу и, где нужен проверяемый ответ, к реальному key.
+Activity/setup/cleanup/transition, reserve и non-DNA минуты полностью и без
+пересечений делят каждый 45-минутный урок. Эстонское evidence A1–A2
+переносится отдельно от русского предметного evidence.
+
+Для домашнего урока 3 действует строгая политика
+`pedagogy/homeschool/lesson-03-home-practical-policy.yaml`: только пассивное
+таяние льда и капли на безопасной холодной поверхности, обязательное
+разрешение учителя и присутствие взрослого, без чайника, плиты, открытого огня,
+горячего сосуда и дегустации. Package, child/parent Markdown и machine policy
+проверяются на одинаковую границу безопасности. Это не подтверждает домашнюю
+апробацию.
+
 ## Независимая проверка и апробация
 
 Для независимого review используйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md), а для урока — печатную [обезличенную форму наблюдения](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Сначала вычислите content fingerprint и сохраните commit SHA только как provenance. Fingerprint охватывает связанные lesson/thematic YAML и реальные teacher/student/answer/parent материалы; rebase или squash не инвалидирует unchanged content. Пустые templates помогают оформить будущую запись, но не являются доказательством выполненного review или trial.

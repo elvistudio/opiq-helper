@@ -1,6 +1,6 @@
 artifact_type: homeschool_package
 assessment:
-  estonian_language_assessment: false
+  estonian_language_assessment: true
   separation_policy: separate_subject_and_estonian_language_evidence
   subject_assessment: true
 context:
@@ -88,6 +88,7 @@ learner_plan:
       instruction_ru: Закрой источник и выполни попытку по памяти.
       learner_minutes: 10
       material_refs:
+        - states-exit-card
         - three-states-diagram
       phase_id: retrieval
       safety_controls_ru: []
@@ -186,6 +187,7 @@ materials:
         - lesson-02-answer-key
       binding_origin: exact_adapted
       learner_material_refs:
+        - states-exit-card
         - three-states-diagram
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
@@ -228,12 +230,12 @@ safety:
   teacher_authorization_required: false
 schema_version: "1.0"
 source_identity:
-  source_lesson_dna_digest: 3889d63ee96d8b27b69ad9025487619be2730191be30da9718b61d08f0255685
+  source_lesson_dna_digest: a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0
   source_lesson_dna_id: grade-5-water-02-states-classroom-selection-dna
-  source_request_digest: 58a86b341a3deaf6a21da9d35b119035038aaa9b54839026fe1aa0051ca49108
+  source_request_digest: 5e1c87d97470ef34da891e229c5a8bf7cb682bedc38b17a9e39bc7e5465b8095
   source_request_id: grade-5-water-02-states-classroom-selection
   source_selection_versions:
-    activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
     engine: "1.1"
     lesson_dna_schema: "1.0"
     selection_rules: "1.0"
@@ -244,7 +246,17 @@ status:
   homeschool_ready: false
   structural_state: proposed
   teacher_review: pending
-teacher_override_adaptations: []
+teacher_override_adaptations:
+  - adapted_phase_id: independent-practice
+    adapted_target_id: learning-stations::paper-classification
+    override_id: align-state-card-sorting
+    policy: allow_reselection_with_warning
+    rationale_ru: Resolved target-pattern slot uses a different target after homeschool hard constraints.
+    source_slot_id: guided-practice
+    source_target_id: sorting-and-sequencing
+    status: reselected
+    teacher_rationale_ru: Существующая стадия использует карточки состояний и требует явной
+      классификации, а не абстрактной карты понятий.
 timing:
   adult_minutes: 0
   break_minutes: 0
@@ -256,5 +268,7 @@ timing:
   total_learner_minutes: 54
   transition_minutes: 0
   weekly_review_minutes: 0
-warnings: []
+warnings:
+  - code: teacher_override_reselected
+    rationale_ru: Исходный teacher override не переносится как accepted без совпадающего target.
 weekly_study_plan_ref: grade-5-water-02-states-homeschool-adaptation-weekly-plan

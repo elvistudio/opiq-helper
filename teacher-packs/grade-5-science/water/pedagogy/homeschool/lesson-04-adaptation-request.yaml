@@ -39,6 +39,8 @@ adaptation_context:
     projector_available: false
     unavailable:
       - internet
+      - laboratory_materials
+      - measuring_tools
   teacher_override_policy: require_preservation
   variant: independent
 artifact_type: homeschool_adaptation_request
@@ -69,11 +71,13 @@ content_bindings:
       - grade-5-water-04-changes-review/correction-task
     teacher_explanation_refs:
       - water-lesson-04-guide
-  - answer_key_refs: []
+  - answer_key_refs:
+      - lesson-04-answer-key
     estonian_support_refs:
       - question-opposite-processes
     learner_material_refs:
       - unit-revision-stations
+      - unit-separate-assessment
     phase_id: consolidation
     procedure_refs: []
     safety_refs: []
@@ -88,8 +92,9 @@ source:
     artifact_type: lesson_dna
     assessment:
       estonian_language_assessment:
-        enabled: false
-        notes_ru: Эстонское языковое оценивание для этого запроса отключено.
+        enabled: true
+        notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+          предметного понимания.
         target_phase_ids: []
       separation_policy: separate_subject_and_estonian_language_evidence
       subject_assessment:
@@ -117,7 +122,7 @@ source:
           subject_explanation_language: ru
         maximum_total_productive_language_demand: medium
         primary_instruction_language: ru
-      request_digest: 6a3b25de91d7efa943658eb6541b88825e88f7f39aa79b0a78a34878ebc77ff3
+      request_digest: b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905
       request_id: grade-5-water-04-changes-review-classroom-selection
       subject: science
     differentiation:
@@ -292,7 +297,7 @@ source:
       transition_minutes: 0
       unallocated_minutes: 16
     versions:
-      activity_catalog_digest: 6e5bb62d9ca1935d856e7aa2a61bd221d31f6ccfe3e70ba546a3c7d582595f9f
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
       lesson_dna_schema: "1.0"
       selection_rules: "1.0"
@@ -319,7 +324,7 @@ source:
           - short_oral_response
           - short_written_response
           - terminology
-        assessment_requested: false
+        assessment_requested: true
         enabled: true
         language: et
         learner_level: A1-A2

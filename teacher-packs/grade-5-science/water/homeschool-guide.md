@@ -15,6 +15,15 @@
 безопасность и не заменяет предметного учителя. Machine-readable package,
 guidance и relative weekly plan находятся в `pedagogy/homeschool/`.
 
+Все material/task/key refs в этих пакетах разрешаются в реальные названия и
+repository paths; каждый шаг говорит, какой файл открыть, какое действие
+выполнить, какое evidence оставить и когда разрешён ключ. Для урока 3
+источником границы является
+`pedagogy/homeschool/lesson-03-home-practical-policy.yaml`, а не номер урока или
+свободный текст. Политика, package, детская инструкция и parent guidance
+одинаково запрещают нагревание и требуют разрешения учителя и постоянного
+надзора взрослого.
+
 Статус всех вариантов: teacher review pending, home trial not started,
 `homeschool_ready: false`.
 

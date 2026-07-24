@@ -542,7 +542,7 @@ pedagogical_integration:
   content_identity:
     specification_version: "1.0"
     algorithm: sha256
-    value: 0f2349bf0578585a1d0ed4db3d9fe2953214529ffb779d22d9c52c4c60238442
+    value: 7fb21388371109e4a08ba5df171d2d8fcdbd05a1460d29c88398950ebd7dbee9
   selection_input:
     purpose: concept_introduction
     content_types: [conceptual_text, practical_observation]
@@ -576,13 +576,27 @@ pedagogical_integration:
       preferred_target_ids: [concept-map, one-minute-recall]
       excluded_target_ids: []
       preferred_group_formats: [individual, pair, whole_class]
-      teacher_overrides: []
+      teacher_overrides:
+        - override_id: align-observation-comparison
+          slot_id: guided-practice
+          requested_target_id: venn-diagram
+          rationale_ru: Сравнение воды и раствора в существующей практической таблице требует явного отображения общего и различий.
     homeschool:
       variant: independent
       learner_count: 1
       learner_session_minutes: 30
       maximum_sessions: 8
       maximum_total_productive_language_demand: medium
+      resources:
+        available: [diagram, manipulatives, paper, textbook_or_source_text, writing_tool]
+        unavailable: [internet, laboratory_materials, measuring_tools]
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
       adult_context:
         available: false
         max_support_minutes: 0
@@ -591,51 +605,176 @@ pedagogical_integration:
         safety_supervision_available: false
         subject_explanation_available: false
       answer_key_release: self_managed_after_attempt
+      teacher_override_policy: require_preservation
+      practical_policy: null
     future_retrieval_windows:
       - window: {after_lessons: 1}
         capability: retrieval
   phase_bindings:
     - dna_phase_id: activation
       lesson_stage_ids: [activate-water]
+      timing_allocations:
+        - lesson_stage_id: activate-water
+          activity_minutes: 3
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-01-guide]
       student_material_ids: [water-sample-visual]
-      answer_key_material_ids: [lesson-01-answer-key]
+      answer_key_material_ids: []
       assessment_refs: []
       oral_answer_refs: [question-water-property]
       source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-5-water-01-properties/activation-task
+        learner_instruction_ru: До объяснения запиши две первоначальные идеи о том, какие свойства воды можно увидеть напрямую.
+        prompt_source_refs: [question:question-water-property:question_ru]
+        expected_evidence_source_refs: [stage:activate-water:expected_evidence_of_learning]
+        teacher_action_source_refs: [stage:activate-water:teacher_action_ru]
+        language_support_refs: [question:question-water-property:question_et]
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Brainstorming занимает всю activation stage и фиксирует исходные идеи до русского объяснения.
     - dna_phase_id: explanation
-      lesson_stage_ids: [explain-properties-ru, bridge-properties-et]
+      lesson_stage_ids: [explain-properties-ru]
+      timing_allocations:
+        - lesson_stage_id: explain-properties-ru
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-01-guide]
       student_material_ids: [water-sample-visual]
-      answer_key_material_ids: [lesson-01-answer-key]
+      answer_key_material_ids: []
       assessment_refs: []
       oral_answer_refs: [question-water-property]
       source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-5-water-01-properties/explanation-task
+        learner_instruction_ru: Изобрази на бумаге схему «вещество — свойство — наблюдение» и подпиши связь на одном примере воды.
+        prompt_source_refs: [stage:explain-properties-ru:pupil_action_ru]
+        expected_evidence_source_refs: [stage:explain-properties-ru:expected_evidence_of_learning]
+        teacher_action_source_refs: [stage:explain-properties-ru:teacher_action_ru]
+        language_support_refs: [question:question-water-property:question_et]
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Paper diagram полностью занимает русскую explanation stage и материализует научную связь без физической модели.
     - dna_phase_id: guided-practice
       lesson_stage_ids: [observe-water]
+      timing_allocations:
+        - lesson_stage_id: observe-water
+          activity_minutes: 7
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-01-guide]
       student_material_ids: [water-property-table]
       answer_key_material_ids: [lesson-01-answer-key]
-      assessment_refs: [water-property-exit-card]
+      assessment_refs:
+        [assess-practical-observation, assess-et-recognition-properties, assess-et-supported-property]
       oral_answer_refs: [question-water-property]
       source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-5-water-01-properties/guided-practice-task
+        learner_instruction_ru: Нарисуй два пересекающихся круга Венна для воды и раствора, внеси различия по краям и общее наблюдаемое свойство в пересечение.
+        prompt_source_refs: [stage:observe-water:pupil_action_ru]
+        expected_evidence_source_refs:
+          [stage:observe-water:expected_evidence_of_learning, assessment:assess-practical-observation:acceptable_evidence]
+        teacher_action_source_refs: [stage:observe-water:teacher_action_ru]
+        language_support_refs: [question:question-water-property:question_et]
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Venn diagram материализует сравнение двух образцов внутри существующей practical-observation stage.
     - dna_phase_id: retrieval
-      lesson_stage_ids: [homework-launch]
+      lesson_stage_ids: [bridge-properties-et, independent-summary]
+      timing_allocations:
+        - lesson_stage_id: bridge-properties-et
+          activity_minutes: 3
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: language_assessment
+        - lesson_stage_id: independent-summary
+          activity_minutes: 5
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
       teacher_material_ids: [water-lesson-01-guide]
       student_material_ids: [water-property-exit-card]
       answer_key_material_ids: [lesson-01-answer-key]
-      assessment_refs: [water-property-exit-card]
+      assessment_refs: [assess-subject-water-property, assess-et-independent-property]
       oral_answer_refs: [question-water-property]
       source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: retrieval_task
+        task_id: grade-5-water-01-properties/retrieval-task
+        learner_instruction_ru: "Закрой источник и построй карту понятий по памяти: вещество и свойства как узлы, наблюдения как подписанные связи."
+        prompt_source_refs: [question:question-water-property:question_ru]
+        expected_evidence_source_refs:
+          [question:question-water-property:full_expected_answer_ru, assessment:assess-subject-water-property:acceptable_evidence]
+        teacher_action_source_refs: [stage:independent-summary:teacher_action_ru]
+        language_support_refs:
+          [question:question-water-property:short_oral_answer_et, assessment:assess-et-independent-property:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Concept map использует полный independent-output и три минуты bounded language retrieval в эстонском мосте.
     - dna_phase_id: formative-check
-      lesson_stage_ids: [independent-summary]
+      lesson_stage_ids: [bridge-properties-et, observe-water]
+      timing_allocations:
+        - lesson_stage_id: bridge-properties-et
+          activity_minutes: 1
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: language_assessment
+        - lesson_stage_id: observe-water
+          activity_minutes: 2
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: embedded_formative_evidence
       teacher_material_ids: [water-lesson-01-guide]
       student_material_ids: [water-property-exit-card]
       answer_key_material_ids: [lesson-01-answer-key]
-      assessment_refs: [water-property-exit-card]
+      assessment_refs:
+        [assess-subject-water-property, assess-et-recognition-properties, assess-et-supported-property, assess-et-independent-property]
       oral_answer_refs: [question-water-property]
       source_access_policy: closed_first_attempt
-  non_dna_stage_roles: []
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-5-water-01-properties/formative-check-task
+        learner_instruction_ru: Сохрани первую попытку, проверь её по ключу, отметь совпавшие evidence и исправь одну неточность другим цветом.
+        prompt_source_refs: [stage:independent-summary:pupil_action_ru]
+        expected_evidence_source_refs:
+          [assessment:assess-subject-water-property:acceptable_evidence, assessment:assess-et-supported-property:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:bridge-properties-et:teacher_action_ru, stage:independent-summary:teacher_action_ru]
+        language_support_refs:
+          [question:question-water-property:short_oral_answer_et, assessment:assess-et-supported-property:acceptable_evidence]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Error correction связывает сохранённое наблюдение с коротким language evidence и явным исправлением.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations:
+      - lesson_stage_id: observe-water
+        minutes: 1
+        rationale_ru: Одна минута резерва остаётся внутри безопасного наблюдения.
+      - lesson_stage_id: homework-launch
+        minutes: 2
+        rationale_ru: Две минуты резерва поддерживают проверку понимания домашней инструкции.
+    non_dna_allocations:
+      - lesson_stage_id: homework-launch
+        minutes: 1
+        role: homework_launch
+        rationale_ru: Одна авторская минута запуска домашнего задания не маскируется под retrieval или assessment.
   generated_artifacts:
     selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml
@@ -646,6 +785,7 @@ pedagogical_integration:
     parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml
     weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml
     homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md
+    home_practical_policy_path: null
   status:
     structural_state: generated
     teacher_review: pending
