@@ -37,8 +37,8 @@ test('production pedagogical knowledge validates', () => {
     resources: 22,
     queryFixtures: 7,
     profiledActivities: 1,
-    executionProfiles: 3,
-    queryTargets: 32,
+    executionProfiles: 4,
+    queryTargets: 33,
     unprofiledActivities: 29,
   });
 });

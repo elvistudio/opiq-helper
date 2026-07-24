@@ -59,7 +59,7 @@ test('production selection repository validates', () => {
   assert.equal(result.valid, true, result.errors.join('\n'));
   assert.deepEqual(result.counts, {
     patterns: 4,
-    targets: 32,
+    targets: 33,
     fixtures: 12,
     examples: 4,
     successfulFixtures: 10,

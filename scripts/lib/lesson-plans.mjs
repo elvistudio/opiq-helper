@@ -118,6 +118,7 @@ export async function loadLessonPlanRepository({
   annualComponentsSchemaPath = 'schemas/annual-course-components.schema.json',
   topicSynthesisSchemaPath = 'schemas/topic-synthesis.schema.json',
   externalSourceRegistrySchemaPath = 'schemas/external-source-registry.schema.json',
+  pedagogyIntegrationSchemaPath = 'schemas/pedagogy-generation-integration.schema.json',
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
   const [lessonFiles, annualFiles, externalArtifacts] = await Promise.all([
@@ -138,6 +139,7 @@ export async function loadLessonPlanRepository({
     annualComponents: annualComponentsSchemaPath,
     topicSynthesis: topicSynthesisSchemaPath,
     externalSourceRegistry: externalSourceRegistrySchemaPath,
+    pedagogyIntegration: pedagogyIntegrationSchemaPath,
   };
   const schemaEntries = await Promise.all(Object.entries(schemaPaths).map(async ([name, schemaPath]) => {
     const schemaFile = safeRepositoryPath(absoluteRoot, schemaPath, `${name} schema path`);
@@ -160,6 +162,7 @@ function createValidators(context) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
   ajv.addSchema(context.curriculum.schemas.course);
   ajv.addSchema(context.schemas.common);
+  ajv.addSchema(context.schemas.pedagogyIntegration);
   ajv.addSchema(context.schemas.topicSynthesis);
   ajv.addSchema(context.schemas.annual);
   return {

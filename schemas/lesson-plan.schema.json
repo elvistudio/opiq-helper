@@ -38,7 +38,7 @@
     "provenance"
   ],
   "properties": {
-    "schema_version": { "const": "1.1" },
+    "schema_version": { "enum": ["1.1", "1.2"] },
     "artifact_type": { "const": "bilingual_lesson" },
     "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "grade": { "type": "integer", "minimum": 1 },
@@ -101,8 +101,28 @@
     "differentiation": { "$ref": "#/$defs/differentiation" },
     "homework": { "$ref": "#/$defs/homework" },
     "artifact_readiness": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/artifactReadiness" },
+    "pedagogical_integration": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/lessonIntegration"
+    },
     "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "schema_version": { "const": "1.2" } },
+        "required": ["schema_version"]
+      },
+      "then": {
+        "properties": {
+          "pedagogical_integration": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/lessonIntegration"
+          }
+        },
+        "required": ["pedagogical_integration"]
+      },
+      "else": { "properties": { "pedagogical_integration": false } }
+    }
+  ],
   "$defs": {
     "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },

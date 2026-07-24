@@ -2507,6 +2507,124 @@ activities:
             rationale: >-
               Операционный профиль бумажной классификации выведен из
               нормализованного описания учебных станций и ожидает teacher review.
+      - profile_id: practical-compact-teacher-prepared-observation
+        names:
+          en: Compact teacher-prepared observation
+          et: Lühike õpetaja ettevalmistatud vaatlus
+          ru: Короткое наблюдение, подготовленное учителем
+        description_ru: >-
+          Один заранее подготовленный безопасный объект наблюдения и измерения
+          без ротации станций; учитель выдаёт и собирает материалы, а ученики
+          фиксируют данные в готовой таблице.
+        capabilities:
+          evidence_based_conclusion: primary
+          guided_practice: primary
+          measurement: supporting
+          observation: primary
+        delivery_constraints:
+          group_size:
+            min: 1
+            max: 35
+          supported_group_formats:
+            - individual
+            - pair
+            - small_group
+            - whole_class
+          delivery_modes:
+            - classroom
+            - homeschool
+            - parent_supported
+          source_access_during_first_attempt: allowed
+        duration:
+          min_minutes: 10
+          max_minutes: 20
+        effort:
+          teacher_preparation:
+            level: medium
+            rationale_ru: Учитель заранее готовит один безопасный набор, инструкцию и таблицу наблюдения.
+          teacher_facilitation:
+            level: high
+            rationale_ru: Учитель контролирует выдачу материалов, безопасные действия и различение данных и вывода.
+          learner_setup:
+            level: low
+            rationale_ru: Ученик получает готовый безопасный образец и записывает наблюдение в подготовленную таблицу.
+          homeschool_parent:
+            level: medium
+            role: safety_supervision
+            role_description_ru: Взрослый выдаёт только разрешённые материалы, контролирует действия и уборку.
+            rationale_ru: Надзор требуется для сохранения заданных учителем границ, но предметное объяснение взрослый не создаёт.
+        learner_independence: developing
+        homeschool_adaptation:
+          status: adaptable
+          variants:
+            - parent_child
+          child_responsibility_ru: Выполнить только разрешённые шаги, записать наблюдение и сформулировать собственный вывод.
+          adult_role_ru: Подготовить разрешённый набор и следить за безопасностью, не объясняя научный вывод вместо ребёнка.
+          adult_safety_supervision_ru: Находиться рядом, остановить непредусмотренное действие и обеспечить уборку материалов.
+          subject_teacher_responsibility_ru: Заранее определить безопасный набор, процедуру, ожидаемые данные и границы домашнего варианта.
+          limitations_ru:
+            - Профиль подходит только для одного короткого, заранее оценённого наблюдения.
+            - Домашний вариант требует явного разрешения предметного учителя.
+        resource_requirements:
+          required:
+            - laboratory_materials
+            - measuring_tools
+            - paper
+            - writing_tool
+          optional:
+            - timer
+          printer_required: false
+          internet_required: false
+          shared_display_required: false
+          outdoor_access_required: false
+          laboratory_materials_required: true
+          reusable_materials:
+            - laboratory_materials
+            - measuring_tools
+          consumable_materials:
+            - paper
+          setup_minutes: 2
+          cleanup_minutes: 2
+        learner_demands:
+          receptive_language: low
+          productive_language: low
+          interaction: low
+          reading_load: low
+          writing_load: low
+          step_complexity: medium
+          working_memory_support: required
+          movement_demand: low
+          sensory_demand: medium
+          strategy_familiarity_required: low
+          teacher_modelling: required
+          estonian_a1_a2_compatibility: supported_with_scaffold
+          scaffolds_ru:
+            - Пошаговая русская инструкция
+            - Готовая таблица наблюдения
+            - Короткие эстонские команды и подписи
+        compatibility:
+          offline: directly_supported
+          no_printer: directly_supported
+          one_learner: directly_supported
+          large_class: adaptable
+          mixed_ability_group: adaptable
+          remote_delivery: not_recommended
+        safety:
+          risk_level: low
+          requires_adult_supervision: true
+          controls_ru:
+            - Использовать только заранее проверенные учителем безопасные материалы.
+            - Учитель выдаёт материалы после объяснения границ действий.
+            - Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.
+            - Уборку и возврат материалов контролирует взрослый.
+        taxonomy_assessment:
+          claim_origin: project_authored_design
+          reference_ids: []
+          confidence:
+            level: provisional
+            rationale: >-
+              Операционный профиль введён для честного описания одного короткого
+              учительского наблюдения и требует независимого teacher review.
       - profile_id: practical-observation-measurement
         names:
           en: Practical observation and measurement stations

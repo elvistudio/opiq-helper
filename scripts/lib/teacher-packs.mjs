@@ -93,6 +93,7 @@ function validateIndexSchema(diagnostics, context) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
   ajv.addSchema(context.plans.curriculum.schemas.course);
   ajv.addSchema(context.plans.schemas.common);
+  ajv.addSchema(context.plans.schemas.pedagogyIntegration);
   const validator = ajv.compile(context.schema);
   for (const artifact of context.indexes) {
     if (validator(artifact.data)) continue;

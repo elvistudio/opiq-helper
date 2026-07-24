@@ -111,17 +111,28 @@ test('back-to-back description remains a pair and oral method', () => {
   assert.equal(candidate.compatibility.one_learner, 'adaptable');
 });
 
-test('learning stations expose three distinct execution profiles', () => {
+test('learning stations expose four distinct execution profiles', () => {
   const candidate = activities.find((item) => item.activity_id === 'learning-stations');
   assert.deepEqual(
     candidate.execution_profiles.map((item) => item.profile_id),
-    ['map-data', 'paper-classification', 'practical-observation-measurement'],
+    [
+      'map-data',
+      'paper-classification',
+      'practical-compact-teacher-prepared-observation',
+      'practical-observation-measurement',
+    ],
   );
   const paper = candidate.execution_profiles[1];
-  const practical = candidate.execution_profiles[2];
+  const compact = candidate.execution_profiles[2];
+  const practical = candidate.execution_profiles[3];
   assert.equal(paper.safety.requires_adult_supervision, false);
   assert.equal(paper.effort.homeschool_parent.role, 'none');
   assert.ok(!paper.resource_requirements.required.includes('laboratory_materials'));
+  assert.equal(compact.capabilities.observation, 'primary');
+  assert.equal(compact.capabilities.measurement, 'supporting');
+  assert.equal(compact.resource_requirements.setup_minutes, 2);
+  assert.equal(compact.resource_requirements.cleanup_minutes, 2);
+  assert.equal(compact.safety.requires_adult_supervision, true);
   assert.equal(practical.capabilities.observation, 'primary');
   assert.equal(practical.capabilities.measurement, 'primary');
   assert.equal(practical.safety.requires_adult_supervision, true);
@@ -287,22 +298,30 @@ test('profiled activity expands to composed deterministic targets', () => {
     [
       'learning-stations::map-data',
       'learning-stations::paper-classification',
+      'learning-stations::practical-compact-teacher-prepared-observation',
       'learning-stations::practical-observation-measurement',
     ],
   );
 });
 
-test('safe practical filtering selects only the practical learning-stations profile', () => {
+test('safe practical filtering selects both supervised learning-stations profiles', () => {
   const fixture = production.queries.data.fixtures
     .find((candidate) => candidate.query_id === 'safe-practical-observation');
   const result = filterPedagogyActivities(activities, fixture.filters);
   assert.deepEqual(
     result.targets.filter((target) => target.activity_id === 'learning-stations'),
-    [{
-      target_id: 'learning-stations::practical-observation-measurement',
-      activity_id: 'learning-stations',
-      execution_profile_id: 'practical-observation-measurement',
-    }],
+    [
+      {
+        target_id: 'learning-stations::practical-compact-teacher-prepared-observation',
+        activity_id: 'learning-stations',
+        execution_profile_id: 'practical-compact-teacher-prepared-observation',
+      },
+      {
+        target_id: 'learning-stations::practical-observation-measurement',
+        activity_id: 'learning-stations',
+        execution_profile_id: 'practical-observation-measurement',
+      },
+    ],
   );
 });
 
@@ -376,7 +395,7 @@ test('query target expansion is deterministic across reversed catalog traversal'
   const reversed = expandPedagogyActivityTargets([...activities].reverse())
     .map((target) => target.target_id);
   assert.deepEqual(reversed, forward);
-  assert.equal(forward.length, 32);
+  assert.equal(forward.length, 33);
 });
 
 test('offline no-printer retrieval query returns an individual activity', () => {
