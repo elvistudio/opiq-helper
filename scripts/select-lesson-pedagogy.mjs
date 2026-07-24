@@ -8,6 +8,7 @@ import {
   selectLessonPedagogy,
   serializePedagogyYaml,
   stablePedagogyJson,
+  validateEstonianSupportState,
 } from './lib/pedagogy-selection.mjs';
 import { parseStrictPedagogyYaml } from './lib/pedagogy-knowledge.mjs';
 
@@ -161,6 +162,11 @@ if (options.fixture) {
 
 if (!validators.request(request)) {
   console.error(stablePedagogyJson({ errors: validators.request.errors }).trimEnd());
+  process.exit(2);
+}
+const estonianSupportState = validateEstonianSupportState(request);
+if (!estonianSupportState.valid) {
+  console.error(stablePedagogyJson({ errors: estonianSupportState.diagnostics }).trimEnd());
   process.exit(2);
 }
 

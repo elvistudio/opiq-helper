@@ -199,8 +199,10 @@ does not make a complex discussion low-language.
 Productive-language demand is the activity's total learner speaking and
 writing demand, not a language-specific Estonian measure. The selector applies
 that total ceiling at the language-profile level and evaluates Estonian A1–A2
-support separately. Per-language Russian and Estonian demand ratings are not
-yet available and remain a documented modeling gap.
+support separately only when that support layer is enabled. A disabled layer
+requires `not_applicable`, no roles, no scaffolds, and no language assessment;
+activity A1–A2 metadata is then ignored. Per-language Russian and Estonian
+demand ratings are not yet available and remain a documented modeling gap.
 
 Homeschool applicability is not a boolean. It records one of
 `directly_suitable`, `adaptable`, `limited`, or `not_recommended`, plus:

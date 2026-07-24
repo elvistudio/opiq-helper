@@ -247,7 +247,10 @@ The grade-5 science fixtures preserve:
 primary_instruction_language: ru
 maximum_total_productive_language_demand: medium
 estonian_support:
+  enabled: true
+  language: et
   learner_level: A1-A2
+  allowed_roles: [short_oral_response, terminology]
   subject_explanation_language: ru
 ```
 
@@ -256,10 +259,55 @@ correction, and complete subject answers. Estonian roles are bounded to
 terminology, labels, familiar instructions, sentence frames, and short oral or
 written output as explicitly requested.
 
+### Enabled and disabled Estonian support
+
+Estonian support has two strict states. Enabled support means a bounded A1–A2
+pedagogical layer:
+
+```yaml
+estonian_support:
+  enabled: true
+  language: et
+  learner_level: A1-A2
+  allowed_roles: [short_oral_response, terminology]
+  subject_explanation_language: ru
+  sentence_frames_required: true
+  word_bank_required: true
+  assessment_requested: false
+```
+
+In this state, A1–A2 compatibility participates in hard filtering and visible
+scoring. Roles and requested scaffolds may enter lesson DNA. Estonian language
+assessment is enabled only when `assessment_requested` is explicitly true.
+Complex grade-5 science explanation remains Russian-primary.
+
+Disabled support removes the Estonian pedagogical layer rather than treating it
+as an empty A1–A2 lesson:
+
+```yaml
+estonian_support:
+  enabled: false
+  language: et
+  learner_level: not_applicable
+  allowed_roles: []
+  subject_explanation_language: ru
+  sentence_frames_required: false
+  word_bank_required: false
+  assessment_requested: false
+```
+
+The request schema and semantic validator reject any other disabled
+combination. Activity-level A1–A2 compatibility is ignored for filtering and
+scoring, phase role lists remain empty, Estonian scaffolds are omitted, and
+Estonian language assessment remains disabled with no target phases. The
+`per_language_productive_demand_not_modelled` limit is relevant only when the
+Estonian support layer is enabled.
+
 `maximum_total_productive_language_demand` limits all learner speaking and
 writing required by the activity, regardless of language. It is not an
-Estonian-output limit. Estonian suitability is checked separately through the
-activity's `estonian_a1_a2_compatibility`, allowed Estonian roles, and requested
+Estonian-output limit and remains active in both support states. When support is
+enabled, Estonian suitability is checked separately through the activity's
+`estonian_a1_a2_compatibility`, allowed Estonian roles, and requested
 sentence-frame and word-bank scaffolds.
 
 A high-demand activity may therefore remain available when the total ceiling is
@@ -286,9 +334,11 @@ Lesson DNA always contains two independent records:
 - `estonian_language_assessment`.
 
 The subject record states that weak Estonian form alone must not lower evidence
-of scientific understanding established in Russian. The language record checks
-only the requested short Estonian role. Repeating a term does not become proof
-of the complete subject model, and a long A1–A2 explanation is not required.
+of scientific understanding established in Russian. With support enabled, the
+language record checks only the explicitly requested short Estonian role. With
+support disabled, that record remains structurally present but is disabled and
+has no target phases. Repeating a term does not become proof of the complete
+subject model, and a long A1–A2 explanation is not required.
 
 ## Retrieval and later review
 

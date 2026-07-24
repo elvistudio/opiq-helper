@@ -134,8 +134,11 @@ interaction demand even when pupils write rather than speak.
 `productive_language` describes the learner's total speaking and writing
 demand across languages. It is not an Estonian-only rating. The selection
 engine compares it with a top-level total-demand ceiling, then checks
-`estonian_a1_a2_compatibility` separately. The taxonomy does not yet provide
-distinct Russian- and Estonian-demand ratings; do not infer them.
+`estonian_a1_a2_compatibility` separately only when Estonian support is enabled.
+When support is disabled, the A1–A2 rating neither filters nor scores the
+activity, while total productive-language demand still applies. The taxonomy
+does not yet provide distinct Russian- and Estonian-demand ratings; do not
+infer them.
 
 ## Preparation, facilitation, and family effort
 

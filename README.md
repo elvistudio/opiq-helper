@@ -207,7 +207,10 @@ uses versioned project-authored weights to compose an explainable proposed
 classroom readiness. Teacher overrides are accepted only when applied to the
 selected slot, delivery and preferred-group bonuses reflect actual fit, and
 total learner productive-language demand is kept distinct from Estonian A1–A2
-support. Neither tool changes production artifacts.
+support. Enabled support applies the bounded A1–A2 layer; disabled support
+removes its filtering, scoring, roles, scaffolds, and language assessment
+without relaxing the total productive-language limit. Neither tool changes
+production artifacts.
 
 ```sh
 npm run test:pedagogy

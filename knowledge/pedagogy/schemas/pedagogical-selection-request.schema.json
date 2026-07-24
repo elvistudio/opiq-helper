@@ -188,11 +188,35 @@
               "uniqueItems": true,
               "items": {"enum": ["terminology", "labels", "familiar_instruction", "sentence_frame", "short_oral_response", "short_written_response"]}
             },
-            "subject_explanation_language": {"enum": ["ru", "et", "en"]},
+            "subject_explanation_language": {"const": "ru"},
             "sentence_frames_required": {"type": "boolean"},
             "word_bank_required": {"type": "boolean"},
             "assessment_requested": {"type": "boolean"}
-          }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "enabled": {"const": true}
+                },
+                "required": ["enabled"]
+              },
+              "then": {
+                "properties": {
+                  "learner_level": {"const": "A1-A2"}
+                }
+              },
+              "else": {
+                "properties": {
+                  "learner_level": {"const": "not_applicable"},
+                  "allowed_roles": {"type": "array", "maxItems": 0},
+                  "sentence_frames_required": {"const": false},
+                  "word_bank_required": {"const": false},
+                  "assessment_requested": {"const": false}
+                }
+              }
+            }
+          ]
         }
       }
     },

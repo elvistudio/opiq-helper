@@ -92,7 +92,11 @@ Teacher overrides are conflict-safe: IDs and slot targets are unique, and
 composition. Delivery and preferred-group-format components are emitted only
 when their documented fit condition is true. Total learner
 productive-language demand is constrained separately from Estonian A1–A2
-compatibility; the catalog does not yet provide per-language demand ratings.
+compatibility. Enabled support applies bounded A1–A2 filtering, scoring, roles,
+scaffolds, and optional assessment. Disabled support requires
+`not_applicable` and removes that layer entirely while retaining the total
+productive-language constraint. The catalog does not yet provide per-language
+demand ratings.
 
 See [`docs/pedagogical-knowledge-base.md`](../../docs/pedagogical-knowledge-base.md)
 for the data model, contribution workflow, homeschool boundaries, and examples.

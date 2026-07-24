@@ -8,6 +8,7 @@ import {
   normalizePedagogySelectionRequest,
   selectLessonPedagogy,
   stablePedagogyJson,
+  validateEstonianSupportState,
   validateTeacherOverrideSet,
   validatePedagogySelection,
 } from './lib/pedagogy-selection.mjs';
@@ -44,15 +45,23 @@ function candidate(result, targetId) {
     ?? rows[0];
 }
 
+function allScoreComponents(result) {
+  return result.decision.slot_decisions.flatMap((slot) => (
+    slot.considered_candidates.flatMap((item) => (
+      item.score ? Object.keys(item.score.components) : []
+    ))
+  ));
+}
+
 test('production selection repository validates', () => {
   const result = validatePedagogySelection(repository);
   assert.equal(result.valid, true, result.errors.join('\n'));
   assert.deepEqual(result.counts, {
     patterns: 4,
     targets: 32,
-    fixtures: 9,
+    fixtures: 10,
     examples: 4,
-    successfulFixtures: 7,
+    successfulFixtures: 8,
     failureFixtures: 2,
   });
 });
@@ -70,6 +79,7 @@ for (const fixtureId of [
   'grade5-oral-answer',
   'grade5-practical-no-supervision',
   'grade5-retrieval-correction',
+  'grade5-russian-only-concept-introduction',
   'grade5-safe-practical',
   'grade5-teacher-override',
   'grade5-unsafe-override',
@@ -571,6 +581,270 @@ test('the heavy-share rule uses explicit total-demand semantics', () => {
   );
 });
 
+test('disabled Estonian support rejects A1-A2 learner level', () => {
+  const invalid = request('grade5-russian-only-concept-introduction');
+  invalid.language_profile.estonian_support.learner_level = 'A1-A2';
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support is disabled but learner_level is not not_applicable',
+  ));
+});
+
+test('disabled Estonian support rejects non-empty roles', () => {
+  const invalid = request('grade5-russian-only-concept-introduction');
+  invalid.language_profile.estonian_support.allowed_roles = ['terminology'];
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support is disabled but allowed_roles is not empty',
+  ));
+});
+
+test('disabled Estonian support rejects sentence-frame scaffolding', () => {
+  const invalid = request('grade5-russian-only-concept-introduction');
+  invalid.language_profile.estonian_support.sentence_frames_required = true;
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support is disabled but sentence_frames_required is true',
+  ));
+});
+
+test('disabled Estonian support rejects word-bank scaffolding', () => {
+  const invalid = request('grade5-russian-only-concept-introduction');
+  invalid.language_profile.estonian_support.word_bank_required = true;
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support is disabled but word_bank_required is true',
+  ));
+});
+
+test('disabled Estonian support rejects language assessment', () => {
+  const invalid = request('grade5-russian-only-concept-introduction');
+  invalid.language_profile.estonian_support.assessment_requested = true;
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support is disabled but assessment_requested is true',
+  ));
+});
+
+test('enabled Estonian support rejects not-applicable learner level', () => {
+  const invalid = request('grade5-concept-introduction');
+  invalid.language_profile.estonian_support.learner_level = 'not_applicable';
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support is enabled but learner_level is not A1-A2',
+  ));
+});
+
+test('enabled Estonian support requires the Estonian language identity', () => {
+  const invalid = request('grade5-concept-introduction');
+  invalid.language_profile.estonian_support.language = 'ru';
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support language must be et',
+  ));
+});
+
+test('grade-5 science enabled support keeps complex instruction Russian-primary', () => {
+  const invalid = request('grade5-concept-introduction');
+  invalid.language_profile.primary_instruction_language = 'et';
+  assert.equal(validators.request(invalid), true);
+  const state = validateEstonianSupportState(invalid);
+  assert.ok(state.diagnostics.includes(
+    'grade-5 science with enabled Estonian support requires primary_instruction_language ru',
+  ));
+  const result = selectLessonPedagogy(repository, invalid);
+  assert.equal(result.decision.status, 'failure');
+  assert.equal(result.decision.failure.code, 'language_profile_incompatible');
+  assert.equal(validators.decision(result.decision), true);
+});
+
+test('valid disabled Estonian support passes schema and semantic validation', () => {
+  const valid = request('grade5-russian-only-concept-introduction');
+  assert.equal(validators.request(valid), true);
+  assert.deepEqual(validateEstonianSupportState(valid), {
+    valid: true,
+    diagnostics: [],
+  });
+});
+
+test('valid enabled Estonian support passes schema and semantic validation', () => {
+  const valid = request('grade5-concept-introduction');
+  assert.equal(validators.request(valid), true);
+  assert.deepEqual(validateEstonianSupportState(valid), {
+    valid: true,
+    diagnostics: [],
+  });
+});
+
+test('Estonian-support semantic diagnostics remain bytewise sorted', () => {
+  const invalid = request('grade5-russian-only-concept-introduction');
+  invalid.language_profile.estonian_support.allowed_roles = ['terminology'];
+  invalid.language_profile.estonian_support.assessment_requested = true;
+  invalid.language_profile.estonian_support.learner_level = 'A1-A2';
+  const diagnostics = validateEstonianSupportState(invalid).diagnostics;
+  assert.deepEqual(diagnostics, [...diagnostics].sort(
+    (left, right) => Buffer.from(left).compare(Buffer.from(right)),
+  ));
+});
+
+test('disabled Estonian support emits no A1-A2 fit component', () => {
+  const result = run('grade5-russian-only-concept-introduction');
+  assert.ok(!allScoreComponents(result).includes('a1_a2_fit'));
+});
+
+test('disabled Estonian support emits no limited A1-A2 penalty', () => {
+  const result = run('grade5-russian-only-concept-introduction');
+  assert.ok(!allScoreComponents(result).includes('limited_a1_a2'));
+});
+
+test('A1-A2 compatibility metadata does not affect Russian-only selection', () => {
+  const baseline = run('grade5-russian-only-concept-introduction');
+  const changed = structuredClone(repository);
+  changed.knowledge.activities.data.activities.find(
+    (activity) => activity.activity_id === 'guided-reading',
+  ).learner_demands.estonian_a1_a2_compatibility = 'not_recommended';
+  const result = selectLessonPedagogy(
+    changed,
+    request('grade5-russian-only-concept-introduction'),
+  );
+  assert.deepEqual(selectedIds(result), selectedIds(baseline));
+  const row = candidate(result, 'guided-reading');
+  assert.ok(!row.hard_filter_reasons.some((reason) => reason.includes('A1-A2')));
+  assert.equal(row.score.total, candidate(baseline, 'guided-reading').score.total);
+});
+
+test('A1-A2 fit scoring remains active when Estonian support is enabled', () => {
+  const result = run('grade5-concept-introduction');
+  assert.ok(allScoreComponents(result).includes('a1_a2_fit'));
+});
+
+test('total productive-language demand remains enforced when Estonian support is disabled', () => {
+  const result = run('grade5-russian-only-concept-introduction');
+  const row = candidate(result, 'self-explanation');
+  assert.ok(row.hard_filter_reasons.some(
+    (reason) => reason.includes('total productive-language demand high'),
+  ));
+});
+
+test('Russian-only DNA phases contain no Estonian roles', () => {
+  const dna = run('grade5-russian-only-concept-introduction').lessonDna;
+  assert.ok(dna.phases.every((phase) => phase.language_role.estonian_roles.length === 0));
+});
+
+test('Russian-only DNA contains no Estonian sentence-frame scaffold', () => {
+  const dna = run('grade5-russian-only-concept-introduction').lessonDna;
+  assert.ok(!dna.differentiation.scaffolds.some((item) => item.includes('sentence frame')));
+});
+
+test('Russian-only DNA contains no Estonian word-bank scaffold', () => {
+  const dna = run('grade5-russian-only-concept-introduction').lessonDna;
+  assert.ok(!dna.differentiation.scaffolds.some((item) => item.includes('word bank')));
+});
+
+test('Russian-only DNA disables Estonian assessment', () => {
+  const assessment = run('grade5-russian-only-concept-introduction')
+    .lessonDna.assessment.estonian_language_assessment;
+  assert.equal(assessment.enabled, false);
+});
+
+test('Russian-only DNA has no Estonian assessment target phases', () => {
+  const assessment = run('grade5-russian-only-concept-introduction')
+    .lessonDna.assessment.estonian_language_assessment;
+  assert.deepEqual(assessment.target_phase_ids, []);
+});
+
+test('Russian-only DNA persists the disabled language policy', () => {
+  const dna = run('grade5-russian-only-concept-introduction').lessonDna;
+  assert.deepEqual(dna.context.language_policy, {
+    primary_instruction_language: 'ru',
+    maximum_total_productive_language_demand: 'medium',
+    estonian_support: {
+      enabled: false,
+      learner_level: 'not_applicable',
+      allowed_roles: [],
+      subject_explanation_language: 'ru',
+    },
+  });
+  assert.ok(!dna.known_limits.includes('per_language_productive_demand_not_modelled'));
+});
+
+test('Russian-only fixture produces byte-identical repeated output', () => {
+  const first = run('grade5-russian-only-concept-introduction');
+  const second = run('grade5-russian-only-concept-introduction');
+  assert.equal(stablePedagogyJson(first), stablePedagogyJson(second));
+});
+
+test('Russian-only selection decision passes its strict schema', () => {
+  const decision = run('grade5-russian-only-concept-introduction').decision;
+  assert.equal(validators.decision(decision), true, JSON.stringify(validators.decision.errors));
+});
+
+test('Russian-only lesson DNA passes its strict schema', () => {
+  const dna = run('grade5-russian-only-concept-introduction').lessonDna;
+  assert.equal(validators.lessonDna(dna), true, JSON.stringify(validators.lessonDna.errors));
+});
+
+test('disabled lesson DNA schema rejects an Estonian phase role', () => {
+  const dna = structuredClone(run('grade5-russian-only-concept-introduction').lessonDna);
+  dna.phases[0].language_role.estonian_roles = ['terminology'];
+  assert.equal(validators.lessonDna(dna), false);
+});
+
+test('disabled lesson DNA schema rejects enabled Estonian assessment', () => {
+  const dna = structuredClone(run('grade5-russian-only-concept-introduction').lessonDna);
+  dna.assessment.estonian_language_assessment.enabled = true;
+  assert.equal(validators.lessonDna(dna), false);
+});
+
+test('disabled lesson DNA schema rejects the per-language demand known limit', () => {
+  const dna = structuredClone(run('grade5-russian-only-concept-introduction').lessonDna);
+  dna.known_limits.push('per_language_productive_demand_not_modelled');
+  dna.known_limits.sort();
+  assert.equal(validators.lessonDna(dna), false);
+});
+
+test('the nine original fixtures retain their committed selections', () => {
+  const originalFixtureIds = [
+    'grade5-concept-introduction',
+    'grade5-independent-retrieval',
+    'grade5-map-diagram',
+    'grade5-oral-answer',
+    'grade5-practical-no-supervision',
+    'grade5-retrieval-correction',
+    'grade5-safe-practical',
+    'grade5-teacher-override',
+    'grade5-unsafe-override',
+  ];
+  for (const fixtureId of originalFixtureIds) {
+    const item = fixture(fixtureId);
+    const result = selectLessonPedagogy(repository, item.request);
+    assert.equal(result.decision.selected_pattern?.pattern_id ?? null, item.expected.pattern_id);
+    for (const targetId of item.expected.include_target_ids) {
+      assert.ok(selectedIds(result).includes(targetId), `${fixtureId} lost ${targetId}`);
+    }
+    for (const targetId of item.expected.exclude_target_ids) {
+      assert.ok(!selectedIds(result).includes(targetId), `${fixtureId} gained ${targetId}`);
+    }
+  }
+});
+
+test('selection CLI handles the Russian-only fixture', () => {
+  const child = spawnSync(
+    process.execPath,
+    [
+      'scripts/select-lesson-pedagogy.mjs',
+      '--fixture',
+      'grade5-russian-only-concept-introduction',
+      '--json',
+    ],
+    { cwd: process.cwd(), encoding: 'utf8' },
+  );
+  assert.equal(child.status, 0, child.stderr);
+  const output = JSON.parse(child.stdout);
+  assert.equal(output.decision.status, 'success');
+  assert.equal(output.lessonDna.context.language_policy.estonian_support.enabled, false);
+});
+
 test('supervised practical target is rejected without adult supervision', () => {
   const result = run('grade5-practical-no-supervision');
   assert.equal(result.decision.failure.code, 'safety_supervision_unavailable');
@@ -594,10 +868,12 @@ test('explicit target exclusion prevents selection', () => {
 });
 
 test('grade-5 science fixture cannot move complex explanation to Estonian', () => {
-  const changed = structuredClone(repository);
-  changed.fixtures.data.fixtures[0].request.language_profile.estonian_support.subject_explanation_language = 'et';
-  const result = validatePedagogySelection(changed);
-  assert.ok(result.errors.some((error) => error.includes('requires complex subject explanation in Russian')));
+  const invalid = request('grade5-concept-introduction');
+  invalid.language_profile.estonian_support.subject_explanation_language = 'et';
+  assert.equal(validators.request(invalid), false);
+  assert.ok(validateEstonianSupportState(invalid).diagnostics.includes(
+    'estonian_support subject_explanation_language must be ru',
+  ));
 });
 
 test('requested phase needs become required slots', () => {

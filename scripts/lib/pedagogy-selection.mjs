@@ -169,6 +169,57 @@ export function normalizePedagogySelectionRequest(request) {
   return normalizeRequestValue(structuredClone(request));
 }
 
+export function validateEstonianSupportState(request) {
+  const support = request.language_profile?.estonian_support;
+  const diagnostics = [];
+  if (!support || typeof support.enabled !== 'boolean') {
+    return {
+      valid: false,
+      diagnostics: ['estonian_support.enabled must be a boolean'],
+    };
+  }
+  if (support.language !== 'et') {
+    diagnostics.push('estonian_support language must be et');
+  }
+  if (support.subject_explanation_language !== 'ru') {
+    diagnostics.push('estonian_support subject_explanation_language must be ru');
+  }
+  if (support.enabled) {
+    if (support.learner_level !== 'A1-A2') {
+      diagnostics.push('estonian_support is enabled but learner_level is not A1-A2');
+    }
+    if (
+      request.learner_context?.grade === 5
+      && request.learner_context?.subject === 'science'
+      && request.language_profile.primary_instruction_language !== 'ru'
+    ) {
+      diagnostics.push(
+        'grade-5 science with enabled Estonian support requires primary_instruction_language ru',
+      );
+    }
+  } else {
+    if (support.learner_level !== 'not_applicable') {
+      diagnostics.push('estonian_support is disabled but learner_level is not not_applicable');
+    }
+    if (!Array.isArray(support.allowed_roles) || support.allowed_roles.length > 0) {
+      diagnostics.push('estonian_support is disabled but allowed_roles is not empty');
+    }
+    if (support.sentence_frames_required !== false) {
+      diagnostics.push('estonian_support is disabled but sentence_frames_required is true');
+    }
+    if (support.word_bank_required !== false) {
+      diagnostics.push('estonian_support is disabled but word_bank_required is true');
+    }
+    if (support.assessment_requested !== false) {
+      diagnostics.push('estonian_support is disabled but assessment_requested is true');
+    }
+  }
+  return {
+    valid: diagnostics.length === 0,
+    diagnostics: diagnostics.sort(compareBytewise),
+  };
+}
+
 function compareOverrideIdentity(left, right) {
   return compareBytewise(left.override_id, right.override_id)
     || compareBytewise(left.slot_id, right.slot_id)
@@ -615,12 +666,18 @@ function scoreTarget(target, pattern, component, slot, request, rules, operation
   if (target.execution_profile_id) {
     addScore(components, 'execution_profile_specificity', weights.execution_profile_specificity);
   }
-  const a1a2 = operational.learner_demands.estonian_a1_a2_compatibility;
-  if (a1a2 === 'directly_supported') addScore(components, 'a1_a2_fit', weights.a1_a2_direct_fit);
-  if (a1a2 === 'supported_with_scaffold') {
-    addScore(components, 'a1_a2_fit', weights.a1_a2_scaffolded_fit);
+  if (request.language_profile.estonian_support.enabled) {
+    const a1a2 = operational.learner_demands.estonian_a1_a2_compatibility;
+    if (a1a2 === 'directly_supported') {
+      addScore(components, 'a1_a2_fit', weights.a1_a2_direct_fit);
+    }
+    if (a1a2 === 'supported_with_scaffold') {
+      addScore(components, 'a1_a2_fit', weights.a1_a2_scaffolded_fit);
+    }
+    if (a1a2 === 'limited') {
+      addScore(components, 'limited_a1_a2', penalties.limited_a1_a2);
+    }
   }
-  if (a1a2 === 'limited') addScore(components, 'limited_a1_a2', penalties.limited_a1_a2);
   if (request.preferences.preferred_target_ids.includes(target.target_id)) {
     addScore(components, 'preferred_target', weights.preferred_target);
   }
@@ -983,7 +1040,9 @@ function buildDecision(request, versions, selectedPattern, allPatternResults, ta
     {
       check_id: 'subject-language-separation',
       passed: true,
-      details: 'complex subject explanation and Estonian support retain separate roles',
+      details: request.language_profile.estonian_support.enabled
+        ? 'complex subject explanation and Estonian support retain separate roles'
+        : 'Russian-primary instruction has no Estonian support roles',
     },
   ];
   return {
@@ -1045,6 +1104,7 @@ function patternRationale(pattern, request, origin) {
 }
 
 function buildLessonDna(request, decision, pattern, composition, slotRows, rules) {
+  const estonianSupport = request.language_profile.estonian_support;
   const selectedChoices = composition.choices
     .map((choice, index) => ({ choice, slot: slotRows[index].slot }))
     .filter(({ choice, slot }) => choice && slot.consumes_lesson_time);
@@ -1078,8 +1138,8 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
       },
       language_role: {
         primary_language: request.language_profile.primary_instruction_language,
-        estonian_roles: request.language_profile.estonian_support.enabled
-          ? sorted(request.language_profile.estonian_support.allowed_roles)
+        estonian_roles: estonianSupport.enabled
+          ? sorted(estonianSupport.allowed_roles)
           : [],
       },
       resources: { required: sorted(operational.resource_requirements.required) },
@@ -1103,7 +1163,10 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
   const subjectPhaseIds = phases
     .filter((phase) => phase.phase === 'formative_assessment')
     .map((phase) => phase.phase_id);
-  const languagePhaseIds = request.language_profile.estonian_support.assessment_requested
+  const estonianAssessmentEnabled = (
+    estonianSupport.enabled && estonianSupport.assessment_requested
+  );
+  const languagePhaseIds = estonianAssessmentEnabled
     ? phases.filter((phase) => (
       phase.capabilities.primary.includes('oral_production')
       || phase.capabilities.supporting.includes('oral_production')
@@ -1130,10 +1193,10 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
       rationale_ru: override.rationale_ru,
     }));
   const scaffolds = [];
-  if (request.language_profile.estonian_support.sentence_frames_required) {
+  if (estonianSupport.enabled && estonianSupport.sentence_frames_required) {
     scaffolds.push('Use one short Estonian sentence frame while retaining Russian subject reasoning.');
   }
-  if (request.language_profile.estonian_support.word_bank_required) {
+  if (estonianSupport.enabled && estonianSupport.word_bank_required) {
     scaffolds.push('Provide a bounded Estonian word bank for the selected terminology or labels.');
   }
   return {
@@ -1161,11 +1224,10 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
         maximum_total_productive_language_demand:
           request.language_profile.maximum_total_productive_language_demand,
         estonian_support: {
-          enabled: request.language_profile.estonian_support.enabled,
-          learner_level: request.language_profile.estonian_support.learner_level,
-          allowed_roles: sorted(request.language_profile.estonian_support.allowed_roles),
-          subject_explanation_language:
-            request.language_profile.estonian_support.subject_explanation_language,
+          enabled: estonianSupport.enabled,
+          learner_level: estonianSupport.learner_level,
+          allowed_roles: sorted(estonianSupport.allowed_roles),
+          subject_explanation_language: estonianSupport.subject_explanation_language,
         },
       },
     },
@@ -1184,9 +1246,11 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
         notes_ru: 'Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает предметный результат.',
       },
       estonian_language_assessment: {
-        enabled: request.language_profile.estonian_support.assessment_requested,
+        enabled: estonianAssessmentEnabled,
         target_phase_ids: languagePhaseIds,
-        notes_ru: 'Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство предметного понимания.',
+        notes_ru: estonianAssessmentEnabled
+          ? 'Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство предметного понимания.'
+          : 'Эстонское языковое оценивание для этого запроса отключено.',
       },
     },
     retrieval_plan: {
@@ -1203,7 +1267,7 @@ function buildLessonDna(request, decision, pattern, composition, slotRows, rules
     known_limits: [
       'classroom_trial_not_started',
       'no_effectiveness_claim',
-      'per_language_productive_demand_not_modelled',
+      ...(estonianSupport.enabled ? ['per_language_productive_demand_not_modelled'] : []),
       'selection_weights_provisional',
       'taxonomy_ratings_provisional',
       'teacher_review_pending',
@@ -1299,6 +1363,18 @@ export function selectLessonPedagogy(selectionRepository, rawRequest) {
   const targets = expandPedagogyActivityTargets(activities);
   const targetIds = new Set(targets.map((target) => target.target_id));
   const versions = requestVersionBlock(knowledge, rules);
+  const estonianSupportState = validateEstonianSupportState(request);
+  if (!estonianSupportState.valid) {
+    return {
+      decision: createFailureDecision(request, versions, {
+        code: 'language_profile_incompatible',
+        message: 'Estonian support state is inconsistent.',
+        details: estonianSupportState.diagnostics,
+        targetsConsidered: targets.length,
+      }),
+      lessonDna: null,
+    };
+  }
   const overrideSet = validateTeacherOverrideSet(request);
   if (!overrideSet.valid) {
     return {
@@ -1568,6 +1644,63 @@ function teacherOverrideInvariantErrors(request, result) {
   return errors;
 }
 
+function estonianSupportInvariantErrors(request, result) {
+  const errors = [];
+  const support = request.language_profile.estonian_support;
+  const state = validateEstonianSupportState(request);
+  errors.push(...state.diagnostics);
+  if (result.decision.status !== 'success' || !result.lessonDna) return errors;
+
+  const dna = result.lessonDna;
+  const dnaSupport = dna.context.language_policy.estonian_support;
+  if (dnaSupport.enabled !== support.enabled) {
+    errors.push('lesson DNA Estonian support state differs from the request');
+  }
+  if (dnaSupport.learner_level !== support.learner_level) {
+    errors.push('lesson DNA Estonian learner level differs from the request');
+  }
+  if (
+    stablePedagogyJson(dnaSupport.allowed_roles)
+    !== stablePedagogyJson(sorted(support.allowed_roles))
+  ) {
+    errors.push('lesson DNA Estonian roles differ from the request');
+  }
+  if (dnaSupport.subject_explanation_language !== support.subject_explanation_language) {
+    errors.push('lesson DNA subject explanation language differs from the request');
+  }
+
+  const scoreComponents = result.decision.slot_decisions.flatMap((slot) => (
+    slot.considered_candidates.flatMap((candidate) => (
+      candidate.score ? Object.keys(candidate.score.components) : []
+    ))
+  ));
+  if (!support.enabled) {
+    if (scoreComponents.some((component) => ['a1_a2_fit', 'limited_a1_a2'].includes(component))) {
+      errors.push('disabled Estonian support must not produce A1-A2 score components');
+    }
+    if (dna.phases.some((phase) => phase.language_role.estonian_roles.length > 0)) {
+      errors.push('disabled Estonian support must leave every phase role list empty');
+    }
+    if (dna.differentiation.scaffolds.some((item) => (
+      item.includes('Estonian sentence frame') || item.includes('Estonian word bank')
+    ))) {
+      errors.push('disabled Estonian support must not produce Estonian scaffolds');
+    }
+    if (
+      dna.assessment.estonian_language_assessment.enabled
+      || dna.assessment.estonian_language_assessment.target_phase_ids.length > 0
+    ) {
+      errors.push('disabled Estonian support must not produce language assessment');
+    }
+    if (dna.known_limits.includes('per_language_productive_demand_not_modelled')) {
+      errors.push('disabled Estonian support must omit the per-language demand known limit');
+    }
+  } else if (!dna.known_limits.includes('per_language_productive_demand_not_modelled')) {
+    errors.push('enabled Estonian support must retain the per-language demand known limit');
+  }
+  return errors.sort(compareBytewise);
+}
+
 export function validatePedagogySelection(selectionRepository, {
   requireExamples = true,
 } = {}) {
@@ -1692,6 +1825,10 @@ export function validatePedagogySelection(selectionRepository, {
   const generatedExamples = new Map();
   if (fixturesValid && rulesValid) {
     for (const fixture of selectionRepository.fixtures.data.fixtures) {
+      const supportState = validateEstonianSupportState(fixture.request);
+      errors.push(...supportState.diagnostics.map(
+        (reason) => `${fixture.fixture_id}: ${reason}`,
+      ));
       const requestValid = addSchemaDiagnostics(
         errors,
         validators.request,
@@ -1745,6 +1882,8 @@ export function validatePedagogySelection(selectionRepository, {
       if (!addSchemaDiagnostics(errors, validators.decision, `${fixture.fixture_id}:decision`, result.decision)) continue;
       if (result.lessonDna && !addSchemaDiagnostics(errors, validators.lessonDna, `${fixture.fixture_id}:lesson-dna`, result.lessonDna)) continue;
       errors.push(...teacherOverrideInvariantErrors(fixture.request, result)
+        .map((reason) => `${fixture.fixture_id}: ${reason}`));
+      errors.push(...estonianSupportInvariantErrors(fixture.request, result)
         .map((reason) => `${fixture.fixture_id}: ${reason}`));
       if (result.decision.status !== fixture.expected.status) {
         errors.push(`${fixture.fixture_id}: expected ${fixture.expected.status}, got ${result.decision.status}`);

@@ -101,8 +101,29 @@
                         ]
                       }
                     },
-                    "subject_explanation_language": {"enum": ["ru", "et", "en"]}
-                  }
+                    "subject_explanation_language": {"const": "ru"}
+                  },
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "enabled": {"const": true}
+                        },
+                        "required": ["enabled"]
+                      },
+                      "then": {
+                        "properties": {
+                          "learner_level": {"const": "A1-A2"}
+                        }
+                      },
+                      "else": {
+                        "properties": {
+                          "learner_level": {"const": "not_applicable"},
+                          "allowed_roles": {"type": "array", "maxItems": 0}
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -166,7 +187,83 @@
             ]
           }
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "context": {
+                "type": "object",
+                "properties": {
+                  "language_policy": {
+                    "type": "object",
+                    "properties": {
+                      "estonian_support": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {"const": false}
+                        },
+                        "required": ["enabled"]
+                      }
+                    },
+                    "required": ["estonian_support"]
+                  }
+                },
+                "required": ["language_policy"]
+              }
+            },
+            "required": ["context"]
+          },
+          "then": {
+            "properties": {
+              "phases": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "language_role": {
+                      "type": "object",
+                      "properties": {
+                        "estonian_roles": {"type": "array", "maxItems": 0}
+                      }
+                    }
+                  }
+                }
+              },
+              "assessment": {
+                "type": "object",
+                "properties": {
+                  "estonian_language_assessment": {
+                    "type": "object",
+                    "properties": {
+                      "enabled": {"const": false},
+                      "target_phase_ids": {"type": "array", "maxItems": 0}
+                    }
+                  }
+                }
+              },
+              "known_limits": {
+                "type": "array",
+                "not": {
+                  "contains": {
+                    "const": "per_language_productive_demand_not_modelled"
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "known_limits": {
+                "type": "array",
+                "contains": {
+                  "const": "per_language_productive_demand_not_modelled"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "phase": {
       "type": "object",
