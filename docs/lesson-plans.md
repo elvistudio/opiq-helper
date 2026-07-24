@@ -21,6 +21,13 @@ The documented model is a teaching design, not a claim that a particular techniq
 
 All schemas are strict. Unknown fields fail validation. Shared teaching vocabulary lives in `schemas/teaching-plan-common.schema.json`; canonical routes, Opiq records, instructional roles, and provenance reuse the definitions and validation infrastructure introduced by the curriculum-map implementation.
 
+Lesson schema 1.1, thematic schema 1.1, and teacher-pack schema 1.2 remain
+valid legacy formats. Integrated versions 1.2, 1.2, and 1.3 require an explicit
+`pedagogical_integration` contract. The lesson remains content authority;
+selection input, generated lesson DNA, phase bindings, and content identity
+describe delivery without inventing science content. See
+[pedagogy generation integration](pedagogy-generation-integration.md).
+
 ## Methodology model
 
 Every lesson uses:

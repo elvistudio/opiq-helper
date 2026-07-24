@@ -144,6 +144,15 @@ jobs:
       - name: Check homeschool pedagogy adaptation
         run: npm run check:pedagogy-homeschool
 
+      - name: Test pedagogy generation integration
+        run: npm run test:pedagogy-integration
+
+      - name: Check pedagogy generation integration
+        run: npm run check:pedagogy-integration
+
+      - name: Check generated water pedagogy pilot
+        run: npm run generate:pedagogy-water-pilot -- --check
+
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
 

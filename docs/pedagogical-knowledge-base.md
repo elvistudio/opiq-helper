@@ -10,7 +10,7 @@ method names.
 The initial production data contains 2 references, 15 principles, 30
 activities, 4 patterns, taxonomy 1.0 with 33 capabilities and 22 resource
 values, and 7 grade-5 filtering fixtures. One activity family has 3 execution
-profiles, so the catalog exposes 32 deterministic query targets. The catalog
+profiles, so the catalog exposes 33 deterministic query targets. The catalog
 is intentionally not exhaustive.
 
 It is not:

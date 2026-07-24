@@ -3,6 +3,14 @@
 This directory stores normalized, machine-validated pedagogical knowledge. It is
 independent from Opiq source routing and from production lesson artifacts.
 
+The production integration layer consumes this validated catalogue through the
+existing selection and homeschool engines; it does not alter source-supported
+descriptions or claim effectiveness. The water pilot adds one provisional
+compact teacher-prepared observation execution profile so an existing
+45-minute supervised investigation can be represented without pretending that
+it is a multi-station lesson. See
+[`docs/pedagogy-generation-integration.md`](../../docs/pedagogy-generation-integration.md).
+
 The initial catalog contains:
 
 - two privately supplied Estonian methodological references;
@@ -10,7 +18,7 @@ The initial catalog contains:
 - 30 classroom and homeschool-adaptable activities;
 - four flexible pedagogical patterns;
 - taxonomy 1.0 with 33 capabilities, 22 resource values, seven deterministic
-  grade-5 filtering fixtures, and 32 query targets.
+  grade-5 filtering fixtures, and 33 query targets.
 
 ## Structure
 

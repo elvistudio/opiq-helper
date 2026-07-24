@@ -224,7 +224,7 @@ effectiveness, age fit, or classroom feasibility.
 
 All 30 activities from the #58 catalog were migrated. Twenty-nine retain one
 operational block; `learning-stations` has three execution profiles, producing
-32 deterministic query targets. The records do not reuse one mechanical
+33 deterministic query targets. The records do not reuse one mechanical
 rating: primary and supporting capabilities, participant
 ranges, facilitation effort, parent role, resources, and learner demands were
 assessed from each normalized method description and, where present, concrete

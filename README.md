@@ -222,6 +222,14 @@ versioned pattern slot. Adult-managed key release requires an available
 may use a bounded teacher-provided source segment. These outputs remain
 structural proposals: teacher review and a home trial are still pending.
 
+The grade-5 water pilot demonstrates deterministic production integration of
+lesson DNA and homeschool adaptation into an existing teacher pack without
+changing the scientific authority of lesson YAML. See
+[`docs/pedagogy-generation-integration.md`](docs/pedagogy-generation-integration.md).
+Validate it with `npm run test:pedagogy-integration`,
+`npm run check:pedagogy-integration`, and
+`npm run generate:pedagogy-water-pilot -- --check`.
+
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy

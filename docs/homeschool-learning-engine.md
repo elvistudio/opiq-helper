@@ -6,6 +6,14 @@ an already selected classroom lesson intent into a proposed home-study
 structure. It does not generate scientific content, approve an experiment, or
 declare a package ready for use.
 
+The water production pilot passes the exact classroom selection request and
+lesson DNA to this engine, then binds every adapted phase to existing
+teacher-pack materials and answer keys. Classroom and homeschool delivery share
+one scientific content identity. Generated parent guidance never assigns
+subject explanation to the parent; the practical lesson retains teacher
+authorization and adult safety supervision. See
+[pedagogy generation integration](pedagogy-generation-integration.md).
+
 ## Input and output contracts
 
 The input is a strict `homeschool_adaptation_request` with:
