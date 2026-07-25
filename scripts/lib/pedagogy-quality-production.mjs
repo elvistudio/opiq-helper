@@ -713,6 +713,17 @@ function homeState(lesson, actual) {
   ));
   const contracts =
     lesson.pedagogical_integration.selection_input?.homeschool?.adapted_task_contracts ?? [];
+  const materialScopes = new Map(
+    (
+      lesson.pedagogical_integration.selection_input?.homeschool
+        ?.material_delivery_scopes ?? []
+    ).map((entry) => [entry.material_id, entry.delivery_scope ?? []]),
+  );
+  const explicitContractMaterialsCompatible = contracts.every((contract) => (
+    (contract.student_material_ids ?? []).every(
+      (materialId) => materialScopes.get(materialId)?.includes('homeschool'),
+    )
+  ));
   return {
     applicable: true,
     material_closure_resolved: allTrue([
@@ -722,7 +733,8 @@ function homeState(lesson, actual) {
       resolution.procedure_refs_resolved,
       resolution.safety_refs_resolved,
     ]),
-    delivery_scope_valid: material.delivery_scope_valid,
+    delivery_scope_valid:
+      material.delivery_scope_valid && explicitContractMaterialsCompatible,
     adapted_contracts_complete: changedTargets.every((adaptation) => {
       const contract = contracts.find((candidate) => (
         candidate.source_phase_id === adaptation.source_phase_id
@@ -828,7 +840,7 @@ async function alignmentState(rootDir, lesson, actual, materialsIndex) {
     task_identity_aligned: bindings.every((binding) => (
       actual.lessonDna?.phases?.some((phase) => (
         phase.phase_id === binding.dna_phase_id
-        && phase.target.target_id === actual.baselineRow.taskBindings.find(
+        && phase.target.target_id === actual.integrationRow?.task_bindings?.find(
           (task) => task.phase_id === binding.dna_phase_id,
         )?.target_id
       ))
@@ -1577,6 +1589,16 @@ export async function loadWaterPilotPedagogyQualityRepository({
   return {
     ...configuration,
     records,
+    loadedArtifactPaths: uniqueSorted([
+      ...(lessonRepository.loadedArtifactPaths ?? []),
+      ...(teacherPackRepository.loadedArtifactPaths ?? []),
+      ...(currentHomeschoolRepository.loadedArtifactPaths ?? []),
+      configuration.cataloguePath,
+      configuration.exceptionsPath,
+      ...records.flatMap((record) => record.checked_artifacts ?? []),
+      ...actualMachine.artifactStates.map((artifact) => artifact.artifact_path),
+      ...evidenceState.summary.evidence_paths,
+    ]),
     upstream: {
       generatedMismatches,
       validationResults,

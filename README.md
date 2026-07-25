@@ -253,6 +253,10 @@ and review-evidence models. The initial grade-5 suite contains production
 classroom and homeschool checks, architecture-only applicability examples,
 deliberate failures, and stale-evidence cases. It records semantic invariants
 rather than accepting a generated file merely because its bytes are stable.
+Production/stale cases mutate real artifacts in isolated repository copies and
+reload the existing adapters; architecture cases resolve actual activity and
+execution-profile contracts. The report exposes expected/actual values and
+evidence references for every invariant.
 Run `npm run test:pedagogy-regressions`,
 `npm run check:pedagogy-regressions`, and
 `npm run check:pedagogy-regression-report`.

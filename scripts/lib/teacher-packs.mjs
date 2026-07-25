@@ -86,7 +86,19 @@ export async function loadTeacherPackRepository({
       }
     }
   }
-  return { rootDir: absoluteRoot, plans, schema, indexes, fileContents };
+  return {
+    rootDir: absoluteRoot,
+    plans,
+    schema,
+    indexes,
+    fileContents,
+    loadedArtifactPaths: [...new Set([
+      ...(plans.loadedArtifactPaths ?? []),
+      teacherPackSchemaPath,
+      ...indexes.map((index) => index.file),
+      ...fileContents.keys(),
+    ])].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
+  };
 }
 
 function validateIndexSchema(diagnostics, context) {

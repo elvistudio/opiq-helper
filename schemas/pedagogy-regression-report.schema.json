@@ -223,12 +223,46 @@
     "invariantResult": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["invariant_id", "status", "detail"],
+      "required": [
+        "invariant_id",
+        "status",
+        "summary",
+        "expected",
+        "actual",
+        "evidence_refs"
+      ],
       "properties": {
         "invariant_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
         "status": { "enum": ["failed", "passed"] },
-        "detail": { "type": "string", "minLength": 1 }
+        "summary": { "type": "string", "minLength": 1 },
+        "expected": { "$ref": "#/$defs/jsonValue" },
+        "actual": { "$ref": "#/$defs/jsonValue" },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?:(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*|semantic:[A-Za-z0-9._:-]+)$"
+          }
+        }
       }
+    },
+    "jsonValue": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jsonValue" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/jsonValue" }
+        }
+      ]
     },
     "diagnostic": {
       "type": "object",
@@ -258,6 +292,7 @@
         "expected_claims",
         "actual_claims",
         "checked_artifacts",
+        "ephemeral_checked_artifacts",
         "non_guarantees"
       ],
       "properties": {
@@ -302,6 +337,14 @@
           "type": "array",
           "uniqueItems": true,
           "items": { "type": "string" }
+        },
+        "ephemeral_checked_artifacts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+          }
         },
         "non_guarantees": {
           "type": "array",

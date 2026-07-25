@@ -61,7 +61,11 @@ The initial catalog contains:
   normalized record; retired entries remain historical and never apply.
 - `regressions/grade-5-regression-cases.yaml` defines bounded production,
   architecture-only, deliberate-failure, and stale-evidence cases. Every case
-  declares semantic invariants and an executable local handler.
+  declares semantic invariants, an executable local handler, and either a
+  strict mutation contract or explicit `mutation: null`. Production/stale
+  mutations operate on primary repository artifacts in isolated copies and
+  reload the existing adapters; normalized quality booleans are not accepted
+  as end-to-end evidence.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.

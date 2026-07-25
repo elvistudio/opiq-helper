@@ -372,6 +372,13 @@ export async function loadPedagogySelectionRepository({
     fixtures,
     examples,
     schemas: Object.fromEntries(schemaEntries),
+    loadedArtifactPaths: uniqueSorted([
+      ...knowledge.allFiles,
+      PEDAGOGY_SELECTION_RULES,
+      PEDAGOGY_SELECTION_FIXTURES,
+      ...(examples ? [PEDAGOGY_LESSON_DNA_EXAMPLES] : []),
+      ...Object.values(SELECTION_SCHEMA_FILES),
+    ]),
   };
 }
 

@@ -150,6 +150,13 @@ export async function loadPedagogyHomeschoolRepository({
     fixtures,
     examples,
     schemas: Object.fromEntries(schemas),
+    loadedArtifactPaths: uniqueSorted([
+      ...(selection.loadedArtifactPaths ?? []),
+      PEDAGOGY_HOMESCHOOL_RULES,
+      PEDAGOGY_HOMESCHOOL_FIXTURES,
+      ...(examples ? [PEDAGOGY_HOMESCHOOL_EXAMPLES] : []),
+      ...Object.values(HOMESCHOOL_SCHEMA_FILES),
+    ]),
   };
 }
 

@@ -7,7 +7,7 @@ import {
 } from './lib/pedagogy-regressions.mjs';
 
 const repository = await loadPedagogyRegressionRepository();
-const run = runPedagogyRegressions(repository);
+const run = await runPedagogyRegressions(repository);
 const report = buildPedagogyRegressionReport(repository, run);
 const schemaErrors = validatePedagogyRegressionReport(repository, report);
 const errors = [

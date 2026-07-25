@@ -155,6 +155,12 @@ export async function loadLessonPlanRepository({
     schemas: Object.fromEntries(schemaEntries),
     artifacts,
     externalArtifacts,
+    loadedArtifactPaths: [...new Set([
+      ...(curriculum.loadedArtifactPaths ?? []),
+      ...Object.values(schemaPaths),
+      ...artifacts.map((artifact) => artifact.file),
+      ...externalArtifacts.map((artifact) => artifact.file),
+    ])].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
   };
 }
 

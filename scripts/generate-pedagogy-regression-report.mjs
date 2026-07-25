@@ -12,7 +12,7 @@ import {
 const args = new Set(process.argv.slice(2));
 const check = args.has('--check');
 const repository = await loadPedagogyRegressionRepository();
-const run = runPedagogyRegressions(repository);
+const run = await runPedagogyRegressions(repository);
 const report = buildPedagogyRegressionReport(repository, run);
 const errors = [
   ...repository.configurationErrors,

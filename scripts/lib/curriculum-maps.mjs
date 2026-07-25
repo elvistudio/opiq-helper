@@ -154,6 +154,17 @@ export async function loadCurriculumMapRepository({
     },
     artifacts,
     routes,
+    loadedArtifactPaths: [...new Set([
+      manifestPath,
+      curriculumSchemaPath,
+      courseSchemaPath,
+      ...artifacts.map((artifact) => artifact.file),
+      ...Object.values(routes).flatMap(({ source }) => [
+        source.md_path,
+        source.qa_path,
+        source.source_archive,
+      ]),
+    ])].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
   };
 }
 

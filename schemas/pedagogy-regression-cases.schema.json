@@ -176,6 +176,44 @@
         }
       }
     },
+    "mutation": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mutation_level",
+            "artifact_path",
+            "mutation_id",
+            "expected_changed_fields"
+          ],
+          "properties": {
+            "mutation_level": {
+              "enum": [
+                "generated_architecture_output",
+                "repository_artifact",
+                "selection_request"
+              ]
+            },
+            "artifact_path": { "$ref": "#/$defs/repositoryPath" },
+            "mutation_id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "expected_changed_fields": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_.-]+$"
+              }
+            }
+          }
+        }
+      ]
+    },
     "expectedSelection": {
       "type": "object",
       "additionalProperties": false,
@@ -253,6 +291,7 @@
         "subject",
         "delivery_mode",
         "handler_id",
+        "mutation",
         "source_scope",
         "expected_selection",
         "expected_invariants",
@@ -280,6 +319,7 @@
         },
         "delivery_mode": { "$ref": "#/$defs/deliveryMode" },
         "handler_id": { "$ref": "#/$defs/stableId" },
+        "mutation": { "$ref": "#/$defs/mutation" },
         "source_scope": { "$ref": "#/$defs/sourceScope" },
         "expected_selection": { "$ref": "#/$defs/expectedSelection" },
         "expected_invariants": {

@@ -18,7 +18,11 @@ The strict fixture is
 `schemas/pedagogy-regression-cases.schema.json`. Each bytewise-sorted case has
 a stable ID, one bounded case kind, an explicit source scope, an executable
 handler, expected diagnostics or selections, semantic invariants,
-non-guarantees, and provenance.
+non-guarantees, provenance, and an explicit `mutation` contract. Baseline
+cases use `mutation: null`. Negative cases distinguish
+`repository_artifact`, `selection_request`, and
+`generated_architecture_output`; each mutation names its primary path, stable
+mutation ID, and expected changed fields.
 
 The five case kinds answer different questions:
 
@@ -41,18 +45,28 @@ evidence.
 
 `scripts/lib/pedagogy-regressions.mjs` loads the existing repositories and
 executes local handlers. Production handlers read the committed quality
-records. Architecture handlers run the real selection engine. Failure handlers
-make bounded in-memory changes to real normalized inputs and require the
-existing validator diagnostic. There is no hidden score, random seed, current
-time, or network fallback.
+records. Architecture handlers run the real selection engine and resolve each
+selected activity or execution profile back to its catalogue contract.
+Production and stale failure handlers copy the repository to isolated
+temporary roots, mutate real primary YAML/Markdown or temporary evidence
+bindings, and reload the existing adapters. Mutating a normalized quality
+boolean is not accepted as end-to-end evidence. Selection-request and
+architecture-output policy mutations remain separately labelled. There is no
+hidden score, random seed, current time, or network fallback.
 
 A case passes only when all declared invariants pass. Examples include:
 
-- the chosen target has the required capability and delivery context;
+- the resolved activity/profile supports the requested grade, subject,
+  delivery, group format, language ceiling, and required capability;
 - retrieval begins source-closed and retains a later correction/key policy;
 - subject and Estonian-language assessment remain separate;
-- practical work retains authorization, adult supervision, stop conditions,
-  and the resolved home-material contract;
+- classroom practical safety is derived from classroom lesson DNA and selected
+  activity safety, while home safety is derived separately from the resolved
+  package, authorization, supervision, and home-material contract;
+- collaboration requires non-individual execution plus collaborative/peer
+  semantics; a merely non-individual format does not pass by itself;
+- quiet individual work requires individual execution without a selected
+  target that primarily requires collaboration or peer explanation;
 - parent support does not become subject teaching;
 - stale identity or evidence blocks the positive claim it would otherwise
   support.
@@ -69,14 +83,23 @@ deterministic semantic snapshot governed by
 - engine and upstream contract versions;
 - fixture, activity-catalogue, and quality-catalogue digests;
 - current scientific content identities and teacher-pack fingerprint;
-- every case, diagnostic, selected target, and invariant result;
-- the exact sorted artifact dependency closure;
+- every case, diagnostic, selected target, and invariant result; each invariant
+  includes a reviewable summary, expected value, actual value, and exact
+  evidence paths or stable semantic references;
+- the exact bytewise-sorted dependency closure reported by the loaders,
+  including schemas, catalogues, source inputs, generated machine artifacts,
+  materials, answer keys, and evidence actually read;
+- per-case `ephemeral_checked_artifacts` for temporary schema-valid
+  review/trial evidence read inside an isolated mutation fixture; these paths
+  remain evidence refs but are intentionally excluded from the committed
+  regular-file closure after fixture cleanup;
 - explicit false readiness/effectiveness/curriculum-completeness claims;
 - stable counts by case kind and invariant status.
 
 The report contains no generation timestamp. A report check regenerates its
-normalized bytes and rejects staleness. Review or evidence-only metadata does
-not alter the reviewable teacher-pack fingerprint.
+normalized bytes, rejects staleness, and fails if a declared checked dependency
+is missing or is not a regular non-symlink file. Review or evidence-only
+metadata does not alter the reviewable teacher-pack fingerprint.
 
 ## Commands
 
@@ -96,9 +119,11 @@ report freshness check after the pedagogy quality checks.
 1. Choose an existing validated selection fixture or an actual normalized
    production record.
 2. Declare a canonical repository-relative source scope.
-3. Reuse an existing handler when it expresses the intended semantics.
-4. Add a narrowly named handler only when the case cannot be expressed by an
-   existing selection, quality, or policy mutation.
+3. Declare `mutation: null` for a baseline, or name the exact mutation level,
+   primary artifact, mutation ID, and changed fields for a negative case.
+4. Reuse one of the separated production-baseline, selection,
+   repository-artifact, or architecture-output-policy handlers. Add a handler
+   only when its evidence layer is genuinely different.
 5. Declare observable semantic invariants and explicit non-guarantees.
 6. Keep the fixture bytewise sorted and update the strict schemas only for a
    genuine contract change.
