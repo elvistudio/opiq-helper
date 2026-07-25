@@ -44,7 +44,7 @@
         "gate_id": {
           "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
         },
-        "gate_version": { "const": "1.0" },
+        "gate_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
         "title": { "type": "string", "minLength": 8 },
         "description": { "type": "string", "minLength": 20 },
         "applies_to": {

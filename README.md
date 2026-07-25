@@ -236,9 +236,12 @@ Validate it with `npm run test:pedagogy-integration`,
 
 Reusable [pedagogical quality gates](docs/pedagogy-quality-gates.md) validate
 the integrated structural contract without granting teacher approval,
-effectiveness, testing, or readiness. Run `npm run test:pedagogy-quality`,
-`npm run check:pedagogy-quality`, and
-`npm run check:pedagogy-quality-report`.
+effectiveness, testing, or readiness. Primitive checks run before the derived
+structural result; the committed report keeps per-record results, actual
+readiness/evidence state, exact dependency paths, and the recomputed
+teacher-pack fingerprint. Explicit `--path` checks are scope-limited and fail
+when no record matches. Run `npm run test:pedagogy-quality`,
+`npm run check:pedagogy-quality`, and `npm run check:pedagogy-quality-report`.
 
 ```sh
 npm run test:pedagogy

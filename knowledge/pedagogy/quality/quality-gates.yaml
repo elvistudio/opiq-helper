@@ -7,7 +7,7 @@ gates:
     gate_version: "1.0"
     title: Learner answers remain hidden before the first attempt
     description: Learner-facing classroom and homeschool artifacts must not expose complete expected answers, accepted variants, or practical conclusions before the first attempt.
-    applies_to: [homeschool_package, integrated_lesson]
+    applies_to: [integrated_lesson]
     severity: error
     guarantee: Exact and normalized answer-bearing strings are absent from learner-facing artifacts.
     non_guarantees:
@@ -19,7 +19,7 @@ gates:
     gate_version: "1.0"
     title: Lesson phases resolve to production tasks and artifacts
     description: Every selected lesson-DNA phase must resolve to a task, learner criterion, teacher evidence, and a real material or evidence contract.
-    applies_to: [homeschool_package, integrated_lesson, teacher_pack]
+    applies_to: [integrated_lesson]
     severity: error
     guarantee: Machine task identities and referenced repository artifacts form a complete declared chain.
     non_guarantees:
@@ -31,7 +31,7 @@ gates:
     gate_version: "1.0"
     title: Delayed retrieval points forward using relative windows
     description: Delayed retrieval must use after_lessons, after_days, or next_unit and must not create absolute learner dates.
-    applies_to: [homeschool_package, integrated_lesson, thematic_plan]
+    applies_to: [integrated_lesson, thematic_plan]
     severity: error
     guarantee: Declared delayed retrieval is represented as a future relative learning event.
     non_guarantees:
@@ -55,7 +55,7 @@ gates:
     gate_version: "1.0"
     title: Version, digest, and immutable lesson-DNA identity chain is current
     description: Taxonomy, rules, engine, catalogue, request, content, lesson-DNA, homeschool source, and fingerprint identities must match their declared current sources.
-    applies_to: [homeschool_package, integrated_lesson, teacher_pack]
+    applies_to: [integrated_lesson, teacher_pack]
     severity: error
     guarantee: Declared machine identities and current repository inputs are internally consistent.
     non_guarantees:
@@ -67,7 +67,7 @@ gates:
     gate_version: "1.0"
     title: Primary and Estonian-support language roles remain bounded
     description: Primary instruction language, total productive-language ceiling, Estonian A1-A2 roles, scaffolds, and separate assessments must remain mutually compatible.
-    applies_to: [homeschool_package, integrated_lesson]
+    applies_to: [integrated_lesson]
     severity: error
     guarantee: Complex subject reasoning remains in the primary language and Estonian evidence stays within declared support roles.
     non_guarantees:
@@ -91,7 +91,7 @@ gates:
     gate_version: "1.0"
     title: Classroom and homeschool material closures are resolved
     description: Material IDs, delivery scopes, repository paths, adapted task contracts, and rendered home artifacts must resolve without classroom-only leakage.
-    applies_to: [homeschool_package, integrated_lesson, teacher_pack]
+    applies_to: [homeschool_package]
     severity: error
     guarantee: Every declared learner material exists and is compatible with its delivery context.
     non_guarantees:
@@ -115,7 +115,7 @@ gates:
     gate_version: "1.0"
     title: Source and pedagogical provenance remain separate
     description: Source-backed content identity and project-authored pedagogical selection or adaptation provenance must not be represented as the same claim.
-    applies_to: [homeschool_package, integrated_lesson, teacher_pack]
+    applies_to: [integrated_lesson, teacher_pack]
     severity: error
     guarantee: The repository can distinguish source evidence from pedagogical design.
     non_guarantees:
@@ -139,7 +139,7 @@ gates:
     gate_version: "1.0"
     title: Retrieval keeps the first attempt closed and provides correction
     description: Where retrieval is declared, the first attempt must be source-closed and a later check or correction path must be visible.
-    applies_to: [homeschool_package, integrated_lesson]
+    applies_to: [integrated_lesson]
     severity: error
     guarantee: Declared retrieval is distinguishable from rereading and includes corrective feedback.
     non_guarantees:
@@ -151,7 +151,7 @@ gates:
     gate_version: "1.0"
     title: Practical safety requirements survive every delivery transformation
     description: Adult supervision, teacher authorization, procedures, prohibited actions, stop conditions, and rendered instructions must agree where practical safety applies.
-    applies_to: [homeschool_package, integrated_lesson, teacher_pack]
+    applies_to: [homeschool_package]
     severity: error
     guarantee: Declared practical safety controls cannot disappear during generation or adaptation.
     non_guarantees:

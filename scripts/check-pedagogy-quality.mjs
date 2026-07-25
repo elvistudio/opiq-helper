@@ -2,8 +2,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
+  buildPedagogyQualityEvaluationResult,
   buildPedagogyQualityReport,
   evaluatePedagogyQuality,
+  normalizePedagogyQualityPath,
   serializePedagogyQualityReport,
 } from './lib/pedagogy-quality-gates.mjs';
 import {
@@ -51,16 +53,20 @@ function displayDiagnostic(diagnostic) {
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
+  if (options.path !== null) {
+    options.path = normalizePedagogyQualityPath(options.path);
+  }
   const repository = await loadWaterPilotPedagogyQualityRepository();
   const evaluation = evaluatePedagogyQuality(repository, {
     requestedPath: options.path,
   });
-  const report = buildPedagogyQualityReport(repository, evaluation, {
-    reportId: WATER_QUALITY_REPORT_ID,
-    reportPath: WATER_QUALITY_REPORT_PATH,
-    requestedPath: options.path,
-  });
-  const serialized = serializePedagogyQualityReport(report);
+  const output = options.path
+    ? buildPedagogyQualityEvaluationResult(repository, evaluation)
+    : buildPedagogyQualityReport(repository, evaluation, {
+      reportId: WATER_QUALITY_REPORT_ID,
+      reportPath: WATER_QUALITY_REPORT_PATH,
+    });
+  const serialized = serializePedagogyQualityReport(output);
   if (options.report) {
     const committed = await fs.readFile(
       path.join(repository.rootDir, WATER_QUALITY_REPORT_PATH),
@@ -96,6 +102,9 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(`Pedagogical quality check failed: ${error.message}`);
+  console.error(
+    `Pedagogical quality check failed${error.code ? ` [${error.code}]` : ''}: `
+    + error.message,
+  );
   process.exitCode = 1;
 });

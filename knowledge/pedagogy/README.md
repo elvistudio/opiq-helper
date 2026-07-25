@@ -52,10 +52,13 @@ The initial catalog contains:
 - `homeschool/homeschool-package-examples.yaml` stores five deterministic
   proposed packages with parent guidance and relative weekly plans.
 - `quality/quality-gates.yaml` defines reusable structural guarantees,
-  applicability, severity, non-guarantees, and exception policy.
+  applicability, severity, independent gate versions, non-guarantees, and
+  exception policy. Primitive gates are evaluated before derived structural
+  completeness, independently of catalogue order.
 - `quality/quality-exceptions.yaml` stores only exact-record, version-bound
   exceptions; safety, leakage, identity, closure, provenance, and readiness
-  gates cannot be suppressed.
+  gates cannot be suppressed. Active targets must resolve to an applicable
+  normalized record; retired entries remain historical and never apply.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.
@@ -104,6 +107,11 @@ capability strength, group logic, effort, resources, learner demands,
 homeschool and safety roles, copyright rules, provenance, confidence, query
 fixtures, and deterministic ordering. Structural validity does not prove
 pedagogical effectiveness; application still requires teacher review.
+Pedagogical quality reports preserve per-record gate results and actual
+readiness/evidence state. Fingerprint currency requires equality of algorithm,
+specification, value, and file count. A scoped `--path` check covers only the
+matched records and their dependency closure, and an empty explicit scope is
+an error rather than a positive result.
 
 An unprofiled method is queried by its `activity_id`. A concrete execution
 profile uses `activity_id::profile_id`; `::` is reserved and forbidden inside

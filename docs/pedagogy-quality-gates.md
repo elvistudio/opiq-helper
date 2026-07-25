@@ -30,6 +30,15 @@ loads the existing systems, projects their current guarantees into the shared
 contract, and supplies the committed water report. Concrete lesson-3 checks
 remain in the production integration validator.
 
+Evaluation is deliberately two-stage. Every applicable primitive gate runs
+first; only then do derived gates run. `structural-completeness` is derived
+from the complete per-record primitive result set, so catalogue order cannot
+hide a later timing, identity, safety, or alignment failure. A primitive
+`passed` or exact `excepted` result satisfies the aggregate; error results and
+missing evaluators do not. Warning-only and informational results remain
+visible without becoming hidden blockers. Empty evaluation scope never
+produces a positive structural claim.
+
 This boundary leaves issue #63 responsible for human review/trial workflow and
 issue #64 responsible for broad pedagogical regression profiles. The focused
 mutation fixtures here prove validator behavior; they are not representative
@@ -42,6 +51,11 @@ Every gate has a stable ID and version, applicability, severity, guarantee,
 explicit non-guarantees, exception policy, and project-authored claim origin.
 Changing a gate's meaning requires a gate-version update; changing catalogue
 membership or shared policy requires a catalogue-version review.
+Gate versions use an independent `major.minor` contract: one gate can advance
+without forcing unrelated gates to adopt the same version. Configuration
+validation requires exactly one executable primitive evaluator or one
+registered derived handler for every catalogue gate, including gates whose
+record kind is absent from the current production scope.
 
 The current gates cover:
 
@@ -86,6 +100,15 @@ node scripts/check-pedagogy-quality.mjs --strict-warnings
 npm run check:pedagogy-quality-report
 ```
 
+`--path` accepts only a canonical repository-relative POSIX file or directory
+path. Absolute paths, traversal, backslashes, empty path segments, and
+noncanonical forms are rejected. An explicit path that matches no quality
+record fails with `no_quality_records_matched`; it cannot produce zero-record
+positive claims. Path-scoped `--json` is a deterministic evaluation result
+limited to the selected records and their actual dependency closure. It is not
+the full committed production report, and report generation rejects a scoped
+evaluation. Ordinary full-scope checks still leave unrelated routes alone.
+
 `--strict-warnings` is intended for deliberate migration cleanup; production
 CI normally permits the finite documented legacy warning set. `--report`
 compares the computed report with exact committed bytes and never writes files.
@@ -96,7 +119,10 @@ compares the computed report with exact committed bytes and never writes files.
 exceptions. An active record must name one current gate version, one artifact
 path, one record ID, a Russian reason, lesson pattern, author role, and status.
 Unknown gates, stale gate versions, duplicate IDs, and multiple exceptions for
-the same exact target fail.
+the same exact target fail. Active exceptions also fail when the named artifact
+or record does not exist, the path and record ID do not identify the same
+normalized record, or the gate does not apply to that record kind. Retired
+records are historical only and never apply.
 
 Exceptions are not approvals. They may represent a justified nonstandard
 pattern only when a gate declares `exact_record_only`. They cannot suppress:
@@ -130,17 +156,52 @@ water-use-cycle lessons. The warning means “not yet integrated”, not
 
 - gate catalogue version and digest;
 - current unit and lesson content identities;
-- current teacher-pack fingerprint;
-- checked classroom, lesson-DNA, homeschool and integration artifacts;
-- deterministic gate results and diagnostics;
+- the recomputed pack-wide teacher-pack fingerprint, including algorithm,
+  specification version, digest value, and file count;
+- every artifact actually read in the declared dependency closure, including
+  lessons, DNA, task/material/key/rendered files, thematic and integration
+  indexes, practical policy, and linked evidence records;
+- deterministic per-record gate results with exact artifact path and record ID;
+- a separate aggregate gate summary that does not replace the audit trail;
 - severity counts and structural status;
 - the only permitted positive claims;
-- explicit non-guarantees and unchanged readiness.
+- explicit non-guarantees and readiness read from production artifacts.
+
+The report has an explicit stable water-pilot scope: four integrated classroom
+lessons, four homeschool packages, one thematic plan, one teacher-pack record,
+and six intentional water-use-cycle legacy controls. A future unrelated lesson
+does not change this report. Positive claims explicitly apply only to
+integrated production records; legacy controls have
+`integration_quality_status: not_evaluated`.
+
+Readiness is not replaced with expected safe defaults. The report stores the
+actual per-record values and a consistency-aware aggregate where differing
+values become `mixed`. Evidence state comes from the existing review
+repository. A current evidence fingerprint must exactly equal the recomputed
+fingerprint in all four fields; a same-length but different hash or file count
+is stale. Registering review metadata alone does not alter reviewable content.
+Pending review with no completed evidence and readiness false is valid.
+Approved, tested, or ready claims require current effective evidence. The
+home-trial lifecycle remains deferred to issue #63.
+
+The report makes no claim about Git changes outside its evaluated scope.
+Intentionally unchanged files belong in PR diff evidence, not in the
+deterministic quality artifact.
 
 `pass_with_warnings`, `pedagogy_schema_valid: true`, and
 `structurally_complete: true` mean that applicable machine contracts reconcile.
 They do not mean teacher-approved, pedagogically effective, classroom-tested,
 home-tested, classroom-ready, homeschool-ready, or complete curriculum.
+
+The production adapter projects real contracts rather than accepting prepared
+booleans as evidence. Retrieval applicability is derived from pattern/request
+intent; correction must occur after the first attempt; delayed retrieval is
+resolved through the thematic plan and lesson order. Pattern requirements come
+from versioned selection rules. Language support may be enabled or coherently
+disabled. Safety applicability comes from source, selected activity, resources,
+and adaptation decisions rather than one downstream flag. Reselected home
+targets require the actual explicit adapted-task contract. Artifact paths must
+be canonical, registered, regular files in the applicable closure.
 
 ## CI behavior
 
