@@ -1,0 +1,2927 @@
+{
+  "artifact_type": "pedagogy_regression_report",
+  "cases": [
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "architecture_only",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-architecture",
+      "invariants": [
+        {
+          "detail": "Invariant comparison_capability_present is satisfied by normalized semantic output.",
+          "invariant_id": "comparison_capability_present",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant grade_delivery_compatible is satisfied by normalized semantic output.",
+          "invariant_id": "grade_delivery_compatible",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant language_demand_within_ceiling is satisfied by normalized semantic output.",
+          "invariant_id": "language_demand_within_ceiling",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant no_production_artifacts_claimed is satisfied by normalized semantic output.",
+          "invariant_id": "no_production_artifacts_claimed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant selection_success is satisfied by normalized semantic output.",
+          "invariant_id": "selection_success",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_production_material",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "architecture-ecosystem-comparison",
+      "selected_target_ids": [
+        "concept-map",
+        "prediction-with-keywords",
+        "sorting-and-sequencing",
+        "venn-diagram",
+        "visual-representation::paper-diagram"
+      ],
+      "selection_status": "success",
+      "source_status": "architecture_only",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "architecture_only",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-architecture",
+      "invariants": [
+        {
+          "detail": "Invariant grade_delivery_compatible is satisfied by normalized semantic output.",
+          "invariant_id": "grade_delivery_compatible",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant group_context_compatible is satisfied by normalized semantic output.",
+          "invariant_id": "group_context_compatible",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant no_production_artifacts_claimed is satisfied by normalized semantic output.",
+          "invariant_id": "no_production_artifacts_claimed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant selection_success is satisfied by normalized semantic output.",
+          "invariant_id": "selection_success",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant teacher_override_rationale_preserved is satisfied by normalized semantic output.",
+          "invariant_id": "teacher_override_rationale_preserved",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_production_material",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "architecture-justified-nonstandard",
+      "selected_target_ids": [
+        "brainstorming",
+        "concept-map",
+        "exit-ticket",
+        "guided-reading",
+        "retrieval-self-test"
+      ],
+      "selection_status": "success",
+      "source_status": "architecture_only",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "architecture_only",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-architecture",
+      "invariants": [
+        {
+          "detail": "Invariant grade_delivery_compatible is satisfied by normalized semantic output.",
+          "invariant_id": "grade_delivery_compatible",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant language_demand_within_ceiling is satisfied by normalized semantic output.",
+          "invariant_id": "language_demand_within_ceiling",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant map_data_capability_present is satisfied by normalized semantic output.",
+          "invariant_id": "map_data_capability_present",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant no_production_artifacts_claimed is satisfied by normalized semantic output.",
+          "invariant_id": "no_production_artifacts_claimed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant selection_success is satisfied by normalized semantic output.",
+          "invariant_id": "selection_success",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_production_material",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "architecture-map-data",
+      "selected_target_ids": [
+        "exit-ticket",
+        "learning-stations::map-data",
+        "visual-representation::paper-diagram"
+      ],
+      "selection_status": "success",
+      "source_status": "architecture_only",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "architecture_only",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-architecture",
+      "invariants": [
+        {
+          "detail": "Invariant additional_scaffolding_present is satisfied by normalized semantic output.",
+          "invariant_id": "additional_scaffolding_present",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant grade_delivery_compatible is satisfied by normalized semantic output.",
+          "invariant_id": "grade_delivery_compatible",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant language_demand_within_ceiling is satisfied by normalized semantic output.",
+          "invariant_id": "language_demand_within_ceiling",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant no_production_artifacts_claimed is satisfied by normalized semantic output.",
+          "invariant_id": "no_production_artifacts_claimed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant selection_success is satisfied by normalized semantic output.",
+          "invariant_id": "selection_success",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_production_material",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "architecture-scaffolded-learner",
+      "selected_target_ids": [
+        "brainstorming",
+        "concept-map",
+        "guided-reading",
+        "one-minute-recall",
+        "retrieval-self-test"
+      ],
+      "selection_status": "success",
+      "source_status": "architecture_only",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "architecture_only",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-architecture",
+      "invariants": [
+        {
+          "detail": "Invariant grade_delivery_compatible is satisfied by normalized semantic output.",
+          "invariant_id": "grade_delivery_compatible",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant language_demand_within_ceiling is satisfied by normalized semantic output.",
+          "invariant_id": "language_demand_within_ceiling",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant no_production_artifacts_claimed is satisfied by normalized semantic output.",
+          "invariant_id": "no_production_artifacts_claimed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant selection_success is satisfied by normalized semantic output.",
+          "invariant_id": "selection_success",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant self_explanation_present is satisfied by normalized semantic output.",
+          "invariant_id": "self_explanation_present",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_production_material",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "architecture-self-explanation",
+      "selected_target_ids": [
+        "error-correction",
+        "prediction-with-keywords",
+        "retrieval-summary",
+        "self-explanation"
+      ],
+      "selection_status": "success",
+      "source_status": "architecture_only",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "knowledge/pedagogy/regressions/grade-5-regression-cases.yaml",
+          "code": "no_candidate_for_required_slot",
+          "gate_id": null,
+          "record_id": "deliberate-age-inappropriate",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant selection_failure_detected is satisfied by normalized semantic output.",
+          "invariant_id": "selection_failure_detected",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-age-inappropriate",
+      "selected_target_ids": [],
+      "selection_status": "failure",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "learner_answer_leak",
+          "gate_id": "answer-leakage-absent",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-answer-leak",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "knowledge/pedagogy/regressions/grade-5-regression-cases.yaml",
+          "code": "architecture_only_readiness_claim",
+          "gate_id": null,
+          "record_id": "deliberate-architecture-ready-claim",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "policy-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_production_material",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-architecture-ready-claim",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-04.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-04.yaml",
+          "code": "language_role_incompatible",
+          "gate_id": "language-role-compatible",
+          "record_id": "grade-5-water-04-changes-review",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-04.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-04-changes-review",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-assessment-combined",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+          "code": "homeschool_material_closure_invalid",
+          "gate_id": "material-closure-resolved",
+          "record_id": "grade-5-water-01-properties-homeschool",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties-homeschool",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-classroom-method-home",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "delayed_retrieval_not_forward",
+          "gate_id": "delayed-retrieval-forward",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-immediate-retrieval",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "knowledge/pedagogy/regressions/grade-5-regression-cases.yaml",
+          "code": "invalid_teacher_override",
+          "gate_id": null,
+          "record_id": "deliberate-incompatible-method-selection",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": null,
+        "production_ready": false,
+        "structurally_complete": null
+      },
+      "handler_id": "selection-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant selection_failure_detected is satisfied by normalized semantic output.",
+          "invariant_id": "selection_failure_detected",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-incompatible-method-selection",
+      "selected_target_ids": [],
+      "selection_status": "failure",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "language_role_incompatible",
+          "gate_id": "language-role-compatible",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-language-demand",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+          "code": "homeschool_material_closure_invalid",
+          "gate_id": "material-closure-resolved",
+          "record_id": "grade-5-water-03-melting-condensation-homeschool",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-03-melting-condensation-homeschool",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-missing-adapted-contract",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+          "code": "safety_contract_invalid",
+          "gate_id": "safety-contract-preserved",
+          "record_id": "grade-5-water-03-melting-condensation-homeschool",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-03-melting-condensation-homeschool",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-missing-supervision",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "retrieval_cycle_invalid",
+          "gate_id": "retrieval-cycle-valid",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-open-source-retrieval",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+          "code": "homeschool_material_closure_invalid",
+          "gate_id": "material-closure-resolved",
+          "record_id": "grade-5-water-01-properties-homeschool",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties-homeschool",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-parent-subject-teaching",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "timing_reconciliation_failed",
+          "gate_id": "timing-reconciled",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-timing-overflow",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "deliberate_failure",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "cross_artifact_alignment_failed",
+          "gate_id": "cross-artifact-alignment",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "deliberate-wrong-task-binding",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "expected_failure",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-04.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant assessment_separated is satisfied by normalized semantic output.",
+          "invariant_id": "assessment_separated",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant no_effectiveness_claim is satisfied by normalized semantic output.",
+          "invariant_id": "no_effectiveness_claim",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant readiness_evidence_gated is satisfied by normalized semantic output.",
+          "invariant_id": "readiness_evidence_gated",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-assessment-separation",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-03.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant collaborative_method_present is satisfied by normalized semantic output.",
+          "invariant_id": "collaborative_method_present",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant material_alignment is satisfied by normalized semantic output.",
+          "invariant_id": "material_alignment",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant timing_reconciled is satisfied by normalized semantic output.",
+          "invariant_id": "timing_reconciled",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-collaboration",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant language_demand_within_ceiling is satisfied by normalized semantic output.",
+          "invariant_id": "language_demand_within_ceiling",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant material_alignment is satisfied by normalized semantic output.",
+          "invariant_id": "material_alignment",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant source_identity_current is satisfied by normalized semantic output.",
+          "invariant_id": "source_identity_current",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant timing_reconciled is satisfied by normalized semantic output.",
+          "invariant_id": "timing_reconciled",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-concept-introduction",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant delayed_retrieval_future is satisfied by normalized semantic output.",
+          "invariant_id": "delayed_retrieval_future",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant retrieval_source_closed is satisfied by normalized semantic output.",
+          "invariant_id": "retrieval_source_closed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-delayed-retrieval",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-02.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant quiet_individual_method_present is satisfied by normalized semantic output.",
+          "invariant_id": "quiet_individual_method_present",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant retrieval_correction_after_attempt is satisfied by normalized semantic output.",
+          "invariant_id": "retrieval_correction_after_attempt",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-quiet-individual",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-04.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant answer_key_after_attempt is satisfied by normalized semantic output.",
+          "invariant_id": "answer_key_after_attempt",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant retrieval_correction_after_attempt is satisfied by normalized semantic output.",
+          "invariant_id": "retrieval_correction_after_attempt",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant retrieval_source_closed is satisfied by normalized semantic output.",
+          "invariant_id": "retrieval_source_closed",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-retrieval-correction",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_classroom",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-03.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant adult_supervision_preserved is satisfied by normalized semantic output.",
+          "invariant_id": "adult_supervision_preserved",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant material_alignment is satisfied by normalized semantic output.",
+          "invariant_id": "material_alignment",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant source_identity_current is satisfied by normalized semantic output.",
+          "invariant_id": "source_identity_current",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant timing_reconciled is satisfied by normalized semantic output.",
+          "invariant_id": "timing_reconciled",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-classroom-safe-practical",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_homeschool",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant adapted_contract_complete is satisfied by normalized semantic output.",
+          "invariant_id": "adapted_contract_complete",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant parent_role_bounded is satisfied by normalized semantic output.",
+          "invariant_id": "parent_role_bounded",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant readiness_evidence_gated is satisfied by normalized semantic output.",
+          "invariant_id": "readiness_evidence_gated",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-homeschool-low-support",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_homeschool",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant adult_supervision_preserved is satisfied by normalized semantic output.",
+          "invariant_id": "adult_supervision_preserved",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant material_alignment is satisfied by normalized semantic output.",
+          "invariant_id": "material_alignment",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant parent_role_bounded is satisfied by normalized semantic output.",
+          "invariant_id": "parent_role_bounded",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-homeschool-practical-safety",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "case_kind": "production_homeschool",
+      "checked_artifacts": [
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+      ],
+      "diagnostics": [],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": true
+      },
+      "handler_id": "production-quality",
+      "invariants": [
+        {
+          "detail": "Invariant adapted_contract_complete is satisfied by normalized semantic output.",
+          "invariant_id": "adapted_contract_complete",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant material_alignment is satisfied by normalized semantic output.",
+          "invariant_id": "material_alignment",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant parent_role_bounded is satisfied by normalized semantic output.",
+          "invariant_id": "parent_role_bounded",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structurally_complete is satisfied by normalized semantic output.",
+          "invariant_id": "structurally_complete",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "production-homeschool-reselected-contract",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "production_baseline",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "pedagogy_identity_stale",
+          "gate_id": "identity-chain-current",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-catalogue-digest",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/lesson-02.yaml",
+        "lesson-plans/grade-5-science/water/lesson-03.yaml",
+        "lesson-plans/grade-5-science/water/lesson-04.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/README.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md",
+        "teacher-packs/grade-5-science/water/assessment-rubric.md",
+        "teacher-packs/grade-5-science/water/homeschool-guide.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/parent/home-observation-safety-card.md",
+        "teacher-packs/grade-5-science/water/parent/weekly-progress-checklist.md",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/preparation-checklist.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-reflection-card.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md",
+        "teacher-packs/grade-5-science/water/student/water-oral-answer-preparation.md",
+        "teacher-packs/grade-5-science/water/teacher-guide.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+          "code": "readiness_claim_not_supported",
+          "gate_id": "readiness-honest",
+          "record_id": "grade-5-science-water-teacher-pack",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-science-water-teacher-pack",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant readiness_evidence_gated is satisfied by normalized semantic output.",
+          "invariant_id": "readiness_evidence_gated",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-classroom-trial",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-02.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-02.yaml",
+          "code": "pedagogy_identity_stale",
+          "gate_id": "identity-chain-current",
+          "record_id": "grade-5-water-02-states",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-02.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-02-states",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-content-identity",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "knowledge/pedagogy/selection/selection-rules.yaml",
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "pedagogy_identity_stale",
+          "gate_id": "identity-chain-current",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-selection-rules",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "knowledge/pedagogy/taxonomy/pedagogical-taxonomy.yaml",
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "pedagogy_identity_stale",
+          "gate_id": "identity-chain-current",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-water-01-properties",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-taxonomy-version",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/lesson-02.yaml",
+        "lesson-plans/grade-5-science/water/lesson-03.yaml",
+        "lesson-plans/grade-5-science/water/lesson-04.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/README.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md",
+        "teacher-packs/grade-5-science/water/assessment-rubric.md",
+        "teacher-packs/grade-5-science/water/homeschool-guide.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/parent/home-observation-safety-card.md",
+        "teacher-packs/grade-5-science/water/parent/weekly-progress-checklist.md",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/preparation-checklist.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-reflection-card.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md",
+        "teacher-packs/grade-5-science/water/student/water-oral-answer-preparation.md",
+        "teacher-packs/grade-5-science/water/teacher-guide.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+          "code": "pedagogy_identity_stale",
+          "gate_id": "identity-chain-current",
+          "record_id": "grade-5-science-water-teacher-pack",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-science-water-teacher-pack",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-teacher-pack-fingerprint",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    },
+    {
+      "actual_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "case_kind": "stale_evidence",
+      "checked_artifacts": [
+        "lesson-plans/grade-5-science/water/lesson-01.yaml",
+        "lesson-plans/grade-5-science/water/lesson-02.yaml",
+        "lesson-plans/grade-5-science/water/lesson-03.yaml",
+        "lesson-plans/grade-5-science/water/lesson-04.yaml",
+        "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+        "teacher-packs/grade-5-science/water/README.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+        "teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md",
+        "teacher-packs/grade-5-science/water/assessment-rubric.md",
+        "teacher-packs/grade-5-science/water/homeschool-guide.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+        "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+        "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+        "teacher-packs/grade-5-science/water/materials-index.yaml",
+        "teacher-packs/grade-5-science/water/parent/home-observation-safety-card.md",
+        "teacher-packs/grade-5-science/water/parent/weekly-progress-checklist.md",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+        "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+        "teacher-packs/grade-5-science/water/preparation-checklist.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+        "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+        "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-reflection-card.md",
+        "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md",
+        "teacher-packs/grade-5-science/water/student/water-oral-answer-preparation.md",
+        "teacher-packs/grade-5-science/water/teacher-guide.md"
+      ],
+      "diagnostics": [
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+          "code": "readiness_claim_not_supported",
+          "gate_id": "readiness-honest",
+          "record_id": "grade-5-science-water-teacher-pack",
+          "severity": "error"
+        },
+        {
+          "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+          "code": "structural_completeness_blocked",
+          "gate_id": "structural-completeness",
+          "record_id": "grade-5-science-water-teacher-pack",
+          "severity": "error"
+        }
+      ],
+      "expected_claims": {
+        "curriculum_complete": false,
+        "effectiveness_claimed": false,
+        "pedagogy_schema_valid": true,
+        "production_ready": false,
+        "structurally_complete": false
+      },
+      "handler_id": "quality-mutation",
+      "invariants": [
+        {
+          "detail": "Invariant diagnostic_detected is satisfied by normalized semantic output.",
+          "invariant_id": "diagnostic_detected",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant readiness_evidence_gated is satisfied by normalized semantic output.",
+          "invariant_id": "readiness_evidence_gated",
+          "status": "passed"
+        },
+        {
+          "detail": "Invariant structural_claim_blocked is satisfied by normalized semantic output.",
+          "invariant_id": "structural_claim_blocked",
+          "status": "passed"
+        }
+      ],
+      "non_guarantees": [
+        "not_curriculum_complete",
+        "not_effectiveness_evidence",
+        "not_teacher_approved",
+        "not_trial_evidence"
+      ],
+      "regression_id": "stale-teacher-review",
+      "selected_target_ids": [],
+      "selection_status": "not_applicable",
+      "source_status": "stale_evidence",
+      "status": "passed"
+    }
+  ],
+  "checked_artifacts": [
+    "knowledge/pedagogy/activities/activity-catalog.yaml",
+    "knowledge/pedagogy/patterns/classroom-patterns.yaml",
+    "knowledge/pedagogy/patterns/homeschool-patterns.yaml",
+    "knowledge/pedagogy/quality/quality-exceptions.yaml",
+    "knowledge/pedagogy/quality/quality-gates.yaml",
+    "knowledge/pedagogy/regressions/grade-5-regression-cases.yaml",
+    "knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml",
+    "knowledge/pedagogy/selection/selection-rules.yaml",
+    "knowledge/pedagogy/taxonomy/pedagogical-taxonomy.yaml",
+    "lesson-plans/grade-5-science/water/lesson-01.yaml",
+    "lesson-plans/grade-5-science/water/lesson-02.yaml",
+    "lesson-plans/grade-5-science/water/lesson-03.yaml",
+    "lesson-plans/grade-5-science/water/lesson-04.yaml",
+    "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+    "schemas/pedagogy-regression-cases.schema.json",
+    "schemas/pedagogy-regression-report.schema.json",
+    "teacher-packs/grade-5-science/water/README.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md",
+    "teacher-packs/grade-5-science/water/assessment-rubric.md",
+    "teacher-packs/grade-5-science/water/homeschool-guide.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+    "teacher-packs/grade-5-science/water/materials-index.yaml",
+    "teacher-packs/grade-5-science/water/parent/home-observation-safety-card.md",
+    "teacher-packs/grade-5-science/water/parent/weekly-progress-checklist.md",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+    "teacher-packs/grade-5-science/water/preparation-checklist.md",
+    "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+    "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md",
+    "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+    "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+    "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md",
+    "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+    "teacher-packs/grade-5-science/water/student/lesson-04-reflection-card.md",
+    "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md",
+    "teacher-packs/grade-5-science/water/student/water-oral-answer-preparation.md",
+    "teacher-packs/grade-5-science/water/teacher-guide.md"
+  ],
+  "claims": {
+    "all_regression_cases_passed": true,
+    "classroom_ready": false,
+    "curriculum_complete": false,
+    "effectiveness_claimed": false,
+    "homeschool_ready": false,
+    "production_water_pilot_structurally_complete": true,
+    "teacher_approved": false
+  },
+  "content_identities": [
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-01-properties",
+      "value": "7fb21388371109e4a08ba5df171d2d8fcdbd05a1460d29c88398950ebd7dbee9"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-02-states",
+      "value": "3708cc17ac3d5b3462060af7fd18a0c0b63d1ff8d918d0f6e72ce7aa218babcc"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-03-melting-condensation",
+      "value": "a3ea29314d8e7f620316ea361a024c34f23fafba58eb04f39c49438e1d396dd5"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-04-changes-review",
+      "value": "14285bbe5a1a3cea4112fb96ba40f13de14170e3c3113644cae4638f91cf9da1"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-four-lesson-plan",
+      "value": "bb78af3a4db7362cf09857f90f5bff28c0a81349e43f2035489a5931aae372ef"
+    }
+  ],
+  "counts": {
+    "by_case_kind": {
+      "architecture_only": 5,
+      "deliberate_failure": 14,
+      "production_classroom": 7,
+      "production_homeschool": 3,
+      "stale_evidence": 7
+    },
+    "failed": 0,
+    "invariants": {
+      "failed": 0,
+      "passed": 106,
+      "total": 106
+    },
+    "passed": 36,
+    "total": 36
+  },
+  "digests": {
+    "activity_catalogue": "8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370",
+    "fixture_catalogue": "55f02791099218480260177b604f5be994bbfbd47aec0bb413f4e378baeedad6",
+    "quality_gate_catalogue": "dbf47d79d20ee7ba87ec382827a30a49a4835da58ff717607e244a1641763e0d"
+  },
+  "engine_version": "1.0",
+  "non_guarantees": [
+    "not_curriculum_complete",
+    "not_effectiveness_evidence",
+    "not_production_material",
+    "not_teacher_approved",
+    "not_trial_evidence"
+  ],
+  "regression_catalogue_version": "1.0",
+  "report_id": "grade-5-pedagogy-regression-report",
+  "schema_version": "1.0",
+  "scope": {
+    "architecture_only_scope": [
+      "additional_scaffolding",
+      "ecosystem_comparison",
+      "justified_nonstandard_pattern",
+      "map_data_interpretation",
+      "self_explanation"
+    ],
+    "grade": 5,
+    "production_scope": "four-lesson-water-pilot",
+    "reference_family": "grade-5-science-reference-pilots",
+    "subject": "science"
+  },
+  "teacher_pack_fingerprint": {
+    "algorithm": "sha256",
+    "file_count": 78,
+    "specification_version": "1.0",
+    "value": "13baf6f243b48f62ada192ce91efbd87f5cb6044aab3eb6bd3404a2b8977b7fd"
+  },
+  "versions": {
+    "fingerprint_specification": "1.0",
+    "homeschool_engine": "1.0",
+    "integration_engine": "1.0",
+    "lesson_dna_schema": "1.0",
+    "quality_engine": "1.0",
+    "selection_engine": "1.1",
+    "selection_rules": "1.0",
+    "taxonomy": "1.0"
+  }
+}

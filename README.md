@@ -33,7 +33,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
 - `pedagogical-reviews/` contains unfilled review/trial instruments and the privacy-safe evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
-- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, the deterministic lesson-pedagogy selector, and the structural homeschool adaptation engine; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md), and [`docs/homeschool-learning-engine.md`](docs/homeschool-learning-engine.md).
+- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, the deterministic lesson-pedagogy selector, the structural homeschool adaptation engine, quality gates, and bounded regression pilots; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md), [`docs/homeschool-learning-engine.md`](docs/homeschool-learning-engine.md), [`docs/pedagogy-quality-gates.md`](docs/pedagogy-quality-gates.md), and [`docs/pedagogy-regressions.md`](docs/pedagogy-regressions.md).
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
 - `external-sources/registry.yaml` is the shared registry for optional verified non-Opiq supplements; it is currently empty.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
@@ -246,6 +246,16 @@ machine files with their strict schemas, while activity safety uses the exact
 checks are scope-limited and fail when no record matches. Run
 `npm run test:pedagogy-quality`,
 `npm run check:pedagogy-quality`, and `npm run check:pedagogy-quality-report`.
+
+Deterministic [pedagogical regression pilots](docs/pedagogy-regressions.md)
+compose the existing selection, homeschool, integration, quality, fingerprint,
+and review-evidence models. The initial grade-5 suite contains production
+classroom and homeschool checks, architecture-only applicability examples,
+deliberate failures, and stale-evidence cases. It records semantic invariants
+rather than accepting a generated file merely because its bytes are stable.
+Run `npm run test:pedagogy-regressions`,
+`npm run check:pedagogy-regressions`, and
+`npm run check:pedagogy-regression-report`.
 
 ```sh
 npm run test:pedagogy

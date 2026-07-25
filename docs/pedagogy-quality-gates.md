@@ -50,10 +50,11 @@ missing evaluators do not. Warning-only and informational results remain
 visible without becoming hidden blockers. Empty evaluation scope never
 produces a positive structural claim.
 
-This boundary leaves issue #63 responsible for human review/trial workflow and
-issue #64 responsible for broad pedagogical regression profiles. The focused
-mutation fixtures here prove validator behavior; they are not representative
-curriculum coverage.
+This boundary leaves issue #63 responsible for human review/trial workflow.
+The separate [pedagogical regression framework](pedagogy-regressions.md)
+composes these gates with selection and production artifacts. Focused quality
+mutations prove validator behavior; the regression pilots preserve meaningful
+cross-engine invariants without claiming representative curriculum coverage.
 
 ## Versioned catalogue
 

@@ -23,6 +23,7 @@ on:
       - docs/lesson-pedagogy-engine.md
       - docs/homeschool-learning-engine.md
       - docs/pedagogy-quality-gates.md
+      - docs/pedagogy-regressions.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -55,6 +56,7 @@ on:
       - docs/lesson-pedagogy-engine.md
       - docs/homeschool-learning-engine.md
       - docs/pedagogy-quality-gates.md
+      - docs/pedagogy-regressions.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -163,6 +165,15 @@ jobs:
 
       - name: Check generated pedagogical quality report
         run: npm run check:pedagogy-quality-report
+
+      - name: Test pedagogical regression cases
+        run: npm run test:pedagogy-regressions
+
+      - name: Check pedagogical regression cases
+        run: npm run check:pedagogy-regressions
+
+      - name: Check generated pedagogical regression report
+        run: npm run check:pedagogy-regression-report
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

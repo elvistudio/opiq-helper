@@ -1,0 +1,832 @@
+schema_version: "1.0"
+artifact_type: pedagogy_regression_case_catalogue
+regression_catalogue_version: "1.0"
+engine_version: "1.0"
+cases:
+  - regression_id: architecture-ecosystem-comparison
+    schema_version: "1.0"
+    status: architecture_only
+    case_kind: architecture_only
+    title_ru: Архитектурный подбор метода для сравнения экосистем без заявления о готовом уроке.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: selection-architecture
+    source_scope:
+      scope_kind: architecture_selection
+      record_id: null
+      selection_fixture_id: grade5-concept-introduction
+      transform_id: ecosystem_comparison
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection:
+      status: success
+      include_target_ids: [venn-diagram]
+      exclude_target_ids: []
+    expected_invariants: [comparison_capability_present, grade_delivery_compatible, language_demand_within_ceiling, no_production_artifacts_claimed, selection_success]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_production_material, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: architecture-justified-nonstandard
+    schema_version: "1.0"
+    status: architecture_only
+    case_kind: architecture_only
+    title_ru: Обоснованная нестандартная замена сохраняет точный teacher override и не становится production-уроком.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: selection-architecture
+    source_scope:
+      scope_kind: architecture_selection
+      record_id: null
+      selection_fixture_id: grade5-teacher-override
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection:
+      status: success
+      include_target_ids: [concept-map]
+      exclude_target_ids: [gallery-walk]
+    expected_invariants: [grade_delivery_compatible, group_context_compatible, no_production_artifacts_claimed, selection_success, teacher_override_rationale_preserved]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_production_material, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: architecture-map-data
+    schema_version: "1.0"
+    status: architecture_only
+    case_kind: architecture_only
+    title_ru: Архитектурный подбор работы с картой и данными без фиктивных production-материалов.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: selection-architecture
+    source_scope:
+      scope_kind: architecture_selection
+      record_id: null
+      selection_fixture_id: grade5-map-diagram
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection:
+      status: success
+      include_target_ids: [learning-stations::map-data]
+      exclude_target_ids: []
+    expected_invariants: [grade_delivery_compatible, language_demand_within_ceiling, map_data_capability_present, no_production_artifacts_claimed, selection_success]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_production_material, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: architecture-scaffolded-learner
+    schema_version: "1.0"
+    status: architecture_only
+    case_kind: architecture_only
+    title_ru: Архитектурный подбор с дополнительными опорами для русского объяснения и эстонского A1–A2.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: selection-architecture
+    source_scope:
+      scope_kind: architecture_selection
+      record_id: null
+      selection_fixture_id: grade5-concept-introduction
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection:
+      status: success
+      include_target_ids: [guided-reading]
+      exclude_target_ids: [jigsaw]
+    expected_invariants: [additional_scaffolding_present, grade_delivery_compatible, language_demand_within_ceiling, no_production_artifacts_claimed, selection_success]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_production_material, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: architecture-self-explanation
+    schema_version: "1.0"
+    status: architecture_only
+    case_kind: architecture_only
+    title_ru: Архитектурный подбор самообъяснения с последующей проверкой без готового production-урока.
+    grade: 5
+    subject: science
+    delivery_mode: independent_study
+    handler_id: selection-architecture
+    source_scope:
+      scope_kind: architecture_selection
+      record_id: null
+      selection_fixture_id: grade5-independent-retrieval
+      transform_id: self_explanation
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection:
+      status: success
+      include_target_ids: [self-explanation]
+      exclude_target_ids: []
+    expected_invariants: [grade_delivery_compatible, language_demand_within_ceiling, no_production_artifacts_claimed, selection_success, self_explanation_present]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_production_material, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-age-inappropriate
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Несовместимый с возрастом практический подбор должен быть отклонён hard constraints.
+    grade: 1
+    subject: science
+    delivery_mode: classroom
+    handler_id: selection-mutation
+    source_scope:
+      scope_kind: selection_mutation
+      record_id: null
+      selection_fixture_id: grade5-safe-practical
+      transform_id: age_inappropriate
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection: {status: failure, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [selection_failure_detected]
+    expected_diagnostics:
+      - {severity: error, code: no_candidate_for_required_slot, gate_id: null}
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-answer-leak
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Полный правильный ответ в learner-facing материале должен быть обнаружен quality gate.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: learner_answer_leak
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-01.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: learner_answer_leak, gate_id: answer-leakage-absent}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-architecture-ready-claim
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Архитектурный planning fixture не может объявлять production readiness или authored materials.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: policy-mutation
+    source_scope:
+      scope_kind: policy_mutation
+      record_id: null
+      selection_fixture_id: grade5-map-diagram
+      transform_id: none
+      scenario_id: architecture_only_production_ready
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected]
+    expected_diagnostics:
+      - {severity: error, code: architecture_only_readiness_claim, gate_id: null}
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_production_material, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-assessment-combined
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Объединение предметного и эстонского языкового оценивания должно быть обнаружено.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-04-changes-review
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: combined_assessment
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-04.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: language_role_incompatible, gate_id: language-role-compatible}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-classroom-method-home
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Classroom-only material or method не может молча считаться совместимым с homeschool.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: classroom_method_in_homeschool
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: homeschool_material_closure_invalid, gate_id: material-closure-resolved}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-immediate-retrieval
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Немедленное повторение не должно проходить как честно отложенное retrieval-событие.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: immediate_instead_delayed
+      artifact_paths: [lesson-plans/grade-5-science/water/thematic-plan.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: delayed_retrieval_not_forward, gate_id: delayed-retrieval-forward}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-incompatible-method-selection
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Несовместимый practical override без доступного надзора должен быть отклонён selection engine.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: selection-mutation
+    source_scope:
+      scope_kind: selection_mutation
+      record_id: null
+      selection_fixture_id: grade5-unsafe-override
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [knowledge/pedagogy/selection/grade-5-selection-fixtures.yaml]
+    expected_selection: {status: failure, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [selection_failure_detected]
+    expected_diagnostics:
+      - {severity: error, code: invalid_teacher_override, gate_id: null}
+    expected_claims: {pedagogy_schema_valid: null, structurally_complete: null, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-language-demand
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Продуктивная языковая нагрузка выше установленного ceiling должна блокировать composition.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: language_demand_above_ceiling
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-01.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: language_role_incompatible, gate_id: language-role-compatible}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-missing-adapted-contract
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Reselected homeschool target без explicit adapted task contract должен завершаться ошибкой.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-03-melting-condensation-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: missing_adapted_task_contract
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: homeschool_material_closure_invalid, gate_id: material-closure-resolved}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-missing-supervision
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Практическая homeschool-адаптация без обязательного взрослого надзора должна завершаться ошибкой.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-03-melting-condensation-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: missing_adult_supervision
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: safety_contract_invalid, gate_id: safety-contract-preserved}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-open-source-retrieval
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Retrieval с открытым источником на первой попытке должен быть обнаружен как содержательная поломка.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: open_source_retrieval
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-01.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: retrieval_cycle_invalid, gate_id: retrieval-cycle-valid}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-parent-subject-teaching
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Homeschool contract не должен превращать родителя в предметного учителя по умолчанию.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: parent_subject_teaching
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: homeschool_material_closure_invalid, gate_id: material-closure-resolved}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-timing-overflow
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Переполнение длительности lesson DNA должно блокировать structural completeness.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: timing_overflow
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-01.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: timing_reconciliation_failed, gate_id: timing-reconciled}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: deliberate-wrong-task-binding
+    schema_version: "1.0"
+    status: expected_failure
+    case_kind: deliberate_failure
+    title_ru: Несовпадение worksheet, task и key identities должно быть обнаружено cross-artifact gate.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: wrong_task_binding
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: cross_artifact_alignment_failed, gate_id: cross-artifact-alignment}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-assessment-separation
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Предметное и эстонское языковое оценивание остаются отдельными в production lesson.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-04-changes-review
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-04.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [assessment_separated, no_effectiveness_claim, readiness_evidence_gated, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-collaboration
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Практическая classroom-композиция сохраняет содержательную работу малой группы.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-03-melting-condensation
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-03.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [collaborative_method_present, material_alignment, structurally_complete, timing_reconciled]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-concept-introduction
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Production lesson введения свойств воды сохраняет цели, timing и языковые границы.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-01.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [language_demand_within_ceiling, material_alignment, source_identity_current, structurally_complete, timing_reconciled]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-delayed-retrieval
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Межурочный retrieval остаётся связанным с будущим уроком или следующим unit.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/thematic-plan.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [delayed_retrieval_future, retrieval_source_closed, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-quiet-individual
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Тихая индивидуальная работа остаётся доступной в production lesson без группового принуждения.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-02-states
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-02.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [quiet_individual_method_present, retrieval_correction_after_attempt, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-retrieval-correction
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Production retrieval сохраняет закрытую первую попытку, ключ после неё и видимое исправление.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-04-changes-review
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-04.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [answer_key_after_attempt, retrieval_correction_after_attempt, retrieval_source_closed, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-classroom-safe-practical
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_classroom
+    title_ru: Safe practical investigation сохраняет task/material identity и обязательные safety controls.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-03-melting-condensation
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [lesson-plans/grade-5-science/water/lesson-03.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [adult_supervision_preserved, material_alignment, source_identity_current, structurally_complete, timing_reconciled]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-homeschool-low-support
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_homeschool
+    title_ru: Homeschool package сохраняет низкую поддержку взрослого и самостоятельную ответственность ребёнка.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-01-properties-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [adapted_contract_complete, parent_role_bounded, readiness_evidence_gated, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-homeschool-practical-safety
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_homeschool
+    title_ru: Домашний practical package сохраняет непрерывный взрослый надзор и разрешение учителя.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-03-melting-condensation-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [adult_supervision_preserved, material_alignment, parent_role_bounded, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: production-homeschool-reselected-contract
+    schema_version: "1.0"
+    status: production_baseline
+    case_kind: production_homeschool
+    title_ru: Reselected домашний practical target сохраняет explicit adapted task contract и material closure.
+    grade: 5
+    subject: science
+    delivery_mode: homeschool
+    handler_id: production-quality
+    source_scope:
+      scope_kind: production_record
+      record_id: grade-5-water-03-melting-condensation-homeschool
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: none
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [adapted_contract_complete, material_alignment, parent_role_bounded, structurally_complete]
+    expected_diagnostics: []
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: true, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-catalogue-digest
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревший activity catalogue digest должен блокировать current identity и structural claim.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_catalogue_digest
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: pedagogy_identity_stale, gate_id: identity-chain-current}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-classroom-trial
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревший classroom-trial fingerprint не может поддерживать readiness claim.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-science-water-teacher-pack
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_classroom_trial
+      artifact_paths: [teacher-packs/grade-5-science/water/materials-index.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, readiness_evidence_gated, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: readiness_claim_not_supported, gate_id: readiness-honest}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-content-identity
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревшая scientific content identity должна обнаруживаться без изменения исходного содержания.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-02-states
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_content_identity
+      artifact_paths: [teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: pedagogy_identity_stale, gate_id: identity-chain-current}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-selection-rules
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревшая selection-rules version должна блокировать identity chain.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_selection_rules
+      artifact_paths: [knowledge/pedagogy/selection/selection-rules.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: pedagogy_identity_stale, gate_id: identity-chain-current}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-taxonomy-version
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревшая taxonomy version должна блокировать identity chain без изменения каталога.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-water-01-properties
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_taxonomy_version
+      artifact_paths: [knowledge/pedagogy/taxonomy/pedagogical-taxonomy.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: pedagogy_identity_stale, gate_id: identity-chain-current}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-teacher-pack-fingerprint
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревший teacher-pack fingerprint должен блокировать identity freshness.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-science-water-teacher-pack
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_teacher_pack_fingerprint
+      artifact_paths: [teacher-packs/grade-5-science/water/materials-index.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: pedagogy_identity_stale, gate_id: identity-chain-current}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
+
+  - regression_id: stale-teacher-review
+    schema_version: "1.0"
+    status: stale_evidence
+    case_kind: stale_evidence
+    title_ru: Устаревший teacher-review fingerprint не может поддерживать approval или readiness.
+    grade: 5
+    subject: science
+    delivery_mode: classroom
+    handler_id: quality-mutation
+    source_scope:
+      scope_kind: quality_mutation
+      record_id: grade-5-science-water-teacher-pack
+      selection_fixture_id: null
+      transform_id: none
+      scenario_id: stale_teacher_review
+      artifact_paths: [teacher-packs/grade-5-science/water/materials-index.yaml]
+    expected_selection: {status: not_applicable, include_target_ids: [], exclude_target_ids: []}
+    expected_invariants: [diagnostic_detected, readiness_evidence_gated, structural_claim_blocked]
+    expected_diagnostics:
+      - {severity: error, code: readiness_claim_not_supported, gate_id: readiness-honest}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
