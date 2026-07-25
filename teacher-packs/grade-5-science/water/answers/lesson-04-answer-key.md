@@ -49,11 +49,13 @@ Lesson ID: `grade-5-water-04-changes-review`.
 - Phase: `retrieval`.
 - Evaluation: `answer_key`.
 - Prompt source refs: `stage:retrieve-water-unit:pupil_action_ru`.
-- Evidence source refs: `stage:retrieve-water-unit:expected_evidence_of_learning`, `assessment:assess-et-recognition-unit:acceptable_evidence`.
-- Ожидаемое evidence: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
-- Допустимая языковая опора: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином..
+- Answer evidence refs: `stage:retrieve-water-unit:expected_evidence_of_learning`, `assessment:assess-et-recognition-unit:acceptable_evidence`.
+- Полный правильный ответ/evidence: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
+- Языковой ответ: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином..
+- Допустимые варианты: Vesi aurustub või veeldub.; Vesi muudab temperatuuri mõjul olekut..
 - Доступ: `after_first_attempt`; первая попытка сохраняется.
-- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание..
+- Коррекция: сохранить корректную часть первой попытки и явно исправить ошибочную связь по evidence.
 - Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
 - Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
@@ -62,11 +64,13 @@ Lesson ID: `grade-5-water-04-changes-review`.
 - Phase: `correction`.
 - Evaluation: `answer_key`.
 - Prompt source refs: `stage:complete-change-model-ru:pupil_action_ru`.
-- Evidence source refs: `question:question-opposite-processes:full_expected_answer_ru`, `assessment:assess-subject-complete-cycle:acceptable_evidence`.
-- Ожидаемое evidence: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
-- Допустимая языковая опора: Одна поддержанная причинная фраза с двумя терминами..
+- Answer evidence refs: `question:question-opposite-processes:full_expected_answer_ru`, `assessment:assess-subject-complete-cycle:acceptable_evidence`.
+- Полный правильный ответ/evidence: Плавление противоположно замерзанию, а испарение — конденсации; направление зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
+- Языковой ответ: Soojenemisel jää sulab; jahtumisel vesi jäätub..
+- Допустимые варианты: Vesi aurustub või veeldub.; Vesi muudab temperatuuri mõjul olekut..
 - Доступ: `after_first_attempt`; первая попытка сохраняется.
-- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание..
+- Коррекция: сохранить корректную часть первой попытки и явно исправить ошибочную связь по evidence.
 - Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
 - Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
@@ -75,11 +79,13 @@ Lesson ID: `grade-5-water-04-changes-review`.
 - Phase: `consolidation`.
 - Evaluation: `answer_key`.
 - Prompt source refs: `stage:revision-stations:pupil_action_ru`, `stage:separate-unit-assessment:pupil_action_ru`.
-- Evidence source refs: `assessment:assess-subject-complete-cycle:acceptable_evidence`, `assessment:assess-et-independent-unit:acceptable_evidence`.
-- Ожидаемое evidence: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или переработанным термином.
-- Допустимая языковая опора: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами..
+- Answer evidence refs: `assessment:assess-subject-complete-cycle:acceptable_evidence`, `assessment:assess-et-independent-unit:acceptable_evidence`.
+- Полный правильный ответ/evidence: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или переработанным термином.
+- Языковой ответ: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами..
+- Допустимые варианты: Vesi aurustub või veeldub.; Vesi muudab temperatuuri mõjul olekut..
 - Доступ: `after_first_attempt`; первая попытка сохраняется.
-- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание.
+- Типичная ошибка: Перечень терминов без объяснения направления не доказывает предметное понимание..
+- Коррекция: сохранить корректную часть первой попытки и явно исправить ошибочную связь по evidence.
 - Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
 - Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 

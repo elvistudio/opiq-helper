@@ -92,7 +92,7 @@ Timing compatibility rules: `1.0`.
 - Source access: `open`.
 - Evaluation: `teacher_observation`; answer access: `not_applicable`.
 - Assessment refs: нет.
-- Language support: Mis olekus võivad vesi ja jää olla?.
+- Language answer evidence: Jää on tahke ja vesi on vedel..
 - Safety: специальные меры не требуются.
 - Binding rationale: Brainstorming занимает полную activation stage и сохраняет исходную гипотезу до построения модели.
 
@@ -112,7 +112,7 @@ Selection rationale: Target brainstorming прошёл hard constraints и по�
 - Source access: `open`.
 - Evaluation: `evidence_criterion`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`.
-- Language support: Правильное размещение терминов на схеме..
+- Language answer evidence: Jää on tahke ja vesi on vedel..
 - Safety: специальные меры не требуются.
 - Binding rationale: Visual representation полностью размещается в русской explanation stage и материализует модель состояний.
 
@@ -132,7 +132,7 @@ Selection rationale: Target visual-representation::paper-diagram прошёл ha
 - Source access: `open`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`, `assess-et-supported-state`.
-- Language support: Одна понятная фраза с названием состояния и опорой..
+- Language answer evidence: Jää on tahke ja vesi on vedel..
 - Safety: специальные меры не требуются.
 - Binding rationale: Sorting and sequencing прямо соответствует карточной классификации существующей guided-practice stage.
 
@@ -152,7 +152,7 @@ Selection rationale: Target sorting-and-sequencing прошёл hard constraints
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`, `assess-et-independent-state`.
-- Language support: Jää on tahke ja vesi on vedel.; Одно понятное предложение без полной рамки..
+- Language answer evidence: Jää on tahke ja vesi on vedel.; Одно понятное предложение без полной рамки..
 - Safety: специальные меры не требуются.
 - Binding rationale: Concept map использует independent-output stage и две минуты явного language retrieval из эстонского моста.
 
@@ -173,7 +173,7 @@ Selection rationale: Target concept-map прошёл hard constraints и пол�
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-three-states`, `assess-et-recognition-states`, `assess-et-supported-state`, `assess-et-independent-state`.
-- Language support: Jää on tahke ja vesi on vedel.; Одна понятная фраза с названием состояния и опорой..
+- Language answer evidence: Jää on tahke ja vesi on vedel.; Одна понятная фраза с названием состояния и опорой..
 - Safety: специальные меры не требуются.
 - Binding rationale: Error correction использует оставшееся время классификации и отдельно фиксирует короткое language evidence.
 

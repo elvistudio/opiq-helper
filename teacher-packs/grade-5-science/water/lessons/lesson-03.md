@@ -95,7 +95,7 @@ Timing compatibility rules: `1.0`.
 - Source access: `teacher_managed`.
 - Evaluation: `teacher_observation`; answer access: `not_applicable`.
 - Assessment refs: нет.
-- Language support: tahke; vedel; veeaur.
+- Language answer evidence: Veeaur jahtub ja veeldub veeks..
 - Safety: специальные меры не требуются.
 - Binding rationale: Safety orientation полностью занимает activation stage и не создаёт фиктивного answer key.
 
@@ -115,7 +115,7 @@ Selection rationale: Target brainstorming прошёл hard constraints и по�
 - Source access: `teacher_managed`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-practical-safe-observation`, `assess-subject-phase-change`.
-- Language support: Soojas jää sulab; külmal pinnal veeaur veeldub.; Два выполненных действия и одна поддержанная фраза..
+- Language answer evidence: Soojas jää sulab; külmal pinnal veeaur veeldub.; Два выполненных действия и одна поддержанная фраза..
 - Safety: Использовать только заранее проверенные учителем безопасные материалы.; Уборку и возврат материалов контролирует взрослый.; Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.; Учитель выдаёт материалы после объяснения границ действий..
 - Binding rationale: Compact teacher-prepared observation сохраняет десять минут наблюдения и отдельно учитывает setup и cleanup.
 
@@ -135,7 +135,7 @@ Selection rationale: Target learning-stations::practical-compact-teacher-prepare
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-phase-change`, `assess-et-recognition-processes`, `assess-et-supported-instructions`.
-- Language support: Veeaur jahtub ja veeldub veeks.; Два выполненных действия и одна поддержанная фраза..
+- Language answer evidence: Veeaur jahtub ja veeldub veeks.; Два выполненных действия и одна поддержанная фраза..
 - Safety: специальные меры не требуются.
 - Binding rationale: Evidence check использует встроенное наблюдение, полный language bridge и переход к отдельному итоговому выводу.
 
@@ -157,7 +157,7 @@ Selection rationale: Target retrieval-summary прошёл hard constraints и �
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-phase-change`, `assess-et-independent-conclusion`.
-- Language support: Soojas jää sulab; külmal pinnal veeaur veeldub.; Veeaur jahtub ja veeldub veeks..
+- Language answer evidence: Soojas jää sulab; külmal pinnal veeaur veeldub.; Veeaur jahtub ja veeldub veeks..
 - Safety: специальные меры не требуются.
 - Binding rationale: One-minute recall занимает четыре минуты с setup и сохраняет независимый русский вывод до короткого эстонского ответа.
 

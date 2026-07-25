@@ -74,7 +74,7 @@ learner_plan:
       instruction_ru: Выполни только разрешённое действие вместе со взрослым и запиши наблюдение.
       learner_minutes: 13
       material_refs:
-        - melting-condensation-table
+        - lesson-03-home-passive-observation-sheet
         - practical-safety-card
       phase_id: practical-work
       safety_controls_ru:
@@ -85,7 +85,7 @@ learner_plan:
       source_access: open
       step_id: step-02-practical-work
       task_refs:
-        - grade-5-water-03-melting-condensation/practical-work-task
+        - grade-5-water-03-melting-condensation/practical-work-task--home-practical-work
     - adult_involvement: none
       completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
       estonian_roles:
@@ -104,7 +104,7 @@ learner_plan:
       source_access: closed
       step_id: step-03-evidence-check
       task_refs:
-        - grade-5-water-03-melting-condensation/evidence-check-task
+        - grade-5-water-03-melting-condensation/evidence-check-task--home-evidence-check
     - adult_involvement: none
       completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
       estonian_roles:
@@ -135,7 +135,7 @@ materials:
   consumable_materials:
     - paper
   learner_material_refs:
-    - melting-condensation-table
+    - lesson-03-home-passive-observation-sheet
     - phase-change-diagram
     - practical-safety-card
     - separate-practical-exit-card
@@ -175,11 +175,10 @@ materials:
         - water-lesson-03-guide
       valid: true
     - adapted_phase_id: practical-work
-      answer_key_refs:
-        - lesson-03-answer-key
+      answer_key_refs: []
       binding_origin: exact_adapted
       learner_material_refs:
-        - melting-condensation-table
+        - lesson-03-home-passive-observation-sheet
         - practical-safety-card
       procedure_refs:
         - policy:lesson-03-passive-ice-home-policy:adult_steps_ru

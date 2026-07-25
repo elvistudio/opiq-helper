@@ -226,6 +226,10 @@ The grade-5 water pilot demonstrates deterministic production integration of
 lesson DNA and homeschool adaptation into an existing teacher pack without
 changing the scientific authority of lesson YAML. See
 [`docs/pedagogy-generation-integration.md`](docs/pedagogy-generation-integration.md).
+It uses one immutable canonical lesson DNA, a separate production assessment
+overlay, teacher-only answer evidence, learner answer-leak checks, and explicit
+task contracts whenever a home target is reselected. Lesson 3 has a dedicated
+passive-observation sheet and no answer key for the practical step.
 Validate it with `npm run test:pedagogy-integration`,
 `npm run check:pedagogy-integration`, and
 `npm run generate:pedagogy-water-pilot -- --check`.

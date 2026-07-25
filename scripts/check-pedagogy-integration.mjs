@@ -6,6 +6,7 @@ import {
   generateWaterPilotArtifacts,
   WATER_PILOT_PACK,
 } from './lib/pedagogy-generation-integration.mjs';
+import { sha256PedagogyValue, stablePedagogyJson } from './lib/pedagogy-selection.mjs';
 
 const forbiddenStudentTerms = [
   'taxonomy',
@@ -64,6 +65,17 @@ async function validateIntegration() {
       }
     }
     const row = generated.rows.get(lesson.lesson_id);
+    const canonicalDigest = sha256PedagogyValue(row.canonicalLessonDna);
+    if (
+      stablePedagogyJson(row.canonicalLessonDna)
+        !== stablePedagogyJson(row.homeschoolRequest.source.lesson_dna)
+      || row.homeschool.decision.source_identity.source_lesson_dna_digest
+        !== canonicalDigest
+      || row.homeschool.package.source_identity.source_lesson_dna_digest
+        !== canonicalDigest
+    ) {
+      errors.push(`${lesson.lesson_id}: canonical lesson-DNA identity chain differs`);
+    }
     if (row.reconciliation.status !== 'reconciled') {
       errors.push(`${lesson.lesson_id}: timing is not reconciled`);
     }
@@ -79,7 +91,7 @@ async function validateIntegration() {
         errors.push(`${lesson.lesson_id}: stage ${stage.lesson_stage_id} is not exact`);
       }
     }
-    if (!row.lessonDna.assessment.estonian_language_assessment.enabled) {
+    if (!row.assessmentIntegration.estonian_language_assessment.enabled) {
       errors.push(`${lesson.lesson_id}: Estonian assessment is disabled`);
     }
     if (!row.homeschool.package.assessment.estonian_language_assessment) {
@@ -94,7 +106,7 @@ async function validateIntegration() {
       if (task.lesson_id !== lesson.lesson_id) {
         errors.push(`${lesson.lesson_id}: generated task has wrong lesson identity`);
       }
-      if (!row.lessonDna.phases.some((phase) => (
+      if (!row.canonicalLessonDna.phases.some((phase) => (
         phase.phase_id === task.phase_id
         && phase.target.target_id === task.target_id
       ))) {
@@ -128,7 +140,7 @@ async function validateIntegration() {
         errors.push(`${lesson.lesson_id}: student regions miss ${task.task_id}`);
       }
     }
-    if (taskIds.size !== row.lessonDna.phases.length) {
+    if (taskIds.size !== row.canonicalLessonDna.phases.length) {
       errors.push(`${lesson.lesson_id}: generated tasks do not cover every DNA phase`);
     }
     if (row.homeschool.package.status.teacher_review !== 'pending') {
@@ -147,6 +159,7 @@ async function validateIntegration() {
       resolution.answer_refs_resolved,
       resolution.procedure_refs_resolved,
       resolution.safety_refs_resolved,
+      resolution.machine_rendered_equivalent,
     ].every(Boolean)) {
       errors.push(`${lesson.lesson_id}: homeschool refs are unresolved`);
     }
@@ -163,7 +176,7 @@ async function validateIntegration() {
     }
   }
   const practical = generated.rows.get('grade-5-water-03-melting-condensation');
-  if (!practical.lessonDna.phases.some((phase) => (
+  if (!practical.canonicalLessonDna.phases.some((phase) => (
     phase.phase_id === 'practical-work'
     && phase.safety.requires_adult_supervision
   ))) {
@@ -190,6 +203,20 @@ async function validateIntegration() {
     ) {
       errors.push('lesson 3 package safety differs from policy');
     }
+  }
+  const practicalStep = practical.homeschoolRenderResolution.steps
+    .find((step) => step.phase_id === 'practical-work');
+  const practicalTask = practicalStep?.resolved_tasks[0];
+  if (
+    !practicalTask
+    || practicalTask.evaluation_mode !== 'teacher_observation'
+    || practicalTask.answer_access_policy !== 'not_applicable'
+    || practicalTask.answer_key_artifact_path !== null
+    || practicalStep.resolved_materials.some(
+      (material) => material.material_id === 'melting-condensation-table',
+    )
+  ) {
+    errors.push('lesson 3 home practical task leaks classroom evaluation or materials');
   }
   const dirs = new Set(generated.materialsIndex.reviewable_content.directory_paths);
   for (const required of [

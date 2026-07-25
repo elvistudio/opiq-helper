@@ -374,6 +374,13 @@ materials, tasks, keys, procedures, or safety references fail generation.
 Child output therefore names an exact file and action instead of an opaque
 placeholder.
 
+The production adapter does not rewrite the selector-owned source lesson DNA.
+Committed classroom DNA, the request copy, and decision/package source digests
+must form one exact chain. Production assessment phase bindings are carried as
+an integration overlay. A reselected target requires an explicit adapted task
+contract; source materials, evidence, key policy, procedure, and safety are not
+inherited automatically.
+
 The lesson-3 home observation uses a separate strict policy artifact rather
 than a lesson-position heuristic. It records the classroom target, the
 resource-compatible home target, actual home resources, passive ice/cold
@@ -382,3 +389,10 @@ heating/tasting, and stop conditions. Machine package, child Markdown, and
 parent Markdown must express the same safety boundary. This is structural
 equivalence only: teacher review remains pending, the home trial is not
 started, and `homeschool_ready` remains false.
+
+The lesson-3 home practical has its own passive-observation sheet. It does not
+reuse the classroom temperature table or answer key. The adult checks procedure
+completion and safety; the scientific conclusion is checked later in a
+separate keyed retrieval step after the child's first attempt. Learner
+rendering exposes success criteria and sentence frames, while complete answers
+and accepted variants stay in teacher-only answer regions.

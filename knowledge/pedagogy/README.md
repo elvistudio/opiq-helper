@@ -10,6 +10,11 @@ compact teacher-prepared observation execution profile so an existing
 45-minute supervised investigation can be represented without pretending that
 it is a multi-station lesson. See
 [`docs/pedagogy-generation-integration.md`](../../docs/pedagogy-generation-integration.md).
+The pilot commits one immutable selector-owned lesson DNA per lesson.
+Production assessment bindings remain a separate overlay, and every reselected
+home target requires an explicit adapted task contract. Learner-visible
+criteria are separated from teacher-only answer evidence and checked by a
+normalized answer-leak guard.
 
 The initial catalog contains:
 

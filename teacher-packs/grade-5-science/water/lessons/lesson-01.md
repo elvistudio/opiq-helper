@@ -91,7 +91,7 @@ Timing compatibility rules: `1.0`.
 - Source access: `open`.
 - Evaluation: `teacher_observation`; answer access: `not_applicable`.
 - Assessment refs: нет.
-- Language support: Milline omadus on puhtal veel?.
+- Language answer evidence: Puhas vesi on läbipaistev..
 - Safety: специальные меры не требуются.
 - Binding rationale: Brainstorming занимает всю activation stage и фиксирует исходные идеи до русского объяснения.
 
@@ -111,7 +111,7 @@ Selection rationale: Target brainstorming прошёл hard constraints и по�
 - Source access: `open`.
 - Evaluation: `teacher_observation`; answer access: `not_applicable`.
 - Assessment refs: нет.
-- Language support: Milline omadus on puhtal veel?.
+- Language answer evidence: Puhas vesi on läbipaistev..
 - Safety: специальные меры не требуются.
 - Binding rationale: Paper diagram полностью занимает русскую explanation stage и материализует научную связь без физической модели.
 
@@ -131,7 +131,7 @@ Selection rationale: Target visual-representation::paper-diagram прошёл ha
 - Source access: `open`.
 - Evaluation: `evidence_criterion`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-practical-observation`, `assess-et-recognition-properties`, `assess-et-supported-property`.
-- Language support: Milline omadus on puhtal veel?.
+- Language answer evidence: Puhas vesi on läbipaistev..
 - Safety: специальные меры не требуются.
 - Binding rationale: Venn diagram материализует сравнение двух образцов внутри существующей practical-observation stage.
 
@@ -151,7 +151,7 @@ Selection rationale: Target venn-diagram прошёл hard constraints и пол
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-water-property`, `assess-et-independent-property`.
-- Language support: Puhas vesi on läbipaistev.; Одна понятная самостоятельная фраза с aine или omadus..
+- Language answer evidence: Puhas vesi on läbipaistev.; Одна понятная самостоятельная фраза с aine или omadus..
 - Safety: специальные меры не требуются.
 - Binding rationale: Concept map использует полный independent-output и три минуты bounded language retrieval в эстонском мосте.
 
@@ -172,7 +172,7 @@ Selection rationale: Target concept-map прошёл hard constraints и пол�
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-water-property`, `assess-et-recognition-properties`, `assess-et-supported-property`, `assess-et-independent-property`.
-- Language support: Puhas vesi on läbipaistev.; Понятная фраза «Vesi on ...» с поддержкой банка слов..
+- Language answer evidence: Puhas vesi on läbipaistev.; Понятная фраза «Vesi on ...» с поддержкой банка слов..
 - Safety: специальные меры не требуются.
 - Binding rationale: Error correction связывает сохранённое наблюдение с коротким language evidence и явным исправлением.
 

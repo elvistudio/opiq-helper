@@ -16,8 +16,12 @@
 
 ## Доступ к ответам
 
-- После видимой первой попытки открой ключ самостоятельно.
-- Ключ: `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md`.
+- Общее правило: После видимой первой попытки открой ключ самостоятельно.
+- Этап `orientation`: ключ для этого действия не используется.
+- Этап `independent-practice`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+- Этап `independent-practice`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+- Этап `retrieval`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+- Этап `reflection`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
 
 Взрослый не является автоматически предметным учителем и не формулирует
 научный ответ вместо ребёнка. Нерешённый предметный вопрос передаётся учителю.

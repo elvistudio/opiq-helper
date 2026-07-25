@@ -90,7 +90,7 @@ learner_plan:
         - unit-separate-assessment
       phase_id: consolidation
       safety_controls_ru: []
-      source_access: closed
+      source_access: open
       step_id: step-03-consolidation
       task_refs:
         - grade-5-water-04-changes-review/consolidation-task
@@ -118,10 +118,10 @@ materials:
         - unit-separate-assessment
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
-      release_policy: not_applicable
+      release_policy: self_managed_after_attempt
       review_capable: true
       safety_refs: []
-      source_access_policy: closed
+      source_access_policy: open
       source_phase_ids: []
       teacher_explanation_refs:
         - water-lesson-04-guide
@@ -135,7 +135,7 @@ materials:
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
       release_policy: self_managed_after_attempt
-      review_capable: false
+      review_capable: true
       safety_refs: []
       source_access_policy: open
       source_phase_ids: []

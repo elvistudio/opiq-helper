@@ -90,8 +90,8 @@ test('production water teacher pack resolves all files with honest readiness war
   assert.match(diagnosticText(foundWarnings), /not been tested in a classroom/u);
   assert.equal(result.summary.packs, 2);
   assert.equal(result.summary.lessons, 10);
-  assert.equal(result.summary.materials, 76);
-  assert.equal(result.summary.studentDocuments, 35);
+  assert.equal(result.summary.materials, 77);
+  assert.equal(result.summary.studentDocuments, 36);
   assert.equal(thematic(repository).teacher_pack.classroom_ready, false);
   for (const artifact of lessons(repository)) {
     assert.equal(artifact.data.artifact_readiness.readiness_status, 'teacher_pack_complete_pending_review');

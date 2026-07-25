@@ -54,7 +54,7 @@ learner_plan:
       source_access: open
       step_id: step-01-orientation
       task_refs:
-        - grade-5-water-01-properties/activation-task
+        - grade-5-water-01-properties/activation-task--home-orientation
     - adult_involvement: none
       completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
       estonian_roles:
@@ -74,7 +74,7 @@ learner_plan:
       source_access: open
       step_id: step-02-independent-practice
       task_refs:
-        - grade-5-water-01-properties/explanation-task
+        - grade-5-water-01-properties/explanation-task--home-independent-practice
         - grade-5-water-01-properties/guided-practice-task
     - adult_involvement: none
       completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
@@ -138,8 +138,8 @@ materials:
         - water-sample-visual
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
-      release_policy: not_applicable
-      review_capable: false
+      release_policy: self_managed_after_attempt
+      review_capable: true
       safety_refs: []
       source_access_policy: open
       source_phase_ids:
@@ -173,7 +173,7 @@ materials:
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
       release_policy: self_managed_after_attempt
-      review_capable: false
+      review_capable: true
       safety_refs: []
       source_access_policy: open
       source_phase_ids:

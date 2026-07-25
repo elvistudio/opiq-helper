@@ -740,6 +740,49 @@ pedagogical_integration:
         subject_explanation_available: false
       answer_key_release: adult_managed
       teacher_override_policy: allow_reselection_with_warning
+      adapted_task_contracts:
+        - source_phase_id: evidence-check
+          adapted_target_id: exit-ticket
+          source_task_ref: grade-5-water-03-melting-condensation/evidence-check-task
+          task_id: grade-5-water-03-melting-condensation/evidence-check-task--home-evidence-check
+          learner_instruction_ru: Без источника сопоставь одно наблюдение с процессом, сохрани ответ и затем проверь стрелку.
+          student_material_ids: [phase-change-diagram]
+          learner_success_criterion_ru: [Первая попытка сохранена; наблюдение связано с одним процессом.]
+          learner_language_support_ru: ["Банк слов: sulamine · aurustumine · veeldumine."]
+          evaluation_mode: answer_key
+          source_access_policy: closed_first_attempt
+          answer_access_policy: adult_managed
+          answer_key_material_ids: [lesson-03-answer-key]
+          answer_evidence_refs: [question:question-condensation-origin:full_expected_answer_ru]
+          answer_language_refs: [question:question-condensation-origin:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-condensation-origin:acceptable_variants]
+          misconception_refs: [question:question-condensation-origin:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
+        - source_phase_id: practical-work
+          adapted_target_id: learning-stations::practical-home-passive-ice-observation
+          source_task_ref: grade-5-water-03-melting-condensation/practical-work-task
+          task_id: grade-5-water-03-melting-condensation/practical-work-task--home-practical-work
+          learner_instruction_ru: Наблюдай и записывай пассивное таяние льда и капли на холодной поверхности только по разрешённой взрослым процедуре.
+          student_material_ids: [lesson-03-home-passive-observation-sheet, practical-safety-card]
+          learner_success_criterion_ru:
+            - Взрослый подтвердил разрешённые материалы и наблюдал всю процедуру.
+            - Записаны начальное и последующее качественные наблюдения.
+            - Наблюдение холодной поверхности и русский вывод записаны отдельно.
+            - Нагревание не использовалось; проблема и нерешённый вопрос переданы учителю.
+          learner_language_support_ru: ["Рамка: Alguses __________. Hiljem __________."]
+          evaluation_mode: teacher_observation
+          source_access_policy: open
+          answer_access_policy: not_applicable
+          answer_key_material_ids: []
+          answer_evidence_refs: []
+          answer_language_refs: []
+          acceptable_variant_refs: []
+          misconception_refs: []
+          procedure_refs:
+            [policy:lesson-03-passive-ice-home-policy:child_steps_ru, policy:lesson-03-passive-ice-home-policy:adult_steps_ru]
+          safety_refs:
+            [policy:lesson-03-passive-ice-home-policy:safety_controls_ru, policy:lesson-03-passive-ice-home-policy:stop_conditions_ru]
       practical_policy:
         policy_id: lesson-03-passive-ice-home-policy
         artifact_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml
@@ -760,8 +803,13 @@ pedagogical_integration:
         child_steps_ru:
           - Дождаться взрослого и проверить разрешённые материалы по карточке безопасности.
           - Наблюдать пассивное таяние льда и капли на холодной поверхности без нагревания.
-          - Записать время, видимое наблюдение и отдельный научный вывод.
+          - Записать наблюдение в начале и позже, а затем отдельно сформулировать научный вывод.
           - Сразу сообщить взрослому о проливе, повреждении или предложении изменить процедуру.
+        learner_success_criteria_ru:
+          - Взрослый подтвердил разрешённые материалы до начала наблюдения.
+          - Записаны начальное и последующее качественные наблюдения.
+          - Наблюдение холодной поверхности и русский вывод записаны отдельно.
+          - Нагревание не использовалось; проблема и нерешённый вопрос переданы учителю.
         adult_steps_ru:
           - Проверить устойчивость ёмкости и заранее подготовить лёд или безопасную холодную поверхность.
           - Наблюдать за всей процедурой и не объяснять научный вывод вместо ребёнка.
@@ -800,6 +848,18 @@ pedagogical_integration:
     future_retrieval_windows:
       - window: {after_lessons: 1}
         capability: retrieval
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids: [conclusion, evidence-check, practical-work]
+      criterion_refs: [assess-practical-safe-observation, assess-subject-phase-change]
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids: [conclusion, evidence-check]
+      criterion_refs:
+        [assess-et-independent-conclusion, assess-et-recognition-processes, assess-et-supported-instructions]
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance: {source: lesson_assessment_bindings}
   phase_bindings:
     - dna_phase_id: safety-orientation
       lesson_stage_ids: [activate-state-model]
@@ -820,11 +880,15 @@ pedagogical_integration:
         execution_mode: teacher_led
         task_id: grade-5-water-03-melting-condensation/safety-orientation-task
         learner_instruction_ru: До объяснения предложи безопасные ученические действия и отдельно укажи действия, которые выполняет только учитель.
+        learner_success_criterion_ru: [Названы разрешённое действие ученика и отдельное действие учителя.]
+        learner_language_support_ru: ["Инструкции: vaatle · mõõda · kirjuta."]
         prompt_source_refs: [stage:activate-state-model:pupil_action_ru]
-        expected_evidence_source_refs: [stage:activate-state-model:expected_evidence_of_learning]
+        answer_evidence_refs: [stage:activate-state-model:expected_evidence_of_learning]
         teacher_action_source_refs:
           [stage:activate-state-model:teacher_action_ru, practical:observe-melting-condensation:safety_requirements]
-        language_support_refs: [stage:activate-state-model:expected_pupil_language.et]
+        answer_language_refs: [question:question-condensation-origin:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-condensation-origin:acceptable_variants]
+        misconception_refs: [question:question-condensation-origin:misconception_to_watch]
         evaluation_mode: teacher_observation
         answer_access_policy: not_applicable
       binding_rationale_ru: Safety orientation полностью занимает activation stage и не создаёт фиктивного answer key.
@@ -847,14 +911,18 @@ pedagogical_integration:
         execution_mode: practical_task
         task_id: grade-5-water-03-melting-condensation/practical-work-task
         learner_instruction_ru: По команде учителя наблюдай лёд и холодную крышку, запиши данные до вывода и не касайся учительского сосуда.
+        learner_success_criterion_ru: [Наблюдение записано отдельно от вывода; правила безопасности соблюдены.]
+        learner_language_support_ru: ["Рамка: Ma vaatlen __________.", "Инструкции: vaatle · mõõda · kirjuta."]
         prompt_source_refs:
           [practical:observe-melting-condensation:pupil_steps, practical:observe-melting-condensation:observation_table.data_collection_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [practical:observe-melting-condensation:expected_observation_ru, assessment:assess-practical-safe-observation:acceptable_evidence]
         teacher_action_source_refs:
           [practical:observe-melting-condensation:teacher_controlled_steps, practical:observe-melting-condensation:safety_requirements]
-        language_support_refs:
+        answer_language_refs:
           [practical:observe-melting-condensation:short_estonian_conclusion, assessment:assess-et-supported-instructions:acceptable_evidence]
+        acceptable_variant_refs: [question:question-melting-data:acceptable_variants]
+        misconception_refs: [question:question-melting-data:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Compact teacher-prepared observation сохраняет десять минут наблюдения и отдельно учитывает setup и cleanup.
@@ -890,14 +958,18 @@ pedagogical_integration:
         execution_mode: assessment_task
         task_id: grade-5-water-03-melting-condensation/evidence-check-task
         learner_instruction_ru: Закрой источник и по памяти сопоставь наблюдение с процессом, затем проверь стрелку и добавь короткий эстонский термин.
+        learner_success_criterion_ru: [Первая попытка сохранена; наблюдение связано с одним процессом и подписано термином.]
+        learner_language_support_ru: ["Банк слов: sulamine · aurustumine · veeldumine."]
         prompt_source_refs:
           [question:question-condensation-origin:question_ru, stage:bridge-process-terms-et:pupil_action_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [question:question-condensation-origin:full_expected_answer_ru, assessment:assess-et-recognition-processes:acceptable_evidence]
         teacher_action_source_refs:
           [stage:bridge-process-terms-et:teacher_action_ru, stage:separate-conclusions:teacher_action_ru]
-        language_support_refs:
+        answer_language_refs:
           [question:question-condensation-origin:short_oral_answer_et, assessment:assess-et-supported-instructions:acceptable_evidence]
+        acceptable_variant_refs: [question:question-condensation-origin:acceptable_variants]
+        misconception_refs: [question:question-condensation-origin:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Evidence check использует встроенное наблюдение, полный language bridge и переход к отдельному итоговому выводу.
@@ -920,13 +992,17 @@ pedagogical_integration:
         execution_mode: retrieval_task
         task_id: grade-5-water-03-melting-condensation/conclusion-task
         learner_instruction_ru: Закрой источник и за одну минуту запиши русский вывод о выбранном процессе, затем добавь одну короткую эстонскую фразу.
+        learner_success_criterion_ru: [Русский вывод и короткая эстонская фраза записаны отдельно после первой попытки.]
+        learner_language_support_ru: ["Рамка: Vesi __________ ja hiljem __________.", "Банк слов: sulab · aurustub · veeldub."]
         prompt_source_refs:
           [question:question-melting-data:question_ru, question:question-condensation-origin:question_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [practical:observe-melting-condensation:expected_conclusion_ru, assessment:assess-et-independent-conclusion:acceptable_evidence]
         teacher_action_source_refs: [stage:separate-conclusions:teacher_action_ru]
-        language_support_refs:
+        answer_language_refs:
           [practical:observe-melting-condensation:short_estonian_conclusion, question:question-condensation-origin:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-condensation-origin:acceptable_variants]
+        misconception_refs: [question:question-condensation-origin:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: One-minute recall занимает четыре минуты с setup и сохраняет независимый русский вывод до короткого эстонского ответа.

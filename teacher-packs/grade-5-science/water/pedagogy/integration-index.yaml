@@ -16,7 +16,7 @@ lessons:
     selection_request_digest: 5826190572f8963e7b113e49c388ab8b50089b697c95684f2a9b95d216320f42
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml
     lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml
-    lesson_dna_digest: 85d5d08ecccb90de6a5eb3f2de8eab758804852d038955ba80f59f8315dc5271
+    lesson_dna_digest: e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe
     selected_pattern_id: concept-introduction-classroom
     selected_target_ids:
       - brainstorming
@@ -24,6 +24,30 @@ lessons:
       - venn-diagram
       - concept-map
       - error-correction
+    production_assessment_integration:
+      source_lesson_dna_digest: e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-practical-observation
+          - assess-subject-water-property
+      estonian_language_assessment: &a1
+        enabled: true
+        target_phase_ids:
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-et-independent-property
+          - assess-et-recognition-properties
+          - assess-et-supported-property
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
     task_bindings:
       - task_id: grade-5-water-01-properties/activation-task
         lesson_id: grade-5-water-01-properties
@@ -51,16 +75,29 @@ lessons:
           - question:question-water-property:question_ru
         prompt_ru:
           - Почему прозрачность можно назвать свойством воды?
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Записаны две первоначальные идеи без просмотра готового ответа.
+        learner_language_support_ru:
+          - "Рамка: Vesi on __________."
+        answer_evidence_refs:
           - stage:activate-water:expected_evidence_of_learning
-        expected_evidence_ru: Ученик отделяет наблюдение о воде от бытового предположения.
+        answer_evidence_ru: Ученик отделяет наблюдение о воде от бытового предположения.
         teacher_action_source_refs:
           - stage:activate-water:teacher_action_ru
         teacher_action_ru: Показывает два образца и задаёт короткие вопросы по-русски, затем говорит «Vaata vett».
-        language_support_refs:
-          - question:question-water-property:question_et
-        language_support_ru:
-          - Milline omadus on puhtal veel?
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
         assessment_refs: []
         oral_answer_refs:
           - question-water-property
@@ -91,16 +128,29 @@ lessons:
           - stage:explain-properties-ru:pupil_action_ru
         prompt_ru:
           - Формулируют полный русский ответ и приводят по одному бытовому примеру.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Построены три элемента схемы и подписана одна связь между ними.
+        learner_language_support_ru:
+          - "Банк слов: vesi · aine · omadus."
+        answer_evidence_refs:
           - stage:explain-properties-ru:expected_evidence_of_learning
-        expected_evidence_ru: Понятия сформированы до добавления новой эстонской терминологии.
+        answer_evidence_ru: Понятия сформированы до добавления новой эстонской терминологии.
         teacher_action_source_refs:
           - stage:explain-properties-ru:teacher_action_ru
         teacher_action_ru: Объясняет понятия по канонической русской странице и строит схему на доске.
-        language_support_refs:
-          - question:question-water-property:question_et
-        language_support_ru:
-          - Milline omadus on puhtal veel?
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
         assessment_refs: []
         oral_answer_refs:
           - question-water-property
@@ -132,18 +182,31 @@ lessons:
         prompt_ru:
           - Наблюдают, заполняют таблицу, обсуждают вывод по-русски и подписывают свойства
             по-эстонски.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Оба круга заполнены и в пересечении записано одно общее наблюдаемое свойство.
+        learner_language_support_ru:
+          - "Банк слов: vesi · lahus · omadus."
+        answer_evidence_refs:
           - stage:observe-water:expected_evidence_of_learning
           - assessment:assess-practical-observation:acceptable_evidence
-        expected_evidence_ru: Таблица содержит наблюдение, а русский вывод не смешивает растворение с
+        answer_evidence_ru: Таблица содержит наблюдение, а русский вывод не смешивает растворение с
           исчезновением. Заполненная таблица без дегустации или неподтверждённых утверждений.
         teacher_action_source_refs:
           - stage:observe-water:teacher_action_ru
         teacher_action_ru: Организует безопасное сравнение образцов и напоминает, что жидкости нельзя пробовать.
-        language_support_refs:
-          - question:question-water-property:question_et
-        language_support_ru:
-          - Milline omadus on puhtal veel?
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
         assessment_refs:
           - assess-practical-observation
           - assess-et-recognition-properties
@@ -177,20 +240,34 @@ lessons:
           - question:question-water-property:question_ru
         prompt_ru:
           - Почему прозрачность можно назвать свойством воды?
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Первая попытка сохранена; карта содержит узлы и хотя бы две подписанные связи.
+        learner_language_support_ru:
+          - "Рамка: Vesi on __________."
+          - "Банк слов: läbipaistev · värvitu · vedel."
+        answer_evidence_refs:
           - question:question-water-property:full_expected_answer_ru
           - assessment:assess-subject-water-property:acceptable_evidence
-        expected_evidence_ru: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому
+        answer_evidence_ru: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому
           это свойство. Полный русский ответ или корректный вывод в таблице.
         teacher_action_source_refs:
           - stage:independent-summary:teacher_action_ru
         teacher_action_ru: Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
-        language_support_refs:
+        answer_language_refs:
           - question:question-water-property:short_oral_answer_et
           - assessment:assess-et-independent-property:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Puhas vesi on läbipaistev.
           - Одна понятная самостоятельная фраза с aine или omadus.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
         assessment_refs:
           - assess-subject-water-property
           - assess-et-independent-property
@@ -223,22 +300,36 @@ lessons:
           - stage:independent-summary:pupil_action_ru
         prompt_ru:
           - Объясняют свойство по-русски и без готовой рамки говорят «Vesi on aine» или вариант.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Первая попытка сохранена и одна неточность исправлена другим цветом.
+        learner_language_support_ru:
+          - "Рамка: Vesi on __________."
+          - "Банк слов: läbipaistev · värvitu · vedel."
+        answer_evidence_refs:
           - assessment:assess-subject-water-property:acceptable_evidence
           - assessment:assess-et-supported-property:acceptable_evidence
-        expected_evidence_ru: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on
+        answer_evidence_ru: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on
           ...» с поддержкой банка слов.
         teacher_action_source_refs:
           - stage:bridge-properties-et:teacher_action_ru
           - stage:independent-summary:teacher_action_ru
         teacher_action_ru: Показывает слово рядом с понятием, моделирует произношение и одно предложение.
           Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
-        language_support_refs:
+        answer_language_refs:
           - question:question-water-property:short_oral_answer_et
           - assessment:assess-et-supported-property:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Puhas vesi on läbipaistev.
           - Понятная фраза «Vesi on ...» с поддержкой банка слов.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
         assessment_refs:
           - assess-subject-water-property
           - assess-et-recognition-properties
@@ -499,14 +590,7 @@ lessons:
       - teacher-packs/grade-5-science/water/lessons/lesson-01.md
       - teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
       - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
-    estonian_assessment:
-      enabled: true
-      target_phase_ids:
-        - formative-check
-        - guided-practice
-        - retrieval
-      notes_ru: Короткое эстонское evidence A1–A2 фиксируется отдельно от русского предметного
-        доказательства.
+    estonian_assessment: *a1
     homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml
     homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml
     homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml
@@ -536,7 +620,7 @@ lessons:
     selection_request_digest: 5e1c87d97470ef34da891e229c5a8bf7cb682bedc38b17a9e39bc7e5465b8095
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml
     lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml
-    lesson_dna_digest: 53844ae64b97597fc394277cdd23f95b9f9cde846e6c92ec256c7bfdfe457664
+    lesson_dna_digest: a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0
     selected_pattern_id: concept-introduction-classroom
     selected_target_ids:
       - brainstorming
@@ -544,6 +628,31 @@ lessons:
       - sorting-and-sequencing
       - concept-map
       - retrieval-self-test
+    production_assessment_integration:
+      source_lesson_dna_digest: a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - explanation
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-subject-three-states
+      estonian_language_assessment: &a2
+        enabled: true
+        target_phase_ids:
+          - explanation
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-et-independent-state
+          - assess-et-recognition-states
+          - assess-et-supported-state
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
     task_bindings:
       - task_id: grade-5-water-02-states/activation-task
         lesson_id: grade-5-water-02-states
@@ -571,16 +680,29 @@ lessons:
           - question:question-three-states:question_ru
         prompt_ru:
           - Чем жидкая вода отличается от льда и водяного пара?
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Записана одна первоначальная идея без просмотра готового ответа.
+        learner_language_support_ru:
+          - "Банк слов: jää · vesi · veeaur."
+        answer_evidence_refs:
           - stage:activate-properties:expected_evidence_of_learning
-        expected_evidence_ru: Предыдущее понятие вещества доступно для нового сравнения.
+        answer_evidence_ru: Предыдущее понятие вещества доступно для нового сравнения.
         teacher_action_source_refs:
           - stage:activate-properties:teacher_action_ru
         teacher_action_ru: Показывает лёд, воду и изображение водяного пара, задавая вопросы по-русски.
-        language_support_refs:
-          - question:question-three-states:question_et
-        language_support_ru:
-          - Mis olekus võivad vesi ja jää olla?
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
         assessment_refs: []
         oral_answer_refs:
           - question-three-states
@@ -611,18 +733,31 @@ lessons:
           - stage:explain-three-states-ru:pupil_action_ru
         prompt_ru:
           - Сравнивают состояния полными русскими предложениями и исправляют исходные гипотезы.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Схема содержит три состояния и по одному наблюдаемому признаку для каждого.
+        learner_language_support_ru:
+          - "Подписи: tahke · vedel · gaasiline."
+        answer_evidence_refs:
           - stage:explain-three-states-ru:expected_evidence_of_learning
           - assessment:assess-subject-three-states:acceptable_evidence
-        expected_evidence_ru: Ученик опирается на свойства состояния, а не только на бытовое название. Шесть
+        answer_evidence_ru: Ученик опирается на свойства состояния, а не только на бытовое название. Шесть
           корректно распределённых карточек и три русских обоснования.
         teacher_action_source_refs:
           - stage:explain-three-states-ru:teacher_action_ru
         teacher_action_ru: Объясняет признаки, демонстрирует изменение формы жидкости и обсуждает невидимость пара.
-        language_support_refs:
-          - assessment:assess-et-recognition-states:acceptable_evidence
-        language_support_ru:
-          - Правильное размещение терминов на схеме.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
         assessment_refs:
           - assess-subject-three-states
           - assess-et-recognition-states
@@ -655,18 +790,31 @@ lessons:
           - stage:classify-states:pupil_action_ru
         prompt_ru:
           - Сортируют карточки, репетируют фразу в паре и объясняют спорные случаи по-русски.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Все карточки распределены; спорный пример отмечен для последующей проверки.
+        learner_language_support_ru:
+          - "Банк слов: tahke · vedel · gaasiline."
+        answer_evidence_refs:
           - stage:classify-states:expected_evidence_of_learning
           - assessment:assess-subject-three-states:acceptable_evidence
-        expected_evidence_ru: Шесть карточек классифицированы, а три решения объяснены по-русски. Шесть
+        answer_evidence_ru: Шесть карточек классифицированы, а три решения объяснены по-русски. Шесть
           корректно распределённых карточек и три русских обоснования.
         teacher_action_source_refs:
           - stage:classify-states:teacher_action_ru
         teacher_action_ru: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи схемы.
-        language_support_refs:
-          - assessment:assess-et-supported-state:acceptable_evidence
-        language_support_ru:
-          - Одна понятная фраза с названием состояния и опорой.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
         assessment_refs:
           - assess-subject-three-states
           - assess-et-recognition-states
@@ -707,10 +855,15 @@ lessons:
           - question:question-three-states:question_ru
         prompt_ru:
           - Чем жидкая вода отличается от льда и водяного пара?
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Первая попытка сохранена; карта содержит три узла и подписанные связи с примерами.
+        learner_language_support_ru:
+          - "Рамка: Vesi võib olla __________."
+          - "Банк слов: tahke · vedel · gaasiline."
+        answer_evidence_refs:
           - question:question-three-states:full_expected_answer_ru
           - assessment:assess-et-independent-state:acceptable_evidence
-        expected_evidence_ru: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар
+        answer_evidence_ru: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар
           является газом и заполняет доступное пространство. Одно понятное предложение без полной
           рамки.
         teacher_action_source_refs:
@@ -719,12 +872,21 @@ lessons:
         teacher_action_ru: Открывает подписи по одной, моделирует произношение и показывает действие
           liigita. Убирает подписи, принимает сначала полный русский ответ и отдельно фиксирует
           эстонскую продукцию.
-        language_support_refs:
+        answer_language_refs:
           - question:question-three-states:short_oral_answer_et
           - assessment:assess-et-independent-state:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Jää on tahke ja vesi on vedel.
           - Одно понятное предложение без полной рамки.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
         assessment_refs:
           - assess-subject-three-states
           - assess-et-recognition-states
@@ -758,22 +920,36 @@ lessons:
           - stage:classify-states:pupil_action_ru
         prompt_ru:
           - Сортируют карточки, репетируют фразу в паре и объясняют спорные случаи по-русски.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Первая попытка сохранена и одна карточка исправлена другим цветом с причиной.
+        learner_language_support_ru:
+          - "Рамка: Vesi võib olla __________."
+          - "Банк слов: tahke · vedel · gaasiline."
+        answer_evidence_refs:
           - assessment:assess-subject-three-states:acceptable_evidence
           - assessment:assess-et-supported-state:acceptable_evidence
-        expected_evidence_ru: Шесть корректно распределённых карточек и три русских обоснования. Одна
-          понятная фраза с названием состояния и опорой.
+        answer_evidence_ru: Шесть корректно распределённых карточек и три русских обоснования. Одна понятная
+          фраза с названием состояния и опорой.
         teacher_action_source_refs:
           - stage:classify-states:teacher_action_ru
           - stage:label-states-et:teacher_action_ru
         teacher_action_ru: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи
           схемы. Открывает подписи по одной, моделирует произношение и показывает действие liigita.
-        language_support_refs:
+        answer_language_refs:
           - question:question-three-states:short_oral_answer_et
           - assessment:assess-et-supported-state:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Jää on tahke ja vesi on vedel.
           - Одна понятная фраза с названием состояния и опорой.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
         assessment_refs:
           - assess-subject-three-states
           - assess-et-recognition-states
@@ -1027,15 +1203,7 @@ lessons:
       - teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
       - teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
       - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
-    estonian_assessment:
-      enabled: true
-      target_phase_ids:
-        - explanation
-        - formative-check
-        - guided-practice
-        - retrieval
-      notes_ru: Короткое эстонское evidence A1–A2 фиксируется отдельно от русского предметного
-        доказательства.
+    estonian_assessment: *a2
     homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml
     homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml
     homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml
@@ -1065,13 +1233,36 @@ lessons:
     selection_request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml
     lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml
-    lesson_dna_digest: 2714da1e0b6eecbfcbcd0de23251764c789ff208f8eda1026f020208fabb3af9
+    lesson_dna_digest: 3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2
     selected_pattern_id: safe-practical-investigation
     selected_target_ids:
       - brainstorming
       - learning-stations::practical-compact-teacher-prepared-observation
       - retrieval-summary
       - one-minute-recall
+    production_assessment_integration:
+      source_lesson_dna_digest: 3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - conclusion
+          - evidence-check
+          - practical-work
+        criterion_refs:
+          - assess-practical-safe-observation
+          - assess-subject-phase-change
+      estonian_language_assessment: &a3
+        enabled: true
+        target_phase_ids:
+          - conclusion
+          - evidence-check
+        criterion_refs:
+          - assess-et-independent-conclusion
+          - assess-et-recognition-processes
+          - assess-et-supported-instructions
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
     task_bindings:
       - task_id: grade-5-water-03-melting-condensation/safety-orientation-task
         lesson_id: grade-5-water-03-melting-condensation
@@ -1099,9 +1290,13 @@ lessons:
           - stage:activate-state-model:pupil_action_ru
         prompt_ru:
           - Формулируют гипотезы по-русски и называют знакомые подписи по-эстонски.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Названы разрешённое действие ученика и отдельное действие учителя.
+        learner_language_support_ru:
+          - "Инструкции: vaatle · mõõda · kirjuta."
+        answer_evidence_refs:
           - stage:activate-state-model:expected_evidence_of_learning
-        expected_evidence_ru: Предыдущая модель состояний готова для причинного объяснения.
+        answer_evidence_ru: Предыдущая модель состояний готова для причинного объяснения.
         teacher_action_source_refs:
           - stage:activate-state-model:teacher_action_ru
           - practical:observe-melting-condensation:safety_requirements
@@ -1109,12 +1304,19 @@ lessons:
           кипятят воду и не касаются сосуда с тёплой водой. Тёплую воду наливает и демонстрационный
           сосуд перемещает только учитель. Термометры используются по инструкции; стеклянные приборы
           заменяются безопасными школьными моделями.
-        language_support_refs:
-          - stage:activate-state-model:expected_pupil_language.et
-        language_support_ru:
-          - tahke
-          - vedel
-          - veeaur
+        answer_language_refs:
+          - question:question-condensation-origin:short_oral_answer_et
+        answer_language_ru:
+          - Veeaur jahtub ja veeldub veeks.
+        acceptable_variant_refs:
+          - question:question-condensation-origin:acceptable_variants
+        acceptable_variants_ru:
+          - Külmal pinnal veeaur veeldub.
+          - Veeaur muutub veeks.
+        misconception_refs:
+          - question:question-condensation-origin:misconception_to_watch
+        misconceptions_ru:
+          - Капли не прошли сквозь крышку и не возникли из материала крышки.
         assessment_refs: []
         oral_answer_refs:
           - question-condensation-origin
@@ -1158,11 +1360,16 @@ lessons:
           - Сначала записать наблюдение, затем отдельно сформулировать вывод.
           - Группа записывает начальное и конечное состояние, доступную температуру и отдельный
             вывод для каждого процесса.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Наблюдение записано отдельно от вывода; правила безопасности соблюдены.
+        learner_language_support_ru:
+          - "Рамка: Ma vaatlen __________."
+          - "Инструкции: vaatle · mõõda · kirjuta."
+        answer_evidence_refs:
           - practical:observe-melting-condensation:expected_observation_ru
           - assessment:assess-practical-safe-observation:acceptable_evidence
-        expected_evidence_ru: В более тёплом месте лёд быстрее превращается в жидкую воду; на холодной
-          крышке появляются капли. Соблюдение всех ученических шагов и заполненная таблица.
+        answer_evidence_ru: В более тёплом месте лёд быстрее превращается в жидкую воду; на холодной крышке
+          появляются капли. Соблюдение всех ученических шагов и заполненная таблица.
         teacher_action_source_refs:
           - practical:observe-melting-condensation:teacher_controlled_steps
           - practical:observe-melting-condensation:safety_requirements
@@ -1172,12 +1379,21 @@ lessons:
           кипятят воду и не касаются сосуда с тёплой водой. Тёплую воду наливает и демонстрационный
           сосуд перемещает только учитель. Термометры используются по инструкции; стеклянные приборы
           заменяются безопасными школьными моделями.
-        language_support_refs:
+        answer_language_refs:
           - practical:observe-melting-condensation:short_estonian_conclusion
           - assessment:assess-et-supported-instructions:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Soojas jää sulab; külmal pinnal veeaur veeldub.
           - Два выполненных действия и одна поддержанная фраза.
+        acceptable_variant_refs:
+          - question:question-melting-data:acceptable_variants
+        acceptable_variants_ru:
+          - Soojas kohas jää sulab.
+          - Jää muutub veeks.
+        misconception_refs:
+          - question:question-melting-data:misconception_to_watch
+        misconceptions_ru:
+          - Исчезновение куска льда не означает исчезновения вещества воды.
         assessment_refs:
           - assess-practical-safe-observation
           - assess-subject-phase-change
@@ -1216,10 +1432,14 @@ lessons:
         prompt_ru:
           - Откуда появились капли на холодной крышке?
           - Соотносят карточки, повторяют два предложения и выполняют пробную инструкцию.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Первая попытка сохранена; наблюдение связано с одним процессом и подписано термином.
+        learner_language_support_ru:
+          - "Банк слов: sulamine · aurustumine · veeldumine."
+        answer_evidence_refs:
           - question:question-condensation-origin:full_expected_answer_ru
           - assessment:assess-et-recognition-processes:acceptable_evidence
-        expected_evidence_ru: Водяной пар у холодной поверхности охлаждается и превращается в капли жидкой
+        answer_evidence_ru: Водяной пар у холодной поверхности охлаждается и превращается в капли жидкой
           воды; этот процесс называется конденсацией. Четыре корректных соответствия на схеме или в
           таблице.
         teacher_action_source_refs:
@@ -1227,12 +1447,21 @@ lessons:
           - stage:separate-conclusions:teacher_action_ru
         teacher_action_ru: Моделирует термины на схеме и физически показывает действия mõõda и kirjuta.
           Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
-        language_support_refs:
+        answer_language_refs:
           - question:question-condensation-origin:short_oral_answer_et
           - assessment:assess-et-supported-instructions:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Veeaur jahtub ja veeldub veeks.
           - Два выполненных действия и одна поддержанная фраза.
+        acceptable_variant_refs:
+          - question:question-condensation-origin:acceptable_variants
+        acceptable_variants_ru:
+          - Külmal pinnal veeaur veeldub.
+          - Veeaur muutub veeks.
+        misconception_refs:
+          - question:question-condensation-origin:misconception_to_watch
+        misconceptions_ru:
+          - Капли не прошли сквозь крышку и не возникли из материала крышки.
         assessment_refs:
           - assess-subject-phase-change
           - assess-et-recognition-processes
@@ -1268,20 +1497,34 @@ lessons:
         prompt_ru:
           - Как данные подтверждают, что лёд плавился?
           - Откуда появились капли на холодной крышке?
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Русский вывод и короткая эстонская фраза записаны отдельно после первой попытки.
+        learner_language_support_ru:
+          - "Рамка: Vesi __________ ja hiljem __________."
+          - "Банк слов: sulab · aurustub · veeldub."
+        answer_evidence_refs:
           - practical:observe-melting-condensation:expected_conclusion_ru
           - assessment:assess-et-independent-conclusion:acceptable_evidence
-        expected_evidence_ru: При получении тепла лёд плавится, а при охлаждении у поверхности водяной пар
+        answer_evidence_ru: При получении тепла лёд плавится, а при охлаждении у поверхности водяной пар
           конденсируется в жидкую воду. Одна или две понятные фразы с sulamine или veeldumine.
         teacher_action_source_refs:
           - stage:separate-conclusions:teacher_action_ru
         teacher_action_ru: Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
-        language_support_refs:
+        answer_language_refs:
           - practical:observe-melting-condensation:short_estonian_conclusion
           - question:question-condensation-origin:short_oral_answer_et
-        language_support_ru:
+        answer_language_ru:
           - Soojas jää sulab; külmal pinnal veeaur veeldub.
           - Veeaur jahtub ja veeldub veeks.
+        acceptable_variant_refs:
+          - question:question-condensation-origin:acceptable_variants
+        acceptable_variants_ru:
+          - Külmal pinnal veeaur veeldub.
+          - Veeaur muutub veeks.
+        misconception_refs:
+          - question:question-condensation-origin:misconception_to_watch
+        misconceptions_ru:
+          - Капли не прошли сквозь крышку и не возникли из материала крышки.
         assessment_refs:
           - assess-subject-phase-change
           - assess-et-independent-conclusion
@@ -1518,13 +1761,7 @@ lessons:
       - teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
       - teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
       - teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
-    estonian_assessment:
-      enabled: true
-      target_phase_ids:
-        - conclusion
-        - evidence-check
-      notes_ru: Короткое эстонское evidence A1–A2 фиксируется отдельно от русского предметного
-        доказательства.
+    estonian_assessment: *a3
     homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml
     homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml
     homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml
@@ -1554,12 +1791,35 @@ lessons:
     selection_request_digest: b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905
     selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml
     lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml
-    lesson_dna_digest: cde88229d92fc8ec74fce390b8fc3a2303c6046e0f90f0f0199a1cf221e1f3c3
+    lesson_dna_digest: 7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94
     selected_pattern_id: retrieval-and-consolidation
     selected_target_ids:
       - retrieval-self-test
       - error-correction
       - concept-map
+    production_assessment_integration:
+      source_lesson_dna_digest: 7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - consolidation
+          - correction
+          - retrieval
+        criterion_refs:
+          - assess-practical-data-reasoning
+          - assess-subject-complete-cycle
+      estonian_language_assessment: &a4
+        enabled: true
+        target_phase_ids:
+          - consolidation
+          - retrieval
+        criterion_refs:
+          - assess-et-independent-unit
+          - assess-et-recognition-unit
+          - assess-et-supported-unit
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
     task_bindings:
       - task_id: grade-5-water-04-changes-review/retrieval-task
         lesson_id: grade-5-water-04-changes-review
@@ -1587,21 +1847,34 @@ lessons:
           - stage:retrieve-water-unit:pupil_action_ru
         prompt_ru:
           - Восстанавливают понятия, затем добавляют знакомые эстонские подписи в паре.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Первая схема выполнена без источника и одна связь отмечена для проверки.
+        learner_language_support_ru:
+          - "Банк слов: sulamine · jäätumine · aurustumine · veeldumine."
+        answer_evidence_refs:
           - stage:retrieve-water-unit:expected_evidence_of_learning
           - assessment:assess-et-recognition-unit:acceptable_evidence
-        expected_evidence_ru: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
+        answer_evidence_ru: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
         teacher_action_source_refs:
           - stage:retrieve-water-unit:teacher_action_ru
           - stage:revision-stations:teacher_action_ru
         teacher_action_ru: Показывает неполную схему и принимает быстрые ответы сначала по-русски.
           Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов.
-        language_support_refs:
+        answer_language_refs:
           - question:question-opposite-processes:short_oral_answer_et
           - assessment:assess-et-independent-unit:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Soojenemisel jää sulab; jahtumisel vesi jäätub.
           - Понятная фраза с введённым или переработанным термином.
+        acceptable_variant_refs:
+          - question:question-opposite-processes:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi aurustub või veeldub.
+          - Vesi muudab temperatuuri mõjul olekut.
+        misconception_refs:
+          - question:question-opposite-processes:misconception_to_watch
+        misconceptions_ru:
+          - Перечень терминов без объяснения направления не доказывает предметное понимание.
         assessment_refs:
           - assess-subject-complete-cycle
           - assess-et-recognition-unit
@@ -1635,10 +1908,14 @@ lessons:
           - stage:complete-change-model-ru:pupil_action_ru
         prompt_ru:
           - Объясняют три перехода полными русскими предложениями и исправляют направления стрелок.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Исходная схема сохранена; одна стрелка исправлена другим цветом и объяснена.
+        learner_language_support_ru:
+          - "Рамка: __________ ja __________ on vastandprotsessid."
+        answer_evidence_refs:
           - question:question-opposite-processes:full_expected_answer_ru
           - assessment:assess-subject-complete-cycle:acceptable_evidence
-        expected_evidence_ru: Плавление противоположно замерзанию, а испарение — конденсации; направление
+        answer_evidence_ru: Плавление противоположно замерзанию, а испарение — конденсации; направление
           зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
         teacher_action_source_refs:
           - stage:complete-change-model-ru:teacher_action_ru
@@ -1646,10 +1923,19 @@ lessons:
         teacher_action_ru: Достраивает схему, сравнивает противоположные процессы и проверяет сохранение
           вещества. Организует станции схемы, данных, терминов и устного ответа, постепенно снимая
           банк слов.
-        language_support_refs:
-          - assessment:assess-et-supported-unit:acceptable_evidence
-        language_support_ru:
-          - Одна поддержанная причинная фраза с двумя терминами.
+        answer_language_refs:
+          - question:question-opposite-processes:short_oral_answer_et
+        answer_language_ru:
+          - Soojenemisel jää sulab; jahtumisel vesi jäätub.
+        acceptable_variant_refs:
+          - question:question-opposite-processes:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi aurustub või veeldub.
+          - Vesi muudab temperatuuri mõjul olekut.
+        misconception_refs:
+          - question:question-opposite-processes:misconception_to_watch
+        misconceptions_ru:
+          - Перечень терминов без объяснения направления не доказывает предметное понимание.
         assessment_refs:
           - assess-subject-complete-cycle
           - assess-practical-data-reasoning
@@ -1692,23 +1978,36 @@ lessons:
           - Решают задания, объясняют предметные решения по-русски и репетируют короткий эстонский
             ответ.
           - Заполняют схему, пишут русский вывод и дают одну короткую фразу по-эстонски.
-        evidence_source_refs:
+        learner_success_criterion_ru:
+          - Карта содержит состояния и процессы; предметная и языковая части заполнены отдельно.
+        learner_language_support_ru:
+          - "Банк слов: tahke · vedel · gaasiline · sulamine · jäätumine · aurustumine · veeldumine."
+        answer_evidence_refs:
           - assessment:assess-subject-complete-cycle:acceptable_evidence
           - assessment:assess-et-independent-unit:acceptable_evidence
-        expected_evidence_ru: Полная схема и три русских причинных объяснения. Понятная фраза с введённым
-          или переработанным термином.
+        answer_evidence_ru: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или
+          переработанным термином.
         teacher_action_source_refs:
           - stage:revision-stations:teacher_action_ru
           - stage:separate-unit-assessment:teacher_action_ru
         teacher_action_ru: Организует станции схемы, данных, терминов и устного ответа, постепенно снимая
           банк слов. Оценивает русскую предметную часть и эстонскую языковую часть по отдельным
           критериям.
-        language_support_refs:
+        answer_language_refs:
           - question:question-opposite-processes:short_oral_answer_et
           - assessment:assess-et-supported-unit:acceptable_evidence
-        language_support_ru:
+        answer_language_ru:
           - Soojenemisel jää sulab; jahtumisel vesi jäätub.
           - Одна поддержанная причинная фраза с двумя терминами.
+        acceptable_variant_refs:
+          - question:question-opposite-processes:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi aurustub või veeldub.
+          - Vesi muudab temperatuuri mõjul olekut.
+        misconception_refs:
+          - question:question-opposite-processes:misconception_to_watch
+        misconceptions_ru:
+          - Перечень терминов без объяснения направления не доказывает предметное понимание.
         assessment_refs:
           - assess-subject-complete-cycle
           - assess-practical-data-reasoning
@@ -1905,13 +2204,7 @@ lessons:
       - teacher-packs/grade-5-science/water/lessons/lesson-04.md
       - teacher-packs/grade-5-science/water/student/lesson-04-assessment.md
       - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
-    estonian_assessment:
-      enabled: true
-      target_phase_ids:
-        - consolidation
-        - retrieval
-      notes_ru: Короткое эстонское evidence A1–A2 фиксируется отдельно от русского предметного
-        доказательства.
+    estonian_assessment: *a4
     homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml
     homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml
     homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml

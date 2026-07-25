@@ -40,8 +40,8 @@ answer_binding_decisions:
       - three-states-diagram
     procedure_refs: []
     rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
-    release_policy: not_applicable
-    review_capable: false
+    release_policy: self_managed_after_attempt
+    review_capable: true
     safety_refs: []
     source_access_policy: open
     source_phase_ids:
@@ -75,9 +75,9 @@ answer_binding_decisions:
     procedure_refs: []
     rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
     release_policy: self_managed_after_attempt
-    review_capable: false
+    review_capable: true
     safety_refs: []
-    source_access_policy: open
+    source_access_policy: closed
     source_phase_ids:
       - formative-check
     teacher_explanation_refs:

@@ -49,10 +49,10 @@ Selection request and lesson-DNA digests:
 
 | Lesson | Request digest | Lesson-DNA digest |
 |---|---|---|
-| 01 | `5826190572f8963e7b113e49c388ab8b50089b697c95684f2a9b95d216320f42` | `d0319377c824a1ce0f6472ab32ef6d7f897d59d27112a88731f29924e5f3aaf8` |
-| 02 | `5e1c87d97470ef34da891e229c5a8bf7cb682bedc38b17a9e39bc7e5465b8095` | `bc54438748b4ae47baecaa4155711433316a0af2ffc63a2af4099748076e6211` |
-| 03 | `67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96` | `558a31becbbe2cc15c40413c177a6aa532fb53d8e8d6ff04bef5bd5ab53bf8ff` |
-| 04 | `b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905` | `631afc4dc55641f78b0a25b7610d810e703360c15830e5bafbce9c08263ab8c3` |
+| 01 | `5826190572f8963e7b113e49c388ab8b50089b697c95684f2a9b95d216320f42` | `e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe` |
+| 02 | `5e1c87d97470ef34da891e229c5a8bf7cb682bedc38b17a9e39bc7e5465b8095` | `a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0` |
+| 03 | `67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96` | `3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2` |
+| 04 | `b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905` | `7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94` |
 
 The targets changed because component timing and semantic stage compatibility
 are now hard constraints. The paper-diagram profile truthfully fits ordinary
@@ -115,7 +115,7 @@ homework launch from the unchanged lesson; it is not hidden additional time.
 
 ## Generated artifacts
 
-The deterministic generator checks 63 files:
+The deterministic generator checks 64 files:
 
 - 12 classroom YAML artifacts: request, decision, and lesson DNA for each
   lesson;
@@ -125,6 +125,7 @@ The deterministic generator checks 63 files:
 - one integration index;
 - four child-facing homeschool renderings;
 - four parent-guidance renderings;
+- one home-only passive-observation sheet for lesson 3;
 - one oral-preparation sheet and one answer-guidance file;
 - phase-specific bounded regions across teacher lesson guides, declared student
   materials, and answer keys.
@@ -146,6 +147,10 @@ criteria request language evidence. Target phases are `formative-check`,
 `formative-check`, `guided-practice`, and `retrieval` (lesson 2);
 `conclusion` and `evidence-check` (lesson 3); and `consolidation` and
 `retrieval` (lesson 4). Subject evidence remains separately Russian-primary.
+These exact bindings are a production assessment overlay. The four committed
+classroom lesson-DNA documents remain byte-identical to the lesson DNA embedded
+in their homeschool requests, and the index/decision/package digest chain
+references that same immutable selector output.
 
 ## Homeschool and language boundaries
 
@@ -166,6 +171,18 @@ stove, open flame, hot water or vessel, chemicals, and tasting. Teacher
 authorization and continuous adult safety supervision are mandatory. The
 package, child rendering, parent rendering, procedure/safety refs, and policy
 are machine-checked as equivalent.
+The corresponding explicit adapted task contract uses
+`homeschool/lesson-03-passive-observation-sheet.md`; the classroom temperature
+table is not inherited. The home practical is `teacher_observation`,
+`answer_access_policy: not_applicable`, and has no answer-key refs. Keys remain
+available only for the separate evidence-check and conclusion after the first
+attempt.
+
+Learner render contracts distinguish completion criteria and bounded language
+scaffolds from teacher-only answer evidence. A normalized answer-leak scan
+reduced detected learner-facing answer strings from 28 before this follow-up
+to zero. Full answers, accepted variants, misconceptions, and correction
+guidance remain in teacher answer regions.
 
 Russian remains the language of scientific explanation, causal reasoning,
 misconception correction, and full subject answers. Estonian remains bounded
@@ -182,9 +199,9 @@ Before migration, the water teacher-pack fingerprint was
 `130807477db124b3bc4de413e1c921cfcc57284872d0f16bfd2cbff8ac2198ba`
 over 32 files.
 
-After migration, it is
-`146c8746e692bb9cffc8cb2a12b1a9088ce8718ff453d82fb3418bd75b8c07fd`
-over 76 files. This intentional change means any future review or trial must
+After the canonical-DNA, answer-isolation, and home-task follow-up, it is
+`67107ce808a22c60e5949da7d9f7ad8609c5b59b8ab9e2d989539818e1929ecf`
+over 77 files. This intentional change means any future review or trial must
 reference the migrated reviewable content.
 
 The water-use-cycle control fingerprint remains
@@ -203,19 +220,19 @@ No completed review or analysed trial evidence was created. The pilot remains:
 ## Validation results
 
 - clean dependency install: passed;
-- all registered `test:*` scripts: 1,081 passed, 0 failed;
-- aggregate `node --test`: 1,081 passed, 0 failed;
+- all registered `test:*` scripts: 1,131 passed, 0 failed;
+- aggregate `node --test`: 1,131 passed, 0 failed;
 - pedagogy knowledge: 144 passed;
 - pedagogy selection: 142 passed;
 - pedagogy homeschool: 179 passed;
-- pedagogy integration: 102 passed;
+- pedagogy integration: 152 passed;
 - lesson plans: 91 passed;
 - teacher packs: 16 passed;
 - fingerprints: 41 passed;
 - all registered `check:*` commands: passed;
-- integration check: four lessons, 34 machine YAML artifacts, 63 checked
+- integration check: four lessons, 34 machine YAML artifacts, 64 checked
   generated/rendered files, and three honest readiness warnings;
-- strict parsing: 72 JSON and 94 YAML files;
+- strict parsing: 72 JSON and 98 YAML files;
 - strict Ajv: 35 schemas;
 - source manifest: 29 routes and 7,828 Markdown records;
 - QA metadata: 28 current snapshots;

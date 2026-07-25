@@ -54,7 +54,7 @@ learner_plan:
       source_access: open
       step_id: step-01-orientation
       task_refs:
-        - grade-5-water-02-states/activation-task
+        - grade-5-water-02-states/activation-task--home-orientation
     - adult_involvement: none
       completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
       estonian_roles:
@@ -74,8 +74,8 @@ learner_plan:
       source_access: open
       step_id: step-02-independent-practice
       task_refs:
-        - grade-5-water-02-states/explanation-task
-        - grade-5-water-02-states/guided-practice-task
+        - grade-5-water-02-states/explanation-task--home-independent-practice
+        - grade-5-water-02-states/guided-practice-task--home-independent-practice
     - adult_involvement: none
       completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
       estonian_roles:
@@ -111,10 +111,10 @@ learner_plan:
         - states-exit-card
       phase_id: reflection
       safety_controls_ru: []
-      source_access: open
+      source_access: closed
       step_id: step-04-reflection
       task_refs:
-        - grade-5-water-02-states/formative-check-task
+        - grade-5-water-02-states/formative-check-task--home-reflection
   success_criteria_refs:
     - grade-5-water-02-states-homeschool-adaptation-success-criteria
   visible_goal_ref: grade-5-water-02-states-homeschool-adaptation-visible-goal
@@ -139,8 +139,8 @@ materials:
         - three-states-diagram
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
-      release_policy: not_applicable
-      review_capable: false
+      release_policy: self_managed_after_attempt
+      review_capable: true
       safety_refs: []
       source_access_policy: open
       source_phase_ids:
@@ -174,9 +174,9 @@ materials:
       procedure_refs: []
       rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
       release_policy: self_managed_after_attempt
-      review_capable: false
+      review_capable: true
       safety_refs: []
-      source_access_policy: open
+      source_access_policy: closed
       source_phase_ids:
         - formative-check
       teacher_explanation_refs:

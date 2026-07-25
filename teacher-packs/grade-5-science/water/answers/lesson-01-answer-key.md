@@ -39,11 +39,13 @@ Lesson ID: `grade-5-water-01-properties`.
 - Phase: `guided-practice`.
 - Evaluation: `evidence_criterion`.
 - Prompt source refs: `stage:observe-water:pupil_action_ru`.
-- Evidence source refs: `stage:observe-water:expected_evidence_of_learning`, `assessment:assess-practical-observation:acceptable_evidence`.
-- Ожидаемое evidence: Таблица содержит наблюдение, а русский вывод не смешивает растворение с исчезновением. Заполненная таблица без дегустации или неподтверждённых утверждений.
-- Допустимая языковая опора: Milline omadus on puhtal veel?.
+- Answer evidence refs: `stage:observe-water:expected_evidence_of_learning`, `assessment:assess-practical-observation:acceptable_evidence`.
+- Полный правильный ответ/evidence: Таблица содержит наблюдение, а русский вывод не смешивает растворение с исчезновением. Заполненная таблица без дегустации или неподтверждённых утверждений.
+- Языковой ответ: Puhas vesi on läbipaistev..
+- Допустимые варианты: Vesi on läbipaistev.; Puhas vesi on värvitu..
 - Доступ: `after_first_attempt`; первая попытка сохраняется.
-- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества..
+- Коррекция: сохранить корректную часть первой попытки и явно исправить ошибочную связь по evidence.
 - Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
 - Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
@@ -52,11 +54,13 @@ Lesson ID: `grade-5-water-01-properties`.
 - Phase: `retrieval`.
 - Evaluation: `answer_key`.
 - Prompt source refs: `question:question-water-property:question_ru`.
-- Evidence source refs: `question:question-water-property:full_expected_answer_ru`, `assessment:assess-subject-water-property:acceptable_evidence`.
-- Ожидаемое evidence: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому это свойство. Полный русский ответ или корректный вывод в таблице.
-- Допустимая языковая опора: Puhas vesi on läbipaistev.; Одна понятная самостоятельная фраза с aine или omadus..
+- Answer evidence refs: `question:question-water-property:full_expected_answer_ru`, `assessment:assess-subject-water-property:acceptable_evidence`.
+- Полный правильный ответ/evidence: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому это свойство. Полный русский ответ или корректный вывод в таблице.
+- Языковой ответ: Puhas vesi on läbipaistev.; Одна понятная самостоятельная фраза с aine или omadus..
+- Допустимые варианты: Vesi on läbipaistev.; Puhas vesi on värvitu..
 - Доступ: `after_first_attempt`; первая попытка сохраняется.
-- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества..
+- Коррекция: сохранить корректную часть первой попытки и явно исправить ошибочную связь по evidence.
 - Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
 - Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 
@@ -65,11 +69,13 @@ Lesson ID: `grade-5-water-01-properties`.
 - Phase: `formative-check`.
 - Evaluation: `answer_key`.
 - Prompt source refs: `stage:independent-summary:pupil_action_ru`.
-- Evidence source refs: `assessment:assess-subject-water-property:acceptable_evidence`, `assessment:assess-et-supported-property:acceptable_evidence`.
-- Ожидаемое evidence: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on ...» с поддержкой банка слов.
-- Допустимая языковая опора: Puhas vesi on läbipaistev.; Понятная фраза «Vesi on ...» с поддержкой банка слов..
+- Answer evidence refs: `assessment:assess-subject-water-property:acceptable_evidence`, `assessment:assess-et-supported-property:acceptable_evidence`.
+- Полный правильный ответ/evidence: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on ...» с поддержкой банка слов.
+- Языковой ответ: Puhas vesi on läbipaistev.; Понятная фраза «Vesi on ...» с поддержкой банка слов..
+- Допустимые варианты: Vesi on läbipaistev.; Puhas vesi on värvitu..
 - Доступ: `after_first_attempt`; первая попытка сохраняется.
-- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+- Типичная ошибка: Ученик не должен утверждать, что прозрачность означает отсутствие вещества..
+- Коррекция: сохранить корректную часть первой попытки и явно исправить ошибочную связь по evidence.
 - Частично правильный ответ сохраняет корректную часть evidence, после чего ученик явно исправляет недостающую связь.
 - Предметный смысл русского ответа и короткая эстонская продукция фиксируются отдельно.
 

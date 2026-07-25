@@ -640,10 +640,23 @@ pedagogical_integration:
         subject_explanation_available: false
       answer_key_release: self_managed_after_attempt
       teacher_override_policy: require_preservation
+      adapted_task_contracts: []
       practical_policy: null
     future_retrieval_windows:
       - window: {next_unit: true}
         capability: retrieval
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids: [consolidation, correction, retrieval]
+      criterion_refs: [assess-practical-data-reasoning, assess-subject-complete-cycle]
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids: [consolidation, retrieval]
+      criterion_refs:
+        [assess-et-independent-unit, assess-et-recognition-unit, assess-et-supported-unit]
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance: {source: lesson_assessment_bindings}
   phase_bindings:
     - dna_phase_id: retrieval
       lesson_stage_ids: [retrieve-water-unit, revision-stations]
@@ -671,13 +684,17 @@ pedagogical_integration:
         execution_mode: retrieval_task
         task_id: grade-5-water-04-changes-review/retrieval-task
         learner_instruction_ru: Закрой источник, выполни первую попытку по памяти, затем сверь схему и отметь одну связь для исправления.
+        learner_success_criterion_ru: [Первая схема выполнена без источника и одна связь отмечена для проверки.]
+        learner_language_support_ru: ["Банк слов: sulamine · jäätumine · aurustumine · veeldumine."]
         prompt_source_refs: [stage:retrieve-water-unit:pupil_action_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [stage:retrieve-water-unit:expected_evidence_of_learning, assessment:assess-et-recognition-unit:acceptable_evidence]
         teacher_action_source_refs:
           [stage:retrieve-water-unit:teacher_action_ru, stage:revision-stations:teacher_action_ru]
-        language_support_refs:
+        answer_language_refs:
           [question:question-opposite-processes:short_oral_answer_et, assessment:assess-et-independent-unit:acceptable_evidence]
+        acceptable_variant_refs: [question:question-opposite-processes:acceptable_variants]
+        misconception_refs: [question:question-opposite-processes:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Retrieval self-test начинается в activation и использует setup первой revision station без скрытых минут.
@@ -700,12 +717,16 @@ pedagogical_integration:
         execution_mode: assessment_task
         task_id: grade-5-water-04-changes-review/correction-task
         learner_instruction_ru: Сохрани первую схему, исправь одну неверную стрелку другим цветом и объясни причину исправления полным русским предложением.
+        learner_success_criterion_ru: [Исходная схема сохранена; одна стрелка исправлена другим цветом и объяснена.]
+        learner_language_support_ru: ["Рамка: __________ ja __________ on vastandprotsessid."]
         prompt_source_refs: [stage:complete-change-model-ru:pupil_action_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [question:question-opposite-processes:full_expected_answer_ru, assessment:assess-subject-complete-cycle:acceptable_evidence]
         teacher_action_source_refs:
           [stage:complete-change-model-ru:teacher_action_ru, stage:revision-stations:teacher_action_ru]
-        language_support_refs: [assessment:assess-et-supported-unit:acceptable_evidence]
+        answer_language_refs: [question:question-opposite-processes:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-opposite-processes:acceptable_variants]
+        misconception_refs: [question:question-opposite-processes:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Error correction выполняется в revision stage после сохранённой первой попытки и имеет явное объяснение исправления.
@@ -735,14 +756,18 @@ pedagogical_integration:
         execution_mode: assessment_task
         task_id: grade-5-water-04-changes-review/consolidation-task
         learner_instruction_ru: "Собери итоговую карту понятий: состояния как узлы, процессы как связи, затем выполни отдельные предметную и эстонскую части."
+        learner_success_criterion_ru: [Карта содержит состояния и процессы; предметная и языковая части заполнены отдельно.]
+        learner_language_support_ru: ["Банк слов: tahke · vedel · gaasiline · sulamine · jäätumine · aurustumine · veeldumine."]
         prompt_source_refs:
           [stage:revision-stations:pupil_action_ru, stage:separate-unit-assessment:pupil_action_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [assessment:assess-subject-complete-cycle:acceptable_evidence, assessment:assess-et-independent-unit:acceptable_evidence]
         teacher_action_source_refs:
           [stage:revision-stations:teacher_action_ru, stage:separate-unit-assessment:teacher_action_ru]
-        language_support_refs:
+        answer_language_refs:
           [question:question-opposite-processes:short_oral_answer_et, assessment:assess-et-supported-unit:acceptable_evidence]
+        acceptable_variant_refs: [question:question-opposite-processes:acceptable_variants]
+        misconception_refs: [question:question-opposite-processes:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Concept map делит время между revision и отдельной assessment stage, не смешивая предметный и языковой score.

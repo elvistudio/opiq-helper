@@ -25,6 +25,11 @@ parent guidance и weekly plan. Teacher-facing lesson files показывают
 находятся в `homeschool/`, а подготовка устного ответа — в
 `student/water-oral-answer-preparation.md`.
 
+Committed classroom lesson DNA — единственный canonical selector output. Она
+без изменений входит в homeschool request и имеет тот же digest в integration
+index, decision и package. Точная production-привязка предметного и эстонского
+assessment хранится отдельным overlay и не изменяет DNA.
+
 Проверка воспроизводима без AI, сети, случайности и timestamp:
 
 ```bash
@@ -47,6 +52,12 @@ Activity/setup/cleanup/transition, reserve и non-DNA минуты полнос�
 горячего сосуда и дегустации. Package, child/parent Markdown и machine policy
 проверяются на одинаковую границу безопасности. Это не подтверждает домашнюю
 апробацию.
+Домашняя практика использует отдельный
+`homeschool/lesson-03-passive-observation-sheet.md`, не использует школьную
+таблицу температуры и не имеет ключа. Ключ урока остаётся только у отдельных
+этапов проверки evidence и вывода после первой попытки. Ученические критерии и
+рамки отделены от полных ответов; answer-leak guard проверяет student и
+child-facing homeschool файлы.
 
 ## Независимая проверка и апробация
 

@@ -94,7 +94,7 @@ Timing compatibility rules: `1.0`.
 - Source access: `closed_first_attempt`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-complete-cycle`, `assess-et-recognition-unit`, `assess-et-independent-unit`.
-- Language support: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином..
+- Language answer evidence: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Понятная фраза с введённым или переработанным термином..
 - Safety: специальные меры не требуются.
 - Binding rationale: Retrieval self-test начинается в activation и использует setup первой revision station без скрытых минут.
 
@@ -115,7 +115,7 @@ Selection rationale: Target retrieval-self-test прошёл hard constraints и
 - Source access: `open`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-complete-cycle`, `assess-practical-data-reasoning`.
-- Language support: Одна поддержанная причинная фраза с двумя терминами..
+- Language answer evidence: Soojenemisel jää sulab; jahtumisel vesi jäätub..
 - Safety: специальные меры не требуются.
 - Binding rationale: Error correction выполняется в revision stage после сохранённой первой попытки и имеет явное объяснение исправления.
 
@@ -135,7 +135,7 @@ Selection rationale: Target error-correction прошёл hard constraints и п
 - Source access: `open`.
 - Evaluation: `answer_key`; answer access: `after_first_attempt`.
 - Assessment refs: `assess-subject-complete-cycle`, `assess-practical-data-reasoning`, `assess-et-recognition-unit`, `assess-et-supported-unit`, `assess-et-independent-unit`.
-- Language support: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами..
+- Language answer evidence: Soojenemisel jää sulab; jahtumisel vesi jäätub.; Одна поддержанная причинная фраза с двумя терминами..
 - Safety: специальные меры не требуются.
 - Binding rationale: Concept map делит время между revision и отдельной assessment stage, не смешивая предметный и языковой score.
 

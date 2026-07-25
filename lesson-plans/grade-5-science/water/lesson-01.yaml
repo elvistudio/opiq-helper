@@ -606,10 +606,59 @@ pedagogical_integration:
         subject_explanation_available: false
       answer_key_release: self_managed_after_attempt
       teacher_override_policy: require_preservation
+      adapted_task_contracts:
+        - source_phase_id: activation
+          adapted_target_id: true-false-anticipation
+          source_task_ref: grade-5-water-01-properties/activation-task
+          task_id: grade-5-water-01-properties/activation-task--home-orientation
+          learner_instruction_ru: До чтения отметь «верно» или «неверно» для двух первоначальных идей о свойствах воды.
+          student_material_ids: [water-sample-visual]
+          learner_success_criterion_ru: [Отмечены две первоначальные идеи до просмотра готового ответа.]
+          learner_language_support_ru: ["Рамка: Vesi on __________."]
+          evaluation_mode: teacher_observation
+          source_access_policy: open
+          answer_access_policy: not_applicable
+          answer_key_material_ids: []
+          answer_evidence_refs: [stage:activate-water:expected_evidence_of_learning]
+          answer_language_refs: [question:question-water-property:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+          misconception_refs: [question:question-water-property:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
+        - source_phase_id: explanation
+          adapted_target_id: venn-diagram
+          source_task_ref: grade-5-water-01-properties/explanation-task
+          task_id: grade-5-water-01-properties/explanation-task--home-independent-practice
+          learner_instruction_ru: Нарисуй два пересекающихся круга и размести в них элементы задания о веществе, свойстве и наблюдении.
+          student_material_ids: [water-sample-visual]
+          learner_success_criterion_ru: [Оба круга заполнены и в пересечении подписана общая связь.]
+          learner_language_support_ru: ["Банк слов: vesi · aine · omadus."]
+          evaluation_mode: teacher_observation
+          source_access_policy: open
+          answer_access_policy: not_applicable
+          answer_key_material_ids: []
+          answer_evidence_refs: [stage:explain-properties-ru:expected_evidence_of_learning]
+          answer_language_refs: [question:question-water-property:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+          misconception_refs: [question:question-water-property:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
       practical_policy: null
     future_retrieval_windows:
       - window: {after_lessons: 1}
         capability: retrieval
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids: [formative-check, guided-practice, retrieval]
+      criterion_refs: [assess-practical-observation, assess-subject-water-property]
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids: [formative-check, guided-practice, retrieval]
+      criterion_refs:
+        [assess-et-independent-property, assess-et-recognition-properties, assess-et-supported-property]
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance: {source: lesson_assessment_bindings}
   phase_bindings:
     - dna_phase_id: activation
       lesson_stage_ids: [activate-water]
@@ -630,10 +679,14 @@ pedagogical_integration:
         execution_mode: teacher_led
         task_id: grade-5-water-01-properties/activation-task
         learner_instruction_ru: До объяснения запиши две первоначальные идеи о том, какие свойства воды можно увидеть напрямую.
+        learner_success_criterion_ru: [Записаны две первоначальные идеи без просмотра готового ответа.]
+        learner_language_support_ru: ["Рамка: Vesi on __________."]
         prompt_source_refs: [question:question-water-property:question_ru]
-        expected_evidence_source_refs: [stage:activate-water:expected_evidence_of_learning]
+        answer_evidence_refs: [stage:activate-water:expected_evidence_of_learning]
         teacher_action_source_refs: [stage:activate-water:teacher_action_ru]
-        language_support_refs: [question:question-water-property:question_et]
+        answer_language_refs: [question:question-water-property:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+        misconception_refs: [question:question-water-property:misconception_to_watch]
         evaluation_mode: teacher_observation
         answer_access_policy: not_applicable
       binding_rationale_ru: Brainstorming занимает всю activation stage и фиксирует исходные идеи до русского объяснения.
@@ -656,10 +709,14 @@ pedagogical_integration:
         execution_mode: learner_task
         task_id: grade-5-water-01-properties/explanation-task
         learner_instruction_ru: Изобрази на бумаге схему «вещество — свойство — наблюдение» и подпиши связь на одном примере воды.
+        learner_success_criterion_ru: [Построены три элемента схемы и подписана одна связь между ними.]
+        learner_language_support_ru: ["Банк слов: vesi · aine · omadus."]
         prompt_source_refs: [stage:explain-properties-ru:pupil_action_ru]
-        expected_evidence_source_refs: [stage:explain-properties-ru:expected_evidence_of_learning]
+        answer_evidence_refs: [stage:explain-properties-ru:expected_evidence_of_learning]
         teacher_action_source_refs: [stage:explain-properties-ru:teacher_action_ru]
-        language_support_refs: [question:question-water-property:question_et]
+        answer_language_refs: [question:question-water-property:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+        misconception_refs: [question:question-water-property:misconception_to_watch]
         evaluation_mode: teacher_observation
         answer_access_policy: not_applicable
       binding_rationale_ru: Paper diagram полностью занимает русскую explanation stage и материализует научную связь без физической модели.
@@ -683,11 +740,15 @@ pedagogical_integration:
         execution_mode: learner_task
         task_id: grade-5-water-01-properties/guided-practice-task
         learner_instruction_ru: Нарисуй два пересекающихся круга Венна для воды и раствора, внеси различия по краям и общее наблюдаемое свойство в пересечение.
+        learner_success_criterion_ru: [Оба круга заполнены и в пересечении записано одно общее наблюдаемое свойство.]
+        learner_language_support_ru: ["Банк слов: vesi · lahus · omadus."]
         prompt_source_refs: [stage:observe-water:pupil_action_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [stage:observe-water:expected_evidence_of_learning, assessment:assess-practical-observation:acceptable_evidence]
         teacher_action_source_refs: [stage:observe-water:teacher_action_ru]
-        language_support_refs: [question:question-water-property:question_et]
+        answer_language_refs: [question:question-water-property:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+        misconception_refs: [question:question-water-property:misconception_to_watch]
         evaluation_mode: evidence_criterion
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Venn diagram материализует сравнение двух образцов внутри существующей practical-observation stage.
@@ -716,12 +777,16 @@ pedagogical_integration:
         execution_mode: retrieval_task
         task_id: grade-5-water-01-properties/retrieval-task
         learner_instruction_ru: "Закрой источник и построй карту понятий по памяти: вещество и свойства как узлы, наблюдения как подписанные связи."
+        learner_success_criterion_ru: [Первая попытка сохранена; карта содержит узлы и хотя бы две подписанные связи.]
+        learner_language_support_ru: ["Рамка: Vesi on __________.", "Банк слов: läbipaistev · värvitu · vedel."]
         prompt_source_refs: [question:question-water-property:question_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [question:question-water-property:full_expected_answer_ru, assessment:assess-subject-water-property:acceptable_evidence]
         teacher_action_source_refs: [stage:independent-summary:teacher_action_ru]
-        language_support_refs:
+        answer_language_refs:
           [question:question-water-property:short_oral_answer_et, assessment:assess-et-independent-property:acceptable_evidence]
+        acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+        misconception_refs: [question:question-water-property:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Concept map использует полный independent-output и три минуты bounded language retrieval в эстонском мосте.
@@ -751,13 +816,17 @@ pedagogical_integration:
         execution_mode: assessment_task
         task_id: grade-5-water-01-properties/formative-check-task
         learner_instruction_ru: Сохрани первую попытку, проверь её по ключу, отметь совпавшие evidence и исправь одну неточность другим цветом.
+        learner_success_criterion_ru: [Первая попытка сохранена и одна неточность исправлена другим цветом.]
+        learner_language_support_ru: ["Рамка: Vesi on __________.", "Банк слов: läbipaistev · värvitu · vedel."]
         prompt_source_refs: [stage:independent-summary:pupil_action_ru]
-        expected_evidence_source_refs:
+        answer_evidence_refs:
           [assessment:assess-subject-water-property:acceptable_evidence, assessment:assess-et-supported-property:acceptable_evidence]
         teacher_action_source_refs:
           [stage:bridge-properties-et:teacher_action_ru, stage:independent-summary:teacher_action_ru]
-        language_support_refs:
+        answer_language_refs:
           [question:question-water-property:short_oral_answer_et, assessment:assess-et-supported-property:acceptable_evidence]
+        acceptable_variant_refs: [question:question-water-property:acceptable_variants]
+        misconception_refs: [question:question-water-property:misconception_to_watch]
         evaluation_mode: answer_key
         answer_access_policy: after_first_attempt
       binding_rationale_ru: Error correction связывает сохранённое наблюдение с коротким language evidence и явным исправлением.

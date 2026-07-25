@@ -18,6 +18,7 @@ then calls the existing selection engine 1.1 and homeschool engine 1.0:
 source-backed lesson YAML
 → selection request
 → decision and lesson DNA
+→ immutable canonical lesson DNA + production assessment overlay
 → stage/phase/material binding
 → classroom rendering
 → strict homeschool adaptation
@@ -68,6 +69,22 @@ identity in `pedagogy/integration-index.yaml`. Changing a scientific answer,
 source URL, or safety control changes the identity; changing delivery timing or
 readiness does not.
 
+## Canonical lesson DNA and assessment overlay
+
+`selectLessonPedagogy()` produces the one canonical lesson DNA for a lesson.
+That exact object is committed under `pedagogy/classroom/`, copied without any
+field change into the homeschool request, used for timing and task rendering,
+and hashed by the integration index, homeschool decision, and homeschool
+package. The generator checks the complete digest chain and fails if the
+selector-owned object changes after selection.
+
+Production phase bindings for subject and Estonian assessment are more specific
+than the generic selector contract. They therefore live in
+`pedagogical_integration.assessment_integration` and in the integration index as
+`production_assessment_integration`. This overlay records target phases,
+criterion references, the separate-evidence policy, provenance, and the source
+DNA digest. It never mutates lesson DNA.
+
 ## Stage and component timing reconciliation
 
 Every DNA phase binds to explicit, non-overlapping minute allocations inside
@@ -111,7 +128,8 @@ The renderer owns only regions enclosed by:
 
 Manual text outside a region is preserved. Missing, duplicate, nested, or
 broken markers fail. A phase render contract states an execution mode,
-concrete learner instruction, evidence and language-support references,
+concrete learner instruction, learner-visible criteria and bounded language
+support, teacher-only answer/language/variant/misconception references,
 evaluation mode, answer-access policy, and binding rationale. The renderer
 materializes the selected method: concept maps require nodes and labelled
 links, recall closes the source before retrieval, self-tests preserve
@@ -122,12 +140,21 @@ Teacher regions show the target, minute allocation, learner and teacher
 actions, evidence, evaluation, language role, assessment references, safety,
 differentiation, and rationale. Student regions show observable actions,
 exact source/material access, first attempt, required evidence, key-release,
-and visible correction without taxonomy IDs, scoring, or override internals.
+and visible correction without taxonomy IDs, scoring, override internals, or
+the correct answer before the first attempt.
 `teacher_observation` phases have no fictitious key;
 `answer_key`/`evidence_criterion` phases resolve to a real key. The integration
 index binds each task to the exact student and teacher paths, prompt/evidence
 sources, evaluation mode, and access policy. Validation proves that no selected
 phase exists only as metadata.
+
+The answer-leak guard collects full Russian answers, complete short Estonian
+answers, acceptable variants, and practical conclusions from lesson YAML. It
+normalizes whitespace and Markdown before rejecting their appearance in
+student or child-facing homeschool files. Sentence frames with a blank and
+individual terms in a bounded word bank remain allowed. Full answers,
+acceptable variants, misconceptions, and correction guidance remain available
+in `answers/`, teacher lesson guides, and machine artifacts.
 
 ## Language and assessment
 
@@ -141,8 +168,8 @@ result.
 The shared `lessonRequestsEstonianAssessment()` rule follows structured
 criteria: `affects: language_assessment` or a recognized Estonian recognition,
 supported-production, or independent-production domain. This flag propagates
-through the selection request, lesson DNA, integration index, phase tasks,
-answer guidance, and homeschool package. Target phase IDs must contain actual
+through the selection request, generic lesson DNA, and the separate production
+assessment overlay. Target phase IDs must contain actual
 language evidence; Russian scientific reasoning and A1–A2 Estonian output
 remain separately evaluated.
 
@@ -158,6 +185,14 @@ opaque instructions such as “open the indicated material” are rejected. Keys
 remain closed for the first attempt, corrections remain visible, and the
 parent is never made the subject teacher.
 
+When the home adapter preserves a target, the source task contract may be
+reused after resource checks. When it reselects a target, an explicit
+`adapted_task_contract` is mandatory. That contract restates learner
+instruction, materials and criteria, evaluation mode, source and answer
+access, key bindings, procedure refs, and safety refs. Nothing
+answer-bearing or safety-sensitive is inherited implicitly; absence produces
+`adapted_task_contract_missing`.
+
 Lesson 3 is `parent_child`, requires teacher authorization and adult safety
 supervision, and permits only passive ice melting and cold-surface observation:
 no kettle, stove, open flame, or child handling of a hot vessel. Other lessons
@@ -172,6 +207,13 @@ rationale relating the generated lesson to the simpler production homework.
 The final DNA, package, child Markdown, and parent Markdown must be equivalent
 to this policy. A resource-heavy classroom target is reselected rather than
 being falsely preserved when the home resource contract cannot support it.
+The reselected practical uses
+`homeschool/lesson-03-passive-observation-sheet.md`, not the classroom
+temperature table. It records initial/later and cold-surface observations
+without a thermometer, warm water, or heating. Its evaluation mode is
+`teacher_observation`, its answer access is `not_applicable`, and it has no key.
+Separate evidence-check and conclusion steps retain their keys after a visible
+first attempt.
 
 Delayed retrieval uses only `after_lessons`, `after_days`, or `next_unit`;
 absolute learner dates and personal progress storage are prohibited.

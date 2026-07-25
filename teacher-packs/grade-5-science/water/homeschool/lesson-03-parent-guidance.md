@@ -12,13 +12,16 @@
 
 - Выходная карточка содержания и языка — teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
 - Карточка безопасной работы — teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+- Лист домашнего пассивного наблюдения — teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md
 - Схема «состояние — процесс — состояние» — teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
-- Таблица измерений и наблюдений — teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
 
 ## Доступ к ответам
 
-- Ключ выдаёт взрослый только после видимой первой попытки.
-- Ключ: `teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md`.
+- Общее правило: Ключ выдаёт взрослый только после видимой первой попытки.
+- Этап `safety-orientation`: ключ для этого действия не используется.
+- Этап `practical-work`: ключ для этого действия не используется.
+- Этап `evidence-check`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md` доступен по правилу `adult_managed`.
+- Этап `conclusion`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md` доступен по правилу `adult_managed`.
 
 Взрослый не является автоматически предметным учителем и не формулирует
 научный ответ вместо ребёнка. Нерешённый предметный вопрос передаётся учителю.

@@ -6,20 +6,29 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import { parse } from 'yaml';
 import {
   applyGeneratedRegion,
+  buildAssessmentIntegration,
   buildIntegratedSelectionRequest,
   checkGeneratedFiles,
+  collectTeacherAnswerStrings,
   computeLessonContentIdentity,
   computeUnitContentIdentity,
+  findLearnerAnswerLeaks,
   generateWaterPilotArtifacts,
   generationSummary,
   lessonRequestsEstonianAssessment,
   reconcileLessonTiming,
   removeGeneratedRegion,
   resolveLessonContentRef,
+  resolveAdaptedProductionTask,
   resolveProductionMaterialRef,
   stableIntegrationJson,
   taskBindings,
 } from './lib/pedagogy-generation-integration.mjs';
+import {
+  serializePedagogyYaml,
+  sha256PedagogyValue,
+  stablePedagogyJson,
+} from './lib/pedagogy-selection.mjs';
 import {
   computeTeacherPackFingerprintFromRepository,
 } from './lib/teacher-pack-fingerprints.mjs';
@@ -57,7 +66,7 @@ function escaped(value) {
 
 function mutateTiming(lessonId, mutate) {
   const lesson = structuredClone(lessonFor(lessonId));
-  const dna = structuredClone(rowFor(lessonId).lessonDna);
+  const dna = structuredClone(rowFor(lessonId).canonicalLessonDna);
   mutate(lesson, dna);
   return () => reconcileLessonTiming(lesson, dna);
 }
@@ -162,7 +171,7 @@ test('four production identities and the unit identity are current', () => {
 test('lesson 3 keeps compact classroom practical and a distinct home profile', () => {
   const row = rowFor('grade-5-water-03-melting-condensation');
   assert.equal(
-    row.lessonDna.phases.find((phase) => phase.phase_id === 'practical-work')
+    row.canonicalLessonDna.phases.find((phase) => phase.phase_id === 'practical-work')
       .target.target_id,
     'learning-stations::practical-compact-teacher-prepared-observation',
   );
@@ -174,10 +183,10 @@ test('lesson 3 keeps compact classroom practical and a distinct home profile', (
   );
 });
 
-test('generator reports four lessons and sixty-three deterministic files', () => {
+test('generator reports four lessons and sixty-four deterministic files', () => {
   const summary = generationSummary(generated);
   assert.equal(summary.lesson_count, 4);
-  assert.equal(summary.generated_file_count, 63);
+  assert.equal(summary.generated_file_count, 64);
   assert.deepEqual(summary.guarantees, {
     ai_used: false,
     network_used: false,
@@ -322,7 +331,7 @@ for (const lessonId of lessonIds) {
       row.selection.request.language_profile.estonian_support.assessment_requested,
       true,
     );
-    assert.equal(row.lessonDna.assessment.estonian_language_assessment.enabled, true);
+    assert.equal(row.assessmentIntegration.estonian_language_assessment.enabled, true);
     assert.equal(row.homeschool.package.assessment.estonian_language_assessment, true);
   });
 }
@@ -349,9 +358,9 @@ for (const domain of [
 test('assessment: every language target phase exists in DNA', () => {
   for (const lessonId of lessonIds) {
     const row = rowFor(lessonId);
-    const ids = new Set(row.lessonDna.phases.map((phase) => phase.phase_id));
+    const ids = new Set(row.canonicalLessonDna.phases.map((phase) => phase.phase_id));
     assert.ok(
-      row.lessonDna.assessment.estonian_language_assessment.target_phase_ids
+      row.assessmentIntegration.estonian_language_assessment.target_phase_ids
         .every((phaseId) => ids.has(phaseId)),
     );
   }
@@ -359,7 +368,7 @@ test('assessment: every language target phase exists in DNA', () => {
 
 test('assessment: subject and language evidence remain separate', () => {
   for (const lessonId of lessonIds) {
-    const assessment = rowFor(lessonId).lessonDna.assessment;
+    const assessment = rowFor(lessonId).assessmentIntegration;
     assert.equal(
       assessment.separation_policy,
       'separate_subject_and_estonian_language_evidence',
@@ -442,10 +451,10 @@ test('unit digest is stable for semantically equivalent source ordering', () => 
 for (const lessonId of lessonIds) {
   test(`materialization: ${lessonId} has one task per selected phase`, () => {
     const row = rowFor(lessonId);
-    assert.equal(row.taskBindings.length, row.lessonDna.phases.length);
+    assert.equal(row.taskBindings.length, row.canonicalLessonDna.phases.length);
     assert.deepEqual(
       row.taskBindings.map((task) => task.phase_id).sort(),
-      row.lessonDna.phases.map((phase) => phase.phase_id).sort(),
+      row.canonicalLessonDna.phases.map((phase) => phase.phase_id).sort(),
     );
   });
 
@@ -521,7 +530,7 @@ test('materialization: practical task carries approved procedure and evidence re
     (entry) => entry.phase_id === 'practical-work',
   );
   assert.ok(task.prompt_source_refs.some((ref) => ref.includes('pupil_steps')));
-  assert.ok(task.evidence_source_refs.some((ref) => ref.includes('expected_observation')));
+  assert.ok(task.answer_evidence_refs.some((ref) => ref.includes('expected_observation')));
   assert.ok(task.safety_controls_ru.length > 0);
 });
 
@@ -529,7 +538,7 @@ test('materialization: wrong material binding is rejected', () => {
   const lesson = structuredClone(lessonFor(lessonIds[0]));
   lesson.pedagogical_integration.phase_bindings[0].student_material_ids = ['unknown'];
   assert.throws(
-    () => taskBindings(lesson, rowFor(lessonIds[0]).lessonDna, generated.materialsIndex),
+    () => taskBindings(lesson, rowFor(lessonIds[0]).canonicalLessonDna, generated.materialsIndex),
     /unresolved production material/u,
   );
 });
@@ -538,7 +547,7 @@ test('materialization: a missing phase binding is rejected', () => {
   const lesson = structuredClone(lessonFor(lessonIds[0]));
   lesson.pedagogical_integration.phase_bindings.pop();
   assert.throws(
-    () => taskBindings(lesson, rowFor(lessonIds[0]).lessonDna, generated.materialsIndex),
+    () => taskBindings(lesson, rowFor(lessonIds[0]).canonicalLessonDna, generated.materialsIndex),
     /Cannot read properties|unrendered|undefined/u,
   );
 });
@@ -568,7 +577,10 @@ for (const lessonId of lessonIds) {
       }
       for (const task of step.resolved_tasks) {
         assert.match(markdown, new RegExp(escaped(task.learner_instruction_ru)));
-        assert.match(markdown, new RegExp(escaped(task.expected_evidence_ru.slice(0, 24))));
+        assert.match(
+          markdown,
+          new RegExp(escaped(task.learner_success_criterion_ru[0].slice(0, 24))),
+        );
       }
     }
     assert.doesNotMatch(markdown, /указанный материал/iu);
@@ -750,13 +762,15 @@ test('home safety: homework mismatch is machine-readable and documented', () => 
   assert.equal(relationship.generated_lesson_adult_supervision_required, true);
 });
 
-test('home safety: generated practical task uses policy child steps', () => {
+test('home safety: generated practical task uses explicit policy refs', () => {
   const row = rowFor(lessonIds[2]);
   const task = row.homeschoolRenderResolution.steps
     .find((step) => step.phase_id === 'practical-work').resolved_tasks[0];
-  for (const step of row.homePracticalPolicy.child_steps_ru) {
-    assert.match(task.learner_instruction_ru, new RegExp(escaped(step)));
-  }
+  assert.deepEqual(task.procedure_refs, [
+    'policy:lesson-03-passive-ice-home-policy:child_steps_ru',
+    'policy:lesson-03-passive-ice-home-policy:adult_steps_ru',
+  ]);
+  assert.match(task.learner_instruction_ru, /наблюдай и записывай/iu);
 });
 
 test('home safety: safety checks pass and no false readiness is introduced', () => {
@@ -856,11 +870,375 @@ test('CLI: check succeeds and unknown arguments fail with code 2', () => {
 test('production readiness remains review-pending and not tested', () => {
   for (const lessonId of lessonIds) {
     const row = rowFor(lessonId);
-    assert.equal(row.lessonDna.status.teacher_review, 'pending');
-    assert.equal(row.lessonDna.status.classroom_trial, 'not_started');
-    assert.equal(row.lessonDna.status.classroom_ready, false);
+    assert.equal(row.canonicalLessonDna.status.teacher_review, 'pending');
+    assert.equal(row.canonicalLessonDna.status.classroom_trial, 'not_started');
+    assert.equal(row.canonicalLessonDna.status.classroom_ready, false);
     assert.equal(row.homeschool.package.status.teacher_review, 'pending');
     assert.equal(row.homeschool.package.status.home_trial, 'not_started');
     assert.equal(row.homeschool.package.status.homeschool_ready, false);
   }
+});
+
+// Cross-cutting blocker regressions: canonical DNA, answer isolation, and home task identity.
+for (const lessonId of lessonIds) {
+  test(`canonical DNA: ${lessonId} equals homeschool request source bytewise`, () => {
+    const row = rowFor(lessonId);
+    assert.equal(
+      serializePedagogyYaml(row.canonicalLessonDna),
+      serializePedagogyYaml(row.homeschoolRequest.source.lesson_dna),
+    );
+  });
+
+  test(`canonical DNA: ${lessonId} digest chain is exact`, () => {
+    const row = rowFor(lessonId);
+    const digest = sha256PedagogyValue(row.canonicalLessonDna);
+    assert.equal(
+      row.homeschool.decision.source_identity.source_lesson_dna_digest,
+      digest,
+    );
+    assert.equal(
+      row.homeschool.package.source_identity.source_lesson_dna_digest,
+      digest,
+    );
+  });
+
+  test(`canonical DNA: ${lessonId} assessment overlay does not change digest`, () => {
+    const row = rowFor(lessonId);
+    const before = sha256PedagogyValue(row.canonicalLessonDna);
+    const overlay = buildAssessmentIntegration(lessonFor(lessonId), row.canonicalLessonDna);
+    assert.deepEqual(overlay, row.assessmentIntegration);
+    assert.equal(sha256PedagogyValue(row.canonicalLessonDna), before);
+  });
+}
+
+test('canonical DNA: integration index uses the same four digests', () => {
+  const index = parse(generated.files.get(
+    'teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml',
+  ));
+  for (const lesson of index.lessons) {
+    const row = rowFor(lesson.lesson_id);
+    assert.equal(lesson.lesson_dna_digest, sha256PedagogyValue(row.canonicalLessonDna));
+    assert.equal(
+      lesson.production_assessment_integration.source_lesson_dna_digest,
+      lesson.lesson_dna_digest,
+    );
+  }
+});
+
+test('canonical DNA: integration implementation has no split DNA variables', async () => {
+  const source = await fs.readFile(
+    'scripts/lib/pedagogy-generation-integration.mjs',
+    'utf8',
+  );
+  assert.doesNotMatch(source, /\bsourceLessonDna\b|\bselection\.lessonDna\b/u);
+});
+
+test('canonical DNA: production assessment remains an explicit overlay', () => {
+  for (const lesson of generated.lessons) {
+    assert.equal(
+      lesson.pedagogical_integration.assessment_integration.provenance.source,
+      'lesson_assessment_bindings',
+    );
+    assert.equal(
+      lesson.pedagogical_integration.assessment_integration.separation_policy,
+      'separate_subject_and_estonian_language_evidence',
+    );
+  }
+});
+
+test('canonical DNA: stable serialization is deterministic', () => {
+  for (const lessonId of lessonIds) {
+    const dna = rowFor(lessonId).canonicalLessonDna;
+    assert.equal(serializePedagogyYaml(dna), serializePedagogyYaml(dna));
+    assert.equal(stablePedagogyJson(dna), stablePedagogyJson(dna));
+  }
+});
+
+function productionLearnerFiles() {
+  return new Map([...generated.files].filter(([file]) => (
+    file.startsWith('teacher-packs/grade-5-science/water/student/')
+    || (
+      file.startsWith('teacher-packs/grade-5-science/water/homeschool/')
+      && (
+        file.endsWith('-independent-study.md')
+        || file.endsWith('-parent-supported.md')
+        || file.endsWith('passive-observation-sheet.md')
+      )
+    )
+  )));
+}
+
+test('answer isolation: production learner files contain zero answer leaks', () => {
+  assert.deepEqual(findLearnerAnswerLeaks(generated.lessons, productionLearnerFiles()), []);
+});
+
+test('answer isolation: complete Russian answer is rejected', () => {
+  const answer = generated.lessons[0].questions[0].full_expected_answer_ru;
+  assert.ok(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', answer]]),
+  ).length >= 1);
+});
+
+test('answer isolation: complete Estonian answer is rejected', () => {
+  const answer = generated.lessons[0].questions[0].short_oral_answer_et;
+  assert.ok(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', answer]]),
+  ).length >= 1);
+});
+
+test('answer isolation: acceptable variant is rejected', () => {
+  const answer = generated.lessons[0].questions[0].acceptable_variants[0];
+  assert.equal(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', answer]]),
+  ).length, 1);
+});
+
+test('answer isolation: practical expected conclusion is rejected', () => {
+  const answer = generated.lessons[2].practical_work.expected_conclusion_ru;
+  assert.equal(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', answer]]),
+  ).length, 1);
+});
+
+test('answer isolation: whitespace does not bypass the guard', () => {
+  const answer = generated.lessons[0].questions[0].full_expected_answer_ru
+    .replace(/\s+/gu, '\n   ');
+  assert.equal(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', answer]]),
+  ).length, 1);
+});
+
+test('answer isolation: Markdown formatting does not bypass the guard', () => {
+  const answer = generated.lessons[0].questions[0].full_expected_answer_ru
+    .split(' ')
+    .map((word) => `**${word}**`)
+    .join(' ');
+  assert.equal(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', answer]]),
+  ).length, 1);
+});
+
+test('answer isolation: sentence frame with a blank is allowed', () => {
+  assert.deepEqual(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', 'Puhas vesi on __________.']]),
+  ), []);
+});
+
+test('answer isolation: a single term in a word bank is allowed', () => {
+  assert.deepEqual(findLearnerAnswerLeaks(
+    generated.lessons,
+    new Map([['student.md', 'läbipaistev · värvitu · vedel']]),
+  ), []);
+});
+
+test('answer isolation: teacher answer keys retain complete answers', () => {
+  for (const lesson of generated.lessons) {
+    const answerPath =
+      `teacher-packs/grade-5-science/water/answers/lesson-0${lesson.position_in_unit}-answer-key.md`;
+    const answer = generated.files.get(answerPath);
+    assert.match(
+      answer,
+      new RegExp(escaped(lesson.questions[0].full_expected_answer_ru.slice(0, 30))),
+    );
+  }
+});
+
+test('answer isolation: learner criteria remain visible', () => {
+  for (const row of generated.rows.values()) {
+    for (const task of row.taskBindings) {
+      const file = task.student_artifact_paths
+        .map((pathName) => generated.files.get(pathName))
+        .find((content) => content?.includes(task.task_id));
+      assert.match(file, /Проверь, что ты выполнил/u);
+      assert.match(file, new RegExp(escaped(task.learner_success_criterion_ru[0])));
+    }
+  }
+});
+
+test('answer isolation: answer catalogue contains all required teacher-only strings', () => {
+  const answers = collectTeacherAnswerStrings(generated.lessons);
+  assert.ok(answers.length >= 20);
+  assert.ok(answers.includes(generated.lessons[2].practical_work.expected_conclusion_ru));
+});
+
+function lessonThreePractical() {
+  const lesson = lessonFor(lessonIds[2]);
+  const row = rowFor(lessonIds[2]);
+  const sourceTask = row.taskBindings.find((task) => task.phase_id === 'practical-work');
+  const phaseAdaptation = row.homeschool.decision.phase_adaptations.find(
+    (adaptation) => adaptation.source_phase_id === 'practical-work',
+  );
+  return { lesson, row, sourceTask, phaseAdaptation };
+}
+
+test('home task: lesson 3 practical uses a distinct home target', () => {
+  const { sourceTask, phaseAdaptation } = lessonThreePractical();
+  assert.notEqual(phaseAdaptation.adapted_target_id, sourceTask.target_id);
+});
+
+test('home task: missing reselected-target contract fails structurally', () => {
+  const { lesson, row, sourceTask, phaseAdaptation } = lessonThreePractical();
+  const missing = structuredClone(lesson);
+  missing.pedagogical_integration.selection_input.homeschool
+    .adapted_task_contracts = [];
+  assert.throws(
+    () => resolveAdaptedProductionTask({
+      sourceTask,
+      phaseAdaptation,
+      lesson: missing,
+      practicalPolicy: row.homePracticalPolicy,
+      materialsIndex: generated.materialsIndex,
+    }),
+    (error) => error.code === 'adapted_task_contract_missing',
+  );
+});
+
+test('home task: explicit practical contract resolves the home sheet', () => {
+  const { lesson, row, sourceTask, phaseAdaptation } = lessonThreePractical();
+  const task = resolveAdaptedProductionTask({
+    sourceTask,
+    phaseAdaptation,
+    lesson,
+    practicalPolicy: row.homePracticalPolicy,
+    materialsIndex: generated.materialsIndex,
+  });
+  assert.deepEqual(task.student_material_ids, [
+    'lesson-03-home-passive-observation-sheet',
+    'practical-safety-card',
+  ]);
+});
+
+for (const forbidden of [
+  'lesson-03-observation-table.md',
+  'термометр',
+  'тёплая вода',
+  'измерить температуру',
+]) {
+  test(`home task: home sheet excludes ${forbidden}`, () => {
+    const sheet = generated.files.get(
+      'teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md',
+    );
+    assert.doesNotMatch(sheet, new RegExp(escaped(forbidden), 'iu'));
+  });
+}
+
+for (const required of [
+  'Начальное наблюдение',
+  'Наблюдение позже',
+  'Наблюдение холодной поверхности',
+  'Мой вывод по-русски',
+  'Нерешённый вопрос учителю',
+]) {
+  test(`home task: home sheet includes ${required}`, () => {
+    const sheet = generated.files.get(
+      'teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md',
+    );
+    assert.match(sheet, new RegExp(escaped(required), 'u'));
+  });
+}
+
+test('home task: practical evaluation is observation without a key', () => {
+  const row = rowFor(lessonIds[2]);
+  const task = row.homeschoolRenderResolution.steps
+    .find((step) => step.phase_id === 'practical-work').resolved_tasks[0];
+  assert.equal(task.evaluation_mode, 'teacher_observation');
+  assert.equal(task.answer_access_policy, 'not_applicable');
+  assert.equal(task.answer_key_artifact_path, null);
+  assert.deepEqual(task.answer_key_material_ids, []);
+});
+
+test('home task: package practical binding has no answer key', () => {
+  const binding = rowFor(lessonIds[2]).homeschool.package.materials
+    .phase_binding_summary.find((row) => row.adapted_phase_id === 'practical-work');
+  assert.deepEqual(binding.answer_key_refs, []);
+  assert.equal(binding.release_policy, 'not_applicable');
+});
+
+test('home task: practical child rendering says no key is used', () => {
+  const markdown = generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md',
+  );
+  assert.match(markdown, /Ключ для этого действия не используется/u);
+});
+
+test('home task: parent guidance assigns keys only to evidence and conclusion', () => {
+  const markdown = generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md',
+  );
+  assert.match(markdown, /Этап `practical-work`: ключ для этого действия не используется/u);
+  assert.match(markdown, /Этап `evidence-check`: Ключ/u);
+  assert.match(markdown, /Этап `conclusion`: Ключ/u);
+});
+
+test('home task: practical criteria and policy refs are explicit', () => {
+  const task = rowFor(lessonIds[2]).homeschoolRenderResolution.steps
+    .find((step) => step.phase_id === 'practical-work').resolved_tasks[0];
+  assert.ok(task.learner_success_criterion_ru.length >= 4);
+  assert.ok(task.procedure_refs.every((ref) => ref.startsWith('policy:')));
+  assert.ok(task.safety_refs.every((ref) => ref.startsWith('policy:')));
+});
+
+test('home task: package and rendered resolution are machine-equivalent', () => {
+  const resolution = rowFor(lessonIds[2]).homeschoolRenderResolution;
+  assert.equal(resolution.machine_rendered_equivalent, true);
+  for (const step of resolution.steps) {
+    assert.deepEqual(
+      step.material_refs,
+      [...new Set(step.resolved_tasks.flatMap((task) => task.student_material_ids))].sort(),
+    );
+  }
+});
+
+test('home task: classroom practical remains temperature-based and separate', () => {
+  const classroom = generated.files.get(
+    'teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md',
+  );
+  assert.match(classroom, /температур/iu);
+  const home = generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md',
+  );
+  assert.doesNotMatch(home, /температур/iu);
+});
+
+test('home task: home resources exclude measuring and laboratory materials', () => {
+  const resources = rowFor(lessonIds[2]).homePracticalPolicy.home_resources;
+  assert.equal(resources.measuring_tools_available, false);
+  assert.equal(resources.laboratory_materials_available, false);
+  assert.ok(resources.unavailable.includes('measuring_tools'));
+  assert.ok(resources.unavailable.includes('laboratory_materials'));
+});
+
+test('home task: authorization, supervision, and responsibility boundaries remain', () => {
+  const row = rowFor(lessonIds[2]);
+  assert.equal(row.homePracticalPolicy.teacher_authorization_required, true);
+  assert.equal(row.homePracticalPolicy.adult_supervision_required, true);
+  assert.match(
+    row.homeschool.parentGuidance.responsibility_boundary
+      .subject_teacher_responsibility_ru,
+    /учител/iu,
+  );
+  assert.match(
+    row.homeschool.parentGuidance.responsibility_boundary.adult_support_ru,
+    /не создаёт предметный ответ/iu,
+  );
+});
+
+test('home task: machine and rendered states retain pending readiness', () => {
+  const row = rowFor(lessonIds[2]);
+  assert.equal(row.homeschool.package.status.teacher_review, 'pending');
+  assert.equal(row.homeschool.package.status.home_trial, 'not_started');
+  assert.equal(row.homeschool.package.status.homeschool_ready, false);
+  assert.match(
+    generated.files.get(
+      'teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md',
+    ),
+    /home trial not started/iu,
+  );
 });

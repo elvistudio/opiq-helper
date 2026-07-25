@@ -316,6 +316,23 @@ materials:
   - lesson_ids: [grade-5-water-03-melting-condensation]
     required_for_pack: true
     material:
+      material_id: lesson-03-home-passive-observation-sheet
+      title: Лист домашнего пассивного наблюдения
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: Домашние наблюдения зависят от условий; полноту записи и соблюдение процедуры проверяет взрослый, а научный вывод проверяется отдельным retrieval-заданием после первой попытки.
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 03 approved passive home observation policy
+        notes: Home-only observation record; it does not reuse the classroom temperature-comparison procedure.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
       material_id: melting-condensation-table
       title: Таблица измерений и наблюдений
       material_type: worksheet

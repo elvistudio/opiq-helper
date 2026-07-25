@@ -224,17 +224,17 @@ assessment:
   subject_assessment:
     enabled: true
     target_phase_ids:
-      - conclusion
       - evidence-check
-      - practical-work
     notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
       предметный результат.
   estonian_language_assessment:
     enabled: true
     target_phase_ids:
-      - conclusion
+      - safety-orientation
       - evidence-check
-    notes_ru: Короткое эстонское evidence A1–A2 фиксируется отдельно от русского предметного доказательства.
+      - conclusion
+    notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+      предметного понимания.
 retrieval_plan:
   immediate_phase_id: conclusion
   correction_phase_id: null
