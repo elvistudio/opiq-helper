@@ -50,10 +50,20 @@ missing evaluators do not. Warning-only and informational results remain
 visible without becoming hidden blockers. Empty evaluation scope never
 produces a positive structural claim.
 
-This boundary leaves issue #63 responsible for human review/trial workflow and
-issue #64 responsible for broad pedagogical regression profiles. The focused
-mutation fixtures here prove validator behavior; they are not representative
-curriculum coverage.
+This boundary leaves issue #63 responsible for human review/trial workflow.
+The separate [pedagogical regression framework](pedagogy-regressions.md)
+composes these gates with selection and production artifacts. Focused quality
+unit mutations prove individual evaluator behavior. End-to-end regression
+cases instead mutate primary repository YAML/Markdown or evidence bindings in
+isolated copies, reload the production adapter, and then execute these gates.
+Selection architecture cases and architecture-output policy cases remain
+separate from both. Regression invariant snapshots expose expected values,
+actual values, and exact evidence references; loader-reported dependency paths
+form their checked closure. Classroom safety and homeschool safety use their
+respective delivery contracts, and collaboration is not inferred from a
+non-individual format alone. These pilots preserve meaningful cross-engine
+invariants without claiming representative curriculum coverage or
+effectiveness.
 
 ## Versioned catalogue
 

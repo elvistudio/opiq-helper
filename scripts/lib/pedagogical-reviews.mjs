@@ -138,6 +138,16 @@ export async function loadPedagogicalReviewRepository({
     trialRecords,
     workflowDocuments,
     currentPackFingerprints,
+    loadedArtifactPaths: [...new Set([
+      ...(teacherPacks.loadedArtifactPaths ?? []),
+      teacherReviewSchemaPath,
+      classroomTrialSchemaPath,
+      ...reviewTemplates.map((artifact) => artifact.file),
+      ...trialTemplates.map((artifact) => artifact.file),
+      ...reviewRecords.map((artifact) => artifact.file),
+      ...trialRecords.map((artifact) => artifact.file),
+      ...workflowDocuments.map((artifact) => artifact.file),
+    ])].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
   };
 }
 

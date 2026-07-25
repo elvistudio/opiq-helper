@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-regression-report.schema.json",
+  "title": "Pedagogical regression report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "report_id",
+    "regression_catalogue_version",
+    "engine_version",
+    "scope",
+    "versions",
+    "digests",
+    "content_identities",
+    "teacher_pack_fingerprint",
+    "counts",
+    "cases",
+    "checked_artifacts",
+    "claims",
+    "non_guarantees"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "pedagogy_regression_report" },
+    "report_id": { "const": "grade-5-pedagogy-regression-report" },
+    "regression_catalogue_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "engine_version": { "const": "1.0" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grade",
+        "subject",
+        "reference_family",
+        "production_scope",
+        "architecture_only_scope"
+      ],
+      "properties": {
+        "grade": { "const": 5 },
+        "subject": { "const": "science" },
+        "reference_family": { "const": "grade-5-science-reference-pilots" },
+        "production_scope": { "const": "four-lesson-water-pilot" },
+        "architecture_only_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["additional_scaffolding", "ecosystem_comparison", "justified_nonstandard_pattern", "map_data_interpretation", "self_explanation"] }
+        }
+      }
+    },
+    "versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "taxonomy",
+        "selection_rules",
+        "selection_engine",
+        "lesson_dna_schema",
+        "homeschool_engine",
+        "quality_engine",
+        "integration_engine",
+        "fingerprint_specification"
+      ],
+      "properties": {
+        "taxonomy": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "selection_rules": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "selection_engine": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "lesson_dna_schema": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "homeschool_engine": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "quality_engine": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "integration_engine": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "fingerprint_specification": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" }
+      }
+    },
+    "digests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixture_catalogue", "activity_catalogue", "quality_gate_catalogue"],
+      "properties": {
+        "fixture_catalogue": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "activity_catalogue": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "quality_gate_catalogue": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "content_identities": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["record_id", "algorithm", "value"],
+        "properties": {
+          "record_id": { "type": "string", "minLength": 1 },
+          "algorithm": { "const": "sha256" },
+          "value": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "teacher_pack_fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "specification_version", "value", "file_count"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "specification_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "value": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "file_count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total", "passed", "failed", "by_case_kind", "invariants"],
+      "properties": {
+        "total": { "type": "integer", "minimum": 20 },
+        "passed": { "type": "integer", "minimum": 0 },
+        "failed": { "type": "integer", "minimum": 0 },
+        "by_case_kind": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "architecture_only",
+            "deliberate_failure",
+            "production_classroom",
+            "production_homeschool",
+            "stale_evidence"
+          ],
+          "properties": {
+            "architecture_only": { "type": "integer", "minimum": 1 },
+            "deliberate_failure": { "type": "integer", "minimum": 1 },
+            "production_classroom": { "type": "integer", "minimum": 1 },
+            "production_homeschool": { "type": "integer", "minimum": 1 },
+            "stale_evidence": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "invariants": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total", "passed", "failed"],
+          "properties": {
+            "total": { "type": "integer", "minimum": 1 },
+            "passed": { "type": "integer", "minimum": 0 },
+            "failed": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 20,
+      "items": { "$ref": "#/$defs/caseResult" }
+    },
+    "checked_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_regression_cases_passed",
+        "production_water_pilot_structurally_complete",
+        "teacher_approved",
+        "effectiveness_claimed",
+        "curriculum_complete",
+        "classroom_ready",
+        "homeschool_ready"
+      ],
+      "properties": {
+        "all_regression_cases_passed": { "type": "boolean" },
+        "production_water_pilot_structurally_complete": { "type": "boolean" },
+        "teacher_approved": { "const": false },
+        "effectiveness_claimed": { "const": false },
+        "curriculum_complete": { "const": false },
+        "classroom_ready": { "const": false },
+        "homeschool_ready": { "const": false }
+      }
+    },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "not_curriculum_complete",
+          "not_effectiveness_evidence",
+          "not_production_material",
+          "not_teacher_approved",
+          "not_trial_evidence"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "claimSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pedagogy_schema_valid",
+        "structurally_complete",
+        "production_ready",
+        "effectiveness_claimed",
+        "curriculum_complete"
+      ],
+      "properties": {
+        "pedagogy_schema_valid": { "type": ["boolean", "null"] },
+        "structurally_complete": { "type": ["boolean", "null"] },
+        "production_ready": { "type": "boolean" },
+        "effectiveness_claimed": { "type": "boolean" },
+        "curriculum_complete": { "type": "boolean" }
+      }
+    },
+    "invariantResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "invariant_id",
+        "status",
+        "summary",
+        "expected",
+        "actual",
+        "evidence_refs"
+      ],
+      "properties": {
+        "invariant_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "status": { "enum": ["failed", "passed"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "expected": { "$ref": "#/$defs/jsonValue" },
+        "actual": { "$ref": "#/$defs/jsonValue" },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?:(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*|semantic:[A-Za-z0-9._:-]+)$"
+          }
+        }
+      }
+    },
+    "jsonValue": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jsonValue" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/jsonValue" }
+        }
+      ]
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["severity", "code", "gate_id", "artifact_path", "record_id"],
+      "properties": {
+        "severity": { "enum": ["error", "warning"] },
+        "code": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "gate_id": { "type": ["string", "null"] },
+        "artifact_path": { "type": ["string", "null"] },
+        "record_id": { "type": ["string", "null"] }
+      }
+    },
+    "caseResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "regression_id",
+        "case_kind",
+        "status",
+        "source_status",
+        "handler_id",
+        "selection_status",
+        "selected_target_ids",
+        "invariants",
+        "diagnostics",
+        "expected_claims",
+        "actual_claims",
+        "checked_artifacts",
+        "ephemeral_checked_artifacts",
+        "non_guarantees"
+      ],
+      "properties": {
+        "regression_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "case_kind": {
+          "enum": [
+            "architecture_only",
+            "deliberate_failure",
+            "production_classroom",
+            "production_homeschool",
+            "stale_evidence"
+          ]
+        },
+        "status": { "enum": ["failed", "passed"] },
+        "source_status": {
+          "enum": [
+            "architecture_only",
+            "expected_failure",
+            "production_baseline",
+            "stale_evidence"
+          ]
+        },
+        "handler_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "selection_status": { "enum": ["failure", "not_applicable", "success"] },
+        "selected_target_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "invariants": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/invariantResult" }
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/diagnostic" }
+        },
+        "expected_claims": { "$ref": "#/$defs/claimSnapshot" },
+        "actual_claims": { "$ref": "#/$defs/claimSnapshot" },
+        "checked_artifacts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "ephemeral_checked_artifacts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+          }
+        },
+        "non_guarantees": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -59,6 +59,13 @@ The initial catalog contains:
   exceptions; safety, leakage, identity, closure, provenance, and readiness
   gates cannot be suppressed. Active targets must resolve to an applicable
   normalized record; retired entries remain historical and never apply.
+- `regressions/grade-5-regression-cases.yaml` defines bounded production,
+  architecture-only, deliberate-failure, and stale-evidence cases. Every case
+  declares semantic invariants, an executable local handler, and either a
+  strict mutation contract or explicit `mutation: null`. Production/stale
+  mutations operate on primary repository artifacts in isolated copies and
+  reload the existing adapters; normalized quality booleans are not accepted
+  as end-to-end evidence.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.
@@ -100,6 +107,9 @@ npm run adapt:homeschool
 npm run test:pedagogy-quality
 npm run check:pedagogy-quality
 npm run check:pedagogy-quality-report
+npm run test:pedagogy-regressions
+npm run check:pedagogy-regressions
+npm run check:pedagogy-regression-report
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -171,6 +181,9 @@ weekly plans, and readiness limits.
 See [`docs/pedagogy-quality-gates.md`](../../docs/pedagogy-quality-gates.md)
 for reusable structural gates, exact exceptions, diagnostics, production
 reporting, CI, and the boundary between machine validation and human approval.
+See [`docs/pedagogy-regressions.md`](../../docs/pedagogy-regressions.md) for
+case kinds, semantic snapshots, contribution rules, and the distinction
+between regression evidence and human review or curriculum coverage.
 
 The water production pilot also uses two bounded execution profiles:
 `visual-representation::paper-diagram` for a truthful paper-only diagram task
