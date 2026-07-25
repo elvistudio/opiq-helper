@@ -580,6 +580,13 @@ pedagogical_integration:
         measuring_tools_available: false
         outdoor_access_available: false
         adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: state-sort-cards
+          delivery_scope: [classroom, homeschool]
+        - material_id: states-exit-card
+          delivery_scope: [classroom, homeschool]
+        - material_id: three-states-diagram
+          delivery_scope: [classroom, homeschool]
       adult_context:
         available: false
         max_support_minutes: 0

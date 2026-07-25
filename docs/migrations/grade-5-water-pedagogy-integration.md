@@ -115,7 +115,7 @@ homework launch from the unchanged lesson; it is not hidden additional time.
 
 ## Generated artifacts
 
-The deterministic generator checks 64 files:
+The deterministic generator checks 65 files:
 
 - 12 classroom YAML artifacts: request, decision, and lesson DNA for each
   lesson;
@@ -125,7 +125,8 @@ The deterministic generator checks 64 files:
 - one integration index;
 - four child-facing homeschool renderings;
 - four parent-guidance renderings;
-- one home-only passive-observation sheet for lesson 3;
+- one home-only passive-observation sheet and one home-only safety card for
+  lesson 3;
 - one oral-preparation sheet and one answer-guidance file;
 - phase-specific bounded regions across teacher lesson guides, declared student
   materials, and answer keys.
@@ -171,12 +172,23 @@ stove, open flame, hot water or vessel, chemicals, and tasting. Teacher
 authorization and continuous adult safety supervision are mandatory. The
 package, child rendering, parent rendering, procedure/safety refs, and policy
 are machine-checked as equivalent.
-The corresponding explicit adapted task contract uses
-`homeschool/lesson-03-passive-observation-sheet.md`; the classroom temperature
-table is not inherited. The home practical is `teacher_observation`,
-`answer_access_policy: not_applicable`, and has no answer-key refs. Keys remain
-available only for the separate evidence-check and conclusion after the first
-attempt.
+The preserved safety-orientation target has an explicit home task contract
+using only `homeschool/lesson-03-home-safety-card.md`. The reselected practical
+uses that card together with
+`homeschool/lesson-03-passive-observation-sheet.md`; neither the classroom
+temperature table nor `practical-safety-card` is inherited. Both home tasks
+are `teacher_observation`, use `answer_access_policy: not_applicable`, and
+have no answer-key refs. Keys remain available only for the separate
+evidence-check and conclusion after the first attempt.
+
+Material delivery scope is explicit. A recursive validator follows every
+resolved package task through its adapted contract, material ID, materials
+index entry, artifact path, and file content. It confirms that the four
+resolved lesson-3 home materials are homeschool-compatible, contain no
+classroom task markers or positive classroom-only instructions, contain no
+practical key release, and agree with the strict home policy. The adaptation
+request still contains the immutable classroom DNA and source bindings as
+provenance; they are intentionally outside the resolved home closure.
 
 Learner render contracts distinguish completion criteria and bounded language
 scaffolds from teacher-only answer evidence. A normalized answer-leak scan
@@ -199,9 +211,9 @@ Before migration, the water teacher-pack fingerprint was
 `130807477db124b3bc4de413e1c921cfcc57284872d0f16bfd2cbff8ac2198ba`
 over 32 files.
 
-After the canonical-DNA, answer-isolation, and home-task follow-up, it is
-`67107ce808a22c60e5949da7d9f7ad8609c5b59b8ab9e2d989539818e1929ecf`
-over 77 files. This intentional change means any future review or trial must
+After the canonical-DNA, answer-isolation, and home-task follow-ups, it is
+`13baf6f243b48f62ada192ce91efbd87f5cb6044aab3eb6bd3404a2b8977b7fd`
+over 78 files. This intentional change means any future review or trial must
 reference the migrated reviewable content.
 
 The water-use-cycle control fingerprint remains
@@ -220,17 +232,17 @@ No completed review or analysed trial evidence was created. The pilot remains:
 ## Validation results
 
 - clean dependency install: passed;
-- all registered `test:*` scripts: 1,131 passed, 0 failed;
-- aggregate `node --test`: 1,131 passed, 0 failed;
+- all registered `test:*` scripts: 1,182 passed, 0 failed;
+- aggregate `node --test`: 1,182 passed, 0 failed;
 - pedagogy knowledge: 144 passed;
 - pedagogy selection: 142 passed;
 - pedagogy homeschool: 179 passed;
-- pedagogy integration: 152 passed;
+- pedagogy integration: 203 passed;
 - lesson plans: 91 passed;
 - teacher packs: 16 passed;
 - fingerprints: 41 passed;
 - all registered `check:*` commands: passed;
-- integration check: four lessons, 34 machine YAML artifacts, 64 checked
+- integration check: four lessons, 34 machine YAML artifacts, 65 checked
   generated/rendered files, and three honest readiness warnings;
 - strict parsing: 72 JSON and 98 YAML files;
 - strict Ajv: 35 schemas;

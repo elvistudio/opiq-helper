@@ -631,6 +631,13 @@ pedagogical_integration:
         measuring_tools_available: false
         outdoor_access_available: false
         adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: complete-phase-cycle
+          delivery_scope: [classroom, homeschool]
+        - material_id: unit-revision-stations
+          delivery_scope: [classroom, homeschool]
+        - material_id: unit-separate-assessment
+          delivery_scope: [classroom, homeschool]
       adult_context:
         available: false
         max_support_minutes: 0

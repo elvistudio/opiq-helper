@@ -731,6 +731,19 @@ pedagogical_integration:
         measuring_tools_available: false
         outdoor_access_available: false
         adult_safety_supervision_available: true
+      material_delivery_scopes:
+        - material_id: lesson-03-home-passive-observation-sheet
+          delivery_scope: [homeschool]
+        - material_id: lesson-03-home-safety-card
+          delivery_scope: [homeschool]
+        - material_id: melting-condensation-table
+          delivery_scope: [classroom]
+        - material_id: phase-change-diagram
+          delivery_scope: [classroom, homeschool]
+        - material_id: practical-safety-card
+          delivery_scope: [classroom]
+        - material_id: separate-practical-exit-card
+          delivery_scope: [classroom, homeschool]
       adult_context:
         available: true
         max_support_minutes: 90
@@ -741,6 +754,29 @@ pedagogical_integration:
       answer_key_release: adult_managed
       teacher_override_policy: allow_reselection_with_warning
       adapted_task_contracts:
+        - source_phase_id: safety-orientation
+          adapted_target_id: brainstorming
+          source_task_ref: grade-5-water-03-melting-condensation/safety-orientation-task
+          task_id: grade-5-water-03-melting-condensation/safety-orientation-task--home-safety-orientation
+          learner_instruction_ru: До объяснения вместе со взрослым проверь разрешённые материалы, назови безопасное действие ребёнка и условие немедленной остановки.
+          student_material_ids: [lesson-03-home-safety-card]
+          learner_success_criterion_ru:
+            - Взрослый подтвердил материалы и своё непрерывное присутствие.
+            - Названо одно разрешённое действие ребёнка.
+            - Названо одно условие немедленной остановки.
+          learner_language_support_ru: ["Инструкции: Vaata · Kirjuta · Peatu · Kutsu täiskasvanu · Ära kuumuta."]
+          evaluation_mode: teacher_observation
+          source_access_policy: open
+          answer_access_policy: not_applicable
+          answer_key_material_ids: []
+          answer_evidence_refs: []
+          answer_language_refs: []
+          acceptable_variant_refs: []
+          misconception_refs: []
+          procedure_refs:
+            [policy:lesson-03-passive-ice-home-policy:adult_steps_ru, policy:lesson-03-passive-ice-home-policy:child_steps_ru]
+          safety_refs:
+            [policy:lesson-03-passive-ice-home-policy:safety_controls_ru, policy:lesson-03-passive-ice-home-policy:stop_conditions_ru]
         - source_phase_id: evidence-check
           adapted_target_id: exit-ticket
           source_task_ref: grade-5-water-03-melting-condensation/evidence-check-task
@@ -764,7 +800,7 @@ pedagogical_integration:
           source_task_ref: grade-5-water-03-melting-condensation/practical-work-task
           task_id: grade-5-water-03-melting-condensation/practical-work-task--home-practical-work
           learner_instruction_ru: Наблюдай и записывай пассивное таяние льда и капли на холодной поверхности только по разрешённой взрослым процедуре.
-          student_material_ids: [lesson-03-home-passive-observation-sheet, practical-safety-card]
+          student_material_ids: [lesson-03-home-passive-observation-sheet, lesson-03-home-safety-card]
           learner_success_criterion_ru:
             - Взрослый подтвердил разрешённые материалы и наблюдал всю процедуру.
             - Записаны начальное и последующее качественные наблюдения.
@@ -828,6 +864,7 @@ pedagogical_integration:
           - Взрослый находится рядом на протяжении всего наблюдения.
           - Нагревание и пробование воды полностью запрещены.
           - После наблюдения воду убирают, поверхность вытирают и руки моют.
+        home_instructions_et: [Vaata., Kirjuta., Peatu., Kutsu täiskasvanu., Ära kuumuta.]
         procedure_source_refs:
           - practical:observe-melting-condensation:pupil_steps
           - stage:homework-launch:pupil_action_ru

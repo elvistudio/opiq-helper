@@ -377,9 +377,12 @@ placeholder.
 The production adapter does not rewrite the selector-owned source lesson DNA.
 Committed classroom DNA, the request copy, and decision/package source digests
 must form one exact chain. Production assessment phase bindings are carried as
-an integration overlay. A reselected target requires an explicit adapted task
-contract; source materials, evidence, key policy, procedure, and safety are not
-inherited automatically.
+an integration overlay. The task resolver checks for an explicit adapted
+contract before target-equality inheritance. A preserved target can therefore
+replace classroom-only delivery materials without changing the selected
+method. A reselected target always requires an explicit contract; source
+materials, evidence, key policy, procedure, and safety are not inherited
+automatically.
 
 The lesson-3 home observation uses a separate strict policy artifact rather
 than a lesson-position heuristic. It records the classroom target, the
@@ -390,9 +393,20 @@ parent Markdown must express the same safety boundary. This is structural
 equivalence only: teacher review remains pending, the home trial is not
 started, and `homeschool_ready` remains false.
 
-The lesson-3 home practical has its own passive-observation sheet. It does not
-reuse the classroom temperature table or answer key. The adult checks procedure
-completion and safety; the scientific conclusion is checked later in a
-separate keyed retrieval step after the child's first attempt. Learner
-rendering exposes success criteria and sentence frames, while complete answers
-and accepted variants stay in teacher-only answer regions.
+The lesson-3 safety orientation and practical have a home-only safety card;
+the practical also has its own passive-observation sheet. They do not reuse
+the classroom safety card, temperature table, or practical key. Both home
+tasks use `teacher_observation` with answer access `not_applicable`. The adult
+checks procedure completion and safety; the scientific conclusion is checked
+later in a separate keyed retrieval step after the child's first attempt.
+Learner rendering exposes success criteria and sentence frames, while complete
+answers and accepted variants stay in teacher-only answer regions.
+
+Material delivery scope is explicit integration metadata. The validator walks
+the recursive closure from each package step to its resolved task, material
+index record, artifact path, and content. It rejects a classroom-only material
+in a home task, a classroom task marker or positive classroom procedure in a
+resolved home file, practical key-release instructions, and disagreement with
+the strict home policy. Canonical source DNA in the request can still mention
+classroom source materials as immutable provenance; only resolved home tasks
+determine the home closure.

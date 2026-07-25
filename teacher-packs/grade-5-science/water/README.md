@@ -53,11 +53,21 @@ Activity/setup/cleanup/transition, reserve и non-DNA минуты полнос�
 проверяются на одинаковую границу безопасности. Это не подтверждает домашнюю
 апробацию.
 Домашняя практика использует отдельный
-`homeschool/lesson-03-passive-observation-sheet.md`, не использует школьную
-таблицу температуры и не имеет ключа. Ключ урока остаётся только у отдельных
+`homeschool/lesson-03-passive-observation-sheet.md` и отдельную
+`homeschool/lesson-03-home-safety-card.md`. Домашние safety-orientation и
+practical не используют школьную карточку безопасности, таблицу температуры
+или ключ; для них установлен `teacher_observation` и
+`answer_access_policy: not_applicable`. Ключ урока остаётся только у отдельных
 этапов проверки evidence и вывода после первой попытки. Ученические критерии и
 рамки отделены от полных ответов; answer-leak guard проверяет student и
 child-facing homeschool файлы.
+
+Delivery scope материалов объявлен машинно. Проверка проходит полный closure
+от шага домашнего package через task contract и materials index до содержимого
+файла. Classroom-only материал нельзя разрешить в homeschool task, а
+home-only материал — в classroom task. Исходный homeschool request сохраняет
+classroom bindings только как неизменяемую provenance канонической lesson DNA;
+они не входят в resolved home closure.
 
 ## Независимая проверка и апробация
 

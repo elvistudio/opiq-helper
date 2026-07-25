@@ -27,10 +27,19 @@ repository paths; каждый шаг говорит, какой файл отк
 одинаково запрещают нагревание и требуют разрешения учителя и постоянного
 надзора взрослого.
 Для практического шага используется отдельный
-`homeschool/lesson-03-passive-observation-sheet.md`. Школьная таблица
-температуры и школьный ключ к этому шагу не применяются. Взрослый подтверждает
+`homeschool/lesson-03-passive-observation-sheet.md` и отдельная домашняя
+карточка `homeschool/lesson-03-home-safety-card.md`. Safety-orientation и
+практический шаг не используют школьную карточку безопасности, школьную
+таблицу температуры или ключ; их проверка — наблюдение учителя за соблюдением
+процедуры, а answer access равен `not_applicable`. Взрослый подтверждает
 процедуру и заполнение наблюдений, но научный вывод проверяет учитель или
 отдельное retrieval-задание после первой попытки.
+
+Все материалы имеют явный classroom/homeschool delivery scope. Валидатор
+проходит от package step до task contract, materials index, artifact path и
+содержимого файла; classroom task markers и classroom-only инструкции в
+resolved home closure запрещены. Classroom bindings в исходной canonical DNA
+остаются только provenance и не становятся домашними материалами.
 
 Статус всех вариантов: teacher review pending, home trial not started,
 `homeschool_ready: false`.

@@ -160,6 +160,11 @@ async function validateIntegration() {
       resolution.procedure_refs_resolved,
       resolution.safety_refs_resolved,
       resolution.machine_rendered_equivalent,
+      resolution.home_material_validation?.delivery_scope_valid,
+      resolution.home_material_validation?.classroom_task_markers_absent,
+      resolution.home_material_validation?.classroom_instructions_absent,
+      resolution.home_material_validation?.practical_key_leak_absent,
+      resolution.home_material_validation?.policy_semantics_valid,
     ].every(Boolean)) {
       errors.push(`${lesson.lesson_id}: homeschool refs are unresolved`);
     }
@@ -206,17 +211,47 @@ async function validateIntegration() {
   }
   const practicalStep = practical.homeschoolRenderResolution.steps
     .find((step) => step.phase_id === 'practical-work');
+  const safetyStep = practical.homeschoolRenderResolution.steps
+    .find((step) => step.phase_id === 'safety-orientation');
   const practicalTask = practicalStep?.resolved_tasks[0];
+  const safetyTask = safetyStep?.resolved_tasks[0];
   if (
     !practicalTask
     || practicalTask.evaluation_mode !== 'teacher_observation'
     || practicalTask.answer_access_policy !== 'not_applicable'
     || practicalTask.answer_key_artifact_path !== null
     || practicalStep.resolved_materials.some(
-      (material) => material.material_id === 'melting-condensation-table',
+      (material) => [
+        'melting-condensation-table',
+        'practical-safety-card',
+      ].includes(material.material_id),
     )
   ) {
     errors.push('lesson 3 home practical task leaks classroom evaluation or materials');
+  }
+  if (
+    !safetyTask
+    || safetyTask.task_id
+      !== 'grade-5-water-03-melting-condensation/safety-orientation-task--home-safety-orientation'
+    || safetyTask.answer_access_policy !== 'not_applicable'
+    || safetyTask.answer_key_artifact_path !== null
+    || safetyStep.resolved_materials.length !== 1
+    || safetyStep.resolved_materials[0].material_id !== 'lesson-03-home-safety-card'
+  ) {
+    errors.push('lesson 3 home safety orientation leaks its classroom task contract');
+  }
+  const classroomPractical = practical.taskBindings.find(
+    (task) => task.phase_id === 'practical-work',
+  );
+  if (
+    !classroomPractical?.student_materials.some(
+      (material) => material.material_id === 'practical-safety-card',
+    )
+    || classroomPractical.student_materials.some(
+      (material) => material.material_id === 'lesson-03-home-safety-card',
+    )
+  ) {
+    errors.push('lesson 3 classroom practical lost its classroom-only safety material');
   }
   const dirs = new Set(generated.materialsIndex.reviewable_content.directory_paths);
   for (const required of [

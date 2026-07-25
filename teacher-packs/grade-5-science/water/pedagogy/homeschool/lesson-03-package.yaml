@@ -51,7 +51,7 @@ learner_plan:
       instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
       learner_minutes: 5
       material_refs:
-        - practical-safety-card
+        - lesson-03-home-safety-card
       phase_id: safety-orientation
       safety_controls_ru:
         - Только учитель утверждает домашнюю процедуру до её применения.
@@ -61,7 +61,7 @@ learner_plan:
       source_access: open
       step_id: step-01-safety-orientation
       task_refs:
-        - grade-5-water-03-melting-condensation/safety-orientation-task
+        - grade-5-water-03-melting-condensation/safety-orientation-task--home-safety-orientation
     - adult_involvement: safety_supervision
       completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
       estonian_roles:
@@ -75,7 +75,7 @@ learner_plan:
       learner_minutes: 13
       material_refs:
         - lesson-03-home-passive-observation-sheet
-        - practical-safety-card
+        - lesson-03-home-safety-card
       phase_id: practical-work
       safety_controls_ru:
         - Только учитель утверждает домашнюю процедуру до её применения.
@@ -136,8 +136,8 @@ materials:
     - paper
   learner_material_refs:
     - lesson-03-home-passive-observation-sheet
+    - lesson-03-home-safety-card
     - phase-change-diagram
-    - practical-safety-card
     - separate-practical-exit-card
   phase_binding_summary:
     - adapted_phase_id: conclusion
@@ -179,7 +179,7 @@ materials:
       binding_origin: exact_adapted
       learner_material_refs:
         - lesson-03-home-passive-observation-sheet
-        - practical-safety-card
+        - lesson-03-home-safety-card
       procedure_refs:
         - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
         - policy:lesson-03-passive-ice-home-policy:child_steps_ru
@@ -199,7 +199,7 @@ materials:
       answer_key_refs: []
       binding_origin: exact_adapted
       learner_material_refs:
-        - practical-safety-card
+        - lesson-03-home-safety-card
       procedure_refs:
         - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
         - policy:lesson-03-passive-ice-home-policy:child_steps_ru

@@ -185,13 +185,20 @@ opaque instructions such as “open the indicated material” are rejected. Keys
 remain closed for the first attempt, corrections remain visible, and the
 parent is never made the subject teacher.
 
-When the home adapter preserves a target, the source task contract may be
-reused after resource checks. When it reselects a target, an explicit
-`adapted_task_contract` is mandatory. That contract restates learner
-instruction, materials and criteria, evaluation mode, source and answer
-access, key bindings, procedure refs, and safety refs. Nothing
-answer-bearing or safety-sensitive is inherited implicitly; absence produces
-`adapted_task_contract_missing`.
+The resolver looks for an explicit `adapted_task_contract` before deciding
+whether a preserved target can inherit its source contract. This permits a
+home-specific task to keep the selected method while replacing classroom-only
+materials or operational instructions. If there is no explicit contract, a
+preserved target may inherit only after every material is declared compatible
+with homeschool delivery. A reselected target always requires an explicit
+contract; absence produces `adapted_task_contract_missing`.
+
+Every explicit contract restates learner instruction, materials and criteria,
+evaluation mode, source and answer access, key bindings, procedure refs, and
+safety refs. Integration-level delivery scopes distinguish `classroom`,
+`homeschool`, and explicitly shared materials. A classroom-only material in a
+resolved home task produces `home_material_delivery_scope_mismatch`; path
+location alone is never treated as proof of compatibility.
 
 Lesson 3 is `parent_child`, requires teacher authorization and adult safety
 supervision, and permits only passive ice melting and cold-surface observation:
@@ -207,13 +214,24 @@ rationale relating the generated lesson to the simpler production homework.
 The final DNA, package, child Markdown, and parent Markdown must be equivalent
 to this policy. A resource-heavy classroom target is reselected rather than
 being falsely preserved when the home resource contract cannot support it.
-The reselected practical uses
-`homeschool/lesson-03-passive-observation-sheet.md`, not the classroom
-temperature table. It records initial/later and cold-surface observations
-without a thermometer, warm water, or heating. Its evaluation mode is
-`teacher_observation`, its answer access is `not_applicable`, and it has no key.
-Separate evidence-check and conclusion steps retain their keys after a visible
-first attempt.
+The preserved safety-orientation target has an explicit home task that uses
+`homeschool/lesson-03-home-safety-card.md`; it does not inherit the classroom
+card. The reselected practical uses that same home safety card together with
+`homeschool/lesson-03-passive-observation-sheet.md`, never the classroom
+temperature table or classroom safety card. Both files are generated from the
+strict home policy and describe passive initial/later and cold-surface
+observation without a thermometer, warm water, or heating. Safety-orientation
+and practical work use `teacher_observation`, answer access
+`not_applicable`, and no key. Separate evidence-check and conclusion steps
+retain their keys after a visible first attempt.
+
+Validation follows the complete resolved-home closure from package steps
+through task contracts, material IDs, index entries, artifact paths, and file
+contents. It checks declared delivery scope, absence of classroom task markers
+and positive classroom-only instructions, absence of practical key-release
+text, and agreement with the practical policy. The original homeschool request
+still carries the immutable classroom DNA and its source material bindings as
+provenance; those source bindings are not the resolved home-material closure.
 
 Delayed retrieval uses only `after_lessons`, `after_days`, or `next_unit`;
 absolute learner dates and personal progress storage are prohibited.

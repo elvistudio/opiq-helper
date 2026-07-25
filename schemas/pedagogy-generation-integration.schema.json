@@ -94,6 +94,7 @@
         "prohibited_actions_ru",
         "stop_conditions_ru",
         "safety_controls_ru",
+        "home_instructions_et",
         "procedure_source_refs",
         "safety_source_refs",
         "homework_relationship",
@@ -157,6 +158,12 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": { "type": "string", "minLength": 10 }
+        },
+        "home_instructions_et": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
         },
         "procedure_source_refs": {
           "type": "array",
@@ -390,6 +397,7 @@
             "maximum_sessions",
             "maximum_total_productive_language_demand",
             "resources",
+            "material_delivery_scopes",
             "adult_context",
             "answer_key_release",
             "teacher_override_policy",
@@ -407,6 +415,12 @@
               "enum": ["none", "very_low", "low", "medium", "high", "very_high", "unknown"]
             },
             "resources": { "$ref": "#/$defs/resourceAvailability" },
+            "material_delivery_scopes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/materialDeliveryScope" }
+            },
             "adult_context": {
               "type": "object",
               "additionalProperties": false,
@@ -740,6 +754,67 @@
           "uniqueItems": true,
           "items": { "type": "string", "minLength": 5 }
         }
+      }
+    },
+    "materialDeliveryScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["material_id", "delivery_scope"],
+      "properties": {
+        "material_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "delivery_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["classroom", "homeschool"]
+          }
+        }
+      }
+    },
+    "homeMaterialValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resolved_material_count",
+        "resolved_material_ids",
+        "resolved_artifact_paths",
+        "delivery_scope_valid",
+        "classroom_task_markers_absent",
+        "classroom_instructions_absent",
+        "practical_key_leak_absent",
+        "policy_semantics_valid"
+      ],
+      "properties": {
+        "resolved_material_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "resolved_material_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        },
+        "resolved_artifact_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+          }
+        },
+        "delivery_scope_valid": { "const": true },
+        "classroom_task_markers_absent": { "const": true },
+        "classroom_instructions_absent": { "const": true },
+        "practical_key_leak_absent": { "const": true },
+        "policy_semantics_valid": { "const": true }
       }
     },
     "assessmentIntegration": {

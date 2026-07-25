@@ -316,6 +316,23 @@ materials:
   - lesson_ids: [grade-5-water-03-melting-condensation]
     required_for_pack: true
     material:
+      material_id: lesson-03-home-safety-card
+      title: Карточка безопасности домашнего пассивного наблюдения
+      material_type: practical_setup
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: Карточка проверяет соблюдение утверждённой домашней процедуры и не содержит задания с единственным предметным ответом.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 approved passive home observation policy
+        notes: Home-only safety card generated from the strict practical policy; it contains no classroom procedure or answer-key release.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
       material_id: lesson-03-home-passive-observation-sheet
       title: Лист домашнего пассивного наблюдения
       material_type: worksheet

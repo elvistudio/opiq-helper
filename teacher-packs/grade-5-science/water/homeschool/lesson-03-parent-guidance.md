@@ -11,7 +11,7 @@
 ## Что подготовить
 
 - Выходная карточка содержания и языка — teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
-- Карточка безопасной работы — teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+- Карточка безопасности домашнего пассивного наблюдения — teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md
 - Лист домашнего пассивного наблюдения — teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md
 - Схема «состояние — процесс — состояние» — teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
 

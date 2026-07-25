@@ -23,6 +23,8 @@ import {
   resolveProductionMaterialRef,
   stableIntegrationJson,
   taskBindings,
+  validateMaterialDeliveryScope,
+  validateResolvedHomeMaterialSemantics,
 } from './lib/pedagogy-generation-integration.mjs';
 import {
   serializePedagogyYaml,
@@ -30,6 +32,7 @@ import {
   stablePedagogyJson,
 } from './lib/pedagogy-selection.mjs';
 import {
+  collectTeacherPackReviewableScope,
   computeTeacherPackFingerprintFromRepository,
 } from './lib/teacher-pack-fingerprints.mjs';
 import { loadTeacherPackRepository } from './lib/teacher-packs.mjs';
@@ -98,6 +101,9 @@ async function createValidators() {
     thematic: ajv.compile(thematic),
     pack: ajv.compile(pack),
     homePolicy: ajv.compile(homePolicy),
+    homeMaterialValidation: ajv.compile({
+      $ref: 'https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/homeMaterialValidation',
+    }),
   };
 }
 
@@ -183,10 +189,10 @@ test('lesson 3 keeps compact classroom practical and a distinct home profile', (
   );
 });
 
-test('generator reports four lessons and sixty-four deterministic files', () => {
+test('generator reports four lessons and sixty-five deterministic files', () => {
   const summary = generationSummary(generated);
   assert.equal(summary.lesson_count, 4);
-  assert.equal(summary.generated_file_count, 64);
+  assert.equal(summary.generated_file_count, 65);
   assert.deepEqual(summary.guarantees, {
     ai_used: false,
     network_used: false,
@@ -1111,7 +1117,7 @@ test('home task: explicit practical contract resolves the home sheet', () => {
   });
   assert.deepEqual(task.student_material_ids, [
     'lesson-03-home-passive-observation-sheet',
-    'practical-safety-card',
+    'lesson-03-home-safety-card',
   ]);
 });
 
@@ -1241,4 +1247,465 @@ test('home task: machine and rendered states retain pending readiness', () => {
     ),
     /home trial not started/iu,
   );
+});
+
+function lessonThreeHomeStep(phaseId) {
+  return rowFor(lessonIds[2]).homeschoolRenderResolution.steps
+    .find((step) => step.phase_id === phaseId);
+}
+
+function lessonThreeHomeTask(phaseId) {
+  return lessonThreeHomeStep(phaseId).resolved_tasks[0];
+}
+
+function homeSafetyContent() {
+  return generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md',
+  );
+}
+
+function protectedHomeContent() {
+  return [
+    homeSafetyContent(),
+    generated.files.get(
+      'teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md',
+    ),
+  ].join('\n');
+}
+
+test('delivery separation: home practical excludes practical-safety-card', () => {
+  assert.ok(!lessonThreeHomeTask('practical-work').student_material_ids
+    .includes('practical-safety-card'));
+});
+
+test('delivery separation: home safety orientation excludes practical-safety-card', () => {
+  assert.ok(!lessonThreeHomeTask('safety-orientation').student_material_ids
+    .includes('practical-safety-card'));
+});
+
+test('delivery separation: home practical includes lesson-03-home-safety-card', () => {
+  assert.ok(lessonThreeHomeTask('practical-work').student_material_ids
+    .includes('lesson-03-home-safety-card'));
+});
+
+test('delivery separation: home safety orientation includes lesson-03-home-safety-card', () => {
+  assert.deepEqual(
+    lessonThreeHomeTask('safety-orientation').student_material_ids,
+    ['lesson-03-home-safety-card'],
+  );
+});
+
+test('delivery separation: classroom practical retains practical-safety-card', () => {
+  const task = rowFor(lessonIds[2]).taskBindings.find(
+    (candidate) => candidate.phase_id === 'practical-work',
+  );
+  assert.ok(task.student_materials.some(
+    (material) => material.material_id === 'practical-safety-card',
+  ));
+});
+
+test('delivery separation: classroom practical excludes home safety card', () => {
+  const task = rowFor(lessonIds[2]).taskBindings.find(
+    (candidate) => candidate.phase_id === 'practical-work',
+  );
+  assert.ok(!task.student_materials.some(
+    (material) => material.material_id === 'lesson-03-home-safety-card',
+  ));
+});
+
+test('delivery separation: home safety card is registered', () => {
+  const material = resolveProductionMaterialRef(
+    'lesson-03-home-safety-card',
+    generated.materialsIndex,
+  );
+  assert.equal(
+    material.artifact_path,
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md',
+  );
+});
+
+test('delivery separation: home safety card has a no-key exemption', () => {
+  const entry = generated.materialsIndex.materials.find(
+    (candidate) => candidate.material.material_id === 'lesson-03-home-safety-card',
+  );
+  assert.equal(entry.material.answer_key_exemption.open_ended, true);
+  assert.match(entry.material.answer_key_exemption.reason, /процедур/iu);
+});
+
+test('delivery separation: home safety card enters the water fingerprint scope', async () => {
+  const repository = await loadTeacherPackRepository(rootDir);
+  const water = repository.indexes.find(
+    (entry) => entry.data.pack_id === 'grade-5-science-water-teacher-pack',
+  );
+  const thematicArtifact = repository.plans.artifacts.find(
+    (artifact) => artifact.data?.unit_id === water.data.unit_ref,
+  );
+  const lessonIdsInPack = new Set(water.data.lesson_ids);
+  const lessonArtifacts = repository.plans.artifacts.filter(
+    (artifact) => lessonIdsInPack.has(artifact.data?.lesson_id),
+  );
+  const scope = await collectTeacherPackReviewableScope({
+    rootDir: repository.rootDir,
+    indexArtifact: water,
+    thematicArtifact,
+    lessonArtifacts,
+  });
+  assert.ok(scope.paths.includes(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md',
+  ));
+});
+
+test('preserved target: explicit contract is applied before inheritance', () => {
+  const row = rowFor(lessonIds[2]);
+  const sourceTask = row.taskBindings.find(
+    (candidate) => candidate.phase_id === 'safety-orientation',
+  );
+  const phaseAdaptation = row.homeschool.decision.phase_adaptations.find(
+    (candidate) => candidate.source_phase_id === 'safety-orientation',
+  );
+  const task = resolveAdaptedProductionTask({
+    sourceTask,
+    phaseAdaptation,
+    lesson: lessonFor(lessonIds[2]),
+    practicalPolicy: row.homePracticalPolicy,
+    materialsIndex: generated.materialsIndex,
+  });
+  assert.equal(task.adapted_contract_applied, true);
+});
+
+test('preserved target: safety orientation receives its home task identity', () => {
+  assert.equal(
+    lessonThreeHomeTask('safety-orientation').task_id,
+    'grade-5-water-03-melting-condensation/safety-orientation-task--home-safety-orientation',
+  );
+});
+
+test('preserved target: safety orientation does not inherit classroom materials', () => {
+  assert.deepEqual(
+    lessonThreeHomeStep('safety-orientation').material_refs,
+    ['lesson-03-home-safety-card'],
+  );
+});
+
+test('preserved target: compatible source task may inherit without an explicit contract', () => {
+  const row = rowFor(lessonIds[0]);
+  const sourceTask = row.taskBindings.find(
+    (candidate) => candidate.phase_id === 'guided-practice',
+  );
+  const phaseAdaptation = row.homeschool.decision.phase_adaptations.find(
+    (candidate) => candidate.source_phase_id === 'guided-practice',
+  );
+  const task = resolveAdaptedProductionTask({
+    sourceTask,
+    phaseAdaptation,
+    lesson: lessonFor(lessonIds[0]),
+    practicalPolicy: null,
+    materialsIndex: generated.materialsIndex,
+  });
+  assert.equal(task.adapted_contract_applied, false);
+  assert.deepEqual(task.student_material_ids, ['water-property-table']);
+});
+
+test('preserved target: incompatible inherited material fails with a structured code', () => {
+  const row = rowFor(lessonIds[0]);
+  const lesson = structuredClone(lessonFor(lessonIds[0]));
+  lesson.pedagogical_integration.selection_input.homeschool
+    .material_delivery_scopes.find(
+      (entry) => entry.material_id === 'water-property-table',
+    ).delivery_scope = ['classroom'];
+  const sourceTask = row.taskBindings.find(
+    (candidate) => candidate.phase_id === 'guided-practice',
+  );
+  const phaseAdaptation = row.homeschool.decision.phase_adaptations.find(
+    (candidate) => candidate.source_phase_id === 'guided-practice',
+  );
+  assert.throws(
+    () => resolveAdaptedProductionTask({
+      sourceTask,
+      phaseAdaptation,
+      lesson,
+      practicalPolicy: null,
+      materialsIndex: generated.materialsIndex,
+    }),
+    (error) => error.code === 'home_material_delivery_scope_mismatch',
+  );
+});
+
+test('preserved target: reselected target without a contract still fails', () => {
+  const { lesson, row, sourceTask, phaseAdaptation } = lessonThreePractical();
+  const missing = structuredClone(lesson);
+  missing.pedagogical_integration.selection_input.homeschool
+    .adapted_task_contracts = missing.pedagogical_integration.selection_input
+      .homeschool.adapted_task_contracts.filter(
+        (contract) => contract.source_phase_id !== 'practical-work',
+      );
+  assert.throws(
+    () => resolveAdaptedProductionTask({
+      sourceTask,
+      phaseAdaptation,
+      lesson: missing,
+      practicalPolicy: row.homePracticalPolicy,
+      materialsIndex: generated.materialsIndex,
+    }),
+    (error) => error.code === 'adapted_task_contract_missing',
+  );
+});
+
+test('home material semantics: protected materials contain no classroom task IDs', () => {
+  const classroomTaskIds = rowFor(lessonIds[2]).taskBindings
+    .filter((task) => ['safety-orientation', 'practical-work'].includes(task.phase_id))
+    .map((task) => task.task_id);
+  for (const taskId of classroomTaskIds) {
+    assert.doesNotMatch(protectedHomeContent(), new RegExp(escaped(taskId), 'u'));
+  }
+});
+
+test('home material semantics: protected materials contain no classroom generated region', () => {
+  assert.doesNotMatch(
+    protectedHomeContent(),
+    /<!-- OPIQ-PEDAGOGY:BEGIN [^>]*audience=student -->/u,
+  );
+});
+
+test('home material semantics: safety card excludes Mõõda', () => {
+  assert.doesNotMatch(homeSafetyContent(), /\bmõõda\b/iu);
+});
+
+test('home material semantics: safety card excludes temperature measurement', () => {
+  assert.doesNotMatch(homeSafetyContent(), /измер(?:ь|ить|ение)\s+температур/iu);
+});
+
+test('home material semantics: safety card excludes a school thermometer', () => {
+  assert.doesNotMatch(homeSafetyContent(), /школьн\p{L}*\s+термометр/iu);
+});
+
+test('home material semantics: safety card excludes command-by-teacher wording', () => {
+  assert.doesNotMatch(homeSafetyContent(), /по\s+команде\s+учителя/iu);
+});
+
+test('home material semantics: safety card excludes teacher-vessel wording', () => {
+  assert.doesNotMatch(homeSafetyContent(), /учительск\p{L}*\s+сосуд/iu);
+});
+
+test('home material semantics: safety card requires passive observation', () => {
+  assert.match(homeSafetyContent(), /пассивное таяние льда/iu);
+});
+
+test('home material semantics: safety card requires continuous adult supervision', () => {
+  assert.match(homeSafetyContent(), /Взрослый присутствует непрерывно/u);
+});
+
+test('home material semantics: safety card contains stop conditions', () => {
+  assert.match(homeSafetyContent(), /Немедленно остановись/u);
+  assert.match(homeSafetyContent(), /пролив/u);
+});
+
+test('home material semantics: safety card explicitly prohibits heating', () => {
+  assert.match(homeSafetyContent(), /Нагревание и пробование воды полностью запрещены/u);
+});
+
+test('home material semantics: safety card contains bounded Estonian commands', () => {
+  for (const command of ['Vaata.', 'Kirjuta.', 'Peatu.', 'Kutsu täiskasvanu.', 'Ära kuumuta.']) {
+    assert.match(homeSafetyContent(), new RegExp(escaped(command), 'u'));
+  }
+});
+
+test('home material semantics: safety card contains no answer-key release', () => {
+  assert.doesNotMatch(homeSafetyContent(), /ключ/iu);
+});
+
+test('machine equivalence: safety package materials equal its explicit contract', () => {
+  const contract = lessonFor(lessonIds[2]).pedagogical_integration.selection_input
+    .homeschool.adapted_task_contracts.find(
+      (candidate) => candidate.source_phase_id === 'safety-orientation',
+    );
+  assert.deepEqual(lessonThreeHomeStep('safety-orientation').material_refs, contract.student_material_ids);
+});
+
+test('machine equivalence: practical package materials equal its explicit contract', () => {
+  const contract = lessonFor(lessonIds[2]).pedagogical_integration.selection_input
+    .homeschool.adapted_task_contracts.find(
+      (candidate) => candidate.source_phase_id === 'practical-work',
+    );
+  assert.deepEqual(lessonThreeHomeStep('practical-work').material_refs, contract.student_material_ids);
+});
+
+test('machine equivalence: child practical lists only its two home materials', () => {
+  const child = generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md',
+  );
+  assert.match(child, /lesson-03-home-safety-card\.md/u);
+  assert.match(child, /lesson-03-passive-observation-sheet\.md/u);
+  assert.doesNotMatch(child, /student\/lesson-03-safety-card\.md/u);
+});
+
+test('machine equivalence: parent preparation lists the home safety card', () => {
+  const parent = generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md',
+  );
+  assert.match(parent, /lesson-03-home-safety-card\.md/u);
+});
+
+test('machine equivalence: parent preparation excludes the classroom safety card', () => {
+  const parent = generated.files.get(
+    'teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md',
+  );
+  assert.doesNotMatch(parent, /student\/lesson-03-safety-card\.md/u);
+});
+
+test('machine equivalence: practical binding has no key refs', () => {
+  const binding = rowFor(lessonIds[2]).homeschool.package.materials
+    .phase_binding_summary.find((row) => row.adapted_phase_id === 'practical-work');
+  assert.deepEqual(binding.answer_key_refs, []);
+});
+
+test('machine equivalence: practical binding release is not applicable', () => {
+  const binding = rowFor(lessonIds[2]).homeschool.package.materials
+    .phase_binding_summary.find((row) => row.adapted_phase_id === 'practical-work');
+  assert.equal(binding.release_policy, 'not_applicable');
+});
+
+test('machine equivalence: safety binding has no key refs', () => {
+  const binding = rowFor(lessonIds[2]).homeschool.package.materials
+    .phase_binding_summary.find((row) => row.adapted_phase_id === 'safety-orientation');
+  assert.deepEqual(binding.answer_key_refs, []);
+});
+
+test('machine equivalence: safety binding release is not applicable', () => {
+  const binding = rowFor(lessonIds[2]).homeschool.package.materials
+    .phase_binding_summary.find((row) => row.adapted_phase_id === 'safety-orientation');
+  assert.equal(binding.release_policy, 'not_applicable');
+});
+
+test('machine equivalence: evidence and conclusion keep adult-managed keys', () => {
+  for (const phaseId of ['evidence-check', 'conclusion']) {
+    const binding = rowFor(lessonIds[2]).homeschool.package.materials
+      .phase_binding_summary.find((row) => row.adapted_phase_id === phaseId);
+    assert.deepEqual(binding.answer_key_refs, ['lesson-03-answer-key']);
+    assert.equal(binding.release_policy, 'adult_managed');
+  }
+});
+
+test('machine equivalence: recursive closure validates every resolved home artifact', () => {
+  const validation = rowFor(lessonIds[2]).homeschoolRenderResolution
+    .home_material_validation;
+  assert.equal(validators.homeMaterialValidation(validation), true);
+  assert.equal(validation.resolved_material_count, 4);
+  assert.equal(validation.resolved_artifact_paths.length, 4);
+});
+
+test('machine equivalence: substituting the classroom card fails semantic validation', async () => {
+  const materialsIndex = structuredClone(generated.materialsIndex);
+  materialsIndex.materials.find(
+    (entry) => entry.material.material_id === 'lesson-03-home-safety-card',
+  ).material.artifact_path =
+    'teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md';
+  await assert.rejects(
+    validateResolvedHomeMaterialSemantics({
+      lesson: lessonFor(lessonIds[2]),
+      resolution: rowFor(lessonIds[2]).homeschoolRenderResolution,
+      materialsIndex,
+      policyArtifact: rowFor(lessonIds[2]).homePracticalPolicy,
+      generatedFiles: generated.files,
+      rootDir,
+    }),
+    (error) => error.code === 'home_material_semantics_mismatch',
+  );
+});
+
+test('determinism: repeated generation preserves the home material validation', async () => {
+  const repeated = await generateWaterPilotArtifacts();
+  assert.deepEqual(
+    repeated.rows.get(lessonIds[2]).homeschoolRenderResolution.home_material_validation,
+    rowFor(lessonIds[2]).homeschoolRenderResolution.home_material_validation,
+  );
+});
+
+test('determinism: recursive material validation is stable', async () => {
+  const row = rowFor(lessonIds[2]);
+  const first = await validateResolvedHomeMaterialSemantics({
+    lesson: lessonFor(lessonIds[2]),
+    resolution: row.homeschoolRenderResolution,
+    materialsIndex: generated.materialsIndex,
+    policyArtifact: row.homePracticalPolicy,
+    generatedFiles: generated.files,
+    rootDir,
+  });
+  const second = await validateResolvedHomeMaterialSemantics({
+    lesson: lessonFor(lessonIds[2]),
+    resolution: row.homeschoolRenderResolution,
+    materialsIndex: generated.materialsIndex,
+    policyArtifact: row.homePracticalPolicy,
+    generatedFiles: generated.files,
+    rootDir,
+  });
+  assert.equal(stableIntegrationJson(first), stableIntegrationJson(second));
+});
+
+test('scope: water fingerprint changes and contains seventy-eight files', async () => {
+  const repository = await loadTeacherPackRepository(rootDir);
+  const water = repository.indexes.find(
+    (entry) => entry.data.pack_id === 'grade-5-science-water-teacher-pack',
+  );
+  const fingerprint = await computeTeacherPackFingerprintFromRepository(repository, water);
+  assert.notEqual(
+    fingerprint.value,
+    '67107ce808a22c60e5949da7d9f7ad8609c5b59b8ab9e2d989539818e1929ecf',
+  );
+  assert.equal(fingerprint.file_count, 78);
+});
+
+test('scope: water-use-cycle control remains unchanged after material separation', async () => {
+  const repository = await loadTeacherPackRepository(rootDir);
+  const control = repository.indexes.find(
+    (entry) => entry.data.pack_id === 'grade-5-science-water-use-cycle-teacher-pack',
+  );
+  const fingerprint = await computeTeacherPackFingerprintFromRepository(repository, control);
+  assert.equal(
+    fingerprint.value,
+    '9db2c9e754ec57cc65b9892ee6230b700188e3be77ea2b328757873787d36a98',
+  );
+  assert.equal(fingerprint.file_count, 44);
+});
+
+test('scope: source manifest is not a generated target', () => {
+  assert.ok(!generated.files.has('source-manifest.json'));
+});
+
+test('scope: canonical Opiq artifacts are not generated targets', () => {
+  for (const file of generated.files.keys()) {
+    assert.doesNotMatch(file, /^project-files\//u);
+  }
+});
+
+test('scope: review and trial evidence remain outside generated targets', () => {
+  for (const file of generated.files.keys()) {
+    assert.doesNotMatch(file, /^pedagogical-reviews\//u);
+  }
+});
+
+test('scope: generated targets contain no PDF or DOC files', () => {
+  for (const file of generated.files.keys()) {
+    assert.doesNotMatch(file, /\.(?:pdf|docx?)$/iu);
+  }
+});
+
+test('scope: generated targets contain no symlinks', async () => {
+  for (const file of generated.files.keys()) {
+    const stat = await fs.lstat(file);
+    assert.equal(stat.isSymbolicLink(), false, file);
+  }
+});
+
+test('scope: home safety artifacts contain no personal-data fields', () => {
+  assert.doesNotMatch(protectedHomeContent(), /student_name|date_of_birth|personal_code/iu);
+});
+
+test('scope: generation guarantees no AI, network, randomness, or volatile timestamps', () => {
+  assert.deepEqual(generationSummary(generated).guarantees, {
+    ai_used: false,
+    network_used: false,
+    randomness_used: false,
+    volatile_timestamps: false,
+  });
 });

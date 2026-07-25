@@ -1179,6 +1179,7 @@ export function buildHomePracticalPolicyArtifact(
     prohibited_actions_ru: policy.prohibited_actions_ru,
     stop_conditions_ru: policy.stop_conditions_ru,
     safety_controls_ru: policy.safety_controls_ru,
+    home_instructions_et: policy.home_instructions_et,
     procedure_source_refs: policy.procedure_source_refs,
     safety_source_refs: policy.safety_source_refs,
     home_resources: lesson.pedagogical_integration.selection_input.homeschool.resources,
@@ -1221,6 +1222,76 @@ function adaptedContractFor(lesson, sourcePhaseId, adaptedTargetId) {
     ));
 }
 
+function homeMaterialScopeError(lesson, materialId, deliveryContext, reason) {
+  const error = new Error(
+    `${lesson.lesson_id}: material ${materialId} is not valid for `
+    + `${deliveryContext}: ${reason}`,
+  );
+  error.code = 'home_material_delivery_scope_mismatch';
+  return error;
+}
+
+function materialDeliveryScopeFor(lesson, materialId, materialsIndex) {
+  const declarations = lesson.pedagogical_integration.selection_input.homeschool
+    .material_delivery_scopes;
+  const declarationIds = declarations.map((row) => row.material_id);
+  if (
+    stablePedagogyJson(declarationIds)
+      !== stablePedagogyJson(uniqueSorted(declarationIds))
+  ) {
+    throw homeMaterialScopeError(
+      lesson,
+      materialId,
+      'declared contexts',
+      'material delivery declarations must be unique and bytewise sorted',
+    );
+  }
+  for (const declaration of declarations) {
+    resolveProductionMaterialRef(declaration.material_id, materialsIndex);
+    if (
+      stablePedagogyJson(declaration.delivery_scope)
+        !== stablePedagogyJson(uniqueSorted(declaration.delivery_scope))
+    ) {
+      throw homeMaterialScopeError(
+        lesson,
+        declaration.material_id,
+        'declared contexts',
+        'delivery scope values must be bytewise sorted',
+      );
+    }
+  }
+  const declaration = declarations.find((row) => row.material_id === materialId);
+  if (!declaration) {
+    throw homeMaterialScopeError(
+      lesson,
+      materialId,
+      'undeclared context',
+      'an explicit delivery scope is required',
+    );
+  }
+  return declaration.delivery_scope;
+}
+
+export function validateMaterialDeliveryScope({
+  lesson,
+  materialIds,
+  deliveryContext,
+  materialsIndex,
+}) {
+  for (const materialId of uniqueSorted(materialIds)) {
+    const scope = materialDeliveryScopeFor(lesson, materialId, materialsIndex);
+    if (!scope.includes(deliveryContext)) {
+      throw homeMaterialScopeError(
+        lesson,
+        materialId,
+        deliveryContext,
+        `declared scope is ${scope.join(', ')}`,
+      );
+    }
+  }
+  return true;
+}
+
 export function resolveAdaptedProductionTask({
   sourceTask,
   phaseAdaptation,
@@ -1229,7 +1300,27 @@ export function resolveAdaptedProductionTask({
   materialsIndex,
 }) {
   const adaptedTargetId = phaseAdaptation?.adapted_target_id ?? sourceTask.target_id;
-  if (adaptedTargetId === sourceTask.target_id) {
+  const sourceMaterialIds = sourceTask.student_materials.map(
+    (material) => material.material_id,
+  );
+  validateMaterialDeliveryScope({
+    lesson,
+    materialIds: sourceMaterialIds,
+    deliveryContext: 'classroom',
+    materialsIndex,
+  });
+  const contract = adaptedContractFor(
+    lesson,
+    sourceTask.phase_id,
+    adaptedTargetId,
+  );
+  if (!contract && adaptedTargetId === sourceTask.target_id) {
+    validateMaterialDeliveryScope({
+      lesson,
+      materialIds: sourceMaterialIds,
+      deliveryContext: 'homeschool',
+      materialsIndex,
+    });
     const usesPracticalPolicy = practicalPolicy && (
       sourceTask.phase_id === 'safety-orientation'
       || practicalPolicy.applies_to_phase_ids.includes(sourceTask.phase_id)
@@ -1254,11 +1345,6 @@ export function resolveAdaptedProductionTask({
       adapted_contract_applied: false,
     };
   }
-  const contract = adaptedContractFor(
-    lesson,
-    sourceTask.phase_id,
-    adaptedTargetId,
-  );
   if (!contract) {
     const error = new Error(
       `${lesson.lesson_id}: explicit contract missing for `
@@ -1275,6 +1361,12 @@ export function resolveAdaptedProductionTask({
   }
   const studentMaterials = contract.student_material_ids
     .map((materialId) => resolveProductionMaterialRef(materialId, materialsIndex));
+  validateMaterialDeliveryScope({
+    lesson,
+    materialIds: contract.student_material_ids,
+    deliveryContext: 'homeschool',
+    materialsIndex,
+  });
   const answerMaterials = contract.answer_key_material_ids
     .map((materialId) => resolveProductionMaterialRef(materialId, materialsIndex));
   const answerBearing = ['answer_key', 'evidence_criterion']
@@ -1765,6 +1857,181 @@ function passiveObservationSheetMarkdown() {
   ].join('\n');
 }
 
+function homeSafetyCardMarkdown(policy) {
+  if (!policy) throw new Error('home safety card requires a practical policy');
+  return [
+    '# Карточка безопасности домашнего пассивного наблюдения',
+    '',
+    '## Перед началом',
+    '',
+    '- [ ] Получено предварительное разрешение предметного учителя.',
+    '- [ ] Взрослый присутствует непрерывно от подготовки до уборки.',
+    '- [ ] Взрослый проверил только разрешённые бытовые материалы:',
+    ...policy.allowed_materials_ru.map((material) => `  - ${material}`),
+    '',
+    '## Действия ребёнка',
+    '',
+    ...policy.child_steps_ru.map((step) => `- ${step}`),
+    '',
+    '## Правила безопасности',
+    '',
+    ...policy.safety_controls_ru.map((control) => `- ${control}`),
+    '',
+    '## Запрещено',
+    '',
+    ...policy.prohibited_actions_ru.map((action) => `- ${action}`),
+    '',
+    '## Немедленно остановись',
+    '',
+    ...policy.stop_conditions_ru.map((condition) => `- ${condition}`),
+    '',
+    '## Роль взрослого',
+    '',
+    ...policy.adult_steps_ru.map((step) => `- ${step}`),
+    '',
+    'Взрослый отвечает за разрешённые материалы, непрерывный надзор и уборку,',
+    'но не формулирует научный вывод вместо ребёнка.',
+    '',
+    '## Короткие инструкции по-эстонски',
+    '',
+    ...policy.home_instructions_et.map((instruction) => `- ${instruction}`),
+    '',
+  ].join('\n');
+}
+
+function homeMaterialSemanticError(lesson, detail) {
+  const error = new Error(`${lesson.lesson_id}: ${detail}`);
+  error.code = 'home_material_semantics_mismatch';
+  return error;
+}
+
+export async function validateResolvedHomeMaterialSemantics({
+  lesson,
+  resolution,
+  materialsIndex,
+  policyArtifact,
+  generatedFiles,
+  rootDir,
+}) {
+  const materialIds = uniqueSorted(resolution.steps.flatMap(
+    (step) => step.resolved_tasks.flatMap((task) => task.student_material_ids),
+  ));
+  validateMaterialDeliveryScope({
+    lesson,
+    materialIds,
+    deliveryContext: 'homeschool',
+    materialsIndex,
+  });
+  const materials = materialIds.map(
+    (materialId) => resolveProductionMaterialRef(materialId, materialsIndex),
+  );
+  const contents = new Map();
+  for (const material of materials) {
+    contents.set(
+      material.material_id,
+      await currentOrGeneratedMarkdown(
+        generatedFiles,
+        rootDir,
+        material.artifact_path,
+      ),
+    );
+  }
+  const protectedPhaseIds = new Set(policyArtifact
+    ? ['safety-orientation', ...policyArtifact.applies_to_phase_ids]
+    : []);
+  const protectedMaterialIds = uniqueSorted(resolution.steps
+    .filter((step) => protectedPhaseIds.has(step.phase_id))
+    .flatMap((step) => step.resolved_tasks)
+    .flatMap((task) => task.student_material_ids));
+  const classroomTaskIds = lesson.pedagogical_integration.phase_bindings
+    .filter((binding) => protectedPhaseIds.has(binding.dna_phase_id))
+    .map((binding) => binding.render_contract.task_id);
+  const forbiddenClassroomInstructions = [
+    /\bmõõda\b/iu,
+    /измер(?:ь|ить|ение)\s+температур/iu,
+    /школьн\p{L}*\s+термометр/iu,
+    /т[ёе]плую\s+воду\s+наливает\s+учитель/iu,
+    /по\s+команде\s+учителя/iu,
+    /учительск\p{L}*\s+сосуд/iu,
+  ];
+  let classroomTaskMarkersAbsent = true;
+  let classroomInstructionsAbsent = true;
+  let practicalKeyLeakAbsent = true;
+  for (const materialId of protectedMaterialIds) {
+    const content = contents.get(materialId);
+    if (
+      /<!-- OPIQ-PEDAGOGY:BEGIN [^>]*audience=student -->/u.test(content)
+      || classroomTaskIds.some((taskId) => content.includes(taskId))
+    ) {
+      classroomTaskMarkersAbsent = false;
+    }
+    if (forbiddenClassroomInstructions.some((pattern) => pattern.test(content))) {
+      classroomInstructionsAbsent = false;
+    }
+    for (const line of content.split(/\r?\n/u)) {
+      if (
+        /ключ/iu.test(line)
+        && !/ключ[^.]*не\s+используется/iu.test(line)
+      ) {
+        practicalKeyLeakAbsent = false;
+      }
+    }
+  }
+  const protectedContent = protectedMaterialIds
+    .map((materialId) => contents.get(materialId))
+    .join('\n');
+  const requiredPolicyStatements = policyArtifact
+    ? [
+      ...policyArtifact.allowed_materials_ru,
+      ...policyArtifact.child_steps_ru,
+      ...policyArtifact.adult_steps_ru,
+      ...policyArtifact.prohibited_actions_ru,
+      ...policyArtifact.stop_conditions_ru,
+      ...policyArtifact.safety_controls_ru,
+      ...policyArtifact.home_instructions_et,
+    ]
+    : [];
+  const policySemanticsValid = requiredPolicyStatements.every(
+    (statement) => protectedContent.includes(statement),
+  );
+  if (!classroomTaskMarkersAbsent) {
+    throw homeMaterialSemanticError(
+      lesson,
+      'resolved home practical material contains a classroom task marker',
+    );
+  }
+  if (!classroomInstructionsAbsent) {
+    throw homeMaterialSemanticError(
+      lesson,
+      'resolved home practical material contains a classroom-only instruction',
+    );
+  }
+  if (!practicalKeyLeakAbsent) {
+    throw homeMaterialSemanticError(
+      lesson,
+      'resolved home practical material contains an answer-key release instruction',
+    );
+  }
+  if (!policySemanticsValid) {
+    throw homeMaterialSemanticError(
+      lesson,
+      'resolved home practical materials do not materialize the home policy',
+    );
+  }
+  return {
+    resolved_material_count: materials.length,
+    resolved_material_ids: materialIds,
+    resolved_artifact_paths: materials.map(
+      (material) => material.artifact_path,
+    ).sort(compareBytewise),
+    delivery_scope_valid: true,
+    classroom_task_markers_absent: true,
+    classroom_instructions_absent: true,
+    practical_key_leak_absent: true,
+    policy_semantics_valid: true,
+  };
+}
+
 function integrationIndex(lessons, unitIdentity, rows) {
   return {
     schema_version: '1.0',
@@ -1816,6 +2083,8 @@ function integrationIndex(lessons, unitIdentity, rows) {
           answer_refs_resolved: row.homeschoolRenderResolution.answer_refs_resolved,
           procedure_refs_resolved: row.homeschoolRenderResolution.procedure_refs_resolved,
           safety_refs_resolved: row.homeschoolRenderResolution.safety_refs_resolved,
+          home_material_validation:
+            row.homeschoolRenderResolution.home_material_validation,
         },
         readiness: {
           structural_state: 'generated',
@@ -2044,6 +2313,10 @@ export async function generateWaterPilotArtifacts({ rootDir = process.cwd() } = 
         `${WATER_PILOT_PACK}/homeschool/lesson-03-passive-observation-sheet.md`,
         passiveObservationSheetMarkdown(),
       );
+      files.set(
+        `${WATER_PILOT_PACK}/homeschool/lesson-03-home-safety-card.md`,
+        homeSafetyCardMarkdown(homePracticalPolicy),
+      );
     } else if (generated.home_practical_policy_path !== null) {
       throw new Error(`${lesson.lesson_id}: unexpected home practical policy path`);
     }
@@ -2102,6 +2375,15 @@ export async function generateWaterPilotArtifacts({ rootDir = process.cwd() } = 
       `lesson=${lesson.lesson_id} audience=answer-key`,
       answerRegion(lesson, generatedTaskBindings),
     ));
+    homeschoolRenderResolution.home_material_validation =
+      await validateResolvedHomeMaterialSemantics({
+        lesson,
+        resolution: homeschoolRenderResolution,
+        materialsIndex,
+        policyArtifact: homePracticalPolicy,
+        generatedFiles: files,
+        rootDir: absoluteRoot,
+      });
     rows.set(lesson.lesson_id, {
       selection,
       canonicalLessonDna,
