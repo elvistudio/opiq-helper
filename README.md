@@ -234,6 +234,12 @@ Validate it with `npm run test:pedagogy-integration`,
 `npm run check:pedagogy-integration`, and
 `npm run generate:pedagogy-water-pilot -- --check`.
 
+Reusable [pedagogical quality gates](docs/pedagogy-quality-gates.md) validate
+the integrated structural contract without granting teacher approval,
+effectiveness, testing, or readiness. Run `npm run test:pedagogy-quality`,
+`npm run check:pedagogy-quality`, and
+`npm run check:pedagogy-quality-report`.
+
 ```sh
 npm run test:pedagogy
 npm run check:pedagogy

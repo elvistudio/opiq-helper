@@ -22,6 +22,7 @@ on:
       - docs/pedagogical-taxonomy.md
       - docs/lesson-pedagogy-engine.md
       - docs/homeschool-learning-engine.md
+      - docs/pedagogy-quality-gates.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -53,6 +54,7 @@ on:
       - docs/pedagogical-taxonomy.md
       - docs/lesson-pedagogy-engine.md
       - docs/homeschool-learning-engine.md
+      - docs/pedagogy-quality-gates.md
       - docs/teacher-pack-content-fingerprint.md
       - docs/topic-synthesis-policy.md
       - docs/templates/**
@@ -152,6 +154,15 @@ jobs:
 
       - name: Check generated water pedagogy pilot
         run: npm run generate:pedagogy-water-pilot -- --check
+
+      - name: Test pedagogical quality gates
+        run: npm run test:pedagogy-quality
+
+      - name: Check pedagogical quality gates
+        run: npm run check:pedagogy-quality
+
+      - name: Check generated pedagogical quality report
+        run: npm run check:pedagogy-quality-report
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check

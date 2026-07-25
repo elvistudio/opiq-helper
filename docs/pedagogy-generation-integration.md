@@ -252,6 +252,13 @@ review, classroom testing, or home testing. The pilot remains:
 - `classroom_ready: false`;
 - `homeschool_ready: false`.
 
+The reusable quality layer consumes these already validated identities and
+bindings through a normalized production adapter. Its shared engine contains
+no water lesson or material IDs; lesson-3-specific production invariants stay
+in `check-pedagogy-integration.mjs`. The committed report can assert only
+`pedagogy_schema_valid` and `structurally_complete`. See
+[`pedagogy-quality-gates.md`](pedagogy-quality-gates.md).
+
 ## Commands
 
 ```bash
@@ -261,6 +268,9 @@ npm run generate:pedagogy-water-pilot -- --summary
 npm run generate:pedagogy-water-pilot -- --lesson grade-5-water-01-properties --debug
 npm run test:pedagogy-integration
 npm run check:pedagogy-integration
+npm run test:pedagogy-quality
+npm run check:pedagogy-quality
+npm run check:pedagogy-quality-report
 ```
 
 The generator defaults to a read-only summary. `--write` is the only mutation

@@ -51,6 +51,11 @@ The initial catalog contains:
   scenarios: 11 success cases and seven structured failures.
 - `homeschool/homeschool-package-examples.yaml` stores five deterministic
   proposed packages with parent guidance and relative weekly plans.
+- `quality/quality-gates.yaml` defines reusable structural guarantees,
+  applicability, severity, non-guarantees, and exception policy.
+- `quality/quality-exceptions.yaml` stores only exact-record, version-bound
+  exceptions; safety, leakage, identity, closure, provenance, and readiness
+  gates cannot be suppressed.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.
@@ -89,6 +94,9 @@ npm run select:pedagogy
 npm run test:pedagogy-homeschool
 npm run check:pedagogy-homeschool
 npm run adapt:homeschool
+npm run test:pedagogy-quality
+npm run check:pedagogy-quality
+npm run check:pedagogy-quality-report
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -145,6 +153,9 @@ selection requests, versioned rules, lesson DNA, failures, and CLI usage.
 See [`docs/homeschool-learning-engine.md`](../../docs/homeschool-learning-engine.md)
 for source/DNA validation, home variants, parent boundaries, answer access,
 weekly plans, and readiness limits.
+See [`docs/pedagogy-quality-gates.md`](../../docs/pedagogy-quality-gates.md)
+for reusable structural gates, exact exceptions, diagnostics, production
+reporting, CI, and the boundary between machine validation and human approval.
 
 The water production pilot also uses two bounded execution profiles:
 `visual-representation::paper-diagram` for a truthful paper-only diagram task
