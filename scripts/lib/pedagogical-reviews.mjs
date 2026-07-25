@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
+import { lstatSync } from 'node:fs';
 import path from 'node:path';
-import Ajv2020 from 'ajv/dist/2020.js';
 import {
   makeDiagnostic,
   parseStrictCurriculumYaml,
@@ -11,37 +11,38 @@ import {
   loadTeacherPackRepository,
   validateTeacherPackRepository,
 } from './teacher-packs.mjs';
-import { computeTeacherPackFingerprintFromRepository } from './teacher-pack-fingerprints.mjs';
+import {
+  computeTeacherPackFingerprintFromRepository,
+} from './teacher-pack-fingerprints.mjs';
+import {
+  assertPedagogicalEvidencePrivacy,
+  buildPedagogicalEvidenceIdentity,
+  createPedagogicalEvidenceValidators,
+  pedagogicalEvidenceIdentityMatches,
+  pedagogicalEvidenceIdentityMismatches,
+  schemaValidationMessages,
+} from './pedagogical-evidence.mjs';
 
-const completedReviewDecisions = new Set(['approved', 'approved_with_minor_notes']);
-const successfulTrialDecisions = new Set(['successful', 'successful_with_notes']);
-const openStatuses = new Set(['open', 'planned']);
-const mandatoryScopeFlags = [
+const APPROVED_REVIEW_DECISIONS = new Set(['approved', 'approved_with_minor_notes']);
+const SUCCESSFUL_TRIAL_DECISIONS = new Set(['successful', 'successful_with_notes']);
+const OPEN_STATUSES = new Set(['open', 'planned']);
+const REVIEW_SCOPE_FLAGS = [
   'teacher_guide',
   'student_materials',
   'answer_keys',
   'assessment_rubric',
-  'homeschool_materials',
   'safety',
   'language_level',
-];
-const privacyFalseFlags = [
-  'contains_student_names',
-  'contains_birth_dates',
-  'contains_personal_identifiers',
-  'contains_addresses',
-  'contains_contact_information',
-  'contains_parent_contacts',
-  'contains_student_photos',
-  'contains_special_category_data',
-  'contains_identifiable_individual_grades',
-  'contains_identifiable_free_text',
+  'lesson_dna',
+  'selection_and_adaptation_artifacts',
 ];
 
-function schemaReason(error) {
-  if (error.keyword === 'additionalProperties') return `unknown field ${error.params.additionalProperty}`;
-  if (error.keyword === 'required') return `missing required field ${error.params.missingProperty}`;
-  return error.message ?? `failed ${error.keyword}`;
+function compareBytewise(left, right) {
+  return Buffer.from(String(left)).compare(Buffer.from(String(right)));
+}
+
+function uniqueSorted(values) {
+  return [...new Set(values.filter(Boolean))].sort(compareBytewise);
 }
 
 function normalize(value) {
@@ -63,7 +64,9 @@ function sameSet(left, right) {
 function addDuplicates(diagnostics, values, file, field, label) {
   const seen = new Set();
   for (const value of values) {
-    if (seen.has(value)) diagnostics.push(makeDiagnostic('error', file, field, `duplicate ${label}: ${value}`));
+    if (seen.has(value)) {
+      diagnostics.push(makeDiagnostic('error', file, field, `duplicate ${label}: ${value}`));
+    }
     seen.add(value);
   }
 }
@@ -73,7 +76,11 @@ async function loadYamlArtifact(rootDir, repositoryPath, kind) {
   try {
     const resolved = safeRepositoryPath(rootDir, repositoryPath, `${kind} path`);
     file = relativeDisplay(rootDir, resolved);
-    return { file, data: parseStrictCurriculumYaml(await fs.readFile(resolved, 'utf8'), file), kind };
+    return {
+      file,
+      data: parseStrictCurriculumYaml(await fs.readFile(resolved, 'utf8'), file),
+      kind,
+    };
   } catch (error) {
     return { file, data: null, kind, loadError: error.message };
   }
@@ -91,72 +98,145 @@ async function loadRequiredDocument(rootDir, repositoryPath, kind) {
   }
 }
 
+function recordKind(artifact) {
+  return artifact?.data?.artifact_type === 'teacher_review'
+    ? 'teacher-review'
+    : artifact?.data?.artifact_type === 'classroom_trial'
+      ? 'classroom-trial'
+      : artifact?.data?.artifact_type === 'home_trial'
+        ? 'home-trial'
+        : null;
+}
+
+function recordStatusComplete(artifact) {
+  if (artifact?.data?.artifact_type === 'teacher_review') {
+    return artifact.data.review_status === 'completed';
+  }
+  return artifact?.data?.trial_status === 'analysed';
+}
+
+function recordSuperseded(artifact) {
+  return artifact?.data?.review_status === 'superseded'
+    || artifact?.data?.trial_status === 'superseded';
+}
+
 export async function loadPedagogicalReviewRepository({
   rootDir = process.cwd(),
-  teacherReviewSchemaPath = 'schemas/teacher-review.schema.json',
-  classroomTrialSchemaPath = 'schemas/classroom-trial.schema.json',
+  identityCommitSha = null,
 } = {}) {
   const teacherPacks = await loadTeacherPackRepository({ rootDir });
   const absoluteRoot = teacherPacks.rootDir;
-  const [reviewSchema, trialSchema] = await Promise.all([
-    fs.readFile(safeRepositoryPath(absoluteRoot, teacherReviewSchemaPath, 'teacher-review schema path'), 'utf8').then(JSON.parse),
-    fs.readFile(safeRepositoryPath(absoluteRoot, classroomTrialSchemaPath, 'classroom-trial schema path'), 'utf8').then(JSON.parse),
-  ]);
+  const schemaBundle = await createPedagogicalEvidenceValidators(absoluteRoot);
   const reviewTemplates = [];
   const trialTemplates = [];
+  const homeTrialTemplates = [];
   const reviewRecords = [];
   const trialRecords = [];
+  const homeTrialRecords = [];
   const workflowDocuments = [];
   const currentPackFingerprints = {};
+  const currentEvidenceIdentities = {};
+  const currentEvidenceCheckedArtifacts = {};
+  const packIdentityErrors = {};
   for (const index of teacherPacks.indexes) {
     const reviewLink = index.data.pedagogical_review ?? {};
     const trialLink = index.data.classroom_trial ?? {};
-    const reviewTemplatePath = reviewLink.guide_path
-      ? path.posix.join(path.posix.dirname(reviewLink.guide_path), 'teacher-review-template.yaml')
-      : null;
-    if (reviewTemplatePath) reviewTemplates.push(await loadYamlArtifact(absoluteRoot, reviewTemplatePath, 'teacher-review template'));
-    if (trialLink.template_path) trialTemplates.push(await loadYamlArtifact(absoluteRoot, trialLink.template_path, 'classroom-trial template'));
+    const homeLink = index.data.home_trial ?? {};
+    if (reviewLink.template_path) {
+      reviewTemplates.push(await loadYamlArtifact(
+        absoluteRoot,
+        reviewLink.template_path,
+        'teacher-review template',
+      ));
+    }
+    if (trialLink.template_path) {
+      trialTemplates.push(await loadYamlArtifact(
+        absoluteRoot,
+        trialLink.template_path,
+        'classroom-trial template',
+      ));
+    }
+    if (homeLink.template_path) {
+      homeTrialTemplates.push(await loadYamlArtifact(
+        absoluteRoot,
+        homeLink.template_path,
+        'home-trial template',
+      ));
+    }
     if (reviewLink.guide_path) {
-      const reviewDirectory = path.posix.dirname(reviewLink.guide_path);
-      workflowDocuments.push(await loadRequiredDocument(absoluteRoot, reviewLink.guide_path, 'teacher-review guide'));
-      workflowDocuments.push(await loadRequiredDocument(absoluteRoot, `${reviewDirectory}/anonymous-observation-form.md`, 'anonymous observation form'));
-      workflowDocuments.push(await loadRequiredDocument(absoluteRoot, `${reviewDirectory}/issue-resolution-template.yaml`, 'issue-resolution template'));
+      workflowDocuments.push(await loadRequiredDocument(
+        absoluteRoot,
+        reviewLink.guide_path,
+        'pedagogical review guide',
+      ));
     }
-    if (reviewLink.review_record_path) reviewRecords.push(await loadYamlArtifact(absoluteRoot, reviewLink.review_record_path, 'teacher-review record'));
+    for (const reviewPath of reviewLink.review_record_paths ?? []) {
+      reviewRecords.push(await loadYamlArtifact(
+        absoluteRoot,
+        reviewPath,
+        'teacher-review record',
+      ));
+    }
     for (const trialPath of trialLink.trial_record_paths ?? []) {
-      trialRecords.push(await loadYamlArtifact(absoluteRoot, trialPath, 'classroom-trial record'));
+      trialRecords.push(await loadYamlArtifact(
+        absoluteRoot,
+        trialPath,
+        'classroom-trial record',
+      ));
     }
-    currentPackFingerprints[index.data.pack_id] = await computeTeacherPackFingerprintFromRepository(teacherPacks, index);
+    for (const trialPath of homeLink.trial_record_paths ?? []) {
+      homeTrialRecords.push(await loadYamlArtifact(
+        absoluteRoot,
+        trialPath,
+        'home-trial record',
+      ));
+    }
+    currentPackFingerprints[index.data.pack_id] =
+      await computeTeacherPackFingerprintFromRepository(teacherPacks, index);
+    try {
+      const evidenceIdentity = await buildPedagogicalEvidenceIdentity({
+        rootDir: absoluteRoot,
+        packPath: index.file,
+        commitSha: identityCommitSha,
+        teacherPackRepository: teacherPacks,
+      });
+      currentEvidenceIdentities[index.data.pack_id] = evidenceIdentity.identity;
+      currentEvidenceCheckedArtifacts[index.data.pack_id] =
+        evidenceIdentity.checked_artifacts;
+    } catch (error) {
+      packIdentityErrors[index.data.pack_id] = error;
+    }
   }
   return {
     rootDir: absoluteRoot,
     teacherPacks,
-    schemas: { review: reviewSchema, trial: trialSchema },
+    schemas: schemaBundle.schemas,
+    validators: schemaBundle.validators,
     reviewTemplates,
     trialTemplates,
+    homeTrialTemplates,
     reviewRecords,
     trialRecords,
+    homeTrialRecords,
     workflowDocuments,
     currentPackFingerprints,
-    loadedArtifactPaths: [...new Set([
+    currentEvidenceIdentities,
+    currentEvidenceCheckedArtifacts,
+    packIdentityErrors,
+    loadedArtifactPaths: uniqueSorted([
       ...(teacherPacks.loadedArtifactPaths ?? []),
-      teacherReviewSchemaPath,
-      classroomTrialSchemaPath,
+      ...Object.values(schemaBundle.schemas).map((schema) => {
+        const id = schema.$id.split('/').at(-1);
+        return `schemas/${id}`;
+      }),
       ...reviewTemplates.map((artifact) => artifact.file),
       ...trialTemplates.map((artifact) => artifact.file),
+      ...homeTrialTemplates.map((artifact) => artifact.file),
       ...reviewRecords.map((artifact) => artifact.file),
       ...trialRecords.map((artifact) => artifact.file),
+      ...homeTrialRecords.map((artifact) => artifact.file),
       ...workflowDocuments.map((artifact) => artifact.file),
-    ])].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
-  };
-}
-
-function compileSchemas(context) {
-  const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
-  ajv.addSchema(context.teacherPacks.plans.schemas.common);
-  return {
-    review: ajv.compile(context.schemas.review),
-    trial: ajv.compile(context.schemas.trial),
+    ]),
   };
 }
 
@@ -166,28 +246,39 @@ function addSchemaDiagnostics(diagnostics, artifact, validator) {
     return false;
   }
   if (validator(artifact.data)) return true;
-  for (const error of validator.errors ?? []) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, error.instancePath || '/', schemaReason(error)));
+  for (const message of schemaValidationMessages(validator)) {
+    const separator = message.indexOf(': ');
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      separator > 0 ? message.slice(0, separator) : '/',
+      separator > 0 ? message.slice(separator + 2) : message,
+    ));
   }
   return false;
 }
 
-function validateTemplateSemantics(diagnostics, artifact, type) {
+function validateTemplateSemantics(diagnostics, artifact) {
   if (!artifact.data) return;
-  if (type === 'review') {
-    if (artifact.data.review_status !== 'draft' || artifact.data.decision?.status !== 'pending'
-      || artifact.data.reviewed_version?.commit_sha !== null
-      || artifact.data.reviewed_version?.content_fingerprint?.value !== null
-      || artifact.data.reviewed_version?.content_fingerprint?.file_count !== null
-      || artifact.data.reviewed_at !== null) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'teacher-review template must remain an uncompleted draft with null version evidence'));
-    }
-  } else if (artifact.data.trial_status !== 'draft' || artifact.data.decision?.status !== 'pending'
-    || artifact.data.reviewed_version?.commit_sha !== null
-    || artifact.data.reviewed_version?.content_fingerprint?.value !== null
-    || artifact.data.reviewed_version?.content_fingerprint?.file_count !== null
-    || artifact.data.conducted_at !== null) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'classroom-trial template must remain an uncompleted draft with null version evidence'));
+  const kind = recordKind(artifact);
+  const draft = kind === 'teacher-review'
+    ? artifact.data.review_status === 'draft'
+    : artifact.data.trial_status === 'draft';
+  const date = kind === 'teacher-review'
+    ? artifact.data.reviewed_at
+    : artifact.data.conducted_at;
+  if (
+    !draft
+    || artifact.data.evidence_identity !== null
+    || artifact.data.decision?.status !== 'pending'
+    || date !== null
+  ) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/',
+      `${kind} template must remain an uncompleted draft with null evidence identity`,
+    ));
   }
 }
 
@@ -198,315 +289,791 @@ export function pedagogicalEvidenceFingerprintMatches(recorded, current) {
     && recorded?.file_count === current?.file_count;
 }
 
-function staleFingerprintReason(kind, recorded, current) {
-  return `${kind} is stale: ${kind === 'teacher review' ? 'reviewed' : 'tested'} content fingerprint does not match current teacher-pack content; `
-    + `recorded: ${recorded?.value ?? '<missing>'}; current: ${current?.value ?? '<missing>'}; `
-    + `recorded file count: ${recorded?.file_count ?? '<missing>'}; current file count: ${current?.file_count ?? '<missing>'}`;
+function validateIdentity(
+  diagnostics,
+  artifact,
+  currentIdentity,
+  { complete, requireEffective },
+) {
+  const recorded = artifact.data?.evidence_identity;
+  if (!complete && recorded === null) return { current: false, stale: false };
+  if (!recorded) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/evidence_identity',
+      'completed human evidence requires the current content and pedagogical identity',
+    ));
+    return { current: false, stale: complete };
+  }
+  if (!currentIdentity) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/evidence_identity/pedagogical_snapshot',
+      'this teacher pack has no integrated pedagogical snapshot',
+    ));
+    return { current: false, stale: complete };
+  }
+  const current = pedagogicalEvidenceIdentityMatches(recorded, currentIdentity);
+  const stale = complete && !current;
+  if (stale) {
+    const mismatches = pedagogicalEvidenceIdentityMismatches(recorded, currentIdentity);
+    diagnostics.push(makeDiagnostic(
+      requireEffective ? 'error' : 'warning',
+      artifact.file,
+      '/evidence_identity',
+      `human evidence is stale: ${mismatches.map((item) => item.field).join(', ')}`,
+    ));
+  }
+  return { current, stale };
 }
 
-function validateReviewRecord(diagnostics, artifact, pack, currentFingerprint, lessonIds, schemaValid, { requireApproval = false } = {}) {
-  const review = artifact.data;
-  if (!review || !schemaValid) return { effective: false, stale: false };
-  const field = '/';
-  if (review.pack_ref !== pack.pack_id) diagnostics.push(makeDiagnostic('error', artifact.file, '/pack_ref', `expected ${pack.pack_id}`));
-  const completed = review.review_status === 'completed';
-  const recordedFingerprint = review.reviewed_version?.content_fingerprint;
-  const stale = completed
-    && !pedagogicalEvidenceFingerprintMatches(recordedFingerprint, currentFingerprint);
-  if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/reviewed_version/content_fingerprint', staleFingerprintReason('teacher review', recordedFingerprint, currentFingerprint)));
-  if (requireApproval && !completed) diagnostics.push(makeDiagnostic('error', artifact.file, '/review_status', 'teacher review evidence must have review_status: completed'));
-  if (completed && review.decision?.status === 'pending') diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'completed teacher review cannot retain a pending decision'));
-  if (completed || requireApproval) {
-    if (!/^[0-9a-f]{40}$/u.test(review.reviewed_version?.commit_sha ?? '')) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/commit_sha', 'completed teacher review requires a provenance commit SHA'));
-    if (!/^[0-9a-f]{64}$/u.test(recordedFingerprint?.value ?? '') || !Number.isInteger(recordedFingerprint?.file_count)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/content_fingerprint', 'completed teacher review requires a non-null sha256 content fingerprint and file count'));
-    if (!normalize(review.reviewer?.role)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewer/role', 'completed teacher review requires reviewer role'));
-    if (!validDate(review.reviewed_at)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_at', 'completed teacher review requires a valid date'));
-    for (const flag of mandatoryScopeFlags) {
-      if (review.review_scope?.[flag] !== true) diagnostics.push(makeDiagnostic('error', artifact.file, `/review_scope/${flag}`, `completed teacher review must cover ${flag}`));
+function validateReferences(
+  diagnostics,
+  context,
+  artifact,
+  pack,
+  lessonIds,
+) {
+  const knownLessons = new Set(lessonIds);
+  const findings = artifact.data?.findings ?? [];
+  for (const [index, finding] of findings.entries()) {
+    for (const lessonId of finding.lesson_ids ?? []) {
+      if (!knownLessons.has(lessonId)) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/findings/${index}/lesson_ids`,
+          `unknown lesson ID ${lessonId}`,
+        ));
+      }
     }
-    if (!sameSet(review.review_scope?.lesson_guides, lessonIds)) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/review_scope/lesson_guides', 'completed teacher review must cover every linked lesson guide'));
-    }
-    for (const [rating, value] of Object.entries(review.ratings ?? {})) {
-      if (!Number.isInteger(value)) diagnostics.push(makeDiagnostic('error', artifact.file, `/ratings/${rating}`, 'completed teacher review requires every rating'));
-    }
-  }
-  const findings = review.findings ?? [];
-  addDuplicates(diagnostics, findings.map((entry) => entry.finding_id), artifact.file, '/findings', 'finding ID');
-  const findingIds = new Set(findings.map((entry) => entry.finding_id));
-  const expectedBlocking = findings.filter((entry) => entry.severity === 'blocking').map((entry) => entry.finding_id);
-  if (!sameSet(review.blocking_findings, expectedBlocking)) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/blocking_findings', 'must exactly list findings with severity blocking'));
-  }
-  addDuplicates(diagnostics, (review.required_changes ?? []).map((entry) => entry.change_id), artifact.file, '/required_changes', 'required change ID');
-  for (const [index, change] of (review.required_changes ?? []).entries()) {
-    for (const findingId of change.finding_refs ?? []) {
-      if (!findingIds.has(findingId)) diagnostics.push(makeDiagnostic('error', artifact.file, `/required_changes/${index}/finding_refs`, `unknown finding ${findingId}`));
-    }
-  }
-  const openBlockingOrMajor = findings.filter((entry) => ['blocking', 'major'].includes(entry.severity) && openStatuses.has(entry.resolution_status));
-  const approvedDecision = completedReviewDecisions.has(review.decision?.status);
-  if (approvedDecision || requireApproval) {
-    for (const finding of openBlockingOrMajor) diagnostics.push(makeDiagnostic('error', artifact.file, '/findings', `open ${finding.severity} finding prevents approval: ${finding.finding_id}`));
-  }
-  const unresolvedChanges = (review.required_changes ?? []).filter((entry) => openStatuses.has(entry.resolution_status));
-  const unacceptableChanges = [];
-  if (review.decision?.status === 'approved') unacceptableChanges.push(...unresolvedChanges);
-  if (review.decision?.status === 'approved_with_minor_notes') {
-    for (const change of unresolvedChanges) {
-      const related = (change.finding_refs ?? []).map((id) => findings.find((finding) => finding.finding_id === id)).filter(Boolean);
-      const isMinorPlan = related.length > 0
-        && related.every((finding) => finding.severity === 'minor')
-        && change.resolution_status === 'planned'
-        && (change.resolution_refs ?? []).length > 0;
-      if (!isMinorPlan) unacceptableChanges.push(change);
-    }
-  }
-  for (const change of unacceptableChanges) diagnostics.push(makeDiagnostic('error', artifact.file, '/required_changes', `approval requires required change ${change.change_id} to be closed or recorded as a minor resolution plan`));
-  const unplannedMinorFindings = [];
-  if (review.decision?.status === 'approved_with_minor_notes') {
-    for (const finding of findings.filter((entry) => entry.severity === 'minor' && openStatuses.has(entry.resolution_status))) {
-      const directPlan = finding.resolution_status === 'planned' && (finding.resolution_refs ?? []).length > 0;
-      const changePlan = (review.required_changes ?? []).some((change) => (change.finding_refs ?? []).includes(finding.finding_id)
-        && ['planned', 'resolved'].includes(change.resolution_status) && (change.resolution_refs ?? []).length > 0);
-      if (!directPlan && !changePlan) {
-        unplannedMinorFindings.push(finding);
-        diagnostics.push(makeDiagnostic('error', artifact.file, '/findings', `minor finding ${finding.finding_id} requires a recorded resolution plan`));
+    for (const repositoryPath of finding.artifact_paths ?? []) {
+      try {
+        const absolute = safeRepositoryPath(
+          context.rootDir,
+          repositoryPath,
+          'evidence finding artifact path',
+        );
+        const stat = lstatSync(absolute);
+        if (!stat.isFile() || stat.isSymbolicLink()) throw new Error('not a regular file');
+      } catch (error) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/findings/${index}/artifact_paths`,
+          `unresolved finding artifact ${repositoryPath}: ${error.message}`,
+        ));
       }
     }
   }
-  if (requireApproval && !approvedDecision) diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'effective teacher review requires approved or approved_with_minor_notes decision'));
-  const effective = completed
-    && review.pack_ref === pack.pack_id
-    && !stale
-    && validDate(review.reviewed_at)
-    && normalize(review.reviewer?.role)
-    && mandatoryScopeFlags.every((flagName) => review.review_scope?.[flagName] === true)
-    && sameSet(review.review_scope?.lesson_guides, lessonIds)
-    && openBlockingOrMajor.length === 0
-    && unacceptableChanges.length === 0
-    && unplannedMinorFindings.length === 0
-    && approvedDecision;
-  if (!effective && completed && approvedDecision && stale && requireApproval) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, field, 'stale teacher review fingerprint cannot prove current readiness'));
+  if (artifact.data?.pack_ref !== pack.pack_id) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/pack_ref',
+      `expected ${pack.pack_id}`,
+    ));
   }
-  return { effective: Boolean(effective), stale };
 }
 
-function privacyComplete(privacy) {
-  return privacyFalseFlags.every((field) => privacy?.[field] === false)
-    && privacy?.observations_are_aggregated === true
-    && privacy?.free_text_checked_for_identifiers === true;
+function validateFindingSemantics(diagnostics, artifact) {
+  const findings = artifact.data?.findings ?? [];
+  addDuplicates(
+    diagnostics,
+    findings.map((finding) => finding.finding_id),
+    artifact.file,
+    '/findings',
+    'finding ID',
+  );
+  const openBlockingOrMajor = findings.filter((finding) => (
+    ['blocking', 'major'].includes(finding.severity)
+    && OPEN_STATUSES.has(finding.resolution_status)
+  ));
+  const openSafety = findings.filter((finding) => (
+    finding.category === 'safety'
+    && OPEN_STATUSES.has(finding.resolution_status)
+  ));
+  return { findings, openBlockingOrMajor, openSafety };
 }
 
-function validateTrialRecord(diagnostics, artifact, pack, currentFingerprint, lessonIds, schemaValid, { requireSuccess = false } = {}) {
+function validateReviewRecord(
+  diagnostics,
+  context,
+  artifact,
+  pack,
+  currentIdentity,
+  lessonIds,
+  schemaValid,
+  { requireScope = null } = {},
+) {
+  const review = artifact.data;
+  const initialErrorCount = diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ).length;
+  if (!review || !schemaValid) {
+    return {
+      effective: false,
+      stale: false,
+      deliveryScopes: [],
+      openBlockingOrMajor: [],
+      unresolvedChanges: [],
+    };
+  }
+  validateReferences(diagnostics, context, artifact, pack, lessonIds);
+  const complete = review.review_status === 'completed';
+  const identity = validateIdentity(
+    diagnostics,
+    artifact,
+    currentIdentity,
+    { complete, requireEffective: requireScope !== null },
+  );
+  if (complete && !validDate(review.reviewed_at)) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/reviewed_at',
+      'completed teacher review requires a valid explicit date',
+    ));
+  }
+  if (complete && !normalize(review.reviewer?.role)) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/reviewer/role',
+      'completed teacher review requires a reviewer role',
+    ));
+  }
+  if (complete && (review.delivery_scopes ?? []).length === 0) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/delivery_scopes',
+      'completed teacher review requires classroom and/or homeschool scope',
+    ));
+  }
+  if (requireScope && !(review.delivery_scopes ?? []).includes(requireScope)) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/delivery_scopes',
+      `effective review must cover ${requireScope}`,
+    ));
+  }
+  if (complete) {
+    for (const field of REVIEW_SCOPE_FLAGS) {
+      if (review.review_scope?.[field] !== true) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/review_scope/${field}`,
+          `completed teacher review must cover ${field}`,
+        ));
+      }
+    }
+    if ((review.delivery_scopes ?? []).includes('homeschool')
+      && review.review_scope?.homeschool_materials !== true) {
+      diagnostics.push(makeDiagnostic(
+        'error',
+        artifact.file,
+        '/review_scope/homeschool_materials',
+        'homeschool review scope requires homeschool materials',
+      ));
+    }
+    if (!sameSet(review.review_scope?.lesson_guides, lessonIds)) {
+      diagnostics.push(makeDiagnostic(
+        'error',
+        artifact.file,
+        '/review_scope/lesson_guides',
+        'completed teacher review must cover every linked lesson',
+      ));
+    }
+    for (const [field, rating] of Object.entries(review.ratings ?? {})) {
+      if (!Number.isInteger(rating)) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/ratings/${field}`,
+          'completed teacher review requires every pedagogical rating',
+        ));
+      }
+    }
+    try {
+      assertPedagogicalEvidencePrivacy(review);
+    } catch (error) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/privacy', error.message));
+    }
+  }
+  const findingState = validateFindingSemantics(diagnostics, artifact);
+  const expectedBlocking = findingState.findings
+    .filter((finding) => finding.severity === 'blocking')
+    .map((finding) => finding.finding_id);
+  if (!sameSet(review.blocking_findings, expectedBlocking)) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/blocking_findings',
+      'must exactly list blocking findings',
+    ));
+  }
+  const findingIds = new Set(findingState.findings.map((finding) => finding.finding_id));
+  addDuplicates(
+    diagnostics,
+    (review.required_changes ?? []).map((change) => change.change_id),
+    artifact.file,
+    '/required_changes',
+    'required change ID',
+  );
+  for (const [index, change] of (review.required_changes ?? []).entries()) {
+    for (const findingId of change.finding_refs ?? []) {
+      if (!findingIds.has(findingId)) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/required_changes/${index}/finding_refs`,
+          `unknown finding ${findingId}`,
+        ));
+      }
+    }
+  }
+  const unresolvedChanges = (review.required_changes ?? []).filter(
+    (change) => OPEN_STATUSES.has(change.resolution_status),
+  );
+  const approved = APPROVED_REVIEW_DECISIONS.has(review.decision?.status);
+  if (approved && findingState.openBlockingOrMajor.length > 0) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/findings',
+      'approved review cannot retain open blocking or major findings',
+    ));
+  }
+  let minorPlansValid = true;
+  if (review.decision?.status === 'approved') {
+    minorPlansValid = unresolvedChanges.length === 0;
+  } else if (review.decision?.status === 'approved_with_minor_notes') {
+    minorPlansValid = unresolvedChanges.every((change) => {
+      const related = change.finding_refs
+        .map((id) => findingState.findings.find((finding) => finding.finding_id === id))
+        .filter(Boolean);
+      return change.resolution_status === 'planned'
+        && change.resolution_refs.length > 0
+        && related.length > 0
+        && related.every((finding) => finding.severity === 'minor');
+    });
+  }
+  if (approved && !minorPlansValid) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/required_changes',
+      'approval requires closed changes or bounded minor plans with references',
+    ));
+  }
+  const effective = complete
+    && diagnostics.filter(
+      (diagnostic) => diagnostic.severity === 'error',
+    ).length === initialErrorCount
+    && !recordSuperseded(artifact)
+    && identity.current
+    && validDate(review.reviewed_at)
+    && (review.delivery_scopes ?? []).length > 0
+    && REVIEW_SCOPE_FLAGS.every((field) => review.review_scope?.[field] === true)
+    && sameSet(review.review_scope?.lesson_guides, lessonIds)
+    && findingState.openBlockingOrMajor.length === 0
+    && minorPlansValid
+    && approved;
+  return {
+    effective,
+    stale: identity.stale,
+    deliveryScopes: review.delivery_scopes ?? [],
+    openBlockingOrMajor: findingState.openBlockingOrMajor,
+    openSafety: findingState.openSafety,
+    unresolvedChanges,
+  };
+}
+
+function validateTrialRecord(
+  diagnostics,
+  context,
+  artifact,
+  pack,
+  currentIdentity,
+  lessonIds,
+  schemaValid,
+  kind,
+  { requireSuccess = false } = {},
+) {
   const trial = artifact.data;
-  if (!trial || !schemaValid) return { effective: false, stale: false };
-  if (trial.pack_ref !== pack.pack_id) diagnostics.push(makeDiagnostic('error', artifact.file, '/pack_ref', `expected ${pack.pack_id}`));
+  const initialErrorCount = diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ).length;
+  if (!trial || !schemaValid) {
+    return {
+      effective: false,
+      stale: false,
+      openBlockingOrMajor: [],
+      openSafety: [],
+      parentRoleBounded: kind === 'classroom-trial',
+    };
+  }
+  validateReferences(diagnostics, context, artifact, pack, lessonIds);
   const analysed = trial.trial_status === 'analysed';
-  const recordedFingerprint = trial.reviewed_version?.content_fingerprint;
-  const stale = analysed
-    && !pedagogicalEvidenceFingerprintMatches(recordedFingerprint, currentFingerprint);
-  if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/reviewed_version/content_fingerprint', staleFingerprintReason('classroom trial', recordedFingerprint, currentFingerprint)));
-  if (requireSuccess && !analysed) diagnostics.push(makeDiagnostic('error', artifact.file, '/trial_status', 'classroom trial evidence must have trial_status: analysed'));
-  if (analysed && trial.decision?.status === 'pending') diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'analysed classroom trial cannot retain a pending decision'));
-  if ((analysed || requireSuccess) && !validDate(trial.conducted_at)) diagnostics.push(makeDiagnostic('error', artifact.file, '/conducted_at', 'analysed classroom trial requires a valid date'));
-  if (analysed || requireSuccess) {
-    if (!/^[0-9a-f]{40}$/u.test(trial.reviewed_version?.commit_sha ?? '')) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/commit_sha', 'analysed classroom trial requires a provenance commit SHA'));
-    if (!/^[0-9a-f]{64}$/u.test(recordedFingerprint?.value ?? '') || !Number.isInteger(recordedFingerprint?.file_count)) diagnostics.push(makeDiagnostic('error', artifact.file, '/reviewed_version/content_fingerprint', 'analysed classroom trial requires a non-null sha256 content fingerprint and file count'));
+  const identity = validateIdentity(
+    diagnostics,
+    artifact,
+    currentIdentity,
+    { complete: analysed, requireEffective: requireSuccess },
+  );
+  if (analysed && !validDate(trial.conducted_at)) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/conducted_at',
+      `analysed ${kind} requires a valid explicit date`,
+    ));
   }
   const knownLessons = new Set(lessonIds);
-  if ((analysed || requireSuccess) && (trial.context?.lesson_ids ?? []).length === 0) diagnostics.push(makeDiagnostic('error', artifact.file, '/context/lesson_ids', 'analysed classroom trial requires at least one lesson ID'));
+  if (analysed && (trial.context?.lesson_ids ?? []).length === 0) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/context/lesson_ids',
+      `analysed ${kind} requires at least one lesson ID`,
+    ));
+  }
   for (const lessonId of trial.context?.lesson_ids ?? []) {
-    if (!knownLessons.has(lessonId)) diagnostics.push(makeDiagnostic('error', artifact.file, '/context/lesson_ids', `unknown linked lesson ${lessonId}`));
+    if (!knownLessons.has(lessonId)) {
+      diagnostics.push(makeDiagnostic(
+        'error',
+        artifact.file,
+        '/context/lesson_ids',
+        `unknown linked lesson ${lessonId}`,
+      ));
+    }
   }
-  if ((analysed || requireSuccess) && !privacyComplete(trial.privacy)) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/privacy', 'analysed classroom trial requires complete no-personal-data declarations and human-checked free text'));
+  if (analysed) {
+    try {
+      assertPedagogicalEvidencePrivacy(trial);
+    } catch (error) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/privacy', error.message));
+    }
   }
-  const findings = trial.findings ?? [];
-  addDuplicates(diagnostics, findings.map((entry) => entry.finding_id), artifact.file, '/findings', 'trial finding ID');
-  const openSafetyBlockers = findings.filter((entry) => entry.category === 'safety' && entry.severity === 'blocking' && openStatuses.has(entry.resolution_status));
-  const successfulDecision = successfulTrialDecisions.has(trial.decision?.status);
-  if (successfulDecision || requireSuccess) {
-    for (const finding of openSafetyBlockers) diagnostics.push(makeDiagnostic('error', artifact.file, '/findings', `open safety blocker prevents successful trial: ${finding.finding_id}`));
+  const findingState = validateFindingSemantics(diagnostics, artifact);
+  const successful = SUCCESSFUL_TRIAL_DECISIONS.has(trial.decision?.status);
+  if (successful && findingState.openBlockingOrMajor.length > 0) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/findings',
+      `successful ${kind} cannot retain open blocking or major findings`,
+    ));
   }
-  if (requireSuccess && !successfulDecision) diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'effective classroom trial requires successful or successful_with_notes decision'));
+  if (successful && findingState.openSafety.length > 0) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/findings',
+      `successful ${kind} cannot retain open safety findings`,
+    ));
+  }
+  const parentRoleBounded = kind === 'classroom-trial'
+    || trial.decision?.parent_role_remained_bounded === true;
+  if (kind === 'home-trial' && successful && !parentRoleBounded) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/decision/parent_role_remained_bounded',
+      'successful home trial requires a bounded parent/adult role',
+    ));
+  }
   const effective = analysed
-    && trial.pack_ref === pack.pack_id
-    && !stale
+    && diagnostics.filter(
+      (diagnostic) => diagnostic.severity === 'error',
+    ).length === initialErrorCount
+    && !recordSuperseded(artifact)
+    && identity.current
     && validDate(trial.conducted_at)
     && (trial.context?.lesson_ids ?? []).length > 0
-    && (trial.context?.lesson_ids ?? []).every((id) => knownLessons.has(id))
-    && privacyComplete(trial.privacy)
-    && openSafetyBlockers.length === 0
-    && successfulDecision;
-  if (!effective && analysed && successfulDecision && stale && requireSuccess) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'stale classroom trial fingerprint cannot prove current readiness'));
-  }
-  return { effective, stale };
+    && (trial.context?.lesson_ids ?? []).every((lessonId) => knownLessons.has(lessonId))
+    && findingState.openBlockingOrMajor.length === 0
+    && findingState.openSafety.length === 0
+    && parentRoleBounded
+    && successful;
+  return {
+    effective,
+    stale: identity.stale,
+    openBlockingOrMajor: findingState.openBlockingOrMajor,
+    openSafety: findingState.openSafety,
+    parentRoleBounded,
+  };
 }
 
-export function summarizePedagogicalEvidenceForPack(context, index) {
+function summarizePack(context, index, diagnostics = []) {
   const pack = index.data;
-  const reviewLink = pack.pedagogical_review ?? {};
-  const trialLink = pack.classroom_trial ?? {};
   const lessonIds = pack.lesson_ids ?? [];
-  const currentFingerprint = context.currentPackFingerprints[pack.pack_id];
-  const linkedReviewRecords = context.reviewRecords.filter(
-    (record) => record.file === reviewLink.review_record_path,
+  const currentIdentity = context.currentEvidenceIdentities[pack.pack_id] ?? null;
+  const linkedReviews = context.reviewRecords.filter(
+    (record) => (pack.pedagogical_review?.review_record_paths ?? []).includes(record.file),
   );
-  const linkedTrialRecords = context.trialRecords.filter(
-    (record) => (trialLink.trial_record_paths ?? []).includes(record.file),
+  const linkedClassroomTrials = context.trialRecords.filter(
+    (record) => (pack.classroom_trial?.trial_record_paths ?? []).includes(record.file),
   );
-  const validators = compileSchemas(context);
-  const diagnostics = [];
-  const reviewStates = linkedReviewRecords.map((record) => {
-    const schemaValid = addSchemaDiagnostics(diagnostics, record, validators.review);
-    return validateReviewRecord(
+  const linkedHomeTrials = context.homeTrialRecords.filter(
+    (record) => (pack.home_trial?.trial_record_paths ?? []).includes(record.file),
+  );
+  const reviewStates = [];
+  for (const record of linkedReviews) {
+    const schemaValid = addSchemaDiagnostics(
       diagnostics,
       record,
-      pack,
-      currentFingerprint,
-      lessonIds,
-      schemaValid,
+      context.validators['teacher-review'],
     );
-  });
-  const trialStates = linkedTrialRecords.map((record) => {
-    const schemaValid = addSchemaDiagnostics(diagnostics, record, validators.trial);
-    return validateTrialRecord(
+    reviewStates.push(validateReviewRecord(
       diagnostics,
+      context,
       record,
       pack,
-      currentFingerprint,
+      currentIdentity,
       lessonIds,
       schemaValid,
+    ));
+  }
+  const classroomStates = [];
+  for (const record of linkedClassroomTrials) {
+    const schemaValid = addSchemaDiagnostics(
+      diagnostics,
+      record,
+      context.validators['classroom-trial'],
     );
-  });
+    classroomStates.push(validateTrialRecord(
+      diagnostics,
+      context,
+      record,
+      pack,
+      currentIdentity,
+      lessonIds,
+      schemaValid,
+      'classroom-trial',
+    ));
+  }
+  const homeStates = [];
+  for (const record of linkedHomeTrials) {
+    const schemaValid = addSchemaDiagnostics(
+      diagnostics,
+      record,
+      context.validators['home-trial'],
+    );
+    homeStates.push(validateTrialRecord(
+      diagnostics,
+      context,
+      record,
+      pack,
+      currentIdentity,
+      lessonIds,
+      schemaValid,
+      'home-trial',
+    ));
+  }
   return {
-    current_fingerprint: structuredClone(currentFingerprint),
-    completed_review_count: linkedReviewRecords.filter(
-      (record) => record.data?.review_status === 'completed',
-    ).length,
-    analysed_trial_count: linkedTrialRecords.filter(
-      (record) => record.data?.trial_status === 'analysed',
-    ).length,
+    current_fingerprint: currentIdentity?.content_fingerprint
+      ?? context.currentPackFingerprints[pack.pack_id],
+    current_pedagogical_snapshot: currentIdentity?.pedagogical_snapshot ?? null,
+    completed_review_count: linkedReviews.filter(recordStatusComplete).length,
+    analysed_trial_count: linkedClassroomTrials.filter(recordStatusComplete).length,
+    analysed_home_trial_count: linkedHomeTrials.filter(recordStatusComplete).length,
     effective_teacher_review: reviewStates.some((state) => state.effective),
-    effective_classroom_trial: trialStates.some((state) => state.effective),
+    effective_classroom_review: reviewStates.some(
+      (state) => state.effective && state.deliveryScopes.includes('classroom'),
+    ),
+    effective_homeschool_review: reviewStates.some(
+      (state) => state.effective && state.deliveryScopes.includes('homeschool'),
+    ),
+    effective_classroom_trial: classroomStates.some((state) => state.effective),
+    effective_home_trial: homeStates.some((state) => state.effective),
+    effective_teacher_review_count: reviewStates.filter((state) => state.effective).length,
+    effective_classroom_review_count: reviewStates.filter(
+      (state) => state.effective && state.deliveryScopes.includes('classroom'),
+    ).length,
+    effective_homeschool_review_count: reviewStates.filter(
+      (state) => state.effective && state.deliveryScopes.includes('homeschool'),
+    ).length,
+    effective_classroom_trial_count: classroomStates.filter(
+      (state) => state.effective,
+    ).length,
+    effective_home_trial_count: homeStates.filter((state) => state.effective).length,
     stale_teacher_review: reviewStates.some((state) => state.stale),
-    stale_classroom_trial: trialStates.some((state) => state.stale),
-    evidence_paths: [
-      ...linkedReviewRecords.map((record) => record.file),
-      ...linkedTrialRecords.map((record) => record.file),
-    ].sort((left, right) => Buffer.compare(Buffer.from(left), Buffer.from(right))),
+    stale_classroom_trial: classroomStates.some((state) => state.stale),
+    stale_home_trial: homeStates.some((state) => state.stale),
+    stale_teacher_review_count: reviewStates.filter((state) => state.stale).length,
+    stale_classroom_trial_count: classroomStates.filter((state) => state.stale).length,
+    stale_home_trial_count: homeStates.filter((state) => state.stale).length,
+    parent_role_bounded: homeStates
+      .filter((state) => state.effective)
+      .every((state) => state.parentRoleBounded),
+    open_review_findings: reviewStates.flatMap((state) => state.openBlockingOrMajor),
+    unresolved_required_changes: reviewStates.flatMap(
+      (state) => state.unresolvedChanges,
+    ),
+    open_classroom_safety_findings: classroomStates.flatMap(
+      (state) => state.openSafety,
+    ),
+    open_home_safety_findings: homeStates.flatMap((state) => state.openSafety),
+    evidence_paths: uniqueSorted([
+      ...linkedReviews.map((record) => record.file),
+      ...linkedClassroomTrials.map((record) => record.file),
+      ...linkedHomeTrials.map((record) => record.file),
+    ]),
+    teacher_review_paths: uniqueSorted(linkedReviews.map((record) => record.file)),
+    classroom_trial_paths: uniqueSorted(
+      linkedClassroomTrials.map((record) => record.file),
+    ),
+    home_trial_paths: uniqueSorted(linkedHomeTrials.map((record) => record.file)),
     diagnostics,
   };
 }
 
-function validatePackWorkflow(diagnostics, context, index, schemaValidity) {
-  const pack = index.data;
-  const thematicArtifact = context.teacherPacks.plans.artifacts.find((artifact) => artifact.data.unit_id === pack.unit_ref);
-  const unitPack = thematicArtifact?.data.teacher_pack ?? {};
-  const reviewLink = pack.pedagogical_review ?? {};
-  const trialLink = pack.classroom_trial ?? {};
-  const lessonIds = pack.lesson_ids ?? [];
-  const lessons = context.teacherPacks.plans.artifacts.filter((artifact) => lessonIds.includes(artifact.data.lesson_id));
-  const currentFingerprint = context.currentPackFingerprints[pack.pack_id];
-  if (JSON.stringify(reviewLink) !== JSON.stringify(unitPack.pedagogical_review ?? {})) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review', 'must exactly match thematic-plan pedagogical_review linkage'));
-  if (JSON.stringify(trialLink) !== JSON.stringify(unitPack.classroom_trial ?? {})) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial', 'must exactly match thematic-plan classroom_trial linkage'));
-  if (reviewLink.status !== unitPack.teacher_review_status) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/teacher_review_status', 'must match pedagogical_review.status'));
+export function summarizePedagogicalEvidenceForPack(context, index) {
+  return summarizePack(context, index, []);
+}
 
-  const expectedReviewTemplate = path.posix.join(path.posix.dirname(reviewLink.guide_path ?? ''), 'teacher-review-template.yaml');
-  if (reviewLink.review_record_path === expectedReviewTemplate) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/review_record_path', 'teacher-review template cannot be used as completed evidence'));
-  if ((trialLink.trial_record_paths ?? []).includes(trialLink.template_path)) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/trial_record_paths', 'classroom-trial template cannot be used as completed evidence'));
-
-  const reviewClaimedApproved = reviewLink.status === 'approved'
-    || unitPack.teacher_review_status === 'approved'
-    || lessons.some((lesson) => lesson.data.artifact_readiness?.teacher_review?.status === 'approved');
-  const trialClaimedTested = trialLink.status === 'tested'
-    || lessons.some((lesson) => lesson.data.artifact_readiness?.classroom_trial?.status === 'tested');
-  const classroomReady = unitPack.classroom_ready === true
-    || lessons.some((lesson) => lesson.data.artifact_readiness?.classroom_ready === true);
-  const linkedReviewRecords = context.reviewRecords.filter((record) => record.file === reviewLink.review_record_path);
-  const linkedTrialRecords = context.trialRecords.filter((record) => (trialLink.trial_record_paths ?? []).includes(record.file));
-  const reviewStates = linkedReviewRecords.map((record) => validateReviewRecord(
-    diagnostics, record, pack, currentFingerprint, lessonIds, schemaValidity.get(record), { requireApproval: reviewClaimedApproved || classroomReady },
-  ));
-  const trialStates = linkedTrialRecords.map((record) => validateTrialRecord(
-    diagnostics, record, pack, currentFingerprint, lessonIds, schemaValidity.get(record), { requireSuccess: trialClaimedTested || classroomReady },
-  ));
-  const effectiveReview = reviewStates.some((state) => state.effective);
-  const effectiveTrial = trialStates.some((state) => state.effective);
-
-  if (reviewClaimedApproved && linkedReviewRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/review_record_path', 'teacher_review: approved requires a registered completed review record'));
-  if (reviewClaimedApproved && !effectiveReview) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'approved teacher review has no effective evidence for the current teacher-pack fingerprint'));
-  if (['changes_requested', 'rejected'].includes(reviewLink.status) && linkedReviewRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/review_record_path', `${reviewLink.status} review status requires a registered review record`));
-  if (reviewLink.status === 'changes_requested' && !linkedReviewRecords.some((record) => record.data?.review_status === 'completed' && record.data?.decision?.status === 'changes_required')) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'changes_requested status requires a completed changes_required review decision'));
-  if (reviewLink.status === 'rejected' && !linkedReviewRecords.some((record) => record.data?.review_status === 'completed' && record.data?.decision?.status === 'rejected')) diagnostics.push(makeDiagnostic('error', index.file, '/pedagogical_review/status', 'rejected status requires a completed rejected review decision'));
-  if (trialClaimedTested && linkedTrialRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/trial_record_paths', 'classroom_trial: tested requires a registered analysed trial record'));
-  if (trialClaimedTested && !effectiveTrial) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'tested classroom trial has no effective evidence for the current teacher-pack fingerprint'));
-  if (['changes_required', 'repeat_required'].includes(trialLink.status) && linkedTrialRecords.length === 0) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/trial_record_paths', `${trialLink.status} trial status requires a registered trial record`));
-  if (trialLink.status === 'changes_required' && !linkedTrialRecords.some((record) => record.data?.trial_status === 'analysed' && record.data?.decision?.status === 'changes_required')) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'changes_required status requires an analysed changes_required trial decision'));
-  if (trialLink.status === 'repeat_required' && !linkedTrialRecords.some((record) => record.data?.trial_status === 'analysed' && record.data?.decision?.status === 'repeat_trial_required')) diagnostics.push(makeDiagnostic('error', index.file, '/classroom_trial/status', 'repeat_required status requires an analysed repeat_trial_required decision'));
-
-  if (!reviewClaimedApproved && linkedReviewRecords.length === 0) diagnostics.push(makeDiagnostic('warning', index.file, '/pedagogical_review/status', 'independent teacher review is pending; 0 completed review records are registered'));
-  if (!trialClaimedTested && linkedTrialRecords.length === 0) diagnostics.push(makeDiagnostic('warning', index.file, '/classroom_trial/status', 'classroom trial is not tested; 0 completed trial records are registered'));
-
-  if (classroomReady) {
-    if (!unitPack.materials_resolved || !unitPack.print_ready) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/classroom_ready', 'classroom_ready requires resolved and print-ready materials'));
-    if (!effectiveReview) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/classroom_ready', 'classroom_ready requires an effective approved teacher review'));
-    if (!effectiveTrial) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/classroom_ready', 'classroom_ready requires an effective analysed classroom trial'));
-    const openReviewBlockers = linkedReviewRecords.flatMap((record) => (record.data?.findings ?? []).filter((finding) => finding.severity === 'blocking' && openStatuses.has(finding.resolution_status)));
-    const unresolvedChanges = linkedReviewRecords.flatMap((record) => (record.data?.required_changes ?? []).filter((change) => openStatuses.has(change.resolution_status)));
-    const openSafety = linkedTrialRecords.flatMap((record) => (record.data?.findings ?? []).filter((finding) => finding.category === 'safety' && openStatuses.has(finding.resolution_status)));
-    if (openReviewBlockers.length > 0) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/classroom_ready', 'classroom_ready cannot have open blocking review findings'));
-    if (unresolvedChanges.length > 0) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/classroom_ready', 'classroom_ready requires all required changes to be closed'));
-    if (openSafety.length > 0) diagnostics.push(makeDiagnostic('error', thematicArtifact?.file ?? index.file, '/teacher_pack/classroom_ready', 'classroom_ready cannot have open safety findings'));
+export function validateStandalonePedagogicalEvidenceRecord(
+  context,
+  index,
+  artifact,
+  { requireEffective = false } = {},
+) {
+  const diagnostics = [];
+  const kind = recordKind(artifact);
+  const validator = context.validators[kind];
+  if (!validator) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      artifact.file,
+      '/artifact_type',
+      `unsupported pedagogical evidence artifact type ${artifact.data?.artifact_type ?? '<missing>'}`,
+    ));
+    return { diagnostics, state: { effective: false, stale: false }, kind };
   }
-  return { effectiveReview, effectiveTrial };
+  const schemaValid = addSchemaDiagnostics(diagnostics, artifact, validator);
+  const currentIdentity = context.currentEvidenceIdentities[index.data.pack_id] ?? null;
+  const lessonIds = index.data.lesson_ids ?? [];
+  let state;
+  if (kind === 'teacher-review') {
+    state = validateReviewRecord(
+      diagnostics,
+      context,
+      artifact,
+      index.data,
+      currentIdentity,
+      lessonIds,
+      schemaValid,
+      {
+        requireScope: requireEffective
+          ? (artifact.data?.delivery_scopes?.[0] ?? 'classroom')
+          : null,
+      },
+    );
+  } else {
+    state = validateTrialRecord(
+      diagnostics,
+      context,
+      artifact,
+      index.data,
+      currentIdentity,
+      lessonIds,
+      schemaValid,
+      kind,
+      { requireSuccess: requireEffective },
+    );
+  }
+  return { diagnostics, state, kind };
+}
+
+function validateLinkStatus(diagnostics, index, summary) {
+  const pack = index.data;
+  const reviewStatus = pack.pedagogical_review?.status;
+  const classroomStatus = pack.classroom_trial?.status;
+  const homeStatus = pack.home_trial?.status;
+  if (reviewStatus === 'approved' && !summary.effective_teacher_review) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      index.file,
+      '/pedagogical_review/status',
+      'approved status requires current effective linked teacher review',
+    ));
+  }
+  if (classroomStatus === 'tested' && !summary.effective_classroom_trial) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      index.file,
+      '/classroom_trial/status',
+      'tested status requires current effective linked classroom trial',
+    ));
+  }
+  if (homeStatus === 'tested' && !summary.effective_home_trial) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      index.file,
+      '/home_trial/status',
+      'tested status requires current effective linked home trial',
+    ));
+  }
+  if ((pack.pedagogical_review?.review_record_paths ?? []).includes(
+    pack.pedagogical_review?.template_path,
+  )) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      index.file,
+      '/pedagogical_review/review_record_paths',
+      'teacher-review template cannot be registered as evidence',
+    ));
+  }
+  if ((pack.classroom_trial?.trial_record_paths ?? []).includes(
+    pack.classroom_trial?.template_path,
+  )) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      index.file,
+      '/classroom_trial/trial_record_paths',
+      'classroom-trial template cannot be registered as evidence',
+    ));
+  }
+  if ((pack.home_trial?.trial_record_paths ?? []).includes(pack.home_trial?.template_path)) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      index.file,
+      '/home_trial/trial_record_paths',
+      'home-trial template cannot be registered as evidence',
+    ));
+  }
+  if (summary.completed_review_count === 0) {
+    diagnostics.push(makeDiagnostic(
+      'warning',
+      index.file,
+      '/pedagogical_review/status',
+      'independent teacher review is pending; 0 completed records are registered',
+    ));
+  }
+  if (summary.analysed_trial_count === 0) {
+    diagnostics.push(makeDiagnostic(
+      'warning',
+      index.file,
+      '/classroom_trial/status',
+      'classroom trial is not tested; 0 analysed records are registered',
+    ));
+  }
+  if (summary.analysed_home_trial_count === 0) {
+    diagnostics.push(makeDiagnostic(
+      'warning',
+      index.file,
+      '/home_trial/status',
+      'home trial is not started; 0 analysed records are registered',
+    ));
+  }
 }
 
 export function validatePedagogicalReviewRepository(context) {
   const diagnostics = [];
   const teacherPackResult = validateTeacherPackRepository(context.teacherPacks);
-  diagnostics.push(...teacherPackResult.diagnostics.filter((diagnostic) => diagnostic.severity === 'error'));
-  const validators = compileSchemas(context);
-  const schemaValidity = new Map();
-  for (const document of context.workflowDocuments ?? []) {
-    if (document.loadError) diagnostics.push(makeDiagnostic('error', document.file, '/', document.loadError));
+  diagnostics.push(...teacherPackResult.diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ));
+  for (const document of context.workflowDocuments) {
+    if (document.loadError) {
+      diagnostics.push(makeDiagnostic('error', document.file, '/', document.loadError));
+    }
   }
-  for (const artifact of context.reviewTemplates) {
-    schemaValidity.set(artifact, addSchemaDiagnostics(diagnostics, artifact, validators.review));
-    validateTemplateSemantics(diagnostics, artifact, 'review');
+  const templateGroups = [
+    [context.reviewTemplates, context.validators['teacher-review']],
+    [context.trialTemplates, context.validators['classroom-trial']],
+    [context.homeTrialTemplates, context.validators['home-trial']],
+  ];
+  for (const [templates, validator] of templateGroups) {
+    for (const artifact of templates) {
+      addSchemaDiagnostics(diagnostics, artifact, validator);
+      validateTemplateSemantics(diagnostics, artifact);
+    }
   }
-  for (const artifact of context.trialTemplates) {
-    schemaValidity.set(artifact, addSchemaDiagnostics(diagnostics, artifact, validators.trial));
-    validateTemplateSemantics(diagnostics, artifact, 'trial');
+  for (const [artifacts, validator] of [
+    [context.reviewRecords, context.validators['teacher-review']],
+    [context.trialRecords, context.validators['classroom-trial']],
+    [context.homeTrialRecords, context.validators['home-trial']],
+  ]) {
+    for (const artifact of artifacts) addSchemaDiagnostics(diagnostics, artifact, validator);
   }
-  for (const artifact of context.reviewRecords) schemaValidity.set(artifact, addSchemaDiagnostics(diagnostics, artifact, validators.review));
-  for (const artifact of context.trialRecords) schemaValidity.set(artifact, addSchemaDiagnostics(diagnostics, artifact, validators.trial));
-  if (context.reviewTemplates.length !== context.teacherPacks.indexes.length) diagnostics.push(makeDiagnostic('error', 'pedagogical-reviews', '/', 'every teacher pack requires one teacher-review template'));
-  if (context.trialTemplates.length !== context.teacherPacks.indexes.length) diagnostics.push(makeDiagnostic('error', 'pedagogical-reviews', '/', 'every teacher pack requires one classroom-trial template'));
+  const packCount = context.teacherPacks.indexes.length;
+  if (context.reviewTemplates.length !== packCount) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      'pedagogical-reviews',
+      '/',
+      'every teacher pack requires one teacher-review template',
+    ));
+  }
+  if (context.trialTemplates.length !== packCount) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      'pedagogical-reviews',
+      '/',
+      'every teacher pack requires one classroom-trial template',
+    ));
+  }
+  if (context.homeTrialTemplates.length !== packCount) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      'pedagogical-reviews',
+      '/',
+      'every teacher pack requires one home-trial template',
+    ));
+  }
   let effectiveReviews = 0;
-  let effectiveTrials = 0;
+  let effectiveClassroomTrials = 0;
+  let effectiveHomeTrials = 0;
   for (const index of context.teacherPacks.indexes) {
-    const state = validatePackWorkflow(diagnostics, context, index, schemaValidity);
-    if (state.effectiveReview) effectiveReviews += 1;
-    if (state.effectiveTrial) effectiveTrials += 1;
+    const summary = summarizePack(context, index, diagnostics);
+    validateLinkStatus(diagnostics, index, summary);
+    if (summary.effective_teacher_review) effectiveReviews += 1;
+    if (summary.effective_classroom_trial) effectiveClassroomTrials += 1;
+    if (summary.effective_home_trial) effectiveHomeTrials += 1;
   }
-  addDuplicates(diagnostics, context.reviewRecords.map((artifact) => artifact.data?.review_id).filter(Boolean), 'pedagogical-reviews', '/review_id', 'review ID');
-  addDuplicates(diagnostics, context.trialRecords.map((artifact) => artifact.data?.trial_id).filter(Boolean), 'pedagogical-reviews', '/trial_id', 'trial ID');
-  const errors = diagnostics.filter((diagnostic) => diagnostic.severity === 'error').length;
-  const warnings = diagnostics.filter((diagnostic) => diagnostic.severity === 'warning').length;
-  return {
+  addDuplicates(
     diagnostics,
+    context.reviewRecords.map((artifact) => artifact.data?.review_id).filter(Boolean),
+    'pedagogical-reviews',
+    '/review_id',
+    'review ID',
+  );
+  addDuplicates(
+    diagnostics,
+    [...context.trialRecords, ...context.homeTrialRecords]
+      .map((artifact) => artifact.data?.trial_id)
+      .filter(Boolean),
+    'pedagogical-reviews',
+    '/trial_id',
+    'trial ID',
+  );
+  const errors = diagnostics.filter((diagnostic) => diagnostic.severity === 'error').length;
+  const warnings = diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'warning',
+  ).length;
+  return {
+    diagnostics: [...diagnostics].sort((left, right) => compareBytewise(
+      `${left.file}\0${left.field}\0${left.reason}`,
+      `${right.file}\0${right.field}\0${right.reason}`,
+    )),
     summary: {
-      packs: context.teacherPacks.indexes.length,
+      packs: packCount,
       reviewTemplates: context.reviewTemplates.length,
       trialTemplates: context.trialTemplates.length,
-      completedReviews: context.reviewRecords.filter((artifact) => artifact.data?.review_status === 'completed').length,
-      analysedTrials: context.trialRecords.filter((artifact) => artifact.data?.trial_status === 'analysed').length,
+      homeTrialTemplates: context.homeTrialTemplates.length,
+      completedReviews: context.reviewRecords.filter(recordStatusComplete).length,
+      analysedTrials: context.trialRecords.filter(recordStatusComplete).length,
+      analysedHomeTrials: context.homeTrialRecords.filter(recordStatusComplete).length,
       effectiveReviews,
-      effectiveTrials,
+      effectiveTrials: effectiveClassroomTrials,
+      effectiveHomeTrials,
       errors,
       warnings,
     },

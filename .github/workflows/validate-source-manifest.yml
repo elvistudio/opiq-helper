@@ -175,6 +175,21 @@ jobs:
       - name: Check generated pedagogical regression report
         run: npm run check:pedagogy-regression-report
 
+      - name: Test pedagogical human evidence
+        run: npm run test:pedagogy-evidence
+
+      - name: Check pedagogical human evidence
+        run: npm run check:pedagogy-evidence
+
+      - name: Test evidence-gated pedagogical readiness
+        run: npm run test:pedagogy-readiness
+
+      - name: Check evidence-gated pedagogical readiness
+        run: npm run check:pedagogy-readiness
+
+      - name: Check generated pedagogical readiness report
+        run: npm run check:pedagogy-readiness-report
+
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
 

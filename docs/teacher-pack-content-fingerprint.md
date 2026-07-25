@@ -1,19 +1,23 @@
 # Teacher-pack content fingerprint 1.0
 
-The content fingerprint identifies the exact reviewable bytes of a teacher pack. It is the readiness gate for completed pedagogical reviews and analysed classroom trials.
+The content fingerprint identifies the exact reviewable bytes of a teacher
+pack. It is one part of the shared evidence identity for teacher review,
+classroom trial, and home trial.
 
 Git commit SHA and content fingerprint have different purposes:
 
-- `reviewed_version.commit_sha` is provenance: it identifies where the reviewed version could be found in Git.
-- `reviewed_version.content_fingerprint` is readiness evidence: it proves whether the current reviewable content is byte-for-byte the same.
+- `evidence_identity.commit_sha` is provenance: it identifies where the reviewed version could be found in Git.
+- `evidence_identity.content_fingerprint` proves whether current reviewable bytes and file count match.
+- `evidence_identity.pedagogical_snapshot` binds evidence to catalogue, rules,
+  engines, unit identity, and per-lesson DNA digests.
 
 A rebase, squash, or unrelated commit does not invalidate evidence when the fingerprint is unchanged. A change to any scoped path, file name, or file byte makes the evidence stale. Computing the fingerprint requires no Git history.
 
 For an integrated pack, machine lesson-DNA/selection/homeschool artifacts and
 rendered homeschool materials are reviewable content under declared
 `directory_paths`. A pedagogy migration therefore changes the fingerprint and
-requires fresh review/trial evidence. `materials-index.yaml` and evidence
-records remain excluded by fingerprint specification 1.0.
+requires fresh review/trial evidence. `materials-index.yaml`, evidence records,
+and derived readiness reports remain excluded by fingerprint specification 1.0.
 
 ## Reviewable scope
 
@@ -31,6 +35,7 @@ The following are deliberately outside the fingerprint:
 
 - the pack's `materials-index.yaml`, because it contains evidence registration links;
 - `pedagogical-reviews/**`, including review, trial, and resolution records;
+- `evaluations/pedagogy-readiness/**`, containing derived mutable readiness;
 - GitHub issue forms, workflows, validators, and CI scripts;
 - QA snapshots, `source-manifest.json`, canonical Opiq Markdown, and source archives.
 
@@ -73,4 +78,9 @@ node scripts/compute-teacher-pack-fingerprint.mjs \
 
 Use `--check <expected-fingerprint>` for a read-only equality check. An incomplete or unsafe scope exits non-zero.
 
-The fingerprint proves content identity, not pedagogical quality. It does not replace independent teacher review, privacy review, or classroom trial. The water pack remains review `pending`, trial `not_tested`, and `classroom_ready: false` until real evidence is registered.
+The fingerprint proves content identity, not pedagogical quality. It does not
+replace independent teacher review, privacy review, classroom trial, or home
+trial. See the
+[pedagogical evidence workflow](pedagogical-review-and-trial-workflow.md).
+The water pack remains pending/not-tested/not-started and not ready until real
+current evidence is explicitly registered.

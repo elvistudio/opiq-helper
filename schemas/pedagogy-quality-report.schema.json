@@ -27,12 +27,12 @@
     "determinism"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
     "artifact_type": { "const": "pedagogy_quality_report" },
     "report_id": {
       "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
     },
-    "quality_engine_version": { "const": "1.0" },
+    "quality_engine_version": { "const": "1.1" },
     "gate_catalogue": {
       "type": "object",
       "additionalProperties": false,
@@ -349,15 +349,23 @@
           "additionalProperties": false,
           "required": [
             "effective_teacher_review",
+            "effective_classroom_review",
+            "effective_homeschool_review",
             "effective_classroom_trial",
+            "effective_home_trial",
             "stale_teacher_review",
-            "stale_classroom_trial"
+            "stale_classroom_trial",
+            "stale_home_trial"
           ],
           "properties": {
             "effective_teacher_review": { "type": "boolean" },
+            "effective_classroom_review": { "type": "boolean" },
+            "effective_homeschool_review": { "type": "boolean" },
             "effective_classroom_trial": { "type": "boolean" },
+            "effective_home_trial": { "type": "boolean" },
             "stale_teacher_review": { "type": "boolean" },
-            "stale_classroom_trial": { "type": "boolean" }
+            "stale_classroom_trial": { "type": "boolean" },
+            "stale_home_trial": { "type": "boolean" }
           }
         },
         "source_records": {

@@ -35,6 +35,16 @@ import {
 import {
   safeRepositoryPath,
 } from './curriculum-maps.mjs';
+import {
+  createRegressionClassroomTrial,
+  createRegressionTeacherReview,
+  runReadinessEvidenceRegressionCase,
+} from './pedagogy-readiness-regressions.mjs';
+import {
+  buildPedagogicalEvidenceIdentity,
+  parseStrictPedagogicalEvidenceJson,
+  resolveCurrentCommitSha,
+} from './pedagogical-evidence.mjs';
 
 export const PEDAGOGY_REGRESSION_ENGINE_VERSION = '1.0';
 export const PEDAGOGY_REGRESSION_FIXTURES =
@@ -227,6 +237,21 @@ export function validatePedagogyRegressionConfiguration(repository) {
   const ids = fixtures.cases.map((item) => item.regression_id);
   if (new Set(ids).size !== ids.length) errors.push('duplicate regression_id');
   if (!isSorted(ids)) errors.push('regression cases must be bytewise sorted');
+  const readinessIds = fixtures.readiness_evidence_cases.map(
+    (item) => item.regression_id,
+  );
+  if (new Set(readinessIds).size !== readinessIds.length) {
+    errors.push('duplicate readiness evidence regression_id');
+  }
+  if (!isSorted(readinessIds)) {
+    errors.push('readiness evidence regression cases must be bytewise sorted');
+  }
+  const readinessScenarios = fixtures.readiness_evidence_cases.map(
+    (item) => item.scenario_id,
+  );
+  if (new Set(readinessScenarios).size !== readinessScenarios.length) {
+    errors.push('duplicate readiness evidence scenario_id');
+  }
 
   for (const item of fixtures.cases) {
     if (!CASE_KIND_HANDLER_IDS[item.case_kind]?.has(item.handler_id)) {
@@ -1137,124 +1162,12 @@ function staleFingerprint(current) {
   };
 }
 
-function completedReview(fingerprint) {
-  return {
-    schema_version: '1.1',
-    artifact_type: 'teacher_review',
-    review_id: 'grade-5-water-regression-review-2026-07-25',
-    pack_ref: 'grade-5-science-water-teacher-pack',
-    reviewed_version: {
-      commit_sha: 'a'.repeat(40),
-      content_fingerprint: structuredClone(fingerprint),
-    },
-    review_status: 'completed',
-    reviewer: {
-      role: 'primary_science_teacher',
-      subject_experience_years: 5,
-      language_context: {
-        instruction_language: 'ru',
-        subject_support_language: 'et',
-      },
-      identity_storage: 'external',
-      reviewer_reference: 'regression-fixture-reviewer',
-    },
-    reviewed_at: '2026-07-25',
-    review_scope: {
-      teacher_guide: true,
-      lesson_guides: [
-        'grade-5-water-01-properties',
-        'grade-5-water-02-states',
-        'grade-5-water-03-melting-condensation',
-        'grade-5-water-04-changes-review',
-      ],
-      student_materials: true,
-      answer_keys: true,
-      assessment_rubric: true,
-      homeschool_materials: true,
-      safety: true,
-      language_level: true,
-    },
-    ratings: {
-      scientific_accuracy: 4,
-      age_appropriateness: 4,
-      timing_feasibility: 4,
-      instruction_clarity: 4,
-      student_material_usability: 4,
-      assessment_alignment: 4,
-      estonian_a1_a2_fit: 4,
-      safety_readiness: 4,
-      homeschool_usability: 4,
-    },
-    findings: [],
-    blocking_findings: [],
-    required_changes: [],
-    optional_improvements: [],
-    decision: {
-      status: 'approved',
-      rationale: 'Temporary regression evidence deliberately bound to a stale fingerprint.',
-    },
-  };
-}
-
-function completedTrial(fingerprint) {
-  return {
-    schema_version: '1.1',
-    artifact_type: 'classroom_trial',
-    trial_id: 'grade-5-water-regression-trial-2026-07-25',
-    pack_ref: 'grade-5-science-water-teacher-pack',
-    reviewed_version: {
-      commit_sha: 'a'.repeat(40),
-      content_fingerprint: structuredClone(fingerprint),
-    },
-    trial_status: 'analysed',
-    context: {
-      lesson_ids: [
-        'grade-5-water-01-properties',
-        'grade-5-water-02-states',
-        'grade-5-water-03-melting-condensation',
-        'grade-5-water-04-changes-review',
-      ],
-      setting: 'classroom',
-      grade: 5,
-      approximate_group_size: 24,
-      learner_estonian_profile: 'A1-A2',
-      instruction_language: 'ru',
-      subject_support_language: 'et',
-      teacher_role: 'primary_science_teacher',
-    },
-    privacy: {
-      contains_student_names: false,
-      contains_birth_dates: false,
-      contains_personal_identifiers: false,
-      contains_addresses: false,
-      contains_contact_information: false,
-      contains_parent_contacts: false,
-      contains_student_photos: false,
-      contains_special_category_data: false,
-      contains_identifiable_individual_grades: false,
-      contains_identifiable_free_text: false,
-      observations_are_aggregated: true,
-      free_text_checked_for_identifiers: true,
-    },
-    conducted_at: '2026-07-25',
-    timing_observations: [],
-    instruction_observations: [],
-    safety_observations: [],
-    learning_evidence: [],
-    language_evidence: [],
-    material_usability: [],
-    unexpected_support_needed: [],
-    teacher_adjustments: [],
-    findings: [],
-    decision: {
-      status: 'successful',
-      safe_to_repeat: true,
-      rationale: 'Temporary regression evidence deliberately bound to a stale fingerprint.',
-    },
-  };
-}
-
-async function applyRepositoryMutation(rootDir, item, currentFingerprint) {
+async function applyRepositoryMutation(
+  rootDir,
+  item,
+  currentFingerprint,
+  baselineRootDir,
+) {
   const scenario = item.mutation.mutation_id;
   const primaryPath = item.mutation.artifact_path;
   const snapshots = [];
@@ -1267,6 +1180,22 @@ async function applyRepositoryMutation(rootDir, item, currentFingerprint) {
   };
   const changeText = async (repositoryPath, mutate) => {
     snapshots.push(await writeMutation(rootDir, repositoryPath, mutate));
+  };
+  let builtIdentity = null;
+  const evidenceState = async () => {
+    builtIdentity ??= await buildPedagogicalEvidenceIdentity({
+      rootDir,
+      packPath: 'teacher-packs/grade-5-science/water/materials-index.yaml',
+      commitSha: await resolveCurrentCommitSha(baselineRootDir),
+    });
+    return builtIdentity;
+  };
+  const identityWithFingerprint = async (fingerprint) => {
+    const built = await evidenceState();
+    return {
+      ...structuredClone(built.identity),
+      content_fingerprint: structuredClone(fingerprint),
+    };
   };
   switch (scenario) {
     case 'timing_overflow':
@@ -1368,6 +1297,7 @@ async function applyRepositoryMutation(rootDir, item, currentFingerprint) {
       });
       break;
     case 'stale_teacher_pack_fingerprint':
+      await evidenceState();
       await changeText(primaryPath, (bytes) => Buffer.concat([
         bytes,
         Buffer.from('\n<!-- temporary regression fingerprint mutation -->\n'),
@@ -1377,34 +1307,48 @@ async function applyRepositoryMutation(rootDir, item, currentFingerprint) {
         const evidencePath =
           'pedagogical-reviews/grade-5-science/water/teacher-review-regression.yaml';
         await changeYaml(indexPath, (index) => {
-          index.pedagogical_review.review_record_path = evidencePath;
+          index.pedagogical_review.review_record_paths = [evidencePath];
         });
+        const record = createRegressionTeacherReview(
+          await identityWithFingerprint(currentFingerprint),
+          builtIdentity.index.data.lesson_ids,
+        );
         await changeText(evidencePath, () => Buffer.from(stringify(
-          completedReview(currentFingerprint),
+          record,
           { lineWidth: 100, sortMapEntries: false },
         )));
       }
       break;
     case 'stale_teacher_review': {
+      await evidenceState();
       const evidencePath =
         'pedagogical-reviews/grade-5-science/water/teacher-review-regression.yaml';
       await changeYaml(primaryPath, (index) => {
-        index.pedagogical_review.review_record_path = evidencePath;
+        index.pedagogical_review.review_record_paths = [evidencePath];
       });
+      const record = createRegressionTeacherReview(
+        await identityWithFingerprint(staleFingerprint(currentFingerprint)),
+        builtIdentity.index.data.lesson_ids,
+      );
       await changeText(evidencePath, () => Buffer.from(stringify(
-        completedReview(staleFingerprint(currentFingerprint)),
+        record,
         { lineWidth: 100, sortMapEntries: false },
       )));
       break;
     }
     case 'stale_classroom_trial': {
+      await evidenceState();
       const evidencePath =
         'pedagogical-reviews/grade-5-science/water/classroom-trial-regression.yaml';
       await changeYaml(primaryPath, (index) => {
         index.classroom_trial.trial_record_paths = [evidencePath];
       });
+      const record = createRegressionClassroomTrial(
+        await identityWithFingerprint(staleFingerprint(currentFingerprint)),
+        builtIdentity.index.data.lesson_ids[0],
+      );
       await changeText(evidencePath, () => Buffer.from(stringify(
-        completedTrial(staleFingerprint(currentFingerprint)),
+        record,
         { lineWidth: 100, sortMapEntries: false },
       )));
       break;
@@ -1420,6 +1364,7 @@ async function runRepositoryMutationCase(repository, item, fixtureRoot) {
     fixtureRoot,
     item,
     repository.qualityRepository.reportMetadata.teacherPackFingerprint,
+    repository.rootDir,
   );
   let mutatedRepository;
   try {
@@ -1593,13 +1538,32 @@ export async function runPedagogyRegressions(repository, { caseIds = null } = {}
   const cases = caseIds
     ? repository.fixtures.cases.filter((item) => caseIds.includes(item.regression_id))
     : repository.fixtures.cases;
+  const readinessCases = caseIds
+    ? repository.fixtures.readiness_evidence_cases.filter(
+      (item) => caseIds.includes(item.regression_id),
+    )
+    : repository.fixtures.readiness_evidence_cases;
   const mutationCases = cases.filter(
     (item) => item.handler_id === 'repository-artifact-mutation',
   );
   const directCases = cases.filter(
     (item) => item.handler_id !== 'repository-artifact-mutation',
   );
-  const workerCount = Math.min(3, mutationCases.length);
+  const workerCount = Math.min(3, mutationCases.length + readinessCases.length);
+  const readinessIdentity = readinessCases.length > 0
+    ? await buildPedagogicalEvidenceIdentity({
+      rootDir: repository.rootDir,
+      packPath: 'teacher-packs/grade-5-science/water/materials-index.yaml',
+      commitSha: await resolveCurrentCommitSha(repository.rootDir),
+    })
+    : null;
+  const readinessBaselineState = readinessIdentity === null
+    ? null
+    : {
+      identity: readinessIdentity.identity,
+      fingerprint: readinessIdentity.identity.content_fingerprint,
+      lessonIds: readinessIdentity.index.data.lesson_ids,
+    };
   const fixtureRoots = await Promise.all(
     Array.from({ length: workerCount }, () => createMutationFixture(repository.rootDir)),
   );
@@ -1609,18 +1573,33 @@ export async function runPedagogyRegressions(repository, { caseIds = null } = {}
       directCases.map((item) => runCase(repository, item, null)),
     ));
     const buckets = Array.from({ length: workerCount }, () => []);
-    mutationCases.forEach((item, index) => {
-      buckets[index % workerCount].push(item);
+    const workerItems = [
+      ...mutationCases.map((item) => ({ kind: 'existing', item })),
+      ...readinessCases.map((item) => ({ kind: 'readiness', item })),
+    ];
+    workerItems.forEach((entry, index) => {
+      buckets[index % workerCount].push(entry);
     });
-    const workerResults = await Promise.all(buckets.map(
+    const workerSettled = await Promise.allSettled(buckets.map(
       async (bucket, index) => {
         const items = [];
-        for (const item of bucket) {
-          items.push(await runCase(repository, item, fixtureRoots[index]));
+        for (const entry of bucket) {
+          items.push(entry.kind === 'readiness'
+            ? await runReadinessEvidenceRegressionCase({
+              item: entry.item,
+              fixtureRoot: fixtureRoots[index],
+              baselineRootDir: repository.rootDir,
+              baselineState: readinessBaselineState,
+              qualityRepository: repository.qualityRepository,
+            })
+            : await runCase(repository, entry.item, fixtureRoots[index]));
         }
         return items;
       },
     ));
+    const workerFailure = workerSettled.find((entry) => entry.status === 'rejected');
+    if (workerFailure) throw workerFailure.reason;
+    const workerResults = workerSettled.map((entry) => entry.value);
     results.push(...workerResults.flat());
     results.sort((left, right) => compareBytewise(
       left.regression_id,
@@ -1628,7 +1607,12 @@ export async function runPedagogyRegressions(repository, { caseIds = null } = {}
     ));
   } finally {
     await Promise.all(fixtureRoots.map(
-      (fixtureRoot) => fs.rm(fixtureRoot, { recursive: true, force: true }),
+      (fixtureRoot) => fs.rm(fixtureRoot, {
+        recursive: true,
+        force: true,
+        maxRetries: 5,
+        retryDelay: 100,
+      }),
     ));
   }
   return {
@@ -1643,6 +1627,7 @@ function countByKind(results) {
   const counts = {
     architecture_only: 0,
     deliberate_failure: 0,
+    evidence_readiness: 0,
     production_classroom: 0,
     production_homeschool: 0,
     stale_evidence: 0,
@@ -1773,6 +1758,109 @@ export async function checkPedagogyRegressionReport(
   return actual === expected
     ? []
     : [`stale pedagogical regression report: ${reportPath}`];
+}
+
+export async function loadCommittedPedagogyRegressionReport(
+  repository,
+  { reportPath = PEDAGOGY_REGRESSION_REPORT } = {},
+) {
+  const text = await fs.readFile(
+    safeRepositoryPath(repository.rootDir, reportPath, reportPath),
+    'utf8',
+  );
+  return parseStrictPedagogicalEvidenceJson(text, reportPath);
+}
+
+export async function validateCommittedPedagogyRegressionReport(
+  repository,
+  report,
+) {
+  const errors = [
+    ...repository.configurationErrors,
+    ...validatePedagogyRegressionReport(repository, report),
+  ];
+  const selectionRules = repository.selectionRepository.rules.data;
+  const expectedVersions = {
+    taxonomy: selectionRules.taxonomy_version,
+    selection_rules: selectionRules.selection_rules_version,
+    selection_engine: PEDAGOGY_SELECTION_ENGINE_VERSION,
+    lesson_dna_schema: selectionRules.lesson_dna_schema_version,
+    homeschool_engine: PEDAGOGY_HOMESCHOOL_ENGINE_VERSION,
+    quality_engine: PEDAGOGY_QUALITY_ENGINE_VERSION,
+    integration_engine: PEDAGOGY_INTEGRATION_VERSION,
+    fingerprint_specification:
+      TEACHER_PACK_FINGERPRINT_SPECIFICATION_VERSION,
+  };
+  const expectedDigests = {
+    fixture_catalogue: sha256PedagogyValue(repository.fixtures),
+    activity_catalogue: computeActivityCatalogSelectionDigest(
+      repository.selectionRepository.knowledge.activities.data.activities,
+    ),
+    quality_gate_catalogue: sha256PedagogyValue(
+      repository.qualityRepository.catalogue,
+    ),
+  };
+  const expectedCaseIds = uniqueSorted([
+    ...repository.fixtures.cases.map((item) => item.regression_id),
+    ...repository.fixtures.readiness_evidence_cases.map(
+      (item) => item.regression_id,
+    ),
+  ]);
+  const actualCaseIds = uniqueSorted(
+    (report.cases ?? []).map((item) => item.regression_id),
+  );
+  const expectedContentIdentities = [
+    ...repository.qualityRepository.reportMetadata.contentIdentities,
+  ].sort((left, right) => compareBytewise(left.record_id, right.record_id));
+  const qualityEvaluation = evaluatePedagogyQuality(repository.qualityRepository);
+  const comparisons = [
+    ['regression catalogue version', report.regression_catalogue_version,
+      repository.fixtures.regression_catalogue_version],
+    ['regression engine version', report.engine_version,
+      PEDAGOGY_REGRESSION_ENGINE_VERSION],
+    ['version identities', report.versions, expectedVersions],
+    ['source digests', report.digests, expectedDigests],
+    ['case identities', actualCaseIds, expectedCaseIds],
+    ['content identities', report.content_identities, expectedContentIdentities],
+    [
+      'teacher-pack fingerprint',
+      report.teacher_pack_fingerprint,
+      repository.qualityRepository.reportMetadata.teacherPackFingerprint,
+    ],
+    [
+      'production structural claim',
+      report.claims?.production_water_pilot_structurally_complete,
+      qualityEvaluation.claims.structurally_complete === true,
+    ],
+  ];
+  for (const [label, actual, expected] of comparisons) {
+    if (
+      JSON.stringify(normalizeStable(actual))
+      !== JSON.stringify(normalizeStable(expected))
+    ) {
+      errors.push(`stale committed regression ${label}`);
+    }
+  }
+  if ((report.counts?.total ?? -1) !== expectedCaseIds.length) {
+    errors.push('stale committed regression case count');
+  }
+  if ((report.cases ?? []).some((item) => (
+    item.status !== 'passed'
+    || item.invariants.some((invariant) => invariant.status !== 'passed')
+  ))) {
+    errors.push('committed regression report contains a failed case or invariant');
+  }
+  if (!isSorted(report.checked_artifacts ?? [])) {
+    errors.push('committed regression checked artifacts must be bytewise sorted');
+  }
+  for (const repositoryPath of report.checked_artifacts ?? []) {
+    if (!await regularFileExists(repository.rootDir, repositoryPath)) {
+      errors.push(
+        `checked regression dependency is missing or not a regular file: ${repositoryPath}`,
+      );
+    }
+  }
+  return uniqueSorted(errors);
 }
 
 export async function writePedagogyRegressionReport(

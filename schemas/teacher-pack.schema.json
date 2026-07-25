@@ -21,6 +21,8 @@
     "reviewable_content",
     "pedagogical_review",
     "classroom_trial",
+    "home_trial",
+    "readiness",
     "materials"
   ],
   "properties": {
@@ -64,10 +66,16 @@
       "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/reviewableContent"
     },
     "pedagogical_review": {
-      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pedagogicalReviewLink"
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pedagogicalEvidenceReviewLink"
     },
     "classroom_trial": {
       "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/classroomTrialLink"
+    },
+    "home_trial": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/homeTrialLink"
+    },
+    "readiness": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pedagogicalReadinessLink"
     },
     "pedagogical_integration": {
       "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/teacherPackIntegration"

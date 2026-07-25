@@ -1,14 +1,8 @@
-schema_version: "1.1"
+schema_version: "2.0"
 artifact_type: teacher_review
 review_id: grade-5-water-use-cycle-review-YYYY-MM-DD
 pack_ref: grade-5-science-water-use-cycle-teacher-pack
-reviewed_version:
-  commit_sha: null
-  content_fingerprint:
-    algorithm: sha256
-    specification_version: "1.0"
-    value: null
-    file_count: null
+evidence_identity: null
 review_status: draft
 reviewer:
   role: primary_science_teacher
@@ -19,6 +13,7 @@ reviewer:
   identity_storage: external
   reviewer_reference: null
 reviewed_at: null
+delivery_scopes: []
 review_scope:
   teacher_guide: false
   lesson_guides: []
@@ -28,20 +23,55 @@ review_scope:
   homeschool_materials: false
   safety: false
   language_level: false
+  lesson_dna: false
+  selection_and_adaptation_artifacts: false
 ratings:
-  scientific_accuracy: null
-  age_appropriateness: null
-  timing_feasibility: null
-  instruction_clarity: null
-  student_material_usability: null
-  assessment_alignment: null
-  estonian_a1_a2_fit: null
-  safety_readiness: null
-  homeschool_usability: null
+  method_suitability_for_grade: null
+  method_suitability_for_subject: null
+  lesson_pattern_coherence: null
+  timing_realism: null
+  transition_setup_cleanup_realism: null
+  cognitive_load: null
+  total_productive_language_load: null
+  russian_primary_explanation_quality: null
+  estonian_a1_a2_support_fit: null
+  retrieval_quality: null
+  spaced_review_usefulness: null
+  correction_and_self_explanation: null
+  teacher_instruction_clarity: null
+  classroom_feasibility: null
+  homeschool_clarity: null
+  parent_role_realism: null
+  differentiation: null
+  inclusion_accessibility: null
+  assessment_validity: null
+  subject_language_assessment_separation: null
+  learner_autonomy: null
+  motivation_competence_support: null
+  safety: null
+  material_availability: null
+  artificial_repetitive_method_risk: null
+privacy:
+  contains_student_names: false
+  contains_birth_dates: false
+  contains_personal_identifiers: false
+  contains_addresses: false
+  contains_contact_information: false
+  contains_parent_contacts: false
+  contains_photographs: false
+  contains_recordings: false
+  contains_health_data: false
+  contains_special_category_data: false
+  contains_identifiable_grades: false
+  contains_identifiable_profiles: false
+  contains_identifiable_free_text: false
+  observations_are_aggregated: true
+  identity_storage: external
+  free_text_checked_for_identifiers: false
 findings: []
 blocking_findings: []
 required_changes: []
 optional_improvements: []
 decision:
   status: pending
-  rationale: Педагогическое ревью ещё не выполнено.
+  rationale: Legacy-compatible шаблон не является integrated review evidence.

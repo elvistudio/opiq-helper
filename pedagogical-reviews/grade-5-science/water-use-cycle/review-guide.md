@@ -32,7 +32,11 @@
 - **changes_required** — необходимы изменения до trial.
 - **rejected** — комплект нельзя безопасно или научно исправить небольшими изменениями.
 
-Approval не означает classroom_ready. После исправлений требуется отдельная обезличенная classroom trial для текущего content fingerprint.
+Этот pack остаётся legacy/non-integrated control: integrated pedagogical
+snapshot для него не заявляется. Approval не означает readiness. После
+миграции к integrated contract потребуются отдельные current classroom review
+и classroom trial; homeschool readiness дополнительно потребует отдельную home
+trial.
 
 ## Privacy
 

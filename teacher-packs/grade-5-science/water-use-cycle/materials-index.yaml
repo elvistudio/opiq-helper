@@ -84,12 +84,19 @@ reviewable_content:
   derived_material_paths: true
 pedagogical_review:
   guide_path: pedagogical-reviews/grade-5-science/water-use-cycle/review-guide.md
-  review_record_path: null
+  template_path: pedagogical-reviews/grade-5-science/water-use-cycle/teacher-review-template.yaml
+  review_record_paths: []
   status: pending
 classroom_trial:
   template_path: pedagogical-reviews/grade-5-science/water-use-cycle/classroom-trial-template.yaml
   trial_record_paths: []
   status: not_tested
+home_trial:
+  template_path: pedagogical-reviews/grade-5-science/water-use-cycle/home-trial-template.yaml
+  trial_record_paths: []
+  status: not_started
+readiness:
+  report_path: null
 materials:
   - lesson_ids: []
     required_for_pack: true

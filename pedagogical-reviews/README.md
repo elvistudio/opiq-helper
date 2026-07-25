@@ -5,15 +5,26 @@ This directory defines the evidence workflow for independently reviewing and tri
 The sequence is:
 
 1. merge the authored teacher pack;
-2. compute the reviewed pack's deterministic content fingerprint and retain the commit SHA as provenance;
-3. complete an independent teacher review;
+2. prepare an offline JSON intake containing the current fingerprint and
+   pedagogical snapshot;
+3. complete an independent classroom and/or homeschool teacher review;
 4. record and resolve required changes;
-5. run a limited classroom trial;
-6. analyse only anonymised, aggregated observations;
-7. register the evidence records;
-8. update readiness in a separate pull request.
+5. run the relevant classroom trial and/or separate home trial;
+6. analyse only privacy-safe aggregated or bounded categorical observations;
+7. normalize JSON to canonical YAML;
+8. explicitly register evidence and derive readiness.
 
-`reviewed_version.commit_sha` shows where the reviewed content existed in Git but is not a readiness gate. `reviewed_version.content_fingerprint` must match the current reviewable bytes and file count. Rebase, squash, or unrelated commits therefore leave unchanged evidence effective. Any scoped YAML or teacher-pack artifact change makes it stale. Evidence records and `materials-index.yaml` are excluded so evidence registration cannot invalidate itself. The exact scope and framing are documented in [`docs/teacher-pack-content-fingerprint.md`](../docs/teacher-pack-content-fingerprint.md).
+`evidence_identity.commit_sha` shows where the reviewed content existed in Git
+but is not a readiness gate. The complete content fingerprint and pedagogical
+snapshot must match current authoritative artifacts. Rebase, squash, or
+unrelated commits therefore leave unchanged evidence effective. Changes to
+reviewable content, selected pedagogy, lesson DNA, delivery instructions,
+safety, or relevant catalogues/rules make evidence stale. Evidence records,
+their links in `materials-index.yaml`, and derived readiness reports are
+excluded so evidence registration cannot invalidate itself.
+
+The complete workflow and commands are documented in
+[`docs/pedagogical-review-and-trial-workflow.md`](../docs/pedagogical-review-and-trial-workflow.md).
 
 ## Privacy boundary
 
@@ -23,4 +34,8 @@ Allowed: “7 из 12 учеников выполнили инструкцию �
 
 Forbidden: “Иван Иванов не смог выполнить инструкцию.”
 
-The validator checks mandatory privacy declarations and rejects unexpected personal-data fields. It cannot guarantee that names or indirect identifiers are absent from unrestricted prose. A human must check every free-text field before commit.
+The validator checks mandatory privacy declarations and conservatively detects
+common email, phone, identity-code, address, private-media, and recording
+references. It cannot guarantee that names or indirect identifiers are absent
+from unrestricted prose. A human must check every free-text field before
+registration.

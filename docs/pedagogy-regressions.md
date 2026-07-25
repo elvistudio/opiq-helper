@@ -24,7 +24,7 @@ cases use `mutation: null`. Negative cases distinguish
 `generated_architecture_output`; each mutation names its primary path, stable
 mutation ID, and expected changed fields.
 
-The five case kinds answer different questions:
+The six case kinds answer different questions:
 
 - `production_classroom` checks actual integrated classroom records;
 - `production_homeschool` checks actual adapted packages and their production
@@ -34,6 +34,9 @@ The five case kinds answer different questions:
 - `deliberate_failure` proves that an invalid semantic mutation is rejected;
 - `stale_evidence` proves that stale versions, identities, fingerprints, or
   evidence cannot support a positive structural/readiness claim.
+- `evidence_readiness` runs 31 temporary-artifact cases for the shared evidence
+  identity, classroom/home truth table, privacy, normalization, registration
+  rollback, and fingerprint boundary.
 
 Architecture-only cases include map/data interpretation, ecosystem
 comparison, scaffolded concept work, self-explanation, and a justified teacher
@@ -96,9 +99,15 @@ deterministic semantic snapshot governed by
 - explicit false readiness/effectiveness/curriculum-completeness claims;
 - stable counts by case kind and invariant status.
 
-The report contains no generation timestamp. A report check regenerates its
-normalized bytes, rejects staleness, and fails if a declared checked dependency
-is missing or is not a regular non-symlink file. Review or evidence-only
+The report contains no generation timestamp. The full test and explicit
+generation command execute every temporary-artifact scenario. The read-only
+check commands then validate the committed strict schema, fixture/case
+identities, upstream versions and digests, scientific content identities,
+current teacher-pack fingerprint, and every path in the declared dependency
+closure. This avoids executing the same 31 repository-copy scenarios three
+times in one CI job without weakening the E2E test that precedes the checks.
+A missing or non-regular dependency, changed fixture/catalogue identity, stale
+fingerprint, or stale report contract fails the check. Review or evidence-only
 metadata does not alter the reviewable teacher-pack fingerprint.
 
 ## Commands
@@ -110,8 +119,9 @@ npm run generate:pedagogy-regression-report
 npm run check:pedagogy-regression-report
 ```
 
-The check command is read-only. The generate command is the only command that
-writes the committed report. CI runs the test, semantic check, and committed
+The check commands are read-only. The generate command is the only command
+that executes all scenarios and writes the committed report. CI runs the full
+E2E test first, followed by the semantic identity/closure check and committed
 report freshness check after the pedagogy quality checks.
 
 ## Adding a case or extending scope
@@ -139,3 +149,6 @@ content or treat a fixture as a curriculum map.
 Human teacher review and classroom/home trials remain separate evidence
 workflows. The framework can prove that stale or missing evidence is rejected;
 it cannot manufacture that evidence or validate pedagogical effectiveness.
+Evidence-readiness scenarios use only synthetic records in isolated temporary
+repository copies and reload the production review, quality, fingerprint, and
+readiness adapters.

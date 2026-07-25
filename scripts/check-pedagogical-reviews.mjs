@@ -16,7 +16,9 @@ try {
   } else {
     console.log(
       `Pedagogical-review check passed: ${result.summary.packs} pack, `
-      + `${result.summary.completedReviews} completed teacher reviews, ${result.summary.analysedTrials} analysed classroom trials; `
+      + `${result.summary.completedReviews} completed teacher reviews, `
+      + `${result.summary.analysedTrials} analysed classroom trials, `
+      + `${result.summary.analysedHomeTrials} analysed home trials; `
       + `${result.summary.warnings} workflow warning(s).`,
     );
   }

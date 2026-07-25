@@ -1,20 +1,16 @@
 #!/usr/bin/env node
 import {
-  buildPedagogyRegressionReport,
+  loadCommittedPedagogyRegressionReport,
   loadPedagogyRegressionRepository,
-  runPedagogyRegressions,
-  validatePedagogyRegressionReport,
+  validateCommittedPedagogyRegressionReport,
 } from './lib/pedagogy-regressions.mjs';
 
 const repository = await loadPedagogyRegressionRepository();
-const run = await runPedagogyRegressions(repository);
-const report = buildPedagogyRegressionReport(repository, run);
-const schemaErrors = validatePedagogyRegressionReport(repository, report);
-const errors = [
-  ...repository.configurationErrors,
-  ...run.errors,
-  ...schemaErrors,
-];
+const report = await loadCommittedPedagogyRegressionReport(repository);
+const errors = await validateCommittedPedagogyRegressionReport(
+  repository,
+  report,
+);
 if (errors.length > 0) {
   for (const error of errors) console.error(`[ERROR] ${error}`);
   process.exitCode = 1;
@@ -26,6 +22,7 @@ if (errors.length > 0) {
     + `${report.counts.by_case_kind.production_homeschool} homeschool, `
     + `${report.counts.by_case_kind.architecture_only} architecture-only, `
     + `${report.counts.by_case_kind.deliberate_failure} deliberate failure, `
-    + `${report.counts.by_case_kind.stale_evidence} stale-evidence.`,
+    + `${report.counts.by_case_kind.stale_evidence} stale-evidence, `
+    + `${report.counts.by_case_kind.evidence_readiness} evidence-readiness.`,
   );
 }

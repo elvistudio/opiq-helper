@@ -144,15 +144,33 @@ The meanings are intentionally non-equivalent: `schema complete` ≠ `content co
 
 Every `author_material` declares a repository-relative `artifact_path`, audience, lower-case language list, printability, provenance, and an `answer_key_path` for worksheets/assessments unless an open creative task has an explicit exemption. Files must exist inside the repository. A student YAML plan or an Opiq URL is not a ready worksheet. Printable materials must be Markdown or HTML.
 
-`materials_resolved: true` is rejected if a declared material or key is absent. `print_ready: true` is rejected if a required student file is not printable. `schemas/teacher-review.schema.json` and `schemas/classroom-trial.schema.json` define the independent evidence records. Approved review requires a registered, completed record with role, date, mandatory scope, closed blocking/major findings, closed required changes, and a content fingerprint matching the current teacher pack. Tested status requires a registered, analysed trial with at least one lesson, complete privacy declarations, a successful decision, no open safety blocker, and the same current content fingerprint.
+`materials_resolved: true` is rejected if a declared material or key is absent. `print_ready: true` is rejected if a required student file is not printable. The shared evidence schema plus `teacher-review`, `classroom-trial`, and `home-trial` schemas define three independent evidence records. Approved review requires a registered, completed record with role, date, mandatory scope, closed blocking/major findings, closed required changes, and a content fingerprint matching the current teacher pack. Tested status requires the corresponding registered, analysed classroom or home trial with at least one lesson, complete privacy declarations, a successful decision, no open safety blocker, and the same current content and pedagogical identities.
 
-`reviewed_version.commit_sha` is provenance only. `reviewed_version.content_fingerprint` is a deterministic SHA-256 over linked lesson YAML, the thematic plan, all indexed materials and keys, and every file in the declared reviewable directories. The scope is validated automatically and is independent of Git history; rebase or squash does not make unchanged evidence stale. Evidence records and `materials-index.yaml` are excluded so evidence registration cannot invalidate itself. See [`teacher-pack-content-fingerprint.md`](teacher-pack-content-fingerprint.md) for the exact 1.0 framing. Git timestamps and commit identity are not readiness evidence.
+`evidence_identity.commit_sha` is provenance only.
+`evidence_identity.content_fingerprint` is a deterministic SHA-256 over linked
+lesson YAML, the thematic plan, machine pedagogy artifacts, indexed materials
+and keys, and declared reviewable directories. The adjacent
+`pedagogical_snapshot` binds evidence to current catalogue/rule/engine and
+lesson-DNA identities. Evidence records, `materials-index.yaml`, and derived
+readiness reports are excluded so registration cannot invalidate itself. See
+[`teacher-pack-content-fingerprint.md`](teacher-pack-content-fingerprint.md)
+and
+[`pedagogical-review-and-trial-workflow.md`](pedagogical-review-and-trial-workflow.md).
 
 Templates are schema-valid blank instruments, never completed evidence. Trial records may contain only aggregated observations and must declare the absence of names, birth dates, identifiers, addresses, contacts, photos, medical/diagnostic data, identifiable grades, and identifiable free text. The validator rejects unknown personal-data fields and checks declarations, but cannot guarantee that unrestricted prose contains no indirect identifier; human free-text review remains mandatory.
 
-The evidence workflow is: (1) merge the authored pack, (2) compute and record its content fingerprint plus provenance commit SHA, (3) conduct independent teacher review, (4) record findings, (5) resolve required changes, (6) conduct a limited classroom trial, (7) analyse anonymised observations, and (8) update readiness in a separate PR. `classroom_ready: true` requires both fingerprint-current evidence records and is rejected while blocking, safety, required-change, or stale-evidence diagnostics remain.
+The offline evidence workflow prepares JSON, conducts scoped review and the
+separate classroom/home trial, normalizes to canonical YAML, and explicitly
+registers current records. Classroom readiness requires classroom-scoped review
+and classroom trial; homeschool readiness requires homeschool-scoped review and
+home trial. Blocking, safety, required-change, privacy, or stale-evidence
+diagnostics prevent the affected readiness state.
 
-Both water-related teacher packs are physically resolved and print-ready, but independent review is pending and no classroom trial is recorded. Their honest status is `teacher_pack_complete_pending_review`; `classroom_ready` remains false. `npm run check:teacher-packs` and `npm run check:reviews` report two pending workflow facts per pack without inventing evidence.
+Both water-related teacher packs are physically resolved and print-ready, but
+independent review is pending and neither classroom nor home trial is recorded.
+Their honest status is `teacher_pack_complete_pending_review`; classroom and
+homeschool readiness remain false. The validators report these pending workflow
+facts without inventing evidence.
 
 Simplified-curriculum material is forbidden as a silent default. The lesson schema supports only an explicit learner-specific opt-in with authorisation and provenance. No production pilot lesson enables that option.
 

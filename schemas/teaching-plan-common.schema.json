@@ -153,6 +153,48 @@
         "status": { "enum": ["not_tested", "changes_required", "repeat_required", "tested"] }
       }
     },
+    "pedagogicalEvidenceReviewLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["guide_path", "template_path", "review_record_paths", "status"],
+      "properties": {
+        "guide_path": { "$ref": "#/$defs/repositoryPath" },
+        "template_path": { "$ref": "#/$defs/repositoryPath" },
+        "review_record_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "status": { "enum": ["pending", "changes_requested", "approved", "rejected"] }
+      }
+    },
+    "homeTrialLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template_path", "trial_record_paths", "status"],
+      "properties": {
+        "template_path": { "$ref": "#/$defs/repositoryPath" },
+        "trial_record_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "status": { "enum": ["not_started", "changes_required", "repeat_required", "tested"] }
+      }
+    },
+    "pedagogicalReadinessLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["report_path"],
+      "properties": {
+        "report_path": {
+          "oneOf": [
+            { "$ref": "#/$defs/repositoryPath" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
     "authorMaterial": {
       "type": "object",
       "additionalProperties": false,

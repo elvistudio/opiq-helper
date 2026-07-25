@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "pedagogical_readiness_report",
+  "report_id": "grade-5-water-readiness-report",
+  "pack_ref": "grade-5-science-water-teacher-pack",
+  "current_content_fingerprint": {
+    "algorithm": "sha256",
+    "specification_version": "1.0",
+    "value": "13baf6f243b48f62ada192ce91efbd87f5cb6044aab3eb6bd3404a2b8977b7fd",
+    "file_count": 78
+  },
+  "current_pedagogical_snapshot": {
+    "snapshot_version": "1.0",
+    "taxonomy_version": "1.0",
+    "selection_rules_version": "1.0",
+    "selection_engine_version": "1.1",
+    "lesson_dna_schema_version": "1.0",
+    "activity_catalog_digest": "8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370",
+    "homeschool_rules_version": "1.0",
+    "homeschool_engine_version": "1.0",
+    "quality_engine_version": "1.1",
+    "quality_catalogue_version": "1.1",
+    "quality_catalogue_digest": "7edf366fb5694c1e22c7b17514d5e5d9933379ff5e4fadc43aa32986e098246d",
+    "integration_version": "1.0",
+    "unit_content_identity": "bb78af3a4db7362cf09857f90f5bff28c0a81349e43f2035489a5931aae372ef",
+    "lesson_dna_digests": [
+      {
+        "lesson_id": "grade-5-water-01-properties",
+        "digest": "e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe"
+      },
+      {
+        "lesson_id": "grade-5-water-02-states",
+        "digest": "a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0"
+      },
+      {
+        "lesson_id": "grade-5-water-03-melting-condensation",
+        "digest": "3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2"
+      },
+      {
+        "lesson_id": "grade-5-water-04-changes-review",
+        "digest": "7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94"
+      }
+    ]
+  },
+  "structural_quality": {
+    "pedagogy_schema_valid": true,
+    "structurally_complete": true,
+    "errors": 0,
+    "warnings": 0
+  },
+  "materials": {
+    "resolved": true,
+    "print_ready": true,
+    "homeschool_closure_resolved": true
+  },
+  "teacher_review": {
+    "status": "pending",
+    "effective": false,
+    "current_count": 0,
+    "stale_count": 0,
+    "evidence_paths": []
+  },
+  "classroom_trial": {
+    "status": "not_tested",
+    "effective": false,
+    "current_count": 0,
+    "stale_count": 0,
+    "evidence_paths": []
+  },
+  "home_trial": {
+    "status": "not_started",
+    "effective": false,
+    "current_count": 0,
+    "stale_count": 0,
+    "evidence_paths": []
+  },
+  "open_findings": [],
+  "stale_evidence": [],
+  "classroom_ready": false,
+  "homeschool_ready": false,
+  "effectiveness_claimed": false,
+  "blockers": [
+    {
+      "code": "current_classroom_review_missing",
+      "delivery_mode": "classroom",
+      "message": "A current approved teacher review covering classroom delivery is required.",
+      "evidence_paths": []
+    },
+    {
+      "code": "current_classroom_trial_missing",
+      "delivery_mode": "classroom",
+      "message": "A current analysed classroom trial is required.",
+      "evidence_paths": []
+    },
+    {
+      "code": "current_home_trial_missing",
+      "delivery_mode": "homeschool",
+      "message": "A current analysed home trial is required.",
+      "evidence_paths": []
+    },
+    {
+      "code": "current_homeschool_review_missing",
+      "delivery_mode": "homeschool",
+      "message": "A current approved teacher review covering homeschool delivery is required.",
+      "evidence_paths": []
+    }
+  ],
+  "evidence_paths": [],
+  "checked_artifacts": [
+    "knowledge/pedagogy/activities/activity-catalog.yaml",
+    "knowledge/pedagogy/homeschool/homeschool-rules.yaml",
+    "knowledge/pedagogy/quality/quality-exceptions.yaml",
+    "knowledge/pedagogy/quality/quality-gates.yaml",
+    "knowledge/pedagogy/selection/selection-rules.yaml",
+    "knowledge/pedagogy/taxonomy/pedagogical-taxonomy.yaml",
+    "lesson-plans/grade-5-science/water/lesson-01.yaml",
+    "lesson-plans/grade-5-science/water/lesson-02.yaml",
+    "lesson-plans/grade-5-science/water/lesson-03.yaml",
+    "lesson-plans/grade-5-science/water/lesson-04.yaml",
+    "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+    "pedagogical-reviews/grade-5-science/water/classroom-trial-template.yaml",
+    "pedagogical-reviews/grade-5-science/water/home-trial-template.yaml",
+    "pedagogical-reviews/grade-5-science/water/review-guide.md",
+    "pedagogical-reviews/grade-5-science/water/teacher-review-template.yaml",
+    "schemas/classroom-trial.schema.json",
+    "schemas/home-trial.schema.json",
+    "schemas/pedagogical-evidence-common.schema.json",
+    "schemas/teacher-review.schema.json",
+    "teacher-packs/grade-5-science/water/README.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md",
+    "teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md",
+    "teacher-packs/grade-5-science/water/assessment-rubric.md",
+    "teacher-packs/grade-5-science/water/homeschool-guide.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md",
+    "teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-01.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-02.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-03.md",
+    "teacher-packs/grade-5-science/water/lessons/lesson-04.md",
+    "teacher-packs/grade-5-science/water/materials-index.yaml",
+    "teacher-packs/grade-5-science/water/parent/home-observation-safety-card.md",
+    "teacher-packs/grade-5-science/water/parent/weekly-progress-checklist.md",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml",
+    "teacher-packs/grade-5-science/water/preparation-checklist.md",
+    "teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md",
+    "teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md",
+    "teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md",
+    "teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md",
+    "teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md",
+    "teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md",
+    "teacher-packs/grade-5-science/water/student/lesson-04-assessment.md",
+    "teacher-packs/grade-5-science/water/student/lesson-04-reflection-card.md",
+    "teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md",
+    "teacher-packs/grade-5-science/water/student/water-oral-answer-preparation.md",
+    "teacher-packs/grade-5-science/water/teacher-guide.md"
+  ],
+  "non_guarantees": [
+    "A readiness result is not a comparative pedagogical-effectiveness claim.",
+    "Automated privacy guards do not prove that all personal data is absent.",
+    "Classroom evidence does not establish homeschool readiness.",
+    "Home evidence does not establish classroom readiness.",
+    "Readiness applies only to the exact current content and pedagogical snapshot.",
+    "Structural completeness does not substitute for teacher review or a trial."
+  ],
+  "determinism": {
+    "no_ai": true,
+    "no_network": true,
+    "no_randomness": true,
+    "no_current_timestamps": true,
+    "ordering": "bytewise"
+  }
+}

@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import {
   buildPedagogyRegressionReport,
-  checkPedagogyRegressionReport,
+  loadCommittedPedagogyRegressionReport,
   loadPedagogyRegressionRepository,
   PEDAGOGY_REGRESSION_REPORT,
   runPedagogyRegressions,
+  validateCommittedPedagogyRegressionReport,
   validatePedagogyRegressionReport,
   writePedagogyRegressionReport,
 } from './lib/pedagogy-regressions.mjs';
@@ -12,16 +13,17 @@ import {
 const args = new Set(process.argv.slice(2));
 const check = args.has('--check');
 const repository = await loadPedagogyRegressionRepository();
-const run = await runPedagogyRegressions(repository);
-const report = buildPedagogyRegressionReport(repository, run);
-const errors = [
-  ...repository.configurationErrors,
-  ...run.errors,
-  ...validatePedagogyRegressionReport(repository, report),
-];
-if (errors.length === 0 && check) {
-  errors.push(...await checkPedagogyRegressionReport(repository, report));
-}
+const run = check ? null : await runPedagogyRegressions(repository);
+const report = check
+  ? await loadCommittedPedagogyRegressionReport(repository)
+  : buildPedagogyRegressionReport(repository, run);
+const errors = check
+  ? await validateCommittedPedagogyRegressionReport(repository, report)
+  : [
+    ...repository.configurationErrors,
+    ...run.errors,
+    ...validatePedagogyRegressionReport(repository, report),
+  ];
 if (errors.length > 0) {
   for (const error of errors) console.error(`[ERROR] ${error}`);
   process.exitCode = 1;

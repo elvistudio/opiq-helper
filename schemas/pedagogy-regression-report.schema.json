@@ -126,6 +126,7 @@
           "required": [
             "architecture_only",
             "deliberate_failure",
+            "evidence_readiness",
             "production_classroom",
             "production_homeschool",
             "stale_evidence"
@@ -133,6 +134,7 @@
           "properties": {
             "architecture_only": { "type": "integer", "minimum": 1 },
             "deliberate_failure": { "type": "integer", "minimum": 1 },
+            "evidence_readiness": { "type": "integer", "minimum": 30 },
             "production_classroom": { "type": "integer", "minimum": 1 },
             "production_homeschool": { "type": "integer", "minimum": 1 },
             "stale_evidence": { "type": "integer", "minimum": 1 }
@@ -301,6 +303,7 @@
           "enum": [
             "architecture_only",
             "deliberate_failure",
+            "evidence_readiness",
             "production_classroom",
             "production_homeschool",
             "stale_evidence"
@@ -310,6 +313,7 @@
         "source_status": {
           "enum": [
             "architecture_only",
+            "evidence_scenario",
             "expected_failure",
             "production_baseline",
             "stale_evidence"

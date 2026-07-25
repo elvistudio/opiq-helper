@@ -110,6 +110,11 @@ npm run check:pedagogy-quality-report
 npm run test:pedagogy-regressions
 npm run check:pedagogy-regressions
 npm run check:pedagogy-regression-report
+npm run test:pedagogy-evidence
+npm run check:pedagogy-evidence
+npm run test:pedagogy-readiness
+npm run check:pedagogy-readiness
+npm run check:pedagogy-readiness-report
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -184,6 +189,10 @@ reporting, CI, and the boundary between machine validation and human approval.
 See [`docs/pedagogy-regressions.md`](../../docs/pedagogy-regressions.md) for
 case kinds, semantic snapshots, contribution rules, and the distinction
 between regression evidence and human review or curriculum coverage.
+See
+[`docs/pedagogical-review-and-trial-workflow.md`](../../docs/pedagogical-review-and-trial-workflow.md)
+for offline JSON intake, privacy, evidence identities, separate classroom/home
+trials, registration, staleness, and evidence-gated readiness.
 
 The water production pilot also uses two bounded execution profiles:
 `visual-representation::paper-diagram` for a truthful paper-only diagram task
