@@ -6,6 +6,14 @@ an already selected classroom lesson intent into a proposed home-study
 structure. It does not generate scientific content, approve an experiment, or
 declare a package ready for use.
 
+The water production pilot passes the exact classroom selection request and
+lesson DNA to this engine, then binds every adapted phase to existing
+teacher-pack materials and answer keys. Classroom and homeschool delivery share
+one scientific content identity. Generated parent guidance never assigns
+subject explanation to the parent; the practical lesson retains teacher
+authorization and adult safety supervision. See
+[pedagogy generation integration](pedagogy-generation-integration.md).
+
 ## Input and output contracts
 
 The input is a strict `homeschool_adaptation_request` with:
@@ -350,6 +358,55 @@ content, age fit for an individual child, realistic timing in a real home,
 homeschool readiness, or teacher approval. It does not render Opiq content or
 create answers.
 
-Real lesson/content integration is deferred to issue #61. Broad quality gates
-are deferred to #62; teacher review and home-trial evidence to #63; and wider
-representative regression pilots to #64.
+The generic engine does not itself render source-backed lesson content. Issue
+#61 supplies the bounded water production integration described below. Broad
+quality gates remain deferred to #62; teacher review and home-trial evidence
+to #63; and wider representative regression pilots to #64.
+
+## Production material resolution
+
+The issue #61 water pilot adds a strict integration layer above the generic
+adapter. Every package material reference resolves through the teacher-pack
+index to an audience, type, repository path, and answer key; every task
+reference resolves to a concrete phase instruction and expected evidence.
+Adapted phases keep an exact or declared mapped source binding. Unresolved
+materials, tasks, keys, procedures, or safety references fail generation.
+Child output therefore names an exact file and action instead of an opaque
+placeholder.
+
+The production adapter does not rewrite the selector-owned source lesson DNA.
+Committed classroom DNA, the request copy, and decision/package source digests
+must form one exact chain. Production assessment phase bindings are carried as
+an integration overlay. The task resolver checks for an explicit adapted
+contract before target-equality inheritance. A preserved target can therefore
+replace classroom-only delivery materials without changing the selected
+method. A reselected target always requires an explicit contract; source
+materials, evidence, key policy, procedure, and safety are not inherited
+automatically.
+
+The lesson-3 home observation uses a separate strict policy artifact rather
+than a lesson-position heuristic. It records the classroom target, the
+resource-compatible home target, actual home resources, passive ice/cold
+surface procedure, adult supervision, teacher authorization, prohibited
+heating/tasting, and stop conditions. Machine package, child Markdown, and
+parent Markdown must express the same safety boundary. This is structural
+equivalence only: teacher review remains pending, the home trial is not
+started, and `homeschool_ready` remains false.
+
+The lesson-3 safety orientation and practical have a home-only safety card;
+the practical also has its own passive-observation sheet. They do not reuse
+the classroom safety card, temperature table, or practical key. Both home
+tasks use `teacher_observation` with answer access `not_applicable`. The adult
+checks procedure completion and safety; the scientific conclusion is checked
+later in a separate keyed retrieval step after the child's first attempt.
+Learner rendering exposes success criteria and sentence frames, while complete
+answers and accepted variants stay in teacher-only answer regions.
+
+Material delivery scope is explicit integration metadata. The validator walks
+the recursive closure from each package step to its resolved task, material
+index record, artifact path, and content. It rejects a classroom-only material
+in a home task, a classroom task marker or positive classroom procedure in a
+resolved home file, practical key-release instructions, and disagreement with
+the strict home policy. Canonical source DNA in the request can still mention
+classroom source materials as immutable provenance; only resolved home tasks
+determine the home closure.

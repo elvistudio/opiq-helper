@@ -1,0 +1,111 @@
+schema_version: "1.0"
+artifact_type: pedagogical_selection_request
+request_id: grade-5-water-03-melting-condensation-classroom-selection
+learner_context:
+  grade: 5
+  subject: science
+  delivery_mode: classroom
+  group_size: 24
+  supported_group_formats:
+    - individual
+    - pair
+    - small_group
+    - whole_class
+  lesson_duration_minutes: 45
+  study_context: classroom
+lesson_context:
+  purpose: practical_investigation
+  content_types:
+    - data_and_evidence
+    - practical_observation
+  required_capabilities:
+    - evidence_based_conclusion
+    - measurement
+    - observation
+  desired_capabilities:
+    - formative_assessment
+    - guided_practice
+    - retrieval
+  phase_needs:
+    - formative_assessment
+    - guided_practice
+    - orientation
+    - retrieval
+  context_flags:
+    practical: true
+    map_or_data: false
+    retrieval: false
+    assessment: true
+  previous_target_ids: []
+  future_retrieval_windows:
+    - after_lessons: 1
+      capability: retrieval
+  required_pattern_id: safe-practical-investigation
+language_profile:
+  primary_instruction_language: ru
+  maximum_total_productive_language_demand: high
+  estonian_support:
+    enabled: true
+    language: et
+    learner_level: A1-A2
+    allowed_roles:
+      - familiar_instruction
+      - labels
+      - sentence_frame
+      - short_oral_response
+      - short_written_response
+      - terminology
+    subject_explanation_language: ru
+    sentence_frames_required: true
+    word_bank_required: true
+    assessment_requested: true
+resources:
+  available:
+    - diagram
+    - laboratory_materials
+    - manipulatives
+    - measuring_tools
+    - paper
+    - textbook_or_source_text
+    - writing_tool
+  unavailable:
+    - internet
+  printer_available: false
+  internet_available: false
+  projector_available: false
+  laboratory_materials_available: true
+  measuring_tools_available: true
+  outdoor_access_available: false
+  adult_safety_supervision_available: true
+constraints:
+  max_teacher_preparation: high
+  max_teacher_facilitation: high
+  max_learner_setup: medium
+  max_parent_effort: medium
+  accessibility_priorities:
+    - working_memory_support
+  retrieval_first_attempt_without_source: true
+preferences:
+  preferred_pattern_ids:
+    - safe-practical-investigation
+  preferred_target_ids:
+    - learning-stations::practical-compact-teacher-prepared-observation
+    - retrieval-summary
+  excluded_target_ids: []
+  avoid_recent_target_ids: []
+  preferred_group_formats:
+    - small_group
+    - whole_class
+  teacher_overrides:
+    - override_id: preserve-compact-observation
+      slot_id: practical-work
+      requested_target_id: learning-stations::practical-compact-teacher-prepared-observation
+      rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не ротацию
+        нескольких станций.
+      author_role: teacher
+    - override_id: preserve-existing-conclusion
+      slot_id: conclusion
+      requested_target_id: one-minute-recall
+      rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+        сохраняет отдельный предметный вывод.
+      author_role: teacher

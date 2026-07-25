@@ -42,3 +42,27 @@ ___________________________________________________________________________
 ___________________________________________________________________________
 
 Provenance: `author_created_assessment`, separate subject and Estonian assessment for lesson 04. Чёрно-белая печать; ключ хранится отдельно.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-04-changes-review phase=consolidation audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-04-changes-review/consolidation-task -->
+
+Материал: **Раздельная итоговая проверка unit**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-04-assessment.md`
+
+Инструкция: Собери итоговую карту понятий: состояния как узлы, процессы как связи, затем выполни отдельные предметную и эстонскую части.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Карта содержит состояния и процессы; предметная и языковая части заполнены отдельно.
+
+Эстонская поддержка: Банк слов: tahke · vedel · gaasiline · sulamine · jäätumine · aurustumine · veeldumine.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-04-changes-review phase=consolidation audience=student -->

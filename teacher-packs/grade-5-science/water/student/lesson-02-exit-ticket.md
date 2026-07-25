@@ -18,3 +18,51 @@ ___________________________________________________________________________
 ___________________________________________________________________________
 
 Provenance: `author_created_assessment`, lesson 02 separate check. Чёрно-белая печать; ответов нет.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=retrieval audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-02-states/retrieval-task -->
+
+Материал: **Выходная карточка по трём состояниям**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md`
+
+Инструкция: Закрой источник и построй карту понятий по памяти: три узла состояний, признаки и подписанные связи с примерами.
+
+Закрой источник до завершения первой попытки.
+
+Проверь, что ты выполнил:
+
+- Первая попытка сохранена; карта содержит три узла и подписанные связи с примерами.
+
+Эстонская поддержка: Рамка: Vesi võib olla __________.; Банк слов: tahke · vedel · gaasiline.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=retrieval audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=formative-check audience=student -->
+## Самопроверочный тест по памяти
+
+<!-- task_id: grade-5-water-02-states/formative-check-task -->
+
+Материал: **Выходная карточка по трём состояниям**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md`
+
+Инструкция: Сохрани первую попытку распределения, проверь её по ключу, исправь одну карточку и объясни причину.
+
+Закрой источник до завершения первой попытки.
+
+Проверь, что ты выполнил:
+
+- Первая попытка сохранена и одна карточка исправлена другим цветом с причиной.
+
+Эстонская поддержка: Рамка: Vesi võib olla __________.; Банк слов: tahke · vedel · gaasiline.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=formative-check audience=student -->

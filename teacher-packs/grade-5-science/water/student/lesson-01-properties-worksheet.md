@@ -37,3 +37,75 @@ Lesson: `grade-5-water-01-properties`
 `Vee omadus on ________________________.`
 
 Provenance: `author_created_worksheet`, lesson 01 observation task; canonical terminology support: https://www.opiq.ee/kit/525/chapter/29514. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties phase=activation audience=student -->
+## Мозговой штурм
+
+<!-- task_id: grade-5-water-01-properties/activation-task -->
+
+Материал: **Прозрачные образцы воды и схема «тело — вещество»**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md`
+
+Инструкция: До объяснения запиши две первоначальные идеи о том, какие свойства воды можно увидеть напрямую.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Записаны две первоначальные идеи без просмотра готового ответа.
+
+Эстонская поддержка: Рамка: Vesi on __________.
+
+Ключ для этого действия не используется.
+
+Учитель или взрослый фиксирует наблюдаемое действие; скрытого ответа здесь нет.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties phase=activation audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties phase=explanation audience=student -->
+## Бумажная схема
+
+<!-- task_id: grade-5-water-01-properties/explanation-task -->
+
+Материал: **Прозрачные образцы воды и схема «тело — вещество»**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md`
+
+Инструкция: Изобрази на бумаге схему «вещество — свойство — наблюдение» и подпиши связь на одном примере воды.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Построены три элемента схемы и подписана одна связь между ними.
+
+Эстонская поддержка: Банк слов: vesi · aine · omadus.
+
+Ключ для этого действия не используется.
+
+Учитель или взрослый фиксирует наблюдаемое действие; скрытого ответа здесь нет.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties phase=explanation audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties phase=guided-practice audience=student -->
+## Диаграмма Венна
+
+<!-- task_id: grade-5-water-01-properties/guided-practice-task -->
+
+Материал: **Таблица наблюдений за свойствами воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md`
+
+Инструкция: Нарисуй два пересекающихся круга Венна для воды и раствора, внеси различия по краям и общее наблюдаемое свойство в пересечение.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Оба круга заполнены и в пересечении записано одно общее наблюдаемое свойство.
+
+Эстонская поддержка: Банк слов: vesi · lahus · omadus.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties phase=guided-practice audience=student -->

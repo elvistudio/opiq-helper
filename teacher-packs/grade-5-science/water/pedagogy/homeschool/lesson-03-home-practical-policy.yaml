@@ -1,0 +1,92 @@
+schema_version: "1.0"
+artifact_type: home_practical_policy
+policy_id: lesson-03-passive-ice-home-policy
+lesson_id: grade-5-water-03-melting-condensation
+lesson_content_identity:
+  specification_version: "1.0"
+  algorithm: sha256
+  value: a3ea29314d8e7f620316ea361a024c34f23fafba58eb04f39c49438e1d396dd5
+applies_to_phase_ids:
+  - practical-work
+source_classroom_target_id: learning-stations::practical-compact-teacher-prepared-observation
+adapted_home_target_id: learning-stations::practical-home-passive-ice-observation
+teacher_authorization_required: true
+adult_supervision_required: true
+allowed_materials_ru:
+  - один кубик льда
+  - устойчивая безопасная ёмкость
+  - заранее охлаждённая безопасная поверхность
+  - бумага и письменная принадлежность
+forbidden_materials_ru:
+  - чайник или плита
+  - открытый огонь
+  - горячая или кипящая вода
+  - горячий или стеклянный сосуд
+  - химические вещества
+child_steps_ru:
+  - Дождаться взрослого и проверить разрешённые материалы по карточке безопасности.
+  - Наблюдать пассивное таяние льда и капли на холодной поверхности без нагревания.
+  - Записать наблюдение в начале и позже, а затем отдельно сформулировать научный вывод.
+  - Сразу сообщить взрослому о проливе, повреждении или предложении изменить процедуру.
+learner_success_criteria_ru:
+  - Взрослый подтвердил разрешённые материалы до начала наблюдения.
+  - Записаны начальное и последующее качественные наблюдения.
+  - Наблюдение холодной поверхности и русский вывод записаны отдельно.
+  - Нагревание не использовалось; проблема и нерешённый вопрос переданы учителю.
+adult_steps_ru:
+  - Проверить устойчивость ёмкости и заранее подготовить лёд или безопасную холодную поверхность.
+  - Наблюдать за всей процедурой и не объяснять научный вывод вместо ребёнка.
+  - Остановить работу при выходе за утверждённые границы и убрать материалы после наблюдения.
+prohibited_actions_ru:
+  - Использовать чайник, плиту, открытый огонь или кипяток.
+  - Самостоятельно нагревать воду или передавать горячий сосуд.
+  - Добавлять химические вещества или пробовать воду на вкус.
+  - Менять процедуру без разрешения учителя и взрослого.
+stop_conditions_ru:
+  - Взрослый отсутствует или не может наблюдать процедуру.
+  - Появился горячий сосуд, нагревательный прибор, разбитая ёмкость или пролив.
+  - Ребёнок предлагает попробовать воду или изменить процедуру.
+safety_controls_ru:
+  - Только учитель утверждает домашнюю процедуру до её применения.
+  - Взрослый находится рядом на протяжении всего наблюдения.
+  - Нагревание и пробование воды полностью запрещены.
+  - После наблюдения воду убирают, поверхность вытирают и руки моют.
+home_instructions_et:
+  - Vaata.
+  - Kirjuta.
+  - Peatu.
+  - Kutsu täiskasvanu.
+  - Ära kuumuta.
+procedure_source_refs:
+  - practical:observe-melting-condensation:pupil_steps
+  - stage:homework-launch:pupil_action_ru
+safety_source_refs:
+  - practical:observe-melting-condensation:safety_requirements
+  - practical:observe-melting-condensation:teacher_controlled_steps
+  - stage:homework-launch:teacher_action_ru
+home_resources:
+  available:
+    - paper
+    - writing_tool
+  unavailable:
+    - internet
+    - laboratory_materials
+    - measuring_tools
+  printer_available: false
+  internet_available: false
+  projector_available: false
+  laboratory_materials_available: false
+  measuring_tools_available: false
+  outdoor_access_available: false
+  adult_safety_supervision_available: true
+homework_relationship:
+  same_scientific_observation: false
+  homework_adult_support_expected: false
+  generated_lesson_adult_supervision_required: true
+  rationale_ru: Исходное домашнее задание использует только пассивное таяние; generated package
+    добавляет отдельное наблюдение холодной поверхности и поэтому требует явного взрослого надзора.
+status:
+  structural_state: proposed
+  teacher_review: pending
+  home_trial: not_started
+  homeschool_ready: false

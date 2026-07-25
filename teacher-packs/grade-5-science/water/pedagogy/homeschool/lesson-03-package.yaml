@@ -1,0 +1,305 @@
+artifact_type: homeschool_package
+assessment:
+  estonian_language_assessment: true
+  separation_policy: separate_subject_and_estonian_language_evidence
+  subject_assessment: true
+context:
+  estonian_support:
+    allowed_roles:
+      - familiar_instruction
+      - labels
+      - sentence_frame
+      - short_oral_response
+      - short_written_response
+      - terminology
+    enabled: true
+    learner_level: A1-A2
+  grade: 5
+  homeschool_lesson_dna_id: grade-5-water-03-melting-condensation-homeschool-adaptation-selection-dna
+  learner_count: 1
+  learner_session_minutes: 30
+  maximum_sessions: 8
+  primary_instruction_language: ru
+  subject: science
+  variant: parent_child
+known_limits:
+  - homeschool_rules_provisional
+  - teacher_review_pending
+  - home_trial_not_started
+  - no_effectiveness_claim
+  - teacher_provided_content_not_rendered
+learner_plan:
+  breaks:
+    - after_step_id: step-02-practical-work
+      instruction_ru: Сделай короткий перерыв без экрана и вернись к следующему шагу.
+      minutes: 3
+  contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+  correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+  reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+  retrieval_ru: Сначала восстанови главное без открытого источника.
+  self_check_ru: Открой ключ только после самостоятельной попытки.
+  steps:
+    - adult_involvement: listening_partner
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+      learner_minutes: 5
+      material_refs:
+        - lesson-03-home-safety-card
+      phase_id: safety-orientation
+      safety_controls_ru:
+        - Только учитель утверждает домашнюю процедуру до её применения.
+        - Взрослый находится рядом на протяжении всего наблюдения.
+        - Нагревание и пробование воды полностью запрещены.
+        - После наблюдения воду убирают, поверхность вытирают и руки моют.
+      source_access: open
+      step_id: step-01-safety-orientation
+      task_refs:
+        - grade-5-water-03-melting-condensation/safety-orientation-task--home-safety-orientation
+    - adult_involvement: safety_supervision
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Выполни только разрешённое действие вместе со взрослым и запиши наблюдение.
+      learner_minutes: 13
+      material_refs:
+        - lesson-03-home-passive-observation-sheet
+        - lesson-03-home-safety-card
+      phase_id: practical-work
+      safety_controls_ru:
+        - Только учитель утверждает домашнюю процедуру до её применения.
+        - Взрослый находится рядом на протяжении всего наблюдения.
+        - Нагревание и пробование воды полностью запрещены.
+        - После наблюдения воду убирают, поверхность вытирают и руки моют.
+      source_access: open
+      step_id: step-02-practical-work
+      task_refs:
+        - grade-5-water-03-melting-condensation/practical-work-task--home-practical-work
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Попроси взрослого открыть ключ после попытки и исправь ошибку другим цветом.
+      learner_minutes: 4
+      material_refs:
+        - phase-change-diagram
+      phase_id: evidence-check
+      safety_controls_ru: []
+      source_access: closed
+      step_id: step-03-evidence-check
+      task_refs:
+        - grade-5-water-03-melting-condensation/evidence-check-task--home-evidence-check
+    - adult_involvement: none
+      completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Закрой источник и выполни попытку по памяти.
+      learner_minutes: 4
+      material_refs:
+        - separate-practical-exit-card
+      phase_id: conclusion
+      safety_controls_ru: []
+      source_access: closed
+      step_id: step-04-conclusion
+      task_refs:
+        - grade-5-water-03-melting-condensation/conclusion-task
+  success_criteria_refs:
+    - grade-5-water-03-melting-condensation-homeschool-adaptation-success-criteria
+  visible_goal_ref: grade-5-water-03-melting-condensation-homeschool-adaptation-visible-goal
+materials:
+  answer_key_refs:
+    - lesson-03-answer-key
+  cleanup_steps_ru:
+    - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+  consumable_materials:
+    - paper
+  learner_material_refs:
+    - lesson-03-home-passive-observation-sheet
+    - lesson-03-home-safety-card
+    - phase-change-diagram
+    - separate-practical-exit-card
+  phase_binding_summary:
+    - adapted_phase_id: conclusion
+      answer_key_refs:
+        - lesson-03-answer-key
+      binding_origin: exact_adapted
+      learner_material_refs:
+        - separate-practical-exit-card
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: adult_managed
+      review_capable: true
+      safety_refs: []
+      source_access_policy: closed
+      source_phase_ids:
+        - conclusion
+      teacher_explanation_refs:
+        - water-lesson-03-guide
+      valid: true
+    - adapted_phase_id: evidence-check
+      answer_key_refs:
+        - lesson-03-answer-key
+      binding_origin: exact_adapted
+      learner_material_refs:
+        - phase-change-diagram
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: adult_managed
+      review_capable: true
+      safety_refs: []
+      source_access_policy: closed
+      source_phase_ids:
+        - evidence-check
+      teacher_explanation_refs:
+        - water-lesson-03-guide
+      valid: true
+    - adapted_phase_id: practical-work
+      answer_key_refs: []
+      binding_origin: exact_adapted
+      learner_material_refs:
+        - lesson-03-home-passive-observation-sheet
+        - lesson-03-home-safety-card
+      procedure_refs:
+        - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
+        - policy:lesson-03-passive-ice-home-policy:child_steps_ru
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: not_applicable
+      review_capable: false
+      safety_refs:
+        - policy:lesson-03-passive-ice-home-policy:safety_controls_ru
+        - policy:lesson-03-passive-ice-home-policy:stop_conditions_ru
+      source_access_policy: open
+      source_phase_ids:
+        - practical-work
+      teacher_explanation_refs:
+        - water-lesson-03-guide
+      valid: true
+    - adapted_phase_id: safety-orientation
+      answer_key_refs: []
+      binding_origin: exact_adapted
+      learner_material_refs:
+        - lesson-03-home-safety-card
+      procedure_refs:
+        - policy:lesson-03-passive-ice-home-policy:adult_steps_ru
+        - policy:lesson-03-passive-ice-home-policy:child_steps_ru
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: not_applicable
+      review_capable: false
+      safety_refs:
+        - policy:lesson-03-passive-ice-home-policy:safety_controls_ru
+        - policy:lesson-03-passive-ice-home-policy:stop_conditions_ru
+      source_access_policy: open
+      source_phase_ids:
+        - safety-orientation
+      teacher_explanation_refs:
+        - water-lesson-03-guide
+      valid: true
+  preparation_steps_ru:
+    - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+  reusable_materials:
+    - board
+package_id: grade-5-water-03-melting-condensation-homeschool-adaptation-package
+parent_guidance_ref: grade-5-water-03-melting-condensation-homeschool-adaptation-parent-guidance
+review_binding_summary:
+  - adapted_phase_ids:
+      - conclusion
+      - evidence-check
+    answer_key_refs:
+      - lesson-03-answer-key
+    origins:
+      - exact_adapted
+    release_policy: adult_managed
+    session_index: 3
+safety:
+  adapted_supervision_required: true
+  adult_supervision_required: true
+  controls_ru:
+    - Только учитель утверждает домашнюю процедуру до её применения.
+    - Взрослый находится рядом на протяжении всего наблюдения.
+    - Нагревание и пробование воды полностью запрещены.
+    - После наблюдения воду убирают, поверхность вытирают и руки моют.
+  effective_supervision_required: true
+  risk_summary_ru: Есть практический этап с обязательным надзором взрослого.
+  source_supervision_required: true
+  stop_conditions_ru:
+    - Взрослый отсутствует или не может наблюдать процедуру.
+    - Появился горячий сосуд, нагревательный прибор, разбитая ёмкость или пролив.
+    - Ребёнок предлагает попробовать воду или изменить процедуру.
+  teacher_authorization_required: true
+schema_version: "1.0"
+source_identity:
+  source_lesson_dna_digest: 3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2
+  source_lesson_dna_id: grade-5-water-03-melting-condensation-classroom-selection-dna
+  source_request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
+  source_request_id: grade-5-water-03-melting-condensation-classroom-selection
+  source_selection_versions:
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
+    engine: "1.1"
+    lesson_dna_schema: "1.0"
+    selection_rules: "1.0"
+    taxonomy: "1.0"
+status:
+  effectiveness_claimed: false
+  home_trial: not_started
+  homeschool_ready: false
+  structural_state: proposed
+  teacher_review: pending
+teacher_override_adaptations:
+  - adapted_phase_id: practical-work
+    adapted_target_id: learning-stations::practical-home-passive-ice-observation
+    override_id: preserve-compact-observation
+    policy: allow_reselection_with_warning
+    rationale_ru: Resolved target-pattern slot uses a different target after homeschool hard constraints.
+    source_slot_id: practical-work
+    source_target_id: learning-stations::practical-compact-teacher-prepared-observation
+    status: reselected
+    teacher_rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не
+      ротацию нескольких станций.
+  - adapted_phase_id: conclusion
+    adapted_target_id: one-minute-recall
+    override_id: preserve-existing-conclusion
+    policy: allow_reselection_with_warning
+    rationale_ru: Override identity, rationale, real target-pattern slot, and exact target are preserved.
+    source_slot_id: conclusion
+    source_target_id: one-minute-recall
+    status: preserved
+    teacher_rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+      сохраняет отдельный предметный вывод.
+timing:
+  adult_minutes: 23
+  break_minutes: 3
+  cleanup_minutes: 1
+  contingency_minutes: 2
+  delayed_retrieval_minutes: 6
+  learner_activity_minutes: 17
+  setup_minutes: 8
+  total_learner_minutes: 37
+  transition_minutes: 0
+  weekly_review_minutes: 0
+warnings:
+  - code: adaptable_homeschool_target
+    rationale_ru: Target brainstorming требует явно описанной homeschool adaptation.
+  - code: teacher_override_reselected
+    rationale_ru: Исходный teacher override не переносится как accepted без совпадающего target.
+weekly_study_plan_ref: grade-5-water-03-melting-condensation-homeschool-adaptation-weekly-plan

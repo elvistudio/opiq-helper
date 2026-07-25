@@ -30,3 +30,75 @@ Lesson: `grade-5-water-02-states`
 `Veeaur on __________________________.`
 
 Provenance: `author_created_bridge` + `author_created_worksheet`, lesson 02; terminology: https://www.opiq.ee/kit/525/chapter/29515. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=activation audience=student -->
+## Мозговой штурм
+
+<!-- task_id: grade-5-water-02-states/activation-task -->
+
+Материал: **Двуязычная схема трёх состояний воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md`
+
+Инструкция: До объяснения запиши первоначальную идею о том, что общего у льда, жидкой воды и водяного пара.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Записана одна первоначальная идея без просмотра готового ответа.
+
+Эстонская поддержка: Банк слов: jää · vesi · veeaur.
+
+Ключ для этого действия не используется.
+
+Учитель или взрослый фиксирует наблюдаемое действие; скрытого ответа здесь нет.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=activation audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=explanation audience=student -->
+## Бумажная схема
+
+<!-- task_id: grade-5-water-02-states/explanation-task -->
+
+Материал: **Двуязычная схема трёх состояний воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md`
+
+Инструкция: Изобрази одну общую схему трёх состояний воды и подпиши рядом по одному наблюдаемому признаку каждого состояния.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Схема содержит три состояния и по одному наблюдаемому признаку для каждого.
+
+Эстонская поддержка: Подписи: tahke · vedel · gaasiline.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=explanation audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=retrieval audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-02-states/retrieval-task -->
+
+Материал: **Двуязычная схема трёх состояний воды**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md`
+
+Инструкция: Закрой источник и построй карту понятий по памяти: три узла состояний, признаки и подписанные связи с примерами.
+
+Закрой источник до завершения первой попытки.
+
+Проверь, что ты выполнил:
+
+- Первая попытка сохранена; карта содержит три узла и подписанные связи с примерами.
+
+Эстонская поддержка: Рамка: Vesi võib olla __________.; Банк слов: tahke · vedel · gaasiline.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=retrieval audience=student -->

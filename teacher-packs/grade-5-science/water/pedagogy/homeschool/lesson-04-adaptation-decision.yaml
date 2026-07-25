@@ -1,0 +1,2458 @@
+adult_role_decisions:
+  - allowed: true
+    effort_level: none
+    rationale_ru: Этап не требует участия взрослого.
+    role: none
+    support_minutes: 0
+    target_id: concept-map
+  - allowed: true
+    effort_level: none
+    rationale_ru: Этап не требует участия взрослого.
+    role: none
+    support_minutes: 0
+    target_id: error-correction
+  - allowed: true
+    effort_level: none
+    rationale_ru: Этап не требует участия взрослого.
+    role: none
+    support_minutes: 0
+    target_id: retrieval-self-test
+answer_access_checks:
+  - code: adapted_answer_bindings_validated
+    passed: true
+    rationale_ru: Every adapted phase has only an exact or mapped source binding with required provenance.
+  - code: answer_access_after_attempt
+    passed: true
+    rationale_ru: Relevant answer keys were validated before after-attempt release was approved.
+answer_binding_decisions:
+  - adapted_phase_id: consolidation
+    answer_key_refs:
+      - lesson-04-answer-key
+    binding_origin: exact_adapted
+    learner_material_refs:
+      - unit-revision-stations
+      - unit-separate-assessment
+    procedure_refs: []
+    rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+    release_policy: self_managed_after_attempt
+    review_capable: true
+    safety_refs: []
+    source_access_policy: open
+    source_phase_ids: []
+    teacher_explanation_refs:
+      - water-lesson-04-guide
+    valid: true
+  - adapted_phase_id: correction
+    answer_key_refs:
+      - lesson-04-answer-key
+    binding_origin: exact_adapted
+    learner_material_refs:
+      - complete-phase-cycle
+    procedure_refs: []
+    rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+    release_policy: self_managed_after_attempt
+    review_capable: true
+    safety_refs: []
+    source_access_policy: open
+    source_phase_ids: []
+    teacher_explanation_refs:
+      - water-lesson-04-guide
+    valid: true
+  - adapted_phase_id: retrieval
+    answer_key_refs:
+      - lesson-04-answer-key
+    binding_origin: exact_adapted
+    learner_material_refs:
+      - unit-revision-stations
+    procedure_refs: []
+    rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+    release_policy: self_managed_after_attempt
+    review_capable: true
+    safety_refs: []
+    source_access_policy: closed
+    source_phase_ids:
+      - retrieval
+    teacher_explanation_refs:
+      - water-lesson-04-guide
+    valid: true
+artifact_type: homeschool_adaptation_decision
+decision_id: grade-5-water-04-changes-review-homeschool-adaptation-decision
+derived_selection_decision:
+  artifact_type: pedagogical_selection_decision
+  candidate_summary:
+    patterns_considered: 1
+    targets_considered: 35
+    valid_compositions: 76
+  combination_checks:
+    - check_id: duration-and-reserve
+      details: planned 29 of 180 minutes including reserve
+      passed: true
+    - check_id: required-capability-coverage
+      details: "covered: error_correction, retrieval"
+      passed: true
+    - check_id: resource-and-safety
+      details: all selected targets satisfy declared resource and supervision constraints
+      passed: true
+    - check_id: subject-language-separation
+      details: complex subject explanation and Estonian support retain separate roles
+      passed: true
+  decision_id: grade-5-water-04-changes-review-homeschool-adaptation-selection-decision
+  determinism:
+    ai_used: false
+    network_used: false
+    ordering: score_desc_then_target_id_bytewise
+    randomness_used: false
+    volatile_timestamp_in_core: false
+  failure: null
+  rejected_patterns: []
+  request_digest: 8ff3f70b8437bde940f70bc163697b6a60c8f9d4b766f7ff682aaafabe17637c
+  request_id: grade-5-water-04-changes-review-homeschool-adaptation-selection
+  schema_version: "1.0"
+  selected_pattern:
+    pattern_id: retrieval-and-consolidation
+    rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+      оценкой эффективности.
+    score: 230
+    selection_origin: request_required
+  slot_decisions:
+    - considered_candidates:
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 6
+              content_type_match: 4
+              desired_formative_assessment: 8
+              direct_delivery_fit: 5
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              preferred_target: 6
+              provisional_taxonomy: -1
+              required_error_correction: 12
+              required_retrieval: 20
+              resource_simplicity: 2
+              source_access_fit: 3
+            total: 90
+          target_id: retrieval-self-test
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 4
+              desired_formative_assessment: 5
+              desired_visual_representation: 8
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+              source_access_fit: 3
+            total: 69
+          target_id: concept-map
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_formative_assessment: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 20
+              resource_simplicity: 3
+              source_access_fit: 3
+            total: 67
+          target_id: one-minute-recall
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 6
+              content_type_match: 2
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+              source_access_fit: 3
+            total: 51
+          target_id: prior-knowledge-free-write
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - retrieval first attempt must prohibit source access
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: back-to-back-description
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - parent effort low exceeds minimal
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: brainstorming
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: delayed-homework-retrieval
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: error-correction
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: exit-ticket
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+            - teacher_preparation effort high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: falsified-text-error-detection
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: frayer-model
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - required resource markers is unavailable
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: gallery-walk
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: guided-reading
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: insert-reading
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - retrieval first attempt must prohibit source access
+            - teacher_preparation effort high exceeds medium
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: jigsaw
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: kwl-table
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - required resource dataset is unavailable
+            - required resource map is unavailable
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::map-data
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::paper-classification
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - parent effort medium exceeds minimal
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - parent effort low exceeds minimal
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-home-passive-ice-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - parent effort medium exceeds minimal
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+            - retrieval first attempt must prohibit source access
+            - teacher_preparation effort high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-observation-measurement
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - retrieval first attempt must prohibit source access
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: peer-teaching
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: prediction-with-keywords
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - retrieval first attempt must prohibit source access
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: question-circle
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort high exceeds minimal
+            - retrieval first attempt must prohibit source access
+            - teacher_preparation effort high exceeds medium
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: reciprocal-teaching
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-summary
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - retrieval first attempt must prohibit source access
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: self-explanation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - required resource markers is unavailable
+            - retrieval first attempt must prohibit source access
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: silent-discussion
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: sorting-and-sequencing
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: three-two-one-reflection
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: true-false-anticipation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: two-column-journal
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: venn-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase retrieval is not supported
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase retrieval is not supported
+            - parent effort low exceeds minimal
+            - retrieval first attempt must prohibit source access
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
+      phase: retrieval
+      required: true
+      score:
+        components:
+          a1_a2_fit: 6
+          content_type_match: 4
+          desired_formative_assessment: 8
+          direct_delivery_fit: 5
+          pattern_activity_option: 6
+          pattern_phase_fit: 10
+          preferred_group_format_fit: 4
+          preferred_pattern: 5
+          preferred_target: 6
+          provisional_taxonomy: -1
+          required_error_correction: 12
+          required_retrieval: 20
+          resource_simplicity: 2
+          source_access_fit: 3
+        total: 90
+      selected_group_format: individual
+      selected_target_id: retrieval-self-test
+      slot_id: retrieval
+      tie_break: score_desc_then_target_id_bytewise
+      unfilled_reason: null
+    - considered_candidates:
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 6
+              content_type_match: 4
+              desired_formative_assessment: 8
+              direct_delivery_fit: 5
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              preferred_target: 6
+              provisional_taxonomy: -1
+              required_error_correction: 12
+              required_retrieval: 20
+              resource_simplicity: 2
+            total: 81
+          target_id: retrieval-self-test
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_formative_assessment: 5
+              desired_reflection: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              preferred_target: 6
+              provisional_taxonomy: -1
+              required_error_correction: 20
+              resource_simplicity: 2
+            total: 74
+          target_id: error-correction
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 6
+              content_type_match: 2
+              desired_formative_assessment: 8
+              desired_reflection: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+            total: 67
+          target_id: exit-ticket
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 4
+              desired_formative_assessment: 5
+              desired_visual_representation: 8
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+            total: 60
+          target_id: concept-map
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_formative_assessment: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 20
+              resource_simplicity: 3
+            total: 58
+          target_id: one-minute-recall
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 6
+              content_type_match: 4
+              direct_delivery_fit: 5
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              resource_simplicity: 4
+            total: 37
+          target_id: sorting-and-sequencing
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: back-to-back-description
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - parent effort low exceeds minimal
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: brainstorming
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: delayed-homework-retrieval
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - teacher_preparation effort high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: falsified-text-error-detection
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: frayer-model
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - required resource markers is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: gallery-walk
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: guided-reading
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: insert-reading
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - teacher_preparation effort high exceeds medium
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: jigsaw
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: kwl-table
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+            - required resource dataset is unavailable
+            - required resource map is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::map-data
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::paper-classification
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - parent effort medium exceeds minimal
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - parent effort low exceeds minimal
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-home-passive-ice-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - parent effort medium exceeds minimal
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+            - teacher_preparation effort high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-observation-measurement
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: peer-teaching
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: prediction-with-keywords
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: prior-knowledge-free-write
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: question-circle
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort high exceeds minimal
+            - teacher_preparation effort high exceeds medium
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: reciprocal-teaching
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-summary
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: self-explanation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - required resource markers is unavailable
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: silent-discussion
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: three-two-one-reflection
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: true-false-anticipation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: two-column-journal
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: venn-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase formative_assessment is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase formative_assessment is not supported
+            - parent effort low exceeds minimal
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
+      phase: formative_assessment
+      required: true
+      score:
+        components:
+          a1_a2_fit: 3
+          content_type_match: 2
+          desired_formative_assessment: 5
+          desired_reflection: 5
+          direct_delivery_fit: 5
+          effort_headroom: 2
+          pattern_activity_option: 6
+          pattern_phase_fit: 10
+          preferred_group_format_fit: 4
+          preferred_pattern: 5
+          preferred_target: 6
+          provisional_taxonomy: -1
+          required_error_correction: 20
+          resource_simplicity: 2
+        total: 74
+      selected_group_format: individual
+      selected_target_id: error-correction
+      slot_id: correction
+      tie_break: score_desc_then_target_id_bytewise
+      unfilled_reason: null
+    - considered_candidates:
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_formative_assessment: 5
+              desired_reflection: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              preferred_target: 6
+              provisional_taxonomy: -1
+              required_error_correction: 20
+              resource_simplicity: 2
+            total: 68
+          target_id: error-correction
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 4
+              desired_formative_assessment: 5
+              desired_visual_representation: 8
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+            total: 66
+          target_id: concept-map
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 6
+              content_type_match: 2
+              desired_formative_assessment: 8
+              desired_reflection: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+            total: 61
+          target_id: exit-ticket
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_formative_assessment: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 20
+              resource_simplicity: 3
+            total: 58
+          target_id: one-minute-recall
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_reflection: 8
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              required_retrieval: 12
+              resource_simplicity: 3
+            total: 53
+          target_id: three-two-one-reflection
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_visual_representation: 8
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              execution_profile_specificity: 2
+              pattern_activity_option: 6
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              resource_simplicity: 2
+            total: 48
+          target_id: visual-representation::paper-diagram
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 4
+              desired_visual_representation: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              resource_simplicity: 3
+            total: 40
+          target_id: venn-diagram
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 2
+              desired_reflection: 5
+              direct_delivery_fit: 5
+              effort_headroom: 2
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              resource_simplicity: 3
+            total: 38
+          target_id: kwl-table
+        - hard_filter_passed: true
+          hard_filter_reasons: []
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score:
+            components:
+              a1_a2_fit: 3
+              content_type_match: 4
+              desired_visual_representation: 5
+              direct_delivery_fit: 5
+              pattern_phase_fit: 10
+              preferred_group_format_fit: 4
+              preferred_pattern: 5
+              provisional_taxonomy: -1
+              resource_simplicity: 2
+            total: 37
+          target_id: frayer-model
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: back-to-back-description
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - parent effort low exceeds minimal
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: brainstorming
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: delayed-homework-retrieval
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - teacher_preparation effort high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: falsified-text-error-detection
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - required resource markers is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: gallery-walk
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: guided-reading
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: insert-reading
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - teacher_preparation effort high exceeds medium
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: jigsaw
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+            - required resource dataset is unavailable
+            - required resource map is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::map-data
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::paper-classification
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - parent effort medium exceeds minimal
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - parent effort low exceeds minimal
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-home-passive-ice-observation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - parent effort medium exceeds minimal
+            - required resource laboratory_materials is unavailable
+            - required resource measuring_tools is unavailable
+            - teacher_preparation effort high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: learning-stations::practical-observation-measurement
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: peer-teaching
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: prediction-with-keywords
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: prior-knowledge-free-write
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: question-circle
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort high exceeds minimal
+            - teacher_preparation effort high exceeds medium
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: adaptable
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: reciprocal-teaching
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-self-test
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: retrieval-summary
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: self-explanation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - lesson phase consolidation is not supported
+            - no requested group format is compatible with the execution range
+            - parent effort medium exceeds minimal
+            - required resource markers is unavailable
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: not_recommended
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: false
+              selected: null
+          score: null
+          target_id: silent-discussion
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: sorting-and-sequencing
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: true-false-anticipation
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - lesson phase consolidation is not supported
+            - total productive-language demand high exceeds medium
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: directly_supported
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: directly_supported
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: two-column-journal
+        - hard_filter_passed: false
+          hard_filter_reasons:
+            - adult safety supervision is required but unavailable
+            - delivery mode independent_study is not supported
+            - effective delivery fit not_recommended is not allowed
+            - parent effort low exceeds minimal
+          operational_fit:
+            delivery_dimensions:
+              - dimension: declared_delivery_mode
+                fit: not_recommended
+              - dimension: one_learner
+                fit: directly_supported
+            delivery_fit: not_recommended
+            group_format_selection:
+              fallback_used: false
+              preferred: true
+              selected: individual
+          score: null
+          target_id: visual-representation::physical-model
+      phase: consolidation
+      required: false
+      score:
+        components:
+          a1_a2_fit: 3
+          content_type_match: 4
+          desired_formative_assessment: 5
+          desired_visual_representation: 8
+          direct_delivery_fit: 5
+          effort_headroom: 2
+          pattern_activity_option: 6
+          pattern_phase_fit: 10
+          preferred_group_format_fit: 4
+          preferred_pattern: 5
+          provisional_taxonomy: -1
+          required_retrieval: 12
+          resource_simplicity: 3
+        total: 66
+      selected_group_format: individual
+      selected_target_id: concept-map
+      slot_id: consolidation
+      tie_break: score_desc_then_target_id_bytewise
+      unfilled_reason: null
+    - considered_candidates: []
+      phase: delayed_review
+      required: false
+      score: null
+      selected_group_format: null
+      selected_target_id: null
+      slot_id: delayed-review
+      tie_break: score_desc_then_target_id_bytewise
+      unfilled_reason: delayed review is represented in retrieval_plan rather than current lesson timing
+  status: success
+  teacher_override_results: []
+  versions:
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
+    engine: "1.1"
+    lesson_dna_schema: "1.0"
+    selection_rules: "1.0"
+    taxonomy: "1.0"
+  warnings:
+    - Capability ratings and selection weights are provisional project-authored metadata.
+    - The proposal requires teacher review and does not claim learning effectiveness.
+derived_selection_request_digest: 8ff3f70b8437bde940f70bc163697b6a60c8f9d4b766f7ff682aaafabe17637c
+determinism:
+  ai_used: false
+  network_used: false
+  ordering: bytewise
+  randomness_used: false
+  volatile_timestamp_in_core: false
+failure: null
+language_checks:
+  - code: language_policy_preserved
+    passed: true
+    rationale_ru: Russian-primary and Estonian-support policy is unchanged.
+phase_adaptations:
+  - action: omitted_with_reason
+    adapted_phase_id: null
+    adapted_target_id: null
+    rationale_ru: Отдельный этап consolidation не создан; его capability проверяется в общей композиции.
+    source_phase_id: consolidation
+    source_target_id: concept-map
+  - action: omitted_with_reason
+    adapted_phase_id: null
+    adapted_target_id: null
+    rationale_ru: Отдельный этап formative_assessment не создан; его capability проверяется в общей композиции.
+    source_phase_id: correction
+    source_target_id: error-correction
+  - action: preserved
+    adapted_phase_id: retrieval
+    adapted_target_id: retrieval-self-test
+    rationale_ru: Цель этапа retrieval сохранена через homeschool phase retrieval.
+    source_phase_id: retrieval
+    source_target_id: retrieval-self-test
+  - action: added_by_homeschool_rules
+    adapted_phase_id: consolidation
+    adapted_target_id: concept-map
+    rationale_ru: Этап добавлен versioned homeschool pattern для организации самостоятельной работы.
+    source_phase_id: null
+    source_target_id: null
+  - action: added_by_homeschool_rules
+    adapted_phase_id: correction
+    adapted_target_id: error-correction
+    rationale_ru: Этап добавлен versioned homeschool pattern для организации самостоятельной работы.
+    source_phase_id: null
+    source_target_id: null
+request_id: grade-5-water-04-changes-review-homeschool-adaptation
+resource_checks:
+  - code: home_resources_validated
+    passed: true
+    rationale_ru: Selected targets use only declared available resources.
+safety_checks:
+  - code: source_safety_checked
+    passed: true
+    rationale_ru: Source supervision requirement evaluated as false.
+  - code: adapted_safety_checked
+    passed: true
+    rationale_ru: Final homeschool DNA supervision requirement evaluated as false.
+  - code: safety_not_relaxed
+    passed: true
+    rationale_ru: Any source supervision requirement is present in the final homeschool DNA.
+  - code: supervision_availability_checked
+    passed: true
+    rationale_ru: Adult availability, role, and resource declarations satisfy the effective requirement.
+schema_version: "1.0"
+selected_variant: independent
+source_identity:
+  source_lesson_dna_digest: 7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94
+  source_lesson_dna_id: grade-5-water-04-changes-review-classroom-selection-dna
+  source_request_digest: b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905
+  source_request_id: grade-5-water-04-changes-review-classroom-selection
+  source_selection_versions:
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
+    engine: "1.1"
+    lesson_dna_schema: "1.0"
+    selection_rules: "1.0"
+    taxonomy: "1.0"
+status: success
+teacher_override_adaptations: []
+timing_checks:
+  - code: learner_time_reconciled
+    passed: true
+    rationale_ru: Learner time equals visible activity and planning components.
+  - code: adult_time_reconciled
+    passed: true
+    rationale_ru: Adult time is computed separately from learner time.
+  - code: session_limits_respected
+    passed: true
+    rationale_ru: Every session and the session count fit request limits.
+  - code: review_sessions_reconciled
+    passed: true
+    rationale_ru: Every relative retrieval window is represented by a counted review session.
+versions:
+  activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
+  homeschool_engine_version: "1.0"
+  homeschool_package_schema_version: "1.0"
+  homeschool_rules_version: "1.0"
+  lesson_dna_schema_version: "1.0"
+  parent_guidance_schema_version: "1.0"
+  selection_engine_version: "1.1"
+  selection_rules_version: "1.0"
+  taxonomy_version: "1.0"
+  weekly_study_plan_schema_version: "1.0"
+warnings: []

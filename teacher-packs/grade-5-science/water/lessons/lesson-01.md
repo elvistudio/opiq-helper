@@ -71,3 +71,119 @@ RU: «Вода — вещество. Чистая вода прозрачна, �
 - Ключ учителя: `answers/lesson-01-answer-key.md`
 
 Provenance: `author_created_bridge` по lesson-01 YAML и двум каноническим ordinary Opiq records; без копирования учебникового текста.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties audience=teacher -->
+## Сгенерированная педагогическая структура
+
+Паттерн: **concept-introduction-classroom**. Это операционное предложение,
+которое ожидает независимого педагогического ревью и не является заявлением об эффективности.
+
+Timing compatibility rules: `1.0`.
+Все activity/setup/cleanup/transition минуты явно распределены по существующим стадиям.
+
+### activation: Мозговой штурм
+
+- Target: `brainstorming`.
+- Execution mode: `teacher_led`.
+- Ученическое действие: До объяснения запиши две первоначальные идеи о том, какие свойства воды можно увидеть напрямую.
+- Ожидаемое evidence: Ученик отделяет наблюдение о воде от бытового предположения.
+- Действие учителя: Показывает два образца и задаёт короткие вопросы по-русски, затем говорит «Vaata vett».
+- Source access: `open`.
+- Evaluation: `teacher_observation`; answer access: `not_applicable`.
+- Assessment refs: нет.
+- Language answer evidence: Puhas vesi on läbipaistev..
+- Safety: специальные меры не требуются.
+- Binding rationale: Brainstorming занимает всю activation stage и фиксирует исходные идеи до русского объяснения.
+
+**Распределение времени:**
+
+- `activate-water`: activity 3, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### explanation: Бумажная схема
+
+- Target: `visual-representation::paper-diagram`.
+- Execution mode: `learner_task`.
+- Ученическое действие: Изобрази на бумаге схему «вещество — свойство — наблюдение» и подпиши связь на одном примере воды.
+- Ожидаемое evidence: Понятия сформированы до добавления новой эстонской терминологии.
+- Действие учителя: Объясняет понятия по канонической русской странице и строит схему на доске.
+- Source access: `open`.
+- Evaluation: `teacher_observation`; answer access: `not_applicable`.
+- Assessment refs: нет.
+- Language answer evidence: Puhas vesi on läbipaistev..
+- Safety: специальные меры не требуются.
+- Binding rationale: Paper diagram полностью занимает русскую explanation stage и материализует научную связь без физической модели.
+
+**Распределение времени:**
+
+- `explain-properties-ru`: activity 8, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target visual-representation::paper-diagram прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### guided-practice: Диаграмма Венна
+
+- Target: `venn-diagram`.
+- Execution mode: `learner_task`.
+- Ученическое действие: Нарисуй два пересекающихся круга Венна для воды и раствора, внеси различия по краям и общее наблюдаемое свойство в пересечение.
+- Ожидаемое evidence: Таблица содержит наблюдение, а русский вывод не смешивает растворение с исчезновением. Заполненная таблица без дегустации или неподтверждённых утверждений.
+- Действие учителя: Организует безопасное сравнение образцов и напоминает, что жидкости нельзя пробовать.
+- Source access: `open`.
+- Evaluation: `evidence_criterion`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-practical-observation`, `assess-et-recognition-properties`, `assess-et-supported-property`.
+- Language answer evidence: Puhas vesi on läbipaistev..
+- Safety: специальные меры не требуются.
+- Binding rationale: Venn diagram материализует сравнение двух образцов внутри существующей practical-observation stage.
+
+**Распределение времени:**
+
+- `observe-water`: activity 7, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target venn-diagram прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### retrieval: Карта понятий
+
+- Target: `concept-map`.
+- Execution mode: `retrieval_task`.
+- Ученическое действие: Закрой источник и построй карту понятий по памяти: вещество и свойства как узлы, наблюдения как подписанные связи.
+- Ожидаемое evidence: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому это свойство. Полный русский ответ или корректный вывод в таблице.
+- Действие учителя: Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-water-property`, `assess-et-independent-property`.
+- Language answer evidence: Puhas vesi on läbipaistev.; Одна понятная самостоятельная фраза с aine или omadus..
+- Safety: специальные меры не требуются.
+- Binding rationale: Concept map использует полный independent-output и три минуты bounded language retrieval в эстонском мосте.
+
+**Распределение времени:**
+
+- `bridge-properties-et`: activity 3, setup 0, cleanup 0, transition 0; compatibility `language_assessment`.
+- `independent-summary`: activity 5, setup 2, cleanup 0, transition 0; compatibility `standard`.
+
+Selection rationale: Target concept-map прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+### formative-check: Самостоятельное исправление ошибки
+
+- Target: `error-correction`.
+- Execution mode: `assessment_task`.
+- Ученическое действие: Сохрани первую попытку, проверь её по ключу, отметь совпавшие evidence и исправь одну неточность другим цветом.
+- Ожидаемое evidence: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on ...» с поддержкой банка слов.
+- Действие учителя: Показывает слово рядом с понятием, моделирует произношение и одно предложение. Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
+- Source access: `closed_first_attempt`.
+- Evaluation: `answer_key`; answer access: `after_first_attempt`.
+- Assessment refs: `assess-subject-water-property`, `assess-et-recognition-properties`, `assess-et-supported-property`, `assess-et-independent-property`.
+- Language answer evidence: Puhas vesi on läbipaistev.; Понятная фраза «Vesi on ...» с поддержкой банка слов..
+- Safety: специальные меры не требуются.
+- Binding rationale: Error correction связывает сохранённое наблюдение с коротким language evidence и явным исправлением.
+
+**Распределение времени:**
+
+- `bridge-properties-et`: activity 1, setup 4, cleanup 0, transition 0; compatibility `language_assessment`.
+- `observe-water`: activity 2, setup 0, cleanup 0, transition 0; compatibility `embedded_formative_evidence`.
+
+Selection rationale: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
+
+
+Сложное предметное объяснение остаётся русскоязычным. Эстонский ограничен
+терминами, подписями, знакомыми инструкциями, рамками и коротким ответом A1–A2.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties audience=teacher -->

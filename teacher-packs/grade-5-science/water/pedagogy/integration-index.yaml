@@ -1,0 +1,2295 @@
+schema_version: "1.0"
+artifact_type: pedagogy_generation_integration_index
+integration_version: "1.0"
+unit_id: grade-5-water-four-lesson-plan
+unit_content_identity:
+  specification_version: "1.0"
+  algorithm: sha256
+  value: bb78af3a4db7362cf09857f90f5bff28c0a81349e43f2035489a5931aae372ef
+lessons:
+  - lesson_id: grade-5-water-01-properties
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: 7fb21388371109e4a08ba5df171d2d8fcdbd05a1460d29c88398950ebd7dbee9
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-request.yaml
+    selection_request_digest: 5826190572f8963e7b113e49c388ab8b50089b697c95684f2a9b95d216320f42
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml
+    lesson_dna_digest: e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe
+    selected_pattern_id: concept-introduction-classroom
+    selected_target_ids:
+      - brainstorming
+      - visual-representation::paper-diagram
+      - venn-diagram
+      - concept-map
+      - error-correction
+    production_assessment_integration:
+      source_lesson_dna_digest: e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-practical-observation
+          - assess-subject-water-property
+      estonian_language_assessment: &a1
+        enabled: true
+        target_phase_ids:
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-et-independent-property
+          - assess-et-recognition-properties
+          - assess-et-supported-property
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
+    task_bindings:
+      - task_id: grade-5-water-01-properties/activation-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: activation
+        target_id: brainstorming
+        execution_mode: teacher_led
+        learner_instruction_ru: До объяснения запиши две первоначальные идеи о том, какие свойства воды
+          можно увидеть напрямую.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        student_materials:
+          - material_id: water-sample-visual
+            title: Прозрачные образцы воды и схема «тело — вещество»
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+        answer_key_artifact_path: null
+        evaluation_mode: teacher_observation
+        source_access_policy: open
+        answer_access_policy: not_applicable
+        prompt_source_refs:
+          - question:question-water-property:question_ru
+        prompt_ru:
+          - Почему прозрачность можно назвать свойством воды?
+        learner_success_criterion_ru:
+          - Записаны две первоначальные идеи без просмотра готового ответа.
+        learner_language_support_ru:
+          - "Рамка: Vesi on __________."
+        answer_evidence_refs:
+          - stage:activate-water:expected_evidence_of_learning
+        answer_evidence_ru: Ученик отделяет наблюдение о воде от бытового предположения.
+        teacher_action_source_refs:
+          - stage:activate-water:teacher_action_ru
+        teacher_action_ru: Показывает два образца и задаёт короткие вопросы по-русски, затем говорит «Vaata vett».
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+        assessment_refs: []
+        oral_answer_refs:
+          - question-water-property
+        safety_controls_ru: []
+      - task_id: grade-5-water-01-properties/explanation-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: explanation
+        target_id: visual-representation::paper-diagram
+        execution_mode: learner_task
+        learner_instruction_ru: Изобрази на бумаге схему «вещество — свойство — наблюдение» и подпиши связь
+          на одном примере воды.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        student_materials:
+          - material_id: water-sample-visual
+            title: Прозрачные образцы воды и схема «тело — вещество»
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+        answer_key_artifact_path: null
+        evaluation_mode: teacher_observation
+        source_access_policy: open
+        answer_access_policy: not_applicable
+        prompt_source_refs:
+          - stage:explain-properties-ru:pupil_action_ru
+        prompt_ru:
+          - Формулируют полный русский ответ и приводят по одному бытовому примеру.
+        learner_success_criterion_ru:
+          - Построены три элемента схемы и подписана одна связь между ними.
+        learner_language_support_ru:
+          - "Банк слов: vesi · aine · omadus."
+        answer_evidence_refs:
+          - stage:explain-properties-ru:expected_evidence_of_learning
+        answer_evidence_ru: Понятия сформированы до добавления новой эстонской терминологии.
+        teacher_action_source_refs:
+          - stage:explain-properties-ru:teacher_action_ru
+        teacher_action_ru: Объясняет понятия по канонической русской странице и строит схему на доске.
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+        assessment_refs: []
+        oral_answer_refs:
+          - question-water-property
+        safety_controls_ru: []
+      - task_id: grade-5-water-01-properties/guided-practice-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: guided-practice
+        target_id: venn-diagram
+        execution_mode: learner_task
+        learner_instruction_ru: Нарисуй два пересекающихся круга Венна для воды и раствора, внеси различия
+          по краям и общее наблюдаемое свойство в пересечение.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        student_materials:
+          - material_id: water-property-table
+            title: Таблица наблюдений за свойствами воды
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+            audience: student
+            material_type: worksheet
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        evaluation_mode: evidence_criterion
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:observe-water:pupil_action_ru
+        prompt_ru:
+          - Наблюдают, заполняют таблицу, обсуждают вывод по-русски и подписывают свойства
+            по-эстонски.
+        learner_success_criterion_ru:
+          - Оба круга заполнены и в пересечении записано одно общее наблюдаемое свойство.
+        learner_language_support_ru:
+          - "Банк слов: vesi · lahus · omadus."
+        answer_evidence_refs:
+          - stage:observe-water:expected_evidence_of_learning
+          - assessment:assess-practical-observation:acceptable_evidence
+        answer_evidence_ru: Таблица содержит наблюдение, а русский вывод не смешивает растворение с
+          исчезновением. Заполненная таблица без дегустации или неподтверждённых утверждений.
+        teacher_action_source_refs:
+          - stage:observe-water:teacher_action_ru
+        teacher_action_ru: Организует безопасное сравнение образцов и напоминает, что жидкости нельзя пробовать.
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+        assessment_refs:
+          - assess-practical-observation
+          - assess-et-recognition-properties
+          - assess-et-supported-property
+        oral_answer_refs:
+          - question-water-property
+        safety_controls_ru: []
+      - task_id: grade-5-water-01-properties/retrieval-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: retrieval
+        target_id: concept-map
+        execution_mode: retrieval_task
+        learner_instruction_ru: "Закрой источник и построй карту понятий по памяти: вещество и свойства как
+          узлы, наблюдения как подписанные связи."
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+        student_materials:
+          - material_id: water-property-exit-card
+            title: Раздельная выходная карточка по содержанию и эстонскому языку
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+            audience: student
+            material_type: assessment
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - question:question-water-property:question_ru
+        prompt_ru:
+          - Почему прозрачность можно назвать свойством воды?
+        learner_success_criterion_ru:
+          - Первая попытка сохранена; карта содержит узлы и хотя бы две подписанные связи.
+        learner_language_support_ru:
+          - "Рамка: Vesi on __________."
+          - "Банк слов: läbipaistev · värvitu · vedel."
+        answer_evidence_refs:
+          - question:question-water-property:full_expected_answer_ru
+          - assessment:assess-subject-water-property:acceptable_evidence
+        answer_evidence_ru: Прозрачность наблюдается у чистой воды и помогает описать, какая она, поэтому
+          это свойство. Полный русский ответ или корректный вывод в таблице.
+        teacher_action_source_refs:
+          - stage:independent-summary:teacher_action_ru
+        teacher_action_ru: Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+          - assessment:assess-et-independent-property:acceptable_evidence
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+          - Одна понятная самостоятельная фраза с aine или omadus.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+        assessment_refs:
+          - assess-subject-water-property
+          - assess-et-independent-property
+        oral_answer_refs:
+          - question-water-property
+        safety_controls_ru: []
+      - task_id: grade-5-water-01-properties/formative-check-task
+        lesson_id: grade-5-water-01-properties
+        phase_id: formative-check
+        target_id: error-correction
+        execution_mode: assessment_task
+        learner_instruction_ru: Сохрани первую попытку, проверь её по ключу, отметь совпавшие evidence и
+          исправь одну неточность другим цветом.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+        student_materials:
+          - material_id: water-property-exit-card
+            title: Раздельная выходная карточка по содержанию и эстонскому языку
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+            audience: student
+            material_type: assessment
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:independent-summary:pupil_action_ru
+        prompt_ru:
+          - Объясняют свойство по-русски и без готовой рамки говорят «Vesi on aine» или вариант.
+        learner_success_criterion_ru:
+          - Первая попытка сохранена и одна неточность исправлена другим цветом.
+        learner_language_support_ru:
+          - "Рамка: Vesi on __________."
+          - "Банк слов: läbipaistev · värvitu · vedel."
+        answer_evidence_refs:
+          - assessment:assess-subject-water-property:acceptable_evidence
+          - assessment:assess-et-supported-property:acceptable_evidence
+        answer_evidence_ru: Полный русский ответ или корректный вывод в таблице. Понятная фраза «Vesi on
+          ...» с поддержкой банка слов.
+        teacher_action_source_refs:
+          - stage:bridge-properties-et:teacher_action_ru
+          - stage:independent-summary:teacher_action_ru
+        teacher_action_ru: Показывает слово рядом с понятием, моделирует произношение и одно предложение.
+          Сначала принимает полный русский ответ, затем просит одну короткую фразу по-эстонски.
+        answer_language_refs:
+          - question:question-water-property:short_oral_answer_et
+          - assessment:assess-et-supported-property:acceptable_evidence
+        answer_language_ru:
+          - Puhas vesi on läbipaistev.
+          - Понятная фраза «Vesi on ...» с поддержкой банка слов.
+        acceptable_variant_refs:
+          - question:question-water-property:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on läbipaistev.
+          - Puhas vesi on värvitu.
+        misconception_refs:
+          - question:question-water-property:misconception_to_watch
+        misconceptions_ru:
+          - Ученик не должен утверждать, что прозрачность означает отсутствие вещества.
+        assessment_refs:
+          - assess-subject-water-property
+          - assess-et-recognition-properties
+          - assess-et-supported-property
+          - assess-et-independent-property
+        oral_answer_refs:
+          - question-water-property
+        safety_controls_ru: []
+    timing_reconciliation:
+      lesson_id: grade-5-water-01-properties
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 44
+      dna_unallocated_minutes: 1
+      compatibility_rules_version: "1.0"
+      component_totals:
+        activity_minutes: 29
+        setup_minutes: 12
+        cleanup_minutes: 0
+        transition_minutes: 0
+      reserve_minutes: 3
+      non_dna_minutes: 1
+      phases:
+        - phase_id: activation
+          phase: activation
+          target_id: brainstorming
+          lesson_stage_ids:
+            - activate-water
+          timing_allocations:
+            - lesson_stage_id: activate-water
+              activity_minutes: 3
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 3
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Brainstorming занимает всю activation stage и фиксирует исходные идеи до
+            русского объяснения.
+          status: reconciled
+        - phase_id: explanation
+          phase: explanation
+          target_id: visual-representation::paper-diagram
+          lesson_stage_ids:
+            - explain-properties-ru
+          timing_allocations:
+            - lesson_stage_id: explain-properties-ru
+              activity_minutes: 8
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 8
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Paper diagram полностью занимает русскую explanation stage и материализует
+            научную связь без физической модели.
+          status: reconciled
+        - phase_id: guided-practice
+          phase: guided_practice
+          target_id: venn-diagram
+          lesson_stage_ids:
+            - observe-water
+          timing_allocations:
+            - lesson_stage_id: observe-water
+              activity_minutes: 7
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 7
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Venn diagram материализует сравнение двух образцов внутри существующей
+            practical-observation stage.
+          status: reconciled
+        - phase_id: retrieval
+          phase: retrieval
+          target_id: concept-map
+          lesson_stage_ids:
+            - bridge-properties-et
+            - independent-summary
+          timing_allocations:
+            - lesson_stage_id: bridge-properties-et
+              activity_minutes: 3
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+            - lesson_stage_id: independent-summary
+              activity_minutes: 5
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 8
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: Concept map использует полный independent-output и три минуты bounded language
+            retrieval в эстонском мосте.
+          status: reconciled
+        - phase_id: formative-check
+          phase: formative_assessment
+          target_id: error-correction
+          lesson_stage_ids:
+            - bridge-properties-et
+            - observe-water
+          timing_allocations:
+            - lesson_stage_id: bridge-properties-et
+              activity_minutes: 1
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+            - lesson_stage_id: observe-water
+              activity_minutes: 2
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: embedded_formative_evidence
+          component_totals:
+            activity_minutes: 3
+            setup_minutes: 4
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: Error correction связывает сохранённое наблюдение с коротким language evidence
+            и явным исправлением.
+          status: reconciled
+      reserve_allocations:
+        - lesson_stage_id: observe-water
+          minutes: 1
+          rationale_ru: Одна минута резерва остаётся внутри безопасного наблюдения.
+        - lesson_stage_id: homework-launch
+          minutes: 2
+          rationale_ru: Две минуты резерва поддерживают проверку понимания домашней инструкции.
+      non_dna_allocations:
+        - lesson_stage_id: homework-launch
+          minutes: 1
+          role: homework_launch
+          rationale_ru: Одна авторская минута запуска домашнего задания не маскируется под retrieval или
+            assessment.
+      stage_partitions:
+        - lesson_stage_id: activate-water
+          stage_type: activation
+          duration_minutes: 5
+          phase_allocations:
+            - phase_id: activation
+              lesson_stage_id: activate-water
+              activity_minutes: 3
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 5
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 5
+        - lesson_stage_id: bridge-properties-et
+          stage_type: estonian_language_bridge
+          duration_minutes: 8
+          phase_allocations:
+            - phase_id: formative-check
+              lesson_stage_id: bridge-properties-et
+              activity_minutes: 1
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+              allocated_minutes: 5
+            - phase_id: retrieval
+              lesson_stage_id: bridge-properties-et
+              activity_minutes: 3
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+              allocated_minutes: 3
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 8
+        - lesson_stage_id: explain-properties-ru
+          stage_type: russian_concept_explanation
+          duration_minutes: 10
+          phase_allocations:
+            - phase_id: explanation
+              lesson_stage_id: explain-properties-ru
+              activity_minutes: 8
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 10
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 10
+        - lesson_stage_id: homework-launch
+          stage_type: homework_launch
+          duration_minutes: 3
+          phase_allocations: []
+          reserve_minutes: 2
+          non_dna_minutes: 1
+          allocated_minutes: 3
+        - lesson_stage_id: independent-summary
+          stage_type: independent_output
+          duration_minutes: 7
+          phase_allocations:
+            - phase_id: retrieval
+              lesson_stage_id: independent-summary
+              activity_minutes: 5
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 7
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 7
+        - lesson_stage_id: observe-water
+          stage_type: practical_observation
+          duration_minutes: 12
+          phase_allocations:
+            - phase_id: formative-check
+              lesson_stage_id: observe-water
+              activity_minutes: 2
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: embedded_formative_evidence
+              allocated_minutes: 2
+            - phase_id: guided-practice
+              lesson_stage_id: observe-water
+              activity_minutes: 7
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 9
+          reserve_minutes: 1
+          non_dna_minutes: 0
+          allocated_minutes: 12
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+      - teacher-packs/grade-5-science/water/lessons/lesson-01.md
+      - teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+      - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+    estonian_assessment: *a1
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md
+    home_practical_policy_path: null
+    homeschool_render_resolution:
+      content_refs_resolved: true
+      task_refs_resolved: true
+      answer_refs_resolved: true
+      procedure_refs_resolved: true
+      safety_refs_resolved: true
+      home_material_validation:
+        resolved_material_count: 3
+        resolved_material_ids:
+          - water-property-exit-card
+          - water-property-table
+          - water-sample-visual
+        resolved_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md
+          - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+          - teacher-packs/grade-5-science/water/student/lesson-01-properties-worksheet.md
+        delivery_scope_valid: true
+        classroom_task_markers_absent: true
+        classroom_instructions_absent: true
+        practical_key_leak_absent: true
+        policy_semantics_valid: true
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+  - lesson_id: grade-5-water-02-states
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: 3708cc17ac3d5b3462060af7fd18a0c0b63d1ff8d918d0f6e72ce7aa218babcc
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml
+    selection_request_digest: 5e1c87d97470ef34da891e229c5a8bf7cb682bedc38b17a9e39bc7e5465b8095
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml
+    lesson_dna_digest: a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0
+    selected_pattern_id: concept-introduction-classroom
+    selected_target_ids:
+      - brainstorming
+      - visual-representation::paper-diagram
+      - sorting-and-sequencing
+      - concept-map
+      - retrieval-self-test
+    production_assessment_integration:
+      source_lesson_dna_digest: a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - explanation
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-subject-three-states
+      estonian_language_assessment: &a2
+        enabled: true
+        target_phase_ids:
+          - explanation
+          - formative-check
+          - guided-practice
+          - retrieval
+        criterion_refs:
+          - assess-et-independent-state
+          - assess-et-recognition-states
+          - assess-et-supported-state
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
+    task_bindings:
+      - task_id: grade-5-water-02-states/activation-task
+        lesson_id: grade-5-water-02-states
+        phase_id: activation
+        target_id: brainstorming
+        execution_mode: teacher_led
+        learner_instruction_ru: До объяснения запиши первоначальную идею о том, что общего у льда, жидкой
+          воды и водяного пара.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        student_materials:
+          - material_id: three-states-diagram
+            title: Двуязычная схема трёх состояний воды
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+        answer_key_artifact_path: null
+        evaluation_mode: teacher_observation
+        source_access_policy: open
+        answer_access_policy: not_applicable
+        prompt_source_refs:
+          - question:question-three-states:question_ru
+        prompt_ru:
+          - Чем жидкая вода отличается от льда и водяного пара?
+        learner_success_criterion_ru:
+          - Записана одна первоначальная идея без просмотра готового ответа.
+        learner_language_support_ru:
+          - "Банк слов: jää · vesi · veeaur."
+        answer_evidence_refs:
+          - stage:activate-properties:expected_evidence_of_learning
+        answer_evidence_ru: Предыдущее понятие вещества доступно для нового сравнения.
+        teacher_action_source_refs:
+          - stage:activate-properties:teacher_action_ru
+        teacher_action_ru: Показывает лёд, воду и изображение водяного пара, задавая вопросы по-русски.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+        assessment_refs: []
+        oral_answer_refs:
+          - question-three-states
+        safety_controls_ru: []
+      - task_id: grade-5-water-02-states/explanation-task
+        lesson_id: grade-5-water-02-states
+        phase_id: explanation
+        target_id: visual-representation::paper-diagram
+        execution_mode: learner_task
+        learner_instruction_ru: Изобрази одну общую схему трёх состояний воды и подпиши рядом по одному
+          наблюдаемому признаку каждого состояния.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        student_materials:
+          - material_id: three-states-diagram
+            title: Двуязычная схема трёх состояний воды
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        evaluation_mode: evidence_criterion
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:explain-three-states-ru:pupil_action_ru
+        prompt_ru:
+          - Сравнивают состояния полными русскими предложениями и исправляют исходные гипотезы.
+        learner_success_criterion_ru:
+          - Схема содержит три состояния и по одному наблюдаемому признаку для каждого.
+        learner_language_support_ru:
+          - "Подписи: tahke · vedel · gaasiline."
+        answer_evidence_refs:
+          - stage:explain-three-states-ru:expected_evidence_of_learning
+          - assessment:assess-subject-three-states:acceptable_evidence
+        answer_evidence_ru: Ученик опирается на свойства состояния, а не только на бытовое название. Шесть
+          корректно распределённых карточек и три русских обоснования.
+        teacher_action_source_refs:
+          - stage:explain-three-states-ru:teacher_action_ru
+        teacher_action_ru: Объясняет признаки, демонстрирует изменение формы жидкости и обсуждает невидимость пара.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+        assessment_refs:
+          - assess-subject-three-states
+          - assess-et-recognition-states
+        oral_answer_refs:
+          - question-three-states
+        safety_controls_ru: []
+      - task_id: grade-5-water-02-states/guided-practice-task
+        lesson_id: grade-5-water-02-states
+        phase_id: guided-practice
+        target_id: sorting-and-sequencing
+        execution_mode: learner_task
+        learner_instruction_ru: Распредели карточки по трём состояниям, затем расположи спорные примеры в
+          последовательности от твёрдого к газообразному.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+        student_materials:
+          - material_id: state-sort-cards
+            title: Карточки для классификации примеров
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+            audience: student
+            material_type: worksheet
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:classify-states:pupil_action_ru
+        prompt_ru:
+          - Сортируют карточки, репетируют фразу в паре и объясняют спорные случаи по-русски.
+        learner_success_criterion_ru:
+          - Все карточки распределены; спорный пример отмечен для последующей проверки.
+        learner_language_support_ru:
+          - "Банк слов: tahke · vedel · gaasiline."
+        answer_evidence_refs:
+          - stage:classify-states:expected_evidence_of_learning
+          - assessment:assess-subject-three-states:acceptable_evidence
+        answer_evidence_ru: Шесть карточек классифицированы, а три решения объяснены по-русски. Шесть
+          корректно распределённых карточек и три русских обоснования.
+        teacher_action_source_refs:
+          - stage:classify-states:teacher_action_ru
+        teacher_action_ru: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи схемы.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+        assessment_refs:
+          - assess-subject-three-states
+          - assess-et-recognition-states
+          - assess-et-supported-state
+        oral_answer_refs:
+          - question-three-states
+        safety_controls_ru: []
+      - task_id: grade-5-water-02-states/retrieval-task
+        lesson_id: grade-5-water-02-states
+        phase_id: retrieval
+        target_id: concept-map
+        execution_mode: retrieval_task
+        learner_instruction_ru: "Закрой источник и построй карту понятий по памяти: три узла состояний,
+          признаки и подписанные связи с примерами."
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+          - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        student_materials:
+          - material_id: three-states-diagram
+            title: Двуязычная схема трёх состояний воды
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+          - material_id: states-exit-card
+            title: Выходная карточка по трём состояниям
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+            audience: student
+            material_type: assessment
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - question:question-three-states:question_ru
+        prompt_ru:
+          - Чем жидкая вода отличается от льда и водяного пара?
+        learner_success_criterion_ru:
+          - Первая попытка сохранена; карта содержит три узла и подписанные связи с примерами.
+        learner_language_support_ru:
+          - "Рамка: Vesi võib olla __________."
+          - "Банк слов: tahke · vedel · gaasiline."
+        answer_evidence_refs:
+          - question:question-three-states:full_expected_answer_ru
+          - assessment:assess-et-independent-state:acceptable_evidence
+        answer_evidence_ru: Жидкая вода течёт и принимает форму сосуда; лёд сохраняет форму, а водяной пар
+          является газом и заполняет доступное пространство. Одно понятное предложение без полной
+          рамки.
+        teacher_action_source_refs:
+          - stage:label-states-et:teacher_action_ru
+          - stage:state-summary:teacher_action_ru
+        teacher_action_ru: Открывает подписи по одной, моделирует произношение и показывает действие
+          liigita. Убирает подписи, принимает сначала полный русский ответ и отдельно фиксирует
+          эстонскую продукцию.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+          - assessment:assess-et-independent-state:acceptable_evidence
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+          - Одно понятное предложение без полной рамки.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+        assessment_refs:
+          - assess-subject-three-states
+          - assess-et-recognition-states
+          - assess-et-independent-state
+        oral_answer_refs:
+          - question-three-states
+        safety_controls_ru: []
+      - task_id: grade-5-water-02-states/formative-check-task
+        lesson_id: grade-5-water-02-states
+        phase_id: formative-check
+        target_id: retrieval-self-test
+        execution_mode: assessment_task
+        learner_instruction_ru: Сохрани первую попытку распределения, проверь её по ключу, исправь одну
+          карточку и объясни причину.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+        student_materials:
+          - material_id: states-exit-card
+            title: Выходная карточка по трём состояниям
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+            audience: student
+            material_type: assessment
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:classify-states:pupil_action_ru
+        prompt_ru:
+          - Сортируют карточки, репетируют фразу в паре и объясняют спорные случаи по-русски.
+        learner_success_criterion_ru:
+          - Первая попытка сохранена и одна карточка исправлена другим цветом с причиной.
+        learner_language_support_ru:
+          - "Рамка: Vesi võib olla __________."
+          - "Банк слов: tahke · vedel · gaasiline."
+        answer_evidence_refs:
+          - assessment:assess-subject-three-states:acceptable_evidence
+          - assessment:assess-et-supported-state:acceptable_evidence
+        answer_evidence_ru: Шесть корректно распределённых карточек и три русских обоснования. Одна понятная
+          фраза с названием состояния и опорой.
+        teacher_action_source_refs:
+          - stage:classify-states:teacher_action_ru
+          - stage:label-states-et:teacher_action_ru
+        teacher_action_ru: Раздаёт карточки, проверяет предметные обоснования и постепенно закрывает подписи
+          схемы. Открывает подписи по одной, моделирует произношение и показывает действие liigita.
+        answer_language_refs:
+          - question:question-three-states:short_oral_answer_et
+          - assessment:assess-et-supported-state:acceptable_evidence
+        answer_language_ru:
+          - Jää on tahke ja vesi on vedel.
+          - Одна понятная фраза с названием состояния и опорой.
+        acceptable_variant_refs:
+          - question:question-three-states:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi on vedelas olekus ja jää on tahkes olekus.
+          - Veeaur on gaasilises olekus.
+        misconception_refs:
+          - question:question-three-states:misconception_to_watch
+        misconceptions_ru:
+          - Короткий эстонский ответ не заменяет предметного объяснения свойств по-русски.
+        assessment_refs:
+          - assess-subject-three-states
+          - assess-et-recognition-states
+          - assess-et-supported-state
+          - assess-et-independent-state
+        oral_answer_refs:
+          - question-three-states
+        safety_controls_ru: []
+    timing_reconciliation:
+      lesson_id: grade-5-water-02-states
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 44
+      dna_unallocated_minutes: 1
+      compatibility_rules_version: "1.0"
+      component_totals:
+        activity_minutes: 29
+        setup_minutes: 12
+        cleanup_minutes: 0
+        transition_minutes: 0
+      reserve_minutes: 3
+      non_dna_minutes: 1
+      phases:
+        - phase_id: activation
+          phase: activation
+          target_id: brainstorming
+          lesson_stage_ids:
+            - activate-properties
+          timing_allocations:
+            - lesson_stage_id: activate-properties
+              activity_minutes: 3
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 3
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Brainstorming занимает полную activation stage и сохраняет исходную гипотезу
+            до построения модели.
+          status: reconciled
+        - phase_id: explanation
+          phase: explanation
+          target_id: visual-representation::paper-diagram
+          lesson_stage_ids:
+            - explain-three-states-ru
+          timing_allocations:
+            - lesson_stage_id: explain-three-states-ru
+              activity_minutes: 8
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 8
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Visual representation полностью размещается в русской explanation stage и
+            материализует модель состояний.
+          status: reconciled
+        - phase_id: guided-practice
+          phase: guided_practice
+          target_id: sorting-and-sequencing
+          lesson_stage_ids:
+            - classify-states
+          timing_allocations:
+            - lesson_stage_id: classify-states
+              activity_minutes: 5
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 5
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Sorting and sequencing прямо соответствует карточной классификации
+            существующей guided-practice stage.
+          status: reconciled
+        - phase_id: retrieval
+          phase: retrieval
+          target_id: concept-map
+          lesson_stage_ids:
+            - label-states-et
+            - state-summary
+          timing_allocations:
+            - lesson_stage_id: label-states-et
+              activity_minutes: 0
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+            - lesson_stage_id: state-summary
+              activity_minutes: 8
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 8
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: Concept map использует independent-output stage и две минуты явного language
+            retrieval из эстонского моста.
+          status: reconciled
+        - phase_id: formative-check
+          phase: formative_assessment
+          target_id: retrieval-self-test
+          lesson_stage_ids:
+            - classify-states
+            - label-states-et
+          timing_allocations:
+            - lesson_stage_id: classify-states
+              activity_minutes: 1
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: embedded_formative_evidence
+            - lesson_stage_id: label-states-et
+              activity_minutes: 4
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+          component_totals:
+            activity_minutes: 5
+            setup_minutes: 4
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: Error correction использует оставшееся время классификации и отдельно
+            фиксирует короткое language evidence.
+          status: reconciled
+      reserve_allocations:
+        - lesson_stage_id: label-states-et
+          minutes: 2
+          rationale_ru: Две минуты резерва сохраняются в языковом мосте для повторного моделирования терминов.
+        - lesson_stage_id: explain-three-states-ru
+          minutes: 1
+          rationale_ru: Одна минута резерва остаётся на уточнение русской предметной модели.
+      non_dna_allocations:
+        - lesson_stage_id: explain-three-states-ru
+          minutes: 1
+          role: content_explanation
+          rationale_ru: Одна минута сохраняет исходный авторский переход между объяснением и визуальной схемой.
+      stage_partitions:
+        - lesson_stage_id: activate-properties
+          stage_type: activation
+          duration_minutes: 5
+          phase_allocations:
+            - phase_id: activation
+              lesson_stage_id: activate-properties
+              activity_minutes: 3
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 5
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 5
+        - lesson_stage_id: classify-states
+          stage_type: guided_practice
+          duration_minutes: 12
+          phase_allocations:
+            - phase_id: formative-check
+              lesson_stage_id: classify-states
+              activity_minutes: 1
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: embedded_formative_evidence
+              allocated_minutes: 5
+            - phase_id: guided-practice
+              lesson_stage_id: classify-states
+              activity_minutes: 5
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 7
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 12
+        - lesson_stage_id: explain-three-states-ru
+          stage_type: russian_concept_explanation
+          duration_minutes: 12
+          phase_allocations:
+            - phase_id: explanation
+              lesson_stage_id: explain-three-states-ru
+              activity_minutes: 8
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 10
+          reserve_minutes: 1
+          non_dna_minutes: 1
+          allocated_minutes: 12
+        - lesson_stage_id: label-states-et
+          stage_type: estonian_language_bridge
+          duration_minutes: 8
+          phase_allocations:
+            - phase_id: formative-check
+              lesson_stage_id: label-states-et
+              activity_minutes: 4
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+              allocated_minutes: 4
+            - phase_id: retrieval
+              lesson_stage_id: label-states-et
+              activity_minutes: 0
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+              allocated_minutes: 2
+          reserve_minutes: 2
+          non_dna_minutes: 0
+          allocated_minutes: 8
+        - lesson_stage_id: state-summary
+          stage_type: independent_output
+          duration_minutes: 8
+          phase_allocations:
+            - phase_id: retrieval
+              lesson_stage_id: state-summary
+              activity_minutes: 8
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 8
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 8
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+      - teacher-packs/grade-5-science/water/lessons/lesson-02.md
+      - teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+      - teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+      - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+    estonian_assessment: *a2
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md
+    home_practical_policy_path: null
+    homeschool_render_resolution:
+      content_refs_resolved: true
+      task_refs_resolved: true
+      answer_refs_resolved: true
+      procedure_refs_resolved: true
+      safety_refs_resolved: true
+      home_material_validation:
+        resolved_material_count: 3
+        resolved_material_ids:
+          - state-sort-cards
+          - states-exit-card
+          - three-states-diagram
+        resolved_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+          - teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+          - teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+        delivery_scope_valid: true
+        classroom_task_markers_absent: true
+        classroom_instructions_absent: true
+        practical_key_leak_absent: true
+        policy_semantics_valid: true
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+  - lesson_id: grade-5-water-03-melting-condensation
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: a3ea29314d8e7f620316ea361a024c34f23fafba58eb04f39c49438e1d396dd5
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-request.yaml
+    selection_request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml
+    lesson_dna_digest: 3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2
+    selected_pattern_id: safe-practical-investigation
+    selected_target_ids:
+      - brainstorming
+      - learning-stations::practical-compact-teacher-prepared-observation
+      - retrieval-summary
+      - one-minute-recall
+    production_assessment_integration:
+      source_lesson_dna_digest: 3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - conclusion
+          - evidence-check
+          - practical-work
+        criterion_refs:
+          - assess-practical-safe-observation
+          - assess-subject-phase-change
+      estonian_language_assessment: &a3
+        enabled: true
+        target_phase_ids:
+          - conclusion
+          - evidence-check
+        criterion_refs:
+          - assess-et-independent-conclusion
+          - assess-et-recognition-processes
+          - assess-et-supported-instructions
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
+    task_bindings:
+      - task_id: grade-5-water-03-melting-condensation/safety-orientation-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: safety-orientation
+        target_id: brainstorming
+        execution_mode: teacher_led
+        learner_instruction_ru: До объяснения предложи безопасные ученические действия и отдельно укажи
+          действия, которые выполняет только учитель.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+        student_materials:
+          - material_id: practical-safety-card
+            title: Карточка безопасной работы
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+            audience: student
+            material_type: practical_setup
+            answer_key_path: null
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-03.md
+        answer_key_artifact_path: null
+        evaluation_mode: teacher_observation
+        source_access_policy: teacher_managed
+        answer_access_policy: not_applicable
+        prompt_source_refs:
+          - stage:activate-state-model:pupil_action_ru
+        prompt_ru:
+          - Формулируют гипотезы по-русски и называют знакомые подписи по-эстонски.
+        learner_success_criterion_ru:
+          - Названы разрешённое действие ученика и отдельное действие учителя.
+        learner_language_support_ru:
+          - "Инструкции: vaatle · mõõda · kirjuta."
+        answer_evidence_refs:
+          - stage:activate-state-model:expected_evidence_of_learning
+        answer_evidence_ru: Предыдущая модель состояний готова для причинного объяснения.
+        teacher_action_source_refs:
+          - stage:activate-state-model:teacher_action_ru
+          - practical:observe-melting-condensation:safety_requirements
+        teacher_action_ru: Показывает лёд, воду и схему, просит предсказать изменения по-русски. Ученики не
+          кипятят воду и не касаются сосуда с тёплой водой. Тёплую воду наливает и демонстрационный
+          сосуд перемещает только учитель. Термометры используются по инструкции; стеклянные приборы
+          заменяются безопасными школьными моделями.
+        answer_language_refs:
+          - question:question-condensation-origin:short_oral_answer_et
+        answer_language_ru:
+          - Veeaur jahtub ja veeldub veeks.
+        acceptable_variant_refs:
+          - question:question-condensation-origin:acceptable_variants
+        acceptable_variants_ru:
+          - Külmal pinnal veeaur veeldub.
+          - Veeaur muutub veeks.
+        misconception_refs:
+          - question:question-condensation-origin:misconception_to_watch
+        misconceptions_ru:
+          - Капли не прошли сквозь крышку и не возникли из материала крышки.
+        assessment_refs: []
+        oral_answer_refs:
+          - question-condensation-origin
+        safety_controls_ru: []
+      - task_id: grade-5-water-03-melting-condensation/practical-work-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: practical-work
+        target_id: learning-stations::practical-compact-teacher-prepared-observation
+        execution_mode: practical_task
+        learner_instruction_ru: По команде учителя наблюдай лёд и холодную крышку, запиши данные до вывода и
+          не касайся учительского сосуда.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
+          - teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+        student_materials:
+          - material_id: melting-condensation-table
+            title: Таблица измерений и наблюдений
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
+            audience: student
+            material_type: worksheet
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+          - material_id: practical-safety-card
+            title: Карточка безопасной работы
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+            audience: student
+            material_type: practical_setup
+            answer_key_path: null
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-03.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: teacher_managed
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - practical:observe-melting-condensation:pupil_steps
+          - practical:observe-melting-condensation:observation_table.data_collection_ru
+        prompt_ru:
+          - Положить лёд в два подписанных безопасных места и записать начальное наблюдение.
+          - Измерить доступную температуру по команде учителя и записать результат.
+          - Сравнить скорость таяния и наблюдать капли на холодной крышке с безопасного расстояния.
+          - Сначала записать наблюдение, затем отдельно сформулировать вывод.
+          - Группа записывает начальное и конечное состояние, доступную температуру и отдельный
+            вывод для каждого процесса.
+        learner_success_criterion_ru:
+          - Наблюдение записано отдельно от вывода; правила безопасности соблюдены.
+        learner_language_support_ru:
+          - "Рамка: Ma vaatlen __________."
+          - "Инструкции: vaatle · mõõda · kirjuta."
+        answer_evidence_refs:
+          - practical:observe-melting-condensation:expected_observation_ru
+          - assessment:assess-practical-safe-observation:acceptable_evidence
+        answer_evidence_ru: В более тёплом месте лёд быстрее превращается в жидкую воду; на холодной крышке
+          появляются капли. Соблюдение всех ученических шагов и заполненная таблица.
+        teacher_action_source_refs:
+          - practical:observe-melting-condensation:teacher_controlled_steps
+          - practical:observe-melting-condensation:safety_requirements
+        teacher_action_ru: Учитель заранее проверяет безопасные термометры и готовит одинаковые кусочки
+          льда. Учитель сам наливает тёплую воду в устойчивый прозрачный сосуд и закрывает его
+          холодной крышкой. Учитель убирает тёплую воду сразу после наблюдения капель. Ученики не
+          кипятят воду и не касаются сосуда с тёплой водой. Тёплую воду наливает и демонстрационный
+          сосуд перемещает только учитель. Термометры используются по инструкции; стеклянные приборы
+          заменяются безопасными школьными моделями.
+        answer_language_refs:
+          - practical:observe-melting-condensation:short_estonian_conclusion
+          - assessment:assess-et-supported-instructions:acceptable_evidence
+        answer_language_ru:
+          - Soojas jää sulab; külmal pinnal veeaur veeldub.
+          - Два выполненных действия и одна поддержанная фраза.
+        acceptable_variant_refs:
+          - question:question-melting-data:acceptable_variants
+        acceptable_variants_ru:
+          - Soojas kohas jää sulab.
+          - Jää muutub veeks.
+        misconception_refs:
+          - question:question-melting-data:misconception_to_watch
+        misconceptions_ru:
+          - Исчезновение куска льда не означает исчезновения вещества воды.
+        assessment_refs:
+          - assess-practical-safe-observation
+          - assess-subject-phase-change
+        oral_answer_refs:
+          - question-melting-data
+        safety_controls_ru:
+          - Использовать только заранее проверенные учителем безопасные материалы.
+          - Уборку и возврат материалов контролирует взрослый.
+          - Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.
+          - Учитель выдаёт материалы после объяснения границ действий.
+      - task_id: grade-5-water-03-melting-condensation/evidence-check-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: evidence-check
+        target_id: retrieval-summary
+        execution_mode: assessment_task
+        learner_instruction_ru: Закрой источник и по памяти сопоставь наблюдение с процессом, затем проверь
+          стрелку и добавь короткий эстонский термин.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+        student_materials:
+          - material_id: phase-change-diagram
+            title: Схема «состояние — процесс — состояние»
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-03.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - question:question-condensation-origin:question_ru
+          - stage:bridge-process-terms-et:pupil_action_ru
+        prompt_ru:
+          - Откуда появились капли на холодной крышке?
+          - Соотносят карточки, повторяют два предложения и выполняют пробную инструкцию.
+        learner_success_criterion_ru:
+          - Первая попытка сохранена; наблюдение связано с одним процессом и подписано термином.
+        learner_language_support_ru:
+          - "Банк слов: sulamine · aurustumine · veeldumine."
+        answer_evidence_refs:
+          - question:question-condensation-origin:full_expected_answer_ru
+          - assessment:assess-et-recognition-processes:acceptable_evidence
+        answer_evidence_ru: Водяной пар у холодной поверхности охлаждается и превращается в капли жидкой
+          воды; этот процесс называется конденсацией. Четыре корректных соответствия на схеме или в
+          таблице.
+        teacher_action_source_refs:
+          - stage:bridge-process-terms-et:teacher_action_ru
+          - stage:separate-conclusions:teacher_action_ru
+        teacher_action_ru: Моделирует термины на схеме и физически показывает действия mõõda и kirjuta.
+          Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
+        answer_language_refs:
+          - question:question-condensation-origin:short_oral_answer_et
+          - assessment:assess-et-supported-instructions:acceptable_evidence
+        answer_language_ru:
+          - Veeaur jahtub ja veeldub veeks.
+          - Два выполненных действия и одна поддержанная фраза.
+        acceptable_variant_refs:
+          - question:question-condensation-origin:acceptable_variants
+        acceptable_variants_ru:
+          - Külmal pinnal veeaur veeldub.
+          - Veeaur muutub veeks.
+        misconception_refs:
+          - question:question-condensation-origin:misconception_to_watch
+        misconceptions_ru:
+          - Капли не прошли сквозь крышку и не возникли из материала крышки.
+        assessment_refs:
+          - assess-subject-phase-change
+          - assess-et-recognition-processes
+          - assess-et-supported-instructions
+        oral_answer_refs:
+          - question-condensation-origin
+        safety_controls_ru: []
+      - task_id: grade-5-water-03-melting-condensation/conclusion-task
+        lesson_id: grade-5-water-03-melting-condensation
+        phase_id: conclusion
+        target_id: one-minute-recall
+        execution_mode: retrieval_task
+        learner_instruction_ru: Закрой источник и за одну минуту запиши русский вывод о выбранном процессе,
+          затем добавь одну короткую эстонскую фразу.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
+        student_materials:
+          - material_id: separate-practical-exit-card
+            title: Выходная карточка содержания и языка
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
+            audience: student
+            material_type: assessment
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-03.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - question:question-melting-data:question_ru
+          - question:question-condensation-origin:question_ru
+        prompt_ru:
+          - Как данные подтверждают, что лёд плавился?
+          - Откуда появились капли на холодной крышке?
+        learner_success_criterion_ru:
+          - Русский вывод и короткая эстонская фраза записаны отдельно после первой попытки.
+        learner_language_support_ru:
+          - "Рамка: Vesi __________ ja hiljem __________."
+          - "Банк слов: sulab · aurustub · veeldub."
+        answer_evidence_refs:
+          - practical:observe-melting-condensation:expected_conclusion_ru
+          - assessment:assess-et-independent-conclusion:acceptable_evidence
+        answer_evidence_ru: При получении тепла лёд плавится, а при охлаждении у поверхности водяной пар
+          конденсируется в жидкую воду. Одна или две понятные фразы с sulamine или veeldumine.
+        teacher_action_source_refs:
+          - stage:separate-conclusions:teacher_action_ru
+        teacher_action_ru: Принимает русский отчёт и отдельно отмечает распознавание и продукцию на эстонском.
+        answer_language_refs:
+          - practical:observe-melting-condensation:short_estonian_conclusion
+          - question:question-condensation-origin:short_oral_answer_et
+        answer_language_ru:
+          - Soojas jää sulab; külmal pinnal veeaur veeldub.
+          - Veeaur jahtub ja veeldub veeks.
+        acceptable_variant_refs:
+          - question:question-condensation-origin:acceptable_variants
+        acceptable_variants_ru:
+          - Külmal pinnal veeaur veeldub.
+          - Veeaur muutub veeks.
+        misconception_refs:
+          - question:question-condensation-origin:misconception_to_watch
+        misconceptions_ru:
+          - Капли не прошли сквозь крышку и не возникли из материала крышки.
+        assessment_refs:
+          - assess-subject-phase-change
+          - assess-et-independent-conclusion
+        oral_answer_refs:
+          - question-condensation-origin
+          - question-melting-data
+        safety_controls_ru: []
+    timing_reconciliation:
+      lesson_id: grade-5-water-03-melting-condensation
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 35
+      dna_unallocated_minutes: 10
+      compatibility_rules_version: "1.0"
+      component_totals:
+        activity_minutes: 19
+        setup_minutes: 10
+        cleanup_minutes: 2
+        transition_minutes: 1
+      reserve_minutes: 3
+      non_dna_minutes: 10
+      phases:
+        - phase_id: safety-orientation
+          phase: orientation
+          target_id: brainstorming
+          lesson_stage_ids:
+            - activate-state-model
+          timing_allocations:
+            - lesson_stage_id: activate-state-model
+              activity_minutes: 3
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 3
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: teacher_managed
+          binding_rationale_ru: Safety orientation полностью занимает activation stage и не создаёт фиктивного
+            answer key.
+          status: reconciled
+        - phase_id: practical-work
+          phase: guided_practice
+          target_id: learning-stations::practical-compact-teacher-prepared-observation
+          lesson_stage_ids:
+            - observe-changes
+          timing_allocations:
+            - lesson_stage_id: observe-changes
+              activity_minutes: 10
+              setup_minutes: 2
+              cleanup_minutes: 2
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 10
+            setup_minutes: 2
+            cleanup_minutes: 2
+            transition_minutes: 0
+          source_access_policy: teacher_managed
+          binding_rationale_ru: Compact teacher-prepared observation сохраняет десять минут наблюдения и
+            отдельно учитывает setup и cleanup.
+          status: reconciled
+        - phase_id: evidence-check
+          phase: formative_assessment
+          target_id: retrieval-summary
+          lesson_stage_ids:
+            - observe-changes
+            - bridge-process-terms-et
+            - separate-conclusions
+          timing_allocations:
+            - lesson_stage_id: observe-changes
+              activity_minutes: 1
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: embedded_formative_evidence
+            - lesson_stage_id: bridge-process-terms-et
+              activity_minutes: 3
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+            - lesson_stage_id: separate-conclusions
+              activity_minutes: 0
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 1
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 4
+            setup_minutes: 4
+            cleanup_minutes: 0
+            transition_minutes: 1
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: Evidence check использует встроенное наблюдение, полный language bridge и
+            переход к отдельному итоговому выводу.
+          status: reconciled
+        - phase_id: conclusion
+          phase: retrieval
+          target_id: one-minute-recall
+          lesson_stage_ids:
+            - separate-conclusions
+          timing_allocations:
+            - lesson_stage_id: separate-conclusions
+              activity_minutes: 2
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 2
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: One-minute recall занимает четыре минуты с setup и сохраняет независимый
+            русский вывод до короткого эстонского ответа.
+          status: reconciled
+      reserve_allocations:
+        - lesson_stage_id: separate-conclusions
+          minutes: 2
+          rationale_ru: Две минуты резерва поддерживают раздельную фиксацию предметного и языкового результата.
+        - lesson_stage_id: homework-launch
+          minutes: 1
+          rationale_ru: Одна минута резерва остаётся на проверку безопасных домашних границ.
+      non_dna_allocations:
+        - lesson_stage_id: explain-changes-ru
+          minutes: 8
+          role: content_explanation
+          rationale_ru: Полное причинное объяснение по-русски остаётся authoritative content и не заменяется
+            activity target.
+        - lesson_stage_id: homework-launch
+          minutes: 2
+          role: homework_launch
+          rationale_ru: Две минуты используются для машинно-зафиксированной домашней safety policy.
+      stage_partitions:
+        - lesson_stage_id: activate-state-model
+          stage_type: activation
+          duration_minutes: 5
+          phase_allocations:
+            - phase_id: safety-orientation
+              lesson_stage_id: activate-state-model
+              activity_minutes: 3
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 5
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 5
+        - lesson_stage_id: bridge-process-terms-et
+          stage_type: estonian_language_bridge
+          duration_minutes: 7
+          phase_allocations:
+            - phase_id: evidence-check
+              lesson_stage_id: bridge-process-terms-et
+              activity_minutes: 3
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: language_assessment
+              allocated_minutes: 7
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 7
+        - lesson_stage_id: explain-changes-ru
+          stage_type: russian_concept_explanation
+          duration_minutes: 8
+          phase_allocations: []
+          reserve_minutes: 0
+          non_dna_minutes: 8
+          allocated_minutes: 8
+        - lesson_stage_id: homework-launch
+          stage_type: homework_launch
+          duration_minutes: 3
+          phase_allocations: []
+          reserve_minutes: 1
+          non_dna_minutes: 2
+          allocated_minutes: 3
+        - lesson_stage_id: observe-changes
+          stage_type: practical_observation
+          duration_minutes: 15
+          phase_allocations:
+            - phase_id: evidence-check
+              lesson_stage_id: observe-changes
+              activity_minutes: 1
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: embedded_formative_evidence
+              allocated_minutes: 1
+            - phase_id: practical-work
+              lesson_stage_id: observe-changes
+              activity_minutes: 10
+              setup_minutes: 2
+              cleanup_minutes: 2
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 14
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 15
+        - lesson_stage_id: separate-conclusions
+          stage_type: assessment
+          duration_minutes: 7
+          phase_allocations:
+            - phase_id: conclusion
+              lesson_stage_id: separate-conclusions
+              activity_minutes: 2
+              setup_minutes: 2
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 4
+            - phase_id: evidence-check
+              lesson_stage_id: separate-conclusions
+              activity_minutes: 0
+              setup_minutes: 0
+              cleanup_minutes: 0
+              transition_minutes: 1
+              compatibility_basis: standard
+              allocated_minutes: 1
+          reserve_minutes: 2
+          non_dna_minutes: 0
+          allocated_minutes: 7
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+      - teacher-packs/grade-5-science/water/lessons/lesson-03.md
+      - teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
+      - teacher-packs/grade-5-science/water/student/lesson-03-observation-table.md
+      - teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+      - teacher-packs/grade-5-science/water/student/lesson-03-safety-card.md
+    estonian_assessment: *a3
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md
+    home_practical_policy_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-home-practical-policy.yaml
+    homeschool_render_resolution:
+      content_refs_resolved: true
+      task_refs_resolved: true
+      answer_refs_resolved: true
+      procedure_refs_resolved: true
+      safety_refs_resolved: true
+      home_material_validation:
+        resolved_material_count: 4
+        resolved_material_ids:
+          - lesson-03-home-passive-observation-sheet
+          - lesson-03-home-safety-card
+          - phase-change-diagram
+          - separate-practical-exit-card
+        resolved_artifact_paths:
+          - teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md
+          - teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md
+          - teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md
+          - teacher-packs/grade-5-science/water/student/lesson-03-phase-change-diagram.md
+        delivery_scope_valid: true
+        classroom_task_markers_absent: true
+        classroom_instructions_absent: true
+        practical_key_leak_absent: true
+        policy_semantics_valid: true
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+  - lesson_id: grade-5-water-04-changes-review
+    content_identity:
+      specification_version: "1.0"
+      algorithm: sha256
+      value: 14285bbe5a1a3cea4112fb96ba40f13de14170e3c3113644cae4638f91cf9da1
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-request.yaml
+    selection_request_digest: b90482c7f1be43c390868be0e32cbda07c10926eb3f6fd018de9a07e2a678905
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml
+    lesson_dna_digest: 7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94
+    selected_pattern_id: retrieval-and-consolidation
+    selected_target_ids:
+      - retrieval-self-test
+      - error-correction
+      - concept-map
+    production_assessment_integration:
+      source_lesson_dna_digest: 7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94
+      subject_assessment:
+        enabled: true
+        target_phase_ids:
+          - consolidation
+          - correction
+          - retrieval
+        criterion_refs:
+          - assess-practical-data-reasoning
+          - assess-subject-complete-cycle
+      estonian_language_assessment: &a4
+        enabled: true
+        target_phase_ids:
+          - consolidation
+          - retrieval
+        criterion_refs:
+          - assess-et-independent-unit
+          - assess-et-recognition-unit
+          - assess-et-supported-unit
+      separation_policy: separate_subject_and_estonian_language_evidence
+      provenance:
+        source: lesson_assessment_bindings
+    task_bindings:
+      - task_id: grade-5-water-04-changes-review/retrieval-task
+        lesson_id: grade-5-water-04-changes-review
+        phase_id: retrieval
+        target_id: retrieval-self-test
+        execution_mode: retrieval_task
+        learner_instruction_ru: Закрой источник, выполни первую попытку по памяти, затем сверь схему и
+          отметь одну связь для исправления.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        student_materials:
+          - material_id: unit-revision-stations
+            title: Четыре станции повторения
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+            audience: student
+            material_type: worksheet
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-04.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: closed_first_attempt
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:retrieve-water-unit:pupil_action_ru
+        prompt_ru:
+          - Восстанавливают понятия, затем добавляют знакомые эстонские подписи в паре.
+        learner_success_criterion_ru:
+          - Первая схема выполнена без источника и одна связь отмечена для проверки.
+        learner_language_support_ru:
+          - "Банк слов: sulamine · jäätumine · aurustumine · veeldumine."
+        answer_evidence_refs:
+          - stage:retrieve-water-unit:expected_evidence_of_learning
+          - assessment:assess-et-recognition-unit:acceptable_evidence
+        answer_evidence_ru: Знакомая лексика активирована до добавления двух процессов. Подписи на полной схеме.
+        teacher_action_source_refs:
+          - stage:retrieve-water-unit:teacher_action_ru
+          - stage:revision-stations:teacher_action_ru
+        teacher_action_ru: Показывает неполную схему и принимает быстрые ответы сначала по-русски.
+          Организует станции схемы, данных, терминов и устного ответа, постепенно снимая банк слов.
+        answer_language_refs:
+          - question:question-opposite-processes:short_oral_answer_et
+          - assessment:assess-et-independent-unit:acceptable_evidence
+        answer_language_ru:
+          - Soojenemisel jää sulab; jahtumisel vesi jäätub.
+          - Понятная фраза с введённым или переработанным термином.
+        acceptable_variant_refs:
+          - question:question-opposite-processes:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi aurustub või veeldub.
+          - Vesi muudab temperatuuri mõjul olekut.
+        misconception_refs:
+          - question:question-opposite-processes:misconception_to_watch
+        misconceptions_ru:
+          - Перечень терминов без объяснения направления не доказывает предметное понимание.
+        assessment_refs:
+          - assess-subject-complete-cycle
+          - assess-et-recognition-unit
+          - assess-et-independent-unit
+        oral_answer_refs:
+          - question-opposite-processes
+        safety_controls_ru: []
+      - task_id: grade-5-water-04-changes-review/correction-task
+        lesson_id: grade-5-water-04-changes-review
+        phase_id: correction
+        target_id: error-correction
+        execution_mode: assessment_task
+        learner_instruction_ru: Сохрани первую схему, исправь одну неверную стрелку другим цветом и объясни
+          причину исправления полным русским предложением.
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        student_materials:
+          - material_id: complete-phase-cycle
+            title: Полная схема четырёх изменений воды
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+            audience: student
+            material_type: visual
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-04.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:complete-change-model-ru:pupil_action_ru
+        prompt_ru:
+          - Объясняют три перехода полными русскими предложениями и исправляют направления стрелок.
+        learner_success_criterion_ru:
+          - Исходная схема сохранена; одна стрелка исправлена другим цветом и объяснена.
+        learner_language_support_ru:
+          - "Рамка: __________ ja __________ on vastandprotsessid."
+        answer_evidence_refs:
+          - question:question-opposite-processes:full_expected_answer_ru
+          - assessment:assess-subject-complete-cycle:acceptable_evidence
+        answer_evidence_ru: Плавление противоположно замерзанию, а испарение — конденсации; направление
+          зависит от получения или отдачи тепла. Полная схема и три русских причинных объяснения.
+        teacher_action_source_refs:
+          - stage:complete-change-model-ru:teacher_action_ru
+          - stage:revision-stations:teacher_action_ru
+        teacher_action_ru: Достраивает схему, сравнивает противоположные процессы и проверяет сохранение
+          вещества. Организует станции схемы, данных, терминов и устного ответа, постепенно снимая
+          банк слов.
+        answer_language_refs:
+          - question:question-opposite-processes:short_oral_answer_et
+        answer_language_ru:
+          - Soojenemisel jää sulab; jahtumisel vesi jäätub.
+        acceptable_variant_refs:
+          - question:question-opposite-processes:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi aurustub või veeldub.
+          - Vesi muudab temperatuuri mõjul olekut.
+        misconception_refs:
+          - question:question-opposite-processes:misconception_to_watch
+        misconceptions_ru:
+          - Перечень терминов без объяснения направления не доказывает предметное понимание.
+        assessment_refs:
+          - assess-subject-complete-cycle
+          - assess-practical-data-reasoning
+        oral_answer_refs:
+          - question-opposite-processes
+        safety_controls_ru: []
+      - task_id: grade-5-water-04-changes-review/consolidation-task
+        lesson_id: grade-5-water-04-changes-review
+        phase_id: consolidation
+        target_id: concept-map
+        execution_mode: assessment_task
+        learner_instruction_ru: "Собери итоговую карту понятий: состояния как узлы, процессы как связи,
+          затем выполни отдельные предметную и эстонскую части."
+        student_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-04-assessment.md
+          - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        student_materials:
+          - material_id: unit-revision-stations
+            title: Четыре станции повторения
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+            audience: student
+            material_type: worksheet
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+          - material_id: unit-separate-assessment
+            title: Раздельная итоговая проверка unit
+            artifact_path: teacher-packs/grade-5-science/water/student/lesson-04-assessment.md
+            audience: student
+            material_type: assessment
+            answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        teacher_artifact_paths:
+          - teacher-packs/grade-5-science/water/lessons/lesson-04.md
+        answer_key_artifact_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+        evaluation_mode: answer_key
+        source_access_policy: open
+        answer_access_policy: after_first_attempt
+        prompt_source_refs:
+          - stage:revision-stations:pupil_action_ru
+          - stage:separate-unit-assessment:pupil_action_ru
+        prompt_ru:
+          - Решают задания, объясняют предметные решения по-русски и репетируют короткий эстонский
+            ответ.
+          - Заполняют схему, пишут русский вывод и дают одну короткую фразу по-эстонски.
+        learner_success_criterion_ru:
+          - Карта содержит состояния и процессы; предметная и языковая части заполнены отдельно.
+        learner_language_support_ru:
+          - "Банк слов: tahke · vedel · gaasiline · sulamine · jäätumine · aurustumine · veeldumine."
+        answer_evidence_refs:
+          - assessment:assess-subject-complete-cycle:acceptable_evidence
+          - assessment:assess-et-independent-unit:acceptable_evidence
+        answer_evidence_ru: Полная схема и три русских причинных объяснения. Понятная фраза с введённым или
+          переработанным термином.
+        teacher_action_source_refs:
+          - stage:revision-stations:teacher_action_ru
+          - stage:separate-unit-assessment:teacher_action_ru
+        teacher_action_ru: Организует станции схемы, данных, терминов и устного ответа, постепенно снимая
+          банк слов. Оценивает русскую предметную часть и эстонскую языковую часть по отдельным
+          критериям.
+        answer_language_refs:
+          - question:question-opposite-processes:short_oral_answer_et
+          - assessment:assess-et-supported-unit:acceptable_evidence
+        answer_language_ru:
+          - Soojenemisel jää sulab; jahtumisel vesi jäätub.
+          - Одна поддержанная причинная фраза с двумя терминами.
+        acceptable_variant_refs:
+          - question:question-opposite-processes:acceptable_variants
+        acceptable_variants_ru:
+          - Vesi aurustub või veeldub.
+          - Vesi muudab temperatuuri mõjul olekut.
+        misconception_refs:
+          - question:question-opposite-processes:misconception_to_watch
+        misconceptions_ru:
+          - Перечень терминов без объяснения направления не доказывает предметное понимание.
+        assessment_refs:
+          - assess-subject-complete-cycle
+          - assess-practical-data-reasoning
+          - assess-et-recognition-unit
+          - assess-et-supported-unit
+          - assess-et-independent-unit
+        oral_answer_refs:
+          - question-opposite-processes
+        safety_controls_ru: []
+    timing_reconciliation:
+      lesson_id: grade-5-water-04-changes-review
+      lesson_duration_minutes: 45
+      declared_stage_total_minutes: 45
+      dna_total_planned_minutes: 29
+      dna_unallocated_minutes: 16
+      compatibility_rules_version: "1.0"
+      component_totals:
+        activity_minutes: 16
+        setup_minutes: 10
+        cleanup_minutes: 0
+        transition_minutes: 0
+      reserve_minutes: 3
+      non_dna_minutes: 16
+      phases:
+        - phase_id: retrieval
+          phase: retrieval
+          target_id: retrieval-self-test
+          lesson_stage_ids:
+            - retrieve-water-unit
+            - revision-stations
+          timing_allocations:
+            - lesson_stage_id: retrieve-water-unit
+              activity_minutes: 5
+              setup_minutes: 1
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: retrieval_activation
+            - lesson_stage_id: revision-stations
+              activity_minutes: 0
+              setup_minutes: 3
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 5
+            setup_minutes: 4
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: closed_first_attempt
+          binding_rationale_ru: Retrieval self-test начинается в activation и использует setup первой revision
+            station без скрытых минут.
+          status: reconciled
+        - phase_id: correction
+          phase: formative_assessment
+          target_id: error-correction
+          lesson_stage_ids:
+            - revision-stations
+          timing_allocations:
+            - lesson_stage_id: revision-stations
+              activity_minutes: 3
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 3
+            setup_minutes: 4
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Error correction выполняется в revision stage после сохранённой первой попытки
+            и имеет явное объяснение исправления.
+          status: reconciled
+        - phase_id: consolidation
+          phase: consolidation
+          target_id: concept-map
+          lesson_stage_ids:
+            - revision-stations
+            - separate-unit-assessment
+          timing_allocations:
+            - lesson_stage_id: revision-stations
+              activity_minutes: 4
+              setup_minutes: 1
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+            - lesson_stage_id: separate-unit-assessment
+              activity_minutes: 4
+              setup_minutes: 1
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+          component_totals:
+            activity_minutes: 8
+            setup_minutes: 2
+            cleanup_minutes: 0
+            transition_minutes: 0
+          source_access_policy: open
+          binding_rationale_ru: Concept map делит время между revision и отдельной assessment stage, не
+            смешивая предметный и языковой score.
+          status: reconciled
+      reserve_allocations:
+        - lesson_stage_id: separate-unit-assessment
+          minutes: 3
+          rationale_ru: Резерв сохраняется внутри раздельной итоговой проверки для индивидуального темпа.
+      non_dna_allocations:
+        - lesson_stage_id: complete-change-model-ru
+          minutes: 9
+          role: content_explanation
+          rationale_ru: Полная русская предметная модель остаётся authoritative content вне method selection.
+        - lesson_stage_id: add-final-terms-et
+          minutes: 7
+          role: language_bridge
+          rationale_ru: Отдельный bounded A1–A2 мост остаётся authoritative language support.
+      stage_partitions:
+        - lesson_stage_id: add-final-terms-et
+          stage_type: estonian_language_bridge
+          duration_minutes: 7
+          phase_allocations: []
+          reserve_minutes: 0
+          non_dna_minutes: 7
+          allocated_minutes: 7
+        - lesson_stage_id: complete-change-model-ru
+          stage_type: russian_concept_explanation
+          duration_minutes: 9
+          phase_allocations: []
+          reserve_minutes: 0
+          non_dna_minutes: 9
+          allocated_minutes: 9
+        - lesson_stage_id: retrieve-water-unit
+          stage_type: activation
+          duration_minutes: 6
+          phase_allocations:
+            - phase_id: retrieval
+              lesson_stage_id: retrieve-water-unit
+              activity_minutes: 5
+              setup_minutes: 1
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: retrieval_activation
+              allocated_minutes: 6
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 6
+        - lesson_stage_id: revision-stations
+          stage_type: revision
+          duration_minutes: 15
+          phase_allocations:
+            - phase_id: consolidation
+              lesson_stage_id: revision-stations
+              activity_minutes: 4
+              setup_minutes: 1
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 5
+            - phase_id: correction
+              lesson_stage_id: revision-stations
+              activity_minutes: 3
+              setup_minutes: 4
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 7
+            - phase_id: retrieval
+              lesson_stage_id: revision-stations
+              activity_minutes: 0
+              setup_minutes: 3
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 3
+          reserve_minutes: 0
+          non_dna_minutes: 0
+          allocated_minutes: 15
+        - lesson_stage_id: separate-unit-assessment
+          stage_type: assessment
+          duration_minutes: 8
+          phase_allocations:
+            - phase_id: consolidation
+              lesson_stage_id: separate-unit-assessment
+              activity_minutes: 4
+              setup_minutes: 1
+              cleanup_minutes: 0
+              transition_minutes: 0
+              compatibility_basis: standard
+              allocated_minutes: 5
+          reserve_minutes: 3
+          non_dna_minutes: 0
+          allocated_minutes: 8
+      status: reconciled
+    classroom_rendered_paths:
+      - teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+      - teacher-packs/grade-5-science/water/lessons/lesson-04.md
+      - teacher-packs/grade-5-science/water/student/lesson-04-assessment.md
+      - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+    estonian_assessment: *a4
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md
+    home_practical_policy_path: null
+    homeschool_render_resolution:
+      content_refs_resolved: true
+      task_refs_resolved: true
+      answer_refs_resolved: true
+      procedure_refs_resolved: true
+      safety_refs_resolved: true
+      home_material_validation:
+        resolved_material_count: 3
+        resolved_material_ids:
+          - complete-phase-cycle
+          - unit-revision-stations
+          - unit-separate-assessment
+        resolved_artifact_paths:
+          - teacher-packs/grade-5-science/water/student/lesson-04-assessment.md
+          - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+          - teacher-packs/grade-5-science/water/student/lesson-04-review-sheet.md
+        delivery_scope_valid: true
+        classroom_task_markers_absent: true
+        classroom_instructions_absent: true
+        practical_key_leak_absent: true
+        policy_semantics_valid: true
+    readiness:
+      structural_state: generated
+      teacher_review: pending
+      classroom_trial: not_tested
+      classroom_ready: false
+      homeschool_ready: false
+      effectiveness_claimed: false
+determinism:
+  ordering: bytewise
+  ai_used: false
+  network_used: false
+  randomness_used: false
+  volatile_timestamps: false

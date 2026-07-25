@@ -1,0 +1,274 @@
+artifact_type: homeschool_package
+assessment:
+  estonian_language_assessment: true
+  separation_policy: separate_subject_and_estonian_language_evidence
+  subject_assessment: true
+context:
+  estonian_support:
+    allowed_roles:
+      - familiar_instruction
+      - labels
+      - sentence_frame
+      - short_oral_response
+      - short_written_response
+      - terminology
+    enabled: true
+    learner_level: A1-A2
+  grade: 5
+  homeschool_lesson_dna_id: grade-5-water-02-states-homeschool-adaptation-selection-dna
+  learner_count: 1
+  learner_session_minutes: 30
+  maximum_sessions: 8
+  primary_instruction_language: ru
+  subject: science
+  variant: independent
+known_limits:
+  - homeschool_rules_provisional
+  - teacher_review_pending
+  - home_trial_not_started
+  - no_effectiveness_claim
+  - teacher_provided_content_not_rendered
+learner_plan:
+  breaks: []
+  contingency_ru: "Если шаг неясен, не угадывай ответ: запиши вопрос и используй резерв."
+  correction_ru: Исправь ошибку другим цветом и сохрани первую попытку видимой.
+  reflection_ru: Запиши один нерешённый вопрос для предметного учителя.
+  retrieval_ru: Сначала восстанови главное без открытого источника.
+  self_check_ru: Открой ключ только после самостоятельной попытки.
+  steps:
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Подготовь материалы и прочитай видимую цель занятия.
+      learner_minutes: 7
+      material_refs:
+        - three-states-diagram
+      phase_id: orientation
+      safety_controls_ru: []
+      source_access: open
+      step_id: step-01-orientation
+      task_refs:
+        - grade-5-water-02-states/activation-task--home-orientation
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Открой указанный материал и выполни одно задание своими словами.
+      learner_minutes: 22
+      material_refs:
+        - state-sort-cards
+        - three-states-diagram
+      phase_id: independent-practice
+      safety_controls_ru: []
+      source_access: open
+      step_id: step-02-independent-practice
+      task_refs:
+        - grade-5-water-02-states/explanation-task--home-independent-practice
+        - grade-5-water-02-states/guided-practice-task--home-independent-practice
+    - adult_involvement: none
+      completion_evidence_ru: Самостоятельная попытка и видимое исправление после сверки.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Закрой источник и выполни попытку по памяти.
+      learner_minutes: 10
+      material_refs:
+        - states-exit-card
+        - three-states-diagram
+      phase_id: retrieval
+      safety_controls_ru: []
+      source_access: closed
+      step_id: step-03-retrieval
+      task_refs:
+        - grade-5-water-02-states/retrieval-task
+    - adult_involvement: none
+      completion_evidence_ru: Запись, схема, устный ответ или наблюдение, указанное в teacher-provided task.
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      instruction_ru: Открой ключ после попытки и исправь ошибку другим цветом.
+      learner_minutes: 7
+      material_refs:
+        - states-exit-card
+      phase_id: reflection
+      safety_controls_ru: []
+      source_access: closed
+      step_id: step-04-reflection
+      task_refs:
+        - grade-5-water-02-states/formative-check-task--home-reflection
+  success_criteria_refs:
+    - grade-5-water-02-states-homeschool-adaptation-success-criteria
+  visible_goal_ref: grade-5-water-02-states-homeschool-adaptation-visible-goal
+materials:
+  answer_key_refs:
+    - lesson-02-answer-key
+  cleanup_steps_ru:
+    - Собери материалы и оставь нерешённый вопрос для предметного учителя.
+  consumable_materials:
+    - paper
+  learner_material_refs:
+    - state-sort-cards
+    - states-exit-card
+    - three-states-diagram
+  phase_binding_summary:
+    - adapted_phase_id: independent-practice
+      answer_key_refs:
+        - lesson-02-answer-key
+      binding_origin: mapped_source
+      learner_material_refs:
+        - state-sort-cards
+        - three-states-diagram
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: self_managed_after_attempt
+      review_capable: true
+      safety_refs: []
+      source_access_policy: open
+      source_phase_ids:
+        - explanation
+        - guided-practice
+      teacher_explanation_refs:
+        - water-lesson-02-guide
+      valid: true
+    - adapted_phase_id: orientation
+      answer_key_refs: []
+      binding_origin: mapped_source
+      learner_material_refs:
+        - three-states-diagram
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: not_applicable
+      review_capable: false
+      safety_refs: []
+      source_access_policy: open
+      source_phase_ids:
+        - activation
+      teacher_explanation_refs:
+        - water-lesson-02-guide
+      valid: true
+    - adapted_phase_id: reflection
+      answer_key_refs:
+        - lesson-02-answer-key
+      binding_origin: mapped_source
+      learner_material_refs:
+        - states-exit-card
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: self_managed_after_attempt
+      review_capable: true
+      safety_refs: []
+      source_access_policy: closed
+      source_phase_ids:
+        - formative-check
+      teacher_explanation_refs:
+        - water-lesson-02-guide
+      valid: true
+    - adapted_phase_id: retrieval
+      answer_key_refs:
+        - lesson-02-answer-key
+      binding_origin: exact_adapted
+      learner_material_refs:
+        - states-exit-card
+        - three-states-diagram
+      procedure_refs: []
+      rationale_ru: Привязки проверены только для exact adapted phase или явно сопоставленных source phases.
+      release_policy: self_managed_after_attempt
+      review_capable: true
+      safety_refs: []
+      source_access_policy: closed
+      source_phase_ids:
+        - retrieval
+      teacher_explanation_refs:
+        - water-lesson-02-guide
+      valid: true
+  preparation_steps_ru:
+    - Подготовь только перечисленные материалы и убери отвлекающие предметы.
+  reusable_materials:
+    - board
+    - manipulatives
+    - printable_cards
+package_id: grade-5-water-02-states-homeschool-adaptation-package
+parent_guidance_ref: grade-5-water-02-states-homeschool-adaptation-parent-guidance
+review_binding_summary:
+  - adapted_phase_ids:
+      - retrieval
+    answer_key_refs:
+      - lesson-02-answer-key
+    origins:
+      - exact_adapted
+    release_policy: self_managed_after_attempt
+    session_index: 3
+safety:
+  adapted_supervision_required: false
+  adult_supervision_required: false
+  controls_ru: []
+  effective_supervision_required: false
+  risk_summary_ru: Выбранные этапы не требуют специального надзора безопасности.
+  source_supervision_required: false
+  stop_conditions_ru:
+    - Остановись, если инструкция, материал или условие безопасности неясны.
+    - Не продолжай практическое действие без требуемого взрослого.
+  teacher_authorization_required: false
+schema_version: "1.0"
+source_identity:
+  source_lesson_dna_digest: a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0
+  source_lesson_dna_id: grade-5-water-02-states-classroom-selection-dna
+  source_request_digest: 5e1c87d97470ef34da891e229c5a8bf7cb682bedc38b17a9e39bc7e5465b8095
+  source_request_id: grade-5-water-02-states-classroom-selection
+  source_selection_versions:
+    activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
+    engine: "1.1"
+    lesson_dna_schema: "1.0"
+    selection_rules: "1.0"
+    taxonomy: "1.0"
+status:
+  effectiveness_claimed: false
+  home_trial: not_started
+  homeschool_ready: false
+  structural_state: proposed
+  teacher_review: pending
+teacher_override_adaptations:
+  - adapted_phase_id: independent-practice
+    adapted_target_id: learning-stations::paper-classification
+    override_id: align-state-card-sorting
+    policy: allow_reselection_with_warning
+    rationale_ru: Resolved target-pattern slot uses a different target after homeschool hard constraints.
+    source_slot_id: guided-practice
+    source_target_id: sorting-and-sequencing
+    status: reselected
+    teacher_rationale_ru: Существующая стадия использует карточки состояний и требует явной
+      классификации, а не абстрактной карты понятий.
+timing:
+  adult_minutes: 0
+  break_minutes: 0
+  cleanup_minutes: 2
+  contingency_minutes: 2
+  delayed_retrieval_minutes: 6
+  learner_activity_minutes: 31
+  setup_minutes: 13
+  total_learner_minutes: 54
+  transition_minutes: 0
+  weekly_review_minutes: 0
+warnings:
+  - code: teacher_override_reselected
+    rationale_ru: Исходный teacher override не переносится как accepted без совпадающего target.
+weekly_study_plan_ref: grade-5-water-02-states-homeschool-adaptation-weekly-plan

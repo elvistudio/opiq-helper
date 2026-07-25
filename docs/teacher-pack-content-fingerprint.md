@@ -9,6 +9,12 @@ Git commit SHA and content fingerprint have different purposes:
 
 A rebase, squash, or unrelated commit does not invalidate evidence when the fingerprint is unchanged. A change to any scoped path, file name, or file byte makes the evidence stale. Computing the fingerprint requires no Git history.
 
+For an integrated pack, machine lesson-DNA/selection/homeschool artifacts and
+rendered homeschool materials are reviewable content under declared
+`directory_paths`. A pedagogy migration therefore changes the fingerprint and
+requires fresh review/trial evidence. `materials-index.yaml` and evidence
+records remain excluded by fingerprint specification 1.0.
+
 ## Reviewable scope
 
 Each `materials-index.yaml` declares `reviewable_content`:

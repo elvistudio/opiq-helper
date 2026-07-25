@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/home-practical-policy.schema.json",
+  "title": "Generated home practical policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "policy_id",
+    "lesson_id",
+    "lesson_content_identity",
+    "applies_to_phase_ids",
+    "source_classroom_target_id",
+    "adapted_home_target_id",
+    "teacher_authorization_required",
+    "adult_supervision_required",
+    "allowed_materials_ru",
+    "forbidden_materials_ru",
+    "child_steps_ru",
+    "learner_success_criteria_ru",
+    "adult_steps_ru",
+    "prohibited_actions_ru",
+    "stop_conditions_ru",
+    "safety_controls_ru",
+    "home_instructions_et",
+    "procedure_source_refs",
+    "safety_source_refs",
+    "home_resources",
+    "homework_relationship",
+    "status"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "home_practical_policy" },
+    "policy_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "lesson_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "lesson_content_identity": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/contentIdentity"
+    },
+    "applies_to_phase_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+    },
+    "source_classroom_target_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[a-z0-9._:-]*[a-z0-9])?$"
+    },
+    "adapted_home_target_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[a-z0-9._:-]*[a-z0-9])?$"
+    },
+    "teacher_authorization_required": { "const": true },
+    "adult_supervision_required": { "const": true },
+    "allowed_materials_ru": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "forbidden_materials_ru": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "child_steps_ru": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "learner_success_criteria_ru": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "adult_steps_ru": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "prohibited_actions_ru": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "stop_conditions_ru": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "safety_controls_ru": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "home_instructions_et": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "procedure_source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "safety_source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "home_resources": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/resourceAvailability"
+    },
+    "homework_relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "same_scientific_observation",
+        "homework_adult_support_expected",
+        "generated_lesson_adult_supervision_required",
+        "rationale_ru"
+      ],
+      "properties": {
+        "same_scientific_observation": { "type": "boolean" },
+        "homework_adult_support_expected": { "type": "boolean" },
+        "generated_lesson_adult_supervision_required": { "const": true },
+        "rationale_ru": { "type": "string", "minLength": 30 }
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "structural_state",
+        "teacher_review",
+        "home_trial",
+        "homeschool_ready"
+      ],
+      "properties": {
+        "structural_state": { "const": "proposed" },
+        "teacher_review": { "const": "pending" },
+        "home_trial": { "const": "not_started" },
+        "homeschool_ready": { "const": false }
+      }
+    }
+  }
+}

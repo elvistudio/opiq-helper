@@ -1,0 +1,104 @@
+schema_version: "1.0"
+artifact_type: pedagogical_selection_request
+request_id: grade-5-water-01-properties-classroom-selection
+learner_context:
+  grade: 5
+  subject: science
+  delivery_mode: classroom
+  group_size: 24
+  supported_group_formats:
+    - individual
+    - pair
+    - small_group
+    - whole_class
+  lesson_duration_minutes: 45
+  study_context: classroom
+lesson_context:
+  purpose: concept_introduction
+  content_types:
+    - conceptual_text
+    - practical_observation
+  required_capabilities:
+    - concept_formation
+    - formative_assessment
+  desired_capabilities:
+    - observation
+    - retrieval
+    - visual_representation
+  phase_needs:
+    - activation
+    - explanation
+    - formative_assessment
+    - guided_practice
+    - retrieval
+  context_flags:
+    practical: false
+    map_or_data: false
+    retrieval: true
+    assessment: true
+  previous_target_ids: []
+  future_retrieval_windows:
+    - after_lessons: 1
+      capability: retrieval
+  required_pattern_id: concept-introduction-classroom
+language_profile:
+  primary_instruction_language: ru
+  maximum_total_productive_language_demand: medium
+  estonian_support:
+    enabled: true
+    language: et
+    learner_level: A1-A2
+    allowed_roles:
+      - familiar_instruction
+      - labels
+      - sentence_frame
+      - short_oral_response
+      - short_written_response
+      - terminology
+    subject_explanation_language: ru
+    sentence_frames_required: true
+    word_bank_required: true
+    assessment_requested: true
+resources:
+  available:
+    - diagram
+    - manipulatives
+    - paper
+    - textbook_or_source_text
+    - writing_tool
+  unavailable:
+    - internet
+  printer_available: false
+  internet_available: false
+  projector_available: false
+  laboratory_materials_available: false
+  measuring_tools_available: false
+  outdoor_access_available: false
+  adult_safety_supervision_available: true
+constraints:
+  max_teacher_preparation: medium
+  max_teacher_facilitation: high
+  max_learner_setup: medium
+  max_parent_effort: minimal
+  accessibility_priorities:
+    - working_memory_support
+  retrieval_first_attempt_without_source: true
+preferences:
+  preferred_pattern_ids:
+    - concept-introduction-classroom
+  preferred_target_ids:
+    - concept-map
+    - one-minute-recall
+  excluded_target_ids: []
+  avoid_recent_target_ids: []
+  preferred_group_formats:
+    - individual
+    - pair
+    - whole_class
+  teacher_overrides:
+    - override_id: align-observation-comparison
+      slot_id: guided-practice
+      requested_target_id: venn-diagram
+      rationale_ru: Сравнение воды и раствора в существующей практической таблице требует явного
+        отображения общего и различий.
+      author_role: teacher

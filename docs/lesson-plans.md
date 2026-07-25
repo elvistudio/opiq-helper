@@ -21,6 +21,13 @@ The documented model is a teaching design, not a claim that a particular techniq
 
 All schemas are strict. Unknown fields fail validation. Shared teaching vocabulary lives in `schemas/teaching-plan-common.schema.json`; canonical routes, Opiq records, instructional roles, and provenance reuse the definitions and validation infrastructure introduced by the curriculum-map implementation.
 
+Lesson schema 1.1, thematic schema 1.1, and teacher-pack schema 1.2 remain
+valid legacy formats. Integrated versions 1.2, 1.2, and 1.3 require an explicit
+`pedagogical_integration` contract. The lesson remains content authority;
+selection input, generated lesson DNA, phase bindings, and content identity
+describe delivery without inventing science content. See
+[pedagogy generation integration](pedagogy-generation-integration.md).
+
 ## Methodology model
 
 Every lesson uses:
@@ -235,3 +242,26 @@ npm run check:teacher-packs
 ```
 
 The focused test suites mutate the valid production repository to verify route ownership, schema strictness, objectives, language load, timing, cross-file links, programme type, provenance, assessment separation, school-stage scope, completeness, material path safety, answer-key requirements, hidden-answer rejection, readiness gates, and warning thresholds.
+
+## Integrated pedagogy bindings
+
+Integrated lesson schema 1.2 keeps the authored stage plan authoritative and
+adds a strict execution envelope. Every selected DNA phase names its real
+lesson stages, partitions its activity/setup/cleanup/transition minutes, and
+provides a Russian binding rationale. Reserve and explicitly non-DNA work
+complete the stage partition; the resulting totals must reconcile exactly to
+each stage and to the 45-minute lesson. Versioned compatibility rules reject a
+semantically false binding even when its arithmetic fits.
+
+Each learner-facing phase also declares a render contract: execution mode,
+concrete instruction, prompt/evidence/language references, evaluation mode,
+and answer-access policy. This contract resolves to the declared student
+material rather than the first file in a lesson. Answer-bearing tasks require
+a real answer/evidence artifact; teacher observation and open work cannot
+receive a fictitious after-attempt key.
+
+Structured Estonian assessment criteria propagate separately from subject
+assessment through the selection request, DNA, generated tasks, answer
+guidance, and homeschool package. The generated structure is reproducible, but
+it does not change pending review, untested classroom/home status, or readiness.
+See `docs/pedagogy-generation-integration.md`.

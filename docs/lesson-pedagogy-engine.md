@@ -13,6 +13,13 @@ rules, and deterministic local code. It does not call a network service or AI,
 use randomness, rewrite a lesson, or claim that the selected combination is
 the most effective way to teach.
 
+Production integration does not infer constraints from lesson prose. Each
+integrated lesson stores explicit selection input; the generator builds and
+validates the request, reproduces the decision and lesson DNA, and binds phases
+back to existing stages and materials. The score remains operational fit, not
+effectiveness. See
+[pedagogy generation integration](pedagogy-generation-integration.md).
+
 The operational score means **fit to selection rules 1.0**. It is not an
 effect size, quality grade, learning guarantee, or teacher approval. Activity
 taxonomy ratings and scoring weights remain project-authored and provisional.

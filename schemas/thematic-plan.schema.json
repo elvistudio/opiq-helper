@@ -45,7 +45,7 @@
     "provenance"
   ],
   "properties": {
-    "schema_version": { "const": "1.1" },
+    "schema_version": { "enum": ["1.1", "1.2"] },
     "artifact_type": { "const": "bilingual_thematic_plan" },
     "unit_id": { "$ref": "#/$defs/slug" },
     "title_ru": { "type": "string", "minLength": 1 },
@@ -275,6 +275,9 @@
         "classroom_ready": { "type": "boolean" }
       }
     },
+    "pedagogical_integration": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/thematicIntegration"
+    },
     "completeness": {
       "type": "object",
       "additionalProperties": false,
@@ -291,6 +294,23 @@
     },
     "provenance": { "$ref": "#/$defs/provenance" }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "schema_version": { "const": "1.2" } },
+        "required": ["schema_version"]
+      },
+      "then": {
+        "properties": {
+          "pedagogical_integration": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/thematicIntegration"
+          }
+        },
+        "required": ["pedagogical_integration"]
+      },
+      "else": { "properties": { "pedagogical_integration": false } }
+    }
+  ],
   "$defs": {
     "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },

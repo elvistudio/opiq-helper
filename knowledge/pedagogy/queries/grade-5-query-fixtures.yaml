@@ -85,7 +85,10 @@ fixtures:
       required_capabilities_any: [diagram_interpretation, map_interpretation]
       minimum_capability_level: supporting
       max_productive_language: low
-    expected_include_target_ids: ["learning-stations::map-data", visual-representation]
+    expected_include_target_ids:
+      - "learning-stations::map-data"
+      - "visual-representation::paper-diagram"
+      - "visual-representation::physical-model"
     expected_exclude_target_ids:
       - back-to-back-description
       - "learning-stations::paper-classification"
@@ -111,10 +114,14 @@ fixtures:
       required_capabilities_any: [measurement, observation]
       minimum_capability_level: supporting
       adult_safety_supervision_required: true
-    expected_include_target_ids: ["learning-stations::practical-observation-measurement"]
+    expected_include_target_ids:
+      - "learning-stations::practical-compact-teacher-prepared-observation"
+      - "learning-stations::practical-home-passive-ice-observation"
+      - "learning-stations::practical-observation-measurement"
     expected_exclude_target_ids:
       - "learning-stations::map-data"
       - "learning-stations::paper-classification"
       - retrieval-self-test
-      - visual-representation
+      - "visual-representation::paper-diagram"
+      - "visual-representation::physical-model"
     ordering: target_id_bytewise

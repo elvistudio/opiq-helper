@@ -26,3 +26,27 @@ Lesson: `grade-5-water-02-states`
 Карточка 2: ____________________. Я положил(а) её в поле ____________________, потому что ___________________________________________________________________.
 
 Provenance: `author_created_worksheet`, lesson 02 classification; canonical visual support: https://www.opiq.ee/kit/122/chapter/6282. Чёрно-белая печать.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-02-states phase=guided-practice audience=student -->
+## Сортировка и упорядочивание
+
+<!-- task_id: grade-5-water-02-states/guided-practice-task -->
+
+Материал: **Карточки для классификации примеров**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md`
+
+Инструкция: Распредели карточки по трём состояниям, затем расположи спорные примеры в последовательности от твёрдого к газообразному.
+
+Источник можно держать открытым в пределах указанного задания.
+
+Проверь, что ты выполнил:
+
+- Все карточки распределены; спорный пример отмечен для последующей проверки.
+
+Эстонская поддержка: Банк слов: tahke · vedel · gaasiline.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-02-states phase=guided-practice audience=student -->

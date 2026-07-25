@@ -1,0 +1,271 @@
+schema_version: "1.0"
+artifact_type: lesson_dna
+lesson_dna_id: grade-5-water-03-melting-condensation-classroom-selection-dna
+status:
+  structural_state: proposed
+  teacher_review: pending
+  classroom_trial: not_started
+  classroom_ready: false
+  effectiveness_claimed: false
+versions:
+  taxonomy: "1.0"
+  selection_rules: "1.0"
+  lesson_dna_schema: "1.0"
+  activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
+  engine: "1.1"
+context:
+  request_id: grade-5-water-03-melting-condensation-classroom-selection
+  request_digest: 67c762d4b47b12448407371d5bd9eca1f6f784ba5678086def40eb7d02b6eb96
+  grade: 5
+  subject: science
+  duration_minutes: 45
+  delivery_mode: classroom
+  group_size: 24
+  language_policy:
+    primary_instruction_language: ru
+    maximum_total_productive_language_demand: high
+    estonian_support:
+      enabled: true
+      learner_level: A1-A2
+      allowed_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+      subject_explanation_language: ru
+pattern:
+  pattern_id: safe-practical-investigation
+  selection_origin: request_required
+  rationale_ru: Запрос явно зафиксировал этот паттерн. Выбор является структурным предложением, а не
+    оценкой эффективности.
+phases:
+  - phase_id: safety-orientation
+    phase: orientation
+    purpose_ru: Сделать цель, критерии наблюдения и ограничения безопасности явными.
+    required: true
+    target:
+      target_id: brainstorming
+      activity_id: brainstorming
+      execution_profile_id: null
+    activity_minutes: 3
+    setup_minutes: 2
+    cleanup_minutes: 0
+    transition_minutes: 0
+    group_format: small_group
+    capabilities:
+      primary:
+        - prior_knowledge_activation
+      supporting:
+        - collaborative_practice
+        - formative_assessment
+        - oral_production
+    source_access:
+      first_attempt: allowed
+    language_role:
+      primary_language: ru
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+    resources:
+      required:
+        - paper
+        - writing_tool
+    safety:
+      requires_adult_supervision: false
+      controls_ru: []
+    rationale_ru: Target brainstorming прошёл hard constraints и получил наивысший допустимый вклад в
+      согласованную композицию; это не effectiveness ranking.
+  - phase_id: practical-work
+    phase: guided_practice
+    purpose_ru: Выполнить разрешённые действия и фиксировать наблюдаемые данные.
+    required: true
+    target:
+      target_id: learning-stations::practical-compact-teacher-prepared-observation
+      activity_id: learning-stations
+      execution_profile_id: practical-compact-teacher-prepared-observation
+    activity_minutes: 10
+    setup_minutes: 2
+    cleanup_minutes: 2
+    transition_minutes: 0
+    group_format: small_group
+    capabilities:
+      primary:
+        - evidence_based_conclusion
+        - guided_practice
+        - observation
+      supporting:
+        - measurement
+    source_access:
+      first_attempt: allowed
+    language_role:
+      primary_language: ru
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+    resources:
+      required:
+        - laboratory_materials
+        - measuring_tools
+        - paper
+        - writing_tool
+    safety:
+      requires_adult_supervision: true
+      controls_ru:
+        - Использовать только заранее проверенные учителем безопасные материалы.
+        - Учитель выдаёт материалы после объяснения границ действий.
+        - Ученик не выполняет незаявленные действия и сразу сообщает о проблеме.
+        - Уборку и возврат материалов контролирует взрослый.
+    rationale_ru: Target learning-stations::practical-compact-teacher-prepared-observation прошёл hard
+      constraints и получил наивысший допустимый вклад в согласованную композицию; это не
+      effectiveness ranking.
+  - phase_id: evidence-check
+    phase: formative_assessment
+    purpose_ru: Отделить наблюдение от вывода и проверить ограничение модели.
+    required: true
+    target:
+      target_id: retrieval-summary
+      activity_id: retrieval-summary
+      execution_profile_id: null
+    activity_minutes: 4
+    setup_minutes: 4
+    cleanup_minutes: 0
+    transition_minutes: 1
+    group_format: individual
+    capabilities:
+      primary:
+        - retrieval
+      supporting:
+        - explanation_and_modelling
+        - formative_assessment
+        - oral_production
+        - written_production
+    source_access:
+      first_attempt: prohibited
+    language_role:
+      primary_language: ru
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+    resources:
+      required:
+        - paper
+        - textbook_or_source_text
+        - writing_tool
+    safety:
+      requires_adult_supervision: false
+      controls_ru: []
+    rationale_ru: Target retrieval-summary прошёл hard constraints и получил наивысший допустимый вклад
+      в согласованную композицию; это не effectiveness ranking.
+  - phase_id: conclusion
+    phase: retrieval
+    purpose_ru: Сформулировать предметный вывод без копирования инструкции.
+    required: true
+    target:
+      target_id: one-minute-recall
+      activity_id: one-minute-recall
+      execution_profile_id: null
+    activity_minutes: 2
+    setup_minutes: 2
+    cleanup_minutes: 0
+    transition_minutes: 0
+    group_format: individual
+    capabilities:
+      primary:
+        - retrieval
+      supporting:
+        - formative_assessment
+        - oral_production
+        - written_production
+    source_access:
+      first_attempt: prohibited
+    language_role:
+      primary_language: ru
+      estonian_roles:
+        - familiar_instruction
+        - labels
+        - sentence_frame
+        - short_oral_response
+        - short_written_response
+        - terminology
+    resources:
+      required:
+        - paper
+        - writing_tool
+    safety:
+      requires_adult_supervision: false
+      controls_ru: []
+    rationale_ru: Target one-minute-recall прошёл hard constraints и получил наивысший допустимый вклад
+      в согласованную композицию; это не effectiveness ranking.
+timing:
+  activity_minutes: 19
+  setup_minutes: 10
+  cleanup_minutes: 2
+  transition_minutes: 1
+  reserve_minutes: 3
+  total_planned_minutes: 35
+  unallocated_minutes: 10
+  fits: true
+assessment:
+  separation_policy: separate_subject_and_estonian_language_evidence
+  subject_assessment:
+    enabled: true
+    target_phase_ids:
+      - evidence-check
+    notes_ru: Предметное понимание оценивается на основном языке объяснения; эстонская форма не снижает
+      предметный результат.
+  estonian_language_assessment:
+    enabled: true
+    target_phase_ids:
+      - safety-orientation
+      - evidence-check
+      - conclusion
+    notes_ru: Проверяются только заявленные короткие эстонские роли; они не заменяют доказательство
+      предметного понимания.
+retrieval_plan:
+  immediate_phase_id: conclusion
+  correction_phase_id: null
+  delayed:
+    - after_lessons: 1
+      capability: retrieval
+differentiation:
+  scaffolds:
+    - Use one short Estonian sentence frame while retaining Russian subject reasoning.
+    - Provide a bounded Estonian word bank for the selected terminology or labels.
+  extensions: []
+teacher_overrides:
+  - override_id: preserve-compact-observation
+    status: accepted
+    slot_id: practical-work
+    target_id: learning-stations::practical-compact-teacher-prepared-observation
+    rationale_ru: Существующий урок содержит одно подготовленное учителем наблюдение, а не ротацию
+      нескольких станций.
+  - override_id: preserve-existing-conclusion
+    status: accepted
+    slot_id: conclusion
+    target_id: one-minute-recall
+    rationale_ru: Двухминутное закрытое воспроизведение помещается в итоговую assessment stage и
+      сохраняет отдельный предметный вывод.
+warnings:
+  - Capability ratings and selection weights are provisional project-authored metadata.
+  - The proposal requires teacher review and does not claim learning effectiveness.
+known_limits:
+  - classroom_trial_not_started
+  - no_effectiveness_claim
+  - per_language_productive_demand_not_modelled
+  - selection_weights_provisional
+  - taxonomy_ratings_provisional
+  - teacher_review_pending

@@ -22,3 +22,51 @@ ___________________________________________________________________________
 ___________________________________________________________________________
 
 Provenance: `author_created_assessment`, separate content/language check for lesson 01. Чёрно-белая печать; ответов в ученической версии нет.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties phase=retrieval audience=student -->
+## Карта понятий
+
+<!-- task_id: grade-5-water-01-properties/retrieval-task -->
+
+Материал: **Раздельная выходная карточка по содержанию и эстонскому языку**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md`
+
+Инструкция: Закрой источник и построй карту понятий по памяти: вещество и свойства как узлы, наблюдения как подписанные связи.
+
+Закрой источник до завершения первой попытки.
+
+Проверь, что ты выполнил:
+
+- Первая попытка сохранена; карта содержит узлы и хотя бы две подписанные связи.
+
+Эстонская поддержка: Рамка: Vesi on __________.; Банк слов: läbipaistev · värvitu · vedel.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties phase=retrieval audience=student -->
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-01-properties phase=formative-check audience=student -->
+## Самостоятельное исправление ошибки
+
+<!-- task_id: grade-5-water-01-properties/formative-check-task -->
+
+Материал: **Раздельная выходная карточка по содержанию и эстонскому языку**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-01-exit-ticket.md`
+
+Инструкция: Сохрани первую попытку, проверь её по ключу, отметь совпавшие evidence и исправь одну неточность другим цветом.
+
+Закрой источник до завершения первой попытки.
+
+Проверь, что ты выполнил:
+
+- Первая попытка сохранена и одна неточность исправлена другим цветом.
+
+Эстонская поддержка: Рамка: Vesi on __________.; Банк слов: läbipaistev · värvitu · vedel.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-01-properties phase=formative-check audience=student -->

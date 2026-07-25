@@ -1,4 +1,4 @@
-schema_version: "1.2"
+schema_version: "1.3"
 artifact_type: teacher_pack_materials_index
 pack_id: grade-5-science-water-teacher-pack
 unit_ref: grade-5-water-four-lesson-plan
@@ -50,6 +50,8 @@ reviewable_content:
     - teacher-packs/grade-5-science/water/student
     - teacher-packs/grade-5-science/water/answers
     - teacher-packs/grade-5-science/water/parent
+    - teacher-packs/grade-5-science/water/pedagogy
+    - teacher-packs/grade-5-science/water/homeschool
   derived_material_paths: true
 pedagogical_review:
   guide_path: pedagogical-reviews/grade-5-science/water/review-guide.md
@@ -59,6 +61,26 @@ classroom_trial:
   template_path: pedagogical-reviews/grade-5-science/water/classroom-trial-template.yaml
   trial_record_paths: []
   status: not_tested
+pedagogical_integration:
+  integration_version: "1.0"
+  integration_index_path: teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml
+  classroom_artifact_directory: teacher-packs/grade-5-science/water/pedagogy/classroom
+  homeschool_artifact_directory: teacher-packs/grade-5-science/water/pedagogy/homeschool
+  migration_report_path: docs/migrations/grade-5-water-pedagogy-integration.md
+  generator:
+    command: npm run generate:pedagogy-water-pilot -- --write
+    implementation_version: "1.0"
+  unit_content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: bb78af3a4db7362cf09857f90f5bff28c0a81349e43f2035489a5931aae372ef
+  status:
+    structural_state: generated
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    homeschool_ready: false
+    effectiveness_claimed: false
 materials:
   - lesson_ids: []
     required_for_pack: true
@@ -294,6 +316,40 @@ materials:
   - lesson_ids: [grade-5-water-03-melting-condensation]
     required_for_pack: true
     material:
+      material_id: lesson-03-home-safety-card
+      title: Карточка безопасности домашнего пассивного наблюдения
+      material_type: practical_setup
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-home-safety-card.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: Карточка проверяет соблюдение утверждённой домашней процедуры и не содержит задания с единственным предметным ответом.
+      provenance:
+        category: author_created_bridge
+        source_reference: lesson 03 approved passive home observation policy
+        notes: Home-only safety card generated from the strict practical policy; it contains no classroom procedure or answer-key release.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: lesson-03-home-passive-observation-sheet
+      title: Лист домашнего пассивного наблюдения
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-passive-observation-sheet.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: Домашние наблюдения зависят от условий; полноту записи и соблюдение процедуры проверяет взрослый, а научный вывод проверяется отдельным retrieval-заданием после первой попытки.
+      provenance:
+        category: author_created_worksheet
+        source_reference: lesson 03 approved passive home observation policy
+        notes: Home-only observation record; it does not reuse the classroom temperature-comparison procedure.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
       material_id: melting-condensation-table
       title: Таблица измерений и наблюдений
       material_type: worksheet
@@ -481,3 +537,148 @@ materials:
         category: author_created_bridge
         source_reference: family review across the four water lessons
         notes: Local family checklist excludes personal-data storage in the repository.
+  - lesson_ids: [grade-5-water-01-properties, grade-5-water-02-states, grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: water-oral-answer-preparation
+      title: Подготовка устного ответа по четырём урокам
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/student/water-oral-answer-preparation.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: existing water lesson questions and expected answers
+        notes: Generated first-attempt prompts use only existing lesson questions and bounded language targets.
+  - lesson_ids: [grade-5-water-01-properties, grade-5-water-02-states, grade-5-water-03-melting-condensation, grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: water-oral-answer-guidance
+      title: Ключ и руководство к подготовке устного ответа
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-5-science/water/answers/water-oral-answer-guidance.md
+      audience: teacher
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: existing water lesson questions and expected answers
+        notes: Generated guidance reproduces existing expected answers and preserves separate subject and language evidence.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-lesson-01
+      title: Самостоятельное домашнее занятие 1
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-01-independent-study.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-01-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: generated adaptation of grade-5-water-01-properties
+        notes: Deterministic homeschool rendering shares the lesson content identity and does not add science claims.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-lesson-02
+      title: Самостоятельное домашнее занятие 2
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: generated adaptation of grade-5-water-02-states
+        notes: Deterministic homeschool rendering shares the lesson content identity and does not add science claims.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-lesson-03
+      title: Домашнее занятие 3 с надзором взрослого
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-supported.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-03-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: generated safe adaptation of grade-5-water-03-melting-condensation
+        notes: Only passive melting and cold-surface observation are permitted; adult safety supervision remains required.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-lesson-04
+      title: Самостоятельное домашнее занятие 4
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-04-independent-study.md
+      audience: student
+      languages: [ru, et]
+      printable: true
+      answer_key_path: teacher-packs/grade-5-science/water/answers/lesson-04-answer-key.md
+      provenance:
+        category: author_created_worksheet
+        source_reference: generated adaptation of grade-5-water-04-changes-review
+        notes: Deterministic homeschool rendering preserves source-closed retrieval and visible correction.
+  - lesson_ids: [grade-5-water-01-properties]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-parent-lesson-01
+      title: Границы роли взрослого для занятия 1
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: generated parent guidance for grade-5-water-01-properties
+        notes: Adult support remains bounded and never becomes subject explanation.
+  - lesson_ids: [grade-5-water-02-states]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-parent-lesson-02
+      title: Границы роли взрослого для занятия 2
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-02-parent-guidance.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: generated parent guidance for grade-5-water-02-states
+        notes: Adult support remains bounded and never becomes subject explanation.
+  - lesson_ids: [grade-5-water-03-melting-condensation]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-parent-lesson-03
+      title: Безопасность и роль взрослого для занятия 3
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-03-parent-guidance.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: generated parent guidance for grade-5-water-03-melting-condensation
+        notes: Adult prepares approved materials, supervises safety and does not formulate the conclusion.
+  - lesson_ids: [grade-5-water-04-changes-review]
+    required_for_pack: true
+    material:
+      material_id: water-homeschool-parent-lesson-04
+      title: Границы роли взрослого для занятия 4
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-5-science/water/homeschool/lesson-04-parent-guidance.md
+      audience: parent
+      languages: [ru, et]
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: generated parent guidance for grade-5-water-04-changes-review
+        notes: Adult support remains bounded and never becomes subject explanation.

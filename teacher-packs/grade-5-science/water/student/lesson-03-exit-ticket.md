@@ -22,3 +22,27 @@ ___________________________________________________________________________
 ___________________________________________________________________________
 
 Provenance: `author_created_assessment`, lesson 03 content/language separation. Чёрно-белая печать; ответов нет.
+
+<!-- OPIQ-PEDAGOGY:BEGIN lesson=grade-5-water-03-melting-condensation phase=conclusion audience=student -->
+## Минутное воспроизведение
+
+<!-- task_id: grade-5-water-03-melting-condensation/conclusion-task -->
+
+Материал: **Выходная карточка содержания и языка**
+
+Путь: `teacher-packs/grade-5-science/water/student/lesson-03-exit-ticket.md`
+
+Инструкция: Закрой источник и за одну минуту запиши русский вывод о выбранном процессе, затем добавь одну короткую эстонскую фразу.
+
+Закрой источник до завершения первой попытки.
+
+Проверь, что ты выполнил:
+
+- Русский вывод и короткая эстонская фраза записаны отдельно после первой попытки.
+
+Эстонская поддержка: Рамка: Vesi __________ ja hiljem __________.; Банк слов: sulab · aurustub · veeldub.
+
+Ключ разрешён после самостоятельной первой попытки.
+
+После сверки сохрани первую попытку и исправь неточность другим цветом.
+<!-- OPIQ-PEDAGOGY:END lesson=grade-5-water-03-melting-condensation phase=conclusion audience=student -->

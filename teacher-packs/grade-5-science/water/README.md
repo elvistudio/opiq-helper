@@ -15,6 +15,60 @@ Teacher-ready комплект для четырёх уроков 5 класса
 
 Машинный реестр находится в [materials-index.yaml](materials-index.yaml). Он связывает материал с уроком, аудиторией, языками, печатностью, ключом ответа и provenance.
 
+## Pedagogy integration
+
+`pedagogy/integration-index.yaml` связывает content identity, classroom
+selection request/decision, lesson DNA, stage timing, homeschool package,
+parent guidance и weekly plan. Teacher-facing lesson files показывают
+сгенерированную структуру в ограниченных marker-регионах; child-facing
+материалы не показывают taxonomy/scoring. Четыре готовых домашних варианта
+находятся в `homeschool/`, а подготовка устного ответа — в
+`student/water-oral-answer-preparation.md`.
+
+Committed classroom lesson DNA — единственный canonical selector output. Она
+без изменений входит в homeschool request и имеет тот же digest в integration
+index, decision и package. Точная production-привязка предметного и эстонского
+assessment хранится отдельным overlay и не изменяет DNA.
+
+Проверка воспроизводима без AI, сети, случайности и timestamp:
+
+```bash
+npm run generate:pedagogy-water-pilot -- --check
+```
+
+Classroom и homeschool используют одну scientific content identity. Это не
+означает, что методика независимо проверена.
+
+Каждая selected phase теперь имеет собственное реальное задание, привязанное к
+конкретному student-файлу и, где нужен проверяемый ответ, к реальному key.
+Activity/setup/cleanup/transition, reserve и non-DNA минуты полностью и без
+пересечений делят каждый 45-минутный урок. Эстонское evidence A1–A2
+переносится отдельно от русского предметного evidence.
+
+Для домашнего урока 3 действует строгая политика
+`pedagogy/homeschool/lesson-03-home-practical-policy.yaml`: только пассивное
+таяние льда и капли на безопасной холодной поверхности, обязательное
+разрешение учителя и присутствие взрослого, без чайника, плиты, открытого огня,
+горячего сосуда и дегустации. Package, child/parent Markdown и machine policy
+проверяются на одинаковую границу безопасности. Это не подтверждает домашнюю
+апробацию.
+Домашняя практика использует отдельный
+`homeschool/lesson-03-passive-observation-sheet.md` и отдельную
+`homeschool/lesson-03-home-safety-card.md`. Домашние safety-orientation и
+practical не используют школьную карточку безопасности, таблицу температуры
+или ключ; для них установлен `teacher_observation` и
+`answer_access_policy: not_applicable`. Ключ урока остаётся только у отдельных
+этапов проверки evidence и вывода после первой попытки. Ученические критерии и
+рамки отделены от полных ответов; answer-leak guard проверяет student и
+child-facing homeschool файлы.
+
+Delivery scope материалов объявлен машинно. Проверка проходит полный closure
+от шага домашнего package через task contract и materials index до содержимого
+файла. Classroom-only материал нельзя разрешить в homeschool task, а
+home-only материал — в classroom task. Исходный homeschool request сохраняет
+classroom bindings только как неизменяемую provenance канонической lesson DNA;
+они не входят в resolved home closure.
+
 ## Независимая проверка и апробация
 
 Для независимого review используйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md), а для урока — печатную [обезличенную форму наблюдения](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Сначала вычислите content fingerprint и сохраните commit SHA только как provenance. Fingerprint охватывает связанные lesson/thematic YAML и реальные teacher/student/answer/parent материалы; rebase или squash не инвалидирует unchanged content. Пустые templates помогают оформить будущую запись, но не являются доказательством выполненного review или trial.

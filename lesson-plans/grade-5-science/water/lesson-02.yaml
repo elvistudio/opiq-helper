@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 artifact_type: bilingual_lesson
 lesson_id: grade-5-water-02-states
 grade: 5
@@ -519,6 +519,377 @@ artifact_readiness:
     notes: Урок ещё не апробирован в классе.
   classroom_ready: false
   readiness_status: teacher_pack_complete_pending_review
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: 3708cc17ac3d5b3462060af7fd18a0c0b63d1ff8d918d0f6e72ce7aa218babcc
+  selection_input:
+    purpose: concept_introduction
+    content_types: [classification, conceptual_text, visual_representation]
+    required_capabilities: [classification, concept_formation]
+    desired_capabilities: [formative_assessment, retrieval, visual_representation]
+    phase_needs: [activation, explanation, formative_assessment, guided_practice, retrieval]
+    context_flags: {practical: false, map_or_data: false, retrieval: true, assessment: true}
+    maximum_total_productive_language_demand: medium
+    delivery:
+      group_size: 24
+      supported_group_formats: [individual, pair, small_group, whole_class]
+    resources:
+      available: [diagram, manipulatives, paper, printable_cards, textbook_or_source_text, writing_tool]
+      unavailable: [internet]
+      printer_available: true
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: false
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: medium
+      max_teacher_facilitation: high
+      max_learner_setup: medium
+      max_parent_effort: minimal
+      accessibility_priorities: [working_memory_support]
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: concept-introduction-classroom
+      preferred_target_ids: [frayer-model, sorting-and-sequencing, visual-representation]
+      excluded_target_ids: []
+      preferred_group_formats: [individual, pair, whole_class]
+      teacher_overrides:
+        - override_id: align-state-card-sorting
+          slot_id: guided-practice
+          requested_target_id: sorting-and-sequencing
+          rationale_ru: Существующая стадия использует карточки состояний и требует явной классификации, а не абстрактной карты понятий.
+    homeschool:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 30
+      maximum_sessions: 8
+      maximum_total_productive_language_demand: medium
+      resources:
+        available: [diagram, manipulatives, paper, printable_cards, textbook_or_source_text, writing_tool]
+        unavailable: [internet, laboratory_materials, measuring_tools]
+        printer_available: true
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: state-sort-cards
+          delivery_scope: [classroom, homeschool]
+        - material_id: states-exit-card
+          delivery_scope: [classroom, homeschool]
+        - material_id: three-states-diagram
+          delivery_scope: [classroom, homeschool]
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      answer_key_release: self_managed_after_attempt
+      teacher_override_policy: allow_reselection_with_warning
+      adapted_task_contracts:
+        - source_phase_id: activation
+          adapted_target_id: kwl-table
+          source_task_ref: grade-5-water-02-states/activation-task
+          task_id: grade-5-water-02-states/activation-task--home-orientation
+          learner_instruction_ru: Заполни короткие графы «знаю» и «хочу узнать» о трёх состояниях воды до чтения.
+          student_material_ids: [three-states-diagram]
+          learner_success_criterion_ru: [В каждой из двух граф записана хотя бы одна самостоятельная мысль.]
+          learner_language_support_ru: ["Банк слов: jää · vesi · veeaur."]
+          evaluation_mode: teacher_observation
+          source_access_policy: open
+          answer_access_policy: not_applicable
+          answer_key_material_ids: []
+          answer_evidence_refs: [stage:activate-properties:expected_evidence_of_learning]
+          answer_language_refs: [question:question-three-states:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+          misconception_refs: [question:question-three-states:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
+        - source_phase_id: explanation
+          adapted_target_id: learning-stations::paper-classification
+          source_task_ref: grade-5-water-02-states/explanation-task
+          task_id: grade-5-water-02-states/explanation-task--home-independent-practice
+          learner_instruction_ru: Разложи бумажные элементы схемы по трём состояниям и отдельно отметь спорный пример для проверки.
+          student_material_ids: [three-states-diagram]
+          learner_success_criterion_ru: [Элементы разложены по трём группам и один спорный пример отмечен.]
+          learner_language_support_ru: ["Подписи: tahke · vedel · gaasiline."]
+          evaluation_mode: evidence_criterion
+          source_access_policy: open
+          answer_access_policy: self_managed_after_attempt
+          answer_key_material_ids: [lesson-02-answer-key]
+          answer_evidence_refs: [assessment:assess-subject-three-states:acceptable_evidence]
+          answer_language_refs: [question:question-three-states:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+          misconception_refs: [question:question-three-states:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
+        - source_phase_id: guided-practice
+          adapted_target_id: learning-stations::paper-classification
+          source_task_ref: grade-5-water-02-states/guided-practice-task
+          task_id: grade-5-water-02-states/guided-practice-task--home-independent-practice
+          learner_instruction_ru: Разложи карточки по трём состояниям, сохрани первую попытку и отметь спорный пример.
+          student_material_ids: [state-sort-cards]
+          learner_success_criterion_ru: [Все карточки распределены и первая попытка сохранена до сверки.]
+          learner_language_support_ru: ["Банк слов: tahke · vedel · gaasiline."]
+          evaluation_mode: answer_key
+          source_access_policy: open
+          answer_access_policy: self_managed_after_attempt
+          answer_key_material_ids: [lesson-02-answer-key]
+          answer_evidence_refs: [assessment:assess-subject-three-states:acceptable_evidence]
+          answer_language_refs: [question:question-three-states:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+          misconception_refs: [question:question-three-states:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
+        - source_phase_id: formative-check
+          adapted_target_id: error-correction
+          source_task_ref: grade-5-water-02-states/formative-check-task
+          task_id: grade-5-water-02-states/formative-check-task--home-reflection
+          learner_instruction_ru: Сохрани первую попытку, исправь одну карточку другим цветом и кратко объясни исправление.
+          student_material_ids: [states-exit-card]
+          learner_success_criterion_ru: [Первая попытка сохранена и одно исправление объяснено отдельно.]
+          learner_language_support_ru: ["Рамка: Vesi võib olla __________."]
+          evaluation_mode: answer_key
+          source_access_policy: closed_first_attempt
+          answer_access_policy: self_managed_after_attempt
+          answer_key_material_ids: [lesson-02-answer-key]
+          answer_evidence_refs: [assessment:assess-subject-three-states:acceptable_evidence]
+          answer_language_refs: [question:question-three-states:short_oral_answer_et]
+          acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+          misconception_refs: [question:question-three-states:misconception_to_watch]
+          procedure_refs: []
+          safety_refs: []
+      practical_policy: null
+    future_retrieval_windows:
+      - window: {after_lessons: 1}
+        capability: retrieval
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids: [explanation, formative-check, guided-practice, retrieval]
+      criterion_refs: [assess-subject-three-states]
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids: [explanation, formative-check, guided-practice, retrieval]
+      criterion_refs:
+        [assess-et-independent-state, assess-et-recognition-states, assess-et-supported-state]
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance: {source: lesson_assessment_bindings}
+  phase_bindings:
+    - dna_phase_id: activation
+      lesson_stage_ids: [activate-properties]
+      timing_allocations:
+        - lesson_stage_id: activate-properties
+          activity_minutes: 3
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids: [water-lesson-02-guide]
+      student_material_ids: [three-states-diagram]
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs: [question-three-states]
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-5-water-02-states/activation-task
+        learner_instruction_ru: До объяснения запиши первоначальную идею о том, что общего у льда, жидкой воды и водяного пара.
+        learner_success_criterion_ru: [Записана одна первоначальная идея без просмотра готового ответа.]
+        learner_language_support_ru: ["Банк слов: jää · vesi · veeaur."]
+        prompt_source_refs: [question:question-three-states:question_ru]
+        answer_evidence_refs: [stage:activate-properties:expected_evidence_of_learning]
+        teacher_action_source_refs: [stage:activate-properties:teacher_action_ru]
+        answer_language_refs: [question:question-three-states:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+        misconception_refs: [question:question-three-states:misconception_to_watch]
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Brainstorming занимает полную activation stage и сохраняет исходную гипотезу до построения модели.
+    - dna_phase_id: explanation
+      lesson_stage_ids: [explain-three-states-ru]
+      timing_allocations:
+        - lesson_stage_id: explain-three-states-ru
+          activity_minutes: 8
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids: [water-lesson-02-guide]
+      student_material_ids: [three-states-diagram]
+      answer_key_material_ids: [lesson-02-answer-key]
+      assessment_refs: [assess-subject-three-states, assess-et-recognition-states]
+      oral_answer_refs: [question-three-states]
+      source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-5-water-02-states/explanation-task
+        learner_instruction_ru: Изобрази одну общую схему трёх состояний воды и подпиши рядом по одному наблюдаемому признаку каждого состояния.
+        learner_success_criterion_ru: [Схема содержит три состояния и по одному наблюдаемому признаку для каждого.]
+        learner_language_support_ru: ["Подписи: tahke · vedel · gaasiline."]
+        prompt_source_refs: [stage:explain-three-states-ru:pupil_action_ru]
+        answer_evidence_refs:
+          [stage:explain-three-states-ru:expected_evidence_of_learning, assessment:assess-subject-three-states:acceptable_evidence]
+        teacher_action_source_refs: [stage:explain-three-states-ru:teacher_action_ru]
+        answer_language_refs: [question:question-three-states:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+        misconception_refs: [question:question-three-states:misconception_to_watch]
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Visual representation полностью размещается в русской explanation stage и материализует модель состояний.
+    - dna_phase_id: guided-practice
+      lesson_stage_ids: [classify-states]
+      timing_allocations:
+        - lesson_stage_id: classify-states
+          activity_minutes: 5
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids: [water-lesson-02-guide]
+      student_material_ids: [state-sort-cards]
+      answer_key_material_ids: [lesson-02-answer-key]
+      assessment_refs:
+        [assess-subject-three-states, assess-et-recognition-states, assess-et-supported-state]
+      oral_answer_refs: [question-three-states]
+      source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-5-water-02-states/guided-practice-task
+        learner_instruction_ru: Распредели карточки по трём состояниям, затем расположи спорные примеры в последовательности от твёрдого к газообразному.
+        learner_success_criterion_ru: [Все карточки распределены; спорный пример отмечен для последующей проверки.]
+        learner_language_support_ru: ["Банк слов: tahke · vedel · gaasiline."]
+        prompt_source_refs: [stage:classify-states:pupil_action_ru]
+        answer_evidence_refs:
+          [stage:classify-states:expected_evidence_of_learning, assessment:assess-subject-three-states:acceptable_evidence]
+        teacher_action_source_refs: [stage:classify-states:teacher_action_ru]
+        answer_language_refs: [question:question-three-states:short_oral_answer_et]
+        acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+        misconception_refs: [question:question-three-states:misconception_to_watch]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Sorting and sequencing прямо соответствует карточной классификации существующей guided-practice stage.
+    - dna_phase_id: retrieval
+      lesson_stage_ids: [label-states-et, state-summary]
+      timing_allocations:
+        - lesson_stage_id: label-states-et
+          activity_minutes: 0
+          setup_minutes: 2
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: language_assessment
+        - lesson_stage_id: state-summary
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids: [water-lesson-02-guide]
+      student_material_ids: [three-states-diagram, states-exit-card]
+      answer_key_material_ids: [lesson-02-answer-key]
+      assessment_refs:
+        [assess-subject-three-states, assess-et-recognition-states, assess-et-independent-state]
+      oral_answer_refs: [question-three-states]
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: retrieval_task
+        task_id: grade-5-water-02-states/retrieval-task
+        learner_instruction_ru: "Закрой источник и построй карту понятий по памяти: три узла состояний, признаки и подписанные связи с примерами."
+        learner_success_criterion_ru: [Первая попытка сохранена; карта содержит три узла и подписанные связи с примерами.]
+        learner_language_support_ru: ["Рамка: Vesi võib olla __________.", "Банк слов: tahke · vedel · gaasiline."]
+        prompt_source_refs: [question:question-three-states:question_ru]
+        answer_evidence_refs:
+          [question:question-three-states:full_expected_answer_ru, assessment:assess-et-independent-state:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:label-states-et:teacher_action_ru, stage:state-summary:teacher_action_ru]
+        answer_language_refs:
+          [question:question-three-states:short_oral_answer_et, assessment:assess-et-independent-state:acceptable_evidence]
+        acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+        misconception_refs: [question:question-three-states:misconception_to_watch]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Concept map использует independent-output stage и две минуты явного language retrieval из эстонского моста.
+    - dna_phase_id: formative-check
+      lesson_stage_ids: [classify-states, label-states-et]
+      timing_allocations:
+        - lesson_stage_id: classify-states
+          activity_minutes: 1
+          setup_minutes: 4
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: embedded_formative_evidence
+        - lesson_stage_id: label-states-et
+          activity_minutes: 4
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: language_assessment
+      teacher_material_ids: [water-lesson-02-guide]
+      student_material_ids: [states-exit-card]
+      answer_key_material_ids: [lesson-02-answer-key]
+      assessment_refs:
+        [assess-subject-three-states, assess-et-recognition-states, assess-et-supported-state, assess-et-independent-state]
+      oral_answer_refs: [question-three-states]
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-5-water-02-states/formative-check-task
+        learner_instruction_ru: Сохрани первую попытку распределения, проверь её по ключу, исправь одну карточку и объясни причину.
+        learner_success_criterion_ru: [Первая попытка сохранена и одна карточка исправлена другим цветом с причиной.]
+        learner_language_support_ru: ["Рамка: Vesi võib olla __________.", "Банк слов: tahke · vedel · gaasiline."]
+        prompt_source_refs: [stage:classify-states:pupil_action_ru]
+        answer_evidence_refs:
+          [assessment:assess-subject-three-states:acceptable_evidence, assessment:assess-et-supported-state:acceptable_evidence]
+        teacher_action_source_refs:
+          [stage:classify-states:teacher_action_ru, stage:label-states-et:teacher_action_ru]
+        answer_language_refs:
+          [question:question-three-states:short_oral_answer_et, assessment:assess-et-supported-state:acceptable_evidence]
+        acceptable_variant_refs: [question:question-three-states:acceptable_variants]
+        misconception_refs: [question:question-three-states:misconception_to_watch]
+        evaluation_mode: answer_key
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Error correction использует оставшееся время классификации и отдельно фиксирует короткое language evidence.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations:
+      - lesson_stage_id: label-states-et
+        minutes: 2
+        rationale_ru: Две минуты резерва сохраняются в языковом мосте для повторного моделирования терминов.
+      - lesson_stage_id: explain-three-states-ru
+        minutes: 1
+        rationale_ru: Одна минута резерва остаётся на уточнение русской предметной модели.
+    non_dna_allocations:
+      - lesson_stage_id: explain-three-states-ru
+        minutes: 1
+        role: content_explanation
+        rationale_ru: Одна минута сохраняет исходный авторский переход между объяснением и визуальной схемой.
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-request.yaml
+    selection_decision_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml
+    homeschool_decision_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml
+    homeschool_package_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml
+    parent_guidance_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-parent-guidance.yaml
+    weekly_study_plan_path: teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-weekly-plan.yaml
+    homeschool_rendered_path: teacher-packs/grade-5-science/water/homeschool/lesson-02-independent-study.md
+    home_practical_policy_path: null
+  status:
+    structural_state: generated
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    effectiveness_claimed: false
 provenance:
   category: author_created_bridge
   source_reference: issue 10 grade-5 water lesson 02

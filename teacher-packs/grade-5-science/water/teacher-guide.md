@@ -1,5 +1,15 @@
 # Руководство учителя: блок «Вода»
 
+## Сгенерированная структура доставки
+
+Для каждого урока selection engine формирует proposed lesson DNA, а generator
+связывает каждую consuming phase с существующей стадией, материалом, ключом и
+assessment evidence. Полные science explanations и expected answers остаются
+в lesson YAML; метод не создаёт новое предметное утверждение. Урок 3 использует
+короткий teacher-prepared observation profile с сохранённым надзором, setup,
+cleanup и запретом на детское обращение с горячей водой. Все решения ожидают
+независимого teacher review.
+
 ## 1. Назначение
 
 Комплект превращает четыре проверенных YAML-плана в последовательность, которую можно подготовить, провести и оценить без самостоятельного конструирования рабочих листов. Он рассчитан на русскоязычных учеников в Эстонии и сохраняет полноценное предметное содержание.
@@ -108,6 +118,26 @@
 Педагогическое review и classroom trial ещё не выполнялись. Следуйте [review guide](../../../pedagogical-reviews/grade-5-science/water/review-guide.md): вычислите content fingerprint, сохраните commit SHA как provenance, проверьте все четыре читаемых урока и материалы, зарегистрируйте реальные findings, внесите исправления, а затем проведите ограниченную апробацию с [обезличенной формой](../../../pedagogical-reviews/grade-5-science/water/anonymous-observation-form.md). Template не считается evidence. `approved` review само по себе не означает `classroom_ready`; требуется отдельная analysed trial с тем же актуальным fingerprint. Rebase и squash не меняют readiness при неизменном содержании.
 
 Не переносите в репозиторий персональные данные детей. Допустимы только агрегированные наблюдения, вручную проверенные на прямые и косвенные идентификаторы.
+
+## 17. Проверяемая методическая интеграция
+
+Generated regions в четырёх читаемых уроках и раздаточных материалах
+материализуют каждую выбранную phase как отдельное действие. Таблица
+reconciliation в teacher region показывает activity/setup/cleanup/transition,
+reserve и non-DNA минуты; все stage partitions дают ровно 45 минут. Связь
+phase и stage проверяется не только арифметически, но и по семантическим
+правилам версии 1.0.
+
+Режим проверки задаётся явно: `teacher_observation` не создаёт фиктивного
+ключа, а `answer_key` и `evidence_criterion` ведут к конкретному answer file.
+Эстонские критерии recognition/production проходят в задания и ключи как
+отдельное A1–A2 evidence и не заменяют полный русский предметный ответ.
+
+Домашний практический вариант урока 3 разрешён только по
+`pedagogy/homeschool/lesson-03-home-practical-policy.yaml`. Его procedure,
+ресурсы и safety должны совпадать в machine package, детском и родительском
+Markdown. Даже успешная структурная проверка не означает teacher approval,
+classroom trial, home trial или readiness.
 
 ## Provenance
 

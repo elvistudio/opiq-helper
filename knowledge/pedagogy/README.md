@@ -3,6 +3,19 @@
 This directory stores normalized, machine-validated pedagogical knowledge. It is
 independent from Opiq source routing and from production lesson artifacts.
 
+The production integration layer consumes this validated catalogue through the
+existing selection and homeschool engines; it does not alter source-supported
+descriptions or claim effectiveness. The water pilot adds one provisional
+compact teacher-prepared observation execution profile so an existing
+45-minute supervised investigation can be represented without pretending that
+it is a multi-station lesson. See
+[`docs/pedagogy-generation-integration.md`](../../docs/pedagogy-generation-integration.md).
+The pilot commits one immutable selector-owned lesson DNA per lesson.
+Production assessment bindings remain a separate overlay, and every reselected
+home target requires an explicit adapted task contract. Learner-visible
+criteria are separated from teacher-only answer evidence and checked by a
+normalized answer-leak guard.
+
 The initial catalog contains:
 
 - two privately supplied Estonian methodological references;
@@ -10,7 +23,7 @@ The initial catalog contains:
 - 30 classroom and homeschool-adaptable activities;
 - four flexible pedagogical patterns;
 - taxonomy 1.0 with 33 capabilities, 22 resource values, seven deterministic
-  grade-5 filtering fixtures, and 32 query targets.
+  grade-5 filtering fixtures, and 33 query targets.
 
 ## Structure
 
@@ -132,3 +145,13 @@ selection requests, versioned rules, lesson DNA, failures, and CLI usage.
 See [`docs/homeschool-learning-engine.md`](../../docs/homeschool-learning-engine.md)
 for source/DNA validation, home variants, parent boundaries, answer access,
 weekly plans, and readiness limits.
+
+The water production pilot also uses two bounded execution profiles:
+`visual-representation::paper-diagram` for a truthful paper-only diagram task
+and `learning-stations::practical-home-passive-ice-observation` for the authorized
+adult-supervised home observation. Profiles express operational resources and
+safety; their classification remains project-authored and provisional. They do
+not prove effectiveness or readiness. Integration validates component timing,
+semantic stage fit, phase-specific rendering, assessment propagation, and
+machine/Markdown safety equivalence without changing the general selection or
+homeschool engine versions.

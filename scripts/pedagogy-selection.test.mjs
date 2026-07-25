@@ -59,7 +59,7 @@ test('production selection repository validates', () => {
   assert.equal(result.valid, true, result.errors.join('\n'));
   assert.deepEqual(result.counts, {
     patterns: 4,
-    targets: 32,
+    targets: 35,
     fixtures: 12,
     examples: 4,
     successfulFixtures: 10,
@@ -502,6 +502,9 @@ test('unsupported subject returns no-pattern structured failure', () => {
 
 test('explicitly unavailable required resource is a hard constraint', () => {
   const result = run('grade5-map-diagram', (selectedRequest) => {
+    selectedRequest.lesson_context.required_capabilities = ['guided_practice'];
+    selectedRequest.resources.available =
+      selectedRequest.resources.available.filter((resource) => resource !== 'dataset');
     selectedRequest.resources.unavailable.push('dataset');
     selectedRequest.resources.adult_safety_supervision_available = true;
   });

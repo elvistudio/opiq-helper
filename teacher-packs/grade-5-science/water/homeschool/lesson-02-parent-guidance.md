@@ -1,0 +1,29 @@
+# Роль взрослого: Три состояния воды
+
+Вариант: `independent`.
+
+- Ответственность ребёнка: Ребёнок выполняет попытку, объясняет, сверяет и отмечает нерешённый вопрос.
+- Поддержка взрослого: Взрослый организует условия и разрешённую поддержку, но не создаёт предметный ответ.
+- Надзор безопасности: Взрослый выполняет только указанный надзор и не меняет процедуру.
+- Ответственность учителя: Предметный учитель отвечает за научное объяснение, ключ, процедуру и разрешение практической работы.
+- Общее время взрослого: 0 минут.
+
+## Что подготовить
+
+- Выходная карточка по трём состояниям — teacher-packs/grade-5-science/water/student/lesson-02-exit-ticket.md
+- Двуязычная схема трёх состояний воды — teacher-packs/grade-5-science/water/student/lesson-02-states-worksheet.md
+- Карточки для классификации примеров — teacher-packs/grade-5-science/water/student/lesson-02-states-card-sort.md
+
+## Доступ к ответам
+
+- Общее правило: После видимой первой попытки открой ключ самостоятельно.
+- Этап `orientation`: ключ для этого действия не используется.
+- Этап `independent-practice`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+- Этап `independent-practice`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+- Этап `retrieval`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+- Этап `reflection`: Ключ `teacher-packs/grade-5-science/water/answers/lesson-02-answer-key.md` доступен по правилу `self_managed_after_attempt`.
+
+Взрослый не является автоматически предметным учителем и не формулирует
+научный ответ вместо ребёнка. Нерешённый предметный вопрос передаётся учителю.
+
+Статус: педагогическое ревью ожидается; домашняя апробация не начата.

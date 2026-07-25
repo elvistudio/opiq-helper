@@ -14,7 +14,7 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
     context:
       request_id: grade5-concept-introduction
@@ -288,7 +288,7 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
     context:
       request_id: grade5-independent-retrieval
@@ -354,22 +354,22 @@ examples:
         purpose_ru: Изучить один ограниченный фрагмент и зафиксировать собственное понимание.
         required: true
         target:
-          target_id: insert-reading
-          activity_id: insert-reading
-          execution_profile_id: null
-        activity_minutes: 10
+          target_id: visual-representation::paper-diagram
+          activity_id: visual-representation
+          execution_profile_id: paper-diagram
+        activity_minutes: 8
         setup_minutes: 2
         cleanup_minutes: 0
         transition_minutes: 0
         group_format: individual
         capabilities:
           primary:
-            - guided_practice
-            - metacognition
+            - diagram_interpretation
+            - independent_practice
+            - visual_representation
           supporting:
             - concept_formation
-            - self_assessment
-            - symbolic_representation
+            - explanation_and_modelling
         source_access:
           first_attempt: allowed
         language_role:
@@ -378,13 +378,14 @@ examples:
             - terminology
         resources:
           required:
-            - textbook_or_source_text
+            - diagram
+            - paper
             - writing_tool
         safety:
           requires_adult_supervision: false
           controls_ru: []
-        rationale_ru: Target insert-reading прошёл hard constraints и получил наивысший допустимый вклад в
-          согласованную композицию; это не effectiveness ranking.
+        rationale_ru: Target visual-representation::paper-diagram прошёл hard constraints и получил
+          наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
       - phase_id: retrieval
         phase: retrieval
         purpose_ru: Закрыть источник и воспроизвести главное до просмотра ключа.
@@ -462,13 +463,13 @@ examples:
         rationale_ru: Target error-correction прошёл hard constraints и получил наивысший допустимый вклад в
           согласованную композицию; это не effectiveness ranking.
     timing:
-      activity_minutes: 23
+      activity_minutes: 21
       setup_minutes: 12
       cleanup_minutes: 0
       transition_minutes: 0
       reserve_minutes: 3
-      total_planned_minutes: 38
-      unallocated_minutes: 7
+      total_planned_minutes: 36
+      unallocated_minutes: 9
       fits: true
     assessment:
       separation_policy: separate_subject_and_estonian_language_evidence
@@ -515,7 +516,7 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
     context:
       request_id: grade5-map-diagram
@@ -546,22 +547,22 @@ examples:
         purpose_ru: Построить точную предметную модель в доступной форме.
         required: true
         target:
-          target_id: guided-reading
-          activity_id: guided-reading
-          execution_profile_id: null
+          target_id: visual-representation::paper-diagram
+          activity_id: visual-representation
+          execution_profile_id: paper-diagram
         activity_minutes: 8
-        setup_minutes: 4
+        setup_minutes: 2
         cleanup_minutes: 0
         transition_minutes: 0
         group_format: individual
         capabilities:
           primary:
-            - guided_practice
+            - diagram_interpretation
+            - independent_practice
+            - visual_representation
           supporting:
             - concept_formation
             - explanation_and_modelling
-            - formative_assessment
-            - oral_production
         source_access:
           first_attempt: allowed
         language_role:
@@ -571,14 +572,14 @@ examples:
             - terminology
         resources:
           required:
+            - diagram
             - paper
-            - textbook_or_source_text
             - writing_tool
         safety:
           requires_adult_supervision: false
           controls_ru: []
-        rationale_ru: Target guided-reading прошёл hard constraints и получил наивысший допустимый вклад в
-          согласованную композицию; это не effectiveness ranking.
+        rationale_ru: Target visual-representation::paper-diagram прошёл hard constraints и получил
+          наивысший допустимый вклад в согласованную композицию; это не effectiveness ranking.
       - phase_id: guided-practice
         phase: guided_practice
         purpose_ru: Применить понятие с временной опорой и содержательной обратной связью.
@@ -659,12 +660,12 @@ examples:
           согласованную композицию; это не effectiveness ranking.
     timing:
       activity_minutes: 25
-      setup_minutes: 11
+      setup_minutes: 9
       cleanup_minutes: 1
       transition_minutes: 0
       reserve_minutes: 3
-      total_planned_minutes: 40
-      unallocated_minutes: 5
+      total_planned_minutes: 38
+      unallocated_minutes: 7
       fits: true
     assessment:
       separation_policy: separate_subject_and_estonian_language_evidence
@@ -710,7 +711,7 @@ examples:
       taxonomy: "1.0"
       selection_rules: "1.0"
       lesson_dna_schema: "1.0"
-      activity_catalog_digest: 4f4dd85edb70cdbb9d98898bbf17a94b090e40cd56edea94ccaa10a205d1e1bc
+      activity_catalog_digest: 8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370
       engine: "1.1"
     context:
       request_id: grade5-safe-practical
