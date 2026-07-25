@@ -181,7 +181,7 @@ function validateTemplateSemantics(diagnostics, artifact, type) {
   }
 }
 
-function fingerprintMatches(recorded, current) {
+export function pedagogicalEvidenceFingerprintMatches(recorded, current) {
   return recorded?.algorithm === current?.algorithm
     && recorded?.specification_version === current?.specification_version
     && recorded?.value === current?.value
@@ -201,7 +201,8 @@ function validateReviewRecord(diagnostics, artifact, pack, currentFingerprint, l
   if (review.pack_ref !== pack.pack_id) diagnostics.push(makeDiagnostic('error', artifact.file, '/pack_ref', `expected ${pack.pack_id}`));
   const completed = review.review_status === 'completed';
   const recordedFingerprint = review.reviewed_version?.content_fingerprint;
-  const stale = completed && !fingerprintMatches(recordedFingerprint, currentFingerprint);
+  const stale = completed
+    && !pedagogicalEvidenceFingerprintMatches(recordedFingerprint, currentFingerprint);
   if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/reviewed_version/content_fingerprint', staleFingerprintReason('teacher review', recordedFingerprint, currentFingerprint)));
   if (requireApproval && !completed) diagnostics.push(makeDiagnostic('error', artifact.file, '/review_status', 'teacher review evidence must have review_status: completed'));
   if (completed && review.decision?.status === 'pending') diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'completed teacher review cannot retain a pending decision'));
@@ -294,7 +295,8 @@ function validateTrialRecord(diagnostics, artifact, pack, currentFingerprint, le
   if (trial.pack_ref !== pack.pack_id) diagnostics.push(makeDiagnostic('error', artifact.file, '/pack_ref', `expected ${pack.pack_id}`));
   const analysed = trial.trial_status === 'analysed';
   const recordedFingerprint = trial.reviewed_version?.content_fingerprint;
-  const stale = analysed && !fingerprintMatches(recordedFingerprint, currentFingerprint);
+  const stale = analysed
+    && !pedagogicalEvidenceFingerprintMatches(recordedFingerprint, currentFingerprint);
   if (stale) diagnostics.push(makeDiagnostic('warning', artifact.file, '/reviewed_version/content_fingerprint', staleFingerprintReason('classroom trial', recordedFingerprint, currentFingerprint)));
   if (requireSuccess && !analysed) diagnostics.push(makeDiagnostic('error', artifact.file, '/trial_status', 'classroom trial evidence must have trial_status: analysed'));
   if (analysed && trial.decision?.status === 'pending') diagnostics.push(makeDiagnostic('error', artifact.file, '/decision/status', 'analysed classroom trial cannot retain a pending decision'));
@@ -332,6 +334,62 @@ function validateTrialRecord(diagnostics, artifact, pack, currentFingerprint, le
     diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'stale classroom trial fingerprint cannot prove current readiness'));
   }
   return { effective, stale };
+}
+
+export function summarizePedagogicalEvidenceForPack(context, index) {
+  const pack = index.data;
+  const reviewLink = pack.pedagogical_review ?? {};
+  const trialLink = pack.classroom_trial ?? {};
+  const lessonIds = pack.lesson_ids ?? [];
+  const currentFingerprint = context.currentPackFingerprints[pack.pack_id];
+  const linkedReviewRecords = context.reviewRecords.filter(
+    (record) => record.file === reviewLink.review_record_path,
+  );
+  const linkedTrialRecords = context.trialRecords.filter(
+    (record) => (trialLink.trial_record_paths ?? []).includes(record.file),
+  );
+  const validators = compileSchemas(context);
+  const diagnostics = [];
+  const reviewStates = linkedReviewRecords.map((record) => {
+    const schemaValid = addSchemaDiagnostics(diagnostics, record, validators.review);
+    return validateReviewRecord(
+      diagnostics,
+      record,
+      pack,
+      currentFingerprint,
+      lessonIds,
+      schemaValid,
+    );
+  });
+  const trialStates = linkedTrialRecords.map((record) => {
+    const schemaValid = addSchemaDiagnostics(diagnostics, record, validators.trial);
+    return validateTrialRecord(
+      diagnostics,
+      record,
+      pack,
+      currentFingerprint,
+      lessonIds,
+      schemaValid,
+    );
+  });
+  return {
+    current_fingerprint: structuredClone(currentFingerprint),
+    completed_review_count: linkedReviewRecords.filter(
+      (record) => record.data?.review_status === 'completed',
+    ).length,
+    analysed_trial_count: linkedTrialRecords.filter(
+      (record) => record.data?.trial_status === 'analysed',
+    ).length,
+    effective_teacher_review: reviewStates.some((state) => state.effective),
+    effective_classroom_trial: trialStates.some((state) => state.effective),
+    stale_teacher_review: reviewStates.some((state) => state.stale),
+    stale_classroom_trial: trialStates.some((state) => state.stale),
+    evidence_paths: [
+      ...linkedReviewRecords.map((record) => record.file),
+      ...linkedTrialRecords.map((record) => record.file),
+    ].sort((left, right) => Buffer.compare(Buffer.from(left), Buffer.from(right))),
+    diagnostics,
+  };
 }
 
 function validatePackWorkflow(diagnostics, context, index, schemaValidity) {

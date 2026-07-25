@@ -175,6 +175,18 @@ function createValidators(context) {
   };
 }
 
+export function createPedagogyGenerationIntegrationValidators(context) {
+  const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
+  ajv.addSchema(context.schemas.common);
+  ajv.addSchema(context.schemas.pedagogyIntegration);
+  return {
+    integrationIndex: ajv.compile({
+      $ref:
+        `${context.schemas.pedagogyIntegration.$id}#/$defs/integrationIndex`,
+    }),
+  };
+}
+
 function curriculumIndexes(context) {
   const officialMaps = findCurriculumArtifacts(context, 'official_curriculum_map');
   const bookInventories = findCurriculumArtifacts(context, 'book_inventory');

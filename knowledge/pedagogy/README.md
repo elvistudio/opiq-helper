@@ -51,6 +51,14 @@ The initial catalog contains:
   scenarios: 11 success cases and seven structured failures.
 - `homeschool/homeschool-package-examples.yaml` stores five deterministic
   proposed packages with parent guidance and relative weekly plans.
+- `quality/quality-gates.yaml` defines reusable structural guarantees,
+  applicability, severity, independent gate versions, non-guarantees, and
+  exception policy. Primitive gates are evaluated before derived structural
+  completeness, independently of catalogue order.
+- `quality/quality-exceptions.yaml` stores only exact-record, version-bound
+  exceptions; safety, leakage, identity, closure, provenance, and readiness
+  gates cannot be suppressed. Active targets must resolve to an applicable
+  normalized record; retired entries remain historical and never apply.
 - `patterns/*.yaml` combines principles and activity options into flexible
   recommendations. They become selectable slots but remain flexible rather
   than universal lesson templates.
@@ -89,6 +97,9 @@ npm run select:pedagogy
 npm run test:pedagogy-homeschool
 npm run check:pedagogy-homeschool
 npm run adapt:homeschool
+npm run test:pedagogy-quality
+npm run check:pedagogy-quality
+npm run check:pedagogy-quality-report
 ```
 
 The check validates schemas, strict YAML, IDs, links, taxonomy vocabulary,
@@ -96,6 +107,18 @@ capability strength, group logic, effort, resources, learner demands,
 homeschool and safety roles, copyright rules, provenance, confidence, query
 fixtures, and deterministic ordering. Structural validity does not prove
 pedagogical effectiveness; application still requires teacher review.
+Pedagogical quality reports preserve per-record gate results and actual
+readiness/evidence state. Fingerprint currency requires equality of algorithm,
+specification, value, and file count. A scoped `--path` check covers only the
+matched records and their dependency closure, and an empty explicit scope is
+an error rather than a positive result.
+The quality adapter also validates the committed selection, lesson-DNA,
+homeschool, parent-guidance, weekly-plan, and production-integration YAML with
+their existing strict Ajv schemas. Schema diagnostics stay attached to the
+exact artifact and only flow into records whose dependency closure contains
+it. Safety applicability reads the exact activity/profile field
+`safety.requires_adult_supervision`; it does not depend on the name chosen for
+the bounded parent role.
 
 An unprofiled method is queried by its `activity_id`. A concrete execution
 profile uses `activity_id::profile_id`; `::` is reserved and forbidden inside
@@ -145,6 +168,9 @@ selection requests, versioned rules, lesson DNA, failures, and CLI usage.
 See [`docs/homeschool-learning-engine.md`](../../docs/homeschool-learning-engine.md)
 for source/DNA validation, home variants, parent boundaries, answer access,
 weekly plans, and readiness limits.
+See [`docs/pedagogy-quality-gates.md`](../../docs/pedagogy-quality-gates.md)
+for reusable structural gates, exact exceptions, diagnostics, production
+reporting, CI, and the boundary between machine validation and human approval.
 
 The water production pilot also uses two bounded execution profiles:
 `visual-representation::paper-diagram` for a truthful paper-only diagram task

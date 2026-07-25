@@ -1,0 +1,197 @@
+schema_version: "1.0"
+artifact_type: pedagogical_quality_gate_catalogue
+catalogue_version: "1.0"
+claim_origin: project_authored_design
+gates:
+  - gate_id: answer-leakage-absent
+    gate_version: "1.0"
+    title: Learner answers remain hidden before the first attempt
+    description: Learner-facing classroom and homeschool artifacts must not expose complete expected answers, accepted variants, or practical conclusions before the first attempt.
+    applies_to: [integrated_lesson]
+    severity: error
+    guarantee: Exact and normalized answer-bearing strings are absent from learner-facing artifacts.
+    non_guarantees:
+      - The gate does not evaluate whether an answer is pedagogically optimal.
+      - The gate does not prove that every possible paraphrase is absent.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: cross-artifact-alignment
+    gate_version: "1.0"
+    title: Lesson phases resolve to production tasks and artifacts
+    description: Every selected lesson-DNA phase must resolve to a task, learner criterion, teacher evidence, and a real material or evidence contract.
+    applies_to: [integrated_lesson]
+    severity: error
+    guarantee: Machine task identities and referenced repository artifacts form a complete declared chain.
+    non_guarantees:
+      - The gate does not judge the instructional quality of the task.
+      - The gate does not replace teacher review of rendered materials.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: delayed-retrieval-forward
+    gate_version: "1.0"
+    title: Delayed retrieval points forward using relative windows
+    description: Delayed retrieval must use after_lessons, after_days, or next_unit and must not create absolute learner dates.
+    applies_to: [integrated_lesson, thematic_plan]
+    severity: error
+    guarantee: Declared delayed retrieval is represented as a future relative learning event.
+    non_guarantees:
+      - The gate does not prove that the selected interval is optimal.
+      - The gate does not schedule a learner calendar.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design
+  - gate_id: differentiation-accessibility
+    gate_version: "1.0"
+    title: Differentiation and accessibility constraints are explicit
+    description: Integrated lessons must declare applicable supports and keep selected activities compatible with hard accessibility priorities.
+    applies_to: [integrated_lesson]
+    severity: warning
+    guarantee: Operational supports and unknown or provisional compatibility remain visible.
+    non_guarantees:
+      - The gate does not prove inclusive effectiveness for an individual learner.
+      - The gate does not diagnose learner needs.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design
+  - gate_id: identity-chain-current
+    gate_version: "1.0"
+    title: Version, digest, and immutable lesson-DNA identity chain is current
+    description: Taxonomy, rules, engine, catalogue, request, content, lesson-DNA, homeschool source, and fingerprint identities must match their declared current sources.
+    applies_to: [integrated_lesson, teacher_pack]
+    severity: error
+    guarantee: Declared machine identities and current repository inputs are internally consistent.
+    non_guarantees:
+      - A current digest does not prove instructional effectiveness.
+      - Git commit identity is not used as pedagogical evidence.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: language-role-compatible
+    gate_version: "1.0"
+    title: Primary and Estonian-support language roles remain bounded
+    description: Primary instruction language, total productive-language ceiling, Estonian A1-A2 roles, scaffolds, and separate assessments must remain mutually compatible.
+    applies_to: [integrated_lesson]
+    severity: error
+    guarantee: Complex subject reasoning remains in the primary language and Estonian evidence stays within declared support roles.
+    non_guarantees:
+      - The gate does not assess an individual learner's Estonian proficiency.
+      - The gate does not measure cognitive load scientifically.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design
+  - gate_id: legacy-migration-status
+    gate_version: "1.0"
+    title: Legacy lessons remain valid without false integration claims
+    description: Legacy lesson schemas receive a finite migration warning and are not required to contain the integrated pedagogy contract.
+    applies_to: [legacy_lesson]
+    severity: warning
+    guarantee: Intentional schema coexistence is visible and unrelated legacy production is not broken.
+    non_guarantees:
+      - Legacy lessons have not passed the full integrated quality gates.
+      - The warning is not a migration deadline or readiness claim.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design
+  - gate_id: material-closure-resolved
+    gate_version: "1.0"
+    title: Classroom and homeschool material closures are resolved
+    description: Material IDs, delivery scopes, repository paths, adapted task contracts, and rendered home artifacts must resolve without classroom-only leakage.
+    applies_to: [homeschool_package]
+    severity: error
+    guarantee: Every declared learner material exists and is compatible with its delivery context.
+    non_guarantees:
+      - The gate does not judge print layout or classroom usability.
+      - A resolved material is not automatically age appropriate.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: pattern-structure-aligned
+    gate_version: "1.0"
+    title: Selected phases satisfy the chosen flexible pattern
+    description: Required pattern slots and explicitly requested phase needs must be represented without imposing one universal lesson sequence.
+    applies_to: [integrated_lesson]
+    severity: error
+    guarantee: The selected composition implements its own declared structural requirements.
+    non_guarantees:
+      - The gate does not require every lesson to contain every possible phase.
+      - The gate does not rank one valid pattern above another.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design
+  - gate_id: provenance-separated
+    gate_version: "1.0"
+    title: Source and pedagogical provenance remain separate
+    description: Source-backed content identity and project-authored pedagogical selection or adaptation provenance must not be represented as the same claim.
+    applies_to: [integrated_lesson, teacher_pack]
+    severity: error
+    guarantee: The repository can distinguish source evidence from pedagogical design.
+    non_guarantees:
+      - The gate does not grant copyright or redistribution rights.
+      - The gate does not independently verify every source statement.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: readiness-honest
+    gate_version: "1.0"
+    title: Structural validation cannot grant human readiness
+    description: Teacher review, classroom trial, home trial, readiness, and effectiveness claims must remain evidence-gated and fingerprint-current.
+    applies_to: [homeschool_package, integrated_lesson, teacher_pack, thematic_plan]
+    severity: error
+    guarantee: Structural quality results cannot silently become human approval or effectiveness evidence.
+    non_guarantees:
+      - The gate does not perform teacher review.
+      - The gate does not conduct or analyse a classroom or home trial.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: retrieval-cycle-valid
+    gate_version: "1.0"
+    title: Retrieval keeps the first attempt closed and provides correction
+    description: Where retrieval is declared, the first attempt must be source-closed and a later check or correction path must be visible.
+    applies_to: [integrated_lesson]
+    severity: error
+    guarantee: Declared retrieval is distinguishable from rereading and includes corrective feedback.
+    non_guarantees:
+      - The gate does not prove long-term retention.
+      - The gate does not prescribe retrieval in lessons whose pattern does not require it.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design
+  - gate_id: safety-contract-preserved
+    gate_version: "1.0"
+    title: Practical safety requirements survive every delivery transformation
+    description: Adult supervision, teacher authorization, procedures, prohibited actions, stop conditions, and rendered instructions must agree where practical safety applies.
+    applies_to: [homeschool_package]
+    severity: error
+    guarantee: Declared practical safety controls cannot disappear during generation or adaptation.
+    non_guarantees:
+      - The gate does not certify a real environment as safe.
+      - The gate does not replace adult judgment or teacher authorization.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: schema-valid
+    gate_version: "1.0"
+    title: Applicable pedagogy artifacts satisfy strict schemas
+    description: Integrated lesson, selection, lesson-DNA, homeschool, teacher-pack, review, and quality artifacts must satisfy their current strict schemas.
+    applies_to: [homeschool_package, integrated_lesson, teacher_pack, thematic_plan]
+    severity: error
+    guarantee: Required fields, enums, references, and additional-property boundaries are structurally valid.
+    non_guarantees:
+      - Schema validity does not prove pedagogical effectiveness.
+      - Schema validity does not constitute human approval.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: structural-completeness
+    gate_version: "1.0"
+    title: Applicable integrated contracts are structurally complete
+    description: An integrated record is complete only after all applicable non-warning gates pass and required generated artifacts resolve.
+    applies_to: [homeschool_package, integrated_lesson, teacher_pack, thematic_plan]
+    severity: info
+    guarantee: The report may assert structurally_complete for the evaluated scope.
+    non_guarantees:
+      - Structural completeness is not pedagogical approval.
+      - Structural completeness is not classroom or homeschool readiness.
+    exception_policy: prohibited
+    claim_origin: project_authored_design
+  - gate_id: timing-reconciled
+    gate_version: "1.0"
+    title: Component and stage timing reconciles to the lesson duration
+    description: Activity, setup, cleanup, transitions, reserve, non-DNA time, phases, and stages must reconcile without double counting.
+    applies_to: [integrated_lesson]
+    severity: error
+    guarantee: Declared instructional time is arithmetically complete for the lesson's own duration.
+    non_guarantees:
+      - The gate does not require a universal 45-minute lesson.
+      - The gate does not prove that real learners will finish in the planned time.
+    exception_policy: exact_record_only
+    claim_origin: project_authored_design

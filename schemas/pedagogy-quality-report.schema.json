@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-quality-report.schema.json",
+  "title": "Pedagogical quality validation report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "report_id",
+    "quality_engine_version",
+    "gate_catalogue",
+    "scope",
+    "content_identities",
+    "teacher_pack_fingerprint",
+    "checked_artifacts",
+    "gate_results",
+    "gate_summary",
+    "diagnostics",
+    "counts",
+    "diagnostic_counts",
+    "structural_status",
+    "claims",
+    "legacy_scope",
+    "non_guarantees",
+    "readiness",
+    "determinism"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "pedagogy_quality_report" },
+    "report_id": {
+      "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+    },
+    "quality_engine_version": { "const": "1.0" },
+    "gate_catalogue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "version", "digest"],
+      "properties": {
+        "path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_id",
+        "requested_path",
+        "integrated_lesson_count",
+        "homeschool_package_count",
+        "legacy_lesson_count",
+        "teacher_pack_count",
+        "thematic_plan_count"
+      ],
+      "properties": {
+        "scope_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "requested_path": { "type": "null" },
+        "integrated_lesson_count": { "type": "integer", "minimum": 1 },
+        "homeschool_package_count": { "type": "integer", "minimum": 1 },
+        "legacy_lesson_count": { "type": "integer", "minimum": 0 },
+        "teacher_pack_count": { "type": "integer", "minimum": 1 },
+        "thematic_plan_count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "content_identities": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/identity" }
+    },
+    "teacher_pack_fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "algorithm", "specification_version", "value", "file_count"],
+      "properties": {
+        "scope": { "const": "pack_wide_reviewable_content" },
+        "algorithm": { "const": "sha256" },
+        "specification_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "value": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "file_count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "checked_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+      }
+    },
+    "gate_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/gateResult" }
+    },
+    "gate_summary": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/gateSummary" }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/diagnostic" }
+    },
+    "counts": { "$ref": "#/$defs/resultCounts" },
+    "diagnostic_counts": { "$ref": "#/$defs/diagnosticCounts" },
+    "structural_status": {
+      "enum": ["failed", "pass_with_warnings", "passed"]
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["applies_to", "pedagogy_schema_valid", "structurally_complete"],
+      "properties": {
+        "applies_to": { "const": "integrated_production_records" },
+        "pedagogy_schema_valid": { "type": "boolean" },
+        "structurally_complete": { "type": "boolean" }
+      }
+    },
+    "legacy_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["integration_quality_status", "record_count"],
+      "properties": {
+        "integration_quality_status": { "const": "not_evaluated" },
+        "record_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 10 }
+    },
+    "readiness": { "$ref": "#/$defs/readinessSnapshot" },
+    "determinism": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "no_ai",
+        "no_network",
+        "no_randomness",
+        "no_current_timestamps",
+        "ordering"
+      ],
+      "properties": {
+        "no_ai": { "const": true },
+        "no_network": { "const": true },
+        "no_randomness": { "const": true },
+        "no_current_timestamps": { "const": true },
+        "ordering": { "const": "bytewise" }
+      }
+    }
+  },
+  "$defs": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_id", "algorithm", "value"],
+      "properties": {
+        "record_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "algorithm": { "const": "sha256" },
+        "value": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "gateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gate_id", "gate_version", "artifact_path", "record_id", "status"],
+      "properties": {
+        "gate_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "gate_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "artifact_path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "record_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "status": {
+          "enum": ["error", "excepted", "info", "not_applicable", "passed", "warning"]
+        }
+      }
+    },
+    "gateSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gate_id", "gate_version", "status", "result_count"],
+      "properties": {
+        "gate_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "gate_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "status": {
+          "enum": ["error", "excepted", "info", "not_applicable", "passed", "warning"]
+        },
+        "result_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gate_id",
+        "gate_version",
+        "severity",
+        "code",
+        "message",
+        "artifact_path",
+        "record_id"
+      ],
+      "properties": {
+        "gate_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "gate_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "severity": { "enum": ["error", "info", "warning"] },
+        "code": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+        "message": { "type": "string", "minLength": 10 },
+        "artifact_path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "record_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "related_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+          }
+        },
+        "expected": {},
+        "actual": {},
+        "exception_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        }
+      }
+    },
+    "resultCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "errors",
+        "warnings",
+        "info",
+        "passed",
+        "excepted",
+        "not_applicable",
+        "total_results"
+      ],
+      "properties": {
+        "errors": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 },
+        "info": { "type": "integer", "minimum": 0 },
+        "passed": { "type": "integer", "minimum": 0 },
+        "excepted": { "type": "integer", "minimum": 0 },
+        "not_applicable": { "type": "integer", "minimum": 0 },
+        "total_results": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "diagnosticCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["errors", "warnings", "info"],
+      "properties": {
+        "errors": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 },
+        "info": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "reviewStatus": {
+      "enum": ["approved", "changes_requested", "mixed", "pending", "rejected", "unknown"]
+    },
+    "classroomTrialStatus": {
+      "enum": ["changes_required", "mixed", "not_tested", "repeat_required", "tested", "unknown"]
+    },
+    "homeTrialStatus": {
+      "enum": ["analysed", "mixed", "not_started", "planned", "unknown"]
+    },
+    "booleanOrMixed": {
+      "oneOf": [
+        { "type": "boolean" },
+        { "const": "mixed" },
+        { "const": "unknown" }
+      ]
+    },
+    "readinessSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_path",
+        "record_id",
+        "teacher_review",
+        "classroom_trial",
+        "home_trial",
+        "classroom_ready",
+        "homeschool_ready",
+        "effectiveness_claimed"
+      ],
+      "properties": {
+        "artifact_path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "record_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "teacher_review": { "$ref": "#/$defs/reviewStatus" },
+        "classroom_trial": { "$ref": "#/$defs/classroomTrialStatus" },
+        "home_trial": { "$ref": "#/$defs/homeTrialStatus" },
+        "classroom_ready": { "type": "boolean" },
+        "homeschool_ready": { "type": "boolean" },
+        "effectiveness_claimed": { "type": "boolean" }
+      }
+    },
+    "readinessSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consistency",
+        "teacher_review",
+        "classroom_trial",
+        "home_trial",
+        "classroom_ready",
+        "homeschool_ready",
+        "effectiveness_claimed",
+        "evidence",
+        "source_records"
+      ],
+      "properties": {
+        "consistency": { "enum": ["consistent", "mixed"] },
+        "teacher_review": { "$ref": "#/$defs/reviewStatus" },
+        "classroom_trial": { "$ref": "#/$defs/classroomTrialStatus" },
+        "home_trial": { "$ref": "#/$defs/homeTrialStatus" },
+        "classroom_ready": { "$ref": "#/$defs/booleanOrMixed" },
+        "homeschool_ready": { "$ref": "#/$defs/booleanOrMixed" },
+        "effectiveness_claimed": { "$ref": "#/$defs/booleanOrMixed" },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "effective_teacher_review",
+            "effective_classroom_trial",
+            "stale_teacher_review",
+            "stale_classroom_trial"
+          ],
+          "properties": {
+            "effective_teacher_review": { "type": "boolean" },
+            "effective_classroom_trial": { "type": "boolean" },
+            "stale_teacher_review": { "type": "boolean" },
+            "stale_classroom_trial": { "type": "boolean" }
+          }
+        },
+        "source_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/readinessSource" }
+        }
+      }
+    }
+  }
+}

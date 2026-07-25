@@ -252,6 +252,24 @@ review, classroom testing, or home testing. The pilot remains:
 - `classroom_ready: false`;
 - `homeschool_ready: false`.
 
+The reusable quality layer consumes these already validated identities and
+bindings through a normalized production adapter. Its shared engine contains
+no water lesson or material IDs; lesson-3-specific production invariants stay
+in `check-pedagogy-integration.mjs`. The committed report can assert only
+`pedagogy_schema_valid` and `structurally_complete`. See
+[`pedagogy-quality-gates.md`](pedagogy-quality-gates.md).
+
+Quality evaluation runs all primitive gates before the derived
+`structural-completeness` gate, so catalogue ordering cannot conceal a timing
+or identity failure. The production adapter reads the committed lesson,
+lesson-DNA, selection, homeschool, thematic, material, rendered, fingerprint,
+and review contracts and retains their exact dependency paths. It does not
+replace those values with expected booleans. Current review/trial evidence is
+matched against the recomputed pack fingerprint by algorithm, specification,
+digest, and file count; readiness in the report is the actual production state.
+A path-scoped CLI result covers only matching records and their dependency
+closure and cannot be emitted as the full water-pilot report.
+
 ## Commands
 
 ```bash
@@ -261,6 +279,9 @@ npm run generate:pedagogy-water-pilot -- --summary
 npm run generate:pedagogy-water-pilot -- --lesson grade-5-water-01-properties --debug
 npm run test:pedagogy-integration
 npm run check:pedagogy-integration
+npm run test:pedagogy-quality
+npm run check:pedagogy-quality
+npm run check:pedagogy-quality-report
 ```
 
 The generator defaults to a read-only summary. `--write` is the only mutation
