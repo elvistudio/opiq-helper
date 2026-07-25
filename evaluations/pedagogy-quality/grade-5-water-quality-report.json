@@ -1,0 +1,285 @@
+{
+  "artifact_type": "pedagogy_quality_report",
+  "checked_artifacts": [
+    "lesson-plans/grade-5-science/water-use-cycle/lesson-01.yaml",
+    "lesson-plans/grade-5-science/water-use-cycle/lesson-02.yaml",
+    "lesson-plans/grade-5-science/water-use-cycle/lesson-03.yaml",
+    "lesson-plans/grade-5-science/water-use-cycle/lesson-04.yaml",
+    "lesson-plans/grade-5-science/water-use-cycle/lesson-05.yaml",
+    "lesson-plans/grade-5-science/water-use-cycle/lesson-06.yaml",
+    "lesson-plans/grade-5-science/water/lesson-01.yaml",
+    "lesson-plans/grade-5-science/water/lesson-02.yaml",
+    "lesson-plans/grade-5-science/water/lesson-03.yaml",
+    "lesson-plans/grade-5-science/water/lesson-04.yaml",
+    "teacher-packs/grade-5-science/water/materials-index.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-02-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-03-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-04-lesson-dna.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-decision.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-adaptation-request.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
+    "teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml"
+  ],
+  "claims": {
+    "pedagogy_schema_valid": true,
+    "structurally_complete": true
+  },
+  "content_identities": [
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-01-properties",
+      "value": "7fb21388371109e4a08ba5df171d2d8fcdbd05a1460d29c88398950ebd7dbee9"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-02-states",
+      "value": "3708cc17ac3d5b3462060af7fd18a0c0b63d1ff8d918d0f6e72ce7aa218babcc"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-03-melting-condensation",
+      "value": "a3ea29314d8e7f620316ea361a024c34f23fafba58eb04f39c49438e1d396dd5"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-04-changes-review",
+      "value": "14285bbe5a1a3cea4112fb96ba40f13de14170e3c3113644cae4638f91cf9da1"
+    },
+    {
+      "algorithm": "sha256",
+      "record_id": "grade-5-water-four-lesson-plan",
+      "value": "bb78af3a4db7362cf09857f90f5bff28c0a81349e43f2035489a5931aae372ef"
+    }
+  ],
+  "counts": {
+    "errors": 0,
+    "excepted": 0,
+    "info": 0,
+    "not_applicable": 3,
+    "passed": 57,
+    "warnings": 6
+  },
+  "determinism": {
+    "no_ai": true,
+    "no_current_timestamps": true,
+    "no_network": true,
+    "no_randomness": true,
+    "ordering": "bytewise"
+  },
+  "diagnostics": [
+    {
+      "artifact_path": "lesson-plans/grade-5-science/water-use-cycle/lesson-01.yaml",
+      "code": "legacy_artifact_not_integrated",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "message": "Legacy lesson remains valid but is outside the full pedagogical integration contract.",
+      "record_id": "grade-5-water-use-01-groundwater",
+      "severity": "warning"
+    },
+    {
+      "artifact_path": "lesson-plans/grade-5-science/water-use-cycle/lesson-02.yaml",
+      "code": "legacy_artifact_not_integrated",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "message": "Legacy lesson remains valid but is outside the full pedagogical integration contract.",
+      "record_id": "grade-5-water-use-02-protection",
+      "severity": "warning"
+    },
+    {
+      "artifact_path": "lesson-plans/grade-5-science/water-use-cycle/lesson-03.yaml",
+      "code": "legacy_artifact_not_integrated",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "message": "Legacy lesson remains valid but is outside the full pedagogical integration contract.",
+      "record_id": "grade-5-water-use-03-cycle",
+      "severity": "warning"
+    },
+    {
+      "artifact_path": "lesson-plans/grade-5-science/water-use-cycle/lesson-04.yaml",
+      "code": "legacy_artifact_not_integrated",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "message": "Legacy lesson remains valid but is outside the full pedagogical integration contract.",
+      "record_id": "grade-5-water-use-04-filter-model",
+      "severity": "warning"
+    },
+    {
+      "artifact_path": "lesson-plans/grade-5-science/water-use-cycle/lesson-05.yaml",
+      "code": "legacy_artifact_not_integrated",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "message": "Legacy lesson remains valid but is outside the full pedagogical integration contract.",
+      "record_id": "grade-5-water-use-05-subject-assessment",
+      "severity": "warning"
+    },
+    {
+      "artifact_path": "lesson-plans/grade-5-science/water-use-cycle/lesson-06.yaml",
+      "code": "legacy_artifact_not_integrated",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "message": "Legacy lesson remains valid but is outside the full pedagogical integration contract.",
+      "record_id": "grade-5-water-use-06-language-assessment",
+      "severity": "warning"
+    }
+  ],
+  "gate_catalogue": {
+    "digest": "2cf14a9c01d430b1f253660d04609a0c833bb70acc4291d2e96035d452e61a1f",
+    "path": "knowledge/pedagogy/quality/quality-gates.yaml",
+    "version": "1.0"
+  },
+  "gate_results": [
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "answer-leakage-absent",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "cross-artifact-alignment",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "delayed-retrieval-forward",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "differentiation-accessibility",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "identity-chain-current",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "language-role-compatible",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "legacy-migration-status",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "warning"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "material-closure-resolved",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "pattern-structure-aligned",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "provenance-separated",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "readiness-honest",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "retrieval-cycle-valid",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "safety-contract-preserved",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "schema-valid",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "structural-completeness",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "evaluations/pedagogy-quality/grade-5-water-quality-report.json",
+      "gate_id": "timing-reconciled",
+      "gate_version": "1.0",
+      "record_id": "grade-5-water-quality-report",
+      "status": "passed"
+    }
+  ],
+  "non_guarantees": [
+    "Classroom testing has not been performed by this structural validator.",
+    "Homeschool testing has not been performed by this structural validator.",
+    "Human teacher approval has not been granted by this structural validator.",
+    "Official curriculum completeness is not claimed by this structural validator.",
+    "Pedagogical effectiveness is not established by structural validation."
+  ],
+  "quality_engine_version": "1.0",
+  "readiness": {
+    "classroom_ready": false,
+    "classroom_trial": "not_tested",
+    "effectiveness_claimed": false,
+    "home_trial": "not_started",
+    "homeschool_ready": false,
+    "teacher_review": "pending"
+  },
+  "report_id": "grade-5-water-quality-report",
+  "schema_version": "1.0",
+  "scope": {
+    "integrated_lesson_count": 4,
+    "legacy_lesson_count": 6,
+    "requested_path": null,
+    "unrelated_artifacts_changed": false
+  },
+  "structural_status": "pass_with_warnings",
+  "teacher_pack_fingerprint": {
+    "algorithm": "sha256",
+    "file_count": 78,
+    "specification_version": "1.0",
+    "value": "13baf6f243b48f62ada192ce91efbd87f5cb6044aab3eb6bd3404a2b8977b7fd"
+  }
+}

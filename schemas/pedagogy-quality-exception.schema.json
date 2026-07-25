@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-quality-exception.schema.json",
+  "title": "Pedagogical quality gate exceptions",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "exceptions"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "pedagogical_quality_exceptions" },
+    "exceptions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/exception" }
+    }
+  },
+  "$defs": {
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exception_id",
+        "gate_id",
+        "artifact_path",
+        "record_id",
+        "gate_version",
+        "reason_ru",
+        "lesson_pattern",
+        "author_role",
+        "status"
+      ],
+      "properties": {
+        "exception_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "gate_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "artifact_path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "record_id": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "gate_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "reason_ru": { "type": "string", "minLength": 30 },
+        "lesson_pattern": {
+          "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
+        },
+        "author_role": {
+          "enum": [
+            "curriculum_designer",
+            "pedagogy_maintainer",
+            "subject_teacher"
+          ]
+        },
+        "status": { "enum": ["active", "retired"] }
+      }
+    }
+  }
+}
