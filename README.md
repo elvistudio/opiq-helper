@@ -239,8 +239,12 @@ the integrated structural contract without granting teacher approval,
 effectiveness, testing, or readiness. Primitive checks run before the derived
 structural result; the committed report keeps per-record results, actual
 readiness/evidence state, exact dependency paths, and the recomputed
-teacher-pack fingerprint. Explicit `--path` checks are scope-limited and fail
-when no record matches. Run `npm run test:pedagogy-quality`,
+teacher-pack fingerprint. The schema gate validates the actual committed
+selection, lesson-DNA, homeschool, parent-guidance, weekly-plan, and integration
+machine files with their strict schemas, while activity safety uses the exact
+`safety.requires_adult_supervision` catalogue metadata. Explicit `--path`
+checks are scope-limited and fail when no record matches. Run
+`npm run test:pedagogy-quality`,
 `npm run check:pedagogy-quality`, and `npm run check:pedagogy-quality-report`.
 
 ```sh

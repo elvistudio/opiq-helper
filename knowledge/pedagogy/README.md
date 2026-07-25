@@ -112,6 +112,13 @@ readiness/evidence state. Fingerprint currency requires equality of algorithm,
 specification, value, and file count. A scoped `--path` check covers only the
 matched records and their dependency closure, and an empty explicit scope is
 an error rather than a positive result.
+The quality adapter also validates the committed selection, lesson-DNA,
+homeschool, parent-guidance, weekly-plan, and production-integration YAML with
+their existing strict Ajv schemas. Schema diagnostics stay attached to the
+exact artifact and only flow into records whose dependency closure contains
+it. Safety applicability reads the exact activity/profile field
+`safety.requires_adult_supervision`; it does not depend on the name chosen for
+the bounded parent role.
 
 An unprofiled method is queried by its `activity_id`. A concrete execution
 profile uses `activity_id::profile_id`; `::` is reserved and forbidden inside

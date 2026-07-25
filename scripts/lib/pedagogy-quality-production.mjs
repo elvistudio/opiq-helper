@@ -16,6 +16,7 @@ import {
   loadPedagogyQualityConfiguration,
 } from './pedagogy-quality-gates.mjs';
 import {
+  createPedagogySelectionValidators,
   computeActivityCatalogSelectionDigest,
   loadPedagogySelectionRepository,
   normalizePedagogySelectionRequest,
@@ -24,10 +25,12 @@ import {
   validatePedagogySelection,
 } from './pedagogy-selection.mjs';
 import {
+  createPedagogyHomeschoolValidators,
   loadPedagogyHomeschoolRepository,
   validatePedagogyHomeschool,
 } from './pedagogy-homeschool.mjs';
 import {
+  createPedagogyGenerationIntegrationValidators,
   loadLessonPlanRepository,
   validateLessonPlanRepository,
 } from './lesson-plans.mjs';
@@ -69,6 +72,39 @@ const DEMAND_ORDER = new Map([
   ['high', 4],
   ['very_high', 5],
   ['unknown', Number.POSITIVE_INFINITY],
+]);
+
+const MACHINE_ARTIFACT_VALIDATOR_KEYS = Object.freeze({
+  selectionRequest: 'selectionRequest',
+  selectionDecision: 'selectionDecision',
+  lessonDna: 'lessonDna',
+  homeschoolRequest: 'homeschoolRequest',
+  homeschoolDecision: 'homeschoolDecision',
+  homeschoolPackage: 'homeschoolPackage',
+  parentGuidance: 'parentGuidance',
+  weeklyStudyPlan: 'weeklyStudyPlan',
+  integrationIndex: 'integrationIndex',
+});
+
+const INTEGRATED_MACHINE_ARTIFACT_KINDS = Object.freeze([
+  'homeschoolDecision',
+  'homeschoolPackage',
+  'homeschoolRequest',
+  'integrationIndex',
+  'lessonDna',
+  'parentGuidance',
+  'selectionDecision',
+  'selectionRequest',
+  'weeklyStudyPlan',
+]);
+
+const HOMESCHOOL_MACHINE_ARTIFACT_KINDS = Object.freeze([
+  'homeschoolDecision',
+  'homeschoolPackage',
+  'homeschoolRequest',
+  'integrationIndex',
+  'parentGuidance',
+  'weeklyStudyPlan',
 ]);
 
 function compareBytewise(left, right) {
@@ -127,6 +163,65 @@ async function readYamlResult(rootDir, repositoryPath) {
   } catch (error) {
     return { data: null, error: error.message };
   }
+}
+
+function schemaErrorReason(error) {
+  if (error.keyword === 'additionalProperties') {
+    return `unknown field ${error.params.additionalProperty}`;
+  }
+  if (error.keyword === 'required') {
+    return `missing required field ${error.params.missingProperty}`;
+  }
+  return error.message ?? `failed ${error.keyword}`;
+}
+
+function schemaErrorField(error) {
+  const instancePath = error.instancePath || '/';
+  if (error.keyword === 'additionalProperties') {
+    return `${instancePath === '/' ? '' : instancePath}/${error.params.additionalProperty}`;
+  }
+  if (error.keyword === 'required') {
+    return `${instancePath === '/' ? '' : instancePath}/${error.params.missingProperty}`;
+  }
+  return instancePath;
+}
+
+async function loadMachineArtifact(
+  rootDir,
+  artifactPath,
+  artifactKind,
+  validator,
+) {
+  const result = await readYamlResult(rootDir, artifactPath);
+  if (result.error) {
+    return {
+      artifact_path: artifactPath,
+      artifact_kind: artifactKind,
+      data: null,
+      parse_error: result.error,
+      schema_valid: false,
+      schema_diagnostics: [{
+        severity: 'error',
+        file: artifactPath,
+        field: '/',
+        reason: result.error,
+      }],
+    };
+  }
+  const schemaValid = validator(result.data);
+  return {
+    artifact_path: artifactPath,
+    artifact_kind: artifactKind,
+    data: result.data,
+    parse_error: null,
+    schema_valid: schemaValid,
+    schema_diagnostics: schemaValid ? [] : (validator.errors ?? []).map((error) => ({
+      severity: 'error',
+      file: artifactPath,
+      field: schemaErrorField(error),
+      reason: schemaErrorReason(error),
+    })),
+  };
 }
 
 async function regularFileExists(rootDir, repositoryPath) {
@@ -191,20 +286,74 @@ function lessonDependencyClosure(lesson, baselineRow, materialsIndex) {
   ]);
 }
 
-function schemaStateForClosure(closure, validationResults, loadErrors) {
+function normalizedSchemaDiagnostic(diagnostic) {
+  return {
+    severity: 'error',
+    file: diagnosticPath(diagnostic),
+    field: diagnostic.field ?? '/',
+    reason:
+      diagnostic.reason
+      ?? diagnostic.message
+      ?? 'artifact failed its repository schema validation',
+  };
+}
+
+function schemaStateForClosure(
+  closure,
+  validationResults,
+  loadErrors,
+  machineArtifactStates,
+  requiredMachineKinds,
+) {
   const closureSet = new Set(closure);
   const relatedErrors = [
     ...diagnosticsErrors(validationResults.lessons),
     ...diagnosticsErrors(validationResults.teacherPacks),
     ...diagnosticsErrors(validationResults.reviews),
   ].filter((diagnostic) => closureSet.has(diagnosticPath(diagnostic)));
-  const rawErrors = loadErrors.filter((entry) => closureSet.has(entry.path));
+  const machineStates = machineArtifactStates.filter(
+    (state) => closureSet.has(state.artifact_path),
+  );
+  const machinePaths = new Set(machineStates.map((state) => state.artifact_path));
+  const rawErrors = loadErrors.filter(
+    (entry) => closureSet.has(entry.path) && !machinePaths.has(entry.path),
+  );
+  const machineDiagnostics = machineStates.flatMap(
+    (state) => state.schema_diagnostics,
+  );
+  const checkedKinds = new Set(machineStates.map((state) => state.artifact_kind));
+  const missingKinds = requiredMachineKinds.filter((kind) => !checkedKinds.has(kind));
+  const diagnostics = [
+    ...relatedErrors.map(normalizedSchemaDiagnostic),
+    ...rawErrors.map((entry) => ({
+      severity: 'error',
+      file: entry.path,
+      field: '/',
+      reason: entry.reason,
+    })),
+    ...machineDiagnostics,
+    ...missingKinds.map((kind) => ({
+      severity: 'error',
+      file: closure[0],
+      field: '/',
+      reason: `required machine artifact kind ${kind} was not schema-checked`,
+    })),
+  ].sort((left, right) => compareBytewise(
+    `${left.file}\u0000${left.field}\u0000${left.reason}`,
+    `${right.file}\u0000${right.field}\u0000${right.reason}`,
+  ));
   return {
-    valid: relatedErrors.length === 0 && rawErrors.length === 0,
-    related_paths: uniqueSorted([
-      ...relatedErrors.map(diagnosticPath),
-      ...rawErrors.map((entry) => entry.path),
-    ]),
+    valid: diagnostics.length === 0,
+    related_paths: uniqueSorted(diagnostics.map((diagnostic) => diagnostic.file)),
+    diagnostics,
+    checked_machine_artifacts: machineStates.map((state) => ({
+      artifact_path: state.artifact_path,
+      artifact_kind: state.artifact_kind,
+      schema_valid: state.schema_valid,
+    })).sort((left, right) => compareBytewise(
+      `${left.artifact_path}\u0000${left.artifact_kind}`,
+      `${right.artifact_path}\u0000${right.artifact_kind}`,
+    )),
   };
 }
 
@@ -228,9 +377,10 @@ function targetDemand(selectionRepository, targetId) {
 }
 
 function maximumDemandWithinCeiling(selectionRepository, request, lessonDna) {
-  const ceiling = request.language_profile.maximum_total_productive_language_demand;
+  const ceiling = request?.language_profile?.maximum_total_productive_language_demand;
+  if (!ceiling) return false;
   const ceilingRank = DEMAND_ORDER.get(ceiling) ?? Number.NEGATIVE_INFINITY;
-  return lessonDna.phases.every((phase) => (
+  return (lessonDna?.phases ?? []).every((phase) => (
     (DEMAND_ORDER.get(targetDemand(selectionRepository, phase.target.target_id))
       ?? Number.POSITIVE_INFINITY) <= ceilingRank
   ));
@@ -594,22 +744,26 @@ function homeState(lesson, actual) {
   };
 }
 
+export function targetRequiresAdultSupervision(selectionRepository, targetId) {
+  if (typeof targetId !== 'string' || targetId.length === 0) return false;
+  const [activityId, profileId] = targetId.split('::');
+  const activity = selectionRepository.knowledge.activities.data.activities.find(
+    (candidate) => candidate.activity_id === activityId,
+  );
+  const contract = profileId
+    ? activity?.execution_profiles?.find((profile) => profile.profile_id === profileId)
+    : activity;
+  return contract?.safety?.requires_adult_supervision === true;
+}
+
 function safetyState(lesson, actual, selectionRepository) {
   const packageSafety = actual.homeschoolPackage?.safety ?? {};
   const selectedTargets = actual.lessonDna?.phases?.map(
-    (phase) => phase.target.target_id,
+    (phase) => phase.target?.target_id,
   ) ?? [];
-  const selectedSafetyRequirement = selectedTargets.some((targetId) => {
-    const [activityId, profileId] = targetId.split('::');
-    const activity = selectionRepository.knowledge.activities.data.activities.find(
-      (candidate) => candidate.activity_id === activityId,
-    );
-    const contract = profileId
-      ? activity?.execution_profiles?.find((profile) => profile.profile_id === profileId)
-      : activity;
-    return contract?.safety?.adult_supervision_required === true
-      || contract?.effort?.homeschool_parent?.role === 'safety_supervision';
-  });
+  const selectedSafetyRequirement = selectedTargets.some(
+    (targetId) => targetRequiresAdultSupervision(selectionRepository, targetId),
+  );
   const applicable = Boolean(
     (
       lesson.practical_work
@@ -944,8 +1098,31 @@ async function learnerFiles(rootDir, generated) {
   return files;
 }
 
-async function loadActualMachineArtifacts(rootDir, generated) {
-  const loadErrors = [];
+function createMachineArtifactValidators(
+  selectionRepository,
+  homeschoolRepository,
+  lessonRepository,
+) {
+  const selection = createPedagogySelectionValidators(selectionRepository);
+  const homeschool = createPedagogyHomeschoolValidators(homeschoolRepository);
+  const integration =
+    createPedagogyGenerationIntegrationValidators(lessonRepository);
+  return {
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.selectionRequest]: selection.request,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.selectionDecision]: selection.decision,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.lessonDna]: selection.lessonDna,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.homeschoolRequest]: homeschool.request,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.homeschoolDecision]: homeschool.decision,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.homeschoolPackage]: homeschool.package,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.parentGuidance]: homeschool.parentGuidance,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.weeklyStudyPlan]: homeschool.weeklyStudyPlan,
+    [MACHINE_ARTIFACT_VALIDATOR_KEYS.integrationIndex]:
+      integration.integrationIndex,
+  };
+}
+
+async function loadActualMachineArtifacts(rootDir, generated, validators) {
+  const artifactStates = [];
   const byLesson = new Map();
   for (const lesson of generated.lessons) {
     const paths = lesson.pedagogical_integration.generated_artifacts;
@@ -956,22 +1133,39 @@ async function loadActualMachineArtifacts(rootDir, generated) {
       ['homeschoolRequest', paths.homeschool_request_path],
       ['homeschoolDecision', paths.homeschool_decision_path],
       ['homeschoolPackage', paths.homeschool_package_path],
+      ['parentGuidance', paths.parent_guidance_path],
+      ['weeklyStudyPlan', paths.weekly_study_plan_path],
     ].map(async ([key, repositoryPath]) => {
-      const result = await readYamlResult(rootDir, repositoryPath);
-      if (result.error) loadErrors.push({ path: repositoryPath, reason: result.error });
-      return [key, result.data];
+      const state = await loadMachineArtifact(
+        rootDir,
+        repositoryPath,
+        key,
+        validators[key],
+      );
+      artifactStates.push(state);
+      return [key, state.data];
     }));
     byLesson.set(lesson.lesson_id, Object.fromEntries(entries));
   }
   const integrationPath = `${WATER_PILOT_PACK}/pedagogy/integration-index.yaml`;
-  const integration = await readYamlResult(rootDir, integrationPath);
-  if (integration.error) {
-    loadErrors.push({ path: integrationPath, reason: integration.error });
-  }
+  const integration = await loadMachineArtifact(
+    rootDir,
+    integrationPath,
+    'integrationIndex',
+    validators.integrationIndex,
+  );
+  artifactStates.push(integration);
   return {
     byLesson,
     integrationIndex: integration.data,
-    loadErrors,
+    artifactStates: artifactStates.sort((left, right) => compareBytewise(
+      `${left.artifact_path}\u0000${left.artifact_kind}`,
+      `${right.artifact_path}\u0000${right.artifact_kind}`,
+    )),
+    loadErrors: artifactStates.filter((state) => state.parse_error).map((state) => ({
+      path: state.artifact_path,
+      reason: state.parse_error,
+    })),
   };
 }
 
@@ -1085,6 +1279,7 @@ export async function loadWaterPilotPedagogyQualityRepository({
     preparedBaseline,
     lessonRepository,
     teacherPackRepository,
+    currentHomeschoolRepository,
   ] = await Promise.all([
     loadPedagogyQualityConfiguration({ rootDir: absoluteRoot }),
     baselineContext ?? prepareWaterPilotQualityBaselineContext({
@@ -1092,11 +1287,16 @@ export async function loadWaterPilotPedagogyQualityRepository({
     }),
     loadLessonPlanRepository({ rootDir: absoluteRoot }),
     loadTeacherPackRepository({ rootDir: absoluteRoot }),
+    loadPedagogyHomeschoolRepository({
+      rootDir: absoluteRoot,
+      examplesOptional: true,
+      skipExamples: true,
+    }),
   ]);
   const {
     generated: baselineGenerated,
-    selectionRepository,
   } = preparedBaseline;
+  const selectionRepository = currentHomeschoolRepository.selection;
   const generated = {
     ...baselineGenerated,
     rootDir: absoluteRoot,
@@ -1115,8 +1315,8 @@ export async function loadWaterPilotPedagogyQualityRepository({
     fingerprintState,
   );
   const validationResults = {
-    selection: preparedBaseline.selectionValidation,
-    homeschool: preparedBaseline.homeschoolValidation,
+    selection: validatePedagogySelection(selectionRepository),
+    homeschool: validatePedagogyHomeschool(currentHomeschoolRepository),
     lessons: validateLessonPlanRepository(lessonRepository),
     teacherPacks: validateTeacherPackRepository(teacherPackRepository),
     reviews: evidenceState.validation,
@@ -1132,7 +1332,16 @@ export async function loadWaterPilotPedagogyQualityRepository({
     throw error;
   }
   const generatedMismatches = await checkGeneratedFiles(generated);
-  const actualMachine = await loadActualMachineArtifacts(absoluteRoot, generated);
+  const machineValidators = createMachineArtifactValidators(
+    selectionRepository,
+    currentHomeschoolRepository,
+    lessonRepository,
+  );
+  const actualMachine = await loadActualMachineArtifacts(
+    absoluteRoot,
+    generated,
+    machineValidators,
+  );
   const actualLessons = WATER_PILOT_LESSONS.map((repositoryPath) => (
     lessonRepository.artifacts.find((artifact) => artifact.file === repositoryPath)
   )).filter(Boolean).map((artifact) => artifact.data);
@@ -1179,6 +1388,8 @@ export async function loadWaterPilotPedagogyQualityRepository({
       closure,
       validationResults,
       loadErrors,
+      actualMachine.artifactStates,
+      INTEGRATED_MACHINE_ARTIFACT_KINDS,
     );
     const structure = structureState(lesson, actual, selectionRepository);
     const readiness = readinessState({
@@ -1196,6 +1407,8 @@ export async function loadWaterPilotPedagogyQualityRepository({
       duration_minutes: lesson.duration_minutes,
       schema_valid: schema.valid,
       schema_related_paths: schema.related_paths,
+      schema_diagnostics: schema.diagnostics,
+      schema_checked_machine_artifacts: schema.checked_machine_artifacts,
       identity: integratedIdentityState(
         lesson,
         actual,
@@ -1240,21 +1453,33 @@ export async function loadWaterPilotPedagogyQualityRepository({
     records.push(integratedRecord);
     const packagePath =
       lesson.pedagogical_integration.generated_artifacts.homeschool_package_path;
+    const homeClosure = uniqueSorted([
+      `${WATER_PILOT_PACK}/pedagogy/integration-index.yaml`,
+      packagePath,
+      lesson.pedagogical_integration.generated_artifacts.homeschool_request_path,
+      lesson.pedagogical_integration.generated_artifacts.homeschool_decision_path,
+      lesson.pedagogical_integration.generated_artifacts.homeschool_rendered_path,
+      lesson.pedagogical_integration.generated_artifacts.parent_guidance_path,
+      lesson.pedagogical_integration.generated_artifacts.weekly_study_plan_path,
+      lesson.pedagogical_integration.generated_artifacts.home_practical_policy_path,
+      ...closure.filter((repositoryPath) => repositoryPath.includes('/homeschool/')),
+    ]);
+    const homeSchema = schemaStateForClosure(
+      homeClosure,
+      validationResults,
+      loadErrors,
+      actualMachine.artifactStates,
+      HOMESCHOOL_MACHINE_ARTIFACT_KINDS,
+    );
     records.push({
       kind: 'homeschool_package',
       artifact_path: packagePath,
       record_id: `${lesson.lesson_id}-homeschool`,
-      checked_artifacts: uniqueSorted([
-        packagePath,
-        lesson.pedagogical_integration.generated_artifacts.homeschool_request_path,
-        lesson.pedagogical_integration.generated_artifacts.homeschool_decision_path,
-        lesson.pedagogical_integration.generated_artifacts.homeschool_rendered_path,
-        lesson.pedagogical_integration.generated_artifacts.parent_guidance_path,
-        lesson.pedagogical_integration.generated_artifacts.weekly_study_plan_path,
-        lesson.pedagogical_integration.generated_artifacts.home_practical_policy_path,
-        ...closure.filter((repositoryPath) => repositoryPath.includes('/homeschool/')),
-      ]),
-      schema_valid: schema.valid,
+      checked_artifacts: homeClosure,
+      schema_valid: homeSchema.valid,
+      schema_related_paths: homeSchema.related_paths,
+      schema_diagnostics: homeSchema.diagnostics,
+      schema_checked_machine_artifacts: homeSchema.checked_machine_artifacts,
       home: homeState(lesson, actual),
       safety: safetyState(lesson, actual, selectionRepository),
       readiness,
@@ -1270,6 +1495,8 @@ export async function loadWaterPilotPedagogyQualityRepository({
     thematicClosure,
     validationResults,
     loadErrors,
+    actualMachine.artifactStates,
+    ['integrationIndex'],
   );
   records.push({
     kind: 'thematic_plan',
@@ -1277,6 +1504,9 @@ export async function loadWaterPilotPedagogyQualityRepository({
     record_id: thematic.unit_id,
     checked_artifacts: thematicClosure,
     schema_valid: thematicSchema.valid,
+    schema_related_paths: thematicSchema.related_paths,
+    schema_diagnostics: thematicSchema.diagnostics,
+    schema_checked_machine_artifacts: thematicSchema.checked_machine_artifacts,
     delayed_retrieval: thematicDelayedState(thematic, actualLessons),
     readiness: readinessState({
       thematic,
@@ -1293,6 +1523,8 @@ export async function loadWaterPilotPedagogyQualityRepository({
     packClosure,
     validationResults,
     loadErrors,
+    actualMachine.artifactStates,
+    ['integrationIndex'],
   );
   records.push({
     kind: 'teacher_pack',
@@ -1300,6 +1532,9 @@ export async function loadWaterPilotPedagogyQualityRepository({
     record_id: materialsIndex.pack_id,
     checked_artifacts: packClosure,
     schema_valid: packSchema.valid,
+    schema_related_paths: packSchema.related_paths,
+    schema_diagnostics: packSchema.diagnostics,
+    schema_checked_machine_artifacts: packSchema.checked_machine_artifacts,
     identity: teacherPackIdentityState(
       thematic,
       materialsIndex,
@@ -1346,6 +1581,7 @@ export async function loadWaterPilotPedagogyQualityRepository({
       generatedMismatches,
       validationResults,
       fingerprintComputed: fingerprintState.computed,
+      machineArtifacts: actualMachine.artifactStates,
     },
     reportMetadata: {
       scopeId: WATER_QUALITY_SCOPE_ID,

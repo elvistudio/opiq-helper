@@ -347,8 +347,11 @@ function evaluateSchema(record) {
     : {
       code: 'pedagogy_schema_invalid',
       message: 'The integrated artifact or one of its declared dependencies is not schema-valid.',
-      expected: true,
-      actual: record.schema_valid,
+      expected: { schema_valid: true },
+      actual: {
+        schema_valid: record.schema_valid,
+        diagnostics: record.schema_diagnostics ?? [],
+      },
       relatedPaths: record.schema_related_paths,
     };
 }

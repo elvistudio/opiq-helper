@@ -18,6 +18,7 @@ import {
 import {
   loadWaterPilotPedagogyQualityRepository,
   prepareWaterPilotQualityBaselineContext,
+  targetRequiresAdultSupervision,
   WATER_QUALITY_REPORT_ID,
   WATER_QUALITY_REPORT_PATH,
 } from './lib/pedagogy-quality-production.mjs';
@@ -86,6 +87,33 @@ function gateDiagnostic(evaluation, gateId, code) {
   return evaluation.diagnostics.find((diagnostic) => (
     diagnostic.gate_id === gateId && (!code || diagnostic.code === code)
   ));
+}
+
+function schemaDiagnosticsFor(repository, artifactPath) {
+  return repository.records.flatMap(
+    (record) => record.schema_diagnostics ?? [],
+  ).filter((diagnostic) => diagnostic.file === artifactPath);
+}
+
+function assertMachineSchemaFailure(repository, artifactPath) {
+  const evaluation = evaluate(repository);
+  const diagnostics = evaluation.diagnostics.filter((diagnostic) => (
+    diagnostic.gate_id === 'schema-valid'
+    && diagnostic.code === 'pedagogy_schema_invalid'
+    && diagnostic.related_paths?.includes(artifactPath)
+  ));
+  assert.ok(diagnostics.length > 0, `expected schema failure for ${artifactPath}`);
+  assert.equal(evaluation.claims.pedagogy_schema_valid, false);
+  assert.equal(evaluation.claims.structurally_complete, false);
+  assert.ok(evaluation.results.some((result) => (
+    result.gate_id === 'structural-completeness'
+    && result.status === 'error'
+  )));
+  return {
+    evaluation,
+    diagnostics,
+    schemaDiagnostics: schemaDiagnosticsFor(repository, artifactPath),
+  };
 }
 
 function assertGateFailure(repository, gateId, code) {
@@ -905,6 +933,290 @@ test('CLI path scope accepts exact files/directories and rejects empty or unsafe
   }
 });
 
+test('production schema projection validates all committed machine artifact kinds', () => {
+  const states = production.upstream.machineArtifacts;
+  assert.equal(states.length, 33);
+  assert.deepEqual(
+    [...new Set(states.map((state) => state.artifact_kind))].sort(),
+    [
+      'homeschoolDecision',
+      'homeschoolPackage',
+      'homeschoolRequest',
+      'integrationIndex',
+      'lessonDna',
+      'parentGuidance',
+      'selectionDecision',
+      'selectionRequest',
+      'weeklyStudyPlan',
+    ],
+  );
+  assert.ok(states.every((state) => (
+    state.schema_valid === true
+    && state.parse_error === null
+    && state.schema_diagnostics.length === 0
+  )));
+});
+
+test('production schema projection: unknown lesson-DNA field is dependency-scoped', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (lessonDna) => {
+      lessonDna.unknown_quality_field = true;
+    },
+    async () => {
+      const repository = await loadMutatedFixture();
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.field === '/unknown_quality_field'
+        && diagnostic.reason === 'unknown field unknown_quality_field'
+      )));
+      assert.ok(failure.diagnostics.every((diagnostic) => (
+        repository.records.find((record) => (
+          record.record_id === diagnostic.record_id
+        ))?.checked_artifacts.includes(artifactPath)
+      )));
+      assert.equal(failure.evaluation.diagnostics.some((diagnostic) => (
+        diagnostic.record_id === 'grade-5-water-02-states'
+        && diagnostic.related_paths?.includes(artifactPath)
+      )), false);
+    },
+  );
+});
+
+test('production schema projection: missing lesson-DNA field is an auditable error', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (lessonDna) => {
+      delete lessonDna.lesson_dna_id;
+    },
+    async () => {
+      const repository = await loadMutatedFixture();
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.field === '/lesson_dna_id'
+        && diagnostic.reason === 'missing required field lesson_dna_id'
+      )));
+    },
+  );
+});
+
+test('production schema projection: wrong selection-decision enum fails', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-selection-decision.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (decision) => {
+      decision.status = 'unexpected';
+    },
+    async () => {
+      const repository = await loadMutatedFixture();
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.field === '/status'
+      )));
+    },
+  );
+});
+
+test('production schema projection: unknown homeschool-package field fails', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (homeschoolPackage) => {
+      homeschoolPackage.unknown_quality_field = true;
+    },
+    async () => {
+      const repository = await loadMutatedFixture();
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.reason === 'unknown field unknown_quality_field'
+      )));
+    },
+  );
+});
+
+test('production schema projection: missing homeschool-request field fails', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-adaptation-request.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (request) => {
+      delete request.request_id;
+    },
+    async () => {
+      const repository = await loadMutatedFixture();
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.reason === 'missing required field request_id'
+      )));
+    },
+  );
+});
+
+for (const [label, artifactPath] of [
+  [
+    'parent guidance',
+    'teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-parent-guidance.yaml',
+  ],
+  [
+    'weekly plan',
+    'teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-weekly-plan.yaml',
+  ],
+]) {
+  test(`production schema projection: invalid ${label} keeps the exact artifact path`, async () => {
+    await mutateFixtureYaml(
+      artifactPath,
+      (artifact) => {
+        artifact.unknown_quality_field = true;
+      },
+      async () => {
+        const repository = await loadMutatedFixture();
+        const failure = assertMachineSchemaFailure(repository, artifactPath);
+        assert.ok(failure.diagnostics.every((diagnostic) => (
+          diagnostic.related_paths.includes(artifactPath)
+        )));
+        assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+          diagnostic.file === artifactPath
+          && diagnostic.reason === 'unknown field unknown_quality_field'
+        )));
+      },
+    );
+  });
+}
+
+test('production schema projection: unknown integration-index field fails', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (index) => {
+      index.unknown_quality_field = true;
+    },
+    async () => {
+      const repository = await loadMutatedFixture();
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.field === '/unknown_quality_field'
+        && diagnostic.reason === 'unknown field unknown_quality_field'
+      )));
+    },
+  );
+});
+
+test('production schema projection: missing integration-index field fails without TypeError', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (index) => {
+      delete index.unit_id;
+    },
+    async () => {
+      let repository;
+      await assert.doesNotReject(async () => {
+        repository = await loadMutatedFixture();
+      });
+      const failure = assertMachineSchemaFailure(repository, artifactPath);
+      assert.ok(failure.schemaDiagnostics.some((diagnostic) => (
+        diagnostic.reason === 'missing required field unit_id'
+      )));
+    },
+  );
+});
+
+test('production schema projection recovers after the current artifact is restored', async () => {
+  const artifactPath =
+    'teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml';
+  await mutateFixtureYaml(
+    artifactPath,
+    (lessonDna) => {
+      lessonDna.unknown_quality_field = true;
+    },
+    async () => {
+      assertMachineSchemaFailure(await loadMutatedFixture(), artifactPath);
+    },
+  );
+  const restored = await loadMutatedFixture();
+  assert.equal(evaluate(restored).claims.pedagogy_schema_valid, true);
+  assert.equal(schemaDiagnosticsFor(restored, artifactPath).length, 0);
+});
+
+test('activity safety resolver uses exact base and execution-profile metadata', () => {
+  const selection = projectionBaseline.selectionRepository;
+  assert.equal(
+    targetRequiresAdultSupervision(selection, 'gallery-walk'),
+    true,
+  );
+  assert.equal(
+    targetRequiresAdultSupervision(
+      selection,
+      'learning-stations::practical-home-passive-ice-observation',
+    ),
+    true,
+  );
+  assert.equal(
+    targetRequiresAdultSupervision(selection, 'unknown-quality-target'),
+    false,
+  );
+});
+
+test('activity safety resolver never accepts the misspelled legacy alias', () => {
+  const selection = structuredClone(projectionBaseline.selectionRepository);
+  const activity = selection.knowledge.activities.data.activities.find(
+    (candidate) => candidate.activity_id === 'gallery-walk',
+  );
+  activity.safety.requires_adult_supervision = false;
+  activity.safety.adult_supervision_required = true;
+  assert.equal(targetRequiresAdultSupervision(selection, 'gallery-walk'), false);
+});
+
+test('production safety projection remains activity-applicable with active parent role', async () => {
+  const dnaPath =
+    'teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml';
+  const packagePath =
+    'teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml';
+  await mutateFixtureYaml(
+    dnaPath,
+    (lessonDna) => {
+      lessonDna.phases[0].target.target_id = 'gallery-walk';
+    },
+    async () => {
+      await mutateFixtureYaml(
+        packagePath,
+        (homeschoolPackage) => {
+          homeschoolPackage.safety.source_supervision_required = false;
+          homeschoolPackage.safety.adapted_supervision_required = false;
+          homeschoolPackage.safety.effective_supervision_required = false;
+          homeschoolPackage.safety.adult_supervision_required = false;
+          homeschoolPackage.safety.teacher_authorization_required = false;
+        },
+        async () => {
+          const repository = await loadMutatedFixture();
+          const record = homeschool(repository, 0);
+          assert.equal(record.safety.applicable, true);
+          assert.equal(record.safety.adult_supervision_present, false);
+          const evaluation = evaluate(repository);
+          assert.ok(gateDiagnostic(
+            evaluation,
+            'safety-contract-preserved',
+            'safety_contract_invalid',
+          ));
+          assert.ok(evaluation.results.some((result) => (
+            result.gate_id === 'structural-completeness'
+            && result.record_id === record.record_id
+            && result.status === 'error'
+          )));
+        },
+      );
+    },
+  );
+});
+
 test('production projection: real timing YAML mutation blocks timing and structural completeness', async () => {
   await mutateFixtureYaml(
     'teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml',
@@ -1471,8 +1783,8 @@ test('production projection: unimplemented loaded catalogue gate is rejected', a
   );
 });
 
-test('production adapter mutation suite covers at least twenty-nine real artifact mutations', () => {
-  assert.ok(productionAdapterMutationCount >= 29);
+test('production adapter mutation suite covers at least forty-one real artifact mutations', () => {
+  assert.ok(productionAdapterMutationCount >= 41);
 });
 
 test('quality engine implementation contains no water lesson or material IDs', async () => {

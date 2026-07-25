@@ -30,6 +30,17 @@ loads the existing systems, projects their current guarantees into the shared
 contract, and supplies the committed water report. Concrete lesson-3 checks
 remain in the production integration validator.
 
+The `schema-valid` projection validates the committed machine files read from
+the current checkout, not generated baseline expectations and not YAML
+parseability alone. Selection requests, selection decisions, lesson DNA,
+homeschool requests, decisions, packages, parent guidance, weekly plans, and
+the production integration index run through their existing strict Ajv
+schemas. Unknown properties, missing required properties, invalid enums, and
+invalid types are retained as artifact-level diagnostics. Each normalized
+record receives only diagnostics from its dependency closure; any applicable
+machine-schema error makes `pedagogy_schema_valid` and derived structural
+completeness false.
+
 Evaluation is deliberately two-stage. Every applicable primitive gate runs
 first; only then do derived gates run. `structural-completeness` is derived
 from the complete per-record primitive result set, so catalogue order cannot
@@ -75,6 +86,13 @@ Applicability is explicit. A non-practical lesson does not fail for lacking a
 practical policy, and a pattern is not forced to contain every possible phase.
 Lesson duration comes from the lesson artifact; 45 minutes is not a universal
 engine constant.
+
+Safety applicability is derived from independent authoritative signals. When a
+selected activity or execution profile declares
+`safety.requires_adult_supervision`, that exact catalogue field makes the gate
+applicable even if a downstream package flag is wrong. It is not inferred from
+the spelling of `homeschool_parent.role`: `active_participant` and other
+bounded adult roles do not cancel explicit safety metadata.
 
 ## Severity and diagnostics
 

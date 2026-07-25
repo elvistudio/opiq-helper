@@ -805,7 +805,6 @@
         "resolved_artifact_paths": {
           "type": "array",
           "minItems": 1,
-          "uniqueItems": true,
           "items": {
             "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
           }
@@ -931,6 +930,635 @@
             { "type": "null" },
             { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" }
           ]
+        }
+      }
+    },
+    "productionMaterialReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "material_id",
+        "title",
+        "artifact_path",
+        "audience",
+        "material_type",
+        "answer_key_path"
+      ],
+      "properties": {
+        "material_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "artifact_path": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+        },
+        "audience": { "enum": ["student", "teacher"] },
+        "material_type": { "type": "string", "minLength": 1 },
+        "answer_key_path": {
+          "oneOf": [
+            {
+              "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "productionTaskBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "lesson_id",
+        "phase_id",
+        "target_id",
+        "execution_mode",
+        "learner_instruction_ru",
+        "student_artifact_paths",
+        "student_materials",
+        "teacher_artifact_paths",
+        "answer_key_artifact_path",
+        "evaluation_mode",
+        "source_access_policy",
+        "answer_access_policy",
+        "prompt_source_refs",
+        "prompt_ru",
+        "learner_success_criterion_ru",
+        "learner_language_support_ru",
+        "answer_evidence_refs",
+        "answer_evidence_ru",
+        "teacher_action_source_refs",
+        "teacher_action_ru",
+        "answer_language_refs",
+        "answer_language_ru",
+        "acceptable_variant_refs",
+        "acceptable_variants_ru",
+        "misconception_refs",
+        "misconceptions_ru",
+        "assessment_refs",
+        "oral_answer_refs",
+        "safety_controls_ru"
+      ],
+      "properties": {
+        "task_id": { "type": "string", "pattern": "^[a-z0-9]+(?:[a-z0-9/-]*[a-z0-9])?$" },
+        "lesson_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "phase_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "target_id": { "type": "string", "pattern": "^[a-z0-9]+(?:[a-z0-9._:-]*[a-z0-9])?$" },
+        "execution_mode": {
+          "enum": [
+            "teacher_led",
+            "learner_task",
+            "practical_task",
+            "retrieval_task",
+            "assessment_task",
+            "reflection_task"
+          ]
+        },
+        "learner_instruction_ru": { "type": "string", "minLength": 20 },
+        "student_artifact_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+          }
+        },
+        "student_materials": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/productionMaterialReference" }
+        },
+        "teacher_artifact_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+          }
+        },
+        "answer_key_artifact_path": {
+          "oneOf": [
+            {
+              "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+            },
+            { "type": "null" }
+          ]
+        },
+        "evaluation_mode": {
+          "enum": [
+            "answer_key",
+            "evidence_criterion",
+            "teacher_observation",
+            "open_reflection",
+            "not_applicable"
+          ]
+        },
+        "source_access_policy": { "enum": ["open", "closed_first_attempt", "teacher_managed"] },
+        "answer_access_policy": {
+          "enum": [
+            "not_applicable",
+            "after_first_attempt",
+            "adult_managed",
+            "self_managed_after_attempt"
+          ]
+        },
+        "prompt_source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "prompt_ru": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "learner_success_criterion_ru": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "learner_language_support_ru": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "answer_evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "answer_evidence_ru": { "type": "string", "minLength": 1 },
+        "teacher_action_source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "teacher_action_ru": { "type": "string", "minLength": 1 },
+        "answer_language_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "answer_language_ru": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "acceptable_variant_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "acceptable_variants_ru": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "misconception_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "misconceptions_ru": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "assessment_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        },
+        "oral_answer_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        },
+        "safety_controls_ru": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5 }
+        }
+      }
+    },
+    "timingComponentTotals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "activity_minutes",
+        "setup_minutes",
+        "cleanup_minutes",
+        "transition_minutes"
+      ],
+      "properties": {
+        "activity_minutes": { "type": "integer", "minimum": 0 },
+        "setup_minutes": { "type": "integer", "minimum": 0 },
+        "cleanup_minutes": { "type": "integer", "minimum": 0 },
+        "transition_minutes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "timingAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_stage_id",
+        "activity_minutes",
+        "setup_minutes",
+        "cleanup_minutes",
+        "transition_minutes",
+        "compatibility_basis"
+      ],
+      "properties": {
+        "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "activity_minutes": { "type": "integer", "minimum": 0 },
+        "setup_minutes": { "type": "integer", "minimum": 0 },
+        "cleanup_minutes": { "type": "integer", "minimum": 0 },
+        "transition_minutes": { "type": "integer", "minimum": 0 },
+        "compatibility_basis": {
+          "enum": [
+            "standard",
+            "embedded_formative_evidence",
+            "language_assessment",
+            "retrieval_activation"
+          ]
+        }
+      }
+    },
+    "timingReconciliationOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_id",
+        "lesson_duration_minutes",
+        "declared_stage_total_minutes",
+        "dna_total_planned_minutes",
+        "dna_unallocated_minutes",
+        "compatibility_rules_version",
+        "component_totals",
+        "reserve_minutes",
+        "non_dna_minutes",
+        "phases",
+        "reserve_allocations",
+        "non_dna_allocations",
+        "stage_partitions",
+        "status"
+      ],
+      "properties": {
+        "lesson_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "lesson_duration_minutes": { "type": "integer", "minimum": 1 },
+        "declared_stage_total_minutes": { "type": "integer", "minimum": 1 },
+        "dna_total_planned_minutes": { "type": "integer", "minimum": 1 },
+        "dna_unallocated_minutes": { "type": "integer", "minimum": 0 },
+        "compatibility_rules_version": { "const": "1.0" },
+        "component_totals": { "$ref": "#/$defs/timingComponentTotals" },
+        "reserve_minutes": { "type": "integer", "minimum": 0 },
+        "non_dna_minutes": { "type": "integer", "minimum": 0 },
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "phase_id",
+              "phase",
+              "target_id",
+              "lesson_stage_ids",
+              "timing_allocations",
+              "component_totals",
+              "source_access_policy",
+              "binding_rationale_ru",
+              "status"
+            ],
+            "properties": {
+              "phase_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "phase": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+              "target_id": { "type": "string", "pattern": "^[a-z0-9]+(?:[a-z0-9._:-]*[a-z0-9])?$" },
+              "lesson_stage_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+              },
+              "timing_allocations": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/$defs/timingAllocation" }
+              },
+              "component_totals": { "$ref": "#/$defs/timingComponentTotals" },
+              "source_access_policy": {
+                "enum": ["open", "closed_first_attempt", "teacher_managed"]
+              },
+              "binding_rationale_ru": { "type": "string", "minLength": 30 },
+              "status": { "const": "reconciled" }
+            }
+          }
+        },
+        "reserve_allocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lesson_stage_id", "minutes", "rationale_ru"],
+            "properties": {
+              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "minutes": { "type": "integer", "minimum": 1 },
+              "rationale_ru": { "type": "string", "minLength": 20 }
+            }
+          }
+        },
+        "non_dna_allocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lesson_stage_id", "minutes", "role", "rationale_ru"],
+            "properties": {
+              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "minutes": { "type": "integer", "minimum": 1 },
+              "role": {
+                "enum": [
+                  "language_bridge",
+                  "content_explanation",
+                  "transition",
+                  "homework_launch",
+                  "safety_setup",
+                  "assessment_separation",
+                  "guided_content_practice"
+                ]
+              },
+              "rationale_ru": { "type": "string", "minLength": 20 }
+            }
+          }
+        },
+        "stage_partitions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lesson_stage_id",
+              "stage_type",
+              "duration_minutes",
+              "phase_allocations",
+              "reserve_minutes",
+              "non_dna_minutes",
+              "allocated_minutes"
+            ],
+            "properties": {
+              "lesson_stage_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "stage_type": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+              "duration_minutes": { "type": "integer", "minimum": 1 },
+              "phase_allocations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "phase_id",
+                    "lesson_stage_id",
+                    "activity_minutes",
+                    "setup_minutes",
+                    "cleanup_minutes",
+                    "transition_minutes",
+                    "compatibility_basis",
+                    "allocated_minutes"
+                  ],
+                  "properties": {
+                    "phase_id": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                    },
+                    "lesson_stage_id": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                    },
+                    "activity_minutes": { "type": "integer", "minimum": 0 },
+                    "setup_minutes": { "type": "integer", "minimum": 0 },
+                    "cleanup_minutes": { "type": "integer", "minimum": 0 },
+                    "transition_minutes": { "type": "integer", "minimum": 0 },
+                    "compatibility_basis": {
+                      "enum": [
+                        "standard",
+                        "embedded_formative_evidence",
+                        "language_assessment",
+                        "retrieval_activation"
+                      ]
+                    },
+                    "allocated_minutes": { "type": "integer", "minimum": 0 }
+                  }
+                }
+              },
+              "reserve_minutes": { "type": "integer", "minimum": 0 },
+              "non_dna_minutes": { "type": "integer", "minimum": 0 },
+              "allocated_minutes": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "status": { "const": "reconciled" }
+      }
+    },
+    "integrationIndex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "integration_version",
+        "unit_id",
+        "unit_content_identity",
+        "lessons",
+        "determinism"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "pedagogy_generation_integration_index" },
+        "integration_version": { "const": "1.0" },
+        "unit_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "unit_content_identity": { "$ref": "#/$defs/contentIdentity" },
+        "lessons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lesson_id",
+              "content_identity",
+              "selection_request_path",
+              "selection_request_digest",
+              "selection_decision_path",
+              "lesson_dna_path",
+              "lesson_dna_digest",
+              "selected_pattern_id",
+              "selected_target_ids",
+              "production_assessment_integration",
+              "task_bindings",
+              "timing_reconciliation",
+              "classroom_rendered_paths",
+              "estonian_assessment",
+              "homeschool_request_path",
+              "homeschool_decision_path",
+              "homeschool_package_path",
+              "parent_guidance_path",
+              "weekly_study_plan_path",
+              "homeschool_rendered_path",
+              "home_practical_policy_path",
+              "homeschool_render_resolution",
+              "readiness"
+            ],
+            "properties": {
+              "lesson_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+              "content_identity": { "$ref": "#/$defs/contentIdentity" },
+              "selection_request_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "selection_request_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+              "selection_decision_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "lesson_dna_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "lesson_dna_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+              "selected_pattern_id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "selected_target_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:[a-z0-9._:-]*[a-z0-9])?$"
+                }
+              },
+              "production_assessment_integration": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "source_lesson_dna_digest",
+                  "subject_assessment",
+                  "estonian_language_assessment",
+                  "separation_policy",
+                  "provenance"
+                ],
+                "properties": {
+                  "source_lesson_dna_digest": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "subject_assessment": {
+                    "$ref": "#/$defs/assessmentIntegrationPart"
+                  },
+                  "estonian_language_assessment": {
+                    "$ref": "#/$defs/assessmentIntegrationPart"
+                  },
+                  "separation_policy": {
+                    "const": "separate_subject_and_estonian_language_evidence"
+                  },
+                  "provenance": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["source"],
+                    "properties": {
+                      "source": { "const": "lesson_assessment_bindings" }
+                    }
+                  }
+                }
+              },
+              "task_bindings": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/$defs/productionTaskBinding" }
+              },
+              "timing_reconciliation": {
+                "$ref": "#/$defs/timingReconciliationOutput"
+              },
+              "classroom_rendered_paths": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+                }
+              },
+              "estonian_assessment": {
+                "$ref": "#/$defs/assessmentIntegrationPart"
+              },
+              "homeschool_request_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "homeschool_decision_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "homeschool_package_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "parent_guidance_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "weekly_study_plan_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "homeschool_rendered_path": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+              },
+              "home_practical_policy_path": {
+                "oneOf": [
+                  {
+                    "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+                  },
+                  { "type": "null" }
+                ]
+              },
+              "homeschool_render_resolution": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "content_refs_resolved",
+                  "task_refs_resolved",
+                  "answer_refs_resolved",
+                  "procedure_refs_resolved",
+                  "safety_refs_resolved",
+                  "home_material_validation"
+                ],
+                "properties": {
+                  "content_refs_resolved": { "type": "boolean" },
+                  "task_refs_resolved": { "type": "boolean" },
+                  "answer_refs_resolved": { "type": "boolean" },
+                  "procedure_refs_resolved": { "type": "boolean" },
+                  "safety_refs_resolved": { "type": "boolean" },
+                  "home_material_validation": {
+                    "$ref": "#/$defs/homeMaterialValidation"
+                  }
+                }
+              },
+              "readiness": { "$ref": "#/$defs/integrationStatus" }
+            }
+          }
+        },
+        "determinism": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ordering",
+            "ai_used",
+            "network_used",
+            "randomness_used",
+            "volatile_timestamps"
+          ],
+          "properties": {
+            "ordering": { "const": "bytewise" },
+            "ai_used": { "const": false },
+            "network_used": { "const": false },
+            "randomness_used": { "const": false },
+            "volatile_timestamps": { "const": false }
+          }
         }
       }
     },
