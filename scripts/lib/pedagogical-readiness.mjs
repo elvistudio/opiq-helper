@@ -77,6 +77,16 @@ function evidenceAuditEntry(state) {
     delivery_modes: [...(state.deliveryScopes ?? [])].sort(compareBytewise),
     supersedes: [...(state.supersedes ?? [])].sort(compareBytewise),
     superseded_by: state.supersededBy ?? null,
+    decision_evidence_coherent: state.decision_evidence_coherent === true,
+    covered_lesson_ids: uniqueSorted(state.covered_lesson_ids ?? []),
+    retrieval_lesson_ids: uniqueSorted(state.retrieval_lesson_ids ?? []),
+    practical_lesson_ids: uniqueSorted(state.practical_lesson_ids ?? []),
+    dimension_coverage: state.dimension_coverage ?? {
+      required_dimensions: [],
+      dimension_lesson_coverage: [],
+      missing_dimension_lesson_pairs: [],
+      complete: false,
+    },
     evidence_path: state.artifact.file,
   };
 }
@@ -98,13 +108,30 @@ function evidenceAudit(evidenceSummary) {
       compareBytewise(left.kind, right.kind)
       || compareBytewise(left.evidence_path, right.evidence_path)
     ));
+  const supportsReadiness = (state) => {
+    if (!state.positive_effective) return false;
+    if (evidenceKind(state) === 'classroom_trial') {
+      return evidenceSummary.effective_classroom_trial === true;
+    }
+    if (evidenceKind(state) === 'home_trial') {
+      return evidenceSummary.effective_home_trial === true;
+    }
+    return true;
+  };
   return {
     active_evidence: sorted(activeStates),
     historical_evidence: sorted(historicalStates),
     superseded_evidence: sorted(historicalStates),
     stale_evidence: staleEvidence,
     readiness_supporting_evidence: sorted(
-      activeStates.filter((state) => state.positive_effective),
+      activeStates.filter(supportsReadiness),
+    ),
+    partial_positive_evidence: sorted(
+      activeStates.filter((state) => (
+        state.positive_effective
+        && ['classroom_trial', 'home_trial'].includes(evidenceKind(state))
+        && !supportsReadiness(state)
+      )),
     ),
     readiness_blocking_evidence: sorted(
       activeStates.filter(
@@ -146,6 +173,7 @@ export function evaluatePedagogicalReadiness({
     superseded_evidence: [],
     stale_evidence: [],
     readiness_supporting_evidence: [],
+    partial_positive_evidence: [],
     readiness_blocking_evidence: [],
   },
 }) {
@@ -210,20 +238,50 @@ export function evaluatePedagogicalReadiness({
     ));
   }
   if (!evidenceSummary.effective_classroom_trial) {
-    blockers.push(blocker(
-      'current_classroom_trial_missing',
-      'classroom',
-      'A current analysed classroom trial is required.',
-      evidenceSummary.classroom_trial_paths,
-    ));
+    if (
+      (evidenceSummary.effective_classroom_trial_record_count ?? 0) > 0
+      && evidenceSummary.classroom_trial_coverage?.complete !== true
+    ) {
+      blockers.push(blocker(
+        'classroom_trial_lesson_coverage_incomplete',
+        'classroom',
+        `Current positive classroom trials are missing pack lessons: ${
+          (evidenceSummary.classroom_trial_coverage?.missing_lesson_ids ?? [])
+            .join(', ')
+        }.`,
+        evidenceSummary.classroom_trial_coverage?.contributing_evidence_paths ?? [],
+      ));
+    } else {
+      blockers.push(blocker(
+        'current_classroom_trial_missing',
+        'classroom',
+        'A current analysed classroom trial is required.',
+        evidenceSummary.classroom_trial_paths,
+      ));
+    }
   }
   if (!evidenceSummary.effective_home_trial) {
-    blockers.push(blocker(
-      'current_home_trial_missing',
-      'homeschool',
-      'A current analysed home trial is required.',
-      evidenceSummary.home_trial_paths,
-    ));
+    if (
+      (evidenceSummary.effective_home_trial_record_count ?? 0) > 0
+      && evidenceSummary.home_trial_coverage?.complete !== true
+    ) {
+      blockers.push(blocker(
+        'home_trial_lesson_coverage_incomplete',
+        'homeschool',
+        `Current positive home trials are missing pack lessons: ${
+          (evidenceSummary.home_trial_coverage?.missing_lesson_ids ?? [])
+            .join(', ')
+        }.`,
+        evidenceSummary.home_trial_coverage?.contributing_evidence_paths ?? [],
+      ));
+    } else {
+      blockers.push(blocker(
+        'current_home_trial_missing',
+        'homeschool',
+        'A current analysed home trial is required.',
+        evidenceSummary.home_trial_paths,
+      ));
+    }
   }
   const activeStates = evidenceSummary.active_evidence_states ?? [];
   for (const state of activeStates.filter((item) => item.negative_effective)) {
@@ -236,7 +294,13 @@ export function evaluatePedagogicalReadiness({
       ));
     }
   }
-  if (evidenceSummary.parent_role_bounded !== true) {
+  if (
+    evidenceSummary.parent_role_bounded !== true
+    && (
+      evidenceSummary.effective_home_trial === true
+      || (evidenceSummary.effective_home_trial_record_count ?? 0) > 0
+    )
+  ) {
     blockers.push(blocker(
       'parent_role_not_bounded',
       'homeschool',
@@ -375,6 +439,7 @@ export function evaluatePedagogicalReadiness({
       evidenceSummary.stale_classroom_trial_count,
       evidenceSummary.classroom_trial_paths,
     ),
+    classroom_trial_coverage: evidenceSummary.classroom_trial_coverage,
     home_trial: statusSummary(
       evidenceSummary.home_trial_status ?? pack.home_trial.status,
       evidenceSummary.effective_home_trial,
@@ -384,6 +449,7 @@ export function evaluatePedagogicalReadiness({
       evidenceSummary.stale_home_trial_count,
       evidenceSummary.home_trial_paths,
     ),
+    home_trial_coverage: evidenceSummary.home_trial_coverage,
     open_findings: openFindings,
     stale_evidence: staleEvidence,
     classroom_ready: classroomReady,

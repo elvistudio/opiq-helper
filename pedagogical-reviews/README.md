@@ -46,11 +46,21 @@ every context lesson. Successful decisions require a complete set of
 applicable observations and `safe_to_repeat: true`; empty observation arrays
 cannot become effective. Blocking/major safety findings block success, while a
 minor safety note requires `successful_with_notes` and a referenced plan.
+Retrieval and practical-safety coverage are required only for lessons where
+the authoritative contracts make them applicable. Positive decisions must
+agree with ratings and observations. Pack readiness uses the union of active
+positive trial lesson coverage; a single-lesson success is `partial`, not a
+whole-pack trial.
 
 Registration validates the full resulting evidence repository, derived links,
-readiness report, and unchanged four-field fingerprint. It uses sibling
-staging files and detects materials-index changes before commit. Rollback is a
-best-effort local guarantee, not crash-safe ACID storage.
+readiness report, and unchanged four-field fingerprint. It uses a pack-local
+lock, sibling staging files, atomic no-replace installation for the immutable
+record, and device/inode ownership checks during rollback. A concurrent target
+or index change is preserved rather than overwritten. Rollback is a bounded
+single-host guarantee, not distributed or crash-safe ACID storage.
+
+Only terminal records may be linked. A draft review or conducted-but-unanalysed
+trial is a repository error and is excluded from active evidence.
 
 The complete workflow and commands are documented in
 [`docs/pedagogical-review-and-trial-workflow.md`](../docs/pedagogical-review-and-trial-workflow.md).

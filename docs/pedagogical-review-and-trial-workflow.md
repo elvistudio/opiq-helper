@@ -53,6 +53,12 @@ recall, and transfer.
 Templates and drafts are instruments, not evidence. Superseded records remain
 historical and never contribute to readiness.
 
+A linked record must already be terminal: `completed` for a review,
+`analysed` for a trial, or explicitly `superseded`. Linking a `draft` review or
+`conducted` but unanalysed trial is a repository error
+(`linked_evidence_not_terminal`); such a record is never placed in the active
+evidence set.
+
 Every record exposes distinct validation states:
 
 - `schema_valid` means the strict document schema passed;
@@ -62,8 +68,10 @@ Every record exposes distinct validation states:
   current pack state;
 - `registerable` means the record is complete, current, privacy-safe,
   reference-valid, and carries a permitted positive or negative decision;
-- `positive_effective` means a current approved review or successful trial may
-  support readiness for its declared delivery scope;
+- `positive_effective` means a current approved review or a successful trial
+  has sufficient evidence for the lessons named by that record; pack readiness
+  additionally requires the deterministic union of active positive trials to
+  cover every lesson in the pack;
 - `negative_effective` means a current completed negative decision actively
   blocks its declared scope.
 
@@ -152,13 +160,19 @@ different existing file fails with `pedagogical_evidence_target_exists`.
 Byte-identical already-linked input is an idempotent retry and does not create a
 second link.
 
-The implementation prepares sibling staging files, checks that the materials
-index bytes have not changed since they were read, validates the staged
-repository state, and renames the files only after the checks pass. A detected
-concurrent index change or validation/fingerprint failure rolls back the files
-written by this process without discarding a concurrently added evidence link.
-This is a bounded best-effort local transaction, not a claim of crash-safe ACID
-storage.
+Registration acquires a deterministic pack-local lock before the authoritative
+repository load. It prepares sibling staging files, checks that the materials
+index bytes have not changed since they were read, and validates the staged
+repository state. The immutable evidence target is installed with an atomic
+same-filesystem no-replace link; a target that appears after the precheck is
+preserved and causes `pedagogical_evidence_target_exists`. The index and report
+are renamed only after the target succeeds. Rollback removes the target only
+when its device/inode identity proves that this process installed it, so a
+concurrent replacement is never deleted. A detected lock, index change, or
+validation/fingerprint failure leaves no owned staging files. This is a
+bounded single-host transaction, not a claim of distributed or crash-safe ACID
+storage. A process crash can leave a stale local lock; remove it manually only
+after verifying that no registration process for that pack is active.
 
 Validation commands:
 
@@ -195,6 +209,32 @@ bounded adult role, materials and offline assumptions, retrieval/correction,
 language scaffolds, completion, recall/transfer, and practical safety when
 applicable. `not_observed` is explicit missing evidence and cannot silently
 satisfy a required dimension of a successful decision.
+
+Applicability is lesson-specific. Retrieval/correction observations are
+required only for context lessons whose authoritative lesson DNA requires
+retrieval. Practical safety observations are required only for context lessons
+whose classroom or homeschool contract is practical; adding practical-safety
+evidence to a non-practical lesson is invalid.
+
+Decision and evidence must agree. A positive review cannot hide a low rating;
+rating `3` requires `approved_with_minor_notes` and a matching bounded minor
+plan. A positive trial cannot contain `not_met`, cannot use `not_observed` for a
+required dimension, and may use `partly_met` only with
+`successful_with_notes` plus an exact linked minor plan. Positive classroom
+trials require feasible setup/transitions. Positive home trials require the
+aggregate parent-role decision to match every session, prohibit high or
+intensive unplanned adult support, and allow medium support only with an exact
+minor plan. These thresholds are the explicit evidence semantic policy `1.0`
+(`PEDAGOGICAL_EVIDENCE_SEMANTIC_POLICY_VERSION`); a semantic change requires a
+deliberate policy-version update and corresponding fixtures.
+
+Trial sufficiency is both record-level and pack-level. Each successful record
+must cover every applicable dimension for every lesson in its own
+`context.lesson_ids`. The readiness evaluator then unions
+`covered_lesson_ids` across all active current positive records of that mode.
+Overlap is harmless but cannot conceal a missing lesson. Until the union covers
+all pack lesson IDs, trial status is `partial`, readiness remains false, and the
+report lists required, covered, missing, and contributing records/paths.
 
 Teacher-review ratings are delivery-scope aware. A classroom-only review marks
 homeschool clarity and parent-role realism `not_applicable` with a rationale; a
@@ -234,8 +274,10 @@ state outside the reviewable fingerprint. The current committed pilot has zero
 effective reviews or trials and remains not ready in both modes.
 Its audit trail separates `active_evidence`, `historical_evidence`,
 `superseded_evidence`, `stale_evidence`, `readiness_supporting_evidence`, and
-`readiness_blocking_evidence`. Classroom and homeschool review summaries have
-separate statuses, counts, and exact evidence paths.
+`readiness_blocking_evidence`. It also separates
+`partial_positive_evidence` and publishes mode-specific trial coverage.
+Classroom and homeschool review summaries have separate statuses, counts, and
+exact evidence paths.
 
 ## Privacy
 

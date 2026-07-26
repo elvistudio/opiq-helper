@@ -233,6 +233,13 @@ stale identities do not become active readiness blockers. Quality validation
 consumes this derived state and never chooses the active record by path or
 array order.
 
+Linked drafts and conducted-but-unanalysed trials are repository errors, not
+pending active evidence. A positive trial supports only the lessons it
+actually covers; pack trial status is `partial` until the deterministic union
+of active positive records covers every pack lesson. Readiness projections
+expose required, covered, and missing lesson IDs rather than converting a
+single successful session into whole-pack readiness.
+
 The report makes no claim about Git changes outside its evaluated scope.
 Intentionally unchanged files belong in PR diff evidence, not in the
 deterministic quality artifact.

@@ -263,6 +263,11 @@
         },
         "rating": { "enum": ["not_observed", "not_met", "partly_met", "met", "exceeded"] },
         "summary": { "$ref": "#/$defs/nonEmptyString" },
+        "finding_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
         "aggregate_count": { "type": "integer", "minimum": 0 },
         "aggregate_denominator": { "type": "integer", "minimum": 1 }
       }

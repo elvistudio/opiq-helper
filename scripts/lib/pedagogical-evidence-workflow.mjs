@@ -575,7 +575,84 @@ async function writeStagedSibling(absolutePath, bytes) {
   return stagingPath;
 }
 
-export async function registerPedagogicalEvidence({
+export function pedagogicalEvidenceRegistrationLockPath(rootDir, packPath) {
+  assertCanonicalRepositoryPath(packPath, 'teacher-pack path');
+  const lockName = Buffer.from(packPath).toString('base64url');
+  return path.join(
+    path.resolve(rootDir),
+    '.pedagogical-evidence-locks',
+    `${lockName}.lock`,
+  );
+}
+
+async function acquirePedagogicalEvidenceRegistrationLock(rootDir, packPath) {
+  const lockPath = pedagogicalEvidenceRegistrationLockPath(rootDir, packPath);
+  await fs.mkdir(path.dirname(lockPath), { recursive: true });
+  let handle;
+  try {
+    handle = await fs.open(lockPath, 'wx');
+  } catch (error) {
+    if (error.code !== 'EEXIST') throw error;
+    const conflict = new Error(
+      `pedagogical evidence registration lock already exists: ${lockPath}`,
+    );
+    conflict.code = 'pedagogical_evidence_registration_locked';
+    throw conflict;
+  }
+  return {
+    lockPath,
+    async release() {
+      await handle.close();
+      await fs.rm(lockPath, { force: true });
+      try {
+        await fs.rmdir(path.dirname(lockPath));
+      } catch (error) {
+        if (!['ENOENT', 'ENOTEMPTY'].includes(error.code)) throw error;
+      }
+    },
+  };
+}
+
+export async function installImmutableEvidenceTarget(stagingPath, targetPath) {
+  const stagingStat = await fs.lstat(stagingPath);
+  try {
+    await fs.link(stagingPath, targetPath);
+  } catch (error) {
+    if (error.code !== 'EEXIST') throw error;
+    const conflict = new Error(
+      `registered evidence target already exists: ${targetPath}`,
+    );
+    conflict.code = 'pedagogical_evidence_target_exists';
+    throw conflict;
+  }
+  const targetStat = await fs.lstat(targetPath);
+  if (
+    targetStat.dev !== stagingStat.dev
+    || targetStat.ino !== stagingStat.ino
+  ) {
+    const conflict = new Error(
+      `registered evidence target was replaced during commit: ${targetPath}`,
+    );
+    conflict.code = 'pedagogical_evidence_target_replaced_during_commit';
+    throw conflict;
+  }
+  await fs.rm(stagingPath);
+  return { dev: stagingStat.dev, ino: stagingStat.ino };
+}
+
+async function removeOwnedEvidenceTarget(targetPath, ownership) {
+  if (!ownership) return;
+  try {
+    const stat = await fs.lstat(targetPath);
+    if (stat.dev === ownership.dev && stat.ino === ownership.ino) {
+      await fs.rm(targetPath);
+    }
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+}
+
+async function registerPedagogicalEvidenceLocked({
   rootDir = process.cwd(),
   baselineRootDir = rootDir,
   packPath,
@@ -583,6 +660,8 @@ export async function registerPedagogicalEvidence({
   targetPath,
   write = false,
   afterWrite = null,
+  beforeTargetCommit = null,
+  beforeIndexCommit = null,
 } = {}) {
   if (!write) {
     const error = new Error('evidence registration requires explicit --write');
@@ -807,6 +886,10 @@ export async function registerPedagogicalEvidence({
   let reportStage = null;
   let concurrentIndexBytes = null;
   let concurrentReadinessRebuilt = false;
+  let targetInstalledByThisProcess = false;
+  let indexInstalledByThisProcess = false;
+  let reportInstalledByThisProcess = false;
+  let targetOwnership = null;
   try {
     targetStage = await writeStagedSibling(targetAbsolute, canonicalRecord);
     indexStage = await writeStagedSibling(indexAbsolute, candidateIndexText);
@@ -822,12 +905,52 @@ export async function registerPedagogicalEvidence({
       error.code = 'pedagogical_evidence_concurrent_index_change';
       throw error;
     }
-    await fs.rename(targetStage, targetAbsolute);
+    if (readinessReportAbsolute) {
+      const beforeCommitReadiness = await readOptionalFile(readinessReportAbsolute);
+      if (
+        (beforeCommitReadiness === null) !== (originalReadinessReport === null)
+        || (
+          beforeCommitReadiness !== null
+          && Buffer.compare(beforeCommitReadiness, originalReadinessReport) !== 0
+        )
+      ) {
+        const error = new Error('readiness report changed before evidence commit');
+        error.code = 'pedagogical_evidence_concurrent_readiness_change';
+        throw error;
+      }
+    }
+    if (beforeTargetCommit) await beforeTargetCommit();
+    targetOwnership = await installImmutableEvidenceTarget(
+      targetStage,
+      targetAbsolute,
+    );
+    targetInstalledByThisProcess = true;
     targetStage = null;
+    if (beforeIndexCommit) await beforeIndexCommit();
+    const finalPreIndexBytes = await fs.readFile(indexAbsolute, 'utf8');
+    if (finalPreIndexBytes !== originalIndex) {
+      const error = new Error('materials index changed before index commit');
+      error.code = 'pedagogical_evidence_concurrent_index_change';
+      throw error;
+    }
     await fs.rename(indexStage, indexAbsolute);
+    indexInstalledByThisProcess = true;
     indexStage = null;
     if (readinessReportAbsolute) {
+      const finalPreReportBytes = await readOptionalFile(readinessReportAbsolute);
+      if (
+        (finalPreReportBytes === null) !== (originalReadinessReport === null)
+        || (
+          finalPreReportBytes !== null
+          && Buffer.compare(finalPreReportBytes, originalReadinessReport) !== 0
+        )
+      ) {
+        const error = new Error('readiness report changed before report commit');
+        error.code = 'pedagogical_evidence_concurrent_readiness_change';
+        throw error;
+      }
       await fs.rename(reportStage, readinessReportAbsolute);
+      reportInstalledByThisProcess = true;
       reportStage = null;
     }
     if (afterWrite) await afterWrite();
@@ -915,18 +1038,24 @@ export async function registerPedagogicalEvidence({
       readiness: report,
     };
   } catch (error) {
-    if (concurrentIndexBytes === null) {
-      await fs.writeFile(indexAbsolute, originalIndex);
-    } else {
-      const withoutOwnLink = removeMaterialsIndexLinkText(
-        concurrentIndexBytes,
-        candidate.link,
-        targetPath,
-        originalIndex,
-      );
-      await fs.writeFile(indexAbsolute, withoutOwnLink);
+    if (indexInstalledByThisProcess) {
+      const currentIndexBytes = await fs.readFile(indexAbsolute, 'utf8');
+      if (currentIndexBytes === candidateIndexText) {
+        await fs.writeFile(indexAbsolute, originalIndex);
+      } else {
+        concurrentIndexBytes = currentIndexBytes;
+        const withoutOwnLink = removeMaterialsIndexLinkText(
+          currentIndexBytes,
+          candidate.link,
+          targetPath,
+          originalIndex,
+        );
+        await fs.writeFile(indexAbsolute, withoutOwnLink);
+      }
     }
-    await fs.rm(targetAbsolute, { force: true });
+    if (targetInstalledByThisProcess) {
+      await removeOwnedEvidenceTarget(targetAbsolute, targetOwnership);
+    }
     if (concurrentIndexBytes !== null) {
       try {
         const concurrentContext = await loadPedagogicalReviewRepository({
@@ -970,8 +1099,22 @@ export async function registerPedagogicalEvidence({
         // repository state is not yet complete enough to derive final statuses.
       }
     }
-    if (readinessReportAbsolute && !concurrentReadinessRebuilt) {
-      if (originalReadinessReport === null) {
+    if (
+      readinessReportAbsolute
+      && reportInstalledByThisProcess
+      && !concurrentReadinessRebuilt
+    ) {
+      const currentReport = await readOptionalFile(readinessReportAbsolute);
+      if (
+        currentReport !== null
+        && Buffer.compare(
+          currentReport,
+          Buffer.from(candidateReadinessText),
+        ) !== 0
+      ) {
+        // Preserve a concurrently replaced report that is no longer owned by
+        // this registration attempt.
+      } else if (originalReadinessReport === null) {
         await fs.rm(readinessReportAbsolute, { force: true });
       } else {
         await fs.writeFile(readinessReportAbsolute, originalReadinessReport);
@@ -989,5 +1132,27 @@ export async function registerPedagogicalEvidence({
         .filter(Boolean)
         .map((stagingPath) => fs.rm(stagingPath, { force: true })),
     );
+  }
+}
+
+export async function registerPedagogicalEvidence(options = {}) {
+  if (options.write !== true) {
+    const error = new Error('evidence registration requires explicit --write');
+    error.code = 'pedagogical_evidence_write_required';
+    throw error;
+  }
+  assertCanonicalRepositoryPath(options.packPath, 'teacher-pack path');
+  assertCanonicalRepositoryPath(
+    options.targetPath,
+    'registered evidence target',
+  );
+  const lock = await acquirePedagogicalEvidenceRegistrationLock(
+    options.rootDir ?? process.cwd(),
+    options.packPath,
+  );
+  try {
+    return await registerPedagogicalEvidenceLocked(options);
+  } finally {
+    await lock.release();
   }
 }

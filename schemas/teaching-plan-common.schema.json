@@ -150,7 +150,7 @@
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/repositoryPath" }
         },
-        "status": { "enum": ["not_tested", "changes_required", "repeat_required", "tested"] }
+        "status": { "enum": ["not_tested", "changes_required", "repeat_required", "partial", "tested"] }
       }
     },
     "pedagogicalEvidenceReviewLink": {
@@ -200,7 +200,7 @@
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/repositoryPath" }
         },
-        "status": { "enum": ["not_started", "changes_required", "repeat_required", "tested"] }
+        "status": { "enum": ["not_started", "changes_required", "repeat_required", "partial", "tested"] }
       }
     },
     "pedagogicalReadinessLink": {

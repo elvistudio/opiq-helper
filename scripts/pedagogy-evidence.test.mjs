@@ -15,6 +15,7 @@ import {
 } from './lib/pedagogical-evidence.mjs';
 import {
   normalizePedagogicalEvidenceIntake,
+  pedagogicalEvidenceRegistrationLockPath,
   preparePedagogicalEvidenceBundle,
   registerPedagogicalEvidence,
 } from './lib/pedagogical-evidence-workflow.mjs';
@@ -924,6 +925,389 @@ test('concurrent evidence link is preserved and re-derived during rollback', asy
   }
 });
 
+test('pack-local registration lock rejects a concurrent different-target registration', async () => {
+  const rootDir = await temporaryRepository();
+  const first = await normalizedReviewFixture(
+    rootDir,
+    'locked-primary-review-2026-08-01',
+  );
+  const second = await normalizedReviewFixture(
+    rootDir,
+    'locked-secondary-review-2026-08-02',
+  );
+  second.record.reviewed_at = '2026-08-02';
+  const firstPath =
+    'pedagogical-reviews/grade-5-science/water/records/locked-primary-review-2026-08-01.yaml';
+  const secondPath =
+    'pedagogical-reviews/grade-5-science/water/records/locked-secondary-review-2026-08-02.yaml';
+  try {
+    const firstResult = await registerPedagogicalEvidence({
+      rootDir,
+      baselineRootDir: process.cwd(),
+      packPath,
+      recordPath: first.normalizedPath,
+      targetPath: firstPath,
+      write: true,
+      beforeTargetCommit: async () => {
+        await assert.rejects(
+          registerPedagogicalEvidence({
+            rootDir,
+            baselineRootDir: process.cwd(),
+            packPath,
+            recordPath: second.normalizedPath,
+            targetPath: secondPath,
+            write: true,
+          }),
+          (error) => error.code === 'pedagogical_evidence_registration_locked',
+        );
+      },
+    });
+    assert.equal(firstResult.already_registered, false);
+    await assert.rejects(fs.lstat(path.join(rootDir, secondPath)), { code: 'ENOENT' });
+    await assert.rejects(
+      fs.lstat(pedagogicalEvidenceRegistrationLockPath(rootDir, packPath)),
+      { code: 'ENOENT' },
+    );
+    const secondResult = await registerPedagogicalEvidence({
+      rootDir,
+      baselineRootDir: process.cwd(),
+      packPath,
+      recordPath: second.normalizedPath,
+      targetPath: secondPath,
+      write: true,
+    });
+    assert.equal(secondResult.already_registered, false);
+    const indexText = await fs.readFile(path.join(rootDir, packPath), 'utf8');
+    assert.match(indexText, /locked-primary-review-2026-08-01/u);
+    assert.match(indexText, /locked-secondary-review-2026-08-02/u);
+  } finally {
+    await fs.rm(first.fixture.directory, { recursive: true, force: true });
+    await fs.rm(second.fixture.directory, { recursive: true, force: true });
+    await fs.rm(rootDir, { recursive: true, force: true });
+  }
+});
+
+test('atomic no-replace install preserves a target created at final-path commit', async () => {
+  const rootDir = await temporaryRepository();
+  const prepared = await normalizedReviewFixture(
+    rootDir,
+    'target-collision-review-2026-08-01',
+  );
+  const targetPath =
+    'pedagogical-reviews/grade-5-science/water/records/target-collision-review-2026-08-01.yaml';
+  const targetAbsolute = path.join(rootDir, targetPath);
+  const indexAbsolute = path.join(rootDir, packPath);
+  const reportAbsolute = path.join(
+    rootDir,
+    'evaluations/pedagogy-readiness/grade-5-water-readiness-report.json',
+  );
+  const beforeIndex = await fs.readFile(indexAbsolute);
+  const beforeReport = await fs.readFile(reportAbsolute);
+  const foreignBytes = 'foreign concurrent evidence bytes\n';
+  try {
+    await assert.rejects(
+      registerPedagogicalEvidence({
+        rootDir,
+        baselineRootDir: process.cwd(),
+        packPath,
+        recordPath: prepared.normalizedPath,
+        targetPath,
+        write: true,
+        beforeTargetCommit: async () => {
+          await fs.writeFile(targetAbsolute, foreignBytes, { flag: 'wx' });
+        },
+      }),
+      (error) => error.code === 'pedagogical_evidence_target_exists',
+    );
+    assert.equal(await fs.readFile(targetAbsolute, 'utf8'), foreignBytes);
+    assert.deepEqual(await fs.readFile(indexAbsolute), beforeIndex);
+    assert.deepEqual(await fs.readFile(reportAbsolute), beforeReport);
+    const siblings = await fs.readdir(path.dirname(targetAbsolute));
+    assert.equal(
+      siblings.some((entry) => entry.endsWith('.pedagogy-register.tmp')),
+      false,
+    );
+    await assert.rejects(
+      fs.lstat(pedagogicalEvidenceRegistrationLockPath(rootDir, packPath)),
+      { code: 'ENOENT' },
+    );
+    await fs.rm(targetAbsolute);
+    const retry = await registerPedagogicalEvidence({
+      rootDir,
+      baselineRootDir: process.cwd(),
+      packPath,
+      recordPath: prepared.normalizedPath,
+      targetPath,
+      write: true,
+    });
+    assert.equal(retry.already_registered, false);
+  } finally {
+    await fs.rm(prepared.fixture.directory, { recursive: true, force: true });
+    await fs.rm(rootDir, { recursive: true, force: true });
+  }
+});
+
+test('rollback never removes a concurrently replaced foreign target', async () => {
+  const rootDir = await temporaryRepository();
+  const prepared = await normalizedReviewFixture(
+    rootDir,
+    'ownership-rollback-review-2026-08-01',
+  );
+  const targetPath =
+    'pedagogical-reviews/grade-5-science/water/records/ownership-rollback-review-2026-08-01.yaml';
+  const targetAbsolute = path.join(rootDir, targetPath);
+  const indexAbsolute = path.join(rootDir, packPath);
+  const beforeIndex = await fs.readFile(indexAbsolute);
+  const foreignBytes = 'replacement owned by another writer\n';
+  try {
+    await assert.rejects(
+      registerPedagogicalEvidence({
+        rootDir,
+        baselineRootDir: process.cwd(),
+        packPath,
+        recordPath: prepared.normalizedPath,
+        targetPath,
+        write: true,
+        beforeIndexCommit: async () => {
+          await fs.rm(targetAbsolute);
+          await fs.writeFile(targetAbsolute, foreignBytes, { flag: 'wx' });
+          await fs.appendFile(indexAbsolute, '\n# concurrent index change\n');
+        },
+      }),
+      (error) => error.code === 'pedagogical_evidence_concurrent_index_change',
+    );
+    assert.equal(await fs.readFile(targetAbsolute, 'utf8'), foreignBytes);
+    const indexText = await fs.readFile(indexAbsolute, 'utf8');
+    assert.match(indexText, /concurrent index change/u);
+    assert.doesNotMatch(indexText, /ownership-rollback-review/u);
+  } finally {
+    await fs.writeFile(indexAbsolute, beforeIndex);
+    await fs.rm(prepared.fixture.directory, { recursive: true, force: true });
+    await fs.rm(rootDir, { recursive: true, force: true });
+  }
+});
+
+test('registration releases its pack lock and staging files when a hook throws', async () => {
+  const rootDir = await temporaryRepository();
+  const prepared = await normalizedReviewFixture(
+    rootDir,
+    'hook-failure-review-2026-08-01',
+  );
+  const targetPath =
+    'pedagogical-reviews/grade-5-science/water/records/hook-failure-review-2026-08-01.yaml';
+  const targetAbsolute = path.join(rootDir, targetPath);
+  const indexAbsolute = path.join(rootDir, packPath);
+  const reportAbsolute = path.join(
+    rootDir,
+    'evaluations/pedagogy-readiness/grade-5-water-readiness-report.json',
+  );
+  const beforeIndex = await fs.readFile(indexAbsolute);
+  const beforeReport = await fs.readFile(reportAbsolute);
+  try {
+    await assert.rejects(
+      registerPedagogicalEvidence({
+        rootDir,
+        baselineRootDir: process.cwd(),
+        packPath,
+        recordPath: prepared.normalizedPath,
+        targetPath,
+        write: true,
+        beforeTargetCommit: async () => {
+          const error = new Error('synthetic hook failure');
+          error.code = 'synthetic_hook_failure';
+          throw error;
+        },
+      }),
+      (error) => error.code === 'synthetic_hook_failure',
+    );
+    await assert.rejects(fs.lstat(targetAbsolute), { code: 'ENOENT' });
+    assert.deepEqual(await fs.readFile(indexAbsolute), beforeIndex);
+    assert.deepEqual(await fs.readFile(reportAbsolute), beforeReport);
+    await assert.rejects(
+      fs.lstat(pedagogicalEvidenceRegistrationLockPath(rootDir, packPath)),
+      { code: 'ENOENT' },
+    );
+    const siblings = await fs.readdir(path.dirname(targetAbsolute));
+    assert.equal(
+      siblings.some((entry) => entry.endsWith('.pedagogy-register.tmp')),
+      false,
+    );
+  } finally {
+    await fs.rm(prepared.fixture.directory, { recursive: true, force: true });
+    await fs.rm(rootDir, { recursive: true, force: true });
+  }
+});
+
+test('registration releases its pack lock after pre-commit validation failure', async () => {
+  const rootDir = await temporaryRepository();
+  const prepared = await normalizedReviewFixture(
+    rootDir,
+    'validation-failure-review-2026-08-01',
+  );
+  try {
+    await assert.rejects(
+      registerPedagogicalEvidence({
+        rootDir,
+        baselineRootDir: process.cwd(),
+        packPath,
+        recordPath: prepared.normalizedPath,
+        targetPath:
+          'pedagogical-reviews/grade-5-science/water-use-cycle/records/validation-failure-review-2026-08-01.yaml',
+        write: true,
+      }),
+      (error) => error.code === 'pedagogical_evidence_target_pack_mismatch',
+    );
+    await assert.rejects(
+      fs.lstat(pedagogicalEvidenceRegistrationLockPath(rootDir, packPath)),
+      { code: 'ENOENT' },
+    );
+  } finally {
+    await fs.rm(prepared.fixture.directory, { recursive: true, force: true });
+    await fs.rm(rootDir, { recursive: true, force: true });
+  }
+});
+
+test('official registration keeps partial trials not-ready and accepts full-pack union coverage', async () => {
+  const rootDir = await temporaryRepository();
+  const built = await buildPedagogicalEvidenceIdentity({
+    rootDir,
+    packPath,
+    commitSha: 'a'.repeat(40),
+  });
+  const lessonIds = built.index.data.lesson_ids;
+  const inputDirectory = await fs.mkdtemp(
+    path.join(rootDir, '.tmp-pack-coverage-registration-'),
+  );
+  const registerRecord = async (record, id) => {
+    if (record.artifact_type === 'teacher_review') record.review_id = id;
+    else record.trial_id = id;
+    const inputAbsolute = path.join(inputDirectory, `${id}.yaml`);
+    await fs.writeFile(inputAbsolute, serializeCanonicalEvidenceYaml(record));
+    return registerPedagogicalEvidence({
+      rootDir,
+      baselineRootDir: process.cwd(),
+      packPath,
+      recordPath: path.relative(rootDir, inputAbsolute),
+      targetPath:
+        `pedagogical-reviews/grade-5-science/water/records/${id}.yaml`,
+      write: true,
+    });
+  };
+  try {
+    const before = await fingerprint(rootDir);
+    const review = createRegressionTeacherReview(
+      built.identity,
+      lessonIds,
+      ['classroom', 'homeschool'],
+    );
+    await registerRecord(review, 'coverage-review-2026-08-01');
+
+    const firstClassroom = createRegressionClassroomTrial(
+      built.identity,
+      [lessonIds[0]],
+    );
+    const partialClassroom = await registerRecord(
+      firstClassroom,
+      'coverage-classroom-a-2026-08-01',
+    );
+    assert.equal(partialClassroom.readiness.classroom_ready, false);
+    assert.equal(partialClassroom.readiness.classroom_trial.status, 'partial');
+    assert.deepEqual(
+      partialClassroom.readiness.classroom_trial_coverage.missing_lesson_ids,
+      lessonIds.slice(1),
+    );
+
+    const remainingClassroom = createRegressionClassroomTrial(
+      built.identity,
+      lessonIds.slice(1),
+    );
+    const completeClassroom = await registerRecord(
+      remainingClassroom,
+      'coverage-classroom-b-2026-08-02',
+    );
+    assert.equal(completeClassroom.readiness.classroom_ready, true);
+    assert.equal(completeClassroom.readiness.homeschool_ready, false);
+    assert.equal(completeClassroom.readiness.classroom_trial_coverage.complete, true);
+
+    const nonPracticalHomeLessons = lessonIds.filter(
+      (lessonId) => lessonId !== 'grade-5-water-03-melting-condensation',
+    );
+    const firstHome = createRegressionHomeTrial(
+      built.identity,
+      nonPracticalHomeLessons,
+    );
+    const partialHome = await registerRecord(
+      firstHome,
+      'coverage-home-a-2026-08-01',
+    );
+    assert.equal(partialHome.readiness.homeschool_ready, false);
+    assert.deepEqual(
+      partialHome.readiness.home_trial_coverage.missing_lesson_ids,
+      ['grade-5-water-03-melting-condensation'],
+    );
+
+    const practicalHome = createRegressionHomeTrial(
+      built.identity,
+      ['grade-5-water-03-melting-condensation'],
+    );
+    const completeHome = await registerRecord(
+      practicalHome,
+      'coverage-home-b-2026-08-02',
+    );
+    assert.equal(completeHome.readiness.classroom_ready, true);
+    assert.equal(completeHome.readiness.homeschool_ready, true);
+    assert.equal(completeHome.readiness.home_trial_coverage.complete, true);
+
+    const contradictory = createRegressionClassroomTrial(
+      built.identity,
+      [lessonIds[0]],
+    );
+    contradictory.instruction_comprehension[0].rating = 'not_met';
+    const contradictoryId = 'coverage-contradictory-2026-08-03';
+    const contradictoryInput = path.join(
+      inputDirectory,
+      `${contradictoryId}.yaml`,
+    );
+    contradictory.trial_id = contradictoryId;
+    await fs.writeFile(
+      contradictoryInput,
+      serializeCanonicalEvidenceYaml(contradictory),
+    );
+    const reportBeforeRejected = await fs.readFile(
+      path.join(
+        rootDir,
+        'evaluations/pedagogy-readiness/grade-5-water-readiness-report.json',
+      ),
+    );
+    await assert.rejects(
+      registerPedagogicalEvidence({
+        rootDir,
+        baselineRootDir: process.cwd(),
+        packPath,
+        recordPath: path.relative(rootDir, contradictoryInput),
+        targetPath:
+          `pedagogical-reviews/grade-5-science/water/records/${contradictoryId}.yaml`,
+        write: true,
+      }),
+      (error) => error.code === 'pedagogical_evidence_not_registerable',
+    );
+    const finalIndex = await fs.readFile(path.join(rootDir, packPath), 'utf8');
+    assert.doesNotMatch(finalIndex, new RegExp(contradictoryId));
+    assert.deepEqual(
+      await fs.readFile(
+        path.join(
+          rootDir,
+          'evaluations/pedagogy-readiness/grade-5-water-readiness-report.json',
+        ),
+      ),
+      reportBeforeRejected,
+    );
+    assert.deepEqual(await fingerprint(rootDir), before);
+  } finally {
+    await fs.rm(rootDir, { recursive: true, force: true });
+  }
+});
+
 test('real repository artifacts reject twenty-one semantic evidence mutations', async (t) => {
   const rootDir = await temporaryRepository();
   const indexAbsolute = path.join(rootDir, packPath);
@@ -1145,13 +1529,13 @@ test('real repository artifacts reject twenty-one semantic evidence mutations', 
       name: 'classroom observations do not cover every context lesson',
       kind: 'classroom',
       mutate(record) { record.context.lesson_ids = [firstLesson, secondLesson]; },
-      expected: /entry for .*water-02|coverage for every context lesson/iu,
+      expected: /missing .* coverage for .*water-02/iu,
     },
     {
       name: 'home observations do not cover every context lesson',
       kind: 'home',
       mutate(record) { record.context.lesson_ids = [firstLesson, secondLesson]; },
-      expected: /entry for .*water-02|coverage for every context lesson/iu,
+      expected: /missing .* coverage for .*water-02/iu,
     },
     {
       name: 'home trial adult role contradicts adaptation contract',

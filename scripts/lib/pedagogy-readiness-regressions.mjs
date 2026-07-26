@@ -187,15 +187,35 @@ export function createRegressionTeacherReview(
   };
 }
 
-export function createRegressionClassroomTrial(identity, lessonId) {
-  const observation = () => [{
+const WATER_CLASSROOM_ENTRY_PHASES = Object.freeze({
+  'grade-5-water-01-properties': 'activation',
+  'grade-5-water-02-states': 'activation',
+  'grade-5-water-03-melting-condensation': 'safety-orientation',
+  'grade-5-water-04-changes-review': 'retrieval',
+});
+
+const WATER_PRACTICAL_LESSON_IDS = Object.freeze([
+  'grade-5-water-03-melting-condensation',
+]);
+
+function normalizeRegressionLessonIds(lessonIdOrIds) {
+  return Array.isArray(lessonIdOrIds) ? [...lessonIdOrIds] : [lessonIdOrIds];
+}
+
+function regressionObservations(lessonIds) {
+  return lessonIds.map((lessonId) => ({
     lesson_id: lessonId,
     phase_ids: [],
     rating: 'met',
     summary: 'Synthetic aggregate regression observation.',
     aggregate_count: 1,
     aggregate_denominator: 1,
-  }];
+  }));
+}
+
+export function createRegressionClassroomTrial(identity, lessonIdOrIds) {
+  const lessonIds = normalizeRegressionLessonIds(lessonIdOrIds);
+  const observation = (ids = lessonIds) => regressionObservations(ids);
   return {
     schema_version: '2.0',
     artifact_type: 'classroom_trial',
@@ -205,7 +225,7 @@ export function createRegressionClassroomTrial(identity, lessonId) {
     lifecycle: { supersedes: [] },
     trial_status: 'analysed',
     context: {
-      lesson_ids: [lessonId],
+      lesson_ids: lessonIds,
       setting: 'classroom',
       grade: 5,
       approximate_group_size: 24,
@@ -216,15 +236,15 @@ export function createRegressionClassroomTrial(identity, lessonId) {
     },
     privacy: privacy(),
     conducted_at: '2026-08-01',
-    timing_observations: [{
+    timing_observations: lessonIds.map((lessonId) => ({
       lesson_id: lessonId,
-      phase_id: 'activation',
+      phase_id: WATER_CLASSROOM_ENTRY_PHASES[lessonId] ?? 'activation',
       planned_minutes: 5,
       actual_minutes: 5,
       setup_feasible: true,
       transition_feasible: true,
       summary: 'Synthetic aggregate regression timing observation.',
-    }],
+    })),
     instruction_comprehension: observation(),
     retrieval_and_correction: observation(),
     recall_and_transfer: observation(),
@@ -234,7 +254,9 @@ export function createRegressionClassroomTrial(identity, lessonId) {
     lesson_dna_deviations: [],
     lesson_dna_deviation_status: 'none_observed',
     material_usability: observation(),
-    safety_observations: [],
+    safety_observations: observation(
+      lessonIds.filter((lessonId) => WATER_PRACTICAL_LESSON_IDS.includes(lessonId)),
+    ),
     method_execution_observations: observation(),
     unexpected_support: [],
     findings: [],
@@ -246,15 +268,9 @@ export function createRegressionClassroomTrial(identity, lessonId) {
   };
 }
 
-export function createRegressionHomeTrial(identity, lessonId) {
-  const observation = () => [{
-    lesson_id: lessonId,
-    phase_ids: [],
-    rating: 'met',
-    summary: 'Synthetic aggregate regression observation.',
-    aggregate_count: 1,
-    aggregate_denominator: 1,
-  }];
+export function createRegressionHomeTrial(identity, lessonIdOrIds) {
+  const lessonIds = normalizeRegressionLessonIds(lessonIdOrIds);
+  const observation = (ids = lessonIds) => regressionObservations(ids);
   return {
     schema_version: '1.0',
     artifact_type: 'home_trial',
@@ -264,7 +280,7 @@ export function createRegressionHomeTrial(identity, lessonId) {
     lifecycle: { supersedes: [] },
     trial_status: 'analysed',
     context: {
-      lesson_ids: [lessonId],
+      lesson_ids: lessonIds,
       setting: 'homeschool',
       grade: 5,
       learner_count: 1,
@@ -275,14 +291,14 @@ export function createRegressionHomeTrial(identity, lessonId) {
     },
     privacy: privacy(),
     conducted_at: '2026-08-01',
-    session_observations: [{
+    session_observations: lessonIds.map((lessonId) => ({
       lesson_id: lessonId,
       planned_minutes: 30,
       actual_minutes: 30,
       unplanned_adult_support: 'none',
       parent_role_bounded: true,
       summary: 'Synthetic aggregate regression session observation.',
-    }],
+    })),
     instruction_comprehension: observation(),
     adult_role: observation(),
     learner_independence: observation(),
@@ -290,7 +306,9 @@ export function createRegressionHomeTrial(identity, lessonId) {
     offline_and_printer_assumptions: observation(),
     retrieval_and_correction: observation(),
     language_scaffolds: observation(),
-    practical_safety: [],
+    practical_safety: observation(
+      lessonIds.filter((lessonId) => WATER_PRACTICAL_LESSON_IDS.includes(lessonId)),
+    ),
     task_completion: observation(),
     recall_and_transfer: observation(),
     findings: [],
@@ -443,7 +461,7 @@ async function installEvidence(rootDir, {
   if (classroom) {
     const record = createRegressionClassroomTrial(
       staleClassroom ? staleFingerprint(state.identity) : state.identity,
-      state.lessonIds[0],
+      state.lessonIds,
     );
     classroomMutate?.(record);
     await writeRecord(rootDir, CLASSROOM_PATH, record);
@@ -452,7 +470,7 @@ async function installEvidence(rootDir, {
   if (extraClassroom) {
     const record = createRegressionClassroomTrial(
       state.identity,
-      state.lessonIds[0],
+      state.lessonIds,
     );
     extraClassroom(record);
     await writeRecord(rootDir, SECOND_CLASSROOM_PATH, record);
@@ -461,7 +479,7 @@ async function installEvidence(rootDir, {
   if (home) {
     const record = createRegressionHomeTrial(
       staleHome ? staleFingerprint(state.identity) : state.identity,
-      state.lessonIds[0],
+      state.lessonIds,
     );
     homeMutate?.(record);
     await writeRecord(rootDir, HOME_PATH, record);
@@ -818,10 +836,6 @@ async function setupScenario(
       draft.ratings = Object.fromEntries(RATING_FIELDS.map((field) => [field, null]));
       draft.decision = { status: 'pending', rationale: 'Uncompleted regression draft.' };
       await writeRecord(rootDir, REVIEW_PATH, draft);
-      await linkEvidence(rootDir, {
-        reviews: [REVIEW_PATH],
-        identityCommitSha: base.identity.commit_sha,
-      });
       break;
     }
     case 'json_intake_normalizes':

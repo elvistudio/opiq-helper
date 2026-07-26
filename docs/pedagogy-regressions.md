@@ -80,6 +80,14 @@ A case passes only when all declared invariants pass. Examples include:
   auditable but do not override a valid current successor;
 - stale classroom-only history cannot block current homeschool readiness, and
   stale homeschool-only history cannot block classroom readiness.
+- a successful single-lesson trial remains partial for a multi-lesson pack,
+  while multiple active positive trials may satisfy pack coverage only through
+  their explicit lesson-ID union;
+- trial dimensions are checked per lesson and by authoritative applicability:
+  retrieval only where retrieval is required and safety only where practical
+  work exists;
+- positive review/trial decisions must agree with ratings, feasibility,
+  parent-role, adult-support, and categorical observations.
 
 Deterministic output alone is not enough. A meaningful semantic change alters
 the report digest, while object-key ordering does not.

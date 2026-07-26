@@ -43,6 +43,24 @@ function evidence(overrides = {}) {
     effective_homeschool_review_count: 0,
     effective_classroom_trial_count: 0,
     effective_home_trial_count: 0,
+    effective_classroom_trial_record_count: 0,
+    effective_home_trial_record_count: 0,
+    classroom_trial_coverage: {
+      required_lesson_ids: [],
+      covered_lesson_ids: [],
+      missing_lesson_ids: [],
+      contributing_record_ids: [],
+      contributing_evidence_paths: [],
+      complete: false,
+    },
+    home_trial_coverage: {
+      required_lesson_ids: [],
+      covered_lesson_ids: [],
+      missing_lesson_ids: [],
+      contributing_record_ids: [],
+      contributing_evidence_paths: [],
+      complete: false,
+    },
     stale_teacher_review_count: 0,
     stale_classroom_trial_count: 0,
     stale_home_trial_count: 0,
@@ -111,6 +129,33 @@ test('successful classroom trial without classroom review is insufficient', () =
     },
   });
   assert.equal(result.classroom_ready, false);
+});
+
+test('partial classroom trial coverage produces a deterministic missing-lessons blocker', () => {
+  const result = evaluate({
+    evidenceOverrides: {
+      effective_classroom_review: true,
+      effective_classroom_trial: false,
+      effective_classroom_trial_record_count: 1,
+      classroom_trial_coverage: {
+        required_lesson_ids: ['lesson-01', 'lesson-02'],
+        covered_lesson_ids: ['lesson-01'],
+        missing_lesson_ids: ['lesson-02'],
+        contributing_record_ids: ['trial-one'],
+        contributing_evidence_paths: ['pedagogical-reviews/x/records/trial-one.yaml'],
+        complete: false,
+      },
+    },
+  });
+  assert.equal(result.classroom_ready, false);
+  assert.ok(result.blockers.some((entry) => (
+    entry.code === 'classroom_trial_lesson_coverage_incomplete'
+    && entry.message.includes('lesson-02')
+  )));
+  assert.deepEqual(
+    result.classroom_trial_coverage.missing_lesson_ids,
+    ['lesson-02'],
+  );
 });
 
 test('current classroom review plus classroom trial yields classroom readiness', () => {

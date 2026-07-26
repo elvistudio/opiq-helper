@@ -293,7 +293,7 @@
       ]
     },
     "classroomTrialStatus": {
-      "enum": ["changes_required", "mixed", "not_tested", "repeat_required", "tested", "unknown"]
+      "enum": ["changes_required", "mixed", "not_tested", "partial", "repeat_required", "tested", "unknown"]
     },
     "homeTrialStatus": {
       "enum": [
@@ -301,6 +301,7 @@
         "changes_required",
         "mixed",
         "not_started",
+        "partial",
         "planned",
         "repeat_required",
         "tested",

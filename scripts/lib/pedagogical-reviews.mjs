@@ -24,6 +24,8 @@ import {
   schemaValidationMessages,
 } from './pedagogical-evidence.mjs';
 
+export const PEDAGOGICAL_EVIDENCE_SEMANTIC_POLICY_VERSION = '1.0';
+
 const APPROVED_REVIEW_DECISIONS = new Set(['approved', 'approved_with_minor_notes']);
 const SUCCESSFUL_TRIAL_DECISIONS = new Set(['successful', 'successful_with_notes']);
 const NEGATIVE_REVIEW_DECISIONS = new Set(['changes_required', 'rejected']);
@@ -76,6 +78,45 @@ const HOME_SUCCESS_DIMENSIONS = Object.freeze([
   'task_completion',
   'recall_and_transfer',
 ]);
+const CLASSROOM_CATEGORICAL_FIELDS = Object.freeze([
+  ...CLASSROOM_SUCCESS_DIMENSIONS,
+  'retrieval_and_correction',
+  'differentiation_adjustments',
+  'safety_observations',
+  'unexpected_support',
+]);
+const HOME_CATEGORICAL_FIELDS = Object.freeze([
+  ...HOME_SUCCESS_DIMENSIONS,
+  'retrieval_and_correction',
+  'practical_safety',
+]);
+const RATING_FINDING_CATEGORIES = Object.freeze({
+  method_suitability_for_grade: 'method_suitability',
+  method_suitability_for_subject: 'method_suitability',
+  lesson_pattern_coherence: 'lesson_pattern',
+  timing_realism: 'timing',
+  transition_setup_cleanup_realism: 'setup_transition_cleanup',
+  cognitive_load: 'cognitive_load',
+  total_productive_language_load: 'language_load',
+  russian_primary_explanation_quality: 'russian_explanation',
+  estonian_a1_a2_support_fit: 'estonian_support',
+  retrieval_quality: 'retrieval',
+  spaced_review_usefulness: 'spacing',
+  correction_and_self_explanation: 'correction',
+  teacher_instruction_clarity: 'instruction_clarity',
+  classroom_feasibility: 'classroom_feasibility',
+  homeschool_clarity: 'homeschool_feasibility',
+  parent_role_realism: 'parent_role',
+  differentiation: 'differentiation',
+  inclusion_accessibility: 'accessibility',
+  assessment_validity: 'assessment',
+  subject_language_assessment_separation: 'assessment',
+  learner_autonomy: 'learner_autonomy',
+  motivation_competence_support: 'motivation',
+  safety: 'safety',
+  material_availability: 'materials',
+  artificial_repetitive_method_risk: 'artificial_or_repetitive_method',
+});
 const REVIEW_SCOPE_FLAGS = [
   'teacher_guide',
   'student_materials',
@@ -196,6 +237,13 @@ function recordStatusComplete(artifact) {
     return artifact.data.review_status === 'completed';
   }
   return artifact?.data?.trial_status === 'analysed';
+}
+
+function recordStatusTerminal(artifact) {
+  if (artifact?.data?.artifact_type === 'teacher_review') {
+    return ['completed', 'superseded'].includes(artifact.data.review_status);
+  }
+  return ['analysed', 'superseded'].includes(artifact?.data?.trial_status);
 }
 
 function recordSuperseded(artifact) {
@@ -609,6 +657,7 @@ function validateReferences(
     }
   };
   const findings = artifact.data?.findings ?? [];
+  const findingIds = new Set(findings.map((finding) => finding.finding_id));
   for (const [index, finding] of findings.entries()) {
     const allowedModes = artifact.data?.artifact_type === 'classroom_trial'
       ? new Set(['classroom'])
@@ -706,6 +755,16 @@ function validateReferences(
         deliveryMode,
         field: `/${field}/${index}`,
       });
+      for (const findingId of observation.finding_refs ?? []) {
+        if (!findingIds.has(findingId)) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/${field}/${index}/finding_refs`,
+            `unknown linked finding ${findingId}`,
+          ));
+        }
+      }
     }
   };
   if (artifact.data?.artifact_type === 'classroom_trial') {
@@ -822,6 +881,318 @@ function validateFindingSemantics(diagnostics, artifact) {
   };
 }
 
+function findingHasBoundedPlan(finding, requiredChanges = []) {
+  const direct = ['planned', 'resolved'].includes(finding.resolution_status)
+    && (finding.resolution_refs ?? []).length > 0;
+  const linked = requiredChanges.some((change) => (
+    (change.finding_refs ?? []).includes(finding.finding_id)
+    && ['planned', 'resolved'].includes(change.resolution_status)
+    && (change.resolution_refs ?? []).length > 0
+  ));
+  return direct || linked;
+}
+
+function validateReviewDecisionCoherence(
+  diagnostics,
+  artifact,
+  findingState,
+  complete,
+) {
+  if (!complete) return true;
+  const review = artifact.data;
+  const before = diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ).length;
+  const decision = review.decision?.status;
+  const positive = APPROVED_REVIEW_DECISIONS.has(decision);
+  const negative = NEGATIVE_REVIEW_DECISIONS.has(decision);
+  for (const field of RATING_FIELDS) {
+    const rating = review.ratings?.[field];
+    if (!Number.isInteger(rating)) continue;
+    const category = RATING_FINDING_CATEGORIES[field];
+    const matching = findingState.findings.filter(
+      (finding) => finding.category === category,
+    );
+    if (rating <= 2) {
+      if (positive) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/ratings/${field}`,
+          `rating ${rating} for ${field} cannot support a positive review decision`,
+        ));
+      }
+      if (
+        !negative
+        || !matching.some((finding) => (
+          ['blocking', 'major'].includes(finding.severity)
+          && OPEN_STATUSES.has(finding.resolution_status)
+        ))
+      ) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          `/ratings/${field}`,
+          `rating ${rating} for ${field} requires a negative decision and an open matching major or blocking finding`,
+        ));
+      }
+    } else if (rating === 3 && decision === 'approved') {
+      diagnostics.push(makeDiagnostic(
+        'error',
+        artifact.file,
+        `/ratings/${field}`,
+        `rating 3 for ${field} requires approved_with_minor_notes and a bounded matching minor plan`,
+      ));
+    } else if (
+      rating === 3
+      && decision === 'approved_with_minor_notes'
+      && !matching.some((finding) => (
+        finding.severity === 'minor'
+        && findingHasBoundedPlan(finding, review.required_changes ?? [])
+      ))
+    ) {
+      diagnostics.push(makeDiagnostic(
+        'error',
+        artifact.file,
+        `/ratings/${field}`,
+        `rating 3 for ${field} requires a linked matching minor finding with a resolution plan`,
+      ));
+    }
+  }
+  return diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ).length === before;
+}
+
+function buildTrialApplicability(referenceModel, contextLessonIds, kind) {
+  const context = uniqueSorted(contextLessonIds ?? []);
+  return {
+    context_lesson_ids: context,
+    retrieval_lesson_ids: context.filter(
+      (lessonId) => referenceModel?.lessons.get(lessonId)?.retrievalRequired === true,
+    ),
+    practical_lesson_ids: context.filter((lessonId) => (
+      kind === 'classroom-trial'
+        ? referenceModel?.lessons.get(lessonId)?.classroomPractical === true
+        : referenceModel?.lessons.get(lessonId)?.homePractical === true
+    )),
+  };
+}
+
+function requiredTrialDimensions(kind, applicability) {
+  const requirements = new Map();
+  requirements.set(
+    kind === 'classroom-trial' ? 'timing_observations' : 'session_observations',
+    applicability.context_lesson_ids,
+  );
+  for (const field of (
+    kind === 'classroom-trial'
+      ? CLASSROOM_SUCCESS_DIMENSIONS
+      : HOME_SUCCESS_DIMENSIONS
+  )) {
+    requirements.set(field, applicability.context_lesson_ids);
+  }
+  if (applicability.retrieval_lesson_ids.length > 0) {
+    requirements.set('retrieval_and_correction', applicability.retrieval_lesson_ids);
+  }
+  if (applicability.practical_lesson_ids.length > 0) {
+    requirements.set(
+      kind === 'classroom-trial' ? 'safety_observations' : 'practical_safety',
+      applicability.practical_lesson_ids,
+    );
+  }
+  return requirements;
+}
+
+function buildTrialDimensionCoverage(trial, kind, applicability) {
+  const requirements = requiredTrialDimensions(kind, applicability);
+  const scheduleField = kind === 'classroom-trial'
+    ? 'timing_observations'
+    : 'session_observations';
+  const rows = [...requirements.entries()]
+    .map(([dimension, requiredLessons]) => {
+      const covered = new Set(
+        (trial[dimension] ?? [])
+          .filter((observation) => (
+            dimension === scheduleField || meaningfulObservation(observation)
+          ))
+          .map((observation) => observation.lesson_id),
+      );
+      const required = uniqueSorted(requiredLessons);
+      const coveredRequired = required.filter((lessonId) => covered.has(lessonId));
+      return {
+        dimension,
+        required_lesson_ids: required,
+        covered_lesson_ids: coveredRequired,
+        missing_lesson_ids: required.filter((lessonId) => !covered.has(lessonId)),
+      };
+    })
+    .sort((left, right) => compareBytewise(left.dimension, right.dimension));
+  const missingPairs = rows.flatMap((row) => (
+    row.missing_lesson_ids.map((lessonId) => `${row.dimension}:${lessonId}`)
+  )).sort(compareBytewise);
+  return {
+    required_dimensions: rows.map((row) => row.dimension),
+    dimension_lesson_coverage: rows,
+    missing_dimension_lesson_pairs: missingPairs,
+    complete: missingPairs.length === 0,
+  };
+}
+
+function observationHasBoundedMinorPlan(observation, findingState, deliveryMode) {
+  const references = observation.finding_refs ?? [];
+  if (references.length === 0) return false;
+  const findings = new Map(
+    findingState.findings.map((finding) => [finding.finding_id, finding]),
+  );
+  return references.every((findingId) => {
+    const finding = findings.get(findingId);
+    return finding?.severity === 'minor'
+      && (finding.delivery_modes ?? []).includes(deliveryMode)
+      && findingHasBoundedPlan(finding);
+  });
+}
+
+function validateTrialDecisionCoherence(
+  diagnostics,
+  artifact,
+  kind,
+  analysed,
+  successful,
+  findingState,
+  dimensionCoverage,
+) {
+  if (!analysed) return true;
+  const trial = artifact.data;
+  const before = diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ).length;
+  const decision = trial.decision?.status;
+  const withNotes = decision === 'successful_with_notes';
+  const deliveryMode = kind === 'classroom-trial' ? 'classroom' : 'homeschool';
+  const requirements = new Map(
+    dimensionCoverage.dimension_lesson_coverage.map((row) => [
+      row.dimension,
+      new Set(row.required_lesson_ids),
+    ]),
+  );
+  if (successful) {
+    const categoricalFields = kind === 'classroom-trial'
+      ? CLASSROOM_CATEGORICAL_FIELDS
+      : HOME_CATEGORICAL_FIELDS;
+    for (const field of categoricalFields) {
+      const requiredLessons = requirements.get(field) ?? new Set();
+      for (const [index, observation] of (trial[field] ?? []).entries()) {
+        const required = requiredLessons.has(observation.lesson_id);
+        if (observation.rating === 'not_met') {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/${field}/${index}/rating`,
+            `not_met ${field} evidence cannot support a positive ${kind} decision`,
+          ));
+        } else if (observation.rating === 'not_observed' && required) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/${field}/${index}/rating`,
+            `required ${field} evidence cannot be not_observed for ${observation.lesson_id}`,
+          ));
+        } else if (observation.rating === 'partly_met') {
+          if (
+            !withNotes
+            || !observationHasBoundedMinorPlan(
+              observation,
+              findingState,
+              deliveryMode,
+            )
+          ) {
+            diagnostics.push(makeDiagnostic(
+              'error',
+              artifact.file,
+              `/${field}/${index}`,
+              `partly_met ${field} evidence requires successful_with_notes and a linked bounded minor plan`,
+            ));
+          }
+        }
+      }
+    }
+    if (kind === 'classroom-trial') {
+      for (const [index, observation] of (trial.timing_observations ?? []).entries()) {
+        if (!observation.setup_feasible || !observation.transition_feasible) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/timing_observations/${index}`,
+            'positive classroom trial requires feasible setup and transition evidence',
+          ));
+        }
+      }
+    } else {
+      const sessions = trial.session_observations ?? [];
+      const allRolesBounded = sessions.length > 0
+        && sessions.every((observation) => observation.parent_role_bounded === true);
+      if (
+        trial.decision?.parent_role_remained_bounded !== allRolesBounded
+      ) {
+        diagnostics.push(makeDiagnostic(
+          'error',
+          artifact.file,
+          '/decision/parent_role_remained_bounded',
+          'home-trial parent-role decision must equal the aggregate session evidence',
+        ));
+      }
+      for (const [index, observation] of sessions.entries()) {
+        if (observation.parent_role_bounded !== true) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/session_observations/${index}/parent_role_bounded`,
+            'positive home trial requires a bounded parent role in every session',
+          ));
+        }
+        if (['high', 'intensive'].includes(observation.unplanned_adult_support)) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/session_observations/${index}/unplanned_adult_support`,
+            'high or intensive unplanned adult support cannot support a positive home trial',
+          ));
+        } else if (observation.unplanned_adult_support === 'medium' && (
+          !withNotes
+          || !observationHasBoundedMinorPlan(
+            observation,
+            findingState,
+            deliveryMode,
+          )
+        )) {
+          diagnostics.push(makeDiagnostic(
+            'error',
+            artifact.file,
+            `/session_observations/${index}`,
+            'medium unplanned adult support requires successful_with_notes and a linked bounded minor plan',
+          ));
+        }
+      }
+    }
+  } else if (kind === 'home-trial' && (trial.session_observations ?? []).length > 0) {
+    const allRolesBounded = trial.session_observations.every(
+      (observation) => observation.parent_role_bounded === true,
+    );
+    if (trial.decision?.parent_role_remained_bounded !== allRolesBounded) {
+      diagnostics.push(makeDiagnostic(
+        'error',
+        artifact.file,
+        '/decision/parent_role_remained_bounded',
+        'home-trial parent-role decision must equal the aggregate session evidence',
+      ));
+    }
+  }
+  return diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  ).length === before;
+}
+
 function validateReviewRecord(
   diagnostics,
   context,
@@ -849,6 +1220,7 @@ function validateReviewRecord(
       current: false,
       superseded: lifecycleSuperseded || recordSuperseded(artifact),
       registerable: false,
+      decision_evidence_coherent: false,
       positive_effective: false,
       negative_effective: false,
       effective: false,
@@ -1096,6 +1468,12 @@ function validateReviewRecord(
       'approval requires closed changes or bounded minor plans with references',
     ));
   }
+  const decisionEvidenceCoherent = validateReviewDecisionCoherence(
+    diagnostics,
+    artifact,
+    findingState,
+    complete,
+  );
   const noLocalErrors = diagnostics.filter(
     (diagnostic) => diagnostic.severity === 'error',
   ).length === initialErrorCount;
@@ -1108,6 +1486,7 @@ function validateReviewRecord(
     && (review.delivery_scopes ?? []).length > 0
     && REVIEW_SCOPE_FLAGS.every((field) => review.review_scope?.[field] === true)
     && sameSet(review.review_scope?.lesson_guides, lessonIds)
+    && decisionEvidenceCoherent
     && (approved || negative);
   const positiveEffective = registerable
     && approved
@@ -1122,6 +1501,7 @@ function validateReviewRecord(
     current: identity.current,
     superseded,
     registerable,
+    decision_evidence_coherent: decisionEvidenceCoherent,
     positive_effective: positiveEffective,
     negative_effective: negativeEffective,
     effective: positiveEffective,
@@ -1139,13 +1519,6 @@ function meaningfulObservation(observation) {
   return observation?.rating !== 'not_observed';
 }
 
-function observationsCoverLessons(observations, lessonIds) {
-  const covered = new Set(
-    (observations ?? []).filter(meaningfulObservation).map((item) => item.lesson_id),
-  );
-  return lessonIds.every((lessonId) => covered.has(lessonId));
-}
-
 function validateTrialSufficiency(
   diagnostics,
   context,
@@ -1157,45 +1530,26 @@ function validateTrialSufficiency(
   const trial = artifact.data;
   const contextLessons = trial.context?.lesson_ids ?? [];
   const referenceModel = context.evidenceReferenceModels?.[pack.pack_id];
-  const scheduleField = kind === 'classroom-trial'
-    ? 'timing_observations'
-    : 'session_observations';
-  const scheduleLessons = new Set(
-    (trial[scheduleField] ?? []).map((item) => item.lesson_id),
+  const applicability = buildTrialApplicability(
+    referenceModel,
+    contextLessons,
+    kind,
   );
-  for (const lessonId of contextLessons) {
-    if (!scheduleLessons.has(lessonId)) {
-      diagnostics.push(makeDiagnostic(
-        'error',
-        artifact.file,
-        `/${scheduleField}`,
-        `${kind} must include a ${scheduleField} entry for ${lessonId}`,
-      ));
-    }
-  }
-  const dimensions = kind === 'classroom-trial'
-    ? [...CLASSROOM_SUCCESS_DIMENSIONS]
-    : [...HOME_SUCCESS_DIMENSIONS];
-  const retrievalRequired = contextLessons.some(
-    (lessonId) => referenceModel?.lessons.get(lessonId)?.retrievalRequired === true,
+  const dimensionCoverage = buildTrialDimensionCoverage(
+    trial,
+    kind,
+    applicability,
   );
-  const practicalRequired = contextLessons.some((lessonId) => (
-    kind === 'classroom-trial'
-      ? referenceModel?.lessons.get(lessonId)?.classroomPractical === true
-      : referenceModel?.lessons.get(lessonId)?.homePractical === true
-  ));
-  if (retrievalRequired) dimensions.push('retrieval_and_correction');
-  if (practicalRequired) {
-    dimensions.push(kind === 'classroom-trial' ? 'safety_observations' : 'practical_safety');
-  }
   if (successful) {
-    for (const field of dimensions) {
-      if (!observationsCoverLessons(trial[field], contextLessons)) {
+    for (const row of dimensionCoverage.dimension_lesson_coverage) {
+      if (row.missing_lesson_ids.length > 0) {
         diagnostics.push(makeDiagnostic(
           'error',
           artifact.file,
-          `/${field}`,
-          `successful ${kind} requires meaningful ${field} coverage for every context lesson`,
+          `/${row.dimension}`,
+          `successful ${kind} is missing ${row.dimension} coverage for ${
+            row.missing_lesson_ids.join(', ')
+          }`,
         ));
       }
     }
@@ -1215,7 +1569,10 @@ function validateTrialSufficiency(
       }
     }
   } else {
-    const categoricalCount = dimensions.reduce(
+    const categoricalFields = kind === 'classroom-trial'
+      ? CLASSROOM_CATEGORICAL_FIELDS
+      : HOME_CATEGORICAL_FIELDS;
+    const categoricalCount = categoricalFields.reduce(
       (count, field) => count + (trial[field] ?? []).filter(meaningfulObservation).length,
       0,
     );
@@ -1228,6 +1585,7 @@ function validateTrialSufficiency(
       ));
     }
   }
+  return { applicability, dimensionCoverage };
 }
 
 function validateTrialRecord(
@@ -1258,6 +1616,7 @@ function validateTrialRecord(
       current: false,
       superseded: lifecycleSuperseded || recordSuperseded(artifact),
       registerable: false,
+      decision_evidence_coherent: false,
       positive_effective: false,
       negative_effective: false,
       effective: false,
@@ -1267,6 +1626,15 @@ function validateTrialRecord(
       openSafetyNotes: [],
       parentRoleBounded: kind === 'classroom-trial',
       deliveryScopes: [kind === 'classroom-trial' ? 'classroom' : 'homeschool'],
+      covered_lesson_ids: [],
+      retrieval_lesson_ids: [],
+      practical_lesson_ids: [],
+      dimension_coverage: {
+        required_dimensions: [],
+        dimension_lesson_coverage: [],
+        missing_dimension_lesson_pairs: [],
+        complete: false,
+      },
       decision: recordDecision(artifact),
     };
   }
@@ -1323,8 +1691,22 @@ function validateTrialRecord(
       `analysed ${kind} requires a positive or negative completed decision`,
     ));
   }
+  const referenceModel = context.evidenceReferenceModels?.[pack.pack_id];
+  let trialCoverage = {
+    applicability: buildTrialApplicability(
+      referenceModel,
+      trial.context?.lesson_ids ?? [],
+      kind,
+    ),
+    dimensionCoverage: null,
+  };
+  trialCoverage.dimensionCoverage = buildTrialDimensionCoverage(
+    trial,
+    kind,
+    trialCoverage.applicability,
+  );
   if (analysed) {
-    validateTrialSufficiency(
+    trialCoverage = validateTrialSufficiency(
       diagnostics,
       context,
       artifact,
@@ -1408,8 +1790,15 @@ function validateTrialRecord(
       `changes_required ${kind} with a safety blocker requires safe_to_repeat: false`,
     ));
   }
+  const sessionRolesBounded = (trial.session_observations ?? []).length > 0
+    && (trial.session_observations ?? []).every(
+      (observation) => observation.parent_role_bounded === true,
+    );
   const parentRoleBounded = kind === 'classroom-trial'
-    || trial.decision?.parent_role_remained_bounded === true;
+    || (
+      trial.decision?.parent_role_remained_bounded === true
+      && sessionRolesBounded
+    );
   if (kind === 'home-trial' && successful && !parentRoleBounded) {
     diagnostics.push(makeDiagnostic(
       'error',
@@ -1418,6 +1807,15 @@ function validateTrialRecord(
       'successful home trial requires a bounded parent/adult role',
     ));
   }
+  const decisionEvidenceCoherent = validateTrialDecisionCoherence(
+    diagnostics,
+    artifact,
+    kind,
+    analysed,
+    successful,
+    findingState,
+    trialCoverage.dimensionCoverage,
+  );
   const noLocalErrors = diagnostics.filter(
     (diagnostic) => diagnostic.severity === 'error',
   ).length === initialErrorCount;
@@ -1429,9 +1827,11 @@ function validateTrialRecord(
     && validDate(trial.conducted_at)
     && (trial.context?.lesson_ids ?? []).length > 0
     && (trial.context?.lesson_ids ?? []).every((lessonId) => knownLessons.has(lessonId))
+    && decisionEvidenceCoherent
     && (successful || negative);
   const positiveEffective = registerable
     && successful
+    && trialCoverage.dimensionCoverage.complete
     && findingState.openBlockingOrMajor.length === 0
     && findingState.openSafetyBlockers.length === 0
     && parentRoleBounded;
@@ -1444,6 +1844,7 @@ function validateTrialRecord(
     current: identity.current,
     superseded,
     registerable,
+    decision_evidence_coherent: decisionEvidenceCoherent,
     positive_effective: positiveEffective,
     negative_effective: negativeEffective,
     effective: positiveEffective,
@@ -1453,6 +1854,12 @@ function validateTrialRecord(
     openSafetyNotes: findingState.openSafetyNotes,
     parentRoleBounded,
     deliveryScopes: [kind === 'classroom-trial' ? 'classroom' : 'homeschool'],
+    covered_lesson_ids: positiveEffective
+      ? trialCoverage.applicability.context_lesson_ids
+      : [],
+    retrieval_lesson_ids: trialCoverage.applicability.retrieval_lesson_ids,
+    practical_lesson_ids: trialCoverage.applicability.practical_lesson_ids,
+    dimension_coverage: trialCoverage.dimensionCoverage,
     decision: trial.decision?.status ?? 'pending',
   };
 }
@@ -1582,7 +1989,36 @@ function reviewModeStatus(states, deliveryMode) {
   return 'pending';
 }
 
-function trialStatus(states, emptyStatus) {
+export function aggregateTrialCoverage(states, packLessonIds, deliveryMode) {
+  const kind = deliveryMode === 'classroom' ? 'classroom_trial' : 'home_trial';
+  const contributing = states.filter((state) => (
+    state.artifact?.data?.artifact_type === kind
+    && !state.superseded
+    && state.current
+    && state.complete
+    && state.registerable
+    && state.positive_effective
+  ));
+  const required = uniqueSorted(packLessonIds ?? []);
+  const covered = uniqueSorted(
+    contributing.flatMap((state) => state.covered_lesson_ids ?? []),
+  ).filter((lessonId) => required.includes(lessonId));
+  return {
+    required_lesson_ids: required,
+    covered_lesson_ids: covered,
+    missing_lesson_ids: required.filter((lessonId) => !covered.includes(lessonId)),
+    contributing_record_ids: uniqueSorted(
+      contributing.map((state) => state.recordId),
+    ),
+    contributing_evidence_paths: uniqueSorted(
+      contributing.map((state) => state.artifact?.file),
+    ),
+    complete: required.length > 0
+      && required.every((lessonId) => covered.includes(lessonId)),
+  };
+}
+
+function trialStatus(states, emptyStatus, coverage) {
   const activeCurrent = states.filter((state) => (
     !state.superseded && state.current && state.complete
   ));
@@ -1592,7 +2028,9 @@ function trialStatus(states, emptyStatus) {
   if (activeCurrent.some((state) => state.negative_effective)) {
     return 'changes_required';
   }
-  if (activeCurrent.some((state) => state.positive_effective)) return 'tested';
+  if (activeCurrent.some((state) => state.positive_effective)) {
+    return coverage.complete ? 'tested' : 'partial';
+  }
   return emptyStatus;
 }
 
@@ -1631,7 +2069,9 @@ function validateActiveConflicts(diagnostics, index, states, kind) {
       continue;
     }
     const decisions = uniqueSorted(scoped.map((state) => state.decision));
-    if (decisions.length > 1) {
+    const allPositive = scoped.length > 0
+      && scoped.every((state) => state.positive_effective);
+    if (decisions.length > 1 && !allPositive) {
       diagnostics.push(makeDiagnostic(
         'error',
         index.file,
@@ -1774,11 +2214,27 @@ function summarizePack(context, index, diagnostics = []) {
   validateActiveConflicts(diagnostics, index, homeStates, 'home_trial');
   const classroomReviewStatus = reviewModeStatus(reviewStates, 'classroom');
   const homeschoolReviewStatus = reviewModeStatus(reviewStates, 'homeschool');
+  const classroomTrialCoverage = aggregateTrialCoverage(
+    classroomStates,
+    lessonIds,
+    'classroom',
+  );
+  const homeTrialCoverage = aggregateTrialCoverage(
+    homeStates,
+    lessonIds,
+    'homeschool',
+  );
+  const positiveClassroomTrialCount = classroomStates.filter(
+    (state) => state.positive_effective && !state.superseded,
+  ).length;
+  const positiveHomeTrialCount = homeStates.filter(
+    (state) => state.positive_effective && !state.superseded,
+  ).length;
   const activeStates = [
     ...reviewStates,
     ...classroomStates,
     ...homeStates,
-  ].filter((state) => !state.superseded);
+  ].filter((state) => !state.superseded && state.complete);
   const historicalStates = [
     ...reviewStates,
     ...classroomStates,
@@ -1803,12 +2259,16 @@ function summarizePack(context, index, diagnostics = []) {
         && !state.superseded
         && state.deliveryScopes.includes('homeschool'),
     ),
-    effective_classroom_trial: classroomStates.some(
-      (state) => state.positive_effective && !state.superseded,
-    ),
-    effective_home_trial: homeStates.some(
-      (state) => state.positive_effective && !state.superseded,
-    ),
+    effective_classroom_trial:
+      positiveClassroomTrialCount > 0 && classroomTrialCoverage.complete,
+    effective_home_trial:
+      positiveHomeTrialCount > 0 && homeTrialCoverage.complete,
+    classroom_trial_coverage: classroomTrialCoverage,
+    home_trial_coverage: homeTrialCoverage,
+    effective_classroom_trial_record_count: positiveClassroomTrialCount,
+    effective_classroom_trial_coverage_complete: classroomTrialCoverage.complete,
+    effective_home_trial_record_count: positiveHomeTrialCount,
+    effective_home_trial_coverage_complete: homeTrialCoverage.complete,
     effective_teacher_review_count: reviewStates.filter(
       (state) => state.positive_effective && !state.superseded,
     ).length,
@@ -1822,12 +2282,8 @@ function summarizePack(context, index, diagnostics = []) {
         && !state.superseded
         && state.deliveryScopes.includes('homeschool'),
     ).length,
-    effective_classroom_trial_count: classroomStates.filter(
-      (state) => state.positive_effective && !state.superseded,
-    ).length,
-    effective_home_trial_count: homeStates.filter(
-      (state) => state.positive_effective && !state.superseded,
-    ).length,
+    effective_classroom_trial_count: positiveClassroomTrialCount,
+    effective_home_trial_count: positiveHomeTrialCount,
     negative_classroom_review: reviewStates.some(
       (state) => state.negative_effective
         && !state.superseded
@@ -1854,9 +2310,10 @@ function summarizePack(context, index, diagnostics = []) {
     stale_teacher_review_count: reviewStates.filter((state) => state.stale).length,
     stale_classroom_trial_count: classroomStates.filter((state) => state.stale).length,
     stale_home_trial_count: homeStates.filter((state) => state.stale).length,
-    parent_role_bounded: homeStates
-      .filter((state) => state.positive_effective && !state.superseded)
-      .every((state) => state.parentRoleBounded),
+    parent_role_bounded: positiveHomeTrialCount > 0
+      && homeStates
+        .filter((state) => state.positive_effective && !state.superseded)
+        .every((state) => state.parentRoleBounded),
     open_review_findings: reviewStates
       .filter((state) => !state.superseded)
       .flatMap((state) => state.openBlockingOrMajor),
@@ -1880,8 +2337,17 @@ function summarizePack(context, index, diagnostics = []) {
       classroomReviewStatus,
       homeschoolReviewStatus,
     ),
-    classroom_trial_status: trialStatus(classroomStates, 'not_tested'),
-    home_trial_status: trialStatus(homeStates, 'not_started'),
+    classroom_trial_status: trialStatus(
+      classroomStates,
+      'not_tested',
+      classroomTrialCoverage,
+    ),
+    home_trial_status: trialStatus(homeStates, 'not_started', homeTrialCoverage),
+    invalid_linked_evidence_states: [
+      ...reviewStates,
+      ...classroomStates,
+      ...homeStates,
+    ].filter((state) => !recordStatusTerminal(state.artifact)),
     evidence_states: [...activeStates, ...historicalStates],
     active_evidence_states: activeStates,
     historical_evidence_states: historicalStates,
@@ -1927,6 +2393,7 @@ export function validateStandalonePedagogicalEvidenceRecord(
         current: false,
         superseded: false,
         registerable: false,
+        decision_evidence_coherent: false,
         positive_effective: false,
         negative_effective: false,
         effective: false,
@@ -2048,7 +2515,19 @@ function validateLinkStatus(diagnostics, index, summary) {
       'home-trial template cannot be registered as evidence',
     ));
   }
-  if (summary.completed_review_count === 0) {
+  for (const state of summary.invalid_linked_evidence_states ?? []) {
+    diagnostics.push(makeDiagnostic(
+      'error',
+      state.artifact.file,
+      state.artifact.data?.artifact_type === 'teacher_review'
+        ? '/review_status'
+        : '/trial_status',
+      `linked_evidence_not_terminal: linked ${
+        state.artifact.data?.artifact_type ?? 'evidence'
+      } record must be completed/analysed or superseded`,
+    ));
+  }
+  if ((pack.pedagogical_review?.review_record_paths ?? []).length === 0) {
     diagnostics.push(makeDiagnostic(
       'warning',
       index.file,
@@ -2056,7 +2535,7 @@ function validateLinkStatus(diagnostics, index, summary) {
       'independent teacher review is pending; 0 completed records are registered',
     ));
   }
-  if (summary.analysed_trial_count === 0) {
+  if ((pack.classroom_trial?.trial_record_paths ?? []).length === 0) {
     diagnostics.push(makeDiagnostic(
       'warning',
       index.file,
@@ -2064,7 +2543,7 @@ function validateLinkStatus(diagnostics, index, summary) {
       'classroom trial is not tested; 0 analysed records are registered',
     ));
   }
-  if (summary.analysed_home_trial_count === 0) {
+  if ((pack.home_trial?.trial_record_paths ?? []).length === 0) {
     diagnostics.push(makeDiagnostic(
       'warning',
       index.file,

@@ -314,7 +314,11 @@ homeschool review statuses are derived separately, with `partial` and
 `approved_for_both` reserved for the explicit aggregate. Active evidence is
 selected through explicit supersession links, while historical records remain
 auditable. Successful trials require meaningful aggregate observations and
-`safe_to_repeat: true`; an empty analysed trial cannot unlock readiness. See
+`safe_to_repeat: true`; an empty analysed trial cannot unlock readiness.
+Positive trials cover only their declared lessons, and readiness stays
+`partial` until the union of active trial records covers the whole pack.
+Registration uses a pack-local lock and immutable no-replace target commit;
+linked drafts or unanalysed conducted trials are repository errors. See
 [`docs/pedagogical-review-and-trial-workflow.md`](docs/pedagogical-review-and-trial-workflow.md)
 and [`docs/teacher-pack-content-fingerprint.md`](docs/teacher-pack-content-fingerprint.md).
 Student or family personal data must never be committed.
