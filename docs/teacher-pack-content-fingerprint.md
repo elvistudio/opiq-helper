@@ -49,8 +49,10 @@ review repository and readiness report; it does not treat a 64-character hash
 as proof of currency. A different existing evidence target is immutable, while
 an already-linked byte-identical retry is a no-op. Registration is serialized
 per pack by a local lock, installs the immutable target with atomic no-replace
-semantics, and removes a target during rollback only when device/inode identity
-still proves ownership by that registration attempt.
+semantics, and keeps an open handle to the installed inode until rollback
+ownership is decided. A target is removed only when device/inode identity still
+matches that held inode, preventing immediate inode reuse or deletion of a
+foreign replacement.
 
 ## Framed SHA-256 algorithm
 

@@ -625,19 +625,50 @@ export async function installImmutableEvidenceTarget(stagingPath, targetPath) {
     conflict.code = 'pedagogical_evidence_target_exists';
     throw conflict;
   }
-  const targetStat = await fs.lstat(targetPath);
-  if (
-    targetStat.dev !== stagingStat.dev
-    || targetStat.ino !== stagingStat.ino
-  ) {
-    const conflict = new Error(
-      `registered evidence target was replaced during commit: ${targetPath}`,
-    );
-    conflict.code = 'pedagogical_evidence_target_replaced_during_commit';
-    throw conflict;
+  let ownershipHandle;
+  try {
+    ownershipHandle = await fs.open(targetPath, 'r');
+  } catch (error) {
+    try {
+      const targetStat = await fs.lstat(targetPath);
+      if (
+        targetStat.dev === stagingStat.dev
+        && targetStat.ino === stagingStat.ino
+      ) {
+        await fs.rm(targetPath);
+      }
+    } catch (cleanupError) {
+      if (cleanupError.code !== 'ENOENT') throw cleanupError;
+    }
+    throw error;
   }
-  await fs.rm(stagingPath);
-  return { dev: stagingStat.dev, ino: stagingStat.ino };
+  try {
+    const [targetStat, ownershipStat] = await Promise.all([
+      fs.lstat(targetPath),
+      ownershipHandle.stat(),
+    ]);
+    if (
+      targetStat.dev !== stagingStat.dev
+      || targetStat.ino !== stagingStat.ino
+      || ownershipStat.dev !== stagingStat.dev
+      || ownershipStat.ino !== stagingStat.ino
+    ) {
+      const conflict = new Error(
+        `registered evidence target was replaced during commit: ${targetPath}`,
+      );
+      conflict.code = 'pedagogical_evidence_target_replaced_during_commit';
+      throw conflict;
+    }
+    await fs.rm(stagingPath);
+    return {
+      dev: stagingStat.dev,
+      ino: stagingStat.ino,
+      handle: ownershipHandle,
+    };
+  } catch (error) {
+    await ownershipHandle.close();
+    throw error;
+  }
 }
 
 async function removeOwnedEvidenceTarget(targetPath, ownership) {
@@ -1132,6 +1163,9 @@ async function registerPedagogicalEvidenceLocked({
         .filter(Boolean)
         .map((stagingPath) => fs.rm(stagingPath, { force: true })),
     );
+    if (targetOwnership?.handle) {
+      await targetOwnership.handle.close();
+    }
   }
 }
 

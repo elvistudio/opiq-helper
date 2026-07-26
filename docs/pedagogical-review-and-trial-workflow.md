@@ -167,9 +167,10 @@ repository state. The immutable evidence target is installed with an atomic
 same-filesystem no-replace link; a target that appears after the precheck is
 preserved and causes `pedagogical_evidence_target_exists`. The index and report
 are renamed only after the target succeeds. Rollback removes the target only
-when its device/inode identity proves that this process installed it, so a
-concurrent replacement is never deleted. A detected lock, index change, or
-validation/fingerprint failure leaves no owned staging files. This is a
+when its device/inode identity matches an open handle retained for the installed
+inode. Keeping that handle open prevents immediate inode-number reuse from
+making a concurrent replacement appear process-owned. A detected lock, index
+change, or validation/fingerprint failure leaves no owned staging files. This is a
 bounded single-host transaction, not a claim of distributed or crash-safe ACID
 storage. A process crash can leave a stale local lock; remove it manually only
 after verifying that no registration process for that pack is active.

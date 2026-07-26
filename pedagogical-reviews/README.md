@@ -55,7 +55,9 @@ whole-pack trial.
 Registration validates the full resulting evidence repository, derived links,
 readiness report, and unchanged four-field fingerprint. It uses a pack-local
 lock, sibling staging files, atomic no-replace installation for the immutable
-record, and device/inode ownership checks during rollback. A concurrent target
+record, and a held file handle plus device/inode ownership checks during
+rollback. Holding the installed inode open prevents immediate inode-number
+reuse from making a foreign replacement look process-owned. A concurrent target
 or index change is preserved rather than overwritten. Rollback is a bounded
 single-host guarantee, not distributed or crash-safe ACID storage.
 
