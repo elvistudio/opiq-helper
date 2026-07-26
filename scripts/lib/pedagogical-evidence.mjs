@@ -29,7 +29,7 @@ import {
 
 const execFileAsync = promisify(execFile);
 
-export const PEDAGOGICAL_SNAPSHOT_VERSION = '1.0';
+export const PEDAGOGICAL_SNAPSHOT_VERSION = '1.1';
 export const PEDAGOGICAL_EVIDENCE_SCHEMA_PATHS = Object.freeze({
   common: 'schemas/pedagogical-evidence-common.schema.json',
   teacherReview: 'schemas/teacher-review.schema.json',
@@ -232,13 +232,16 @@ export async function buildPedagogicalEvidenceIdentity({
     pedagogical_snapshot: {
       snapshot_version: PEDAGOGICAL_SNAPSHOT_VERSION,
       taxonomy_version: rules.taxonomy_version,
+      taxonomy_digest: sha256PedagogyValue(selection.knowledge.taxonomy.data),
       selection_rules_version: rules.selection_rules_version,
+      selection_rules_digest: sha256PedagogyValue(rules),
       selection_engine_version: rules.engine_version,
       lesson_dna_schema_version: rules.lesson_dna_schema_version,
       activity_catalog_digest: computeActivityCatalogSelectionDigest(
         selection.knowledge.activities.data.activities,
       ),
       homeschool_rules_version: homeschoolRules.versions.homeschool_rules_version,
+      homeschool_rules_digest: sha256PedagogyValue(homeschoolRules),
       homeschool_engine_version: homeschoolRules.versions.homeschool_engine_version,
       quality_engine_version: PEDAGOGY_QUALITY_ENGINE_VERSION,
       quality_catalogue_version: quality.catalogue.catalogue_version,
@@ -287,7 +290,6 @@ export function findPedagogicalEvidencePrivacyRisks(record) {
     '/evidence_identity/',
     '/artifact_paths/',
     '/pack_ref',
-    '/reviewer/reviewer_reference',
     '/review_id',
     '/trial_id',
     '/reviewed_at',

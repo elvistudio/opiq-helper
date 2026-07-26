@@ -14,18 +14,24 @@ import {
   buildPedagogicalReadinessReport,
 } from './pedagogical-readiness.mjs';
 import {
+  derivePedagogicalEvidenceLinkState,
+  loadPedagogicalReviewRepository,
+} from './pedagogical-reviews.mjs';
+import {
   safeRepositoryPath,
 } from './curriculum-maps.mjs';
 
 const PACK_PATH = 'teacher-packs/grade-5-science/water/materials-index.yaml';
 const REVIEW_PATH =
-  'pedagogical-reviews/grade-5-science/water/records/regression-teacher-review.yaml';
+  'pedagogical-reviews/grade-5-science/water/records/grade-5-water-regression-review-2026-08-01.yaml';
 const SECOND_REVIEW_PATH =
-  'pedagogical-reviews/grade-5-science/water/records/regression-superseded-review.yaml';
+  'pedagogical-reviews/grade-5-science/water/records/grade-5-water-regression-successor-review-2026-08-02.yaml';
 const CLASSROOM_PATH =
-  'pedagogical-reviews/grade-5-science/water/records/regression-classroom-trial.yaml';
+  'pedagogical-reviews/grade-5-science/water/records/grade-5-water-regression-classroom-trial-2026-08-01.yaml';
+const SECOND_CLASSROOM_PATH =
+  'pedagogical-reviews/grade-5-science/water/records/grade-5-water-regression-successor-classroom-trial-2026-08-02.yaml';
 const HOME_PATH =
-  'pedagogical-reviews/grade-5-science/water/records/regression-home-trial.yaml';
+  'pedagogical-reviews/grade-5-science/water/records/grade-5-water-regression-home-trial-2026-08-01.yaml';
 const NORMALIZED_PATH =
   'pedagogical-reviews/grade-5-science/water/regression-normalized.yaml';
 const INTAKE_PATH =
@@ -38,6 +44,7 @@ const MUTABLE_SCENARIO_PATHS = Object.freeze([
   REVIEW_PATH,
   SECOND_REVIEW_PATH,
   CLASSROOM_PATH,
+  SECOND_CLASSROOM_PATH,
   HOME_PATH,
   NORMALIZED_PATH,
   INTAKE_PATH,
@@ -114,6 +121,7 @@ export function createRegressionTeacherReview(
     review_id: 'grade-5-water-regression-review-2026-08-01',
     pack_ref: 'grade-5-science-water-teacher-pack',
     evidence_identity: structuredClone(identity),
+    lifecycle: { supersedes: [] },
     review_status: 'completed',
     reviewer: {
       role: 'primary_science_teacher',
@@ -139,7 +147,34 @@ export function createRegressionTeacherReview(
       lesson_dna: true,
       selection_and_adaptation_artifacts: true,
     },
-    ratings: Object.fromEntries(RATING_FIELDS.map((field) => [field, 4])),
+    ratings: Object.fromEntries(RATING_FIELDS.map((field) => {
+      if (!scopes.includes('classroom') && field === 'classroom_feasibility') {
+        return [field, 'not_applicable'];
+      }
+      if (
+        !scopes.includes('homeschool')
+        && ['homeschool_clarity', 'parent_role_realism'].includes(field)
+      ) {
+        return [field, 'not_applicable'];
+      }
+      return [field, 4];
+    })),
+    rating_applicability: [
+      ...(!scopes.includes('classroom') ? [{
+        dimension: 'classroom_feasibility',
+        rationale: 'Classroom delivery is outside this synthetic review scope.',
+      }] : []),
+      ...(!scopes.includes('homeschool') ? [
+        {
+          dimension: 'homeschool_clarity',
+          rationale: 'Homeschool delivery is outside this synthetic review scope.',
+        },
+        {
+          dimension: 'parent_role_realism',
+          rationale: 'Homeschool delivery is outside this synthetic review scope.',
+        },
+      ] : []),
+    ],
     privacy: privacy(),
     findings: [],
     blocking_findings: [],
@@ -153,12 +188,21 @@ export function createRegressionTeacherReview(
 }
 
 export function createRegressionClassroomTrial(identity, lessonId) {
+  const observation = () => [{
+    lesson_id: lessonId,
+    phase_ids: [],
+    rating: 'met',
+    summary: 'Synthetic aggregate regression observation.',
+    aggregate_count: 1,
+    aggregate_denominator: 1,
+  }];
   return {
     schema_version: '2.0',
     artifact_type: 'classroom_trial',
     trial_id: 'grade-5-water-regression-classroom-trial-2026-08-01',
     pack_ref: 'grade-5-science-water-teacher-pack',
     evidence_identity: structuredClone(identity),
+    lifecycle: { supersedes: [] },
     trial_status: 'analysed',
     context: {
       lesson_ids: [lessonId],
@@ -172,17 +216,26 @@ export function createRegressionClassroomTrial(identity, lessonId) {
     },
     privacy: privacy(),
     conducted_at: '2026-08-01',
-    timing_observations: [],
-    instruction_comprehension: [],
-    retrieval_and_correction: [],
-    recall_and_transfer: [],
-    participation_and_completion: [],
-    language_support: [],
+    timing_observations: [{
+      lesson_id: lessonId,
+      phase_id: 'activation',
+      planned_minutes: 5,
+      actual_minutes: 5,
+      setup_feasible: true,
+      transition_feasible: true,
+      summary: 'Synthetic aggregate regression timing observation.',
+    }],
+    instruction_comprehension: observation(),
+    retrieval_and_correction: observation(),
+    recall_and_transfer: observation(),
+    participation_and_completion: observation(),
+    language_support: observation(),
     differentiation_adjustments: [],
     lesson_dna_deviations: [],
-    material_usability: [],
+    lesson_dna_deviation_status: 'none_observed',
+    material_usability: observation(),
     safety_observations: [],
-    method_execution_observations: [],
+    method_execution_observations: observation(),
     unexpected_support: [],
     findings: [],
     decision: {
@@ -194,12 +247,21 @@ export function createRegressionClassroomTrial(identity, lessonId) {
 }
 
 export function createRegressionHomeTrial(identity, lessonId) {
+  const observation = () => [{
+    lesson_id: lessonId,
+    phase_ids: [],
+    rating: 'met',
+    summary: 'Synthetic aggregate regression observation.',
+    aggregate_count: 1,
+    aggregate_denominator: 1,
+  }];
   return {
     schema_version: '1.0',
     artifact_type: 'home_trial',
     trial_id: 'grade-5-water-regression-home-trial-2026-08-01',
     pack_ref: 'grade-5-science-water-teacher-pack',
     evidence_identity: structuredClone(identity),
+    lifecycle: { supersedes: [] },
     trial_status: 'analysed',
     context: {
       lesson_ids: [lessonId],
@@ -213,17 +275,24 @@ export function createRegressionHomeTrial(identity, lessonId) {
     },
     privacy: privacy(),
     conducted_at: '2026-08-01',
-    session_observations: [],
-    instruction_comprehension: [],
-    adult_role: [],
-    learner_independence: [],
-    material_availability: [],
-    offline_and_printer_assumptions: [],
-    retrieval_and_correction: [],
-    language_scaffolds: [],
+    session_observations: [{
+      lesson_id: lessonId,
+      planned_minutes: 30,
+      actual_minutes: 30,
+      unplanned_adult_support: 'none',
+      parent_role_bounded: true,
+      summary: 'Synthetic aggregate regression session observation.',
+    }],
+    instruction_comprehension: observation(),
+    adult_role: observation(),
+    learner_independence: observation(),
+    material_availability: observation(),
+    offline_and_printer_assumptions: observation(),
+    retrieval_and_correction: observation(),
+    language_scaffolds: observation(),
     practical_safety: [],
-    task_completion: [],
-    recall_and_transfer: [],
+    task_completion: observation(),
+    recall_and_transfer: observation(),
     findings: [],
     decision: {
       status: 'successful',
@@ -282,18 +351,35 @@ async function linkEvidence(rootDir, {
   reviews = [],
   classroomTrials = [],
   homeTrials = [],
-  reviewStatus = reviews.length ? 'approved' : 'pending',
-  classroomStatus = classroomTrials.length ? 'tested' : 'not_tested',
-  homeStatus = homeTrials.length ? 'tested' : 'not_started',
+  identityCommitSha,
 }) {
   const index = await readYaml(rootDir, PACK_PATH);
   index.pedagogical_review.review_record_paths = reviews;
-  index.pedagogical_review.status = reviewStatus;
+  index.pedagogical_review.status = 'pending';
+  index.pedagogical_review.classroom_status = 'pending';
+  index.pedagogical_review.homeschool_status = 'pending';
   index.classroom_trial.trial_record_paths = classroomTrials;
-  index.classroom_trial.status = classroomStatus;
+  index.classroom_trial.status = 'not_tested';
   index.home_trial.trial_record_paths = homeTrials;
-  index.home_trial.status = homeStatus;
+  index.home_trial.status = 'not_started';
   await writeYaml(rootDir, PACK_PATH, index);
+  const repository = await loadPedagogicalReviewRepository({
+    rootDir,
+    identityCommitSha,
+  });
+  const loadedIndex = repository.teacherPacks.indexes.find(
+    (artifact) => artifact.file === PACK_PATH,
+  );
+  const statuses = derivePedagogicalEvidenceLinkState(repository, loadedIndex);
+  const finalIndex = await readYaml(rootDir, PACK_PATH);
+  finalIndex.pedagogical_review.status = statuses.pedagogical_review.status;
+  finalIndex.pedagogical_review.classroom_status =
+    statuses.pedagogical_review.classroom_status;
+  finalIndex.pedagogical_review.homeschool_status =
+    statuses.pedagogical_review.homeschool_status;
+  finalIndex.classroom_trial.status = statuses.classroom_trial.status;
+  finalIndex.home_trial.status = statuses.home_trial.status;
+  await writeYaml(rootDir, PACK_PATH, finalIndex);
 }
 
 function staleFingerprint(identity) {
@@ -329,6 +415,7 @@ async function installEvidence(rootDir, {
   classroomMutate = null,
   homeMutate = null,
   extraReview = null,
+  extraClassroom = null,
 } = {}, state) {
   const reviewPaths = [];
   const classroomPaths = [];
@@ -362,6 +449,15 @@ async function installEvidence(rootDir, {
     await writeRecord(rootDir, CLASSROOM_PATH, record);
     classroomPaths.push(CLASSROOM_PATH);
   }
+  if (extraClassroom) {
+    const record = createRegressionClassroomTrial(
+      state.identity,
+      state.lessonIds[0],
+    );
+    extraClassroom(record);
+    await writeRecord(rootDir, SECOND_CLASSROOM_PATH, record);
+    classroomPaths.push(SECOND_CLASSROOM_PATH);
+  }
   if (home) {
     const record = createRegressionHomeTrial(
       staleHome ? staleFingerprint(state.identity) : state.identity,
@@ -375,15 +471,7 @@ async function installEvidence(rootDir, {
     reviews: reviewPaths,
     classroomTrials: classroomPaths,
     homeTrials: homePaths,
-    reviewStatus: reviewScopes ? (
-      reviewMutate ? 'changes_requested' : 'approved'
-    ) : 'pending',
-    classroomStatus: classroom ? (
-      classroomMutate ? 'changes_required' : 'tested'
-    ) : 'not_tested',
-    homeStatus: home ? (
-      homeMutate ? 'changes_required' : 'tested'
-    ) : 'not_started',
+    identityCommitSha: state.identity.commit_sha,
   });
   return state;
 }
@@ -508,6 +596,12 @@ async function setupScenario(
         'teacher-packs/grade-5-science/water/pedagogy/classroom/lesson-01-lesson-dna.yaml',
         '\n# temporary identity mutation\n',
       );
+      await linkEvidence(rootDir, {
+        reviews: [REVIEW_PATH],
+        classroomTrials: [CLASSROOM_PATH],
+        homeTrials: [],
+        identityCommitSha: base.identity.commit_sha,
+      });
       break;
     case 'delivery_change_stales':
       await installEvidence(rootDir, {
@@ -519,14 +613,135 @@ async function setupScenario(
         'teacher-packs/grade-5-science/water/homeschool/lesson-01-parent-guidance.md',
         '\n<!-- temporary delivery mutation -->\n',
       );
+      await linkEvidence(rootDir, {
+        reviews: [REVIEW_PATH],
+        classroomTrials: [],
+        homeTrials: [HOME_PATH],
+        identityCommitSha: base.identity.commit_sha,
+      });
       break;
     case 'superseded_ignored':
       await installEvidence(rootDir, {
         ...classReview,
         classroom: true,
-        extraReview(record) {
-          record.review_status = 'superseded';
+        reviewMutate(record) {
           record.evidence_identity = staleFingerprint(record.evidence_identity);
+          const item = finding('major', 'timing', ['classroom']);
+          record.findings = [item];
+          record.required_changes = [{
+            change_id: 'historical-required-change',
+            finding_refs: [item.finding_id],
+            description: 'Historical required change superseded by a later review.',
+            resolution_status: 'open',
+            resolution_refs: [],
+          }];
+          record.decision = {
+            status: 'changes_required',
+            rationale: 'Synthetic historical finding superseded by a current review.',
+          };
+        },
+        extraReview(record) {
+          record.review_id = 'grade-5-water-regression-successor-review-2026-08-02';
+          record.reviewed_at = '2026-08-02';
+          record.lifecycle.supersedes = [
+            'grade-5-water-regression-review-2026-08-01',
+          ];
+        },
+      }, base);
+      break;
+    case 'superseded_classroom_safety_ignored':
+      await installEvidence(rootDir, {
+        ...classReview,
+        classroom: true,
+        classroomMutate(record) {
+          record.findings = [finding('blocking', 'safety', ['classroom'])];
+          record.decision = {
+            status: 'changes_required',
+            safe_to_repeat: false,
+            rationale: 'Historical classroom safety blocker.',
+          };
+        },
+        extraClassroom(record) {
+          record.trial_id =
+            'grade-5-water-regression-successor-classroom-trial-2026-08-02';
+          record.conducted_at = '2026-08-02';
+          record.lifecycle.supersedes = [
+            'grade-5-water-regression-classroom-trial-2026-08-01',
+          ];
+        },
+      }, base);
+      break;
+    case 'stale_classroom_history_does_not_block_home':
+      await installEvidence(rootDir, {
+        reviewScopes: ['classroom'],
+        home: true,
+        staleReview: true,
+        extraReview(record) {
+          const successor = createRegressionTeacherReview(
+            base.identity,
+            base.lessonIds,
+            ['classroom', 'homeschool'],
+          );
+          Object.assign(record, successor);
+          record.review_id =
+            'grade-5-water-regression-successor-review-2026-08-02';
+          record.reviewed_at = '2026-08-02';
+          record.lifecycle.supersedes = [
+            'grade-5-water-regression-review-2026-08-01',
+          ];
+        },
+      }, base);
+      break;
+    case 'stale_home_history_does_not_block_classroom':
+      await installEvidence(rootDir, {
+        reviewScopes: ['homeschool'],
+        classroom: true,
+        staleReview: true,
+        extraReview(record) {
+          const successor = createRegressionTeacherReview(
+            base.identity,
+            base.lessonIds,
+            ['classroom', 'homeschool'],
+          );
+          Object.assign(record, successor);
+          record.review_id =
+            'grade-5-water-regression-successor-review-2026-08-02';
+          record.reviewed_at = '2026-08-02';
+          record.lifecycle.supersedes = [
+            'grade-5-water-regression-review-2026-08-01',
+          ];
+        },
+      }, base);
+      break;
+    case 'current_negative_classroom_does_not_block_home':
+      await installEvidence(rootDir, {
+        reviewScopes: ['classroom'],
+        home: true,
+        reviewMutate(record) {
+          const item = finding('major', 'timing', ['classroom']);
+          record.findings = [item];
+          record.required_changes = [{
+            change_id: 'regression-classroom-change',
+            finding_refs: [item.finding_id],
+            description: 'Synthetic classroom-only required change.',
+            resolution_status: 'open',
+            resolution_refs: [],
+          }];
+          record.decision = {
+            status: 'changes_required',
+            rationale: 'Synthetic classroom-only negative evidence.',
+          };
+        },
+        extraReview(record) {
+          const homeRecord = createRegressionTeacherReview(
+            base.identity,
+            base.lessonIds,
+            ['homeschool'],
+          );
+          Object.assign(record, homeRecord);
+          record.review_id =
+            'grade-5-water-regression-successor-review-2026-08-02';
+          record.reviewed_at = '2026-08-02';
         },
       }, base);
       break;
@@ -546,19 +761,18 @@ async function setupScenario(
           const item = finding(severity, 'timing', ['classroom', 'homeschool']);
           record.findings = [item];
           record.blocking_findings = severity === 'blocking' ? [item.finding_id] : [];
+          record.required_changes = [{
+            change_id:
+              `regression-${scenarioId.replaceAll('_', '-')}-required-change`,
+            finding_refs: [item.finding_id],
+            description: 'Synthetic unresolved required change.',
+            resolution_status: 'open',
+            resolution_refs: [],
+          }];
           record.decision = {
             status: 'changes_required',
             rationale: 'Synthetic unresolved regression finding.',
           };
-          if (scenarioId === 'unresolved_required_change') {
-            record.required_changes = [{
-              change_id: 'regression-required-change',
-              finding_refs: [item.finding_id],
-              description: 'Synthetic unresolved required change.',
-              resolution_status: 'open',
-              resolution_refs: [],
-            }];
-          }
         },
       }, base);
       break;
@@ -604,7 +818,10 @@ async function setupScenario(
       draft.ratings = Object.fromEntries(RATING_FIELDS.map((field) => [field, null]));
       draft.decision = { status: 'pending', rationale: 'Uncompleted regression draft.' };
       await writeRecord(rootDir, REVIEW_PATH, draft);
-      await linkEvidence(rootDir, { reviews: [REVIEW_PATH], reviewStatus: 'pending' });
+      await linkEvidence(rootDir, {
+        reviews: [REVIEW_PATH],
+        identityCommitSha: base.identity.commit_sha,
+      });
       break;
     }
     case 'json_intake_normalizes':
@@ -743,6 +960,7 @@ export async function runReadinessEvidenceRegressionCase({
       REVIEW_PATH,
       SECOND_REVIEW_PATH,
       CLASSROOM_PATH,
+      SECOND_CLASSROOM_PATH,
       HOME_PATH,
       NORMALIZED_PATH,
       INTAKE_PATH,

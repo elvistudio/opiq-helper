@@ -221,6 +221,18 @@ Classroom and home trials remain distinct. Static generation readiness inside
 reviewable artifacts stays a non-authoritative pending projection; mutable
 evidence and derived readiness stay outside the fingerprint.
 
+The evidence projection distinguishes registerable records from positive and
+negative active evidence. A completed `changes_required`, `rejected`, or
+`repeat_trial_required` record is valid evidence but blocks only its declared
+delivery scope. Classroom and homeschool review statuses are projected
+separately; a classroom-only approval cannot appear as homeschool approval.
+The aggregate vocabulary uses `partial` and `approved_for_both` instead of an
+ambiguous global `approved`.
+Explicitly superseded records remain in history, while their old findings and
+stale identities do not become active readiness blockers. Quality validation
+consumes this derived state and never chooses the active record by path or
+array order.
+
 The report makes no claim about Git changes outside its evaluated scope.
 Intentionally unchanged files belong in PR diff evidence, not in the
 deterministic quality artifact.

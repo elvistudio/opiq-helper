@@ -5,13 +5,13 @@ import {
   safeRepositoryPath,
 } from './curriculum-maps.mjs';
 import {
-  pedagogicalEvidenceIdentityMatches,
   parseStrictPedagogicalEvidenceJson,
   resolveCurrentCommitSha,
 } from './pedagogical-evidence.mjs';
 import {
   loadPedagogicalReviewRepository,
   summarizePedagogicalEvidenceForPack,
+  validatePedagogicalReviewRepository,
 } from './pedagogical-reviews.mjs';
 import {
   evaluatePedagogyQuality,
@@ -48,26 +48,16 @@ function activeFinding(finding) {
     && ['blocking', 'major'].includes(finding.severity);
 }
 
-function evidenceFindingSummaries(reviewContext, index) {
-  const links = new Map([
-    ...reviewContext.reviewRecords.map((artifact) => [artifact.file, artifact]),
-    ...reviewContext.trialRecords.map((artifact) => [artifact.file, artifact]),
-    ...reviewContext.homeTrialRecords.map((artifact) => [artifact.file, artifact]),
-  ]);
-  const paths = [
-    ...(index.data.pedagogical_review?.review_record_paths ?? []),
-    ...(index.data.classroom_trial?.trial_record_paths ?? []),
-    ...(index.data.home_trial?.trial_record_paths ?? []),
-  ];
-  return paths.flatMap((repositoryPath) => (
-    (links.get(repositoryPath)?.data?.findings ?? [])
+function evidenceFindingSummaries(evidenceSummary) {
+  return (evidenceSummary.active_evidence_states ?? []).flatMap((state) => (
+    (state.artifact?.data?.findings ?? [])
       .filter(activeFinding)
       .map((finding) => ({
         finding_id: finding.finding_id,
         severity: finding.severity,
         category: finding.category,
         delivery_modes: [...finding.delivery_modes].sort(compareBytewise),
-        evidence_path: repositoryPath,
+        evidence_path: state.artifact.file,
       }))
   )).sort((left, right) => (
     compareBytewise(left.evidence_path, right.evidence_path)
@@ -75,41 +65,53 @@ function evidenceFindingSummaries(reviewContext, index) {
   ));
 }
 
-function staleEvidenceSummaries(reviewContext, index, currentIdentity) {
-  const groups = [
-    [
-      'teacher_review',
-      reviewContext.reviewRecords.filter((artifact) => (
-        (index.data.pedagogical_review?.review_record_paths ?? []).includes(artifact.file)
-      )),
-    ],
-    [
-      'classroom_trial',
-      reviewContext.trialRecords.filter((artifact) => (
-        (index.data.classroom_trial?.trial_record_paths ?? []).includes(artifact.file)
-      )),
-    ],
-    [
-      'home_trial',
-      reviewContext.homeTrialRecords.filter((artifact) => (
-        (index.data.home_trial?.trial_record_paths ?? []).includes(artifact.file)
-      )),
-    ],
-  ];
-  return groups.flatMap(([kind, artifacts]) => artifacts
-    .filter((artifact) => {
-      const complete = artifact.data?.review_status === 'completed'
-        || artifact.data?.trial_status === 'analysed';
-      return complete && !pedagogicalEvidenceIdentityMatches(
-        artifact.data.evidence_identity,
-        currentIdentity,
-      );
-    })
-    .map((artifact) => ({ kind, evidence_path: artifact.file })))
+function evidenceKind(state) {
+  return state.artifact?.data?.artifact_type ?? 'unknown';
+}
+
+function evidenceAuditEntry(state) {
+  return {
+    kind: evidenceKind(state),
+    record_id: state.recordId,
+    decision: state.decision,
+    delivery_modes: [...(state.deliveryScopes ?? [])].sort(compareBytewise),
+    supersedes: [...(state.supersedes ?? [])].sort(compareBytewise),
+    superseded_by: state.supersededBy ?? null,
+    evidence_path: state.artifact.file,
+  };
+}
+
+function evidenceAudit(evidenceSummary) {
+  const activeStates = evidenceSummary.active_evidence_states ?? [];
+  const historicalStates = evidenceSummary.historical_evidence_states ?? [];
+  const sorted = (states) => states.map(evidenceAuditEntry).sort((left, right) => (
+    compareBytewise(left.kind, right.kind)
+    || compareBytewise(left.evidence_path, right.evidence_path)
+  ));
+  const staleEvidence = [...activeStates, ...historicalStates]
+    .filter((state) => state.stale)
+    .map((state) => ({
+      ...evidenceAuditEntry(state),
+      active: !state.superseded,
+    }))
     .sort((left, right) => (
       compareBytewise(left.kind, right.kind)
       || compareBytewise(left.evidence_path, right.evidence_path)
     ));
+  return {
+    active_evidence: sorted(activeStates),
+    historical_evidence: sorted(historicalStates),
+    superseded_evidence: sorted(historicalStates),
+    stale_evidence: staleEvidence,
+    readiness_supporting_evidence: sorted(
+      activeStates.filter((state) => state.positive_effective),
+    ),
+    readiness_blocking_evidence: sorted(
+      activeStates.filter(
+        (state) => state.negative_effective || state.stale,
+      ),
+    ),
+  };
 }
 
 function blocker(code, deliveryMode, message, evidencePaths = []) {
@@ -138,6 +140,14 @@ export function evaluatePedagogicalReadiness({
   homeschoolClosureResolved,
   openFindings = [],
   staleEvidence = [],
+  audit = {
+    active_evidence: [],
+    historical_evidence: [],
+    superseded_evidence: [],
+    stale_evidence: [],
+    readiness_supporting_evidence: [],
+    readiness_blocking_evidence: [],
+  },
 }) {
   const pack = index.data;
   const blockers = [];
@@ -215,6 +225,17 @@ export function evaluatePedagogicalReadiness({
       evidenceSummary.home_trial_paths,
     ));
   }
+  const activeStates = evidenceSummary.active_evidence_states ?? [];
+  for (const state of activeStates.filter((item) => item.negative_effective)) {
+    for (const deliveryMode of state.deliveryScopes ?? []) {
+      blockers.push(blocker(
+        'current_negative_human_evidence',
+        deliveryMode,
+        `Current ${state.decision} decision in ${state.recordId} prevents readiness.`,
+        [state.artifact.file],
+      ));
+    }
+  }
   if (evidenceSummary.parent_role_bounded !== true) {
     blockers.push(blocker(
       'parent_role_not_bounded',
@@ -223,13 +244,17 @@ export function evaluatePedagogicalReadiness({
       evidenceSummary.home_trial_paths,
     ));
   }
-  if (evidenceSummary.unresolved_required_changes.length > 0) {
-    blockers.push(blocker(
-      'required_changes_unresolved',
-      'both',
-      'All required review changes must be resolved or covered by an allowed minor plan.',
-      evidenceSummary.teacher_review_paths,
-    ));
+  for (const change of evidenceSummary.unresolved_required_changes) {
+    for (const deliveryMode of change.delivery_modes ?? ['classroom', 'homeschool']) {
+      blockers.push(blocker(
+        'required_changes_unresolved',
+        deliveryMode,
+        `Required change ${change.change_id} in ${
+          change.record_id ?? 'teacher review'
+        } remains unresolved.`,
+        [change.evidence_path].filter(Boolean),
+      ));
+    }
   }
   for (const finding of openFindings) {
     for (const deliveryMode of finding.delivery_modes) {
@@ -243,18 +268,21 @@ export function evaluatePedagogicalReadiness({
       ));
     }
   }
-  for (const stale of staleEvidence) {
-    const deliveryMode = stale.kind === 'home_trial'
-      ? 'homeschool'
-      : stale.kind === 'classroom_trial'
-        ? 'classroom'
-        : 'both';
-    blockers.push(blocker(
-      'stale_human_evidence',
-      deliveryMode,
-      `Stale ${stale.kind} evidence cannot support current readiness.`,
-      [stale.evidence_path],
-    ));
+  for (const stale of staleEvidence.filter((entry) => entry.active !== false)) {
+    for (const deliveryMode of stale.delivery_modes ?? (
+      stale.kind === 'home_trial'
+        ? ['homeschool']
+        : stale.kind === 'classroom_trial'
+          ? ['classroom']
+          : ['classroom', 'homeschool']
+    )) {
+      blockers.push(blocker(
+        'stale_human_evidence',
+        deliveryMode,
+        `Stale ${stale.kind} evidence cannot support current readiness.`,
+        [stale.evidence_path],
+      ));
+    }
   }
   const sortedBlockers = blockers.sort((left, right) => (
     compareBytewise(left.delivery_mode, right.delivery_mode)
@@ -267,6 +295,35 @@ export function evaluatePedagogicalReadiness({
   const homeschoolReady = sortedBlockers.every(
     (entry) => !['homeschool', 'both'].includes(entry.delivery_mode),
   );
+  const scopedStates = (kind, deliveryMode) => activeStates.filter((state) => (
+    state.artifact?.data?.artifact_type === kind
+    && state.deliveryScopes.includes(deliveryMode)
+  ));
+  const allStates = evidenceSummary.evidence_states ?? [];
+  const staleFor = (kind, deliveryMode) => allStates.filter((state) => (
+    state.artifact?.data?.artifact_type === kind
+    && state.deliveryScopes.includes(deliveryMode)
+    && state.stale
+  )).length;
+  const classroomReviews = scopedStates('teacher_review', 'classroom');
+  const homeschoolReviews = scopedStates('teacher_review', 'homeschool');
+  const activeTeacherReviews = activeStates.filter(
+    (state) => state.artifact?.data?.artifact_type === 'teacher_review',
+  );
+  const activeClassroomTrials = activeStates.filter(
+    (state) => state.artifact?.data?.artifact_type === 'classroom_trial',
+  );
+  const activeHomeTrials = activeStates.filter(
+    (state) => state.artifact?.data?.artifact_type === 'home_trial',
+  );
+  const allClassroomReviews = allStates.filter((state) => (
+    state.artifact?.data?.artifact_type === 'teacher_review'
+    && state.deliveryScopes.includes('classroom')
+  ));
+  const allHomeschoolReviews = allStates.filter((state) => (
+    state.artifact?.data?.artifact_type === 'teacher_review'
+    && state.deliveryScopes.includes('homeschool')
+  ));
   return {
     materials: {
       resolved: materialsResolved && thematicMaterialsResolved,
@@ -274,23 +331,56 @@ export function evaluatePedagogicalReadiness({
       homeschool_closure_resolved: homeschoolClosureResolved,
     },
     teacher_review: statusSummary(
-      pack.pedagogical_review.status,
+      evidenceSummary.review_aggregate_status
+        ?? pack.pedagogical_review.status,
       evidenceSummary.effective_teacher_review,
-      evidenceSummary.effective_teacher_review_count,
+      activeStates.length > 0
+        ? activeTeacherReviews.filter((state) => state.current && state.complete).length
+        : evidenceSummary.effective_teacher_review_count,
       evidenceSummary.stale_teacher_review_count,
       evidenceSummary.teacher_review_paths,
     ),
+    classroom_review: statusSummary(
+      evidenceSummary.review_classroom_status
+        ?? pack.pedagogical_review.classroom_status
+        ?? 'pending',
+      evidenceSummary.effective_classroom_review,
+      activeStates.length > 0
+        ? classroomReviews.filter((state) => state.current && state.complete).length
+        : evidenceSummary.effective_classroom_review_count,
+      allStates.length > 0
+        ? staleFor('teacher_review', 'classroom')
+        : evidenceSummary.stale_teacher_review_count,
+      allClassroomReviews.map((state) => state.artifact.file),
+    ),
+    homeschool_review: statusSummary(
+      evidenceSummary.review_homeschool_status
+        ?? pack.pedagogical_review.homeschool_status
+        ?? 'pending',
+      evidenceSummary.effective_homeschool_review,
+      activeStates.length > 0
+        ? homeschoolReviews.filter((state) => state.current && state.complete).length
+        : evidenceSummary.effective_homeschool_review_count,
+      allStates.length > 0
+        ? staleFor('teacher_review', 'homeschool')
+        : evidenceSummary.stale_teacher_review_count,
+      allHomeschoolReviews.map((state) => state.artifact.file),
+    ),
     classroom_trial: statusSummary(
-      pack.classroom_trial.status,
+      evidenceSummary.classroom_trial_status ?? pack.classroom_trial.status,
       evidenceSummary.effective_classroom_trial,
-      evidenceSummary.effective_classroom_trial_count,
+      activeStates.length > 0
+        ? activeClassroomTrials.filter((state) => state.current && state.complete).length
+        : evidenceSummary.effective_classroom_trial_count,
       evidenceSummary.stale_classroom_trial_count,
       evidenceSummary.classroom_trial_paths,
     ),
     home_trial: statusSummary(
-      pack.home_trial.status,
+      evidenceSummary.home_trial_status ?? pack.home_trial.status,
       evidenceSummary.effective_home_trial,
-      evidenceSummary.effective_home_trial_count,
+      activeStates.length > 0
+        ? activeHomeTrials.filter((state) => state.current && state.complete).length
+        : evidenceSummary.effective_home_trial_count,
       evidenceSummary.stale_home_trial_count,
       evidenceSummary.home_trial_paths,
     ),
@@ -300,6 +390,7 @@ export function evaluatePedagogicalReadiness({
     homeschool_ready: homeschoolReady,
     effectiveness_claimed: false,
     blockers: sortedBlockers,
+    ...audit,
   };
 }
 
@@ -308,16 +399,19 @@ export async function buildPedagogicalReadinessReport({
   baselineRootDir = rootDir,
   packPath = 'teacher-packs/grade-5-science/water/materials-index.yaml',
   reportId = PEDAGOGICAL_READINESS_REPORT_ID,
+  reviewContext: suppliedReviewContext = null,
   qualityRepository: suppliedQualityRepository = null,
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
   const absoluteBaseline = path.resolve(baselineRootDir);
   const identityCommitSha = await resolveCurrentCommitSha(absoluteBaseline);
   const [reviewContext, qualityRepository] = await Promise.all([
-    loadPedagogicalReviewRepository({
-      rootDir: absoluteRoot,
-      identityCommitSha,
-    }),
+    suppliedReviewContext === null
+      ? loadPedagogicalReviewRepository({
+        rootDir: absoluteRoot,
+        identityCommitSha,
+      })
+      : Promise.resolve(suppliedReviewContext),
     suppliedQualityRepository === null
       ? loadWaterPilotPedagogyQualityRepository({
         rootDir: absoluteRoot,
@@ -332,6 +426,21 @@ export async function buildPedagogicalReadinessReport({
   if (!reviewContext.currentEvidenceIdentities[index.data.pack_id]) {
     throw reviewContext.packIdentityErrors[index.data.pack_id]
       ?? new Error(`no pedagogical identity for ${index.data.pack_id}`);
+  }
+  const repositoryValidation = validatePedagogicalReviewRepository(reviewContext);
+  const repositoryErrors = repositoryValidation.diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  );
+  if (repositoryErrors.length > 0) {
+    const error = new Error(
+      `pedagogical review repository is invalid: ${
+        repositoryErrors.map(
+          (item) => `${item.file} ${item.field}: ${item.reason}`,
+        ).join('; ')
+      }`,
+    );
+    error.code = 'pedagogical_review_repository_invalid';
+    throw error;
   }
   const evidenceSummary = await summarizePedagogicalEvidenceForPack(
     reviewContext,
@@ -392,12 +501,9 @@ export async function buildPedagogicalReadinessReport({
     pack_print_ready: thematic?.data?.teacher_pack?.print_ready === true,
   };
   const currentIdentity = reviewContext.currentEvidenceIdentities[index.data.pack_id];
-  const openFindings = evidenceFindingSummaries(reviewContext, index);
-  const staleEvidence = staleEvidenceSummaries(
-    reviewContext,
-    index,
-    currentIdentity,
-  );
+  const openFindings = evidenceFindingSummaries(evidenceSummary);
+  const audit = evidenceAudit(evidenceSummary);
+  const staleEvidence = audit.stale_evidence;
   const readiness = evaluatePedagogicalReadiness({
     index,
     evidenceSummary,
@@ -408,6 +514,7 @@ export async function buildPedagogicalReadinessReport({
       )),
     openFindings,
     staleEvidence,
+    audit,
   });
   const checkedArtifacts = uniqueSorted([
     qualityRepository.cataloguePath,

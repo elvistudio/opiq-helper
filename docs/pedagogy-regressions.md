@@ -34,9 +34,10 @@ The six case kinds answer different questions:
 - `deliberate_failure` proves that an invalid semantic mutation is rejected;
 - `stale_evidence` proves that stale versions, identities, fingerprints, or
   evidence cannot support a positive structural/readiness claim.
-- `evidence_readiness` runs 31 temporary-artifact cases for the shared evidence
+- `evidence_readiness` runs 35 temporary-artifact cases for the shared evidence
   identity, classroom/home truth table, privacy, normalization, registration
-  rollback, and fingerprint boundary.
+  rollback, fingerprint boundary, active/superseded history, and
+  delivery-scoped negative evidence.
 
 Architecture-only cases include map/data interpretation, ecosystem
 comparison, scaffolded concept work, self-explanation, and a justified teacher
@@ -73,6 +74,12 @@ A case passes only when all declared invariants pass. Examples include:
 - parent support does not become subject teaching;
 - stale identity or evidence blocks the positive claim it would otherwise
   support.
+- a current negative classroom decision blocks classroom readiness without
+  inventing a homeschool blocker;
+- explicitly superseded findings, safety blockers, and stale identity remain
+  auditable but do not override a valid current successor;
+- stale classroom-only history cannot block current homeschool readiness, and
+  stale homeschool-only history cannot block classroom readiness.
 
 Deterministic output alone is not enough. A meaningful semantic change alters
 the report digest, while object-key ordering does not.
@@ -104,7 +111,7 @@ generation command execute every temporary-artifact scenario. The read-only
 check commands then validate the committed strict schema, fixture/case
 identities, upstream versions and digests, scientific content identities,
 current teacher-pack fingerprint, and every path in the declared dependency
-closure. This avoids executing the same 31 repository-copy scenarios three
+closure. This avoids executing the same 35 repository-copy scenarios three
 times in one CI job without weakening the E2E test that precedes the checks.
 A missing or non-regular dependency, changed fixture/catalogue identity, stale
 fingerprint, or stale report contract fails the check. Review or evidence-only

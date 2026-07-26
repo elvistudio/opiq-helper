@@ -10,12 +10,14 @@
     "review_id",
     "pack_ref",
     "evidence_identity",
+    "lifecycle",
     "review_status",
     "reviewer",
     "reviewed_at",
     "delivery_scopes",
     "review_scope",
     "ratings",
+    "rating_applicability",
     "privacy",
     "findings",
     "blocking_findings",
@@ -29,6 +31,7 @@
     "review_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/idOrTemplateId" },
     "pack_ref": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
     "evidence_identity": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/evidenceIdentityOrNull" },
+    "lifecycle": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/evidenceLifecycle" },
     "review_status": { "enum": ["draft", "completed", "superseded"] },
     "reviewer": {
       "type": "object",
@@ -60,7 +63,7 @@
         "reviewer_reference": {
           "oneOf": [
             { "type": "null" },
-            { "type": "string", "minLength": 1 }
+            { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" }
           ]
         }
       }
@@ -161,6 +164,19 @@
         "artificial_repetitive_method_risk": { "$ref": "#/$defs/nullableRating" }
       }
     },
+    "rating_applicability": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["dimension", "rationale"],
+        "properties": {
+          "dimension": { "$ref": "#/$defs/ratingDimension" },
+          "rationale": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
     "privacy": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/privacy" },
     "findings": {
       "type": "array",
@@ -193,7 +209,37 @@
     "nullableRating": {
       "oneOf": [
         { "type": "null" },
-        { "type": "integer", "minimum": 1, "maximum": 5 }
+        { "type": "integer", "minimum": 1, "maximum": 5 },
+        { "const": "not_applicable" }
+      ]
+    },
+    "ratingDimension": {
+      "enum": [
+        "method_suitability_for_grade",
+        "method_suitability_for_subject",
+        "lesson_pattern_coherence",
+        "timing_realism",
+        "transition_setup_cleanup_realism",
+        "cognitive_load",
+        "total_productive_language_load",
+        "russian_primary_explanation_quality",
+        "estonian_a1_a2_support_fit",
+        "retrieval_quality",
+        "spaced_review_usefulness",
+        "correction_and_self_explanation",
+        "teacher_instruction_clarity",
+        "classroom_feasibility",
+        "homeschool_clarity",
+        "parent_role_realism",
+        "differentiation",
+        "inclusion_accessibility",
+        "assessment_validity",
+        "subject_language_assessment_separation",
+        "learner_autonomy",
+        "motivation_competence_support",
+        "safety",
+        "material_availability",
+        "artificial_repetitive_method_risk"
       ]
     },
     "change": {

@@ -156,7 +156,14 @@
     "pedagogicalEvidenceReviewLink": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["guide_path", "template_path", "review_record_paths", "status"],
+      "required": [
+        "guide_path",
+        "template_path",
+        "review_record_paths",
+        "classroom_status",
+        "homeschool_status",
+        "status"
+      ],
       "properties": {
         "guide_path": { "$ref": "#/$defs/repositoryPath" },
         "template_path": { "$ref": "#/$defs/repositoryPath" },
@@ -165,7 +172,21 @@
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/repositoryPath" }
         },
-        "status": { "enum": ["pending", "changes_requested", "approved", "rejected"] }
+        "classroom_status": {
+          "enum": ["pending", "changes_requested", "approved", "rejected"]
+        },
+        "homeschool_status": {
+          "enum": ["pending", "changes_requested", "approved", "rejected"]
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "partial",
+            "approved_for_both",
+            "changes_requested",
+            "rejected"
+          ]
+        }
       }
     },
     "homeTrialLink": {

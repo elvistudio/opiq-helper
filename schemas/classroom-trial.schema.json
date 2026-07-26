@@ -10,6 +10,7 @@
     "trial_id",
     "pack_ref",
     "evidence_identity",
+    "lifecycle",
     "trial_status",
     "context",
     "privacy",
@@ -22,6 +23,7 @@
     "language_support",
     "differentiation_adjustments",
     "lesson_dna_deviations",
+    "lesson_dna_deviation_status",
     "material_usability",
     "safety_observations",
     "method_execution_observations",
@@ -35,6 +37,7 @@
     "trial_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/idOrTemplateId" },
     "pack_ref": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
     "evidence_identity": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/evidenceIdentityOrNull" },
+    "lifecycle": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/evidenceLifecycle" },
     "trial_status": { "enum": ["draft", "conducted", "analysed", "superseded"] },
     "context": {
       "type": "object",
@@ -81,6 +84,9 @@
       "type": "array",
       "items": { "$ref": "#/$defs/deviation" }
     },
+    "lesson_dna_deviation_status": {
+      "enum": ["not_observed", "none_observed", "observed"]
+    },
     "material_usability": { "$ref": "#/$defs/observationArray" },
     "safety_observations": { "$ref": "#/$defs/observationArray" },
     "method_execution_observations": { "$ref": "#/$defs/observationArray" },
@@ -91,6 +97,30 @@
     },
     "decision": { "$ref": "#/$defs/decision" }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "trial_status": { "const": "analysed" } },
+        "required": ["trial_status"]
+      },
+      "then": {
+        "properties": {
+          "timing_observations": { "type": "array", "minItems": 1 }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "lesson_dna_deviation_status": { "const": "observed" } },
+        "required": ["lesson_dna_deviation_status"]
+      },
+      "then": {
+        "properties": {
+          "lesson_dna_deviations": { "type": "array", "minItems": 1 }
+        }
+      }
+    }
+  ],
   "$defs": {
     "observationArray": {
       "type": "array",

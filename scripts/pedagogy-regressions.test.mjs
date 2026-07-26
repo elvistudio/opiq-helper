@@ -51,18 +51,18 @@ test('catalogue contains six bounded case kinds including evidence readiness', (
   assert.deepEqual(report.counts.by_case_kind, {
     architecture_only: 5,
     deliberate_failure: 14,
-    evidence_readiness: 31,
+    evidence_readiness: 35,
     production_classroom: 7,
     production_homeschool: 3,
     stale_evidence: 7,
   });
-  assert.equal(report.counts.total, 67);
+  assert.equal(report.counts.total, 71);
 });
 
-test('all two hundred and thirty meaningful invariant checks pass', () => {
+test('all two hundred and forty-six meaningful invariant checks pass', () => {
   assert.deepEqual(report.counts.invariants, {
-    total: 230,
-    passed: 230,
+    total: 246,
+    passed: 246,
     failed: 0,
   });
   assert.equal(report.counts.failed, 0);
@@ -87,11 +87,11 @@ test('production report never promotes review, trial, readiness or effectiveness
   assert.equal(report.claims.curriculum_complete, false);
 });
 
-test('all thirty-one evidence-readiness regressions reload temporary artifacts', () => {
+test('all thirty-five evidence-readiness regressions reload temporary artifacts', () => {
   const readiness = run.results.filter(
     (item) => item.case_kind === 'evidence_readiness',
   );
-  assert.equal(readiness.length, 31);
+  assert.equal(readiness.length, 35);
   assert.ok(readiness.every((item) => item.status === 'passed'));
   assert.ok(readiness.every(
     (item) => item.handler_id === 'evidence-readiness-scenario',

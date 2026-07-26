@@ -17,7 +17,7 @@
     "trial_id": "grade-5-science-water-classroom-trial-2026-08-01",
     "pack_ref": "grade-5-science-water-teacher-pack",
     "evidence_identity": {
-      "commit_sha": "f6c58627a6e87fecdd5dab1a3ee141c80db03c6b",
+      "commit_sha": "cfbd7160783c4cff69c568f6d60c65d575489265",
       "content_fingerprint": {
         "algorithm": "sha256",
         "specification_version": "1.0",
@@ -25,13 +25,16 @@
         "file_count": 78
       },
       "pedagogical_snapshot": {
-        "snapshot_version": "1.0",
+        "snapshot_version": "1.1",
         "taxonomy_version": "1.0",
+        "taxonomy_digest": "fc8e5a1c3a7a4d48be9aeed18c4c8ac6680d43ddc7041476a16e23b46b56d16a",
         "selection_rules_version": "1.0",
+        "selection_rules_digest": "3e38daf17e147a3bf8032b1d4c4f5358cd1dd3ab0d494c53a5732ddef6fcf0d4",
         "selection_engine_version": "1.1",
         "lesson_dna_schema_version": "1.0",
         "activity_catalog_digest": "8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370",
         "homeschool_rules_version": "1.0",
+        "homeschool_rules_digest": "cae380f30054c13bf2c949e5b088e91d22ea31fa1653c8b4fa2f7cf496947031",
         "homeschool_engine_version": "1.0",
         "quality_engine_version": "1.1",
         "quality_catalogue_version": "1.1",
@@ -57,6 +60,9 @@
           }
         ]
       }
+    },
+    "lifecycle": {
+      "supersedes": []
     },
     "trial_status": "draft",
     "context": {
@@ -96,6 +102,7 @@
     "language_support": [],
     "differentiation_adjustments": [],
     "lesson_dna_deviations": [],
+    "lesson_dna_deviation_status": "not_observed",
     "material_usability": [],
     "safety_observations": [],
     "method_execution_observations": [],

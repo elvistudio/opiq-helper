@@ -871,6 +871,10 @@ function evidenceForRecord(evidenceSummary) {
     effective_homeschool_review: evidenceSummary.effective_homeschool_review,
     effective_classroom_trial: evidenceSummary.effective_classroom_trial,
     effective_home_trial: evidenceSummary.effective_home_trial,
+    negative_classroom_review: evidenceSummary.negative_classroom_review,
+    negative_homeschool_review: evidenceSummary.negative_homeschool_review,
+    negative_classroom_trial: evidenceSummary.negative_classroom_trial,
+    negative_home_trial: evidenceSummary.negative_home_trial,
     stale_teacher_review: evidenceSummary.stale_teacher_review,
     stale_classroom_trial: evidenceSummary.stale_classroom_trial,
     stale_home_trial: evidenceSummary.stale_home_trial,
@@ -929,6 +933,10 @@ function readinessState({
   const state = {
     teacher_review: materialsIndex?.pedagogical_review?.status
       ?? single(classroomStates, 'unknown'),
+    classroom_review: materialsIndex?.pedagogical_review?.classroom_status
+      ?? 'pending',
+    homeschool_review: materialsIndex?.pedagogical_review?.homeschool_status
+      ?? 'pending',
     classroom_trial: materialsIndex?.classroom_trial?.status
       ?? single(classroomTrials, 'unknown'),
     home_trial: materialsIndex?.home_trial?.status
@@ -1231,6 +1239,10 @@ async function loadEvidenceState(
         effective_homeschool_review: false,
         effective_classroom_trial: false,
         effective_home_trial: false,
+        negative_classroom_review: false,
+        negative_homeschool_review: false,
+        negative_classroom_trial: false,
+        negative_home_trial: false,
         stale_teacher_review: false,
         stale_classroom_trial: false,
         stale_home_trial: false,

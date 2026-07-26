@@ -9,7 +9,8 @@ Git commit SHA and content fingerprint have different purposes:
 - `evidence_identity.commit_sha` is provenance: it identifies where the reviewed version could be found in Git.
 - `evidence_identity.content_fingerprint` proves whether current reviewable bytes and file count match.
 - `evidence_identity.pedagogical_snapshot` binds evidence to catalogue, rules,
-  engines, unit identity, and per-lesson DNA digests.
+  engines, unit identity, per-lesson DNA digests, and normalized semantic
+  digests of taxonomy, selection rules, and homeschool rules.
 
 A rebase, squash, or unrelated commit does not invalidate evidence when the fingerprint is unchanged. A change to any scoped path, file name, or file byte makes the evidence stale. Computing the fingerprint requires no Git history.
 
@@ -40,6 +41,13 @@ The following are deliberately outside the fingerprint:
 - QA snapshots, `source-manifest.json`, canonical Opiq Markdown, and source archives.
 
 Adding or updating evidence therefore cannot invalidate itself. The scope boundary permits only the pack directory and its linked lesson/thematic YAML paths; forbidden repository content cannot be inserted through configuration.
+
+Registration compares all four fingerprint fields before and after a staged
+write. This applies equally to positive approval/success evidence and completed
+negative evidence. The registration workflow also verifies the full resulting
+review repository and readiness report; it does not treat a 64-character hash
+as proof of currency. A different existing evidence target is immutable, while
+an already-linked byte-identical retry is a no-op.
 
 ## Framed SHA-256 algorithm
 

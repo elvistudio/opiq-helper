@@ -208,6 +208,9 @@ async function withCompletedReviewFixture(fingerprint, run) {
       ...currentIdentity,
       content_fingerprint: structuredClone(fingerprint),
     },
+    lifecycle: {
+      supersedes: [],
+    },
     review_status: 'completed',
     reviewer: {
       role: 'primary_science_teacher',
@@ -265,6 +268,7 @@ async function withCompletedReviewFixture(fingerprint, run) {
       'material_availability',
       'artificial_repetitive_method_risk',
     ].map((field) => [field, 4])),
+    rating_applicability: [],
     privacy: {
       contains_student_names: false,
       contains_birth_dates: false,
@@ -882,7 +886,7 @@ test('report makes structural claims but no approval or effectiveness claim', ()
 
 test('report readiness reflects actual invalid record state instead of safe defaults', () => {
   const repository = clone();
-  integrated(repository).readiness.teacher_review = 'approved';
+  integrated(repository).readiness.teacher_review = 'approved_for_both';
   integrated(repository).readiness.state_consistent = true;
   const report = buildPedagogyQualityReport(repository, evaluate(repository), {
     reportId: WATER_QUALITY_REPORT_ID,

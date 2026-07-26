@@ -3,6 +3,8 @@ artifact_type: teacher_review
 review_id: grade-5-water-use-cycle-review-YYYY-MM-DD
 pack_ref: grade-5-science-water-use-cycle-teacher-pack
 evidence_identity: null
+lifecycle:
+  supersedes: []
 review_status: draft
 reviewer:
   role: primary_science_teacher
@@ -51,6 +53,7 @@ ratings:
   safety: null
   material_availability: null
   artificial_repetitive_method_risk: null
+rating_applicability: []
 privacy:
   contains_student_names: false
   contains_birth_dates: false
