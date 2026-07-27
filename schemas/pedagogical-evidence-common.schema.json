@@ -270,6 +270,10 @@
         },
         "aggregate_count": { "type": "integer", "minimum": 0 },
         "aggregate_denominator": { "type": "integer", "minimum": 1 }
+      },
+      "dependentRequired": {
+        "aggregate_count": ["aggregate_denominator"],
+        "aggregate_denominator": ["aggregate_count"]
       }
     }
   }

@@ -1,5 +1,14 @@
 #!/usr/bin/env node
 
+import fs from 'node:fs/promises';
+import {
+  parseStrictCurriculumYaml,
+  safeRepositoryPath,
+} from './lib/curriculum-maps.mjs';
+import {
+  assertPedagogicalEvidenceFinalGuards,
+  writeNormalizedPedagogicalEvidenceFile,
+} from './lib/pedagogical-evidence-final-guards.mjs';
 import {
   normalizePedagogicalEvidenceIntake,
   preparePedagogicalEvidenceBundle,
@@ -27,6 +36,20 @@ function parseArguments(values) {
   return options;
 }
 
+async function loadNormalizedRecord(recordPath) {
+  return parseStrictCurriculumYaml(
+    await fs.readFile(
+      safeRepositoryPath(
+        process.cwd(),
+        recordPath,
+        'normalized pedagogical evidence input',
+      ),
+      'utf8',
+    ),
+    recordPath,
+  );
+}
+
 async function main() {
   const [command, ...argumentsList] = process.argv.slice(2);
   const options = parseArguments(argumentsList);
@@ -43,11 +66,21 @@ async function main() {
   } else if (command === 'normalize') {
     const result = await normalizePedagogicalEvidenceIntake({
       intakePath: options.input,
-      outputPath: options.output ?? null,
+      outputPath: null,
     });
-    if (result.output_path) console.log(`Normalized evidence: ${result.output_path}`);
-    else process.stdout.write(result.yaml);
+    assertPedagogicalEvidenceFinalGuards(result.record);
+    if (options.output) {
+      await writeNormalizedPedagogicalEvidenceFile({
+        outputPath: options.output,
+        yaml: result.yaml,
+        record: result.record,
+      });
+      console.log(`Normalized evidence: ${options.output}`);
+    } else process.stdout.write(result.yaml);
   } else if (command === 'register') {
+    assertPedagogicalEvidenceFinalGuards(
+      await loadNormalizedRecord(options.input),
+    );
     const result = await registerPedagogicalEvidence({
       packPath: options.pack,
       recordPath: options.input,
@@ -60,6 +93,13 @@ async function main() {
     );
   } else if (command === 'check') {
     const repository = await loadPedagogicalReviewRepository();
+    for (const artifact of [
+      ...repository.reviewRecords,
+      ...repository.trialRecords,
+      ...repository.homeTrialRecords,
+    ]) {
+      assertPedagogicalEvidenceFinalGuards(artifact.data);
+    }
     const result = validatePedagogicalReviewRepository(repository);
     for (const diagnostic of result.diagnostics) {
       console.error(formatPedagogicalReviewDiagnostic(diagnostic));
@@ -73,7 +113,8 @@ async function main() {
       'pedagogical-reviews/grade-5-science/water/examples/teacher-review/intake.json',
     ];
     for (const intakePath of examplePaths) {
-      await normalizePedagogicalEvidenceIntake({ intakePath });
+      const normalized = await normalizePedagogicalEvidenceIntake({ intakePath });
+      assertPedagogicalEvidenceFinalGuards(normalized.record);
     }
     console.log(
       `Pedagogical evidence valid: ${result.summary.completedReviews} review(s), `
