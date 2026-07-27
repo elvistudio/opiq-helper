@@ -11,7 +11,9 @@ import {
   assertCommittedBytes,
   buildGrade4SourceIntakeReport,
   buildReportArtifacts,
+  assertRouteMatrixInvariants,
   classifyGradeEvidence,
+  classifyRows,
   requiredArchiveMembers,
   sha256,
   stableJson,
@@ -76,17 +78,26 @@ test('source accounting balances independently for every archive', () => {
 });
 
 test('global source accounting proves that no record disappears', () => {
-  assert.deepEqual(report.source_accounting_totals, {
-    total_source_records: 2425,
-    instructional_chapter_or_page: 2359,
-    kit_or_book_detail: 34,
-    administrative_or_imprint: 0,
-    duplicate_detail_alias: 32,
-    duplicate_instructional_url: 0,
-    malformed_or_ambiguous: 0,
-    accounted_source_records: 2425,
-    balanced: true,
-  });
+  const accounting = report.source_accounting_totals;
+  assert.equal(accounting.total_source_records, 2425);
+  assert.equal(accounting.accounted_source_records, 2425);
+  assert.equal(accounting.balanced, true);
+  const classifiedTotal = [
+    'instructional_chapter_or_page', 'kit_or_book_detail', 'administrative_or_imprint',
+    'duplicate_detail_alias', 'duplicate_instructional_url', 'malformed_or_ambiguous',
+  ].reduce((sum, field) => sum + accounting[field], 0);
+  assert.equal(classifiedTotal, accounting.total_source_records);
+});
+
+test('chapter semantics distinguish administrative, instructional, and ambiguous records', () => {
+  const rows = classifyRows([
+    { source_sequence: 1, url: 'https://www.opiq.ee/kit/999/chapter/1', title: 'Impressum' },
+    { source_sequence: 2, url: 'https://www.opiq.ee/kit/999/chapter/2', title: 'Vee olekud' },
+    { source_sequence: 3, url: 'https://www.opiq.ee/kit/999/chapter/3', title: '', headings: [], task_examples: [] },
+  ], []);
+  assert.deepEqual(rows.map((row) => row.classification), [
+    'administrative_or_imprint', 'instructional_chapter_or_page', 'unsupported_or_ambiguous',
+  ]);
 });
 
 test('generic title plus exporter grade is only probable, not verified', () => {
@@ -212,6 +223,48 @@ test('edition-level equivalents remain distinct without URL overlap evidence', (
 test('all 34 kit variants receive an evidence decision', () => {
   assert.equal(report.kit_inventory.length, 34);
   assert.ok(report.kit_inventory.every((kit) => kit.grade_evidence.length > 0 && kit.subject_evidence.length > 0));
+});
+
+test('route matrix invariants reject contradictory readiness and ownership', () => {
+  assert.equal(assertRouteMatrixInvariants(report.candidate_route_matrix, report.kit_inventory), true);
+  const invalidReady = structuredClone(report.candidate_route_matrix);
+  invalidReady.find((route) => route.route_decision.startsWith('ready_')).blockers.push('unresolved');
+  assert.throws(() => assertRouteMatrixInvariants(invalidReady, report.kit_inventory), /cannot retain blockers/u);
+  const duplicateDisposition = structuredClone(report.candidate_route_matrix);
+  const duplicatedKitId = duplicateDisposition[1].included_kit_ids[0];
+  duplicateDisposition[0].included_kit_ids.push(duplicatedKitId);
+  duplicateDisposition[0].candidate_instructional_record_count += report.kit_inventory
+    .find((kit) => kit.kit_id === duplicatedKitId).instructional_record_count;
+  assert.throws(() => assertRouteMatrixInvariants(duplicateDisposition, report.kit_inventory), /exactly one primary route disposition/u);
+});
+
+test('ready routes separate exclusions from actual blockers', () => {
+  const readyWithExclusion = report.candidate_route_matrix.find((route) => route.proposed_source_id === 'grade-4-english');
+  assert.deepEqual(readyWithExclusion.blockers, []);
+  assert.ok(readyWithExclusion.exclusion_notes.some((note) => note.includes('332')));
+  const blocked = report.candidate_route_matrix.find((route) => route.proposed_source_id === 'grade-4-english-probable-level-2');
+  assert.ok(blocked.blockers.length > 0);
+  assert.deepEqual(blocked.exclusion_notes, []);
+});
+
+test('authored kit and route decisions expose provenance and confidence', () => {
+  assert.ok(report.kit_inventory.every((kit) => kit.decision_origin === 'human_reviewed_intake_configuration'
+    && kit.decision_rationale.length > 0 && kit.evidence_refs.length > 0));
+  assert.ok(report.candidate_route_matrix.every((route) => route.decision_origin === 'human_reviewed_intake_configuration'
+    && route.decision_rationale.length > 0 && route.evidence_refs.length > 0));
+});
+
+test('report schema enforces ready and blocked route semantics', async () => {
+  const schema = JSON.parse(await readFile(path.join(rootDir, 'schemas/grade-4-source-intake-report.schema.json'), 'utf8'));
+  const validate = new Ajv2020({ allErrors: true, strict: true, validateFormats: false }).compile(schema);
+  const invalidReady = structuredClone(report);
+  const ready = invalidReady.candidate_route_matrix.find((route) => route.route_decision.startsWith('ready_'));
+  ready.proposed_grade = null;
+  ready.blockers.push('unresolved');
+  assert.equal(validate(invalidReady), false);
+  const invalidBlocked = structuredClone(report);
+  invalidBlocked.candidate_route_matrix.find((route) => route.route_decision.startsWith('blocked_')).blockers = [];
+  assert.equal(validate(invalidBlocked), false);
 });
 
 test('report generation is byte-identical across repeated runs', async () => {

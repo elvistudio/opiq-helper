@@ -191,7 +191,31 @@ async function loadManifestOwnership(rootDir) {
   return { manifest, ownership };
 }
 
-function classifyRows(records, malformed) {
+const administrativeOrImprintPattern = /(?:^|[\s:;()\-–—])(?:impressum|sisukord|contents?|copyright|autoriõigus|kirjastusandmed|väljaandmisandmed|tiitelleht|kolofon|colophon|publication\s+data|legal\s+notice)(?:$|[\s:;()\-–—])/iu;
+
+function semanticFragments(value) {
+  if (Array.isArray(value)) return value.flatMap(semanticFragments);
+  if (typeof value === 'string' && value.trim()) return [value.trim()];
+  return [];
+}
+
+function chapterSemanticText(record) {
+  return [
+    ...semanticFragments(record.title),
+    ...semanticFragments(record.heading),
+    ...semanticFragments(record.headings),
+  ].join(' ');
+}
+
+export function classifyChapterSemantic(record) {
+  const semanticText = chapterSemanticText(record);
+  if (administrativeOrImprintPattern.test(semanticText)) return 'administrative_or_imprint';
+  const taskSignals = Array.isArray(record.task_examples) && record.task_examples.length > 0;
+  if (semanticText || taskSignals) return 'instructional_chapter_or_page';
+  return 'unsupported_or_ambiguous';
+}
+
+export function classifyRows(records, malformed) {
   const seen = new Map();
   const rows = [];
   for (const record of records) {
@@ -201,7 +225,9 @@ function classifyRows(records, malformed) {
     } else if (/\/Kit\/Details\/\d+$/u.test(record.url)) {
       classification = seen.has(record.url) ? 'duplicate_detail_alias' : 'kit_or_book_detail';
     } else if (/\/kit\/\d+\/chapter\/\d+$/iu.test(record.url)) {
-      classification = seen.has(record.url) ? 'duplicate_instructional_url' : 'instructional_chapter_or_page';
+      classification = seen.has(record.url)
+        ? 'duplicate_instructional_url'
+        : classifyChapterSemantic(record);
     }
     rows.push({
       source_sequence: record.source_sequence,
@@ -228,6 +254,15 @@ function rawBookMetadata(archive, bookId) {
 function evidenceForKit(kit, records, archive, archivePath) {
   const details = records.filter((record) => /\/Kit\/Details\/\d+$/u.test(record.url));
   const chapters = records.filter((record) => /\/kit\/\d+\/chapter\/\d+$/iu.test(record.url));
+  const instructionalChapters = chapters.filter((record) => (
+    classifyChapterSemantic(record) === 'instructional_chapter_or_page'
+  ));
+  const administrativeChapters = chapters.filter((record) => (
+    classifyChapterSemantic(record) === 'administrative_or_imprint'
+  ));
+  const ambiguousChapters = chapters.filter((record) => (
+    classifyChapterSemantic(record) === 'unsupported_or_ambiguous'
+  ));
   const bookIds = [...new Set(records.map((record) => record.book_id))].sort(bytewise);
   const coverTitles = [...new Set(details.map((record) => record.title))].sort(bytewise);
   const rawBooks = bookIds.map((bookId) => rawBookMetadata(archive, bookId)).filter(Boolean);
@@ -308,10 +343,24 @@ function evidenceForKit(kit, records, archive, archivePath) {
       'Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.',
       'The capture does not provide a reliable structured field for isolated vocabulary glosses.',
     ],
-    instructional_record_count: chapters.length,
+    decision_origin: 'human_reviewed_intake_configuration',
+    decision_confidence: gradeDecision === 'verified_grade_4'
+      ? 'supported'
+      : 'requires_additional_evidence',
+    decision_rationale: gradeDecision === 'verified_grade_4'
+      ? 'Captured exact-grade identity and book evidence support the configured ' + subject[0] + ' disposition for kit ' + kit + '.'
+      : 'Captured book evidence supports the configured ' + subject[0] + ' subject disposition, but exact-grade ownership for kit ' + kit + ' requires additional evidence.',
+    evidence_refs: [
+      'archive:' + archivePath,
+      'kit:' + kit,
+      ...bookIds.map((bookId) => 'source_book_id:' + bookId),
+    ].sort(bytewise),
+    instructional_record_count: instructionalChapters.length,
+    administrative_record_count: administrativeChapters.length,
+    ambiguous_chapter_record_count: ambiguousChapters.length,
     cover_detail_record_count: details.length,
-    task_array_nonempty_record_count: chapters.filter((record) => Array.isArray(record.task_examples) && record.task_examples.length > 0).length,
-    heading_array_nonempty_record_count: chapters.filter((record) => Array.isArray(record.headings) && record.headings.length > 0).length,
+    task_array_nonempty_record_count: instructionalChapters.filter((record) => Array.isArray(record.task_examples) && record.task_examples.length > 0).length,
+    heading_array_nonempty_record_count: instructionalChapters.filter((record) => Array.isArray(record.headings) && record.headings.length > 0).length,
     page_text_record_count: pageTextCount,
     page_text_available: pageTextCount > 0,
     programme_type: programme,
@@ -329,7 +378,7 @@ function evidenceForKit(kit, records, archive, archivePath) {
     metadata_contradictions: contradictions,
     source_limitations: [
       'No complete instructional prose body is present in the captured raw chapter objects.',
-      chapters.some((record) => !record.task_examples?.length)
+      instructionalChapters.some((record) => !record.task_examples?.length)
         ? 'At least one instructional record has no captured task example array content.'
         : 'Captured task example arrays are non-empty for every instructional record.',
       publishers.length === 0 ? 'Publisher metadata is not source-supported.' : 'Publisher metadata is captured for this kit.',
@@ -438,20 +487,58 @@ async function inspectArchive(rootDir, expectation) {
   };
 }
 
+export function assertRouteMatrixInvariants(matrix, kits) {
+  const kitById = new Map(kits.map((kit) => [kit.kit_id, kit]));
+  const sourceIds = new Set();
+  const primaryDispositionCounts = new Map();
+  for (const route of matrix) {
+    if (sourceIds.has(route.proposed_source_id)) throw new Error('Duplicate proposed route ID: ' + route.proposed_source_id);
+    sourceIds.add(route.proposed_source_id);
+    const included = new Set(route.included_kit_ids);
+    const excluded = new Set(route.excluded_kit_ids);
+    if ([...included].some((kitId) => excluded.has(kitId))) {
+      throw new Error('Route ' + route.proposed_source_id + ' includes and excludes the same kit.');
+    }
+    for (const kitId of [...included, ...excluded]) {
+      if (!kitById.has(kitId)) throw new Error('Route ' + route.proposed_source_id + ' references unknown kit ' + kitId + '.');
+    }
+    const includedKits = [...included].map((kitId) => kitById.get(kitId));
+    const expectedCount = includedKits.reduce((sum, kit) => sum + kit.instructional_record_count, 0);
+    if (route.candidate_instructional_record_count !== expectedCount) {
+      throw new Error('Route ' + route.proposed_source_id + ' instructional count is inconsistent.');
+    }
+    const ready = ['ready_for_canonical_import', 'ready_with_documented_metadata_normalization'].includes(route.route_decision);
+    const blocked = route.route_decision.startsWith('blocked_');
+    if (ready) {
+      if (route.proposed_grade !== 4) throw new Error('Ready route ' + route.proposed_source_id + ' must propose Grade 4.');
+      if (route.blockers.length !== 0) throw new Error('Ready route ' + route.proposed_source_id + ' cannot retain blockers.');
+      if (includedKits.some((kit) => kit.candidate_grade !== 'verified_grade_4')) {
+        throw new Error('Ready route ' + route.proposed_source_id + ' contains a non-verified exact-grade kit.');
+      }
+    }
+    if (blocked && route.blockers.length === 0) {
+      throw new Error('Blocked route ' + route.proposed_source_id + ' requires at least one blocker.');
+    }
+    for (const kitId of included) primaryDispositionCounts.set(kitId, (primaryDispositionCounts.get(kitId) ?? 0) + 1);
+  }
+  for (const kitId of kitById.keys()) {
+    if (primaryDispositionCounts.get(kitId) !== 1) {
+      throw new Error('Kit ' + kitId + ' must have exactly one primary route disposition.');
+    }
+  }
+  return true;
+}
+
 function routeMatrix(kits) {
   const byKit = new Map(kits.map((kit) => [kit.kit_id, kit]));
-  return routeDefinitions.map(([
-    sourceId,
-    subject,
-    subjectEt,
-    includedKitIds,
-    excludedKitIds,
-    programmeScope,
-    routeDecision,
-    blockers,
+  const matrix = routeDefinitions.map(([
+    sourceId, subject, subjectEt, includedKitIds, excludedKitIds, programmeScope, routeDecision, notes,
   ]) => {
     const included = includedKitIds.map((id) => byKit.get(id));
-    if (included.some((kit) => !kit)) throw new Error(`Route ${sourceId} references an unknown kit.`);
+    if (included.some((kit) => !kit)) throw new Error('Route ' + sourceId + ' references an unknown kit.');
+    const blocked = routeDecision.startsWith('blocked_');
+    const blockers = blocked ? notes : [];
+    const exclusionNotes = blocked ? [] : notes;
     return {
       proposed_source_id: sourceId,
       proposed_grade: included.every((kit) => kit.candidate_grade === 'verified_grade_4') ? 4 : null,
@@ -465,6 +552,17 @@ function routeMatrix(kits) {
       candidate_instructional_record_count: included.reduce((sum, kit) => sum + kit.instructional_record_count, 0),
       route_decision: routeDecision,
       blockers,
+      exclusion_notes: exclusionNotes,
+      decision_origin: 'human_reviewed_intake_configuration',
+      decision_confidence: blocked
+        ? 'requires_additional_evidence'
+        : exclusionNotes.length > 0
+          ? 'supported_with_exclusions'
+          : 'supported',
+      decision_rationale: blocked
+        ? blockers.join(' ')
+        : 'Captured exact-grade, subject, and ownership evidence supports the included kits. ' + exclusionNotes.join(' '),
+      evidence_refs: [...new Set(included.flatMap((kit) => kit.evidence_refs))].sort(bytewise),
       required_normalization: included.flatMap((kit) => kit.metadata_contradictions).filter((value, index, all) => all.indexOf(value) === index).sort(bytewise),
       cross_route_ownership_constraints: includedKitIds.includes('200')
         ? ['Retain grade-2-arts-and-crafts as the existing canonical owner of all 85 shared instructional URLs.']
@@ -474,6 +572,8 @@ function routeMatrix(kits) {
       ],
     };
   }).sort((left, right) => bytewise(left.proposed_source_id, right.proposed_source_id));
+  assertRouteMatrixInvariants(matrix, kits);
+  return matrix;
 }
 
 function recapturePlan(kits) {
@@ -655,6 +755,7 @@ export function renderGrade4SourceIntakeMarkdown(report) {
     records: route.candidate_instructional_record_count,
     decision: route.route_decision,
     blockers: route.blockers.join(' '),
+    exclusions: route.exclusion_notes.join(' '),
   }));
   const archiveList = report.archive_inventory.map((archive) => (
     `- \`${archive.path}\` — \`${archive.sha256}\`, ${archive.byte_size} bytes, ${archive.zip_member_count} members`
@@ -708,6 +809,7 @@ ${markdownTable(routeRows, [
     ['Records', 'records'],
     ['Decision', 'decision'],
     ['Blockers', 'blockers'],
+    ['Excluded-kit notes', 'exclusions'],
   ])}
 
 ## Blocked or ambiguous sources

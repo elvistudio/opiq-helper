@@ -22,40 +22,68 @@
     "non_guarantees"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
-    "artifact_type": { "const": "grade_4_immutable_zip_intake_audit" },
-    "report_id": { "const": "grade-4-source-intake" },
-    "base_commit": { "$ref": "#/$defs/gitCommit" },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "artifact_type": {
+      "const": "grade_4_immutable_zip_intake_audit"
+    },
+    "report_id": {
+      "const": "grade-4-source-intake"
+    },
+    "base_commit": {
+      "$ref": "#/$defs/gitCommit"
+    },
     "verification_date": {
       "type": "string",
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
     },
-    "implementation": { "$ref": "#/$defs/implementation" },
-    "scope": { "$ref": "#/$defs/scope" },
+    "implementation": {
+      "$ref": "#/$defs/implementation"
+    },
+    "scope": {
+      "$ref": "#/$defs/scope"
+    },
     "archive_inventory": {
       "type": "array",
       "minItems": 10,
       "maxItems": 10,
-      "items": { "$ref": "#/$defs/archive" }
+      "items": {
+        "$ref": "#/$defs/archive"
+      }
     },
-    "source_accounting_totals": { "$ref": "#/$defs/accounting" },
+    "source_accounting_totals": {
+      "$ref": "#/$defs/accounting"
+    },
     "kit_inventory": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/kit" }
+      "items": {
+        "$ref": "#/$defs/kit"
+      }
     },
-    "url_ownership_and_overlaps": { "$ref": "#/$defs/urlOwnership" },
+    "url_ownership_and_overlaps": {
+      "$ref": "#/$defs/urlOwnership"
+    },
     "candidate_route_matrix": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/route" }
+      "items": {
+        "$ref": "#/$defs/route"
+      }
     },
     "recapture_plan": {
       "type": "array",
-      "items": { "$ref": "#/$defs/recapture" }
+      "items": {
+        "$ref": "#/$defs/recapture"
+      }
     },
-    "global_blockers": { "$ref": "#/$defs/nonEmptyStrings" },
-    "non_guarantees": { "$ref": "#/$defs/nonEmptyStrings" }
+    "global_blockers": {
+      "$ref": "#/$defs/nonEmptyStrings"
+    },
+    "non_guarantees": {
+      "$ref": "#/$defs/nonEmptyStrings"
+    }
   },
   "$defs": {
     "sha256": {
@@ -73,66 +101,132 @@
     },
     "nonEmptyStrings": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     },
     "nullableString": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "count": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["value", "count"],
+      "required": [
+        "value",
+        "count"
+      ],
       "properties": {
-        "value": { "type": "string" },
-        "count": { "type": "integer", "minimum": 0 }
+        "value": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
       }
     },
     "implementation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["path", "library_path", "version", "schema_path"],
+      "required": [
+        "path",
+        "library_path",
+        "version",
+        "schema_path"
+      ],
       "properties": {
-        "path": { "$ref": "#/$defs/repositoryPath" },
-        "library_path": { "$ref": "#/$defs/repositoryPath" },
-        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
-        "schema_path": { "$ref": "#/$defs/repositoryPath" }
+        "path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "library_path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+$"
+        },
+        "schema_path": {
+          "$ref": "#/$defs/repositoryPath"
+        }
       }
     },
     "scope": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["archive_count", "archive_paths", "canonical_routes_created", "source_manifest_modified"],
+      "required": [
+        "archive_count",
+        "archive_paths",
+        "canonical_routes_created",
+        "source_manifest_modified"
+      ],
       "properties": {
-        "archive_count": { "const": 10 },
+        "archive_count": {
+          "const": 10
+        },
         "archive_paths": {
           "type": "array",
           "minItems": 10,
           "maxItems": 10,
-          "items": { "$ref": "#/$defs/repositoryPath" }
+          "items": {
+            "$ref": "#/$defs/repositoryPath"
+          }
         },
-        "canonical_routes_created": { "const": false },
-        "source_manifest_modified": { "const": false }
+        "canonical_routes_created": {
+          "const": false
+        },
+        "source_manifest_modified": {
+          "const": false
+        }
       }
     },
     "encodingAnomaly": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["code", "member_count", "explanation"],
+      "required": [
+        "code",
+        "member_count",
+        "explanation"
+      ],
       "properties": {
-        "code": { "const": "utf8_name_bytes_without_utf8_flag" },
-        "member_count": { "type": "integer", "minimum": 1 },
-        "explanation": { "type": "string", "minLength": 1 }
+        "code": {
+          "const": "utf8_name_bytes_without_utf8_flag"
+        },
+        "member_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "duplicateUrl": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["url", "occurrence_count", "classification"],
+      "required": [
+        "url",
+        "occurrence_count",
+        "classification"
+      ],
       "properties": {
-        "url": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/" },
-        "occurrence_count": { "type": "integer", "minimum": 2 },
+        "url": {
+          "type": "string",
+          "pattern": "^https://www\\.opiq\\.ee/"
+        },
+        "occurrence_count": {
+          "type": "integer",
+          "minimum": 2
+        },
         "classification": {
-          "enum": ["duplicate_detail_alias", "duplicate_instructional_url"]
+          "enum": [
+            "duplicate_detail_alias",
+            "duplicate_instructional_url"
+          ]
         }
       }
     },
@@ -151,15 +245,41 @@
         "balanced"
       ],
       "properties": {
-        "total_source_records": { "type": "integer", "minimum": 0 },
-        "instructional_chapter_or_page": { "type": "integer", "minimum": 0 },
-        "kit_or_book_detail": { "type": "integer", "minimum": 0 },
-        "administrative_or_imprint": { "type": "integer", "minimum": 0 },
-        "duplicate_detail_alias": { "type": "integer", "minimum": 0 },
-        "duplicate_instructional_url": { "type": "integer", "minimum": 0 },
-        "malformed_or_ambiguous": { "type": "integer", "minimum": 0 },
-        "accounted_source_records": { "type": "integer", "minimum": 0 },
-        "balanced": { "type": "boolean" }
+        "total_source_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "instructional_chapter_or_page": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "kit_or_book_detail": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "administrative_or_imprint": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicate_detail_alias": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicate_instructional_url": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "malformed_or_ambiguous": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "accounted_source_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "balanced": {
+          "type": "boolean"
+        }
       }
     },
     "archive": {
@@ -191,49 +311,107 @@
         "source_accounting"
       ],
       "properties": {
-        "path": { "$ref": "#/$defs/repositoryPath" },
-        "sha256": { "$ref": "#/$defs/sha256" },
-        "byte_size": { "type": "integer", "minimum": 1 },
-        "zip_member_count": { "type": "integer", "minimum": 1 },
-        "crc_verification": { "const": "passed" },
-        "capture_timestamp": { "$ref": "#/$defs/nullableString" },
+        "path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "byte_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "zip_member_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "crc_verification": {
+          "const": "passed"
+        },
+        "capture_timestamp": {
+          "$ref": "#/$defs/nullableString"
+        },
         "declared_query_languages": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "archive_structural_type": {
-          "enum": ["opiq_helper_extension_compact_v2_with_raw_archive", "unknown"]
+          "enum": [
+            "opiq_helper_extension_compact_v2_with_raw_archive",
+            "unknown"
+          ]
         },
         "expected_members_present": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "expected_members_absent": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "malformed_or_unreadable_members": { "$ref": "#/$defs/nonEmptyStrings" },
-        "duplicate_members": { "$ref": "#/$defs/nonEmptyStrings" },
+        "malformed_or_unreadable_members": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "duplicate_members": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
         "encoding_anomalies": {
           "type": "array",
-          "items": { "$ref": "#/$defs/encodingAnomaly" }
+          "items": {
+            "$ref": "#/$defs/encodingAnomaly"
+          }
         },
         "compression_methods": {
           "type": "array",
-          "items": { "$ref": "#/$defs/count" }
+          "items": {
+            "$ref": "#/$defs/count"
+          }
         },
-        "raw_source_record_count": { "type": "integer", "minimum": 0 },
-        "compact_index_record_count": { "type": "integer", "minimum": 0 },
-        "compact_markdown_record_count": { "type": "integer", "minimum": 0 },
-        "compact_representations_match": { "const": true },
-        "raw_index_book_count": { "type": "integer", "minimum": 0 },
-        "direct_url_count": { "type": "integer", "minimum": 0 },
-        "unique_direct_url_count": { "type": "integer", "minimum": 0 },
+        "raw_source_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compact_index_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compact_markdown_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compact_representations_match": {
+          "const": true
+        },
+        "raw_index_book_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "direct_url_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unique_direct_url_count": {
+          "type": "integer",
+          "minimum": 0
+        },
         "duplicate_urls": {
           "type": "array",
-          "items": { "$ref": "#/$defs/duplicateUrl" }
+          "items": {
+            "$ref": "#/$defs/duplicateUrl"
+          }
         },
-        "source_accounting": { "$ref": "#/$defs/accounting" }
+        "source_accounting": {
+          "$ref": "#/$defs/accounting"
+        }
       }
     },
     "kit": {
@@ -271,20 +449,47 @@
         "programme_type",
         "programme_evidence",
         "metadata_contradictions",
-        "source_limitations"
+        "source_limitations",
+        "decision_origin",
+        "decision_confidence",
+        "decision_rationale",
+        "evidence_refs",
+        "administrative_record_count",
+        "ambiguous_chapter_record_count"
       ],
       "properties": {
-        "kit_id": { "type": "string", "pattern": "^[0-9]+$" },
-        "source_archive_path": { "$ref": "#/$defs/repositoryPath" },
-        "source_book_ids": { "$ref": "#/$defs/nonEmptyStrings" },
-        "chapter_ids": { "$ref": "#/$defs/nonEmptyStrings" },
-        "captured_title": { "type": "string", "minLength": 1 },
-        "cover_detail_title": { "type": "string", "minLength": 1 },
-        "publisher": { "$ref": "#/$defs/nullableString" },
-        "edition": { "$ref": "#/$defs/nullableString" },
+        "kit_id": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "source_archive_path": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "source_book_ids": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "chapter_ids": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "captured_title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cover_detail_title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "edition": {
+          "$ref": "#/$defs/nullableString"
+        },
         "raw_grade_labels": {
           "type": "array",
-          "items": { "type": "integer" }
+          "items": {
+            "type": "integer"
+          }
         },
         "candidate_grade": {
           "enum": [
@@ -296,33 +501,82 @@
             "unknown_grade"
           ]
         },
-        "grade_evidence": { "$ref": "#/$defs/nonEmptyStrings" },
+        "grade_evidence": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
         "raw_subject_labels": {
           "type": "array",
-          "items": { "$ref": "#/$defs/count" }
+          "items": {
+            "$ref": "#/$defs/count"
+          }
         },
-        "candidate_subject": { "type": "string", "minLength": 1 },
-        "candidate_subject_et": { "type": "string", "minLength": 1 },
-        "subject_evidence": { "$ref": "#/$defs/nonEmptyStrings" },
+        "candidate_subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_subject_et": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_evidence": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
         "raw_book_languages": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "page_language_counts": {
           "type": "array",
-          "items": { "$ref": "#/$defs/count" }
+          "items": {
+            "$ref": "#/$defs/count"
+          }
         },
-        "multilingual_instructional_pages": { "type": "integer", "minimum": 0 },
-        "isolated_vocabulary_gloss_record_count": { "type": ["integer", "null"], "minimum": 0 },
-        "automatic_topic_translation_is_language_evidence": { "const": false },
-        "language_evidence": { "$ref": "#/$defs/nonEmptyStrings" },
-        "language_limitations": { "$ref": "#/$defs/nonEmptyStrings" },
-        "instructional_record_count": { "type": "integer", "minimum": 0 },
-        "cover_detail_record_count": { "type": "integer", "minimum": 0 },
-        "task_array_nonempty_record_count": { "type": "integer", "minimum": 0 },
-        "heading_array_nonempty_record_count": { "type": "integer", "minimum": 0 },
-        "page_text_record_count": { "type": "integer", "minimum": 0 },
-        "page_text_available": { "type": "boolean" },
+        "multilingual_instructional_pages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "isolated_vocabulary_gloss_record_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "automatic_topic_translation_is_language_evidence": {
+          "const": false
+        },
+        "language_evidence": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "language_limitations": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "instructional_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cover_detail_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "task_array_nonempty_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "heading_array_nonempty_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "page_text_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "page_text_available": {
+          "type": "boolean"
+        },
         "programme_type": {
           "enum": [
             "ordinary_curriculum",
@@ -336,68 +590,154 @@
             "unknown"
           ]
         },
-        "programme_evidence": { "$ref": "#/$defs/nonEmptyStrings" },
-        "metadata_contradictions": { "$ref": "#/$defs/nonEmptyStrings" },
-        "source_limitations": { "$ref": "#/$defs/nonEmptyStrings" }
+        "programme_evidence": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "metadata_contradictions": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "source_limitations": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "decision_origin": {
+          "const": "human_reviewed_intake_configuration"
+        },
+        "decision_confidence": {
+          "enum": [
+            "supported",
+            "requires_additional_evidence"
+          ]
+        },
+        "decision_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "administrative_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ambiguous_chapter_record_count": {
+          "type": "integer",
+          "minimum": 0
+        }
       }
     },
     "owner": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_id", "grade", "subject", "md_path"],
+      "required": [
+        "source_id",
+        "grade",
+        "subject",
+        "md_path"
+      ],
       "properties": {
-        "source_id": { "type": "string", "minLength": 1 },
-        "grade": { "type": "integer", "minimum": 1 },
-        "subject": { "type": "string", "minLength": 1 },
-        "md_path": { "$ref": "#/$defs/repositoryPath" }
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "grade": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "md_path": {
+          "$ref": "#/$defs/repositoryPath"
+        }
       }
     },
     "crossOverlap": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["url", "archive_paths", "outcome"],
+      "required": [
+        "url",
+        "archive_paths",
+        "outcome"
+      ],
       "properties": {
-        "url": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/" },
+        "url": {
+          "type": "string",
+          "pattern": "^https://www\\.opiq\\.ee/"
+        },
         "archive_paths": {
           "type": "array",
           "minItems": 2,
-          "items": { "$ref": "#/$defs/repositoryPath" }
+          "items": {
+            "$ref": "#/$defs/repositoryPath"
+          }
         },
-        "outcome": { "const": "block_pending_evidence" }
+        "outcome": {
+          "const": "block_pending_evidence"
+        }
       }
     },
     "existingOverlap": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["url", "candidate_archive_paths", "existing_owners", "outcome"],
+      "required": [
+        "url",
+        "candidate_archive_paths",
+        "existing_owners",
+        "outcome"
+      ],
       "properties": {
-        "url": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/" },
+        "url": {
+          "type": "string",
+          "pattern": "^https://www\\.opiq\\.ee/"
+        },
         "candidate_archive_paths": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/repositoryPath" }
+          "items": {
+            "$ref": "#/$defs/repositoryPath"
+          }
         },
         "existing_owners": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/owner" }
+          "items": {
+            "$ref": "#/$defs/owner"
+          }
         },
-        "outcome": { "const": "retain_existing_canonical_owner" }
+        "outcome": {
+          "const": "retain_existing_canonical_owner"
+        }
       }
     },
     "editionEquivalence": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["kit_ids", "relationship", "outcome", "evidence"],
+      "required": [
+        "kit_ids",
+        "relationship",
+        "outcome",
+        "evidence"
+      ],
       "properties": {
         "kit_ids": {
           "type": "array",
           "minItems": 2,
-          "items": { "type": "string", "pattern": "^[0-9]+$" }
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          }
         },
-        "relationship": { "type": "string", "minLength": 1 },
-        "outcome": { "const": "retain_separate_editions" },
-        "evidence": { "$ref": "#/$defs/nonEmptyStrings" }
+        "relationship": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome": {
+          "const": "retain_separate_editions"
+        },
+        "evidence": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        }
       }
     },
     "urlOwnership": {
@@ -415,26 +755,49 @@
         "edition_equivalence_assessments"
       ],
       "properties": {
-        "distinct_grade_4_urls": { "type": "integer", "minimum": 0 },
-        "cross_archive_overlap_count": { "type": "integer", "minimum": 0 },
+        "distinct_grade_4_urls": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cross_archive_overlap_count": {
+          "type": "integer",
+          "minimum": 0
+        },
         "cross_archive_overlaps": {
           "type": "array",
-          "items": { "$ref": "#/$defs/crossOverlap" }
+          "items": {
+            "$ref": "#/$defs/crossOverlap"
+          }
         },
-        "existing_manifest_overlap_count": { "type": "integer", "minimum": 0 },
+        "existing_manifest_overlap_count": {
+          "type": "integer",
+          "minimum": 0
+        },
         "existing_manifest_overlap_counts_by_owner": {
           "type": "array",
-          "items": { "$ref": "#/$defs/count" }
+          "items": {
+            "$ref": "#/$defs/count"
+          }
         },
-        "grade_3_overlap_count": { "type": "integer", "minimum": 0 },
-        "grade_5_overlap_count": { "type": "integer", "minimum": 0 },
+        "grade_3_overlap_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "grade_5_overlap_count": {
+          "type": "integer",
+          "minimum": 0
+        },
         "existing_manifest_overlaps": {
           "type": "array",
-          "items": { "$ref": "#/$defs/existingOverlap" }
+          "items": {
+            "$ref": "#/$defs/existingOverlap"
+          }
         },
         "edition_equivalence_assessments": {
           "type": "array",
-          "items": { "$ref": "#/$defs/editionEquivalence" }
+          "items": {
+            "$ref": "#/$defs/editionEquivalence"
+          }
         }
       }
     },
@@ -456,23 +819,52 @@
         "blockers",
         "required_normalization",
         "cross_route_ownership_constraints",
-        "targeted_recapture_needs"
+        "targeted_recapture_needs",
+        "decision_origin",
+        "decision_confidence",
+        "decision_rationale",
+        "evidence_refs",
+        "exclusion_notes"
       ],
       "properties": {
-        "proposed_source_id": { "type": "string", "minLength": 1 },
-        "proposed_grade": { "type": ["integer", "null"], "minimum": 1 },
-        "subject": { "type": "string", "minLength": 1 },
-        "subject_et": { "type": "string", "minLength": 1 },
+        "proposed_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposed_grade": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_et": {
+          "type": "string",
+          "minLength": 1
+        },
         "languages": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "included_archives": {
           "type": "array",
-          "items": { "$ref": "#/$defs/repositoryPath" }
+          "items": {
+            "$ref": "#/$defs/repositoryPath"
+          }
         },
-        "included_kit_ids": { "$ref": "#/$defs/nonEmptyStrings" },
-        "excluded_kit_ids": { "$ref": "#/$defs/nonEmptyStrings" },
+        "included_kit_ids": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "excluded_kit_ids": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
         "programme_scope": {
           "enum": [
             "ordinary_curriculum",
@@ -486,7 +878,10 @@
             "unknown"
           ]
         },
-        "candidate_instructional_record_count": { "type": "integer", "minimum": 0 },
+        "candidate_instructional_record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
         "route_decision": {
           "enum": [
             "ready_for_canonical_import",
@@ -500,16 +895,106 @@
             "not_grade_4"
           ]
         },
-        "blockers": { "$ref": "#/$defs/nonEmptyStrings" },
-        "required_normalization": { "$ref": "#/$defs/nonEmptyStrings" },
-        "cross_route_ownership_constraints": { "$ref": "#/$defs/nonEmptyStrings" },
-        "targeted_recapture_needs": { "$ref": "#/$defs/nonEmptyStrings" }
-      }
+        "blockers": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "required_normalization": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "cross_route_ownership_constraints": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "targeted_recapture_needs": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "decision_origin": {
+          "const": "human_reviewed_intake_configuration"
+        },
+        "decision_confidence": {
+          "enum": [
+            "supported",
+            "supported_with_exclusions",
+            "requires_additional_evidence"
+          ]
+        },
+        "decision_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        },
+        "exclusion_notes": {
+          "$ref": "#/$defs/nonEmptyStrings"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "route_decision": {
+                "enum": [
+                  "ready_for_canonical_import",
+                  "ready_with_documented_metadata_normalization"
+                ]
+              }
+            },
+            "required": [
+              "route_decision"
+            ]
+          },
+          "then": {
+            "properties": {
+              "proposed_grade": {
+                "const": 4
+              },
+              "blockers": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "route_decision": {
+                "enum": [
+                  "blocked_grade_ambiguous",
+                  "blocked_subject_ambiguous",
+                  "blocked_mixed_scope",
+                  "blocked_missing_instructional_pages",
+                  "blocked_needs_targeted_recapture"
+                ]
+              }
+            },
+            "required": [
+              "route_decision"
+            ]
+          },
+          "then": {
+            "properties": {
+              "blockers": {
+                "type": "array",
+                "minItems": 1
+              },
+              "exclusion_notes": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
     },
     "recapture": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["recapture_type", "kit_ids", "reason"],
+      "required": [
+        "recapture_type",
+        "kit_ids",
+        "reason"
+      ],
       "properties": {
         "recapture_type": {
           "enum": [
@@ -524,9 +1009,15 @@
         },
         "kit_ids": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^[0-9]+$" }
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          }
         },
-        "reason": { "type": "string", "minLength": 1 }
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     }
   }

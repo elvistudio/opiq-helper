@@ -167,9 +167,9 @@
       ],
       "source_accounting": {
         "total_source_records": 526,
-        "instructional_chapter_or_page": 518,
+        "instructional_chapter_or_page": 515,
         "kit_or_book_detail": 4,
-        "administrative_or_imprint": 0,
+        "administrative_or_imprint": 3,
         "duplicate_detail_alias": 4,
         "duplicate_instructional_url": 0,
         "malformed_or_ambiguous": 0,
@@ -228,9 +228,9 @@
       ],
       "source_accounting": {
         "total_source_records": 168,
-        "instructional_chapter_or_page": 164,
+        "instructional_chapter_or_page": 163,
         "kit_or_book_detail": 2,
-        "administrative_or_imprint": 0,
+        "administrative_or_imprint": 1,
         "duplicate_detail_alias": 2,
         "duplicate_instructional_url": 0,
         "malformed_or_ambiguous": 0,
@@ -300,9 +300,9 @@
       ],
       "source_accounting": {
         "total_source_records": 126,
-        "instructional_chapter_or_page": 120,
+        "instructional_chapter_or_page": 118,
         "kit_or_book_detail": 3,
-        "administrative_or_imprint": 0,
+        "administrative_or_imprint": 2,
         "duplicate_detail_alias": 3,
         "duplicate_instructional_url": 0,
         "malformed_or_ambiguous": 0,
@@ -511,9 +511,9 @@
       ],
       "source_accounting": {
         "total_source_records": 353,
-        "instructional_chapter_or_page": 341,
+        "instructional_chapter_or_page": 338,
         "kit_or_book_detail": 6,
-        "administrative_or_imprint": 0,
+        "administrative_or_imprint": 3,
         "duplicate_detail_alias": 6,
         "duplicate_instructional_url": 0,
         "malformed_or_ambiguous": 0,
@@ -608,9 +608,9 @@
       ],
       "source_accounting": {
         "total_source_records": 729,
-        "instructional_chapter_or_page": 711,
+        "instructional_chapter_or_page": 705,
         "kit_or_book_detail": 10,
-        "administrative_or_imprint": 0,
+        "administrative_or_imprint": 6,
         "duplicate_detail_alias": 8,
         "duplicate_instructional_url": 0,
         "malformed_or_ambiguous": 0,
@@ -680,9 +680,9 @@
       ],
       "source_accounting": {
         "total_source_records": 180,
-        "instructional_chapter_or_page": 174,
+        "instructional_chapter_or_page": 172,
         "kit_or_book_detail": 3,
-        "administrative_or_imprint": 0,
+        "administrative_or_imprint": 2,
         "duplicate_detail_alias": 3,
         "duplicate_instructional_url": 0,
         "malformed_or_ambiguous": 0,
@@ -749,9 +749,9 @@
   ],
   "source_accounting_totals": {
     "total_source_records": 2425,
-    "instructional_chapter_or_page": 2359,
+    "instructional_chapter_or_page": 2342,
     "kit_or_book_detail": 34,
-    "administrative_or_imprint": 0,
+    "administrative_or_imprint": 17,
     "duplicate_detail_alias": 32,
     "duplicate_instructional_url": 0,
     "malformed_or_ambiguous": 0,
@@ -866,10 +866,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 54,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured science disposition for kit 11.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:11",
+        "source_book_id:loodusõpetus_4._klassile"
+      ],
+      "instructional_record_count": 53,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 47,
-      "heading_array_nonempty_record_count": 54,
+      "heading_array_nonempty_record_count": 53,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -991,7 +1001,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured science disposition for kit 27.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:27",
+        "source_book_id:природо­ведение_для_4_класса"
+      ],
       "instructional_record_count": 55,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 55,
@@ -1097,10 +1117,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 32,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured human_studies_and_society subject disposition, but exact-grade ownership for kit 55 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+        "kit:55",
+        "source_book_id:inimene_ja_ühiskond._õpik_ii_kooliastmele,_i_osa"
+      ],
+      "instructional_record_count": 31,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 1,
-      "heading_array_nonempty_record_count": 32,
+      "heading_array_nonempty_record_count": 31,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "mixed_subject",
@@ -1305,10 +1335,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 132,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 70.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:70",
+        "source_book_id:matemaatika_4._klassile"
+      ],
+      "instructional_record_count": 131,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 1,
       "task_array_nonempty_record_count": 69,
-      "heading_array_nonempty_record_count": 132,
+      "heading_array_nonempty_record_count": 131,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -1510,10 +1550,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 135,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured estonian disposition for kit 71.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:71",
+        "source_book_id:eesti_keel_4._klassile"
+      ],
+      "instructional_record_count": 134,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 3,
-      "heading_array_nonempty_record_count": 135,
+      "heading_array_nonempty_record_count": 134,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -1615,7 +1665,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured human_studies_and_society subject disposition, but exact-grade ownership for kit 82 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+        "kit:82",
+        "source_book_id:человек_и_общество._учебник_для_ii_ступени_обучения,_часть_i"
+      ],
       "instructional_record_count": 32,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 1,
       "heading_array_nonempty_record_count": 32,
@@ -1754,7 +1814,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured science disposition for kit 108.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:108",
+        "source_book_id:loodusõpetus_4._klassile_2"
+      ],
       "instructional_record_count": 66,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 66,
@@ -1887,7 +1957,18 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 147.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:147",
+        "source_book_id:matemaatika_4._klassile",
+        "source_book_id:matemaatika_4._klassile_2"
+      ],
       "instructional_record_count": 62,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 62,
@@ -2078,7 +2159,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured estonian_second_language disposition for kit 150.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:150",
+        "source_book_id:teele._eesti_keel_teise_keelena_4._klassile"
+      ],
       "instructional_record_count": 117,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 117,
@@ -2292,7 +2383,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured estonian subject disposition, but exact-grade ownership for kit 154 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:154",
+        "source_book_id:sinasõprus_keelega"
+      ],
       "instructional_record_count": 137,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 137,
@@ -2487,7 +2588,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 157.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:157",
+        "source_book_id:математика_для_4_класса"
+      ],
       "instructional_record_count": 123,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 77,
       "heading_array_nonempty_record_count": 123,
@@ -2586,7 +2697,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured physical_education subject disposition, but exact-grade ownership for kit 161 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_kehalise_kasvatuse_tooraamat_teisele_kooliastmel_v2.zip",
+        "kit:161",
+        "source_book_id:kehalise_kasvatuse_tööraamat_teisele_kooliastmele"
+      ],
       "instructional_record_count": 22,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 22,
@@ -2697,10 +2818,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 39,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured music disposition for kit 174.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+        "kit:174",
+        "source_book_id:muusikaõpik_4._klassile"
+      ],
+      "instructional_record_count": 38,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 24,
-      "heading_array_nonempty_record_count": 39,
+      "heading_array_nonempty_record_count": 38,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -2855,7 +2986,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured arts_and_crafts subject disposition, but exact-grade ownership for kit 200 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_kasitootuba_opiq_v2.zip",
+        "kit:200",
+        "source_book_id:kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid"
+      ],
       "instructional_record_count": 85,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 85,
@@ -3024,7 +3165,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured music subject disposition, but exact-grade ownership for kit 206 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+        "kit:206",
+        "source_book_id:4._klassi_muusika­õpetus"
+      ],
       "instructional_record_count": 96,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 69,
       "heading_array_nonempty_record_count": 96,
@@ -3162,7 +3313,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured science disposition for kit 228.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:228",
+        "source_book_id:природо­ведение_4_класс"
+      ],
       "instructional_record_count": 66,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 66,
@@ -3326,7 +3487,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured russian disposition for kit 243.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+        "kit:243",
+        "source_book_id:русский_язык_4_класс"
+      ],
       "instructional_record_count": 91,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 86,
       "heading_array_nonempty_record_count": 91,
@@ -3444,10 +3615,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 41,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 282.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:282",
+        "source_book_id:matemaatika_4._klassile._i_osa._lihtsustatud_õppekava"
+      ],
+      "instructional_record_count": 40,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 41,
+      "heading_array_nonempty_record_count": 40,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "simplified_curriculum",
@@ -3574,10 +3755,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 56,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured human_studies disposition for kit 287.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+        "kit:287",
+        "source_book_id:inimeseõpetus_4._klassile._lihtsustatud_õppekava"
+      ],
+      "instructional_record_count": 55,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 56,
+      "heading_array_nonempty_record_count": 55,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "simplified_curriculum",
@@ -3709,7 +3900,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 293.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:293",
+        "source_book_id:математика_4_класс"
+      ],
       "instructional_record_count": 63,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 63,
@@ -3857,7 +4058,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured russian disposition for kit 295.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+        "kit:295",
+        "source_book_id:русский_язык_для_4_класса"
+      ],
       "instructional_record_count": 76,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 54,
       "heading_array_nonempty_record_count": 76,
@@ -3966,10 +4177,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 32,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 304.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:304",
+        "source_book_id:matemaatika_4._klassile._ii_osa._lihtsustatud_õppekava"
+      ],
+      "instructional_record_count": 31,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 32,
+      "heading_array_nonempty_record_count": 31,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "simplified_curriculum",
@@ -4076,10 +4297,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 40,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 318.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:318",
+        "source_book_id:matemaatika_4._klassile._iii_osa._lihtsustatud_õppekava"
+      ],
+      "instructional_record_count": 39,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 40,
+      "heading_array_nonempty_record_count": 39,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "simplified_curriculum",
@@ -4175,10 +4406,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 29,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 328.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:328",
+        "source_book_id:matemaatika_4._klassile._iv_osa._lihtsustatud_õppekava"
+      ],
+      "instructional_record_count": 28,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 1,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 29,
+      "heading_array_nonempty_record_count": 28,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "simplified_curriculum",
@@ -4319,7 +4560,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured english subject disposition, but exact-grade ownership for kit 332 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_english_step_by_step_2_opiq_v2.zip",
+        "kit:332",
+        "source_book_id:english_step_by_step_2"
+      ],
       "instructional_record_count": 69,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 69,
@@ -4425,7 +4676,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured russian_reading disposition for kit 415.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+        "kit:415",
+        "source_book_id:русское_слово._чтение_для_4_клacca"
+      ],
       "instructional_record_count": 34,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 34,
@@ -4601,10 +4862,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 95,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured english disposition for kit 451.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_english_step_by_step_2_opiq_v2.zip",
+        "kit:451",
+        "source_book_id:inglise_keel_4._klassile"
+      ],
+      "instructional_record_count": 94,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 95,
+      "heading_array_nonempty_record_count": 94,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -4806,10 +5077,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 129,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 460.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:460",
+        "source_book_id:matemaatika_4._klassile_2023_õk"
+      ],
+      "instructional_record_count": 128,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 77,
-      "heading_array_nonempty_record_count": 129,
+      "heading_array_nonempty_record_count": 128,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -4900,7 +5181,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "Captured book evidence supports the configured technology subject disposition, but exact-grade ownership for kit 476 requires additional evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_tehnologia_v2.zip",
+        "kit:476",
+        "source_book_id:arvjuhitavad_seadmed_(cnc)"
+      ],
       "instructional_record_count": 23,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 23,
@@ -5022,10 +5313,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 50,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured science disposition for kit 480.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:480",
+        "source_book_id:loodusõpetus_4._klassile_(2023)"
+      ],
+      "instructional_record_count": 49,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 48,
-      "heading_array_nonempty_record_count": 50,
+      "heading_array_nonempty_record_count": 49,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -5221,10 +5522,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 129,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured estonian disposition for kit 533.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:533",
+        "source_book_id:eesti_keel_4._klassile_2024"
+      ],
+      "instructional_record_count": 127,
+      "administrative_record_count": 2,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
-      "heading_array_nonempty_record_count": 129,
+      "heading_array_nonempty_record_count": 127,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -5343,10 +5654,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 50,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured science disposition for kit 536.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:536",
+        "source_book_id:природо­ведение_для_4_класса_(2023)"
+      ],
+      "instructional_record_count": 49,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 48,
-      "heading_array_nonempty_record_count": 50,
+      "heading_array_nonempty_record_count": 49,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -5455,10 +5776,20 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
-      "instructional_record_count": 39,
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured music disposition for kit 552.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+        "kit:552",
+        "source_book_id:muusikaõpik_4._klassile_2024"
+      ],
+      "instructional_record_count": 38,
+      "administrative_record_count": 1,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 24,
-      "heading_array_nonempty_record_count": 39,
+      "heading_array_nonempty_record_count": 38,
       "page_text_record_count": 0,
       "page_text_available": false,
       "programme_type": "unknown",
@@ -5591,7 +5922,17 @@
         "Parallel topics_et/topics_ru/topics_en arrays are exporter-generated query metadata, not proof that page prose is multilingual.",
         "The capture does not provide a reliable structured field for isolated vocabulary glosses."
       ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade identity and book evidence support the configured mathematics disposition for kit 588.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:588",
+        "source_book_id:matemaatika_4._klassile_(2025)"
+      ],
       "instructional_record_count": 60,
+      "administrative_record_count": 0,
+      "ambiguous_chapter_record_count": 0,
       "cover_detail_record_count": 2,
       "task_array_nonempty_record_count": 0,
       "heading_array_nonempty_record_count": 60,
@@ -6954,8 +7295,17 @@
       "programme_scope": "supplementary",
       "candidate_instructional_record_count": 85,
       "route_decision": "non_core_supplementary_or_support",
-      "blockers": [
+      "blockers": [],
+      "exclusion_notes": [
         "All instructional URLs already belong to grade-2-arts-and-crafts."
+      ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported_with_exclusions",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. All instructional URLs already belong to grade-2-arts-and-crafts.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_kasitootuba_opiq_v2.zip",
+        "kit:200",
+        "source_book_id:kunsti-_ja_tööõpetus._4._osa._tähtpäeva­kaardid"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
@@ -6963,9 +7313,7 @@
       "cross_route_ownership_constraints": [
         "Retain grade-2-arts-and-crafts as the existing canonical owner of all 85 shared instructional URLs."
       ],
-      "targeted_recapture_needs": [
-        "Capture exact Kit Details/cover metadata sufficient to resolve the stated blocker."
-      ]
+      "targeted_recapture_needs": []
     },
     {
       "proposed_source_id": "grade-4-english",
@@ -6987,18 +7335,25 @@
         "332"
       ],
       "programme_scope": "unknown",
-      "candidate_instructional_record_count": 95,
+      "candidate_instructional_record_count": 94,
       "route_decision": "ready_with_documented_metadata_normalization",
-      "blockers": [
+      "blockers": [],
+      "exclusion_notes": [
         "Kit 332 remains outside this exact-grade route."
+      ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported_with_exclusions",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. Kit 332 remains outside this exact-grade route.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_english_step_by_step_2_opiq_v2.zip",
+        "kit:451",
+        "source_book_id:inglise_keel_4._klassile"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
       ],
       "cross_route_ownership_constraints": [],
-      "targeted_recapture_needs": [
-        "Capture exact Kit Details/cover metadata sufficient to resolve the stated blocker."
-      ]
+      "targeted_recapture_needs": []
     },
     {
       "proposed_source_id": "grade-4-english-probable-level-2",
@@ -7021,6 +7376,15 @@
       "route_decision": "blocked_grade_ambiguous",
       "blockers": [
         "“Step by step 2” is a level/title, not exact Grade 4 evidence."
+      ],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "“Step by step 2” is a level/title, not exact Grade 4 evidence.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_english_step_by_step_2_opiq_v2.zip",
+        "kit:332",
+        "source_book_id:english_step_by_step_2"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
@@ -7049,18 +7413,27 @@
         "154"
       ],
       "programme_scope": "unknown",
-      "candidate_instructional_record_count": 264,
+      "candidate_instructional_record_count": 261,
       "route_decision": "ready_with_documented_metadata_normalization",
-      "blockers": [
+      "blockers": [],
+      "exclusion_notes": [
         "Kit 154 needs exact-grade evidence before inclusion."
+      ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported_with_exclusions",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. Kit 154 needs exact-grade evidence before inclusion.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:533",
+        "kit:71",
+        "source_book_id:eesti_keel_4._klassile",
+        "source_book_id:eesti_keel_4._klassile_2024"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
       ],
       "cross_route_ownership_constraints": [],
-      "targeted_recapture_needs": [
-        "Capture exact Kit Details/cover metadata sufficient to resolve the stated blocker."
-      ]
+      "targeted_recapture_needs": []
     },
     {
       "proposed_source_id": "grade-4-estonian-probable-supplement",
@@ -7082,6 +7455,15 @@
       "route_decision": "blocked_grade_ambiguous",
       "blockers": [
         "The captured title does not identify an exact grade."
+      ],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "The captured title does not identify an exact grade.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:154",
+        "source_book_id:sinasõprus_keelega"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
@@ -7110,6 +7492,15 @@
       "candidate_instructional_record_count": 117,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+        "kit:150",
+        "source_book_id:teele._eesti_keel_teise_keelena_4._klassile"
+      ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
       ],
@@ -7132,9 +7523,18 @@
       ],
       "excluded_kit_ids": [],
       "programme_scope": "simplified_curriculum",
-      "candidate_instructional_record_count": 56,
+      "candidate_instructional_record_count": 55,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+        "kit:287",
+        "source_book_id:inimeseõpetus_4._klassile._lihtsustatud_õppekava"
+      ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
       ],
@@ -7164,9 +7564,28 @@
       ],
       "excluded_kit_ids": [],
       "programme_scope": "unknown",
-      "candidate_instructional_record_count": 569,
+      "candidate_instructional_record_count": 567,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:147",
+        "kit:157",
+        "kit:293",
+        "kit:460",
+        "kit:588",
+        "kit:70",
+        "source_book_id:matemaatika_4._klassile",
+        "source_book_id:matemaatika_4._klassile_(2025)",
+        "source_book_id:matemaatika_4._klassile_2",
+        "source_book_id:matemaatika_4._klassile_2023_õk",
+        "source_book_id:математика_4_класс",
+        "source_book_id:математика_для_4_класса"
+      ],
       "required_normalization": [
         "Raw book-level language does not occur in the page-level language labels."
       ],
@@ -7193,9 +7612,24 @@
       ],
       "excluded_kit_ids": [],
       "programme_scope": "simplified_curriculum",
-      "candidate_instructional_record_count": 142,
+      "candidate_instructional_record_count": 138,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+        "kit:282",
+        "kit:304",
+        "kit:318",
+        "kit:328",
+        "source_book_id:matemaatika_4._klassile._i_osa._lihtsustatud_õppekava",
+        "source_book_id:matemaatika_4._klassile._ii_osa._lihtsustatud_õppekava",
+        "source_book_id:matemaatika_4._klassile._iii_osa._lihtsustatud_õppekava",
+        "source_book_id:matemaatika_4._klassile._iv_osa._lihtsustatud_õppekava"
+      ],
       "required_normalization": [],
       "cross_route_ownership_constraints": [],
       "targeted_recapture_needs": []
@@ -7219,18 +7653,27 @@
         "206"
       ],
       "programme_scope": "unknown",
-      "candidate_instructional_record_count": 78,
+      "candidate_instructional_record_count": 76,
       "route_decision": "ready_with_documented_metadata_normalization",
-      "blockers": [
+      "blockers": [],
+      "exclusion_notes": [
         "Kit 206 remains outside this exact-grade route."
+      ],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported_with_exclusions",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. Kit 206 remains outside this exact-grade route.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+        "kit:174",
+        "kit:552",
+        "source_book_id:muusikaõpik_4._klassile",
+        "source_book_id:muusikaõpik_4._klassile_2024"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
       ],
       "cross_route_ownership_constraints": [],
-      "targeted_recapture_needs": [
-        "Capture exact Kit Details/cover metadata sufficient to resolve the stated blocker."
-      ]
+      "targeted_recapture_needs": []
     },
     {
       "proposed_source_id": "grade-4-music-probable",
@@ -7252,6 +7695,15 @@
       "route_decision": "blocked_grade_ambiguous",
       "blockers": [
         "The cover/detail title does not identify an exact grade."
+      ],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "The cover/detail title does not identify an exact grade.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+        "kit:206",
+        "source_book_id:4._klassi_muusika­õpetus"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
@@ -7281,6 +7733,17 @@
       "candidate_instructional_record_count": 167,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+        "kit:243",
+        "kit:295",
+        "source_book_id:русский_язык_4_класс",
+        "source_book_id:русский_язык_для_4_класса"
+      ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative.",
         "Raw book-level language does not occur in the page-level language labels."
@@ -7307,6 +7770,15 @@
       "candidate_instructional_record_count": 34,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+        "kit:415",
+        "source_book_id:русское_слово._чтение_для_4_клacca"
+      ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative.",
         "Raw book-level language does not occur in the page-level language labels."
@@ -7336,9 +7808,28 @@
       ],
       "excluded_kit_ids": [],
       "programme_scope": "unknown",
-      "candidate_instructional_record_count": 341,
+      "candidate_instructional_record_count": 338,
       "route_decision": "ready_with_documented_metadata_normalization",
       "blockers": [],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "supported",
+      "decision_rationale": "Captured exact-grade, subject, and ownership evidence supports the included kits. ",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+        "kit:108",
+        "kit:11",
+        "kit:228",
+        "kit:27",
+        "kit:480",
+        "kit:536",
+        "source_book_id:loodusõpetus_4._klassile",
+        "source_book_id:loodusõpetus_4._klassile_(2023)",
+        "source_book_id:loodusõpetus_4._klassile_2",
+        "source_book_id:природо­ведение_4_класс",
+        "source_book_id:природо­ведение_для_4_класса",
+        "source_book_id:природо­ведение_для_4_класса_(2023)"
+      ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative.",
         "Raw book-level language does not occur in the page-level language labels."
@@ -7367,6 +7858,15 @@
       "blockers": [
         "The CNC title does not identify an exact grade or curriculum allocation."
       ],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "The CNC title does not identify an exact grade or curriculum allocation.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_tehnologia_v2.zip",
+        "kit:476",
+        "source_book_id:arvjuhitavad_seadmed_(cnc)"
+      ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
       ],
@@ -7393,10 +7893,21 @@
       ],
       "excluded_kit_ids": [],
       "programme_scope": "mixed_subject",
-      "candidate_instructional_record_count": 64,
+      "candidate_instructional_record_count": 63,
       "route_decision": "blocked_grade_ambiguous",
       "blockers": [
         "School stage II does not establish exact Grade 4 ownership."
+      ],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "School stage II does not establish exact Grade 4 ownership.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+        "kit:55",
+        "kit:82",
+        "source_book_id:inimene_ja_ühiskond._õpik_ii_kooliastmele,_i_osa",
+        "source_book_id:человек_и_общество._учебник_для_ii_ступени_обучения,_часть_i"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative.",
@@ -7428,6 +7939,15 @@
       "route_decision": "blocked_grade_ambiguous",
       "blockers": [
         "School stage II does not establish exact Grade 4 ownership."
+      ],
+      "exclusion_notes": [],
+      "decision_origin": "human_reviewed_intake_configuration",
+      "decision_confidence": "requires_additional_evidence",
+      "decision_rationale": "School stage II does not establish exact Grade 4 ownership.",
+      "evidence_refs": [
+        "archive:project-files/inputs/final-zips/opiq_4klass_kehalise_kasvatuse_tooraamat_teisele_kooliastmel_v2.zip",
+        "kit:161",
+        "source_book_id:kehalise_kasvatuse_tööraamat_teisele_kooliastmele"
       ],
       "required_normalization": [
         "Exporter subject labels conflict with the captured book identity and are not authoritative."
