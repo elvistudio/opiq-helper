@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/compliance-index.schema.json",
+  "title": "Derived curriculum outcome and compliance requirement indexes",
+  "oneOf": [
+    { "$ref": "#/$defs/outcomeIndex" },
+    { "$ref": "#/$defs/requirementIndex" }
+  ],
+  "$defs": {
+    "date": { "type": "string", "pattern": "^20[0-9]{2}-[0-9]{2}-[0-9]{2}$" },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "scope": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "school_stage", "terminal_grade", "exact_grade_claimed"],
+          "properties": {
+            "kind": { "const": "school_stage" },
+            "school_stage": { "enum": [1, 2] },
+            "terminal_grade": { "enum": [3, 6] },
+            "exact_grade_claimed": { "const": false }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "grade", "exact_grade_claimed"],
+          "properties": {
+            "kind": { "const": "exact_grade" },
+            "grade": { "enum": [2, 4] },
+            "exact_grade_claimed": { "const": true }
+          }
+        }
+      ]
+    },
+    "outcomeIndex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "index_id",
+        "target_school_year",
+        "generated_from",
+        "outcomes"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "official_curriculum_outcome_index" },
+        "index_id": { "const": "ee-2026-27-outcome-index" },
+        "target_school_year": { "const": "2026/27" },
+        "generated_from": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "outcome_id",
+              "source_id",
+              "official_reference",
+              "effective_from",
+              "effective_to",
+              "scope",
+              "subject_field",
+              "official_subject",
+              "curriculum",
+              "evidence_status",
+              "grade_2_relevant",
+              "grade_4_relevant",
+              "route_ids",
+              "home_learning_relevant"
+            ],
+            "properties": {
+              "outcome_id": { "type": "string", "minLength": 1 },
+              "source_id": { "type": "string", "minLength": 1 },
+              "official_reference": { "type": "string", "minLength": 1 },
+              "effective_from": { "$ref": "#/$defs/date" },
+              "effective_to": {
+                "oneOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+              },
+              "scope": { "$ref": "#/$defs/scope" },
+              "subject_field": { "type": "string", "minLength": 1 },
+              "official_subject": { "type": ["string", "null"] },
+              "curriculum": { "enum": ["ordinary", "simplified"] },
+              "evidence_status": { "enum": ["verified", "partial", "missing", "ambiguous"] },
+              "grade_2_relevant": { "type": "boolean" },
+              "grade_4_relevant": { "type": "boolean" },
+              "route_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "home_learning_relevant": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "requirementIndex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "index_id",
+        "target_school_year",
+        "generated_from",
+        "requirements"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "home_learning_requirement_index" },
+        "index_id": { "const": "ee-2026-27-requirement-index" },
+        "target_school_year": { "const": "2026/27" },
+        "generated_from": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "requirement_id",
+              "source_id",
+              "official_reference",
+              "effective_from",
+              "effective_to",
+              "scope",
+              "obligation_holder",
+              "requirement_level",
+              "evidence_status",
+              "grade_2_relevant",
+              "grade_4_relevant",
+              "home_learning_relevant"
+            ],
+            "properties": {
+              "requirement_id": { "type": "string", "minLength": 1 },
+              "source_id": { "type": "string", "minLength": 1 },
+              "official_reference": { "type": "string", "minLength": 1 },
+              "effective_from": { "$ref": "#/$defs/date" },
+              "effective_to": {
+                "oneOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+              },
+              "scope": { "type": "string", "minLength": 1 },
+              "obligation_holder": {
+                "enum": ["parent", "student", "school", "director", "teacher", "joint"]
+              },
+              "requirement_level": {
+                "enum": ["mandatory", "conditional", "discretionary", "school_specific", "recommendation"]
+              },
+              "evidence_status": { "enum": ["verified", "partial", "missing", "ambiguous"] },
+              "grade_2_relevant": { "const": true },
+              "grade_4_relevant": { "const": true },
+              "home_learning_relevant": { "const": true }
+            }
+          }
+        }
+      }
+    }
+  }
+}

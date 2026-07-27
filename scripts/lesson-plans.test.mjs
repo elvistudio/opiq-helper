@@ -163,6 +163,19 @@ test('production repository passes with documented architecture and pedagogical 
   assert.equal(result.summary.warnings, 15);
 });
 
+test('lesson-plan discovery validates only its registered external-source artifact', () => {
+  assert.deepEqual(
+    baseline.externalArtifacts.map((artifact) => artifact.file),
+    ['external-sources/registry.yaml'],
+  );
+  assert.equal(
+    baseline.loadedArtifactPaths.includes(
+      'external-sources/official/estonia/2026-27/source-registry.yaml',
+    ),
+    false,
+  );
+});
+
 test('valid four-lesson thematic plan links order, count, duration, and glossary', () => {
   const repository = cloneRepository();
   const unit = thematic(repository);

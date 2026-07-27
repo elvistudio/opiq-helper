@@ -1,0 +1,540 @@
+schema_version: "1.0"
+artifact_type: home_learning_compliance_baseline
+baseline_id: ee-2026-27-parent-requested-home-learning
+target_school_year: 2026/27
+source_registry_ref: external-sources/official/estonia/2026-27/source-registry.yaml
+requirements:
+  - requirement_id: ee-pgs-2026-home-learning-parent-request
+    title_ru: Право ходатайствовать о домашнем обучении
+    official_wording_et: seaduslik esindaja soovib põhiharidust omandava õpilase õppetööd
+      iseseisvalt korraldada
+    plain_language_ru: Родитель может ходатайствовать о домашнем обучении ребёнка, получающего
+      основное образование; решение принимает школа по установленной процедуре.
+    source_id: ee-pgs-2026-09-01
+    official_reference: PGS § 23 lõige 1 punkt 2
+    effective_from: 2026-09-01
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: eligibility_and_decision
+    obligation_holder: parent
+    requirement_level: conditional
+    evidence_status: verified
+    implementation_evidence: Письменное ходатайство, рассмотренное школой.
+    failure_consequence: Без ходатайства домашнее обучение по инициативе родителя не начинается.
+    school_agreement_needed: true
+    notes: Право подать ходатайство не означает автоматического удовлетворения заявления.
+  - requirement_id: ee-home-reg-2025-request-deadline
+    title_ru: Обычный срок подачи заявления
+    official_wording_et: Õpilasele koduõppe rakendamiseks esitab vanem kooli direktorile kirjalikku
+      taasesitamist võimaldavas vormis põhjendatud taotluse hiljemalt 20. augustiks, kui koduõpet
+      soovitakse rakendada alates õppeaasta algusest, ning hiljemalt 20. detsembriks, kui koduõpet
+      soovitakse rakendada alates II poolaasta algusest.
+    plain_language_ru: Обычно заявление директору подают не позднее 20 августа для первого
+      полугодия или 20 декабря для второго.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 2, esimene lause
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: eligibility_and_decision
+    obligation_holder: parent
+    requirement_level: conditional
+    evidence_status: verified
+    implementation_evidence: Датированное письменное заявление директору.
+    failure_consequence: null
+    school_agreement_needed: true
+    notes: Проверенная норма называет две предельные даты; отдельное последствие пропуска не установлено.
+  - requirement_id: ee-home-reg-2025-request-content
+    title_ru: Содержание заявления
+    official_wording_et: Taotluses tuleb näidata vanema soovil koduõppe rakendamise põhjused,
+      kavandatava õppekorralduse kirjeldus ja koduõppe rakendamise aeg ning andmed isiku kohta, kes
+      hakkab last õpetama.
+    plain_language_ru: В заявлении указываются причины, планируемая организация и период домашнего
+      обучения, а также сведения о лице, которое будет учить ребёнка.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 2, teine lause
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: eligibility_and_decision
+    obligation_holder: parent
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Полное письменное заявление.
+    failure_consequence: Неполное заявление может потребовать дополнения до решения директора.
+    school_agreement_needed: true
+    notes: Репозиторий не хранит эти персональные данные; они передаются непосредственно школе.
+  - requirement_id: ee-home-reg-2025-decision-best-interest
+    title_ru: Решение директора и интересы ребёнка
+    official_wording_et: Põhiharidust omandavat õpilast võib õpetada vanema taotlusel koduõppes,
+      kui kooli hinnangul on selline õppevorm õpilase parimates huvides ja on eeldused, et õpilase
+      enesekohaste oskuste ja sotsiaalse pädevuse areng on toetatud.
+    plain_language_ru: Директор решает вопрос, исходя из наилучших интересов ребёнка и реальной
+      возможности достичь результатов национальной программы.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõiked 1 ja 5
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: eligibility_and_decision
+    obligation_holder: director
+    requirement_level: discretionary
+    evidence_status: verified
+    implementation_evidence: Мотивированное решение директора.
+    failure_consequence: Директор может отказать при отсутствии условий для достижения результатов
+      или если формат не отвечает интересам ребёнка.
+    school_agreement_needed: true
+    notes: Решение не является автоматически обязательным для директора при одном лишь заявлении.
+  - requirement_id: ee-home-reg-2025-decision-duration
+    title_ru: Срок решения и утверждение индивидуального плана
+    official_wording_et: Otsuse vanema taotlusel koduõppe rakendamise kohta teeb kooli direktor,
+      määrates koduõppe rakendamise ajalise kestuse, vabastades õpilase kooli päevakava järgsest
+      õppe- ja kasvatustegevusest ning kinnitades õpilase individuaalse õppekava koduõppe
+      rakendamise ajaks.
+    plain_language_ru: Директор определяет срок домашнего обучения, освобождает ребёнка от
+      обычной организации школьных занятий и утверждает индивидуальный учебный план на этот период.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 4
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: eligibility_and_decision
+    obligation_holder: director
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Решение директора и утверждённый индивидуальный учебный план.
+    failure_consequence: Домашнее обучение не оформлено без решения и утверждённого плана.
+    school_agreement_needed: true
+    notes: Норма не устанавливает один универсальный срок; продолжительность фиксирует директор.
+  - requirement_id: ee-home-reg-2025-refusal-grounds
+    title_ru: Основания отказа
+    official_wording_et: "Kooli direktor keeldub vanema taotlusel koduõppe rakendamisest, kui:
+      1) vanemal puudub võimekus õpet korraldada;
+      2) õpilasel puudub võimekus sellise õppekorraldusega riiklikus õppekavas sätestatud
+      õpitulemused saavutada."
+    plain_language_ru: Директор отказывает, если родитель не способен организовать обучение или
+      ребёнок не способен достигать результатов национальной программы при такой организации.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 6
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: eligibility_and_decision
+    obligation_holder: director
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Мотивированный отказ с опорой на проверяемые обстоятельства.
+    failure_consequence: Домашнее обучение по заявлению родителя не применяется.
+    school_agreement_needed: true
+    notes: Отказ не следует выводить из издательской последовательности или наличия продукта.
+  - requirement_id: ee-pgs-2026-home-learning-parent-financing
+    title_ru: Организация и финансирование родителем
+    official_wording_et: Koduõpet seadusliku esindaja soovil korraldab ja rahastab seaduslik esindaja.
+    plain_language_ru: Родитель организует и финансирует ту часть обучения, которая проходит вне
+      школы.
+    source_id: ee-pgs-2026-09-01
+    official_reference: PGS § 23 lõige 4
+    effective_from: 2026-09-01
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: responsibility_and_financing
+    obligation_holder: parent
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Организация семейного расписания и ресурсов согласно индивидуальному
+      плану.
+    failure_consequence: Неспособность организовать обучение может стать основанием для отказа или
+      прекращения формата.
+    school_agreement_needed: false
+    notes: Это не снимает со школы прямо установленные обязанности по материалам, поддержке и контролю.
+  - requirement_id: ee-home-reg-2025-parent-outcome-responsibility
+    title_ru: Ответственность за достижение результатов
+    official_wording_et: Koduõpet vanema taotlusel korraldab ja finantseerib vanem, kes vastutab ka
+      õpitulemuste saavutamise eest.
+    plain_language_ru: Родитель отвечает за организацию обучения, необходимого для достижения
+      результатов национальной и школьной программ.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 1, esimene lause
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: responsibility_and_financing
+    obligation_holder: parent
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Выполнение согласованного индивидуального плана и участие в контроле.
+    failure_consequence: Существенное недостижение результатов является основанием прекращения.
+    school_agreement_needed: true
+    notes: Конкретная классная разбивка берётся из школьной программы, а не из Opiq Helper.
+  - requirement_id: ee-home-reg-2025-school-learning-materials
+    title_ru: Учебная литература от школы
+    official_wording_et: Kool võimaldab õpilasel kasutada tasuta vähemalt kooli õppekava läbimiseks
+      vajalikku õppekirjandust (õpikuid, tööraamatuid, töövihikuid, töölehti jmt).
+    plain_language_ru: Школа бесплатно предоставляет минимум необходимой для школьной программы
+      учебной литературы.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 1, teine lause
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: responsibility_and_financing
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Выдача или предоставление доступа к необходимой учебной литературе.
+    failure_consequence: Семья вправе потребовать исполнения установленной обязанности школы.
+    school_agreement_needed: false
+    notes: Норма не гарантирует конкретную платформу или издательский комплект.
+  - requirement_id: ee-home-reg-2025-school-support-services
+    title_ru: Поддерживающие услуги школы
+    official_wording_et: Kool tagab koduõppe vormis õppivale õpilasele vajadustele vastavad tugiteenused.
+    plain_language_ru: Школа обеспечивает доступность необходимых ребёнку поддерживающих услуг.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 3
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: responsibility_and_financing
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Согласованный доступ к поддержке с учётом установленной потребности.
+    failure_consequence: Недоступность обязательной поддержки требует урегулирования со школой.
+    school_agreement_needed: true
+    notes: Вид и объём услуги зависят от подтверждённой потребности и организации школы.
+  - requirement_id: ee-home-reg-2025-curriculum-preparation
+    title_ru: Совместная подготовка индивидуального учебного плана
+    official_wording_et: Vanema taotluse koduõppel õppida soovivale õpilasele koostab koduõpet
+      läbiviiv isik koostöös kooliga kooli õppekavast lähtudes individuaalse õppekava, mis on
+      koduõppe rakendamise alusdokument.
+    plain_language_ru: Проводящее обучение лицо вместе со школой составляет индивидуальный план на
+      основе школьной программы.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 2, esimene lause
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: individual_curriculum
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Утверждённый директором индивидуальный учебный план.
+    failure_consequence: Без согласованного плана невозможно доказать содержание и порядок контроля.
+    school_agreement_needed: true
+    notes: Национальная программа задаёт рамку; конкретный классный план опирается на школьную программу.
+  - requirement_id: ee-home-reg-2025-curriculum-teachers-control
+    title_ru: Ответственные учителя и частота контроля
+    official_wording_et: Individuaalses õppekavas määratakse kindlaks õpetajad, kes ja millise
+      sagedusega kooli poolt kontrollivad õpitulemuste omandamist.
+    plain_language_ru: В плане указываются учителя, проверяющие результаты, и частота проверок.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 2, teine lause
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: individual_curriculum
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Соответствующий раздел индивидуального учебного плана.
+    failure_consequence: Неопределённый контроль не соответствует обязательному содержанию плана.
+    school_agreement_needed: true
+    notes: Конкретные имена хранятся у школы и не включаются в этот репозиторий.
+  - requirement_id: ee-home-reg-2025-monthly-control
+    title_ru: Проверка результатов не реже раза в месяц
+    official_wording_et: Kool kontrollib vähemalt üks kord kuus individuaalses õppekavas sätestatud
+      õpitulemuste omandamist.
+    plain_language_ru: Школа проверяет достижение учебных результатов не реже одного раза в месяц.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 2
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: oversight_and_assessment
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Записи школы о проверках согласно индивидуальному учебному плану.
+    failure_consequence: Отсутствие минимального контроля нарушает обязательный порядок.
+    school_agreement_needed: true
+    notes: Национально задана минимальная частота; форма проверки определяется планом и школой.
+  - requirement_id: ee-home-reg-2025-assessment-arrangement
+    title_ru: Порядок оценивания в индивидуальном плане
+    official_wording_et: Vanema taotlusel koduõppel õppiva õpilase hindamise korraldus määratakse
+      individuaalses õppekavas, arvestades seejuures riiklikus õppekavas hindamisele sätestatud nõudeid.
+    plain_language_ru: Конкретный порядок оценивания записывается в индивидуальном учебном плане.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 1
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: oversight_and_assessment
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Раздел об оценивании в утверждённом плане.
+    failure_consequence: Без согласованного порядка оценивание остаётся процедурно неопределённым.
+    school_agreement_needed: true
+    notes: Закон не навязывает семье одну универсальную цифровую систему.
+  - requirement_id: ee-home-reg-2025-teaching-person-assessment-participation
+    title_ru: Участие проводящего обучение лица при оценивании
+    official_wording_et: Koduõpet läbiviiv isik võib viibida lõikes 2 nimetatud õpilase õpitulemuste
+      hindamise juures.
+    plain_language_ru: Лицо, проводящее домашнее обучение, может присутствовать при оценивании
+      результатов ребёнка.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 3
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: oversight_and_assessment
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Возможность родителя присутствовать при согласованной проверке.
+    failure_consequence: Отказ в предусмотренном праве требует разъяснения школы.
+    school_agreement_needed: true
+    notes: Это право проводящего обучение лица, которое не обязательно тождественно родителю.
+  - requirement_id: ee-home-reg-2025-summary-grades
+    title_ru: Итоговые оценки в классном журнале
+    official_wording_et: Õpilase kokkuvõtvad hinded kantakse klassipäevikusse.
+    plain_language_ru: Итоговые оценки вносятся школой в классный журнал.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 4
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: school_records
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Официальная запись итоговых оценок в школьной системе.
+    failure_consequence: Итоговые результаты должны быть отражены в обязательных школьных документах.
+    school_agreement_needed: false
+    notes: Семейный журнал не заменяет официальный классный журнал.
+  - requirement_id: ee-school-records-2025-home-learning-entry
+    title_ru: Школьная запись о домашнем обучении и плане
+    official_wording_et: Õpilasraamatu õpilase leheküljele (edaspidi õpilasraamat) märgitakse
+      andmed õpilase isiku, õppekava (põhikooli riiklik õppekava, gümnaasiumi riiklik õppekava,
+      põhikooli lihtsustatud riiklik õppekava), statsionaarsest õppevormist erineva õppevormi (koduõpe,
+      mittestatsionaarne õpe, kooli lõpetamine eksternina); õpitulemuste; individuaalse õppekava
+      rakendamise, klassist klassi üleviimise, kooli lõpetamise või koolist väljaarvamise ning
+      õpilaste tunnustamise kohta.
+    plain_language_ru: Школа фиксирует применение домашнего обучения, индивидуального плана и
+      результаты в обязательной документации.
+    source_id: ee-school-records-2025-09-01
+    official_reference: määrus nr 52 § 6 lõige 2
+    effective_from: 2025-09-01
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: school_records
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Записи в õpilasraamat и связанных школьных документах.
+    failure_consequence: Школа не исполняет установленный порядок ведения учётных данных.
+    school_agreement_needed: false
+    notes: Репозиторий хранит только нормативную модель, а не данные конкретного ребёнка.
+  - requirement_id: ee-home-reg-2025-interruption-unmet-outcomes
+    title_ru: Прекращение при существенном недостижении результатов
+    official_wording_et: kontrolli käigus ilmneb, et õpilasel on individuaalse õppekavaga
+      määratletud õpitulemused suures mahus saavutamata
+    plain_language_ru: Школа немедленно прекращает домашнее обучение при существенном недостижении
+      результатов индивидуального плана.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 1
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: interruption
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Результаты регулярных проверок и решение школы.
+    failure_consequence: Возврат к обычной школьной деятельности.
+    school_agreement_needed: false
+    notes: Существенность оценивается по согласованному плану и проверяемым результатам.
+  - requirement_id: ee-home-reg-2025-interruption-unverifiable
+    title_ru: Прекращение при невозможности проверить результаты
+    official_wording_et: õpitulemuste omandamist ei ole olnud võimalik kontrollida
+    plain_language_ru: Домашнее обучение прекращается, если школа не может проверять достижение
+      результатов.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 2
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: interruption
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Документированная невозможность провести предусмотренный контроль.
+    failure_consequence: Возврат к обычной школьной деятельности.
+    school_agreement_needed: false
+    notes: Семья должна обеспечивать участие в согласованных проверках.
+  - requirement_id: ee-home-reg-2025-interruption-best-interest
+    title_ru: Прекращение по наилучшим интересам ребёнка
+    official_wording_et: koduõppe rakendamine ei ole kooli hinnangul enam õpilase parimates huvides
+    plain_language_ru: Школа прекращает формат, если он больше не отвечает наилучшим интересам ребёнка.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 3
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: interruption
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Мотивированная оценка школы и решение о прекращении.
+    failure_consequence: Возврат к обычной школьной деятельности.
+    school_agreement_needed: false
+    notes: Коммерческий продукт не может заменить индивидуальную оценку интересов ребёнка.
+  - requirement_id: ee-home-reg-2025-interruption-other-barrier
+    title_ru: Прекращение при иных препятствиях
+    official_wording_et: koduõppe rakendamisel on ilmnenud muid takistusi, mille alusel ei saa
+      pidada tõenäoliseks koduõppe eesmärgipärasust
+    plain_language_ru: Домашнее обучение прекращается при других обстоятельствах, реально
+      препятствующих его продолжению.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 4
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: interruption
+    obligation_holder: school
+    requirement_level: conditional
+    evidence_status: verified
+    implementation_evidence: Документированные обстоятельства и решение школы.
+    failure_consequence: Возврат к обычной школьной деятельности.
+    school_agreement_needed: false
+    notes: Открытая формулировка требует конкретного обоснования, а не автоматического вывода.
+  - requirement_id: ee-home-reg-2025-return-next-school-day
+    title_ru: Срок возвращения в школу
+    official_wording_et: Õpilane on kohustatud koduõppe katkestamise otsuse teatavaks tegemisele
+      järgnevast õppepäevast võtma osa kooli päevakava ja õppekorralduse kohasest õppe- ja
+      kasvatustegevusest.
+    plain_language_ru: После прекращения ребёнок продолжает обучение в школе не позднее следующего
+      учебного дня.
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 2
+    effective_from: 2025-09-19
+    effective_to: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    scope: interruption
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    implementation_evidence: Возобновление участия в обычной школьной деятельности.
+    failure_consequence: Нарушение срока возвращения требует немедленного урегулирования со школой.
+    school_agreement_needed: true
+    notes: Техническая передача материалов не меняет установленный срок.
+family_evidence_practices:
+  - practice_id: individual-curriculum
+    title_ru: Индивидуальный учебный план
+    classification: nationally_required
+    legal_basis: määrus nr 6 §§ 5–7
+    notes: Директор утверждает план; проводящее обучение лицо готовит его совместно со школой.
+  - practice_id: monthly-school-check
+    title_ru: Ежемесячная проверка результатов школой
+    classification: nationally_required
+    legal_basis: määrus nr 6 § 7 lõige 2
+    notes: Национальная норма устанавливает минимум один раз в месяц, но не единую форму.
+  - practice_id: assessment-format
+    title_ru: Конкретная форма и график оценивания
+    classification: required_by_individual_curriculum
+    legal_basis: määrus nr 6 §§ 6 lõige 2 ja 7 lõige 1
+    notes: Детали согласуются в индивидуальном плане.
+  - practice_id: family-portfolio
+    title_ru: Семейное портфолио работ
+    classification: recommended_good_practice
+    legal_basis: null
+    notes: В проверенных национальных нормах портфолио не установлено как обязательная форма.
+  - practice_id: daily-log
+    title_ru: Ежедневный семейный журнал
+    classification: not_verified
+    legal_basis: null
+    notes: Может быть согласован школой или использоваться семьёй, но национальный мандат не найден.
+  - practice_id: weekly-report
+    title_ru: Еженедельный отчёт школе
+    classification: school_specific
+    legal_basis: null
+    notes: Возможен по индивидуальному плану; национальный минимум контроля составляет раз в месяц.
+  - practice_id: timesheet
+    title_ru: Табель учебных часов семьи
+    classification: not_verified
+    legal_basis: null
+    notes: Проверенные нормы не устанавливают обязательный семейный табель.
+  - practice_id: specific-digital-platform
+    title_ru: Конкретная цифровая платформа
+    classification: not_verified
+    legal_basis: null
+    notes: Национальная норма не предписывает Opiq или иную конкретную платформу.
+  - practice_id: opiq-helper-family-checklist
+    title_ru: Чек-лист Opiq Helper для семьи
+    classification: commercial_product_feature
+    legal_basis: null
+    notes: Это продуктовая помощь, а не нормативная обязанность.
+completeness:
+  status: partial
+  declared_complete: false
+  declared_scope: Parent-requested home learning under PGS § 23, regulation no. 6 and mandatory
+    school-record rules applicable to the 2026/27 school year.
+  checked_documents:
+    - ee-pgs-2026-09-01
+    - ee-home-reg-2025-09-19
+    - ee-school-records-2025-09-01
+  checked_appendices: []
+  excluded_scope:
+    - Home learning for health reasons and hospital education.
+    - Individual legal advice or a school-specific decision.
+    - Personal learner records and family contact information.
+  known_gaps:
+    - A final legal refresh is due before commercial release to catch amendments published after
+      2026-07-28.
+    - School-specific implementation forms must be confirmed with the enrolled school.
+  verification_date: 2026-07-28
+  next_review_due: 2026-08-28

@@ -1,0 +1,778 @@
+schema_version: "1.0"
+artifact_type: official_regulatory_source_registry
+registry_id: ee-2026-27-primary-source-registry
+jurisdiction: EE
+target_school_year:
+  school_year: 2026/27
+  starts_on: 2026-09-01
+  ends_on: 2027-08-31
+source_hierarchy:
+  - riigi_teataja_consolidated_text
+  - riigi_teataja_original_amendment
+  - riigi_teataja_official_appendix
+  - official_ministry_implementation_notice
+  - repository_interpretation
+  - instructional_evidence
+sources:
+  - source_id: ee-pgs-2026-09-01
+    title_et: Põhikooli- ja gümnaasiumiseadus
+    short_title: PGS
+    issuer: Riigikogu
+    act_type: seadus
+    regulation_number: null
+    original_adoption_date: 2010-06-09
+    publication_reference: RT I, 20.06.2026, 32
+    consolidated_act_identifier: "120062026032"
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/120062026032
+    timeline_url: https://www.riigiteataja.ee/akt/120062026032?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/120062026032/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: b016291f9b9c4fe708fe3e886acfe281890928913587de1a06276068e81a3c5f
+    archived_excerpt:
+      path: external-sources/official/estonia/2026-27/snapshots/pgs-2026-09-01-excerpt.txt
+      content_identity:
+        algorithm: sha256
+        value: 18c201c03899184dd4f513f8e528534ac63b9321bdf0096e99793c8cdad7d20f
+      scope_note: § 23 parent-requested home-learning authority and financing only.
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Riigi Teataja future consolidated XML effective on the target-school-year start date.
+    supersedes_or_compares_to: []
+    notes: The 01.09.2026 consolidated version was selected instead of the version ending on 31.08.2026.
+  - source_id: ee-prok-2025-12-26
+    title_et: Põhikooli riiklik õppekava
+    short_title: PRÕK 2025/26 lõppredaktsioon
+    issuer: Vabariigi Valitsus
+    act_type: määrus
+    regulation_number: "1"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 6
+    consolidated_act_identifier: "123122025006"
+    version_effective_from: 2025-12-26
+    version_effective_to: 2026-08-31
+    applicable_school_years: [2025/26]
+    official_url: https://www.riigiteataja.ee/akt/123122025006
+    timeline_url: https://www.riigiteataja.ee/akt/123122025006?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025006/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: f10836e87f84b4d4edcc8d83535fc69c647bb732268995c51445cbdebcbc4692
+    archived_excerpt: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: not_applicable
+    evidence_status: superseded_for_target_school_year
+    verification_method: Riigi Teataja consolidated XML timeline and validity interval.
+    supersedes_or_compares_to: [ee-prok-2026-09-01]
+    notes: This wording expires on 31.08.2026 and cannot support a claim for the 2026/27 school year.
+  - source_id: ee-prok-2026-09-01
+    title_et: Põhikooli riiklik õppekava
+    short_title: PRÕK
+    issuer: Vabariigi Valitsus
+    act_type: määrus
+    regulation_number: "1"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: b31b8b7745c51124e26bd70f5bfbbdca1d08499257930eab719cd23c8ada738f
+    archived_excerpt:
+      path: external-sources/official/estonia/2026-27/snapshots/prok-2026-09-01-excerpt.txt
+      content_identity:
+        algorithm: sha256
+        value: 2d664bd2b07313f52f89f6ea52a972251440b961cc4d1ee545907d0b63dd73c3
+      scope_note: General competencies, assessment, class-by-class school allocation and appendix inventory.
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Latest published Riigi Teataja future consolidated XML effective on 01.09.2026.
+    supersedes_or_compares_to:
+      - ee-prok-2025-12-26
+      - ee-curriculum-amendment-2025-06-25
+      - ee-curriculum-amendment-2025-12-23
+    notes: This later December 2025 consolidation supersedes the earlier June 2025 future consolidation for the target date.
+  - source_id: ee-plrok-2025-12-26
+    title_et: Põhikooli lihtsustatud riiklik õppekava
+    short_title: PLRÕK 2025/26 lõppredaktsioon
+    issuer: Vabariigi Valitsus
+    act_type: määrus
+    regulation_number: "182"
+    original_adoption_date: 2010-12-16
+    publication_reference: RT I, 23.12.2025, 4
+    consolidated_act_identifier: "123122025004"
+    version_effective_from: 2025-12-26
+    version_effective_to: 2026-08-31
+    applicable_school_years: [2025/26]
+    official_url: https://www.riigiteataja.ee/akt/123122025004
+    timeline_url: https://www.riigiteataja.ee/akt/123122025004?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025004/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: ad48b1eb38333d72549d5dcd2b8d38e43e36d6a94019efceff1dbf71560775ea
+    archived_excerpt: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: not_applicable
+    evidence_status: superseded_for_target_school_year
+    verification_method: Riigi Teataja consolidated XML timeline and validity interval.
+    supersedes_or_compares_to: [ee-plrok-2026-09-01]
+    notes: This wording expires on 31.08.2026 and cannot support a claim for the 2026/27 school year.
+  - source_id: ee-plrok-2026-09-01
+    title_et: Põhikooli lihtsustatud riiklik õppekava
+    short_title: PLRÕK
+    issuer: Vabariigi Valitsus
+    act_type: määrus
+    regulation_number: "182"
+    original_adoption_date: 2010-12-16
+    publication_reference: RT I, 23.12.2025, 5
+    consolidated_act_identifier: "123122025005"
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025005
+    timeline_url: https://www.riigiteataja.ee/akt/123122025005?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025005/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: 72525d28c94690a32bf6fab44cb45477a16fe90eff17f0ec2f438263a3fab5b3
+    archived_excerpt:
+      path: external-sources/official/estonia/2026-27/snapshots/plrok-2026-09-01-excerpt.txt
+      content_identity:
+        algorithm: sha256
+        value: aef923a4fead45d4cf23cac13a9f93f8ffbbcd76856d0259cbbec48385fee505
+      scope_note: Class-by-class allocation and selected Grade 4 simplified mathematics and human-studies outcomes.
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Latest published Riigi Teataja future consolidated XML effective on 01.09.2026.
+    supersedes_or_compares_to:
+      - ee-plrok-2025-12-26
+      - ee-curriculum-amendment-2025-06-25
+      - ee-curriculum-amendment-2025-12-23
+    notes: Only Lisa 1 is used by the repository's current Grade 4 simplified routes; Lisad 2 and 3 remain separately inventoried.
+  - source_id: ee-home-reg-2025-09-19
+    title_et: Koduõppe ja haiglaõppe tingimused ja kord
+    short_title: Koduõppe määrus
+    issuer: Haridus- ja teadusminister
+    act_type: määrus
+    regulation_number: "6"
+    original_adoption_date: 2018-02-28
+    publication_reference: RT I, 16.09.2025, 13
+    consolidated_act_identifier: "116092025013"
+    version_effective_from: 2025-09-19
+    version_effective_to: null
+    applicable_school_years: [2025/26, 2026/27]
+    official_url: https://www.riigiteataja.ee/akt/116092025013
+    timeline_url: https://www.riigiteataja.ee/akt/116092025013?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/116092025013/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: 8fc6d12561b2eb853fd5349220d825109344a360585698f7448f7ee33a4e0cdd
+    archived_excerpt:
+      path: external-sources/official/estonia/2026-27/snapshots/home-regulation-2025-09-19-excerpt.txt
+      content_identity:
+        algorithm: sha256
+        value: bbae4e31cbc625806312c82f51e6c892a4eea5e5c3339d8ab3b546d75bd15d2a
+      scope_note: Parent-requested home learning under §§ 1 and 5–8.
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Riigi Teataja current consolidated XML and the 19.09.2025 amendment markers.
+    supersedes_or_compares_to: []
+    notes: The monthly control minimum and revised best-interest test entered into force on 19.09.2025 and remain applicable.
+  - source_id: ee-school-records-2025-09-01
+    title_et: Kooli õppe- ja kasvatusalastes kohustuslikes dokumentides esitatavad andmed ning dokumentide täitmise ja pidamise kord
+    short_title: Kooli kohustuslike dokumentide määrus
+    issuer: Haridus- ja teadusminister
+    act_type: määrus
+    regulation_number: "52"
+    original_adoption_date: 2010-08-25
+    publication_reference: RT I, 11.07.2025, 11
+    consolidated_act_identifier: "111072025011"
+    version_effective_from: 2025-09-01
+    version_effective_to: null
+    applicable_school_years: [2025/26, 2026/27]
+    official_url: https://www.riigiteataja.ee/akt/111072025011
+    timeline_url: https://www.riigiteataja.ee/akt/111072025011?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/111072025011/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: d59b3bcc9b2e533166b1194fcfe19a1f15b92622401cdd61310f705eb3fac9ad
+    archived_excerpt:
+      path: external-sources/official/estonia/2026-27/snapshots/school-records-2025-09-01-excerpt.txt
+      content_identity:
+        algorithm: sha256
+        value: 7b3eab01c265549a4c3af129497e37e4da25d4c5e39f359ed6c67e6bbc255f2c
+      scope_note: Student record, home-learning and individual-curriculum fields, and annual-grade records.
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Riigi Teataja current consolidated XML.
+    supersedes_or_compares_to: []
+    notes: The rule prescribes school records; it does not create a national family portfolio or daily-log duty.
+  - source_id: ee-curriculum-amendment-2025-06-25
+    title_et: Vabariigi Valitsuse määruste muutmine seoses Eesti Vabariigi haridusseaduse muutmise
+      ja sellega seonduvalt teiste seaduste muutmise seaduse rakendamisega
+      (õppimiskohustuse kehtestamine)
+    short_title: 2025. aasta õppimiskohustuse rakendamise muutmismäärus
+    issuer: Vabariigi Valitsus
+    act_type: määrus
+    regulation_number: "44"
+    original_adoption_date: 2025-06-13
+    publication_reference: RT I, 25.06.2025, 1
+    consolidated_act_identifier: "125062025001"
+    version_effective_from: 2025-06-28
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/125062025001
+    timeline_url: https://www.riigiteataja.ee/akt/125062025001?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/125062025001/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: 6cf46d3dff728f419965600ef616493a8f42ac068ab9d9b3669e48b9b3b4461d
+    archived_excerpt:
+      path: external-sources/official/estonia/2026-27/snapshots/curriculum-amendment-2025-06-25-excerpt.txt
+      content_identity:
+        algorithm: sha256
+        value: ccf07de2009bf24b2c31849ca342e51f8d4b15584e7cd2eb98d7941db2ee7d0e
+      scope_note: PRÕK and PLRÕK class-by-class and career-service clauses effective on 01.09.2026.
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Original Riigi Teataja amendment XML and its clause-specific entry-into-force rule.
+    supersedes_or_compares_to:
+      - ee-prok-2026-09-01
+      - ee-plrok-2026-09-01
+    notes: Only the amendment points listed in § 5(2) enter into force on 01.09.2026; the act's
+      general validity start is not substituted for each clause's effective date.
+  - source_id: ee-curriculum-amendment-2025-12-23
+    title_et: Vabariigi Valitsuse määruste muutmine seoses põhikooli lõpetamise tingimuste muutmisega
+    short_title: 2025. aasta põhikooli lõpetamise muutmismäärus
+    issuer: Vabariigi Valitsus
+    act_type: määrus
+    regulation_number: "104"
+    original_adoption_date: 2025-12-18
+    publication_reference: RT I, 23.12.2025, 1
+    consolidated_act_identifier: "123122025001"
+    version_effective_from: 2025-12-26
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025001
+    timeline_url: https://www.riigiteataja.ee/akt/123122025001?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025001/xml
+    appendix_identifier: null
+    retrieved_on: 2026-07-28
+    content_identity:
+      algorithm: sha256
+      value: f2d62f9d2fb57824432af28b9e0059bba877d2c2f30c9f3a35ea6e10066c8bd1
+    archived_excerpt: null
+    target_school_year_applicability:
+      school_year: 2026/27
+      status: applicable
+    evidence_status: verified
+    verification_method: Original Riigi Teataja amendment XML included in the latest target-date consolidation.
+    supersedes_or_compares_to:
+      - ee-prok-2026-09-01
+      - ee-plrok-2026-09-01
+    notes: This later amendment explains why the December consolidated versions, rather than the
+      earlier June future consolidations, are pinned for the target date.
+  - source_id: ee-prok-2026-appendix-01
+    title_et: Ainevaldkond „Keel ja kirjandus”
+    short_title: PRÕK lisa 1
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 1"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 1
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 297c9bf211ee8f6ea23fff5dbc7d7e838b9298defe40c5e2995d7c6154eb22aa }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to both school stages and to Estonian, Estonian as a second language, Russian and literature routes.
+  - source_id: ee-prok-2026-appendix-02
+    title_et: Ainevaldkond „Kehaline kasvatus”
+    short_title: PRÕK lisa 2
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 2"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 2
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 9e23f6254f7a24e42007debc613b50c71bd2753cbdc692a2b871bd75f9c328c0 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to school stages I and II.
+  - source_id: ee-prok-2026-appendix-03
+    title_et: Ainevaldkond „Kunstiained”
+    short_title: PRÕK lisa 3
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 3"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 3
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 372fe11c3ca8e8a3a9467950c810f9a6b6ed0b9cf72e2b801d206e43d05e4265 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to art and music in school stages I and II.
+  - source_id: ee-prok-2026-appendix-04
+    title_et: Ainevaldkond „Loodusained”
+    short_title: PRÕK lisa 4
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 4"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 4
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: e5f711b46dae4118c8ed07c1e13bc5a8baa56d46898cacb4fe569330ec1b1df5 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to natural science in school stages I and II.
+  - source_id: ee-prok-2026-appendix-05
+    title_et: Ainevaldkond „Matemaatika”
+    short_title: PRÕK lisa 5
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 5"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 5
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 166b0ef8cee5bf7a1bf44ed165e1d497ffc4b7a6439eb0afd56a60d4cc17a590 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to mathematics in school stages I and II.
+  - source_id: ee-prok-2026-appendix-06
+    title_et: Ainevaldkond „Sotsiaalained”
+    short_title: PRÕK lisa 6
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 6"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 6
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: ab389a94579dd41f42203906718f0438e46d9c2841709c5c6f8ebb4b11b4afee }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to human studies and social studies; the mixed repository route is not an official subject name.
+  - source_id: ee-prok-2026-appendix-07
+    title_et: Ainevaldkond „Tehnoloogia”
+    short_title: PRÕK lisa 7
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 7"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 7
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 8cec740ce9a224ad50d83a2c35289ecc367526b935886f61da6dd87379b63c8f }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to work and technology education in school stages I and II.
+  - source_id: ee-prok-2026-appendix-08
+    title_et: Ainevaldkond „Võõrkeeled”
+    short_title: PRÕK lisa 8
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 8"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 8
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 1931426f941f9073d67afbef020e9b89246c4c9a8ee79ec2d67374368615fe69 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Relevant to A- and B-foreign-language provision in school stages I and II.
+  - source_id: ee-prok-2026-appendix-09
+    title_et: Valikõppeaine „Ettevõtlusõpetus”
+    short_title: PRÕK lisa 9
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 9"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 9
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: ab74be2ae32056df46e57552d45234f9f3346b772860356b5597390c578ebc01 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Optional subject; not used to manufacture a mandatory Grade 2 or Grade 4 outcome.
+  - source_id: ee-prok-2026-appendix-10
+    title_et: Valikõppeaine „Informaatika”
+    short_title: PRÕK lisa 10
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 10"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 10
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: e017a6372e1716cd6b021d46a8ede33704d82643f435983cc97afe3e1d8028e5 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Optional subject with stage I and II guidance; not a current dedicated target route.
+  - source_id: ee-prok-2026-appendix-11
+    title_et: Valikõppeaine „Karjääriõpetus”
+    short_title: PRÕK lisa 11
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 11"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 11
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 18311f60f86996271996a668731dfa36538dd48e1b95a2f3a59d6d3d33e3fd2d }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Optional subject; general career-service changes are recorded separately in the change note.
+  - source_id: ee-prok-2026-appendix-12
+    title_et: Valikõppeaine „Usundiõpetus”
+    short_title: PRÕK lisa 12
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 12"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 12
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: d78f10912b95f9496b9f5910964d7bf8492be34607c7744393e4a0715b34c639 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Optional subject with stage I and II guidance; not a current dedicated target route.
+  - source_id: ee-prok-2026-appendix-13
+    title_et: Ainevaldkondade üleste valikõppeainete kavad
+    short_title: PRÕK lisa 13
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 13"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 13
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 8cb5dcdc4c8468f9e1b4cb2e6052ba4edce5e02a37e71e6ead879f9a9668ca81 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Optional cross-field plans; checked for stage applicability but not treated as mandatory target-route outcomes.
+  - source_id: ee-prok-2026-appendix-14
+    title_et: Õppekava läbivad teemad
+    short_title: PRÕK lisa 14
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "1 lisa 14"
+    original_adoption_date: 2011-01-06
+    publication_reference: RT I, 23.12.2025, 7
+    consolidated_act_identifier: "123122025007"
+    parent_source_id: ee-prok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025007
+    timeline_url: https://www.riigiteataja.ee/akt/123122025007?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025007/xml
+    appendix_identifier: Lisa 14
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 3cee06508212b6641a719c9c45df2a6e7764fd34bd72beb2a39a93f8d2b96088 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: The cross-curricular themes explicitly distinguish school stages I and II.
+  - source_id: ee-plrok-2026-appendix-01
+    title_et: Lihtsustatud õpe
+    short_title: PLRÕK lisa 1
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "182 lisa 1"
+    original_adoption_date: 2010-12-16
+    publication_reference: RT I, 23.12.2025, 5
+    consolidated_act_identifier: "123122025005"
+    parent_source_id: ee-plrok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025005
+    timeline_url: https://www.riigiteataja.ee/akt/123122025005?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025005/xml
+    appendix_identifier: Lisa 1
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 74ab4d123cce3a98139c0e30c3ce05a58fceb0a0c210bc77ba6956c1d0a4267e }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Authoritative exact-grade outcomes for the current Grade 4 simplified mathematics and human-studies routes.
+  - source_id: ee-plrok-2026-appendix-02
+    title_et: Toimetulekuõpe
+    short_title: PLRÕK lisa 2
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "182 lisa 2"
+    original_adoption_date: 2010-12-16
+    publication_reference: RT I, 23.12.2025, 5
+    consolidated_act_identifier: "123122025005"
+    parent_source_id: ee-plrok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025005
+    timeline_url: https://www.riigiteataja.ee/akt/123122025005?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025005/xml
+    appendix_identifier: Lisa 2
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 416925289610f3c5b2ab89ad53e7683688a09beb7e81b2dace1efd5b3fecce41 }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Inventoried, but not used by the current Grade 4 simplified routes.
+  - source_id: ee-plrok-2026-appendix-03
+    title_et: Hooldusõpe
+    short_title: PLRÕK lisa 3
+    issuer: Vabariigi Valitsus
+    act_type: määruse_lisa
+    regulation_number: "182 lisa 3"
+    original_adoption_date: 2010-12-16
+    publication_reference: RT I, 23.12.2025, 5
+    consolidated_act_identifier: "123122025005"
+    parent_source_id: ee-plrok-2026-09-01
+    version_effective_from: 2026-09-01
+    version_effective_to: null
+    applicable_school_years: [2026/27]
+    official_url: https://www.riigiteataja.ee/akt/123122025005
+    timeline_url: https://www.riigiteataja.ee/akt/123122025005?leiaKehtiv=
+    text_or_xml_url: https://www.riigiteataja.ee/public-api/api/v1/akt/123122025005/xml
+    appendix_identifier: Lisa 3
+    retrieved_on: 2026-07-28
+    content_identity: { algorithm: sha256, value: 544a30efd5b92242f7ccc41de24adeb61686d5d238ce631fd62119cb463de31d }
+    archived_excerpt: null
+    target_school_year_applicability: { school_year: 2026/27, status: applicable }
+    evidence_status: verified
+    verification_method: SHA-256 of the official PDF attachment embedded in the parent consolidated XML.
+    supersedes_or_compares_to: []
+    notes: Inventoried, but not used by the current Grade 4 simplified routes.
+completeness:
+  status: partial
+  declared_complete: false
+  declared_scope: Version identity and applicability of PGS, PRÕK, PLRÕK, home-learning and mandatory-school-record sources for Grade 2, Grade 4 and current simplified Grade 4 routes.
+  checked_documents:
+    - ee-pgs-2026-09-01
+    - ee-prok-2025-12-26
+    - ee-prok-2026-09-01
+    - ee-plrok-2025-12-26
+    - ee-plrok-2026-09-01
+    - ee-home-reg-2025-09-19
+    - ee-school-records-2025-09-01
+    - ee-curriculum-amendment-2025-06-25
+    - ee-curriculum-amendment-2025-12-23
+  checked_appendices:
+    - ee-prok-2026-appendix-01
+    - ee-prok-2026-appendix-02
+    - ee-prok-2026-appendix-03
+    - ee-prok-2026-appendix-04
+    - ee-prok-2026-appendix-05
+    - ee-prok-2026-appendix-06
+    - ee-prok-2026-appendix-07
+    - ee-prok-2026-appendix-08
+    - ee-prok-2026-appendix-09
+    - ee-prok-2026-appendix-10
+    - ee-prok-2026-appendix-11
+    - ee-prok-2026-appendix-12
+    - ee-prok-2026-appendix-13
+    - ee-prok-2026-appendix-14
+    - ee-plrok-2026-appendix-01
+    - ee-plrok-2026-appendix-02
+    - ee-plrok-2026-appendix-03
+  excluded_scope:
+    - Upper-secondary curriculum and vocational curriculum.
+    - Health-reason home learning and hospital teaching except where needed to distinguish the parent-requested route.
+    - School-specific policies not present in the national legal text.
+  known_gaps:
+    - A final pre-release legal refresh is required because amendments may still be published after 2026-07-28.
+    - The registry inventories every PRÕK and PLRÕK appendix, but the outcome framework intentionally extracts only stable downstream-relevant outcomes rather than every official outcome.
+  verification_date: 2026-07-28
+  next_review_due: 2026-08-28

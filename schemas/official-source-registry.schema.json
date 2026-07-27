@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/official-source-registry.schema.json",
+  "title": "Official regulatory source registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "registry_id",
+    "jurisdiction",
+    "target_school_year",
+    "source_hierarchy",
+    "sources",
+    "completeness"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "official_regulatory_source_registry" },
+    "registry_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "jurisdiction": { "const": "EE" },
+    "target_school_year": { "$ref": "#/$defs/targetSchoolYear" },
+    "source_hierarchy": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "riigi_teataja_consolidated_text",
+          "riigi_teataja_original_amendment",
+          "riigi_teataja_official_appendix",
+          "official_ministry_implementation_notice",
+          "repository_interpretation",
+          "instructional_evidence"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "completeness": { "$ref": "#/$defs/completeness" }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^20[0-9]{2}-[0-9]{2}-[0-9]{2}$" },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "targetSchoolYear": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["school_year", "starts_on", "ends_on"],
+      "properties": {
+        "school_year": { "const": "2026/27" },
+        "starts_on": { "const": "2026-09-01" },
+        "ends_on": { "const": "2027-08-31" }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "value": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "archivedExcerpt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "content_identity", "scope_note"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "content_identity": { "$ref": "#/$defs/identity" },
+        "scope_note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["school_year", "status"],
+      "properties": {
+        "school_year": { "const": "2026/27" },
+        "status": { "enum": ["applicable", "not_applicable", "partial", "ambiguous"] }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "title_et",
+        "short_title",
+        "issuer",
+        "act_type",
+        "regulation_number",
+        "original_adoption_date",
+        "publication_reference",
+        "consolidated_act_identifier",
+        "version_effective_from",
+        "version_effective_to",
+        "applicable_school_years",
+        "official_url",
+        "timeline_url",
+        "text_or_xml_url",
+        "appendix_identifier",
+        "retrieved_on",
+        "content_identity",
+        "archived_excerpt",
+        "target_school_year_applicability",
+        "evidence_status",
+        "verification_method",
+        "supersedes_or_compares_to",
+        "notes"
+      ],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "title_et": { "type": "string", "minLength": 1 },
+        "short_title": { "type": "string", "minLength": 1 },
+        "issuer": { "type": "string", "minLength": 1 },
+        "act_type": { "enum": ["seadus", "määrus", "määruse_lisa"] },
+        "regulation_number": { "type": ["string", "null"] },
+        "original_adoption_date": { "$ref": "#/$defs/date" },
+        "publication_reference": { "type": "string", "minLength": 1 },
+        "consolidated_act_identifier": { "type": "string", "pattern": "^[0-9]{5,}$" },
+        "parent_source_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "version_effective_from": { "$ref": "#/$defs/date" },
+        "version_effective_to": {
+          "oneOf": [
+            { "$ref": "#/$defs/date" },
+            { "type": "null" }
+          ]
+        },
+        "applicable_school_years": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^20[0-9]{2}/[0-9]{2}$" }
+        },
+        "official_url": { "type": "string", "pattern": "^https://www\\.riigiteataja\\.ee/akt/[0-9]+$" },
+        "timeline_url": { "type": "string", "pattern": "^https://www\\.riigiteataja\\.ee/akt/[0-9]+(?:\\?[^ ]*)?$" },
+        "text_or_xml_url": {
+          "type": "string",
+          "pattern": "^https://www\\.riigiteataja\\.ee/public-api/api/v1/akt/[0-9]+/xml$"
+        },
+        "appendix_identifier": { "type": ["string", "null"] },
+        "retrieved_on": { "$ref": "#/$defs/date" },
+        "content_identity": { "$ref": "#/$defs/identity" },
+        "archived_excerpt": {
+          "oneOf": [
+            { "$ref": "#/$defs/archivedExcerpt" },
+            { "type": "null" }
+          ]
+        },
+        "target_school_year_applicability": { "$ref": "#/$defs/applicability" },
+        "evidence_status": {
+          "enum": [
+            "verified",
+            "partial",
+            "missing",
+            "ambiguous",
+            "future_not_yet_effective",
+            "superseded_for_target_school_year"
+          ]
+        },
+        "verification_method": { "type": "string", "minLength": 1 },
+        "supersedes_or_compares_to": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        },
+        "notes": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "act_type": { "const": "määruse_lisa" } },
+            "required": ["act_type"]
+          },
+          "then": {
+            "required": ["parent_source_id"],
+            "properties": {
+              "parent_source_id": true
+            }
+          }
+        }
+      ]
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "declared_complete",
+        "declared_scope",
+        "checked_documents",
+        "checked_appendices",
+        "excluded_scope",
+        "known_gaps",
+        "verification_date",
+        "next_review_due"
+      ],
+      "properties": {
+        "status": { "enum": ["verified", "partial", "missing", "ambiguous"] },
+        "declared_complete": { "type": "boolean" },
+        "declared_scope": { "type": "string", "minLength": 1 },
+        "checked_documents": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "checked_appendices": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "excluded_scope": { "type": "array", "items": { "type": "string" } },
+        "known_gaps": { "type": "array", "items": { "type": "string" } },
+        "verification_date": { "$ref": "#/$defs/date" },
+        "next_review_due": { "$ref": "#/$defs/date" }
+      }
+    }
+  }
+}

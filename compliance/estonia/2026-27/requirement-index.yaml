@@ -1,0 +1,272 @@
+schema_version: "1.0"
+artifact_type: home_learning_requirement_index
+index_id: ee-2026-27-requirement-index
+target_school_year: 2026/27
+generated_from:
+  - compliance/estonia/2026-27/home-learning-baseline.yaml
+  - external-sources/official/estonia/2026-27/source-registry.yaml
+requirements:
+  - requirement_id: ee-home-reg-2025-assessment-arrangement
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 1
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: oversight_and_assessment
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-curriculum-preparation
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 2, esimene lause
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: individual_curriculum
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-curriculum-teachers-control
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 2, teine lause
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: individual_curriculum
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-decision-best-interest
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõiked 1 ja 5
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: eligibility_and_decision
+    obligation_holder: director
+    requirement_level: discretionary
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-decision-duration
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 4
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: eligibility_and_decision
+    obligation_holder: director
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-interruption-best-interest
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 3
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: interruption
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-interruption-other-barrier
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 4
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: interruption
+    obligation_holder: school
+    requirement_level: conditional
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-interruption-unmet-outcomes
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 1
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: interruption
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-interruption-unverifiable
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 1 punkt 2
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: interruption
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-monthly-control
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 2
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: oversight_and_assessment
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-parent-outcome-responsibility
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 1, esimene lause
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: responsibility_and_financing
+    obligation_holder: parent
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-refusal-grounds
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 6
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: eligibility_and_decision
+    obligation_holder: director
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-request-content
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 2, teine lause
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: eligibility_and_decision
+    obligation_holder: parent
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-request-deadline
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 5 lõige 2, esimene lause
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: eligibility_and_decision
+    obligation_holder: parent
+    requirement_level: conditional
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-return-next-school-day
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 8 lõige 2
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: interruption
+    obligation_holder: joint
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-school-learning-materials
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 1, teine lause
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: responsibility_and_financing
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-school-support-services
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 6 lõige 3
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: responsibility_and_financing
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-summary-grades
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 4
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: school_records
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-home-reg-2025-teaching-person-assessment-participation
+    source_id: ee-home-reg-2025-09-19
+    official_reference: määrus nr 6 § 7 lõige 3
+    effective_from: 2025-09-19
+    effective_to: null
+    scope: oversight_and_assessment
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-pgs-2026-home-learning-parent-financing
+    source_id: ee-pgs-2026-09-01
+    official_reference: PGS § 23 lõige 4
+    effective_from: 2026-09-01
+    effective_to: null
+    scope: responsibility_and_financing
+    obligation_holder: parent
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-pgs-2026-home-learning-parent-request
+    source_id: ee-pgs-2026-09-01
+    official_reference: PGS § 23 lõige 1 punkt 2
+    effective_from: 2026-09-01
+    effective_to: null
+    scope: eligibility_and_decision
+    obligation_holder: parent
+    requirement_level: conditional
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true
+  - requirement_id: ee-school-records-2025-home-learning-entry
+    source_id: ee-school-records-2025-09-01
+    official_reference: määrus nr 52 § 6 lõige 2
+    effective_from: 2025-09-01
+    effective_to: null
+    scope: school_records
+    obligation_holder: school
+    requirement_level: mandatory
+    evidence_status: verified
+    grade_2_relevant: true
+    grade_4_relevant: true
+    home_learning_relevant: true

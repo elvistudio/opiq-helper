@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/commercial-release-checklist.schema.json",
+  "title": "Commercial curriculum-compliance release checklist",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "checklist_id",
+    "target_school_year",
+    "applies_to_products",
+    "checks",
+    "release_status",
+    "non_guarantees"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "commercial_release_compliance_checklist" },
+    "checklist_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "target_school_year": { "const": "2026/27" },
+    "applies_to_products": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["grade_2", "grade_4", "foundation", "family", "commercial_course"] }
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "check_id",
+          "title_ru",
+          "status",
+          "release_blocking",
+          "evidence_refs",
+          "responsible_reviewer_role",
+          "notes"
+        ],
+        "properties": {
+          "check_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "title_ru": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["passed", "pending", "blocked", "not_applicable"] },
+          "release_blocking": { "type": "boolean" },
+          "evidence_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "responsible_reviewer_role": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "release_status": { "enum": ["blocked", "conditionally_ready", "ready"] },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}
