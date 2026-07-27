@@ -16,6 +16,7 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/audits/grade-4-source-intake.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
@@ -50,6 +51,7 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/audits/grade-4-source-intake.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
@@ -194,6 +196,12 @@ jobs:
 
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
+
+      - name: Test Grade 4 source intake audit
+        run: npm run test:grade-4-source-intake
+
+      - name: Check generated Grade 4 source intake audit
+        run: npm run check:grade-4-source-intake
 
       - name: Verify generated grade 2 source indexes
         run: npm run check:grade-2-sources
