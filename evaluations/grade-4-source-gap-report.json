@@ -1,0 +1,2574 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "grade-4-source-gap-report",
+  "report_id": "grade-4-source-gap-review-2026-07-27",
+  "issue_ref": "#41",
+  "base_commit": "3b0ffc5d6ad7ff1d96be2e44e35fa45ffbc22b41",
+  "verification_date": "2026-07-27",
+  "completeness_status": "complete_for_declared_filter",
+  "snapshot_path": "external-sources/opiq/grade-4-live-catalogue-2026-07-27.json",
+  "capture_methodology": {
+    "catalogue_url": "https://www.opiq.ee/Search/Kits?searchPhrase=&curriculumGroups=*&selectedkittype=*&classcourse=4&subject=&publishinghouse=&package=&language=&sortingorder=LanguageFirst",
+    "selected_filters": {
+      "search_phrase": "",
+      "curriculum_or_programme": "all",
+      "material_type": "all",
+      "grade": "4. klass",
+      "subject": "all",
+      "publisher": "all",
+      "package_or_access": "all",
+      "language": "all",
+      "sort_order": "LanguageFirst"
+    },
+    "displayed_result_count": 55,
+    "pages_observed": 1,
+    "all_result_pages_captured": true,
+    "stable_source_identity": {
+      "filter_identity": {
+        "algorithm": "sha256",
+        "value": "ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e",
+        "identity_input": "filters_count_ordered_kit_ids"
+      },
+      "metadata_identity": {
+        "algorithm": "sha256",
+        "value": "45dd1857ebcd953a7a38d5634e2f8702f1d25e145021df08c002fd8585c6f4a0",
+        "identity_input": "normalized_complete_record_metadata"
+      }
+    },
+    "direct_kit_details_reviewed": 55
+  },
+  "canonical_baseline": {
+    "route_count": 11,
+    "exclusively_allocated_kit_count": 31,
+    "canonical_instructional_record_count": 2212,
+    "supplied_zip_instructional_record_count": 2342,
+    "nonexclusive_instructional_record_count": 130,
+    "known_multi_grade_kit_ids": [
+      "161",
+      "200",
+      "476"
+    ],
+    "manifest_coverage_status": "partial_subject_bounded"
+  },
+  "summary": {
+    "total_live_kits": 55,
+    "canonical_student_kits": 31,
+    "known_nonexclusive_captured_kits": 3,
+    "newly_accounted_live_kits": 21,
+    "teacher_only_kits": 16,
+    "supplementary_or_multi_grade_kits": 8,
+    "new_exact_grade_4_student_candidates": 0
+  },
+  "discovery_breakdown": {
+    "preliminary_seed_kit_ids": [
+      "359",
+      "373",
+      "377",
+      "378",
+      "471",
+      "487",
+      "492",
+      "493",
+      "566"
+    ],
+    "additional_kit_ids_found_by_complete_filter": [
+      "231",
+      "324",
+      "348",
+      "349",
+      "350",
+      "411",
+      "416",
+      "444",
+      "445",
+      "465",
+      "474",
+      "506"
+    ]
+  },
+  "cross_evidence_review": [
+    {
+      "kit_id": "55",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4,
+        5
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "resolved_by_human_review",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "The Russian parallel kit 82 is explicitly Grade 4, and the immutable historical post-audit Kit Details evidence recorded kit 55 as Grade 4. Kit 55 and kit 82 are parallel Estonian/Russian versions of the same mixed human/society source.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "parallel_kit_82",
+        "project_decision_issue_41"
+      ]
+    },
+    {
+      "kit_id": "82",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "154",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "161",
+      "historical_grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "live_observed_grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "normalized_grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "multi_grade_no_exclusive_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "200",
+      "historical_grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "live_observed_grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "normalized_grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_non_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "206",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "332",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "476",
+      "historical_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "live_observed_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "normalized_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "multi_grade_no_exclusive_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    }
+  ],
+  "live_kit_inventory": [
+    {
+      "kit_id": "71",
+      "title": "Eesti keel 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "533",
+      "title": "Eesti keel 4. klassile 2024",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "493",
+      "title": "Eesti keel 4. klassile, e-tund",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "566",
+      "title": "Eesti keel 4. klassile, e-tund (2026)",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "154",
+      "title": "SINASÕPRUS KEELEGA",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "150",
+      "title": "TEELE. Eesti keel teise keelena 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "451",
+      "title": "High Five! 4",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "287",
+      "title": "Inimeseõpetus 4. klassile. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "161",
+      "title": "Kehalise kasvatuse tööraamat teisele kooliastmele",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "multi_grade_support",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "200",
+      "title": "Käsitöötuba",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "348",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü '-ga)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "349",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü märkmäldä)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "350",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü q-ga)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "11",
+      "title": "Loodusõpetus 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "108",
+      "title": "Loodusõpetus 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "480",
+      "title": "Loodusõpetus 4. klassile (2023)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "487",
+      "title": "Loodusõpetus 4. klassile, e-tund",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "492",
+      "title": "Loodusõpetus 4. klassile, e-tund (2023)",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "324",
+      "title": "Meie ise. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "373",
+      "title": "Meie kodukoht. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "377",
+      "title": "Meie linn ja vald. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "445",
+      "title": "Meie maakond ja riik. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "471",
+      "title": "Meie mini-minifirma. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "359",
+      "title": "Meie perekond. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "70",
+      "title": "Matemaatika 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "147",
+      "title": "MATEMAATIKA 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "588",
+      "title": "MATEMAATIKA 4. klassile (2025)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "460",
+      "title": "Matemaatika 4. klassile 2023 ÕK",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "378",
+      "title": "Matemaatika 4. klassile, e-tund",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "506",
+      "title": "Matemaatika 4. klassile, e-tund (2023 ÕK)",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "282",
+      "title": "Matemaatika 4. klassile. I osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "304",
+      "title": "Matemaatika 4. klassile. II osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "318",
+      "title": "Matemaatika 4. klassile. III osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "328",
+      "title": "Matemaatika 4. klassile. IV osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "206",
+      "title": "Muusikamaa lood",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "174",
+      "title": "Muusikaõpik 4. klassile",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "552",
+      "title": "Muusikaõpik 4. klassile 2024",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "476",
+      "title": "Arvjuhitavad seadmed (CNC)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "multi_grade_support",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "231",
+      "title": "Koduõpe",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "465",
+      "title": "Eesti Pärimusmuusika Keskuse õppevideod",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "55",
+      "title": "Inimene ja ühiskond. Õpik II kooliastmele, I osa",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "mixed_subject"
+      ]
+    },
+    {
+      "kit_id": "415",
+      "title": "РУССКОЕ СЛОВО. Чтение для 4 клacca",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "228",
+      "title": "Природоведение 4 класс",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "27",
+      "title": "Природоведение для 4 класса",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "536",
+      "title": "Природоведение для 4 класса (2023)",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "411",
+      "title": "Мы сами. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "444",
+      "title": "Наш район. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "474",
+      "title": "Наша мини-минифирма. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "416",
+      "title": "Наша семья. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "293",
+      "title": "МАТЕМАТИКА 4 класс",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "157",
+      "title": "Математика для 4 класса",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "243",
+      "title": "РУССКИЙ ЯЗЫК 4 класс",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "295",
+      "title": "Русский язык для 4 класса",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "82",
+      "title": "Человек и общество. Учебник для II ступени обучения, Часть I",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "mixed_subject"
+      ]
+    },
+    {
+      "kit_id": "332",
+      "title": "English step by step 2",
+      "material_type": "Õppekomplekt",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    }
+  ],
+  "captured_vs_live": [
+    {
+      "kit_id": "11",
+      "title": "Loodusõpetus 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-science",
+      "canonical_route_id": "grade-4-science",
+      "manifest_route_ids": [
+        "grade-4-science"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "27",
+      "title": "Природоведение для 4 класса",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-science",
+      "canonical_route_id": "grade-4-science",
+      "manifest_route_ids": [
+        "grade-4-science"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "55",
+      "title": "Inimene ja ühiskond. Õpik II kooliastmele, I osa",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "mixed_subject"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-human-studies-and-society",
+      "canonical_route_id": "grade-4-human-studies-and-society",
+      "manifest_route_ids": [
+        "grade-4-human-studies-and-society"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "70",
+      "title": "Matemaatika 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics",
+      "canonical_route_id": "grade-4-mathematics",
+      "manifest_route_ids": [
+        "grade-4-mathematics"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "71",
+      "title": "Eesti keel 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-estonian",
+      "canonical_route_id": "grade-4-estonian",
+      "manifest_route_ids": [
+        "grade-4-estonian"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "82",
+      "title": "Человек и общество. Учебник для II ступени обучения, Часть I",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "mixed_subject"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-human-studies-and-society",
+      "canonical_route_id": "grade-4-human-studies-and-society",
+      "manifest_route_ids": [
+        "grade-4-human-studies-and-society"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "108",
+      "title": "Loodusõpetus 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-science",
+      "canonical_route_id": "grade-4-science",
+      "manifest_route_ids": [
+        "grade-4-science"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "147",
+      "title": "MATEMAATIKA 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics",
+      "canonical_route_id": "grade-4-mathematics",
+      "manifest_route_ids": [
+        "grade-4-mathematics"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "150",
+      "title": "TEELE. Eesti keel teise keelena 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-estonian-second-language",
+      "canonical_route_id": "grade-4-estonian-second-language",
+      "manifest_route_ids": [
+        "grade-4-estonian-second-language"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "154",
+      "title": "SINASÕPRUS KEELEGA",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-estonian",
+      "canonical_route_id": "grade-4-estonian",
+      "manifest_route_ids": [
+        "grade-4-estonian"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "157",
+      "title": "Математика для 4 класса",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics",
+      "canonical_route_id": "grade-4-mathematics",
+      "manifest_route_ids": [
+        "grade-4-mathematics"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "161",
+      "title": "Kehalise kasvatuse tööraamat teisele kooliastmele",
+      "primary_classification": "multi_grade_support",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_noncanonical_support",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "not_assessed",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "none",
+      "next_action": "Keep non-exclusive support accounting without a new Grade 4 route."
+    },
+    {
+      "kit_id": "174",
+      "title": "Muusikaõpik 4. klassile",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-music",
+      "canonical_route_id": "grade-4-music",
+      "manifest_route_ids": [
+        "grade-4-music"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "200",
+      "title": "Käsitöötuba",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ],
+      "repository_capture_status": "captured_noncanonical_support",
+      "canonical_owner": "grade-2-arts-and-crafts",
+      "canonical_route_id": null,
+      "manifest_route_ids": [
+        "grade-2-arts-and-crafts"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "not_assessed",
+      "ownership_decision": "retain_existing_non_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain grade-2-arts-and-crafts ownership and Grade 4 shared-support accounting."
+    },
+    {
+      "kit_id": "206",
+      "title": "Muusikamaa lood",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-music",
+      "canonical_route_id": "grade-4-music",
+      "manifest_route_ids": [
+        "grade-4-music"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "228",
+      "title": "Природоведение 4 класс",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-science",
+      "canonical_route_id": "grade-4-science",
+      "manifest_route_ids": [
+        "grade-4-science"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "231",
+      "title": "Koduõpe",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "243",
+      "title": "РУССКИЙ ЯЗЫК 4 класс",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-russian",
+      "canonical_route_id": "grade-4-russian",
+      "manifest_route_ids": [
+        "grade-4-russian"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "282",
+      "title": "Matemaatika 4. klassile. I osa. Lihtsustatud õppekava",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics-simplified",
+      "canonical_route_id": "grade-4-mathematics-simplified",
+      "manifest_route_ids": [
+        "grade-4-mathematics-simplified"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "287",
+      "title": "Inimeseõpetus 4. klassile. Lihtsustatud õppekava",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-human-studies-simplified",
+      "canonical_route_id": "grade-4-human-studies-simplified",
+      "manifest_route_ids": [
+        "grade-4-human-studies-simplified"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "293",
+      "title": "МАТЕМАТИКА 4 класс",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics",
+      "canonical_route_id": "grade-4-mathematics",
+      "manifest_route_ids": [
+        "grade-4-mathematics"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "295",
+      "title": "Русский язык для 4 класса",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-russian",
+      "canonical_route_id": "grade-4-russian",
+      "manifest_route_ids": [
+        "grade-4-russian"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "304",
+      "title": "Matemaatika 4. klassile. II osa. Lihtsustatud õppekava",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics-simplified",
+      "canonical_route_id": "grade-4-mathematics-simplified",
+      "manifest_route_ids": [
+        "grade-4-mathematics-simplified"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "318",
+      "title": "Matemaatika 4. klassile. III osa. Lihtsustatud õppekava",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics-simplified",
+      "canonical_route_id": "grade-4-mathematics-simplified",
+      "manifest_route_ids": [
+        "grade-4-mathematics-simplified"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "324",
+      "title": "Meie ise. Õpetaja käsiraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "328",
+      "title": "Matemaatika 4. klassile. IV osa. Lihtsustatud õppekava",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics-simplified",
+      "canonical_route_id": "grade-4-mathematics-simplified",
+      "manifest_route_ids": [
+        "grade-4-mathematics-simplified"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "332",
+      "title": "English step by step 2",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-english",
+      "canonical_route_id": "grade-4-english",
+      "manifest_route_ids": [
+        "grade-4-english"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "348",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü '-ga)",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "349",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü märkmäldä)",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "350",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü q-ga)",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "359",
+      "title": "Meie perekond. Õpetaja käsiraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "373",
+      "title": "Meie kodukoht. Õpetaja käsiraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "377",
+      "title": "Meie linn ja vald. Õpetaja käsiraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "378",
+      "title": "Matemaatika 4. klassile, e-tund",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "teacher_material_capture_internal_only",
+      "next_action": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "411",
+      "title": "Мы сами. Пособие для учителя",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "415",
+      "title": "РУССКОЕ СЛОВО. Чтение для 4 клacca",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-russian-reading",
+      "canonical_route_id": "grade-4-russian-reading",
+      "manifest_route_ids": [
+        "grade-4-russian-reading"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "416",
+      "title": "Наша семья. Пособие для учителя",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "444",
+      "title": "Наш район. Пособие для учителя",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "445",
+      "title": "Meie maakond ja riik. Õpetaja käsiraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "451",
+      "title": "High Five! 4",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-english",
+      "canonical_route_id": "grade-4-english",
+      "manifest_route_ids": [
+        "grade-4-english"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "460",
+      "title": "Matemaatika 4. klassile 2023 ÕK",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics",
+      "canonical_route_id": "grade-4-mathematics",
+      "manifest_route_ids": [
+        "grade-4-mathematics"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "465",
+      "title": "Eesti Pärimusmuusika Keskuse õppevideod",
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [
+        "grade-2-music"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "471",
+      "title": "Meie mini-minifirma. Õpetaja käsiraamat",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "474",
+      "title": "Наша мини-минифирма. Пособие для учителя",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "metadata_only",
+      "next_action": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "476",
+      "title": "Arvjuhitavad seadmed (CNC)",
+      "primary_classification": "multi_grade_support",
+      "secondary_roles": [],
+      "repository_capture_status": "captured_noncanonical_support",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "not_assessed",
+      "ownership_decision": "multi_grade_no_exclusive_owner",
+      "recapture_decision": "none",
+      "next_action": "Keep non-exclusive support accounting without a new Grade 4 route."
+    },
+    {
+      "kit_id": "480",
+      "title": "Loodusõpetus 4. klassile (2023)",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-science",
+      "canonical_route_id": "grade-4-science",
+      "manifest_route_ids": [
+        "grade-4-science"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "487",
+      "title": "Loodusõpetus 4. klassile, e-tund",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "teacher_material_capture_internal_only",
+      "next_action": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "492",
+      "title": "Loodusõpetus 4. klassile, e-tund (2023)",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "teacher_material_capture_internal_only",
+      "next_action": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "493",
+      "title": "Eesti keel 4. klassile, e-tund",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "teacher_material_capture_internal_only",
+      "next_action": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "506",
+      "title": "Matemaatika 4. klassile, e-tund (2023 ÕK)",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "teacher_material_capture_internal_only",
+      "next_action": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "533",
+      "title": "Eesti keel 4. klassile 2024",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-estonian",
+      "canonical_route_id": "grade-4-estonian",
+      "manifest_route_ids": [
+        "grade-4-estonian"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "536",
+      "title": "Природоведение для 4 класса (2023)",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-science",
+      "canonical_route_id": "grade-4-science",
+      "manifest_route_ids": [
+        "grade-4-science"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "552",
+      "title": "Muusikaõpik 4. klassile 2024",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-music",
+      "canonical_route_id": "grade-4-music",
+      "manifest_route_ids": [
+        "grade-4-music"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "566",
+      "title": "Eesti keel 4. klassile, e-tund (2026)",
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ],
+      "repository_capture_status": "not_captured",
+      "canonical_owner": null,
+      "canonical_route_id": null,
+      "manifest_route_ids": [],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "metadata_only_live",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "not_captured",
+      "task_body_completeness": "not_captured",
+      "ownership_decision": "teacher_support_no_student_owner",
+      "recapture_decision": "teacher_material_capture_internal_only",
+      "next_action": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "588",
+      "title": "MATEMAATIKA 4. klassile (2025)",
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ],
+      "repository_capture_status": "captured_canonical",
+      "canonical_owner": "grade-4-mathematics",
+      "canonical_route_id": "grade-4-mathematics",
+      "manifest_route_ids": [
+        "grade-4-mathematics"
+      ],
+      "live_catalogue_status": "listed_in_declared_grade_4_filter",
+      "capture_completeness": "chapter_index_captured",
+      "metadata_completeness": "direct_kit_details_required_fields_captured",
+      "instructional_page_completeness": "chapter_index_only",
+      "task_body_completeness": "partial",
+      "ownership_decision": "retain_existing_grade_4_owner",
+      "recapture_decision": "none",
+      "next_action": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    }
+  ],
+  "newly_discovered_kits": [
+    "231",
+    "324",
+    "348",
+    "349",
+    "350",
+    "359",
+    "373",
+    "377",
+    "378",
+    "411",
+    "416",
+    "444",
+    "445",
+    "465",
+    "471",
+    "474",
+    "487",
+    "492",
+    "493",
+    "506",
+    "566"
+  ],
+  "teacher_support_inventory": [
+    "324",
+    "359",
+    "373",
+    "377",
+    "378",
+    "411",
+    "416",
+    "444",
+    "445",
+    "471",
+    "474",
+    "487",
+    "492",
+    "493",
+    "506",
+    "566"
+  ],
+  "student_source_gaps": [],
+  "multi_grade_shared_inventory": [
+    "161",
+    "200",
+    "231",
+    "348",
+    "349",
+    "350",
+    "465",
+    "476"
+  ],
+  "edition_relationships": [
+    {
+      "relationship_id": "estonian-student-editions",
+      "kit_ids": [
+        "71",
+        "533"
+      ],
+      "disposition": "preserve_separate_editions"
+    },
+    {
+      "relationship_id": "estonian-teacher-editions",
+      "kit_ids": [
+        "493",
+        "566"
+      ],
+      "disposition": "preserve_separate_teacher_editions"
+    },
+    {
+      "relationship_id": "science-avita-estonian-editions",
+      "kit_ids": [
+        "11",
+        "480"
+      ],
+      "disposition": "preserve_separate_editions"
+    },
+    {
+      "relationship_id": "science-avita-russian-editions",
+      "kit_ids": [
+        "27",
+        "536"
+      ],
+      "disposition": "preserve_separate_editions"
+    },
+    {
+      "relationship_id": "science-teacher-editions",
+      "kit_ids": [
+        "487",
+        "492"
+      ],
+      "disposition": "preserve_separate_teacher_editions"
+    },
+    {
+      "relationship_id": "mathematics-avita-editions",
+      "kit_ids": [
+        "70",
+        "460"
+      ],
+      "disposition": "preserve_separate_editions"
+    },
+    {
+      "relationship_id": "mathematics-koolibri-editions",
+      "kit_ids": [
+        "147",
+        "588"
+      ],
+      "disposition": "preserve_separate_editions"
+    },
+    {
+      "relationship_id": "mathematics-teacher-editions",
+      "kit_ids": [
+        "378",
+        "506"
+      ],
+      "disposition": "preserve_separate_teacher_editions"
+    },
+    {
+      "relationship_id": "music-avita-editions",
+      "kit_ids": [
+        "174",
+        "552"
+      ],
+      "disposition": "preserve_separate_editions"
+    }
+  ],
+  "ownership_decisions": [
+    {
+      "kit_id": "11",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "27",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "55",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "70",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "71",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "82",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "108",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "147",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "150",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "154",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "157",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "161",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "174",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "200",
+      "decision": "retain_existing_non_grade_4_owner"
+    },
+    {
+      "kit_id": "206",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "228",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "231",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "243",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "282",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "287",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "293",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "295",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "304",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "318",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "324",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "328",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "332",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "348",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "349",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "350",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "359",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "373",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "377",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "378",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "411",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "415",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "416",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "444",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "445",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "451",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "460",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "465",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "471",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "474",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "476",
+      "decision": "multi_grade_no_exclusive_owner"
+    },
+    {
+      "kit_id": "480",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "487",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "492",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "493",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "506",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "533",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "536",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "552",
+      "decision": "retain_existing_grade_4_owner"
+    },
+    {
+      "kit_id": "566",
+      "decision": "teacher_support_no_student_owner"
+    },
+    {
+      "kit_id": "588",
+      "decision": "retain_existing_grade_4_owner"
+    }
+  ],
+  "recapture_decisions": [
+    {
+      "kit_id": "11",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "27",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "55",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "70",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "71",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "82",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "108",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "147",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "150",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "154",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "157",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "161",
+      "decision": "none",
+      "purpose": "Keep non-exclusive support accounting without a new Grade 4 route."
+    },
+    {
+      "kit_id": "174",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "200",
+      "decision": "none",
+      "purpose": "Retain grade-2-arts-and-crafts ownership and Grade 4 shared-support accounting."
+    },
+    {
+      "kit_id": "206",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "228",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "231",
+      "decision": "metadata_only",
+      "purpose": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "243",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "282",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "287",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "293",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "295",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "304",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "318",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "324",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "328",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "332",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "348",
+      "decision": "metadata_only",
+      "purpose": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "349",
+      "decision": "metadata_only",
+      "purpose": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "350",
+      "decision": "metadata_only",
+      "purpose": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "359",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "373",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "377",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "378",
+      "decision": "teacher_material_capture_internal_only",
+      "purpose": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "411",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "415",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "416",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "444",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "445",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "451",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "460",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "465",
+      "decision": "metadata_only",
+      "purpose": "Keep as non-exclusive supplementary metadata; assess selected chapters only in a separate instructional need."
+    },
+    {
+      "kit_id": "471",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "474",
+      "decision": "metadata_only",
+      "purpose": "Keep teacher-only and multi-grade; catalogue metadata is sufficient for this audit."
+    },
+    {
+      "kit_id": "476",
+      "decision": "none",
+      "purpose": "Keep non-exclusive support accounting without a new Grade 4 route."
+    },
+    {
+      "kit_id": "480",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "487",
+      "decision": "teacher_material_capture_internal_only",
+      "purpose": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "492",
+      "decision": "teacher_material_capture_internal_only",
+      "purpose": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "493",
+      "decision": "teacher_material_capture_internal_only",
+      "purpose": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "506",
+      "decision": "teacher_material_capture_internal_only",
+      "purpose": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "533",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "536",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "552",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    },
+    {
+      "kit_id": "566",
+      "decision": "teacher_material_capture_internal_only",
+      "purpose": "Keep teacher-only; capture internally only if an authorised teacher workflow requires it."
+    },
+    {
+      "kit_id": "588",
+      "decision": "none",
+      "purpose": "Retain the current route; any later task-body recapture is lesson-authoring evidence, not catalogue accounting."
+    }
+  ],
+  "historical_artifact_hashes": [
+    {
+      "artifact_path": "docs/audits/grade-4-canonical-source-import.md",
+      "sha256": "ad53966529a6b5a4927cc7e74bf1024488790659e61676376706f0cd895b21ea",
+      "unchanged": true
+    },
+    {
+      "artifact_path": "docs/audits/grade-4-source-intake.md",
+      "sha256": "cbde4d4d7ebc8372b2b66a41ab7415752425738ce0891e2f0bb7df4cf8c0ab88",
+      "unchanged": true
+    },
+    {
+      "artifact_path": "evaluations/grade-4-kit-details-evidence.json",
+      "sha256": "3e82ea03d02f7a858165344884006cd041d6a4028ac1ab56f427480cf5bde0c1",
+      "unchanged": true
+    },
+    {
+      "artifact_path": "evaluations/grade-4-source-intake.json",
+      "sha256": "29972ee2df6ceaa08d76af71e345167a923db79c3c4379333ec8036843505b54",
+      "unchanged": true
+    },
+    {
+      "artifact_path": "source-manifest.json",
+      "sha256": "036e178a800f9462e90abfc6dfea7943b5392a11d896f0ea240d438d9bab3197",
+      "unchanged": true
+    }
+  ],
+  "immutable_archive_verification": {
+    "archive_count": 10,
+    "all_hashes_and_sizes_current": true
+  },
+  "blockers": [
+    {
+      "code": "official_curriculum_completeness_out_of_scope",
+      "message": "Catalogue completeness does not establish official curriculum completeness; that remains dependent on #37."
+    },
+    {
+      "code": "canonical_task_bodies_partially_captured",
+      "message": "Some canonical task bodies remain incomplete for lesson authoring, but no task-body recapture is required for catalogue accounting."
+    }
+  ],
+  "issue_41_closure_recommendation": "ready_after_review_and_merge_for_catalogue_capture_scope",
+  "non_guarantees": [
+    "No claim of complete official curriculum coverage is made.",
+    "No claim is made about authenticated, unpublished, withdrawn, hidden, or future Opiq catalogue entries.",
+    "No complete chapter prose, task body, answer key, illustration, or interactive content was captured.",
+    "Teacher materials were classified but not approved for student-facing use.",
+    "No pedagogical effectiveness, legal access entitlement, or production readiness is claimed."
+  ]
+}

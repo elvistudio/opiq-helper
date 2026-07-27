@@ -1,0 +1,3174 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "grade-4-live-catalogue-snapshot",
+  "snapshot_id": "grade-4-live-catalogue-2026-07-27",
+  "verified_on": "2026-07-27",
+  "completeness_status": "complete_for_declared_filter",
+  "catalogue_interface": {
+    "url": "https://www.opiq.ee/Search/Kits?searchPhrase=&curriculumGroups=*&selectedkittype=*&classcourse=4&subject=&publishinghouse=&package=&language=&sortingorder=LanguageFirst",
+    "capture_method": "public_varamu_filter_and_direct_kit_details_review",
+    "selected_filters": {
+      "search_phrase": "",
+      "curriculum_or_programme": "all",
+      "material_type": "all",
+      "grade": "4. klass",
+      "subject": "all",
+      "publisher": "all",
+      "package_or_access": "all",
+      "language": "all",
+      "sort_order": "LanguageFirst"
+    },
+    "pagination": {
+      "pages_observed": 1,
+      "all_result_pages_captured": true,
+      "pagination_controls_present": false
+    },
+    "displayed_result_count": 55,
+    "material_type_breakdown": {
+      "learning_kits": 39,
+      "teacher_books": 16
+    },
+    "stable_source_identity": {
+      "filter_identity": {
+        "algorithm": "sha256",
+        "value": "ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e",
+        "identity_input": "filters_count_ordered_kit_ids"
+      },
+      "metadata_identity": {
+        "algorithm": "sha256",
+        "value": "45dd1857ebcd953a7a38d5634e2f8702f1d25e145021df08c002fd8585c6f4a0",
+        "identity_input": "normalized_complete_record_metadata"
+      }
+    }
+  },
+  "evidence_sources": [
+    {
+      "evidence_ref": "catalogue-filter-grade-4-all",
+      "evidence_type": "catalogue_filter_evidence",
+      "url": "https://www.opiq.ee/Search/Kits?searchPhrase=&curriculumGroups=*&selectedkittype=*&classcourse=4&subject=&publishinghouse=&package=&language=&sortingorder=LanguageFirst",
+      "verified_on": "2026-07-27",
+      "note": "The public Grade 4 filter displayed 55 results on one page with no pagination controls."
+    },
+    {
+      "evidence_ref": "direct-kit-details-all-55",
+      "evidence_type": "direct_live_evidence",
+      "url": "https://www.opiq.ee/Kit/Details/{kit_id}",
+      "verified_on": "2026-07-27",
+      "note": "All 55 public Kit Details pages were reviewed for structured metadata and counts."
+    },
+    {
+      "evidence_ref": "repository-grade-4-capture",
+      "evidence_type": "repository_capture_evidence",
+      "url": null,
+      "verified_on": "2026-07-27",
+      "note": "The immutable ten-ZIP intake, post-intake evidence, canonical route policy, and source manifest were compared locally."
+    },
+    {
+      "evidence_ref": "historical_post_audit_kit_details",
+      "evidence_type": "manual_review_evidence",
+      "url": null,
+      "verified_on": "2026-07-27",
+      "note": "Immutable evaluations/grade-4-kit-details-evidence.json records kit 55 as Grade 4 after the ZIP intake."
+    },
+    {
+      "evidence_ref": "parallel_kit_82",
+      "evidence_type": "derived_comparison",
+      "url": "https://www.opiq.ee/Kit/Details/82",
+      "verified_on": "2026-07-27",
+      "note": "Russian parallel kit 82 is explicitly Grade 4 and remains routed with kit 55 in the mixed human/society source route."
+    },
+    {
+      "evidence_ref": "project_decision_issue_41",
+      "evidence_type": "manual_review_evidence",
+      "url": "https://github.com/elvistudio/opiq-helper/issues/41",
+      "verified_on": "2026-07-27",
+      "note": "Project normalization decision for the Grade 4 catalogue audit; it does not alter the raw public observation."
+    }
+  ],
+  "records": [
+    {
+      "kit_id": "71",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/71",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Eesti keel 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Eesti keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Kaja Sarapuu, Liisi Piits, Kristiina Orgla, Kati Lepp, Jaak Urmet, Lauri Vanamölder"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 135,
+      "task_count": 813,
+      "textbook_task_count": 390,
+      "task_collection_task_count": 423,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "533",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/533",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Eesti keel 4. klassile 2024",
+      "material_type": "Õppekomplekt",
+      "subject": "Eesti keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Kaja Sarapuu, Liisi Piits, Kristiina Orgla, Kati Lepp, Jaak Urmet, Lauri Vanamölder, Kärt Normann"
+      ],
+      "edition_or_year": "2024",
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 129,
+      "task_count": 835,
+      "textbook_task_count": 488,
+      "task_collection_task_count": 347,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "493",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/493",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Eesti keel 4. klassile, e-tund",
+      "material_type": "Õpetajaraamat",
+      "subject": "Eesti keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Maire Aher, Terje Varul, Katrin Puik"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "exact_grade_4_teacher_or_e_tund",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "—",
+      "chapter_count": 177,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "566",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/566",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Eesti keel 4. klassile, e-tund (2026)",
+      "material_type": "Õpetajaraamat",
+      "subject": "Eesti keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Maire Aher, Terje Varul, Katrin Puik, Kärt Normann, Inga Kirs, Madli Kütt"
+      ],
+      "edition_or_year": "2026",
+      "programme_or_support_role": "exact_grade_4_teacher_or_e_tund",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "—",
+      "chapter_count": 178,
+      "task_count": 1,
+      "textbook_task_count": 1,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "154",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/154",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "SINASÕPRUS KEELEGA",
+      "material_type": "Õppekomplekt",
+      "subject": "Eesti keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Helin Puksand, Reet Bobõlski"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 137,
+      "task_count": 512,
+      "textbook_task_count": 29,
+      "task_collection_task_count": 483,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "150",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/150",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "TEELE. Eesti keel teise keelena 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Eesti keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Pille Pipar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 117,
+      "task_count": 405,
+      "textbook_task_count": 56,
+      "task_collection_task_count": 349,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "451",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/451",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "High Five! 4",
+      "material_type": "Õppekomplekt",
+      "subject": "Inglise keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Mari Kalaja, Niina Korpela, Raija Kuja-Kyyny-Pajula, Jamie Mäkinen, Päivi Pelli-Kouvo"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 95,
+      "task_count": 1151,
+      "textbook_task_count": 958,
+      "task_collection_task_count": 193,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "287",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/287",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Inimeseõpetus 4. klassile. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "subject": "Inimeseõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "SA Innove, HARNO",
+      "authors": [
+        "Merit Nukka, Siiri Jõgi"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "simplified_curriculum_student_source",
+      "curriculum_labels": [
+        "Põhikooli lihtsustatud riiklik õppekava 2010"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 56,
+      "task_count": 403,
+      "textbook_task_count": 388,
+      "task_collection_task_count": 15,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "161",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/161",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Kehalise kasvatuse tööraamat teisele kooliastmele",
+      "material_type": "Õppekomplekt",
+      "subject": "Kehaline kasvatus",
+      "grade_scope": {
+        "observed": [
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Karin Kütt, Ulvi Sarapuu"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "school_stage_ii_physical_education_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 22,
+      "task_count": 97,
+      "textbook_task_count": 61,
+      "task_collection_task_count": 36,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "multi_grade_support",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "200",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/200",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Käsitöötuba",
+      "material_type": "Õppekomplekt",
+      "subject": "Kunstiõpetus, tööõpetus",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Tiiu Kivirähk"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "shared_supplementary_arts_and_crafts",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 85,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "348",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/348",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü '-ga)",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Hergi Karik, Aivo Saar, Kalle Sirel"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "multi_grade_supplementary_or_shared",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 78,
+      "task_count": 472,
+      "textbook_task_count": 232,
+      "task_collection_task_count": 240,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "349",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/349",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü märkmäldä)",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Hergi Karik, Aivo Saar, Kalle Sirel"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "multi_grade_supplementary_or_shared",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 78,
+      "task_count": 472,
+      "textbook_task_count": 232,
+      "task_collection_task_count": 240,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "350",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/350",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü q-ga)",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Hergi Karik, Aivo Saar, Kalle Sirel"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "multi_grade_supplementary_or_shared",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 78,
+      "task_count": 472,
+      "textbook_task_count": 232,
+      "task_collection_task_count": 240,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "11",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/11",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Loodusõpetus 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Tiina Elvisto, Vahur Laug, Mart Kuurme, Alar Läänelaid, Tiina Stamm"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 54,
+      "task_count": 449,
+      "textbook_task_count": 226,
+      "task_collection_task_count": 223,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "108",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/108",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Loodusõpetus 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Sirje Kaljula, Aivo Saar, Kalle Sirel"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 66,
+      "task_count": 646,
+      "textbook_task_count": 287,
+      "task_collection_task_count": 359,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "480",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/480",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Loodusõpetus 4. klassile (2023)",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Tiina Elvisto, Mart Kuurme, Vahur Laug, Alar Läänelaid, Tiina Stamm"
+      ],
+      "edition_or_year": "2023",
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 50,
+      "task_count": 365,
+      "textbook_task_count": 243,
+      "task_collection_task_count": 122,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "487",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/487",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Loodusõpetus 4. klassile, e-tund",
+      "material_type": "Õpetajaraamat",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Kristjan Rea, Brit Peensoo. (Õpiku ja töövihiku autorid Mart Kuurme, Vahur Laug, Tiina Elvisto, Alar Läänelaid, Tiina Stamm, Marina Meleško)"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "exact_grade_4_teacher_or_e_tund",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "—",
+      "chapter_count": 72,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "492",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/492",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Loodusõpetus 4. klassile, e-tund (2023)",
+      "material_type": "Õpetajaraamat",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Kristjan Rea, Brit Peensoo, Helen Hiiemaa (Õpiku ja töövihiku autorid Tiina Elvisto, Mart Kuurme, Vahur Laug, Alar Läänelaid, Tiina Stamm, Helen Hiiemaa)"
+      ],
+      "edition_or_year": "2023",
+      "programme_or_support_role": "exact_grade_4_teacher_or_e_tund",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "—",
+      "chapter_count": 74,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "324",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/324",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Meie ise. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 14,
+      "task_count": 5,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 5,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "373",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/373",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Meie kodukoht. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar, Gunnar Hunt"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 18,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "377",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/377",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Meie linn ja vald. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 25,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "445",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/445",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Meie maakond ja riik. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 23,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "471",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/471",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Meie mini-minifirma. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 16,
+      "task_count": 6,
+      "textbook_task_count": 1,
+      "task_collection_task_count": 5,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "359",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/359",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Meie perekond. Õpetaja käsiraamat",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 22,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "70",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/70",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Kalju Kaasik, Malle Saks"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 132,
+      "task_count": 2623,
+      "textbook_task_count": 2020,
+      "task_collection_task_count": 603,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "147",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/147",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "MATEMAATIKA 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Endel Noor, Enn Nurk, Aksel Telgmaa"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 62,
+      "task_count": 5051,
+      "textbook_task_count": 2501,
+      "task_collection_task_count": 2550,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "588",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/588",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "MATEMAATIKA 4. klassile (2025)",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Tiiu Kaljas, Endel Noor, Enn Nurk, Aksel Telgmaa"
+      ],
+      "edition_or_year": "2025",
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 60,
+      "task_count": 1969,
+      "textbook_task_count": 1443,
+      "task_collection_task_count": 526,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "460",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/460",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile 2023 ÕK",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Kalju Kaasik, Malle Saks"
+      ],
+      "edition_or_year": "2023",
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 129,
+      "task_count": 2632,
+      "textbook_task_count": 1817,
+      "task_collection_task_count": 815,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "378",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/378",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile, e-tund",
+      "material_type": "Õpetajaraamat",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Malle Saks, Ülle Liivaoja, Pirgit Palm, Madli Rööp, Ann-Mari Koppel, Jelena Pjatkova, Liile Jõgi"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "exact_grade_4_teacher_or_e_tund",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "—",
+      "chapter_count": 148,
+      "task_count": 31,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 31,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "506",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/506",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile, e-tund (2023 ÕK)",
+      "material_type": "Õpetajaraamat",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Malle Saks, Ülle Liivaoja, Pirgit Palm, Madli Rööp, Ann-Mari Koppel, Jelena Pjatkova"
+      ],
+      "edition_or_year": "2023",
+      "programme_or_support_role": "exact_grade_4_teacher_or_e_tund",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": "—",
+      "chapter_count": 152,
+      "task_count": 38,
+      "textbook_task_count": 4,
+      "task_collection_task_count": 34,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "edition_or_replacement",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "282",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/282",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile. I osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "SA Innove, HARNO",
+      "authors": [
+        "Kadri Männiksaar, Lii Helmet"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "simplified_curriculum_student_source",
+      "curriculum_labels": [
+        "Põhikooli lihtsustatud riiklik õppekava 2010"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 41,
+      "task_count": 377,
+      "textbook_task_count": 377,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "304",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/304",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile. II osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "SA Innove, HARNO",
+      "authors": [
+        "Kadri Männiksaar, Lii Helmet"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "simplified_curriculum_student_source",
+      "curriculum_labels": [
+        "Põhikooli lihtsustatud riiklik õppekava 2010"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 32,
+      "task_count": 343,
+      "textbook_task_count": 343,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "318",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/318",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile. III osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "SA Innove, HARNO",
+      "authors": [
+        "Kadri Männiksaar, Lii Helmet"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "simplified_curriculum_student_source",
+      "curriculum_labels": [
+        "Põhikooli lihtsustatud riiklik õppekava 2010"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 40,
+      "task_count": 613,
+      "textbook_task_count": 613,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "328",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/328",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Matemaatika 4. klassile. IV osa. Lihtsustatud õppekava",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "SA Innove, HARNO",
+      "authors": [
+        "Kadri Männiksaar, Lii Helmet"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "simplified_curriculum_student_source",
+      "curriculum_labels": [
+        "Põhikooli lihtsustatud riiklik õppekava 2010"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 29,
+      "task_count": 331,
+      "textbook_task_count": 331,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "simplified_curriculum"
+      ]
+    },
+    {
+      "kit_id": "206",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/206",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Muusikamaa lood",
+      "material_type": "Õppekomplekt",
+      "subject": "Muusikaõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Kai Anier, Maia Muldma"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 96,
+      "task_count": 66,
+      "textbook_task_count": 18,
+      "task_collection_task_count": 48,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "174",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/174",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Muusikaõpik 4. klassile",
+      "material_type": "Õppekomplekt",
+      "subject": "Muusikaõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Monika Pullerits, Liivi Urbel"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 39,
+      "task_count": 192,
+      "textbook_task_count": 153,
+      "task_collection_task_count": 39,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "552",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/552",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Muusikaõpik 4. klassile 2024",
+      "material_type": "Õppekomplekt",
+      "subject": "Muusikaõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Monika Pullerits, Liivi Urbel"
+      ],
+      "edition_or_year": "2024",
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 39,
+      "task_count": 192,
+      "textbook_task_count": 153,
+      "task_collection_task_count": 39,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "476",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/476",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Arvjuhitavad seadmed (CNC)",
+      "material_type": "Õppekomplekt",
+      "subject": "Tehnoloogiaõpetus",
+      "grade_scope": {
+        "observed": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Merkuur",
+      "authors": [
+        "Snapmaker Technology Co., Ltd"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "multi_grade_technology_instructional_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 23,
+      "task_count": 1,
+      "textbook_task_count": 1,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "multi_grade_support",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "231",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/231",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Koduõpe",
+      "material_type": "Õppekomplekt",
+      "subject": "Varia",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Avita"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "multi_grade_supplementary_or_shared",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 27,
+      "task_count": 26,
+      "textbook_task_count": 13,
+      "task_collection_task_count": 13,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "465",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/465",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Eesti Pärimusmuusika Keskuse õppevideod",
+      "material_type": "Õppekomplekt",
+      "subject": "Ühiskonnaõpetus, eesti keel, geograafia, ajalugu, inimese- ja ühiskonnaõpetus, kirjandus, muusikaõpetus, varia",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Eesti Pärimusmuusika Keskus MTÜ",
+      "authors": [
+        "Kaja Kaus, Cätlin Mägi"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "multi_grade_supplementary_or_shared",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "Tasuta",
+      "chapter_count": 33,
+      "task_count": 46,
+      "textbook_task_count": 24,
+      "task_collection_task_count": 22,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "supplementary_shared",
+      "secondary_roles": [
+        "supplementary_shared"
+      ]
+    },
+    {
+      "kit_id": "55",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/55",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Inimene ja ühiskond. Õpik II kooliastmele, I osa",
+      "material_type": "Õppekomplekt",
+      "subject": "Ühiskonnaõpetus, inimese- ja ühiskonnaõpetus, inimeseõpetus",
+      "grade_scope": {
+        "observed": [
+          4,
+          5
+        ],
+        "normalized": [
+          4
+        ],
+        "normalization": {
+          "status": "human_reviewed",
+          "decision": "treat_as_grade_4_only",
+          "reason_code": "probable_catalogue_metadata_typo",
+          "rationale": "The Russian parallel kit 82 is explicitly Grade 4, and the immutable historical post-audit Kit Details evidence recorded kit 55 as Grade 4. Kit 55 and kit 82 are parallel Estonian/Russian versions of the same mixed human/society source.",
+          "supporting_evidence": [
+            "historical_post_audit_kit_details",
+            "parallel_kit_82",
+            "project_decision_issue_41"
+          ],
+          "supporting_kit_ids": [
+            "82"
+          ],
+          "limitations": [
+            "This human-reviewed normalization controls repository routing only; the raw live observation [4, 5] remains preserved and is not recharacterized."
+          ]
+        }
+      },
+      "languages": [
+        "Eesti keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Anu Aavik, Toivo Aavik, Jüri Allik, Lembit Andresen, Mari-Liis Auler, Igor Gräzin, Kenn Konstabel, Marika Paaver, Mihkel Zilmer"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "mixed_subject_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 32,
+      "task_count": 192,
+      "textbook_task_count": 64,
+      "task_collection_task_count": 128,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "mixed_subject"
+      ]
+    },
+    {
+      "kit_id": "415",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/415",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "РУССКОЕ СЛОВО. Чтение для 4 клacca",
+      "material_type": "Õppekomplekt",
+      "subject": "Kirjandus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Айме Матсина, Надежда Пароль"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 34,
+      "task_count": 34,
+      "textbook_task_count": 18,
+      "task_collection_task_count": 16,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "228",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/228",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Природоведение 4 класс",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Сирье Кальюла, Айво Саар"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 66,
+      "task_count": 624,
+      "textbook_task_count": 286,
+      "task_collection_task_count": 338,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "27",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/27",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Природоведение для 4 класса",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Тийна Элвисто, Вахур Лауг, Март Куурме, Алар Ляэнелайд, Тийна Стамм"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 55,
+      "task_count": 448,
+      "textbook_task_count": 225,
+      "task_collection_task_count": 223,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "536",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/536",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Природоведение для 4 класса (2023)",
+      "material_type": "Õppekomplekt",
+      "subject": "Loodusõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Tiina Elvisto, Mart Kuurme, Vahur Laug, Alar Läänelaid, Tiina Stamm"
+      ],
+      "edition_or_year": "2023",
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 50,
+      "task_count": 365,
+      "textbook_task_count": 243,
+      "task_collection_task_count": 122,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "edition_or_replacement"
+      ]
+    },
+    {
+      "kit_id": "411",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/411",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Мы сами. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 14,
+      "task_count": 5,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 5,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "444",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/444",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Наш район. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar, Gunnar Hunt"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 18,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "474",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/474",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Наша мини-минифирма. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 16,
+      "task_count": 6,
+      "textbook_task_count": 1,
+      "task_collection_task_count": 5,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "416",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/416",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Наша семья. Пособие для учителя",
+      "material_type": "Õpetajaraamat",
+      "subject": "Majandus- ja ettevõtlusõpe",
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Junior Achievement Eesti SA",
+      "authors": [
+        "Silja Enok, Margit Luts, Elbe Metsatalu, Janno Siimar"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "grades_1_to_6_entrepreneurship_teacher_support",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": "„7 sammu“ käsiraamatud õpetajale, „7 sammu“ käsiraamatud õpilasele",
+      "chapter_count": 22,
+      "task_count": 0,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 0,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "teacher_only",
+      "secondary_roles": [
+        "multi_grade_support",
+        "teacher_support"
+      ]
+    },
+    {
+      "kit_id": "293",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/293",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "МАТЕМАТИКА 4 класс",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Аксель Тельгмаа, Эндель Ноор, Энн Нурк"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 63,
+      "task_count": 5048,
+      "textbook_task_count": 2500,
+      "task_collection_task_count": 2548,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "157",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/157",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Математика для 4 класса",
+      "material_type": "Õppekomplekt",
+      "subject": "Matemaatika",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Калью Каасик"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 123,
+      "task_count": 2425,
+      "textbook_task_count": 1865,
+      "task_collection_task_count": 560,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "243",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/243",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "РУССКИЙ ЯЗЫК 4 класс",
+      "material_type": "Õppekomplekt",
+      "subject": "Vene keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Ирина Логвина, Светлана Минакова"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 91,
+      "task_count": 340,
+      "textbook_task_count": 140,
+      "task_collection_task_count": 200,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "295",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/295",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Русский язык для 4 класса",
+      "material_type": "Õppekomplekt",
+      "subject": "Vene keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Елена Тимофеева, Карина Росс"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 76,
+      "task_count": 725,
+      "textbook_task_count": 525,
+      "task_collection_task_count": 200,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    },
+    {
+      "kit_id": "82",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/82",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "Человек и общество. Учебник для II ступени обучения, Часть I",
+      "material_type": "Õppekomplekt",
+      "subject": "Ühiskonnaõpetus, inimese- ja ühiskonnaõpetus",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Vene keel"
+      ],
+      "publisher": "Avita",
+      "authors": [
+        "Ану Аавик, Тойво Аавик, Юри Аллик, Лембит Андресен, Мари-Лийс Аулер, Игорь Грязин, Кенн Констабель, Марика Паавер, Михкель Зильмер"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "mixed_subject_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011"
+      ],
+      "package_or_access": null,
+      "chapter_count": 32,
+      "task_count": 138,
+      "textbook_task_count": 44,
+      "task_collection_task_count": 94,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": [
+        "mixed_subject"
+      ]
+    },
+    {
+      "kit_id": "332",
+      "kit_details_url": "https://www.opiq.ee/Kit/Details/332",
+      "verified_on": "2026-07-27",
+      "capture_method": "direct_public_kit_details_and_catalogue_filter_review",
+      "evidence_status": "direct_live_evidence",
+      "title": "English step by step 2",
+      "material_type": "Õppekomplekt",
+      "subject": "Inglise keel",
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
+      "languages": [
+        "Inglise keel"
+      ],
+      "publisher": "Koolibri",
+      "authors": [
+        "Mari Peets, Kristi Tork-Sarapuu, Maris Niine"
+      ],
+      "edition_or_year": null,
+      "programme_or_support_role": "canonical_grade_4_student_source",
+      "curriculum_labels": [
+        "Riiklik õppekava 2011",
+        "Riiklik õppekava 2023"
+      ],
+      "package_or_access": null,
+      "chapter_count": 69,
+      "task_count": 260,
+      "textbook_task_count": 0,
+      "task_collection_task_count": 260,
+      "catalogue_filters": {
+        "search_phrase": "",
+        "curriculum_or_programme": "all",
+        "material_type": "all",
+        "grade": "4. klass",
+        "subject": "all",
+        "publisher": "all",
+        "package_or_access": "all",
+        "language": "all",
+        "sort_order": "LanguageFirst"
+      },
+      "source_evidence_refs": [
+        "catalogue-filter-grade-4-all",
+        "direct-kit-details-all-55"
+      ],
+      "evidence_limitations": [
+        "Public catalogue metadata and counts only; no chapter prose, task bodies, illustrations, answer keys, or authenticated content were captured."
+      ],
+      "primary_classification": "canonical_student_source",
+      "secondary_roles": []
+    }
+  ],
+  "limitations": [
+    "Completeness applies only to the exact public Grade 4 filter and verification date.",
+    "No claim is made about authenticated, unpublished, hidden, withdrawn, or future catalogue material.",
+    "Catalogue inclusion is not proof of official curriculum completeness, source quality, or pedagogical effectiveness."
+  ]
+}
