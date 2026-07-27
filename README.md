@@ -4,7 +4,7 @@
 
 ## Current coverage
 
-The repository currently contains indexes for grades 1, 2, 3, 5, 6, and 7. Grade 4 is not present.
+The repository currently contains indexes for grades 1 through 7. Grade 4 has eleven subject-bounded canonical routes; the dated [live-catalogue gap review](docs/audits/grade-4-live-catalogue-gap-review.md) records their public-catalogue reconciliation without claiming official-curriculum completeness.
 
 The represented subjects are:
 

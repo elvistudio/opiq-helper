@@ -22,6 +22,7 @@ const legacyGeneration = {
 
 const controlledFields = new Set([
   'qa_schema_version',
+  'artifact_type',
   'source_id',
   'source_archive',
   'output_file',
@@ -125,6 +126,9 @@ for (const source of manifest?.sources || []) {
       : legacyGeneration;
     const updated = {
       qa_schema_version: '1.0',
+      ...(Object.hasOwn(existing, 'artifact_type')
+        ? { artifact_type: existing.artifact_type }
+        : {}),
       source_id: source.id,
       source_archive: source.source_archive,
       output_file: source.md_path,

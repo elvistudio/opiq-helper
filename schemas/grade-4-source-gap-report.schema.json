@@ -1,0 +1,405 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/grade-4-source-gap-report.schema.json",
+  "title": "Grade 4 captured-versus-live source gap report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "report_id",
+    "issue_ref",
+    "base_commit",
+    "verification_date",
+    "completeness_status",
+    "snapshot_path",
+    "capture_methodology",
+    "canonical_baseline",
+    "summary",
+    "discovery_breakdown",
+    "live_kit_inventory",
+    "captured_vs_live",
+    "newly_discovered_kits",
+    "teacher_support_inventory",
+    "student_source_gaps",
+    "multi_grade_shared_inventory",
+    "edition_relationships",
+    "ownership_decisions",
+    "recapture_decisions",
+    "historical_artifact_hashes",
+    "immutable_archive_verification",
+    "blockers",
+    "issue_41_closure_recommendation",
+    "non_guarantees"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "#/$defs/version" },
+    "artifact_type": { "const": "grade-4-source-gap-report" },
+    "report_id": { "$ref": "#/$defs/nonEmptyString" },
+    "issue_ref": { "const": "#41" },
+    "base_commit": { "$ref": "#/$defs/sha" },
+    "verification_date": { "$ref": "#/$defs/date" },
+    "completeness_status": { "$ref": "#/$defs/completenessStatus" },
+    "snapshot_path": { "$ref": "#/$defs/repositoryPath" },
+    "capture_methodology": { "$ref": "#/$defs/captureMethodology" },
+    "canonical_baseline": { "$ref": "#/$defs/canonicalBaseline" },
+    "summary": { "$ref": "#/$defs/summary" },
+    "discovery_breakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preliminary_seed_kit_ids", "additional_kit_ids_found_by_complete_filter"],
+      "properties": {
+        "preliminary_seed_kit_ids": { "$ref": "#/$defs/kitIdArray" },
+        "additional_kit_ids_found_by_complete_filter": { "$ref": "#/$defs/kitIdArray" }
+      }
+    },
+    "live_kit_inventory": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/inventoryRow" }
+    },
+    "captured_vs_live": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/comparisonRow" }
+    },
+    "newly_discovered_kits": { "$ref": "#/$defs/kitIdArray" },
+    "teacher_support_inventory": { "$ref": "#/$defs/kitIdArray" },
+    "student_source_gaps": { "$ref": "#/$defs/kitIdArray" },
+    "multi_grade_shared_inventory": { "$ref": "#/$defs/kitIdArray" },
+    "edition_relationships": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/editionRelationship" }
+    },
+    "ownership_decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/ownershipDecision" }
+    },
+    "recapture_decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/recaptureDecision" }
+    },
+    "historical_artifact_hashes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/hashRecord" }
+    },
+    "immutable_archive_verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["archive_count", "all_hashes_and_sizes_current"],
+      "properties": {
+        "archive_count": { "type": "integer", "minimum": 1 },
+        "all_hashes_and_sizes_current": { "const": true }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/blocker" }
+    },
+    "issue_41_closure_recommendation": {
+      "enum": [
+        "not_ready",
+        "ready_after_review_and_merge_for_catalogue_capture_scope"
+      ]
+    },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "nullableString": { "type": ["string", "null"], "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+[.][0-9]+$" },
+    "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "sha": { "type": "string", "pattern": "^[a-f0-9]{40,64}$" },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?!.*\\\\)[^\\u0000]+$"
+    },
+    "kitId": { "type": "string", "pattern": "^[0-9]+$" },
+    "kitIdArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/kitId" }
+    },
+    "completenessStatus": {
+      "enum": [
+        "complete_for_declared_filter",
+        "partial_public_discovery",
+        "partial_manual_snapshot",
+        "blocked_authentication_or_pagination",
+        "unknown_completeness"
+      ]
+    },
+    "filters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "search_phrase",
+        "curriculum_or_programme",
+        "material_type",
+        "grade",
+        "subject",
+        "publisher",
+        "package_or_access",
+        "language",
+        "sort_order"
+      ],
+      "properties": {
+        "search_phrase": { "type": "string" },
+        "curriculum_or_programme": { "$ref": "#/$defs/nonEmptyString" },
+        "material_type": { "$ref": "#/$defs/nonEmptyString" },
+        "grade": { "$ref": "#/$defs/nonEmptyString" },
+        "subject": { "$ref": "#/$defs/nonEmptyString" },
+        "publisher": { "$ref": "#/$defs/nonEmptyString" },
+        "package_or_access": { "$ref": "#/$defs/nonEmptyString" },
+        "language": { "$ref": "#/$defs/nonEmptyString" },
+        "sort_order": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "stableIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "value", "identity_input"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "value": { "$ref": "#/$defs/sha" },
+        "identity_input": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "captureMethodology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "catalogue_url",
+        "selected_filters",
+        "displayed_result_count",
+        "pages_observed",
+        "all_result_pages_captured",
+        "stable_source_identity",
+        "direct_kit_details_reviewed"
+      ],
+      "properties": {
+        "catalogue_url": { "type": "string", "pattern": "^https://[^\\s]+$" },
+        "selected_filters": { "$ref": "#/$defs/filters" },
+        "displayed_result_count": { "type": "integer", "minimum": 0 },
+        "pages_observed": { "type": "integer", "minimum": 1 },
+        "all_result_pages_captured": { "type": "boolean" },
+        "stable_source_identity": { "$ref": "#/$defs/stableIdentity" },
+        "direct_kit_details_reviewed": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "canonicalBaseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_count",
+        "exclusively_allocated_kit_count",
+        "canonical_instructional_record_count",
+        "supplied_zip_instructional_record_count",
+        "nonexclusive_instructional_record_count",
+        "known_multi_grade_kit_ids",
+        "manifest_coverage_status"
+      ],
+      "properties": {
+        "route_count": { "type": "integer", "minimum": 0 },
+        "exclusively_allocated_kit_count": { "type": "integer", "minimum": 0 },
+        "canonical_instructional_record_count": { "type": "integer", "minimum": 0 },
+        "supplied_zip_instructional_record_count": { "type": "integer", "minimum": 0 },
+        "nonexclusive_instructional_record_count": { "type": "integer", "minimum": 0 },
+        "known_multi_grade_kit_ids": { "$ref": "#/$defs/kitIdArray" },
+        "manifest_coverage_status": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_live_kits",
+        "canonical_student_kits",
+        "known_nonexclusive_captured_kits",
+        "newly_accounted_live_kits",
+        "teacher_only_kits",
+        "supplementary_or_multi_grade_kits",
+        "new_exact_grade_4_student_candidates"
+      ],
+      "properties": {
+        "total_live_kits": { "type": "integer", "minimum": 0 },
+        "canonical_student_kits": { "type": "integer", "minimum": 0 },
+        "known_nonexclusive_captured_kits": { "type": "integer", "minimum": 0 },
+        "newly_accounted_live_kits": { "type": "integer", "minimum": 0 },
+        "teacher_only_kits": { "type": "integer", "minimum": 0 },
+        "supplementary_or_multi_grade_kits": { "type": "integer", "minimum": 0 },
+        "new_exact_grade_4_student_candidates": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "classification": {
+      "enum": [
+        "canonical_student_source",
+        "captured_student_source_not_canonical",
+        "missing_student_source_candidate",
+        "teacher_support",
+        "teacher_only",
+        "multi_grade_support",
+        "supplementary_shared",
+        "simplified_curriculum",
+        "mixed_subject",
+        "edition_or_replacement",
+        "obsolete_or_superseded_candidate",
+        "detail_only_or_no_instructional_capture",
+        "unknown"
+      ]
+    },
+    "classificationArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/classification" }
+    },
+    "inventoryRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kit_id", "title", "material_type", "primary_classification", "secondary_roles"],
+      "properties": {
+        "kit_id": { "$ref": "#/$defs/kitId" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "material_type": { "$ref": "#/$defs/nonEmptyString" },
+        "primary_classification": { "$ref": "#/$defs/classification" },
+        "secondary_roles": { "$ref": "#/$defs/classificationArray" }
+      }
+    },
+    "ownership": {
+      "enum": [
+        "retain_existing_grade_4_owner",
+        "retain_existing_non_grade_4_owner",
+        "teacher_support_no_student_owner",
+        "multi_grade_no_exclusive_owner",
+        "candidate_new_grade_4_route",
+        "candidate_add_to_existing_grade_4_route",
+        "candidate_edition_replacement",
+        "exclude_non_instructional",
+        "block_pending_evidence"
+      ]
+    },
+    "recapture": {
+      "enum": [
+        "none",
+        "metadata_only",
+        "kit_details_and_cover",
+        "chapter_index_only",
+        "selected_chapter_capture",
+        "selected_task_body_capture",
+        "full_instructional_capture",
+        "teacher_material_capture_internal_only",
+        "do_not_capture",
+        "blocked_access"
+      ]
+    },
+    "comparisonRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kit_id",
+        "title",
+        "primary_classification",
+        "secondary_roles",
+        "repository_capture_status",
+        "canonical_owner",
+        "canonical_route_id",
+        "manifest_route_ids",
+        "live_catalogue_status",
+        "capture_completeness",
+        "metadata_completeness",
+        "instructional_page_completeness",
+        "task_body_completeness",
+        "ownership_decision",
+        "recapture_decision",
+        "next_action"
+      ],
+      "properties": {
+        "kit_id": { "$ref": "#/$defs/kitId" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "primary_classification": { "$ref": "#/$defs/classification" },
+        "secondary_roles": { "$ref": "#/$defs/classificationArray" },
+        "repository_capture_status": {
+          "enum": ["captured_canonical", "captured_noncanonical_support", "not_captured"]
+        },
+        "canonical_owner": { "$ref": "#/$defs/nullableString" },
+        "canonical_route_id": { "$ref": "#/$defs/nullableString" },
+        "manifest_route_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "live_catalogue_status": { "const": "listed_in_declared_grade_4_filter" },
+        "capture_completeness": { "enum": ["chapter_index_captured", "metadata_only_live"] },
+        "metadata_completeness": { "$ref": "#/$defs/nonEmptyString" },
+        "instructional_page_completeness": { "enum": ["chapter_index_only", "not_captured"] },
+        "task_body_completeness": { "enum": ["partial", "not_assessed", "not_captured"] },
+        "ownership_decision": { "$ref": "#/$defs/ownership" },
+        "recapture_decision": { "$ref": "#/$defs/recapture" },
+        "next_action": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "editionRelationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relationship_id", "kit_ids", "disposition"],
+      "properties": {
+        "relationship_id": { "$ref": "#/$defs/nonEmptyString" },
+        "kit_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/kitId" }
+        },
+        "disposition": {
+          "enum": ["preserve_separate_editions", "preserve_separate_teacher_editions"]
+        }
+      }
+    },
+    "ownershipDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kit_id", "decision"],
+      "properties": {
+        "kit_id": { "$ref": "#/$defs/kitId" },
+        "decision": { "$ref": "#/$defs/ownership" }
+      }
+    },
+    "recaptureDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kit_id", "decision", "purpose"],
+      "properties": {
+        "kit_id": { "$ref": "#/$defs/kitId" },
+        "decision": { "$ref": "#/$defs/recapture" },
+        "purpose": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "hashRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_path", "sha256", "unchanged"],
+      "properties": {
+        "artifact_path": { "$ref": "#/$defs/repositoryPath" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "unchanged": { "const": true }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "$ref": "#/$defs/nonEmptyString" },
+        "message": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    }
+  }
+}
