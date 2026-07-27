@@ -29,9 +29,16 @@
       "teacher_books": 16
     },
     "stable_source_identity": {
-      "algorithm": "sha256",
-      "value": "ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e",
-      "identity_input": "canonical filter fields, displayed count, and ordered kit IDs"
+      "filter_identity": {
+        "algorithm": "sha256",
+        "value": "ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e",
+        "identity_input": "filters_count_ordered_kit_ids"
+      },
+      "metadata_identity": {
+        "algorithm": "sha256",
+        "value": "45dd1857ebcd953a7a38d5634e2f8702f1d25e145021df08c002fd8585c6f4a0",
+        "identity_input": "normalized_complete_record_metadata"
+      }
     }
   },
   "evidence_sources": [
@@ -55,6 +62,27 @@
       "url": null,
       "verified_on": "2026-07-27",
       "note": "The immutable ten-ZIP intake, post-intake evidence, canonical route policy, and source manifest were compared locally."
+    },
+    {
+      "evidence_ref": "historical_post_audit_kit_details",
+      "evidence_type": "manual_review_evidence",
+      "url": null,
+      "verified_on": "2026-07-27",
+      "note": "Immutable evaluations/grade-4-kit-details-evidence.json records kit 55 as Grade 4 after the ZIP intake."
+    },
+    {
+      "evidence_ref": "parallel_kit_82",
+      "evidence_type": "derived_comparison",
+      "url": "https://www.opiq.ee/Kit/Details/82",
+      "verified_on": "2026-07-27",
+      "note": "Russian parallel kit 82 is explicitly Grade 4 and remains routed with kit 55 in the mixed human/society source route."
+    },
+    {
+      "evidence_ref": "project_decision_issue_41",
+      "evidence_type": "manual_review_evidence",
+      "url": "https://github.com/elvistudio/opiq-helper/issues/41",
+      "verified_on": "2026-07-27",
+      "note": "Project normalization decision for the Grade 4 catalogue audit; it does not alter the raw public observation."
     }
   ],
   "records": [
@@ -67,9 +95,11 @@
       "title": "Eesti keel 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Eesti keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -118,9 +148,11 @@
       "title": "Eesti keel 4. klassile 2024",
       "material_type": "Õppekomplekt",
       "subject": "Eesti keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -170,9 +202,11 @@
       "title": "Eesti keel 4. klassile, e-tund",
       "material_type": "Õpetajaraamat",
       "subject": "Eesti keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -224,9 +258,11 @@
       "title": "Eesti keel 4. klassile, e-tund (2026)",
       "material_type": "Õpetajaraamat",
       "subject": "Eesti keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -277,9 +313,11 @@
       "title": "SINASÕPRUS KEELEGA",
       "material_type": "Õppekomplekt",
       "subject": "Eesti keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -328,9 +366,11 @@
       "title": "TEELE. Eesti keel teise keelena 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Eesti keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -379,9 +419,11 @@
       "title": "High Five! 4",
       "material_type": "Õppekomplekt",
       "subject": "Inglise keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -430,9 +472,11 @@
       "title": "Inimeseõpetus 4. klassile. Lihtsustatud õppekava",
       "material_type": "Õppekomplekt",
       "subject": "Inimeseõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -482,11 +526,13 @@
       "title": "Kehalise kasvatuse tööraamat teisele kooliastmele",
       "material_type": "Õppekomplekt",
       "subject": "Kehaline kasvatus",
-      "grade_scope": [
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -534,12 +580,14 @@
       "title": "Käsitöötuba",
       "material_type": "Õppekomplekt",
       "subject": "Kunstiõpetus, tööõpetus",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -589,14 +637,16 @@
       "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü '-ga)",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -647,14 +697,16 @@
       "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü märkmäldä)",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -705,14 +757,16 @@
       "title": "Luudusoppus noorõmbalõ kooliiäle (kakkõhelü q-ga)",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -763,9 +817,11 @@
       "title": "Loodusõpetus 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -815,9 +871,11 @@
       "title": "Loodusõpetus 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -866,9 +924,11 @@
       "title": "Loodusõpetus 4. klassile (2023)",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -918,9 +978,11 @@
       "title": "Loodusõpetus 4. klassile, e-tund",
       "material_type": "Õpetajaraamat",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -971,9 +1033,11 @@
       "title": "Loodusõpetus 4. klassile, e-tund (2023)",
       "material_type": "Õpetajaraamat",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1024,14 +1088,16 @@
       "title": "Meie ise. Õpetaja käsiraamat",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1082,14 +1148,16 @@
       "title": "Meie kodukoht. Õpetaja käsiraamat",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1140,14 +1208,16 @@
       "title": "Meie linn ja vald. Õpetaja käsiraamat",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1198,14 +1268,16 @@
       "title": "Meie maakond ja riik. Õpetaja käsiraamat",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1256,14 +1328,16 @@
       "title": "Meie mini-minifirma. Õpetaja käsiraamat",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1314,14 +1388,16 @@
       "title": "Meie perekond. Õpetaja käsiraamat",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1372,9 +1448,11 @@
       "title": "Matemaatika 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1422,9 +1500,11 @@
       "title": "MATEMAATIKA 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1473,9 +1553,11 @@
       "title": "MATEMAATIKA 4. klassile (2025)",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1525,9 +1607,11 @@
       "title": "Matemaatika 4. klassile 2023 ÕK",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1575,9 +1659,11 @@
       "title": "Matemaatika 4. klassile, e-tund",
       "material_type": "Õpetajaraamat",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1628,9 +1714,11 @@
       "title": "Matemaatika 4. klassile, e-tund (2023 ÕK)",
       "material_type": "Õpetajaraamat",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1681,9 +1769,11 @@
       "title": "Matemaatika 4. klassile. I osa. Lihtsustatud õppekava",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1733,9 +1823,11 @@
       "title": "Matemaatika 4. klassile. II osa. Lihtsustatud õppekava",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1785,9 +1877,11 @@
       "title": "Matemaatika 4. klassile. III osa. Lihtsustatud õppekava",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1837,9 +1931,11 @@
       "title": "Matemaatika 4. klassile. IV osa. Lihtsustatud õppekava",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1889,9 +1985,11 @@
       "title": "Muusikamaa lood",
       "material_type": "Õppekomplekt",
       "subject": "Muusikaõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1940,9 +2038,11 @@
       "title": "Muusikaõpik 4. klassile",
       "material_type": "Õppekomplekt",
       "subject": "Muusikaõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -1992,9 +2092,11 @@
       "title": "Muusikaõpik 4. klassile 2024",
       "material_type": "Õppekomplekt",
       "subject": "Muusikaõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -2044,14 +2146,16 @@
       "title": "Arvjuhitavad seadmed (CNC)",
       "material_type": "Õppekomplekt",
       "subject": "Tehnoloogiaõpetus",
-      "grade_scope": [
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
+      "grade_scope": {
+        "observed": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -2099,17 +2203,19 @@
       "title": "Koduõpe",
       "material_type": "Õppekomplekt",
       "subject": "Varia",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -2159,17 +2265,19 @@
       "title": "Eesti Pärimusmuusika Keskuse õppevideod",
       "material_type": "Õppekomplekt",
       "subject": "Ühiskonnaõpetus, eesti keel, geograafia, ajalugu, inimese- ja ühiskonnaõpetus, kirjandus, muusikaõpetus, varia",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -2219,10 +2327,32 @@
       "title": "Inimene ja ühiskond. Õpik II kooliastmele, I osa",
       "material_type": "Õppekomplekt",
       "subject": "Ühiskonnaõpetus, inimese- ja ühiskonnaõpetus, inimeseõpetus",
-      "grade_scope": [
-        4,
-        5
-      ],
+      "grade_scope": {
+        "observed": [
+          4,
+          5
+        ],
+        "normalized": [
+          4
+        ],
+        "normalization": {
+          "status": "human_reviewed",
+          "decision": "treat_as_grade_4_only",
+          "reason_code": "probable_catalogue_metadata_typo",
+          "rationale": "The Russian parallel kit 82 is explicitly Grade 4, and the immutable historical post-audit Kit Details evidence recorded kit 55 as Grade 4. Kit 55 and kit 82 are parallel Estonian/Russian versions of the same mixed human/society source.",
+          "supporting_evidence": [
+            "historical_post_audit_kit_details",
+            "parallel_kit_82",
+            "project_decision_issue_41"
+          ],
+          "supporting_kit_ids": [
+            "82"
+          ],
+          "limitations": [
+            "This human-reviewed normalization controls repository routing only; the raw live observation [4, 5] remains preserved and is not recharacterized."
+          ]
+        }
+      },
       "languages": [
         "Eesti keel"
       ],
@@ -2273,9 +2403,11 @@
       "title": "РУССКОЕ СЛОВО. Чтение для 4 клacca",
       "material_type": "Õppekomplekt",
       "subject": "Kirjandus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2324,9 +2456,11 @@
       "title": "Природоведение 4 класс",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2375,9 +2509,11 @@
       "title": "Природоведение для 4 класса",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2427,9 +2563,11 @@
       "title": "Природоведение для 4 класса (2023)",
       "material_type": "Õppekomplekt",
       "subject": "Loodusõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2479,14 +2617,16 @@
       "title": "Мы сами. Пособие для учителя",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2537,14 +2677,16 @@
       "title": "Наш район. Пособие для учителя",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2595,14 +2737,16 @@
       "title": "Наша мини-минифирма. Пособие для учителя",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2653,14 +2797,16 @@
       "title": "Наша семья. Пособие для учителя",
       "material_type": "Õpetajaraamat",
       "subject": "Majandus- ja ettevõtlusõpe",
-      "grade_scope": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
+      "grade_scope": {
+        "observed": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2711,9 +2857,11 @@
       "title": "МАТЕМАТИКА 4 класс",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2762,9 +2910,11 @@
       "title": "Математика для 4 класса",
       "material_type": "Õppekomplekt",
       "subject": "Matemaatika",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2812,9 +2962,11 @@
       "title": "РУССКИЙ ЯЗЫК 4 класс",
       "material_type": "Õppekomplekt",
       "subject": "Vene keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2863,9 +3015,11 @@
       "title": "Русский язык для 4 класса",
       "material_type": "Õppekomplekt",
       "subject": "Vene keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2913,9 +3067,11 @@
       "title": "Человек и общество. Учебник для II ступени обучения, Часть I",
       "material_type": "Õppekomplekt",
       "subject": "Ühiskonnaõpetus, inimese- ja ühiskonnaõpetus",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Vene keel"
       ],
@@ -2965,9 +3121,11 @@
       "title": "English step by step 2",
       "material_type": "Õppekomplekt",
       "subject": "Inglise keel",
-      "grade_scope": [
-        4
-      ],
+      "grade_scope": {
+        "observed": [
+          4
+        ]
+      },
       "languages": [
         "Inglise keel"
       ],

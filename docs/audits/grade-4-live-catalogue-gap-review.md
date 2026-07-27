@@ -4,7 +4,7 @@ Verified: 2026-07-27
 
 ## Executive summary
 
-The exact public Grade 4 Varamu filter returned **55** results on one page: **39 learning kits** and **16 teacher books**. The snapshot is `complete_for_declared_filter` for that exact filter because the URL, every selected filter, result count, sort order, pagination state, all result IDs, verification date, capture method, and a stable evidence identity are recorded.
+The exact public Grade 4 Varamu filter returned **55** results on one page: **39 learning kits** and **16 teacher books**. The snapshot is `complete_for_declared_filter` for that exact filter because the URL, every selected filter, result count, sort order, pagination state, all result IDs, verification date, capture method, filter identity, and complete metadata identity are recorded.
 
 The inventory reconciles to **31 canonical student kits**, **3 known captured shared/support kits**, and **21 additional live kits**. The additional set contains 16 teacher-only books and five multi-grade/supplementary kits. There are **0 new exact Grade 4 student-source candidates**.
 
@@ -17,6 +17,15 @@ This is a catalogue-accounting result, not an official-curriculum completeness, 
 - The result list had one observed page and no pagination controls.
 - Every result was checked against its public Kit Details page for title, type, subject, grades, languages, publisher, byline, curriculum labels, access/package and counts.
 - Repository comparison covered all eleven current Grade 4 routes, the three captured shared/support kits, all ten immutable ZIPs, all manifest routes, and the post-intake Kit Details evidence.
+- The dated JSON snapshot is the authoritative evidence input. The generator reads it and writes only this derived report and audit.
+
+## Evidence identities and Grade 4 normalization
+
+The filter identity is `ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e`; it covers the filter, displayed count, and ordered kit IDs. The metadata identity is `45dd1857ebcd953a7a38d5634e2f8702f1d25e145021df08c002fd8585c6f4a0`; it covers every normalized metadata field, classification, and normalization decision.
+
+Kit 55 preserves the live observation `[4, 5]` and separately records the human-reviewed routing normalization `[4]`. The historical post-audit evidence and Russian parallel kit 82 both support retaining `grade-4-human-studies-and-society` ownership. The live Grade 5 value is treated as a probable catalogue metadata typo, not erased or represented as if it had never been observed.
+
+The machine report contains `cross_evidence_review` for every kit present in the immutable historical Kit Details evidence. Kit 55 is `resolved_by_human_review`; the other compared records are `consistent`.
 
 ## Current canonical coverage
 

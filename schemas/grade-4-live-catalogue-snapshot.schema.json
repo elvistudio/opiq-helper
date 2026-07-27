@@ -89,6 +89,15 @@
         "identity_input": { "$ref": "#/$defs/nonEmptyString" }
       }
     },
+    "stableSourceIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["filter_identity", "metadata_identity"],
+      "properties": {
+        "filter_identity": { "$ref": "#/$defs/stableIdentity" },
+        "metadata_identity": { "$ref": "#/$defs/stableIdentity" }
+      }
+    },
     "catalogueInterface": {
       "type": "object",
       "additionalProperties": false,
@@ -125,7 +134,7 @@
             "teacher_books": { "type": "integer", "minimum": 0 }
           }
         },
-        "stable_source_identity": { "$ref": "#/$defs/stableIdentity" }
+        "stable_source_identity": { "$ref": "#/$defs/stableSourceIdentity" }
       }
     },
     "evidenceSource": {
@@ -170,6 +179,61 @@
         "detail_only_or_no_instructional_capture",
         "unknown"
       ]
+    },
+    "gradeArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+    },
+    "gradeScopeNormalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "decision",
+        "reason_code",
+        "rationale",
+        "supporting_evidence",
+        "supporting_kit_ids",
+        "limitations"
+      ],
+      "properties": {
+        "status": { "const": "human_reviewed" },
+        "decision": { "$ref": "#/$defs/nonEmptyString" },
+        "reason_code": { "$ref": "#/$defs/nonEmptyString" },
+        "rationale": { "$ref": "#/$defs/nonEmptyString" },
+        "supporting_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "supporting_kit_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[0-9]+$" }
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "gradeScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observed"],
+      "dependentRequired": {
+        "normalized": ["normalization"],
+        "normalization": ["normalized"]
+      },
+      "properties": {
+        "observed": { "$ref": "#/$defs/gradeArray" },
+        "normalized": { "$ref": "#/$defs/gradeArray" },
+        "normalization": { "$ref": "#/$defs/gradeScopeNormalization" }
+      }
     },
     "liveRecord": {
       "type": "object",
@@ -219,12 +283,7 @@
         "title": { "$ref": "#/$defs/nonEmptyString" },
         "material_type": { "$ref": "#/$defs/nonEmptyString" },
         "subject": { "$ref": "#/$defs/nullableString" },
-        "grade_scope": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": { "type": "integer", "minimum": 1, "maximum": 12 }
-        },
+        "grade_scope": { "$ref": "#/$defs/gradeScope" },
         "languages": {
           "type": "array",
           "minItems": 1,

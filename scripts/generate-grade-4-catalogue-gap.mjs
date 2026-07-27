@@ -48,7 +48,6 @@ if (semanticDiagnostics.length > 0) {
 
 if (check) {
   for (const [artifactPath, expected] of [
-    [catalogueSnapshotPath, artifacts.snapshotJson],
     [catalogueGapReportPath, artifacts.reportJson],
     [catalogueGapAuditPath, artifacts.markdown],
   ]) {
@@ -58,13 +57,12 @@ if (check) {
     `Grade 4 catalogue-gap artifacts are current: ${artifacts.report.summary.total_live_kits} live kits; ${artifacts.report.completeness_status}.\n`,
   );
 } else {
-  for (const artifactPath of [catalogueSnapshotPath, catalogueGapReportPath, catalogueGapAuditPath]) {
+  for (const artifactPath of [catalogueGapReportPath, catalogueGapAuditPath]) {
     await mkdir(path.dirname(path.join(rootDir, artifactPath)), { recursive: true });
   }
-  await writeFile(path.join(rootDir, catalogueSnapshotPath), artifacts.snapshotJson);
   await writeFile(path.join(rootDir, catalogueGapReportPath), artifacts.reportJson);
   await writeFile(path.join(rootDir, catalogueGapAuditPath), artifacts.markdown);
   process.stdout.write(
-    `Generated ${catalogueSnapshotPath}, ${catalogueGapReportPath}, and ${catalogueGapAuditPath}.\n`,
+    `Validated authoritative ${catalogueSnapshotPath}; generated ${catalogueGapReportPath} and ${catalogueGapAuditPath}.\n`,
   );
 }

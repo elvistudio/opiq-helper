@@ -24,9 +24,16 @@
     "pages_observed": 1,
     "all_result_pages_captured": true,
     "stable_source_identity": {
-      "algorithm": "sha256",
-      "value": "ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e",
-      "identity_input": "canonical filter fields, displayed count, and ordered kit IDs"
+      "filter_identity": {
+        "algorithm": "sha256",
+        "value": "ef472722fe673196b197e27b02df781febf1074cc4fd44666085ea4a49da6c5e",
+        "identity_input": "filters_count_ordered_kit_ids"
+      },
+      "metadata_identity": {
+        "algorithm": "sha256",
+        "value": "45dd1857ebcd953a7a38d5634e2f8702f1d25e145021df08c002fd8585c6f4a0",
+        "identity_input": "normalized_complete_record_metadata"
+      }
     },
     "direct_kit_details_reviewed": 55
   },
@@ -79,6 +86,192 @@
       "506"
     ]
   },
+  "cross_evidence_review": [
+    {
+      "kit_id": "55",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4,
+        5
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "resolved_by_human_review",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "The Russian parallel kit 82 is explicitly Grade 4, and the immutable historical post-audit Kit Details evidence recorded kit 55 as Grade 4. Kit 55 and kit 82 are parallel Estonian/Russian versions of the same mixed human/society source.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "parallel_kit_82",
+        "project_decision_issue_41"
+      ]
+    },
+    {
+      "kit_id": "82",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "154",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "161",
+      "historical_grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "live_observed_grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "normalized_grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "multi_grade_no_exclusive_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "200",
+      "historical_grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "live_observed_grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "normalized_grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_non_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "206",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "332",
+      "historical_grade_scope": [
+        4
+      ],
+      "live_observed_grade_scope": [
+        4
+      ],
+      "normalized_grade_scope": [
+        4
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "retain_existing_grade_4_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    },
+    {
+      "kit_id": "476",
+      "historical_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "live_observed_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "normalized_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "comparison_status": "consistent",
+      "routing_effect": "multi_grade_no_exclusive_owner",
+      "rationale": "Historical and current live grade scopes agree.",
+      "supporting_evidence": [
+        "historical_post_audit_kit_details",
+        "direct-kit-details-all-55"
+      ]
+    }
+  ],
   "live_kit_inventory": [
     {
       "kit_id": "71",
