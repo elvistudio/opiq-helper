@@ -199,9 +199,9 @@
     }
   ],
   "gate_catalogue": {
-    "digest": "dbf47d79d20ee7ba87ec382827a30a49a4835da58ff717607e244a1641763e0d",
+    "digest": "7edf366fb5694c1e22c7b17514d5e5d9933379ff5e4fadc43aa32986e098246d",
     "path": "knowledge/pedagogy/quality/quality-gates.yaml",
-    "version": "1.0"
+    "version": "1.1"
   },
   "gate_results": [
     {
@@ -522,70 +522,70 @@
     {
       "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-01-properties",
       "status": "passed"
     },
     {
       "artifact_path": "lesson-plans/grade-5-science/water/lesson-02.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-02-states",
       "status": "passed"
     },
     {
       "artifact_path": "lesson-plans/grade-5-science/water/lesson-03.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-03-melting-condensation",
       "status": "passed"
     },
     {
       "artifact_path": "lesson-plans/grade-5-science/water/lesson-04.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-04-changes-review",
       "status": "passed"
     },
     {
       "artifact_path": "lesson-plans/grade-5-science/water/thematic-plan.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-four-lesson-plan",
       "status": "passed"
     },
     {
       "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-science-water-teacher-pack",
       "status": "passed"
     },
     {
       "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-01-properties-homeschool",
       "status": "passed"
     },
     {
       "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-02-states-homeschool",
       "status": "passed"
     },
     {
       "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-03-melting-condensation-homeschool",
       "status": "passed"
     },
     {
       "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "record_id": "grade-5-water-04-changes-review-homeschool",
       "status": "passed"
     },
@@ -877,7 +877,7 @@
     },
     {
       "gate_id": "readiness-honest",
-      "gate_version": "1.0",
+      "gate_version": "1.1",
       "result_count": 10,
       "status": "passed"
     },
@@ -923,118 +923,148 @@
     "Official curriculum completeness is not claimed by this structural validator.",
     "Pedagogical effectiveness is not established by structural validation."
   ],
-  "quality_engine_version": "1.0",
+  "quality_engine_version": "1.1",
   "readiness": {
     "classroom_ready": false,
+    "classroom_review": "pending",
     "classroom_trial": "not_tested",
     "consistency": "consistent",
     "effectiveness_claimed": false,
     "evidence": {
+      "effective_classroom_review": false,
       "effective_classroom_trial": false,
+      "effective_home_trial": false,
+      "effective_homeschool_review": false,
       "effective_teacher_review": false,
+      "negative_classroom_review": false,
+      "negative_classroom_trial": false,
+      "negative_home_trial": false,
+      "negative_homeschool_review": false,
       "stale_classroom_trial": false,
+      "stale_home_trial": false,
       "stale_teacher_review": false
     },
     "home_trial": "not_started",
     "homeschool_ready": false,
+    "homeschool_review": "pending",
     "source_records": [
       {
         "artifact_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-01-properties",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "lesson-plans/grade-5-science/water/lesson-02.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-02-states",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "lesson-plans/grade-5-science/water/lesson-03.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-03-melting-condensation",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "lesson-plans/grade-5-science/water/lesson-04.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-04-changes-review",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "lesson-plans/grade-5-science/water/thematic-plan.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-four-lesson-plan",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-science-water-teacher-pack",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-01-package.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-01-properties-homeschool",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-02-package.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-02-states-homeschool",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-03-package.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-03-melting-condensation-homeschool",
         "teacher_review": "pending"
       },
       {
         "artifact_path": "teacher-packs/grade-5-science/water/pedagogy/homeschool/lesson-04-package.yaml",
         "classroom_ready": false,
+        "classroom_review": "pending",
         "classroom_trial": "not_tested",
         "effectiveness_claimed": false,
         "home_trial": "not_started",
         "homeschool_ready": false,
+        "homeschool_review": "pending",
         "record_id": "grade-5-water-04-changes-review-homeschool",
         "teacher_review": "pending"
       }
@@ -1042,7 +1072,7 @@
     "teacher_review": "pending"
   },
   "report_id": "grade-5-water-quality-report",
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "scope": {
     "homeschool_package_count": 4,
     "integrated_lesson_count": 4,

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "pedagogical_evidence_intake",
+  "kind": "home-trial",
+  "pack_path": "teacher-packs/grade-5-science/water/materials-index.yaml",
+  "prepared_for_date": "2026-08-01",
+  "privacy_notice": "Do not enter learner or family names, dates of birth, identifiers, contacts, addresses, recordings, health or diagnostic information, identifiable grades, or identifiable free text. Manual privacy attestation remains required.",
+  "non_guarantees": [
+    "Teacher review does not substitute for classroom or home trial evidence.",
+    "The intake does not establish pedagogical effectiveness.",
+    "The intake is not evidence until completed, normalized, validated, and explicitly registered.",
+    "The privacy scanner cannot guarantee detection of every possible identifier."
+  ],
+  "record": {
+    "schema_version": "1.0",
+    "artifact_type": "home_trial",
+    "trial_id": "grade-5-science-water-home-trial-2026-08-01",
+    "pack_ref": "grade-5-science-water-teacher-pack",
+    "evidence_identity": {
+      "commit_sha": "cfbd7160783c4cff69c568f6d60c65d575489265",
+      "content_fingerprint": {
+        "algorithm": "sha256",
+        "specification_version": "1.0",
+        "value": "13baf6f243b48f62ada192ce91efbd87f5cb6044aab3eb6bd3404a2b8977b7fd",
+        "file_count": 78
+      },
+      "pedagogical_snapshot": {
+        "snapshot_version": "1.1",
+        "taxonomy_version": "1.0",
+        "taxonomy_digest": "fc8e5a1c3a7a4d48be9aeed18c4c8ac6680d43ddc7041476a16e23b46b56d16a",
+        "selection_rules_version": "1.0",
+        "selection_rules_digest": "3e38daf17e147a3bf8032b1d4c4f5358cd1dd3ab0d494c53a5732ddef6fcf0d4",
+        "selection_engine_version": "1.1",
+        "lesson_dna_schema_version": "1.0",
+        "activity_catalog_digest": "8e2456bcc5c35bf44f5ee0d45ea577913495026b319fb0b2564a8f0fca17f370",
+        "homeschool_rules_version": "1.0",
+        "homeschool_rules_digest": "cae380f30054c13bf2c949e5b088e91d22ea31fa1653c8b4fa2f7cf496947031",
+        "homeschool_engine_version": "1.0",
+        "quality_engine_version": "1.1",
+        "quality_catalogue_version": "1.1",
+        "quality_catalogue_digest": "7edf366fb5694c1e22c7b17514d5e5d9933379ff5e4fadc43aa32986e098246d",
+        "integration_version": "1.0",
+        "unit_content_identity": "bb78af3a4db7362cf09857f90f5bff28c0a81349e43f2035489a5931aae372ef",
+        "lesson_dna_digests": [
+          {
+            "lesson_id": "grade-5-water-01-properties",
+            "digest": "e7bb4c130b0946f9e38c9c2d0f8410026b71a582e5292963f2da39c2cdc75bbe"
+          },
+          {
+            "lesson_id": "grade-5-water-02-states",
+            "digest": "a256c2b7178d98f0a8306ccd86a3aae6edd5c5a608e9facabf550c019b4fb3e0"
+          },
+          {
+            "lesson_id": "grade-5-water-03-melting-condensation",
+            "digest": "3d7b312724b695b3a4aa8271362b63e0f44e537c19f5dd334c46fab713270af2"
+          },
+          {
+            "lesson_id": "grade-5-water-04-changes-review",
+            "digest": "7ba21ee546761b8cac1670d3779c7861691c47ac12b8f3bd12b6cffd12945d94"
+          }
+        ]
+      }
+    },
+    "lifecycle": {
+      "supersedes": []
+    },
+    "trial_status": "draft",
+    "context": {
+      "lesson_ids": [],
+      "setting": "homeschool",
+      "grade": 5,
+      "learner_count": 1,
+      "study_context": "individual_study",
+      "delivery_mode": "parent_supported",
+      "adult_role": "logistical_support",
+      "family_identity_storage": "external"
+    },
+    "privacy": {
+      "contains_student_names": false,
+      "contains_birth_dates": false,
+      "contains_personal_identifiers": false,
+      "contains_addresses": false,
+      "contains_contact_information": false,
+      "contains_parent_contacts": false,
+      "contains_photographs": false,
+      "contains_recordings": false,
+      "contains_health_data": false,
+      "contains_special_category_data": false,
+      "contains_identifiable_grades": false,
+      "contains_identifiable_profiles": false,
+      "contains_identifiable_free_text": false,
+      "observations_are_aggregated": true,
+      "identity_storage": "external",
+      "free_text_checked_for_identifiers": false
+    },
+    "conducted_at": "2026-08-01",
+    "session_observations": [],
+    "instruction_comprehension": [],
+    "adult_role": [],
+    "learner_independence": [],
+    "material_availability": [],
+    "offline_and_printer_assumptions": [],
+    "retrieval_and_correction": [],
+    "language_scaffolds": [],
+    "practical_safety": [],
+    "task_completion": [],
+    "recall_and_transfer": [],
+    "findings": [],
+    "decision": {
+      "status": "pending",
+      "safe_to_repeat": null,
+      "parent_role_remained_bounded": null,
+      "rationale": "Home trial ещё не выполнена; шаблон не является evidence."
+    }
+  }
+}

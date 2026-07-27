@@ -47,6 +47,9 @@ import {
   validatePedagogicalReviewRepository,
 } from './pedagogical-reviews.mjs';
 import {
+  resolveCurrentCommitSha,
+} from './pedagogical-evidence.mjs';
+import {
   safeRepositoryPath,
 } from './curriculum-maps.mjs';
 
@@ -864,9 +867,17 @@ async function alignmentState(rootDir, lesson, actual, materialsIndex) {
 function evidenceForRecord(evidenceSummary) {
   return {
     effective_teacher_review: evidenceSummary.effective_teacher_review,
+    effective_classroom_review: evidenceSummary.effective_classroom_review,
+    effective_homeschool_review: evidenceSummary.effective_homeschool_review,
     effective_classroom_trial: evidenceSummary.effective_classroom_trial,
+    effective_home_trial: evidenceSummary.effective_home_trial,
+    negative_classroom_review: evidenceSummary.negative_classroom_review,
+    negative_homeschool_review: evidenceSummary.negative_homeschool_review,
+    negative_classroom_trial: evidenceSummary.negative_classroom_trial,
+    negative_home_trial: evidenceSummary.negative_home_trial,
     stale_teacher_review: evidenceSummary.stale_teacher_review,
     stale_classroom_trial: evidenceSummary.stale_classroom_trial,
+    stale_home_trial: evidenceSummary.stale_home_trial,
     related_paths: evidenceSummary.evidence_paths,
   };
 }
@@ -883,7 +894,6 @@ function readinessState({
     lesson?.pedagogical_integration?.status?.teacher_review,
     thematic?.teacher_pack?.teacher_review_status,
     thematic?.pedagogical_integration?.status?.teacher_review,
-    materialsIndex?.pedagogical_review?.status,
     materialsIndex?.pedagogical_integration?.status?.teacher_review,
   ].filter((value) => value !== undefined);
   const classroomTrials = [
@@ -891,11 +901,11 @@ function readinessState({
     lesson?.pedagogical_integration?.status?.classroom_trial,
     thematic?.teacher_pack?.classroom_trial?.status,
     thematic?.pedagogical_integration?.status?.classroom_trial,
-    materialsIndex?.classroom_trial?.status,
     materialsIndex?.pedagogical_integration?.status?.classroom_trial,
   ].filter((value) => value !== undefined);
   const homeTrials = [
     homeschoolPackage?.status?.home_trial,
+    materialsIndex?.pedagogical_integration?.status?.home_trial,
   ].filter((value) => value !== undefined);
   const classroomReady = [
     lesson?.artifact_readiness?.classroom_ready,
@@ -921,18 +931,25 @@ function readinessState({
       : new Set(values).size === 1 ? values[0] : 'mixed'
   );
   const state = {
-    teacher_review: single(classroomStates, 'unknown'),
-    classroom_trial: single(classroomTrials, 'unknown'),
-    home_trial: single(homeTrials, 'not_started'),
+    teacher_review: materialsIndex?.pedagogical_review?.status
+      ?? single(classroomStates, 'unknown'),
+    classroom_review: materialsIndex?.pedagogical_review?.classroom_status
+      ?? 'pending',
+    homeschool_review: materialsIndex?.pedagogical_review?.homeschool_status
+      ?? 'pending',
+    classroom_trial: materialsIndex?.classroom_trial?.status
+      ?? single(classroomTrials, 'unknown'),
+    home_trial: materialsIndex?.home_trial?.status
+      ?? single(homeTrials, 'not_started'),
     classroom_ready: single(classroomReady, false),
     homeschool_ready: single(homeschoolReady, false),
     effectiveness_claimed: single(effectiveness, false),
     evidence: evidenceForRecord(evidenceSummary),
   };
   state.state_consistent = ![
-    state.teacher_review,
-    state.classroom_trial,
-    state.home_trial,
+    single(classroomStates, 'unknown'),
+    single(classroomTrials, 'unknown'),
+    single(homeTrials, 'not_started'),
     state.classroom_ready,
     state.homeschool_ready,
     state.effectiveness_claimed,
@@ -1181,14 +1198,22 @@ async function loadActualMachineArtifacts(rootDir, generated, validators) {
   };
 }
 
-async function loadEvidenceState(rootDir, waterPack, fingerprintState) {
+async function loadEvidenceState(
+  rootDir,
+  waterPack,
+  fingerprintState,
+  identityCommitSha,
+) {
   try {
-    const repository = await loadPedagogicalReviewRepository({ rootDir });
+    const repository = await loadPedagogicalReviewRepository({
+      rootDir,
+      identityCommitSha,
+    });
     const index = repository.teacherPacks.indexes.find(
       (artifact) => artifact.data.pack_id === waterPack.data.pack_id,
     );
     if (!index) throw new Error(`missing review workflow for ${waterPack.data.pack_id}`);
-    const summary = summarizePedagogicalEvidenceForPack(repository, index);
+    const summary = await summarizePedagogicalEvidenceForPack(repository, index);
     return {
       repository,
       validation: validatePedagogicalReviewRepository(repository),
@@ -1210,9 +1235,17 @@ async function loadEvidenceState(rootDir, waterPack, fingerprintState) {
         completed_review_count: 0,
         analysed_trial_count: 0,
         effective_teacher_review: false,
+        effective_classroom_review: false,
+        effective_homeschool_review: false,
         effective_classroom_trial: false,
+        effective_home_trial: false,
+        negative_classroom_review: false,
+        negative_homeschool_review: false,
+        negative_classroom_trial: false,
+        negative_home_trial: false,
         stale_teacher_review: false,
         stale_classroom_trial: false,
+        stale_home_trial: false,
         evidence_paths: [],
         diagnostics: [],
       },
@@ -1325,6 +1358,7 @@ export async function loadWaterPilotPedagogyQualityRepository({
     absoluteRoot,
     waterPack,
     fingerprintState,
+    await resolveCurrentCommitSha(absoluteBaseline),
   );
   const validationResults = {
     selection: validatePedagogySelection(selectionRepository),

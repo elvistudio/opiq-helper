@@ -27,12 +27,12 @@
     "determinism"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
     "artifact_type": { "const": "pedagogy_quality_report" },
     "report_id": {
       "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
     },
-    "quality_engine_version": { "const": "1.0" },
+    "quality_engine_version": { "const": "1.1" },
     "gate_catalogue": {
       "type": "object",
       "additionalProperties": false,
@@ -281,11 +281,32 @@
     "reviewStatus": {
       "enum": ["approved", "changes_requested", "mixed", "pending", "rejected", "unknown"]
     },
+    "aggregateReviewStatus": {
+      "enum": [
+        "approved_for_both",
+        "changes_requested",
+        "mixed",
+        "partial",
+        "pending",
+        "rejected",
+        "unknown"
+      ]
+    },
     "classroomTrialStatus": {
-      "enum": ["changes_required", "mixed", "not_tested", "repeat_required", "tested", "unknown"]
+      "enum": ["changes_required", "mixed", "not_tested", "partial", "repeat_required", "tested", "unknown"]
     },
     "homeTrialStatus": {
-      "enum": ["analysed", "mixed", "not_started", "planned", "unknown"]
+      "enum": [
+        "analysed",
+        "changes_required",
+        "mixed",
+        "not_started",
+        "partial",
+        "planned",
+        "repeat_required",
+        "tested",
+        "unknown"
+      ]
     },
     "booleanOrMixed": {
       "oneOf": [
@@ -301,6 +322,8 @@
         "artifact_path",
         "record_id",
         "teacher_review",
+        "classroom_review",
+        "homeschool_review",
         "classroom_trial",
         "home_trial",
         "classroom_ready",
@@ -314,7 +337,9 @@
         "record_id": {
           "$ref": "https://opiq-helper.local/knowledge/pedagogy/schemas/pedagogical-common.schema.json#/$defs/stableId"
         },
-        "teacher_review": { "$ref": "#/$defs/reviewStatus" },
+        "teacher_review": { "$ref": "#/$defs/aggregateReviewStatus" },
+        "classroom_review": { "$ref": "#/$defs/reviewStatus" },
+        "homeschool_review": { "$ref": "#/$defs/reviewStatus" },
         "classroom_trial": { "$ref": "#/$defs/classroomTrialStatus" },
         "home_trial": { "$ref": "#/$defs/homeTrialStatus" },
         "classroom_ready": { "type": "boolean" },
@@ -328,6 +353,8 @@
       "required": [
         "consistency",
         "teacher_review",
+        "classroom_review",
+        "homeschool_review",
         "classroom_trial",
         "home_trial",
         "classroom_ready",
@@ -338,7 +365,9 @@
       ],
       "properties": {
         "consistency": { "enum": ["consistent", "mixed"] },
-        "teacher_review": { "$ref": "#/$defs/reviewStatus" },
+        "teacher_review": { "$ref": "#/$defs/aggregateReviewStatus" },
+        "classroom_review": { "$ref": "#/$defs/reviewStatus" },
+        "homeschool_review": { "$ref": "#/$defs/reviewStatus" },
         "classroom_trial": { "$ref": "#/$defs/classroomTrialStatus" },
         "home_trial": { "$ref": "#/$defs/homeTrialStatus" },
         "classroom_ready": { "$ref": "#/$defs/booleanOrMixed" },
@@ -349,15 +378,31 @@
           "additionalProperties": false,
           "required": [
             "effective_teacher_review",
+            "effective_classroom_review",
+            "effective_homeschool_review",
             "effective_classroom_trial",
+            "effective_home_trial",
+            "negative_classroom_review",
+            "negative_homeschool_review",
+            "negative_classroom_trial",
+            "negative_home_trial",
             "stale_teacher_review",
-            "stale_classroom_trial"
+            "stale_classroom_trial",
+            "stale_home_trial"
           ],
           "properties": {
             "effective_teacher_review": { "type": "boolean" },
+            "effective_classroom_review": { "type": "boolean" },
+            "effective_homeschool_review": { "type": "boolean" },
             "effective_classroom_trial": { "type": "boolean" },
+            "effective_home_trial": { "type": "boolean" },
+            "negative_classroom_review": { "type": "boolean" },
+            "negative_homeschool_review": { "type": "boolean" },
+            "negative_classroom_trial": { "type": "boolean" },
+            "negative_home_trial": { "type": "boolean" },
             "stale_teacher_review": { "type": "boolean" },
-            "stale_classroom_trial": { "type": "boolean" }
+            "stale_classroom_trial": { "type": "boolean" },
+            "stale_home_trial": { "type": "boolean" }
           }
         },
         "source_records": {

@@ -32,8 +32,8 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `curriculum-maps/` separates official curriculum evidence, publisher evidence, topic inventory, and curated-course data.
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
-- `pedagogical-reviews/` contains unfilled review/trial instruments and the privacy-safe evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
-- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, the deterministic lesson-pedagogy selector, the structural homeschool adaptation engine, quality gates, and bounded regression pilots; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md), [`docs/homeschool-learning-engine.md`](docs/homeschool-learning-engine.md), [`docs/pedagogy-quality-gates.md`](docs/pedagogy-quality-gates.md), and [`docs/pedagogy-regressions.md`](docs/pedagogy-regressions.md).
+- `pedagogical-reviews/` contains unfilled review/classroom/home-trial instruments and the privacy-safe offline evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
+- `knowledge/pedagogy/` contains the independent, source-attributed catalog of pedagogical principles, activities, flexible classroom/homeschool patterns, taxonomy 1.0, the deterministic lesson-pedagogy selector, the structural homeschool adaptation engine, quality gates, and bounded regression pilots; see [`docs/pedagogical-knowledge-base.md`](docs/pedagogical-knowledge-base.md), [`docs/pedagogical-taxonomy.md`](docs/pedagogical-taxonomy.md), [`docs/lesson-pedagogy-engine.md`](docs/lesson-pedagogy-engine.md), [`docs/homeschool-learning-engine.md`](docs/homeschool-learning-engine.md), [`docs/pedagogy-quality-gates.md`](docs/pedagogy-quality-gates.md), [`docs/pedagogy-regressions.md`](docs/pedagogy-regressions.md), and [`docs/pedagogical-review-and-trial-workflow.md`](docs/pedagogical-review-and-trial-workflow.md).
 - `annual-courses/` contains annual architectures, auditable source-selection matrices, and implementation roadmaps.
 - `external-sources/registry.yaml` is the shared registry for optional verified non-Opiq supplements; it is currently empty.
 - `schemas/` contains the strict JSON Schemas for curriculum, course, and teaching-plan artifacts.
@@ -251,7 +251,8 @@ Deterministic [pedagogical regression pilots](docs/pedagogy-regressions.md)
 compose the existing selection, homeschool, integration, quality, fingerprint,
 and review-evidence models. The initial grade-5 suite contains production
 classroom and homeschool checks, architecture-only applicability examples,
-deliberate failures, and stale-evidence cases. It records semantic invariants
+deliberate failures, stale-evidence cases, and 31 temporary-artifact
+evidence/readiness scenarios. It records semantic invariants
 rather than accepting a generated file merely because its bytes are stable.
 Production/stale cases mutate real artifacts in isolated repository copies and
 reload the existing adapters; architecture cases resolve actual activity and
@@ -297,11 +298,30 @@ The lesson, thematic-plan, and annual-course formats are documented in [`docs/le
 
 The production set contains ten linked grade-5 science lessons across two water-related thematic plans, two resolved teacher packs, and a ten-unit annual architecture with linked source selection, language progression, teaching calendars, and implementation roadmap. The architecture is complete for planning, while eight thematic plans and their detailed lessons remain unimplemented. See [`docs/grade-5-science-annual-course.md`](docs/grade-5-science-annual-course.md). Reusable language-profile defaults also describe the intended progression for later grade-6 science and grade-7 geography work; they are planning defaults, not fixed learner facts.
 
-The original four-lesson water unit and the new six-lesson groundwater/use/protection/cycle unit both have complete YAML, resolved teacher packs, printable student files, answer keys, rubrics, and family support. For both packs, independent teacher review is still `pending`, classroom trial is `not_tested`, and `classroom_ready` is therefore `false`.
+The original four-lesson water unit and the new six-lesson groundwater/use/protection/cycle unit both have complete YAML, resolved teacher packs, printable student files, answer keys, rubrics, and family support. For both packs, independent teacher review is still `pending`, classroom trial is `not_tested`, home trial is `not_started`, and readiness remains false.
 
-Readiness is deliberately staged: `schema complete` ≠ `materials resolved` ≠ `print ready` ≠ `teacher reviewed` ≠ `classroom tested` ≠ `classroom ready`.
+Readiness is deliberately staged: `schema complete` ≠ `materials resolved` ≠ `teacher reviewed` ≠ `classroom/home tested` ≠ `ready`.
 
-Readiness workflow: merge the authored pack → compute its deterministic content fingerprint → conduct independent review → record and resolve findings → conduct a limited trial → analyse anonymised aggregate observations → register evidence → update readiness in a separate PR. The commit SHA remains provenance only; the SHA-256 fingerprint is the readiness gate. Rebase, squash, or unrelated commits do not invalidate unchanged content, while a change to any reviewable file makes evidence stale. The scope and framing are documented in [`docs/teacher-pack-content-fingerprint.md`](docs/teacher-pack-content-fingerprint.md). An approved review alone does not establish classroom readiness. Student personal data must never be committed.
+Readiness workflow: prepare an offline JSON bundle → conduct scoped teacher
+review → run the separate classroom and/or home trial → normalize JSON to
+canonical YAML → explicitly register current evidence → derive readiness
+outside the reviewable fingerprint. Evidence binds to both the SHA-256 content
+fingerprint and the current versioned pedagogical snapshot; commit SHA remains
+provenance only. Classroom and home evidence never substitute for each other,
+and approval alone is insufficient. Completed negative evidence is
+registerable but blocks only its declared delivery scope; classroom and
+homeschool review statuses are derived separately, with `partial` and
+`approved_for_both` reserved for the explicit aggregate. Active evidence is
+selected through explicit supersession links, while historical records remain
+auditable. Successful trials require meaningful aggregate observations and
+`safe_to_repeat: true`; an empty analysed trial cannot unlock readiness.
+Positive trials cover only their declared lessons, and readiness stays
+`partial` until the union of active trial records covers the whole pack.
+Registration uses a pack-local lock and immutable no-replace target commit;
+linked drafts or unanalysed conducted trials are repository errors. See
+[`docs/pedagogical-review-and-trial-workflow.md`](docs/pedagogical-review-and-trial-workflow.md)
+and [`docs/teacher-pack-content-fingerprint.md`](docs/teacher-pack-content-fingerprint.md).
+Student or family personal data must never be committed.
 
 Run the focused tests and production validation with:
 
@@ -313,6 +333,11 @@ npm run test:teacher-packs
 npm run check:teacher-packs
 npm run test:reviews
 npm run check:reviews
+npm run test:pedagogy-evidence
+npm run check:pedagogy-evidence
+npm run test:pedagogy-readiness
+npm run check:pedagogy-readiness
+npm run check:pedagogy-readiness-report
 npm run test:fingerprints
 npm run check:fingerprints
 ```

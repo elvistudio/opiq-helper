@@ -1,14 +1,10 @@
-schema_version: "1.1"
+schema_version: "2.0"
 artifact_type: classroom_trial
-trial_id: grade-5-water-use-cycle-trial-YYYY-MM-DD
+trial_id: grade-5-water-use-cycle-classroom-trial-YYYY-MM-DD
 pack_ref: grade-5-science-water-use-cycle-teacher-pack
-reviewed_version:
-  commit_sha: null
-  content_fingerprint:
-    algorithm: sha256
-    specification_version: "1.0"
-    value: null
-    file_count: null
+evidence_identity: null
+lifecycle:
+  supersedes: []
 trial_status: draft
 context:
   lesson_ids: []
@@ -26,23 +22,32 @@ privacy:
   contains_addresses: false
   contains_contact_information: false
   contains_parent_contacts: false
-  contains_student_photos: false
+  contains_photographs: false
+  contains_recordings: false
+  contains_health_data: false
   contains_special_category_data: false
-  contains_identifiable_individual_grades: false
+  contains_identifiable_grades: false
+  contains_identifiable_profiles: false
   contains_identifiable_free_text: false
   observations_are_aggregated: true
+  identity_storage: external
   free_text_checked_for_identifiers: false
 conducted_at: null
 timing_observations: []
-instruction_observations: []
-safety_observations: []
-learning_evidence: []
-language_evidence: []
+instruction_comprehension: []
+retrieval_and_correction: []
+recall_and_transfer: []
+participation_and_completion: []
+language_support: []
+differentiation_adjustments: []
+lesson_dna_deviations: []
+lesson_dna_deviation_status: not_observed
 material_usability: []
-unexpected_support_needed: []
-teacher_adjustments: []
+safety_observations: []
+method_execution_observations: []
+unexpected_support: []
 findings: []
 decision:
   status: pending
   safe_to_repeat: null
-  rationale: Апробация ещё не выполнена.
+  rationale: Legacy-compatible шаблон не является integrated trial evidence.

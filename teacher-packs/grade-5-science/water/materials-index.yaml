@@ -55,12 +55,21 @@ reviewable_content:
   derived_material_paths: true
 pedagogical_review:
   guide_path: pedagogical-reviews/grade-5-science/water/review-guide.md
-  review_record_path: null
+  template_path: pedagogical-reviews/grade-5-science/water/teacher-review-template.yaml
+  review_record_paths: []
+  classroom_status: pending
+  homeschool_status: pending
   status: pending
 classroom_trial:
   template_path: pedagogical-reviews/grade-5-science/water/classroom-trial-template.yaml
   trial_record_paths: []
   status: not_tested
+home_trial:
+  template_path: pedagogical-reviews/grade-5-science/water/home-trial-template.yaml
+  trial_record_paths: []
+  status: not_started
+readiness:
+  report_path: evaluations/pedagogy-readiness/grade-5-water-readiness-report.json
 pedagogical_integration:
   integration_version: "1.0"
   integration_index_path: teacher-packs/grade-5-science/water/pedagogy/integration-index.yaml

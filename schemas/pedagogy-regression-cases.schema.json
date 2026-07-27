@@ -9,6 +9,7 @@
     "artifact_type",
     "regression_catalogue_version",
     "engine_version",
+    "readiness_evidence_cases",
     "cases"
   ],
   "properties": {
@@ -19,6 +20,11 @@
       "pattern": "^[0-9]+\\.[0-9]+$"
     },
     "engine_version": { "const": "1.0" },
+    "readiness_evidence_cases": {
+      "type": "array",
+      "minItems": 30,
+      "items": { "$ref": "#/$defs/readinessEvidenceCase" }
+    },
     "cases": {
       "type": "array",
       "minItems": 20,
@@ -26,6 +32,33 @@
     }
   },
   "$defs": {
+    "readinessEvidenceCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "regression_id",
+        "title_ru",
+        "scenario_id",
+        "delivery_mode",
+        "expected_classroom_ready",
+        "expected_homeschool_ready",
+        "expected_fingerprint_stable",
+        "expected_registration_rejected"
+      ],
+      "properties": {
+        "regression_id": { "$ref": "#/$defs/stableId" },
+        "title_ru": { "type": "string", "minLength": 1 },
+        "scenario_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "delivery_mode": { "enum": ["both", "classroom", "homeschool"] },
+        "expected_classroom_ready": { "type": "boolean" },
+        "expected_homeschool_ready": { "type": "boolean" },
+        "expected_fingerprint_stable": { "type": "boolean" },
+        "expected_registration_rejected": { "type": "boolean" }
+      }
+    },
     "stableId": {
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"

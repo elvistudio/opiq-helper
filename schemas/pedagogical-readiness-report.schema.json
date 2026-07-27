@@ -1,0 +1,555 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-readiness-report.schema.json",
+  "title": "Derived pedagogical evidence-gated readiness report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "report_id",
+    "pack_ref",
+    "current_content_fingerprint",
+    "current_pedagogical_snapshot",
+    "structural_quality",
+    "materials",
+    "teacher_review",
+    "classroom_review",
+    "homeschool_review",
+    "classroom_trial",
+    "classroom_trial_coverage",
+    "home_trial",
+    "home_trial_coverage",
+    "open_findings",
+    "active_evidence",
+    "historical_evidence",
+    "superseded_evidence",
+    "stale_evidence",
+    "readiness_supporting_evidence",
+    "partial_positive_evidence",
+    "readiness_blocking_evidence",
+    "classroom_ready",
+    "homeschool_ready",
+    "effectiveness_claimed",
+    "blockers",
+    "evidence_paths",
+    "checked_artifacts",
+    "non_guarantees",
+    "determinism"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "pedagogical_readiness_report" },
+    "report_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
+    "pack_ref": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
+    "current_content_fingerprint": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/contentFingerprint" },
+    "current_pedagogical_snapshot": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/pedagogicalSnapshot" },
+    "structural_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pedagogy_schema_valid", "structurally_complete", "errors", "warnings"],
+      "properties": {
+        "pedagogy_schema_valid": { "type": "boolean" },
+        "structurally_complete": { "type": "boolean" },
+        "errors": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "materials": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resolved", "print_ready", "homeschool_closure_resolved"],
+      "properties": {
+        "resolved": { "type": "boolean" },
+        "print_ready": { "type": "boolean" },
+        "homeschool_closure_resolved": { "type": "boolean" }
+      }
+    },
+    "teacher_review": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenceSummary" },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "partial",
+                "approved_for_both",
+                "changes_requested",
+                "rejected",
+                "mixed"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "classroom_review": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenceSummary" },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": ["pending", "changes_requested", "approved", "rejected"]
+            }
+          }
+        }
+      ]
+    },
+    "homeschool_review": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenceSummary" },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": ["pending", "changes_requested", "approved", "rejected"]
+            }
+          }
+        }
+      ]
+    },
+    "classroom_trial": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenceSummary" },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": ["not_tested", "changes_required", "repeat_required", "partial", "tested", "mixed"]
+            }
+          }
+        }
+      ]
+    },
+    "classroom_trial_coverage": { "$ref": "#/$defs/trialCoverage" },
+    "home_trial": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenceSummary" },
+        {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": ["not_started", "changes_required", "repeat_required", "partial", "tested", "mixed"]
+            }
+          }
+        }
+      ]
+    },
+    "home_trial_coverage": { "$ref": "#/$defs/trialCoverage" },
+    "open_findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/findingSummary" }
+    },
+    "active_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceAuditEntry" }
+    },
+    "historical_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceAuditEntry" }
+    },
+    "superseded_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceAuditEntry" }
+    },
+    "stale_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/staleEvidence" }
+    },
+    "readiness_supporting_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceAuditEntry" }
+    },
+    "partial_positive_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceAuditEntry" }
+    },
+    "readiness_blocking_evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceAuditEntry" }
+    },
+    "classroom_ready": { "type": "boolean" },
+    "homeschool_ready": { "type": "boolean" },
+    "effectiveness_claimed": { "const": false },
+    "blockers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/blocker" }
+    },
+    "evidence_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" }
+    },
+    "checked_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" }
+    },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "determinism": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["no_ai", "no_network", "no_randomness", "no_current_timestamps", "ordering"],
+      "properties": {
+        "no_ai": { "const": true },
+        "no_network": { "const": true },
+        "no_randomness": { "const": true },
+        "no_current_timestamps": { "const": true },
+        "ordering": { "const": "bytewise" }
+      }
+    }
+  },
+  "$defs": {
+    "trialCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_lesson_ids",
+        "covered_lesson_ids",
+        "missing_lesson_ids",
+        "contributing_record_ids",
+        "contributing_evidence_paths",
+        "complete"
+      ],
+      "properties": {
+        "required_lesson_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "covered_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "missing_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "contributing_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "contributing_evidence_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath"
+          }
+        },
+        "complete": { "type": "boolean" }
+      }
+    },
+    "trialDimensionCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_dimensions",
+        "dimension_lesson_coverage",
+        "missing_dimension_lesson_pairs",
+        "complete"
+      ],
+      "properties": {
+        "required_dimensions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+          }
+        },
+        "dimension_lesson_coverage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "dimension",
+              "required_lesson_ids",
+              "covered_lesson_ids",
+              "missing_lesson_ids"
+            ],
+            "properties": {
+              "dimension": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+              },
+              "required_lesson_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+                }
+              },
+              "covered_lesson_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+                }
+              },
+              "missing_lesson_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+                }
+              }
+            }
+          }
+        },
+        "missing_dimension_lesson_pairs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*:[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        },
+        "complete": { "type": "boolean" }
+      }
+    },
+    "evidenceSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "effective", "current_count", "stale_count", "evidence_paths"],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "not_tested",
+            "not_started",
+            "changes_requested",
+            "changes_required",
+            "repeat_required",
+            "partial",
+            "approved",
+            "approved_for_both",
+            "rejected",
+            "tested",
+            "mixed"
+          ]
+        },
+        "effective": { "type": "boolean" },
+        "current_count": { "type": "integer", "minimum": 0 },
+        "stale_count": { "type": "integer", "minimum": 0 },
+        "evidence_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" }
+        }
+      }
+    },
+    "findingSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id", "severity", "category", "delivery_modes", "evidence_path"],
+      "properties": {
+        "finding_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
+        "severity": { "enum": ["blocking", "major", "minor", "observation"] },
+        "category": { "type": "string", "minLength": 1 },
+        "delivery_modes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["classroom", "homeschool"] }
+        },
+        "evidence_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" }
+      }
+    },
+    "staleEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "record_id",
+        "decision",
+        "delivery_modes",
+        "supersedes",
+        "superseded_by",
+        "decision_evidence_coherent",
+        "covered_lesson_ids",
+        "retrieval_lesson_ids",
+        "practical_lesson_ids",
+        "dimension_coverage",
+        "evidence_path",
+        "active"
+      ],
+      "properties": {
+        "kind": { "enum": ["teacher_review", "classroom_trial", "home_trial"] },
+        "record_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
+        "decision": {
+          "enum": [
+            "pending",
+            "changes_required",
+            "approved_with_minor_notes",
+            "approved",
+            "rejected",
+            "repeat_trial_required",
+            "successful_with_notes",
+            "successful"
+          ]
+        },
+        "delivery_modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["classroom", "homeschool"] }
+        },
+        "supersedes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "superseded_by": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+            }
+          ]
+        },
+        "decision_evidence_coherent": { "type": "boolean" },
+        "covered_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "retrieval_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "practical_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "dimension_coverage": { "$ref": "#/$defs/trialDimensionCoverage" },
+        "evidence_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" },
+        "active": { "type": "boolean" }
+      }
+    },
+    "evidenceAuditEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "record_id",
+        "decision",
+        "delivery_modes",
+        "supersedes",
+        "superseded_by",
+        "decision_evidence_coherent",
+        "covered_lesson_ids",
+        "retrieval_lesson_ids",
+        "practical_lesson_ids",
+        "dimension_coverage",
+        "evidence_path"
+      ],
+      "properties": {
+        "kind": { "enum": ["teacher_review", "classroom_trial", "home_trial"] },
+        "record_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug" },
+        "decision": {
+          "enum": [
+            "pending",
+            "changes_required",
+            "approved_with_minor_notes",
+            "approved",
+            "rejected",
+            "repeat_trial_required",
+            "successful_with_notes",
+            "successful"
+          ]
+        },
+        "delivery_modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["classroom", "homeschool"] }
+        },
+        "supersedes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "superseded_by": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+            }
+          ]
+        },
+        "decision_evidence_coherent": { "type": "boolean" },
+        "covered_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "retrieval_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "practical_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/slug"
+          }
+        },
+        "dimension_coverage": { "$ref": "#/$defs/trialDimensionCoverage" },
+        "evidence_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "delivery_mode", "message", "evidence_paths"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" },
+        "delivery_mode": { "enum": ["classroom", "homeschool", "both"] },
+        "message": { "type": "string", "minLength": 1 },
+        "evidence_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogical-evidence-common.schema.json#/$defs/repositoryPath" }
+        }
+      }
+    }
+  }
+}

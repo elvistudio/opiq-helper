@@ -50,7 +50,9 @@ missing evaluators do not. Warning-only and informational results remain
 visible without becoming hidden blockers. Empty evaluation scope never
 produces a positive structural claim.
 
-This boundary leaves issue #63 responsible for human review/trial workflow.
+Human review/trial and derived readiness are implemented by the separate
+[evidence workflow](pedagogical-review-and-trial-workflow.md). Quality gates
+consume its actual summary but never manufacture approval or trial evidence.
 The separate [pedagogical regression framework](pedagogy-regressions.md)
 composes these gates with selection and production artifacts. Focused quality
 unit mutations prove individual evaluator behavior. End-to-end regression
@@ -67,7 +69,11 @@ effectiveness.
 
 ## Versioned catalogue
 
-`knowledge/pedagogy/quality/quality-gates.yaml` is catalogue version `1.0`.
+`knowledge/pedagogy/quality/quality-gates.yaml` is catalogue version `1.1`.
+Quality engine `1.1` extends the non-exemptible `readiness-honest@1.1` gate
+with separate current classroom-review, homeschool-review, classroom-trial,
+and home-trial evidence. This is a readiness-proof change, not an
+effectiveness claim.
 Every gate has a stable ID and version, applicability, severity, guarantee,
 explicit non-guarantees, exception policy, and project-authored claim origin.
 Changing a gate's meaning requires a gate-version update; changing catalogue
@@ -182,6 +188,7 @@ water-use-cycle lessons. The warning means “not yet integrated”, not
 
 `evaluations/pedagogy-quality/grade-5-water-quality-report.json` records:
 
+- report schema `1.1`, quality engine `1.1`, and catalogue `1.1`;
 - gate catalogue version and digest;
 - current unit and lesson content identities;
 - the recomputed pack-wide teacher-pack fingerprint, including algorithm,
@@ -209,8 +216,29 @@ repository. A current evidence fingerprint must exactly equal the recomputed
 fingerprint in all four fields; a same-length but different hash or file count
 is stale. Registering review metadata alone does not alter reviewable content.
 Pending review with no completed evidence and readiness false is valid.
-Approved, tested, or ready claims require current effective evidence. The
-home-trial lifecycle remains deferred to issue #63.
+Approved, tested, or ready claims require current effective evidence.
+Classroom and home trials remain distinct. Static generation readiness inside
+reviewable artifacts stays a non-authoritative pending projection; mutable
+evidence and derived readiness stay outside the fingerprint.
+
+The evidence projection distinguishes registerable records from positive and
+negative active evidence. A completed `changes_required`, `rejected`, or
+`repeat_trial_required` record is valid evidence but blocks only its declared
+delivery scope. Classroom and homeschool review statuses are projected
+separately; a classroom-only approval cannot appear as homeschool approval.
+The aggregate vocabulary uses `partial` and `approved_for_both` instead of an
+ambiguous global `approved`.
+Explicitly superseded records remain in history, while their old findings and
+stale identities do not become active readiness blockers. Quality validation
+consumes this derived state and never chooses the active record by path or
+array order.
+
+Linked drafts and conducted-but-unanalysed trials are repository errors, not
+pending active evidence. A positive trial supports only the lessons it
+actually covers; pack trial status is `partial` until the deterministic union
+of active positive records covers every pack lesson. Readiness projections
+expose required, covered, and missing lesson IDs rather than converting a
+single successful session into whole-pack readiness.
 
 The report makes no claim about Git changes outside its evaluated scope.
 Intentionally unchanged files belong in PR diff evidence, not in the
@@ -262,4 +290,4 @@ tested.
 9. Run the complete repository validation suite.
 
 Structural validation remains a prerequisite for human review, not a
-substitute for it.
+substitute for teacher judgement, classroom/home trial evidence, or readiness.

@@ -12,7 +12,7 @@ import {
   stablePedagogyJson,
 } from './pedagogy-selection.mjs';
 
-export const PEDAGOGY_QUALITY_ENGINE_VERSION = '1.0';
+export const PEDAGOGY_QUALITY_ENGINE_VERSION = '1.1';
 export const PEDAGOGY_QUALITY_CATALOGUE_PATH =
   'knowledge/pedagogy/quality/quality-gates.yaml';
 export const PEDAGOGY_QUALITY_EXCEPTIONS_PATH =
@@ -569,11 +569,24 @@ function evaluateReadiness(record) {
   if (status?.state_consistent !== true) failed.push('state_consistent');
   if (evidence.stale_teacher_review === true) failed.push('stale_teacher_review');
   if (evidence.stale_classroom_trial === true) failed.push('stale_classroom_trial');
+  if (evidence.stale_home_trial === true) failed.push('stale_home_trial');
   if (
-    status?.teacher_review === 'approved'
+    status?.teacher_review === 'approved_for_both'
     && evidence.effective_teacher_review !== true
   ) {
     failed.push('teacher_review_evidence');
+  }
+  if (
+    status?.classroom_review === 'approved'
+    && evidence.effective_classroom_review !== true
+  ) {
+    failed.push('classroom_review_evidence');
+  }
+  if (
+    status?.homeschool_review === 'approved'
+    && evidence.effective_homeschool_review !== true
+  ) {
+    failed.push('homeschool_review_evidence');
   }
   if (
     status?.classroom_trial === 'tested'
@@ -584,17 +597,30 @@ function evaluateReadiness(record) {
   if (
     status?.classroom_ready === true
     && (
-      evidence.effective_teacher_review !== true
+      evidence.effective_classroom_review !== true
       || evidence.effective_classroom_trial !== true
+      || evidence.negative_classroom_review === true
+      || evidence.negative_classroom_trial === true
     )
   ) {
     failed.push('classroom_ready_evidence');
   }
-  if (status?.home_trial !== 'not_started') {
-    failed.push('home_trial_evidence_contract_unavailable');
+  if (
+    status?.home_trial === 'tested'
+    && evidence.effective_home_trial !== true
+  ) {
+    failed.push('home_trial_evidence');
   }
-  if (status?.homeschool_ready === true) {
-    failed.push('homeschool_ready_evidence_contract_unavailable');
+  if (
+    status?.homeschool_ready === true
+    && (
+      evidence.effective_homeschool_review !== true
+      || evidence.effective_home_trial !== true
+      || evidence.negative_homeschool_review === true
+      || evidence.negative_home_trial === true
+    )
+  ) {
+    failed.push('homeschool_ready_evidence');
   }
   if (status?.effectiveness_claimed === true) failed.push('effectiveness_evidence');
   return failed.length === 0
@@ -923,6 +949,8 @@ function aggregateReadiness(records) {
       artifact_path: record.artifact_path,
       record_id: record.record_id,
       teacher_review: record.readiness.teacher_review,
+      classroom_review: record.readiness.classroom_review,
+      homeschool_review: record.readiness.homeschool_review,
       classroom_trial: record.readiness.classroom_trial,
       home_trial: record.readiness.home_trial,
       classroom_ready: record.readiness.classroom_ready,
@@ -943,6 +971,8 @@ function aggregateReadiness(records) {
   return {
     consistency: sources.every((source) => (
       source.teacher_review === sources[0].teacher_review
+      && source.classroom_review === sources[0].classroom_review
+      && source.homeschool_review === sources[0].homeschool_review
       && source.classroom_trial === sources[0].classroom_trial
       && source.home_trial === sources[0].home_trial
       && source.classroom_ready === sources[0].classroom_ready
@@ -950,6 +980,8 @@ function aggregateReadiness(records) {
       && source.effectiveness_claimed === sources[0].effectiveness_claimed
     )) ? 'consistent' : 'mixed',
     teacher_review: field('teacher_review'),
+    classroom_review: field('classroom_review'),
+    homeschool_review: field('homeschool_review'),
     classroom_trial: field('classroom_trial'),
     home_trial: field('home_trial'),
     classroom_ready: field('classroom_ready'),
@@ -959,14 +991,38 @@ function aggregateReadiness(records) {
       effective_teacher_review: evidence.some(
         (state) => state.effective_teacher_review === true,
       ),
+      effective_classroom_review: evidence.some(
+        (state) => state.effective_classroom_review === true,
+      ),
+      effective_homeschool_review: evidence.some(
+        (state) => state.effective_homeschool_review === true,
+      ),
       effective_classroom_trial: evidence.some(
         (state) => state.effective_classroom_trial === true,
+      ),
+      effective_home_trial: evidence.some(
+        (state) => state.effective_home_trial === true,
+      ),
+      negative_classroom_review: evidence.some(
+        (state) => state.negative_classroom_review === true,
+      ),
+      negative_homeschool_review: evidence.some(
+        (state) => state.negative_homeschool_review === true,
+      ),
+      negative_classroom_trial: evidence.some(
+        (state) => state.negative_classroom_trial === true,
+      ),
+      negative_home_trial: evidence.some(
+        (state) => state.negative_home_trial === true,
       ),
       stale_teacher_review: evidence.some(
         (state) => state.stale_teacher_review === true,
       ),
       stale_classroom_trial: evidence.some(
         (state) => state.stale_classroom_trial === true,
+      ),
+      stale_home_trial: evidence.some(
+        (state) => state.stale_home_trial === true,
       ),
     },
     source_records: sources,
@@ -996,7 +1052,7 @@ export function buildPedagogyQualityReport(repository, evaluation, {
   );
   const legacy = evaluation.records.filter((record) => record.kind === 'legacy_lesson');
   const report = {
-    schema_version: '1.0',
+    schema_version: '1.1',
     artifact_type: 'pedagogy_quality_report',
     report_id: reportId,
     quality_engine_version: PEDAGOGY_QUALITY_ENGINE_VERSION,

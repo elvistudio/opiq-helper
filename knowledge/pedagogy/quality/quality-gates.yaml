@@ -1,6 +1,6 @@
 schema_version: "1.0"
 artifact_type: pedagogical_quality_gate_catalogue
-catalogue_version: "1.0"
+catalogue_version: "1.1"
 claim_origin: project_authored_design
 gates:
   - gate_id: answer-leakage-absent
@@ -124,7 +124,7 @@ gates:
     exception_policy: prohibited
     claim_origin: project_authored_design
   - gate_id: readiness-honest
-    gate_version: "1.0"
+    gate_version: "1.1"
     title: Structural validation cannot grant human readiness
     description: Teacher review, classroom trial, home trial, readiness, and effectiveness claims must remain evidence-gated and fingerprint-current.
     applies_to: [homeschool_package, integrated_lesson, teacher_pack, thematic_plan]

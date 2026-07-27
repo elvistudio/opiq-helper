@@ -2,6 +2,42 @@ schema_version: "1.0"
 artifact_type: pedagogy_regression_case_catalogue
 regression_catalogue_version: "1.0"
 engine_version: "1.0"
+readiness_evidence_cases:
+  - {regression_id: readiness-classroom-review-and-trial, title_ru: Current classroom review и classroom trial дают только classroom readiness., scenario_id: classroom_review_and_trial, delivery_mode: classroom, expected_classroom_ready: true, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-classroom-review-only, title_ru: Classroom review без trial недостаточна., scenario_id: classroom_review_only, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-classroom-safety-blocker, title_ru: Открытый classroom safety blocker запрещает classroom readiness., scenario_id: classroom_safety_blocker, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-classroom-trial-cannot-home, title_ru: Classroom trial не заменяет home trial., scenario_id: classroom_trial_cannot_home, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-classroom-trial-only, title_ru: Classroom trial без review недостаточен., scenario_id: classroom_trial_only, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-committed-production-pending, title_ru: Production pilot остаётся pending и not ready., scenario_id: committed_production_pending, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-current-negative-classroom-does-not-block-home, title_ru: Current classroom-only negative evidence блокирует classroom без блокировки homeschool scope., scenario_id: current_negative_classroom_does_not_block_home, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: true, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-delivery-change-stales, title_ru: Изменение delivery instruction делает evidence stale., scenario_id: delivery_change_stales, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: false, expected_registration_rejected: false}
+  - {regression_id: readiness-deterministic-normalization, title_ru: Повторная normalization даёт byte-identical YAML., scenario_id: deterministic_normalization, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-draft-not-effective, title_ru: Draft template не является effective evidence., scenario_id: draft_not_effective, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-home-review-and-trial, title_ru: Current homeschool review и home trial дают только homeschool readiness., scenario_id: home_review_and_trial, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: true, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-home-review-only, title_ru: Homeschool review без home trial недостаточна., scenario_id: home_review_only, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-home-safety-blocker, title_ru: Открытый home safety blocker запрещает homeschool readiness., scenario_id: home_safety_blocker, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-home-trial-cannot-classroom, title_ru: Home trial не заменяет classroom trial., scenario_id: home_trial_cannot_classroom, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-home-trial-only, title_ru: Home trial без review недостаточен., scenario_id: home_trial_only, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-json-intake-normalizes, title_ru: Filled JSON intake нормализуется в schema-valid YAML., scenario_id: json_intake_normalizes, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-lesson-dna-change-stales, title_ru: Изменение lesson DNA делает evidence stale., scenario_id: lesson_dna_change_stales, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: false, expected_registration_rejected: false}
+  - {regression_id: readiness-no-evidence, title_ru: Без evidence оба readiness false., scenario_id: no_evidence, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-open-blocking-finding, title_ru: Open blocking finding запрещает readiness., scenario_id: open_blocking_finding, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-open-major-finding, title_ru: Open major finding запрещает readiness., scenario_id: open_major_finding, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-privacy-invalid-rejected, title_ru: Evidence с PII отклоняется до registration., scenario_id: privacy_invalid_rejected, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: true}
+  - {regression_id: readiness-registration-fingerprint-stable, title_ru: Pure evidence registration не меняет fingerprint., scenario_id: registration_fingerprint_stable, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-registration-refuses-fingerprint-change, title_ru: Registration откатывается при изменении reviewable fingerprint., scenario_id: registration_refuses_fingerprint_change, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: true}
+  - {regression_id: readiness-review-scope-missing-classroom, title_ru: Homeschool-only review не покрывает classroom readiness., scenario_id: review_scope_missing_classroom, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-review-scope-missing-homeschool, title_ru: Classroom-only review не покрывает homeschool readiness., scenario_id: review_scope_missing_homeschool, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-catalogue-identity, title_ru: Stale taxonomy rules или catalogue identity invalidates evidence., scenario_id: stale_catalogue_identity, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-classroom-history-does-not-block-home, title_ru: Stale superseded classroom history не блокирует current homeschool evidence., scenario_id: stale_classroom_history_does_not_block_home, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: true, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-classroom-trial-fingerprint, title_ru: Stale fingerprint invalidates classroom trial., scenario_id: stale_classroom_trial_fingerprint, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-content-fingerprint-review, title_ru: Stale content fingerprint invalidates teacher review., scenario_id: stale_content_fingerprint_review, delivery_mode: classroom, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-home-history-does-not-block-classroom, title_ru: Stale superseded homeschool history не блокирует current classroom evidence., scenario_id: stale_home_history_does_not_block_classroom, delivery_mode: classroom, expected_classroom_ready: true, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-home-trial-fingerprint, title_ru: Stale fingerprint invalidates home trial., scenario_id: stale_home_trial_fingerprint, delivery_mode: homeschool, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-stale-rules-identity, title_ru: Stale selection rules identity invalidates evidence., scenario_id: stale_rules_identity, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-superseded-classroom-safety-ignored, title_ru: Superseded classroom safety blocker остаётся в истории и не блокирует current readiness., scenario_id: superseded_classroom_safety_ignored, delivery_mode: classroom, expected_classroom_ready: true, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-superseded-ignored, title_ru: Superseded evidence не участвует в readiness., scenario_id: superseded_ignored, delivery_mode: classroom, expected_classroom_ready: true, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
+  - {regression_id: readiness-unresolved-required-change, title_ru: Unresolved required change запрещает readiness., scenario_id: unresolved_required_change, delivery_mode: both, expected_classroom_ready: false, expected_homeschool_ready: false, expected_fingerprint_stable: true, expected_registration_rejected: false}
 cases:
   - regression_id: architecture-ecosystem-comparison
     schema_version: "1.0"
@@ -796,7 +832,7 @@ cases:
       mutation_level: repository_artifact
       artifact_path: teacher-packs/grade-5-science/water/materials-index.yaml
       mutation_id: stale_classroom_trial
-      expected_changed_fields: [materials_index.classroom_trial, temporary_trial.reviewed_version.content_fingerprint]
+      expected_changed_fields: [materials_index.classroom_trial, temporary_trial.evidence_identity.content_fingerprint]
     source_scope:
       scope_kind: quality_mutation
       record_id: grade-5-science-water-teacher-pack
@@ -808,7 +844,7 @@ cases:
     expected_invariants: [diagnostic_detected, readiness_evidence_gated, structural_claim_blocked]
     expected_diagnostics:
       - {severity: error, code: readiness_claim_not_supported, gate_id: readiness-honest}
-    expected_claims: {pedagogy_schema_valid: false, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
     non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
 
   - regression_id: stale-content-identity
@@ -908,7 +944,7 @@ cases:
       mutation_level: repository_artifact
       artifact_path: teacher-packs/grade-5-science/water/teacher-guide.md
       mutation_id: stale_teacher_pack_fingerprint
-      expected_changed_fields: [materials_index.pedagogical_review, teacher_guide.reviewable_bytes, temporary_review.reviewed_version.content_fingerprint]
+      expected_changed_fields: [materials_index.pedagogical_review, teacher_guide.reviewable_bytes, temporary_review.evidence_identity.content_fingerprint]
     source_scope:
       scope_kind: quality_mutation
       record_id: grade-5-science-water-teacher-pack
@@ -920,7 +956,7 @@ cases:
     expected_invariants: [diagnostic_detected, structural_claim_blocked]
     expected_diagnostics:
       - {severity: error, code: readiness_claim_not_supported, gate_id: readiness-honest}
-    expected_claims: {pedagogy_schema_valid: false, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
     non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]
 
   - regression_id: stale-teacher-review
@@ -936,7 +972,7 @@ cases:
       mutation_level: repository_artifact
       artifact_path: teacher-packs/grade-5-science/water/materials-index.yaml
       mutation_id: stale_teacher_review
-      expected_changed_fields: [materials_index.pedagogical_review, temporary_review.reviewed_version.content_fingerprint]
+      expected_changed_fields: [materials_index.pedagogical_review, temporary_review.evidence_identity.content_fingerprint]
     source_scope:
       scope_kind: quality_mutation
       record_id: grade-5-science-water-teacher-pack
@@ -948,5 +984,5 @@ cases:
     expected_invariants: [diagnostic_detected, readiness_evidence_gated, structural_claim_blocked]
     expected_diagnostics:
       - {severity: error, code: readiness_claim_not_supported, gate_id: readiness-honest}
-    expected_claims: {pedagogy_schema_valid: false, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
+    expected_claims: {pedagogy_schema_valid: true, structurally_complete: false, production_ready: false, effectiveness_claimed: false, curriculum_complete: false}
     non_guarantees: [not_curriculum_complete, not_effectiveness_evidence, not_teacher_approved, not_trial_evidence]

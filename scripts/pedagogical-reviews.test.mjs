@@ -1,562 +1,1354 @@
 import assert from 'node:assert/strict';
 import { before, test } from 'node:test';
 import {
+  PEDAGOGICAL_EVIDENCE_SEMANTIC_POLICY_VERSION,
+  derivePedagogicalEvidenceLinkState,
   loadPedagogicalReviewRepository,
+  summarizePedagogicalEvidenceForPack,
   validatePedagogicalReviewRepository,
+  validateStandalonePedagogicalEvidenceRecord,
 } from './lib/pedagogical-reviews.mjs';
 
-const currentSha = 'a'.repeat(40);
-const staleSha = 'b'.repeat(40);
-const staleFingerprint = '0'.repeat(64);
-const reviewPath = 'pedagogical-reviews/grade-5-science/water/records/teacher-review-2026-07-21.yaml';
-const trialPath = 'pedagogical-reviews/grade-5-science/water/records/classroom-trial-2026-07-21.yaml';
+const packId = 'grade-5-science-water-teacher-pack';
+const reviewPath =
+  'pedagogical-reviews/grade-5-science/water/records/teacher-review-2026-08-01.yaml';
+const classroomPath =
+  'pedagogical-reviews/grade-5-science/water/records/classroom-trial-2026-08-01.yaml';
+const homePath =
+  'pedagogical-reviews/grade-5-science/water/records/home-trial-2026-08-01.yaml';
 let baseline;
-const baselinePackId = 'grade-5-science-water-teacher-pack';
 
 before(async () => {
   baseline = await loadPedagogicalReviewRepository();
 });
 
+test('evidence decision-coherence policy is explicitly versioned', () => {
+  assert.equal(PEDAGOGICAL_EVIDENCE_SEMANTIC_POLICY_VERSION, '1.0');
+});
+
 function cloneRepository() {
-  return structuredClone(baseline);
-}
-
-function packIndex(repository) {
-  const found = repository.teacherPacks.indexes.find((entry) => entry.data.pack_id === baselinePackId);
-  assert.ok(found, `missing teacher pack ${baselinePackId}`);
-  return found.data;
-}
-
-function thematic(repository) {
-  const artifact = repository.teacherPacks.plans.artifacts.find((entry) => entry.data.artifact_type === 'bilingual_thematic_plan' && entry.data.unit_id === packIndex(repository).unit_ref);
-  assert.ok(artifact);
-  return artifact.data;
-}
-
-function lessons(repository) {
-  const linkedLessonIds = new Set(lessonIds(repository));
-  return repository.teacherPacks.plans.artifacts.filter((entry) => entry.data.artifact_type === 'bilingual_lesson' && linkedLessonIds.has(entry.data.lesson_id));
-}
-
-function lessonIds(repository) {
-  return packIndex(repository).lesson_ids;
-}
-
-function reviewedVersion(repository, commitSha = currentSha) {
-  const fingerprint = repository.currentPackFingerprints[packIndex(repository).pack_id];
   return {
-    commit_sha: commitSha,
-    content_fingerprint: {
-      algorithm: fingerprint.algorithm,
-      specification_version: fingerprint.specification_version,
-      value: fingerprint.value,
-      file_count: fingerprint.file_count,
-    },
+    ...baseline,
+    teacherPacks: structuredClone(baseline.teacherPacks),
+    reviewTemplates: structuredClone(baseline.reviewTemplates),
+    trialTemplates: structuredClone(baseline.trialTemplates),
+    homeTrialTemplates: structuredClone(baseline.homeTrialTemplates),
+    reviewRecords: structuredClone(baseline.reviewRecords),
+    trialRecords: structuredClone(baseline.trialRecords),
+    homeTrialRecords: structuredClone(baseline.homeTrialRecords),
+    workflowDocuments: structuredClone(baseline.workflowDocuments),
+    currentPackFingerprints: structuredClone(baseline.currentPackFingerprints),
+    currentEvidenceIdentities: structuredClone(baseline.currentEvidenceIdentities),
+    evidenceReferenceModels: structuredClone(baseline.evidenceReferenceModels),
+    packIdentityErrors: { ...baseline.packIdentityErrors },
   };
 }
 
-function validReview(repository, overrides = {}) {
+function indexArtifact(repository) {
+  const found = repository.teacherPacks.indexes.find(
+    (entry) => entry.data.pack_id === packId,
+  );
+  assert.ok(found);
+  return found;
+}
+
+function index(repository) {
+  return indexArtifact(repository).data;
+}
+
+function identity(repository, commitSha = 'a'.repeat(40)) {
   return {
-    schema_version: '1.1',
+    ...structuredClone(repository.currentEvidenceIdentities[packId]),
+    commit_sha: commitSha,
+  };
+}
+
+function privacy() {
+  return {
+    contains_student_names: false,
+    contains_birth_dates: false,
+    contains_personal_identifiers: false,
+    contains_addresses: false,
+    contains_contact_information: false,
+    contains_parent_contacts: false,
+    contains_photographs: false,
+    contains_recordings: false,
+    contains_health_data: false,
+    contains_special_category_data: false,
+    contains_identifiable_grades: false,
+    contains_identifiable_profiles: false,
+    contains_identifiable_free_text: false,
+    observations_are_aggregated: true,
+    identity_storage: 'external',
+    free_text_checked_for_identifiers: true,
+  };
+}
+
+function ratingMap(value = 4) {
+  return Object.fromEntries([
+    'method_suitability_for_grade',
+    'method_suitability_for_subject',
+    'lesson_pattern_coherence',
+    'timing_realism',
+    'transition_setup_cleanup_realism',
+    'cognitive_load',
+    'total_productive_language_load',
+    'russian_primary_explanation_quality',
+    'estonian_a1_a2_support_fit',
+    'retrieval_quality',
+    'spaced_review_usefulness',
+    'correction_and_self_explanation',
+    'teacher_instruction_clarity',
+    'classroom_feasibility',
+    'homeschool_clarity',
+    'parent_role_realism',
+    'differentiation',
+    'inclusion_accessibility',
+    'assessment_validity',
+    'subject_language_assessment_separation',
+    'learner_autonomy',
+    'motivation_competence_support',
+    'safety',
+    'material_availability',
+    'artificial_repetitive_method_risk',
+  ].map((field) => [field, value]));
+}
+
+function validReview(repository, deliveryScopes = ['classroom', 'homeschool']) {
+  const ratings = ratingMap();
+  const ratingApplicability = [];
+  if (!deliveryScopes.includes('classroom')) {
+    ratings.classroom_feasibility = 'not_applicable';
+    ratingApplicability.push({
+      dimension: 'classroom_feasibility',
+      rationale: 'Classroom delivery is outside this review scope.',
+    });
+  }
+  if (!deliveryScopes.includes('homeschool')) {
+    for (const dimension of ['homeschool_clarity', 'parent_role_realism']) {
+      ratings[dimension] = 'not_applicable';
+      ratingApplicability.push({
+        dimension,
+        rationale: 'Homeschool delivery is outside this review scope.',
+      });
+    }
+  }
+  return {
+    schema_version: '2.0',
     artifact_type: 'teacher_review',
-    review_id: 'grade-5-water-review-2026-07-21',
-    pack_ref: packIndex(repository).pack_id,
-    reviewed_version: reviewedVersion(repository),
+    review_id: 'grade-5-water-review-2026-08-01',
+    pack_ref: packId,
+    evidence_identity: identity(repository),
+    lifecycle: { supersedes: [] },
     review_status: 'completed',
     reviewer: {
       role: 'primary_science_teacher',
       subject_experience_years: 8,
-      language_context: { instruction_language: 'ru', subject_support_language: 'et' },
+      language_context: {
+        instruction_language: 'ru',
+        subject_support_language: 'et',
+      },
       identity_storage: 'external',
-      reviewer_reference: 'external-review-reference',
+      reviewer_reference: 'external-role-reference',
     },
-    reviewed_at: '2026-07-21',
+    reviewed_at: '2026-08-01',
+    delivery_scopes: deliveryScopes,
     review_scope: {
       teacher_guide: true,
-      lesson_guides: [...lessonIds(repository)],
+      lesson_guides: [...index(repository).lesson_ids],
       student_materials: true,
       answer_keys: true,
       assessment_rubric: true,
-      homeschool_materials: true,
+      homeschool_materials: deliveryScopes.includes('homeschool'),
       safety: true,
       language_level: true,
+      lesson_dna: true,
+      selection_and_adaptation_artifacts: true,
     },
-    ratings: {
-      scientific_accuracy: 4,
-      age_appropriateness: 4,
-      timing_feasibility: 4,
-      instruction_clarity: 4,
-      student_material_usability: 4,
-      assessment_alignment: 4,
-      estonian_a1_a2_fit: 4,
-      safety_readiness: 4,
-      homeschool_usability: 4,
-    },
+    ratings,
+    rating_applicability: ratingApplicability,
+    privacy: privacy(),
     findings: [],
     blocking_findings: [],
     required_changes: [],
     optional_improvements: [],
-    decision: { status: 'approved', rationale: 'All mandatory pack areas were independently checked.' },
-    ...overrides,
+    decision: {
+      status: 'approved',
+      rationale: 'Synthetic schema fixture only; no production human evidence.',
+    },
   };
 }
 
-function validTrial(repository, overrides = {}) {
+function categoricalObservation(lessonId, summary = 'Synthetic aggregate observation.') {
   return {
-    schema_version: '1.1',
+    lesson_id: lessonId,
+    phase_ids: [],
+    rating: 'met',
+    summary,
+    aggregate_count: 1,
+    aggregate_denominator: 1,
+  };
+}
+
+function validClassroomTrial(
+  repository,
+  lessonIds = [...index(repository).lesson_ids],
+) {
+  const referenceModel = repository.evidenceReferenceModels[packId];
+  const observation = (ids = lessonIds) => (
+    ids.map((lessonId) => categoricalObservation(lessonId))
+  );
+  const retrievalLessonIds = lessonIds.filter(
+    (lessonId) => referenceModel.lessons.get(lessonId)?.retrievalRequired,
+  );
+  const practicalLessonIds = lessonIds.filter(
+    (lessonId) => referenceModel.lessons.get(lessonId)?.classroomPractical,
+  );
+  return {
+    schema_version: '2.0',
     artifact_type: 'classroom_trial',
-    trial_id: 'grade-5-water-trial-2026-07-21',
-    pack_ref: packIndex(repository).pack_id,
-    reviewed_version: reviewedVersion(repository),
+    trial_id: 'grade-5-water-classroom-trial-2026-08-01',
+    pack_ref: packId,
+    evidence_identity: identity(repository),
+    lifecycle: { supersedes: [] },
     trial_status: 'analysed',
     context: {
-      lesson_ids: [lessonIds(repository)[0]],
+      lesson_ids: [...lessonIds],
       setting: 'classroom',
       grade: 5,
-      approximate_group_size: 12,
+      approximate_group_size: 24,
       learner_estonian_profile: 'A1-A2',
       instruction_language: 'ru',
       subject_support_language: 'et',
       teacher_role: 'primary_science_teacher',
     },
-    privacy: {
-      contains_student_names: false,
-      contains_birth_dates: false,
-      contains_personal_identifiers: false,
-      contains_addresses: false,
-      contains_contact_information: false,
-      contains_parent_contacts: false,
-      contains_student_photos: false,
-      contains_special_category_data: false,
-      contains_identifiable_individual_grades: false,
-      contains_identifiable_free_text: false,
-      observations_are_aggregated: true,
-      free_text_checked_for_identifiers: true,
-    },
-    conducted_at: '2026-07-21',
-    timing_observations: [],
-    instruction_observations: [],
-    safety_observations: [],
-    learning_evidence: [],
-    language_evidence: [],
-    material_usability: [],
-    unexpected_support_needed: [],
-    teacher_adjustments: [],
+    privacy: privacy(),
+    conducted_at: '2026-08-01',
+    timing_observations: lessonIds.map((lessonId) => ({
+      lesson_id: lessonId,
+      phase_id: referenceModel.lessons.get(lessonId).classroomPhases.keys().next().value,
+      planned_minutes: 5,
+      actual_minutes: 5,
+      setup_feasible: true,
+      transition_feasible: true,
+      summary: 'Synthetic aggregate timing observation.',
+    })),
+    instruction_comprehension: observation(),
+    retrieval_and_correction: observation(retrievalLessonIds),
+    recall_and_transfer: observation(),
+    participation_and_completion: observation(),
+    language_support: observation(),
+    differentiation_adjustments: [],
+    lesson_dna_deviations: [],
+    lesson_dna_deviation_status: 'none_observed',
+    material_usability: observation(),
+    safety_observations: observation(practicalLessonIds),
+    method_execution_observations: observation(),
+    unexpected_support: [],
     findings: [],
-    decision: { status: 'successful', safe_to_repeat: true, rationale: 'Aggregated evidence supports a safe repeat.' },
-    ...overrides,
+    decision: {
+      status: 'successful',
+      safe_to_repeat: true,
+      rationale: 'Synthetic schema fixture only; no production trial.',
+    },
   };
 }
 
-function claimReviewApproved(repository) {
-  packIndex(repository).pedagogical_review.status = 'approved';
-  thematic(repository).teacher_pack.pedagogical_review.status = 'approved';
-  thematic(repository).teacher_pack.teacher_review_status = 'approved';
-  for (const lesson of lessons(repository)) {
-    lesson.data.artifact_readiness.teacher_review = {
-      status: 'approved',
-      reviewer_role: 'primary_science_teacher',
-      reviewed_at: '2026-07-21',
-      notes: 'Independent review evidence is registered outside this synthetic fixture.',
-    };
-    lesson.data.artifact_readiness.readiness_status = 'teacher_reviewed';
-  }
+function validHomeTrial(
+  repository,
+  lessonIds = [...index(repository).lesson_ids],
+) {
+  const referenceModel = repository.evidenceReferenceModels[packId];
+  const observation = (ids = lessonIds) => (
+    ids.map((lessonId) => categoricalObservation(lessonId))
+  );
+  const retrievalLessonIds = lessonIds.filter(
+    (lessonId) => referenceModel.lessons.get(lessonId)?.retrievalRequired,
+  );
+  const practicalLessonIds = lessonIds.filter(
+    (lessonId) => referenceModel.lessons.get(lessonId)?.homePractical,
+  );
+  return {
+    schema_version: '1.0',
+    artifact_type: 'home_trial',
+    trial_id: 'grade-5-water-home-trial-2026-08-01',
+    pack_ref: packId,
+    evidence_identity: identity(repository),
+    lifecycle: { supersedes: [] },
+    trial_status: 'analysed',
+    context: {
+      lesson_ids: [...lessonIds],
+      setting: 'homeschool',
+      grade: 5,
+      learner_count: 1,
+      study_context: 'individual_study',
+      delivery_mode: 'parent_supported',
+      adult_role: 'logistical_support',
+      family_identity_storage: 'external',
+    },
+    privacy: privacy(),
+    conducted_at: '2026-08-01',
+    session_observations: lessonIds.map((lessonId) => ({
+      lesson_id: lessonId,
+      planned_minutes: 30,
+      actual_minutes: 30,
+      unplanned_adult_support: 'none',
+      parent_role_bounded: true,
+      summary: 'Synthetic aggregate session observation.',
+    })),
+    instruction_comprehension: observation(),
+    adult_role: observation(),
+    learner_independence: observation(),
+    material_availability: observation(),
+    offline_and_printer_assumptions: observation(),
+    retrieval_and_correction: observation(retrievalLessonIds),
+    language_scaffolds: observation(),
+    practical_safety: observation(practicalLessonIds),
+    task_completion: observation(),
+    recall_and_transfer: observation(),
+    findings: [],
+    decision: {
+      status: 'successful',
+      safe_to_repeat: true,
+      parent_role_remained_bounded: true,
+      rationale: 'Synthetic schema fixture only; no production home trial.',
+    },
+  };
 }
 
-function addReview(repository, review = validReview(repository)) {
-  packIndex(repository).pedagogical_review.review_record_path = reviewPath;
-  thematic(repository).teacher_pack.pedagogical_review.review_record_path = reviewPath;
-  repository.reviewRecords.push({ file: reviewPath, kind: 'teacher-review record', data: review });
+function addReview(repository, record = validReview(repository)) {
+  index(repository).pedagogical_review.review_record_paths = [reviewPath];
+  repository.reviewRecords.push({ file: reviewPath, data: record });
+  syncDerivedStatuses(repository);
 }
 
-function claimTrialTested(repository) {
-  packIndex(repository).classroom_trial.status = 'tested';
-  thematic(repository).teacher_pack.classroom_trial.status = 'tested';
-  for (const lesson of lessons(repository)) {
-    lesson.data.artifact_readiness.classroom_trial = {
-      status: 'tested',
-      tested_at: '2026-07-21',
-      context: 'Synthetic aggregate classroom trial fixture.',
-      notes: 'No production trial is represented by this test-only fixture.',
-    };
-    lesson.data.artifact_readiness.readiness_status = 'classroom_tested';
-  }
+function addClassroomTrial(repository, record = validClassroomTrial(repository)) {
+  index(repository).classroom_trial.trial_record_paths = [classroomPath];
+  repository.trialRecords.push({ file: classroomPath, data: record });
+  syncDerivedStatuses(repository);
 }
 
-function addTrial(repository, trial = validTrial(repository)) {
-  packIndex(repository).classroom_trial.trial_record_paths = [trialPath];
-  thematic(repository).teacher_pack.classroom_trial.trial_record_paths = [trialPath];
-  repository.trialRecords.push({ file: trialPath, kind: 'classroom-trial record', data: trial });
+function addHomeTrial(repository, record = validHomeTrial(repository)) {
+  index(repository).home_trial.trial_record_paths = [homePath];
+  repository.homeTrialRecords.push({ file: homePath, data: record });
+  syncDerivedStatuses(repository);
 }
 
-function claimClassroomReady(repository) {
-  thematic(repository).teacher_pack.classroom_ready = true;
-  for (const lesson of lessons(repository)) {
-    lesson.data.artifact_readiness.classroom_ready = true;
-    lesson.data.artifact_readiness.readiness_status = 'classroom_ready';
-  }
+function syncDerivedStatuses(repository) {
+  const statuses = derivePedagogicalEvidenceLinkState(
+    repository,
+    indexArtifact(repository),
+  );
+  Object.assign(index(repository).pedagogical_review, statuses.pedagogical_review);
+  Object.assign(index(repository).classroom_trial, statuses.classroom_trial);
+  Object.assign(index(repository).home_trial, statuses.home_trial);
 }
 
 function errors(repository) {
-  return validatePedagogicalReviewRepository(repository).diagnostics.filter((entry) => entry.severity === 'error');
+  return validatePedagogicalReviewRepository(repository).diagnostics.filter(
+    (diagnostic) => diagnostic.severity === 'error',
+  );
 }
 
-function diagnosticText(repository, severity = 'error') {
-  return validatePedagogicalReviewRepository(repository).diagnostics
-    .filter((entry) => entry.severity === severity)
-    .map((entry) => `${entry.file} ${entry.field} ${entry.reason}`)
-    .join('\n');
+function errorText(repository) {
+  return errors(repository).map((diagnostic) => diagnostic.reason).join('\n');
 }
 
-function assertFailsWith(repository, pattern) {
-  const text = diagnosticText(repository);
+function assertError(repository, pattern) {
+  const text = errorText(repository);
   assert.match(text, pattern, text);
 }
 
-test('production templates validate while pending state has zero completed evidence records', () => {
+function finding(repository, severity = 'major', category = 'timing') {
+  return {
+    finding_id: `${severity}-${category.replaceAll('_', '-')}-finding`,
+    severity,
+    category,
+    delivery_modes: ['classroom'],
+    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-01.md'],
+    lesson_ids: [index(repository).lesson_ids[0]],
+    phase_ids: [],
+    target_ids: [],
+    description: 'A concrete synthetic issue was observed.',
+    evidence: 'Synthetic fixture evidence only.',
+    recommended_action: 'Resolve before production readiness.',
+    resolution_status: 'open',
+    resolution_refs: [],
+  };
+}
+
+test('production has valid templates and zero effective human evidence', () => {
   const result = validatePedagogicalReviewRepository(cloneRepository());
   assert.equal(result.summary.errors, 0);
   assert.equal(result.summary.completedReviews, 0);
   assert.equal(result.summary.analysedTrials, 0);
-  assert.equal(result.summary.warnings, 4);
+  assert.equal(result.summary.analysedHomeTrials, 0);
+  assert.equal(result.summary.effectiveReviews, 0);
+  assert.equal(result.summary.effectiveTrials, 0);
+  assert.equal(result.summary.effectiveHomeTrials, 0);
 });
 
-test('synthetic current review and analysed trial can prove classroom readiness', () => {
+test('current classroom and homeschool review scopes are independent', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
+  addReview(repository, validReview(repository, ['classroom']));
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_classroom_review, true);
+  assert.equal(summary.effective_homeschool_review, false);
+  assert.equal(summary.review_aggregate_status, 'partial');
+});
+
+test('one current review may cover both delivery modes', () => {
+  const repository = cloneRepository();
   addReview(repository);
-  claimTrialTested(repository);
-  addTrial(repository);
-  claimClassroomReady(repository);
-  assert.deepEqual(errors(repository), []);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_classroom_review, true);
+  assert.equal(summary.effective_homeschool_review, true);
+  assert.equal(summary.review_aggregate_status, 'approved_for_both');
 });
 
-test('approved_with_minor_notes accepts a documented minor resolution plan for review status', () => {
+test('commit SHA changes do not make identical evidence stale', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
   const review = validReview(repository);
-  review.decision = { status: 'approved_with_minor_notes', rationale: 'The non-blocking timing note has a tracked plan.' };
-  review.findings.push({
-    finding_id: 'minor-transition-cue', severity: 'minor', category: 'timing',
-    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-02.md'],
-    lesson_ids: [lessonIds(repository)[1]], description: 'A transition cue could be more explicit.',
-    evidence: 'The independent dry run needed one clarification.', recommended_action: 'Add the cue in a follow-up change.',
-    resolution_status: 'planned', resolution_refs: ['issue-102'],
+  review.evidence_identity.commit_sha = 'b'.repeat(40);
+  addReview(repository, review);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_teacher_review, true);
+  assert.equal(summary.stale_teacher_review, false);
+});
+
+for (const [label, mutate] of [
+  ['fingerprint value', (record) => { record.evidence_identity.content_fingerprint.value = '0'.repeat(64); }],
+  ['fingerprint file count', (record) => { record.evidence_identity.content_fingerprint.file_count += 1; }],
+  ['taxonomy version', (record) => { record.evidence_identity.pedagogical_snapshot.taxonomy_version = '9.9'; }],
+  ['taxonomy digest', (record) => { record.evidence_identity.pedagogical_snapshot.taxonomy_digest = '0'.repeat(64); }],
+  ['selection rules version', (record) => { record.evidence_identity.pedagogical_snapshot.selection_rules_version = '9.9'; }],
+  ['selection rules digest', (record) => { record.evidence_identity.pedagogical_snapshot.selection_rules_digest = '0'.repeat(64); }],
+  ['selection engine version', (record) => { record.evidence_identity.pedagogical_snapshot.selection_engine_version = '9.9'; }],
+  ['lesson DNA schema version', (record) => { record.evidence_identity.pedagogical_snapshot.lesson_dna_schema_version = '9.9'; }],
+  ['activity catalogue digest', (record) => { record.evidence_identity.pedagogical_snapshot.activity_catalog_digest = '0'.repeat(64); }],
+  ['homeschool rules version', (record) => { record.evidence_identity.pedagogical_snapshot.homeschool_rules_version = '9.9'; }],
+  ['homeschool rules digest', (record) => { record.evidence_identity.pedagogical_snapshot.homeschool_rules_digest = '0'.repeat(64); }],
+  ['homeschool engine version', (record) => { record.evidence_identity.pedagogical_snapshot.homeschool_engine_version = '9.9'; }],
+  ['quality engine version', (record) => { record.evidence_identity.pedagogical_snapshot.quality_engine_version = '9.9'; }],
+  ['quality catalogue version', (record) => { record.evidence_identity.pedagogical_snapshot.quality_catalogue_version = '9.9'; }],
+  ['lesson DNA digest', (record) => { record.evidence_identity.pedagogical_snapshot.lesson_dna_digests[0].digest = '0'.repeat(64); }],
+  ['quality catalogue digest', (record) => { record.evidence_identity.pedagogical_snapshot.quality_catalogue_digest = '0'.repeat(64); }],
+  ['integration version', (record) => { record.evidence_identity.pedagogical_snapshot.integration_version = '9.9'; }],
+  ['unit content identity', (record) => { record.evidence_identity.pedagogical_snapshot.unit_content_identity = '0'.repeat(64); }],
+]) {
+  test(`stale ${label} invalidates completed review`, () => {
+    const repository = cloneRepository();
+    const review = validReview(repository);
+    mutate(review);
+    addReview(repository, review);
+    const summary = summarizePedagogicalEvidenceForPack(
+      repository,
+      indexArtifact(repository),
+    );
+    assert.equal(summary.effective_teacher_review, false);
+    assert.equal(summary.stale_teacher_review, true);
   });
-  addReview(repository, review);
-  assert.deepEqual(errors(repository), []);
-});
-
-test('completed changes-required review may honestly retain an open major finding', () => {
-  const repository = cloneRepository();
-  packIndex(repository).pedagogical_review.status = 'changes_requested';
-  thematic(repository).teacher_pack.pedagogical_review.status = 'changes_requested';
-  thematic(repository).teacher_pack.teacher_review_status = 'changes_requested';
-  const review = validReview(repository);
-  review.decision = { status: 'changes_required', rationale: 'The timing problem must be corrected before approval.' };
-  review.findings.push({
-    finding_id: 'major-timing-gap', severity: 'major', category: 'timing',
-    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-03.md'],
-    lesson_ids: [lessonIds(repository)[2]], description: 'The dry run exceeded the lesson duration.',
-    evidence: 'The independent dry run required additional setup time.', recommended_action: 'Revise and repeat the timing review.',
-    resolution_status: 'open', resolution_refs: [],
-  });
-  addReview(repository, review);
-  assert.deepEqual(errors(repository), []);
-});
-
-test('approved teacher review without a record fails', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  assertFailsWith(repository, /approved requires a registered completed review record/iu);
-});
-
-test('completed review without reviewer role fails', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  delete review.reviewer.role;
-  addReview(repository, review);
-  assertFailsWith(repository, /missing required field role|requires reviewer role/iu);
-});
-
-test('completed review without date fails', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  addReview(repository, validReview(repository, { reviewed_at: null }));
-  assertFailsWith(repository, /requires a valid date/iu);
-});
-
-test('50 different provenance commit SHA with identical content fingerprint remains effective', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.commit_sha = staleSha;
-  addReview(repository, review);
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.reviewed_version.commit_sha = staleSha;
-  addTrial(repository, trial);
-  claimClassroomReady(repository);
-  assert.deepEqual(errors(repository), []);
-  assert.doesNotMatch(diagnosticText(repository, 'warning'), /stale/iu);
-});
-
-test('completed review must cover safety', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.review_scope.safety = false;
-  addReview(repository, review);
-  assertFailsWith(repository, /must cover safety/iu);
-});
+}
 
 test('open blocking review finding prevents approval', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
   const review = validReview(repository);
-  review.findings.push({
-    finding_id: 'unsafe-vessel', severity: 'blocking', category: 'safety',
-    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-03.md'],
-    lesson_ids: [lessonIds(repository)[2]], description: 'The vessel control is unclear.',
-    evidence: 'The printed guide permits an unsafe interpretation.', recommended_action: 'Clarify teacher-only control.',
-    resolution_status: 'open', resolution_refs: [],
-  });
-  review.blocking_findings = ['unsafe-vessel'];
+  review.findings = [finding(repository, 'blocking', 'safety')];
+  review.blocking_findings = [review.findings[0].finding_id];
   addReview(repository, review);
-  assertFailsWith(repository, /open blocking finding prevents approval/iu);
+  assertError(repository, /cannot retain open blocking or major findings/iu);
 });
 
 test('open major review finding prevents approval', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
   const review = validReview(repository);
-  review.findings.push({
-    finding_id: 'timing-overrun', severity: 'major', category: 'timing',
-    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-03.md'],
-    lesson_ids: [lessonIds(repository)[2]], description: 'The practical sequence exceeds 45 minutes.',
-    evidence: 'Independent dry run required 58 minutes.', recommended_action: 'Shorten setup and retest timing.',
-    resolution_status: 'open', resolution_refs: [],
+  review.findings = [finding(repository, 'major', 'timing')];
+  addReview(repository, review);
+  assertError(repository, /cannot retain open blocking or major findings/iu);
+});
+
+test('approved review rejects unresolved required change', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  const minor = finding(repository, 'minor', 'timing');
+  minor.resolution_status = 'planned';
+  minor.resolution_refs = ['issue-63'];
+  review.findings = [minor];
+  review.required_changes = [{
+    change_id: 'timing-change',
+    finding_refs: [minor.finding_id],
+    description: 'Track a bounded timing correction.',
+    resolution_status: 'open',
+    resolution_refs: [],
+  }];
+  addReview(repository, review);
+  assertError(repository, /bounded minor plans/iu);
+});
+
+test('approved_with_minor_notes accepts bounded referenced plan', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  const minor = finding(repository, 'minor', 'timing');
+  minor.resolution_status = 'planned';
+  minor.resolution_refs = ['issue-63'];
+  review.findings = [minor];
+  review.required_changes = [{
+    change_id: 'timing-change',
+    finding_refs: [minor.finding_id],
+    description: 'Track a bounded timing correction.',
+    resolution_status: 'planned',
+    resolution_refs: ['issue-63'],
+  }];
+  review.decision.status = 'approved_with_minor_notes';
+  addReview(repository, review);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('completed review requires every pedagogical dimension', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  review.ratings.retrieval_quality = null;
+  addReview(repository, review);
+  assertError(repository, /requires every pedagogical rating/iu);
+});
+
+test('completed homeschool review requires homeschool materials in scope', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  review.review_scope.homeschool_materials = false;
+  addReview(repository, review);
+  assertError(repository, /homeschool review scope requires homeschool materials/iu);
+  assert.equal(
+    summarizePedagogicalEvidenceForPack(
+      repository,
+      indexArtifact(repository),
+    ).effective_homeschool_review,
+    false,
+  );
+});
+
+test('valid current classroom trial is effective only for classroom', () => {
+  const repository = cloneRepository();
+  addClassroomTrial(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(
+    summary.effective_classroom_trial,
+    true,
+    JSON.stringify(summary.diagnostics),
+  );
+  assert.equal(summary.effective_home_trial, false);
+});
+
+test('valid current home trial is effective only for homeschool', () => {
+  const repository = cloneRepository();
+  addHomeTrial(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_home_trial, true);
+  assert.equal(summary.effective_classroom_trial, false);
+});
+
+test('a positive single-lesson classroom trial remains partial for pack readiness', () => {
+  const repository = cloneRepository();
+  const lessonId = index(repository).lesson_ids[0];
+  addClassroomTrial(repository, validClassroomTrial(repository, [lessonId]));
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_classroom_trial, false);
+  assert.equal(summary.classroom_trial_status, 'partial');
+  assert.deepEqual(summary.classroom_trial_coverage.covered_lesson_ids, [lessonId]);
+  assert.deepEqual(
+    summary.classroom_trial_coverage.missing_lesson_ids,
+    index(repository).lesson_ids.slice(1).sort(),
+  );
+});
+
+test('a positive single-lesson home trial remains partial for pack readiness', () => {
+  const repository = cloneRepository();
+  const lessonId = index(repository).lesson_ids[0];
+  addHomeTrial(repository, validHomeTrial(repository, [lessonId]));
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_home_trial, false);
+  assert.equal(summary.home_trial_status, 'partial');
+  assert.deepEqual(summary.home_trial_coverage.covered_lesson_ids, [lessonId]);
+  assert.deepEqual(
+    summary.home_trial_coverage.missing_lesson_ids,
+    index(repository).lesson_ids.slice(1).sort(),
+  );
+});
+
+test('multiple current positive classroom trials may cover the pack by deterministic union', () => {
+  const repository = cloneRepository();
+  const lessonIds = index(repository).lesson_ids;
+  const first = validClassroomTrial(repository, lessonIds.slice(0, 2));
+  const second = validClassroomTrial(repository, lessonIds.slice(2));
+  first.trial_id = 'grade-5-water-classroom-trial-coverage-a';
+  second.trial_id = 'grade-5-water-classroom-trial-coverage-b';
+  const firstPath =
+    'pedagogical-reviews/grade-5-science/water/records/classroom-coverage-a.yaml';
+  const secondPath =
+    'pedagogical-reviews/grade-5-science/water/records/classroom-coverage-b.yaml';
+  index(repository).classroom_trial.trial_record_paths = [firstPath, secondPath];
+  repository.trialRecords.push(
+    { file: firstPath, data: first },
+    { file: secondPath, data: second },
+  );
+  syncDerivedStatuses(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_classroom_trial, true);
+  assert.equal(summary.classroom_trial_status, 'tested');
+  assert.equal(summary.classroom_trial_coverage.complete, true);
+  assert.deepEqual(summary.classroom_trial_coverage.missing_lesson_ids, []);
+  assert.deepEqual(
+    summary.classroom_trial_coverage.covered_lesson_ids,
+    [...summary.classroom_trial_coverage.covered_lesson_ids].sort(
+      (left, right) => Buffer.from(left).compare(Buffer.from(right)),
+    ),
+  );
+  assert.deepEqual(errors(repository), []);
+});
+
+test('overlapping positive trial records do not hide an uncovered pack lesson', () => {
+  const repository = cloneRepository();
+  const lessonIds = index(repository).lesson_ids;
+  const first = validHomeTrial(repository, lessonIds.slice(0, 2));
+  const second = validHomeTrial(repository, lessonIds.slice(1, 3));
+  first.trial_id = 'grade-5-water-home-trial-overlap-a';
+  second.trial_id = 'grade-5-water-home-trial-overlap-b';
+  const firstPath =
+    'pedagogical-reviews/grade-5-science/water/records/home-overlap-a.yaml';
+  const secondPath =
+    'pedagogical-reviews/grade-5-science/water/records/home-overlap-b.yaml';
+  index(repository).home_trial.trial_record_paths = [firstPath, secondPath];
+  repository.homeTrialRecords.push(
+    { file: firstPath, data: first },
+    { file: secondPath, data: second },
+  );
+  syncDerivedStatuses(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_home_trial, false);
+  assert.equal(summary.home_trial_status, 'partial');
+  assert.deepEqual(
+    summary.home_trial_coverage.missing_lesson_ids,
+    [lessonIds[3]],
+  );
+});
+
+test('superseded positive trial coverage is ignored in favour of its active successor', () => {
+  const repository = cloneRepository();
+  const lessonIds = index(repository).lesson_ids;
+  const historical = validClassroomTrial(repository, lessonIds.slice(0, 2));
+  const successor = validClassroomTrial(repository, lessonIds.slice(2));
+  historical.trial_id = 'grade-5-water-classroom-trial-historical';
+  historical.trial_status = 'superseded';
+  successor.trial_id = 'grade-5-water-classroom-trial-successor';
+  successor.lifecycle.supersedes = [historical.trial_id];
+  const historicalPath =
+    'pedagogical-reviews/grade-5-science/water/records/classroom-historical.yaml';
+  const successorPath =
+    'pedagogical-reviews/grade-5-science/water/records/classroom-successor.yaml';
+  index(repository).classroom_trial.trial_record_paths = [
+    historicalPath,
+    successorPath,
+  ];
+  repository.trialRecords.push(
+    { file: historicalPath, data: historical },
+    { file: successorPath, data: successor },
+  );
+  syncDerivedStatuses(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.deepEqual(
+    summary.classroom_trial_coverage.missing_lesson_ids,
+    lessonIds.slice(0, 2),
+  );
+  assert.equal(summary.effective_classroom_trial, false);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('stale positive trial coverage is excluded from pack aggregation', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.evidence_identity.content_fingerprint.value = '0'.repeat(64);
+  addHomeTrial(repository, trial);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.deepEqual(summary.home_trial_coverage.covered_lesson_ids, []);
+  assert.deepEqual(
+    summary.home_trial_coverage.missing_lesson_ids,
+    index(repository).lesson_ids,
+  );
+  assert.equal(summary.effective_home_trial, false);
+});
+
+test('retrieval coverage is not required for a lesson whose authoritative model disables retrieval', () => {
+  const repository = cloneRepository();
+  const lessonId = index(repository).lesson_ids[0];
+  repository.evidenceReferenceModels[packId]
+    .lessons.get(lessonId).retrievalRequired = false;
+  const trial = validClassroomTrial(repository, [lessonId]);
+  assert.deepEqual(trial.retrieval_and_correction, []);
+  addClassroomTrial(repository, trial);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('practical safety is required only for practical lessons', () => {
+  const repository = cloneRepository();
+  const nonPracticalLesson = index(repository).lesson_ids[0];
+  const trial = validClassroomTrial(repository, [nonPracticalLesson]);
+  assert.deepEqual(trial.safety_observations, []);
+  addClassroomTrial(repository, trial);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('practical safety evidence on a non-practical lesson is rejected', () => {
+  const repository = cloneRepository();
+  const nonPracticalLesson = index(repository).lesson_ids[0];
+  const trial = validClassroomTrial(repository, [nonPracticalLesson]);
+  trial.safety_observations = [categoricalObservation(nonPracticalLesson)];
+  addClassroomTrial(repository, trial);
+  assertError(repository, /practical safety observation is not applicable/iu);
+});
+
+test('home practical safety is required only for the applicable home-practical lesson', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  assert.deepEqual(
+    trial.practical_safety.map((observation) => observation.lesson_id),
+    ['grade-5-water-03-melting-condensation'],
+  );
+  addHomeTrial(repository, trial);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('missing practical safety blocks positive home-trial effectiveness', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.practical_safety = [];
+  addHomeTrial(repository, trial);
+  assertError(repository, /missing practical_safety coverage/iu);
+});
+
+test('home trial requires bounded parent role', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.decision.parent_role_remained_bounded = false;
+  addHomeTrial(repository, trial);
+  assertError(repository, /requires a bounded parent/iu);
+});
+
+test('successful classroom trial rejects open safety finding', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.findings = [finding(repository, 'blocking', 'safety')];
+  addClassroomTrial(repository, trial);
+  assertError(repository, /cannot retain open blocking or major findings/iu);
+});
+
+test('privacy-invalid analysed record is rejected', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.privacy.contains_student_names = true;
+  addClassroomTrial(repository, trial);
+  assertError(repository, /must be equal to constant|privacy declaration/iu);
+  assert.equal(
+    summarizePedagogicalEvidenceForPack(
+      repository,
+      indexArtifact(repository),
+    ).effective_classroom_trial,
+    false,
+  );
+});
+
+test('email address in free text is rejected by conservative privacy guard', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.decision.rationale = 'Contact family@example.com for the private follow-up.';
+  addHomeTrial(repository, trial);
+  assertError(repository, /privacy-risk text/iu);
+});
+
+test('phone number in free text is rejected by conservative privacy guard', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.decision.rationale = 'Call +372 5555 1234 for details.';
+  addClassroomTrial(repository, trial);
+  assertError(repository, /privacy-risk text/iu);
+});
+
+test('private-media URL is rejected by conservative privacy guard', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.decision.rationale = 'Recording: https://drive.google.com/private-media';
+  addHomeTrial(repository, trial);
+  assertError(repository, /privacy-risk text/iu);
+});
+
+test('unknown lesson reference is rejected', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.context.lesson_ids = ['unknown-lesson'];
+  addClassroomTrial(repository, trial);
+  assertError(repository, /unknown linked lesson/iu);
+});
+
+test('unresolved finding artifact path is rejected', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  const issue = finding(repository, 'minor', 'materials');
+  issue.resolution_status = 'resolved';
+  issue.artifact_paths = ['teacher-packs/grade-5-science/water/missing.md'];
+  review.findings = [issue];
+  addReview(repository, review);
+  assertError(repository, /unresolved finding artifact/iu);
+});
+
+test('teacher-review template cannot be linked as evidence', () => {
+  const repository = cloneRepository();
+  index(repository).pedagogical_review.review_record_paths = [
+    index(repository).pedagogical_review.template_path,
+  ];
+  assertError(repository, /template cannot be registered/iu);
+});
+
+test('classroom-trial template cannot be linked as evidence', () => {
+  const repository = cloneRepository();
+  index(repository).classroom_trial.trial_record_paths = [
+    index(repository).classroom_trial.template_path,
+  ];
+  assertError(repository, /template cannot be registered/iu);
+});
+
+test('home-trial template cannot be linked as evidence', () => {
+  const repository = cloneRepository();
+  index(repository).home_trial.trial_record_paths = [
+    index(repository).home_trial.template_path,
+  ];
+  assertError(repository, /template cannot be registered/iu);
+});
+
+test('superseded evidence is never effective', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  review.review_status = 'superseded';
+  addReview(repository, review);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_teacher_review, false);
+});
+
+test('standalone current record validates without registration', () => {
+  const repository = cloneRepository();
+  const artifact = { file: reviewPath, data: validReview(repository) };
+  const result = validateStandalonePedagogicalEvidenceRecord(
+    repository,
+    indexArtifact(repository),
+    artifact,
+    { requireEffective: true },
+  );
+  assert.equal(result.state.effective, true);
+  assert.equal(result.diagnostics.filter((item) => item.severity === 'error').length, 0);
+});
+
+for (const decision of ['changes_required', 'rejected']) {
+  test(`completed ${decision} teacher review is registerable negative evidence`, () => {
+    const repository = cloneRepository();
+    const review = validReview(repository, ['classroom']);
+    const issue = finding(
+      repository,
+      decision === 'rejected' ? 'blocking' : 'major',
+      'timing',
+    );
+    review.findings = [issue];
+    review.blocking_findings = decision === 'rejected' ? [issue.finding_id] : [];
+    review.required_changes = decision === 'changes_required' ? [{
+      change_id: 'required-timing-change',
+      finding_refs: [issue.finding_id],
+      description: 'Correct the observed timing problem.',
+      resolution_status: 'open',
+      resolution_refs: [],
+    }] : [];
+    review.decision = {
+      status: decision,
+      rationale: 'Synthetic completed negative review evidence.',
+    };
+    const validation = validateStandalonePedagogicalEvidenceRecord(
+      repository,
+      indexArtifact(repository),
+      { file: reviewPath, data: review },
+      { requireRegisterable: true },
+    );
+    assert.equal(validation.state.registerable, true, JSON.stringify(validation.diagnostics));
+    assert.equal(validation.state.positive_effective, false);
+    assert.equal(validation.state.negative_effective, true);
   });
-  addReview(repository, review);
-  assertFailsWith(repository, /open major finding prevents approval/iu);
-});
+}
 
-test('analysed trial without complete privacy declarations fails', () => {
-  const repository = cloneRepository();
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  delete trial.privacy.free_text_checked_for_identifiers;
-  addTrial(repository, trial);
-  assertFailsWith(repository, /missing required field free_text_checked_for_identifiers|requires complete no-personal-data declarations/iu);
-});
-
-test('trial rejects prohibited personal-data fields', () => {
-  const repository = cloneRepository();
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.student_names = ['prohibited'];
-  addTrial(repository, trial);
-  assertFailsWith(repository, /unknown field student_names/iu);
-});
-
-test('analysed trial requires at least one lesson ID', () => {
-  const repository = cloneRepository();
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.context.lesson_ids = [];
-  addTrial(repository, trial);
-  assertFailsWith(repository, /requires at least one lesson ID/iu);
-});
-
-test('open classroom safety blocker fails', () => {
-  const repository = cloneRepository();
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.findings.push({
-    finding_id: 'hot-vessel-access', severity: 'blocking', category: 'safety',
-    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-03.md'],
-    lesson_ids: [lessonIds(repository)[2]], description: 'Pupils could reach the warm vessel.',
-    evidence: 'Aggregated observer note identified access during setup.', recommended_action: 'Move setup behind teacher line.',
-    resolution_status: 'open', resolution_refs: [],
+for (const [kind, decision, safeToRepeat] of [
+  ['classroom', 'changes_required', true],
+  ['classroom', 'repeat_trial_required', false],
+  ['home', 'changes_required', true],
+  ['home', 'repeat_trial_required', false],
+]) {
+  test(`${kind} ${decision} trial is registerable negative evidence`, () => {
+    const repository = cloneRepository();
+    const trial = kind === 'classroom'
+      ? validClassroomTrial(repository)
+      : validHomeTrial(repository);
+    trial.decision.status = decision;
+    trial.decision.safe_to_repeat = safeToRepeat;
+    trial.decision.rationale = 'Synthetic completed negative trial evidence.';
+    const validation = validateStandalonePedagogicalEvidenceRecord(
+      repository,
+      indexArtifact(repository),
+      {
+        file: kind === 'classroom' ? classroomPath : homePath,
+        data: trial,
+      },
+      { requireRegisterable: true },
+    );
+    assert.equal(validation.state.registerable, true, JSON.stringify(validation.diagnostics));
+    assert.equal(validation.state.positive_effective, false);
+    assert.equal(validation.state.negative_effective, true);
   });
-  addTrial(repository, trial);
-  assertFailsWith(repository, /open safety blocker prevents successful trial/iu);
+}
+
+test('empty analysed classroom trial is not registerable', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  for (const field of [
+    'timing_observations',
+    'instruction_comprehension',
+    'retrieval_and_correction',
+    'recall_and_transfer',
+    'participation_and_completion',
+    'language_support',
+    'material_usability',
+    'safety_observations',
+    'method_execution_observations',
+  ]) trial[field] = [];
+  const validation = validateStandalonePedagogicalEvidenceRecord(
+    repository,
+    indexArtifact(repository),
+    { file: classroomPath, data: trial },
+    { requireRegisterable: true },
+  );
+  assert.equal(validation.state.registerable, false);
+  assert.match(
+    validation.diagnostics.map((item) => item.reason).join('\n'),
+    /fewer than 1|timing_observations|meaningful/iu,
+  );
 });
 
-test('classroom ready without review fails', () => {
+test('empty analysed home trial is not registerable', () => {
   const repository = cloneRepository();
-  claimTrialTested(repository);
-  addTrial(repository);
-  claimClassroomReady(repository);
-  assertFailsWith(repository, /classroom_ready requires an effective approved teacher review/iu);
+  const trial = validHomeTrial(repository);
+  for (const field of [
+    'session_observations',
+    'instruction_comprehension',
+    'adult_role',
+    'learner_independence',
+    'material_availability',
+    'offline_and_printer_assumptions',
+    'retrieval_and_correction',
+    'language_scaffolds',
+    'task_completion',
+    'recall_and_transfer',
+  ]) trial[field] = [];
+  const validation = validateStandalonePedagogicalEvidenceRecord(
+    repository,
+    indexArtifact(repository),
+    { file: homePath, data: trial },
+    { requireRegisterable: true },
+  );
+  assert.equal(validation.state.registerable, false);
+  assert.match(
+    validation.diagnostics.map((item) => item.reason).join('\n'),
+    /fewer than 1|session_observations|meaningful/iu,
+  );
 });
 
-test('classroom ready without trial fails', () => {
+test('successful trial with safe_to_repeat false is not registerable', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  addReview(repository);
-  claimClassroomReady(repository);
-  assertFailsWith(repository, /classroom_ready requires an effective analysed classroom trial/iu);
+  const trial = validClassroomTrial(repository);
+  trial.decision.safe_to_repeat = false;
+  const validation = validateStandalonePedagogicalEvidenceRecord(
+    repository,
+    indexArtifact(repository),
+    { file: classroomPath, data: trial },
+    { requireRegisterable: true },
+  );
+  assert.equal(validation.state.registerable, false);
+  assert.match(
+    validation.diagnostics.map((item) => item.reason).join('\n'),
+    /safe_to_repeat: true/u,
+  );
 });
 
-test('classroom ready rejects stale review', () => {
+test('planned minor safety note supports successful_with_notes', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.value = staleFingerprint;
-  addReview(repository, review);
-  claimTrialTested(repository);
-  addTrial(repository);
-  claimClassroomReady(repository);
-  assert.match(diagnosticText(repository, 'warning'), /teacher review is stale: reviewed content fingerprint does not match current teacher-pack content/iu);
-  assertFailsWith(repository, /stale teacher review fingerprint cannot prove current readiness/iu);
+  const trial = validClassroomTrial(repository);
+  const note = finding(repository, 'minor', 'safety');
+  note.resolution_status = 'planned';
+  note.resolution_refs = ['safety-plan'];
+  trial.findings = [note];
+  trial.decision.status = 'successful_with_notes';
+  addClassroomTrial(repository, trial);
+  assert.deepEqual(errors(repository), []);
 });
 
-test('classroom ready rejects stale trial', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  addReview(repository);
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.reviewed_version.content_fingerprint.value = staleFingerprint;
-  addTrial(repository, trial);
-  claimClassroomReady(repository);
-  assert.match(diagnosticText(repository, 'warning'), /classroom trial is stale: tested content fingerprint does not match current teacher-pack content/iu);
-  assertFailsWith(repository, /stale classroom trial fingerprint cannot prove current readiness/iu);
-});
-
-test('teacher-review template cannot be registered as completed evidence', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const templatePath = repository.reviewTemplates[0].file;
-  packIndex(repository).pedagogical_review.review_record_path = templatePath;
-  thematic(repository).teacher_pack.pedagogical_review.review_record_path = templatePath;
-  assertFailsWith(repository, /template cannot be used as completed evidence/iu);
-});
-
-test('conducted but not analysed trial cannot prove tested status', () => {
-  const repository = cloneRepository();
-  claimTrialTested(repository);
-  addTrial(repository, validTrial(repository, { trial_status: 'conducted' }));
-  assertFailsWith(repository, /must have trial_status: analysed/iu);
-});
-
-test('approval fails while required changes remain open', () => {
-  const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.findings.push({
-    finding_id: 'clarify-timing', severity: 'minor', category: 'timing',
-    artifact_paths: ['teacher-packs/grade-5-science/water/lessons/lesson-02.md'],
-    lesson_ids: [lessonIds(repository)[1]], description: 'Transition timing needs clarification.',
-    evidence: 'Dry run showed an ambiguous transition.', recommended_action: 'Add a concrete transition cue.',
-    resolution_status: 'planned', resolution_refs: ['issue-101'],
+for (const [rating, decision] of [
+  [1, 'approved'],
+  [2, 'approved_with_minor_notes'],
+]) {
+  test(`positive ${decision} review rejects contradictory rating ${rating}`, () => {
+    const repository = cloneRepository();
+    const review = validReview(repository);
+    review.ratings.method_suitability_for_grade = rating;
+    review.decision.status = decision;
+    addReview(repository, review);
+    assertError(repository, /cannot support a positive review decision/iu);
   });
-  review.required_changes.push({
-    change_id: 'resolve-timing', finding_refs: ['clarify-timing'], description: 'Clarify lesson 2 transition timing.',
-    resolution_status: 'open', resolution_refs: [],
+}
+
+test('rating 3 cannot support plain approved without a minor plan', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  review.ratings.timing_realism = 3;
+  addReview(repository, review);
+  assertError(repository, /rating 3 .* requires approved_with_minor_notes/iu);
+});
+
+test('rating 3 supports approved_with_minor_notes only with its linked plan', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository);
+  const note = finding(repository, 'minor', 'timing');
+  note.resolution_status = 'planned';
+  note.resolution_refs = ['timing-plan'];
+  review.ratings.timing_realism = 3;
+  review.findings = [note];
+  review.decision.status = 'approved_with_minor_notes';
+  addReview(repository, review);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('positive trial rejects not_met evidence', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.instruction_comprehension[0].rating = 'not_met';
+  addClassroomTrial(repository, trial);
+  assertError(repository, /not_met .* cannot support a positive/iu);
+});
+
+test('partly_met evidence requires a linked bounded minor plan', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.instruction_comprehension[0].rating = 'partly_met';
+  trial.decision.status = 'successful_with_notes';
+  addClassroomTrial(repository, trial);
+  assertError(repository, /linked bounded minor plan/iu);
+});
+
+test('partly_met evidence with a linked bounded minor plan is coherent', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  const note = finding(repository, 'minor', 'instruction_clarity');
+  note.resolution_status = 'planned';
+  note.resolution_refs = ['instruction-plan'];
+  trial.findings = [note];
+  trial.instruction_comprehension[0].rating = 'partly_met';
+  trial.instruction_comprehension[0].finding_refs = [note.finding_id];
+  trial.decision.status = 'successful_with_notes';
+  addClassroomTrial(repository, trial);
+  assert.deepEqual(errors(repository), []);
+});
+
+for (const field of ['setup_feasible', 'transition_feasible']) {
+  test(`positive classroom trial rejects ${field}: false`, () => {
+    const repository = cloneRepository();
+    const trial = validClassroomTrial(repository);
+    trial.timing_observations[0][field] = false;
+    addClassroomTrial(repository, trial);
+    assertError(repository, /feasible setup and transition/iu);
   });
-  addReview(repository, review);
-  assertFailsWith(repository, /approval requires required change resolve-timing to be closed/iu);
+}
+
+test('positive home trial rejects contradictory parent role and adult support', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.session_observations[0].parent_role_bounded = false;
+  trial.session_observations[0].unplanned_adult_support = 'high';
+  addHomeTrial(repository, trial);
+  assertError(repository, /parent-role decision must equal|bounded parent role|unplanned adult support/iu);
 });
 
-test('41 completed review without content fingerprint is rejected', () => {
+test('positive home trial rejects high unplanned adult support', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
+  const trial = validHomeTrial(repository);
+  trial.session_observations[0].unplanned_adult_support = 'high';
+  addHomeTrial(repository, trial);
+  assertError(repository, /unplanned adult support cannot support/iu);
+});
+
+test('linked draft review is a repository error and never active evidence', () => {
+  const repository = cloneRepository();
+  const review = validReview(repository, ['classroom']);
+  review.review_status = 'draft';
+  review.evidence_identity = null;
+  review.reviewed_at = null;
+  review.ratings = Object.fromEntries(
+    Object.keys(review.ratings).map((field) => [field, null]),
+  );
+  review.rating_applicability = [];
+  review.decision = { status: 'pending', rationale: 'Uncompleted draft.' };
+  addReview(repository, review);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.active_evidence_states.length, 0);
+  assertError(repository, /linked_evidence_not_terminal/iu);
+});
+
+test('linked conducted trial is a repository error and never active evidence', () => {
+  const repository = cloneRepository();
+  const trial = validClassroomTrial(repository);
+  trial.trial_status = 'conducted';
+  trial.decision = {
+    status: 'pending',
+    safe_to_repeat: null,
+    rationale: 'Analysis has not been completed.',
+  };
+  addClassroomTrial(repository, trial);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.active_evidence_states.length, 0);
+  assertError(repository, /linked_evidence_not_terminal/iu);
+});
+
+test('linked conducted home trial is a repository error and never active evidence', () => {
+  const repository = cloneRepository();
+  const trial = validHomeTrial(repository);
+  trial.trial_status = 'conducted';
+  trial.decision = {
+    status: 'pending',
+    safe_to_repeat: null,
+    parent_role_remained_bounded: null,
+    rationale: 'Analysis has not been completed.',
+  };
+  addHomeTrial(repository, trial);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.active_evidence_states.length, 0);
+  assertError(repository, /linked_evidence_not_terminal/iu);
+});
+
+test('open minor review finding without plan rejects approved_with_minor_notes', () => {
+  const repository = cloneRepository();
   const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.value = null;
-  review.reviewed_version.content_fingerprint.file_count = null;
+  review.findings = [finding(repository, 'minor', 'timing')];
+  review.decision.status = 'approved_with_minor_notes';
   addReview(repository, review);
-  assertFailsWith(repository, /completed teacher review requires a non-null sha256 content fingerprint and file count/iu);
+  assertError(repository, /bounded minor plans/iu);
 });
 
-test('42 analysed trial without content fingerprint is rejected', () => {
+test('classroom-only review uses explicit homeschool not_applicable ratings', () => {
   const repository = cloneRepository();
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.reviewed_version.content_fingerprint.value = null;
-  trial.reviewed_version.content_fingerprint.file_count = null;
-  addTrial(repository, trial);
-  assertFailsWith(repository, /analysed classroom trial requires a non-null sha256 content fingerprint and file count/iu);
+  addReview(repository, validReview(repository, ['classroom']));
+  assert.deepEqual(errors(repository), []);
+  assert.equal(index(repository).pedagogical_review.classroom_status, 'approved');
+  assert.equal(index(repository).pedagogical_review.homeschool_status, 'pending');
 });
 
-test('43 fingerprint with incorrect length is rejected', () => {
+test('homeschool-only review uses explicit classroom not_applicable rating', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.value = '0'.repeat(63);
-  addReview(repository, review);
-  assertFailsWith(repository, /content_fingerprint\/value must match pattern/iu);
+  addReview(repository, validReview(repository, ['homeschool']));
+  assert.deepEqual(errors(repository), []);
+  assert.equal(index(repository).pedagogical_review.classroom_status, 'pending');
+  assert.equal(index(repository).pedagogical_review.homeschool_status, 'approved');
 });
 
-test('44 uppercase hexadecimal fingerprint is rejected', () => {
+test('unknown observation phase is rejected', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.value = 'A'.repeat(64);
-  addReview(repository, review);
-  assertFailsWith(repository, /content_fingerprint\/value must match pattern/iu);
+  const trial = validClassroomTrial(repository);
+  trial.timing_observations[0].phase_id = 'unknown-phase';
+  addClassroomTrial(repository, trial);
+  assertError(repository, /unknown classroom phase/iu);
 });
 
-test('45 unknown fingerprint algorithm is rejected', () => {
+test('deviation target must match its classroom phase', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.algorithm = 'sha512';
-  addReview(repository, review);
-  assertFailsWith(repository, /content_fingerprint\/algorithm must be equal to constant/iu);
+  const trial = validClassroomTrial(repository);
+  trial.lesson_dna_deviation_status = 'observed';
+  trial.lesson_dna_deviations = [{
+    lesson_id: trial.context.lesson_ids[0],
+    phase_ids: ['activation'],
+    target_ids: ['not-the-selected-target'],
+    description: 'Synthetic deviation reference.',
+    reason: 'Exercise reference integrity.',
+  }];
+  addClassroomTrial(repository, trial);
+  assertError(repository, /not bound to the referenced classroom phase/iu);
 });
 
-test('46 unknown fingerprint specification version is rejected', () => {
+test('superseded stale review and its open finding remain historical only', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.specification_version = '2.0';
-  addReview(repository, review);
-  assertFailsWith(repository, /content_fingerprint\/specification_version must be equal to constant/iu);
+  const oldReview = validReview(repository, ['classroom']);
+  oldReview.review_id = 'historical-classroom-review';
+  oldReview.evidence_identity.content_fingerprint.value = '0'.repeat(64);
+  const issue = finding(repository, 'major', 'timing');
+  oldReview.findings = [issue];
+  oldReview.required_changes = [{
+    change_id: 'historical-timing-change',
+    finding_refs: [issue.finding_id],
+    description: 'Historical required change.',
+    resolution_status: 'open',
+    resolution_refs: [],
+  }];
+  oldReview.decision = {
+    status: 'changes_required',
+    rationale: 'Historical negative review.',
+  };
+  const successor = validReview(repository, ['classroom']);
+  successor.review_id = 'current-classroom-review';
+  successor.lifecycle.supersedes = [oldReview.review_id];
+  const oldPath =
+    'pedagogical-reviews/grade-5-science/water/records/historical-classroom-review.yaml';
+  const successorPath =
+    'pedagogical-reviews/grade-5-science/water/records/current-classroom-review.yaml';
+  repository.reviewRecords.push(
+    { file: oldPath, data: oldReview },
+    { file: successorPath, data: successor },
+  );
+  index(repository).pedagogical_review.review_record_paths = [
+    oldPath,
+    successorPath,
+  ];
+  syncDerivedStatuses(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_classroom_review, true);
+  assert.equal(summary.negative_classroom_review, false);
+  assert.equal(summary.open_review_findings.length, 0);
+  assert.equal(summary.historical_evidence_states.length, 1);
+  assert.equal(summary.historical_evidence_states[0].recordId, oldReview.review_id);
+  assert.deepEqual(errors(repository), []);
 });
 
-test('47 incorrect fingerprint file count makes evidence stale', () => {
+test('a later content change may stale the active supersession terminal', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.file_count += 1;
-  addReview(repository, review);
-  assert.match(diagnosticText(repository, 'warning'), /recorded file count: \d+; current file count: \d+/iu);
-  assertFailsWith(repository, /stale teacher review fingerprint cannot prove current readiness/iu);
+  const historical = validReview(repository, ['classroom']);
+  historical.review_id = 'historical-classroom-review';
+  const successor = validReview(repository, ['classroom']);
+  successor.review_id = 'stale-successor-classroom-review';
+  successor.lifecycle.supersedes = [historical.review_id];
+  successor.evidence_identity.content_fingerprint.value = '0'.repeat(64);
+  const historicalPath =
+    'pedagogical-reviews/grade-5-science/water/records/historical-classroom-review.yaml';
+  const successorPath =
+    'pedagogical-reviews/grade-5-science/water/records/stale-successor-classroom-review.yaml';
+  repository.reviewRecords.push(
+    { file: historicalPath, data: historical },
+    { file: successorPath, data: successor },
+  );
+  index(repository).pedagogical_review.review_record_paths = [
+    historicalPath,
+    successorPath,
+  ];
+  syncDerivedStatuses(repository);
+  const summary = summarizePedagogicalEvidenceForPack(
+    repository,
+    indexArtifact(repository),
+  );
+  assert.equal(summary.effective_classroom_review, false);
+  assert.equal(summary.stale_teacher_review, true);
+  assert.equal(summary.historical_evidence_states.length, 1);
+  assert.equal(summary.active_evidence_states[0].recordId, successor.review_id);
+  assert.deepEqual(errors(repository), []);
 });
 
-test('48 mismatched review fingerprint makes review stale', () => {
+test('current positive and negative review require explicit supersession', () => {
   const repository = cloneRepository();
-  claimReviewApproved(repository);
-  const review = validReview(repository);
-  review.reviewed_version.content_fingerprint.value = staleFingerprint;
-  addReview(repository, review);
-  assert.match(diagnosticText(repository, 'warning'), /teacher review is stale: reviewed content fingerprint does not match current teacher-pack content/iu);
-  assertFailsWith(repository, /stale teacher review fingerprint cannot prove current readiness/iu);
+  const positive = validReview(repository, ['classroom']);
+  positive.review_id = 'positive-classroom-review';
+  const negative = validReview(repository, ['classroom']);
+  negative.review_id = 'negative-classroom-review';
+  const issue = finding(repository, 'major', 'timing');
+  negative.findings = [issue];
+  negative.required_changes = [{
+    change_id: 'negative-timing-change',
+    finding_refs: [issue.finding_id],
+    description: 'Current negative required change.',
+    resolution_status: 'open',
+    resolution_refs: [],
+  }];
+  negative.decision = {
+    status: 'changes_required',
+    rationale: 'Current negative review.',
+  };
+  const positivePath =
+    'pedagogical-reviews/grade-5-science/water/records/positive-classroom-review.yaml';
+  const negativePath =
+    'pedagogical-reviews/grade-5-science/water/records/negative-classroom-review.yaml';
+  repository.reviewRecords.push(
+    { file: positivePath, data: positive },
+    { file: negativePath, data: negative },
+  );
+  index(repository).pedagogical_review.review_record_paths = [
+    negativePath,
+    positivePath,
+  ];
+  syncDerivedStatuses(repository);
+  assertError(repository, /conflicting current positive and negative/iu);
 });
 
-test('49 mismatched trial fingerprint makes trial stale', () => {
-  const repository = cloneRepository();
-  claimTrialTested(repository);
-  const trial = validTrial(repository);
-  trial.reviewed_version.content_fingerprint.value = staleFingerprint;
-  addTrial(repository, trial);
-  assert.match(diagnosticText(repository, 'warning'), /classroom trial is stale: tested content fingerprint does not match current teacher-pack content/iu);
-  assertFailsWith(repository, /stale classroom trial fingerprint cannot prove current readiness/iu);
-});
-
-test('51 draft template with populated fingerprint is rejected', () => {
-  const repository = cloneRepository();
-  const fingerprint = repository.currentPackFingerprints[packIndex(repository).pack_id];
-  repository.reviewTemplates[0].data.reviewed_version.content_fingerprint.value = fingerprint.value;
-  repository.reviewTemplates[0].data.reviewed_version.content_fingerprint.file_count = fingerprint.file_count;
-  assertFailsWith(repository, /template must remain an uncompleted draft with null version evidence/iu);
-});
-
-test('52 draft template missing explicit null fingerprint field is rejected', () => {
-  const repository = cloneRepository();
-  delete repository.trialTemplates[0].data.reviewed_version.content_fingerprint.file_count;
-  assertFailsWith(repository, /missing required field file_count/iu);
-});
+for (const reviewerReference of [
+  'reviewer@example.com',
+  'Ada Lovelace',
+  'https://example.com/private-reviewer',
+]) {
+  test(`privacy-unsafe reviewer reference is rejected: ${reviewerReference}`, () => {
+    const repository = cloneRepository();
+    const review = validReview(repository);
+    review.reviewer.reviewer_reference = reviewerReference;
+    addReview(repository, review);
+    assert.ok(errors(repository).length > 0);
+  });
+}

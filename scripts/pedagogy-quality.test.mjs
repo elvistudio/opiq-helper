@@ -25,6 +25,9 @@ import {
 import {
   pedagogicalEvidenceFingerprintMatches,
 } from './lib/pedagogical-reviews.mjs';
+import {
+  buildPedagogicalEvidenceIdentity,
+} from './lib/pedagogical-evidence.mjs';
 
 let production;
 let fixtureRoot;
@@ -190,15 +193,23 @@ async function withCompletedReviewFixture(fingerprint, run) {
     schema: 'core',
   });
   const index = indexDocument.toJS({ maxAliasCount: 1000 });
-  index.pedagogical_review.review_record_path = reviewRepositoryPath;
+  index.pedagogical_review.review_record_paths = [reviewRepositoryPath];
+  const currentIdentity = (await buildPedagogicalEvidenceIdentity({
+    rootDir: fixtureRoot,
+    packPath: 'teacher-packs/grade-5-science/water/materials-index.yaml',
+    commitSha: 'a'.repeat(40),
+  })).identity;
   const review = {
-    schema_version: '1.1',
+    schema_version: '2.0',
     artifact_type: 'teacher_review',
     review_id: 'grade-5-water-review-2026-07-25',
     pack_ref: 'grade-5-science-water-teacher-pack',
-    reviewed_version: {
-      commit_sha: 'a'.repeat(40),
+    evidence_identity: {
+      ...currentIdentity,
       content_fingerprint: structuredClone(fingerprint),
+    },
+    lifecycle: {
+      supersedes: [],
     },
     review_status: 'completed',
     reviewer: {
@@ -212,6 +223,7 @@ async function withCompletedReviewFixture(fingerprint, run) {
       reviewer_reference: 'quality-fixture-reviewer',
     },
     reviewed_at: '2026-07-25',
+    delivery_scopes: ['classroom', 'homeschool'],
     review_scope: {
       teacher_guide: true,
       lesson_guides: [
@@ -226,17 +238,54 @@ async function withCompletedReviewFixture(fingerprint, run) {
       homeschool_materials: true,
       safety: true,
       language_level: true,
+      lesson_dna: true,
+      selection_and_adaptation_artifacts: true,
     },
-    ratings: {
-      scientific_accuracy: 4,
-      age_appropriateness: 4,
-      timing_feasibility: 4,
-      instruction_clarity: 4,
-      student_material_usability: 4,
-      assessment_alignment: 4,
-      estonian_a1_a2_fit: 4,
-      safety_readiness: 4,
-      homeschool_usability: 4,
+    ratings: Object.fromEntries([
+      'method_suitability_for_grade',
+      'method_suitability_for_subject',
+      'lesson_pattern_coherence',
+      'timing_realism',
+      'transition_setup_cleanup_realism',
+      'cognitive_load',
+      'total_productive_language_load',
+      'russian_primary_explanation_quality',
+      'estonian_a1_a2_support_fit',
+      'retrieval_quality',
+      'spaced_review_usefulness',
+      'correction_and_self_explanation',
+      'teacher_instruction_clarity',
+      'classroom_feasibility',
+      'homeschool_clarity',
+      'parent_role_realism',
+      'differentiation',
+      'inclusion_accessibility',
+      'assessment_validity',
+      'subject_language_assessment_separation',
+      'learner_autonomy',
+      'motivation_competence_support',
+      'safety',
+      'material_availability',
+      'artificial_repetitive_method_risk',
+    ].map((field) => [field, 4])),
+    rating_applicability: [],
+    privacy: {
+      contains_student_names: false,
+      contains_birth_dates: false,
+      contains_personal_identifiers: false,
+      contains_addresses: false,
+      contains_contact_information: false,
+      contains_parent_contacts: false,
+      contains_photographs: false,
+      contains_recordings: false,
+      contains_health_data: false,
+      contains_special_category_data: false,
+      contains_identifiable_grades: false,
+      contains_identifiable_profiles: false,
+      contains_identifiable_free_text: false,
+      observations_are_aggregated: true,
+      identity_storage: 'external',
+      free_text_checked_for_identifiers: true,
     },
     findings: [],
     blocking_findings: [],
@@ -837,7 +886,7 @@ test('report makes structural claims but no approval or effectiveness claim', ()
 
 test('report readiness reflects actual invalid record state instead of safe defaults', () => {
   const repository = clone();
-  integrated(repository).readiness.teacher_review = 'approved';
+  integrated(repository).readiness.teacher_review = 'approved_for_both';
   integrated(repository).readiness.state_consistent = true;
   const report = buildPedagogyQualityReport(repository, evaluate(repository), {
     reportId: WATER_QUALITY_REPORT_ID,
