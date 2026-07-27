@@ -169,7 +169,7 @@ test('cross-archive duplicate-URL analysis is explicit even when count is zero',
   assert.deepEqual(report.url_ownership_and_overlaps.cross_archive_overlaps, []);
 });
 
-test('overlap checks cover current manifest owners and Grade 3/5 specifically', () => {
+test('historical overlap checks retain pre-import non-Grade-4 owners and Grade 3/5 specifically', () => {
   assert.equal(report.url_ownership_and_overlaps.existing_manifest_overlap_count, 85);
   assert.equal(report.url_ownership_and_overlaps.grade_3_overlap_count, 0);
   assert.equal(report.url_ownership_and_overlaps.grade_5_overlap_count, 0);

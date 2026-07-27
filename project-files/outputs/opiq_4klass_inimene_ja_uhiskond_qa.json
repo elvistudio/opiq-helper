@@ -1,0 +1,128 @@
+{
+  "qa_schema_version": "1.0",
+  "artifact_type": "grade-4-canonical-source-qa",
+  "source_id": "grade-4-human-studies-and-society",
+  "source_archive": "project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+  "output_file": "project-files/outputs/opiq_4klass_inimene_ja_uhiskond.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-23T13:55:04.892Z",
+    "generator": "scripts/generate-grade-4-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from immutable ZIP rows classified as instructional; post-audit Kit Details evidence is referenced separately."
+  },
+  "checksums": {
+    "source_archive_sha256": "74493d494f48be6991b7ae49d4dbea2886feff850d542ff6bf359114bb83a40b",
+    "output_file_sha256": "1c93b6761a982a6d6927ece2df14d6e2706f3effa3a9ebff53310bfe62880a64"
+  },
+  "included_zip_archives": [
+    {
+      "path": "project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+      "sha256": "74493d494f48be6991b7ae49d4dbea2886feff850d542ff6bf359114bb83a40b",
+      "byte_size": 1279029
+    }
+  ],
+  "included_kit_ids": [
+    "55",
+    "82"
+  ],
+  "excluded_kit_ids": [
+    "287"
+  ],
+  "source_book_ids": [
+    "inimene_ja_ühiskond._õpik_ii_kooliastmele,_i_osa",
+    "человек_и_общество._учебник_для_ii_ступени_обучения,_часть_i"
+  ],
+  "source_records": 68,
+  "page_records_included": 63,
+  "administrative_records_excluded": 1,
+  "kit_details_records_excluded": 2,
+  "duplicate_detail_aliases_excluded": 2,
+  "duplicate_instructional_urls_excluded": 0,
+  "malformed_or_ambiguous_records_excluded": 0,
+  "source_accounting": {
+    "total_source_records": 68,
+    "instructional_chapter_or_page": 63,
+    "kit_or_book_detail": 2,
+    "administrative_or_imprint": 1,
+    "duplicate_detail_alias": 2,
+    "duplicate_instructional_url": 0,
+    "malformed_or_ambiguous": 0,
+    "accounted_source_records": 68,
+    "balanced": true
+  },
+  "grades": {
+    "4": 63
+  },
+  "languages": {
+    "et": 31,
+    "ru": 32
+  },
+  "books": {
+    "inimene_ja_ühiskond._õpik_ii_kooliastmele,_i_osa__kit55": 31,
+    "человек_и_общество._учебник_для_ii_ступени_обучения,_часть_i__kit82": 32
+  },
+  "kits": {
+    "55": 31,
+    "82": 32
+  },
+  "raw_grade_labels": {
+    "4": 68
+  },
+  "evidence_supported_grade_scope": [
+    4
+  ],
+  "raw_subject_labels": {
+    "mathematics / matemaatika / математика": 68
+  },
+  "canonical_subject": {
+    "en": "human studies and society",
+    "et": "inimese- ja ühiskonnaõpetus",
+    "ru": "человек и общество"
+  },
+  "subject_normalization": {
+    "source_rows_with_exporter_mathematics_alias": 68,
+    "canonical_subject": "human studies and society / inimese- ja ühiskonnaõpetus / человек и общество",
+    "visible_instructional_text_changed": false
+  },
+  "programme_type": "mixed_subject",
+  "programme_evidence": [
+    "Route identity is intentionally mixed human studies and society; it is not subject-pure human studies."
+  ],
+  "edition_distinctions": [],
+  "metadata_contradictions": [
+    "68 route-scoped source rows carry the exporter-generated mathematics subject and are normalized from kit/book evidence."
+  ],
+  "kit_details_evidence_refs": [
+    "evaluations/grade-4-kit-details-evidence.json#kit:55",
+    "evaluations/grade-4-kit-details-evidence.json#kit:82"
+  ],
+  "url_ownership": {
+    "require_unique": true,
+    "canonical_url_count": 63,
+    "duplicate_within_route_count": 0,
+    "cross_grade4_route_overlap_count": 0
+  },
+  "task_availability": {
+    "records_with_captured_task_examples": 2,
+    "records_without_captured_task_examples": 61,
+    "task_level_complete": false,
+    "task_bodies_synthesized": false
+  },
+  "page_prose_availability": {
+    "complete_page_prose_captured": false,
+    "records_with_complete_page_prose": 0
+  },
+  "captured_markup": {
+    "records_with_html_or_mathml_fragments": 0,
+    "markup_preserved_as_source_evidence": true
+  },
+  "known_limitations": [
+    "Complete instructional page prose is not present in the raw chapter objects.",
+    "Task examples are incomplete for some or all books; no task content is synthesized.",
+    "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+    "Current live-catalogue and official-curriculum completeness are not established.",
+    "This mixed human/society route is not normalized to subject-pure human studies."
+  ]
+}

@@ -17,6 +17,9 @@ on:
       - schemas/**
       - docs/curriculum-maps.md
       - docs/audits/grade-4-source-intake.md
+      - docs/audits/grade-4-canonical-source-import.md
+      - docs/audits/grade-4-content-quality.md
+      - docs/audits/grade-4-kit-details-evidence.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
@@ -52,6 +55,9 @@ on:
       - schemas/**
       - docs/curriculum-maps.md
       - docs/audits/grade-4-source-intake.md
+      - docs/audits/grade-4-canonical-source-import.md
+      - docs/audits/grade-4-content-quality.md
+      - docs/audits/grade-4-kit-details-evidence.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
@@ -202,6 +208,18 @@ jobs:
 
       - name: Check generated Grade 4 source intake audit
         run: npm run check:grade-4-source-intake
+
+      - name: Test Grade 4 canonical source import
+        run: npm run test:grade-4-sources
+
+      - name: Check generated Grade 4 canonical sources
+        run: npm run check:grade-4-sources
+
+      - name: Test Grade 4 content-quality audit
+        run: npm run test:grade-4-content-quality
+
+      - name: Check Grade 4 content quality
+        run: npm run check:grade-4-content-quality
 
       - name: Verify generated grade 2 source indexes
         run: npm run check:grade-2-sources

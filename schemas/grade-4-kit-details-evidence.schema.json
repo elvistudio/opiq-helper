@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/grade-4-kit-details-evidence.schema.json",
+  "title": "Grade 4 post-intake Kit Details evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "evidence_id",
+    "issue_ref",
+    "issue_comment_url",
+    "historical_intake_report",
+    "records",
+    "non_guarantees"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "grade-4-kit-details-evidence" },
+    "evidence_id": { "const": "grade-4-post-intake-kit-details-2026-07-27" },
+    "issue_ref": { "const": "#41" },
+    "issue_comment_url": {
+      "const": "https://github.com/elvistudio/opiq-helper/issues/41#issuecomment-5093283851"
+    },
+    "historical_intake_report": {
+      "const": "evaluations/grade-4-source-intake.json"
+    },
+    "records": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": { "$ref": "#/$defs/evidenceRecord" }
+    },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nullableString": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kit_id",
+        "kit_details_url",
+        "verified_on",
+        "verification_method",
+        "verified_by",
+        "grade_scope",
+        "exact_grade_4_confirmed",
+        "subject",
+        "language",
+        "programme_or_support_role",
+        "publisher",
+        "curriculum",
+        "access_mode",
+        "evidence_source",
+        "evidence_limitations",
+        "verified_metadata"
+      ],
+      "properties": {
+        "kit_id": {
+          "enum": ["55", "82", "154", "161", "200", "206", "332", "476"]
+        },
+        "kit_details_url": {
+          "type": "string",
+          "pattern": "^https://www[.]opiq[.]ee/Kit/Details/[0-9]+$"
+        },
+        "verified_on": { "const": "2026-07-27" },
+        "verification_method": { "const": "manual_kit_details_review" },
+        "verified_by": { "const": "astzhalkouski" },
+        "grade_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          }
+        },
+        "exact_grade_4_confirmed": { "type": "boolean" },
+        "subject": { "$ref": "#/$defs/nullableString" },
+        "language": {
+          "oneOf": [
+            { "const": "et" },
+            { "type": "null" }
+          ]
+        },
+        "programme_or_support_role": {
+          "enum": [
+            "unknown",
+            "school_stage_ii_physical_education_support",
+            "shared_supplementary_arts_and_crafts",
+            "multi_grade_technology_instructional_support"
+          ]
+        },
+        "publisher": { "$ref": "#/$defs/nullableString" },
+        "curriculum": { "$ref": "#/$defs/nullableString" },
+        "access_mode": {
+          "oneOf": [
+            { "const": "free" },
+            { "type": "null" }
+          ]
+        },
+        "evidence_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "kit_details_url",
+            "project_provenance_url"
+          ],
+          "properties": {
+            "kind": { "const": "direct_opiq_kit_details_manual_review" },
+            "kit_details_url": {
+              "type": "string",
+              "pattern": "^https://www[.]opiq[.]ee/Kit/Details/[0-9]+$"
+            },
+            "project_provenance_url": {
+              "const": "https://github.com/elvistudio/opiq-helper/issues/41#issuecomment-5093283851"
+            }
+          }
+        },
+        "evidence_limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "verified_metadata": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "chapters",
+                "total_tasks",
+                "textbook_tasks",
+                "task_collection_tasks",
+                "authors",
+                "task_collection_author"
+              ],
+              "properties": {
+                "title": { "const": "Arvjuhitavad seadmed (CNC)" },
+                "chapters": { "const": 23 },
+                "total_tasks": { "const": 1 },
+                "textbook_tasks": { "const": 1 },
+                "task_collection_tasks": { "const": 0 },
+                "authors": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": { "const": "Snapmaker Technology Co., Ltd" }
+                },
+                "task_collection_author": { "const": "Lauri Soosaar" }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

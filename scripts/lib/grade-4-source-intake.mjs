@@ -173,7 +173,10 @@ function cleanMarkdownUrl(url) {
 async function loadManifestOwnership(rootDir) {
   const manifest = JSON.parse(await readFile(path.join(rootDir, 'source-manifest.json'), 'utf8'));
   const ownership = new Map();
-  for (const source of manifest.sources) {
+  // This immutable-intake report captures the ownership state before the
+  // separate Grade 4 canonical import. Newly imported Grade 4 routes must not
+  // be projected backwards into that historical overlap assessment.
+  for (const source of manifest.sources.filter((entry) => entry.grade !== 4)) {
     const markdown = await readFile(path.join(rootDir, source.md_path), 'utf8');
     for (const match of markdown.matchAll(/https:\/\/(?:www\.)?opiq\.ee\/[^\s<>"']+/giu)) {
       const url = cleanMarkdownUrl(match[0]);

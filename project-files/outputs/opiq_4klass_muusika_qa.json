@@ -1,0 +1,139 @@
+{
+  "qa_schema_version": "1.0",
+  "artifact_type": "grade-4-canonical-source-qa",
+  "source_id": "grade-4-music",
+  "source_archive": "project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+  "output_file": "project-files/outputs/opiq_4klass_muusika.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-24T08:46:01.903Z",
+    "generator": "scripts/generate-grade-4-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from immutable ZIP rows classified as instructional; post-audit Kit Details evidence is referenced separately."
+  },
+  "checksums": {
+    "source_archive_sha256": "56b6182b8ec7413c165df9976dc6d960bfe246ac0c5e6118b089c0f74519cbba",
+    "output_file_sha256": "fe498882fc220e8e1bc6fc53eb7272133df147596e2e44aea7908b8d1a5afa36"
+  },
+  "included_zip_archives": [
+    {
+      "path": "project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+      "sha256": "56b6182b8ec7413c165df9976dc6d960bfe246ac0c5e6118b089c0f74519cbba",
+      "byte_size": 1208950
+    }
+  ],
+  "included_kit_ids": [
+    "174",
+    "206",
+    "552"
+  ],
+  "excluded_kit_ids": [],
+  "source_book_ids": [
+    "4._klassi_muusikaõpetus",
+    "muusikaõpik_4._klassile",
+    "muusikaõpik_4._klassile_2024"
+  ],
+  "source_records": 180,
+  "page_records_included": 172,
+  "administrative_records_excluded": 2,
+  "kit_details_records_excluded": 3,
+  "duplicate_detail_aliases_excluded": 3,
+  "duplicate_instructional_urls_excluded": 0,
+  "malformed_or_ambiguous_records_excluded": 0,
+  "source_accounting": {
+    "total_source_records": 180,
+    "instructional_chapter_or_page": 172,
+    "kit_or_book_detail": 3,
+    "administrative_or_imprint": 2,
+    "duplicate_detail_alias": 3,
+    "duplicate_instructional_url": 0,
+    "malformed_or_ambiguous": 0,
+    "accounted_source_records": 180,
+    "balanced": true
+  },
+  "grades": {
+    "4": 172
+  },
+  "languages": {
+    "et": 172
+  },
+  "books": {
+    "4._klassi_muusikaõpetus__kit206": 96,
+    "muusikaõpik_4._klassile_2024__kit552": 38,
+    "muusikaõpik_4._klassile__kit174": 38
+  },
+  "kits": {
+    "174": 38,
+    "206": 96,
+    "552": 38
+  },
+  "raw_grade_labels": {
+    "4": 180
+  },
+  "evidence_supported_grade_scope": [
+    4
+  ],
+  "raw_subject_labels": {
+    "mathematics / matemaatika / математика": 180
+  },
+  "canonical_subject": {
+    "en": "music",
+    "et": "muusika",
+    "ru": "музыка"
+  },
+  "subject_normalization": {
+    "source_rows_with_exporter_mathematics_alias": 180,
+    "canonical_subject": "music / muusika / музыка",
+    "visible_instructional_text_changed": false
+  },
+  "programme_type": "unknown",
+  "programme_evidence": [
+    "Programme type is not established by the supplied evidence and remains unknown."
+  ],
+  "edition_distinctions": [
+    {
+      "kit_ids": [
+        "174",
+        "552"
+      ],
+      "disposition": "retain_separate_editions",
+      "evidence": "Separate editions; kit 552 explicitly identifies 2024."
+    }
+  ],
+  "metadata_contradictions": [
+    "180 route-scoped source rows carry the exporter-generated mathematics subject and are normalized from kit/book evidence."
+  ],
+  "kit_details_evidence_refs": [
+    "evaluations/grade-4-source-intake.json#kit:174",
+    "evaluations/grade-4-kit-details-evidence.json#kit:206",
+    "evaluations/grade-4-source-intake.json#kit:552"
+  ],
+  "url_ownership": {
+    "require_unique": true,
+    "canonical_url_count": 172,
+    "duplicate_within_route_count": 0,
+    "cross_grade4_route_overlap_count": 0
+  },
+  "task_availability": {
+    "records_with_captured_task_examples": 117,
+    "records_without_captured_task_examples": 55,
+    "task_level_complete": false,
+    "task_bodies_synthesized": false
+  },
+  "page_prose_availability": {
+    "complete_page_prose_captured": false,
+    "records_with_complete_page_prose": 0
+  },
+  "captured_markup": {
+    "records_with_html_or_mathml_fragments": 0,
+    "markup_preserved_as_source_evidence": true
+  },
+  "known_limitations": [
+    "Complete instructional page prose is not present in the raw chapter objects.",
+    "Task examples are incomplete for some or all books; no task content is synthesized.",
+    "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+    "Current live-catalogue and official-curriculum completeness are not established.",
+    "Kit 206 exact-grade ownership is supported by the separate post-audit Kit Details evidence."
+  ]
+}
