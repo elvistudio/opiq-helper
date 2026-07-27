@@ -1,0 +1,519 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "grade-4-content-quality-report",
+  "report_id": "grade-4-canonical-source-content-quality",
+  "generated_from": {
+    "immutable_intake_report": "evaluations/grade-4-source-intake.json",
+    "kit_details_evidence": "evaluations/grade-4-kit-details-evidence.json",
+    "routing_policy_module": "scripts/lib/grade-4-canonical-sources.mjs"
+  },
+  "scope": {
+    "canonical_route_ids": [
+      "grade-4-russian",
+      "grade-4-russian-reading",
+      "grade-4-estonian",
+      "grade-4-estonian-second-language",
+      "grade-4-english",
+      "grade-4-human-studies-and-society",
+      "grade-4-human-studies-simplified",
+      "grade-4-science",
+      "grade-4-mathematics",
+      "grade-4-mathematics-simplified",
+      "grade-4-music"
+    ],
+    "canonical_record_count": 2212,
+    "multi_grade_support_kit_ids": [
+      "161",
+      "200",
+      "476"
+    ],
+    "supplied_archive_count": 10
+  },
+  "canonical_import_status": "pass_with_warnings",
+  "downstream_course_building_status": "blocked",
+  "checks": [
+    {
+      "check_id": "canonical_route_readiness",
+      "status": "pass",
+      "summary": "All 11 evidence-supported Grade 4 canonical routes are deterministic and URL-exclusive."
+    },
+    {
+      "check_id": "source_integrity",
+      "status": "pass",
+      "summary": "All ten immutable ZIP identities and the 2,425-row accounting remain verified."
+    },
+    {
+      "check_id": "grade_subject_programme_boundaries",
+      "status": "pass_with_warnings",
+      "summary": "Exact Grade 4 and simplified/mixed boundaries are enforced; unknown programme types remain unknown."
+    },
+    {
+      "check_id": "instructional_page_availability",
+      "status": "pass",
+      "summary": "2212 canonical instructional chapter URLs are available."
+    },
+    {
+      "check_id": "task_availability",
+      "status": "pass_with_warnings",
+      "summary": "628 canonical records contain captured task examples; task-level completeness is not established."
+    },
+    {
+      "check_id": "complete_page_prose",
+      "status": "blocked",
+      "summary": "The supplied raw chapter objects do not contain complete instructional page prose."
+    },
+    {
+      "check_id": "live_catalogue_completeness",
+      "status": "blocked",
+      "summary": "No current live-catalogue snapshot establishes complete Grade 4 Opiq coverage."
+    },
+    {
+      "check_id": "multi_grade_shared_sources",
+      "status": "pass",
+      "summary": "Kits 161, 200, and 476 retain non-exclusive multi-grade/shared dispositions."
+    }
+  ],
+  "route_results": [
+    {
+      "route_id": "grade-4-russian",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 167,
+      "included_kit_ids": [
+        "243",
+        "295"
+      ],
+      "languages": {
+        "ru": 167
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-russian-reading",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 34,
+      "included_kit_ids": [
+        "415"
+      ],
+      "languages": {
+        "ru": 34
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-estonian",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 398,
+      "included_kit_ids": [
+        "71",
+        "154",
+        "533"
+      ],
+      "languages": {
+        "et": 398
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established.",
+        "Kit 154 exact-grade ownership is supported by the separate post-audit Kit Details evidence."
+      ]
+    },
+    {
+      "route_id": "grade-4-estonian-second-language",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 117,
+      "included_kit_ids": [
+        "150"
+      ],
+      "languages": {
+        "et": 117
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-english",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 163,
+      "included_kit_ids": [
+        "332",
+        "451"
+      ],
+      "languages": {
+        "en": 112,
+        "et": 49,
+        "ru": 2
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established.",
+        "Kit 332 exact-grade ownership is supported by the separate post-audit Kit Details evidence."
+      ]
+    },
+    {
+      "route_id": "grade-4-human-studies-and-society",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 63,
+      "included_kit_ids": [
+        "55",
+        "82"
+      ],
+      "languages": {
+        "et": 31,
+        "ru": 32
+      },
+      "programme_type": "mixed_subject",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established.",
+        "This mixed human/society route is not normalized to subject-pure human studies."
+      ]
+    },
+    {
+      "route_id": "grade-4-human-studies-simplified",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 55,
+      "included_kit_ids": [
+        "287"
+      ],
+      "languages": {
+        "et": 55
+      },
+      "programme_type": "simplified_curriculum",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-science",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 338,
+      "included_kit_ids": [
+        "11",
+        "27",
+        "108",
+        "228",
+        "480",
+        "536"
+      ],
+      "languages": {
+        "et": 168,
+        "ru": 170
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-mathematics",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 567,
+      "included_kit_ids": [
+        "70",
+        "147",
+        "157",
+        "293",
+        "460",
+        "588"
+      ],
+      "languages": {
+        "en": 4,
+        "et": 377,
+        "ru": 186
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-mathematics-simplified",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 138,
+      "included_kit_ids": [
+        "282",
+        "304",
+        "318",
+        "328"
+      ],
+      "languages": {
+        "en": 2,
+        "et": 136
+      },
+      "programme_type": "simplified_curriculum",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ]
+    },
+    {
+      "route_id": "grade-4-music",
+      "status": "pass_with_warnings",
+      "canonical_record_count": 172,
+      "included_kit_ids": [
+        "174",
+        "206",
+        "552"
+      ],
+      "languages": {
+        "et": 172
+      },
+      "programme_type": "unknown",
+      "source_integrity": "pass",
+      "grade_evidence": "pass",
+      "subject_evidence": "pass",
+      "language_evidence": "pass_with_warnings",
+      "task_availability": "pass_with_warnings",
+      "page_prose_availability": "blocked",
+      "warnings": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete for some or all books; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established.",
+        "Kit 206 exact-grade ownership is supported by the separate post-audit Kit Details evidence."
+      ]
+    }
+  ],
+  "multi_grade_shared_sources": [
+    {
+      "kit_id": "161",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_kehalise_kasvatuse_tooraamat_teisele_kooliastmel_v2.zip",
+      "grade_scope": [
+        4,
+        5,
+        6
+      ],
+      "subject": "physical_education",
+      "programme_or_support_role": "school_stage_ii_physical_education_support",
+      "grade_4_eligible": true,
+      "exclusive_grade_4_owner": false,
+      "canonical_owner": null,
+      "instructional_record_count": 22,
+      "disposition": "catalogue_evidence_only"
+    },
+    {
+      "kit_id": "200",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_kasitootuba_opiq_v2.zip",
+      "grade_scope": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "subject": "arts_and_crafts",
+      "programme_or_support_role": "shared_supplementary_arts_and_crafts",
+      "grade_4_eligible": true,
+      "exclusive_grade_4_owner": false,
+      "canonical_owner": "grade-2-arts-and-crafts",
+      "instructional_record_count": 85,
+      "disposition": "retain_existing_canonical_owner"
+    },
+    {
+      "kit_id": "476",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_tehnologia_v2.zip",
+      "grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "subject": "technology",
+      "programme_or_support_role": "multi_grade_technology_instructional_support",
+      "grade_4_eligible": true,
+      "exclusive_grade_4_owner": false,
+      "canonical_owner": null,
+      "instructional_record_count": 23,
+      "disposition": "catalogue_evidence_only"
+    }
+  ],
+  "downstream_blockers": [
+    {
+      "code": "complete_page_prose_not_captured",
+      "message": "Full page prose must be recaptured before prose-level course generation.",
+      "affected_kit_ids": [
+        "108",
+        "11",
+        "147",
+        "150",
+        "154",
+        "157",
+        "174",
+        "206",
+        "228",
+        "243",
+        "27",
+        "282",
+        "287",
+        "293",
+        "295",
+        "304",
+        "318",
+        "328",
+        "332",
+        "415",
+        "451",
+        "460",
+        "480",
+        "533",
+        "536",
+        "55",
+        "552",
+        "588",
+        "70",
+        "71",
+        "82"
+      ]
+    },
+    {
+      "code": "task_body_recapture_required",
+      "message": "Capture task bodies before task-level lesson use for books whose structured task examples are absent.",
+      "affected_kit_ids": [
+        "108",
+        "11",
+        "147",
+        "150",
+        "154",
+        "157",
+        "174",
+        "206",
+        "228",
+        "243",
+        "27",
+        "282",
+        "287",
+        "293",
+        "295",
+        "304",
+        "318",
+        "328",
+        "332",
+        "415",
+        "451",
+        "460",
+        "480",
+        "533",
+        "536",
+        "55",
+        "552",
+        "588",
+        "70",
+        "71",
+        "82"
+      ]
+    },
+    {
+      "code": "live_catalogue_completeness_unverified",
+      "message": "A current live-catalogue snapshot is required before claiming complete Grade 4 catalogue coverage.",
+      "affected_kit_ids": []
+    }
+  ],
+  "non_blocking_limitations": [
+    "Publisher metadata remains null/empty unless explicitly verified.",
+    "Unknown programme types are not promoted to ordinary curriculum.",
+    "Captured MathML/HTML fragments in task examples remain source evidence rather than reconstructed prose.",
+    "Parallel translated topic arrays are not treated as multilingual instructional content."
+  ],
+  "non_guarantees": [
+    "This report does not establish complete current Opiq Grade 4 catalogue coverage.",
+    "This report does not establish complete official Grade 4 curriculum coverage.",
+    "This report does not establish pedagogical effectiveness or commercial course readiness."
+  ]
+}

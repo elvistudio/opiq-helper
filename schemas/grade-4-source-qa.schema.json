@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/grade-4-source-qa.schema.json",
+  "title": "Grade 4 canonical source QA snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "qa_schema_version",
+    "artifact_type",
+    "source_id",
+    "source_archive",
+    "output_file",
+    "format_version",
+    "generation",
+    "checksums",
+    "included_zip_archives",
+    "included_kit_ids",
+    "excluded_kit_ids",
+    "source_book_ids",
+    "source_records",
+    "page_records_included",
+    "administrative_records_excluded",
+    "kit_details_records_excluded",
+    "duplicate_detail_aliases_excluded",
+    "duplicate_instructional_urls_excluded",
+    "malformed_or_ambiguous_records_excluded",
+    "source_accounting",
+    "grades",
+    "languages",
+    "books",
+    "kits",
+    "raw_grade_labels",
+    "evidence_supported_grade_scope",
+    "raw_subject_labels",
+    "canonical_subject",
+    "subject_normalization",
+    "programme_type",
+    "programme_evidence",
+    "edition_distinctions",
+    "metadata_contradictions",
+    "kit_details_evidence_refs",
+    "url_ownership",
+    "task_availability",
+    "page_prose_availability",
+    "captured_markup",
+    "known_limitations"
+  ],
+  "properties": {
+    "qa_schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "grade-4-canonical-source-qa" },
+    "source_id": { "$ref": "#/$defs/routeId" },
+    "source_archive": { "$ref": "#/$defs/repositoryPath" },
+    "output_file": { "$ref": "#/$defs/repositoryPath" },
+    "format_version": { "const": "2.0" },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "generated_at",
+        "generator",
+        "generator_version",
+        "note"
+      ],
+      "properties": {
+        "status": { "const": "generated" },
+        "generated_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:.]+Z$"
+        },
+        "generator": { "const": "scripts/generate-grade-4-sources.mjs" },
+        "generator_version": { "const": "1.0" },
+        "note": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "checksums": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_archive_sha256", "output_file_sha256"],
+      "properties": {
+        "source_archive_sha256": { "$ref": "#/$defs/sha256" },
+        "output_file_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "included_zip_archives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "byte_size"],
+        "properties": {
+          "path": { "$ref": "#/$defs/repositoryPath" },
+          "sha256": { "$ref": "#/$defs/sha256" },
+          "byte_size": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "included_kit_ids": { "$ref": "#/$defs/kitIds" },
+    "excluded_kit_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/kitId" }
+    },
+    "source_book_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "source_records": { "type": "integer", "minimum": 1 },
+    "page_records_included": { "type": "integer", "minimum": 1 },
+    "administrative_records_excluded": { "type": "integer", "minimum": 0 },
+    "kit_details_records_excluded": { "type": "integer", "minimum": 0 },
+    "duplicate_detail_aliases_excluded": { "type": "integer", "minimum": 0 },
+    "duplicate_instructional_urls_excluded": { "type": "integer", "minimum": 0 },
+    "malformed_or_ambiguous_records_excluded": { "type": "integer", "minimum": 0 },
+    "source_accounting": { "$ref": "#/$defs/accounting" },
+    "grades": { "$ref": "#/$defs/countMap" },
+    "languages": { "$ref": "#/$defs/countMap" },
+    "books": { "$ref": "#/$defs/countMap" },
+    "kits": { "$ref": "#/$defs/countMap" },
+    "raw_grade_labels": { "$ref": "#/$defs/countMap" },
+    "evidence_supported_grade_scope": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "const": 4 }
+    },
+    "raw_subject_labels": { "$ref": "#/$defs/countMap" },
+    "canonical_subject": { "$ref": "#/$defs/subject" },
+    "subject_normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_rows_with_exporter_mathematics_alias",
+        "canonical_subject",
+        "visible_instructional_text_changed"
+      ],
+      "properties": {
+        "source_rows_with_exporter_mathematics_alias": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "canonical_subject": { "$ref": "#/$defs/nonEmptyString" },
+        "visible_instructional_text_changed": { "const": false }
+      }
+    },
+    "programme_type": {
+      "enum": ["unknown", "mixed_subject", "simplified_curriculum"]
+    },
+    "programme_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "edition_distinctions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kit_ids", "disposition", "evidence"],
+        "properties": {
+          "kit_ids": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/kitId" }
+          },
+          "disposition": { "const": "retain_separate_editions" },
+          "evidence": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "metadata_contradictions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "kit_details_evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "url_ownership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "require_unique",
+        "canonical_url_count",
+        "duplicate_within_route_count",
+        "cross_grade4_route_overlap_count"
+      ],
+      "properties": {
+        "require_unique": { "const": true },
+        "canonical_url_count": { "type": "integer", "minimum": 1 },
+        "duplicate_within_route_count": { "const": 0 },
+        "cross_grade4_route_overlap_count": { "const": 0 }
+      }
+    },
+    "task_availability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "records_with_captured_task_examples",
+        "records_without_captured_task_examples",
+        "task_level_complete",
+        "task_bodies_synthesized"
+      ],
+      "properties": {
+        "records_with_captured_task_examples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "records_without_captured_task_examples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "task_level_complete": { "const": false },
+        "task_bodies_synthesized": { "const": false }
+      }
+    },
+    "page_prose_availability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "complete_page_prose_captured",
+        "records_with_complete_page_prose"
+      ],
+      "properties": {
+        "complete_page_prose_captured": { "const": false },
+        "records_with_complete_page_prose": { "const": 0 }
+      }
+    },
+    "captured_markup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "records_with_html_or_mathml_fragments",
+        "markup_preserved_as_source_evidence"
+      ],
+      "properties": {
+        "records_with_html_or_mathml_fragments": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "markup_preserved_as_source_evidence": { "const": true }
+      }
+    },
+    "known_limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "routeId": {
+      "enum": [
+        "grade-4-russian",
+        "grade-4-russian-reading",
+        "grade-4-estonian",
+        "grade-4-estonian-second-language",
+        "grade-4-english",
+        "grade-4-human-studies-and-society",
+        "grade-4-human-studies-simplified",
+        "grade-4-science",
+        "grade-4-mathematics",
+        "grade-4-mathematics-simplified",
+        "grade-4-music"
+      ]
+    },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?!.*\\\\).+$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "kitId": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "kitIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/kitId" }
+    },
+    "countMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "et", "ru"],
+      "properties": {
+        "en": { "$ref": "#/$defs/nonEmptyString" },
+        "et": { "$ref": "#/$defs/nonEmptyString" },
+        "ru": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "accounting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_source_records",
+        "instructional_chapter_or_page",
+        "kit_or_book_detail",
+        "administrative_or_imprint",
+        "duplicate_detail_alias",
+        "duplicate_instructional_url",
+        "malformed_or_ambiguous",
+        "accounted_source_records",
+        "balanced"
+      ],
+      "properties": {
+        "total_source_records": { "type": "integer", "minimum": 1 },
+        "instructional_chapter_or_page": { "type": "integer", "minimum": 1 },
+        "kit_or_book_detail": { "type": "integer", "minimum": 0 },
+        "administrative_or_imprint": { "type": "integer", "minimum": 0 },
+        "duplicate_detail_alias": { "type": "integer", "minimum": 0 },
+        "duplicate_instructional_url": { "type": "integer", "minimum": 0 },
+        "malformed_or_ambiguous": { "type": "integer", "minimum": 0 },
+        "accounted_source_records": { "type": "integer", "minimum": 1 },
+        "balanced": { "const": true }
+      }
+    }
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/grade-4-content-quality-report.schema.json",
+  "title": "Grade 4 canonical source content-quality report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "report_id",
+    "generated_from",
+    "scope",
+    "canonical_import_status",
+    "downstream_course_building_status",
+    "checks",
+    "route_results",
+    "multi_grade_shared_sources",
+    "downstream_blockers",
+    "non_blocking_limitations",
+    "non_guarantees"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "grade-4-content-quality-report" },
+    "report_id": { "const": "grade-4-canonical-source-content-quality" },
+    "generated_from": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "immutable_intake_report",
+        "kit_details_evidence",
+        "routing_policy_module"
+      ],
+      "properties": {
+        "immutable_intake_report": {
+          "const": "evaluations/grade-4-source-intake.json"
+        },
+        "kit_details_evidence": {
+          "const": "evaluations/grade-4-kit-details-evidence.json"
+        },
+        "routing_policy_module": {
+          "const": "scripts/lib/grade-4-canonical-sources.mjs"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_route_ids",
+        "canonical_record_count",
+        "multi_grade_support_kit_ids",
+        "supplied_archive_count"
+      ],
+      "properties": {
+        "canonical_route_ids": {
+          "type": "array",
+          "minItems": 11,
+          "maxItems": 11,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/routeId" }
+        },
+        "canonical_record_count": { "const": 2212 },
+        "multi_grade_support_kit_ids": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            { "const": "161" },
+            { "const": "200" },
+            { "const": "476" }
+          ],
+          "items": false
+        },
+        "supplied_archive_count": { "const": 10 }
+      }
+    },
+    "canonical_import_status": { "const": "pass_with_warnings" },
+    "downstream_course_building_status": { "const": "blocked" },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/check" }
+    },
+    "route_results": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": { "$ref": "#/$defs/routeResult" }
+    },
+    "multi_grade_shared_sources": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/supportSource" }
+    },
+    "downstream_blockers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/blocker" }
+    },
+    "non_blocking_limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "non_guarantees": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": ["pass", "pass_with_warnings", "blocked"]
+    },
+    "routeId": {
+      "enum": [
+        "grade-4-russian",
+        "grade-4-russian-reading",
+        "grade-4-estonian",
+        "grade-4-estonian-second-language",
+        "grade-4-english",
+        "grade-4-human-studies-and-society",
+        "grade-4-human-studies-simplified",
+        "grade-4-science",
+        "grade-4-mathematics",
+        "grade-4-mathematics-simplified",
+        "grade-4-music"
+      ]
+    },
+    "countMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["check_id", "status", "summary"],
+      "properties": {
+        "check_id": {
+          "enum": [
+            "canonical_route_readiness",
+            "source_integrity",
+            "grade_subject_programme_boundaries",
+            "instructional_page_availability",
+            "task_availability",
+            "complete_page_prose",
+            "live_catalogue_completeness",
+            "multi_grade_shared_sources"
+          ]
+        },
+        "status": { "$ref": "#/$defs/status" },
+        "summary": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "routeResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_id",
+        "status",
+        "canonical_record_count",
+        "included_kit_ids",
+        "languages",
+        "programme_type",
+        "source_integrity",
+        "grade_evidence",
+        "subject_evidence",
+        "language_evidence",
+        "task_availability",
+        "page_prose_availability",
+        "warnings"
+      ],
+      "properties": {
+        "route_id": { "$ref": "#/$defs/routeId" },
+        "status": { "$ref": "#/$defs/status" },
+        "canonical_record_count": { "type": "integer", "minimum": 1 },
+        "included_kit_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          }
+        },
+        "languages": { "$ref": "#/$defs/countMap" },
+        "programme_type": {
+          "enum": ["unknown", "mixed_subject", "simplified_curriculum"]
+        },
+        "source_integrity": { "$ref": "#/$defs/status" },
+        "grade_evidence": { "$ref": "#/$defs/status" },
+        "subject_evidence": { "$ref": "#/$defs/status" },
+        "language_evidence": { "$ref": "#/$defs/status" },
+        "task_availability": { "$ref": "#/$defs/status" },
+        "page_prose_availability": { "$ref": "#/$defs/status" },
+        "warnings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "supportSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kit_id",
+        "source_archive",
+        "grade_scope",
+        "subject",
+        "programme_or_support_role",
+        "grade_4_eligible",
+        "exclusive_grade_4_owner",
+        "canonical_owner",
+        "instructional_record_count",
+        "disposition"
+      ],
+      "properties": {
+        "kit_id": { "enum": ["161", "200", "476"] },
+        "source_archive": { "$ref": "#/$defs/nonEmptyString" },
+        "grade_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          }
+        },
+        "subject": {
+          "enum": ["physical_education", "arts_and_crafts", "technology"]
+        },
+        "programme_or_support_role": {
+          "enum": [
+            "school_stage_ii_physical_education_support",
+            "shared_supplementary_arts_and_crafts",
+            "multi_grade_technology_instructional_support"
+          ]
+        },
+        "grade_4_eligible": { "const": true },
+        "exclusive_grade_4_owner": { "const": false },
+        "canonical_owner": {
+          "oneOf": [
+            { "const": "grade-2-arts-and-crafts" },
+            { "type": "null" }
+          ]
+        },
+        "instructional_record_count": { "type": "integer", "minimum": 1 },
+        "disposition": {
+          "enum": [
+            "catalogue_evidence_only",
+            "retain_existing_canonical_owner"
+          ]
+        }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message", "affected_kit_ids"],
+      "properties": {
+        "code": {
+          "enum": [
+            "complete_page_prose_not_captured",
+            "task_body_recapture_required",
+            "live_catalogue_completeness_unverified"
+          ]
+        },
+        "message": { "$ref": "#/$defs/nonEmptyString" },
+        "affected_kit_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          }
+        }
+      }
+    }
+  }
+}

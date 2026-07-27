@@ -1,0 +1,140 @@
+{
+  "qa_schema_version": "1.0",
+  "artifact_type": "grade-4-canonical-source-qa",
+  "source_id": "grade-4-mathematics-simplified",
+  "source_archive": "project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_4klass_matemaatika_lihtsustatud.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-24T07:54:47.499Z",
+    "generator": "scripts/generate-grade-4-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from immutable ZIP rows classified as instructional; post-audit Kit Details evidence is referenced separately."
+  },
+  "checksums": {
+    "source_archive_sha256": "b5441563b40d35e74b66b53bba72767ae4829da31d380a4079effd9054d15225",
+    "output_file_sha256": "965d5092cf60c11b134029a47f19fd72b5b953c9ccbaa2361f5adb3c13a7a010"
+  },
+  "included_zip_archives": [
+    {
+      "path": "project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+      "sha256": "b5441563b40d35e74b66b53bba72767ae4829da31d380a4079effd9054d15225",
+      "byte_size": 7363275
+    }
+  ],
+  "included_kit_ids": [
+    "282",
+    "304",
+    "318",
+    "328"
+  ],
+  "excluded_kit_ids": [
+    "147",
+    "157",
+    "293",
+    "460",
+    "588",
+    "70"
+  ],
+  "source_book_ids": [
+    "matemaatika_4._klassile._i_osa._lihtsustatud_õppekava",
+    "matemaatika_4._klassile._ii_osa._lihtsustatud_õppekava",
+    "matemaatika_4._klassile._iii_osa._lihtsustatud_õppekava",
+    "matemaatika_4._klassile._iv_osa._lihtsustatud_õppekava"
+  ],
+  "source_records": 149,
+  "page_records_included": 138,
+  "administrative_records_excluded": 4,
+  "kit_details_records_excluded": 4,
+  "duplicate_detail_aliases_excluded": 3,
+  "duplicate_instructional_urls_excluded": 0,
+  "malformed_or_ambiguous_records_excluded": 0,
+  "source_accounting": {
+    "total_source_records": 149,
+    "instructional_chapter_or_page": 138,
+    "kit_or_book_detail": 4,
+    "administrative_or_imprint": 4,
+    "duplicate_detail_alias": 3,
+    "duplicate_instructional_url": 0,
+    "malformed_or_ambiguous": 0,
+    "accounted_source_records": 149,
+    "balanced": true
+  },
+  "grades": {
+    "4": 138
+  },
+  "languages": {
+    "en": 2,
+    "et": 136
+  },
+  "books": {
+    "matemaatika_4._klassile._i_osa._lihtsustatud_õppekava__kit282": 40,
+    "matemaatika_4._klassile._ii_osa._lihtsustatud_õppekava__kit304": 31,
+    "matemaatika_4._klassile._iii_osa._lihtsustatud_õppekava__kit318": 39,
+    "matemaatika_4._klassile._iv_osa._lihtsustatud_õppekava__kit328": 28
+  },
+  "kits": {
+    "282": 40,
+    "304": 31,
+    "318": 39,
+    "328": 28
+  },
+  "raw_grade_labels": {
+    "4": 149
+  },
+  "evidence_supported_grade_scope": [
+    4
+  ],
+  "raw_subject_labels": {
+    "mathematics / matemaatika / математика": 149
+  },
+  "canonical_subject": {
+    "en": "mathematics",
+    "et": "matemaatika",
+    "ru": "математика"
+  },
+  "subject_normalization": {
+    "source_rows_with_exporter_mathematics_alias": 0,
+    "canonical_subject": "mathematics / matemaatika / математика",
+    "visible_instructional_text_changed": false
+  },
+  "programme_type": "simplified_curriculum",
+  "programme_evidence": [
+    "Captured title and Source Book identity explicitly state lihtsustatud õppekava."
+  ],
+  "edition_distinctions": [],
+  "metadata_contradictions": [],
+  "kit_details_evidence_refs": [
+    "evaluations/grade-4-source-intake.json#kit:282",
+    "evaluations/grade-4-source-intake.json#kit:304",
+    "evaluations/grade-4-source-intake.json#kit:318",
+    "evaluations/grade-4-source-intake.json#kit:328"
+  ],
+  "url_ownership": {
+    "require_unique": true,
+    "canonical_url_count": 138,
+    "duplicate_within_route_count": 0,
+    "cross_grade4_route_overlap_count": 0
+  },
+  "task_availability": {
+    "records_with_captured_task_examples": 0,
+    "records_without_captured_task_examples": 138,
+    "task_level_complete": false,
+    "task_bodies_synthesized": false
+  },
+  "page_prose_availability": {
+    "complete_page_prose_captured": false,
+    "records_with_complete_page_prose": 0
+  },
+  "captured_markup": {
+    "records_with_html_or_mathml_fragments": 0,
+    "markup_preserved_as_source_evidence": true
+  },
+  "known_limitations": [
+    "Complete instructional page prose is not present in the raw chapter objects.",
+    "Task examples are incomplete for some or all books; no task content is synthesized.",
+    "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+    "Current live-catalogue and official-curriculum completeness are not established."
+  ]
+}

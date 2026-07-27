@@ -1682,16 +1682,302 @@ cases:
         url: https://www.opiq.ee/kit/546/chapter/30107
     evidence: "Teadus ja tehnoloogia is explicit grade 7 science evidence and the page is absent from grade 7 geography."
 
-  - id: grade-4-missing-coverage
+  - id: grade-4-russian-first-canonical-page
     grade: 4
-    subject: all
-    topic: "canonical grade 4 coverage"
-    status: missing
+    subject: russian
+    topic: "Russian-language source route"
+    status: present
+    expected_source_id: grade-4-russian
+    expected_md_path: project-files/outputs/opiq_4klass_vene_keel.md
     assertions:
-      - kind: missing_coverage
-        grade: 4
-        subjects: all
-    evidence: "The manifest has no grade 4 source route and explicitly records grade 4 with coverage_status missing for all subjects."
+      - kind: record_present
+        source_id: grade-4-russian
+        url: https://www.opiq.ee/kit/243/chapter/13757
+        expected:
+          class: 4
+          book_id: русский_язык_4_класс__kit243
+          title: Условные обозначения
+          subject:
+            en: Russian language
+            et: vene keel
+            ru: русский язык
+          headings_any:
+            - Условные обозначения
+      - kind: url_absent
+        origin_source_id: grade-4-russian
+        source_id: grade-4-russian-reading
+        url: https://www.opiq.ee/kit/243/chapter/13757
+    evidence: "The exact kit 243 chapter is explicit Russian-language evidence and is absent from the separate Russian-reading route."
+
+  - id: grade-4-russian-reading-first-canonical-page
+    grade: 4
+    subject: russian_reading
+    topic: "Russian-reading source route"
+    status: present
+    expected_source_id: grade-4-russian-reading
+    expected_md_path: project-files/outputs/opiq_4klass_vene_lugemine.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-russian-reading
+        url: https://www.opiq.ee/kit/415/chapter/22431
+        expected:
+          class: 4
+          book_id: русское_слово._чтение_для_4_клacca__kit415
+          title: СЕРГЕЙ ЕСЕНИН. С добрым утром!
+          subject:
+            en: Russian reading
+            et: vene keele lugemine
+            ru: русское чтение
+          headings_any:
+            - СЕРГЕЙ ЕСЕНИН. С добрым утром!
+      - kind: url_absent
+        origin_source_id: grade-4-russian-reading
+        source_id: grade-4-estonian
+        url: https://www.opiq.ee/kit/415/chapter/22431
+    evidence: "The exact kit 415 chapter is explicit Russian-reading evidence and is absent from the Estonian-language route."
+
+  - id: grade-4-estonian-first-canonical-page
+    grade: 4
+    subject: estonian
+    topic: "Estonian-language source route"
+    status: present
+    expected_source_id: grade-4-estonian
+    expected_md_path: project-files/outputs/opiq_4klass_eesti_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-estonian
+        url: https://www.opiq.ee/kit/71/chapter/5570
+        expected:
+          class: 4
+          book_id: eesti_keel_4._klassile__kit71
+          title: Peatüki sissejuhatus
+          subject:
+            en: Estonian language
+            et: eesti keel
+            ru: эстонский язык
+          headings_any:
+            - Paneme mõtte tööle
+      - kind: url_absent
+        origin_source_id: grade-4-estonian
+        source_id: grade-4-estonian-second-language
+        url: https://www.opiq.ee/kit/71/chapter/5570
+    evidence: "The exact kit 71 chapter is explicit first-language Estonian evidence and is absent from the Estonian-as-a-second-language route."
+
+  - id: grade-4-estonian-second-language-first-canonical-page
+    grade: 4
+    subject: estonian_second_language
+    topic: "Estonian-as-a-second-language source route"
+    status: present
+    expected_source_id: grade-4-estonian-second-language
+    expected_md_path: project-files/outputs/opiq_4klass_eesti_keel_teise_keelena.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-estonian-second-language
+        url: https://www.opiq.ee/kit/150/chapter/8332
+        expected:
+          class: 4
+          book_id: teele._eesti_keel_teise_keelena_4._klassile__kit150
+          title: Sissejuhatus
+          subject:
+            en: Estonian as a second language
+            et: eesti keel teise keelena
+            ru: эстонский язык как второй
+          headings_any:
+            - Asume teele, sõbrad!
+      - kind: url_absent
+        origin_source_id: grade-4-estonian-second-language
+        source_id: grade-4-english
+        url: https://www.opiq.ee/kit/150/chapter/8332
+    evidence: "The exact kit 150 chapter is explicit second-language Estonian evidence and is absent from the English route."
+
+  - id: grade-4-english-first-canonical-page
+    grade: 4
+    subject: english
+    topic: "English source route"
+    status: present
+    expected_source_id: grade-4-english
+    expected_md_path: project-files/outputs/opiq_4klass_inglise_keel.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-english
+        url: https://www.opiq.ee/kit/332/chapter/18601
+        expected:
+          class: 4
+          book_id: english_step_by_step_2__kit332
+          title: The first of September.
+          subject:
+            en: English
+            et: inglise keel
+            ru: английский язык
+          headings_any:
+            - LESSON ONE.
+      - kind: url_absent
+        origin_source_id: grade-4-english
+        source_id: grade-4-human-studies-and-society
+        url: https://www.opiq.ee/kit/332/chapter/18601
+    evidence: "The exact kit 332 chapter is explicit Grade 4 English evidence and is absent from the human-studies route."
+
+  - id: grade-4-human-studies-and-society-first-canonical-page
+    grade: 4
+    subject: human_studies_and_society
+    topic: "human studies and society source route"
+    status: present
+    expected_source_id: grade-4-human-studies-and-society
+    expected_md_path: project-files/outputs/opiq_4klass_inimene_ja_uhiskond.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-human-studies-and-society
+        url: https://www.opiq.ee/kit/55/chapter/2717
+        expected:
+          class: 4
+          book_id: inimene_ja_ühiskond._õpik_ii_kooliastmele,_i_osa__kit55
+          title: Kool enne meid
+          subject:
+            en: human studies and society
+            et: inimese- ja ühiskonnaõpetus
+            ru: человек и общество
+          headings_any:
+            - Eesti koolihariduse ajalugu
+      - kind: url_absent
+        origin_source_id: grade-4-human-studies-and-society
+        source_id: grade-4-human-studies-simplified
+        url: https://www.opiq.ee/kit/55/chapter/2717
+    evidence: "The exact kit 55 chapter is explicit mainstream/mixed human-studies evidence and is absent from the simplified route."
+
+  - id: grade-4-human-studies-simplified-first-canonical-page
+    grade: 4
+    subject: human_studies
+    topic: "simplified human-studies source route"
+    status: present
+    expected_source_id: grade-4-human-studies-simplified
+    expected_md_path: project-files/outputs/opiq_4klass_inimeseopetus_lihtsustatud.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-human-studies-simplified
+        url: https://www.opiq.ee/kit/287/chapter/15958
+        expected:
+          class: 4
+          book_id: inimeseõpetus_4._klassile._lihtsustatud_õppekava__kit287
+          title: Mina
+          subject:
+            en: human studies
+            et: inimeseõpetus
+            ru: человековедение
+          headings_any:
+            - Kuula, vaata, loe!
+      - kind: url_absent
+        origin_source_id: grade-4-human-studies-simplified
+        source_id: grade-4-science
+        url: https://www.opiq.ee/kit/287/chapter/15958
+    evidence: "The exact kit 287 chapter proves the separately labelled simplified human-studies route and is absent from science."
+
+  - id: grade-4-science-first-canonical-page
+    grade: 4
+    subject: science
+    topic: "science source route"
+    status: present
+    expected_source_id: grade-4-science
+    expected_md_path: project-files/outputs/opiq_4klass_loodusopetus.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-science
+        url: https://www.opiq.ee/kit/11/chapter/448
+        expected:
+          class: 4
+          book_id: loodusõpetus_4._klassile__kit11
+          title: Tähistaevas
+          subject:
+            en: science
+            et: loodusõpetus
+            ru: природоведение
+          headings_any:
+            - Tähed
+      - kind: url_absent
+        origin_source_id: grade-4-science
+        source_id: grade-4-mathematics
+        url: https://www.opiq.ee/kit/11/chapter/448
+    evidence: "The exact kit 11 chapter is explicit Grade 4 science evidence and is absent from the mathematics route."
+
+  - id: grade-4-mathematics-first-canonical-page
+    grade: 4
+    subject: mathematics
+    topic: "mathematics source route"
+    status: present
+    expected_source_id: grade-4-mathematics
+    expected_md_path: project-files/outputs/opiq_4klass_matemaatika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-mathematics
+        url: https://www.opiq.ee/kit/70/chapter/6537
+        expected:
+          class: 4
+          book_id: matemaatika_4._klassile__kit70
+          title: Kuidas seda õpikut kasutada?
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          headings_any:
+            - Värviseletused
+      - kind: url_absent
+        origin_source_id: grade-4-mathematics
+        source_id: grade-4-mathematics-simplified
+        url: https://www.opiq.ee/kit/70/chapter/6537
+    evidence: "The exact kit 70 chapter is explicit mainstream mathematics evidence and is absent from the simplified mathematics route."
+
+  - id: grade-4-mathematics-simplified-first-canonical-page
+    grade: 4
+    subject: mathematics
+    topic: "simplified mathematics source route"
+    status: present
+    expected_source_id: grade-4-mathematics-simplified
+    expected_md_path: project-files/outputs/opiq_4klass_matemaatika_lihtsustatud.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-mathematics-simplified
+        url: https://www.opiq.ee/kit/282/chapter/15802
+        expected:
+          class: 4
+          book_id: matemaatika_4._klassile._i_osa._lihtsustatud_õppekava__kit282
+          title: Numeratsioon 100 piires (1–12)
+          subject:
+            en: mathematics
+            et: matemaatika
+            ru: математика
+          headings_any:
+            - Pane tähele
+      - kind: url_absent
+        origin_source_id: grade-4-mathematics-simplified
+        source_id: grade-4-music
+        url: https://www.opiq.ee/kit/282/chapter/15802
+    evidence: "The exact kit 282 chapter proves the separately labelled simplified mathematics route and is absent from music."
+
+  - id: grade-4-music-first-canonical-page
+    grade: 4
+    subject: music
+    topic: "music source route"
+    status: present
+    expected_source_id: grade-4-music
+    expected_md_path: project-files/outputs/opiq_4klass_muusika.md
+    assertions:
+      - kind: record_present
+        source_id: grade-4-music
+        url: https://www.opiq.ee/kit/174/chapter/9803
+        expected:
+          class: 4
+          book_id: muusikaõpik_4._klassile__kit174
+          title: Õpiku tähised
+          subject:
+            en: music
+            et: muusika
+            ru: музыка
+          headings_any:
+            - Märkide keel
+      - kind: url_absent
+        origin_source_id: grade-4-music
+        source_id: grade-4-russian
+        url: https://www.opiq.ee/kit/174/chapter/9803
+    evidence: "The exact kit 174 chapter is explicit Grade 4 music evidence and is absent from the Russian-language route."
 
   - id: grade-5-science-curriculum-not-verified
     grade: 5

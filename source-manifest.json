@@ -1038,6 +1038,391 @@
       "notes": "The committed original Opiq export contains 643 source rows. Nine unique Kit Details records, nine duplicate detail aliases, and six administrative Impressum records are excluded from the 619-page instructional index. Nine source-book-plus-kit variants are preserved; ordinary and simplified curricula remain explicit. This route is not curriculum-verified."
     },
     {
+      "id": "grade-4-russian",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "russian",
+      "subject_et": "vene keel",
+      "languages": ["ru"],
+      "md_path": "project-files/outputs/opiq_4klass_vene_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_vene_keel_qa.json",
+      "record_count": 167,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["243", "295"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Russian language",
+          "et": "vene keel",
+          "ru": "русский язык"
+        }
+      },
+      "notes": "Use only for Grade 4 Russian language. Source-audited; not curriculum- or live-catalogue-complete."
+    },
+    {
+      "id": "grade-4-russian-reading",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "russian_reading",
+      "subject_et": "vene keele lugemine",
+      "languages": ["ru"],
+      "md_path": "project-files/outputs/opiq_4klass_vene_lugemine.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_vene_lugemine_qa.json",
+      "record_count": 34,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Structured task examples are absent; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["415"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Russian reading",
+          "et": "vene keele lugemine",
+          "ru": "русское чтение"
+        }
+      },
+      "notes": "Use only for Grade 4 Russian reading. Keep separate from Russian-language instruction."
+    },
+    {
+      "id": "grade-4-estonian",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "estonian",
+      "subject_et": "eesti keel",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_4klass_eesti_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_eesti_keel_qa.json",
+      "record_count": 398,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete; no task content is synthesized.",
+        "Kit 154 exact-grade ownership is supported by separate post-intake Kit Details evidence.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["71", "154", "533"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian language",
+          "et": "eesti keel",
+          "ru": "эстонский язык"
+        }
+      },
+      "notes": "Use only for first-language Grade 4 Estonian."
+    },
+    {
+      "id": "grade-4-estonian-second-language",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "estonian_second_language",
+      "subject_et": "eesti keel teise keelena",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_4klass_eesti_keel_teise_keelena.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_eesti_keel_teise_keelena_qa.json",
+      "record_count": 117,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Structured task examples are absent; no task content is synthesized.",
+        "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["150"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "Estonian as a second language",
+          "et": "eesti keel teise keelena",
+          "ru": "эстонский язык как второй"
+        }
+      },
+      "notes": "Use only for Grade 4 Estonian as a second language; never route as first-language Estonian."
+    },
+    {
+      "id": "grade-4-english",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "english",
+      "subject_et": "inglise keel",
+      "languages": ["en", "et", "ru"],
+      "md_path": "project-files/outputs/opiq_4klass_inglise_keel.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_english_step_by_step_2_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_inglise_keel_qa.json",
+      "record_count": 163,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Structured task examples are absent; no task content is synthesized.",
+        "Kit 332 exact-grade ownership is supported by separate post-intake Kit Details evidence.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["332", "451"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "English",
+          "et": "inglise keel",
+          "ru": "английский язык"
+        }
+      },
+      "notes": "Page-level language values are preserved; programme type remains unknown."
+    },
+    {
+      "id": "grade-4-human-studies-and-society",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "human_studies_and_society",
+      "subject_et": "inimese- ja ühiskonnaõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_4klass_inimene_ja_uhiskond.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_inimene_ja_uhiskond_qa.json",
+      "record_count": 63,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "This mixed route is intentionally not normalized to subject-pure human studies.",
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Structured task examples are absent; no task content is synthesized.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["55", "82"],
+        "programme_type": "mixed_subject",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "human studies and society",
+          "et": "inimese- ja ühiskonnaõpetus",
+          "ru": "человек и общество"
+        }
+      },
+      "notes": "Kits 55 and 82 have separate Estonian/Russian records under one explicit mixed-subject route."
+    },
+    {
+      "id": "grade-4-human-studies-simplified",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "human_studies",
+      "subject_et": "inimeseõpetus",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_4klass_inimeseopetus_lihtsustatud.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_inimeseopetus_lihtsustatud_qa.json",
+      "record_count": 55,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "This route is simplified curriculum and must not become the default Grade 4 human-studies source.",
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Structured task examples are absent; no task content is synthesized.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["287"],
+        "programme_type": "simplified_curriculum",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "human studies",
+          "et": "inimeseõpetus",
+          "ru": "человековедение"
+        }
+      },
+      "notes": "Simplified-programme identity is explicit and separate from mixed human/society."
+    },
+    {
+      "id": "grade-4-science",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "science",
+      "subject_et": "loodusõpetus",
+      "languages": ["et", "ru"],
+      "md_path": "project-files/outputs/opiq_4klass_loodusopetus.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_loodusopetus_qa.json",
+      "record_count": 338,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete; no task content is synthesized.",
+        "Two science edition pairs remain separate at kit/book level.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["11", "27", "108", "228", "480", "536"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "science",
+          "et": "loodusõpetus",
+          "ru": "природоведение"
+        }
+      },
+      "notes": "Distinct captured editions remain separate; programme type remains unknown."
+    },
+    {
+      "id": "grade-4-mathematics",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "mathematics",
+      "subject_et": "matemaatika",
+      "languages": ["en", "et", "ru"],
+      "md_path": "project-files/outputs/opiq_4klass_matemaatika.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_matemaatika_qa.json",
+      "record_count": 567,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Programme type is not established and remains unknown.",
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete; captured MathML fragments are preserved as source evidence.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["70", "147", "157", "293", "460", "588"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "mathematics",
+          "et": "matemaatika",
+          "ru": "математика"
+        }
+      },
+      "notes": "Unknown-programme mathematics stays separate from simplified mathematics."
+    },
+    {
+      "id": "grade-4-mathematics-simplified",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "mathematics",
+      "subject_et": "matemaatika",
+      "languages": ["en", "et"],
+      "md_path": "project-files/outputs/opiq_4klass_matemaatika_lihtsustatud.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_matemaatika_4_klassile_opiq_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_matemaatika_lihtsustatud_qa.json",
+      "record_count": 138,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "This route is simplified curriculum and must not become default Grade 4 mathematics.",
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Task examples are incomplete; no task content is synthesized.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["282", "304", "318", "328"],
+        "programme_type": "simplified_curriculum",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "mathematics",
+          "et": "matemaatika",
+          "ru": "математика"
+        }
+      },
+      "notes": "Simplified-programme identity is explicit and separately routed."
+    },
+    {
+      "id": "grade-4-music",
+      "grade": 4,
+      "grade_group": "1-4",
+      "subject": "music",
+      "subject_et": "muusika",
+      "languages": ["et"],
+      "md_path": "project-files/outputs/opiq_4klass_muusika.md",
+      "source_archive": "project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip",
+      "qa_path": "project-files/outputs/opiq_4klass_muusika_qa.json",
+      "record_count": 172,
+      "format_version": "2.0",
+      "coverage_status": "available_not_curriculum_verified",
+      "quality_status": "original_archive_audited",
+      "known_issues": [
+        "Complete instructional page prose is not present in the raw chapter objects.",
+        "Structured task examples are absent; no task content is synthesized.",
+        "Kit 206 exact-grade ownership is supported by separate post-intake Kit Details evidence.",
+        "Current live-catalogue and official-curriculum completeness are not established."
+      ],
+      "source_scope": {
+        "included_kit_ids": ["174", "206", "552"],
+        "programme_type": "unknown",
+        "audit_path": "docs/audits/grade-4-canonical-source-import.md"
+      },
+      "canonical_url_policy": { "require_unique": true },
+      "canonical_subject_policy": {
+        "required_subject": {
+          "en": "music",
+          "et": "muusika",
+          "ru": "музыка"
+        }
+      },
+      "notes": "Kit 206 is exact Grade 4; kits 174 and 552 remain distinct captured editions."
+    },
+    {
       "id": "grade-5-science",
       "grade": 5,
       "grade_group": "5-7",
@@ -1116,9 +1501,29 @@
     {
       "grade": 4,
       "grade_group": "1-4",
-      "coverage_status": "missing",
-      "subjects": "all",
-      "notes": "No canonical Markdown index, source archive, or QA snapshot for grade 4 is currently registered."
+      "coverage_status": "partial_subject_bounded",
+      "subjects": "verified_routes_only",
+      "verified_route_ids": [
+        "grade-4-russian",
+        "grade-4-russian-reading",
+        "grade-4-estonian",
+        "grade-4-estonian-second-language",
+        "grade-4-english",
+        "grade-4-human-studies-and-society",
+        "grade-4-human-studies-simplified",
+        "grade-4-science",
+        "grade-4-mathematics",
+        "grade-4-mathematics-simplified",
+        "grade-4-music"
+      ],
+      "unverified_or_absent_catalogue_areas": [
+        "complete current live Opiq Grade 4 catalogue coverage",
+        "subject areas not represented by the eleven verified routes",
+        "exclusive Grade 4 physical-education route",
+        "exclusive Grade 4 technology route",
+        "exclusive Grade 4 arts-and-crafts route"
+      ],
+      "notes": "Grade 4 coverage is partial and limited to the verified supplied routes. Multi-grade/shared kits 161, 200, and 476 do not receive exclusive Grade 4 ownership."
     }
   ]
 }

@@ -7,6 +7,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { readCompactZip, readZipText, requireZipMember } from './lib/compact-zip.mjs';
+import { validateGrade4Manifest } from './lib/grade-4-canonical-sources.mjs';
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(scriptDirectory, '..');
@@ -1444,12 +1445,33 @@ if (!manifest) {
     }
   }
 
-  const gradeFourMissing = Array.isArray(manifest.missing_coverage)
-    && manifest.missing_coverage.some(
-      (entry) => entry.grade === 4 && entry.coverage_status === 'missing',
-    );
-  if (!gradeFourMissing) {
-    fail('missing_coverage must explicitly register grade 4 with coverage_status "missing".');
+  try {
+    validateGrade4Manifest(manifest);
+  } catch (error) {
+    fail(error.message);
+  }
+
+  const gradeFourSources = manifest.sources.filter((source) => source.grade === 4);
+  const gradeFourUrlOwners = new Map();
+  for (const source of gradeFourSources) {
+    const markdown = await readFile(path.join(repositoryRoot, source.md_path), 'utf8');
+    for (const record of splitMarkdownRecords(markdown)) {
+      const url = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1];
+      if (!url) continue;
+      const previous = gradeFourUrlOwners.get(url);
+      if (previous) {
+        fail(`grade-4 canonical URL overlap: ${url} belongs to both ${previous} and ${source.id}.`);
+      } else gradeFourUrlOwners.set(url, source.id);
+    }
+  }
+  for (const source of manifest.sources.filter((entry) => entry.grade !== 4)) {
+    const markdown = await readFile(path.join(repositoryRoot, source.md_path), 'utf8');
+    for (const record of splitMarkdownRecords(markdown)) {
+      const url = record.match(/^(?:-\s+)?URL:\s+(https?:\/\/\S+)\s*$/mi)?.[1];
+      if (url && gradeFourUrlOwners.has(url)) {
+        fail(`grade-4 cross-route canonical URL overlap: ${url} belongs to both ${gradeFourUrlOwners.get(url)} and ${source.id}.`);
+      }
+    }
   }
 }
 

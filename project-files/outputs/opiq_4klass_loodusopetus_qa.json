@@ -1,0 +1,163 @@
+{
+  "qa_schema_version": "1.0",
+  "artifact_type": "grade-4-canonical-source-qa",
+  "source_id": "grade-4-science",
+  "source_archive": "project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+  "output_file": "project-files/outputs/opiq_4klass_loodusopetus.md",
+  "format_version": "2.0",
+  "generation": {
+    "status": "generated",
+    "generated_at": "2026-07-23T18:31:57.391Z",
+    "generator": "scripts/generate-grade-4-sources.mjs",
+    "generator_version": "1.0",
+    "note": "Generated deterministically from immutable ZIP rows classified as instructional; post-audit Kit Details evidence is referenced separately."
+  },
+  "checksums": {
+    "source_archive_sha256": "ad1d3e78e97da9dc4d55220398bef64952320576b85142e71b2653e6b07c24a8",
+    "output_file_sha256": "747b7de0e3ccbb0f2ac6585194c5414e5b6c42cd0f647fcf8302f497cd4cb57a"
+  },
+  "included_zip_archives": [
+    {
+      "path": "project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip",
+      "sha256": "ad1d3e78e97da9dc4d55220398bef64952320576b85142e71b2653e6b07c24a8",
+      "byte_size": 3858808
+    }
+  ],
+  "included_kit_ids": [
+    "11",
+    "27",
+    "108",
+    "228",
+    "480",
+    "536"
+  ],
+  "excluded_kit_ids": [],
+  "source_book_ids": [
+    "loodusõpetus_4._klassile",
+    "loodusõpetus_4._klassile_(2023)",
+    "loodusõpetus_4._klassile_2",
+    "природоведение_4_класс",
+    "природоведение_для_4_класса",
+    "природоведение_для_4_класса_(2023)"
+  ],
+  "source_records": 353,
+  "page_records_included": 338,
+  "administrative_records_excluded": 3,
+  "kit_details_records_excluded": 6,
+  "duplicate_detail_aliases_excluded": 6,
+  "duplicate_instructional_urls_excluded": 0,
+  "malformed_or_ambiguous_records_excluded": 0,
+  "source_accounting": {
+    "total_source_records": 353,
+    "instructional_chapter_or_page": 338,
+    "kit_or_book_detail": 6,
+    "administrative_or_imprint": 3,
+    "duplicate_detail_alias": 6,
+    "duplicate_instructional_url": 0,
+    "malformed_or_ambiguous": 0,
+    "accounted_source_records": 353,
+    "balanced": true
+  },
+  "grades": {
+    "4": 338
+  },
+  "languages": {
+    "et": 168,
+    "ru": 170
+  },
+  "books": {
+    "loodusõpetus_4._klassile_(2023)__kit480": 49,
+    "loodusõpetus_4._klassile_2__kit108": 66,
+    "loodusõpetus_4._klassile__kit11": 53,
+    "природоведение_4_класс__kit228": 66,
+    "природоведение_для_4_класса_(2023)__kit536": 49,
+    "природоведение_для_4_класса__kit27": 55
+  },
+  "kits": {
+    "11": 53,
+    "27": 55,
+    "108": 66,
+    "228": 66,
+    "480": 49,
+    "536": 49
+  },
+  "raw_grade_labels": {
+    "4": 353
+  },
+  "evidence_supported_grade_scope": [
+    4
+  ],
+  "raw_subject_labels": {
+    "mathematics / matemaatika / математика": 177,
+    "science / loodusõpetus / природоведение": 176
+  },
+  "canonical_subject": {
+    "en": "science",
+    "et": "loodusõpetus",
+    "ru": "природоведение"
+  },
+  "subject_normalization": {
+    "source_rows_with_exporter_mathematics_alias": 177,
+    "canonical_subject": "science / loodusõpetus / природоведение",
+    "visible_instructional_text_changed": false
+  },
+  "programme_type": "unknown",
+  "programme_evidence": [
+    "Programme type is not established by the supplied evidence and remains unknown."
+  ],
+  "edition_distinctions": [
+    {
+      "kit_ids": [
+        "11",
+        "480"
+      ],
+      "disposition": "retain_separate_editions",
+      "evidence": "Separate Estonian editions; kit 480 explicitly identifies 2023."
+    },
+    {
+      "kit_ids": [
+        "27",
+        "536"
+      ],
+      "disposition": "retain_separate_editions",
+      "evidence": "Separate Russian editions; kit 536 explicitly identifies 2023."
+    }
+  ],
+  "metadata_contradictions": [
+    "177 route-scoped source rows carry the exporter-generated mathematics subject and are normalized from kit/book evidence."
+  ],
+  "kit_details_evidence_refs": [
+    "evaluations/grade-4-source-intake.json#kit:11",
+    "evaluations/grade-4-source-intake.json#kit:27",
+    "evaluations/grade-4-source-intake.json#kit:108",
+    "evaluations/grade-4-source-intake.json#kit:228",
+    "evaluations/grade-4-source-intake.json#kit:480",
+    "evaluations/grade-4-source-intake.json#kit:536"
+  ],
+  "url_ownership": {
+    "require_unique": true,
+    "canonical_url_count": 338,
+    "duplicate_within_route_count": 0,
+    "cross_grade4_route_overlap_count": 0
+  },
+  "task_availability": {
+    "records_with_captured_task_examples": 143,
+    "records_without_captured_task_examples": 195,
+    "task_level_complete": false,
+    "task_bodies_synthesized": false
+  },
+  "page_prose_availability": {
+    "complete_page_prose_captured": false,
+    "records_with_complete_page_prose": 0
+  },
+  "captured_markup": {
+    "records_with_html_or_mathml_fragments": 0,
+    "markup_preserved_as_source_evidence": true
+  },
+  "known_limitations": [
+    "Complete instructional page prose is not present in the raw chapter objects.",
+    "Task examples are incomplete for some or all books; no task content is synthesized.",
+    "Exporter-generated translated topics are query metadata, not proof of page-language prose.",
+    "Current live-catalogue and official-curriculum completeness are not established."
+  ]
+}
