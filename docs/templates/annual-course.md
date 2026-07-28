@@ -21,3 +21,15 @@ Use `schemas/annual-course.schema.json` and `schemas/annual-course-components.sc
 Do not turn school-stage evidence, publisher placement, or topic availability into an unsupported exact-grade or full-course claim.
 
 Validate with `npm run test:synthesis && npm run test:plans && npm run check:plans`.
+
+## Commercial version 2.2
+
+Add `delivery_model`, `commercial_release_policy`,
+`opiq_companion_policy`, `family_overlay_policy`, and
+`originality_review_policy`. Validate every implemented thematic plan before
+claiming that all required lessons work without Opiq. Optional customer
+companions require declared access modes and author-created fallbacks;
+teacher-only links remain internal and simplified material is opt-in. Require a
+current originality gate before publication and preserve individual Grade 2
+and Grade 4 evidence. Internal `selected_source_books` stay source-analysis
+evidence and are not a customer dependency.

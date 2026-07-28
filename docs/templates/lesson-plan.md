@@ -46,3 +46,25 @@ Use `schemas/lesson-plan.schema.json` as the machine-readable authority. Start f
 - A teacher pack can honestly be `teacher_pack_complete_pending_review` while `classroom_ready` remains false.
 
 Validate with `npm run test:plans && npm run check:plans && npm run test:teacher-packs && npm run check:teacher-packs`.
+
+## Commercial version 1.3
+
+Use 1.3 only when the lesson is genuinely complete without Opiq.
+
+- Add `delivery_model`, `commercial_core`, `opiq_companions`,
+  `originality_review`, and `family_overlay_hooks`.
+- Keep `evidence_linkage.opiq_records` as internal evidence; it may be `[]` in
+  1.3 only after the typed standalone core passes.
+- Reference separate author-created explanation, worked-example, task,
+  expected-answer, worked-solution (for procedural/computational tasks), and
+  assessment materials.
+- Record optional companions separately with route/course-map identity, access,
+  visibility, check date/status, and a real author-created fallback.
+- Keep teacher-only, unverified, unavailable, and teacher-support records
+  internal; require learner-specific opt-in for simplified material.
+- Bind publication status to a current human originality fingerprint. Do not
+  treat that review as automated proof of originality.
+- Family hooks reference stable core IDs. Grade 2 and Grade 4 hooks require
+  individual evidence, and shared evidence never replaces it.
+
+Run `npm run test:commercial-course-schema && npm run check:commercial-course-schema`.
