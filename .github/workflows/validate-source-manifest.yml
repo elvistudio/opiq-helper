@@ -136,6 +136,12 @@ jobs:
       - name: Check bilingual teaching plans
         run: npm run check:plans
 
+      - name: Test commercial course schemas
+        run: npm run test:commercial-course-schema
+
+      - name: Check commercial course schemas
+        run: npm run check:commercial-course-schema
+
       - name: Test multilingual topic synthesis
         run: npm run test:synthesis
 

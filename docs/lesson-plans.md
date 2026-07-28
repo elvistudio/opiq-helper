@@ -22,11 +22,108 @@ The documented model is a teaching design, not a claim that a particular techniq
 All schemas are strict. Unknown fields fail validation. Shared teaching vocabulary lives in `schemas/teaching-plan-common.schema.json`; canonical routes, Opiq records, instructional roles, and provenance reuse the definitions and validation infrastructure introduced by the curriculum-map implementation.
 
 Lesson schema 1.1, thematic schema 1.1, and teacher-pack schema 1.2 remain
-valid legacy formats. Integrated versions 1.2, 1.2, and 1.3 require an explicit
+valid legacy formats. Integrated lesson/thematic versions 1.2 and teacher-pack
+version 1.3 require an explicit
 `pedagogical_integration` contract. The lesson remains content authority;
 selection input, generated lesson DNA, phase bindings, and content identity
 describe delivery without inventing science content. See
 [pedagogy generation integration](pedagogy-generation-integration.md).
+
+Lesson and thematic version 1.3 and annual-course version 2.2 add the commercial
+delivery contracts described below. They are additive: 1.1/1.2 lessons and
+thematic plans and 2.1 annual courses retain their existing rules and still
+require their legacy Opiq evidence.
+
+## Standalone commercial delivery and optional Opiq companions
+
+A version 1.3 lesson declares `delivery_model.core_mode:
+standalone_commercial_core`, `opiq_required: false`, and
+`customer_can_complete_without_opiq: true`. Its typed `commercial_core`
+references author-material IDs for an explanation, worked example, task,
+answer or bounded open-ended exemption, assessment, measurable learner output,
+and success criteria. Procedural and computational tasks additionally reference
+a separate worked solution. The validator inspects actual material types and
+author-created provenance; a non-empty list alone is not sufficient.
+
+`evidence_linkage.opiq_records` remains internal source-analysis evidence. In
+1.3 it may be empty after the standalone core passes. `opiq_companions` is a
+different, optional customer-delivery contract. Every companion resolves to the
+linked course map and canonical route and records the kit/chapter coordinates,
+role, access mode, check date/status, visibility, and an author-created
+standalone fallback. Its complete typed `source_record` must exactly match the
+authoritative `selected_records` entry for the same canonical URL; record ID,
+route, Book ID, title, language, programme, roles, provenance, and selection
+rationale cannot be relabelled locally. Licensed links identify the licence
+type. Teacher-only, simplified-curriculum, language, and source-ownership
+safeguards are derived from that authoritative record rather than the lesson
+copy. Teacher-only, unverified, unavailable, or teacher-support records remain
+internal. Simplified-curriculum companions require an explicit
+learner-specific opt-in. Opiq access never fills a missing core explanation,
+task, answer, or assessment.
+
+The `originality_review` records a human review of wording, context, data,
+question sequence, scaffolding, distractors, visuals, and answers. An approved
+review is bound to the exact bytes of all covered author material through the
+shared content-fingerprint contract. `publication_ready` and
+`customer_released` require a current approved review covering every author
+material. Internal source-analysis references are forbidden in customer files.
+This is an auditable human gate, not automated plagiarism detection or a legal
+permission to reproduce source content.
+
+`family_overlay_hooks` expose stable stage, material, objective, and assessment
+IDs without copying the lesson. Foundation participation is not Grade 2 or
+Grade 4 mastery. Grade 2 and Grade 4 lanes require their own individual
+evidence; a shared family product may supplement but never replace it. A lesson
+with `family_overlay_supported: false` has no hooks.
+
+Thematic 1.3 aggregates the exact unions of linked standalone lessons,
+companions, and family hooks, and records whether linked originality reviews are
+current. Annual 2.2 declares the accepted companion access modes, mandatory
+fallbacks, teacher-only and simplified boundaries, originality gate, and family
+individual-evidence policy. `all_required_lessons_standalone: true` covers
+every `curated_core` annual unit, not merely the implemented subset: each must
+resolve to a thematic 1.3 artifact whose lessons are standalone and do not
+require Opiq. A partial annual architecture records `false` and may remain
+`internal_draft` or `internal_review`. Annual `publication_ready` and
+`customer_released` additionally require every required unit to be implemented,
+resolved, publication-ready, originality-current, fallback-protected, and part
+of a fully authored annual course. Internal annual `selected_source_books`
+remain analysis and sequencing evidence, not customer dependencies.
+
+Commercial publication status is deliberately separate from schema validity,
+print readiness, teacher review, classroom/home trials, classroom/homeschool
+readiness, and pedagogical effectiveness. The fixture set under
+`test-fixtures/commercial-course-schema/` demonstrates contracts only; it does
+not create Grade 2 or Grade 4 production content.
+
+A minimal authoring relationship looks like this (the referenced materials and
+criteria must also exist in the full lesson):
+
+```yaml
+delivery_model:
+  core_mode: standalone_commercial_core
+  opiq_required: false
+  opiq_companion_policy: optional
+  family_overlay_supported: false
+  customer_can_complete_without_opiq: true
+  publication_status: internal_review
+commercial_core:
+  explanation_material_ids: [author-explanation]
+  worked_example_material_ids: [author-worked-example]
+  task_material_ids: [author-task-set]
+  expected_answer_material_ids: [author-expected-answers]
+  worked_solution_material_ids: [author-worked-solution]
+  assessment_material_ids: [author-assessment]
+  assessment_criterion_ids: [criterion-subject]
+  learner_output_refs: [question-independent-output]
+  success_criteria_refs: [success-subject]
+  task_contracts:
+    - task_material_id: author-task-set
+      response_mode: procedural
+      open_ended: false
+      expected_answer_material_ids: [author-expected-answers]
+      worked_solution_material_ids: [author-worked-solution]
+```
 
 ## Methodology model
 
@@ -118,7 +215,9 @@ Supported provenance categories are:
 
 - `official_curriculum`;
 - `opiq_textbook`, `opiq_supplementary`, `opiq_teacher_support`, `opiq_simplified_curriculum`;
-- `author_created_explanation`, `author_created_bridge`, `author_created_worksheet`, `author_created_assessment`.
+- `author_created_explanation`, `author_created_bridge`, `author_created_worksheet`, `author_created_assessment`;
+- `author_created_worked_example`, `author_created_task_set`,
+  `author_created_worked_solution`, `author_created_expected_answers`.
 
 Every stage resolves its material and provenance references. Author-created bridges are explicit and do not pretend to be Opiq text. Production artifacts use summaries, short task descriptions, labels, direct URLs, and source references rather than copying textbook passages.
 

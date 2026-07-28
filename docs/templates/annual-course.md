@@ -21,3 +21,19 @@ Use `schemas/annual-course.schema.json` and `schemas/annual-course-components.sc
 Do not turn school-stage evidence, publisher placement, or topic availability into an unsupported exact-grade or full-course claim.
 
 Validate with `npm run test:synthesis && npm run test:plans && npm run check:plans`.
+
+## Commercial version 2.2
+
+Add `delivery_model`, `commercial_release_policy`,
+`opiq_companion_policy`, `family_overlay_policy`, and
+`originality_review_policy`. Set `all_required_lessons_standalone: true` only
+when every `curated_core` unit is implemented, has a resolvable thematic 1.3
+reference, reports standalone lessons, and requires no Opiq. A partial annual
+architecture must keep it `false` and may remain in internal review. Optional
+customer companions require declared access modes and author-created
+fallbacks; teacher-only links remain internal and simplified material is
+opt-in. `publication_ready` and `customer_released` additionally require every
+required unit to be publication-ready with current originality reviews and the
+annual completeness contract to be fully authored. Preserve individual Grade 2
+and Grade 4 evidence. Internal `selected_source_books` stay source-analysis
+evidence and are not a customer dependency.

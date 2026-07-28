@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "fixture_set_id": "grade-5-commercial-schema-contracts",
+  "variants": [
+    {
+      "fixture_id": "standalone-no-opiq",
+      "base_lesson_path": "lesson-plans/grade-5-science/water/lesson-01.yaml",
+      "companion_mode": "none",
+      "family_hooks": false
+    },
+    {
+      "fixture_id": "standalone-customer-companion",
+      "base_lesson_path": "lesson-plans/grade-5-science/water/lesson-02.yaml",
+      "companion_mode": "customer_visible",
+      "family_hooks": false
+    },
+    {
+      "fixture_id": "standalone-internal-companion",
+      "base_lesson_path": "lesson-plans/grade-5-science/water/lesson-03.yaml",
+      "companion_mode": "internal_unverified",
+      "family_hooks": false
+    },
+    {
+      "fixture_id": "standalone-family-hooks",
+      "base_lesson_path": "lesson-plans/grade-5-science/water/lesson-04.yaml",
+      "companion_mode": "none",
+      "family_hooks": true
+    }
+  ],
+  "thematic_base_path": "lesson-plans/grade-5-science/water/thematic-plan.yaml",
+  "annual_base_path": "annual-courses/grade-5-science/annual-architecture.yaml"
+}

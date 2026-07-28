@@ -23,3 +23,13 @@ Within-lesson practice belongs in each lesson’s `reuse_stage_refs`. Recycling 
 Thematic curriculum `completeness` and teacher-pack readiness answer different questions. A sequence can have partial official coverage while its files are resolved; a print-ready pack can still await independent review and classroom trial.
 
 Validate with `npm run test:plans && npm run check:plans && npm run test:teacher-packs && npm run check:teacher-packs`.
+
+## Commercial version 1.3
+
+Add the aggregate `delivery_model`, `commercial_core_summary`,
+`opiq_companion_summary`, `family_overlay_hook_index`, and
+`originality_review_summary`. The summaries must equal the linked lesson
+contracts, not a manually selected subset. `selected_opiq_sources: []` is valid
+only when every linked 1.3 lesson is standalone. Unit publication readiness
+requires every linked publication artifact to have a current originality
+review. Family project evidence never replaces per-learner evidence.
