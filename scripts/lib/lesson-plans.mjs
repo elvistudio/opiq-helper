@@ -16,6 +16,11 @@ import {
   validateCourseTopicSyntheses,
   validateExternalSourceRegistry,
 } from './topic-synthesis.mjs';
+import {
+  validateCommercialAnnualCourse,
+  validateCommercialLesson,
+  validateCommercialThematicPlan,
+} from './commercial-course-schema.mjs';
 
 const lessonArtifactType = 'bilingual_lesson';
 const unitArtifactType = 'bilingual_thematic_plan';
@@ -41,6 +46,10 @@ const authorProvenance = new Set([
   'author_created_bridge',
   'author_created_worksheet',
   'author_created_assessment',
+  'author_created_worked_example',
+  'author_created_task_set',
+  'author_created_worked_solution',
+  'author_created_expected_answers',
 ]);
 
 function normalize(value) {
@@ -786,11 +795,13 @@ function validateLesson(diagnostics, artifact, context, indexes, profiles) {
   validateLessonReadiness(diagnostics, artifact, materialState ?? { allResolved: false, allStudentPrintable: false });
   const profile = validateLessonProfile(diagnostics, artifact, profiles);
   addLessonWarnings(diagnostics, artifact, profile);
+  validateCommercialLesson(diagnostics, artifact, context);
 }
 
 function validateUnit(diagnostics, artifact, context, indexes, lessonsById) {
   const unit = artifact.data;
   const records = unit.selected_opiq_sources ?? [];
+  validateCommercialThematicPlan(diagnostics, artifact, lessonsById, context.rootDir);
   addDuplicateDiagnostics(diagnostics, records.map((record) => record.record_id), {
     file: artifact.file, field: '/selected_opiq_sources', label: 'unit Opiq record ID',
   });
@@ -1707,6 +1718,7 @@ export function validateLessonPlanRepository(context) {
       profiles,
       sourceValidation,
     );
+    validateCommercialAnnualCourse(diagnostics, artifact, unitsById);
     const registryId = artifact.data.external_source_registry_ref?.artifact_id;
     validateCourseTopicSyntheses({
       diagnostics,

@@ -68,6 +68,590 @@
       "uniqueItems": true,
       "items": { "enum": ["ru", "et"] }
     },
+    "deliveryModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core_mode",
+        "opiq_required",
+        "opiq_companion_policy",
+        "family_overlay_supported",
+        "customer_can_complete_without_opiq",
+        "publication_status"
+      ],
+      "properties": {
+        "core_mode": { "const": "standalone_commercial_core" },
+        "opiq_required": { "const": false },
+        "opiq_companion_policy": { "enum": ["none", "optional"] },
+        "family_overlay_supported": { "type": "boolean" },
+        "customer_can_complete_without_opiq": { "const": true },
+        "publication_status": {
+          "enum": [
+            "internal_draft",
+            "internal_review",
+            "publication_ready",
+            "customer_released"
+          ]
+        }
+      }
+    },
+    "commercialTaskContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_material_id", "response_mode", "open_ended"],
+      "properties": {
+        "task_material_id": { "$ref": "#/$defs/slug" },
+        "response_mode": {
+          "enum": ["open_ended", "short_answer", "procedural", "computational"]
+        },
+        "open_ended": { "type": "boolean" },
+        "expected_answer_material_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "worked_solution_material_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "open_ended_exemption": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reason"],
+          "properties": {
+            "reason": { "type": "string", "minLength": 10 }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "open_ended": { "const": true } },
+            "required": ["open_ended"]
+          },
+          "then": {
+            "required": ["open_ended_exemption"],
+            "properties": {
+              "open_ended_exemption": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["reason"],
+                "properties": {
+                  "reason": { "type": "string", "minLength": 10 }
+                }
+              }
+            }
+          },
+          "else": {
+            "required": ["expected_answer_material_ids"],
+            "properties": {
+              "expected_answer_material_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/slug" }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "response_mode": { "enum": ["procedural", "computational"] }
+            },
+            "required": ["response_mode"]
+          },
+          "then": {
+            "required": ["worked_solution_material_ids"],
+            "properties": {
+              "worked_solution_material_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/slug" }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "commercialCore": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "explanation_material_ids",
+        "worked_example_material_ids",
+        "task_material_ids",
+        "expected_answer_material_ids",
+        "worked_solution_material_ids",
+        "assessment_material_ids",
+        "assessment_criterion_ids",
+        "learner_output_refs",
+        "success_criteria_refs",
+        "task_contracts"
+      ],
+      "properties": {
+        "explanation_material_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "worked_example_material_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "task_material_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "expected_answer_material_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "worked_solution_material_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "assessment_material_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "assessment_criterion_ids": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "learner_output_refs": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "success_criteria_refs": { "$ref": "#/$defs/nonEmptySlugArray" },
+        "task_contracts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/commercialTaskContract" }
+        }
+      }
+    },
+    "opiqCompanionReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "companion_id",
+        "source_record",
+        "kit_id",
+        "chapter_id",
+        "companion_role",
+        "access",
+        "publication_visibility",
+        "standalone_fallback"
+      ],
+      "properties": {
+        "companion_id": { "$ref": "#/$defs/slug" },
+        "source_record": { "$ref": "#/$defs/pageRecord" },
+        "kit_id": { "type": "integer", "minimum": 1 },
+        "chapter_id": { "type": "integer", "minimum": 1 },
+        "companion_role": {
+          "enum": [
+            "additional_explanation",
+            "additional_practice",
+            "estonian_language_bridge",
+            "interactive_extension",
+            "project_source",
+            "revision",
+            "challenge_extension"
+          ]
+        },
+        "access": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "last_checked_on", "check_status", "notes"],
+          "properties": {
+            "mode": {
+              "enum": [
+                "free",
+                "pupil_license",
+                "private_user_license",
+                "teacher_only",
+                "unverified"
+              ]
+            },
+            "license_type": { "type": "string", "minLength": 3 },
+            "last_checked_on": {
+              "oneOf": [
+                { "type": "null" },
+                { "type": "string", "format": "date" }
+              ]
+            },
+            "check_status": {
+              "enum": ["reachable", "login_required", "unavailable", "not_checked"]
+            },
+            "notes": { "type": "string", "minLength": 10 }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "mode": {
+                    "enum": ["pupil_license", "private_user_license"]
+                  }
+                },
+                "required": ["mode"]
+              },
+              "then": {
+                "required": ["license_type"],
+                "properties": {
+                  "license_type": { "type": "string", "minLength": 3 }
+                }
+              }
+            }
+          ]
+        },
+        "publication_visibility": {
+          "enum": ["internal_only", "customer_visible"]
+        },
+        "standalone_fallback": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["exists", "author_material_ids", "lesson_stage_refs", "notes"],
+          "properties": {
+            "exists": { "const": true },
+            "author_material_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "lesson_stage_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "simplified_curriculum_opt_in": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled", "learner_specific", "reason"],
+          "properties": {
+            "enabled": { "const": true },
+            "learner_specific": { "const": true },
+            "reason": { "type": "string", "minLength": 10 }
+          }
+        },
+        "cross_subject_justification": { "type": "string", "minLength": 10 }
+      }
+    },
+    "originalityDimension": {
+      "enum": ["independent", "changes_required", "not_applicable"]
+    },
+    "originalityReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_id",
+        "status",
+        "reviewer",
+        "reviewer_role",
+        "reviewed_on",
+        "reviewed_version",
+        "covered_author_material_ids",
+        "internal_source_analysis_refs",
+        "dimensions",
+        "prohibited_source_content",
+        "notes"
+      ],
+      "properties": {
+        "review_id": { "$ref": "#/$defs/slug" },
+        "status": {
+          "enum": ["pending", "changes_requested", "approved", "rejected"]
+        },
+        "reviewer": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1 }
+          ]
+        },
+        "reviewer_role": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1 }
+          ]
+        },
+        "reviewed_on": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "format": "date" }
+          ]
+        },
+        "reviewed_version": { "$ref": "#/$defs/reviewedVersion" },
+        "covered_author_material_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "internal_source_analysis_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "dimensions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "wording_independence",
+            "context_independence",
+            "data_independence",
+            "question_sequence_independence",
+            "scaffolding_independence",
+            "distractor_independence",
+            "visual_independence",
+            "answer_independence"
+          ],
+          "properties": {
+            "wording_independence": { "$ref": "#/$defs/originalityDimension" },
+            "context_independence": { "$ref": "#/$defs/originalityDimension" },
+            "data_independence": { "$ref": "#/$defs/originalityDimension" },
+            "question_sequence_independence": { "$ref": "#/$defs/originalityDimension" },
+            "scaffolding_independence": { "$ref": "#/$defs/originalityDimension" },
+            "distractor_independence": { "$ref": "#/$defs/originalityDimension" },
+            "visual_independence": { "$ref": "#/$defs/originalityDimension" },
+            "answer_independence": { "$ref": "#/$defs/originalityDimension" }
+          }
+        },
+        "prohibited_source_content": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "copied_text",
+            "screenshots",
+            "copied_illustrations",
+            "copied_answer_keys",
+            "extracted_interactive_content"
+          ],
+          "properties": {
+            "copied_text": { "const": false },
+            "screenshots": { "const": false },
+            "copied_illustrations": { "const": false },
+            "copied_answer_keys": { "const": false },
+            "extracted_interactive_content": { "const": false }
+          }
+        },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "familyOverlayHook": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hook_id",
+        "hook_role",
+        "supported_lanes",
+        "core_refs",
+        "shared_product_supported",
+        "individual_evidence_required",
+        "shared_evidence_replaces_individual",
+        "notes"
+      ],
+      "properties": {
+        "hook_id": { "$ref": "#/$defs/slug" },
+        "hook_role": {
+          "enum": [
+            "foundation_participation",
+            "grade_2_responsibility",
+            "grade_4_extension",
+            "shared_product",
+            "individual_evidence"
+          ]
+        },
+        "supported_lanes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["foundation", "grade_2", "grade_4"] }
+        },
+        "core_refs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "stage_ids",
+            "material_ids",
+            "objective_ids",
+            "assessment_criterion_ids"
+          ],
+          "properties": {
+            "stage_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "material_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "objective_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            },
+            "assessment_criterion_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/slug" }
+            }
+          },
+          "anyOf": [
+            {
+              "properties": {
+                "stage_ids": { "type": "array", "minItems": 1 }
+              }
+            },
+            {
+              "properties": {
+                "material_ids": { "type": "array", "minItems": 1 }
+              }
+            },
+            {
+              "properties": {
+                "objective_ids": { "type": "array", "minItems": 1 }
+              }
+            },
+            {
+              "properties": {
+                "assessment_criterion_ids": {
+                  "type": "array",
+                  "minItems": 1
+                }
+              }
+            }
+          ]
+        },
+        "shared_product_supported": { "type": "boolean" },
+        "individual_evidence_required": { "type": "boolean" },
+        "shared_evidence_replaces_individual": { "const": false },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "commercialCoreSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["standalone_lesson_ids", "all_lessons_standalone"],
+      "properties": {
+        "standalone_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "all_lessons_standalone": { "type": "boolean" }
+      }
+    },
+    "opiqCompanionSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["companion_ids", "customer_visible_companion_ids"],
+      "properties": {
+        "companion_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "customer_visible_companion_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "familyOverlayHookIndex": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["hook_id", "lesson_id"],
+        "properties": {
+          "hook_id": { "$ref": "#/$defs/slug" },
+          "lesson_id": { "$ref": "#/$defs/slug" }
+        }
+      }
+    },
+    "originalityReviewSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approved_lesson_ids", "all_publication_reviews_current"],
+      "properties": {
+        "approved_lesson_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "all_publication_reviews_current": { "type": "boolean" }
+      }
+    },
+    "commercialReleasePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_required_lessons_standalone",
+        "publication_status",
+        "originality_review_required",
+        "does_not_imply_classroom_readiness"
+      ],
+      "properties": {
+        "all_required_lessons_standalone": { "type": "boolean" },
+        "publication_status": {
+          "enum": [
+            "internal_draft",
+            "internal_review",
+            "publication_ready",
+            "customer_released"
+          ]
+        },
+        "originality_review_required": { "const": true },
+        "does_not_imply_classroom_readiness": { "const": true }
+      }
+    },
+    "opiqCompanionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy",
+        "accepted_access_modes",
+        "customer_visible_requires_fallback",
+        "teacher_only_internal",
+        "simplified_requires_learner_opt_in"
+      ],
+      "properties": {
+        "policy": { "enum": ["none", "optional"] },
+        "accepted_access_modes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["free", "pupil_license", "private_user_license"]
+          }
+        },
+        "customer_visible_requires_fallback": { "const": true },
+        "teacher_only_internal": { "const": true },
+        "simplified_requires_learner_opt_in": { "const": true }
+      }
+    },
+    "familyOverlayPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supported",
+        "grade_2_individual_evidence_required",
+        "grade_4_individual_evidence_required",
+        "shared_evidence_replaces_individual"
+      ],
+      "properties": {
+        "supported": { "type": "boolean" },
+        "grade_2_individual_evidence_required": { "const": true },
+        "grade_4_individual_evidence_required": { "const": true },
+        "shared_evidence_replaces_individual": { "const": false }
+      }
+    },
+    "originalityReviewPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication_requires_approved_current_review",
+        "automated_originality_claimed"
+      ],
+      "properties": {
+        "publication_requires_approved_current_review": { "const": true },
+        "automated_originality_claimed": { "const": false }
+      }
+    },
+    "nonEmptySlugArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" }
+    },
     "contentFingerprint": {
       "type": "object",
       "additionalProperties": false,
@@ -247,7 +831,11 @@
             "homeschool_guide",
             "answer_key",
             "parent_guide",
-            "pack_overview"
+            "pack_overview",
+            "worked_example",
+            "task_set",
+            "worked_solution",
+            "expected_answers"
           ]
         },
         "artifact_path": { "$ref": "#/$defs/repositoryPath" },

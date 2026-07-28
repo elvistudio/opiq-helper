@@ -38,7 +38,7 @@
     "provenance"
   ],
   "properties": {
-    "schema_version": { "enum": ["1.1", "1.2"] },
+    "schema_version": { "enum": ["1.1", "1.2", "1.3"] },
     "artifact_type": { "const": "bilingual_lesson" },
     "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "grade": { "type": "integer", "minimum": 1 },
@@ -104,12 +104,35 @@
     "pedagogical_integration": {
       "$ref": "https://elvistudio.github.io/opiq-helper/schemas/pedagogy-generation-integration.schema.json#/$defs/lessonIntegration"
     },
+    "delivery_model": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/deliveryModel"
+    },
+    "commercial_core": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/commercialCore"
+    },
+    "opiq_companions": {
+      "type": "array",
+      "items": {
+        "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/opiqCompanionReference"
+      }
+    },
+    "originality_review": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/originalityReview"
+    },
+    "family_overlay_hooks": {
+      "type": "array",
+      "items": {
+        "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/familyOverlayHook"
+      }
+    },
     "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" }
   },
   "allOf": [
     {
       "if": {
-        "properties": { "schema_version": { "const": "1.2" } },
+        "properties": {
+          "schema_version": { "enum": ["1.2", "1.3"] }
+        },
         "required": ["schema_version"]
       },
       "then": {
@@ -121,6 +144,59 @@
         "required": ["pedagogical_integration"]
       },
       "else": { "properties": { "pedagogical_integration": false } }
+    },
+    {
+      "if": {
+        "properties": { "schema_version": { "const": "1.3" } },
+        "required": ["schema_version"]
+      },
+      "then": {
+        "properties": {
+          "delivery_model": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/deliveryModel"
+          },
+          "commercial_core": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/commercialCore"
+          },
+          "opiq_companions": {
+            "type": "array",
+            "items": {
+              "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/opiqCompanionReference"
+            }
+          },
+          "originality_review": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/originalityReview"
+          },
+          "family_overlay_hooks": {
+            "type": "array",
+            "items": {
+              "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/familyOverlayHook"
+            }
+          }
+        },
+        "required": [
+          "delivery_model",
+          "commercial_core",
+          "opiq_companions",
+          "originality_review",
+          "family_overlay_hooks"
+        ]
+      },
+      "else": {
+        "properties": {
+          "delivery_model": false,
+          "commercial_core": false,
+          "opiq_companions": false,
+          "originality_review": false,
+          "family_overlay_hooks": false,
+          "evidence_linkage": {
+            "type": "object",
+            "properties": {
+              "opiq_records": { "type": "array", "minItems": 1 }
+            }
+          }
+        }
+      }
     }
   ],
   "$defs": {
@@ -171,7 +247,6 @@
         "course_map_ref": { "$ref": "#/$defs/slug" },
         "opiq_records": {
           "type": "array",
-          "minItems": 1,
           "items": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/pageRecord" }
         },
         "author_materials": {
