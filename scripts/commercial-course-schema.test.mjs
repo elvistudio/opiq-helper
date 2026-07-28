@@ -12,10 +12,11 @@ before(async () => {
   baseline = await loadCommercialCourseFixtures();
 });
 
-function cloneFixtures() {
+function cloneFixtures({ cloneRepository = false } = {}) {
   return {
     ...baseline,
     manifest: structuredClone(baseline.manifest),
+    repository: cloneRepository ? structuredClone(baseline.repository) : baseline.repository,
     lessons: structuredClone(baseline.lessons),
     thematicPlans: structuredClone(baseline.thematicPlans),
     annualCourses: structuredClone(baseline.annualCourses),
@@ -32,6 +33,31 @@ function customerLesson(fixtures) {
 
 function familyLesson(fixtures) {
   return fixtures.lessons.find((entry) => entry.family_overlay_hooks.length > 0);
+}
+
+function authoritativeRecord(fixtures, targetLesson = customerLesson(fixtures)) {
+  const mapId = targetLesson.evidence_linkage.course_map_ref;
+  const courseMap = fixtures.repository.curriculum.artifacts.find(
+    (artifact) => artifact.data.artifact_type === 'thematic_unit'
+      && artifact.data.map_id === mapId,
+  )?.data;
+  const url = targetLesson.opiq_companions[0].source_record.canonical_url;
+  return courseMap?.selected_records.find((record) => record.canonical_url === url);
+}
+
+function fullyImplementAnnual(fixtures) {
+  const annual = fixtures.annualCourses[0];
+  const seed = fixtures.thematicPlans[0];
+  fixtures.thematicPlans = annual.ordered_units.map((binding) => {
+    const unit = structuredClone(seed);
+    unit.unit_id = binding.unit_id;
+    binding.full_thematic_plan_exists = true;
+    binding.thematic_plan_ref = unit.unit_id;
+    binding.implementation_status = 'validated_production_unit';
+    return unit;
+  });
+  annual.commercial_release_policy.all_required_lessons_standalone = true;
+  return annual;
 }
 
 function validation(fixtures) {
@@ -70,11 +96,13 @@ test('standalone fixture supports zero Opiq evidence and no companions', () => {
 });
 
 test('customer-visible companion is optional, checked, licensed, and has an author fallback', () => {
-  const companion = customerLesson(baseline).opiq_companions[0];
+  const targetLesson = customerLesson(baseline);
+  const companion = targetLesson.opiq_companions[0];
   assert.equal(companion.access.mode, 'pupil_license');
   assert.equal(companion.publication_visibility, 'customer_visible');
   assert.equal(companion.standalone_fallback.exists, true);
   assert.deepEqual(companion.standalone_fallback.author_material_ids, ['commercial-task-set']);
+  assert.deepEqual(companion.source_record, authoritativeRecord(baseline, targetLesson));
 });
 
 test('unverified companion remains internal-only', () => {
@@ -214,16 +242,45 @@ test('licence-required companion requires licence metadata', () => {
 });
 
 test('simplified companion requires explicit learner-specific opt-in', () => {
-  const fixtures = cloneFixtures();
-  customerLesson(fixtures).opiq_companions[0].source_record.programme_type = 'simplified_curriculum';
+  const fixtures = cloneFixtures({ cloneRepository: true });
+  authoritativeRecord(fixtures).programme_type = 'simplified_curriculum';
   assertFails(fixtures, /simplified-curriculum companion requires explicit learner-specific opt-in/u);
+  assertFails(fixtures, /source-record metadata does not match.*programme_type/u);
 });
 
 test('teacher-support source cannot become pupil-facing core or companion material', () => {
-  const fixtures = cloneFixtures();
-  const record = customerLesson(fixtures).opiq_companions[0].source_record;
+  const fixtures = cloneFixtures({ cloneRepository: true });
+  const record = authoritativeRecord(fixtures);
   record.programme_type = 'teacher_support';
   record.provenance.category = 'opiq_teacher_support';
+  assertFails(fixtures, /teacher-support source cannot be customer-visible/u);
+  assertFails(fixtures, /source-record metadata does not match.*programme_type|source-record metadata does not match.*provenance/u);
+});
+
+for (const [label, field, mutate] of [
+  ['Book ID', 'book_id', (record) => { record.book_id = 'incorrect-book'; }],
+  ['language', 'language', (record) => { record.language = record.language === 'ru' ? 'et' : 'ru'; }],
+  ['title', 'title', (record) => { record.title = 'Relabelled companion title'; }],
+  ['record ID', 'record_id', (record) => { record.record_id = 'relabeled-record'; }],
+  ['instructional roles', 'instructional_roles', (record) => { record.instructional_roles = ['revision']; }],
+  ['selection rationale', 'selection_rationale', (record) => { record.selection_rationale = 'Relabelled local rationale that is not authoritative.'; }],
+]) {
+  test(`companion rejects a ${label} that disagrees with the authoritative course-map record`, () => {
+    const fixtures = cloneFixtures();
+    mutate(customerLesson(fixtures).opiq_companions[0].source_record);
+    assertFails(fixtures, new RegExp(`source-record metadata does not match.*${field}`, 'u'));
+  });
+}
+
+test('teacher-support provenance cannot be relabelled as textbook provenance', () => {
+  const fixtures = cloneFixtures({ cloneRepository: true });
+  const selected = authoritativeRecord(fixtures);
+  selected.programme_type = 'teacher_support';
+  selected.provenance.category = 'opiq_teacher_support';
+  const supplied = customerLesson(fixtures).opiq_companions[0].source_record;
+  supplied.programme_type = 'teacher_support';
+  supplied.provenance.category = 'opiq_textbook';
+  assertFails(fixtures, /source-record metadata does not match.*provenance/u);
   assertFails(fixtures, /teacher-support source cannot be customer-visible/u);
 });
 
@@ -285,16 +342,88 @@ test('family hook rejects unknown stage or material reference', () => {
   assertFails(fixtures, /unknown core reference unknown-stage/u);
 });
 
+test('family overlay support requires at least one valid hook', () => {
+  const fixtures = cloneFixtures();
+  familyLesson(fixtures).family_overlay_hooks = [];
+  assertFails(fixtures, /family_overlay_supported true requires at least one valid hook/u);
+});
+
+test('family hook roles require their corresponding lanes', () => {
+  const fixtures = cloneFixtures();
+  const hook = familyLesson(fixtures).family_overlay_hooks.find(
+    (entry) => entry.hook_role === 'grade_2_responsibility',
+  );
+  hook.supported_lanes = ['grade_4'];
+  assertFails(fixtures, /Grade 2 responsibility hook must support the Grade 2 lane/u);
+});
+
 test('thematic standalone claim fails when one linked lesson is Opiq-dependent', () => {
   const fixtures = cloneFixtures();
   fixtures.lessons[0].delivery_model.opiq_required = true;
   assertFails(fixtures, /thematic standalone summary must equal linked lesson delivery contracts/u);
 });
 
+test('partial annual fixture honestly keeps all-required standalone false', () => {
+  const fixtures = cloneFixtures();
+  assert.equal(fixtures.annualCourses[0].commercial_release_policy.all_required_lessons_standalone, false);
+  assert.equal(validation(fixtures).summary.errors, 0, errorText(fixtures));
+});
+
+test('partial annual fixture rejects an all-required standalone true claim', () => {
+  const fixtures = cloneFixtures();
+  fixtures.annualCourses[0].commercial_release_policy.all_required_lessons_standalone = true;
+  assertFails(fixtures, /annual standalone claim must match every required annual unit/u);
+});
+
+test('annual publication rejects an unimplemented required unit', () => {
+  const fixtures = cloneFixtures();
+  const annual = fixtures.annualCourses[0];
+  annual.delivery_model.publication_status = 'publication_ready';
+  annual.commercial_release_policy.publication_status = 'publication_ready';
+  assertFails(fixtures, /annual publication requires every required unit to be resolved/u);
+});
+
+test('implemented annual unit requires a thematic reference', () => {
+  const fixtures = cloneFixtures();
+  const binding = fixtures.annualCourses[0].ordered_units.find(
+    (entry) => entry.full_thematic_plan_exists,
+  );
+  binding.thematic_plan_ref = null;
+  assertFails(fixtures, /implemented commercial unit is missing its thematic reference/u);
+});
+
+test('implemented annual unit rejects an unresolved thematic reference', () => {
+  const fixtures = cloneFixtures();
+  const binding = fixtures.annualCourses[0].ordered_units.find(
+    (entry) => entry.full_thematic_plan_exists,
+  );
+  binding.thematic_plan_ref = 'unresolved-commercial-unit';
+  assertFails(fixtures, /implemented commercial unit is unresolved/u);
+});
+
 test('annual standalone claim fails when one implemented thematic unit is dependent', () => {
   const fixtures = cloneFixtures();
-  fixtures.thematicPlans[0].commercial_core_summary.all_lessons_standalone = false;
-  assertFails(fixtures, /annual standalone claim must match every implemented thematic unit/u);
+  fullyImplementAnnual(fixtures);
+  fixtures.thematicPlans[0].delivery_model.opiq_required = true;
+  assertFails(fixtures, /annual standalone claim must match every required annual unit/u);
+});
+
+test('fully implemented standalone annual fixture may claim all required lessons standalone', () => {
+  const fixtures = cloneFixtures();
+  fullyImplementAnnual(fixtures);
+  assert.equal(validation(fixtures).summary.errors, 0, errorText(fixtures));
+});
+
+test('legacy annual schema 2.1 remains outside commercial annual semantics', () => {
+  const fixtures = cloneFixtures();
+  const annual = fixtures.annualCourses[0];
+  annual.schema_version = '2.1';
+  delete annual.delivery_model;
+  delete annual.commercial_release_policy;
+  delete annual.opiq_companion_policy;
+  delete annual.family_overlay_policy;
+  delete annual.originality_review_policy;
+  assert.equal(validation(fixtures).summary.errors, 0, errorText(fixtures));
 });
 
 test('legacy lesson versions still require at least one Opiq evidence record', () => {

@@ -59,12 +59,17 @@ Use 1.3 only when the lesson is genuinely complete without Opiq.
   expected-answer, worked-solution (for procedural/computational tasks), and
   assessment materials.
 - Record optional companions separately with route/course-map identity, access,
-  visibility, check date/status, and a real author-created fallback.
+  visibility, check date/status, and a real author-created fallback. Copy the
+  complete authoritative course-map `selected_records` entry into
+  `source_record`; local relabelling of programme, provenance, title, language,
+  Book ID, roles, or record ID is invalid.
 - Keep teacher-only, unverified, unavailable, and teacher-support records
-  internal; require learner-specific opt-in for simplified material.
+  internal; require learner-specific opt-in for simplified material. Derive
+  these safeguards from the authoritative course-map record.
 - Bind publication status to a current human originality fingerprint. Do not
   treat that review as automated proof of originality.
 - Family hooks reference stable core IDs. Grade 2 and Grade 4 hooks require
-  individual evidence, and shared evidence never replaces it.
+  individual evidence, and shared evidence never replaces it. Match each hook
+  role to its lane; Foundation participation supports only Foundation.
 
 Run `npm run test:commercial-course-schema && npm run check:commercial-course-schema`.

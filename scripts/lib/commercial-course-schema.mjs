@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { makeDiagnostic, safeRepositoryPath } from './curriculum-maps.mjs';
 
 const authorCreatedCategories = new Set([
@@ -196,6 +197,15 @@ function validDate(value) {
     && !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
 }
 
+function differingRecordFields(record, authoritativeRecord) {
+  return [...new Set([
+    ...Object.keys(record ?? {}),
+    ...Object.keys(authoritativeRecord ?? {}),
+  ])]
+    .sort((left, right) => Buffer.from(left).compare(Buffer.from(right)))
+    .filter((field) => !isDeepStrictEqual(record?.[field], authoritativeRecord?.[field]));
+}
+
 function validateCompanions(diagnostics, artifact, context) {
   const lesson = artifact.data;
   const companions = lesson.opiq_companions ?? [];
@@ -203,22 +213,42 @@ function validateCompanions(diagnostics, artifact, context) {
     diagnostic(diagnostics, artifact, '/opiq_companions', `duplicate companion ID ${duplicate}`);
   }
   const courseMap = courseMapFor(context, lesson.evidence_linkage?.course_map_ref);
-  const selectedUrls = new Set((courseMap?.selected_records ?? []).map((entry) => entry.canonical_url));
+  const selectedRecordByUrl = new Map(
+    (courseMap?.selected_records ?? []).map((record) => [record.canonical_url, record]),
+  );
   const materials = new Set((lesson.evidence_linkage?.author_materials ?? []).map((entry) => entry.material_id));
   const stages = new Set((lesson.stages ?? []).map((entry) => entry.stage_id));
   for (const [index, companion] of companions.entries()) {
     const field = `/opiq_companions/${index}`;
     const record = companion.source_record ?? {};
+    const authoritativeRecord = selectedRecordByUrl.get(record.canonical_url);
     if (record.canonical_source_id !== lesson.canonical_route?.source_id) {
-      diagnostic(diagnostics, artifact, `${field}/source_record/canonical_source_id`, 'companion must use the lesson canonical route');
+      diagnostic(diagnostics, artifact, `${field}/source_record/canonical_source_id`, 'companion source snapshot must use the lesson canonical route');
     }
     if (!courseMap || courseMap.grade !== lesson.grade || courseMap.subject !== lesson.subject) {
       diagnostic(diagnostics, artifact, `${field}/source_record`, 'companion course-map grade and subject must match the lesson');
     }
-    if (!selectedUrls.has(record.canonical_url)) {
+    if (!authoritativeRecord) {
       diagnostic(diagnostics, artifact, `${field}/source_record/canonical_url`, 'companion URL is not selected in the linked course map');
+    } else {
+      for (const mismatch of differingRecordFields(record, authoritativeRecord)) {
+        diagnostic(
+          diagnostics,
+          artifact,
+          `${field}/source_record/${mismatch}`,
+          `companion source-record metadata does not match the authoritative selected course-map record: ${mismatch}`,
+        );
+      }
+      if (authoritativeRecord.canonical_source_id !== lesson.canonical_route?.source_id) {
+        diagnostic(
+          diagnostics,
+          artifact,
+          `${field}/source_record/canonical_source_id`,
+          'authoritative companion record is not owned by the lesson canonical route',
+        );
+      }
     }
-    const coordinates = parseOpiqCoordinates(record.canonical_url);
+    const coordinates = parseOpiqCoordinates(authoritativeRecord?.canonical_url);
     if (!coordinates || coordinates.kitId !== companion.kit_id || coordinates.chapterId !== companion.chapter_id) {
       diagnostic(diagnostics, artifact, field, 'companion kit_id and chapter_id must match the canonical URL');
     }
@@ -246,12 +276,15 @@ function validateCompanions(diagnostics, artifact, context) {
     if (['pupil_license', 'private_user_license'].includes(access.mode) && !access.license_type) {
       diagnostic(diagnostics, artifact, `${field}/access/license_type`, 'licence-required companion requires licence metadata');
     }
-    if (record.programme_type === 'simplified_curriculum' && !companion.simplified_curriculum_opt_in?.learner_specific) {
+    if (
+      authoritativeRecord?.programme_type === 'simplified_curriculum'
+      && !companion.simplified_curriculum_opt_in?.learner_specific
+    ) {
       diagnostic(diagnostics, artifact, `${field}/simplified_curriculum_opt_in`, 'simplified-curriculum companion requires explicit learner-specific opt-in');
     }
     if (
-      record.programme_type === 'teacher_support'
-      || record.provenance?.category === 'opiq_teacher_support'
+      authoritativeRecord?.programme_type === 'teacher_support'
+      || authoritativeRecord?.provenance?.category === 'opiq_teacher_support'
     ) {
       if (companion.publication_visibility !== 'internal_only') {
         diagnostic(diagnostics, artifact, `${field}/publication_visibility`, 'teacher-support source cannot be customer-visible pupil material');
@@ -362,13 +395,28 @@ function validateFamilyHooks(diagnostics, artifact) {
     }
     if (
       hook.hook_role === 'foundation_participation'
-      && (hook.supported_lanes ?? []).some((lane) => ['grade_2', 'grade_4'].includes(lane))
+      && !sameSet(hook.supported_lanes, ['foundation'])
     ) {
-      diagnostic(diagnostics, artifact, `/family_overlay_hooks/${index}/supported_lanes`, 'Foundation participation cannot represent Grade 2 or Grade 4 mastery');
+      diagnostic(diagnostics, artifact, `/family_overlay_hooks/${index}/supported_lanes`, 'Foundation participation supports only the Foundation lane');
+    }
+    if (
+      hook.hook_role === 'grade_2_responsibility'
+      && !(hook.supported_lanes ?? []).includes('grade_2')
+    ) {
+      diagnostic(diagnostics, artifact, `/family_overlay_hooks/${index}/supported_lanes`, 'Grade 2 responsibility hook must support the Grade 2 lane');
+    }
+    if (
+      hook.hook_role === 'grade_4_extension'
+      && !(hook.supported_lanes ?? []).includes('grade_4')
+    ) {
+      diagnostic(diagnostics, artifact, `/family_overlay_hooks/${index}/supported_lanes`, 'Grade 4 extension hook must support the Grade 4 lane');
     }
   }
   if (lesson.delivery_model?.family_overlay_supported === false && hooks.length > 0) {
     diagnostic(diagnostics, artifact, '/family_overlay_hooks', 'family_overlay_supported false requires an empty hook list');
+  }
+  if (lesson.delivery_model?.family_overlay_supported === true && hooks.length === 0) {
+    diagnostic(diagnostics, artifact, '/family_overlay_hooks', 'family_overlay_supported true requires at least one valid hook');
   }
 }
 
@@ -448,21 +496,42 @@ export function validateCommercialThematicPlan(
 export function validateCommercialAnnualCourse(diagnostics, artifact, unitsById) {
   const course = artifact.data;
   if (course.schema_version !== '2.2') return;
-  const implementedBindings = (course.ordered_units ?? [])
-    .filter((unit) => unit.full_thematic_plan_exists && unit.thematic_plan_ref);
-  const implemented = implementedBindings
-    .map((unit) => unitsById.get(unit.thematic_plan_ref)?.data)
-    .filter(Boolean);
-  for (const binding of implementedBindings) {
-    if (!unitsById.has(binding.thematic_plan_ref)) {
-      diagnostic(diagnostics, artifact, '/ordered_units', `implemented commercial unit is unresolved: ${binding.thematic_plan_ref}`);
+  const bindings = course.ordered_units ?? [];
+  const requiredBindings = bindings.filter((binding) => binding.mandatory_status === 'curated_core');
+  const resolvedUnit = (binding) => unitsById.get(binding.thematic_plan_ref)?.data;
+  for (const [index, binding] of bindings.entries()) {
+    if (binding.full_thematic_plan_exists && !binding.thematic_plan_ref) {
+      diagnostic(diagnostics, artifact, `/ordered_units/${index}/thematic_plan_ref`, `implemented commercial unit is missing its thematic reference: ${binding.unit_id}`);
+    }
+    if (!binding.full_thematic_plan_exists && binding.thematic_plan_ref) {
+      diagnostic(diagnostics, artifact, `/ordered_units/${index}`, `unimplemented commercial unit cannot retain a thematic reference: ${binding.unit_id}`);
+    }
+    if (binding.full_thematic_plan_exists && binding.thematic_plan_ref && !resolvedUnit(binding)) {
+      diagnostic(diagnostics, artifact, `/ordered_units/${index}/thematic_plan_ref`, `implemented commercial unit is unresolved: ${binding.thematic_plan_ref}`);
     }
   }
-  const allStandalone = implemented.every((unit) => unit.schema_version === '1.3'
-    && unit.commercial_core_summary?.all_lessons_standalone === true
-    && unit.delivery_model?.opiq_required === false);
-  if (course.commercial_release_policy?.all_required_lessons_standalone !== allStandalone) {
-    diagnostic(diagnostics, artifact, '/commercial_release_policy/all_required_lessons_standalone', 'annual standalone claim must match every implemented thematic unit');
+  const bindingIsStandalone = (binding) => {
+    const unit = resolvedUnit(binding);
+    return binding.full_thematic_plan_exists === true
+      && Boolean(binding.thematic_plan_ref)
+      && Boolean(unit)
+      && unit.unit_id === binding.thematic_plan_ref
+      && unit.schema_version === '1.3'
+      && unit.commercial_core_summary?.all_lessons_standalone === true
+      && unit.delivery_model?.opiq_required === false;
+  };
+  const allRequiredStandalone = requiredBindings.length > 0
+    && requiredBindings.every(bindingIsStandalone);
+  if (
+    course.commercial_release_policy?.all_required_lessons_standalone
+    !== allRequiredStandalone
+  ) {
+    diagnostic(
+      diagnostics,
+      artifact,
+      '/commercial_release_policy/all_required_lessons_standalone',
+      'annual standalone claim must match every required annual unit',
+    );
   }
   if (course.delivery_model?.opiq_required !== false) {
     diagnostic(diagnostics, artifact, '/delivery_model/opiq_required', 'standalone annual course cannot require Opiq');
@@ -474,13 +543,39 @@ export function validateCommercialAnnualCourse(diagnostics, artifact, unitsById)
   if (course.family_overlay_policy?.shared_evidence_replaces_individual !== false) {
     diagnostic(diagnostics, artifact, '/family_overlay_policy', 'annual family policy cannot replace individual evidence');
   }
-  if (['publication_ready', 'customer_released'].includes(course.commercial_release_policy?.publication_status)) {
-    const current = implemented.length === implementedBindings.length
-      && implemented.every((unit) => (
-        unit.originality_review_summary?.all_publication_reviews_current === true
-        && ['publication_ready', 'customer_released'].includes(unit.delivery_model?.publication_status)
-      ));
-    if (!current) diagnostic(diagnostics, artifact, '/commercial_release_policy/publication_status', 'annual publication requires every implemented unit to be publication-ready with current originality reviews');
+  const releaseStatus = course.commercial_release_policy?.publication_status;
+  if (course.delivery_model?.publication_status !== releaseStatus) {
+    diagnostic(diagnostics, artifact, '/commercial_release_policy/publication_status', 'annual delivery and commercial publication statuses must agree');
+  }
+  if (['publication_ready', 'customer_released'].includes(releaseStatus)) {
+    const completeness = course.completeness ?? {};
+    const requiredUnitsPublicationReady = requiredBindings.length > 0
+      && requiredBindings.every((binding) => {
+        const unit = resolvedUnit(binding);
+        return bindingIsStandalone(binding)
+          && binding.implementation_status === 'validated_production_unit'
+          && unit.originality_review_summary?.all_publication_reviews_current === true
+          && ['publication_ready', 'customer_released'].includes(unit.delivery_model?.publication_status);
+      });
+    const fullyAuthored = completeness.scope === 'fully_authored_annual_course'
+      && completeness.implementation_status === 'fully_authored'
+      && completeness.declared_complete === true
+      && completeness.all_thematic_plans_authored === true
+      && completeness.all_lessons_authored === true;
+    const fallbacksRequired = course.opiq_companion_policy?.customer_visible_requires_fallback === true;
+    if (
+      !allRequiredStandalone
+      || !requiredUnitsPublicationReady
+      || !fullyAuthored
+      || !fallbacksRequired
+    ) {
+      diagnostic(
+        diagnostics,
+        artifact,
+        '/commercial_release_policy/publication_status',
+        'annual publication requires every required unit to be resolved, standalone, publication-ready, originality-current, fallback-protected, and fully authored',
+      );
+    }
   }
 }
 

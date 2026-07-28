@@ -189,9 +189,24 @@ function companionFrom(record, mode) {
   };
 }
 
-function buildLesson(rootDir, baseArtifact, variant) {
+function authoritativeRecordForLesson(repository, lesson, sourceRecord) {
+  const courseMap = repository.curriculum.artifacts.find(
+    (artifact) => artifact.data.artifact_type === 'thematic_unit'
+      && artifact.data.map_id === lesson.evidence_linkage.course_map_ref,
+  )?.data;
+  const authoritativeRecord = courseMap?.selected_records?.find(
+    (record) => record.canonical_url === sourceRecord.canonical_url,
+  );
+  if (!authoritativeRecord) {
+    throw new Error(`fixture source record is not selected in ${lesson.evidence_linkage.course_map_ref}: ${sourceRecord.canonical_url}`);
+  }
+  return authoritativeRecord;
+}
+
+function buildLesson(rootDir, repository, baseArtifact, variant) {
   const lesson = structuredClone(baseArtifact.data);
   const sourceRecord = structuredClone(lesson.evidence_linkage.opiq_records[0]);
+  const authoritativeRecord = authoritativeRecordForLesson(repository, lesson, sourceRecord);
   lesson.schema_version = '1.3';
   lesson.lesson_id = `commercial-${variant.fixture_id}`;
   lesson.evidence_linkage.opiq_records = [];
@@ -199,7 +214,7 @@ function buildLesson(rootDir, baseArtifact, variant) {
   for (const stage of lesson.stages) stage.material_refs = ['commercial-explanation'];
   const companions = variant.companion_mode === 'none'
     ? []
-    : [companionFrom(sourceRecord, variant.companion_mode)];
+    : [companionFrom(authoritativeRecord, variant.companion_mode)];
   const hooks = variant.family_hooks ? familyHooks(lesson) : [];
   lesson.delivery_model = {
     core_mode: 'standalone_commercial_core',
@@ -326,7 +341,7 @@ function buildAnnual(baseArtifact, thematic) {
     publication_status: 'internal_review',
   };
   course.commercial_release_policy = {
-    all_required_lessons_standalone: true,
+    all_required_lessons_standalone: false,
     publication_status: 'internal_review',
     originality_review_required: true,
     does_not_imply_classroom_readiness: true,
@@ -377,6 +392,7 @@ export async function loadCommercialCourseFixtures({
   );
   const lessons = ordered.map((variant) => buildLesson(
     rootDir,
+    repository,
     artifactByFile(repository, variant.base_lesson_path),
     variant,
   ));

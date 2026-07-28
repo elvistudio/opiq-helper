@@ -50,10 +50,16 @@ author-created provenance; a non-empty list alone is not sufficient.
 different, optional customer-delivery contract. Every companion resolves to the
 linked course map and canonical route and records the kit/chapter coordinates,
 role, access mode, check date/status, visibility, and an author-created
-standalone fallback. Licensed links identify the licence type. Teacher-only,
-unverified, unavailable, or teacher-support records remain internal.
-Simplified-curriculum companions require an explicit learner-specific opt-in.
-Opiq access never fills a missing core explanation, task, answer, or assessment.
+standalone fallback. Its complete typed `source_record` must exactly match the
+authoritative `selected_records` entry for the same canonical URL; record ID,
+route, Book ID, title, language, programme, roles, provenance, and selection
+rationale cannot be relabelled locally. Licensed links identify the licence
+type. Teacher-only, simplified-curriculum, language, and source-ownership
+safeguards are derived from that authoritative record rather than the lesson
+copy. Teacher-only, unverified, unavailable, or teacher-support records remain
+internal. Simplified-curriculum companions require an explicit
+learner-specific opt-in. Opiq access never fills a missing core explanation,
+task, answer, or assessment.
 
 The `originality_review` records a human review of wording, context, data,
 question sequence, scaffolding, distractors, visuals, and answers. An approved
@@ -74,8 +80,15 @@ Thematic 1.3 aggregates the exact unions of linked standalone lessons,
 companions, and family hooks, and records whether linked originality reviews are
 current. Annual 2.2 declares the accepted companion access modes, mandatory
 fallbacks, teacher-only and simplified boundaries, originality gate, and family
-individual-evidence policy. Internal annual `selected_source_books` remain
-analysis and sequencing evidence, not customer dependencies.
+individual-evidence policy. `all_required_lessons_standalone: true` covers
+every `curated_core` annual unit, not merely the implemented subset: each must
+resolve to a thematic 1.3 artifact whose lessons are standalone and do not
+require Opiq. A partial annual architecture records `false` and may remain
+`internal_draft` or `internal_review`. Annual `publication_ready` and
+`customer_released` additionally require every required unit to be implemented,
+resolved, publication-ready, originality-current, fallback-protected, and part
+of a fully authored annual course. Internal annual `selected_source_books`
+remain analysis and sequencing evidence, not customer dependencies.
 
 Commercial publication status is deliberately separate from schema validity,
 print readiness, teacher review, classroom/home trials, classroom/homeschool
