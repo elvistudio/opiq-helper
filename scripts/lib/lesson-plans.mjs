@@ -105,11 +105,19 @@ async function loadYamlArtifacts(rootDir, directoryPath) {
   return artifacts;
 }
 
+async function loadYamlArtifact(rootDir, artifactPath) {
+  const filePath = safeRepositoryPath(rootDir, artifactPath, `${artifactPath} path`);
+  return {
+    file: relativeDisplay(rootDir, filePath),
+    data: parseStrictCurriculumYaml(await fs.readFile(filePath, 'utf8'), artifactPath),
+  };
+}
+
 export async function loadLessonPlanRepository({
   rootDir = process.cwd(),
   lessonPlansPath = 'lesson-plans',
   annualCoursesPath = 'annual-courses',
-  externalSourcesPath = 'external-sources',
+  externalSourceRegistryPath = 'external-sources/registry.yaml',
   commonSchemaPath = 'schemas/teaching-plan-common.schema.json',
   profileSchemaPath = 'schemas/language-profiles.schema.json',
   lessonSchemaPath = 'schemas/lesson-plan.schema.json',
@@ -121,11 +129,12 @@ export async function loadLessonPlanRepository({
   pedagogyIntegrationSchemaPath = 'schemas/pedagogy-generation-integration.schema.json',
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
-  const [lessonFiles, annualFiles, externalArtifacts] = await Promise.all([
+  const [lessonFiles, annualFiles, externalRegistryArtifact] = await Promise.all([
     loadYamlArtifacts(absoluteRoot, lessonPlansPath),
     loadYamlArtifacts(absoluteRoot, annualCoursesPath),
-    loadYamlArtifacts(absoluteRoot, externalSourcesPath),
+    loadYamlArtifact(absoluteRoot, externalSourceRegistryPath),
   ]);
+  const externalArtifacts = [externalRegistryArtifact];
   const artifacts = [...lessonFiles, ...annualFiles];
   const additionalSourceIds = [...new Set(artifacts
     .map((artifact) => artifact.data.canonical_route?.source_id)

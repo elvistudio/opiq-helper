@@ -22,6 +22,19 @@ The schemas live in:
 
 Both schemas are strict: unknown fields fail validation.
 
+## National 2026/27 framework and compliance artifacts
+
+The [2026/27 curriculum and home-learning baseline](2026-27-curriculum-compliance-baseline.md)
+uses a separate validation path for national framework and legal requirements that do not belong
+to one Grade/Subject route. This separation does not weaken the route-linked contract above:
+existing `official_curriculum_map` artifacts still require exactly one matching manifest route.
+
+The national framework exposes stable school-stage I, school-stage II and explicit simplified
+Grade 4 outcome IDs. A national school-stage outcome never becomes an official exact-grade
+outcome merely because a school must allocate content class by class. Generated outcome and
+home-learning requirement indexes let downstream products consume these identities without
+reparsing every legal artifact.
+
 Each canonical source route has one book inventory and one topic inventory, and may have one or
 more thematic units. This grouping lets issues #19 and #20 add their own route-specific artifacts
 without changing or combining the grade-5 source set.

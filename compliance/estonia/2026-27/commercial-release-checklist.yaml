@@ -1,0 +1,144 @@
+schema_version: "1.0"
+artifact_type: commercial_release_compliance_checklist
+checklist_id: ee-2026-27-grade-2-grade-4-family-release
+target_school_year: 2026/27
+applies_to_products:
+  - grade_2
+  - grade_4
+  - foundation
+  - family
+  - commercial_course
+checks:
+  - check_id: target-school-year-version-pinned
+    title_ru: Учебный год и применимая правовая редакция зафиксированы
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - external-sources/official/estonia/2026-27/source-registry.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Проверяется весь интервал 2026-09-01–2027-08-31; частичные редакции используются
+      только как последовательная evidence chain без пробелов.
+  - check_id: source-registry-current
+    title_ru: Реестр официальных источников повторно проверен перед выпуском
+    status: pending
+    release_blocking: true
+    evidence_refs:
+      - external-sources/official/estonia/2026-27/source-registry.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Требуется финальная проверка обновлений Riigi Teataja не позднее 2026-08-28.
+  - check_id: exact-grade-stage-distinction
+    title_ru: Exact-grade и school-stage утверждения разделены
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+      - compliance/estonia/2026-27/outcome-index.yaml
+    responsible_reviewer_role: curriculum_reviewer
+    notes: Национальный stage outcome не переименовывается в официальный Grade 2 или Grade 4.
+  - check_id: official-claims-cited
+    title_ru: Каждое нормативное утверждение имеет первичную ссылку
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - external-sources/official/estonia/2026-27/source-registry.yaml
+      - compliance/estonia/2026-27/home-learning-baseline.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Применяются только записи Riigi Teataja из source registry.
+  - check_id: translation-provenance
+    title_ru: Происхождение русских переводов указано
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+    responsible_reviewer_role: language_reviewer
+    notes: Переводы Opiq Helper не выдаются за официальный эстонский текст.
+  - check_id: curriculum-completeness
+    title_ru: Полнота программы подтверждена для заявленного продукта
+    status: blocked
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+    responsible_reviewer_role: curriculum_reviewer
+    notes: Текущий downstream-focused outcome set честно имеет status partial.
+  - check_id: simplified-programme-separation
+    title_ru: Обычная и упрощённая программы не смешаны
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+    responsible_reviewer_role: curriculum_reviewer
+    notes: PLRÕK Grade 4 outcomes связаны только с simplified routes.
+  - check_id: home-learning-claim-classification
+    title_ru: Домашние обязательства отделены от школьных и продуктовых рекомендаций
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/home-learning-baseline.yaml
+      - compliance/estonia/2026-27/requirement-index.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Для каждого требования указаны holder, level и evidence status.
+  - check_id: school-specific-labelled
+    title_ru: Школьные решения не выданы за национальную норму
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/home-learning-baseline.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Формы оценивания и дополнительные отчёты зависят от IÕK и школы.
+  - check_id: no-unsupported-portfolio-obligation
+    title_ru: Портфолио не названо безусловной обязанностью
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/home-learning-baseline.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Портфолио классифицировано как recommended_good_practice.
+  - check_id: route-ids-current
+    title_ru: Downstream route IDs существуют в source manifest
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - source-manifest.json
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+    responsible_reviewer_role: repository_maintainer
+    notes: Валидатор проверяет все route_ids без изменения route-linked map semantics.
+  - check_id: catalogue-vs-curriculum-completeness
+    title_ru: Полнота каталога отделена от полноты программы
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - docs/audits/grade-4-live-catalogue-gap-review.md
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+    responsible_reviewer_role: curriculum_reviewer
+    notes: Закрытие catalogue accounting scope не доказывает regulatory completeness.
+  - check_id: opiq-sequence-supporting-only
+    title_ru: Последовательность Opiq названа только учебной поддержкой
+    status: passed
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+    responsible_reviewer_role: curriculum_reviewer
+    notes: Издательская последовательность не является национальной обязательной разбивкой.
+  - check_id: legal-update-review-date
+    title_ru: Финальная дата правового обновления выполнена
+    status: pending
+    release_blocking: true
+    evidence_refs:
+      - external-sources/official/estonia/2026-27/source-registry.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Next review due 2026-08-28.
+  - check_id: unresolved-ambiguity-gate
+    title_ru: Не осталось неоднозначностей в заявленной полноте
+    status: blocked
+    release_blocking: true
+    evidence_refs:
+      - compliance/estonia/2026-27/curriculum-framework.yaml
+      - compliance/estonia/2026-27/home-learning-baseline.yaml
+    responsible_reviewer_role: compliance_reviewer
+    notes: Полный product-specific curriculum map и финальный legal refresh ещё не завершены.
+release_status: blocked
+non_guarantees:
+  - Чек-лист не является индивидуальной юридической консультацией.
+  - Зелёная машинная проверка не доказывает полноту вне объявленного scope.
+  - Чек-лист не доказывает педагогическую или коммерческую эффективность.
+  - Школы могут по-разному реализовывать дискреционные и school-specific правила.

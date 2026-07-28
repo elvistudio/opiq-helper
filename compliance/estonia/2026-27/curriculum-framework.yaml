@@ -1,0 +1,1259 @@
+schema_version: "1.0"
+artifact_type: official_curriculum_framework
+framework_id: ee-2026-27-grade-2-grade-4-framework
+target_school_year: 2026/27
+source_registry_ref: external-sources/official/estonia/2026-27/source-registry.yaml
+scope_model:
+  national_general_requirements: true
+  school_stage_outcomes: true
+  exact_grade_only_when_explicit: true
+  school_allocation_is_local: true
+  publisher_sequence_is_supporting: true
+outcome_sets:
+  - outcome_set_id: ee-prk-2026-stage1-general
+    curriculum: ordinary
+    subject_field: üldpädevused
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-09-01
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-general-learning
+        source_id: ee-prok-2026-09-01
+        official_reference: PRÕK § 7 punkt 2
+        official_wording_et: Tahab õppida, tunneb rõõmu teadasaamisest ja oskamisest, oskab õppida üksi ning
+          koos teistega, paaris ja rühmas, oskab jaotada aega õppimise, harrastustegevuse, koduste
+          kohustuste ning puhkamise vahel.
+        translation_ru: Хочет учиться, радуется новым знаниям и умениям, умеет учиться самостоятельно, в
+          паре и группе и распределять время между учёбой, увлечениями, домашними обязанностями и
+          отдыхом.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: general_competency
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-I endpoint; it is not a nationally assigned Grade 2 outcome.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage2-general
+    curriculum: ordinary
+    subject_field: üldpädevused
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-09-01
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-general-self-correction
+        source_id: ee-prok-2026-09-01
+        official_reference: PRÕK § 9 punkt 4
+        official_wording_et: Oskab oma tegevust kavandada ja hinnata ning tulemuse saavutamiseks vajalikke
+          tegevusi valida ja rakendada, oma eksimusi näha ja tunnistada ning oma tegevust
+          korrigeerida.
+        translation_ru: Умеет планировать и оценивать свою деятельность, выбирать и применять действия для
+          достижения результата, замечать и признавать ошибки и корректировать свою работу.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: general_competency
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-II endpoint; it is not a nationally assigned Grade 4 outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage1-assessment-allocation
+    curriculum: ordinary
+    subject_field: üldosa
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-09-01
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-assessment-formative
+        source_id: ee-prok-2026-09-01
+        official_reference: PRÕK § 20 lõige 1
+        official_wording_et: Kujundava hindamisena mõistetakse õppe kestel toimuvat hindamist,
+          mille käigus analüüsitakse õpilase teadmisi, oskusi, hoiakuid, väärtushinnanguid ja
+          käitumist, antakse tagasisidet õpilase seniste tulemuste ning vajakajäämiste kohta,
+          innustatakse ja suunatakse õpilast edasisel õppimisel ning kavandatakse edasise õppimise
+          eesmärgid ja teed.
+        translation_ru: Формирующее оценивание проводится в ходе обучения; оно анализирует знания,
+          умения, установки, ценности и поведение, даёт обратную связь, поддерживает дальнейшее
+          обучение и помогает планировать его цели и пути.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: assessment_principle
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: General assessment principle applied to stage-I downstream work.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids: []
+      - outcome_or_requirement_id: ee-prk-2026-stage1-school-curriculum-class-allocation
+        source_id: ee-prok-2026-09-01
+        official_reference: PRÕK § 24 lõige 7, viimane lause
+        official_wording_et: Õppeainete õpitulemused ja nende saavutamist toetav õppesisu,
+          sealhulgas praktilised tööd ja kodukohaga seotud näited esitatakse õppeainete kaupa klassiti.
+        translation_ru: Школьная программа представляет результаты и поддерживающее их содержание,
+          включая практические работы и местные примеры, по предметам и классам.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: school_curriculum_allocation
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: This is a school allocation duty, not a national exact Grade 2 outcome.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage2-assessment-allocation
+    curriculum: ordinary
+    subject_field: üldosa
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-09-01
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-assessment-formative
+        source_id: ee-prok-2026-09-01
+        official_reference: PRÕK § 20 lõige 1
+        official_wording_et: Kujundava hindamisena mõistetakse õppe kestel toimuvat hindamist,
+          mille käigus analüüsitakse õpilase teadmisi, oskusi, hoiakuid, väärtushinnanguid ja
+          käitumist, antakse tagasisidet õpilase seniste tulemuste ning vajakajäämiste kohta,
+          innustatakse ja suunatakse õpilast edasisel õppimisel ning kavandatakse edasise õppimise
+          eesmärgid ja teed.
+        translation_ru: Формирующее оценивание проводится в ходе обучения; оно анализирует знания,
+          умения, установки, ценности и поведение, даёт обратную связь, поддерживает дальнейшее
+          обучение и помогает планировать его цели и пути.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: assessment_principle
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: General assessment principle applied to stage-II downstream work.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+      - outcome_or_requirement_id: ee-prk-2026-stage2-school-curriculum-class-allocation
+        source_id: ee-prok-2026-09-01
+        official_reference: PRÕK § 24 lõige 7, viimane lause
+        official_wording_et: Õppeainete õpitulemused ja nende saavutamist toetav õppesisu,
+          sealhulgas praktilised tööd ja kodukohaga seotud näited esitatakse õppeainete kaupa klassiti.
+        translation_ru: Школьная программа представляет результаты и поддерживающее их содержание,
+          включая практические работы и местные примеры, по предметам и классам.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: school_curriculum_allocation
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: This is a school allocation duty, not a national exact Grade 4 outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage1-language
+    curriculum: ordinary
+    subject_field: keel ja kirjandus
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-01
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-estonian-conscious-reading
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.1.3, I kooliaste, punkt 5
+        official_wording_et: Omandab lugemistehnilise vilumuse ja teadliku lugemisoskuse.
+        translation_ru: Овладевает техникой и осознанным навыком чтения.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Applies to the official Estonian subject at the stage-I endpoint.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-estonian
+      - outcome_or_requirement_id: ee-prk-2026-stage1-russian-conscious-reading
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.3.3, I kooliaste, punkt 5
+        official_wording_et: Omandab lugemistehnilise vilumuse ja teadliku lugemisoskuse.
+        translation_ru: Овладевает техникой и осознанным навыком чтения.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Applies to Russian in a Russian-medium class at the stage-I endpoint.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-russian
+      - outcome_or_requirement_id: ee-prk-2026-stage1-estonian-second-language-instructions
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.4.3, I kooliaste, punkt 2
+        official_wording_et: Saab aru eakohastest lühikestest lihtsatest suulistest tekstidest, nagu
+          juhised, teated, sõnumid jmt.
+        translation_ru: "Понимает соответствующие возрасту короткие простые устные тексты: инструкции,
+          объявления, сообщения и подобные тексты."
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Estonian as a second language remains distinct from the Estonian subject.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-estonian-second-language
+  - outcome_set_id: ee-prk-2026-stage2-language
+    curriculum: ordinary
+    subject_field: keel ja kirjandus
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-01
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-estonian-source-comparison
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.1.3, II kooliaste, teksti vastuvõtt, punkt 7
+        official_wording_et: Võrdleb eri allikatest pärit infot, eristab olulist ebaolulisest, fakti arvamusest.
+        translation_ru: Сравнивает информацию из разных источников, отличает важное от неважного и факт от мнения.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-II outcome; Grade 4 allocation belongs to the school curriculum.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-estonian
+      - outcome_or_requirement_id: ee-prk-2026-stage2-russian-main-idea
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.3.3, II kooliaste, punkt 13
+        official_wording_et: Loeb mõtestatult, nimetab teksti teema ja sõnastab lühidalt peamõtte.
+        translation_ru: Читает осмысленно, называет тему текста и кратко формулирует основную мысль.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: The Russian route remains separate from the reading/literature route.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-russian
+      - outcome_or_requirement_id: ee-prk-2026-stage2-literature-reading-response
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.2.3, II kooliaste
+        official_wording_et: Loeb laste- ja noortekirjandusteoseid nii eesti kui ka maailmakirjandusest.
+        translation_ru: Читает произведения эстонской и мировой детской и юношеской литературы.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: partial
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Literature is specified for grades 5–6 in the appendix. The Grade 4
+          Russian-reading route is a local/instructional allocation and is not labelled an official
+          exact Grade 4 subject outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-russian-reading
+      - outcome_or_requirement_id: ee-prk-2026-stage2-estonian-second-language-daily-communication
+        source_id: ee-prok-2026-appendix-01
+        official_reference: PRÕK lisa 1 punkt 2.4.3, II kooliaste, punkt 1
+        official_wording_et: Tuleb toime igapäevastes suhtlusolukordades.
+        translation_ru: Справляется с повседневными ситуациями общения.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Estonian as a second language remains distinct from the Estonian subject.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-estonian-second-language
+  - outcome_set_id: ee-prk-2026-stage1-foreign-language
+    curriculum: ordinary
+    subject_field: võõrkeeled
+    official_subject: A-võõrkeel
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-08
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-foreign-language-a1
+        source_id: ee-prok-2026-appendix-08
+        official_reference: PRÕK lisa 8 punkt 2.1.2, I kooliaste
+        official_wording_et: 3. klassi lõpetaja saavutab A1-keeleoskustaseme.
+        translation_ru: Выпускник 3-го класса достигает уровня владения языком A1.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage endpoint, not an exact Grade 2 allocation.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage2-foreign-language
+    curriculum: ordinary
+    subject_field: võõrkeeled
+    official_subject: A-võõrkeel
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-08
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-foreign-language-a2
+        source_id: ee-prok-2026-appendix-08
+        official_reference: PRÕK lisa 8 punkt 2.1.2, II kooliaste
+        official_wording_et: 6. klassi lõpetaja saavutab A2-keeleoskustaseme.
+        translation_ru: Выпускник 6-го класса достигает уровня владения языком A2.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: English is a repository route choice; the national appendix defines
+          A-foreign-language outcomes.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-english
+  - outcome_set_id: ee-prk-2026-stage1-mathematics
+    curriculum: ordinary
+    subject_field: matemaatika
+    official_subject: matemaatika
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-05
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-mathematics-real-life
+        source_id: ee-prok-2026-appendix-05
+        official_reference: PRÕK lisa 5 punkt 2.1.2, I kooliaste, punkt 1
+        official_wording_et: Märkab ja mõistab matemaatikaga seonduvat ümbritsevas elus ning kirjeldab seda
+          arvude või geomeetriliste kujundite abil.
+        translation_ru: Замечает и понимает математические связи в окружающей жизни и описывает их с помощью
+          чисел или геометрических фигур.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-I endpoint, not an exact Grade 2 outcome.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-mathematics
+  - outcome_set_id: ee-prk-2026-stage2-mathematics
+    curriculum: ordinary
+    subject_field: matemaatika
+    official_subject: matemaatika
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-05
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-mathematics-representations
+        source_id: ee-prok-2026-appendix-05
+        official_reference: PRÕK lisa 5 punkt 2.1.2, II kooliaste, punkt 1
+        official_wording_et: Esitab matemaatilist infot erinevatel viisidel (sh üleminek ühelt esitusviisilt teisele).
+        translation_ru: Представляет математическую информацию разными способами, переходя от одного
+          представления к другому.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-II endpoint, not an exact Grade 4 outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-mathematics
+  - outcome_set_id: ee-prk-2026-stage1-natural-science
+    curriculum: ordinary
+    subject_field: loodusained
+    official_subject: loodusõpetus
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-04
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-natural-science-guided-inquiry
+        source_id: ee-prok-2026-appendix-04
+        official_reference: PRÕK lisa 4 punkt 2.1.3, I kooliaste, punkt 3
+        official_wording_et: Teeb oletusi tuttavate materjalide omaduste ning kehade käitumise kohta, teeb
+          oletuste kontrollimiseks õpetaja juhendamisel katseid ning katsete põhjal lihtsaid
+          järeldusi.
+        translation_ru: Высказывает предположения о свойствах знакомых материалов и поведении тел, под
+          руководством учителя проверяет их опытами и делает простые выводы.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Applies to science routes; the combined Grade 2 route remains an instructional route.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-science
+            - grade-2-nature-and-human-studies
+  - outcome_set_id: ee-prk-2026-stage2-natural-science
+    curriculum: ordinary
+    subject_field: loodusained
+    official_subject: loodusõpetus
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-04
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-natural-science-inquiry
+        source_id: ee-prok-2026-appendix-04
+        official_reference: PRÕK lisa 4 punkt 2.1.3, II kooliaste, punkt 3
+        official_wording_et: Sõnastab koos kaaslastega loodusteadusliku uurimisküsimuse või hüpoteesi,
+          kavandab ja teeb uurimuse kodukoha veekogu, asula, metsa, niidu vms põhjal, kogub ja
+          vormistab andmeid ning esitleb uurimistulemusi.
+        translation_ru: Вместе с одноклассниками формулирует исследовательский вопрос или гипотезу,
+          планирует и проводит исследование местного водоёма, поселения, леса, луга или другого
+          объекта, собирает и оформляет данные и представляет результаты.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-II endpoint, not an exact Grade 4 outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-science
+  - outcome_set_id: ee-prk-2026-stage1-social
+    curriculum: ordinary
+    subject_field: sotsiaalained
+    official_subject: inimeseõpetus
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-06
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-human-studies-rights-duties
+        source_id: ee-prok-2026-appendix-06
+        official_reference: PRÕK lisa 6 punkt 2.1.2, I kooliaste, punkt 4
+        official_wording_et: Teab, et inimeste õigustega kaasnevad kohustused.
+        translation_ru: Знает, что права человека сопровождаются обязанностями.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Supports human-studies routes without turning a combined route into an official subject.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-human-studies
+            - grade-2-nature-and-human-studies
+  - outcome_set_id: ee-prk-2026-stage2-social
+    curriculum: ordinary
+    subject_field: sotsiaalained
+    official_subject: inimeseõpetus
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-06
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-human-studies-decisions
+        source_id: ee-prok-2026-appendix-06
+        official_reference: PRÕK lisa 6 punkt 2.1.2, II kooliaste, punkt 5
+        official_wording_et: On iseseisev otsustaja, seostab otsuseid tagajärgedega.
+        translation_ru: Самостоятельно принимает решения и связывает решения с последствиями.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: One official component of the mixed repository route.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-human-studies-and-society
+  - outcome_set_id: ee-prk-2026-stage2-civics
+    curriculum: ordinary
+    subject_field: sotsiaalained
+    official_subject: ühiskonnaõpetus
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-06
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-social-information-fact-opinion
+        source_id: ee-prok-2026-appendix-06
+        official_reference: PRÕK lisa 6, sotsiaalvaldkonna pädevus
+        official_wording_et: Eristab fakti arvamusest, teab, mis tunnuste alusel hinnata allikate
+          usaldusväärsust.
+        translation_ru: Отличает факт от мнения и знает, по каким признакам оценивать надёжность источников.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_field_outcome
+        evidence_status: partial
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Field-level evidence only. The repository mixed route may map explicit
+          components to multiple official social-field outcomes, but no official subject named
+          human_studies_and_society is claimed.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-human-studies-and-society
+  - outcome_set_id: ee-prk-2026-stage1-arts
+    curriculum: ordinary
+    subject_field: kunstiained
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-03
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-art-reflection
+        source_id: ee-prok-2026-appendix-03
+        official_reference: PRÕK lisa 3 punkt 2.1.3, I kooliaste, refleksioon
+        official_wording_et: Kirjeldab ette antud küsimustele toetudes enda tööd ja mõtestab valminud tööd.
+        translation_ru: По предложенным вопросам описывает свою работу и осмысливает готовый результат.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Art component of the combined Grade 2 instructional route.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-arts-and-crafts
+      - outcome_or_requirement_id: ee-prk-2026-stage1-music-active-participation
+        source_id: ee-prok-2026-appendix-03
+        official_reference: PRÕK lisa 3 punkt 2.2.2, I kooliaste, punkt 1
+        official_wording_et: Tunneb rõõmu laulmisest ja pillimängust, omaloomingust ja muusikalisest
+          liikumisest ning muusika kuulamisest.
+        translation_ru: Радуется пению, игре на инструментах, музыкальному творчеству, движению и слушанию музыки.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-I music endpoint.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-music
+  - outcome_set_id: ee-prk-2026-stage2-arts
+    curriculum: ordinary
+    subject_field: kunstiained
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-03
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-art-design-process
+        source_id: ee-prok-2026-appendix-03
+        official_reference: PRÕK lisa 3 punkt 2.1.3, II kooliaste, plaanimine
+        official_wording_et: Lahendab õpetaja esitatud probleemi, läbides kõiki disainiprotsessi etappe.
+        translation_ru: Решает предложенную учителем проблему, проходя все этапы процесса проектирования.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-II art evidence; no dedicated current Grade 4 art route.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+      - outcome_or_requirement_id: ee-prk-2026-stage2-music-cultural-participation
+        source_id: ee-prok-2026-appendix-03
+        official_reference: PRÕK lisa 3 punkt 2.2.2, II kooliaste, punkt 3
+        official_wording_et: Kuulab süvenenult Eesti ja teiste rahvaste muusikat ning arutleb muusika üle.
+        translation_ru: Внимательно слушает музыку Эстонии и других народов и обсуждает её.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: National stage-II endpoint, not an exact Grade 4 outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-music
+  - outcome_set_id: ee-prk-2026-stage1-technology
+    curriculum: ordinary
+    subject_field: tehnoloogia
+    official_subject: tööõpetus
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-07
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-technology-safe-work
+        source_id: ee-prok-2026-appendix-07
+        official_reference: PRÕK lisa 7 punkt 2.1.2, I kooliaste, punkt 1
+        official_wording_et: Eristab esemelist keskkonda (materjale ja töövahendeid) ning töötab ohutult.
+        translation_ru: Различает предметную среду, материалы и инструменты и работает безопасно.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Technology/work-education component of the Grade 2 combined route.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids:
+            - grade-2-arts-and-crafts
+  - outcome_set_id: ee-prk-2026-stage2-technology
+    curriculum: ordinary
+    subject_field: tehnoloogia
+    official_subject: käsitöö ja kodundus / tehnoloogiaõpetus
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-07
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-technology-sustainable-safe-work
+        source_id: ee-prok-2026-appendix-07
+        official_reference: PRÕK lisa 7 punkt 2.1.2, II kooliaste, punktid 2–3
+        official_wording_et: 2) kasutab materjale ja töövahendeid säästlikult ning järgib oma
+          tegevuses jätkusuutlikkuse põhimõtteid; 3) tunneb ohutusnõudeid ja järgib ohutu töötamise
+          reegleid.
+        translation_ru: Экономно использует материалы и инструменты, соблюдает принципы устойчивости, знает
+          требования безопасности и следует правилам безопасной работы.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-II field evidence; no dedicated current Grade 4 technology route.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage1-physical-education
+    curriculum: ordinary
+    subject_field: kehaline kasvatus
+    official_subject: kehaline kasvatus
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-02
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-physical-education-water-safety
+        source_id: ee-prok-2026-appendix-02
+        official_reference: PRÕK lisa 2, I kooliaste, liikumisoskused, punkt 6
+        official_wording_et: Hindab adekvaatselt oma võimeid vees ja rakendab eakohaseid veeohutusalaseid oskusi.
+        translation_ru: Адекватно оценивает свои возможности в воде и применяет соответствующие возрасту
+          навыки водной безопасности.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-I physical-education endpoint; no dedicated current Grade 2 route.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage2-physical-education
+    curriculum: ordinary
+    subject_field: kehaline kasvatus
+    official_subject: kehaline kasvatus
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-02
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-physical-education-safe-movement
+        source_id: ee-prok-2026-appendix-02
+        official_reference: PRÕK lisa 2, II kooliaste, liikumisoskused, punkt 7
+        official_wording_et: Rakendab turvalisuse ja ohutu liikumise põhimõtteid.
+        translation_ru: Применяет принципы безопасности и безопасного движения.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-II physical-education endpoint; no dedicated current Grade 4 route.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage1-cross-curricular
+    curriculum: ordinary
+    subject_field: läbivad teemad
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-14
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage1-cross-curricular-learning
+        source_id: ee-prok-2026-appendix-14
+        official_reference: PRÕK lisa 14 punkt 1.3
+        official_wording_et: Läbiva teema käsitlemine I kooliastmes aitab õpilasel kujundada positiivset
+          hoiakut õppimisse ning toetab esmaste õpioskuste omandamist.
+        translation_ru: Рассмотрение сквозной темы на I школьной ступени помогает сформировать положительное
+          отношение к учёбе и поддерживает освоение первичных учебных навыков.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 1
+          terminal_grade: 3
+          exact_grade_claimed: false
+        requirement_kind: cross_curricular_theme
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-I cross-curricular expectation, not an exact Grade 2 outcome.
+        downstream_relevance:
+          grade_2: true
+          grade_4: false
+          route_ids: []
+  - outcome_set_id: ee-prk-2026-stage2-cross-curricular
+    curriculum: ordinary
+    subject_field: läbivad teemad
+    official_subject: null
+    scope:
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+      exact_grade_claimed: false
+    source_ids:
+      - ee-prok-2026-appendix-14
+    outcomes:
+      - outcome_or_requirement_id: ee-prk-2026-stage2-cross-curricular-environment
+        source_id: ee-prok-2026-appendix-14
+        official_reference: PRÕK lisa 14 punkt 2.4
+        official_wording_et: Arendatakse säästvat suhtumist ümbritsevasse ja elukeskkonna väärtustamist,
+          õpitakse teadvustama end tarbijana ning toimima keskkonda hoidvalt.
+        translation_ru: Развивается бережное отношение к окружающему миру и ценности среды обитания,
+          осознание себя как потребителя и экологичное поведение.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: school_stage
+          school_stage: 2
+          terminal_grade: 6
+          exact_grade_claimed: false
+        requirement_kind: cross_curricular_theme
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: Stage-II cross-curricular expectation, not an exact Grade 4 outcome.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids: []
+  - outcome_set_id: ee-plrk-2026-grade4-simplified
+    curriculum: simplified
+    subject_field: lihtsustatud õpe
+    official_subject: null
+    scope:
+      kind: exact_grade
+      grade: 4
+      exact_grade_claimed: true
+    source_ids:
+      - ee-plrok-2026-appendix-01
+    outcomes:
+      - outcome_or_requirement_id: ee-plrk-2026-grade4-mathematics-number-range
+        source_id: ee-plrok-2026-appendix-01
+        official_reference: PLRÕK lisa 1, matemaatika, õpitulemused 4. klassis, punktid 1 ja 3
+        official_wording_et: 1) teab naturaalarve 100 piires; 3) liidab ja lahutab 100 piires.
+        translation_ru: Знает натуральные числа в пределах 100; складывает и вычитает в пределах 100.
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: exact_grade
+          grade: 4
+          exact_grade_claimed: true
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: PLRÕK Lisa 1 explicitly assigns this outcome to Grade 4.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-mathematics-simplified
+      - outcome_or_requirement_id: ee-plrk-2026-grade4-human-studies-safe-behaviour
+        source_id: ee-plrok-2026-appendix-01
+        official_reference: PLRÕK lisa 1, inimeseõpetus, õpitulemused 4. klassis, punkt 15
+        official_wording_et: Teab ja kirjeldab turvalise käitumise viise igapäevaelus (liiklemine kooliteel,
+          jalgrattaga sõitmine, tulekahju vältimine, käitumine veekogu juures ja metsas).
+        translation_ru: "Знает и описывает безопасное поведение в повседневной жизни: по дороге в школу, при
+          езде на велосипеде, предотвращении пожара, у водоёма и в лесу."
+        translation_provenance:
+          kind: opiq_helper_translation
+          source_language: et
+          verified_on: 2026-07-28
+          notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+        scope:
+          kind: exact_grade
+          grade: 4
+          exact_grade_claimed: true
+        requirement_kind: subject_outcome
+        evidence_status: verified
+        effective_from: 2026-09-01
+        effective_to: null
+        verified_on: 2026-07-28
+        verification_notes: PLRÕK Lisa 1 explicitly assigns this outcome to Grade 4.
+        downstream_relevance:
+          grade_2: false
+          grade_4: true
+          route_ids:
+            - grade-4-human-studies-simplified
+completeness:
+  status: partial
+  declared_complete: false
+  declared_scope: Stable downstream-relevant school-stage I, school-stage II and exact Grade 4
+    simplified outcomes for current Grade 2 and Grade 4 products.
+  checked_documents:
+    - ee-prok-2026-09-01
+    - ee-plrok-2026-09-01
+  checked_appendices:
+    - ee-prok-2026-appendix-01
+    - ee-prok-2026-appendix-02
+    - ee-prok-2026-appendix-03
+    - ee-prok-2026-appendix-04
+    - ee-prok-2026-appendix-05
+    - ee-prok-2026-appendix-06
+    - ee-prok-2026-appendix-07
+    - ee-prok-2026-appendix-08
+    - ee-prok-2026-appendix-09
+    - ee-prok-2026-appendix-10
+    - ee-prok-2026-appendix-11
+    - ee-prok-2026-appendix-12
+    - ee-prok-2026-appendix-13
+    - ee-prok-2026-appendix-14
+    - ee-plrok-2026-appendix-01
+  excluded_scope:
+    - Exhaustive transcription of every official subject outcome.
+    - Local class-by-class allocation made by an individual school.
+    - Publisher and Opiq course sequencing.
+    - Youth-organisation routes that are not national-curriculum subjects.
+  known_gaps:
+    - The stable index is deliberately downstream-focused and does not yet enumerate every outcome
+      in all fourteen PRÕK appendices.
+    - The Grade 4 Russian-reading route precedes the appendix's separate literature allocation in
+      grades 5–6 and therefore remains a local instructional allocation.
+    - A final legal refresh is due before commercial release.
+  verification_date: 2026-07-28
+  next_review_due: 2026-08-28

@@ -1,0 +1,128 @@
+schema_version: "1.0"
+artifact_type: curriculum_change_note
+change_note_id: ee-2025-26-to-2026-27-curriculum-compliance
+from_school_year: 2025/26
+to_school_year: 2026/27
+verified_on: 2026-07-28
+comparisons:
+  - comparison_id: prok-version-boundary
+    title_ru: Новая консолидированная редакция PRÕK
+    status: newly_effective_2026_09_01
+    previous_source_id: ee-prok-2025-12-26
+    target_source_id: ee-prok-2026-09-01
+    effective_from: 2026-09-01
+    summary_ru: Редакция, заканчивающая действие 31 августа 2026 года, не поддерживает утверждения
+      для 2026/27; применяется опубликованная редакция с 1 сентября 2026 года.
+    official_references:
+      - https://www.riigiteataja.ee/akt/123122025006
+      - https://www.riigiteataja.ee/akt/123122025007
+  - comparison_id: prok-class-by-class-presentation
+    title_ru: Классная разбивка школьной программы
+    status: newly_effective_2026_09_01
+    previous_source_id: ee-prok-2025-12-26
+    target_source_id: ee-prok-2026-09-01
+    effective_from: 2026-09-01
+    summary_ru: Школьная программа представляет результаты и содержание по классам; это локальная
+      школьная разбивка и не превращает национальный stage outcome в официальный exact-grade outcome.
+    official_references:
+      - PRÕK § 24 lõige 7
+      - https://www.riigiteataja.ee/akt/125062025001
+      - https://www.riigiteataja.ee/akt/123122025007
+  - comparison_id: prok-career-services
+    title_ru: Систематическая поддержка учебных и карьерных выборов
+    status: newly_effective_2026_09_01
+    previous_source_id: ee-prok-2025-12-26
+    target_source_id: ee-prok-2026-09-01
+    effective_from: 2026-09-01
+    summary_ru: Общая часть закрепляет систематические профориентационные мероприятия и услуги;
+      конкретная продуктовая реализация остаётся отдельной задачей.
+    official_references:
+      - https://www.riigiteataja.ee/akt/125062025001
+      - https://www.riigiteataja.ee/akt/123122025007
+  - comparison_id: prok-appendix-set
+    title_ru: Набор приложений PRÕK для школьных ступеней I–II
+    status: unchanged
+    previous_source_id: ee-prok-2025-12-26
+    target_source_id: ee-prok-2026-09-01
+    effective_from: 2026-09-01
+    summary_ru: Проверены полные байты всех 14 приложений в обеих консолидированных XML-редакциях;
+      SHA-256 каждого приложения совпадает. Меняется parent-version общей части, но не приложения.
+    comparison_identity:
+      method: ordered_attachment_name_and_sha256
+      algorithm: sha256
+      previous_value: 64595bf938936fbb0d3939206b531a8988f5445608dce3c720a8742446cc4119
+      target_value: 64595bf938936fbb0d3939206b531a8988f5445608dce3c720a8742446cc4119
+      item_count: 14
+      identities_match: true
+    official_references:
+      - https://www.riigiteataja.ee/akt/123122025007
+  - comparison_id: plrok-version-boundary
+    title_ru: Новая консолидированная редакция PLRÕK
+    status: newly_effective_2026_09_01
+    previous_source_id: ee-plrok-2025-12-26
+    target_source_id: ee-plrok-2026-09-01
+    effective_from: 2026-09-01
+    summary_ru: Для Grade 4 simplified routes применяется редакция PLRÕK с 1 сентября 2026 года;
+      редакция, истекающая 31 августа, отклоняется.
+    official_references:
+      - https://www.riigiteataja.ee/akt/123122025004
+      - https://www.riigiteataja.ee/akt/123122025005
+  - comparison_id: plrok-grade4-appendix
+    title_ru: Приложение 1 PLRÕK для упрощённого обучения
+    status: unchanged
+    previous_source_id: ee-plrok-2025-12-26
+    target_source_id: ee-plrok-2026-appendix-01
+    effective_from: 2026-09-01
+    summary_ru: SHA-256 всех трёх приложений совпадает между редакциями; приложение 1 по-прежнему
+      отдельно поддерживает exact Grade 4 outcomes, а приложения 2–3 не смешиваются с этими routes.
+    comparison_identity:
+      method: ordered_attachment_name_and_sha256
+      algorithm: sha256
+      previous_value: 0ed88cc2a8e5c3b3cbc42f33d62a7fb8c4310333e0a3ddb129eb2467532c9b8c
+      target_value: 0ed88cc2a8e5c3b3cbc42f33d62a7fb8c4310333e0a3ddb129eb2467532c9b8c
+      item_count: 3
+      identities_match: true
+    official_references:
+      - https://www.riigiteataja.ee/akt/123122025005
+  - comparison_id: pgs-section-23-2027-transition
+    title_ru: Переход между редакциями PGS внутри 2026/27
+    status: unchanged
+    previous_source_id: ee-pgs-2026-09-01
+    target_source_id: ee-pgs-2027-01-01
+    effective_from: 2027-01-01
+    summary_ru: Редакция PGS от 1 сентября 2026 года заканчивается 31 декабря. Редакция от
+      1 января 2027 года продолжает нормативное покрытие; нормализованный текст § 23 совпадает,
+      поэтому стабильные requirement IDs поддерживаются двумя последовательными source evidence.
+    comparison_identity:
+      method: normalized_legal_section_text
+      algorithm: sha256
+      previous_value: b24c6496de06d27357bca026ad55ad2990626b793b0ab36f0944dbc6eafb4df5
+      target_value: b24c6496de06d27357bca026ad55ad2990626b793b0ab36f0944dbc6eafb4df5
+      item_count: 1
+      identities_match: true
+    official_references:
+      - https://www.riigiteataja.ee/akt/120062026032
+      - https://www.riigiteataja.ee/akt/118032026016
+  - comparison_id: home-learning-september-2025-amendment
+    title_ru: Правила домашнего обучения, уже изменённые в сентябре 2025 года
+    status: unchanged
+    previous_source_id: null
+    target_source_id: ee-home-reg-2025-09-19
+    effective_from: 2025-09-19
+    summary_ru: Редакция с обязательным индивидуальным планом и проверкой школой не реже раза в
+      месяц уже действует до начала 2026/27 и остаётся применимой.
+    official_references:
+      - https://www.riigiteataja.ee/akt/116092025013
+  - comparison_id: school-records
+    title_ru: Обязательные школьные записи
+    status: unchanged
+    previous_source_id: null
+    target_source_id: ee-school-records-2025-09-01
+    effective_from: 2025-09-01
+    summary_ru: Проверенная редакция продолжает поддерживать записи о домашнем обучении,
+      индивидуальном плане и итоговых результатах в 2026/27.
+    official_references:
+      - https://www.riigiteataja.ee/akt/111072025011
+known_gaps:
+  - Необходим финальный refresh Riigi Teataja перед 2026-09-01 для новых публикаций после 2026-07-28.
+  - Сравнение не заявляет исчерпывающий построчный diff всех четырнадцати приложений PRÕK.

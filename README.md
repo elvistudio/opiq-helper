@@ -20,7 +20,7 @@ The represented subjects are:
 - supplementary Kodututred and Noorte Kotkad youth-organisation training;
 - geography.
 
-The presence of Opiq pages does not prove complete coverage of the official school curriculum. The repository contains a complete grade-5 science annual architecture, but its official mapping remains partial and only one thematic unit is fully authored.
+The presence of Opiq pages does not prove complete coverage of the official school curriculum. The repository contains a complete grade-5 science annual architecture, but its official mapping remains partial and only one thematic unit is fully authored. The separate [2026/27 legal and curriculum baseline](docs/2026-27-curriculum-compliance-baseline.md) validates continuous official-source coverage from 2026-09-01 through 2027-08-31 for downstream Grade 2, Grade 4 and home-learning work while keeping its own completeness declaration partial.
 
 ## Source locations
 
@@ -30,6 +30,7 @@ The presence of Opiq pages does not prove complete coverage of the official scho
 - `project-files/outputs/*_qa.json` contains available static QA snapshots.
 - `evaluations/known-topic-checks.yaml` records machine-checked representative topic and routing regressions; it is not a curriculum map.
 - `curriculum-maps/` separates official curriculum evidence, publisher evidence, topic inventory, and curated-course data.
+- `external-sources/official/estonia/2026-27/` and `compliance/estonia/2026-27/` contain the version-pinned national source registry, school-stage/exact-grade framework, home-learning requirements, release checklist, and deterministic downstream indexes.
 - `lesson-plans/` contains validated bilingual lessons, thematic plans, and reusable language-profile defaults.
 - `teacher-packs/` contains resolved teacher guides, printable student materials, answer keys, family support, and machine-checked material indexes.
 - `pedagogical-reviews/` contains unfilled review/classroom/home-trial instruments and the privacy-safe offline evidence workflow; the strict record schemas live in `schemas/`, and templates are not completed evidence.
