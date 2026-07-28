@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "check:2026-27-compliance": "node scripts/generate-2026-27-compliance.mjs --check",
+    "check:commercial-course-schema": "node scripts/check-commercial-course-schema.mjs",
     "check:curriculum": "node scripts/check-curriculum-maps.mjs",
     "check:grade-2-content-quality": "node scripts/audit-grade-2-content-quality.mjs --check",
     "check:grade-2-sources": "node scripts/generate-grade-2-source-indexes.mjs --check",
@@ -48,6 +49,7 @@
     "adapt:homeschool": "node scripts/adapt-lesson-for-homeschool.mjs",
     "select:pedagogy": "node scripts/select-lesson-pedagogy.mjs",
     "test:2026-27-compliance": "node --test scripts/2026-27-compliance.test.mjs",
+    "test:commercial-course-schema": "node --test scripts/commercial-course-schema.test.mjs",
     "test:curriculum": "node --test scripts/curriculum-maps.test.mjs",
     "test:grade-2-content-quality": "node --test scripts/grade-2-content-quality.test.mjs",
     "test:grade-2-sources": "node --test scripts/grade-2-source-indexes.test.mjs",
