@@ -141,6 +141,58 @@
         "notes": { "type": "string", "minLength": 10 }
       }
     },
+    "sourceAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_alignment_id",
+        "status",
+        "evidence_layer",
+        "topic_cluster_refs",
+        "source_record_ids",
+        "match_basis",
+        "task_evidence_status",
+        "task_evidence_source_record_ids",
+        "notes"
+      ],
+      "properties": {
+        "policy_alignment_id": { "$ref": "#/$defs/slug" },
+        "status": { "$ref": "#/$defs/evidenceStatus" },
+        "evidence_layer": { "const": "source_topic" },
+        "topic_cluster_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "match_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "original_heading",
+              "captured_task_example",
+              "book_or_kit_metadata",
+              "reviewed_subject_mapping"
+            ]
+          }
+        },
+        "task_evidence_status": {
+          "enum": ["linked", "not_linked", "not_captured"]
+        },
+        "task_evidence_source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    },
     "officialOutcome": {
       "type": "object",
       "additionalProperties": false,
@@ -158,7 +210,7 @@
         "evidence_status",
         "allocation_basis",
         "grade_4_allocation_note",
-        "source_topic_evidence"
+        "source_alignment"
       ],
       "properties": {
         "outcome_id": { "$ref": "#/$defs/slug" },
@@ -176,7 +228,7 @@
           "enum": ["opiq_helper_recommended_allocation", "local_school_allocation_candidate", "official_exact_grade"]
         },
         "grade_4_allocation_note": { "type": "string", "minLength": 20 },
-        "source_topic_evidence": { "enum": ["heading_only", "heading_and_task_example", "metadata_only", "ambiguous"] }
+        "source_alignment": { "$ref": "#/$defs/sourceAlignment" }
       }
     },
     "officialCurriculum": {
@@ -320,6 +372,8 @@
             "internal_source_analysis",
             "optional_companion_candidate",
             "ordinary_default_use",
+            "curated_core_candidate",
+            "programme_verification_required",
             "simplified_learner_specific_use",
             "teacher_only_use"
           ],
@@ -327,6 +381,8 @@
             "internal_source_analysis": { "const": true },
             "optional_companion_candidate": { "type": "boolean" },
             "ordinary_default_use": { "type": "boolean" },
+            "curated_core_candidate": { "type": "boolean" },
+            "programme_verification_required": { "type": "boolean" },
             "simplified_learner_specific_use": { "type": "boolean" },
             "teacher_only_use": { "const": false }
           }
@@ -340,7 +396,42 @@
           "minItems": 1,
           "items": { "type": "string", "minLength": 10 }
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "programme_type": { "const": "unknown" } },
+            "required": ["programme_type"]
+          },
+          "then": {
+            "properties": {
+              "eligibility": {
+                "type": "object",
+                "properties": {
+                  "ordinary_default_use": { "const": false },
+                  "programme_verification_required": { "const": true }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "programme_type": { "enum": ["mixed_subject", "simplified_curriculum"] } },
+            "required": ["programme_type"]
+          },
+          "then": {
+            "properties": {
+              "eligibility": {
+                "type": "object",
+                "properties": {
+                  "ordinary_default_use": { "const": false }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "bookInventory": {
       "type": "object",
@@ -383,6 +474,7 @@
       "additionalProperties": false,
       "required": [
         "topic_id",
+        "original_heading_key",
         "title_ru",
         "title_et",
         "route_id",
@@ -404,6 +496,7 @@
       ],
       "properties": {
         "topic_id": { "$ref": "#/$defs/slug" },
+        "original_heading_key": { "type": "string", "minLength": 1 },
         "title_ru": { "type": "string", "minLength": 1 },
         "title_et": { "type": "string", "minLength": 1 },
         "route_id": { "$ref": "#/$defs/slug" },

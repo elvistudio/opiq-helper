@@ -37,8 +37,25 @@ outcomes:
     official_subject: A-võõrkeel
     official_wording_et: 6. klassi lõpetaja saavutab A2-keeleoskustaseme.
     outcome_id: ee-prk-2026-stage2-foreign-language-a2
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - book_or_kit_metadata
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Familiar school and family topics support a Grade 4 progression toward A2 but do not prove the terminal stage-II
+        level.
+      policy_alignment_id: outcome-english-a2-progression
+      source_record_ids:
+        - grade-4-english-record-332-https-www-opiq-ee-kit-332-chapter-18619-3cac97c02f
+        - grade-4-english-record-451-https-www-opiq-ee-kit-451-chapter-24501-4941072bd9
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-english-topic-a-doctor-s-family-cbc7e6ef12
+        - grade-4-english-topic-back-to-school-bbaa193a73
     source_id: ee-prok-2026-appendix-08
-    source_topic_evidence: heading_only
     subject_field: võõrkeeled
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +77,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 163
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

@@ -9,9 +9,9 @@ grade: 4
 official_curriculum_ref: curriculum-maps/grade-4-human-studies-and-society/official-curriculum.yaml
 route_id: grade-4-human-studies-and-society
 rows:
-  - assessment_evidence_status: partial
+  - assessment_evidence_status: missing
     blocking_gaps:
-      - Headings do not prove full outcome coverage; prose and assessment authoring remain incomplete.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
     coverage_status: partial
     curated_grade_4_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: verified
@@ -25,15 +25,28 @@ rows:
     outcome_id: ee-prk-2026-stage2-human-studies-decisions
     route_ids:
       - grade-4-human-studies-and-society
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Conflict resolution and reaching a solution support decision-making, while consequence evidence remains
+        incomplete.
+      policy_alignment_id: outcome-human-studies-decisions
+      source_record_ids:
+        - grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2733-521903fbc7
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-human-studies-and-society-topic-konflikt-f836134b7f
     source_topic_presence: heading_only
-    task_evidence_status: partial
+    task_evidence_status: not_captured
     topic_cluster_refs:
-      - grade-4-human-studies-and-society-topic-eluviis-c3e690f2ed
-      - grade-4-human-studies-and-society-topic-emotsioonid-ja-kehakeel-e272d8cb67
-      - grade-4-human-studies-and-society-topic-hoolivus-22470e271b
-  - assessment_evidence_status: partial
+      - grade-4-human-studies-and-society-topic-konflikt-f836134b7f
+  - assessment_evidence_status: missing
     blocking_gaps:
-      - Headings do not prove full outcome coverage; prose and assessment authoring remain incomplete.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
     coverage_status: partial
     curated_grade_4_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: partial
@@ -47,12 +60,25 @@ rows:
     outcome_id: ee-prk-2026-stage2-social-information-fact-opinion
     route_ids:
       - grade-4-human-studies-and-society
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings distinguish truth and falsehood in thinking, but source-reliability and full fact-opinion task
+        evidence are not captured.
+      policy_alignment_id: outcome-social-fact-opinion
+      source_record_ids:
+        - grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2722-811331fcff
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-human-studies-and-society-topic-kuidas-me-motleme-65833d70b0
     source_topic_presence: heading_only
-    task_evidence_status: partial
+    task_evidence_status: not_captured
     topic_cluster_refs:
-      - grade-4-human-studies-and-society-topic-eluviis-c3e690f2ed
-      - grade-4-human-studies-and-society-topic-emotsioonid-ja-kehakeel-e272d8cb67
-      - grade-4-human-studies-and-society-topic-hoolivus-22470e271b
+      - grade-4-human-studies-and-society-topic-kuidas-me-motleme-65833d70b0
 schema_version: "1.0"
 summary:
   ambiguous: 0

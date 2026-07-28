@@ -68,9 +68,11 @@ books:
       - https://www.opiq.ee/kit/147/chapter/8231
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -281,9 +283,11 @@ books:
       - https://www.opiq.ee/kit/157/chapter/8909
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -495,9 +499,11 @@ books:
       - https://www.opiq.ee/kit/293/chapter/17653
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -714,9 +720,11 @@ books:
       - https://www.opiq.ee/kit/460/chapter/28943
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -931,9 +939,11 @@ books:
       - https://www.opiq.ee/kit/588/chapter/33687
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -1151,9 +1161,11 @@ books:
       - https://www.opiq.ee/kit/70/chapter/8981
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -1332,6 +1344,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 567
 route_id: grade-4-mathematics

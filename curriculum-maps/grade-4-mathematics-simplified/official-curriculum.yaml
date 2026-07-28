@@ -35,8 +35,24 @@ outcomes:
     official_subject: null
     official_wording_et: 1) teab naturaalarve 100 piires; 3) liidab ja lahutab 100 piires.
     outcome_id: ee-plrk-2026-grade4-mathematics-number-range
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings explicitly cover reading numbers and addition to one hundred, matching the exact Grade 4 simplified
+        outcome.
+      policy_alignment_id: outcome-simplified-number-range
+      source_record_ids:
+        - grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15803-ec865471ea
+        - grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15833-1859b2bcb1
+      status: verified
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-mathematics-simplified-topic-arvu-kumnendkoostis-13-18-0ee743aa48
+        - grade-4-mathematics-simplified-topic-liitmine-sajani-192-199-b976dc3f3c
     source_id: ee-plrok-2026-appendix-01
-    source_topic_evidence: heading_only
     subject_field: lihtsustatud õpe
     translation_provenance:
       kind: opiq_helper_translation
@@ -58,6 +74,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 138
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

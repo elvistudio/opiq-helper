@@ -18,6 +18,8 @@ export const programmeDirectory = 'grade-programmes/grade-4';
 export const architectureSchemaPath = 'schemas/grade-programme.schema.json';
 export const routeSchemaPath = 'schemas/grade-programme-route.schema.json';
 export const coverageSchemaPath = 'schemas/grade-programme-coverage.schema.json';
+export const topicAlignmentSchemaPath = 'schemas/grade-programme-topic-alignment.schema.json';
+export const topicAlignmentPolicyPath = 'grade-programmes/grade-4/topic-alignment-policy.yaml';
 export const architectureDocPath = 'docs/grade-4-course-architecture.md';
 export const programmeTemplatePath = 'docs/templates/grade-programme.md';
 export const programmeId = 'grade-4-standalone-commercial-programme-2026-27';
@@ -102,8 +104,10 @@ const knownGaps = Object.freeze([
   'The independently authored standalone commercial core is not implemented.',
   'Originality review is not yet applicable because production materials are absent.',
   'Customer companion access has not been verified.',
+  'Default-core source programme types remain unverified.',
   'Pedagogical effectiveness has not been established.',
 ]);
+const releaseBlockerCodes = Object.freeze(['default_core_programme_type_unverified']);
 const authoritativeInputs = Object.freeze([
   'source-manifest.json',
   'docs/audits/grade-4-canonical-source-import.md',
@@ -114,6 +118,7 @@ const authoritativeInputs = Object.freeze([
   outcomeIndexPath,
   frameworkPath,
   sourceRegistryPath,
+  topicAlignmentPolicyPath,
 ]);
 
 function sha256(value) {
@@ -202,7 +207,7 @@ function frameworkOutcomes(framework) {
   })));
 }
 
-function buildOfficialMap(routeModel, outcomeById) {
+function buildOfficialMap(routeModel, outcomeById, topicInventory, alignmentPolicy) {
   const ids = routeOutcomeIds[routeModel.definition.id];
   const simplified = simplifiedRouteIds.includes(routeModel.definition.id);
   const outcomes = ids.map((id) => {
@@ -226,9 +231,12 @@ function buildOfficialMap(routeModel, outcomeById) {
         : id === 'ee-prk-2026-stage2-foreign-language-a2'
           ? 'Grade 4 work is a curated progression toward the terminal stage-II A2 target, not completion of A2.'
           : 'This is an Opiq Helper recommended Grade 4 allocation of a national stage-II endpoint.',
-      source_topic_evidence: routeModel.canonical_records.some((record) => record.task_examples.length > 0)
-        ? 'heading_and_task_example'
-        : 'heading_only',
+      source_alignment: resolveOutcomeAlignment(
+        alignmentPolicy,
+        routeModel,
+        topicInventory,
+        id,
+      ),
     };
   });
   const officialFields = routeModel.definition.id === 'grade-4-human-studies-and-society'
@@ -299,7 +307,9 @@ function buildBookInventory(routeModel) {
       eligibility: {
         internal_source_analysis: true,
         optional_companion_candidate: true,
-        ordinary_default_use: !simplified && roleFor(routeModel.definition.id) === 'default_ordinary_core',
+        curated_core_candidate: !simplified,
+        ordinary_default_use: false,
+        programme_verification_required: routeModel.definition.programme_type === 'unknown',
         simplified_learner_specific_use: simplified,
         teacher_only_use: false,
       },
@@ -356,6 +366,7 @@ function buildTopicInventory(routeModel) {
     const multipleKits = new Set(records.map((record) => record.kit_id)).size > 1;
     return {
       topic_id: stableId(`${routeModel.definition.id}-topic`, key),
+      original_heading_key: key,
       title_ru: languages.includes('ru') ? original : 'Русское название не подтверждено исходником',
       title_et: languages.includes('et') ? original : 'Eestikeelne pealkiri ei ole lähteandmetes kinnitatud',
       route_id: routeModel.definition.id,
@@ -393,8 +404,101 @@ function buildTopicInventory(routeModel) {
   };
 }
 
-function buildCoverageRow(outcome, routeIds, topicRefs = []) {
+function missingSourceAlignment(alignmentId, evidenceLayer, notes) {
+  return {
+    policy_alignment_id: alignmentId,
+    status: 'missing',
+    evidence_layer: evidenceLayer,
+    topic_cluster_refs: [],
+    source_record_ids: [],
+    match_basis: [evidenceLayer],
+    task_evidence_status: 'not_applicable',
+    task_evidence_source_record_ids: [],
+    notes,
+  };
+}
+
+function resolvePolicySourceAlignment(entry, routeModel, topicInventory) {
+  if (!entry) {
+    return missingSourceAlignment(
+      `missing-${routeModel.definition.id}`,
+      'missing_route',
+      'No authored topic-alignment policy entry exists for this route and outcome.',
+    );
+  }
+  const topicByRecordId = new Map(topicInventory.topics.flatMap((topic) => (
+    topic.source_record_ids.map((sourceRecordId) => [sourceRecordId, topic])
+  )));
+  const topicByHeadingKey = new Map(topicInventory.topics.map((topic) => [topic.original_heading_key, topic]));
+  const selectedTopics = [];
+  const selectedRecordIds = new Set();
+  for (const selector of entry.topic_selectors) {
+    const topic = selector.source_record_id
+      ? topicByRecordId.get(selector.source_record_id)
+      : topicByHeadingKey.get(selector.original_heading_key);
+    if (!topic) continue;
+    selectedTopics.push(topic);
+    if (selector.source_record_id) selectedRecordIds.add(selector.source_record_id);
+    else for (const sourceRecordId of topic.source_record_ids) selectedRecordIds.add(sourceRecordId);
+  }
+  return {
+    policy_alignment_id: entry.alignment_id,
+    status: entry.confidence,
+    evidence_layer: 'source_topic',
+    topic_cluster_refs: [...new Set(selectedTopics.map((topic) => topic.topic_id))].sort(bytewise),
+    source_record_ids: [...selectedRecordIds].sort(bytewise),
+    match_basis: [...entry.match_basis].sort(bytewise),
+    task_evidence_status: entry.task_evidence.status,
+    task_evidence_source_record_ids: [...entry.task_evidence.source_record_ids].sort(bytewise),
+    notes: entry.notes,
+  };
+}
+
+function resolveOutcomeAlignment(alignmentPolicy, routeModel, topicInventory, outcomeId) {
+  const entry = alignmentPolicy.outcome_alignments.find((candidate) => (
+    candidate.route_id === routeModel.definition.id && candidate.outcome_id === outcomeId
+  ));
+  return resolvePolicySourceAlignment(entry, routeModel, topicInventory);
+}
+
+function programmePolicySourceAlignment(entry) {
+  if (!entry) {
+    return missingSourceAlignment(
+      'missing-programme-policy',
+      'missing_route',
+      'No authored programme-policy alignment exists for this official outcome.',
+    );
+  }
+  return {
+    policy_alignment_id: entry.alignment_id,
+    status: entry.confidence,
+    evidence_layer: 'programme_policy',
+    topic_cluster_refs: [],
+    source_record_ids: [],
+    match_basis: ['programme_policy'],
+    task_evidence_status: 'not_applicable',
+    task_evidence_source_record_ids: [],
+    notes: entry.notes,
+  };
+}
+
+function buildCoverageRow(outcome, routeIds, sourceAlignment) {
   const missingRoute = routeIds.length === 0;
+  const sourceMissing = sourceAlignment.status === 'missing';
+  const sourceAmbiguous = sourceAlignment.status === 'ambiguous';
+  const hasTaskEvidence = sourceAlignment.task_evidence_status === 'linked';
+  const sourceTopicPresence = sourceAlignment.evidence_layer === 'programme_policy'
+    ? 'not_applicable'
+    : sourceMissing
+      ? 'missing'
+      : sourceAmbiguous
+        ? 'ambiguous'
+        : sourceAlignment.match_basis.includes('book_or_kit_metadata')
+          && !sourceAlignment.match_basis.includes('original_heading')
+          ? 'metadata_only'
+          : hasTaskEvidence
+            ? 'heading_and_task_example'
+            : 'heading_only';
   return {
     outcome_id: outcome.outcome_or_requirement_id,
     official_scope: outcome.scope,
@@ -404,25 +508,30 @@ function buildCoverageRow(outcome, routeIds, topicRefs = []) {
         ? 'local_school_allocation_candidate'
         : 'opiq_helper_recommended_allocation',
     curriculum_alignment_status: outcome.evidence_status,
-    source_topic_presence: missingRoute ? 'missing' : 'heading_only',
-    task_evidence_status: missingRoute ? 'missing' : 'partial',
+    source_topic_presence: sourceTopicPresence,
+    task_evidence_status: sourceAlignment.task_evidence_status,
     full_prose_status: 'missing',
     lesson_authoring_status: 'not_started',
-    assessment_evidence_status: missingRoute ? 'missing' : 'partial',
-    coverage_status: missingRoute ? 'missing' : 'partial',
+    assessment_evidence_status: sourceMissing ? 'missing' : sourceAmbiguous ? 'ambiguous' : hasTaskEvidence ? 'partial' : 'missing',
+    coverage_status: sourceMissing ? 'missing' : sourceAmbiguous ? 'ambiguous' : 'partial',
     route_ids: routeIds,
-    topic_cluster_refs: topicRefs,
+    topic_cluster_refs: sourceAlignment.topic_cluster_refs,
+    source_alignment: sourceAlignment,
     blocking_gaps: missingRoute
       ? ['No exclusive Grade 4 manifest route exists for this official field.']
-      : ['Headings do not prove full outcome coverage; prose and assessment authoring remain incomplete.'],
+      : sourceMissing
+        ? ['No relevant source topic was verified for this outcome within its declared route.']
+      : sourceAlignment.evidence_layer === 'programme_policy'
+        ? ['Programme policy supports the allocation, but complete authored lessons and assessment evidence remain unavailable.']
+        : ['Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.'],
   };
 }
 
-function buildRouteCoverage(routeModel, officialMap, topicInventory, frameworkById) {
+function buildRouteCoverage(routeModel, officialMap, frameworkById) {
   const rows = officialMap.outcomes.map((outcome) => buildCoverageRow(
     frameworkById.get(outcome.outcome_id),
     [routeModel.definition.id],
-    topicInventory.topics.slice(0, 3).map((topic) => topic.topic_id),
+    outcome.source_alignment,
   ));
   return {
     schema_version: architectureVersion,
@@ -552,8 +661,7 @@ function buildMastery() {
   };
 }
 
-function buildProjects(routeArtifacts) {
-  const topicRef = (routeId) => routeArtifacts.find((entry) => entry.routeModel.definition.id === routeId).topicInventory.topics[0].topic_id;
+function buildProjects(routeArtifacts, alignmentPolicy) {
   const base = [
     ['my-place-community', 'Моё место и сообщество', 'Minu koht ja kogukond', 'Как описать своё место и принимать обоснованные решения?', ['grade-4-russian', 'grade-4-estonian-second-language', 'grade-4-human-studies-and-society'], ['ee-prk-2026-stage2-russian-main-idea', 'ee-prk-2026-stage2-human-studies-decisions']],
     ['nature-weather', 'Природа и наблюдение за погодой', 'Loodus ja ilmavaatlus', 'Как наблюдения помогают объяснять изменения вокруг нас?', ['grade-4-science', 'grade-4-mathematics', 'grade-4-estonian-second-language'], ['ee-prk-2026-stage2-natural-science-inquiry', 'ee-prk-2026-stage2-mathematics-representations']],
@@ -565,26 +673,58 @@ function buildProjects(routeArtifacts) {
   return {
     ...commonProgramme('grade_programme_project_modules', 'grade-4-project-modules'),
     principle: 'projects_apply_but_do_not_replace_mastery_strands',
-    projects: base.map(([id, ru, et, question, routes, outcomes], index) => ({
-      project_id: `grade-4-project-${id}`,
-      title_ru: ru,
-      title_et: et,
-      driving_question_ru: question,
-      linked_route_ids: routes,
-      linked_outcome_ids: outcomes,
-      topic_cluster_refs: routes.map(topicRef),
-      prerequisites: index === 0 ? [] : [`grade-4-project-${base[index - 1][0]}`],
-      estimated_lesson_range: estimate(4, 8, 'Architecture estimate includes individual evidence, practical application and separate language checks.'),
-      shared_product: 'A bounded shared product assembled from separately attributable learner contributions.',
-      individual_grade_4_evidence: 'An individual first attempt, explanation or reflection is retained for Grade 4 assessment.',
-      russian_subject_evidence: 'Subject understanding and reasoning are evidenced in Russian without lowering content demand.',
-      estonian_language_evidence: 'A separate short supported Estonian A1–A2 production sample is retained.',
-      mathematics_or_data_evidence: 'A table, representation or explicit not-applicable note is retained for each learner.',
-      practical_or_community_component: 'A safe observation, local inquiry or simulated community application is planned.',
-      source_gaps: ['Complete prose and task bodies are not present in captured source evidence.'],
-      author_created_components_required: ['clean-room instructions', 'individual evidence prompt', 'assessment criterion'],
-      opiq_companion_candidate_ids: routes.map((routeId) => `${routeId}-kit-${routeArtifacts.find((entry) => entry.routeModel.definition.id === routeId).routeModel.definition.included_kit_ids[0]}`),
-    })),
+    projects: base.map(([id, ru, et, question, routes, outcomes], index) => {
+      const projectId = `grade-4-project-${id}`;
+      const sourceAlignments = routes.map((routeId) => {
+        const routeArtifact = routeArtifacts.find((entry) => entry.routeModel.definition.id === routeId);
+        const policyEntry = alignmentPolicy.project_alignments.find((entry) => (
+          entry.project_id === projectId && entry.route_id === routeId
+        ));
+        const {
+          evidence_layer: unusedEvidenceLayer,
+          ...resolved
+        } = resolvePolicySourceAlignment(policyEntry, routeArtifact.routeModel, routeArtifact.topicInventory);
+        return { route_id: routeId, ...resolved };
+      });
+      const unresolved = sourceAlignments.filter((alignment) => ['missing', 'ambiguous'].includes(alignment.status));
+      const linkedRoutes = sourceAlignments.filter((alignment) => alignment.topic_cluster_refs.length > 0);
+      return {
+        project_id: projectId,
+        title_ru: ru,
+        title_et: et,
+        driving_question_ru: question,
+        linked_route_ids: routes,
+        linked_outcome_ids: outcomes,
+        source_alignments: sourceAlignments,
+        topic_cluster_refs: [...new Set(sourceAlignments.flatMap((alignment) => alignment.topic_cluster_refs))].sort(bytewise),
+        prerequisites: index === 0 ? [] : [`grade-4-project-${base[index - 1][0]}`],
+        estimated_lesson_range: estimate(4, 8, 'Architecture estimate includes individual evidence, practical application and separate language checks.'),
+        shared_product: 'A bounded shared product assembled from separately attributable learner contributions.',
+        individual_grade_4_evidence: 'An individual first attempt, explanation or reflection is retained for Grade 4 assessment.',
+        russian_subject_evidence: 'Subject understanding and reasoning are evidenced in Russian without lowering content demand.',
+        estonian_language_evidence: 'A separate short supported Estonian A1–A2 production sample is retained.',
+        mathematics_or_data_evidence: 'A table, representation or explicit not-applicable note is retained for each learner.',
+        practical_or_community_component: 'A safe observation, local inquiry or simulated community application is planned.',
+        source_gaps: [
+          'Complete prose and task bodies are not present in captured source evidence.',
+          ...unresolved.map((alignment) => `No relevant route topic was verified for this project role: ${alignment.route_id}.`),
+        ],
+        author_created_components_required: [
+          'clean-room instructions',
+          'individual evidence prompt',
+          'assessment criterion',
+          ...(unresolved.length > 0 ? ['clean-room bridge for each unresolved route role'] : []),
+        ],
+        opiq_companion_candidate_ids: linkedRoutes.map((alignment) => {
+          const routeArtifact = routeArtifacts.find((entry) => entry.routeModel.definition.id === alignment.route_id);
+          const sourceRecordIds = new Set(alignment.source_record_ids);
+          const book = routeArtifact.bookInventory.books.find((candidate) => (
+            candidate.record_ids.some((recordIdValue) => sourceRecordIds.has(recordIdValue))
+          ));
+          return `${alignment.route_id}-kit-${book.kit_id}`;
+        }),
+      };
+    }),
     provenance: provenance(),
   };
 }
@@ -653,13 +793,14 @@ function buildRoadmap() {
       { stage_id: 'production-validation', status: 'blocked', deliverables: ['originality review', 'teacher review', 'classroom and home trials'], entry_gate: 'Production materials exist and pass structural validation.' },
     ],
     future_material_ids: ['grade-4-art-author-created-core', 'grade-4-technology-author-created-core', 'grade-4-physical-education-school-specific-core'],
+    release_blocker_codes: releaseBlockerCodes,
     release_blockers: knownGaps,
     non_goals: ['No full lessons are authored in this change.', 'No textbook prose or task body is reconstructed.', 'No publication or effectiveness status is granted.'],
     provenance: provenance(),
   };
 }
 
-function buildProgrammeCoverage(frameworkOutcomesList, routeArtifacts) {
+function buildProgrammeCoverage(frameworkOutcomesList, routeArtifacts, alignmentPolicy) {
   const routeByOutcome = new Map([
     ...Object.entries(routeOutcomeIds).flatMap(([routeId, ids]) => ids.map((id) => [id, [routeId]])),
     ...commonOutcomeIds.map((outcomeId) => [outcomeId, programmeOutcomeRouteIds[outcomeId]]),
@@ -667,10 +808,29 @@ function buildProgrammeCoverage(frameworkOutcomesList, routeArtifacts) {
   const grade4Outcomes = frameworkOutcomesList.filter((outcome) => outcome.downstream_relevance.grade_4);
   const rows = grade4Outcomes.map((outcome) => {
     const routeIds = routeByOutcome.get(outcome.outcome_or_requirement_id) ?? [];
-    const topicRefs = routeIds.flatMap((routeId) => (
-      routeArtifacts.find((entry) => entry.routeModel.definition.id === routeId).topicInventory.topics.slice(0, 2).map((topic) => topic.topic_id)
+    const routeOutcome = Object.entries(routeOutcomeIds).find(([, outcomeIds]) => (
+      outcomeIds.includes(outcome.outcome_or_requirement_id)
     ));
-    return buildCoverageRow(outcome, routeIds, topicRefs);
+    let sourceAlignment;
+    if (routeOutcome) {
+      const routeArtifact = routeArtifacts.find((entry) => entry.routeModel.definition.id === routeOutcome[0]);
+      sourceAlignment = routeArtifact.officialMap.outcomes.find((entry) => (
+        entry.outcome_id === outcome.outcome_or_requirement_id
+      )).source_alignment;
+    } else if (commonOutcomeIds.includes(outcome.outcome_or_requirement_id)) {
+      sourceAlignment = programmePolicySourceAlignment(
+        alignmentPolicy.programme_policy_alignments.find((entry) => (
+          entry.outcome_id === outcome.outcome_or_requirement_id
+        )),
+      );
+    } else {
+      sourceAlignment = missingSourceAlignment(
+        `missing-${outcome.outcome_or_requirement_id}`,
+        'missing_route',
+        'No exclusive Grade 4 manifest route exists for this official field.',
+      );
+    }
+    return buildCoverageRow(outcome, routeIds, sourceAlignment);
   });
   return {
     schema_version: architectureVersion,
@@ -757,6 +917,7 @@ function buildArchitecture(routeArtifacts) {
       publication_ready: false,
       classroom_ready: false,
       effectiveness_claimed: false,
+      blocker_codes: releaseBlockerCodes,
       blockers: knownGaps,
     },
     known_gaps: knownGaps,
@@ -770,6 +931,18 @@ function buildDocs(artifacts) {
   const projectCount = artifacts.programme.projects.projects.length;
   const topicCount = artifacts.routes.reduce((sum, route) => sum + route.topicInventory.topics.length, 0);
   const bookCount = artifacts.routes.reduce((sum, route) => sum + route.bookInventory.books.length, 0);
+  const outcomeAlignments = artifacts.routes.flatMap((route) => route.officialMap.outcomes.map((outcome) => outcome.source_alignment));
+  const projectAlignments = artifacts.programme.projects.projects.flatMap((project) => project.source_alignments);
+  const alignmentCounts = (alignments) => Object.fromEntries(
+    ['verified', 'partial', 'ambiguous', 'missing'].map((status) => [
+      status,
+      alignments.filter((alignment) => alignment.status === status).length,
+    ]),
+  );
+  const outcomeCounts = alignmentCounts(outcomeAlignments);
+  const projectCounts = alignmentCounts(projectAlignments);
+  const unverifiedProgrammeBooks = artifacts.routes.flatMap((route) => route.bookInventory.books)
+    .filter((book) => book.programme_type === 'unknown').length;
   return `# Grade 4 course architecture
 
 This deterministic architecture covers the ${routeIndex.routes.length} canonical Grade 4 routes and
@@ -790,6 +963,12 @@ the two simplified routes require learner-specific opt-in.
 * ${coverage.rows.length} Grade 4-relevant official outcome rows;
 * ${projectCount} cross-subject project modules with separate individual evidence.
 
+The authored policy at \`${topicAlignmentPolicyPath}\` selects source topics by stable record identity rather than
+array position. Outcome mappings are ${outcomeCounts.verified} verified, ${outcomeCounts.partial} partial,
+${outcomeCounts.ambiguous} ambiguous and ${outcomeCounts.missing} missing. Project-role mappings are
+${projectCounts.verified} verified, ${projectCounts.partial} partial, ${projectCounts.ambiguous} ambiguous and
+${projectCounts.missing} missing; each missing role is an explicit clean-room bridge requirement.
+
 Ordinary outcomes retain school-stage-II scope and are only recommended Grade 4 allocations. Only the two
 simplified-curriculum outcomes retain verified exact Grade 4 scope. Russian and Russian reading, first-language
 and second-language Estonian, ordinary and simplified routes remain separate.
@@ -798,6 +977,11 @@ and second-language Estonian, ordinary and simplified routes remain separate.
 
 The planned commercial core must work without Opiq. Companion candidates are internal-only, access-unverified
 references with a mandatory standalone fallback. Teacher-only resources are excluded.
+
+${unverifiedProgrammeBooks} book/edition records have an unknown programme type. They remain usable for internal
+source analysis and as curated companion candidates, but \`ordinary_default_use\` is false until programme
+membership is verified. The machine-readable release blocker is
+\`default_core_programme_type_unverified\`.
 
 ## Gaps and release status
 
@@ -813,53 +997,58 @@ export function renderGradeProgrammeTemplate() {
   return `# Grade programme template
 
 Use \`schemas/grade-programme.schema.json\`, \`schemas/grade-programme-route.schema.json\`, and
-\`schemas/grade-programme-coverage.schema.json\`. A programme must keep manifest routes, official scopes,
+\`schemas/grade-programme-coverage.schema.json\`. Source-topic mappings must also use the authored policy contract
+in \`schemas/grade-programme-topic-alignment.schema.json\`. A programme must keep manifest routes, official scopes,
 curated allocations, source evidence, delivery policy and release claims separate.
 
 Required design order:
 
 1. pin authoritative manifest and regulatory inputs;
 2. generate route-bounded curriculum, book, topic and coverage artifacts;
-3. declare default, alternative and learner-specific route roles;
-4. plan mastery strands before cross-subject projects;
-5. preserve separate individual evidence in every shared project;
-6. label lesson ranges as recommendations rather than national timetable requirements;
-7. keep optional companions internal and unverified until the standalone fallback and access contract are complete;
-8. keep completeness partial and release blocked while source, authoring or validation gaps remain.
+3. author stable topic alignments by source record ID or original-heading key, never array position;
+4. keep programme-policy outcomes separate from source-topic evidence;
+5. declare default, alternative and learner-specific route roles;
+6. block ordinary-default source eligibility while programme type is unknown;
+7. plan mastery strands before cross-subject projects;
+8. preserve separate individual evidence and explicit missing source roles in every shared project;
+9. label lesson ranges as recommendations rather than national timetable requirements;
+10. keep optional companions internal and unverified until the standalone fallback and access contract are complete;
+11. keep completeness partial and release blocked while source, authoring or validation gaps remain.
 `;
 }
 
 export async function loadGrade4CourseArchitectureInputs(rootDir) {
-  const [manifest, outcomeIndex, framework, sourceRegistry, contentQuality, sourceGap, model] = await Promise.all([
+  const [manifest, outcomeIndex, framework, sourceRegistry, contentQuality, sourceGap, alignmentPolicy, model] = await Promise.all([
     readFile(path.join(rootDir, 'source-manifest.json'), 'utf8').then(JSON.parse),
-    readFile(path.join(rootDir, outcomeIndexPath), 'utf8').then(YAML.parse),
-    readFile(path.join(rootDir, frameworkPath), 'utf8').then(YAML.parse),
-    readFile(path.join(rootDir, sourceRegistryPath), 'utf8').then(YAML.parse),
+    readFile(path.join(rootDir, outcomeIndexPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
+    readFile(path.join(rootDir, frameworkPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
+    readFile(path.join(rootDir, sourceRegistryPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
     readFile(path.join(rootDir, contentQualityPath), 'utf8').then(JSON.parse),
     readFile(path.join(rootDir, sourceGapPath), 'utf8').then(JSON.parse),
+    readFile(path.join(rootDir, topicAlignmentPolicyPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
     loadGrade4CanonicalSourceModel(rootDir),
   ]);
   validateGrade4Manifest(manifest);
-  return { rootDir, manifest, outcomeIndex, framework, sourceRegistry, contentQuality, sourceGap, model };
+  return { rootDir, manifest, outcomeIndex, framework, sourceRegistry, contentQuality, sourceGap, alignmentPolicy, model };
 }
 
 export function buildGrade4CourseArchitecture(inputs) {
   const allFrameworkOutcomes = frameworkOutcomes(inputs.framework);
   const outcomeById = new Map(allFrameworkOutcomes.map((outcome) => [outcome.outcome_or_requirement_id, outcome]));
   const routeArtifacts = inputs.model.routes.map((routeModel) => {
-    const officialMap = buildOfficialMap(routeModel, outcomeById);
     const bookInventory = buildBookInventory(routeModel);
     const topicInventory = buildTopicInventory(routeModel);
-    const coverage = buildRouteCoverage(routeModel, officialMap, topicInventory, outcomeById);
+    const officialMap = buildOfficialMap(routeModel, outcomeById, topicInventory, inputs.alignmentPolicy);
+    const coverage = buildRouteCoverage(routeModel, officialMap, outcomeById);
     return { routeModel, officialMap, bookInventory, topicInventory, coverage };
   });
   const routeIndex = buildRouteIndex(routeArtifacts, inputs.sourceGap);
   const mastery = buildMastery();
-  const projects = buildProjects(routeArtifacts);
+  const projects = buildProjects(routeArtifacts, inputs.alignmentPolicy);
   const language = buildLanguage();
   const calendar = buildCalendar(projects);
   const roadmap = buildRoadmap();
-  const coverage = buildProgrammeCoverage(allFrameworkOutcomes, routeArtifacts);
+  const coverage = buildProgrammeCoverage(allFrameworkOutcomes, routeArtifacts, inputs.alignmentPolicy);
   const architecture = buildArchitecture(routeArtifacts);
   const programme = { architecture, routeIndex, coverage, projects, mastery, language, calendar, roadmap };
   const artifacts = { inputs, routes: routeArtifacts, programme };
@@ -888,9 +1077,18 @@ function diagnostic(code, message, artifactPath = `${programmeDirectory}/program
   return { code, message, artifact_path: artifactPath, record_id: recordId };
 }
 
+function sameStableValue(left, right) {
+  return JSON.stringify(stableClone(left)) === JSON.stringify(stableClone(right));
+}
+
+function policyEntryKeys(entries, fields) {
+  return entries.map((entry) => fields.map((field) => entry[field]).join('\0')).sort(bytewise);
+}
+
 export function validateGrade4CourseArchitecture(artifacts) {
   const diagnostics = [];
   const { inputs, routes, programme } = artifacts;
+  const alignmentPolicy = inputs.alignmentPolicy;
   const expectedRoutes = grade4RoutePolicy.map((route) => route.id);
   const actualRoutes = routes.map((route) => route.routeModel.definition.id);
   if (JSON.stringify(actualRoutes) !== JSON.stringify(expectedRoutes)) diagnostics.push(diagnostic('grade_4_route_set_mismatch', 'Route set differs from the Grade 4 manifest policy.'));
@@ -904,8 +1102,22 @@ export function validateGrade4CourseArchitecture(artifacts) {
     if (route.bookInventory.record_count !== route.bookInventory.source_records.length || route.bookInventory.record_count !== route.routeModel.definition.expected_record_count) diagnostics.push(diagnostic('route_record_count_mismatch', `${id} record count does not reconcile.`));
     if (route.bookInventory.books.some((book) => book.full_prose_available !== false)) diagnostics.push(diagnostic('missing_prose_marked_ready', `${id} cannot claim complete prose.`));
     if (route.coverage.rows.some((row) => row.full_prose_status === 'missing' && row.lesson_authoring_status !== 'not_started')) diagnostics.push(diagnostic('missing_prose_marked_lesson_ready', `${id} marks a missing-prose row lesson-ready.`));
-    if (route.coverage.rows.some((row) => row.task_evidence_status === 'missing' && row.assessment_evidence_status !== 'missing')) diagnostics.push(diagnostic('missing_tasks_marked_assessment_ready', `${id} marks missing tasks assessment-ready.`));
+    if (route.coverage.rows.some((row) => row.task_evidence_status !== 'linked' && row.assessment_evidence_status === 'partial')) diagnostics.push(diagnostic('missing_tasks_marked_assessment_ready', `${id} marks absent task evidence assessment-ready.`));
     if (route.topicInventory.topics.some((topic) => topic.automatic_translated_topics_used_as_source_prose)) diagnostics.push(diagnostic('translated_query_metadata_used_as_prose', `${id} uses translated query metadata as source prose.`));
+    for (const book of route.bookInventory.books) {
+      if (book.programme_type === 'unknown' && book.eligibility.ordinary_default_use) {
+        diagnostics.push(diagnostic('unknown_programme_type_marked_ordinary_default', `${id} kit ${book.kit_id} has unknown programme type and cannot be ordinary-default eligible.`));
+      }
+      if (book.programme_type === 'unknown' && !book.eligibility.programme_verification_required) {
+        diagnostics.push(diagnostic('unknown_programme_type_verification_not_required', `${id} kit ${book.kit_id} must require programme verification.`));
+      }
+      if (book.programme_type === 'unknown' && book.programme_type_evidence.status !== 'ambiguous') {
+        diagnostics.push(diagnostic('unknown_programme_type_evidence_mismatch', `${id} kit ${book.kit_id} cannot convert unknown programme type into verified evidence.`));
+      }
+      if (['mixed_subject', 'simplified_curriculum'].includes(book.programme_type) && book.eligibility.ordinary_default_use) {
+        diagnostics.push(diagnostic('nonordinary_programme_marked_ordinary_default', `${id} kit ${book.kit_id} cannot be ordinary-default eligible.`));
+      }
+    }
     for (const outcome of route.officialMap.outcomes) {
       const indexed = inputs.outcomeIndex.outcomes.find((entry) => entry.outcome_id === outcome.outcome_id);
       if (!indexed) diagnostics.push(diagnostic('unknown_official_outcome', `${id} references unknown outcome ${outcome.outcome_id}.`));
@@ -913,6 +1125,125 @@ export function validateGrade4CourseArchitecture(artifacts) {
       if (outcome.official_scope.kind === 'exact_grade' && outcome.curriculum !== 'simplified') diagnostics.push(diagnostic('exact_simplified_outcome_marked_ordinary', `${outcome.outcome_id} is exact-grade but not simplified.`));
     }
     if (id === 'grade-4-human-studies-and-society' && JSON.stringify(route.officialMap.official_fields) !== JSON.stringify(['inimeseõpetus', 'ühiskonnaõpetus'])) diagnostics.push(diagnostic('mixed_official_fields_collapsed', 'Mixed human/society route must preserve two official fields.'));
+  }
+  const expectedOutcomeAlignmentKeys = Object.entries(routeOutcomeIds)
+    .flatMap(([routeId, outcomeIds]) => outcomeIds.map((outcomeId) => `${routeId}\0${outcomeId}`))
+    .sort(bytewise);
+  const actualOutcomeAlignmentKeys = policyEntryKeys(alignmentPolicy.outcome_alignments, ['route_id', 'outcome_id']);
+  if (!sameStableValue(actualOutcomeAlignmentKeys, expectedOutcomeAlignmentKeys)) {
+    diagnostics.push(diagnostic('topic_alignment_policy_missing', 'The authored policy must contain exactly one alignment for every route outcome.', topicAlignmentPolicyPath, 'outcome-alignments'));
+  }
+  const expectedProgrammeAlignmentKeys = [...commonOutcomeIds].sort(bytewise);
+  const actualProgrammeAlignmentKeys = policyEntryKeys(alignmentPolicy.programme_policy_alignments, ['outcome_id']);
+  if (!sameStableValue(actualProgrammeAlignmentKeys, expectedProgrammeAlignmentKeys)) {
+    diagnostics.push(diagnostic('programme_policy_alignment_missing', 'The authored policy must contain exactly one programme-policy alignment for every common outcome.', topicAlignmentPolicyPath, 'programme-policy-alignments'));
+  }
+  const projectIdsAndRoutes = programme.projects.projects.flatMap((project) => (
+    project.linked_route_ids.map((routeId) => `${project.project_id}\0${routeId}`)
+  )).sort(bytewise);
+  const policyProjectKeys = policyEntryKeys(alignmentPolicy.project_alignments, ['project_id', 'route_id']);
+  if (!sameStableValue(projectIdsAndRoutes, policyProjectKeys)) {
+    diagnostics.push(diagnostic('project_alignment_missing', 'Every project route role must have exactly one authored source alignment.', topicAlignmentPolicyPath, 'project-alignments'));
+  }
+  const policyIds = [
+    ...alignmentPolicy.outcome_alignments,
+    ...alignmentPolicy.programme_policy_alignments,
+    ...alignmentPolicy.project_alignments,
+  ].map((entry) => entry.alignment_id);
+  if (new Set(policyIds).size !== policyIds.length) {
+    diagnostics.push(diagnostic('duplicate_topic_alignment_id', 'Topic-alignment policy IDs must be globally unique.', topicAlignmentPolicyPath, 'topic-alignment-policy'));
+  }
+  for (const entry of [...alignmentPolicy.outcome_alignments, ...alignmentPolicy.project_alignments]) {
+    const route = routes.find((candidate) => candidate.routeModel.definition.id === entry.route_id);
+    if (!route) {
+      diagnostics.push(diagnostic('topic_alignment_route_unknown', `${entry.alignment_id} references unknown route ${entry.route_id}.`, topicAlignmentPolicyPath, entry.alignment_id));
+      continue;
+    }
+    const availableRecordIds = new Set(route.bookInventory.source_records.map((record) => record.record_id));
+    const topicRecordIds = new Set(route.topicInventory.topics.flatMap((topic) => topic.source_record_ids));
+    const selectedRecordIds = new Set();
+    for (const selector of entry.topic_selectors) {
+      if (selector.source_record_id) {
+        if (!availableRecordIds.has(selector.source_record_id) || !topicRecordIds.has(selector.source_record_id)) {
+          diagnostics.push(diagnostic('topic_alignment_source_record_unknown', `${entry.alignment_id} references a source record outside ${entry.route_id}.`, topicAlignmentPolicyPath, entry.alignment_id));
+        } else selectedRecordIds.add(selector.source_record_id);
+      } else {
+        const topic = route.topicInventory.topics.find((candidate) => candidate.original_heading_key === selector.original_heading_key);
+        if (!topic) diagnostics.push(diagnostic('topic_alignment_heading_unknown', `${entry.alignment_id} references an unknown original heading key.`, topicAlignmentPolicyPath, entry.alignment_id));
+        else for (const sourceRecordId of topic.source_record_ids) selectedRecordIds.add(sourceRecordId);
+      }
+    }
+    if (entry.confidence === 'ambiguous' && entry.topic_selectors.length > 0 && entry.task_evidence.status === 'linked') {
+      diagnostics.push(diagnostic('ambiguous_alignment_marked_verified', `${entry.alignment_id} cannot use linked task evidence as verified coverage while confidence is ambiguous.`, topicAlignmentPolicyPath, entry.alignment_id));
+    }
+    for (const taskRecordId of entry.task_evidence.source_record_ids) {
+      const canonicalRecord = route.routeModel.canonical_records.find((record) => recordId(entry.route_id, record) === taskRecordId);
+      if (!selectedRecordIds.has(taskRecordId) || !canonicalRecord || canonicalRecord.task_examples.length === 0) {
+        diagnostics.push(diagnostic('topic_alignment_task_evidence_unlinked', `${entry.alignment_id} task evidence must be captured on an explicitly aligned source record.`, topicAlignmentPolicyPath, entry.alignment_id));
+      }
+    }
+  }
+  for (const route of routes) {
+    for (const outcome of route.officialMap.outcomes) {
+      const expected = resolveOutcomeAlignment(
+        alignmentPolicy,
+        route.routeModel,
+        route.topicInventory,
+        outcome.outcome_id,
+      );
+      if (!sameStableValue(outcome.source_alignment, expected)) {
+        diagnostics.push(diagnostic('topic_alignment_generated_mismatch', `${outcome.outcome_id} does not match its authored alignment policy.`, `${routeDir(route.routeModel.definition.id)}/official-curriculum.yaml`, outcome.outcome_id));
+      }
+      const coverageRow = route.coverage.rows.find((row) => row.outcome_id === outcome.outcome_id);
+      if (!coverageRow || !sameStableValue(coverageRow.source_alignment, expected) || !sameStableValue(coverageRow.topic_cluster_refs, expected.topic_cluster_refs)) {
+        diagnostics.push(diagnostic('coverage_alignment_generated_mismatch', `${outcome.outcome_id} coverage does not match its authored alignment policy.`, `${routeDir(route.routeModel.definition.id)}/coverage-matrix.yaml`, outcome.outcome_id));
+      }
+    }
+  }
+  for (const project of programme.projects.projects) {
+    for (const routeId of project.linked_route_ids) {
+      const route = routes.find((candidate) => candidate.routeModel.definition.id === routeId);
+      const entry = alignmentPolicy.project_alignments.find((candidate) => candidate.project_id === project.project_id && candidate.route_id === routeId);
+      if (!route) continue;
+      const resolved = resolvePolicySourceAlignment(entry, route.routeModel, route.topicInventory);
+      const { evidence_layer: unusedEvidenceLayer, ...expected } = resolved;
+      const actual = project.source_alignments.find((alignment) => alignment.route_id === routeId);
+      if (!actual || !sameStableValue(actual, { route_id: routeId, ...expected })) {
+        diagnostics.push(diagnostic('project_alignment_generated_mismatch', `${project.project_id} route ${routeId} does not match its authored policy.`, `${programmeDirectory}/project-modules.yaml`, `${project.project_id}-${routeId}`));
+      }
+    }
+    const expectedTopicRefs = [...new Set(project.source_alignments.flatMap((alignment) => alignment.topic_cluster_refs))].sort(bytewise);
+    if (!sameStableValue(project.topic_cluster_refs, expectedTopicRefs)) {
+      diagnostics.push(diagnostic('project_topic_refs_untraceable', `${project.project_id} topic refs must be the closure of its source alignments.`, `${programmeDirectory}/project-modules.yaml`, project.project_id));
+    }
+  }
+  const mixedRoute = routes.find((route) => route.routeModel.definition.id === 'grade-4-human-studies-and-society');
+  if (mixedRoute) {
+    const [human, social] = mixedRoute.officialMap.outcomes;
+    if (human && social && sameStableValue(human.source_alignment.topic_cluster_refs, social.source_alignment.topic_cluster_refs)) {
+      diagnostics.push(diagnostic('mixed_route_alignment_collapsed', 'Human-studies and social-studies outcomes need separate authored topic evidence.', `${routeDir(mixedRoute.routeModel.definition.id)}/official-curriculum.yaml`, mixedRoute.routeModel.definition.id));
+    }
+  }
+  for (const row of programme.coverage.rows) {
+    let expectedAlignment;
+    const route = routes.find((candidate) => candidate.officialMap.outcomes.some((outcome) => outcome.outcome_id === row.outcome_id));
+    if (route) {
+      expectedAlignment = route.officialMap.outcomes.find((outcome) => outcome.outcome_id === row.outcome_id).source_alignment;
+    } else if (commonOutcomeIds.includes(row.outcome_id)) {
+      expectedAlignment = programmePolicySourceAlignment(
+        alignmentPolicy.programme_policy_alignments.find((entry) => entry.outcome_id === row.outcome_id),
+      );
+    } else {
+      expectedAlignment = missingSourceAlignment(
+        `missing-${row.outcome_id}`,
+        'missing_route',
+        'No exclusive Grade 4 manifest route exists for this official field.',
+      );
+    }
+    if (!sameStableValue(row.source_alignment, expectedAlignment)
+        || !sameStableValue(row.topic_cluster_refs, expectedAlignment.topic_cluster_refs)) {
+      diagnostics.push(diagnostic('programme_coverage_alignment_mismatch', `${row.outcome_id} does not match its authored source or programme-policy alignment.`, `${programmeDirectory}/programme-coverage.yaml`, row.outcome_id));
+    }
   }
   const architecture = programme.architecture;
   if (architecture.learner_profile.estonian_subject_route !== 'grade-4-estonian-second-language') diagnostics.push(diagnostic('wrong_default_estonian_route', 'First-language Estonian cannot replace the default second-language route.'));
@@ -926,25 +1257,35 @@ export function validateGrade4CourseArchitecture(artifacts) {
   if (JSON.stringify(architecture.official_field_gaps.map((gap) => gap.field_id)) !== JSON.stringify(missingFields)) diagnostics.push(diagnostic('missing_official_field_gaps', 'Art, technology and physical-education gaps must remain explicit.'));
   if (architecture.completeness.declared_complete || programme.coverage.completeness.declared_complete) diagnostics.push(diagnostic('false_completeness_claim', 'Grade 4 architecture must remain incomplete.'));
   if (architecture.release_gate.publication_ready || architecture.delivery_model.publication_status !== 'internal_review') diagnostics.push(diagnostic('publication_readiness_claim_forbidden', 'Architecture cannot claim publication readiness.'));
+  if (routes.some((route) => route.bookInventory.books.some((book) => book.programme_type === 'unknown'))
+      && architecture.release_gate.status !== 'blocked') {
+    diagnostics.push(diagnostic('ambiguous_programme_evidence_marked_release_ready', 'Unknown programme-type evidence requires a blocked release gate.'));
+  }
+  if (!architecture.release_gate.blocker_codes.includes('default_core_programme_type_unverified')
+      || !programme.roadmap.release_blocker_codes.includes('default_core_programme_type_unverified')) {
+    diagnostics.push(diagnostic('default_core_programme_type_blocker_missing', 'Release must remain blocked while default-core programme types are unverified.'));
+  }
   if (programme.calendar.national_weekly_hours_claimed) diagnostics.push(diagnostic('unsupported_weekly_hours_claim', 'No national weekly-hour claim is supported.'));
   if (inputs.sourceGap.summary.canonical_student_kits !== 31 || inputs.sourceGap.summary.new_exact_grade_4_student_candidates !== 0) diagnostics.push(diagnostic('catalogue_reconciliation_mismatch', 'Live Grade 4 kit accounting changed.'));
   if (programme.routeIndex.simplified_route_count !== 2 || programme.routeIndex.mixed_route_count !== 1) diagnostics.push(diagnostic('programme_route_classification_mismatch', 'Expected two simplified routes and one mixed route.'));
-  if (programme.coverage.rows.some((row) => row.source_topic_presence === 'heading_only' && row.coverage_status === 'verified')) diagnostics.push(diagnostic('heading_only_marked_full_coverage', 'Heading-only evidence cannot prove full coverage.'));
+  if (programme.coverage.rows.some((row) => ['heading_only', 'metadata_only', 'ambiguous'].includes(row.source_topic_presence) && row.coverage_status === 'verified')) diagnostics.push(diagnostic('heading_only_marked_full_coverage', 'Incomplete topic evidence cannot prove full coverage.'));
   return diagnostics.sort((left, right) => bytewise(`${left.artifact_path}\0${left.record_id}\0${left.code}`, `${right.artifact_path}\0${right.record_id}\0${right.code}`));
 }
 
 export async function validateGrade4CourseArchitectureSchemas(rootDir, artifacts) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
-  const [programmeSchema, routeSchema, coverageSchema] = await Promise.all(
-    [architectureSchemaPath, routeSchemaPath, coverageSchemaPath].map((schemaPath) => (
+  const [programmeSchema, routeSchema, coverageSchema, topicAlignmentSchema] = await Promise.all(
+    [architectureSchemaPath, routeSchemaPath, coverageSchemaPath, topicAlignmentSchemaPath].map((schemaPath) => (
       readFile(path.join(rootDir, schemaPath), 'utf8').then(JSON.parse)
     )),
   );
   const validateProgramme = ajv.compile(programmeSchema);
   const validateRoute = ajv.compile(routeSchema);
   const validateCoverage = ajv.compile(coverageSchema);
+  const validateTopicAlignment = ajv.compile(topicAlignmentSchema);
   const failures = [];
   for (const [label, value, validate] of [
+    ['inputs/topic-alignment-policy', artifacts.inputs.alignmentPolicy, validateTopicAlignment],
     ...artifacts.routes.flatMap((route) => [
       [`${route.routeModel.definition.id}/official`, route.officialMap, validateRoute],
       [`${route.routeModel.definition.id}/books`, route.bookInventory, validateRoute],

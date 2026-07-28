@@ -24,6 +24,7 @@ completeness:
     - The independently authored standalone commercial core is not implemented.
     - Originality review is not yet applicable because production materials are absent.
     - Customer companion access has not been verified.
+    - Default-core source programme types remain unverified.
     - Pedagogical effectiveness has not been established.
   status: partial
 delivery_model:
@@ -46,6 +47,7 @@ known_gaps:
   - The independently authored standalone commercial core is not implemented.
   - Originality review is not yet applicable because production materials are absent.
   - Customer companion access has not been verified.
+  - Default-core source programme types remain unverified.
   - Pedagogical effectiveness has not been established.
 learner_profile:
   english_role: foreign_language
@@ -96,12 +98,15 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   claim_boundary: Recommended Grade 4 architecture; it is not a national exact-grade timetable, published course or
     effectiveness finding.
   generated_by: scripts/generate-grade-4-course-architecture.mjs
   verification_date: 2026-07-28
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
 release_gate:
+  blocker_codes:
+    - default_core_programme_type_unverified
   blockers:
     - "Final Riigi Teataja refresh remains tracked under issue #37."
     - The official baseline is intentionally non-exhaustive outside its declared scope.
@@ -113,6 +118,7 @@ release_gate:
     - The independently authored standalone commercial core is not implemented.
     - Originality review is not yet applicable because production materials are absent.
     - Customer companion access has not been verified.
+    - Default-core source programme types remain unverified.
     - Pedagogical effectiveness has not been established.
   classroom_ready: false
   effectiveness_claimed: false

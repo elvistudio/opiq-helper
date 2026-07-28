@@ -97,9 +97,11 @@ books:
       - https://www.opiq.ee/kit/243/chapter/17539
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -292,9 +294,11 @@ books:
       - https://www.opiq.ee/kit/295/chapter/17383
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -417,6 +421,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 167
 route_id: grade-4-russian

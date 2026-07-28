@@ -36,8 +36,23 @@ outcomes:
     official_wording_et: Teab ja kirjeldab turvalise käitumise viise igapäevaelus (liiklemine kooliteel, jalgrattaga
       sõitmine, tulekahju vältimine, käitumine veekogu juures ja metsas).
     outcome_id: ee-plrk-2026-grade4-human-studies-safe-behaviour
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings explicitly cover traffic signs and fire behaviour named by the exact Grade 4 simplified outcome.
+      policy_alignment_id: outcome-simplified-safe-behaviour
+      source_record_ids:
+        - grade-4-human-studies-simplified-record-287-https-www-opiq-ee-kit-287-chapter-17908-e3da833253
+        - grade-4-human-studies-simplified-record-287-https-www-opiq-ee-kit-287-chapter-17911-f6ce9300ec
+      status: verified
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-human-studies-simplified-topic-kaitumine-tulekahju-korral-kodus-207189b0d1
+        - grade-4-human-studies-simplified-topic-liiklusmargid-4e6284978b
     source_id: ee-plrok-2026-appendix-01
-    source_topic_evidence: heading_only
     subject_field: lihtsustatud õpe
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +75,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 55
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

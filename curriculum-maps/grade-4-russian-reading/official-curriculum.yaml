@@ -37,8 +37,23 @@ outcomes:
     official_subject: null
     official_wording_et: Loeb laste- ja noortekirjandusteoseid nii eesti kui ka maailmakirjandusest.
     outcome_id: ee-prk-2026-stage2-literature-reading-response
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - book_or_kit_metadata
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The record identifies a child-literature work and questions, but no task example is captured in the canonical
+        record.
+      policy_alignment_id: outcome-russian-reading-response
+      source_record_ids:
+        - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22448-fb61dc1c80
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-russian-reading-topic-record-79d3b6a4df
     source_id: ee-prok-2026-appendix-01
-    source_topic_evidence: heading_only
     subject_field: keel ja kirjandus
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +75,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 34
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

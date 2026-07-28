@@ -1,0 +1,476 @@
+schema_version: "1.0"
+artifact_type: grade_4_topic_alignment_policy
+verified_on: 2026-07-28
+outcome_alignments:
+  - alignment_id: outcome-russian-main-idea
+    outcome_id: ee-prk-2026-stage2-russian-main-idea
+    route_id: grade-4-russian
+    topic_selectors:
+      - source_record_id: grade-4-russian-record-243-https-www-opiq-ee-kit-243-chapter-13782-93384a0181
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-russian-record-243-https-www-opiq-ee-kit-243-chapter-13782-93384a0181
+    notes: The captured task explicitly asks the learner to determine a text topic; it supports only part of the wider stage-II outcome.
+  - alignment_id: outcome-russian-reading-response
+    outcome_id: ee-prk-2026-stage2-literature-reading-response
+    route_id: grade-4-russian-reading
+    topic_selectors:
+      - source_record_id: grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22448-fb61dc1c80
+    match_basis:
+      - original_heading
+      - book_or_kit_metadata
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The record identifies a child-literature work and questions, but no task example is captured in the canonical record.
+  - alignment_id: outcome-estonian-source-comparison
+    outcome_id: ee-prk-2026-stage2-estonian-source-comparison
+    route_id: grade-4-estonian
+    topic_selectors:
+      - source_record_id: grade-4-estonian-record-533-https-www-opiq-ee-kit-533-chapter-30093-281d59a6d8
+      - source_record_id: grade-4-estonian-record-533-https-www-opiq-ee-kit-533-chapter-30106-b26d5ac726
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The headings cover information sources, source trust and opinion formation, but complete task evidence is not captured.
+  - alignment_id: outcome-estonian-second-daily-communication
+    outcome_id: ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    topic_selectors:
+      - source_record_id: grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8339-14d09c3fe5
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The headings explicitly describe a familiar morning routine, questions and a peer dialogue; the task body is not captured.
+  - alignment_id: outcome-english-a2-progression
+    outcome_id: ee-prk-2026-stage2-foreign-language-a2
+    route_id: grade-4-english
+    topic_selectors:
+      - source_record_id: grade-4-english-record-451-https-www-opiq-ee-kit-451-chapter-24501-4941072bd9
+      - source_record_id: grade-4-english-record-332-https-www-opiq-ee-kit-332-chapter-18619-3cac97c02f
+    match_basis:
+      - original_heading
+      - book_or_kit_metadata
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: Familiar school and family topics support a Grade 4 progression toward A2 but do not prove the terminal stage-II level.
+  - alignment_id: outcome-human-studies-decisions
+    outcome_id: ee-prk-2026-stage2-human-studies-decisions
+    route_id: grade-4-human-studies-and-society
+    topic_selectors:
+      - source_record_id: grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2733-521903fbc7
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: Conflict resolution and reaching a solution support decision-making, while consequence evidence remains incomplete.
+  - alignment_id: outcome-social-fact-opinion
+    outcome_id: ee-prk-2026-stage2-social-information-fact-opinion
+    route_id: grade-4-human-studies-and-society
+    topic_selectors:
+      - source_record_id: grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2722-811331fcff
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The headings distinguish truth and falsehood in thinking, but source-reliability and full fact-opinion task evidence are not captured.
+  - alignment_id: outcome-simplified-safe-behaviour
+    outcome_id: ee-plrk-2026-grade4-human-studies-safe-behaviour
+    route_id: grade-4-human-studies-simplified
+    topic_selectors:
+      - source_record_id: grade-4-human-studies-simplified-record-287-https-www-opiq-ee-kit-287-chapter-17908-e3da833253
+      - source_record_id: grade-4-human-studies-simplified-record-287-https-www-opiq-ee-kit-287-chapter-17911-f6ce9300ec
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: verified
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The headings explicitly cover traffic signs and fire behaviour named by the exact Grade 4 simplified outcome.
+  - alignment_id: outcome-natural-science-inquiry
+    outcome_id: ee-prk-2026-stage2-natural-science-inquiry
+    route_id: grade-4-science
+    topic_selectors:
+      - source_record_id: grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+      - source_record_id: grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+    notes: The records use evidence to examine Earth shape, supporting inquiry practice but not the complete local-field-study outcome.
+  - alignment_id: outcome-mathematics-representations
+    outcome_id: ee-prk-2026-stage2-mathematics-representations
+    route_id: grade-4-mathematics
+    topic_selectors:
+      - source_record_id: grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+    notes: The captured tasks require extracting and representing practical information, but do not prove every representation transition.
+  - alignment_id: outcome-simplified-number-range
+    outcome_id: ee-plrk-2026-grade4-mathematics-number-range
+    route_id: grade-4-mathematics-simplified
+    topic_selectors:
+      - source_record_id: grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15803-ec865471ea
+      - source_record_id: grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15833-1859b2bcb1
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: verified
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The headings explicitly cover reading numbers and addition to one hundred, matching the exact Grade 4 simplified outcome.
+  - alignment_id: outcome-music-cultural-participation
+    outcome_id: ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    topic_selectors:
+      - source_record_id: grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+      - source_record_id: grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+        - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+    notes: Estonian folk instruments and a listening-response task support both cultural range and discussion, without proving complete coverage.
+programme_policy_alignments:
+  - alignment_id: programme-self-correction
+    outcome_id: ee-prk-2026-stage2-general-self-correction
+    route_ids:
+      - grade-4-english
+      - grade-4-estonian
+      - grade-4-estonian-second-language
+      - grade-4-human-studies-and-society
+      - grade-4-mathematics
+      - grade-4-music
+      - grade-4-russian
+      - grade-4-russian-reading
+      - grade-4-science
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs:
+      - grade-4-mastery-strands
+      - grade-4-teaching-calendar
+    notes: Self-correction is a programme design requirement and is not inferred from arbitrary subject chapters.
+  - alignment_id: programme-formative-assessment
+    outcome_id: ee-prk-2026-stage2-assessment-formative
+    route_ids:
+      - grade-4-english
+      - grade-4-estonian
+      - grade-4-estonian-second-language
+      - grade-4-human-studies-and-society
+      - grade-4-mathematics
+      - grade-4-music
+      - grade-4-russian
+      - grade-4-russian-reading
+      - grade-4-science
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs:
+      - grade-4-mastery-strands
+      - grade-4-teaching-calendar
+    notes: Formative assessment is implemented at programme-policy level and is not evidenced by route-level task presence.
+  - alignment_id: programme-environment-theme
+    outcome_id: ee-prk-2026-stage2-cross-curricular-environment
+    route_ids:
+      - grade-4-human-studies-and-society
+      - grade-4-science
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs:
+      - grade-4-project-responsible-environment
+      - grade-4-teaching-calendar
+    notes: The cross-curricular theme is carried by reviewed programme and project design rather than a positional chapter reference.
+  - alignment_id: programme-class-allocation
+    outcome_id: ee-prk-2026-stage2-school-curriculum-class-allocation
+    route_ids:
+      - grade-4-english
+      - grade-4-estonian
+      - grade-4-estonian-second-language
+      - grade-4-human-studies-and-society
+      - grade-4-mathematics
+      - grade-4-music
+      - grade-4-russian
+      - grade-4-russian-reading
+      - grade-4-science
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs:
+      - grade-4-programme-architecture
+      - grade-4-route-index
+    notes: Class-by-class allocation is an authored programme-policy decision and has no arbitrary source topic.
+project_alignments:
+  - alignment_id: project-place-russian-gap
+    project_id: grade-4-project-my-place-community
+    route_id: grade-4-russian
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: No Russian route topic was verified as a direct source bridge for the community project role.
+  - alignment_id: project-place-estonian-second
+    project_id: grade-4-project-my-place-community
+    route_id: grade-4-estonian-second-language
+    topic_selectors:
+      - source_record_id: grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8427-3bbbea1179
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The heading explicitly includes the group topic Meie kodukoht, while the full task body is not captured.
+  - alignment_id: project-place-human
+    project_id: grade-4-project-my-place-community
+    route_id: grade-4-human-studies-and-society
+    topic_selectors:
+      - source_record_id: grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2735-78eecddda8
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The source heading directly addresses society and social relationships relevant to the community role.
+  - alignment_id: project-weather-science
+    project_id: grade-4-project-nature-weather
+    route_id: grade-4-science
+    topic_selectors:
+      - source_record_id: grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-474-d6726d3813
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-474-d6726d3813
+    notes: The record links environmental conditions and world weather with captured environment-condition tasks.
+  - alignment_id: project-weather-mathematics
+    project_id: grade-4-project-nature-weather
+    route_id: grade-4-mathematics
+    topic_selectors:
+      - source_record_id: grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+    notes: The captured task uses a weather report and required data, providing a bounded mathematics bridge for this project.
+  - alignment_id: project-weather-estonian-second
+    project_id: grade-4-project-nature-weather
+    route_id: grade-4-estonian-second-language
+    topic_selectors:
+      - source_record_id: grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8397-10496a7a69
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The headings explicitly require describing and comparing weather, but canonical task examples are not captured.
+  - alignment_id: project-safe-route-human
+    project_id: grade-4-project-safe-school-route
+    route_id: grade-4-human-studies-and-society
+    topic_selectors:
+      - source_record_id: grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2719-404cb03239
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: School rules and learner rights support the school-safety role without claiming a complete road-safety source.
+  - alignment_id: project-safe-route-russian-gap
+    project_id: grade-4-project-safe-school-route
+    route_id: grade-4-russian
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: No Russian route topic was verified as directly relevant to the safe-school-route project role.
+  - alignment_id: project-safe-route-mathematics-gap
+    project_id: grade-4-project-safe-school-route
+    route_id: grade-4-mathematics
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: Time-unit and unrelated first-sorted mathematics topics are not accepted as evidence for a safe route.
+  - alignment_id: project-culture-russian-reading
+    project_id: grade-4-project-culture-stories-music
+    route_id: grade-4-russian-reading
+    topic_selectors:
+      - source_record_id: grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22448-fb61dc1c80
+    match_basis:
+      - original_heading
+      - book_or_kit_metadata
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: A named literary work is a direct story source candidate, while its full task evidence is not captured.
+  - alignment_id: project-culture-music
+    project_id: grade-4-project-culture-stories-music
+    route_id: grade-4-music
+    topic_selectors:
+      - source_record_id: grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+    match_basis:
+      - captured_task_example
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+    notes: Estonian folk instruments and their captured classification task provide a bounded cultural-music source.
+  - alignment_id: project-culture-estonian-second-gap
+    project_id: grade-4-project-culture-stories-music
+    route_id: grade-4-estonian-second-language
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: No Estonian second-language route topic was verified specifically for the cultural-story project role.
+  - alignment_id: project-everyday-mathematics
+    project_id: grade-4-project-everyday-mathematics
+    route_id: grade-4-mathematics
+    topic_selectors:
+      - source_record_id: grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-10142-7c92e6e062
+    match_basis:
+      - captured_task_example
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-10142-7c92e6e062
+    notes: The captured purchase calculation is a direct everyday-mathematics example with exact record identity.
+  - alignment_id: project-everyday-russian-gap
+    project_id: grade-4-project-everyday-mathematics
+    route_id: grade-4-russian
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: No Russian route topic was verified as a direct source for the everyday-mathematics project role.
+  - alignment_id: project-everyday-english-gap
+    project_id: grade-4-project-everyday-mathematics
+    route_id: grade-4-english
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: No English route topic was verified as a direct source for the everyday-mathematics project role.
+  - alignment_id: project-environment-science
+    project_id: grade-4-project-responsible-environment
+    route_id: grade-4-science
+    topic_selectors:
+      - source_record_id: grade-4-science-record-108-https-www-opiq-ee-kit-108-chapter-5254-c1e61fa04f
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The heading explicitly states human dependence on nature; no captured task example is linked.
+  - alignment_id: project-environment-human
+    project_id: grade-4-project-responsible-environment
+    route_id: grade-4-human-studies-and-society
+    topic_selectors:
+      - source_record_id: grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2729-e72988b70c
+    match_basis:
+      - original_heading
+      - reviewed_subject_mapping
+    confidence: partial
+    task_evidence:
+      status: not_captured
+      source_record_ids: []
+    notes: The source headings include community help and a riverbed clean-up, providing a bounded social-action bridge.
+  - alignment_id: project-environment-estonian-second-gap
+    project_id: grade-4-project-responsible-environment
+    route_id: grade-4-estonian-second-language
+    topic_selectors: []
+    match_basis:
+      - reviewed_subject_mapping
+    confidence: missing
+    task_evidence:
+      status: not_linked
+      source_record_ids: []
+    notes: No Estonian second-language route topic was verified specifically for the responsible-environment role.
+claim_boundary: >
+  Human-reviewed source alignment for architecture planning only; it does not establish full textbook coverage,
+  publication readiness, official exact-grade allocation beyond the cited baseline, or pedagogical effectiveness.

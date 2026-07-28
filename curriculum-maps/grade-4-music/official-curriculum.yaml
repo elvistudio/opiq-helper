@@ -37,8 +37,27 @@ outcomes:
     official_subject: null
     official_wording_et: Kuulab süvenenult Eesti ja teiste rahvaste muusikat ning arutleb muusika üle.
     outcome_id: ee-prk-2026-stage2-music-cultural-participation
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Estonian folk instruments and a listening-response task support both cultural range and discussion, without
+        proving complete coverage.
+      policy_alignment_id: outcome-music-cultural-participation
+      source_record_ids:
+        - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+        - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+        - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-music-topic-eesti-rahvapillid-c4496d6932
+        - grade-4-music-topic-marmotte-00dfb72e63
     source_id: ee-prok-2026-appendix-03
-    source_topic_evidence: heading_and_task_example
     subject_field: kunstiained
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +79,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 172
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

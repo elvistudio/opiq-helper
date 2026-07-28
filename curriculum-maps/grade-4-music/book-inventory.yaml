@@ -45,9 +45,11 @@ books:
     edition_relationships:
       - "Kits 174 and 552: Separate editions; kit 552 explicitly identifies 2024."
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -207,9 +209,11 @@ books:
       - https://www.opiq.ee/kit/206/chapter/11744
     edition_relationships: []
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -370,9 +374,11 @@ books:
     edition_relationships:
       - "Kits 174 and 552: Separate editions; kit 552 explicitly identifies 2024."
     eligibility:
+      curated_core_candidate: true
       internal_source_analysis: true
       optional_companion_candidate: true
-      ordinary_default_use: true
+      ordinary_default_use: false
+      programme_verification_required: true
       simplified_learner_specific_use: false
       teacher_only_use: false
     full_prose_available: false
@@ -457,6 +463,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 172
 route_id: grade-4-music

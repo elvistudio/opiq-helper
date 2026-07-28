@@ -37,8 +37,24 @@ outcomes:
     official_subject: null
     official_wording_et: Võrdleb eri allikatest pärit infot, eristab olulist ebaolulisest, fakti arvamusest.
     outcome_id: ee-prk-2026-stage2-estonian-source-comparison
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings cover information sources, source trust and opinion formation, but complete task evidence is not
+        captured.
+      policy_alignment_id: outcome-estonian-source-comparison
+      source_record_ids:
+        - grade-4-estonian-record-533-https-www-opiq-ee-kit-533-chapter-30093-281d59a6d8
+        - grade-4-estonian-record-533-https-www-opiq-ee-kit-533-chapter-30106-b26d5ac726
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-estonian-topic-kokkuvote-infootsing-ja-arvamuse-kujundamine-9847f6a3ab
+        - grade-4-estonian-topic-teabekirjanduse-liigid-e84db453f9
     source_id: ee-prok-2026-appendix-01
-    source_topic_evidence: heading_and_task_example
     subject_field: keel ja kirjandus
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +76,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 398
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

@@ -37,8 +37,24 @@ outcomes:
     official_subject: matemaatika
     official_wording_et: Esitab matemaatilist infot erinevatel viisidel (sh üleminek ühelt esitusviisilt teisele).
     outcome_id: ee-prk-2026-stage2-mathematics-representations
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The captured tasks require extracting and representing practical information, but do not prove every
+        representation transition.
+      policy_alignment_id: outcome-mathematics-representations
+      source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-mathematics-topic-milleks-on-numbrid-ja-arvud-e3ed8fd48c
     source_id: ee-prok-2026-appendix-05
-    source_topic_evidence: heading_and_task_example
     subject_field: matemaatika
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +76,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 567
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

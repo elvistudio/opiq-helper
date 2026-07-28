@@ -38,8 +38,26 @@ outcomes:
     official_wording_et: Sõnastab koos kaaslastega loodusteadusliku uurimisküsimuse või hüpoteesi, kavandab ja teeb uurimuse
       kodukoha veekogu, asula, metsa, niidu vms põhjal, kogub ja vormistab andmeid ning esitleb uurimistulemusi.
     outcome_id: ee-prk-2026-stage2-natural-science-inquiry
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The records use evidence to examine Earth shape, supporting inquiry practice but not the complete
+        local-field-study outcome.
+      policy_alignment_id: outcome-natural-science-inquiry
+      source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-science-topic-maa-kuju-4c14102446
     source_id: ee-prok-2026-appendix-04
-    source_topic_evidence: heading_and_task_example
     subject_field: loodusained
     translation_provenance:
       kind: opiq_helper_translation
@@ -63,6 +81,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 338
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

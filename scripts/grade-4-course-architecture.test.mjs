@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { before, test } from 'node:test';
 
 import {
@@ -113,6 +114,26 @@ test('book inventory accounts for every kit and preserves unknown programme type
     .every((route) => route.bookInventory.books.every((book) => book.programme_type === 'unknown')));
 });
 
+test('unknown programme types remain ineligible for ordinary default use', () => {
+  const unknownBooks = baseline.routes.flatMap((route) => route.bookInventory.books)
+    .filter((book) => book.programme_type === 'unknown');
+  assert.equal(unknownBooks.length, 24);
+  assert.ok(unknownBooks.every((book) => (
+    book.eligibility.internal_source_analysis
+    && book.eligibility.curated_core_candidate
+    && !book.eligibility.ordinary_default_use
+    && book.eligibility.programme_verification_required
+  )));
+  assert.deepEqual(
+    baseline.programme.architecture.release_gate.blocker_codes,
+    ['default_core_programme_type_unverified'],
+  );
+  assert.deepEqual(
+    baseline.programme.roadmap.release_blocker_codes,
+    ['default_core_programme_type_unverified'],
+  );
+});
+
 test('topic deduplication is route-bounded and preserves all 2212 record identities', () => {
   let records = 0;
   for (const route of baseline.routes) {
@@ -127,6 +148,40 @@ test('topic deduplication is route-bounded and preserves all 2212 record identit
   assert.equal(records, 2212);
 });
 
+test('authored outcome policy gives every route outcome stable source evidence', () => {
+  const alignments = baseline.routes.flatMap((route) => route.officialMap.outcomes.map((outcome) => outcome.source_alignment));
+  assert.equal(alignments.length, 12);
+  assert.equal(alignments.filter((alignment) => alignment.status === 'verified').length, 2);
+  assert.equal(alignments.filter((alignment) => alignment.status === 'partial').length, 10);
+  assert.equal(alignments.filter((alignment) => alignment.status === 'ambiguous').length, 0);
+  assert.equal(alignments.filter((alignment) => alignment.status === 'missing').length, 0);
+  assert.ok(alignments.every((alignment) => alignment.policy_alignment_id && alignment.topic_cluster_refs.length > 0));
+});
+
+test('captured task evidence is linked only to exact aligned source records', () => {
+  const linked = baseline.routes.flatMap((route) => route.officialMap.outcomes)
+    .map((outcome) => outcome.source_alignment)
+    .filter((alignment) => alignment.task_evidence_status === 'linked');
+  assert.ok(linked.length > 0);
+  for (const alignment of linked) {
+    assert.ok(alignment.task_evidence_source_record_ids.length > 0);
+    assert.ok(alignment.task_evidence_source_record_ids.every((recordId) => alignment.source_record_ids.includes(recordId)));
+  }
+});
+
+test('programme-policy outcomes do not inherit arbitrary source topics', () => {
+  const policyRows = baseline.programme.coverage.rows.filter((row) => (
+    row.source_alignment.evidence_layer === 'programme_policy'
+  ));
+  assert.equal(policyRows.length, 4);
+  assert.ok(policyRows.every((row) => (
+    row.source_topic_presence === 'not_applicable'
+    && row.topic_cluster_refs.length === 0
+    && row.source_alignment.source_record_ids.length === 0
+    && row.task_evidence_status === 'not_applicable'
+  )));
+});
+
 test('projects preserve mastery and separate individual evidence', () => {
   assert.equal(baseline.programme.projects.projects.length, 6);
   assert.ok(baseline.programme.mastery.mastery_strands.length >= 5);
@@ -135,6 +190,37 @@ test('projects preserve mastery and separate individual evidence', () => {
     [...new Set(baseline.programme.calendar.periods.flatMap((period) => period.project_ids))].sort(),
     baseline.programme.projects.projects.map((project) => project.project_id).sort(),
   );
+});
+
+test('project source mappings preserve explicit partial and missing roles', () => {
+  const alignments = baseline.programme.projects.projects.flatMap((project) => project.source_alignments);
+  assert.equal(alignments.length, 18);
+  assert.equal(alignments.filter((alignment) => alignment.status === 'partial').length, 11);
+  assert.equal(alignments.filter((alignment) => alignment.status === 'missing').length, 7);
+  assert.ok(baseline.programme.projects.projects.every((project) => (
+    project.topic_cluster_refs.length
+      === new Set(project.source_alignments.flatMap((alignment) => alignment.topic_cluster_refs)).size
+  )));
+});
+
+test('corrected projects no longer use arbitrary first-sorted topic evidence', () => {
+  const byId = new Map(baseline.programme.projects.projects.map((project) => [project.project_id, project]));
+  const weather = byId.get('grade-4-project-nature-weather');
+  const safeRoute = byId.get('grade-4-project-safe-school-route');
+  const environment = byId.get('grade-4-project-responsible-environment');
+  assert.ok(weather.source_alignments.some((alignment) => (
+    alignment.task_evidence_source_record_ids.includes('grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab')
+  )));
+  assert.equal(safeRoute.source_alignments.find((alignment) => alignment.route_id === 'grade-4-mathematics').status, 'missing');
+  assert.ok(environment.source_alignments.every((alignment) => (
+    !alignment.source_record_ids.some((recordId) => recordId.includes('unicellular'))
+  )));
+});
+
+test('generator contains no positional topic-selection fallback', async () => {
+  const source = await readFile('scripts/lib/grade-4-course-architecture.mjs', 'utf8');
+  assert.doesNotMatch(source, /topics\s*\[\s*0\s*\]/);
+  assert.doesNotMatch(source, /topics\.slice\s*\(/);
 });
 
 test('programme-wide outcomes are allocated without hiding the three real route gaps', () => {
@@ -190,6 +276,13 @@ test('completeness and release remain honestly blocked', () => {
   assert.equal(architecture.release_gate.publication_ready, false);
   assert.equal(architecture.release_gate.classroom_ready, false);
   assert.equal(architecture.release_gate.effectiveness_claimed, false);
+});
+
+test('authored topic-alignment policy is an authoritative generated-input dependency', () => {
+  assert.equal(baseline.inputs.alignmentPolicy.artifact_type, 'grade_4_topic_alignment_policy');
+  assert.ok(baseline.programme.architecture.provenance.authoritative_inputs.includes(
+    'grade-programmes/grade-4/topic-alignment-policy.yaml',
+  ));
 });
 
 test('rejects unknown Grade 4 route', () => expectCode(
@@ -281,10 +374,138 @@ test('rejects missing prose marked lesson-ready', () => expectCode(
 
 test('rejects missing task body marked assessment-ready', () => expectCode(
   (candidate) => {
-    candidate.routes[0].coverage.rows[0].task_evidence_status = 'missing';
+    candidate.routes[0].coverage.rows[0].task_evidence_status = 'not_captured';
     candidate.routes[0].coverage.rows[0].assessment_evidence_status = 'partial';
   },
   'missing_tasks_marked_assessment_ready',
+));
+
+test('rejects missing authored outcome alignment', () => expectCode(
+  (candidate) => { candidate.inputs.alignmentPolicy.outcome_alignments.shift(); },
+  'topic_alignment_policy_missing',
+));
+
+test('rejects alignment source record outside its route', () => expectCode(
+  (candidate) => {
+    candidate.inputs.alignmentPolicy.outcome_alignments[0].topic_selectors[0].source_record_id = 'grade-4-science-record-unknown';
+  },
+  'topic_alignment_source_record_unknown',
+));
+
+test('rejects task evidence not attached to the selected topic', () => expectCode(
+  (candidate) => {
+    const alignment = candidate.inputs.alignmentPolicy.outcome_alignments
+      .find((entry) => entry.task_evidence.status === 'linked');
+    alignment.task_evidence.source_record_ids = [
+      candidate.routes.find((route) => route.routeModel.definition.id === alignment.route_id)
+        .bookInventory.source_records.at(-1).record_id,
+    ];
+  },
+  'topic_alignment_task_evidence_unlinked',
+));
+
+test('rejects generated outcome mapping that differs from authored policy', () => expectCode(
+  (candidate) => { candidate.routes[0].officialMap.outcomes[0].source_alignment.topic_cluster_refs = []; },
+  'topic_alignment_generated_mismatch',
+));
+
+test('rejects arbitrary source topic on a programme-policy outcome', () => expectCode(
+  (candidate) => {
+    const row = candidate.programme.coverage.rows.find((entry) => (
+      entry.source_alignment.evidence_layer === 'programme_policy'
+    ));
+    row.topic_cluster_refs = [candidate.routes[0].topicInventory.topics[0].topic_id];
+  },
+  'programme_coverage_alignment_mismatch',
+));
+
+test('rejects project route role without authored alignment', () => expectCode(
+  (candidate) => { candidate.inputs.alignmentPolicy.project_alignments.shift(); },
+  'project_alignment_missing',
+));
+
+test('rejects positional or otherwise untraceable project topic ref', () => expectCode(
+  (candidate) => {
+    candidate.programme.projects.projects[0].topic_cluster_refs.push(
+      candidate.routes[0].topicInventory.topics.at(-1).topic_id,
+    );
+  },
+  'project_topic_refs_untraceable',
+));
+
+test('rejects ambiguous policy promoted with linked task evidence', () => expectCode(
+  (candidate) => {
+    candidate.inputs.alignmentPolicy.outcome_alignments
+      .find((entry) => entry.task_evidence.status === 'linked').confidence = 'ambiguous';
+  },
+  'ambiguous_alignment_marked_verified',
+));
+
+test('rejects collapsing mixed human and society outcome evidence', () => expectCode(
+  (candidate) => {
+    const mixed = candidate.routes.find((route) => route.routeModel.definition.id === 'grade-4-human-studies-and-society');
+    mixed.officialMap.outcomes[1].source_alignment.topic_cluster_refs = [
+      ...mixed.officialMap.outcomes[0].source_alignment.topic_cluster_refs,
+    ];
+  },
+  'mixed_route_alignment_collapsed',
+));
+
+test('rejects unknown programme type as ordinary-default eligible', () => expectCode(
+  (candidate) => {
+    candidate.routes.find((route) => route.routeModel.definition.programme_type === 'unknown')
+      .bookInventory.books[0].eligibility.ordinary_default_use = true;
+  },
+  'unknown_programme_type_marked_ordinary_default',
+));
+
+test('rejects route role as proof of unknown programme eligibility', () => expectCode(
+  (candidate) => {
+    const route = candidate.routes.find((entry) => (
+      entry.routeModel.definition.programme_type === 'unknown'
+      && entry.routeModel.definition.id === 'grade-4-russian'
+    ));
+    assert.equal(route.bookInventory.programme_role, 'default_ordinary_core');
+    route.bookInventory.books[0].eligibility.ordinary_default_use = true;
+  },
+  'unknown_programme_type_marked_ordinary_default',
+));
+
+test('rejects simplified book marked ordinary default', () => expectCode(
+  (candidate) => {
+    candidate.routes.find((route) => route.routeModel.definition.programme_type === 'simplified_curriculum')
+      .bookInventory.books[0].eligibility.ordinary_default_use = true;
+  },
+  'nonordinary_programme_marked_ordinary_default',
+));
+
+test('rejects mixed-subject book represented as ordinary default', () => expectCode(
+  (candidate) => {
+    candidate.routes.find((route) => route.routeModel.definition.programme_type === 'mixed_subject')
+      .bookInventory.books[0].eligibility.ordinary_default_use = true;
+  },
+  'nonordinary_programme_marked_ordinary_default',
+));
+
+test('rejects unknown programme type without verification gate', () => expectCode(
+  (candidate) => {
+    candidate.routes.find((route) => route.routeModel.definition.programme_type === 'unknown')
+      .bookInventory.books[0].eligibility.programme_verification_required = false;
+  },
+  'unknown_programme_type_verification_not_required',
+));
+
+test('rejects ambiguous programme evidence marked release-ready', () => expectCode(
+  (candidate) => { candidate.programme.architecture.release_gate.status = 'ready'; },
+  'ambiguous_programme_evidence_marked_release_ready',
+));
+
+test('rejects missing programme-type release blocker', () => expectCode(
+  (candidate) => {
+    candidate.programme.architecture.release_gate.blocker_codes = [];
+    candidate.programme.roadmap.release_blocker_codes = [];
+  },
+  'default_core_programme_type_blocker_missing',
 ));
 
 test('rejects shared project evidence replacing individual evidence', () => expectCode(

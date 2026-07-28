@@ -37,8 +37,24 @@ outcomes:
     official_subject: null
     official_wording_et: Loeb mõtestatult, nimetab teksti teema ja sõnastab lühidalt peamõtte.
     outcome_id: ee-prk-2026-stage2-russian-main-idea
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The captured task explicitly asks the learner to determine a text topic; it supports only part of the wider
+        stage-II outcome.
+      policy_alignment_id: outcome-russian-main-idea
+      source_record_ids:
+        - grade-4-russian-record-243-https-www-opiq-ee-kit-243-chapter-13782-93384a0181
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-russian-record-243-https-www-opiq-ee-kit-243-chapter-13782-93384a0181
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-russian-topic-record-2f524f9cb7
     source_id: ee-prok-2026-appendix-01
-    source_topic_evidence: heading_and_task_example
     subject_field: keel ja kirjandus
     translation_provenance:
       kind: opiq_helper_translation
@@ -60,6 +76,7 @@ provenance:
     - compliance/estonia/2026-27/outcome-index.yaml
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
   verification_date: 2026-07-28
 record_count: 167
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

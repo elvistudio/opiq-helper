@@ -18,6 +18,12 @@ the two simplified routes require learner-specific opt-in.
 * 19 Grade 4-relevant official outcome rows;
 * 6 cross-subject project modules with separate individual evidence.
 
+The authored policy at `grade-programmes/grade-4/topic-alignment-policy.yaml` selects source topics by stable record identity rather than
+array position. Outcome mappings are 2 verified, 10 partial,
+0 ambiguous and 0 missing. Project-role mappings are
+0 verified, 11 partial, 0 ambiguous and
+7 missing; each missing role is an explicit clean-room bridge requirement.
+
 Ordinary outcomes retain school-stage-II scope and are only recommended Grade 4 allocations. Only the two
 simplified-curriculum outcomes retain verified exact Grade 4 scope. Russian and Russian reading, first-language
 and second-language Estonian, ordinary and simplified routes remain separate.
@@ -26,6 +32,11 @@ and second-language Estonian, ordinary and simplified routes remain separate.
 
 The planned commercial core must work without Opiq. Companion candidates are internal-only, access-unverified
 references with a mandatory standalone fallback. Teacher-only resources are excluded.
+
+24 book/edition records have an unknown programme type. They remain usable for internal
+source analysis and as curated companion candidates, but `ordinary_default_use` is false until programme
+membership is verified. The machine-readable release blocker is
+`default_core_programme_type_unverified`.
 
 ## Gaps and release status
 
