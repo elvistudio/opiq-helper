@@ -84,6 +84,25 @@ comparisons:
       identities_match: true
     official_references:
       - https://www.riigiteataja.ee/akt/123122025005
+  - comparison_id: pgs-section-23-2027-transition
+    title_ru: Переход между редакциями PGS внутри 2026/27
+    status: unchanged
+    previous_source_id: ee-pgs-2026-09-01
+    target_source_id: ee-pgs-2027-01-01
+    effective_from: 2027-01-01
+    summary_ru: Редакция PGS от 1 сентября 2026 года заканчивается 31 декабря. Редакция от
+      1 января 2027 года продолжает нормативное покрытие; нормализованный текст § 23 совпадает,
+      поэтому стабильные requirement IDs поддерживаются двумя последовательными source evidence.
+    comparison_identity:
+      method: normalized_legal_section_text
+      algorithm: sha256
+      previous_value: b24c6496de06d27357bca026ad55ad2990626b793b0ab36f0944dbc6eafb4df5
+      target_value: b24c6496de06d27357bca026ad55ad2990626b793b0ab36f0944dbc6eafb4df5
+      item_count: 1
+      identities_match: true
+    official_references:
+      - https://www.riigiteataja.ee/akt/120062026032
+      - https://www.riigiteataja.ee/akt/118032026016
   - comparison_id: home-learning-september-2025-amendment
     title_ru: Правила домашнего обучения, уже изменённые в сентябре 2025 года
     status: unchanged

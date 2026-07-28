@@ -59,6 +59,7 @@
     "test:grade-4-content-quality": "node --test scripts/grade-4-content-quality.test.mjs",
     "test:grade-4-catalogue-gap": "node --test scripts/grade-4-catalogue-gap.test.mjs",
     "test:official-source-registry": "node --test --test-name-pattern=\"official source registry\" scripts/2026-27-compliance.test.mjs",
+    "verify-live:2026-27-official-sources": "node scripts/verify-live-2026-27-official-sources.mjs",
     "test:grade-3-estonian": "node --test scripts/grade-3-estonian.test.mjs",
     "test:grade-3-music": "node --test scripts/grade-3-music.test.mjs",
     "test:grade-3-russian-reading": "node --test scripts/grade-3-russian-reading.test.mjs",

@@ -69,6 +69,16 @@
         "official_wording_et": { "type": "string", "minLength": 1 },
         "plain_language_ru": { "type": "string", "minLength": 1 },
         "source_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "source_evidence": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sourceEvidence" }
+        },
+        "version_comparison_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
         "official_reference": { "type": "string", "minLength": 1 },
         "effective_from": { "$ref": "#/$defs/date" },
         "effective_to": {
@@ -105,6 +115,20 @@
         "failure_consequence": { "type": ["string", "null"] },
         "school_agreement_needed": { "type": "boolean" },
         "notes": { "type": "string", "minLength": 1 }
+      },
+      "dependentRequired": {
+        "source_evidence": ["version_comparison_id"],
+        "version_comparison_id": ["source_evidence"]
+      }
+    },
+    "sourceEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "covers_from", "covers_to"],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "covers_from": { "$ref": "#/$defs/date" },
+        "covers_to": { "$ref": "#/$defs/date" }
       }
     },
     "practice": {

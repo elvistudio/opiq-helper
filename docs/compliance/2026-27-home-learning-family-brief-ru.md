@@ -65,6 +65,7 @@
 ## Проверенные официальные источники
 
 - [PGS](https://www.riigiteataja.ee/akt/120062026032) — RT I, 20.06.2026, 32.
+- [PGS 01.01.2027](https://www.riigiteataja.ee/akt/118032026016) — RT I, 18.03.2026, 16.
 - [Koduõppe määrus](https://www.riigiteataja.ee/akt/116092025013) — RT I, 16.09.2025, 13.
 - [Kooli kohustuslike dokumentide määrus](https://www.riigiteataja.ee/akt/111072025011) — RT I, 11.07.2025, 11.
 

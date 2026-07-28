@@ -67,6 +67,144 @@ test('official source registry targets the school year beginning 2026-09-01', as
   assert.equal(result.summary.errors, 0);
 });
 
+test('official source registry bounds the September 2026 PGS version at 2026-12-31', () => {
+  const selected = source('ee-pgs-2026-09-01');
+  assert.equal(selected.consolidated_act_identifier, '120062026032');
+  assert.equal(selected.version_effective_from, '2026-09-01');
+  assert.equal(selected.version_effective_to, '2026-12-31');
+  assert.equal(selected.target_school_year_applicability.status, 'partial');
+});
+
+test('official source registry records the PGS version beginning 2027-01-01', () => {
+  const selected = source('ee-pgs-2027-01-01');
+  assert.equal(selected.consolidated_act_identifier, '118032026016');
+  assert.equal(selected.publication_reference, 'RT I, 18.03.2026, 16');
+  assert.equal(selected.version_effective_from, '2027-01-01');
+  assert.equal(selected.version_effective_to, null);
+  assert.equal(
+    selected.content_identity.value,
+    '79bd1acf54c3a652dbad2618be4c98c5f52690a688ec394e5511d785978e8060',
+  );
+  assert.equal(selected.target_school_year_applicability.status, 'partial');
+});
+
+test('official source registry distinguishes offline and live XML verification classes', () => {
+  const classification = repository.artifacts.registry.data.verification_classification;
+  assert.deepEqual(classification.manual_live_xml_hash_verified, [
+    'ee-pgs-2026-09-01',
+    'ee-pgs-2027-01-01',
+  ]);
+  assert.deepEqual(classification.ci_live_xml_hash_verified, []);
+  assert.ok(classification.locally_archived_hash_verified.includes('ee-pgs-2027-01-01'));
+  assert.equal(
+    classification.schema_validated_hash.length,
+    repository.artifacts.registry.data.sources.length,
+  );
+});
+
+test('a single partial PGS source cannot support a full-school-year claim', async () => {
+  const codes = await mutationCodes((copy) => {
+    const candidate = requirement('ee-pgs-2026-home-learning-parent-request', copy);
+    delete candidate.source_evidence;
+    delete candidate.version_comparison_id;
+  });
+  assert.ok(codes.has('claim_school_year_coverage_incomplete'));
+});
+
+test('the two PGS versions continuously support stable § 23 requirement IDs', async () => {
+  const candidate = requirement('ee-pgs-2026-home-learning-parent-request');
+  assert.deepEqual(candidate.source_evidence, [
+    {
+      source_id: 'ee-pgs-2026-09-01',
+      covers_from: '2026-09-01',
+      covers_to: '2026-12-31',
+    },
+    {
+      source_id: 'ee-pgs-2027-01-01',
+      covers_from: '2027-01-01',
+      covers_to: '2027-08-31',
+    },
+  ]);
+  const result = await validate2026ComplianceRepository(repository);
+  assert.equal(result.summary.errors, 0);
+});
+
+test('a one-day legal evidence gap fails full-school-year validation', async () => {
+  const codes = await mutationCodes((copy) => {
+    requirement('ee-pgs-2026-home-learning-parent-request', copy)
+      .source_evidence[1].covers_from = '2027-01-02';
+  });
+  assert.ok(codes.has('claim_school_year_coverage_gap'));
+});
+
+test('an incorrect open-ended September PGS interval fails applicability validation', async () => {
+  const codes = await mutationCodes((copy) => {
+    const selected = source('ee-pgs-2026-09-01', copy);
+    selected.version_effective_to = null;
+    selected.target_school_year_applicability.status = 'applicable';
+  });
+  assert.ok(codes.has('legal_version_transition_interval_invalid'));
+});
+
+test('omitting the January PGS source makes multi-version claims invalid', async () => {
+  const codes = await mutationCodes((copy) => {
+    copy.artifacts.registry.data.sources = copy.artifacts.registry.data.sources
+      .filter((candidate) => candidate.source_id !== 'ee-pgs-2027-01-01');
+    for (const ids of Object.values(copy.artifacts.registry.data.verification_classification)) {
+      const index = ids.indexOf('ee-pgs-2027-01-01');
+      if (index !== -1) ids.splice(index, 1);
+    }
+    copy.artifacts.registry.data.completeness.checked_documents =
+      copy.artifacts.registry.data.completeness.checked_documents
+        .filter((sourceId) => sourceId !== 'ee-pgs-2027-01-01');
+  });
+  assert.ok(codes.has('claim_evidence_source_unknown'));
+});
+
+test('a substantive § 23 change requires versioned requirement records', async () => {
+  const codes = await mutationCodes((copy) => {
+    const comparison = copy.artifacts.changeNote.data.comparisons
+      .find((candidate) => candidate.comparison_id === 'pgs-section-23-2027-transition');
+    comparison.status = 'changed';
+    comparison.comparison_identity.target_value = 'a'.repeat(64);
+    comparison.comparison_identity.identities_match = false;
+  });
+  assert.ok(codes.has('multi_version_claim_requires_versioned_records'));
+});
+
+test('overlapping evidence cannot hide contradictory § 23 wording', async () => {
+  const codes = await mutationCodes((copy) => {
+    requirement('ee-pgs-2026-home-learning-parent-request', copy)
+      .source_evidence[1].covers_from = '2026-12-31';
+    const comparison = copy.artifacts.changeNote.data.comparisons
+      .find((candidate) => candidate.comparison_id === 'pgs-section-23-2027-transition');
+    comparison.status = 'changed';
+    comparison.comparison_identity.target_value = 'b'.repeat(64);
+    comparison.comparison_identity.identities_match = false;
+  });
+  assert.ok(codes.has('multi_version_claim_requires_versioned_records'));
+});
+
+test('a claim effective interval cannot exceed every supporting source version', async () => {
+  const codes = await mutationCodes((copy) => {
+    source('ee-pgs-2027-01-01', copy).version_effective_to = '2027-08-31';
+    requirement('ee-pgs-2026-home-learning-parent-request', copy).effective_to = '2027-09-01';
+  });
+  assert.ok(codes.has('claim_effective_interval_exceeds_sources'));
+});
+
+test('the § 23 transition is identity-backed and unchanged', () => {
+  const comparison = repository.artifacts.changeNote.data.comparisons
+    .find((candidate) => candidate.comparison_id === 'pgs-section-23-2027-transition');
+  assert.equal(comparison.status, 'unchanged');
+  assert.equal(comparison.comparison_identity.method, 'normalized_legal_section_text');
+  assert.equal(comparison.comparison_identity.identities_match, true);
+  assert.equal(
+    comparison.comparison_identity.previous_value,
+    comparison.comparison_identity.target_value,
+  );
+});
+
 test('official source registry selects the PRÕK version effective on the target date', () => {
   const selected = source('ee-prok-2026-09-01');
   assert.equal(selected.consolidated_act_identifier, '123122025007');
@@ -87,6 +225,24 @@ test('official source registry selects the PLRÕK version effective on the targe
   assert.equal(selected.consolidated_act_identifier, '123122025005');
   assert.equal(selected.version_effective_from, '2026-09-01');
   assert.equal(selected.target_school_year_applicability.status, 'applicable');
+});
+
+test('verified PRÕK claims require continuous coverage through 2027-08-31', async () => {
+  const codes = await mutationCodes((copy) => {
+    const selected = source('ee-prok-2026-09-01', copy);
+    selected.version_effective_to = '2026-12-31';
+    selected.target_school_year_applicability.status = 'partial';
+  });
+  assert.ok(codes.has('claim_school_year_coverage_incomplete'));
+});
+
+test('verified PLRÕK claims require continuous coverage through 2027-08-31', async () => {
+  const codes = await mutationCodes((copy) => {
+    const selected = source('ee-plrok-2026-appendix-01', copy);
+    selected.version_effective_to = '2027-08-30';
+    selected.target_school_year_applicability.status = 'partial';
+  });
+  assert.ok(codes.has('claim_school_year_coverage_incomplete'));
 });
 
 test('official source registry records all PRÕK and PLRÕK appendices against their parents', () => {
@@ -364,6 +520,16 @@ test('the release checklist cannot be ready while blocking checks remain', async
     copy.artifacts.checklist.data.release_status = 'ready';
   });
   assert.ok(codes.has('release_status_false_positive'));
+});
+
+test('the August 2026 final legal refresh remains release-blocking', () => {
+  const registry = repository.artifacts.registry.data;
+  const checklist = repository.artifacts.checklist.data;
+  const refresh = checklist.checks.find((candidate) => candidate.check_id === 'legal-update-review-date');
+  assert.equal(registry.completeness.next_review_due, '2026-08-28');
+  assert.equal(refresh.status, 'pending');
+  assert.equal(refresh.release_blocking, true);
+  assert.equal(checklist.release_status, 'blocked');
 });
 
 test('family brief labels recommendations and legal non-guarantees', () => {

@@ -12,6 +12,16 @@
       "type": "string",
       "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*//)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
     },
+    "sourceEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "covers_from", "covers_to"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "covers_from": { "$ref": "#/$defs/date" },
+        "covers_to": { "$ref": "#/$defs/date" }
+      }
+    },
     "scope": {
       "oneOf": [
         {
@@ -67,6 +77,7 @@
             "required": [
               "outcome_id",
               "source_id",
+              "source_evidence",
               "official_reference",
               "effective_from",
               "effective_to",
@@ -83,6 +94,11 @@
             "properties": {
               "outcome_id": { "type": "string", "minLength": 1 },
               "source_id": { "type": "string", "minLength": 1 },
+              "source_evidence": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/$defs/sourceEvidence" }
+              },
               "official_reference": { "type": "string", "minLength": 1 },
               "effective_from": { "$ref": "#/$defs/date" },
               "effective_to": {
@@ -136,6 +152,7 @@
             "required": [
               "requirement_id",
               "source_id",
+              "source_evidence",
               "official_reference",
               "effective_from",
               "effective_to",
@@ -150,6 +167,11 @@
             "properties": {
               "requirement_id": { "type": "string", "minLength": 1 },
               "source_id": { "type": "string", "minLength": 1 },
+              "source_evidence": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "#/$defs/sourceEvidence" }
+              },
               "official_reference": { "type": "string", "minLength": 1 },
               "effective_from": { "$ref": "#/$defs/date" },
               "effective_to": {

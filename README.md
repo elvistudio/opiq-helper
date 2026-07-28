@@ -20,7 +20,7 @@ The represented subjects are:
 - supplementary Kodututred and Noorte Kotkad youth-organisation training;
 - geography.
 
-The presence of Opiq pages does not prove complete coverage of the official school curriculum. The repository contains a complete grade-5 science annual architecture, but its official mapping remains partial and only one thematic unit is fully authored. The separate [2026/27 legal and curriculum baseline](docs/2026-27-curriculum-compliance-baseline.md) version-pins the applicable Estonian official sources for downstream Grade 2, Grade 4 and home-learning work while keeping its own completeness declaration partial.
+The presence of Opiq pages does not prove complete coverage of the official school curriculum. The repository contains a complete grade-5 science annual architecture, but its official mapping remains partial and only one thematic unit is fully authored. The separate [2026/27 legal and curriculum baseline](docs/2026-27-curriculum-compliance-baseline.md) validates continuous official-source coverage from 2026-09-01 through 2027-08-31 for downstream Grade 2, Grade 4 and home-learning work while keeping its own completeness declaration partial.
 
 ## Source locations
 

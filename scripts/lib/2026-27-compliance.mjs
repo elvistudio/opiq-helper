@@ -129,16 +129,265 @@ function duplicateValues(values) {
   return stableSort(duplicates);
 }
 
-function dateCoversTarget(source) {
-  return source.version_effective_from <= TARGET_SCHOOL_YEAR.startsOn
-    && (source.version_effective_to === null || source.version_effective_to >= TARGET_SCHOOL_YEAR.startsOn);
+const laterDate = (...values) => stableSort(values.filter(Boolean)).at(-1);
+const earlierDate = (...values) => stableSort(values.filter(Boolean))[0];
+
+function nextDate(value) {
+  const date = new Date(`${value}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + 1);
+  return date.toISOString().slice(0, 10);
 }
 
-function sourceSupportsClaim(source) {
-  return source
-    && source.evidence_status === 'verified'
-    && source.target_school_year_applicability.status === 'applicable'
-    && dateCoversTarget(source);
+function sourceCoversInterval(source, startsOn, endsOn) {
+  return source.version_effective_from <= startsOn
+    && (source.version_effective_to === null || source.version_effective_to >= endsOn);
+}
+
+function sourceIntersectsInterval(source, startsOn, endsOn) {
+  return source.version_effective_from <= endsOn
+    && (source.version_effective_to === null || source.version_effective_to >= startsOn);
+}
+
+function expectedSourceApplicability(source) {
+  if (sourceCoversInterval(source, TARGET_SCHOOL_YEAR.startsOn, TARGET_SCHOOL_YEAR.endsOn)) {
+    return 'applicable';
+  }
+  if (sourceIntersectsInterval(source, TARGET_SCHOOL_YEAR.startsOn, TARGET_SCHOOL_YEAR.endsOn)) {
+    return 'partial';
+  }
+  return 'not_applicable';
+}
+
+export function resolveClaimSourceEvidence(claim, sourceById) {
+  if (claim.source_evidence) return structuredClone(claim.source_evidence);
+  const source = sourceById.get(claim.source_id);
+  if (!source) return [];
+  const coversFrom = laterDate(
+    TARGET_SCHOOL_YEAR.startsOn,
+    claim.effective_from,
+    source.version_effective_from,
+  );
+  const coversTo = earlierDate(
+    TARGET_SCHOOL_YEAR.endsOn,
+    claim.effective_to,
+    source.version_effective_to,
+  );
+  if (!coversFrom || !coversTo || coversFrom > coversTo) return [];
+  return [{
+    source_id: claim.source_id,
+    covers_from: coversFrom,
+    covers_to: coversTo,
+  }];
+}
+
+function validateClaimSourceEvidence({
+  artifact,
+  claim,
+  base,
+  sourceById,
+  comparisonById,
+  diagnostics,
+  requireFullSchoolYear,
+}) {
+  if (!sourceById.has(claim.source_id)) {
+    add(
+      diagnostics,
+      artifact.file,
+      `${base}/source_id`,
+      'claim_primary_source_unknown',
+      `unknown source ${claim.source_id}`,
+    );
+  } else if (
+    requireFullSchoolYear
+    && (
+      sourceById.get(claim.source_id).evidence_status !== 'verified'
+      || !sourceIntersectsInterval(
+        sourceById.get(claim.source_id),
+        TARGET_SCHOOL_YEAR.startsOn,
+        TARGET_SCHOOL_YEAR.endsOn,
+      )
+    )
+  ) {
+    add(
+      diagnostics,
+      artifact.file,
+      `${base}/source_id`,
+      'verified_claim_source_inapplicable',
+      `verified claim cannot use ${claim.source_id}.`,
+    );
+  }
+  const evidence = resolveClaimSourceEvidence(claim, sourceById);
+  const sortedEvidence = stableSort(evidence, (item) => `${item.covers_from}\u0000${item.source_id}`);
+  if (!deepEqual(evidence, sortedEvidence)) {
+    add(
+      diagnostics,
+      artifact.file,
+      `${base}/source_evidence`,
+      'claim_evidence_order_invalid',
+      'source evidence must be ordered by covers_from and source_id.',
+    );
+  }
+  if (claim.source_evidence && claim.source_evidence[0]?.source_id !== claim.source_id) {
+    add(
+      diagnostics,
+      artifact.file,
+      `${base}/source_id`,
+      'claim_primary_source_mismatch',
+      'source_id must equal the first source_evidence source_id.',
+    );
+  }
+  for (const [index, segment] of sortedEvidence.entries()) {
+    const source = sourceById.get(segment.source_id);
+    const field = `${base}/source_evidence/${index}`;
+    if (!source) {
+      add(
+        diagnostics,
+        artifact.file,
+        `${field}/source_id`,
+        'claim_evidence_source_unknown',
+        `unknown source ${segment.source_id}`,
+      );
+      continue;
+    }
+    if (source.evidence_status !== 'verified') {
+      add(
+        diagnostics,
+        artifact.file,
+        `${field}/source_id`,
+        'claim_evidence_source_unverified',
+        `${segment.source_id} is not a verified official source.`,
+      );
+    }
+    if (segment.covers_from > segment.covers_to) {
+      add(
+        diagnostics,
+        artifact.file,
+        field,
+        'claim_evidence_interval_invalid',
+        `${segment.covers_from} is after ${segment.covers_to}.`,
+      );
+      continue;
+    }
+    if (
+      segment.covers_from < source.version_effective_from
+      || (
+        source.version_effective_to !== null
+        && segment.covers_to > source.version_effective_to
+      )
+    ) {
+      add(
+        diagnostics,
+        artifact.file,
+        field,
+        'claim_evidence_interval_outside_source',
+        `${segment.source_id} does not cover ${segment.covers_from} through ${segment.covers_to}.`,
+      );
+    }
+    if (
+      segment.covers_from < claim.effective_from
+      || (claim.effective_to !== null && segment.covers_to > claim.effective_to)
+    ) {
+      add(
+        diagnostics,
+        artifact.file,
+        field,
+        'claim_evidence_interval_outside_claim',
+        'source evidence exceeds the claim effective interval.',
+      );
+    }
+  }
+  if (claim.effective_to !== null && sortedEvidence.length > 0) {
+    const supportingSources = sortedEvidence
+      .map((segment) => sourceById.get(segment.source_id))
+      .filter(Boolean);
+    if (
+      supportingSources.length > 0
+      && supportingSources.every((source) => source.version_effective_to !== null)
+      && claim.effective_to > stableSort(
+        supportingSources.map((source) => source.version_effective_to),
+      ).at(-1)
+    ) {
+      add(
+        diagnostics,
+        artifact.file,
+        `${base}/effective_to`,
+        'claim_effective_interval_exceeds_sources',
+        'claim effective_to extends beyond all supporting source versions.',
+      );
+    }
+  }
+  if (claim.source_evidence) {
+    const comparison = comparisonById.get(claim.version_comparison_id);
+    if (!comparison) {
+      add(
+        diagnostics,
+        artifact.file,
+        `${base}/version_comparison_id`,
+        'claim_version_comparison_unknown',
+        `unknown comparison ${claim.version_comparison_id}`,
+      );
+    } else {
+      const firstSourceId = sortedEvidence[0]?.source_id;
+      const lastSourceId = sortedEvidence.at(-1)?.source_id;
+      if (
+        comparison.previous_source_id !== firstSourceId
+        || comparison.target_source_id !== lastSourceId
+      ) {
+        add(
+          diagnostics,
+          artifact.file,
+          `${base}/version_comparison_id`,
+          'claim_version_comparison_sources_mismatch',
+          'comparison endpoints must match the first and last source-evidence records.',
+        );
+      }
+      if (
+        comparison.status !== 'unchanged'
+        || comparison.comparison_identity?.identities_match !== true
+      ) {
+        add(
+          diagnostics,
+          artifact.file,
+          `${base}/version_comparison_id`,
+          'multi_version_claim_requires_versioned_records',
+          'a stable claim ID requires an unchanged, identity-backed wording comparison.',
+        );
+      }
+    }
+  }
+  if (requireFullSchoolYear) {
+    let coveredThrough = null;
+    for (const segment of sortedEvidence) {
+      if (segment.covers_to < TARGET_SCHOOL_YEAR.startsOn || segment.covers_from > TARGET_SCHOOL_YEAR.endsOn) {
+        continue;
+      }
+      const startsOn = laterDate(segment.covers_from, TARGET_SCHOOL_YEAR.startsOn);
+      const endsOn = earlierDate(segment.covers_to, TARGET_SCHOOL_YEAR.endsOn);
+      const expectedStart = coveredThrough === null ? TARGET_SCHOOL_YEAR.startsOn : nextDate(coveredThrough);
+      if (startsOn > expectedStart) {
+        add(
+          diagnostics,
+          artifact.file,
+          `${base}/source_evidence`,
+          'claim_school_year_coverage_gap',
+          `uncovered interval begins on ${expectedStart}.`,
+        );
+        break;
+      }
+      if (coveredThrough === null || endsOn > coveredThrough) coveredThrough = endsOn;
+    }
+    if (coveredThrough === null || coveredThrough < TARGET_SCHOOL_YEAR.endsOn) {
+      const uncoveredFrom = coveredThrough === null ? TARGET_SCHOOL_YEAR.startsOn : nextDate(coveredThrough);
+      add(
+        diagnostics,
+        artifact.file,
+        `${base}/source_evidence`,
+        'claim_school_year_coverage_incomplete',
+        `source evidence ends before ${TARGET_SCHOOL_YEAR.endsOn}; uncovered from ${uncoveredFrom}.`,
+      );
+    }
+  }
+  return sortedEvidence;
 }
 
 async function validateSourceRegistry(repository, diagnostics) {
@@ -156,6 +405,60 @@ async function validateSourceRegistry(repository, diagnostics) {
       'target_school_year_start_mismatch',
       `expected ${TARGET_SCHOOL_YEAR.startsOn}`,
     );
+  }
+  if (registry.data.target_school_year.ends_on !== TARGET_SCHOOL_YEAR.endsOn) {
+    add(
+      diagnostics,
+      registry.file,
+      '/target_school_year/ends_on',
+      'target_school_year_end_mismatch',
+      `expected ${TARGET_SCHOOL_YEAR.endsOn}`,
+    );
+  }
+  const allSourceIds = stableSort(sources.map((source) => source.source_id));
+  const classification = registry.data.verification_classification;
+  if (!deepEqual(classification.schema_validated_hash, allSourceIds)) {
+    add(
+      diagnostics,
+      registry.file,
+      '/verification_classification/schema_validated_hash',
+      'source_hash_schema_classification_incomplete',
+      'schema_validated_hash must list every source exactly once in bytewise order.',
+    );
+  }
+  const archivedSourceIds = stableSort(sources
+    .filter((source) => source.archived_excerpt)
+    .map((source) => source.source_id));
+  if (!deepEqual(classification.locally_archived_hash_verified, archivedSourceIds)) {
+    add(
+      diagnostics,
+      registry.file,
+      '/verification_classification/locally_archived_hash_verified',
+      'source_local_archive_classification_inaccurate',
+      'locally_archived_hash_verified must equal the archived excerpt source set.',
+    );
+  }
+  for (const [classificationName, sourceIds] of Object.entries(classification)) {
+    if (!deepEqual(sourceIds, stableSort(sourceIds))) {
+      add(
+        diagnostics,
+        registry.file,
+        `/verification_classification/${classificationName}`,
+        'source_verification_classification_order_invalid',
+        'source IDs must use bytewise ordering.',
+      );
+    }
+    for (const sourceId of sourceIds) {
+      if (!sourceById.has(sourceId)) {
+        add(
+          diagnostics,
+          registry.file,
+          `/verification_classification/${classificationName}`,
+          'source_verification_classification_unknown',
+          `unknown source ${sourceId}.`,
+        );
+      }
+    }
   }
   for (const [index, source] of sources.entries()) {
     const base = `/sources/${index}`;
@@ -194,25 +497,39 @@ async function validateSourceRegistry(repository, diagnostics) {
         add(diagnostics, registry.file, `${base}/supersedes_or_compares_to`, 'source_comparison_unknown', `unknown source ${relatedId}`);
       }
     }
-    if (source.target_school_year_applicability.status === 'applicable' && !dateCoversTarget(source)) {
+    if (
+      source.version_effective_to !== null
+      && source.version_effective_from > source.version_effective_to
+    ) {
       add(
         diagnostics,
         registry.file,
-        `${base}/target_school_year_applicability`,
-        'source_not_effective_for_target_year',
-        `${source.source_id} does not cover ${TARGET_SCHOOL_YEAR.startsOn}`,
+        `${base}/version_effective_to`,
+        'source_effective_interval_invalid',
+        'version_effective_to must not precede version_effective_from.',
       );
     }
+    const expectedApplicability = expectedSourceApplicability(source);
     if (
-      source.target_school_year_applicability.status === 'not_applicable'
-      && dateCoversTarget(source)
+      source.target_school_year_applicability.status === 'applicable'
+      && !sourceCoversInterval(source, TARGET_SCHOOL_YEAR.startsOn, TARGET_SCHOOL_YEAR.startsOn)
     ) {
       add(
         diagnostics,
         registry.file,
         `${base}/target_school_year_applicability`,
+        'source_not_effective_for_target_year',
+        `${source.source_id} does not cover ${TARGET_SCHOOL_YEAR.startsOn}.`,
+      );
+    }
+    if (source.target_school_year_applicability.status !== expectedApplicability) {
+      add(
+        diagnostics,
+        registry.file,
+        `${base}/target_school_year_applicability`,
         'source_applicability_inconsistent',
-        `${source.source_id} covers the target start but is marked not_applicable`,
+        `${source.source_id} interval requires ${expectedApplicability}, not `
+          + `${source.target_school_year_applicability.status}.`,
       );
     }
     if (source.archived_excerpt) {
@@ -279,8 +596,11 @@ function validateCompleteness(artifact, diagnostics) {
 }
 
 function validateFramework(repository, diagnostics) {
-  const { framework, registry } = repository.artifacts;
+  const { framework, registry, changeNote } = repository.artifacts;
   const sourceById = new Map(registry.data.sources.map((source) => [source.source_id, source]));
+  const comparisonById = new Map(
+    changeNote.data.comparisons.map((comparison) => [comparison.comparison_id, comparison]),
+  );
   const routeIds = new Set(repository.manifest.sources.map((source) => source.id));
   const outcomeIds = framework.data.outcome_sets.flatMap((set) => set.outcomes.map((outcome) => outcome.outcome_or_requirement_id));
   for (const duplicate of duplicateValues(outcomeIds)) {
@@ -299,28 +619,30 @@ function validateFramework(repository, diagnostics) {
       if (!deepEqual(outcome.scope, set.scope)) {
         add(diagnostics, framework.file, `${base}/scope`, 'outcome_scope_mismatch', 'outcome scope must match its outcome set.');
       }
-      if (!sourceSupportsClaim(sourceById.get(outcome.source_id)) && outcome.evidence_status === 'verified') {
-        add(
-          diagnostics,
-          framework.file,
-          `${base}/source_id`,
-          'verified_claim_source_inapplicable',
-          `verified outcome cannot use ${outcome.source_id}`,
-        );
-      }
-      const excerptText = repository.sourceExcerptTexts?.get(outcome.source_id);
-      if (
-        excerptText
-        && !normalizeText(excerptText).includes(normalizeText(outcome.official_wording_et))
-      ) {
-        add(
-          diagnostics,
-          framework.file,
-          `${base}/official_wording_et`,
-          'official_wording_not_in_archived_source',
-          `wording does not occur in the archived excerpt for ${outcome.source_id}`,
-          [sourceById.get(outcome.source_id)?.archived_excerpt?.path].filter(Boolean),
-        );
+      const sourceEvidence = validateClaimSourceEvidence({
+        artifact: framework,
+        claim: outcome,
+        base,
+        sourceById,
+        comparisonById,
+        diagnostics,
+        requireFullSchoolYear: outcome.evidence_status === 'verified',
+      });
+      for (const sourceId of new Set(sourceEvidence.map((item) => item.source_id))) {
+        const excerptText = repository.sourceExcerptTexts?.get(sourceId);
+        if (
+          excerptText
+          && !normalizeText(excerptText).includes(normalizeText(outcome.official_wording_et))
+        ) {
+          add(
+            diagnostics,
+            framework.file,
+            `${base}/official_wording_et`,
+            'official_wording_not_in_archived_source',
+            `wording does not occur in the archived excerpt for ${sourceId}`,
+            [sourceById.get(sourceId)?.archived_excerpt?.path].filter(Boolean),
+          );
+        }
       }
       if (outcome.effective_from > TARGET_SCHOOL_YEAR.startsOn) {
         add(diagnostics, framework.file, `${base}/effective_from`, 'outcome_not_effective_at_year_start', 'outcome starts after the target school year.');
@@ -401,42 +723,50 @@ function validateFramework(repository, diagnostics) {
 }
 
 function validateHomeBaseline(repository, diagnostics) {
-  const { home, registry } = repository.artifacts;
+  const { home, registry, changeNote } = repository.artifacts;
   const sourceById = new Map(registry.data.sources.map((source) => [source.source_id, source]));
+  const comparisonById = new Map(
+    changeNote.data.comparisons.map((comparison) => [comparison.comparison_id, comparison]),
+  );
   const requirements = home.data.requirements;
   for (const duplicate of duplicateValues(requirements.map((requirement) => requirement.requirement_id))) {
     add(diagnostics, home.file, '/requirements', 'duplicate_requirement_id', `duplicate requirement ID: ${duplicate}`);
   }
   for (const [index, requirement] of requirements.entries()) {
     const base = `/requirements/${index}`;
-    if (!sourceSupportsClaim(sourceById.get(requirement.source_id)) && requirement.evidence_status === 'verified') {
-      add(
-        diagnostics,
-        home.file,
-        `${base}/source_id`,
-        'verified_claim_source_inapplicable',
-        `verified requirement cannot use ${requirement.source_id}`,
-      );
-    }
+    const sourceEvidence = validateClaimSourceEvidence({
+      artifact: home,
+      claim: requirement,
+      base,
+      sourceById,
+      comparisonById,
+      diagnostics,
+      requireFullSchoolYear: (
+        requirement.evidence_status === 'verified'
+        && requirement.target_school_year_applicability.status === 'applicable'
+      ),
+    });
     if (requirement.effective_from > TARGET_SCHOOL_YEAR.startsOn) {
       add(diagnostics, home.file, `${base}/effective_from`, 'requirement_not_effective_at_year_start', 'requirement starts after the target school year.');
     }
     if (requirement.target_school_year_applicability.status !== 'applicable' && requirement.evidence_status === 'verified') {
       add(diagnostics, home.file, `${base}/target_school_year_applicability`, 'verified_requirement_not_applicable', 'verified requirement must be applicable.');
     }
-    const excerptText = repository.sourceExcerptTexts?.get(requirement.source_id);
-    if (
-      excerptText
-      && !normalizeText(excerptText).includes(normalizeText(requirement.official_wording_et))
-    ) {
-      add(
-        diagnostics,
-        home.file,
-        `${base}/official_wording_et`,
-        'official_wording_not_in_archived_source',
-        `wording does not occur in the archived excerpt for ${requirement.source_id}`,
-        [sourceById.get(requirement.source_id)?.archived_excerpt?.path].filter(Boolean),
-      );
+    for (const sourceId of new Set(sourceEvidence.map((item) => item.source_id))) {
+      const excerptText = repository.sourceExcerptTexts?.get(sourceId);
+      if (
+        excerptText
+        && !normalizeText(excerptText).includes(normalizeText(requirement.official_wording_et))
+      ) {
+        add(
+          diagnostics,
+          home.file,
+          `${base}/official_wording_et`,
+          'official_wording_not_in_archived_source',
+          `wording does not occur in the archived excerpt for ${sourceId}`,
+          [sourceById.get(sourceId)?.archived_excerpt?.path].filter(Boolean),
+        );
+      }
     }
   }
   const monthly = requirements.find((requirement) => requirement.requirement_id === 'ee-home-reg-2025-monthly-control');
@@ -492,7 +822,10 @@ function validateChecklist(repository, diagnostics) {
 
 function validateChangeNote(repository, diagnostics) {
   const { changeNote, registry } = repository.artifacts;
-  const sourceIds = new Set(registry.data.sources.map((source) => source.source_id));
+  const sourceById = new Map(
+    registry.data.sources.map((source) => [source.source_id, source]),
+  );
+  const sourceIds = new Set(sourceById.keys());
   for (const duplicate of duplicateValues(changeNote.data.comparisons.map((comparison) => comparison.comparison_id))) {
     add(diagnostics, changeNote.file, '/comparisons', 'duplicate_change_comparison_id', `duplicate comparison ID: ${duplicate}`);
   }
@@ -507,6 +840,27 @@ function validateChangeNote(repository, diagnostics) {
           `unknown source ${sourceId}`,
         );
       }
+    }
+    const previousSource = sourceById.get(comparison.previous_source_id);
+    const targetSource = sourceById.get(comparison.target_source_id);
+    if (
+      previousSource
+      && targetSource
+      && previousSource.title_et === targetSource.title_et
+      && previousSource.act_type === targetSource.act_type
+      && previousSource.regulation_number === targetSource.regulation_number
+      && (
+        previousSource.version_effective_to === null
+        || nextDate(previousSource.version_effective_to) !== targetSource.version_effective_from
+      )
+    ) {
+      add(
+        diagnostics,
+        changeNote.file,
+        `/comparisons/${index}`,
+        'legal_version_transition_interval_invalid',
+        `${previousSource.source_id} must end one day before ${targetSource.source_id} begins.`,
+      );
     }
     if (
       comparison.comparison_identity
@@ -523,6 +877,40 @@ function validateChangeNote(repository, diagnostics) {
         'change_comparison_identity_inconsistent',
         'comparison status and deterministic attachment identities disagree.',
       );
+    }
+    if (
+      comparison.comparison_identity?.method === 'normalized_legal_section_text'
+      && comparison.previous_source_id
+    ) {
+      const sourcePairs = [
+        ['previous_value', comparison.previous_source_id],
+        ['target_value', comparison.target_source_id],
+      ];
+      for (const [identityField, sourceId] of sourcePairs) {
+        const excerptText = repository.sourceExcerptTexts?.get(sourceId);
+        const sectionStart = excerptText?.indexOf('§ 23.');
+        const sectionEnd = excerptText?.indexOf('\nAllikas:', sectionStart);
+        if (sectionStart === undefined || sectionStart < 0 || sectionEnd === undefined || sectionEnd < 0) {
+          add(
+            diagnostics,
+            changeNote.file,
+            `/comparisons/${index}/comparison_identity`,
+            'legal_section_comparison_source_missing',
+            `archived § 23 excerpt is unavailable for ${sourceId}.`,
+          );
+          continue;
+        }
+        const actual = sha256(normalizeText(excerptText.slice(sectionStart, sectionEnd)));
+        if (actual !== comparison.comparison_identity[identityField]) {
+          add(
+            diagnostics,
+            changeNote.file,
+            `/comparisons/${index}/comparison_identity/${identityField}`,
+            'legal_section_comparison_identity_stale',
+            `expected ${actual} from the archived § 23 excerpt for ${sourceId}.`,
+          );
+        }
+      }
     }
   }
 }
@@ -587,10 +975,12 @@ function serializeYaml(value) {
   });
 }
 
-function buildOutcomeIndex(framework) {
+function buildOutcomeIndex(framework, registry) {
+  const sourceById = new Map(registry.sources.map((source) => [source.source_id, source]));
   const outcomes = framework.outcome_sets.flatMap((set) => set.outcomes.map((outcome) => ({
     outcome_id: outcome.outcome_or_requirement_id,
     source_id: outcome.source_id,
+    source_evidence: resolveClaimSourceEvidence(outcome, sourceById),
     official_reference: outcome.official_reference,
     effective_from: outcome.effective_from,
     effective_to: outcome.effective_to,
@@ -614,7 +1004,8 @@ function buildOutcomeIndex(framework) {
   };
 }
 
-function buildRequirementIndex(home) {
+function buildRequirementIndex(home, registry) {
+  const sourceById = new Map(registry.sources.map((source) => [source.source_id, source]));
   return {
     schema_version: '1.0',
     artifact_type: 'home_learning_requirement_index',
@@ -624,6 +1015,7 @@ function buildRequirementIndex(home) {
     requirements: stableSort(home.requirements.map((requirement) => ({
       requirement_id: requirement.requirement_id,
       source_id: requirement.source_id,
+      source_evidence: resolveClaimSourceEvidence(requirement, sourceById),
       official_reference: requirement.official_reference,
       effective_from: requirement.effective_from,
       effective_to: requirement.effective_to,
@@ -691,6 +1083,7 @@ function buildFamilyBrief(home, registry) {
     ...registry.sources
       .filter((candidate) => [
         'ee-pgs-2026-09-01',
+        'ee-pgs-2027-01-01',
         'ee-home-reg-2025-09-19',
         'ee-school-records-2025-09-01',
       ].includes(candidate.source_id))
@@ -728,8 +1121,14 @@ function buildChangeNoteMarkdown(changeNote) {
 }
 
 export function build2026ComplianceDerivedArtifacts(repository) {
-  const outcomeIndex = buildOutcomeIndex(repository.artifacts.framework.data);
-  const requirementIndex = buildRequirementIndex(repository.artifacts.home.data);
+  const outcomeIndex = buildOutcomeIndex(
+    repository.artifacts.framework.data,
+    repository.artifacts.registry.data,
+  );
+  const requirementIndex = buildRequirementIndex(
+    repository.artifacts.home.data,
+    repository.artifacts.registry.data,
+  );
   return new Map([
     [COMPLIANCE_PATHS.outcomeIndex, serializeYaml(outcomeIndex)],
     [COMPLIANCE_PATHS.requirementIndex, serializeYaml(requirementIndex)],

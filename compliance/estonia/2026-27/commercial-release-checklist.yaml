@@ -16,7 +16,8 @@ checks:
     evidence_refs:
       - external-sources/official/estonia/2026-27/source-registry.yaml
     responsible_reviewer_role: compliance_reviewer
-    notes: Базовая дата — 2026-09-01; истекающие 31.08.2026 редакции не используются.
+    notes: Проверяется весь интервал 2026-09-01–2027-08-31; частичные редакции используются
+      только как последовательная evidence chain без пробелов.
   - check_id: source-registry-current
     title_ru: Реестр официальных источников повторно проверен перед выпуском
     status: pending

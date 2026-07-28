@@ -112,6 +112,16 @@
           "pattern": "^ee-(?:prk|plrk)-2026-(?:stage[12]|grade[24])-[a-z0-9]+(?:-[a-z0-9]+)*$"
         },
         "source_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "source_evidence": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sourceEvidence" }
+        },
+        "version_comparison_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
         "official_reference": { "type": "string", "minLength": 1 },
         "official_wording_et": { "type": "string", "minLength": 1 },
         "translation_ru": { "type": "string", "minLength": 1 },
@@ -151,6 +161,20 @@
             }
           }
         }
+      },
+      "dependentRequired": {
+        "source_evidence": ["version_comparison_id"],
+        "version_comparison_id": ["source_evidence"]
+      }
+    },
+    "sourceEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "covers_from", "covers_to"],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "covers_from": { "$ref": "#/$defs/date" },
+        "covers_to": { "$ref": "#/$defs/date" }
       }
     },
     "outcomeSet": {

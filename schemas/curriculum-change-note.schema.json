@@ -67,7 +67,12 @@
               "identities_match"
             ],
             "properties": {
-              "method": { "const": "ordered_attachment_name_and_sha256" },
+              "method": {
+                "enum": [
+                  "ordered_attachment_name_and_sha256",
+                  "normalized_legal_section_text"
+                ]
+              },
               "algorithm": { "const": "sha256" },
               "previous_value": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
               "target_value": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
