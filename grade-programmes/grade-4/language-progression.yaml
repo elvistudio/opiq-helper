@@ -1,0 +1,174 @@
+artifact_id: grade-4-language-progression
+artifact_type: grade_programme_language_progression
+grade: 4
+guardrails:
+  content_reduction_for_language_limit: false
+  estonian_production_separate: true
+  subject_understanding_language: ru
+  translated_query_topics_are_terminology_evidence: false
+profile:
+  primary_explanation_language: ru
+  support_language: et
+  target_level: A1-A2
+programme_id: grade-4-standalone-commercial-programme-2026-27
+progression_stages:
+  - focus: Recognise subject terminology and familiar instructions.
+    stage_id: terminology-recognition
+    support_level: full_scaffold
+  - focus: Name and describe with a visible word bank and sentence frame.
+    stage_id: supported-naming-description
+    support_level: partial_scaffold
+  - focus: Compare and sequence in short supported utterances.
+    stage_id: supported-comparison-sequence
+    support_level: reduced_scaffold
+  - focus: Give a short oral or written answer with reduced support.
+    stage_id: independent-short-production
+    support_level: independent_short_production
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+  claim_boundary: Recommended Grade 4 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  verification_date: 2026-07-28
+schema_version: "1.0"
+subject_strands:
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-russian
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: full_scaffold
+    target_terms:
+      - põhiidee
+      - tekst
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-russian-reading
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: full_scaffold
+    target_terms:
+      - tegelane
+      - sündmus
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-estonian-second-language
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: full_scaffold
+    target_terms:
+      - küsimus
+      - vastus
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-english
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: partial_scaffold
+    target_terms:
+      - sõna
+      - lause
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-human-studies-and-society
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: partial_scaffold
+    target_terms:
+      - otsus
+      - fakt
+      - arvamus
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-science
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: partial_scaffold
+    target_terms:
+      - vaatlus
+      - uurimus
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-mathematics
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: partial_scaffold
+    target_terms:
+      - arv
+      - tabel
+      - diagramm
+    written_output: One short labelled or framed statement.
+  - instruction_verbs:
+      - Vaata
+      - Nimeta
+      - Kirjelda
+      - Võrdle
+    later_reuse: Terms and frames recur in a later mastery or project window.
+    oral_output: One short supported subject-relevant answer.
+    route_id: grade-4-music
+    sentence_frames:
+      - Ma näen ___.
+      - ___ on ___ kui ___.
+    support_level: partial_scaffold
+    target_terms:
+      - rütm
+      - laul
+    written_output: One short labelled or framed statement.
+target_school_year: 2026/27

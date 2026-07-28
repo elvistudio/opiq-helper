@@ -1,0 +1,92 @@
+allocation_status:
+  curated_grade_4_allocation: opiq_helper_recommended_allocation
+  national_exact_grade_claimed: false
+  notes: National stage-II scope remains distinct from this recommended Grade 4 allocation.
+artifact_id: grade-4-human-studies-and-society-official-curriculum
+artifact_type: grade_programme_official_curriculum_map
+canonical_route:
+  md_path: project-files/outputs/opiq_4klass_inimene_ja_uhiskond.md
+  qa_path: project-files/outputs/opiq_4klass_inimene_ja_uhiskond_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_4klass_inimene_ja_uhiskond_opik_ii_kooliastmele_i_osa_o_v2.zip
+  source_id: grade-4-human-studies-and-society
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+grade: 4
+official_fields:
+  - inimeseõpetus
+  - ühiskonnaõpetus
+official_scope:
+  exact_grade_claimed: false
+  kind: school_stage
+  school_stage: 2
+  terminal_grade: 6
+outcomes:
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: verified
+    grade_4_allocation_note: This is an Opiq Helper recommended Grade 4 allocation of a national stage-II endpoint.
+    official_reference: PRÕK lisa 6 punkt 2.1.2, II kooliaste, punkt 5
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    official_subject: inimeseõpetus
+    official_wording_et: On iseseisev otsustaja, seostab otsuseid tagajärgedega.
+    outcome_id: ee-prk-2026-stage2-human-studies-decisions
+    source_id: ee-prok-2026-appendix-06
+    source_topic_evidence: heading_and_task_example
+    subject_field: sotsiaalained
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: Самостоятельно принимает решения и связывает решения с последствиями.
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: partial
+    grade_4_allocation_note: This is an Opiq Helper recommended Grade 4 allocation of a national stage-II endpoint.
+    official_reference: PRÕK lisa 6, sotsiaalvaldkonna pädevus
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    official_subject: ühiskonnaõpetus
+    official_wording_et: Eristab fakti arvamusest, teab, mis tunnuste alusel hinnata allikate usaldusväärsust.
+    outcome_id: ee-prk-2026-stage2-social-information-fact-opinion
+    source_id: ee-prok-2026-appendix-06
+    source_topic_evidence: heading_and_task_example
+    subject_field: sotsiaalained
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: Отличает факт от мнения и знает, по каким признакам оценивать надёжность источников.
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+  verification_date: 2026-07-28
+record_count: 63
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+route_id: grade-4-human-studies-and-society
+schema_version: "1.0"
+subject: human studies and society
+subject_et: inimese- ja ühiskonnaõpetus

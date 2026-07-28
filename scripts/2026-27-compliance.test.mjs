@@ -497,7 +497,17 @@ test('existing route-linked curriculum validation remains green', async () => {
   const curriculumRepository = await loadCurriculumMapRepository({ rootDir });
   const result = validateCurriculumMapRepository(curriculumRepository);
   assert.equal(result.summary.errors, 0);
-  assert.equal(result.summary.artifacts, 5);
+  assert.equal(
+    curriculumRepository.artifacts.filter((artifact) => (
+      ['official_curriculum_map', 'book_inventory', 'topic_inventory', 'thematic_unit']
+        .includes(artifact.data.artifact_type)
+    )).length,
+    5,
+  );
+  assert.equal(
+    curriculumRepository.artifacts.filter((artifact) => artifact.data.artifact_type.startsWith('grade_programme_')).length,
+    44,
+  );
 });
 
 test('existing official curriculum maps still reject a missing manifest route', async () => {

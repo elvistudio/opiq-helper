@@ -1,0 +1,3519 @@
+artifact_id: grade-4-estonian-second-language-topic-inventory
+artifact_type: grade_programme_topic_inventory
+canonical_route:
+  md_path: project-files/outputs/opiq_4klass_eesti_keel_teise_keelena.md
+  qa_path: project-files/outputs/opiq_4klass_eesti_keel_teise_keelena_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip
+  source_id: grade-4-estonian-second-language
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+deduplication_policy:
+  cross_route_deduplication: false
+  edition_policy: preserve_without_obsolescence_claim
+  normalization: nfc_casefold_whitespace_punctuation
+  source_record_preservation: all_records_retained
+grade: 4
+inventory_scope: route_bounded_original_headings_and_metadata
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+  verification_date: 2026-07-28
+record_count: 117
+route_id: grade-4-estonian-second-language
+schema_version: "1.0"
+subject: Estonian as a second language
+subject_et: eesti keel teise keelena
+topics:
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8334
+    duplicate_group: grade-4-estonian-second-language-duplicate-aastaajad-ja-ilm-7b192b6fea
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Kodune töö
+      - 6. Loe ilmateateid ning räägi oma sõnadega, missugune ilm nendel päevadel on!
+      - 7. Vaata ilmateateid. Vasta küsimustele!
+      - 8. Kirjelda ilma!
+      - 9. Loe dialoogi ja vaata ilmateadet. Kellel on õigus, kas Juhanil või Teelel? Miks?
+      - Aastaajad ja ilm
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8334-19c5b17ad3
+    task_example_status: not_captured
+    title_et: Aastaajad ja ilm
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-aastaajad-ja-ilm-7b192b6fea
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8394
+    duplicate_group: grade-4-estonian-second-language-duplicate-aino-pervik-preili-roomurikkuja-a7ce5149b4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 42. Vasta küsimustele!
+      - 43. Lugesid teksti preili RõõmuRikkuja sünnipäevast.
+      - 44. Kodune töö
+      - Aino Pervik Preili RõõmuRikkuja
+      - Loeme juttu!
+      - Preili RõõmuRikkuja
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8394-5ee971ceae
+    task_example_status: not_captured
+    title_et: Aino Pervik Preili RõõmuRikkuja
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-aino-pervik-preili-roomurikkuja-a7ce5149b4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8360
+    duplicate_group: grade-4-estonian-second-language-duplicate-aino-perviku-ja-leelo-tungla-luuletused-7f3be2b056
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Loe ja kuula luuletusi! Millest need luuletused räägivad?
+      - 11. Tee luuletusest kirjalik kokkuvõte!
+      - 12. Loe liitsõnu ning moodusta lauseid!
+      - 13. Kasuta eelmise harjutuse liitsõnu ning moodusta küsimusi!
+      - 14. Rühmatöö „Jõulukuu tegevused”
+      - 15. Kuula dialoogi! Räägi sõbraga!
+      - Aino Perviku ja Leelo Tungla luuletused
+      - Jõuluvana kaotas kinda
+      - Jõuluvana öötöö
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8360-7f4c051399
+    task_example_status: not_captured
+    title_et: Aino Perviku ja Leelo Tungla luuletused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-aino-perviku-ja-leelo-tungla-luuletused-7f3be2b056
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8333
+    duplicate_group: grade-4-estonian-second-language-duplicate-aja-planeerimine-5b1753e4f6
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Vaata pilti ja jutusta!
+      - 2. Loe anekdooti ja räägi klassikaaslastega samal teemal!
+      - 3. Miks on vaja aega planeerida?
+      - 4. Kuula dialoogi! Räägi sõbraga!
+      - 5. Loe liitsõnu ning moodusta lauseid!
+      - Aja planeerimine
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8333-958308c0ad
+    task_example_status: not_captured
+    title_et: Aja planeerimine
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-aja-planeerimine-5b1753e4f6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8405
+    duplicate_group: grade-4-estonian-second-language-duplicate-august-jakobson-miks-karu-kardab-inimest-45491c8a63
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 44. E-ülesanne. Loe juttu „Miks karu kardab inimest” ja leia õige variant!
+      - 45. Kas jutt „Miks karu kardab inimest” oli sinu arvates naljakas?
+      - August Jakobson Miks karu kardab inimest
+      - Loeme juttu!
+      - Miks karu kardab inimest
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8405-6676247f4e
+    task_example_status: not_captured
+    title_et: August Jakobson Miks karu kardab inimest
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-august-jakobson-miks-karu-kardab-inimest-45491c8a63
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8427
+    duplicate_group: grade-4-estonian-second-language-duplicate-autoga-pirital-c5ab778afb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 13. Küsi küsimusi!
+      - 14. Rühmatöö „Meie kodukoht”
+      - 15. Kodune töö
+      - 16. Räägi!
+      - Autoga Pirital
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8427-3bbbea1179
+    task_example_status: not_captured
+    title_et: Autoga Pirital
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-autoga-pirital-c5ab778afb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8390
+    duplicate_group: grade-4-estonian-second-language-duplicate-avasta-kodukohta-3fb45d1e13
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 32. Vasta küsimustele!
+      - Avasta kodukohta!
+      - Jalutame Glehni pargis
+      - "Jäta meelde ja kasuta: kõndima"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8390-a079ee1c69
+    task_example_status: not_captured
+    title_et: Avasta kodukohta!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-avasta-kodukohta-3fb45d1e13
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8410
+    duplicate_group: grade-4-estonian-second-language-duplicate-eeskujulik-rattur-e48c84c43d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 5. Täida lüngad!
+      - 6. Loe reegleid selle kohta, kuidas olla eeskujulik rattur!
+      - 7. Loe uuesti eelmise harjutuse reegleid!
+      - 8. Tehke pinginaabriga dialoog rattaga sõitmise teemal!
+      - Eeskujulik rattur
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8410-d1f8478481
+    task_example_status: not_captured
+    title_et: Eeskujulik rattur
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-eeskujulik-rattur-e48c84c43d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8397
+    duplicate_group: grade-4-estonian-second-language-duplicate-eile-oli-talv-5d8619c67b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 3. Moodusta küsimusi jutu „Eile oli talv” põhjal!
+      - 4. Missugune on ilm talvel? Loe! Ütle, kas täna on selline ilm või mitte!
+      - 5. Vaadake ilmateadet!
+      - 6. Vaata aknast välja ning kirjelda viie lausega, missugune ilm on praegu!
+      - 7. Võrdle tänast ilma selle ilmaga, mida kirjeldas Teele jutus „Eile oli talv”!
+      - Eile oli talv
+      - "Pööra tähelepanu: sajab mida?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8397-10496a7a69
+    task_example_status: not_captured
+    title_et: Eile oli talv
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-eile-oli-talv-5d8619c67b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8339
+    duplicate_group: grade-4-estonian-second-language-duplicate-enne-koolipaeva-4295f90c02
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 35. Loe väljendeid. Räägi pinginaabrile, kuidas algab sinu hommik!
+      - 36. Kasuta sõnu harjutusest 35 ja tabelist „Seleta ja jäta meelde!” ning moodusta küsimusi!
+      - 37. Kirjuta jutt.
+      - 38. Kuula dialoogi! Räägi sõbraga!
+      - 39. Kasuta sõnu tabelist „Jäta meelde ja kasuta!” ning moodusta lauseid!
+      - 40. Kuula luuletust! Loe ilmekalt!
+      - 41. Kuula ja loe lühidialooge! Esitage neid koos pinginaabriga õpikut kasutamata!
+      - 42. Mida sina täna hommikul sõid?
+      - 43. E-ülesanne. Sõnad on sassi läinud. Pane sõnad õigesse järjekorda!
+      - 44. Rühmatöö „Hommik”
+      - Enne koolipäeva
+      - Hommik
+      - "Jäta meelde ja kasuta: sööma"
+      - "Jäta meelde ja kasuta: ärkama"
+      - "Pööra tähelepanu: söön – mida?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8339-14d09c3fe5
+    task_example_status: not_captured
+    title_et: Enne koolipäeva
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-enne-koolipaeva-4295f90c02
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8368
+    duplicate_group: grade-4-estonian-second-language-duplicate-ettevalmistused-jouludeks-df3269b3e1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 46. Loe, missuguseid ettevalmistusi on vaja Teele perekonnal enne jõule teha!
+      - 47. Tee vihikusse tabel, kes mida teeb!
+      - 48. Täida lüngad! Vali lünkadesse sõnu tabelist „Pööra tähelepanu!”.
+      - 49. Vasta küsimustele!
+      - 50. Kuula dialoogi! Räägi sõbraga!
+      - Ettevalmistused jõuludeks
+      - "Pööra tähelepanu: on vaja mida teha?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8368-16507dc46c
+    task_example_status: not_captured
+    title_et: Ettevalmistused jõuludeks
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-ettevalmistused-jouludeks-df3269b3e1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8335
+    duplicate_group: grade-4-estonian-second-language-duplicate-haldi-normet-koerailm-cdb83ad780
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 11. Vasta küsimustele!
+      - 12. Kava
+      - 13. Kodune töö
+      - Haldi Normet Koerailm
+      - Koerailm
+      - Loeme juttu!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8335-5b450c1dcf
+    task_example_status: not_captured
+    title_et: Haldi Normet Koerailm
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-haldi-normet-koerailm-cdb83ad780
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8416
+    duplicate_group: grade-4-estonian-second-language-duplicate-hando-runnel-matemaatika-254ba5ed47
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 29. Vasta küsimustele!
+      - Hando Runnel Matemaatika
+      - Loeme juttu!
+      - Matemaatika
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8416-932b02f887
+    task_example_status: not_captured
+    title_et: Hando Runnel Matemaatika
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-hando-runnel-matemaatika-254ba5ed47
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8363
+    duplicate_group: grade-4-estonian-second-language-duplicate-heljo-manni-ja-ellen-niidu-luuletused-ad23386acf
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 28. Kuula luuletusi! Millest need luuletused räägivad?
+      - 29. Vasta küsimustele luuletuse „Hiina mängukaru” põhjal!
+      - 30. Tehke pinginaabriga väike näidend või dialoog luuletuse „Rebase jõululaul” põhjal!
+      - 31. Rühmatöö „Teemantluuletus”
+      - Heljo Männi ja Ellen Niidu luuletused
+      - Hiina mängukaru
+      - Rebase jõululaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8363-da3de1d832
+    task_example_status: not_captured
+    title_et: Heljo Männi ja Ellen Niidu luuletused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-heljo-manni-ja-ellen-niidu-luuletused-ad23386acf
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8370
+    duplicate_group: grade-4-estonian-second-language-duplicate-helle-laas-varblase-jouluvana-86c02c3ab3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 57. E-ülesanne. Kas lause on õige või vale?
+      - Helle Laas Varblase jõuluvana
+      - Loeme juttu!
+      - Varblase jõuluvana
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8370-7e0116ccc9
+    task_example_status: not_captured
+    title_et: Helle Laas Varblase jõuluvana
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-helle-laas-varblase-jouluvana-86c02c3ab3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8330
+    duplicate_group: grade-4-estonian-second-language-duplicate-hugo-vaher-joesaare-poisid-a3da461441
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 52. Vasta küsimustele!
+      - 53. Kristofer oli suvel maal ja talle meeldis seal väga. Kus sulle suvel olla meeldib? Miks? Mida sulle suvel
+        teha meeldib? Miks?
+      - 54. Räägi sõbraga!
+      - Hugo Vaher Jõesaare poisid
+      - Jõesaare poisid
+      - Loeme raamatut!
+      - Natuke raamatust
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8330-1561d238ee
+    task_example_status: not_captured
+    title_et: Hugo Vaher Jõesaare poisid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-hugo-vaher-joesaare-poisid-a3da461441
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8348
+    duplicate_group: grade-4-estonian-second-language-duplicate-isadepaev-72eaa0a9a7
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Missugune on sinu isa? Räägi klassikaaslastele!
+      - 11. Räägi pinginaabriga!
+      - 12. Kodune töö.
+      - 6. Kuula ja loe luuletust.
+      - 7. Sõnad on sassi läinud. Kirjuta laused vihikusse!
+      - 8. Jutusta!
+      - 9. Vaata pilti! Räägi, missugune on Teele isa!
+      - Isadepäev
+      - Kompuutri-issi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8348-5d06474501
+    task_example_status: not_captured
+    title_et: Isadepäev
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-isadepaev-72eaa0a9a7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8402
+    duplicate_group: grade-4-estonian-second-language-duplicate-jaan-rannap-teele-teele-kurekesed-c5ecb70313
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 29. Kuulake Friedrich Kuhlbarsi sõnadele loodud laulu „Teele, teele, kurekesed!”.
+      - 30. Kava
+      - 31. Kodune töö
+      - Jaan Rannap Teele, teele, kurekesed
+      - Loeme juttu!
+      - Teele, teele, kurekesed
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8402-eb18c0cd81
+    task_example_status: not_captured
+    title_et: Jaan Rannap Teele, teele, kurekesed
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jaan-rannap-teele-teele-kurekesed-c5ecb70313
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8391
+    duplicate_group: grade-4-estonian-second-language-duplicate-jaanus-vaiksoo-lumemoll-a1dac7d152
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 33. Loe sõnu tabelist „Seleta ja jäta meelde!”. Räägi sõbraga!
+      - Jaanus Vaiksoo Lumemöll
+      - Jäljed lumel
+      - Loeme raamatut!
+      - Lumemöll
+      - Natuke raamatust
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8391-788f49c5cc
+    task_example_status: not_captured
+    title_et: Jaanus Vaiksoo Lumemöll
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jaanus-vaiksoo-lumemoll-a1dac7d152
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8386
+    duplicate_group: grade-4-estonian-second-language-duplicate-jalgpallivoistlused-bcf56cd2eb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 13. Vasta küsimustele!
+      - 14. Räägi sõbraga!
+      - 15. Vaata fotosid! Kirjelda neid!
+      - 16. Kirjuta vihikusse viis lauset ühe foto põhjal!
+      - 17. Kuula ja loe luuletust. Tee sellest oma sõnadega kokkuvõte!
+      - 18. Kuula ja loe dialoogi! Proovige seda esitada pinginaabriga õpiku abita!
+      - 19. Loe uudist!
+      - 20. Lõpeta laused uudise põhjal!
+      - 21. Vaadake koos videot õdede ettevalmistusest!
+      - 22. Kuidas õdedel Rio de Janeiro olümpial läks? Loe uudist ja räägi!
+      - 23. Loe reklaami!
+      - Jalgpallivõistlused
+      - Jalgrataste talveuni
+      - Kolmikõed Luiged teevad Rio de Janeiro olümpial ajalugu
+      - "Pööra tähelepanu: kõnemallid"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8386-2849cbd6bc
+    task_example_status: not_captured
+    title_et: Jalgpallivõistlused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jalgpallivoistlused-bcf56cd2eb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8434
+    duplicate_group: grade-4-estonian-second-language-duplicate-janka-lee-leis-hanna-ja-aleksi-lood-e4c2c7a041
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 37. Paaristöö „Küsimused”
+      - 38. Rühmatöö „Vastused”
+      - Aleksi võitlus hanedega
+      - Hanna ja Aleksi lood Kevad ja suvi
+      - Janka Lee Leis Hanna ja Aleksi lood
+      - Loeme raamatut!
+      - Natuke raamatust
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8434-53f0446f00
+    task_example_status: not_captured
+    title_et: Janka Lee Leis Hanna ja Aleksi lood
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-janka-lee-leis-hanna-ja-aleksi-lood-e4c2c7a041
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8393
+    duplicate_group: grade-4-estonian-second-language-duplicate-julge-olla-hea-9e8df79e38
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 38. Loe uuesti mõtteid „Julge olla aus”. Räägi!
+      - 39. Loe uuesti sõnu tabelist „Seleta ja jäta meelde!”
+      - 40. Loe vanasõnu! Arutage pinginaabriga, mida need tähendavad!
+      - 41. Paaristöö „Vanasõna”
+      - Julge olla hea
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8393-be9cdfe51d
+    task_example_status: not_captured
+    title_et: Julge olla hea
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-julge-olla-hea-9e8df79e38
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8367
+    duplicate_group: grade-4-estonian-second-language-duplicate-julius-oro-ja-venda-soelsepa-luuletused-c5128c95f2
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 41. Kuula ja loe luuletusi!
+      - 42. Millest need luuletused räägivad? Jutusta mõistekaartide abil!
+      - 43. Kuidas teie jõuludeks valmistute?
+      - 44. Paaristöö „Kelle jäljed?”
+      - 45. Vali välja üks jõuluteemaline luuletus ja õpi seda ilmekalt esitama!
+      - Enne pühi
+      - Julius Oro ja Venda Sõelsepa luuletused
+      - Kelle jäljed?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8367-8305ecab8c
+    task_example_status: not_captured
+    title_et: Julius Oro ja Venda Sõelsepa luuletused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-julius-oro-ja-venda-soelsepa-luuletused-c5128c95f2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8365
+    duplicate_group: grade-4-estonian-second-language-duplicate-joulukaunistused-a9f8970641
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 36. Vasta küsimustele!
+      - Jõulukaunistused
+      - Klassiõhtu mängud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8365-2f2472451d
+    task_example_status: not_captured
+    title_et: Jõulukaunistused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-joulukaunistused-a9f8970641
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8358
+    duplicate_group: grade-4-estonian-second-language-duplicate-joulukuu-detsember-10be22ead9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 4. Loe uuesti sõnu tabelist „Seleta ja jäta meelde”!
+      - 5. Teele kirjutas üles viis asja, mida ta jõulukuul teha tahab.
+      - 6. Räägi klassikaaslastega ja kirjuta laused vihikusse!
+      - Jõulukuu detsember
+      - "Pööra tähelepanu: tahan mida teha?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8358-1765b050d7
+    task_example_status: not_captured
+    title_et: Jõulukuu detsember
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-joulukuu-detsember-10be22ead9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8357
+    duplicate_group: grade-4-estonian-second-language-duplicate-jouluroom-f7218686fa
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Kirjelda pilti!
+      - 2. Loe mõtteid tekstist „Ootusärevus” ja räägi, kas sina ka nii mõtled ja tunned!
+      - 3. Kuula dialoogi! Räägi pinginaabriga!
+      - Jõulurõõm
+      - Ootusärevus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8357-fa9d17f84b
+    task_example_status: not_captured
+    title_et: Jõulurõõm
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jouluroom-f7218686fa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8359
+    duplicate_group: grade-4-estonian-second-language-duplicate-jouluvana-kibekiire-tooaeg-4c7cc878f2
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 7. Loe intervjuud. Tee kokkuvõte sellest, mida jõuluvana rääkis!
+      - 8. Tee vihikusse tabel!
+      - 9. Vasta küsimustele intervjuu põhjal!
+      - Jõuluvana kibekiire tööaeg
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8359-6f150ef68b
+    task_example_status: not_captured
+    title_et: Jõuluvana kibekiire tööaeg
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jouluvana-kibekiire-tooaeg-4c7cc878f2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8366
+    duplicate_group: grade-4-estonian-second-language-duplicate-jouluohtu-b0aab20fb3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 37. Loe laste arvamusi jõuluõhtu kohta. Mis kellelegi meeldis?
+      - 38. Koosta lauseid!
+      - 39. Sõnad on sassi läinud. Kirjuta laused vihikusse!
+      - 40. Kuula dialoogi! Räägi sõbraga!
+      - Jõuluõhtu
+      - "Pööra tähelepanu: palju / vähe keda? mida?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8366-132c4ab0cb
+    task_example_status: not_captured
+    title_et: Jõuluõhtu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jouluohtu-b0aab20fb3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8364
+    duplicate_group: grade-4-estonian-second-language-duplicate-jouluohtu-ettevalmistused-d250e47427
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 32. Moodusta teksti „Jõuluõhtu ettevalmistused” põhjal küsimusi!
+      - 33. Räägi!
+      - 34. Loe liitsõnu ning moodusta lauseid!
+      - 35. Vasta küsimustele täislausetega kirjalikult vihikusse!
+      - Jõuluõhtu ettevalmistused
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8364-6ad9a064c8
+    task_example_status: not_captured
+    title_et: Jõuluõhtu ettevalmistused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jouluohtu-ettevalmistused-d250e47427
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8369
+    duplicate_group: grade-4-estonian-second-language-duplicate-jouluohtu-ullatused-b78ef59e5f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 52. Mida Teele pere jõululaupäeval tegi?
+      - 54. Sõnad on sassi läinud. Kirjuta laused vihikusse!
+      - 55. Kodune töö
+      - 56. Mõtle koos pinginaabriga välja huvitav lugu!
+      - Jõuluõhtu üllatused
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8369-19d8b4a443
+    task_example_status: not_captured
+    title_et: Jõuluõhtu üllatused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-jouluohtu-ullatused-b78ef59e5f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8432
+    duplicate_group: grade-4-estonian-second-language-duplicate-kadri-hinrikus-taaniel-teine-27044f1a18
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 31. Küsi küsimusi!
+      - 32. Kodune töö
+      - Kadri Hinrikus Taaniel Teine
+      - Loeme raamatut!
+      - Natuke raamatust
+      - Taaniel Teine
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8432-45e3e6782b
+    task_example_status: not_captured
+    title_et: Kadri Hinrikus Taaniel Teine
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kadri-hinrikus-taaniel-teine-27044f1a18
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8433
+    duplicate_group: grade-4-estonian-second-language-duplicate-kas-laagrisse-laheme-fd59314697
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 33. Vaata reklaamlehte ja vasta küsimustele!
+      - 34. Loe liitsõnu ja moodusta lauseid!
+      - 35. Räägi sõbraga!
+      - 36. Rühmatöö „Suvelaager”
+      - Kas laagrisse läheme?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8433-00f8d273cb
+    task_example_status: not_captured
+    title_et: Kas laagrisse läheme?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kas-laagrisse-laheme-fd59314697
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8406
+    duplicate_group: grade-4-estonian-second-language-duplicate-kas-sina-oled-kevadeks-valmis-ba844aac06
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 46. Vaata pilti ja räägi, mis on pildil valesti!
+      - 47. Mis sõna sobib lünka? Kasuta sõna tulema või minema vorme!
+      - 48. E-ülesanne. Kuula ja vali õige variant!
+      - 49. Vaata nelja päeva ilmateadet! Räägi, missugust ilma lubatakse!
+      - 50. Missugune ilm on täna?
+      - 51. Tuleta meelde sõnavara ja räägi, missugune riietus sobib tänase ilmaga!
+      - 52. Muuda lauseid! Kasuta lausete tegemisel küsimusi kuhu? kus? kust?
+      - 53. Milliseid riideid kannad sina kevadel? Räägi!
+      - 54. Kodune töö
+      - Kas sina oled kevadeks valmis?
+      - "Pööra tähelepanu: panen kuhu? on kus? võtan kust?"
+      - "Pööra tähelepanu: tulen siia / lähen sinna"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8406-fff787ed25
+    task_example_status: not_captured
+    title_et: Kas sina oled kevadeks valmis?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kas-sina-oled-kevadeks-valmis-ba844aac06
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8349
+    duplicate_group: grade-4-estonian-second-language-duplicate-kes-on-minu-isa-40c7dd69a9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 13. Räägi pinginaabrile!
+      - 14. E-ülesanne. Kirjuta lünka õige omadussõna. Kasuta sõnu ülesande alt.
+      - 15. Kas see väide käib ka sinu isa kohta?
+      - 16. E-ülesanne. Missugune vorm sõnast tegema sobib lünka? Kirjuta!
+      - 17. Rühmatöö „Hea isa”
+      - 18. Mis sa arvad, mis su isale rohkem meeldib? Räägi pinginaabriga!
+      - Kes on minu isa?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8349-f2509cd8ee
+    task_example_status: not_captured
+    title_et: Kes on minu isa?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kes-on-minu-isa-40c7dd69a9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8400
+    duplicate_group: grade-4-estonian-second-language-duplicate-kes-sa-oled-randlind-b12d5eeaae
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 17. Vasta küsimustele!
+      - 18. Vaadake koos lindude rändekaarti. Mis infot te siit leiate?
+      - 19. Kuulake lindude hääli!
+      - 20. Vaata pilte ja loe, mis rändlinnud Eestis elavad!
+      - 21. Kirjelda lindude välimust!
+      - Kes sa oled, rändlind?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8400-666877bf08
+    task_example_status: not_captured
+    title_et: Kes sa oled, rändlind?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kes-sa-oled-randlind-b12d5eeaae
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8374
+    duplicate_group: grade-4-estonian-second-language-duplicate-ketlin-priilinn-anna-ja-tema-merisiga-julius-cf45f0dba3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Rühmatöö „Anna on haige”
+      - 11. Asenda pilt sõnaga. Kirjuta laused vihikusse!
+      - Anna ja tema merisiga Julius
+      - Anna on haige
+      - Ketlin Priilinn Anna ja tema merisiga Julius
+      - Loeme raamatut!
+      - Natuke raamatust
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8374-017f2ccf47
+    task_example_status: not_captured
+    title_et: Ketlin Priilinn Anna ja tema merisiga Julius
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-ketlin-priilinn-anna-ja-tema-merisiga-julius-cf45f0dba3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8422
+    duplicate_group: grade-4-estonian-second-language-duplicate-kevadelohn-9a54c9f4e7
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 52. E-ülesanne. Kas lause on õige või vale? Ütle valed laused õigesti!
+      - 53. Milline on sinu kevadelõhn?
+      - 54. Mis lõhnad sulle meeldivad?
+      - 55. Räägi klassikaaslastele, mis lõhnadest su pinginaaber rääkis!
+      - 56. Paaristöö „Aastaajad”
+      - 57. Kuula ja loe luuletust. Jutusta oma sõnadega, millest luuletus räägib.
+      - Karu ärkab talveunest
+      - Kevadelõhn
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8422-b9a150b218
+    task_example_status: not_captured
+    title_et: Kevadelõhn
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kevadelohn-9a54c9f4e7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8420
+    duplicate_group: grade-4-estonian-second-language-duplicate-kevadlilled-bbe2db8083
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 43. Vaata pilte. Mis lilled need on? Kirjelda neid!
+      - 44. Kirjuta lühike jutt!
+      - 45. Kuula dialoogi. Räägi sõbraga!
+      - 46. Räägi!
+      - 47. Räägi pinginaabriga!
+      - Kevadlilled
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8420-7253c5e4ee
+    task_example_status: not_captured
+    title_et: Kevadlilled
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kevadlilled-bbe2db8083
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8361
+    duplicate_group: grade-4-estonian-second-language-duplicate-kingiloos-ac2bc2f36c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 16. Mis on valesti? Ütle õigesti!
+      - 17. Kuula dialoogi! Räägi sõbraga!
+      - "Jäta meelde ja kasuta: kinkima"
+      - Kingiloos
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8361-81b3ef1811
+    task_example_status: not_captured
+    title_et: Kingiloos
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kingiloos-ac2bc2f36c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8362
+    duplicate_group: grade-4-estonian-second-language-duplicate-kingitus-116159f4bb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 18. Kava
+      - 19. E-ülesanne. Täida lüngad, kasuta õigeid vorme!
+      - 20. Küsi küsimusi!
+      - 21. Kodune töö
+      - 22. Vaata reklaame. Mida reklaamitakse?
+      - 23. Vasta küsimustele reklaamide põhjal!
+      - 24. Jutusta ühe reklaami põhjal!
+      - 25. Kodune töö „Jõulureklaam”
+      - 26. Moodusta reklaamide põhjal küsimusi! Esita küsimused pinginaabrile!
+      - 27. Kuula dialoogi! Räägi sõbraga!
+      - Kingitus
+      - "Pööra tähelepanu: kingin kellele? mille?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8362-e7076d49e1
+    task_example_status: not_captured
+    title_et: Kingitus
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kingitus-116159f4bb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8322
+    duplicate_group: grade-4-estonian-second-language-duplicate-klassijuhataja-9e12733a4a
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 14. E-ülesanne. Vali õige variant!
+      - 15. Missugune on sinu klassijuhataja ja teised õpetajad?
+      - 16. Kirjuta jutt „Klassijuhataja”!
+      - 17. Missugune on sinu arvates hea õpetaja?
+      - Klassijuhataja
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8322-982b783c3f
+    task_example_status: not_captured
+    title_et: Klassijuhataja
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-klassijuhataja-9e12733a4a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8379
+    duplicate_group: grade-4-estonian-second-language-duplicate-kollane-nagu-paike-kasulik-nagu-sidrun-3177bd03a9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 35. Moodusta jutu „Kollane nagu päike, kasulik nagu … sidrun!” põhjal küsimusi!
+      - 36. Räägi endast!
+      - 37. Vaata pilti ja räägi, mida sa näed!
+      - Kollane nagu päike, kasulik nagu … sidrun!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8379-4c99f72f1c
+    task_example_status: not_captured
+    title_et: Kollane nagu päike, kasulik nagu … sidrun!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kollane-nagu-paike-kasulik-nagu-sidrun-3177bd03a9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8429
+    duplicate_group: grade-4-estonian-second-language-duplicate-kolm-avastusretke-ffe264f2dc
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 21. Vaata fotosid! Räägi!
+      - 22. Vasta küsimustele!
+      - 23. Küsi küsimusi!
+      - 24. Lõpeta laused!
+      - 25. Paaristöö „Teele avastab Tallinna”
+      - Kolm avastusretke
+      - "Pööra tähelepanu: armastan mida teha?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8429-bda337149d
+    task_example_status: not_captured
+    title_et: Kolm avastusretke
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kolm-avastusretke-ffe264f2dc
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8346
+    duplicate_group: grade-4-estonian-second-language-duplicate-koos-on-hea-olla-cef553f329
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Kirjelda pilti!
+      - 2. Kes on sinu peres?
+      - Koos on hea olla
+      - Perega on tore koos olla
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8346-59b076de67
+    task_example_status: not_captured
+    title_et: Koos on hea olla
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-koos-on-hea-olla-cef553f329
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8331
+      - https://www.opiq.ee/kit/150/chapter/8345
+      - https://www.opiq.ee/kit/150/chapter/8356
+      - https://www.opiq.ee/kit/150/chapter/8371
+      - https://www.opiq.ee/kit/150/chapter/8380
+      - https://www.opiq.ee/kit/150/chapter/8395
+      - https://www.opiq.ee/kit/150/chapter/8408
+      - https://www.opiq.ee/kit/150/chapter/8423
+      - https://www.opiq.ee/kit/150/chapter/8435
+    duplicate_group: grade-4-estonian-second-language-duplicate-kordame-koos-b56490c06a
+    edition_relationships: same_title_multiple_records
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. nädal
+      - 10. nädal
+      - 11. nädal
+      - 12. nädal
+      - 13. nädal
+      - 14. nädal
+      - 15. nädal
+      - 16. nädal
+      - 17. nädal
+      - 18. nädal
+      - 19. nädal
+      - 2. nädal
+      - 20. nädal
+      - 21. nädal
+      - 22. nädal
+      - 23. nädal
+      - 24. nädal
+      - 25. nädal
+      - 26. nädal
+      - 27. nädal
+      - 28. nädal
+      - 29. nädal
+      - 3. nädal
+      - 30. nädal
+      - 31. nädal
+      - 32. nädal
+      - 33. nädal
+      - 34. nädal
+      - 35. nädal
+      - 4. nädal
+      - 5. nädal
+      - 5. peatüki sõnavara
+      - 6. nädal
+      - 7. nädal
+      - 8. nädal
+      - 9. nädal
+      - Kordame koos!
+      - Ühtvalu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8331-1778b69053
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8345-403494833f
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8356-b174006144
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8371-39316852a1
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8380-c57f2fd986
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8395-5825111194
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8408-fa8d8c1a04
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8423-f26e9d3533
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8435-19f974bc78
+    task_example_status: not_captured
+    title_et: Kordame koos!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kordame-koos-b56490c06a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8355
+    duplicate_group: grade-4-estonian-second-language-duplicate-kristiina-kass-kasper-ja-viis-tarka-kassi-d13cb51814
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 45. Vasta küsimustele!
+      - 46. Jutusta loetud katkendit!
+      - Kasper ja viis tarka kassi
+      - Kristiina Kass Kasper ja viis tarka kassi
+      - Loeme raamatut!
+      - Natuke raamatust
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8355-958368acd2
+    task_example_status: not_captured
+    title_et: Kristiina Kass Kasper ja viis tarka kassi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kristiina-kass-kasper-ja-viis-tarka-kassi-d13cb51814
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8372
+    duplicate_group: grade-4-estonian-second-language-duplicate-kui-kulm-napistas-ja-haigus-puges-poue-eb8bea1f2e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Jutusta pildi järgi!
+      - Kui külm näpistas ja haigus puges põue
+      - Lõbus vaheaeg
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8372-1d94d24145
+    task_example_status: not_captured
+    title_et: Kui külm näpistas ja haigus puges põue
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kui-kulm-napistas-ja-haigus-puges-poue-eb8bea1f2e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8426
+    duplicate_group: grade-4-estonian-second-language-duplicate-kui-suvi-oleks-talvel-a30d98faaf
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Vasta küsimustele!
+      - 11. Moodusta lauseid!
+      - 12. Moodusta tabeli „Pööra tähelepanu!” põhjal viis küsimust.
+      - Kui suvi oleks talvel
+      - "Pööra tähelepanu: aega veetma kellega? kus?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8426-86e193e9ac
+    task_example_status: not_captured
+    title_et: Kui suvi oleks talvel
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kui-suvi-oleks-talvel-a30d98faaf
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8375
+    duplicate_group: grade-4-estonian-second-language-duplicate-kuidas-sa-end-tunned-6869a51a78
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 12. Kuidas lapsed end tunnevad? Kirjelda pilte!
+      - 13. Vasta küsimustele!
+      - Kuidas sa end tunned?
+      - "Tuleta meelde ja kasuta: haige olema"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8375-6e655efc85
+    task_example_status: not_captured
+    title_et: Kuidas sa end tunned?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kuidas-sa-end-tunned-6869a51a78
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8407
+    duplicate_group: grade-4-estonian-second-language-duplicate-kummikud-paastavad-paeva-0b18b7b258
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 55. Vasta küsimustele!
+      - 56. E-ülesanne. Täida lüngad! Kasuta õiget vormi.
+      - 57. Vaata kodus koos vanematega televiisorist või internetist ilmateadet!
+      - 58. Kuula ja loe luuletust.
+      - 59. Mõtle koos pinginaabriga välja huvitav lugu.
+      - Kummikud päästavad päeva
+      - Õues
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8407-08e0a6e656
+    task_example_status: not_captured
+    title_et: Kummikud päästavad päeva
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kummikud-paastavad-paeva-0b18b7b258
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8337
+    duplicate_group: grade-4-estonian-second-language-duplicate-kuud-9686b29908
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 21. Kuula ja korda järgarve!
+      - 22. Vaata kalendrit ja lõpeta laused!
+      - 23. Vasta küsimustele!
+      - 24. Kodune töö
+      - 25. Loe liitsõnu ning moodusta lauseid!
+      - 26. Kasuta liitsõnu ning moodusta küsimusi!
+      - 27. Rahvakalendri tähtpäevad.
+      - 28. Vasta küsimustele!
+      - 29. Kodune töö
+      - Kuud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8337-bd1637f0f8
+    task_example_status: not_captured
+    title_et: Kuud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kuud-9686b29908
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8320
+    duplicate_group: grade-4-estonian-second-language-duplicate-koik-on-uus-septembrikuus-fe55e32eed
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Mis on pildil?
+      - 2. Loe kirja!
+      - 3. Kuula dialoogi!
+      - Kõik on uus septembrikuus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8320-d12dcee461
+    task_example_status: not_captured
+    title_et: Kõik on uus septembrikuus
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-koik-on-uus-septembrikuus-fe55e32eed
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8373
+    duplicate_group: grade-4-estonian-second-language-duplicate-kone-perearstile-81667bd088
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 2. Loe telefonivestlust Teele ema ja perearsti vahel!
+      - 3. Tee kokkuvõte!
+      - 4. Küsi küsimusi!
+      - 5. Räägi pinginaabriga!
+      - 6. Kuula ja loe lühidialooge!
+      - 7. Räägi sõbraga!
+      - 8. Kuula ja loe luuletust!
+      - 9. Vasta küsimustele luuletuse põhjal!
+      - "Jäta meelde ja kasuta: haigeks jääma"
+      - Kõne perearstile
+      - Purikalimpsijad
+      - "Pööra tähelepanu: helistan kellele?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8373-50e251654e
+    task_example_status: not_captured
+    title_et: Kõne perearstile
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-kone-perearstile-81667bd088
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8415
+    duplicate_group: grade-4-estonian-second-language-duplicate-lapsehoidjad-8653cadb16
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 23. Vasta küsimustele kirjalikult vihikusse!
+      - 24. Lõpeta laused!
+      - 25. Mida keegi tegema peab? Kirjuta laused vihikusse!
+      - 26. Lõpeta laused! Kasuta ära- või ärge-vorme!
+      - 27. Mida peab tegema koolis / kodus / sööklas / poes / …? Mida nendes kohtades teha ei tohi?
+      - 28. Rühmatöö „Jutt”
+      - Lapsehoidjad
+      - "Pööra tähelepanu: käskiv kõneviis"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8415-b3b58398b5
+    task_example_status: not_captured
+    title_et: Lapsehoidjad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-lapsehoidjad-8653cadb16
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8396
+    duplicate_group: grade-4-estonian-second-language-duplicate-looduse-margid-e662b11654
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Vasta küsimustele!
+      - 2. Loe uuesti sõnu tabelist „Seleta ja jäta meelde!”.
+      - Looduse märgid
+      - Talv pakib kohvreid
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8396-b2ccabc520
+    task_example_status: not_captured
+    title_et: Looduse märgid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-looduse-margid-e662b11654
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8403
+    duplicate_group: grade-4-estonian-second-language-duplicate-loomad-arkavad-talveunest-0266937f56
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 32. Kuula ja loe luuletust! Millest see räägib?
+      - 33. Tee sellest luuletusest jutt!
+      - 34. Loe ja vaata, kes magavad talveund!
+      - 35. Kirjelda loomade välimust!
+      - Karukell
+      - Loomad ärkavad talveunest
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8403-8bb486e323
+    task_example_status: not_captured
+    title_et: Loomad ärkavad talveunest
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-loomad-arkavad-talveunest-0266937f56
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8430
+    duplicate_group: grade-4-estonian-second-language-duplicate-louna-eesti-kuppelmaastik-585016aa4d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 26. Loe uuesti sõnu tabelist „Seleta ja jäta meelde!”.
+      - 27. Vasta küsimustele kirjalikult vihikusse!
+      - Lõuna-Eesti kuppelmaastik
+      - "Pööra tähelepanu: sõidame kust? kuhu?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8430-8d1f9c1236
+    task_example_status: not_captured
+    title_et: Lõuna-Eesti kuppelmaastik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-louna-eesti-kuppelmaastik-585016aa4d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8344
+    duplicate_group: grade-4-estonian-second-language-duplicate-marta-sillaots-trips-traps-trull-ja-teised-acd16a9d2b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 70. Räägi pinginaabrile!
+      - 71. Jutusta!
+      - Loeme raamatut!
+      - Marta Sillaots Trips, Traps, Trull ja teised
+      - Natuke raamatust
+      - Trips, Traps, Trull ja teised
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8344-17b37544f5
+    task_example_status: not_captured
+    title_et: Marta Sillaots Trips, Traps, Trull ja teised
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-marta-sillaots-trips-traps-trull-ja-teised-acd16a9d2b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8418
+    duplicate_group: grade-4-estonian-second-language-duplicate-me-eksisime-ara-935cb62856
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 33. Tee kokkuvõte!
+      - 34. Jutusta!
+      - 35. Kuula ja loe lühidialooge!
+      - 36. Mõelge pinginaabriga ise üks dialoog välja!
+      - 37. E-ülesanne. Märgi õige variant!
+      - Me eksisime ära!
+      - "Pööra tähelepanu: tagasõnad (ees, taga, keskel, vahel, kõrval, vasakul, paremal, juures, all, peal)"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8418-bea78167dc
+    task_example_status: not_captured
+    title_et: Me eksisime ära!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-me-eksisime-ara-935cb62856
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8417
+    duplicate_group: grade-4-estonian-second-language-duplicate-me-oleme-vist-eksinud-22542a6c67
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 30. Vaata uuesti fotosid ja pilte peatüki alguses ning vasta küsimustele!
+      - 31. Koosta vihikusse seitsmepunktiline kava!
+      - 32. Arva ära!
+      - Me oleme vist eksinud
+      - "Pööra tähelepanu: peab mida tegema?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8417-cf56cdb333
+    task_example_status: not_captured
+    title_et: Me oleme vist eksinud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-me-oleme-vist-eksinud-22542a6c67
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8326
+    duplicate_group: grade-4-estonian-second-language-duplicate-mida-me-nendes-tundides-teeme-7307267907
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 31. Räägi sõbraga tunniplaanist!
+      - 32. Mis kell sa midagi teed?
+      - 33. Kuula dialoogi. Lugege pinginaabriga!
+      - 34. Lõpeta laused!
+      - "Jäta meelde ja kasuta: õppima"
+      - Mida me nendes tundides teeme?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8326-6b3bb919b6
+    task_example_status: not_captured
+    title_et: Mida me nendes tundides teeme?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mida-me-nendes-tundides-teeme-7307267907
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8382
+    duplicate_group: grade-4-estonian-second-language-duplicate-mida-me-ohtul-soome-4553d677c9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 3. Kava
+      - 4. Vaata toidupüramiidi!
+      - 5. Mis sidesõna sobib lünka? Kirjuta laused vihikusse!
+      - 6. Loe küsimusi, lisa lünka õige sidesõna! Vasta neile küsimustele!
+      - Mida me õhtul sööme?
+      - "Pööra tähelepanu: sidesõnad (ja, ning, ega, ehk, või, kuid, aga, et)"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8382-8698adf8e5
+    task_example_status: not_captured
+    title_et: Mida me õhtul sööme?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mida-me-ohtul-soome-4553d677c9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8387
+    duplicate_group: grade-4-estonian-second-language-duplicate-mida-talvel-oues-teha-c190cf4a75
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 24. Loe liitsõnu ja moodusta lauseid!
+      - 25. Kasuta sõnu „Mida talvel õues teha?” piltide juurest ja moodusta küsimusi!
+      - Mida talvel õues teha?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8387-1f00b9ca76
+    task_example_status: not_captured
+    title_et: Mida talvel õues teha?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mida-talvel-oues-teha-c190cf4a75
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8419
+    duplicate_group: grade-4-estonian-second-language-duplicate-mida-teha-kui-sa-metsas-ara-eksid-00aa8bd921
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 38. Vaadake videot!
+      - 39. Mis sa arvad … ?
+      - "40. Moodusta lauseid! Kasuta järgmisi sõnu:"
+      - 41. Rühmatöö „Mida teha, kui sa ära eksid?”
+      - 42. Mõtle koos pinginaabriga välja huvitav lugu.
+      - Mida teha, kui sa metsas ära eksid?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8419-99408f80e0
+    task_example_status: not_captured
+    title_et: Mida teha, kui sa metsas ära eksid?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mida-teha-kui-sa-metsas-ara-eksid-00aa8bd921
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8424
+    duplicate_group: grade-4-estonian-second-language-duplicate-mida-teha-vaheajal-1e0fefcaa6
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Kirjelda pilti!
+      - 2. Kuula dialoogi. Räägi sõbraga!
+      - 3. Lõpeta laused!
+      - 4. Loe liitsõnu ja moodusta lauseid!
+      - Mida teha vaheajal?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8424-931fc8a9cd
+    task_example_status: not_captured
+    title_et: Mida teha vaheajal?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mida-teha-vaheajal-1e0fefcaa6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8376
+    duplicate_group: grade-4-estonian-second-language-duplicate-miks-jaavad-inimesed-haigeks-f9c1128f13
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 14. Loe kõiki punktid uuesti läbi.
+      - 16. Kuula ja loe luuletust!
+      - 17. Loe vestlust kahe sõbra vahel!
+      - 18. Tee vihikusse kokkuvõte.
+      - 19. Loe intervjuud!
+      - 20. E-ülesanne. Kas lause on õige või vale?
+      - 21. E-ülesanne. Mis on nende sõnade algvorm?
+      - 5. Kuula „Olemise laulukest”!
+      - Kuidas püsida talvel terve?
+      - Külmas meres
+      - Miks jäävad inimesed haigeks?
+      - "Pööra tähelepanu: räägin kellega?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8376-f9d8d0b935
+    task_example_status: not_captured
+    title_et: Miks jäävad inimesed haigeks?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-miks-jaavad-inimesed-haigeks-f9c1128f13
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8329
+    duplicate_group: grade-4-estonian-second-language-duplicate-miks-on-koolikott-nii-raske-b05f88cb1f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 49. Räägi, mis on su koolikotis / pinalis / laua peal!
+      - 50. Kuulake dialoogi! Rääkige!
+      - 51. Kuula luuletust! Loe ilmekalt!
+      - Miks on koolikott nii raske?
+      - Minu ranits
+      - "Pööra tähelepanu: kus?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8329-ce583b2eab
+    task_example_status: not_captured
+    title_et: Miks on koolikott nii raske?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-miks-on-koolikott-nii-raske-b05f88cb1f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8392
+    duplicate_group: grade-4-estonian-second-language-duplicate-millised-me-oleme-7ae1cc1dd6
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 34. Kuula ja loe ka sina seda luuletust.
+      - 35. Vaata ja loe mõistekaarti ning räägi, missugune oled sina erinevates olukordades!
+      - 36. E-ülesanne. Muuda lauseid nii, et omadussõna oleks ülivõrdes.
+      - 37. Lõpeta laused! Kasuta omadussõnu ülesande 35 juurest.
+      - Abivalmis laps
+      - Millised me oleme?
+      - "Pööra tähelepanu: omadussõna võrdlusastmed"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8392-3bfecd808d
+    task_example_status: not_captured
+    title_et: Millised me oleme?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-millised-me-oleme-7ae1cc1dd6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8324
+    duplicate_group: grade-4-estonian-second-language-duplicate-mina-9bb840df7f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 22. Kes on Teele?
+      - 23. Kes on Ana ja kes on Rein?
+      - 24. E-ülesanne. Vali õige variant!
+      - 25. E-ülesanne. Kelle kohta see väide käib – kas Teele, Ana või Reinu? Vali õige nimi.
+      - 26. Jagage rollid ja lugege dialoogi!
+      - 27. Mõtle, mille poolest oled sa Teele, Ana või Reinu sarnane? Mille poolest neist erinev?
+      - "Jäta meelde ja kasuta: rääkima"
+      - Mina
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8324-3de89779f8
+    task_example_status: not_captured
+    title_et: Mina
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mina-9bb840df7f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8389
+    duplicate_group: grade-4-estonian-second-language-duplicate-mine-metsa-07ac398558
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 27. E-ülesanne. Kas lause on õige või vale?
+      - 28. Minge kõik koos kümneks minutiks õue.
+      - 29. Räägi!
+      - 30. Kirjuta lünka sõna õiges vormis!
+      - 31. Kuula ja loe lühidialooge!
+      - Mine metsa!
+      - "Pööra tähelepanu: lähen kuhu? olen kus? tulen kust?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8389-dae1926aa2
+    task_example_status: not_captured
+    title_et: Mine metsa!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mine-metsa-07ac398558
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8425
+    duplicate_group: grade-4-estonian-second-language-duplicate-mis-oleks-kui-81fc17ec96
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 5. Loe ideid suvevaheaja kohta! Kommenteeri neid.
+      - 6. Nimeta kolm punkti harjutusest 5, …
+      - 7. Mõtle ise välja ideid suvevaheaja kohta!
+      - 8. Täida lüngad! Kasuta sõnu tabelist „Seleta ja jäta meelde!”.
+      - 9. Räägi!
+      - "Jäta meelde ja kasuta: veetma"
+      - Mis oleks, kui …
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8425-d6dae2bd3e
+    task_example_status: not_captured
+    title_et: Mis oleks, kui …
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mis-oleks-kui-81fc17ec96
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8328
+    duplicate_group: grade-4-estonian-second-language-duplicate-mis-on-koolikotis-8a305dc1fb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 43. Missugune võiks olla koolikott? Moodusta lauseid!
+      - 44. Loe kiri läbi! Kes selle kirjutas ja miks?
+      - 45. Missugune on sinu koolikott?
+      - 46. E-ülesanne. Kirjuta allajoonitud sõnad mitmuses!
+      - 47. Mis on koolikotis?
+      - 48. Missugune on sinu koolikott ja mis seal sees on?
+      - Mis on koolikotis?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8328-fdd60b3e15
+    task_example_status: not_captured
+    title_et: Mis on koolikotis?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-mis-on-koolikotis-8a305dc1fb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8413
+    duplicate_group: grade-4-estonian-second-language-duplicate-naljakuu-aprill-50dbf8a4f3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 16. Vali välja üks anekdoot harjutusest 15!
+      - 17. Kasuta sõnu tabelist „Seleta ja jäta meelde!” ning moodusta küsimusi.
+      - 18. Kuula anekdooti ja vasta küsimustele!
+      - 19. Rühmatöö „Naljajutt”
+      - 20. Tuleta meelde ja räägi!
+      - 21. Kodune töö
+      - Naljakuu aprill
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8413-55b135187d
+    task_example_status: not_captured
+    title_et: Naljakuu aprill
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-naljakuu-aprill-50dbf8a4f3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8338
+    duplicate_group: grade-4-estonian-second-language-duplicate-nadal-4c3fce6b05
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 30. Jagage rollid ja lugege koos!
+      - 31. Vaadake koos videoid „Tagasi kooli” programmi kohta. Rääkige sellest programmist!
+      - 32. Vasta küsimustele!
+      - 33. Loe liitsõnu ning moodusta lauseid!
+      - 34. Rühmatöö „Teemanädal”
+      - Nädal
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8338-718e178035
+    task_example_status: not_captured
+    title_et: Nädal
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-nadal-4c3fce6b05
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8401
+    duplicate_group: grade-4-estonian-second-language-duplicate-ornitoloog-raagib-randlindudest-7d9a8c0f63
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 22. Lõpeta laused!
+      - 23. Mida sina ornitoloogilt küsiksid?
+      - 24. Rühmatöö „Rändlinnud”
+      - 25. Vaadake koos klassis ringi ning nimetage asju, mida enda ümber näete!
+      - 26. E-ülesanne. Mis sõnavorm sobib lünka? Kirjuta!
+      - 27. E-ülesanne. Muuda allajoonitud sõnade ainsus mitmuseks!
+      - 28. Ornitoloog Toomas läks koos lastega õue linde vaatlema.
+      - Ornitoloog räägib rändlindudest
+      - "Pööra tähelepanu: ainsus ja mitmus"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8401-24fb61f499
+    task_example_status: not_captured
+    title_et: Ornitoloog räägib rändlindudest
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-ornitoloog-raagib-randlindudest-7d9a8c0f63
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8342
+    duplicate_group: grade-4-estonian-second-language-duplicate-ostunimekiri-0335acd3df
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 59. Vasta küsimustele!
+      - 60. Kuula dialoogi! Räägi sõbraga!
+      - "Jäta meelde ja kasuta: minema"
+      - Ostunimekiri
+      - "Pööra tähelepanu: lähen kuhu?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8342-a1094b8832
+    task_example_status: not_captured
+    title_et: Ostunimekiri
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-ostunimekiri-0335acd3df
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8388
+    duplicate_group: grade-4-estonian-second-language-duplicate-otsi-varandus-ules-35565aeac4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 26. Jutusta!
+      - Otsi varandus üles!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8388-50669c3f56
+    task_example_status: not_captured
+    title_et: Otsi varandus üles!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-otsi-varandus-ules-35565aeac4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8352
+    duplicate_group: grade-4-estonian-second-language-duplicate-pannkoogipuhapaev-14a142cdf7
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 27. Kava
+      - 28. Täida lüngad! Kasuta erinevaid vorme sõnast lugema ja sõnu tabelist „Pööra tähelepanu!”.
+      - 29. Kuula dialoogi! Tehke pinginaabriga sarnane dialoog!
+      - 30. Kodune töö
+      - "Jäta meelde ja kasuta: lugema"
+      - Pannkoogipühapäev
+      - "Pööra tähelepanu: loen mida?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8352-eae195d64a
+    task_example_status: not_captured
+    title_et: Pannkoogipühapäev
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-pannkoogipuhapaev-14a142cdf7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8421
+    duplicate_group: grade-4-estonian-second-language-duplicate-pikad-valged-ohtud-ec6b97128b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 48. Lõpeta laused!
+      - 49. Räägi pinginaabriga!
+      - 50. Kirjuta vihikusse kokkuvõte!
+      - 51. Kuula dialoogi. Räägi sõbraga!
+      - Pikad valged õhtud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8421-c8e6e8ee39
+    task_example_status: not_captured
+    title_et: Pikad valged õhtud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-pikad-valged-ohtud-ec6b97128b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8412
+    duplicate_group: grade-4-estonian-second-language-duplicate-piret-raud-teistmoodi-printsessilood-22b9c849ee
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 14. Loe uuesti sõnu tabelist „Seleta ja jäta meelde!”.
+      - Loeme raamatut!
+      - Natuke raamatust
+      - Piret Raud Teistmoodi printsessilood
+      - Printsess Karlotta ja punastav valgusfoor
+      - Teistmoodi printsessilood
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8412-a07a931382
+    task_example_status: not_captured
+    title_et: Piret Raud Teistmoodi printsessilood
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-piret-raud-teistmoodi-printsessilood-22b9c849ee
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8343
+    duplicate_group: grade-4-estonian-second-language-duplicate-poes-ff50999348
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Bussijaamas
+      - 2. Kioskis
+      - 3. Toidupoes
+      - 4. Raamatupoes
+      - 61. E-ülesanne. Vali õige variant!
+      - 62. Loe liitsõnu ning moodusta lauseid!
+      - 63. Räägi sõbraga!
+      - 64. Kuula dialoogi! Räägi sõbraga!
+      - 65. Kuula ja loe lühidialooge! Esita dialooge koos pinginaabriga ilma õpikut kasutamata!
+      - 66. Koostage ise dialooge!
+      - 67. E-ülesanne. Kasuta õiget vormi! Kirjuta!
+      - 68. Rühmatöö „Poes”
+      - 69. Mida sa poest ostaksid?
+      - "Jäta meelde ja kasuta: ostma"
+      - Poes
+      - "Pööra tähelepanu: ostan mida?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8343-4c50588c02
+    task_example_status: not_captured
+    title_et: Poes
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-poes-ff50999348
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8336
+    duplicate_group: grade-4-estonian-second-language-duplicate-pole-halba-ilma-on-vaid-halb-riietus-5c47e35e3b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 14. Vasta küsimustele!
+      - 15. Miks öeldakse, et pole halba ilma, on vaid halb riietus?
+      - 16. Mis sul täna seljas on?
+      - 17. Sõnad on sassi läinud. Kirjuta laused vihikusse!
+      - 18. E-ülesanne. Paranda vead! Kirjuta lause õigesti!
+      - 19. Rühmatöö „Täna”
+      - 20. Tee pinginaabriga dialoog!
+      - Pole halba ilma, on vaid halb riietus
+      - "Pööra tähelepanu: kus?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8336-4b459a26e8
+    task_example_status: not_captured
+    title_et: Pole halba ilma, on vaid halb riietus
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-pole-halba-ilma-on-vaid-halb-riietus-5c47e35e3b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8340
+    duplicate_group: grade-4-estonian-second-language-duplicate-parast-koolipaeva-0cecd48980
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 45. Loe isa kirja Teelele!
+      - 46. Mida peab Teele pärast koolipäeva tegema?
+      - 47. Mida sina eile kodus jõid?
+      - 48. Kodune töö
+      - 49. Loe intervjuud!
+      - 50. Kirjuta intervjuust viis kõige tähtsamat mõtet!
+      - 51. Vaata pilte ja loe! Räägi, mida lapsed nendes trennides teevad!
+      - 52. Vaata laste jalgpalli- ja ujumistrenni videoid!
+      - 53. Kodune töö
+      - "Jäta meelde ja kasuta: jooma"
+      - Peaasi, et trenn lapsele meeldib
+      - Pärast koolipäeva
+      - "Pööra tähelepanu: joon mida?"
+      - "Pööra tähelepanu: käin kus?"
+      - "Pööra tähelepanu: pean mida tegema?"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8340-b34a949ec7
+    task_example_status: not_captured
+    title_et: Pärast koolipäeva
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-parast-koolipaeva-0cecd48980
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8428
+    duplicate_group: grade-4-estonian-second-language-duplicate-ratastega-rocca-al-mares-d2310736fa
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 17. Kava
+      - 18. E-ülesanne. Täida lüngad!
+      - 19. Kuula dialoogi. Räägi sõbraga!
+      - 20. Kodune töö
+      - Ratastega Rocca al Mares
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8428-f873075bd4
+    task_example_status: not_captured
+    title_et: Ratastega Rocca al Mares
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-ratastega-rocca-al-mares-d2310736fa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8341
+    duplicate_group: grade-4-estonian-second-language-duplicate-reklaam-e39626fb9d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 54. Vaata reklaame. Mida reklaamitakse?
+      - 55. Vasta küsimustele reklaamide põhjal!
+      - 56. Vaadake koos reklaame. Rääkige!
+      - 57. Rühmatöö „Reklaam”
+      - 58. Paaristöö „Tule trenni!”
+      - Reklaam
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8341-172baded7f
+    task_example_status: not_captured
+    title_et: Reklaam
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-reklaam-e39626fb9d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8354
+    duplicate_group: grade-4-estonian-second-language-duplicate-siki-4c1cd66c13
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 36. Vaata pilte, loe ja räägi!
+      - 37. Kuula dialoogi! Räägi sõbraga!
+      - 38. Kirjuta kokkuvõte!
+      - 39. Vaata reklaami. Vasta selle põhjal küsimustele!
+      - 40. Loe vanasõnu. Arutage koos, mida need tähendada võiksid!
+      - 41. Loe teksti!
+      - 42. Vaadake videot!
+      - 43. Kodune töö
+      - 44. Räägi pinginaabriga oma lemmikloomast või sellest loomast, keda sa endale tahaksid!
+      - Siki
+      - Tuhkur
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8354-9516790bee
+    task_example_status: not_captured
+    title_et: Siki
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-siki-4c1cd66c13
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8332
+    duplicate_group: grade-4-estonian-second-language-duplicate-sissejuhatus-4211b13ac8
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - Asume teele, sõbrad!
+      - Sissejuhatus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8332-2616c3dfcb
+    task_example_status: not_captured
+    title_et: Sissejuhatus
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-sissejuhatus-4211b13ac8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8385
+    duplicate_group: grade-4-estonian-second-language-duplicate-sport-kutsub-oue-a1789b91ab
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. E-ülesanne. Kas lause on õige või vale?
+      - 11. Kava
+      - 12. Mis asjad need on?
+      - Sport kutsub õue
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8385-72d78338d7
+    task_example_status: not_captured
+    title_et: Sport kutsub õue
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-sport-kutsub-oue-a1789b91ab
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8321
+    duplicate_group: grade-4-estonian-second-language-duplicate-suvi-oli-tore-987e18c89e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Loe, tuleta meelde ja räägi juurde!
+      - 11. E-ülesanne. Vali õige variant!
+      - 12. Vaata skeemi ja räägi oma suvest!
+      - 13. Kuula luuletust!
+      - 4. E-ülesanne. Vaata Teele plakatit ja leia õige variant!
+      - 5. Kus sina suvel olid?
+      - 6. Ka Juhanil oli tore suvi.
+      - 7. Kuidas möödus Juhani suvi? Jutusta!
+      - 8. E-ülesanne.Täida lüngad! Kasuta sõna olema vorme olevikus!
+      - 9. Mida sina suvel tegid?
+      - "Jäta meelde ja kasuta: olema"
+      - Minu suvi
+      - Suvi oli tore
+      - Suvisel maal
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8321-49e9a384bf
+    task_example_status: not_captured
+    title_et: Suvi oli tore
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-suvi-oli-tore-987e18c89e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8414
+    duplicate_group: grade-4-estonian-second-language-duplicate-soidame-suvilasse-8dab62e5e1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 22. Kas lause on õige või vale? Paranda valed laused õigeks!
+      - "Jäta meelde ja kasuta: sõitma"
+      - "Pööra tähelepanu: sõidan millega?"
+      - Sõidame suvilasse
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8414-2efa4da0bd
+    task_example_status: not_captured
+    title_et: Sõidame suvilasse
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-soidame-suvilasse-8dab62e5e1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8436
+    duplicate_group: grade-4-estonian-second-language-duplicate-sonastik-017b8df395
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - Sõnastik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8436-13d8763593
+    task_example_status: not_captured
+    title_et: Sõnastik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-sonastik-017b8df395
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8327
+    duplicate_group: grade-4-estonian-second-language-duplicate-soogivahetund-5b5f78e0ae
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 35. Loe kuulutust ja vasta küsimustele!
+      - 36. Räägi sõpradega!
+      - 37. Mõelge pinginaabriga välja dialoog söögivahetunnist!
+      - 38. Loe laste koostatud menüüsid ja vali oma lemmik!
+      - 39. E-ülesanne. Vali menüüde põhjal õige vastus!
+      - 40. Millise menüü sina kokku paneksid?
+      - 41. Nädala menüü. Tehke paaristööd.
+      - 42. Teeme süüa!
+      - Söögivahetund
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8327-8434f36565
+    task_example_status: not_captured
+    title_et: Söögivahetund
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-soogivahetund-5b5f78e0ae
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8431
+    duplicate_group: grade-4-estonian-second-language-duplicate-talvepealinnas-on-ka-suvel-tore-642f7466bb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 28. Paaristöö „Teele pere avastab Lõuna-Eestit”
+      - 29. Rühmatöö „Teele pere avastab Lõuna-Eestit”
+      - 30. Vasta küsimustele lugude „Lõuna-Eesti kuppelmaastik” ja „Talvepealinnas on ka suvel tore” põhjal!
+      - Talvepealinnas on ka suvel tore
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8431-87660f20fb
+    task_example_status: not_captured
+    title_et: Talvepealinnas on ka suvel tore
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-talvepealinnas-on-ka-suvel-tore-642f7466bb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8404
+    duplicate_group: grade-4-estonian-second-language-duplicate-talveuni-d735ab0aaf
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 36. Koosta mõistekaart!
+      - 37. E-ülesanne. Täida lüngad! Kasuta sobivaid vorme.
+      - 38. Loe teksti!
+      - 39. Koosta vihikusse jutt „Karu”!
+      - 40. E-ülesanne. Täida lüngad!
+      - 41. Kuidas on need arvud karudega seotud? Räägi!
+      - 42. Vasta küsimustele teksti „Mesikäpp, metsaott, mõmm … Karu!” põhjal!
+      - 43. Kodune töö
+      - Mesikäpp, metsaott, mõmm … Karu!
+      - "Pööra tähelepanu: ainsus ja mitmus"
+      - Talveuni
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8404-2f31cabf15
+    task_example_status: not_captured
+    title_et: Talveuni
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-talveuni-d735ab0aaf
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8377
+    duplicate_group: grade-4-estonian-second-language-duplicate-teele-saab-terveks-6f68fb4b51
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 22. Lõpeta laused!
+      - 23. Küsi küsimusi!
+      - "Jäta meelde ja kasuta: terveks saama"
+      - Teele saab terveks
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8377-24db18b1db
+    task_example_status: not_captured
+    title_et: Teele saab terveks
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-teele-saab-terveks-6f68fb4b51
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8381
+    duplicate_group: grade-4-estonian-second-language-duplicate-tervislik-eluviis-ea9e11cab4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Kirjelda pilti. Räägi ka endast ja oma perest!
+      - 2. Vaata skeemi ja räägi, kas sina elad tervislike eluviiside järgi või mitte!
+      - KAS SA ELAD TERVISLIKULT?
+      - Tervislik eluviis
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8381-4c64628cab
+    task_example_status: not_captured
+    title_et: Tervislik eluviis
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-tervislik-eluviis-ea9e11cab4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8384
+    duplicate_group: grade-4-estonian-second-language-duplicate-tervisliku-toitumise-reeglid-da91a3c452
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 8. Loe uuesti tervisliku toitumise reegleid. Tee enda kohta kokkuvõte!
+      - 9. Vaata plakatit ja vasta küsimustele!
+      - Tervisliku toitumise reeglid
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8384-ff23b77c05
+    task_example_status: not_captured
+    title_et: Tervisliku toitumise reeglid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-tervisliku-toitumise-reeglid-da91a3c452
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8325
+    duplicate_group: grade-4-estonian-second-language-duplicate-tunniplaan-50cb77ecac
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 28. E-ülesanne. Kas lause on õige või vale?
+      - 29. Jutusta oma tänasest tunniplaanist!
+      - 30. Rühmatöö „Unistuste tunniplaan”
+      - Tunniplaan
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8325-4664ffb98e
+    task_example_status: not_captured
+    title_et: Tunniplaan
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-tunniplaan-50cb77ecac
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8399
+    duplicate_group: grade-4-estonian-second-language-duplicate-tuul-teeb-nalja-8d00c1d0e6
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 11. Vaata ja loe koomiksit! Mis juhtub ja kuidas kõik lõpeb?
+      - 12. Kirjuta vihikusse kuuelauseline jutt „Tuul teeb nalja”!
+      - 13. Rühmatöö „Tuul teeb nalja”
+      - 14. Jutustage koomiksi järgi!
+      - 15. Paaristöö „Teemantluuletus”
+      - 16. Kodune töö
+      - Tuul teeb nalja
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8399-dd635f37a5
+    task_example_status: not_captured
+    title_et: Tuul teeb nalja
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-tuul-teeb-nalja-8d00c1d0e6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8347
+    duplicate_group: grade-4-estonian-second-language-duplicate-tahtsad-paevad-meie-peres-4502787294
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 3. Vaata pilti Teele perest. Kuidas nad Juhanit õnnitlevad?
+      - 4. E-ülesanne. Kas lause on õige või vale? Ütle valed laused õigesti!
+      - 5. Vaata, missuguseid ettevalmistusi tegi Teele koos ema ja Juhaniga isa sünnipäevaks ja isadepäevaks. Räägi!
+      - "Jäta meelde ja kasuta: tegema"
+      - Tähtsad päevad meie peres
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8347-2775e01e11
+    task_example_status: not_captured
+    title_et: Tähtsad päevad meie peres
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-tahtsad-paevad-meie-peres-4502787294
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8398
+    duplicate_group: grade-4-estonian-second-language-duplicate-tana-on-kevad-0dada1e376
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Kuulake ilmateadet!
+      - 8. Kas lause on õige või vale? Paranda valed laused õigeks!
+      - 9. Missugune ilm on kevadel? Loe! Ütle, kas täna on selline ilm või mitte!
+      - Täna on kevad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8398-f1454f8fc3
+    task_example_status: not_captured
+    title_et: Täna on kevad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-tana-on-kevad-0dada1e376
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8353
+    duplicate_group: grade-4-estonian-second-language-duplicate-vanaema-jutustab-kadripaevast-2fb206a970
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 31. Küsimustes on läinud sõnad sassi. Moodustage küsimused ja vastake neile!
+      - 32. Vaadake koos videoid kadripäevast.
+      - 33. E-ülesanne. Lugege mõistatusi ja vali õige vastus!
+      - 34. Tehke pinginaabriga dialoog! Rääkige kadripäevast!
+      - 35. Kodune töö
+      - Kadripäev
+      - Vanaema jutustab kadripäevast
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8353-fc90328a59
+    task_example_status: not_captured
+    title_et: Vanaema jutustab kadripäevast
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-vanaema-jutustab-kadripaevast-2fb206a970
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8350
+    duplicate_group: grade-4-estonian-second-language-duplicate-vanaemad-ja-vanaisad-6f985e397c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 19. E-ülesanne. Kelle kohta see lause käib?
+      - 20. Vaata vanaemade-vanaisade pilte.
+      - 21. Kirjuta vihikusse pealkirjaks „Vanavanemad”.
+      - 22. E-ülesanne. Missugune omadussõna sobib lünka? Kasuta sõnu ülesande alt.
+      - 23. Vaata klassis ringi. Võrdle asju või inimesi. Kasuta võimalikult palju antonüüme.
+      - 24. Mõtle koos pinginaabriga välja huvitav lugu.
+      - "Pööra tähelepanu: antonüümid"
+      - Vanaemad ja vanaisad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8350-efa2a085de
+    task_example_status: not_captured
+    title_et: Vanaemad ja vanaisad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-vanaemad-ja-vanaisad-6f985e397c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8351
+    duplicate_group: grade-4-estonian-second-language-duplicate-vanavanaema-a6af4b05ee
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 25. Kirjuta laused pikemaks!
+      - 26. Koosta mõistekaart „Keda ma aitan?”.
+      - "Pööra tähelepanu: aitan keda?"
+      - Vanavanaema
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8351-a1748a3f04
+    task_example_status: not_captured
+    title_et: Vanavanaema
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-vanavanaema-a6af4b05ee
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8383
+    duplicate_group: grade-4-estonian-second-language-duplicate-viis-varvi-taldrikul-ddc05c586d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 7. Mida tähendab „Viie värvi reegel”?
+      - "Tuleta meelde ja kasuta: süüa tegema"
+      - Viis värvi taldrikul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8383-4be1faf5c2
+    task_example_status: not_captured
+    title_et: Viis värvi taldrikul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-viis-varvi-taldrikul-ddc05c586d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8378
+    duplicate_group: grade-4-estonian-second-language-duplicate-voimas-imerohi-uni-eda8f83b5b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 24. Kuulake „Doktor Ave laulu”! Millest see laul räägib?
+      - 25. Vasta küsimustele!
+      - 26. Räägi endast!
+      - 27. Loe vanasõnu! Arutage pinginaabriga, mida need tähendavad!
+      - 28. Kuula ja loe luuletust.
+      - 29. Loe lauseid ning allajoonitud sõnade kohta esitatud küsimusi.
+      - 30. E-ülesanne. Mis sõna sobib lünka? Kas juurde, juures või juurest?
+      - 31. Moodusta lauseid!
+      - 32. E-ülesanne. Vali õige variant!
+      - 33. E-ülesanne. Kuula ja vali õige variant!
+      - 34. Kuula dialoogi. Räägi sõbraga!
+      - Mis on magusam kui mesi?
+      - "Pööra tähelepanu: juurde, juures, juurest"
+      - Võimas imerohi uni
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8378-ecbb06349d
+    task_example_status: not_captured
+    title_et: Võimas imerohi uni
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-voimas-imerohi-uni-eda8f83b5b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8323
+    duplicate_group: grade-4-estonian-second-language-duplicate-opilaspilet-452d916771
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 18. Loe teadet ja vasta küsimustele!
+      - 19. Missuguse õpilaspileti Teele saab?
+      - 20. Vaata õpilaspileteid ja vasta küsimustele!
+      - 21. Võrrelge pinginaabriga oma õpilaspileteid! Rääkige nende põhjal!
+      - Õpilaspilet
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8323-de5587155f
+    task_example_status: not_captured
+    title_et: Õpilaspilet
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-opilaspilet-452d916771
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8411
+    duplicate_group: grade-4-estonian-second-language-duplicate-oppetund-ce362bc1c7
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 10. Kava
+      - 11. Vasta küsimustele!
+      - 12. Loe uuesti sõnu tabelist „Seleta ja jäta meelde!” ning moodusta viie sõnaga laused.
+      - 13. Kodune töö
+      - 9. Vaadake koos pinginaabriga märke ning rääkige, mida need teie arvates tähendavad!
+      - Õppetund
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8411-a88e9028f8
+    task_example_status: not_captured
+    title_et: Õppetund
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-oppetund-ce362bc1c7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - teele._eesti_keel_teise_keelena_4._klassile__kit150
+    canonical_urls:
+      - https://www.opiq.ee/kit/150/chapter/8409
+    duplicate_group: grade-4-estonian-second-language-duplicate-oues-b99ea8040b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "150"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_id: grade-4-estonian-second-language
+    source_headings:
+      - 1. Räägi!
+      - 2. Kuula ja loe luuletust! Millest see räägib
+      - 3. Loe liitsõnu ja moodusta lauseid!
+      - 4. Loe lauseid ning räägi, kas need käivad ka sinu kohta või mitte!
+      - Kevade on tulnud
+      - Õues
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8409-60933ca4e4
+    task_example_status: not_captured
+    title_et: Õues
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-estonian-second-language-topic-oues-b99ea8040b

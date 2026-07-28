@@ -1,0 +1,3885 @@
+artifact_id: grade-4-music-topic-inventory
+artifact_type: grade_programme_topic_inventory
+canonical_route:
+  md_path: project-files/outputs/opiq_4klass_muusika.md
+  qa_path: project-files/outputs/opiq_4klass_muusika_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_4klass_muusika_v2.zip
+  source_id: grade-4-music
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+deduplication_policy:
+  cross_route_deduplication: false
+  edition_policy: preserve_without_obsolescence_claim
+  normalization: nfc_casefold_whitespace_punctuation
+  source_record_preservation: all_records_retained
+grade: 4
+inventory_scope: route_bounded_original_headings_and_metadata
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+  verification_date: 2026-07-28
+record_count: 172
+route_id: grade-4-music
+schema_version: "1.0"
+subject: music
+subject_et: muusika
+topics:
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11668
+    duplicate_group: grade-4-music-duplicate-aeg-39bbb99641
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Aeg
+      - Moll-helilaad ja moll-kolmkõla
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11668-6ddda11146
+    task_example_status: partial_captured
+    title_et: Aeg
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-aeg-39bbb99641
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11702
+    duplicate_group: grade-4-music-duplicate-armastus-voidab-4dffcfeacb
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Armastus võidab
+      - Eurovisiooni lauluvõistlus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11702-dd2e37307c
+    task_example_status: partial_captured
+    title_et: Armastus võidab
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-armastus-voidab-4dffcfeacb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9804
+      - https://www.opiq.ee/kit/552/chapter/30653
+    duplicate_group: grade-4-music-duplicate-astmenimed-7cbe98d0a0
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Astmenimed
+      - Käemärgid
+      - Laulan ja näitan
+      - Mäkke ronimine
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9804-7dd60496c8
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30653-bf694cfe9e
+    task_example_status: partial_captured
+    title_et: Astmenimed
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-astmenimed-7cbe98d0a0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11672
+    duplicate_group: grade-4-music-duplicate-astub-hommik-29c7ed1681
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Astub hommik
+      - Luuletaja
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11672-71bcba8106
+    task_example_status: partial_captured
+    title_et: Astub hommik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-astub-hommik-29c7ed1681
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11723
+    duplicate_group: grade-4-music-duplicate-debka-hora-0eb3973914
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - DEBKA HORA*
+      - Debka hora
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11723-45c749c212
+    task_example_status: partial_captured
+    title_et: Debka hora
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-debka-hora-0eb3973914
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11719
+    duplicate_group: grade-4-music-duplicate-do-re-mi-8b93a82f88
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Do-re-mi
+      - Helilooja
+      - „HELISEV MUUSIKA”
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11719-d3a5e56cf2
+    task_example_status: not_captured
+    title_et: Do-re-mi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-do-re-mi-8b93a82f88
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9809
+      - https://www.opiq.ee/kit/552/chapter/30658
+    duplicate_group: grade-4-music-duplicate-duur-kolmkola-2ec476ed61
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Duur-kolmkõla
+      - JO-MI-SO
+      - Karvast sõpra oodates
+      - Läksin metsa
+      - Pillerpall
+      - "Rõõmus trio[sõnaseletus: trio – kolmik; kolmest esinejast koosnev ansambel]"
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9809-49161f8240
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30658-7d077c3c8a
+    task_example_status: partial_captured
+    title_et: Duur-kolmkõla
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-duur-kolmkola-2ec476ed61
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9811
+      - https://www.opiq.ee/kit/552/chapter/30660
+    duplicate_group: grade-4-music-duplicate-dunaamika-8988f2f958
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Dünaamika
+      - Kiigu, liigu, laevukene
+      - Kirjeldab meeleolu
+      - Kõlatugevuse tähistus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9811-d7688f78ce
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30660-6db6e51775
+    task_example_status: partial_captured
+    title_et: Dünaamika
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-dunaamika-8988f2f958
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11710
+    duplicate_group: grade-4-music-duplicate-eesti-kaart-c2469b0329
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti kaart
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11710-c37075c493
+    task_example_status: partial_captured
+    title_et: Eesti kaart
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-eesti-kaart-c2469b0329
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9817
+      - https://www.opiq.ee/kit/552/chapter/30680
+    duplicate_group: grade-4-music-duplicate-eesti-laulud-e53c2ca5c7
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti kaart
+      - Eesti laulud
+      - Kodukeel
+      - Kostke, laulud, eesti keeles!
+      - Kuku, sa kägu
+      - Liisutusmäng
+      - Maakera
+      - Mu isamaa, mu õnn ja rõõm
+      - Mõistatuslaul
+      - Tootsi ja poiste tantsulugu
+      - Tule koju!
+      - Õhtu ilu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9817-5e07185075
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30680-a6ca6cb8bd
+    task_example_status: not_captured
+    title_et: Eesti laulud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-eesti-laulud-e53c2ca5c7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11712
+    duplicate_group: grade-4-music-duplicate-eesti-lipp-5b955f2bc9
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti lipp
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11712-b7a24ad233
+    task_example_status: partial_captured
+    title_et: Eesti lipp
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-eesti-lipp-5b955f2bc9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9816
+      - https://www.opiq.ee/kit/552/chapter/30675
+    duplicate_group: grade-4-music-duplicate-eesti-rahvapillid-c4496d6932
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti rahvapillid
+      - Igaühel oma pill
+      - Keelpillid
+      - Lusti ja tegevuse saatjad
+      - Lõõtspill
+      - Löökpillid
+      - Parmupill
+      - Puhkpillid
+      - Ülesanded
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30675-b4b3f5ff31
+    task_example_status: partial_captured
+    title_et: Eesti rahvapillid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-eesti-rahvapillid-c4496d6932
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11675
+    duplicate_group: grade-4-music-duplicate-eideratas-7411ba6c4d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eideratas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11675-a1f8bedd20
+    task_example_status: not_captured
+    title_et: Eideratas
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-eideratas-7411ba6c4d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11739
+    duplicate_group: grade-4-music-duplicate-emakesele-ae980d8cdb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Emakesele
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11739-36d6f72de3
+    task_example_status: not_captured
+    title_et: Emakesele
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-emakesele-ae980d8cdb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11691
+    duplicate_group: grade-4-music-duplicate-gloria-in-excelsis-deo-ff375f10d4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - GLORIA IN EXCELSIS DEO!*
+      - Gloria in excelsis deo!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11691-0613bdc877
+    task_example_status: not_captured
+    title_et: Gloria in excelsis deo!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-gloria-in-excelsis-deo-ff375f10d4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11649
+    duplicate_group: grade-4-music-duplicate-hea-sober-99ed0c4579
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Hea sõber!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11649-df8b8e48b5
+    task_example_status: not_captured
+    title_et: Hea sõber!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-hea-sober-99ed0c4579
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11693
+    duplicate_group: grade-4-music-duplicate-head-uut-aastat-b0149eecf8
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Head uut aastat
+      - Head uut aastat!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11693-b432e143e6
+    task_example_status: partial_captured
+    title_et: Head uut aastat
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-head-uut-aastat-b0149eecf8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11733
+    duplicate_group: grade-4-music-duplicate-heeringas-6a44c90275
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Heeringas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11733-f6d02dc4fe
+    task_example_status: partial_captured
+    title_et: Heeringas
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-heeringas-6a44c90275
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11740
+    duplicate_group: grade-4-music-duplicate-homme-on-spordipaev-62cc626651
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Homme on spordipäev
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11740-4f87c1cf8b
+    task_example_status: partial_captured
+    title_et: Homme on spordipäev
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-homme-on-spordipaev-62cc626651
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11707
+    duplicate_group: grade-4-music-duplicate-hallilaul-9b6d7abd17
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Hällilaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11707-740a4030d3
+    task_example_status: not_captured
+    title_et: Hällilaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-hallilaul-9b6d7abd17
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9815
+      - https://www.opiq.ee/kit/552/chapter/30664
+    duplicate_group: grade-4-music-duplicate-haal-ja-selle-liigid-2407cee296
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Hääl ja selle liigid
+      - Hääle tekitamine ja jaotus
+      - Hääleliigid
+      - Hüüd mitmel moel
+      - Koolitatud hääled meil ja mujal
+      - Palju hääle kasutamise võimalusi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9815-eae6003f54
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30664-c4e0bbd64d
+    task_example_status: partial_captured
+    title_et: Hääl ja selle liigid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-haal-ja-selle-liigid-2407cee296
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11674
+    duplicate_group: grade-4-music-duplicate-isadel-on-pikad-paevad-bbaf9c65bd
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Isadel on pikad päevad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11674-028820c019
+    task_example_status: partial_captured
+    title_et: Isadel on pikad päevad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-isadel-on-pikad-paevad-bbaf9c65bd
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9808
+      - https://www.opiq.ee/kit/552/chapter/30657
+    duplicate_group: grade-4-music-duplicate-jo-astmerida-ehk-duur-helilaad-0698258857
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Astmerida JO-st JO'-ni
+      - JO-astmerida ehk duur-helilaad
+      - Kuidas me hakkame elama?
+      - Rõõmsa kõlaga helirida
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9808-ca8bc17678
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30657-f8369b1368
+    task_example_status: partial_captured
+    title_et: JO-astmerida ehk duur-helilaad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-jo-astmerida-ehk-duur-helilaad-0698258857
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9822
+      - https://www.opiq.ee/kit/552/chapter/30670
+    duplicate_group: grade-4-music-duplicate-johann-sebastian-bach-dd580fcda1
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Johann Sebastian Bach
+      - Menuett
+      - Muusikaajaloo mõjutaja
+      - Suurvaim muusikas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9822-7f1e7c49d4
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30670-e1b0722c14
+    task_example_status: partial_captured
+    title_et: Johann Sebastian Bach
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-johann-sebastian-bach-dd580fcda1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11690
+    duplicate_group: grade-4-music-duplicate-joulusoovid-f5a31dc43e
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Jõulusoovid
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11690-ef0ee7b9ae
+    task_example_status: partial_captured
+    title_et: Jõulusoovid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-joulusoovid-f5a31dc43e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11689
+    duplicate_group: grade-4-music-duplicate-joulutaht-1b222012d4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Jõulutäht
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11689-86c22f8abe
+    task_example_status: not_captured
+    title_et: Jõulutäht
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-joulutaht-1b222012d4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11677
+    duplicate_group: grade-4-music-duplicate-kadrilaul-0828651d14
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kadrilaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11677-006d4ebd60
+    task_example_status: partial_captured
+    title_et: Kadrilaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kadrilaul-0828651d14
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9810
+      - https://www.opiq.ee/kit/552/chapter/30659
+    duplicate_group: grade-4-music-duplicate-kaheksandikpaus-763723754e
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Dippido
+      - Kaheksandikpaus
+      - Matkalaul
+      - Pool lööki vaikust
+      - TI asemel
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9810-396acdc0f9
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30659-7203922971
+    task_example_status: partial_captured
+    title_et: Kaheksandikpaus
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kaheksandikpaus-763723754e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9827
+      - https://www.opiq.ee/kit/552/chapter/30676
+    duplicate_group: grade-4-music-duplicate-kaheosaline-muusikavorm-vastlad-6212dd72a6
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - AB-vorm
+      - Kaheosaline muusikavorm. Vastlad
+      - Kaks kõrvuti
+      - Liulaskmise laul
+      - Vastlad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9827-9f874dab51
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30676-518830825c
+    task_example_status: partial_captured
+    title_et: Kaheosaline muusikavorm. Vastlad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kaheosaline-muusikavorm-vastlad-6212dd72a6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11732
+    duplicate_group: grade-4-music-duplicate-kalagripp-473e69cda8
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kalagripp
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11732-4059e2b99c
+    task_example_status: not_captured
+    title_et: Kalagripp
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kalagripp-473e69cda8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11713
+    duplicate_group: grade-4-music-duplicate-kallis-kodu-a3d9112cbc
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kallis kodu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11713-b9e83e3dba
+    task_example_status: not_captured
+    title_et: Kallis kodu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kallis-kodu-a3d9112cbc
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11697
+    duplicate_group: grade-4-music-duplicate-karjapoiss-9f26353520
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Karjapoiss
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11697-42b1c79cdb
+    task_example_status: partial_captured
+    title_et: Karjapoiss
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-karjapoiss-9f26353520
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11678
+    duplicate_group: grade-4-music-duplicate-karjase-laul-39e48cce51
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - 3-osaline lihtvorm
+      - Karjase laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11678-5cdb29ea20
+    task_example_status: partial_captured
+    title_et: Karjase laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-karjase-laul-39e48cce51
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11665
+    duplicate_group: grade-4-music-duplicate-karulaane-jenka-299f4b4343
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Karulaane jenka
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11665-1ffbba991c
+    task_example_status: not_captured
+    title_et: Karulaane jenka
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-karulaane-jenka-299f4b4343
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11661
+    duplicate_group: grade-4-music-duplicate-karvast-sopra-oodates-363d8d7c81
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Karvast sõpra oodates
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11661-b0f9b52817
+    task_example_status: partial_captured
+    title_et: Karvast sõpra oodates
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-karvast-sopra-oodates-363d8d7c81
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9823
+      - https://www.opiq.ee/kit/552/chapter/30671
+    duplicate_group: grade-4-music-duplicate-keelpillid-3091d39c2d
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helisev perekond
+      - Keelpillid
+      - Näppepillid
+      - Poogenpillid
+      - Sõrmede ja poognaga
+      - Ülesanded
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9823-48a32c10fd
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30671-ee25399a37
+    task_example_status: partial_captured
+    title_et: Keelpillid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-keelpillid-3091d39c2d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11651
+    duplicate_group: grade-4-music-duplicate-kellakaanon-5c3dc76854
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kellakaanon
+      - Rütmipillid
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11651-34af9b969f
+    task_example_status: partial_captured
+    title_et: Kellakaanon
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kellakaanon-5c3dc76854
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11683
+    duplicate_group: grade-4-music-duplicate-kellamang-c4ee32fc5e
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kellamäng
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11683-cfed2cc22d
+    task_example_status: partial_captured
+    title_et: Kellamäng
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kellamang-c4ee32fc5e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11729
+    duplicate_group: grade-4-music-duplicate-kiigelaul-253eb3378a
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti tuntud koorid ja dirgendid
+      - Kiigelaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11729-ced76c3357
+    task_example_status: partial_captured
+    title_et: Kiigelaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kiigelaul-253eb3378a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11667
+    duplicate_group: grade-4-music-duplicate-kiire-lugu-1609d04e1d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kiire lugu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11667-0667156361
+    task_example_status: not_captured
+    title_et: Kiire lugu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kiire-lugu-1609d04e1d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11724
+    duplicate_group: grade-4-music-duplicate-kinga-rock-7565703d4b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kinga-rock
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11724-4213d4f106
+    task_example_status: not_captured
+    title_et: Kinga-rock
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kinga-rock-7565703d4b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9821
+      - https://www.opiq.ee/kit/552/chapter/30669
+    duplicate_group: grade-4-music-duplicate-klahvpillid-f5acc0b0fa
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Aastaaja kõla
+      - Elektripillid
+      - Klahvkeelpillid
+      - Klahvpillid
+      - Klahvpuhkpillid
+      - Pillide jaotus
+      - Ülesanded
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9821-159eb5d965
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30669-59eac0202b
+    task_example_status: partial_captured
+    title_et: Klahvpillid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-klahvpillid-f5acc0b0fa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9835
+      - https://www.opiq.ee/kit/552/chapter/30687
+    duplicate_group: grade-4-music-duplicate-klaverisaated-8c9995c162
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Ave Maria
+      - Kevadele
+      - Klaverisaated
+      - Kuidas me hakkame elama?
+      - Menuett
+      - Päkapiku jõululaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9835-e019ea2db6
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30687-12817fa2c8
+    task_example_status: not_captured
+    title_et: Klaverisaated
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-klaverisaated-8c9995c162
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9828
+      - https://www.opiq.ee/kit/552/chapter/30677
+    duplicate_group: grade-4-music-duplicate-kolmeosaline-muusikavorm-f7cb37c17d
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - ABA-vorm
+      - Keskmine kostab teisiti
+      - Kolmeosaline muusikavorm
+      - Vändra polka
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9828-1df7dc8c35
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30677-e2000329ef
+    task_example_status: partial_captured
+    title_et: Kolmeosaline muusikavorm
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kolmeosaline-muusikavorm-f7cb37c17d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11741
+    duplicate_group: grade-4-music-duplicate-konnad-f09495d3f1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Konnad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11741-fb40cf8e51
+    task_example_status: not_captured
+    title_et: Konnad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-konnad-f09495d3f1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9818
+      - https://www.opiq.ee/kit/174/chapter/9831
+      - https://www.opiq.ee/kit/552/chapter/30666
+      - https://www.opiq.ee/kit/552/chapter/30681
+    duplicate_group: grade-4-music-duplicate-kordamine-03d2eca3fa
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kordamine
+      - Küsimused ja ülesanded
+      - Sepahaamer
+      - Sepapoisid
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9818-fbd79d1213
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9831-a4b6ea2830
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30666-9a520aa395
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30681-8fe7194d33
+    task_example_status: not_captured
+    title_et: Kordamine
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kordamine-03d2eca3fa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11695
+    duplicate_group: grade-4-music-duplicate-kui-on-selged-astmenimed-0ff5c6dfc1
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kui on selged astmenimed
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11695-054f157111
+    task_example_status: partial_captured
+    title_et: Kui on selged astmenimed
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kui-on-selged-astmenimed-0ff5c6dfc1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11666
+    duplicate_group: grade-4-music-duplicate-kui-sa-leiad-suure-kivi-d91230c523
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Duur-helilaad ja duur-kolmkõla
+      - Helilooja
+      - KUI SA LEIAD
+      - Kui sa leiad suure kivi
+      - SUURE KIVI
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11666-ab35a1a220
+    task_example_status: partial_captured
+    title_et: Kui sa leiad suure kivi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kui-sa-leiad-suure-kivi-d91230c523
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11730
+    duplicate_group: grade-4-music-duplicate-kungla-rahvas-39588ae308
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti tuntud koorid ja dirigendid
+      - Kungla rahvas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11730-92d64827cd
+    task_example_status: partial_captured
+    title_et: Kungla rahvas
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kungla-rahvas-39588ae308
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11653
+    duplicate_group: grade-4-music-duplicate-kunstnik-sugis-f5d958b955
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Dünaamilised varjundid
+      - Kunstnik sügis
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11653-1a6e08141e
+    task_example_status: partial_captured
+    title_et: Kunstnik sügis
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kunstnik-sugis-f5d958b955
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9833
+      - https://www.opiq.ee/kit/552/chapter/30685
+    duplicate_group: grade-4-music-duplicate-kuuekeelne-vaikekannel-abbaa4daa4
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Häälestus ja mänguvõtted
+      - Kuuekeelne väikekannel
+      - Laulude kandlesaated
+      - Mu isamaa armas
+      - Muistne pill
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9833-e2992b59eb
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30685-9bcf7584b3
+    task_example_status: not_captured
+    title_et: Kuuekeelne väikekannel
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-kuuekeelne-vaikekannel-abbaa4daa4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11663
+    duplicate_group: grade-4-music-duplicate-lambad-on-kadunud-52b25c407f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Lambad on kadunud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11663-719dded50c
+    task_example_status: not_captured
+    title_et: Lambad on kadunud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lambad-on-kadunud-52b25c407f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11725
+    duplicate_group: grade-4-music-duplicate-lapaduu-f207ed695b
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Lapaduu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11725-602cf02b06
+    task_example_status: partial_captured
+    title_et: Lapaduu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lapaduu-f207ed695b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11735
+    duplicate_group: grade-4-music-duplicate-lapsel-on-mure-c4be49154c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Lapsel on mure
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11735-7f705cc8c4
+    task_example_status: not_captured
+    title_et: Lapsel on mure
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lapsel-on-mure-c4be49154c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11685
+    duplicate_group: grade-4-music-duplicate-las-vihistab-687d0bb2b1
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Las vihistab
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11685-b918e7a73f
+    task_example_status: partial_captured
+    title_et: Las vihistab
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-las-vihistab-687d0bb2b1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11717
+    duplicate_group: grade-4-music-duplicate-laul-pohjamaast-365e3daa1f
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Laul põhjamaast
+      - Muusikal
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11717-96e6823000
+    task_example_status: partial_captured
+    title_et: Laul põhjamaast
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-laul-pohjamaast-365e3daa1f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/22539
+      - https://www.opiq.ee/kit/552/chapter/30684
+    duplicate_group: grade-4-music-duplicate-laulude-tahestikuline-loetelu-1d147d27fb
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Laulude tähestikuline loetelu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-22539-4764e35c72
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30684-7fc0585854
+    task_example_status: not_captured
+    title_et: Laulude tähestikuline loetelu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-laulude-tahestikuline-loetelu-1d147d27fb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9832
+      - https://www.opiq.ee/kit/552/chapter/30683
+    duplicate_group: grade-4-music-duplicate-lauluvara-98a0939d08
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Ding-dong
+      - Hea muusika
+      - Hei, ho!
+      - Hei-ho!
+      - Ilmatu rock
+      - Istutasin toominga
+      - Juba linnukesed
+      - Kadrilaul
+      - Kaseke
+      - Kehapillikaanon
+      - Kehapillimäng
+      - Kes võib tuuleta purjeta’
+      - Kingsepaemanda hällilaul
+      - Konna kosjad
+      - Kooliaeg käes
+      - Kui linnud magavad
+      - Kuidas sõita?
+      - Kukeke
+      - Kõnekaanon
+      - Lahtilükkamise laul
+      - Lase kiik käia
+      - Laul Põhjamaast
+      - Laul sai otsa
+      - Laulu mõju
+      - Laulurõõm
+      - Lauluvara
+      - Maiasmoka tšatša
+      - Mardilaul
+      - Meestel on tubakat
+      - Mina lätsi mõtsa
+      - Mu süda, ärka üles
+      - Rõõm on täitnud maa
+      - Saatke meile meile
+      - See on ema
+      - Sügisball
+      - Sügismõtted
+      - Taat, ära maga
+      - Tirooli kägu
+      - Tule tantsima
+      - Viisid igaks puhuks
+      - Vitamiiniräpp
+      - Väikese nõia laul
+      - Ühtvalu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9832-23e7e9392e
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30683-a3e3098123
+    task_example_status: not_captured
+    title_et: Lauluvara
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lauluvara-98a0939d08
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11709
+    duplicate_group: grade-4-music-duplicate-lendas-valge-tuvi-d2b5c57ade
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Lendas valge tuvi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11709-964dff6922
+    task_example_status: partial_captured
+    title_et: Lendas valge tuvi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lendas-valge-tuvi-d2b5c57ade
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11736
+    duplicate_group: grade-4-music-duplicate-lepatriinu-laul-d2e4349992
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Lepatriinu laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11736-39c32bd199
+    task_example_status: partial_captured
+    title_et: Lepatriinu laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lepatriinu-laul-d2e4349992
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11659
+    duplicate_group: grade-4-music-duplicate-loomad-tool-84449f710d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Loomad tööl
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11659-b41a93b6ad
+    task_example_status: not_captured
+    title_et: Loomad tööl
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-loomad-tool-84449f710d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11664
+    duplicate_group: grade-4-music-duplicate-loomade-karneval-9a50338a37
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Loomade karneval
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11664-64bdda84a2
+    task_example_status: partial_captured
+    title_et: Loomade karneval
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-loomade-karneval-9a50338a37
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11660
+    duplicate_group: grade-4-music-duplicate-loomariik-38869362b1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Loomariik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11660-1d7edd89b5
+    task_example_status: not_captured
+    title_et: Loomariik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-loomariik-38869362b1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9829
+      - https://www.opiq.ee/kit/552/chapter/30678
+    duplicate_group: grade-4-music-duplicate-ludwig-van-beethoven-ad8030f4b7
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kevadele
+      - Ludwig van Beethoven
+      - Ood rõõmule
+      - Suur muusik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9829-a23ca8f31f
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30678-775d1d3fda
+    task_example_status: partial_captured
+    title_et: Ludwig van Beethoven
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ludwig-van-beethoven-ad8030f4b7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9825
+      - https://www.opiq.ee/kit/552/chapter/30673
+    duplicate_group: grade-4-music-duplicate-lookpillid-dad585dfc1
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Dubidu-dam
+      - Harjutus
+      - Kaks ametit
+      - Kontsert
+      - Löökpillid
+      - Meloodiapillid
+      - Rütmiharjutused
+      - Rütmipillid
+      - Suur ja sõbralik pere
+      - Trummikomplekt
+      - Ülesanded
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9825-14282b10c1
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30673-3f7b140116
+    task_example_status: partial_captured
+    title_et: Löökpillid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-lookpillid-dad585dfc1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11714
+    duplicate_group: grade-4-music-duplicate-ma-vaatan-paadist-kiikriga-50803e2c4e
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Ma vaatan paadist kiikriga
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11714-78d67b1666
+    task_example_status: partial_captured
+    title_et: Ma vaatan paadist kiikriga
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ma-vaatan-paadist-kiikriga-50803e2c4e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11722
+    duplicate_group: grade-4-music-duplicate-maddalena-8c0ff78e85
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Maddalena
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11722-afc49cda0c
+    task_example_status: partial_captured
+    title_et: Maddalena
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-maddalena-8c0ff78e85
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11676
+    duplicate_group: grade-4-music-duplicate-mardilaul-071d7d8022
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Mardilaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11676-bb4c188f18
+    task_example_status: partial_captured
+    title_et: Mardilaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mardilaul-071d7d8022
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11700
+    duplicate_group: grade-4-music-duplicate-marmotte-00dfb72e63
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Marmotte
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+    task_example_status: partial_captured
+    title_et: Marmotte
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-marmotte-00dfb72e63
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11728
+    duplicate_group: grade-4-music-duplicate-mats-alati-on-tubli-mees-c5227c6667
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti tuntud koorid ja dirigendid
+      - Mats alati on tubli mees
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11728-ed59327b5a
+    task_example_status: partial_captured
+    title_et: Mats alati on tubli mees
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mats-alati-on-tubli-mees-c5227c6667
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11657
+    duplicate_group: grade-4-music-duplicate-me-lahme-rukist-loikama-9fffc874fd
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Laul „Me lähme rukist lõikama”
+      - Me lähme rukist lõikama
+      - Mäng „Me lähme rukist lõikama”
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11657-d6d22ba1f9
+    task_example_status: partial_captured
+    title_et: Me lähme rukist lõikama
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-me-lahme-rukist-loikama-9fffc874fd
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11673
+    duplicate_group: grade-4-music-duplicate-meie-elu-aa05fd8a87
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - 1-osaline lihtvorm
+      - Meie elu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11673-cf17cb2608
+    task_example_status: partial_captured
+    title_et: Meie elu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-meie-elu-aa05fd8a87
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11715
+    duplicate_group: grade-4-music-duplicate-mere-pidu-99df2a1b9f
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Mere pidu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11715-b1c6889ea4
+    task_example_status: partial_captured
+    title_et: Mere pidu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mere-pidu-99df2a1b9f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11656
+    duplicate_group: grade-4-music-duplicate-mihklikuu-dd597aed3d
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Mihklikuu
+      - September
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11656-e8b7cecc17
+    task_example_status: partial_captured
+    title_et: Mihklikuu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mihklikuu-dd597aed3d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11720
+    duplicate_group: grade-4-music-duplicate-minu-lemmikud-5591558bcf
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Minu lemmikud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11720-5317dfa99e
+    task_example_status: partial_captured
+    title_et: Minu lemmikud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-minu-lemmikud-5591558bcf
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9813
+      - https://www.opiq.ee/kit/552/chapter/30662
+    duplicate_group: grade-4-music-duplicate-moll-kolmkola-6a45f8df6d
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Moll-kolmkõla
+      - Nukker trio
+      - RA-JO-MI
+      - Tuule laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9813-6f0d9adc4c
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30662-66b57c4ff4
+    task_example_status: partial_captured
+    title_et: Moll-kolmkõla
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-moll-kolmkola-6a45f8df6d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11711
+    duplicate_group: grade-4-music-duplicate-mu-isamaa-mu-onn-ja-room-ef16ccf79a
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Mu isamaa, mu õnn ja rõõm
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11711-90804861a5
+    task_example_status: not_captured
+    title_et: Mu isamaa, mu õnn ja rõõm
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mu-isamaa-mu-onn-ja-room-ef16ccf79a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11742
+    duplicate_group: grade-4-music-duplicate-mu-mutsil-on-kolm-nurka-1d666aca8a
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Mu mütsil on kolm nurka
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11742-20b329b0dd
+    task_example_status: not_captured
+    title_et: Mu mütsil on kolm nurka
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mu-mutsil-on-kolm-nurka-1d666aca8a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11727
+    duplicate_group: grade-4-music-duplicate-muhulaste-laul-960f47636d
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Eesti tuntud koorid ja dirigendid
+      - Muhulaste laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11727-2a853b4b1d
+    task_example_status: partial_captured
+    title_et: Muhulaste laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-muhulaste-laul-960f47636d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11698
+    duplicate_group: grade-4-music-duplicate-muusika-d8d45419ef
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Muusika
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11698-9a30c33cbc
+    task_example_status: not_captured
+    title_et: Muusika
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-muusika-d8d45419ef
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9836
+      - https://www.opiq.ee/kit/552/chapter/30688
+    duplicate_group: grade-4-music-duplicate-muusikasonastik-ab0242296c
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Muusikasõnastik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9836-030b5f7b5d
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30688-791d44ee1d
+    task_example_status: not_captured
+    title_et: Muusikasõnastik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-muusikasonastik-ab0242296c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9837
+      - https://www.opiq.ee/kit/552/chapter/30689
+    duplicate_group: grade-4-music-duplicate-moisted-71752d3d61
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Mõisted
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9837-301576c6fc
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30689-cb1b69af04
+    task_example_status: not_captured
+    title_et: Mõisted
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-moisted-71752d3d61
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11694
+    duplicate_group: grade-4-music-duplicate-mutsitants-b8d4ce6677
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Marakas
+      - Mütsitants
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11694-7223491023
+    task_example_status: partial_captured
+    title_et: Mütsitants
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-mutsitants-b8d4ce6677
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9805
+      - https://www.opiq.ee/kit/552/chapter/30654
+    duplicate_group: grade-4-music-duplicate-noodipikkused-9063a16ab1
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kõlamõõt
+      - Minu õpetaja
+      - Noodipikkused
+      - Rütmimäng
+      - Rütmitabel
+      - Sügis
+      - Tantsulaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9805-3896b101e9
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30654-ab4cb5f88b
+    task_example_status: partial_captured
+    title_et: Noodipikkused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-noodipikkused-9063a16ab1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11652
+    duplicate_group: grade-4-music-duplicate-nooditundja-da8e51890d
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Nooditundja
+      - Plokkflööt
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11652-a59847c1e1
+    task_example_status: partial_captured
+    title_et: Nooditundja
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-nooditundja-da8e51890d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11731
+    duplicate_group: grade-4-music-duplicate-noore-noia-laul-459d018115
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Noore nõia laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11731-44622300e6
+    task_example_status: partial_captured
+    title_et: Noore nõia laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-noore-noia-laul-459d018115
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9830
+      - https://www.opiq.ee/kit/552/chapter/30679
+    duplicate_group: grade-4-music-duplicate-nootide-tahtnimetused-26c4b77473
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helihark
+      - Igal noodil oma nimi
+      - Klaviatuur
+      - Noodilaul
+      - Nootide tähtnimetused
+      - Rändurite päris kodu
+      - Viiulivõti
+      - Ülesanded
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9830-2892417a55
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30679-05c6bf87c5
+    task_example_status: partial_captured
+    title_et: Nootide tähtnimetused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-nootide-tahtnimetused-26c4b77473
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11706
+    duplicate_group: grade-4-music-duplicate-nurme-nolval-kasekene-kasvas-0a0a8ff5aa
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Nurme nõlval kasekene kasvas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11706-390f8113d3
+    task_example_status: partial_captured
+    title_et: Nurme nõlval kasekene kasvas
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-nurme-nolval-kasekene-kasvas-0a0a8ff5aa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11743
+    duplicate_group: grade-4-music-duplicate-on-meie-keskel-suvi-2936f06479
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - On meie keskel suvi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11743-11815ef4dc
+    task_example_status: partial_captured
+    title_et: On meie keskel suvi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-on-meie-keskel-suvi-2936f06479
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11699
+    duplicate_group: grade-4-music-duplicate-ood-roomule-29ca7d75f1
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Ood rõõmule
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11699-5d0269f9c9
+    task_example_status: partial_captured
+    title_et: Ood rõõmule
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ood-roomule-29ca7d75f1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9820
+      - https://www.opiq.ee/kit/552/chapter/30668
+    duplicate_group: grade-4-music-duplicate-pillid-f26c8956f6
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Igaühel oma pill
+      - Mängurõõm mitmel moel
+      - Pillid
+      - Pillikõla võimalused
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9820-0b20fd190f
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30668-44b55b244f
+    task_example_status: partial_captured
+    title_et: Pillid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-pillid-f26c8956f6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11718
+    duplicate_group: grade-4-music-duplicate-pipi-laul-23a562708f
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Pipi laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11718-5ced1f8c21
+    task_example_status: partial_captured
+    title_et: Pipi laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-pipi-laul-23a562708f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9834
+      - https://www.opiq.ee/kit/552/chapter/30686
+    duplicate_group: grade-4-music-duplicate-plokkfloodi-manguvotted-2b8ff24712
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Ansamblimäng
+      - Harjutused ja ülesanded
+      - Kehahoiak
+      - Käte asend pillil
+      - Kümme sõrme, tuhat tooni
+      - Plokkflöödi mänguvõtted
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9834-456b3d37b0
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30686-463bf284fd
+    task_example_status: not_captured
+    title_et: Plokkflöödi mänguvõtted
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-plokkfloodi-manguvotted-2b8ff24712
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11680
+    duplicate_group: grade-4-music-duplicate-poisid-ja-plikad-cd371353c6
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Hääleliigid
+      - Poisid ja plikad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11680-bd346daaca
+    task_example_status: partial_captured
+    title_et: Poisid ja plikad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-poisid-ja-plikad-cd371353c6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11681
+    duplicate_group: grade-4-music-duplicate-poiste-laul-5096449c73
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Meeshääled
+      - Poiste laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11681-4f493f1842
+    task_example_status: partial_captured
+    title_et: Poiste laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-poiste-laul-5096449c73
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9824
+      - https://www.opiq.ee/kit/552/chapter/30672
+    duplicate_group: grade-4-music-duplicate-puhkpillid-e3e7acd5d6
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Huulte ja hingega
+      - Kostavad kaugele
+      - Puhkpillid
+      - Puupuhkpillid
+      - Vaskpuhkpillid
+      - Ülesanded
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9824-bced2d1f6a
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30672-e7bd250f1a
+    task_example_status: partial_captured
+    title_et: Puhkpillid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-puhkpillid-e3e7acd5d6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11705
+    duplicate_group: grade-4-music-duplicate-punapaela-laul-3042fd0328
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Punapaela laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11705-af0941aab7
+    task_example_status: partial_captured
+    title_et: Punapaela laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-punapaela-laul-3042fd0328
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11701
+    duplicate_group: grade-4-music-duplicate-puusodurite-marss-07866ade8a
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Puusõdurite marss
+      - „Lastealbum”
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11701-333a75f5e6
+    task_example_status: partial_captured
+    title_et: Puusõdurite marss
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-puusodurite-marss-07866ade8a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11684
+    duplicate_group: grade-4-music-duplicate-pakapiku-joululaul-386b69ad7f
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Päkapiku jõululaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11684-d1b15fbafa
+    task_example_status: partial_captured
+    title_et: Päkapiku jõululaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-pakapiku-joululaul-386b69ad7f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11662
+    duplicate_group: grade-4-music-duplicate-paasukeste-sugislaul-1e741cd45e
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Pääsukeste sügislaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11662-9eeb52b25f
+    task_example_status: partial_captured
+    title_et: Pääsukeste sügislaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-paasukeste-sugislaul-1e741cd45e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/25906
+      - https://www.opiq.ee/kit/552/chapter/30682
+    duplicate_group: grade-4-music-duplicate-pohivara-animatsioonid-fb2acc2ec1
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Astmenimed
+      - Duuri kuulamise ülesanne
+      - Duuri valem
+      - Käemärkide tundmine
+      - Meetrumi kuulamine
+      - Molli kuulamise ülesanne
+      - Molli valem
+      - Muusikatähed
+      - Noodijoonestik. Viiulivõti. Tähtnimetused
+      - Pulss. Meetrum
+      - Põhivara animatsioonid
+      - Rütm
+      - Rütmiülesanne
+      - Takt. Taktimõõt
+      - Teeme smuutit!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-25906-be299b7ba1
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30682-d79dac5dd3
+    task_example_status: not_captured
+    title_et: Põhivara animatsioonid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-pohivara-animatsioonid-fb2acc2ec1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11692
+    duplicate_group: grade-4-music-duplicate-puha-oo-b70b3810e5
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Püha öö
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11692-639f864f04
+    task_example_status: not_captured
+    title_et: Püha öö
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-puha-oo-b70b3810e5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9812
+      - https://www.opiq.ee/kit/552/chapter/30661
+    duplicate_group: grade-4-music-duplicate-ra-astmerida-ehk-moll-helilaad-658cf86564
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Astmerida RA-st RA-ni
+      - Nukra kõlaga helirida
+      - RA-astmerida ehk moll-helilaad
+      - Vesi laulab
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9812-f42ce8aec3
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30661-3dc0ed93f5
+    task_example_status: partial_captured
+    title_et: RA-astmerida ehk moll-helilaad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ra-astmerida-ehk-moll-helilaad-658cf86564
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11726
+    duplicate_group: grade-4-music-duplicate-roomulaul-5575012091
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Kooriliigid
+      - Rõõmulaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11726-6c35e2d884
+    task_example_status: partial_captured
+    title_et: Rõõmulaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-roomulaul-5575012091
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11650
+    duplicate_group: grade-4-music-duplicate-samblalohnaline-laul-cec31d6619
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Astmetrepp ja JO-astmerida
+      - Kandlemängu võtted
+      - Meetrum ja taktimõõt
+      - Rütmivormid ja astmed
+      - Samblalõhnaline laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11650-00c2e80bc6
+    task_example_status: partial_captured
+    title_et: Samblalõhnaline laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-samblalohnaline-laul-cec31d6619
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11687
+    duplicate_group: grade-4-music-duplicate-siis-kui-minu-vanaema-481b9800d7
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Siis kui minu vanaema
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11687-9d12fda0dc
+    task_example_status: partial_captured
+    title_et: Siis kui minu vanaema
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-siis-kui-minu-vanaema-481b9800d7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11696
+    duplicate_group: grade-4-music-duplicate-suusalumi-4542a343eb
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Suusalumi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11696-797062cf30
+    task_example_status: partial_captured
+    title_et: Suusalumi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-suusalumi-4542a343eb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9838
+      - https://www.opiq.ee/kit/206/chapter/11744
+      - https://www.opiq.ee/kit/552/chapter/30690
+    duplicate_group: grade-4-music-duplicate-sonaseletused-9c33ed3725
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "206"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Sõnaseletused
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9838-15e76a1294
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11744-5b766cc938
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30690-ca911ba1e6
+    task_example_status: not_captured
+    title_et: Sõnaseletused
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-sonaseletused-9c33ed3725
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11654
+    duplicate_group: grade-4-music-duplicate-sugise-laul-bb7c9d5ae0
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Sügise laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11654-3b5c10b89a
+    task_example_status: partial_captured
+    title_et: Sügise laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-sugise-laul-bb7c9d5ae0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11734
+    duplicate_group: grade-4-music-duplicate-tagurpidimaa-d5af224f49
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Tagurpidimaa
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11734-bb4090c6ba
+    task_example_status: partial_captured
+    title_et: Tagurpidimaa
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-tagurpidimaa-d5af224f49
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11655
+    duplicate_group: grade-4-music-duplicate-tahaksin-olla-d587724f3b
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Tahaksin olla
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11655-53bd24170f
+    task_example_status: partial_captured
+    title_et: Tahaksin olla
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-tahaksin-olla-d587724f3b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9806
+      - https://www.opiq.ee/kit/552/chapter/30655
+    duplicate_group: grade-4-music-duplicate-taktimoot-1003d193ef
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Miks?
+      - Nootide korrastaja
+      - Taktimõõdu kaks numbrit
+      - Taktimõõt
+      - Tantsuringis
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9806-937e12e1b4
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30655-3b9de5ab2d
+    task_example_status: partial_captured
+    title_et: Taktimõõt
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-taktimoot-1003d193ef
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9807
+      - https://www.opiq.ee/kit/552/chapter/30656
+    duplicate_group: grade-4-music-duplicate-taktimoot-4-4-6cc904e8d7
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Marsitaktis edasi
+      - Neli lööki taktis
+      - Taktimõõt 4/4
+      - Tervenoot ja tervepaus
+      - Tule, sõber, kaasa
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9807-6cbcea32bd
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30656-4d28ee393e
+    task_example_status: partial_captured
+    title_et: Taktimõõt 4/4
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-taktimoot-4-4-6cc904e8d7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11686
+    duplicate_group: grade-4-music-duplicate-talve-volumaa-ce8508d3d9
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Talve võlumaa
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11686-54ee1861b2
+    task_example_status: partial_captured
+    title_et: Talve võlumaa
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-talve-volumaa-ce8508d3d9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9819
+      - https://www.opiq.ee/kit/552/chapter/30667
+    duplicate_group: grade-4-music-duplicate-talvelaulud-498d6d1c66
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Ave Maria
+      - Jõulukell
+      - Jõuluvana on tulemas
+      - Kehapillimäng
+      - Lume all
+      - Lumelaul
+      - Pimeda aja valgus
+      - Päkapiku jõululaul
+      - Püha öö
+      - Pühade ootamine
+      - Soe tee kamina ees
+      - Tabatinna
+      - Talvehommik
+      - Talvelaulud
+      - Uue aasta kaanon
+      - We Wish You a Merry Christmas
+      - Üle lume lagedale
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9819-6058ebcc01
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30667-c90d544ab4
+    task_example_status: not_captured
+    title_et: Talvelaulud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-talvelaulud-498d6d1c66
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11721
+    duplicate_group: grade-4-music-duplicate-tantsi-tantsi-6766e39ea2
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Tantsi, tantsi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11721-5fa1285687
+    task_example_status: partial_captured
+    title_et: Tantsi, tantsi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-tantsi-tantsi-6766e39ea2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11703
+    duplicate_group: grade-4-music-duplicate-terelaul-99a44264e5
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Terelaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11703-bf52c796ec
+    task_example_status: partial_captured
+    title_et: Terelaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-terelaul-99a44264e5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11658
+    duplicate_group: grade-4-music-duplicate-ti-ti-ri-ta-7a9bef5333
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Ti-ti-ri ta
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11658-0be991389d
+    task_example_status: partial_captured
+    title_et: Ti-ti-ri ta
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ti-ti-ri-ta-7a9bef5333
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11708
+    duplicate_group: grade-4-music-duplicate-tramblanka-f33b8d04db
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - TRAMBLANKA*
+      - Tramblanka
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11708-d26f441e3e
+    task_example_status: not_captured
+    title_et: Tramblanka
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-tramblanka-f33b8d04db
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9814
+      - https://www.opiq.ee/kit/552/chapter/30663
+    duplicate_group: grade-4-music-duplicate-uued-rutmid-ti-ti-ri-ja-ti-ri-ti-ae6e4ac754
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Meie elu
+      - Ostetud hääl
+      - Peegel
+      - Rütmide moodustamine
+      - Tantsusõbrad
+      - Uued rütmid TI-TI-RI ja TI-RI-TI
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9814-d7f6731110
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30663-bc91906a5d
+    task_example_status: partial_captured
+    title_et: Uued rütmid TI-TI-RI ja TI-RI-TI
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-uued-rutmid-ti-ti-ri-ja-ti-ri-ti-ae6e4ac754
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9826
+      - https://www.opiq.ee/kit/552/chapter/30674
+    duplicate_group: grade-4-music-duplicate-uus-rutm-ta-i-ti-30b2a52486
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Muusika kahe löögi sees
+      - TA ja TI-TI tants
+      - Uus rütm TA-I-TI
+      - Viva la musica!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9826-dcdb38bf31
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30674-39ad6ce0ca
+    task_example_status: partial_captured
+    title_et: Uus rütm TA-I-TI
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-uus-rutm-ta-i-ti-30b2a52486
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11737
+    duplicate_group: grade-4-music-duplicate-vanaema-57a0e3da7b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Vanaema
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11737-92773db74c
+    task_example_status: not_captured
+    title_et: Vanaema
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-vanaema-57a0e3da7b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11669
+    duplicate_group: grade-4-music-duplicate-varastaja-harakas-c2c342c81a
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Helilooja
+      - Varastaja harakas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11669-2d6bad67a3
+    task_example_status: partial_captured
+    title_et: Varastaja harakas
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-varastaja-harakas-c2c342c81a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11716
+    duplicate_group: grade-4-music-duplicate-vastlalaul-404cd97ab6
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Vastlalaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11716-47768bf123
+    task_example_status: partial_captured
+    title_et: Vastlalaul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-vastlalaul-404cd97ab6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11704
+    duplicate_group: grade-4-music-duplicate-vaike-postiljon-c31f9c6e2b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Väike postiljon
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11704-32acfe035e
+    task_example_status: not_captured
+    title_et: Väike postiljon
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-vaike-postiljon-c31f9c6e2b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11682
+    duplicate_group: grade-4-music-duplicate-vaike-oobik-3af98febfb
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Meeshääled
+      - Väike ööbik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11682-f09fc68df4
+    task_example_status: partial_captured
+    title_et: Väike ööbik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-vaike-oobik-3af98febfb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11688
+    duplicate_group: grade-4-music-duplicate-vaiku-latso-joulusalm-bc571f76ef
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Väiku latsõ jõulusalm
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11688-adca48583e
+    task_example_status: not_captured
+    title_et: Väiku latsõ jõulusalm
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-vaiku-latso-joulusalm-bc571f76ef
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11670
+    duplicate_group: grade-4-music-duplicate-ohtu-ilu-123cab2653
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Õhtu-ilu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11670-3be39587c1
+    task_example_status: partial_captured
+    title_et: Õhtu-ilu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ohtu-ilu-123cab2653
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11738
+    duplicate_group: grade-4-music-duplicate-onneseen-ebc8cfd5c2
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Õnneseen
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11738-e66f27156f
+    task_example_status: partial_captured
+    title_et: Õnneseen
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-onneseen-ebc8cfd5c2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - muusikaõpik_4._klassile_2024__kit552
+      - muusikaõpik_4._klassile__kit174
+    canonical_urls:
+      - https://www.opiq.ee/kit/174/chapter/9803
+      - https://www.opiq.ee/kit/552/chapter/30665
+    duplicate_group: grade-4-music-duplicate-opiku-tahised-3133681ec4
+    edition_relationships: same_title_multiple_editions
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "174"
+      - "552"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Mängi ja kuula
+      - Märkide keel
+      - Õpiku tähised
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9803-93fdc312cf
+      - grade-4-music-record-552-https-www-opiq-ee-kit-552-chapter-30665-b497195ca9
+    task_example_status: not_captured
+    title_et: Õpiku tähised
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-opiku-tahised-3133681ec4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11671
+    duplicate_group: grade-4-music-duplicate-oo-laul-f5cecbb976
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Öö laul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11671-693074c40a
+    task_example_status: not_captured
+    title_et: Öö laul
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-oo-laul-f5cecbb976
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - 4._klassi_muusikaõpetus__kit206
+    canonical_urls:
+      - https://www.opiq.ee/kit/206/chapter/11679
+    duplicate_group: grade-4-music-duplicate-ules-ules-hellad-vennad-13d8320b9f
+    edition_relationships: single_record_group
+    evidence_level: heading_and_task_example
+    full_prose_status: missing
+    kit_ids:
+      - "206"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-music-cultural-participation
+    route_id: grade-4-music
+    source_headings:
+      - Hääleliigid
+      - Üles, üles, hellad vennad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11679-e71d9e8b87
+    task_example_status: partial_captured
+    title_et: Üles, üles, hellad vennad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-4-music-topic-ules-ules-hellad-vennad-13d8320b9f

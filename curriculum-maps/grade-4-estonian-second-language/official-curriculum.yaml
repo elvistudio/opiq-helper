@@ -1,0 +1,69 @@
+allocation_status:
+  curated_grade_4_allocation: opiq_helper_recommended_allocation
+  national_exact_grade_claimed: false
+  notes: National stage-II scope remains distinct from this recommended Grade 4 allocation.
+artifact_id: grade-4-estonian-second-language-official-curriculum
+artifact_type: grade_programme_official_curriculum_map
+canonical_route:
+  md_path: project-files/outputs/opiq_4klass_eesti_keel_teise_keelena.md
+  qa_path: project-files/outputs/opiq_4klass_eesti_keel_teise_keelena_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_4klass_eesti_keel_4_klassile_opiq_v2.zip
+  source_id: grade-4-estonian-second-language
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+grade: 4
+official_fields:
+  - keel ja kirjandus
+official_scope:
+  exact_grade_claimed: false
+  kind: school_stage
+  school_stage: 2
+  terminal_grade: 6
+outcomes:
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: verified
+    grade_4_allocation_note: This is an Opiq Helper recommended Grade 4 allocation of a national stage-II endpoint.
+    official_reference: PRÕK lisa 1 punkt 2.4.3, II kooliaste, punkt 1
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    official_subject: null
+    official_wording_et: Tuleb toime igapäevastes suhtlusolukordades.
+    outcome_id: ee-prk-2026-stage2-estonian-second-language-daily-communication
+    source_id: ee-prok-2026-appendix-01
+    source_topic_evidence: heading_only
+    subject_field: keel ja kirjandus
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: Справляется с повседневными ситуациями общения.
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+  verification_date: 2026-07-28
+record_count: 117
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+route_id: grade-4-estonian-second-language
+schema_version: "1.0"
+subject: Estonian as a second language
+subject_et: eesti keel teise keelena

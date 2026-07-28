@@ -1,0 +1,41 @@
+artifact_id: grade-4-russian-reading-coverage
+artifact_type: grade_programme_route_coverage
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Full prose, complete task bodies, authored lessons and assessment evidence remain unavailable.
+  status: partial
+grade: 4
+official_curriculum_ref: curriculum-maps/grade-4-russian-reading/official-curriculum.yaml
+route_id: grade-4-russian-reading
+rows:
+  - assessment_evidence_status: partial
+    blocking_gaps:
+      - Headings do not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: partial
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-literature-reading-response
+    route_ids:
+      - grade-4-russian-reading
+    source_topic_presence: heading_only
+    task_evidence_status: partial
+    topic_cluster_refs:
+      - grade-4-russian-reading-topic-record-c4f663d4f2
+      - grade-4-russian-reading-topic-record-1146eed37d
+      - grade-4-russian-reading-topic-record-79d3b6a4df
+schema_version: "1.0"
+summary:
+  ambiguous: 0
+  missing: 0
+  outcome_count: 1
+  partial: 1
+  verified_full_coverage: 0
+topic_inventory_ref: curriculum-maps/grade-4-russian-reading/topic-inventory.yaml
