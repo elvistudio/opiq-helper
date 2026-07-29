@@ -1,0 +1,2253 @@
+artifact_id: grade-2-estonian-second-language-topic-inventory
+artifact_type: grade_programme_topic_inventory
+canonical_route:
+  md_path: project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+  qa_path: project-files/outputs/opiq_2klass_eesti_keel_teise_keelena_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+  source_id: grade-2-estonian-second-language
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+deduplication_policy:
+  cross_route_deduplication: false
+  edition_policy: preserve_without_obsolescence_claim
+  normalization: nfc_casefold_whitespace_punctuation_programme_type
+  source_record_preservation: all_records_retained
+grade: 2
+inventory_scope: route_bounded_original_headings_and_metadata
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+  verification_date: 2026-07-29
+record_count: 72
+route_id: grade-2-estonian-second-language
+schema_version: "1.0"
+subject: Estonian as a second language
+subject_et: eesti keel teise keelena
+topics:
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6958
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ametid-cc239f2841
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ametid
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. VAATA PILTI, LOE JA RÄÄGI!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - Ametid
+      - E-ül
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6958-58c057ac37
+    task_example_status: not_captured
+    title_et: Ametid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ametid-cc239f2841
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6991
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ballett-6066a0c998
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ballett
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. KÜSI SÕBRALT!
+      - 2. LOEME KOOS!
+      - 3. VAATA MENÜÜD!
+      - 4. E-ÜLESANNE
+      - Ballett
+      - E-ül
+      - LISAÜLESANNE 1
+      - Teater tuli külla
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6991-a5693f8d24
+    task_example_status: not_captured
+    title_et: Ballett
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ballett-6066a0c998
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6981
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-eesti-linnad-e68b23be5e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: eesti linnad
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LOEME KOOS!
+      - 2. LÕPETA LAUSED!
+      - 3. VAATA KAARTI. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Eesti linnad
+      - Eestimaa
+      - LISAÜLESANNE 1
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6981-98cdf9ef73
+    task_example_status: not_captured
+    title_et: Eesti linnad
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-eesti-linnad-e68b23be5e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6969
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ehitame-lumelinna-ce7fe13cf5
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ehitame lumelinna
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. RÄÄGI, MIDA KEEGI TEGI!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Ehitame lumelinna
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6969-0cf6a8893b
+    task_example_status: not_captured
+    title_et: Ehitame lumelinna
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ehitame-lumelinna-ce7fe13cf5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6956
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-enne-mardipaeva-2ee7655782
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: enne mardipäeva
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE TEKSTI KOHTA KOLM KÜSIMUST!
+      - 2. LAULAME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Enne mardipäeva
+      - LISAÜLESANNE 1
+      - Mardilaul
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6956-1ae6f0890a
+    task_example_status: not_captured
+    title_et: Enne mardipäeva
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-enne-mardipaeva-2ee7655782
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7002
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-hakkame-leiutama-8614fe292e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: hakkame leiutama
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. KIRJUTA!
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Hakkame leiutama
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7002-a6bfc841be
+    task_example_status: not_captured
+    title_et: Hakkame leiutama
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-hakkame-leiutama-8614fe292e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6966
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-joulud-e208a6552b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: jõulud
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. LAULAME KOOS!
+      - 3. KIRJUTA!
+      - E-ül
+      - Jõulud
+      - Jõulupiparkook
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6966-8e73a0332b
+    task_example_status: not_captured
+    title_et: Jõulud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-joulud-e208a6552b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6953
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-kassipoeg-abf73d076a
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: kassipoeg
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. E-ÜLESANNE
+      - 3. LOEME KOOS!
+      - 4. KIRJUTA!
+      - E-ül
+      - Kassipoeg
+      - Tass
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6953-9fa39bdfb4
+    task_example_status: not_captured
+    title_et: Kassipoeg
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-kassipoeg-abf73d076a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7000
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-kes-voidab-c71e3685e3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: kes võidab
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. KÜSI SÕBRALT!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Kes võidab?
+      - LISAÜLESANNE 1
+      - Väike salm emale
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7000-54b8912786
+    task_example_status: not_captured
+    title_et: Kes võidab?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-kes-voidab-c71e3685e3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6973
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-koome-salli-8b50c3bc91
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: koome salli
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. KÜSI SÕBRALT!
+      - 2. LOEME KOOS!
+      - 3. KIRJUTA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Koome salli
+      - LISAÜLESANNE 1
+      - Lõngakerad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6973-bb4b80d958
+    task_example_status: not_captured
+    title_et: Koome salli
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-koome-salli-8b50c3bc91
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6948
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-kui-oues-sajab-vihma-515951b03c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: kui õues sajab vihma
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Kui õues sajab vihma
+      - LISAÜLESANNE 1
+      - Naeris naeris
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6948-3fc57273c8
+    task_example_status: not_captured
+    title_et: Kui õues sajab vihma
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-kui-oues-sajab-vihma-515951b03c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6982
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-kulla-tuleb-eesti-president-b78ce520f1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: külla tuleb eesti president
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Eesti vabariigi sünnipäev
+      - Külla tuleb Eesti president
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6982-1424fb58f9
+    task_example_status: not_captured
+    title_et: Külla tuleb Eesti president
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-kulla-tuleb-eesti-president-b78ce520f1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6964
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-laat-e349ade598
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: laat
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. JUTUSTA!
+      - 2. KUI PALJU MAKSAB?
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Laat
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6964-7fdeb62eb2
+    task_example_status: not_captured
+    title_et: Laat
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-laat-e349ade598
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7003
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-leiutised-02b99d01a3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage1-estonian-second-language-instructions
+    original_heading_key: leiutised
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. JUTUSTA!
+      - 2. MIDA SA KOOLI KAASA VÕTAD?
+      - 3. KIRJUTA!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Leiutised
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7003-66075f1daf
+    task_example_status: not_captured
+    title_et: Leiutised
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-leiutised-02b99d01a3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6970
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-lumelinn-4bd9d26bc5
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: lumelinn
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. KÜSI SÕBRALT!
+      - 2. VAATA PILTI!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Lumelinn
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6970-21f10bf11c
+    task_example_status: not_captured
+    title_et: Lumelinn
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-lumelinn-4bd9d26bc5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6946
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-lahme-turule-080a5f6970
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: lähme turule
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE JUTU KOHTA KOLM KÜSIMUST!
+      - 2. LOEME KOOS!
+      - 3. VAATA JA LOE!
+      - 4. RÄÄGI SÕBRAGA!
+      - 5. E-ÜLESANNE
+      - E-ül
+      - Lähme turule!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6946-f4583fb476
+    task_example_status: not_captured
+    title_et: Lähme turule!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-lahme-turule-080a5f6970
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7005
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-lahme-tuulelohet-lennutama-4b05ed715c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: lähme tuulelohet lennutama
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. MIDA LAPSED JÄRVE ÄÄRES TEEVAD?
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Lähme tuulelohet lennutama!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7005-0a936a3487
+    task_example_status: not_captured
+    title_et: Lähme tuulelohet lennutama!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-lahme-tuulelohet-lennutama-4b05ed715c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6960
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ma-aitan-ema-13af80cc44
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ma aitan ema
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LOEME KOOS!
+      - 2. RÄÄGI, KES MIDA TEGI!
+      - 3. KIRJUTA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Ma aitan ema
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6960-06c07dede8
+    task_example_status: not_captured
+    title_et: Ma aitan ema
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ma-aitan-ema-13af80cc44
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6961
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ma-aitan-isa-6f7b81458f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ma aitan isa
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Ma aitan isa
+      - Naerulind
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6961-7de546fdae
+    task_example_status: not_captured
+    title_et: Ma aitan isa
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ma-aitan-isa-6f7b81458f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6954
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ma-hoolitsen-miisu-eest-3ba2fc083d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ma hoolitsen miisu eest
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. JUTUSTA!
+      - 2. VAATA PILTI! RÄÄGI, KELLE EEST SA HOOLITSED!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Ma hoolitsen Miisu eest
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6954-29f8a69d3b
+    task_example_status: not_captured
+    title_et: Ma hoolitsen Miisu eest
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ma-hoolitsen-miisu-eest-3ba2fc083d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6988
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ma-kain-joonistamisringis-24603e9cd9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ma käin joonistamisringis
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. LOEME KOOS!
+      - 3. KEDA VÕI MIDA SULLE JOONISTADA MEELDIB?
+      - 4. RÄÄGI!
+      - 5. E-ÜLESANNE
+      - E-ül
+      - Ma käin joonistamisringis
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6988-fe1608005b
+    task_example_status: not_captured
+    title_et: Ma käin joonistamisringis
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ma-kain-joonistamisringis-24603e9cd9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6989
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ma-lahen-trenni-7a8f7a67bd
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ma lähen trenni
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MIS ON VALESTI? ÜTLE ÕIGESTI!
+      - 2. LOEME KOOS!
+      - 3. MIS RINGIS/TRENNIS SINA KÄID?
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Käies kord köiel, kord kaarel
+      - LISAÜLESANNE 1
+      - Ma lähen trenni
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6989-d3bc6dfeaf
+    task_example_status: not_captured
+    title_et: Ma lähen trenni
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ma-lahen-trenni-7a8f7a67bd
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6986
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-magustoidud-fd55949929
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: magustoidud
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE KOLM KÜSIMUST!
+      - 2. MIS TOIT SULLE MAITSEB?
+      - 3. LOEME KOOS!
+      - 4. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Magustoidud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6986-1136a5f154
+    task_example_status: not_captured
+    title_et: Magustoidud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-magustoidud-fd55949929
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6957
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-me-jookseme-marti-783e85923d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: me jookseme marti
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. ÜTLE, MIDA MARDISANDID KINGIKS SAAVAD.
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Me jookseme marti
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6957-7411fd5f27
+    task_example_status: not_captured
+    title_et: Me jookseme marti
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-me-jookseme-marti-783e85923d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6990
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-me-laheme-teatrisse-0b6dbbb3fb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: me läheme teatrisse
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. KUS SINA OLED KÄINUD?
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Me läheme teatrisse
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6990-e230d4d4b9
+    task_example_status: not_captured
+    title_et: Me läheme teatrisse
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-me-laheme-teatrisse-0b6dbbb3fb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6955
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-miisu-teeb-pahandust-1927491b46
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: miisu teeb pahandust
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Kass küsib piima
+      - Miisu teeb pahandust
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6955-ed64b25db8
+    task_example_status: not_captured
+    title_et: Miisu teeb pahandust
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-miisu-teeb-pahandust-1927491b46
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6941
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-minu-klass-d8d0d9ce16
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: minu klass
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. VAATA PILTE JA RÄÄGI!
+      - 3. JUTUSTA, MIS ON SINU KLASSIS!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Minu klass
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6941-8cd7b9c956
+    task_example_status: not_captured
+    title_et: Minu klass
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-minu-klass-d8d0d9ce16
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6952
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-minu-pere-b37e171456
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: minu pere
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE JUTU KOHTA KOLM KÜSIMUST!
+      - 2. VAATA JA LOE, MIS LOOMAD ON LOOMAAIAS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Minu pere
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6952-bc31bd1cfa
+    task_example_status: not_captured
+    title_et: Minu pere
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-minu-pere-b37e171456
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6994
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-mis-kell-on-d7aa42da6e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: mis kell on
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE KOLM KÜSIMUST!
+      - 2. MIS KELL ON?
+      - 3. TULETA MEELDE!
+      - 4. RÄÄGI SÕBRAGA!
+      - 5. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Mis kell on?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6994-46710e184c
+    task_example_status: not_captured
+    title_et: Mis kell on?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-mis-kell-on-d7aa42da6e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6942
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-mis-on-koolikotis-4aea1f15d5
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage1-estonian-second-language-instructions
+    original_heading_key: mis on koolikotis
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MIS ON VALESTI?
+      - 2. VAATA JA ÜTLE, MIS ON KOOLIKOTIS!
+      - 3. LOEME KOOS!
+      - 4. RÄÄGI SÕBRAGA!
+      - 5. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Mis on koolikotis?
+      - Ott ja seljakott
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6942-8d572f0ea7
+    task_example_status: not_captured
+    title_et: Mis on koolikotis?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-mis-on-koolikotis-4aea1f15d5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6993
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-mis-paev-on-4b49d00a4d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: mis päev on
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. JUTUSTA!
+      - 2. LOEME KOOS!
+      - 3. VASTA KÜSIMUSTELE!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Mis päev on?
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6993-507e0adf60
+    task_example_status: not_captured
+    title_et: Mis päev on?
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-mis-paev-on-4b49d00a4d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6962
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-mulle-meeldib-uisutada-ef6e185eaa
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: mulle meeldib uisutada
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Jõulusoov
+      - Mulle meeldib uisutada
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6962-a38bb0b298
+    task_example_status: not_captured
+    title_et: Mulle meeldib uisutada
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-mulle-meeldib-uisutada-ef6e185eaa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6945
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-manguvaljak-d0360be542
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: mänguväljak
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. KORDAME!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Mänguväljak
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6945-902b0fb86f
+    task_example_status: not_captured
+    title_et: Mänguväljak
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-manguvaljak-d0360be542
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6943
+      - https://www.opiq.ee/kit/129/chapter/6951
+      - https://www.opiq.ee/kit/129/chapter/6959
+      - https://www.opiq.ee/kit/129/chapter/6967
+      - https://www.opiq.ee/kit/129/chapter/6977
+      - https://www.opiq.ee/kit/129/chapter/6987
+      - https://www.opiq.ee/kit/129/chapter/6997
+      - https://www.opiq.ee/kit/129/chapter/7007
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-nuud-ma-oskan-1009922fff
+    edition_relationships: same_title_multiple_records
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: nüüd ma oskan
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. RÄÄGI!
+      - 2. LOEME KOOS!
+      - 2. LÕPETA LAUSED! RÄÄGI!
+      - 2. MIS SÕNAD ON PUUDU?
+      - 2. VASTA KÜSIMUSTELE!
+      - 3. E-ÜLESANNE
+      - 3. KES MIDA TEEB? RÄÄGI!
+      - 3. LAULAME KOOS!
+      - 3. LOEME KOOS!
+      - 3. MIDA SINA TEHA OSKAD?
+      - 3. MIS KELL ON?
+      - 3. MIS SOBIB LÜNKA?
+      - 3. MIS TÄHED SOBIVAD LÜNKA?
+      - 4. MIS RINGIS/TRENNIS SINA KÄID?
+      - 4. MIS SULLE MAITSEB? MIS SULLE EI MAITSE?
+      - 4. RÄÄGI!
+      - 5. E-ÜLESANNE
+      - 5. RÄÄGI SÕBRAGA!
+      - 6. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Lõbus suvi
+      - Nüüd ma oskan
+      - Saunas
+      - Väike kuusk
+      - Väiksed kalad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6943-b107526ce7
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6951-bfe9161ed5
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6959-76ada39843
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6967-60f6bc6101
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6977-0bc8cf7f86
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6987-279e75aebc
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6997-83c79006a3
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7007-a6a46be52c
+    task_example_status: not_captured
+    title_et: Nüüd ma oskan
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-nuud-ma-oskan-1009922fff
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6979
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-onu-arvo-a7fc84af49
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: onu arvo
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. VAATA PILTE!
+      - 3. LOEME KOOS!
+      - 4. RÄÄGI!
+      - 5. E-ÜLESANNE
+      - E-ül
+      - Onu Arvo
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6979-5c0153ff4d
+    task_example_status: not_captured
+    title_et: Onu Arvo
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-onu-arvo-a7fc84af49
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6971
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-piial-on-haal-ara-8f1625c5a3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: piial on hääl ära
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI!
+      - E-ül
+      - Laulutunnis
+      - Piial on hääl ära
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6971-1f78660a2a
+    task_example_status: not_captured
+    title_et: Piial on hääl ära
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-piial-on-haal-ara-8f1625c5a3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7001
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-piknik-b690efd9b6
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: piknik
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. MIDA SINA PIKNIKUL SÖÖD JA JOOD?
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Piknik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7001-a09935e313
+    task_example_status: not_captured
+    title_et: Piknik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-piknik-b690efd9b6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6983
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ponev-saaremaa-0b95a7b87d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: põnev saaremaa
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. MILLEGA SA SÕIDAD?
+      - 3. KIRJUTA!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Põnev Saaremaa
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6983-013fbc7959
+    task_example_status: not_captured
+    title_et: Põnev Saaremaa
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ponev-saaremaa-0b95a7b87d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6947
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ponev-tund-936625f2af
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: põnev tund
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE JUTU KOHTA KOLM KÜSIMUST!
+      - 2. VAATA JA LOE!
+      - 3. LOEME KOOS!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Põnev tund
+      - Õnnelik porgand
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6947-8e4006f9fb
+    task_example_status: not_captured
+    title_et: Põnev tund
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ponev-tund-936625f2af
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6992
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-pukstes-on-auk-d713a94c04
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: pükstes on auk
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. TEE NII!
+      - 3. KIRJUTA!
+      - E-ül
+      - Pükstes on auk
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6992-b7be5490fd
+    task_example_status: not_captured
+    title_et: Pükstes on auk
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-pukstes-on-auk-d713a94c04
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6999
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-ratas-on-katki-ef933c4388
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ratas on katki
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Ratas on katki
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6999-97aebce703
+    task_example_status: not_captured
+    title_et: Ratas on katki
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-ratas-on-katki-ef933c4388
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6974
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-sall-793cf2ddeb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: sall
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. MIDA SINA TEHA OSKAD?
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Sall
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6974-6d157fecbb
+    task_example_status: not_captured
+    title_et: Sall
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-sall-793cf2ddeb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6944
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-sissejuhatus-e4fbc36c29
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: sissejuhatus
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - Sissejuhatus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6944-e63c5cc9f7
+    task_example_status: not_captured
+    title_et: Sissejuhatus
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-sissejuhatus-e4fbc36c29
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6985
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-soolased-toidud-b35d5d4c8b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: soolased toidud
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MIS ON VALESTI? ÜTLE ÕIGESTI!
+      - 2. MIS TOITU SINU EMA JA ISA TEEVAD?
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Soolased toidud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6985-ab1fc6d928
+    task_example_status: not_captured
+    title_et: Soolased toidud
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-soolased-toidud-b35d5d4c8b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7006
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-suveplaanid-d9a931a86c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: suveplaanid
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. KÜSI SÕBRALT!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Suveplaanid
+      - Suvi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7006-58c3a81fe6
+    task_example_status: not_captured
+    title_et: Suveplaanid
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-suveplaanid-d9a931a86c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6938
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-suvevaheaeg-b24018ee0e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: suvevaheaeg
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MIS SÕNAD ON PUUDU?
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Suvevaheaeg
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6938-37abf069f8
+    task_example_status: not_captured
+    title_et: Suvevaheaeg
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-suvevaheaeg-b24018ee0e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6995
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-sobrad-tulevad-kulla-c5dd81bcfb
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: sõbrad tulevad külla
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. RÄÄGI SÕBRAGA!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Sõbrad tulevad külla
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6995-d37034364c
+    task_example_status: not_captured
+    title_et: Sõbrad tulevad külla
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-sobrad-tulevad-kulla-c5dd81bcfb
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6998
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-soidame-rattaga-03fef18940
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: sõidame rattaga
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. KIRJUTA!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Sõidame rattaga
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6998-913d509e44
+    task_example_status: not_captured
+    title_et: Sõidame rattaga
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-soidame-rattaga-03fef18940
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6949
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-soidame-rongiga-398d92701b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: sõidame rongiga
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. LAULAME KOOS!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Rongisõit
+      - Sõidame rongiga
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6949-297ab37fe5
+    task_example_status: not_captured
+    title_et: Sõidame rongiga
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-soidame-rongiga-398d92701b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7008
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-sonastik-d111de68ac
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: sõnastik
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - Sõnastik
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7008-4a9432e993
+    task_example_status: not_captured
+    title_et: Sõnastik
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-sonastik-d111de68ac
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6980
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-teeme-ise-eesti-kaardi-1b152948ea
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: teeme ise eesti kaardi
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. KÜSI SÕBRALT!
+      - 2. LOEME KOOS!
+      - 3. VAADAKE KAARTI JA RÄÄKIGE!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Teeme ise Eesti kaardi
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6980-eff8027fd9
+    task_example_status: not_captured
+    title_et: Teeme ise Eesti kaardi
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-teeme-ise-eesti-kaardi-1b152948ea
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6975
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-teeme-ise-liuvalja-86bdfafe22
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: teeme ise liuvälja
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. LOEME KOOS!
+      - 3. LÕPETA LAUSED!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Jänese jõulud
+      - LISAÜLESANNE 1
+      - Teeme ise liuvälja
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6975-3b5b9c6d60
+    task_example_status: not_captured
+    title_et: Teeme ise liuvälja
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-teeme-ise-liuvalja-86bdfafe22
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6965
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-teeme-koertele-kingituse-589adffeef
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: teeme koertele kingituse
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE KOLM KÜSIMUST!
+      - 2. LÕPETA LAUSED!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Teeme koertele kingituse
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6965-6b69359a3b
+    task_example_status: not_captured
+    title_et: Teeme koertele kingituse
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-teeme-koertele-kingituse-589adffeef
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6963
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-teeme-lumememme-8db389cc87
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: teeme lumememme
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Kes see on?
+      - LISAÜLESANNE 1
+      - Teeme lumememme
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6963-9a58a660c5
+    task_example_status: not_captured
+    title_et: Teeme lumememme
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-teeme-lumememme-8db389cc87
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6996
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-teeme-naidendit-bec17730c1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: teeme näidendit
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. LOEME KOOS!
+      - E-ül
+      - Koer poiss ja plika
+      - Teeme näidendit
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6996-b0abe5337f
+    task_example_status: not_captured
+    title_et: Teeme näidendit
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-teeme-naidendit-bec17730c1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6937
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-tere-3b423c3b41
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: tere
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 1. september
+      - 2. E-ÜLESANNE
+      - 3. LOEME KOOS!
+      - 4. RÄÄGI!
+      - E-ül
+      - Tere!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6937-3435e1ded4
+    task_example_status: not_captured
+    title_et: Tere!
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-tere-3b423c3b41
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6972
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-terve-nagu-purikas-f253479404
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: terve nagu purikas
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Terve nagu purikas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6972-8c72be48fb
+    task_example_status: not_captured
+    title_et: Terve nagu purikas
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-terve-nagu-purikas-f253479404
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/7004
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-tuulelohe-d067f53998
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: tuulelohe
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE VÄLJA KOLM KÜSIMUST!
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Lohepäev
+      - Tuulelohe
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7004-02d7c15a0f
+    task_example_status: not_captured
+    title_et: Tuulelohe
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-tuulelohe-d067f53998
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6939
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-uus-klassikaaslane-54b9357828
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: uus klassikaaslane
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. LOEME KOOS!
+      - 3. RÄÄGI!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Uus klassikaaslane
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6939-30be7b5d92
+    task_example_status: not_captured
+    title_et: Uus klassikaaslane
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-uus-klassikaaslane-54b9357828
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6940
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-uus-opetaja-84c47bb398
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: uus õpetaja
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. RÄÄGI SÕBRAGA!
+      - E-ül
+      - Uus õpetaja
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6940-35f272ab51
+    task_example_status: not_captured
+    title_et: Uus õpetaja
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-uus-opetaja-84c47bb398
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6968
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-vaheajal-kais-jouluvana-87632b3e1a
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: vaheajal käis jõuluvana
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VASTA KÜSIMUSTELE!
+      - 2. MIDA SA TEGID? RÄÄGI!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Vaheajal käis jõuluvana
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6968-eb3ab3b2b1
+    task_example_status: not_captured
+    title_et: Vaheajal käis jõuluvana
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-vaheajal-kais-jouluvana-87632b3e1a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6984
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-vahva-tartu-f98fcf083f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: vahva tartu
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. LÕPETA LAUSED!
+      - 2. MILLEGA KEEGI SÕIDAB? LÕPETA LAUSE!
+      - 3. RÄÄGI!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - Vahva Tartu
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6984-f1dcfe24aa
+    task_example_status: not_captured
+    title_et: Vahva Tartu
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-vahva-tartu-f98fcf083f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6950
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-vanaema-ja-vanaisa-juures-52cd3d440c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: vanaema ja vanaisa juures
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. VALI ÕIGE VASTUS!
+      - 2. KIRJUTA!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Vanaema ja vanaisa juures
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6950-a0ffebf632
+    task_example_status: not_captured
+    title_et: Vanaema ja vanaisa juures
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-vanaema-ja-vanaisa-juures-52cd3d440c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6976
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-opetaja-saab-haiget-b22d6dd5cc
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: õpetaja saab haiget
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. ÕIGE VÕI VALE?
+      - 2. JOONISTA PILT!
+      - 3. RÄÄGI!
+      - E-ül
+      - LISAÜLESANNE 1
+      - Õpetaja saab haiget
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6976-e51a431a0f
+    task_example_status: not_captured
+    title_et: Õpetaja saab haiget
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-opetaja-saab-haiget-b22d6dd5cc
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - koolibri_koos_on_lõ_2_et
+    canonical_urls:
+      - https://www.opiq.ee/kit/129/chapter/6978
+    duplicate_group: grade-2-estonian-second-language-duplicate-ordinary-curriculum-zenja-kais-peterburis-e67d8ce29b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "129"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ženja käis peterburis
+    programme_types:
+      - ordinary_curriculum
+    route_id: grade-2-estonian-second-language
+    source_headings:
+      - 1. MÕELGE TEKSTI KOHTA KOLM KÜSIMUST!
+      - 2. VAATA PILTI PEATÜKI ALGUSES. VASTA KÜSIMUSTELE!
+      - 3. RÄÄGI SÕBRAGA!
+      - 4. E-ÜLESANNE
+      - E-ül
+      - LISAÜLESANNE 1
+      - Ženja käis Peterburis
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6978-fb3ac47a43
+    task_example_status: not_captured
+    title_et: Ženja käis Peterburis
+    title_ru: Русское название не подтверждено исходником
+    topic_id: grade-2-estonian-second-language-topic-ordinary-curriculum-zenja-kais-peterburis-e67d8ce29b

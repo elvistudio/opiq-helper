@@ -1,0 +1,1947 @@
+artifact_id: grade-2-nature-and-human-studies-topic-inventory
+artifact_type: grade_programme_topic_inventory
+canonical_route:
+  md_path: project-files/outputs/opiq_2klass_priroda_i_chelovek.md
+  qa_path: project-files/outputs/opiq_2klass_priroda_i_chelovek_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+  source_id: grade-2-nature-and-human-studies
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+deduplication_policy:
+  cross_route_deduplication: false
+  edition_policy: preserve_without_obsolescence_claim
+  normalization: nfc_casefold_whitespace_punctuation_programme_type
+  source_record_preservation: all_records_retained
+grade: 2
+inventory_scope: route_bounded_original_headings_and_metadata
+programme_role: mixed_subject_support
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+  verification_date: 2026-07-29
+record_count: 60
+route_id: grade-2-nature-and-human-studies
+schema_version: "1.0"
+subject: science and human studies
+subject_et: loodus- ja inimeseõpetus
+topics:
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4192
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-c092d91ee2
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: близкие люди
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Близкие Эрика
+      - Близкие люди
+      - Друзья и родственники
+      - Моя семья
+      - Определения
+      - Родственники Эрика
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4192-91c9b1b4dc
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Близкие люди
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-c092d91ee2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12112
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-f905706eec
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: болото
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Болото
+      - Болото – очень водянистое место
+      - Какие ягоды растут на болоте?
+      - Характеристика болота
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12112-929cf26b06
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Болото
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-f905706eec
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12109
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-25c996be4b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: ботанический сад
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Ботанический сад
+      - Комнатные растения
+      - Орхидея мамы Эрика
+      - Письмо Эрика
+      - Тартуский ботанический сад
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12109-e18b7514ee
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Ботанический сад
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-25c996be4b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4209
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-2f4a7510b9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: бурый медведь и кабан
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Бурый медведь
+      - Бурый медведь и кабан
+      - Кабан
+      - Части тела кабана
+      - Части тела медведя
+      - Чем питается кабан?
+      - Чем питатеся медведь?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4209-45010cabaa
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Бурый медведь и кабан
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-2f4a7510b9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4191
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1f695eaf54
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: в деревне или в городе
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - В деревне или в городе?
+      - Дом
+      - Дополнительный материал. Необычные дома
+      - Жизнь в городе и деревне
+      - Каким может быть дом?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4191-a0bd3957e2
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: В деревне или в городе?
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1f695eaf54
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12116
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-a1b5d81197
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: водные животные
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Водные животные
+      - Рыбы Эстонии
+      - Тело водных животных
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12116-c288535374
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Водные животные
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-a1b5d81197
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12115
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-13db0f0756
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: водные растения
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Водные растения
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12115-b5b86fcaeb
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Водные растения
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-13db0f0756
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12114
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-5efc629d85
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: водоёмы
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Водоёмы
+      - Дополнительный материал. Крупные водоёмы Эстонии
+      - Названия водоёмов
+      - Обозначение водоёмов
+      - Узнай водоёмы Эстонии
+      - Эрик на пляже
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12114-de9c838245
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Водоёмы
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-5efc629d85
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4210
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-f538ba599f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: волк и лисица
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Волк
+      - Волк и лисица
+      - Кого ест волк?
+      - Лисица
+      - Части тела волка
+      - Части тела лисицы
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4210-2354c0a5f8
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Волк и лисица
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-f538ba599f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4229
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-95aa667b84
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: деньги
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Деньги
+      - Деньги хранятся в банке
+      - Дополнительный материал. Стоимость денег
+      - Евро
+      - Ценность денег
+      - Что нельзя купить за деньги?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4229-d0a69c7390
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Деньги
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-95aa667b84
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4190
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-a211dceed2
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: дом и соседи
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дом и соседи
+      - Обо мне
+      - Письмо Эрика
+      - Разные дома
+      - Центр города
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4190-d155bc21ed
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Дом и соседи
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-a211dceed2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12111
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-2c4096eeaf
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: домашние животные
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Домашние животные
+      - Дополнительный материал. Молочная промышленность
+      - Название животных
+      - Что и от каких животных можно получить?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12111-e303e43306
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Домашние животные
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-2c4096eeaf
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4223
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-c4ccddd532
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: друзья
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Друзья
+      - Друзья Эрика
+      - Мои друзья
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4223-1de5b270d7
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Друзья
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-c4ccddd532
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4204
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-239d822ec7
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: животные
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Животные
+      - Млекопитающие
+      - Царство животных
+      - Части тела рака
+      - Части тела у животных
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4204-6e63aaec73
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Животные
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-239d822ec7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12113
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-c2043d7af3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: животные обитающие на болоте
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Животные, обитающие на болоте
+      - Лягушки Эстонии
+      - Лягушки и комары
+      - Серые журавли
+      - Серый журавль и белый аист
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12113-0396bdda1c
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Животные, обитающие на болоте
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-c2043d7af3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12108
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-e2b2eba0a1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: животные сада
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Ёж
+      - Дневная бабочка – павлиний глаз
+      - Дождевые черви
+      - Дополнительный материал. Дневная бабочка – павлиний глаз
+      - Животные сада
+      - Птицы и насекомые
+      - Слизни улитки и лягушки
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12108-200e21ac62
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Животные сада
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-e2b2eba0a1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4202
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-f7d89e6af6
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: здоровье
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Заболевания и аллергия
+      - Здоровье
+      - Предотвращение заболеваний
+      - Эрик заболел
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4202-d571199adc
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Здоровье
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-f7d89e6af6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4221
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-05b2cfa069
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: знаменательные даты
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дни рождения
+      - Знаменательные даты
+      - Какие праздники отмечают в других государствах?
+      - Какие праздники отмечают только в Эстонии?
+      - Памятные даты
+      - Праздники
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4221-980b7f3c94
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Знаменательные даты
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-05b2cfa069
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4211
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-c37aaa41a5
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: зоопарк и домашние любимцы
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Домашние любимцы
+      - Зоопарк
+      - Зоопарк и домашние любимцы
+      - Письмо Эрика
+      - Профессии собак
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4211-183a86af36
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Зоопарк и домашние любимцы
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-c37aaa41a5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4230
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-5ffd23abed
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: из чего что сделано
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Из чего что сделано?
+      - От хлопка до одежды
+      - Что можно изготовить из муки?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4230-44b818cac5
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Из чего что сделано?
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-5ffd23abed
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4217
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-e2b4c98afa
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: измерение
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - В каких единицах измеряются длины дорог в Эстонии?
+      - Длина учебника
+      - Единицы измерения
+      - Измерение
+      - Творожно-яблочный пирог
+      - Что можно измерить?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4217-28e61d945b
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Измерение
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-e2b4c98afa
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12119
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-0cf9d2c86d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: карта эстонии
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Знай Эстонию
+      - Карта Эстонии
+      - Работа по карте
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12119-e9b61e62f1
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Карта Эстонии
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-0cf9d2c86d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12118
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-b6cf787d25
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: картинка и карта родного города эрика
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Карта
+      - Картинка
+      - Картинка и карта родного города Эрика
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12118-e717e94855
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Картинка и карта родного города Эрика
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-b6cf787d25
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4213
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-b2befb796e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: книги и библиотека
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - В библиотеке хранятся книги
+      - Какие бывают книги?
+      - Книги и библиотека
+      - Компьютер
+      - Прочитанные книги
+      - Чем можно заниматься в библиотеке?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4213-b811b92a0e
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Книги и библиотека
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-b2befb796e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4199
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-f4069008d4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: круговорот воды в природе
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дополнительный материал. Родник Эмаляте (Emaläte)
+      - Карта водоёмов
+      - Круговорот воды
+      - Круговорот воды в природе
+      - Лужи
+      - Облака и дождь
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4199-c1e05faa63
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Круговорот воды в природе
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-f4069008d4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4196
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-7f55502073
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: кустарники
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Кустарники
+      - Орехи
+      - У кустарника есть ветви
+      - Шиповник
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4196-6b7194189e
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Кустарники
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-7f55502073
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4197
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1b7b04272b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: кустарнички
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Брусника и вереск
+      - Клюква, черника и брусника
+      - Кустарничек – это карликовый кустарник
+      - Кустарнички
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4197-e837b5b381
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Кустарнички
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1b7b04272b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4193
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-cec611dcd8
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: лес
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Деревья
+      - Лес
+      - Лиственные деревья Эстонии
+      - Лиственные и хвойные деревья
+      - Разные леса
+      - Хвойные деревья Эстонии
+      - Части деревьев
+      - Эрик идёт в лес
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4193-7bbea406b1
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Лес
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-cec611dcd8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4207
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-80346346df
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: лесные животные
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Как вести себя в лесу
+      - Лесные животные
+      - Рыжие лесные муравьи и большой пёстрый дятел
+      - Следы животных
+      - Эрик в лесу
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4207-fc0bb0b1aa
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Лесные животные
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-80346346df
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4194
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-381c23d8e1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: лиственные деревья
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Берёза и дуб
+      - Времена года в лесу
+      - Лиственные деревья
+      - Свойства лиственных деревьев
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4194-b66b18cb61
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Лиственные деревья
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-381c23d8e1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4208
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-0b68665b66
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: лось и косуля
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Косуля
+      - Лось
+      - Лось и косуля
+      - Части тела косули
+      - Части тела лося
+      - Чем питается лось?
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4208-fa0fa8527a
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Лось и косуля
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-0b68665b66
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4206
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-0c62880958
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: места обитания
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Домики для животных
+      - Места обитания
+      - Места обитания животных
+      - Места обитания растений
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4206-9721ba3344
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Места обитания
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-0c62880958
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12107
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-2ad3794008
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: многолетние растения
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Многолетние растения
+      - Тюльпан и ландыш
+      - Тюльпан, ландыш и василёк
+      - Части тюльпана
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12107-d18b6f56a3
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Многолетние растения
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-2ad3794008
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4215
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-547327e6d0
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: музей
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - В музее хранятся ценные экспонаты
+      - Музеи
+      - Музей
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4215-0f790d7571
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Музей
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-547327e6d0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4216
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1987ac4887
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: музей здоровья
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Длина
+      - Дополнительный материал. Человеческое тело, нарисованное Леонардо Да Винчи
+      - Измерительные приборы
+      - Музей здоровья
+      - Почему следует быть точным в замерах?
+      - Человеческое тело на картинке
+      - Что Эрик рассказал о музее здоровья
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4216-0828b0491b
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Музей здоровья
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1987ac4887
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4222
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-42fbdc6ba8
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: наследие прошлого
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Визит учеников из другой школы
+      - Наследие прошлого
+      - Обложка старого учебника
+      - Старинные постройки
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4222-a7e618d998
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Наследие прошлого
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-42fbdc6ba8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4220
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-d22f8ddaa8
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: новая жизнь
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Беременность и начало жизни
+      - Дополнительный материал. Ультразвук
+      - Жизнь ребёнка начинается у мамы в животе
+      - Новая жизнь
+      - Ультразвук
+      - Эрик был в роддоме
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4220-41c48ae26f
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Новая жизнь
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-d22f8ddaa8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4231
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-a6ae873207
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: окружающая среда
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Окружающая среда
+      - Окружающая среда – это всё, что нас окружает
+      - Уборка и поддержание чистоты
+      - Чистая Эстония
+      - Эрик прибирается вокруг дома
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4231-5f375213f9
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Окружающая среда
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-a6ae873207
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4205
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-a8e85fbaea
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: описание животного
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Как описывать животное
+      - Описание животного
+      - Опиши лягушку, лошадь, лебедя и салаку
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4205-73fef63f4a
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Описание животного
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-a8e85fbaea
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4198
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1bdc4b6928
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: парк
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Парк
+      - Парки созданы людьми
+      - Эрик в парке
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4198-21ac44248d
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Парк
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1bdc4b6928
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4203
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-63bd590e5c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: первая помощь
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Первая помощь
+      - Первая помощь – это срочная медицинская помощь
+      - Поведение при несчастном случае
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4203-7eab16099b
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Первая помощь
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-63bd590e5c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4232
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-72d2c97bf0
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: повторное использование предметов
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Материалы
+      - Опасные отходы
+      - Отсортируй мусор
+      - Повторное использование
+      - Повторное использование предметов
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4232-4bdcd8d3bc
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Повторное использование предметов
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-72d2c97bf0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4201
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-f9155b16f3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: погода
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - График погоды
+      - Одежда по погоде
+      - Погода
+      - Условные обозначения явлений
+      - Характеристика погоды
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4201-aa0086d909
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Погода
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-f9155b16f3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12110
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1c93560a06
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: поле и зерновые культуры
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Выбери все зерновые, которые выращивают в Эстонии.
+      - Выращивание озимых зерновых
+      - Зерновые
+      - Зерновые являются ценной пищей
+      - Поле и зерновые культуры
+      - Понятия зерновых
+      - Продукты из зерновых
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12110-89d8e64763
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Поле и зерновые культуры
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1c93560a06
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12121
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-05cb0ef6c9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: понятия
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Понятия
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12121-bb54143423
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Понятия
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-05cb0ef6c9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4225
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-d82bee22c5
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: почта
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Подготовка конверта
+      - Получение письма
+      - Почта
+      - Почтовые марки
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4225-aa01f2470c
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Почта
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-d82bee22c5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4214
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1b7093c749
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage1-human-studies-rights-duties
+    original_heading_key: право
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Законы
+      - Законы, полиция и суд
+      - Полиция
+      - Право
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4214-44f7f08ab5
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Право
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1b7093c749
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4200
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-d636ac6572
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage1-natural-science-guided-inquiry
+    original_heading_key: прогноз погоды
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Ветер
+      - Погода
+      - Погода. Приборы измерения
+      - Прогноз погоды
+      - Чем измеряется следующее?
+      - Явления природы
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4200-60b9baa7a2
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Прогноз погоды
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-d636ac6572
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4212
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-146cf09588
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: рождество
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дополнительный материал. Санта-Клаус
+      - Как отмечают рождество
+      - Напиши своё рождественское стихотворение.
+      - Рождественский стих
+      - Рождество
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4212-f33b5c0f53
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Рождество
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-146cf09588
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4228
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-60b201fa21
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: рынок
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Рынок
+      - Слово рынок
+      - Эрик на рынке
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4228-ebd6de7787
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Рынок
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-60b201fa21
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12105
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-2e337e7b84
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: сад
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Сад
+      - Узнаешь ягоды?
+      - Части растения
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12105-2f79d3c10b
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Сад
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-2e337e7b84
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12117
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-a3e4eb0a11
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: старинные развалины городов
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дополнительный материал. Крепости Эстонии
+      - Защита крепости
+      - Старинные развалины городов
+      - Эрик в старом городе
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12117-e981682919
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Старинные развалины городов
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-a3e4eb0a11
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4224
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1d061d854b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: театр и кино
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - В театре
+      - Кинотеатр
+      - Кто работает в театре?
+      - Съёмки фильма
+      - Театр и кино
+      - Эрик в театре
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4224-1f6605bc9d
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Театр и кино
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1d061d854b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4219
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-1d942ba118
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: тело человека
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дополнительный материал. Из чего состоит тело?
+      - Тело человека
+      - Части лица
+      - Части тела
+      - Части тела человека
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4219-4bdd770fb6
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Тело человека
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-1d942ba118
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4233
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-0ceedfd92e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: толкование слов
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Толкование слов
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4233-2b84007eb1
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Толкование слов
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-0ceedfd92e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/12106
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-7a6ffa9c7d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: травянистые растения
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Однолетние растения
+      - Понятия травянистое растение, древесное растение и однолетнее растение
+      - Стебли травянистых растений – травянистые
+      - Травянистое растение, древесное растение или животное?
+      - Травянистые растения
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12106-1218a49eb9
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Травянистые растения
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-7a6ffa9c7d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4226
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-d04adf6609
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: транспорт
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Билет на поезд
+      - Расписание автовокзала
+      - Транспорт
+      - Транспортные средства
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4226-a94232f20a
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Транспорт
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-d04adf6609
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4227
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-5b0153b60c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: фабрика
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Где это было произведено?
+      - Место работы мамы Эрика
+      - Разные фабрики
+      - Фабрика
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4227-39bec07815
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Фабрика
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-5b0153b60c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4195
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-99b0ce80ac
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: хвойные деревья
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Дополнительный материал. Годичные кольца
+      - Лиственные и хвойные деревья
+      - Опознай деревья Эстонии
+      - Понятие "хвойное дерево"
+      - Разрез ствола
+      - Хвойные деревья
+      - Хвойные деревья покрыты хвоей
+      - Шишки и ягодообразные шишки
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4195-464c38ddd7
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Хвойные деревья
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-99b0ce80ac
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - avita_природа_и__2_ru__kit86
+    canonical_urls:
+      - https://www.opiq.ee/kit/86/chapter/4218
+    duplicate_group: grade-2-nature-and-human-studies-duplicate-mixed-subject-0185484d92
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "86"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: человек
+    programme_types:
+      - mixed_subject
+    route_id: grade-2-nature-and-human-studies
+    source_headings:
+      - Равновесие
+      - Родословная человека
+      - Сравнение человека и гориллы
+      - Человек
+      - Человек и обезьяна
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4218-260a373070
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Человек
+    topic_id: grade-2-nature-and-human-studies-topic-mixed-subject-0185484d92

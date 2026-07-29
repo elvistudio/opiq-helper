@@ -1,0 +1,291 @@
+artifact_id: grade-2-mastery-strands
+artifact_type: grade_programme_mastery_strands
+grade: 2
+mastery_strands:
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - language structures
+      - written expression
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 80
+      minimum: 55
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-russian
+    source_kit_ids:
+      - "186"
+      - "292"
+    strand_id: grade-2-russian-language-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - conscious reading
+      - individual reading response
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 65
+      minimum: 40
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-russian
+    source_kit_ids:
+      - "454"
+    strand_id: grade-2-russian-reading-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - A1 core interaction
+      - supported A1–A2 stretch production
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 105
+      minimum: 70
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-estonian-second-language
+    source_kit_ids:
+      - "129"
+    strand_id: grade-2-estonian-second-language-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - real-life mathematics
+      - reasoning and correction
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 130
+      minimum: 90
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-mathematics
+    source_kit_ids:
+      - "95"
+      - "107"
+      - "165"
+      - "361"
+      - "578"
+    strand_id: grade-2-mathematics-mastery
+missing_route_strands:
+  - content_strategy: school_specific_resource_required
+    field_id: foreign_language
+    release_status: blocked
+    source_status: missing_route
+    strand_id: grade-2-foreign-language-gap
+  - content_strategy: school_specific_resource_required
+    field_id: physical_education
+    release_status: blocked
+    source_status: missing_route
+    strand_id: grade-2-physical-education-gap
+programme_id: grade-2-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+  claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  verification_date: 2026-07-29
+schema_version: "1.0"
+subject_strands:
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: regular_weekly
+    core_skills:
+      - guided inquiry
+      - observation and evidence
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 50
+      minimum: 30
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-science
+    source_kit_ids:
+      - "121"
+      - "132"
+      - "379"
+      - "384"
+      - "387"
+      - "570"
+    strand_id: grade-2-science-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: regular_weekly
+    core_skills:
+      - rights and duties
+      - safe participation
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 40
+      minimum: 25
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-human-studies
+    source_kit_ids:
+      - "56"
+      - "142"
+      - "229"
+      - "449"
+      - "494"
+      - "579"
+    strand_id: grade-2-human-studies-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: regular_weekly
+    core_skills:
+      - art reflection
+      - safe practical work
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 50
+      minimum: 30
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-arts-and-crafts
+    source_kit_ids:
+      - "192"
+      - "371"
+    strand_id: grade-2-arts-and-crafts-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: regular_weekly
+    core_skills:
+      - active participation
+      - listening and rhythm
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 40
+      minimum: 25
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-2-music
+    source_kit_ids:
+      - "188"
+      - "193"
+      - "238"
+      - "556"
+    strand_id: grade-2-music-mastery
+target_school_year: 2026/27

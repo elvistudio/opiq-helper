@@ -1,0 +1,83 @@
+artifact_id: grade-2-implementation-roadmap
+artifact_type: grade_programme_implementation_roadmap
+future_material_ids:
+  - grade-2-foreign-language-school-specific-core
+  - grade-2-physical-education-school-specific-core
+grade: 2
+non_goals:
+  - No full lessons are authored in this change.
+  - No textbook prose or task body is reconstructed.
+  - No publication or effectiveness status is granted.
+programme_id: grade-2-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+  claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  verification_date: 2026-07-29
+release_blocker_codes:
+  - final_riigi_teataja_refresh_pending_under_37
+  - official_baseline_intentionally_non_exhaustive
+  - live_grade_2_opiq_catalogue_completeness_unverified
+  - full_instructional_prose_not_captured
+  - task_examples_missing_for_1530_records
+  - foreign_language_route_missing
+  - physical_education_route_missing
+  - standalone_commercial_core_not_implemented
+  - clean_room_task_bank_not_implemented
+  - originality_review_not_applicable_to_absent_materials
+  - customer_companion_access_not_verified
+  - pedagogical_effectiveness_not_established
+release_blockers:
+  - "Final Riigi Teataja refresh remains tracked under issue #37."
+  - The official baseline is intentionally non-exhaustive outside its declared scope.
+  - Live Grade 2 Opiq catalogue completeness has not been verified.
+  - Complete Opiq instructional page prose was not captured.
+  - Task examples are missing for 1530 canonical records.
+  - An exclusive Grade 2 foreign-language route is missing.
+  - An exclusive Grade 2 physical-education route is missing.
+  - The independently authored standalone commercial core is not implemented.
+  - A clean-room task bank has not been implemented.
+  - Originality review is not yet applicable because production materials are absent.
+  - Customer companion access has not been verified.
+  - Pedagogical effectiveness has not been established.
+schema_version: "1.0"
+stages:
+  - deliverables:
+      - route maps
+      - source inventories
+      - coverage and programme architecture
+    entry_gate: Authoritative inputs validate.
+    stage_id: architecture-and-evidence
+    status: complete
+  - deliverables:
+      - standalone explanations
+      - tasks
+      - answer evidence
+    entry_gate: Architecture review and source-gap decisions are accepted.
+    stage_id: clean-room-authoring
+    status: not_started
+  - deliverables:
+      - originality review
+      - teacher review
+      - classroom and home trials
+    entry_gate: Production materials exist and pass structural validation.
+    stage_id: production-validation
+    status: blocked
+status: architecture_only
+target_school_year: 2026/27

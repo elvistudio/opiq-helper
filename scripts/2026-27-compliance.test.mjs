@@ -505,7 +505,17 @@ test('existing route-linked curriculum validation remains green', async () => {
     5,
   );
   assert.equal(
-    curriculumRepository.artifacts.filter((artifact) => artifact.data.artifact_type.startsWith('grade_programme_')).length,
+    curriculumRepository.artifacts.filter((artifact) => (
+      artifact.data.grade === 4
+      && artifact.data.artifact_type.startsWith('grade_programme_')
+    )).length,
+    44,
+  );
+  assert.equal(
+    curriculumRepository.artifacts.filter((artifact) => (
+      artifact.data.grade === 2
+      && artifact.data.artifact_type.startsWith('grade_programme_')
+    )).length,
     44,
   );
 });

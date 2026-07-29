@@ -1,0 +1,595 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/grade-2-programme-route.schema.json",
+  "title": "Opiq Helper grade-programme route artifacts",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/officialCurriculum" },
+    { "$ref": "#/$defs/bookInventory" },
+    { "$ref": "#/$defs/topicInventory" }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "canonicalUrl": {
+      "type": "string",
+      "pattern": "^https://www\\.opiq\\.ee/kit/[0-9]+/chapter/[0-9]+$"
+    },
+    "kitUrl": {
+      "type": "string",
+      "pattern": "^https://www\\.opiq\\.ee/Kit/Details/[0-9]+$"
+    },
+    "evidenceStatus": {
+      "enum": ["verified", "partial", "missing", "ambiguous"]
+    },
+    "scope": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "school_stage", "terminal_grade", "exact_grade_claimed"],
+          "properties": {
+            "kind": { "const": "school_stage" },
+            "school_stage": { "const": 1 },
+            "terminal_grade": { "const": 3 },
+            "exact_grade_claimed": { "const": false }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "grade", "exact_grade_claimed"],
+          "properties": {
+            "kind": { "const": "exact_grade" },
+            "grade": { "const": 2 },
+            "exact_grade_claimed": { "const": true }
+          }
+        }
+      ]
+    },
+    "canonicalRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "md_path", "source_archive", "qa_path"],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/slug" },
+        "md_path": { "$ref": "#/$defs/repositoryPath" },
+        "source_archive": { "$ref": "#/$defs/repositoryPath" },
+        "qa_path": { "$ref": "#/$defs/repositoryPath" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generated_from", "generated_by", "verification_date", "claim_boundary"],
+      "properties": {
+        "generated_from": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "generated_by": { "const": "scripts/generate-grade-2-course-architecture.mjs" },
+        "verification_date": { "const": "2026-07-29" },
+        "claim_boundary": { "type": "string", "minLength": 20 }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "declared_complete", "known_gaps"],
+      "properties": {
+        "status": { "const": "partial" },
+        "declared_complete": { "const": false },
+        "known_gaps": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "commonRoute": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "artifact_id",
+        "grade",
+        "route_id",
+        "subject",
+        "subject_et",
+        "record_count",
+        "canonical_route",
+        "programme_role",
+        "provenance",
+        "completeness"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "type": "string" },
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "grade": { "const": 2 },
+        "route_id": { "$ref": "#/$defs/slug" },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_et": { "type": "string", "minLength": 1 },
+        "record_count": { "type": "integer", "minimum": 1 },
+        "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+        "programme_role": {
+          "enum": ["default_ordinary_core", "alternative_language_profile", "mixed_subject_support", "supplementary_youth_training"]
+        },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "completeness": { "$ref": "#/$defs/completeness" }
+      }
+    },
+    "translationProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "source_language", "verified_on", "notes"],
+      "properties": {
+        "kind": { "enum": ["opiq_helper_translation", "official_translation"] },
+        "source_language": { "const": "et" },
+        "verified_on": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "sourceAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_alignment_id",
+        "status",
+        "evidence_layer",
+        "topic_cluster_refs",
+        "source_record_ids",
+        "match_basis",
+        "task_evidence_status",
+        "task_evidence_source_record_ids",
+        "notes"
+      ],
+      "properties": {
+        "policy_alignment_id": { "$ref": "#/$defs/slug" },
+        "status": { "$ref": "#/$defs/evidenceStatus" },
+        "evidence_layer": { "const": "source_topic" },
+        "topic_cluster_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "match_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "original_heading",
+              "captured_task_example",
+              "book_or_kit_metadata",
+              "reviewed_subject_mapping"
+            ]
+          }
+        },
+        "task_evidence_status": {
+          "enum": ["linked", "not_linked", "not_captured"]
+        },
+        "task_evidence_source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    },
+    "officialOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome_id",
+        "source_id",
+        "official_reference",
+        "official_wording_et",
+        "translation_ru",
+        "translation_provenance",
+        "official_scope",
+        "subject_field",
+        "official_subject",
+        "curriculum",
+        "evidence_status",
+        "allocation_basis",
+        "grade_2_allocation_note",
+        "source_alignment"
+      ],
+      "properties": {
+        "outcome_id": { "$ref": "#/$defs/slug" },
+        "source_id": { "$ref": "#/$defs/slug" },
+        "official_reference": { "type": "string", "minLength": 10 },
+        "official_wording_et": { "type": "string", "minLength": 20 },
+        "translation_ru": { "type": "string", "minLength": 20 },
+        "translation_provenance": { "$ref": "#/$defs/translationProvenance" },
+        "official_scope": { "$ref": "#/$defs/scope" },
+        "subject_field": { "type": "string", "minLength": 1 },
+        "official_subject": { "type": ["string", "null"] },
+        "curriculum": { "enum": ["ordinary", "simplified"] },
+        "evidence_status": { "$ref": "#/$defs/evidenceStatus" },
+        "allocation_basis": {
+          "enum": ["opiq_helper_recommended_allocation", "local_school_allocation_candidate", "official_exact_grade"]
+        },
+        "grade_2_allocation_note": { "type": "string", "minLength": 20 },
+        "source_alignment": { "$ref": "#/$defs/sourceAlignment" }
+      }
+    },
+    "officialCurriculum": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/commonRoute" },
+        {
+          "type": "object",
+          "required": [
+            "regulatory_baseline_ref",
+            "official_scope",
+            "official_fields",
+            "outcomes",
+            "allocation_status"
+          ],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_official_curriculum_map" },
+            "regulatory_baseline_ref": {
+              "const": "compliance/estonia/2026-27/outcome-index.yaml"
+            },
+            "official_scope": { "$ref": "#/$defs/scope" },
+            "official_fields": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            },
+            "outcomes": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/officialOutcome" }
+            },
+            "allocation_status": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["national_exact_grade_claimed", "curated_grade_2_allocation", "notes"],
+              "properties": {
+                "national_exact_grade_claimed": { "type": "boolean" },
+                "curated_grade_2_allocation": {
+                  "enum": ["opiq_helper_recommended_allocation", "official_exact_grade"]
+                },
+                "notes": { "type": "string", "minLength": 20 }
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "recordRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "canonical_url",
+        "kit_id",
+        "chapter_id",
+        "book_id",
+        "title",
+        "language",
+        "source_sequence"
+      ],
+      "properties": {
+        "record_id": { "$ref": "#/$defs/slug" },
+        "canonical_url": { "$ref": "#/$defs/canonicalUrl" },
+        "kit_id": { "type": "string", "pattern": "^[0-9]+$" },
+        "chapter_id": { "type": "string", "pattern": "^[0-9]+$" },
+        "book_id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "language": { "enum": ["ru", "et", "en"] },
+        "source_sequence": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "book": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "book_id",
+        "kit_id",
+        "kit_url",
+        "title",
+        "publisher",
+        "languages",
+        "programme_type",
+        "programme_type_evidence",
+        "canonical_record_count",
+        "task_example_record_count",
+        "task_example_count",
+        "full_prose_available",
+        "canonical_urls",
+        "record_ids",
+        "eligibility",
+        "edition_relationships",
+        "source_limitations"
+      ],
+      "properties": {
+        "book_id": { "type": "string", "minLength": 1 },
+        "kit_id": { "type": "string", "pattern": "^[0-9]+$" },
+        "kit_url": { "$ref": "#/$defs/kitUrl" },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": ["string", "null"] },
+        "languages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["ru", "et", "en"] }
+        },
+        "programme_type": {
+          "enum": ["ordinary_curriculum", "mixed_subject", "simplified_curriculum", "supplementary"]
+        },
+        "programme_type_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "basis", "notes"],
+          "properties": {
+            "status": { "$ref": "#/$defs/evidenceStatus" },
+            "basis": { "const": "qa_book_metadata" },
+            "notes": { "type": "string", "minLength": 10 }
+          }
+        },
+        "canonical_record_count": { "type": "integer", "minimum": 1 },
+        "task_example_record_count": { "type": "integer", "minimum": 0 },
+        "task_example_count": { "type": "integer", "minimum": 0 },
+        "full_prose_available": { "const": false },
+        "canonical_urls": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/canonicalUrl" }
+        },
+        "record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "eligibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "internal_source_analysis",
+            "optional_companion_candidate",
+            "ordinary_default_use",
+            "curated_core_candidate",
+            "programme_verification_required",
+            "learner_specific_simplified_use",
+            "supplementary_use",
+            "mixed_subject_use",
+            "youth_training_use",
+            "customer_visibility",
+            "access_verification_required",
+            "teacher_only_use"
+          ],
+          "properties": {
+            "internal_source_analysis": { "const": true },
+            "optional_companion_candidate": { "type": "boolean" },
+            "ordinary_default_use": { "type": "boolean" },
+            "curated_core_candidate": { "type": "boolean" },
+            "programme_verification_required": { "type": "boolean" },
+            "learner_specific_simplified_use": { "type": "boolean" },
+            "supplementary_use": { "type": "boolean" },
+            "mixed_subject_use": { "type": "boolean" },
+            "youth_training_use": { "type": "boolean" },
+            "customer_visibility": { "const": "internal_only" },
+            "access_verification_required": { "const": true },
+            "teacher_only_use": { "const": false }
+          }
+        },
+        "edition_relationships": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "source_limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "programme_type": { "enum": ["mixed_subject", "simplified_curriculum", "supplementary"] } },
+            "required": ["programme_type"]
+          },
+          "then": {
+            "properties": {
+              "eligibility": {
+                "type": "object",
+                "properties": {
+                  "ordinary_default_use": { "const": false }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "bookInventory": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/commonRoute" },
+        {
+          "type": "object",
+          "required": ["source_audit", "books", "source_records"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_book_inventory" },
+            "source_audit": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["manifest_record_count", "computed_record_count", "kit_count", "task_example_record_count", "full_prose_record_count"],
+              "properties": {
+                "manifest_record_count": { "type": "integer", "minimum": 1 },
+                "computed_record_count": { "type": "integer", "minimum": 1 },
+                "kit_count": { "type": "integer", "minimum": 1 },
+                "task_example_record_count": { "type": "integer", "minimum": 0 },
+                "full_prose_record_count": { "const": 0 }
+              }
+            },
+            "books": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/book" }
+            },
+            "source_records": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/recordRef" }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topic_id",
+        "original_heading_key",
+        "title_ru",
+        "title_et",
+        "route_id",
+        "source_record_ids",
+        "canonical_urls",
+        "kit_ids",
+        "book_ids",
+        "source_languages",
+        "source_headings",
+        "programme_types",
+        "evidence_level",
+        "task_example_status",
+        "full_prose_status",
+        "edition_relationships",
+        "duplicate_group",
+        "official_outcome_candidates",
+        "authoring_gap",
+        "automatic_translated_topics_used_as_source_prose",
+        "notes"
+      ],
+      "properties": {
+        "topic_id": { "$ref": "#/$defs/slug" },
+        "original_heading_key": { "type": "string", "minLength": 1 },
+        "title_ru": { "type": "string", "minLength": 1 },
+        "title_et": { "type": "string", "minLength": 1 },
+        "route_id": { "$ref": "#/$defs/slug" },
+        "source_record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "canonical_urls": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/canonicalUrl" }
+        },
+        "kit_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[0-9]+$" }
+        },
+        "book_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "source_languages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["ru", "et", "en"] }
+        },
+        "source_headings": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "programme_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["ordinary_curriculum", "mixed_subject", "simplified_curriculum", "supplementary"] }
+        },
+        "evidence_level": {
+          "enum": ["heading_only", "heading_and_task_example", "metadata_only", "ambiguous"]
+        },
+        "task_example_status": { "enum": ["partial_captured", "not_captured"] },
+        "full_prose_status": { "const": "missing" },
+        "edition_relationships": {
+          "enum": ["single_record_group", "same_title_multiple_records", "same_title_multiple_editions"]
+        },
+        "duplicate_group": { "$ref": "#/$defs/slug" },
+        "official_outcome_candidates": {
+          "type": "array",
+          "minItems": 0,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "authoring_gap": {
+          "enum": [
+            "complete_prose_and_tasks_required",
+            "complete_prose_required",
+            "assessment_task_required"
+          ]
+        },
+        "automatic_translated_topics_used_as_source_prose": { "const": false },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    },
+    "topicInventory": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/commonRoute" },
+        {
+          "type": "object",
+          "required": ["inventory_scope", "deduplication_policy", "topics"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_topic_inventory" },
+            "inventory_scope": { "const": "route_bounded_original_headings_and_metadata" },
+            "deduplication_policy": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["normalization", "cross_route_deduplication", "edition_policy", "source_record_preservation"],
+              "properties": {
+                "normalization": { "const": "nfc_casefold_whitespace_punctuation_programme_type" },
+                "cross_route_deduplication": { "const": false },
+                "edition_policy": { "const": "preserve_without_obsolescence_claim" },
+                "source_record_preservation": { "const": "all_records_retained" }
+              }
+            },
+            "topics": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/topic" }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

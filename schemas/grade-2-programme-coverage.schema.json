@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/grade-2-programme-coverage.schema.json",
+  "title": "Opiq Helper Grade 2 coverage matrices",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/routeCoverage" },
+    { "$ref": "#/$defs/programmeCoverage" }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "scope": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "school_stage", "terminal_grade", "exact_grade_claimed"],
+          "properties": {
+            "kind": { "const": "school_stage" },
+            "school_stage": { "const": 1 },
+            "terminal_grade": { "const": 3 },
+            "exact_grade_claimed": { "const": false }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "grade", "exact_grade_claimed"],
+          "properties": {
+            "kind": { "const": "exact_grade" },
+            "grade": { "const": 2 },
+            "exact_grade_claimed": { "const": true }
+          }
+        }
+      ]
+    },
+    "sourceAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_alignment_id",
+        "status",
+        "evidence_layer",
+        "topic_cluster_refs",
+        "source_record_ids",
+        "match_basis",
+        "task_evidence_status",
+        "task_evidence_source_record_ids",
+        "notes"
+      ],
+      "properties": {
+        "policy_alignment_id": { "$ref": "#/$defs/slug" },
+        "status": { "enum": ["verified", "partial", "missing", "ambiguous"] },
+        "evidence_layer": {
+          "enum": ["source_topic", "programme_policy", "missing_route"]
+        },
+        "topic_cluster_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "match_basis": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "original_heading",
+              "captured_task_example",
+              "book_or_kit_metadata",
+              "reviewed_subject_mapping",
+              "programme_policy",
+              "missing_route"
+            ]
+          }
+        },
+        "task_evidence_status": {
+          "enum": ["linked", "not_linked", "not_captured", "not_applicable"]
+        },
+        "task_evidence_source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    },
+    "coverageRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome_id",
+        "official_scope",
+        "curated_grade_2_allocation",
+        "curriculum_alignment_status",
+        "source_topic_presence",
+        "task_evidence_status",
+        "full_prose_status",
+        "lesson_authoring_status",
+        "assessment_evidence_status",
+        "coverage_status",
+        "route_ids",
+        "topic_cluster_refs",
+        "source_alignment",
+        "blocking_gaps"
+      ],
+      "properties": {
+        "outcome_id": { "$ref": "#/$defs/slug" },
+        "official_scope": { "$ref": "#/$defs/scope" },
+        "curated_grade_2_allocation": {
+          "enum": [
+            "opiq_helper_recommended_allocation",
+            "local_school_allocation_candidate",
+            "official_exact_grade"
+          ]
+        },
+        "curriculum_alignment_status": {
+          "enum": ["verified", "partial", "missing", "ambiguous"]
+        },
+        "source_topic_presence": {
+          "enum": ["heading_only", "heading_and_task_example", "metadata_only", "missing", "ambiguous", "not_applicable"]
+        },
+        "task_evidence_status": { "enum": ["linked", "not_linked", "not_captured", "not_applicable"] },
+        "full_prose_status": { "const": "missing" },
+        "lesson_authoring_status": { "const": "not_started" },
+        "assessment_evidence_status": { "enum": ["partial", "missing", "ambiguous"] },
+        "coverage_status": { "enum": ["partial", "missing", "ambiguous"] },
+        "route_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "topic_cluster_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_alignment": { "$ref": "#/$defs/sourceAlignment" },
+        "blocking_gaps": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "routeCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "artifact_id",
+        "grade",
+        "route_id",
+        "official_curriculum_ref",
+        "topic_inventory_ref",
+        "rows",
+        "summary",
+        "completeness"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "grade_programme_route_coverage" },
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "grade": { "const": 2 },
+        "route_id": { "$ref": "#/$defs/slug" },
+        "official_curriculum_ref": { "$ref": "#/$defs/repositoryPath" },
+        "topic_inventory_ref": { "$ref": "#/$defs/repositoryPath" },
+        "rows": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/coverageRow" }
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["outcome_count", "partial", "missing", "ambiguous", "verified_full_coverage"],
+          "properties": {
+            "outcome_count": { "type": "integer", "minimum": 0 },
+            "partial": { "type": "integer", "minimum": 0 },
+            "missing": { "type": "integer", "minimum": 0 },
+            "ambiguous": { "type": "integer", "minimum": 0 },
+            "verified_full_coverage": { "const": 0 }
+          }
+        },
+        "completeness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "declared_complete", "known_gaps"],
+          "properties": {
+            "status": { "const": "partial" },
+            "declared_complete": { "const": false },
+            "known_gaps": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      }
+    },
+    "programmeCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "artifact_id",
+        "programme_id",
+        "target_school_year",
+        "outcome_index_ref",
+        "rows",
+        "missing_exclusive_route_fields",
+        "summary",
+        "completeness"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "const": "grade_programme_coverage_matrix" },
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "programme_id": { "$ref": "#/$defs/slug" },
+        "target_school_year": { "const": "2026/27" },
+        "outcome_index_ref": { "const": "compliance/estonia/2026-27/outcome-index.yaml" },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/coverageRow" }
+        },
+        "missing_exclusive_route_fields": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "enum": ["foreign_language", "physical_education"] }
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "official_outcome_count",
+            "route_linked_outcomes",
+            "missing_route_outcomes",
+            "exact_grade_outcomes",
+            "school_stage_outcomes"
+          ],
+          "properties": {
+            "official_outcome_count": { "type": "integer", "minimum": 1 },
+            "route_linked_outcomes": { "type": "integer", "minimum": 1 },
+            "missing_route_outcomes": { "type": "integer", "minimum": 2 },
+            "exact_grade_outcomes": { "const": 0 },
+            "school_stage_outcomes": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "completeness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "declared_complete", "known_gaps"],
+          "properties": {
+            "status": { "const": "partial" },
+            "declared_complete": { "const": false },
+            "known_gaps": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      }
+    }
+  }
+}
