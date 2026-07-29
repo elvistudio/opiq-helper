@@ -384,7 +384,8 @@
         "record_ids",
         "source_archive_refs",
         "eligibility",
-        "edition_relationships",
+        "source_relationship_ids",
+        "edition_relationship_ids",
         "source_limitations"
       ],
       "properties": {
@@ -474,9 +475,15 @@
             "teacher_only_use": { "const": false }
           }
         },
-        "edition_relationships": {
+        "source_relationship_ids": {
           "type": "array",
-          "items": { "type": "string", "minLength": 10 }
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "edition_relationship_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
         },
         "source_limitations": {
           "type": "array",

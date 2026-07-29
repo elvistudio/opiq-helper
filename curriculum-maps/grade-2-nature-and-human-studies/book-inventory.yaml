@@ -64,8 +64,7 @@ books:
       - https://www.opiq.ee/kit/86/chapter/4231
       - https://www.opiq.ee/kit/86/chapter/4232
       - https://www.opiq.ee/kit/86/chapter/4233
-    edition_relationships:
-      - mixed-human-science-manual-review
+    edition_relationship_ids: []
     eligibility:
       access_verification_required: true
       curated_core_candidate: false
@@ -157,6 +156,8 @@ books:
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
+    source_relationship_ids:
+      - mixed-human-science-manual-review
     task_example_count: 0
     task_example_record_count: 0
     title: Природа и человек для 2 класса

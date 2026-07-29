@@ -231,6 +231,29 @@ function archiveReferenceForBook(routeModel, bookId) {
     : { path: routeModel.definition.source_archive, role: 'primary_route_capture' };
 }
 
+function sourceRelationshipsForBook(relationshipPolicy, routeId, kitId) {
+  return relationshipPolicy.relationships
+    .filter((relationship) => relationship.book_refs.some((reference) => (
+      reference.route_id === routeId && reference.kit_id === kitId
+    )));
+}
+
+function sourceRelationshipIdsForBook(relationshipPolicy, routeId, kitId) {
+  return sourceRelationshipsForBook(relationshipPolicy, routeId, kitId)
+    .map((relationship) => relationship.relationship_id)
+    .sort(bytewise);
+}
+
+function editionRelationshipIdsForBook(relationshipPolicy, routeId, kitId) {
+  return sourceRelationshipsForBook(relationshipPolicy, routeId, kitId)
+    .filter((relationship) => (
+      relationship.relationship_type === 'parallel_language_edition'
+      && relationship.evidence_basis.includes('reviewed_body_equivalence')
+    ))
+    .map((relationship) => relationship.relationship_id)
+    .sort(bytewise);
+}
+
 function headingLanguage(value) {
   const hasCyrillic = /\p{Script=Cyrillic}/u.test(value);
   const hasLatin = /\p{Script=Latin}/u.test(value);
@@ -353,12 +376,16 @@ function buildBookInventory(routeModel, relationshipPolicy) {
     const canonicalUrls = records.map((record) => record.url).sort(bytewise);
     const taskRecords = records.filter((record) => record.task_examples.length > 0);
     const sourceArchiveRef = archiveReferenceForBook(routeModel, first.book_id);
-    const relationshipIds = relationshipPolicy.relationships
-      .filter((relationship) => relationship.book_refs.some((reference) => (
-        reference.route_id === routeModel.definition.id && reference.kit_id === first.kit_id
-      )))
-      .map((relationship) => relationship.relationship_id)
-      .sort(bytewise);
+    const sourceRelationshipIds = sourceRelationshipIdsForBook(
+      relationshipPolicy,
+      routeModel.definition.id,
+      first.kit_id,
+    );
+    const editionRelationshipIds = editionRelationshipIdsForBook(
+      relationshipPolicy,
+      routeModel.definition.id,
+      first.kit_id,
+    );
     return {
       book_id: first.book_id,
       kit_id: first.kit_id,
@@ -405,7 +432,8 @@ function buildBookInventory(routeModel, relationshipPolicy) {
         access_verification_required: true,
         teacher_only_use: false,
       },
-      edition_relationships: relationshipIds,
+      source_relationship_ids: sourceRelationshipIds,
+      edition_relationship_ids: editionRelationshipIds,
       source_limitations: [
         'Complete instructional page prose is not present in the canonical record model.',
         'Customer access to Opiq chapters has not been checked.',
@@ -1357,8 +1385,7 @@ Estonian is activated only through its typed optional profile extension.
 
 ## Evidence inventory
 
-* ${routeIndex.book_variant_count} route-bounded book/kit variants;
-* ${bookCount} route-bounded book/edition entries;
+* ${bookCount} route-bounded book/kit records;
 * ${topicCount} route-local topic clusters preserving all source records and direct URLs;
 * ${alignedTopics} topic clusters selected by authored official-outcome alignments; every other topic has an explicit empty candidate list;
 * ${coverage.rows.length} Grade 2-relevant official outcome rows;
@@ -1372,7 +1399,9 @@ ${projectCounts.missing} missing; ambiguous and missing roles remain explicit cl
 Programme coverage retains one independent alignment for every listed route, so subject-pure and mixed-route
 evidence, task status and topic references cannot be copied or aggregated into a stronger claim. The authored
 \`${sourceRelationshipPolicyPath}\` records reviewed parallel, complementary, alternative or unknown book
-relationships; title similarity alone never establishes edition equivalence.
+relationships. Book inventories trace every applicable policy record through \`source_relationship_ids\`;
+\`edition_relationship_ids\` is reserved exclusively for reviewed \`parallel_language_edition\` relationships
+with body-equivalence evidence. Title similarity alone never establishes edition equivalence.
 
 All official outcomes retain school-stage-I scope with terminal Grade 3 and
 \`exact_grade_claimed: false\`. Grade 2 allocation is an Opiq Helper recommendation, not a national exact-grade
@@ -1508,6 +1537,12 @@ export function validateGrade2CourseArchitecture(artifacts) {
   const diagnostics = [];
   const { inputs, routes, programme } = artifacts;
   const alignmentPolicy = inputs.alignmentPolicy;
+  const sourceRelationshipById = new Map(
+    inputs.relationshipPolicy.relationships.map((relationship) => [
+      relationship.relationship_id,
+      relationship,
+    ]),
+  );
   const expectedRoutes = grade2RouteIds;
   const actualRoutes = routes.map((route) => route.routeModel.definition.id);
   if (JSON.stringify(actualRoutes) !== JSON.stringify(expectedRoutes)) diagnostics.push(diagnostic('grade_2_route_set_mismatch', 'Route set differs from the Grade 2 manifest policy.'));
@@ -1560,6 +1595,37 @@ export function validateGrade2CourseArchitecture(artifacts) {
       const expectedArchive = archiveReferenceForBook(route.routeModel, book.book_id);
       if (!sameStableValue(book.source_archive_refs, [expectedArchive])) {
         diagnostics.push(diagnostic('book_archive_provenance_mismatch', `${id} kit ${book.kit_id} must reference its exact registered archive.`));
+      }
+      const expectedSourceRelationshipIds = sourceRelationshipIdsForBook(
+        inputs.relationshipPolicy,
+        id,
+        book.kit_id,
+      );
+      const expectedEditionRelationshipIds = editionRelationshipIdsForBook(
+        inputs.relationshipPolicy,
+        id,
+        book.kit_id,
+      );
+      for (const relationshipId of book.source_relationship_ids) {
+        if (!sourceRelationshipById.has(relationshipId)) {
+          diagnostics.push(diagnostic('source_relationship_id_unknown', `${id} kit ${book.kit_id} references source relationship ${relationshipId}, which is absent from the authored policy.`, `${routeDir(id)}/book-inventory.yaml`, book.book_id));
+        }
+      }
+      if (!sameStableValue(book.source_relationship_ids, expectedSourceRelationshipIds)) {
+        diagnostics.push(diagnostic('book_source_relationship_ids_stale', `${id} kit ${book.kit_id} source relationships must exactly match the authored policy.`, `${routeDir(id)}/book-inventory.yaml`, book.book_id));
+      }
+      for (const relationshipId of book.edition_relationship_ids) {
+        const relationship = sourceRelationshipById.get(relationshipId);
+        if (!relationship) {
+          diagnostics.push(diagnostic('edition_relationship_id_unknown', `${id} kit ${book.kit_id} references edition relationship ${relationshipId}, which is absent from the authored policy.`, `${routeDir(id)}/book-inventory.yaml`, book.book_id));
+        } else if (relationship.relationship_type !== 'parallel_language_edition') {
+          diagnostics.push(diagnostic('non_edition_relationship_misclassified', `${relationshipId} is ${relationship.relationship_type} and cannot be stored as an edition relationship.`, `${routeDir(id)}/book-inventory.yaml`, book.book_id));
+        } else if (!relationship.evidence_basis.includes('reviewed_body_equivalence')) {
+          diagnostics.push(diagnostic('parallel_edition_without_reviewed_evidence', `${relationshipId} cannot be an edition relationship without reviewed body-equivalence evidence.`, `${routeDir(id)}/book-inventory.yaml`, book.book_id));
+        }
+      }
+      if (!sameStableValue(book.edition_relationship_ids, expectedEditionRelationshipIds)) {
+        diagnostics.push(diagnostic('book_edition_relationship_ids_stale', `${id} kit ${book.kit_id} edition relationships must exactly match reviewed parallel-language editions.`, `${routeDir(id)}/book-inventory.yaml`, book.book_id));
       }
     }
     for (const sourceRecord of route.bookInventory.source_records) {
@@ -1660,7 +1726,7 @@ export function validateGrade2CourseArchitecture(artifacts) {
     for (const reference of relationship.book_refs) {
       const route = routes.find((candidate) => candidate.routeModel.definition.id === reference.route_id);
       const book = route?.bookInventory.books.find((candidate) => candidate.kit_id === reference.kit_id);
-      if (!book || !book.edition_relationships.includes(relationship.relationship_id)) {
+      if (!book || !book.source_relationship_ids.includes(relationship.relationship_id)) {
         diagnostics.push(diagnostic('source_relationship_book_unknown', `${relationship.relationship_id} references an unknown or unlinked book.`, sourceRelationshipPolicyPath, relationship.relationship_id));
       }
       if (book && ['simplified_curriculum', 'supplementary'].includes(book.programme_type)

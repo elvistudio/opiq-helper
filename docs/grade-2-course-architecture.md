@@ -15,8 +15,7 @@ Estonian is activated only through its typed optional profile extension.
 
 ## Evidence inventory
 
-* 41 route-bounded book/kit variants;
-* 41 route-bounded book/edition entries;
+* 41 route-bounded book/kit records;
 * 2220 route-local topic clusters preserving all source records and direct URLs;
 * 17 topic clusters selected by authored official-outcome alignments; every other topic has an explicit empty candidate list;
 * 15 Grade 2-relevant official outcome rows;
@@ -30,7 +29,9 @@ array position. Outcome mappings are 0 verified, 11 partial,
 Programme coverage retains one independent alignment for every listed route, so subject-pure and mixed-route
 evidence, task status and topic references cannot be copied or aggregated into a stronger claim. The authored
 `grade-programmes/grade-2/source-relationship-policy.yaml` records reviewed parallel, complementary, alternative or unknown book
-relationships; title similarity alone never establishes edition equivalence.
+relationships. Book inventories trace every applicable policy record through `source_relationship_ids`;
+`edition_relationship_ids` is reserved exclusively for reviewed `parallel_language_edition` relationships
+with body-equivalence evidence. Title similarity alone never establishes edition equivalence.
 
 All official outcomes retain school-stage-I scope with terminal Grade 3 and
 `exact_grade_claimed: false`. Grade 2 allocation is an Opiq Helper recommendation, not a national exact-grade

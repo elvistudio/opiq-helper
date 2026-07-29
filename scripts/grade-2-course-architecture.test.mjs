@@ -322,6 +322,37 @@ test('source relationship policy is authored and never inferred from title simil
   )));
 });
 
+test('all seven authored source relationships are traceable to their exact books', () => {
+  assert.equal(baseline.inputs.relationshipPolicy.relationships.length, 7);
+  for (const relationship of baseline.inputs.relationshipPolicy.relationships) {
+    for (const reference of relationship.book_refs) {
+      const book = route(reference.route_id).bookInventory.books.find((entry) => (
+        entry.kit_id === reference.kit_id
+      ));
+      assert.ok(book, `${relationship.relationship_id}: missing kit ${reference.kit_id}`);
+      assert.ok(book.source_relationship_ids.includes(relationship.relationship_id));
+      const reviewedEdition = relationship.relationship_type === 'parallel_language_edition'
+        && relationship.evidence_basis.includes('reviewed_body_equivalence');
+      assert.equal(book.edition_relationship_ids.includes(relationship.relationship_id), reviewedEdition);
+      assert.ok(!Object.hasOwn(book, 'edition_relationships'));
+    }
+  }
+});
+
+test('kit 330 keeps supplementary project support only as a source relationship', () => {
+  const planet = route('grade-2-science').bookInventory.books.find((book) => book.kit_id === '330');
+  assert.ok(planet.source_relationship_ids.includes('supplementary-planet-project-source'));
+  assert.deepEqual(planet.edition_relationship_ids, []);
+});
+
+test('Koolibri science unknown relationship is never represented as edition equivalence', () => {
+  for (const kitId of ['121', '132']) {
+    const book = route('grade-2-science').bookInventory.books.find((entry) => entry.kit_id === kitId);
+    assert.ok(book.source_relationship_ids.includes('koolibri-science-edition-status-unknown'));
+    assert.deepEqual(book.edition_relationship_ids, []);
+  }
+});
+
 test('1,530 source records truthfully retain missing task examples', () => {
   const missing = baseline.inputs.model.routes.flatMap((entry) => entry.canonical_records)
     .filter((record) => record.task_examples.length === 0);
@@ -961,6 +992,87 @@ test('rejects edition equivalence inferred only from titles or metadata', () => 
       .relationship_type = 'parallel_language_edition';
   },
   'parallel_edition_without_reviewed_evidence',
+));
+
+test('rejects a complementary relationship stored as an edition relationship', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '379').edition_relationship_ids
+      .push('avita-science-complementary-editions');
+  },
+  'non_edition_relationship_misclassified',
+));
+
+test('rejects a supplementary project relationship stored as an edition relationship', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '330').edition_relationship_ids
+      .push('supplementary-planet-project-source');
+  },
+  'non_edition_relationship_misclassified',
+));
+
+test('rejects a same-language alternative stored as an edition relationship', () => expectCode(
+  (candidate) => {
+    route('grade-2-russian', candidate).bookInventory.books
+      .find((book) => book.kit_id === '186').edition_relationship_ids
+      .push('russian-language-core-alternatives');
+  },
+  'non_edition_relationship_misclassified',
+));
+
+test('rejects an unknown relationship stored as an edition relationship', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '121').edition_relationship_ids
+      .push('koolibri-science-edition-status-unknown');
+  },
+  'non_edition_relationship_misclassified',
+));
+
+test('rejects a mixed-support relationship stored as an edition relationship', () => expectCode(
+  (candidate) => {
+    route('grade-2-nature-and-human-studies', candidate).bookInventory.books
+      .find((book) => book.kit_id === '86').edition_relationship_ids
+      .push('mixed-human-science-manual-review');
+  },
+  'non_edition_relationship_misclassified',
+));
+
+test('rejects a relationship ID absent from the authored policy', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '330').source_relationship_ids
+      .push('invented-source-relationship');
+  },
+  'source_relationship_id_unknown',
+));
+
+test('rejects stale generated source relationship IDs', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '330').source_relationship_ids = [];
+  },
+  'book_source_relationship_ids_stale',
+));
+
+test('rejects stale edition IDs after reviewed parallel-edition policy changes', () => expectCode(
+  (candidate) => {
+    const relationship = candidate.inputs.relationshipPolicy.relationships
+      .find((entry) => entry.relationship_id === 'koolibri-science-edition-status-unknown');
+    relationship.relationship_type = 'parallel_language_edition';
+    relationship.evidence_basis.push('reviewed_body_equivalence');
+  },
+  'book_edition_relationship_ids_stale',
+));
+
+test('rejects an edition relationship ID absent from the authored policy', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '330').edition_relationship_ids
+      .push('invented-edition-relationship');
+  },
+  'edition_relationship_id_unknown',
 ));
 
 test('rejects supplementary kit 330 in mastery core', () => expectCode(
