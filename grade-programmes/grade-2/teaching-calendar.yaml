@@ -1,5 +1,16 @@
 artifact_id: grade-2-teaching-calendar
 artifact_type: grade_programme_teaching_calendar
+author_created_required_subjects:
+  - activation: required_default_programme
+    content_strategy: author_created_required
+    release_status: blocked
+    source_status: missing_route
+    subject_id: grade-2-author-created-english
+  - activation: required_default_programme
+    content_strategy: author_created_required
+    release_status: blocked
+    source_status: missing_route
+    subject_id: grade-2-author-created-physical-education
 grade: 2
 monthly_evidence_checkpoints:
   classification: recommended_good_practice
@@ -66,18 +77,10 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
     effectiveness finding.
   generated_by: scripts/generate-grade-2-course-architecture.mjs
   verification_date: 2026-07-29
 schema_version: "1.0"
-school_specific_placeholders:
-  - activation: school_curriculum_dependent
-    field_id: foreign_language
-    release_status: blocked
-    source_status: missing_route
-  - activation: school_curriculum_dependent
-    field_id: physical_education
-    release_status: blocked
-    source_status: missing_route
 target_school_year: 2026/27

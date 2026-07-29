@@ -9,9 +9,12 @@ grade: 2
 official_curriculum_ref: curriculum-maps/grade-2-human-studies/official-curriculum.yaml
 route_id: grade-2-human-studies
 rows:
-  - assessment_evidence_status: partial
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
     blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
       - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
     coverage_status: partial
     curated_grade_2_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: verified
@@ -23,28 +26,35 @@ rows:
       school_stage: 1
       terminal_grade: 3
     outcome_id: ee-prk-2026-stage1-human-studies-rights-duties
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-human-studies
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Rights, duties and family-responsibility records provide direct topic and bounded task evidence for authored
+            alignment.
+          policy_alignment_id: grade-2-human-rights-duties
+          source_record_ids:
+            - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
+            - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
+            - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-human-studies-topic-ordinary-curriculum-a49b66c3a0
+            - grade-2-human-studies-topic-ordinary-curriculum-lapse-kohustused-ja-oigused-03b15cb058
     route_ids:
       - grade-2-human-studies
-    source_alignment:
-      evidence_layer: source_topic
-      match_basis:
-        - captured_task_example
-        - original_heading
-        - reviewed_subject_mapping
-      notes: Rights, duties and family-responsibility records provide direct topic and bounded task evidence for authored
-        alignment.
-      policy_alignment_id: grade-2-human-rights-duties
-      source_record_ids:
-        - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
-        - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
-      status: partial
-      task_evidence_source_record_ids:
-        - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
-        - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
-      task_evidence_status: linked
-      topic_cluster_refs:
-        - grade-2-human-studies-topic-ordinary-curriculum-a49b66c3a0
-        - grade-2-human-studies-topic-ordinary-curriculum-lapse-kohustused-ja-oigused-03b15cb058
+    source_coverage_status: partial
     source_topic_presence: heading_and_task_example
     task_evidence_status: linked
     topic_cluster_refs:

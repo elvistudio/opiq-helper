@@ -314,7 +314,11 @@ function validateGradeProgrammeRouteArtifact(diagnostics, artifact, context) {
   const comparisons = [
     ['route_id', data.canonical_route?.source_id, source.id],
     ['canonical_route/md_path', data.canonical_route?.md_path, source.md_path],
-    ['canonical_route/source_archive', data.canonical_route?.source_archive, source.source_archive],
+    [
+      data.grade === 2 ? 'canonical_route/primary_source_archive' : 'canonical_route/source_archive',
+      data.grade === 2 ? data.canonical_route?.primary_source_archive : data.canonical_route?.source_archive,
+      source.source_archive,
+    ],
     ['canonical_route/qa_path', data.canonical_route?.qa_path, source.qa_path],
     ['record_count', data.record_count, source.record_count],
   ];

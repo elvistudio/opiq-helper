@@ -9,9 +9,12 @@ grade: 2
 official_curriculum_ref: curriculum-maps/grade-2-arts-and-crafts/official-curriculum.yaml
 route_id: grade-2-arts-and-crafts
 rows:
-  - assessment_evidence_status: missing
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
     blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
       - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
     coverage_status: partial
     curated_grade_2_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: verified
@@ -23,30 +26,40 @@ rows:
       school_stage: 1
       terminal_grade: 3
     outcome_id: ee-prk-2026-stage1-art-reflection
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-arts-and-crafts
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: The colour-wheel topic supports an authored art-reflection candidate but not complete assessment or lesson
+            evidence.
+          policy_alignment_id: grade-2-art-reflection
+          source_record_ids:
+            - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10903-1ed9e34a1f
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-arts-and-crafts-topic-ordinary-curriculum-varviring-9d964e1794
     route_ids:
       - grade-2-arts-and-crafts
-    source_alignment:
-      evidence_layer: source_topic
-      match_basis:
-        - original_heading
-        - reviewed_subject_mapping
-      notes: The colour-wheel topic supports an authored art-reflection candidate but not complete assessment or lesson
-        evidence.
-      policy_alignment_id: grade-2-art-reflection
-      source_record_ids:
-        - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10903-1ed9e34a1f
-      status: partial
-      task_evidence_source_record_ids: []
-      task_evidence_status: not_captured
-      topic_cluster_refs:
-        - grade-2-arts-and-crafts-topic-ordinary-curriculum-varviring-9d964e1794
+    source_coverage_status: partial
     source_topic_presence: heading_only
     task_evidence_status: not_captured
     topic_cluster_refs:
       - grade-2-arts-and-crafts-topic-ordinary-curriculum-varviring-9d964e1794
-  - assessment_evidence_status: missing
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
     blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
       - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
     coverage_status: partial
     curated_grade_2_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: verified
@@ -58,23 +71,30 @@ rows:
       school_stage: 1
       terminal_grade: 3
     outcome_id: ee-prk-2026-stage1-technology-safe-work
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-arts-and-crafts
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Button sewing provides bounded practical-work evidence; safety procedure prose and production instructions remain
+            unauthored.
+          policy_alignment_id: grade-2-technology-safe-work
+          source_record_ids:
+            - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10946-c19554379a
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-arts-and-crafts-topic-ordinary-curriculum-noobi-omblemine-695904069e
     route_ids:
       - grade-2-arts-and-crafts
-    source_alignment:
-      evidence_layer: source_topic
-      match_basis:
-        - original_heading
-        - reviewed_subject_mapping
-      notes: Button sewing provides bounded practical-work evidence; safety procedure prose and production instructions remain
-        unauthored.
-      policy_alignment_id: grade-2-technology-safe-work
-      source_record_ids:
-        - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10946-c19554379a
-      status: partial
-      task_evidence_source_record_ids: []
-      task_evidence_status: not_captured
-      topic_cluster_refs:
-        - grade-2-arts-and-crafts-topic-ordinary-curriculum-noobi-omblemine-695904069e
+    source_coverage_status: partial
     source_topic_presence: heading_only
     task_evidence_status: not_captured
     topic_cluster_refs:

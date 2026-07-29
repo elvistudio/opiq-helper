@@ -34,7 +34,8 @@ books:
       - https://www.opiq.ee/kit/186/chapter/10460
       - https://www.opiq.ee/kit/186/chapter/10461
       - https://www.opiq.ee/kit/186/chapter/10462
-    edition_relationships: []
+    edition_relationships:
+      - russian-language-core-alternatives
     eligibility:
       access_verification_required: true
       curated_core_candidate: true
@@ -90,6 +91,9 @@ books:
       - grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10460-47bf20f9a6
       - grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10461-a28567ed05
       - grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10462-9290d8e3f1
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -291,7 +295,8 @@ books:
       - https://www.opiq.ee/kit/292/chapter/17844
       - https://www.opiq.ee/kit/292/chapter/17845
       - https://www.opiq.ee/kit/292/chapter/17846
-    edition_relationships: []
+    edition_relationships:
+      - russian-language-core-alternatives
     eligibility:
       access_verification_required: true
       curated_core_candidate: true
@@ -509,6 +514,9 @@ books:
       - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17844-0837a35ee1
       - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17845-acb5df2e9d
       - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17846-635e93197e
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -742,6 +750,9 @@ books:
       - grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24789-8a6ce9d911
       - grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24790-e4690d6280
       - grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24791-dd197a2006
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -749,9 +760,10 @@ books:
     task_example_record_count: 0
     title: СВЕТЛЯЧОК. Чтение для 2 класса
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_vene_keel.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
   qa_path: project-files/outputs/opiq_2klass_vene_keel_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
   source_id: grade-2-russian
 completeness:
   declared_complete: false
@@ -780,6 +792,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 321
 route_id: grade-2-russian
@@ -797,6 +810,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16113-4efa240cc3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 1
     title: Это присказка, а сказка будет впереди
   - book_id: avita_русский_язык_2_класс_kit292
@@ -805,6 +821,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16092-0f8fef33ff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 2
     title: Диалог (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -813,6 +832,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16093-c1ee70c21c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 3
     title: Учимся составлять диалог
   - book_id: avita_русский_язык_2_класс_kit292
@@ -821,6 +843,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16094-eb057bf69c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 4
     title: Осень в лесном городе. Джон Пейшенс
   - book_id: avita_русский_язык_2_класс_kit292
@@ -829,6 +854,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16095-6e61f775de
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 5
     title: Слово, предложение и текст (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -837,6 +865,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16096-f1e0378a95
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 6
     title: Слово, предложение и текст (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -845,6 +876,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16097-8ba6bbd662
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 7
     title: Учимся писать сочинение об осени
   - book_id: avita_русский_язык_2_класс_kit292
@@ -853,6 +887,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16116-c0b5441747
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 8
     title: Сказка от начала начинается, до конца читается, в серёдке не перебивается
   - book_id: avita_русский_язык_2_класс_kit292
@@ -861,6 +898,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16098-944c3b87e2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 9
     title: Осенние задания. Владимир Орлов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -869,6 +909,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16099-dca1014b08
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 10
     title: Предложения, разные по цели высказывания
   - book_id: avita_русский_язык_2_класс_kit292
@@ -877,6 +920,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16100-ae4657604d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 11
     title: Предложения, разные по цели высказывания (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -885,6 +931,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16114-408ee62448
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 12
     title: Язык и речь. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -893,6 +942,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16101-4eeaa441b7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 13
     title: Аисты и лягушки. Сергей Михалков
   - book_id: avita_русский_язык_2_класс_kit292
@@ -901,6 +953,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16117-e7da62d059
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 14
     title: Предложения, разные по интонации. Исследование
   - book_id: avita_русский_язык_2_класс_kit292
@@ -909,6 +964,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16102-833b491674
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 15
     title: Предложения, разные по интонации (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -917,6 +975,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 16
     title: Учимся читать выразительно по ролям
   - book_id: avita_русский_язык_2_класс_kit292
@@ -925,6 +986,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16118-9a99843506
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 17
     title: Не дочитав сказки, не кидай указки
   - book_id: avita_русский_язык_2_класс_kit292
@@ -933,6 +997,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16104-b71c30a1b8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 18
     title: Читаем текст Ирины Гамазковой
   - book_id: avita_русский_язык_2_класс_kit292
@@ -941,6 +1008,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16105-0574015514
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 19
     title: Текст. Тема текста. Основная мысль
   - book_id: avita_русский_язык_2_класс_kit292
@@ -949,6 +1019,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16106-71c769a99f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 20
     title: Деление текста на части. План. Абзац
   - book_id: avita_русский_язык_2_класс_kit292
@@ -957,6 +1030,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16107-7598702765
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 21
     title: Тутта Карлссон и Людвиг Четырнадцатый. Ян Экхольм
   - book_id: avita_русский_язык_2_класс_kit292
@@ -965,6 +1041,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16108-e14a544cae
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 22
     title: Типы текстов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -973,6 +1052,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16086-1a9376ee9e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 23
     title: Речь устная и письменная. Общение (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -981,6 +1063,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16109-353c3bc98b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 24
     title: Составляем текст-повествование
   - book_id: avita_русский_язык_2_класс_kit292
@@ -989,6 +1074,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16110-40948b217c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 25
     title: Элла и Пат. Тимо Парвела
   - book_id: avita_русский_язык_2_класс_kit292
@@ -997,6 +1085,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16119-41d8905ebf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 26
     title: Язык – главное средство общения
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1005,6 +1096,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16111-5fdca93255
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 27
     title: Повторение (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1013,6 +1107,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16112-88817785fd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 28
     title: Повторение (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1021,6 +1118,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16120-def6164054
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 29
     title: Советуем почитать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1029,6 +1129,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16121-758bc73eaf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 30
     title: Сказка – складка, послушать сладко
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1037,6 +1140,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16122-06bcb9ed66
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 31
     title: Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1045,6 +1151,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16087-c05c48187e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 32
     title: Речь устная и письменная. Общение (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1053,6 +1162,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16115-d0b92e6f08
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 33
     title: Сказка начинается
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1061,6 +1173,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16088-583ed980a6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 34
     title: Сказка о невоспитанном мышонке. Софья Прокофьева
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1069,6 +1184,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16089-faaec585de
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 35
     title: Культура речи и культура общения (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1077,6 +1195,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16090-04bb52648b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 36
     title: Культура речи и культура общения (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1085,6 +1206,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16091-55b98ee190
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 37
     title: Диалог (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1093,6 +1217,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16143-0fc6c5e7aa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 38
     title: Звуки и буквы. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1101,6 +1228,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16127-1556d8da57
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 39
     title: Алфавит
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1109,6 +1239,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16128-e036f121a2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 40
     title: Штранная иштория. Пётр Синявский
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1117,6 +1250,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16129-0e367d33a7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 41
     title: Гласные и согласные звуки
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1125,6 +1261,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16130-d0b1cd80ac
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 42
     title: «Хитрые буквы» Е, Ё, Ю, Я
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1133,6 +1272,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16131-1e3fab56c5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 43
     title: Дневник фокса Микки. Саша Чёрный
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1141,6 +1283,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16132-13f1d16ac4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 44
     title: Имена собственные
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1149,6 +1294,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16133-45fe863fb8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 45
     title: Муравей. Борис Заходер
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1157,6 +1305,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16148-1dc4400a7f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 46
     title: Твёрдые и мягкие согласные звуки
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1165,6 +1316,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16134-1548efe181
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 47
     title: Обозначение мягкости согласных на письме
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1173,6 +1327,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16135-250e806b68
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 48
     title: Назови меня по имени. Наталья Павлова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1181,6 +1338,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16144-766cdcf4be
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 49
     title: "Кашу кушай, а сказку слушай: умом-разумом"
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1189,6 +1349,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16136-47db062785
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 50
     title: Деление слов на слоги. Перенос слов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1197,6 +1360,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16149-c4b319d91c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 51
     title: Встреча с новыми друзьями
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1205,6 +1371,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16137-58246aa450
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 52
     title: Правописание ЖИ-ШИ
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1213,6 +1382,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16138-d315bc5a8f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 53
     title: Буквосочетания ЧА-ЩА, ЧУ-ЩУ
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1221,6 +1393,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16139-bac8afc0bf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 54
     title: Опасные очки. Владимир Данько
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1229,6 +1404,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16140-d48ac2f806
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 55
     title: Буквосочетания ЧК, ЧН, ЩН, НЩ
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1237,6 +1415,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16141-fc810c2279
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 56
     title: Повторение (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1245,6 +1426,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16142-ad35501ddb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 57
     title: Повторение (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1253,6 +1437,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16150-82cd36f62d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 58
     title: Советуем почитать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1261,6 +1448,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16151-6c102ecd31
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 59
     title: Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1269,6 +1459,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16145-a8dd0678f2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 60
     title: Звуки речи и звуки вокруг нас
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1277,6 +1470,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16123-d9a032cfca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 61
     title: Звуки и буквы
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1285,6 +1481,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16124-9bd2f2c6ad
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 62
     title: Страница звуков
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1293,6 +1492,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16146-c198e35a95
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 63
     title: Звуки и краски осени
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1301,6 +1503,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16147-2bd0778b0f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 64
     title: Слушая сказку, вопросов не задают
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1309,6 +1514,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16125-a807b38db4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 65
     title: Город Звуко-Буквоград
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1317,6 +1525,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16126-edc8419c1e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 66
     title: Сказка о буквах из города Алфавита. Николай Дик
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1325,6 +1536,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16166-c8a666f7b2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 67
     title: Лексика. Слово и его значение. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1333,6 +1547,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16159-6fda53b4f9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 68
     title: Слова, близкие по значению. Синонимы
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1341,6 +1558,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16160-5f10209cc6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 69
     title: Волшебник Изумрудного города. Александр Волков (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1349,6 +1569,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16161-27b7de46ea
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 70
     title: Слова, противоположные по значению. Антонимы
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1357,6 +1580,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16162-455b1930c3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 71
     title: Готовимся к изложению
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1365,6 +1591,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16163-19e1211727
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 72
     title: Сказки про Змея Горыныча. Сергей Седов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1373,6 +1602,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16164-0c4bd542e8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 73
     title: Повторение. Сказки про Змея Горыныча
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1381,6 +1613,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16165-771de6cd5a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 74
     title: Повторение. Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1389,6 +1624,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16168-81c7e32ee5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 75
     title: Советуем почитать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1397,6 +1635,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16169-ff151e231b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 76
     title: Работа с текстом
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1405,6 +1646,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16170-09c22f6ea1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 77
     title: По следам прочитанных произведений
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1413,6 +1657,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16152-ee5102f456
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 78
     title: Домовёнок ______ Татьяна Александрова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1421,6 +1668,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16171-744974071c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 79
     title: Говорят, под Новый год...
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1429,6 +1679,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16153-1d7d26b4ff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 80
     title: Слово и его значение
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1437,6 +1690,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16154-5026f449d2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 81
     title: Ударение и значение слова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1445,6 +1701,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16155-bad2ca4945
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 82
     title: Банька. Татьяна Александрова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1453,6 +1712,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16156-b3f074bf96
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 83
     title: Прямое и переносное значение слова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1461,6 +1723,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16157-768d2e97a4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 84
     title: Устойчивые сочетания слов (фразеологизмы)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1469,6 +1734,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16167-b8262aaa55
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 85
     title: Сказка складка, послушать сладко
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1477,6 +1745,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16158-f37eb98454
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 86
     title: Волшебник Изумрудного города. Александр Волков (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1485,6 +1756,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17764-efe79c7c09
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 87
     title: Приключения в королевстве Русского языка продолжаются
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1493,6 +1767,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17753-478dc1bf0b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 88
     title: Сочиняем сказку "Приключения Снеговика"
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1501,6 +1778,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17754-c14d46ce0a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 89
     title: Суффикс (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1509,6 +1789,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17755-b12aa4b477
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 90
     title: Суффикс (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1517,6 +1800,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17765-85a635d645
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 91
     title: Как барсук и куница судились. Корейская народная сказка
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1525,6 +1811,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17756-eb908b5a3d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 92
     title: Приставка (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1533,6 +1822,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17757-849fe0ae65
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 93
     title: Приставка (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1541,6 +1833,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17758-e8cef81160
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 94
     title: Мышь и воробей. Эстонская народная сказка
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1549,6 +1844,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17759-cb1b527e4e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 95
     title: Разбор слова по составу (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1557,6 +1855,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17760-2cdabc6d76
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 96
     title: Разбор слова по составу (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1565,6 +1866,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17761-1b6dd67531
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 97
     title: Повторение (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1573,6 +1877,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17745-0819bb17bf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 98
     title: Состав слова. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1581,6 +1888,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17762-22a3d1a2a7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 99
     title: Повторение (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1589,6 +1899,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17766-7e1acd5f6c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 100
     title: Советуем почитать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1597,6 +1910,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17763-6b034d87d7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 101
     title: Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1605,6 +1921,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17746-f7e02de8cd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 102
     title: Корень – главная часть слова. Однокоренные (родственные) слова (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1613,6 +1932,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17747-58b6bb1672
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 103
     title: Корень – главная часть слова. Однокоренные (родственные) слова (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1621,6 +1943,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17748-da7a10e550
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 104
     title: Будешь книги читать, будешь всё знать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1629,6 +1954,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17749-9472550d8a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 105
     title: Окончание и основа слова (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1637,6 +1965,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17750-1eae86c052
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 106
     title: Окончание и основа слова (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1645,6 +1976,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17751-c93b5c7cff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 107
     title: В книге ищи не буквы, а мысли
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1653,6 +1987,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17752-0bd4107f64
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 108
     title: Какая бывает зима. Михаил Пляцковский
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1661,6 +1998,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17767-699b52ebb9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 109
     title: Орфограммы в слове. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1669,6 +2009,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17774-247022af84
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 110
     title: Звонкие и глухие согласные
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1677,6 +2020,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17775-472e0f783a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 111
     title: Парные звонкие и глухие согласные в корне слова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1685,6 +2031,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17776-10c4d19833
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 112
     title: Как подбирать проверочные слова?
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1693,6 +2042,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17784-7f928a3fa9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 113
     title: "Знакомьтесь: мягкий и твёрдый разделительные знаки"
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1701,6 +2053,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17777-4c46bd7da0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 114
     title: Разделительный мягкий знак (Ь)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1709,6 +2064,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17778-04eba3a240
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 115
     title: Разделительный твёрдый знак (Ъ)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1717,6 +2075,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17785-e7617a3958
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 116
     title: Человек – это звучит гордо!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1725,6 +2086,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17779-f4376913bd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 117
     title: Слова с удвоенными согласными
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1733,6 +2097,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17786-3b90c62e26
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 118
     title: Лучший друг медуз. Маша Вайсман
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1741,6 +2108,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17780-47ff47ebc2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 119
     title: Обобщение и повторение
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1749,6 +2119,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17782-150a6d6928
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 120
     title: Кто много читает, тот много знает
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1757,6 +2130,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17787-af58e6f831
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 121
     title: Советуем почитать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1765,6 +2141,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17781-c6b49e13b6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 122
     title: Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1773,6 +2152,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17768-986fe55f64
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 123
     title: Зимние пейзажи в стихах русских поэтов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1781,6 +2163,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17769-c2a71113f6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 124
     title: Что такое орфограмма?
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1789,6 +2174,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17770-b676404dd8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 125
     title: Безударные гласные в корне слова (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1797,6 +2185,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17771-47f5061efc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 126
     title: Безударные гласные в корне слова (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1805,6 +2196,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17772-1150ba924b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 127
     title: Как подбирать проверочные слова? (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1813,6 +2207,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17773-b81ade145b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 128
     title: Как подбирать проверочные слова? (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1821,6 +2218,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17783-288febac7e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 129
     title: 38 попугаев. Григорий Остер
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1829,6 +2229,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17788-ccd24c45c0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 130
     title: Части речи. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1837,6 +2240,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17796-34cd263346
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 131
     title: Изменение имён существительных по числам
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1845,6 +2251,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17797-be528f0fb6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 132
     title: Обобщение по теме «Имя существительное»
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1853,6 +2262,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17815-f64906e598
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 133
     title: Народные и литературные небылицы (перевёртыши)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1861,6 +2273,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17798-d3f56978b5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 134
     title: Глагол (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1869,6 +2284,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17799-65e50a1c38
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 135
     title: Глагол (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1877,6 +2295,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17816-fbd0471e69
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 136
     title: Война грибов с ягодами. Владимир Даль
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1885,6 +2306,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17800-70b89c3a08
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 137
     title: Изменение глагола по числам
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1893,6 +2317,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17801-dc6350cdc7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 138
     title: Обобщение по теме «Глагол»
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1901,6 +2328,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17802-e0df981d3b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 139
     title: Работа с текстом
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1909,6 +2339,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17817-4479318083
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 140
     title: Незнайка в Солнечном городе. Николай Носов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1917,6 +2350,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17814-68b5d21b63
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 141
     title: Винни-Пух и Все-Все-Все. Алан Милн
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1925,6 +2361,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17803-53a2332f0f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 142
     title: Имя прилагательное (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1933,6 +2372,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17804-c37f981565
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 143
     title: Имя прилагательное (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1941,6 +2383,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17805-ec8aab0635
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 144
     title: Обобщение по теме «Имя прилагательное»
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1949,6 +2394,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17806-ede3089396
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 145
     title: Обобщение по теме "Имя прилагательное"
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1957,6 +2405,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17807-b8235d0222
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 146
     title: Составляем текст-описание
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1965,6 +2416,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17818-d621ab8b37
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 147
     title: Тайна Буквоежки приоткрыта
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1973,6 +2427,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17819-7eab61ea4e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 148
     title: Золотой ключик, или Приключения Буратино. Алексей Толстой
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1981,6 +2438,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17808-e4346522ca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 149
     title: Обобщение по теме «Части речи»
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1989,6 +2449,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17820-58d89034bb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 150
     title: Пейзажная лирика. Стихи о весне
   - book_id: avita_русский_язык_2_класс_kit292
@@ -1997,6 +2460,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17809-05e076406f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 151
     title: Предлог
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2005,6 +2471,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17789-22fb2d5fec
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 152
     title: Что такое части речи? (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2013,6 +2482,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17821-91222d56f4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 153
     title: Моя семья и другие звери. Джеральд Даррелл
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2021,6 +2493,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17810-5bfe6ecb8f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 154
     title: Предлог и приставка
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2029,6 +2504,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17811-04cd80c974
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 155
     title: Повторение (1)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2037,6 +2515,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17812-a1ce89e2dd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 156
     title: Повторение (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2045,6 +2526,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17822-2d41180d85
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 157
     title: Советуем почитать рассказы Николая Носова
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2053,6 +2537,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17813-230502d45d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 158
     title: Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2061,6 +2548,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17790-0bf87219e3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 159
     title: Что такое части речи? (2)
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2069,6 +2559,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17791-5c22c7f73a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 160
     title: Пеппи Длинныйчулок. Астрид Линдгрен
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2077,6 +2570,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17792-2f29264ae1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 161
     title: Имя существительное
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2085,6 +2581,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17793-7db211e893
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 162
     title: Одушевлённые и неодушевлённые имена существительные
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2093,6 +2592,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17794-4ab931437f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 163
     title: Собственные и нарицательные имена существительные
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2101,6 +2603,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17795-82bcc111d1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 164
     title: Учимся писать приглашение на день рождения
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2109,6 +2614,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17823-c5548468d0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 165
     title: Предложение и текст. Вступление
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2117,6 +2625,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17828-9122eda758
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 166
     title: Как устанавливается связь между словами в предложении
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2125,6 +2636,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17839-0327c6c093
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 167
     title: Колюшка-храбрюшка. Геннадий Снегирёв
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2133,6 +2647,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17829-bb19df9d33
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 168
     title: Что я знаю о предложении?
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2141,6 +2658,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17830-9ec702b758
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 169
     title: Ука. Геннадий Снегирёв
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2149,6 +2669,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17831-e4ea753e5d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 170
     title: Предложение и текст
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2157,6 +2680,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17832-f28defed3e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 171
     title: Типы текстов
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2165,6 +2691,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17833-0611a0606a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 172
     title: Сочиняем весеннюю сказку
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2173,6 +2702,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17840-24c935d25f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 173
     title: Птичий бал. Т. Домаренок-Кудрявцева
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2181,6 +2713,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17841-1026de613d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 174
     title: Советуем почитать
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2189,6 +2724,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17834-6a8c1d978f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 175
     title: Проверь себя!
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2197,6 +2735,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17835-dffb8a3173
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 176
     title: Предложение и текст
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2205,6 +2746,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17836-892a814e30
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 177
     title: Муфта, Полботинка и Моховая Борода. Эно Рауд
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2213,6 +2757,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17824-43daa75a27
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 178
     title: Что такое предложение в русском языке
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2221,6 +2768,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17837-21b9bba2ca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 179
     title: Читаем и сравниваем
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2229,6 +2779,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17825-9049df9bb5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 180
     title: Что такое основа предложения
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2237,6 +2790,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17826-855bdc13fa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 181
     title: Главные члены предложения – подлежащее и сказуемое
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2245,6 +2801,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17838-97e227f5d7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 182
     title: Каждому своё счастье
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2253,6 +2812,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17827-9fe8d9d82c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 183
     title: Распространённые и нераспространённые предложения
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2261,6 +2823,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17842-47a1e8f4b0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 184
     title: В сказках всегда добро побеждает зло
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2269,6 +2834,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17843-93ec20bf5e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 185
     title: По следам прочитанных произведений
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2277,6 +2845,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17844-0837a35ee1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 186
     title: В гости к лету
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2285,6 +2856,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17845-acb5df2e9d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 187
     title: Жёлтая сказка
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2293,6 +2867,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17846-635e93197e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 188
     title: Рекомендуем почитать летом
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2301,6 +2878,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17743-6df7aa88e6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 189
     title: Словарик "Пиши правильно"
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2309,6 +2889,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16172-bb46939cf8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 190
     title: Mõisted
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2317,6 +2900,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16173-7b9d6cbef7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 191
     title: Sõnaseletused
   - book_id: avita_русский_язык_2_класс_kit292
@@ -2325,6 +2911,9 @@ source_records:
     kit_id: "292"
     language: ru
     record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-17744-d8bfb55e87
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 192
     title: Сказка
   - book_id: koolibri_русский_яз_2_ru
@@ -2333,6 +2922,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10433-fc30a141b8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 193
     title: ВВЕДЕНИЕ
   - book_id: koolibri_русский_яз_2_ru
@@ -2341,6 +2933,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10434-04f10c17ef
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 194
     title: ЯЗЫК И РЕЧЬ
   - book_id: koolibri_русский_яз_2_ru
@@ -2349,6 +2944,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10435-eec10c5c47
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 195
     title: СЛОВО, ПРЕДЛОЖЕНИЕ, ТЕКСТ
   - book_id: koolibri_русский_яз_2_ru
@@ -2357,6 +2955,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10436-08e12a9232
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 196
     title: ЗВУКИ И БУКВЫ
   - book_id: koolibri_русский_яз_2_ru
@@ -2365,6 +2966,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10437-c9dc826783
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 197
     title: Гласные звуки и буквы
   - book_id: koolibri_русский_яз_2_ru
@@ -2373,6 +2977,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10438-e189f3f06d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 198
     title: Согласные звуки и буквы
   - book_id: koolibri_русский_яз_2_ru
@@ -2381,6 +2988,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10439-25179b7706
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 199
     title: ЗВУКО-БУКВЕННЫЙ РАЗБОР СЛОВА
   - book_id: koolibri_русский_яз_2_ru
@@ -2389,6 +2999,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10440-9b2dfc53e4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 200
     title: КОРЕНЬ СЛОВА
   - book_id: koolibri_русский_яз_2_ru
@@ -2397,6 +3010,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10449-8f62d36597
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 201
     title: СУФФИКС
   - book_id: koolibri_русский_яз_2_ru
@@ -2405,6 +3021,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10450-9fa4d6a606
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 202
     title: ОСНОВА СЛОВА
   - book_id: koolibri_русский_яз_2_ru
@@ -2413,6 +3032,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10441-120bcdba5f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 203
     title: Правописание безударных гласных в корне слова
   - book_id: koolibri_русский_яз_2_ru
@@ -2421,6 +3043,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10442-182e83e24d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 204
     title: Разделительный Ь
   - book_id: koolibri_русский_яз_2_ru
@@ -2429,6 +3054,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10443-2923a5fc6d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 205
     title: Правописание звонких и глухих согласных в корне слова
   - book_id: koolibri_русский_яз_2_ru
@@ -2437,6 +3065,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10444-764eac08c2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 206
     title: Непроизносимые согласные
   - book_id: koolibri_русский_яз_2_ru
@@ -2445,6 +3076,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10445-ae31a86bb2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 207
     title: Двойные согласные
   - book_id: koolibri_русский_яз_2_ru
@@ -2453,6 +3087,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10446-4899f4dd67
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 208
     title: ОКОНЧАНИЕ
   - book_id: koolibri_русский_яз_2_ru
@@ -2461,6 +3098,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10447-f314304df5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 209
     title: ПРИСТАВКА
   - book_id: koolibri_русский_яз_2_ru
@@ -2469,6 +3109,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10448-230aaa1e7c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 210
     title: Разделительный Ъ
   - book_id: koolibri_русский_яз_2_ru
@@ -2477,6 +3120,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10451-afd28601ad
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 211
     title: СЛОВО И ЕГО ЛЕКСИЧЕСКОЕ ЗНАЧЕНИЕ
   - book_id: koolibri_русский_яз_2_ru
@@ -2485,6 +3131,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10452-c0d37efae7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 212
     title: ОДНОЗНАЧНЫЕ И МНОГОЗНАЧНЫЕ СЛОВА
   - book_id: koolibri_русский_яз_2_ru
@@ -2493,6 +3142,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10453-3e5df3aca6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 213
     title: ПРЯМОЕ И ПЕРЕНОСНОЕ ЗНАЧЕНИЕ
   - book_id: koolibri_русский_яз_2_ru
@@ -2501,6 +3153,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10454-796e05c7bc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 214
     title: СИНОНИМЫ
   - book_id: koolibri_русский_яз_2_ru
@@ -2509,6 +3164,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10455-365c5da46d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 215
     title: АНТОНИМЫ
   - book_id: koolibri_русский_яз_2_ru
@@ -2517,6 +3175,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10456-fd9d307b4d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 216
     title: ОМОНИМЫ
   - book_id: koolibri_русский_яз_2_ru
@@ -2525,6 +3186,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10457-8dafa87e42
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 217
     title: ГЛАВНЫЕ И ВТОРОСТЕПЕННЫЕ ЧЛЕНЫ ПРЕДЛОЖЕНИЯ
   - book_id: koolibri_русский_яз_2_ru
@@ -2533,6 +3197,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10458-bd6cddb939
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 218
     title: РАСПРОСТРАНЁННЫЕ И НЕРАСПРОСТРАНЁННЫЕ ПРЕДЛОЖЕНИЯ
   - book_id: koolibri_русский_яз_2_ru
@@ -2541,6 +3208,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10459-e697096636
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 219
     title: ПОВТОРЕНИЕ
   - book_id: koolibri_русский_яз_2_ru
@@ -2549,6 +3219,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10460-47bf20f9a6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 220
     title: СЛОВАРНЫЕ СЛОВА
   - book_id: koolibri_русский_яз_2_ru
@@ -2557,6 +3230,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10461-a28567ed05
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 221
     title: ПРИЛОЖЕНИЕ
   - book_id: koolibri_русский_яз_2_ru
@@ -2565,6 +3241,9 @@ source_records:
     kit_id: "186"
     language: ru
     record_id: grade-2-russian-record-186-https-www-opiq-ee-kit-186-chapter-10462-9290d8e3f1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 222
     title: Mõisted
   - book_id: koolibri_светлячок._2_ru
@@ -2573,6 +3252,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24693-947c1c7ba5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 223
     title: ДОРОГОЙ ВТОРОКЛАССНИК!
   - book_id: koolibri_светлячок._2_ru
@@ -2581,6 +3263,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24778-62be3536e6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 224
     title: ДОРОГА
   - book_id: koolibri_светлячок._2_ru
@@ -2589,6 +3274,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24776-c9322f33ec
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 225
     title: ВОИНСТВЕННЫЙ ЖАКО
   - book_id: koolibri_светлячок._2_ru
@@ -2597,6 +3285,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24777-fb6ae4363e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 226
     title: РУСАЧОК
   - book_id: koolibri_светлячок._2_ru
@@ -2605,6 +3296,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24779-5d3adebcc7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 227
     title: АЛЁШКИНЫ МЫСЛИ
   - book_id: koolibri_светлячок._2_ru
@@ -2613,6 +3307,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24772-8d475953eb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 228
     title: КАК ХОДЯТ РАКИ?
   - book_id: koolibri_светлячок._2_ru
@@ -2621,6 +3318,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24780-c1f4b6f074
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 229
     title: ПРОФЕССИИ ВЕТРОВ
   - book_id: koolibri_светлячок._2_ru
@@ -2629,6 +3329,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24781-2b5f4401a2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 230
     title: КАК ВЕТЕР ИСКАЛ ДРУГА
   - book_id: koolibri_светлячок._2_ru
@@ -2637,6 +3340,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24773-e131d87926
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 231
     title: ЯНТАРНАЯ СКАЗКА
   - book_id: koolibri_светлячок._2_ru
@@ -2645,6 +3351,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24782-3600a4b599
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 232
     title: ЯНТАРЬ
   - book_id: koolibri_светлячок._2_ru
@@ -2653,6 +3362,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24774-fa47136fca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 233
     title: НУБЛИК ПОКАЗЫВАЕТ, НА ЧТО ОН СПОСОБЕН
   - book_id: koolibri_светлячок._2_ru
@@ -2661,6 +3373,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24775-bdc09e12c1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 234
     title: БУДУЩАЯ ПРОФЕССИЯ
   - book_id: koolibri_светлячок._2_ru
@@ -2669,6 +3384,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24786-98eb987a24
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 235
     title: ЛЕТО
   - book_id: koolibri_светлячок._2_ru
@@ -2677,6 +3395,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24783-fc7c40658d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 236
     title: ПРОГУЛКА В ЛЕС
   - book_id: koolibri_светлячок._2_ru
@@ -2685,6 +3406,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24787-641abb053a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 237
     title: ЛЕСНОЙ ГОЛОСОК
   - book_id: koolibri_светлячок._2_ru
@@ -2693,6 +3417,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24788-195ffe74c1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 238
     title: ГОЛОС В ЛЕСУ
   - book_id: koolibri_светлячок._2_ru
@@ -2701,6 +3428,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24784-53018b7dcf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 239
     title: ХРОМКА
   - book_id: koolibri_светлячок._2_ru
@@ -2709,6 +3439,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24785-40afcf5057
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 240
     title: ОН ЖИВОЙ И СВЕТИТСЯ
   - book_id: koolibri_светлячок._2_ru
@@ -2717,6 +3450,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24789-8a6ce9d911
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 241
     title: ПЕСЕНКА О ЛЕТЕ
   - book_id: koolibri_светлячок._2_ru
@@ -2725,6 +3461,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24790-e4690d6280
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 242
     title: Понятия
   - book_id: koolibri_светлячок._2_ru
@@ -2733,6 +3472,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24791-dd197a2006
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 243
     title: Толкование слов
   - book_id: koolibri_светлячок._2_ru
@@ -2741,6 +3483,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24700-1a73bf5f49
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 244
     title: ЛЕТО И ОСЕНЬ
   - book_id: koolibri_светлячок._2_ru
@@ -2749,6 +3494,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24699-fe5e58daf6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 245
     title: ПЕППИ ИДЁТ В ШКОЛУ
   - book_id: koolibri_светлячок._2_ru
@@ -2757,6 +3505,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24694-9453bce20a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 246
     title: ПЯТЁРКИ
   - book_id: koolibri_светлячок._2_ru
@@ -2765,6 +3516,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24701-7578d4a573
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 247
     title: ДЛЯ ЧЕГО ХОДЯТ В ШКОЛУ
   - book_id: koolibri_светлячок._2_ru
@@ -2773,6 +3527,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24702-7c6301b767
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 248
     title: МОЙ РАНЕЦ
   - book_id: koolibri_светлячок._2_ru
@@ -2781,6 +3538,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24695-6ada4ba89a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 249
     title: ДЕТИ В РОЩЕ
   - book_id: koolibri_светлячок._2_ru
@@ -2789,6 +3549,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24703-2fcad5707f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 250
     title: УМНЫЙ ПЕТЯ
   - book_id: koolibri_светлячок._2_ru
@@ -2797,6 +3560,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24696-4e9350b158
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 251
     title: ЕСЛИ БЫ
   - book_id: koolibri_светлячок._2_ru
@@ -2805,6 +3571,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24697-691854d29e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 252
     title: КОМУ ЧТО УДИВИТЕЛЬНО
   - book_id: koolibri_светлячок._2_ru
@@ -2813,6 +3582,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24698-f0f4dc294e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 253
     title: ЛУЧШИЙ ДРУГ
   - book_id: koolibri_светлячок._2_ru
@@ -2821,6 +3593,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24704-27a843df78
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 254
     title: ОСЕННЕЕ УТРО
   - book_id: koolibri_светлячок._2_ru
@@ -2829,6 +3604,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24708-bd77ec9ca7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 255
     title: САМ СЕБЕ КЛАДОВАЯ
   - book_id: koolibri_светлячок._2_ru
@@ -2837,6 +3615,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24718-b695ed3372
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 256
     title: ЗОЛОТОЙ КЛУБОЧЕК
   - book_id: koolibri_светлячок._2_ru
@@ -2845,6 +3626,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24709-1d07df580e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 257
     title: ЁЖ
   - book_id: koolibri_светлячок._2_ru
@@ -2853,6 +3637,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24710-3b3ac64bc9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 258
     title: ГРИБЫ
   - book_id: koolibri_светлячок._2_ru
@@ -2861,6 +3648,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24719-8c40e558cc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 259
     title: ХИТРЫЕ ГРИБЫ
   - book_id: koolibri_светлячок._2_ru
@@ -2869,6 +3659,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24711-d6ac3f476e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 260
     title: КОЛОСОК
   - book_id: koolibri_светлячок._2_ru
@@ -2877,6 +3670,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24720-7e7ec89d95
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 261
     title: ВОТ ОН – ХЛЕБУШЕК ДУШИСТЫЙ...
   - book_id: koolibri_светлячок._2_ru
@@ -2885,6 +3681,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24721-03e696c03d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 262
     title: НАТВОРИЛА ОСЕНЬ ДЕЛ
   - book_id: koolibri_светлячок._2_ru
@@ -2893,6 +3692,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24712-248e5025c0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 263
     title: ОСЕННИЕ ЗАДАНИЯ
   - book_id: koolibri_светлячок._2_ru
@@ -2901,6 +3703,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24705-f898bb78fc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 264
     title: ОСЕННЕЕ УТРО
   - book_id: koolibri_светлячок._2_ru
@@ -2909,6 +3714,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24706-10338d7400
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 265
     title: СЕНТЯБРЬ
   - book_id: koolibri_светлячок._2_ru
@@ -2917,6 +3725,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24713-8958ef9fb7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 266
     title: УНЫЛАЯ ПОРА! ОЧЕЙ ОЧАРОВАНЬЕ!..
   - book_id: koolibri_светлячок._2_ru
@@ -2925,6 +3736,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24714-2be5062ec5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 267
     title: «СКУЧНАЯ КАРТИНА!..»
   - book_id: koolibri_светлячок._2_ru
@@ -2933,6 +3747,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24715-b99841a324
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 268
     title: ЭХО
   - book_id: koolibri_светлячок._2_ru
@@ -2941,6 +3758,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24716-2c5902232d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 269
     title: ЛЕС ОСЕНЬЮ
   - book_id: koolibri_светлячок._2_ru
@@ -2949,6 +3769,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24717-a0c3dfd6de
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 270
     title: ЗАЙЧИК
   - book_id: koolibri_светлячок._2_ru
@@ -2957,6 +3780,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24707-79a4680fec
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 271
     title: БЕЛКИНА СУШИЛЬНЯ
   - book_id: koolibri_светлячок._2_ru
@@ -2965,6 +3791,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24725-1ba187bbba
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 272
     title: ОПАСНЫЕ ОЧКИ
   - book_id: koolibri_светлячок._2_ru
@@ -2973,6 +3802,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24732-9efb2db1a5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 273
     title: ДА ИЛИ НЕТ
   - book_id: koolibri_светлячок._2_ru
@@ -2981,6 +3813,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24724-a0e66631db
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 274
     title: КААРИ СТИРАЕТ НОСКИ
   - book_id: koolibri_светлячок._2_ru
@@ -2989,6 +3824,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24733-fcbbc4a1c6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 275
     title: ВРЕДНЫЕ СОВЕТЫ
   - book_id: koolibri_светлячок._2_ru
@@ -2997,6 +3835,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24722-2bef532ef2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 276
     title: СКАЗКА О НЕВОСПИТАННОМ МЫШОНКЕ
   - book_id: koolibri_светлячок._2_ru
@@ -3005,6 +3846,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24726-558dc944f1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 277
     title: СВЕТЛЯЧОК-МАЯЧОК
   - book_id: koolibri_светлячок._2_ru
@@ -3013,6 +3857,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24727-9e71c14c62
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 278
     title: СТРЕКОЗА И МУРАВЕЙ
   - book_id: koolibri_светлячок._2_ru
@@ -3021,6 +3868,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24728-8aff91b3e4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 279
     title: ЭЙ, ТЫ!
   - book_id: koolibri_светлячок._2_ru
@@ -3029,6 +3879,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24729-48fa880df4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 280
     title: ЭЙ!
   - book_id: koolibri_светлячок._2_ru
@@ -3037,6 +3890,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24730-b64659a92b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 281
     title: ДОБРАЯ ХОЗЯЮШКА
   - book_id: koolibri_светлячок._2_ru
@@ -3045,6 +3901,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24731-f0025f5c56
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 282
     title: НАСТОЯЩИЙ ДРУГ
   - book_id: koolibri_светлячок._2_ru
@@ -3053,6 +3912,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24723-9b435954d3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 283
     title: ТАЙНА СИПСИКА
   - book_id: koolibri_светлячок._2_ru
@@ -3061,6 +3923,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24734-fc237b0838
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 284
     title: СКАЗКУ ВСПОМНИТЬ НУЖНО
   - book_id: koolibri_светлячок._2_ru
@@ -3069,6 +3934,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24735-ddf3878ec8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 285
     title: ГУСИ-ЛЕБЕДИ
   - book_id: koolibri_светлячок._2_ru
@@ -3077,6 +3945,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24738-46a06c0ed2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 286
     title: МЫШЬ И ВОРОБЕЙ
   - book_id: koolibri_светлячок._2_ru
@@ -3085,6 +3956,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24739-78072d3648
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 287
     title: ВОЛШЕБНЫЕ УЗЛЫ
   - book_id: koolibri_светлячок._2_ru
@@ -3093,6 +3967,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24740-1e7e6da5ef
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 288
     title: ЗАКАЗЧИК И МАСТЕР
   - book_id: koolibri_светлячок._2_ru
@@ -3101,6 +3978,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24736-420309951a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 289
     title: АЛМАЗНЫЙ ТОПОР
   - book_id: koolibri_светлячок._2_ru
@@ -3109,6 +3989,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24741-6c034acc67
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 290
     title: ДВА МОРОЗА
   - book_id: koolibri_светлячок._2_ru
@@ -3117,6 +4000,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24737-9aa7c3e2d1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 291
     title: НЕФРИТОВЫЙ ИМПЕРАТОР И ДВЕНАДЦАТЬ ЖИВОТНЫХ
   - book_id: koolibri_светлячок._2_ru
@@ -3125,6 +4011,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24745-53cf710a52
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 292
     title: ГОРОД ЗИМНИЙ...
   - book_id: koolibri_светлячок._2_ru
@@ -3133,6 +4022,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24751-73fa906398
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 293
     title: ДЕТСТВО
   - book_id: koolibri_светлячок._2_ru
@@ -3141,6 +4033,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24742-ab0630864f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 294
     title: ЛЕТЯТ СНЕЖНЫЕ ПУШИНКИ
   - book_id: koolibri_светлячок._2_ru
@@ -3149,6 +4044,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24746-fbcb6e20b0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 295
     title: СНЕЖИНКА
   - book_id: koolibri_светлячок._2_ru
@@ -3157,6 +4055,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24747-87f3fc1abc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 296
     title: КАКАЯ БЫВАЕТ ЗИМА
   - book_id: koolibri_светлячок._2_ru
@@ -3165,6 +4066,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24748-d388dd18fc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 297
     title: НАД И ПОД
   - book_id: koolibri_светлячок._2_ru
@@ -3173,6 +4077,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24749-8e37b41285
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 298
     title: Не ветер бушует над бором…
   - book_id: koolibri_светлячок._2_ru
@@ -3181,6 +4088,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24743-63b237916c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 299
     title: БЮРО ЛЕСНЫХ УСЛУГ
   - book_id: koolibri_светлячок._2_ru
@@ -3189,6 +4099,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24750-a298e686eb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 300
     title: ОЛЯПКА
   - book_id: koolibri_светлячок._2_ru
@@ -3197,6 +4110,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24744-ddb1b91b49
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 301
     title: СУМАCШЕДШАЯ ПТИЦА
   - book_id: koolibri_светлячок._2_ru
@@ -3205,6 +4121,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24752-c7a9315b4a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 302
     title: СКАЗКА О РЫБАКЕ И РЫБКЕ
   - book_id: koolibri_светлячок._2_ru
@@ -3213,6 +4132,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24753-7c8e3cbef6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 303
     title: ВОРОБЬИШКО
   - book_id: koolibri_светлячок._2_ru
@@ -3221,6 +4143,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24754-aa3815c260
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 304
     title: МАФИН И ПАУК
   - book_id: koolibri_светлячок._2_ru
@@ -3229,6 +4154,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24755-383a9ecc3b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 305
     title: РОСИНКА
   - book_id: koolibri_светлячок._2_ru
@@ -3237,6 +4165,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24759-0da50db6dd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 306
     title: КТО КОМАНДУЕТ?
   - book_id: koolibri_светлячок._2_ru
@@ -3245,6 +4176,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24760-664fce5142
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 307
     title: В ОДИН ПРЕКРАСНЫЙ ГРУСТНЫЙ ДЕНЬ
   - book_id: koolibri_светлячок._2_ru
@@ -3253,6 +4187,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24761-d0bebf0977
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 308
     title: САМАЯ ЛУЧШАЯ МАМА
   - book_id: koolibri_светлячок._2_ru
@@ -3261,6 +4198,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24762-7425e821b3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 309
     title: БОЛЬШАЯ БЕРЁЗА
   - book_id: koolibri_светлячок._2_ru
@@ -3269,6 +4209,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24763-a5d7f4bf27
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 310
     title: ПАПОВОЗ
   - book_id: koolibri_светлячок._2_ru
@@ -3277,6 +4220,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24756-846743463b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 311
     title: ЧАПА
   - book_id: koolibri_светлячок._2_ru
@@ -3285,6 +4231,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24757-760705ef7e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 312
     title: ЗАГАДОЧНАЯ РЫБА
   - book_id: koolibri_светлячок._2_ru
@@ -3293,6 +4242,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24758-8205439cc4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 313
     title: ОЧЕНЬ ПОЛЕЗНЫЙ ПОДАРОК
   - book_id: koolibri_светлячок._2_ru
@@ -3301,6 +4253,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24764-e44a254c27
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 314
     title: ПЕСЕНКА О РОДИТЕЛЯХ
   - book_id: koolibri_светлячок._2_ru
@@ -3309,6 +4264,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24766-3837e1165f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 315
     title: ЗИМА НЕДАРОМ ЗЛИТСЯ…
   - book_id: koolibri_светлячок._2_ru
@@ -3317,6 +4275,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24767-34ed50e30e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 316
     title: СКВОРЦЫ
   - book_id: koolibri_светлячок._2_ru
@@ -3325,6 +4286,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24768-b37fea7060
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 317
     title: БОБРЁНОК
   - book_id: koolibri_светлячок._2_ru
@@ -3333,6 +4297,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24769-22692a02a9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 318
     title: МАЛЬЧИК И КОЛОКОЛЬЧИКИ ЛАНДЫШЕЙ
   - book_id: koolibri_светлячок._2_ru
@@ -3341,6 +4308,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24770-f1ccbbe587
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 319
     title: СЕЛЬСКАЯ ПЕСНЯ
   - book_id: koolibri_светлячок._2_ru
@@ -3349,6 +4319,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24765-b29db6f6e9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 320
     title: ПЧЁЛКИ НА РАЗВЕДКАХ
   - book_id: koolibri_светлячок._2_ru
@@ -3357,6 +4330,9 @@ source_records:
     kit_id: "454"
     language: ru
     record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24771-17046af608
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+      role: primary_route_capture
     source_sequence: 321
     title: О ПЧЁЛАХ
 subject: Russian language

@@ -1,0 +1,146 @@
+artifact_id: grade-2-author-created-subjects
+artifact_type: grade_programme_author_created_subjects
+grade: 2
+programme_id: grade-2-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  verification_date: 2026-07-29
+schema_version: "1.0"
+subjects:
+  - annual_progression:
+      - understand and use familiar spoken words
+      - follow short familiar instructions
+      - use familiar everyday vocabulary in short oral labels
+      - read individual words and short phrases
+      - write words and short phrases
+    architecture_coverage_status: designed
+    architecture_status: designed
+    assessment_authoring_status: not_started
+    content_strategy: author_created_required
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 80
+      minimum: 55
+      notes: Architecture-only range for an A1 author-created core; lessons and assessments are not authored.
+    individual_evidence_model:
+      - short source-closed oral response
+      - short individual reading check
+      - short individual writing check
+    lesson_authoring_status: not_started
+    mastery_cadence:
+      notes: Short recurring language work with regular revision; no national weekly-hours claim.
+      pattern: daily_or_near_daily
+    natural_project_links:
+      - grade-2-project-stories-books-messages
+      - grade-2-project-home-neighbourhood
+      - grade-2-project-rhythm-sound-celebration
+    official_outcome_ids:
+      - ee-prk-2026-stage1-foreign-language-a1
+    opiq_companion_status: not_available
+    oral_progression:
+      - repeat and recognise
+      - respond with a familiar word
+      - use a short supported phrase
+    production_coverage_status: not_started
+    programme_requirement: mandatory_author_created_core
+    reading_writing_progression:
+      - recognise words
+      - read short phrases
+      - copy and independently write familiar words or short phrases
+    release_status: blocked
+    required_in_default_programme: true
+    revision_cycle: Immediate correction, frequent retrieval and spaced reuse in a later programme period.
+    source_coverage_status: missing
+    source_status: missing_route
+    subject_field: foreign_language
+    subject_id: grade-2-author-created-english
+    target_level: beginner_A1
+    vocabulary_domains:
+      - self and family
+      - home and neighbourhood
+      - school routines
+      - books and messages
+      - rhythm and celebration
+  - annual_progression:
+      - basic locomotor movement
+      - coordination and balance
+      - age-appropriate strength and endurance
+      - movement games and teamwork
+      - safe movement indoors and outdoors
+      - water-safety decisions
+    architecture_coverage_status: designed
+    architecture_status: designed
+    assessment_authoring_status: not_started
+    conditional_swimming:
+      competent_adult_supervision_required: true
+      replacement_for_land_based_core: false
+      requires_pool_or_safe_water_environment: true
+      status: conditional_not_assumed_available
+      universal_family_access_assumed: false
+    content_strategy: author_created_required
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 120
+      minimum: 80
+      notes: Architecture-only range combining complete sessions and bounded outdoor blocks; no training tasks are authored.
+    individual_evidence_model:
+      - individual movement-skill observation
+      - individual safe-choice observation
+      - individual cooperation reflection
+    lesson_authoring_status: not_started
+    mastery_cadence:
+      notes: A daily short movement break, two to three complete sessions weekly and a regular longer outdoor block; no
+        national weekly-hours claim.
+      pattern: daily_plus_two_to_three_complete_sessions_weekly
+    natural_project_links:
+      - grade-2-project-weather-water-safety
+      - grade-2-project-living-nature-nearby
+      - grade-2-project-rights-duties-team
+    official_outcome_ids:
+      - ee-prk-2026-stage1-physical-education-water-safety
+    opiq_companion_status: not_available
+    oral_progression: []
+    production_coverage_status: not_started
+    programme_requirement: mandatory_author_created_core
+    reading_writing_progression: []
+    release_status: blocked
+    required_in_default_programme: true
+    revision_cycle: Movement and safety routines recur across weekly sessions and natural project contexts.
+    source_coverage_status: missing
+    source_status: missing_route
+    subject_field: physical_education
+    subject_id: grade-2-author-created-physical-education
+    target_level: null
+    vocabulary_domains: []
+target_school_year: 2026/27

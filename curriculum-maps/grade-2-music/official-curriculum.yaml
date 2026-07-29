@@ -5,9 +5,10 @@ allocation_status:
 artifact_id: grade-2-music-official-curriculum
 artifact_type: grade_programme_official_curriculum_map
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_muusika.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_muusikamaa_opiq_v2.zip
   qa_path: project-files/outputs/opiq_2klass_muusika_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_muusikamaa_opiq_v2.zip
   source_id: grade-2-music
 completeness:
   declared_complete: false
@@ -16,6 +17,7 @@ completeness:
     - Captured task examples do not establish complete assessment evidence.
   status: partial
 grade: 2
+mapping_status: mapped_recommended_grade_2_allocation
 official_fields:
   - kunstiained
 official_scope:
@@ -83,6 +85,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 317
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

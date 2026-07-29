@@ -84,6 +84,9 @@ books:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33644-6d10ca1a89
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33645-12348caaeb
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33646-1f3cddd7a9
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -91,9 +94,10 @@ books:
     task_example_record_count: 0
     title: Noorte Kotkaste I järk (2026)
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   qa_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   source_id: grade-2-noorte-kotkaste-training
 completeness:
   declared_complete: false
@@ -122,6 +126,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 27
 route_id: grade-2-noorte-kotkaste-training
@@ -139,6 +144,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33620-9241e08122
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 1
     title: Nimetab noorkotkaste piduliku esindusvormi elemente ja kandmise põhimõtteid
   - book_id: kaitseliit_noorte_kot_2_et
@@ -147,6 +155,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33621-a13ee31a07
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 2
     title: Teab, kes on tema rühmapealik ja oskab temaga kontakteeruda
   - book_id: kaitseliit_noorte_kot_2_et
@@ -155,6 +166,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33622-89c59feb68
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 3
     title: Selgitab, kes on noorkotkas
   - book_id: kaitseliit_noorte_kot_2_et
@@ -163,6 +177,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33623-4c4fb948a8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 4
     title: Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
   - book_id: kaitseliit_noorte_kot_2_et
@@ -171,6 +188,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33624-f6527d69e3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 5
     title: Ütleb peast noorkotkaste tõotuse ja arutleb selle tähenduse üle
   - book_id: kaitseliit_noorte_kot_2_et
@@ -179,6 +199,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33625-1fac34f988
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 6
     title: Tunneb noorkotkaste kombeid
   - book_id: kaitseliit_noorte_kot_2_et
@@ -187,6 +210,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33626-2c7d4ef42c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 7
     title: Kirjeldab Noorte Kotkaste sümboolikat
   - book_id: kaitseliit_noorte_kot_2_et
@@ -195,6 +221,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33627-a5506d4d1b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 8
     title: Teab noorkotkaste tervitust ja selgitab selle tähendust
   - book_id: kaitseliit_noorte_kot_2_et
@@ -203,6 +232,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33628-48130ce1e8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 9
     title: Teab rivikäsklusi ning oskab nende järgi liikuda
   - book_id: kaitseliit_noorte_kot_2_et
@@ -211,6 +243,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33629-e7abe2aa3e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 10
     title: Teab, mis on matkamine
   - book_id: kaitseliit_noorte_kot_2_et
@@ -219,6 +254,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33633-50d338744f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 11
     title: Oskab teha kingapaelasõlme
   - book_id: kaitseliit_noorte_kot_2_et
@@ -227,6 +265,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33630-f4695af846
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 12
     title: Osaleb koos juhendajaga rahulikus tempos matkal
   - book_id: kaitseliit_noorte_kot_2_et
@@ -235,6 +276,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33631-f4f924e87d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 13
     title: On osalenud laagris
   - book_id: kaitseliit_noorte_kot_2_et
@@ -243,6 +287,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33632-62d349cf7e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 14
     title: Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
   - book_id: kaitseliit_noorte_kot_2_et
@@ -251,6 +298,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33634-a987e78474
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 15
     title: Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
   - book_id: kaitseliit_noorte_kot_2_et
@@ -259,6 +309,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33635-e0bed8c4c6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 16
     title: Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
   - book_id: kaitseliit_noorte_kot_2_et
@@ -267,6 +320,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33636-5f7a6dc81c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 17
     title: Oskab käituda linnaruumis ja avalikes kohtades
   - book_id: kaitseliit_noorte_kot_2_et
@@ -275,6 +331,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33637-0d1ff783ca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 18
     title: Järgib looduses viibides turvalise käitumise põhimõtteid
   - book_id: kaitseliit_noorte_kot_2_et
@@ -283,6 +342,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33638-2c83b60a32
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 19
     title: Teab, kuidas käituda tulekahju korral
   - book_id: kaitseliit_noorte_kot_2_et
@@ -291,6 +353,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33639-47b03c2555
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 20
     title: Teab oma koduaadressi ja vanema kontaktandmeid
   - book_id: kaitseliit_noorte_kot_2_et
@@ -299,6 +364,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33640-815f86c48e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 21
     title: Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
   - book_id: kaitseliit_noorte_kot_2_et
@@ -307,6 +375,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33641-1793983322
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 22
     title: Teab, millal on Eesti iseseisvuspäev
   - book_id: kaitseliit_noorte_kot_2_et
@@ -315,6 +386,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33642-28578854c3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 23
     title: Tunneb Eesti lippu
   - book_id: kaitseliit_noorte_kot_2_et
@@ -323,6 +397,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33643-fa415aa299
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 24
     title: Laulab koos kaaslastega Eesti Vabariigi hümni
   - book_id: kaitseliit_noorte_kot_2_et
@@ -331,6 +408,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33644-6d10ca1a89
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 25
     title: Nimetab Eesti Vabariigi presidendi
   - book_id: kaitseliit_noorte_kot_2_et
@@ -339,6 +419,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33645-12348caaeb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 26
     title: On osalenud riiklike tähtpäevade tähistamisel
   - book_id: kaitseliit_noorte_kot_2_et
@@ -347,6 +430,9 @@ source_records:
     kit_id: "594"
     language: et
     record_id: grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33646-1f3cddd7a9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 27
     title: Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
 subject: Young Eagles training

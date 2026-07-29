@@ -92,6 +92,9 @@ books:
       - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33615-b754ea1b0e
       - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33616-9734f6f373
       - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33617-22c03130bc
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -99,9 +102,10 @@ books:
     task_example_record_count: 0
     title: Kodutütarde I järk (2026)
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_kodututarde_valjaope.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   qa_path: project-files/outputs/opiq_2klass_kodututarde_valjaope_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   source_id: grade-2-kodututarde-training
 completeness:
   declared_complete: false
@@ -130,6 +134,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 31
 route_id: grade-2-kodututarde-training
@@ -147,6 +152,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33595-39dadc8c91
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 1
     title: Teab rivikäsklusi ning oskab nende järgi liikuda
   - book_id: kodutütarde_i_järk_(2026)
@@ -155,6 +163,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33599-2422f7f800
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 2
     title: Oskab teha kingapaelasõlme
   - book_id: kodutütarde_i_järk_(2026)
@@ -163,6 +174,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33597-0d5bb0f25b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 3
     title: Osaleb koos juhendajaga rahulikus tempos matkal
   - book_id: kodutütarde_i_järk_(2026)
@@ -171,6 +185,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33598-f1420728cd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 4
     title: On osalenud laagris
   - book_id: kodutütarde_i_järk_(2026)
@@ -179,6 +196,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33605-07939d862b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 5
     title: Teab oma koduaadressi ja vanema kontaktandmeid
   - book_id: kodutütarde_i_järk_(2026)
@@ -187,6 +207,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33608-2e6fa5ba44
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 6
     title: Tunneb Eesti lippu
   - book_id: kodutütarde_i_järk_(2026)
@@ -195,6 +218,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33609-9afcc68315
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 7
     title: Laulab koos kaaslastega Eesti Vabariigi hümni
   - book_id: kodutütarde_i_järk_(2026)
@@ -203,6 +229,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33610-2b4949dc8d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 8
     title: Nimetab Eesti Vabariigi presidendi
   - book_id: kodutütarde_i_järk_(2026)
@@ -211,6 +240,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33611-f38ad7a348
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 9
     title: On osalenud riiklike tähtpäevade tähistamisel
   - book_id: kodutütarde_i_järk_(2026)
@@ -219,6 +251,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33617-22c03130bc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 10
     title: Lisamaterjal rühmavanemale
   - book_id: kodutütarde_i_järk_(2026)
@@ -227,6 +262,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33587-52c1d7269b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 11
     title: Nimetab kodutütarde piduliku esindusvormi elemente ja kandmise põhimõtteid
   - book_id: kodutütarde_i_järk_(2026)
@@ -235,6 +273,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33588-49b0bcb838
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 12
     title: Teab, kes on tema rühmavanem ja oskab temaga kontakteeruda
   - book_id: kodutütarde_i_järk_(2026)
@@ -243,6 +284,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33589-24406117e6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 13
     title: Selgitab, kes on kodutütar
   - book_id: kodutütarde_i_järk_(2026)
@@ -251,6 +295,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33590-f4c6fbfbb2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 14
     title: Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
   - book_id: kodutütarde_i_järk_(2026)
@@ -259,6 +306,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33591-50757278c6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 15
     title: Ütleb peast kodutütarde tõotuse ja arutleb selle tähenduse üle
   - book_id: kodutütarde_i_järk_(2026)
@@ -267,6 +317,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33592-c65d370641
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 16
     title: Tunneb kodutütarde seadusi
   - book_id: kodutütarde_i_järk_(2026)
@@ -275,6 +328,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33593-86cdc1791b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 17
     title: Kirjeldab Kodutütarde sümboolikat
   - book_id: kodutütarde_i_järk_(2026)
@@ -283,6 +339,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33594-ccf7a7ba81
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 18
     title: Teab kodutütarde tervitust ja selgitab selle tähendust
   - book_id: kodutütarde_i_järk_(2026)
@@ -291,6 +350,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33596-74485c6a52
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 19
     title: Teab, mis on matkamine
   - book_id: kodutütarde_i_järk_(2026)
@@ -299,6 +361,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33600-92c37b6059
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 20
     title: Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
   - book_id: kodutütarde_i_järk_(2026)
@@ -307,6 +372,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33601-d747596f90
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 21
     title: Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
   - book_id: kodutütarde_i_järk_(2026)
@@ -315,6 +383,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33602-e667c7992a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 22
     title: Oskab käituda linnaruumis ja avalikes kohtades
   - book_id: kodutütarde_i_järk_(2026)
@@ -323,6 +394,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33603-7efb2dc591
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 23
     title: Järgib looduses viibides turvalise käitumise põhimõtteid
   - book_id: kodutütarde_i_järk_(2026)
@@ -331,6 +405,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33604-67386bf369
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 24
     title: Teab, kuidas käituda tulekahju korral
   - book_id: kodutütarde_i_järk_(2026)
@@ -339,6 +416,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33606-59c052dfe2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 25
     title: Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
   - book_id: kodutütarde_i_järk_(2026)
@@ -347,6 +427,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33607-7f20c24360
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 26
     title: Teab, millal on Eesti iseseisvuspäev
   - book_id: kodutütarde_i_järk_(2026)
@@ -355,6 +438,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33612-e91fad7c0a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 27
     title: Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
   - book_id: kodutütarde_i_järk_(2026)
@@ -363,6 +449,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33613-87abeae678
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 28
     title: Tunneb ära viis paigalindu oma kodukohas
   - book_id: kodutütarde_i_järk_(2026)
@@ -371,6 +460,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33614-89cf35ee29
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 29
     title: Käitub kodutütrele sobivalt
   - book_id: kodutütarde_i_järk_(2026)
@@ -379,6 +471,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33615-b754ea1b0e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 30
     title: Esitab loovalt Kodutütarde seadusi
   - book_id: kodutütarde_i_järk_(2026)
@@ -387,6 +482,9 @@ source_records:
     kit_id: "593"
     language: et
     record_id: grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33616-9734f6f373
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+      role: primary_route_capture
     source_sequence: 31
     title: Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
 subject: Kodututred training

@@ -8,6 +8,13 @@ projects:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles:
+      - official_outcome_ids:
+          - ee-prk-2026-stage1-physical-education-water-safety
+        role: safe movement and water-safety architecture
+        role_id: grade-2-project-weather-water-safety-physical-education-role
+        source_evidence_claimed: false
+        subject_id: grade-2-author-created-physical-education
     driving_question_ru: Как наблюдать погоду и воду и принимать безопасные решения?
     estimated_lesson_range:
       confidence: low
@@ -44,8 +51,24 @@ projects:
       status: architecture_ready
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites: []
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-science
+        - grade-2-mathematics
+        - grade-2-human-studies
+        - grade-2-russian
+        - grade-2-estonian-second-language
     project_id: grade-2-project-weather-water-safety
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps:
+      - architecture_status: designed
+        content_strategy: author_created_required
+        lesson_authoring_status: not_started
+        outcome_id: ee-prk-2026-stage1-physical-education-water-safety
+        replacement_by_human_studies_forbidden: true
+        source_status: missing_route
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -132,6 +155,13 @@ projects:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles:
+      - official_outcome_ids:
+          - ee-prk-2026-stage1-foreign-language-a1
+        role: familiar words, short instructions, oral labels or short phrases
+        role_id: grade-2-project-home-neighbourhood-english-role
+        source_evidence_claimed: false
+        subject_id: grade-2-author-created-english
     driving_question_ru: Как описать обязанности, место и безопасный маршрут?
     estimated_lesson_range:
       confidence: low
@@ -162,8 +192,16 @@ projects:
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-weather-water-safety
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-human-studies
+        - grade-2-russian
+        - grade-2-estonian-second-language
     project_id: grade-2-project-home-neighbourhood
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -217,6 +255,7 @@ projects:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles: []
     driving_question_ru: Как измерение и безопасная работа помогают создать полезную вещь?
     estimated_lesson_range:
       confidence: low
@@ -245,8 +284,15 @@ projects:
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-home-neighbourhood
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-mathematics
+        - grade-2-arts-and-crafts
     project_id: grade-2-project-measure-useful-object
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -289,6 +335,12 @@ projects:
       - individual evidence prompt
       - assessment criterion
       - clean-room bridge for each unresolved route role
+    author_created_subject_roles:
+      - official_outcome_ids: []
+        role: safe outdoor activity
+        role_id: grade-2-project-living-nature-nearby-physical-education-role
+        source_evidence_claimed: false
+        subject_id: grade-2-author-created-physical-education
     driving_question_ru: Как наблюдение помогает узнавать живую природу?
     estimated_lesson_range:
       confidence: low
@@ -319,8 +371,16 @@ projects:
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-measure-useful-object
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-science
+        - grade-2-russian
+        - grade-2-estonian-second-language
     project_id: grade-2-project-living-nature-nearby
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -377,6 +437,13 @@ projects:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles:
+      - official_outcome_ids:
+          - ee-prk-2026-stage1-foreign-language-a1
+        role: familiar words, short instructions, oral labels or short phrases
+        role_id: grade-2-project-stories-books-messages-english-role
+        source_evidence_claimed: false
+        subject_id: grade-2-author-created-english
     driving_question_ru: Как понять и передать основную мысль короткого текста?
     estimated_lesson_range:
       confidence: low
@@ -393,22 +460,37 @@ projects:
     individual_grade_2_evidence: An individual first attempt, explanation or reflection is retained for Grade 2 assessment.
     linked_outcome_ids:
       - ee-prk-2026-stage1-russian-conscious-reading
-      - ee-prk-2026-stage1-estonian-conscious-reading
+      - ee-prk-2026-stage1-estonian-second-language-instructions
     linked_route_ids:
       - grade-2-russian
-      - grade-2-estonian
       - grade-2-estonian-second-language
     mathematics_or_data_evidence: A table, representation or explicit not-applicable note is retained for each learner.
     opiq_companion_candidate_ids:
       - grade-2-russian-kit-454
-      - grade-2-estonian-kit-232
       - grade-2-estonian-second-language-kit-129
     pilot_candidate: null
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-living-nature-nearby
+    profile_scope:
+      alternative_profile_extensions:
+        - activation: explicit_profile_selection
+          companion_candidate_ids:
+            - grade-2-estonian-kit-232
+          outcome_ids:
+            - ee-prk-2026-stage1-estonian-conscious-reading
+          profile_id: first-language-estonian-alternative
+          route_ids:
+            - grade-2-estonian
+          source_alignment_ids:
+            - p-stories-estonian
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-russian
+        - grade-2-estonian-second-language
     project_id: grade-2-project-stories-books-messages
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -424,19 +506,6 @@ projects:
         task_evidence_status: not_captured
         topic_cluster_refs:
           - grade-2-russian-topic-ordinary-curriculum-76fb76249d
-      - match_basis:
-          - original_heading
-          - reviewed_subject_mapping
-        notes: First-language Estonian is an explicit alternative profile, not the default learner route.
-        policy_alignment_id: p-stories-estonian
-        route_id: grade-2-estonian
-        source_record_ids:
-          - grade-2-estonian-record-232-https-www-opiq-ee-kit-232-chapter-15700-f131e1fe40
-        status: partial
-        task_evidence_source_record_ids: []
-        task_evidence_status: not_captured
-        topic_cluster_refs:
-          - grade-2-estonian-topic-ordinary-curriculum-loeme-tahti-ja-raamatuid-611ae0637d
       - match_basis:
           - original_heading
           - reviewed_subject_mapping
@@ -456,12 +525,18 @@ projects:
     title_ru: Истории, книги и сообщения
     topic_cluster_refs:
       - grade-2-estonian-second-language-topic-ordinary-curriculum-mis-on-koolikotis-4aea1f15d5
-      - grade-2-estonian-topic-ordinary-curriculum-loeme-tahti-ja-raamatuid-611ae0637d
       - grade-2-russian-topic-ordinary-curriculum-76fb76249d
   - author_created_components_required:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles:
+      - official_outcome_ids:
+          - ee-prk-2026-stage1-foreign-language-a1
+        role: familiar words, short instructions, oral labels or short phrases
+        role_id: grade-2-project-rhythm-sound-celebration-english-role
+        source_evidence_claimed: false
+        subject_id: grade-2-author-created-english
     driving_question_ru: Как ритм, песня и визуальный образ создают общее событие?
     estimated_lesson_range:
       confidence: low
@@ -492,8 +567,16 @@ projects:
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-stories-books-messages
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-music
+        - grade-2-arts-and-crafts
+        - grade-2-russian
     project_id: grade-2-project-rhythm-sound-celebration
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -548,6 +631,12 @@ projects:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles:
+      - official_outcome_ids: []
+        role: cooperative movement games
+        role_id: grade-2-project-rights-duties-team-physical-education-role
+        source_evidence_claimed: false
+        subject_id: grade-2-author-created-physical-education
     driving_question_ru: Как договориться о правилах и показать личный вклад?
     estimated_lesson_range:
       confidence: low
@@ -578,8 +667,16 @@ projects:
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-rhythm-sound-celebration
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-human-studies
+        - grade-2-russian
+        - grade-2-estonian-second-language
     project_id: grade-2-project-rights-duties-team
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -634,6 +731,7 @@ projects:
       - clean-room instructions
       - individual evidence prompt
       - assessment criterion
+    author_created_subject_roles: []
     driving_question_ru: Как наблюдения, числа и материалы помогают сделать ответственный выбор?
     estimated_lesson_range:
       confidence: low
@@ -664,8 +762,16 @@ projects:
     practical_or_outdoor_component: A safe observation, outdoor inquiry or simulated community application is planned.
     prerequisites:
       - grade-2-project-rights-duties-team
+    profile_scope:
+      alternative_profile_extensions: []
+      default_profile_required: true
+      default_route_ids:
+        - grade-2-science
+        - grade-2-mathematics
+        - grade-2-arts-and-crafts
     project_id: grade-2-project-responsible-everyday-choice
     russian_language_or_reading_evidence: Russian language or reading evidence is individually attributable without lowering subject demand.
+    school_specific_outcome_gaps: []
     shared_product: A bounded shared product assembled from separately attributable learner contributions.
     source_alignments:
       - match_basis:
@@ -735,6 +841,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
     effectiveness finding.
   generated_by: scripts/generate-grade-2-course-architecture.mjs

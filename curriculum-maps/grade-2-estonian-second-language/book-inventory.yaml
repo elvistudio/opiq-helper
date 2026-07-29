@@ -174,6 +174,9 @@ books:
       - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7006-58c3a81fe6
       - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7007-a6a46be52c
       - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7008-4a9432e993
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -181,9 +184,10 @@ books:
     task_example_record_count: 0
     title: Koos on lõbus. Janno jutud
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
   qa_path: project-files/outputs/opiq_2klass_eesti_keel_teise_keelena_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
   source_id: grade-2-estonian-second-language
 completeness:
   declared_complete: false
@@ -212,6 +216,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 72
 route_id: grade-2-estonian-second-language
@@ -229,6 +234,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6944-e63c5cc9f7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 1
     title: Sissejuhatus
   - book_id: koolibri_koos_on_lõ_2_et
@@ -237,6 +245,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6937-3435e1ded4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 2
     title: Tere!
   - book_id: koolibri_koos_on_lõ_2_et
@@ -245,6 +256,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6938-37abf069f8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 3
     title: Suvevaheaeg
   - book_id: koolibri_koos_on_lõ_2_et
@@ -253,6 +267,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6939-30be7b5d92
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 4
     title: Uus klassikaaslane
   - book_id: koolibri_koos_on_lõ_2_et
@@ -261,6 +278,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6940-35f272ab51
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 5
     title: Uus õpetaja
   - book_id: koolibri_koos_on_lõ_2_et
@@ -269,6 +289,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6941-8cd7b9c956
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 6
     title: Minu klass
   - book_id: koolibri_koos_on_lõ_2_et
@@ -277,6 +300,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6942-8d572f0ea7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 7
     title: Mis on koolikotis?
   - book_id: koolibri_koos_on_lõ_2_et
@@ -285,6 +311,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6943-b107526ce7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 8
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -293,6 +322,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6945-902b0fb86f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 9
     title: Mänguväljak
   - book_id: koolibri_koos_on_lõ_2_et
@@ -301,6 +333,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6946-f4583fb476
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 10
     title: Lähme turule!
   - book_id: koolibri_koos_on_lõ_2_et
@@ -309,6 +344,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6947-8e4006f9fb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 11
     title: Põnev tund
   - book_id: koolibri_koos_on_lõ_2_et
@@ -317,6 +355,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6948-3fc57273c8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 12
     title: Kui õues sajab vihma
   - book_id: koolibri_koos_on_lõ_2_et
@@ -325,6 +366,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6949-297ab37fe5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 13
     title: Sõidame rongiga
   - book_id: koolibri_koos_on_lõ_2_et
@@ -333,6 +377,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6950-a0ffebf632
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 14
     title: Vanaema ja vanaisa juures
   - book_id: koolibri_koos_on_lõ_2_et
@@ -341,6 +388,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6951-bfe9161ed5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 15
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -349,6 +399,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6952-bc31bd1cfa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 16
     title: Minu pere
   - book_id: koolibri_koos_on_lõ_2_et
@@ -357,6 +410,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6953-9fa39bdfb4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 17
     title: Kassipoeg
   - book_id: koolibri_koos_on_lõ_2_et
@@ -365,6 +421,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6954-29f8a69d3b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 18
     title: Ma hoolitsen Miisu eest
   - book_id: koolibri_koos_on_lõ_2_et
@@ -373,6 +432,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6955-ed64b25db8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 19
     title: Miisu teeb pahandust
   - book_id: koolibri_koos_on_lõ_2_et
@@ -381,6 +443,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6956-1ae6f0890a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 20
     title: Enne mardipäeva
   - book_id: koolibri_koos_on_lõ_2_et
@@ -389,6 +454,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6957-7411fd5f27
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 21
     title: Me jookseme marti
   - book_id: koolibri_koos_on_lõ_2_et
@@ -397,6 +465,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6958-58c057ac37
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 22
     title: Ametid
   - book_id: koolibri_koos_on_lõ_2_et
@@ -405,6 +476,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6959-76ada39843
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 23
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -413,6 +487,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6960-06c07dede8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 24
     title: Ma aitan ema
   - book_id: koolibri_koos_on_lõ_2_et
@@ -421,6 +498,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6961-7de546fdae
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 25
     title: Ma aitan isa
   - book_id: koolibri_koos_on_lõ_2_et
@@ -429,6 +509,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6962-a38bb0b298
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 26
     title: Mulle meeldib uisutada
   - book_id: koolibri_koos_on_lõ_2_et
@@ -437,6 +520,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6963-9a58a660c5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 27
     title: Teeme lumememme
   - book_id: koolibri_koos_on_lõ_2_et
@@ -445,6 +531,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6964-7fdeb62eb2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 28
     title: Laat
   - book_id: koolibri_koos_on_lõ_2_et
@@ -453,6 +542,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6965-6b69359a3b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 29
     title: Teeme koertele kingituse
   - book_id: koolibri_koos_on_lõ_2_et
@@ -461,6 +553,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6966-8e73a0332b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 30
     title: Jõulud
   - book_id: koolibri_koos_on_lõ_2_et
@@ -469,6 +564,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6967-60f6bc6101
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 31
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -477,6 +575,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6968-eb3ab3b2b1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 32
     title: Vaheajal käis jõuluvana
   - book_id: koolibri_koos_on_lõ_2_et
@@ -485,6 +586,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6977-0bc8cf7f86
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 33
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -493,6 +597,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6969-0cf6a8893b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 34
     title: Ehitame lumelinna
   - book_id: koolibri_koos_on_lõ_2_et
@@ -501,6 +608,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6970-21f10bf11c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 35
     title: Lumelinn
   - book_id: koolibri_koos_on_lõ_2_et
@@ -509,6 +619,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6971-1f78660a2a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 36
     title: Piial on hääl ära
   - book_id: koolibri_koos_on_lõ_2_et
@@ -517,6 +630,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6972-8c72be48fb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 37
     title: Terve nagu purikas
   - book_id: koolibri_koos_on_lõ_2_et
@@ -525,6 +641,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6973-bb4b80d958
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 38
     title: Koome salli
   - book_id: koolibri_koos_on_lõ_2_et
@@ -533,6 +652,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6974-6d157fecbb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 39
     title: Sall
   - book_id: koolibri_koos_on_lõ_2_et
@@ -541,6 +663,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6975-3b5b9c6d60
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 40
     title: Teeme ise liuvälja
   - book_id: koolibri_koos_on_lõ_2_et
@@ -549,6 +674,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6976-e51a431a0f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 41
     title: Õpetaja saab haiget
   - book_id: koolibri_koos_on_lõ_2_et
@@ -557,6 +685,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6978-fb3ac47a43
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 42
     title: Ženja käis Peterburis
   - book_id: koolibri_koos_on_lõ_2_et
@@ -565,6 +696,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6987-279e75aebc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 43
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -573,6 +707,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6979-5c0153ff4d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 44
     title: Onu Arvo
   - book_id: koolibri_koos_on_lõ_2_et
@@ -581,6 +718,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6980-eff8027fd9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 45
     title: Teeme ise Eesti kaardi
   - book_id: koolibri_koos_on_lõ_2_et
@@ -589,6 +729,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6981-98cdf9ef73
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 46
     title: Eesti linnad
   - book_id: koolibri_koos_on_lõ_2_et
@@ -597,6 +740,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6982-1424fb58f9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 47
     title: Külla tuleb Eesti president
   - book_id: koolibri_koos_on_lõ_2_et
@@ -605,6 +751,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6983-013fbc7959
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 48
     title: Põnev Saaremaa
   - book_id: koolibri_koos_on_lõ_2_et
@@ -613,6 +762,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6984-f1dcfe24aa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 49
     title: Vahva Tartu
   - book_id: koolibri_koos_on_lõ_2_et
@@ -621,6 +773,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6985-ab1fc6d928
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 50
     title: Soolased toidud
   - book_id: koolibri_koos_on_lõ_2_et
@@ -629,6 +784,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6986-1136a5f154
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 51
     title: Magustoidud
   - book_id: koolibri_koos_on_lõ_2_et
@@ -637,6 +795,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6988-fe1608005b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 52
     title: Ma käin joonistamisringis
   - book_id: koolibri_koos_on_lõ_2_et
@@ -645,6 +806,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6997-83c79006a3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 53
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -653,6 +817,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6989-d3bc6dfeaf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 54
     title: Ma lähen trenni
   - book_id: koolibri_koos_on_lõ_2_et
@@ -661,6 +828,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6990-e230d4d4b9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 55
     title: Me läheme teatrisse
   - book_id: koolibri_koos_on_lõ_2_et
@@ -669,6 +839,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6991-a5693f8d24
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 56
     title: Ballett
   - book_id: koolibri_koos_on_lõ_2_et
@@ -677,6 +850,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6992-b7be5490fd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 57
     title: Pükstes on auk
   - book_id: koolibri_koos_on_lõ_2_et
@@ -685,6 +861,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6993-507e0adf60
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 58
     title: Mis päev on?
   - book_id: koolibri_koos_on_lõ_2_et
@@ -693,6 +872,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6994-46710e184c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 59
     title: Mis kell on?
   - book_id: koolibri_koos_on_lõ_2_et
@@ -701,6 +883,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6995-d37034364c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 60
     title: Sõbrad tulevad külla
   - book_id: koolibri_koos_on_lõ_2_et
@@ -709,6 +894,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6996-b0abe5337f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 61
     title: Teeme näidendit
   - book_id: koolibri_koos_on_lõ_2_et
@@ -717,6 +905,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6998-913d509e44
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 62
     title: Sõidame rattaga
   - book_id: koolibri_koos_on_lõ_2_et
@@ -725,6 +916,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7007-a6a46be52c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 63
     title: Nüüd ma oskan
   - book_id: koolibri_koos_on_lõ_2_et
@@ -733,6 +927,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6999-97aebce703
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 64
     title: Ratas on katki
   - book_id: koolibri_koos_on_lõ_2_et
@@ -741,6 +938,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7000-54b8912786
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 65
     title: Kes võidab?
   - book_id: koolibri_koos_on_lõ_2_et
@@ -749,6 +949,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7001-a09935e313
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 66
     title: Piknik
   - book_id: koolibri_koos_on_lõ_2_et
@@ -757,6 +960,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7002-a6bfc841be
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 67
     title: Hakkame leiutama
   - book_id: koolibri_koos_on_lõ_2_et
@@ -765,6 +971,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7003-66075f1daf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 68
     title: Leiutised
   - book_id: koolibri_koos_on_lõ_2_et
@@ -773,6 +982,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7004-02d7c15a0f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 69
     title: Tuulelohe
   - book_id: koolibri_koos_on_lõ_2_et
@@ -781,6 +993,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7005-0a936a3487
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 70
     title: Lähme tuulelohet lennutama!
   - book_id: koolibri_koos_on_lõ_2_et
@@ -789,6 +1004,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7006-58c3a81fe6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 71
     title: Suveplaanid
   - book_id: koolibri_koos_on_lõ_2_et
@@ -797,6 +1015,9 @@ source_records:
     kit_id: "129"
     language: et
     record_id: grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7008-4a9432e993
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_eesti_keele_opik_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 72
     title: Sõnastik
 subject: Estonian as a second language

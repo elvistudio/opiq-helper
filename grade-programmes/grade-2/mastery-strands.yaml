@@ -1,5 +1,35 @@
 artifact_id: grade-2-mastery-strands
 artifact_type: grade_programme_mastery_strands
+author_created_strands:
+  - assessment_evidence:
+      - short individual oral check
+      - short individual reading or writing check
+    cadence: daily_or_near_daily
+    content_strategy: author_created_required
+    core_skills:
+      - basic oral interaction
+      - short familiar instructions
+      - familiar vocabulary
+      - word and short-phrase reading
+      - word and short-phrase writing
+    revision_cycle: Frequent retrieval of familiar words and phrases with correction and spaced reuse.
+    strand_id: grade-2-author-created-english-mastery
+    subject_id: grade-2-author-created-english
+  - assessment_evidence:
+      - individual movement observation
+      - individual safe-participation observation
+    cadence: daily_plus_two_to_three_complete_sessions_weekly
+    content_strategy: author_created_required
+    core_skills:
+      - locomotor movement
+      - coordination
+      - balance
+      - cooperative games
+      - age-appropriate strength and endurance
+      - safe movement
+    revision_cycle: Daily movement practice plus weekly revisiting of movement and safety routines.
+    strand_id: grade-2-author-created-physical-education-mastery
+    subject_id: grade-2-author-created-physical-education
 grade: 2
 mastery_strands:
   - assessment_evidence:
@@ -123,17 +153,6 @@ mastery_strands:
       - "361"
       - "578"
     strand_id: grade-2-mathematics-mastery
-missing_route_strands:
-  - content_strategy: school_specific_resource_required
-    field_id: foreign_language
-    release_status: blocked
-    source_status: missing_route
-    strand_id: grade-2-foreign-language-gap
-  - content_strategy: school_specific_resource_required
-    field_id: physical_education
-    release_status: blocked
-    source_status: missing_route
-    strand_id: grade-2-physical-education-gap
 programme_id: grade-2-standalone-commercial-programme-2026-27
 provenance:
   authoritative_inputs:
@@ -152,6 +171,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
     effectiveness finding.
   generated_by: scripts/generate-grade-2-course-architecture.mjs

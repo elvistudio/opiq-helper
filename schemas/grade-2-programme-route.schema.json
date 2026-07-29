@@ -56,11 +56,29 @@
     "canonicalRoute": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_id", "md_path", "source_archive", "qa_path"],
+      "required": ["source_id", "md_path", "primary_source_archive", "additional_source_archives", "qa_path"],
       "properties": {
         "source_id": { "$ref": "#/$defs/slug" },
         "md_path": { "$ref": "#/$defs/repositoryPath" },
-        "source_archive": { "$ref": "#/$defs/repositoryPath" },
+        "primary_source_archive": { "$ref": "#/$defs/repositoryPath" },
+        "additional_source_archives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "role", "source_book_ids"],
+            "properties": {
+              "path": { "$ref": "#/$defs/repositoryPath" },
+              "role": { "type": "string", "pattern": "^[a-z0-9]+(?:[_-][a-z0-9]+)*$" },
+              "source_book_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        },
         "qa_path": { "$ref": "#/$defs/repositoryPath" }
       }
     },
@@ -239,6 +257,7 @@
           "type": "object",
           "required": [
             "regulatory_baseline_ref",
+            "mapping_status",
             "official_scope",
             "official_fields",
             "outcomes",
@@ -249,7 +268,15 @@
             "regulatory_baseline_ref": {
               "const": "compliance/estonia/2026-27/outcome-index.yaml"
             },
-            "official_scope": { "$ref": "#/$defs/scope" },
+            "mapping_status": {
+              "enum": ["mapped_recommended_grade_2_allocation", "not_applicable_supplementary"]
+            },
+            "official_scope": {
+              "oneOf": [
+                { "$ref": "#/$defs/scope" },
+                { "type": "null" }
+              ]
+            },
             "official_fields": {
               "type": "array",
               "uniqueItems": true,
@@ -266,12 +293,39 @@
               "properties": {
                 "national_exact_grade_claimed": { "type": "boolean" },
                 "curated_grade_2_allocation": {
-                  "enum": ["opiq_helper_recommended_allocation", "official_exact_grade"]
+                  "enum": ["opiq_helper_recommended_allocation", "official_exact_grade", "not_applicable"]
                 },
                 "notes": { "type": "string", "minLength": 20 }
               }
             }
-          }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": { "mapping_status": { "const": "not_applicable_supplementary" } },
+                "required": ["mapping_status"]
+              },
+              "then": {
+                "properties": {
+                  "official_scope": { "type": "null" },
+                  "official_fields": { "type": "array", "maxItems": 0 },
+                  "outcomes": { "type": "array", "maxItems": 0 },
+                  "allocation_status": {
+                    "type": "object",
+                    "properties": {
+                      "curated_grade_2_allocation": { "const": "not_applicable" },
+                      "national_exact_grade_claimed": { "const": false }
+                    }
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "official_scope": { "$ref": "#/$defs/scope" }
+                }
+              }
+            }
+          ]
         }
       ],
       "unevaluatedProperties": false
@@ -287,6 +341,7 @@
         "book_id",
         "title",
         "language",
+        "source_archive_ref",
         "source_sequence"
       ],
       "properties": {
@@ -297,6 +352,15 @@
         "book_id": { "type": "string", "minLength": 1 },
         "title": { "type": "string", "minLength": 1 },
         "language": { "enum": ["ru", "et", "en"] },
+        "source_archive_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "role"],
+          "properties": {
+            "path": { "$ref": "#/$defs/repositoryPath" },
+            "role": { "type": "string", "pattern": "^[a-z0-9]+(?:[_-][a-z0-9]+)*$" }
+          }
+        },
         "source_sequence": { "type": "integer", "minimum": 1 }
       }
     },
@@ -318,6 +382,7 @@
         "full_prose_available",
         "canonical_urls",
         "record_ids",
+        "source_archive_refs",
         "eligibility",
         "edition_relationships",
         "source_limitations"
@@ -362,6 +427,20 @@
           "minItems": 1,
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_archive_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "role"],
+            "properties": {
+              "path": { "$ref": "#/$defs/repositoryPath" },
+              "role": { "type": "string", "pattern": "^[a-z0-9]+(?:[_-][a-z0-9]+)*$" }
+            }
+          }
         },
         "eligibility": {
           "type": "object",
@@ -466,6 +545,8 @@
       "required": [
         "topic_id",
         "original_heading_key",
+        "display_title_original",
+        "display_title_language",
         "title_ru",
         "title_et",
         "route_id",
@@ -479,7 +560,8 @@
         "evidence_level",
         "task_example_status",
         "full_prose_status",
-        "edition_relationships",
+        "source_grouping_status",
+        "source_relationship_ids",
         "duplicate_group",
         "official_outcome_candidates",
         "authoring_gap",
@@ -489,8 +571,10 @@
       "properties": {
         "topic_id": { "$ref": "#/$defs/slug" },
         "original_heading_key": { "type": "string", "minLength": 1 },
-        "title_ru": { "type": "string", "minLength": 1 },
-        "title_et": { "type": "string", "minLength": 1 },
+        "display_title_original": { "type": "string", "minLength": 1 },
+        "display_title_language": { "enum": ["ru", "et", "mixed", "unknown"] },
+        "title_ru": { "type": ["string", "null"], "minLength": 1 },
+        "title_et": { "type": ["string", "null"], "minLength": 1 },
         "route_id": { "$ref": "#/$defs/slug" },
         "source_record_ids": {
           "type": "array",
@@ -539,8 +623,13 @@
         },
         "task_example_status": { "enum": ["partial_captured", "not_captured"] },
         "full_prose_status": { "const": "missing" },
-        "edition_relationships": {
-          "enum": ["single_record_group", "same_title_multiple_records", "same_title_multiple_editions"]
+        "source_grouping_status": {
+          "enum": ["single_record_group", "multiple_record_same_normalized_heading", "multiple_kit_same_normalized_heading"]
+        },
+        "source_relationship_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
         },
         "duplicate_group": { "$ref": "#/$defs/slug" },
         "official_outcome_candidates": {

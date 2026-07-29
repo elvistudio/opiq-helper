@@ -96,6 +96,15 @@
         "notes": { "type": "string", "minLength": 20 }
       }
     },
+    "routeAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route_id", "source_alignment"],
+      "properties": {
+        "route_id": { "$ref": "#/$defs/slug" },
+        "source_alignment": { "$ref": "#/$defs/sourceAlignment" }
+      }
+    },
     "coverageRow": {
       "type": "object",
       "additionalProperties": false,
@@ -111,8 +120,15 @@
         "assessment_evidence_status",
         "coverage_status",
         "route_ids",
+        "route_alignments",
+        "programme_policy_alignment",
         "topic_cluster_refs",
-        "source_alignment",
+        "programme_requirement",
+        "source_coverage_status",
+        "architecture_coverage_status",
+        "production_coverage_status",
+        "content_strategy",
+        "release_status",
         "blocking_gaps"
       ],
       "properties": {
@@ -141,12 +157,40 @@
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/slug" }
         },
+        "route_alignments": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/routeAlignment" }
+        },
+        "programme_policy_alignment": {
+          "oneOf": [
+            { "$ref": "#/$defs/sourceAlignment" },
+            { "type": "null" }
+          ]
+        },
         "topic_cluster_refs": {
           "type": "array",
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/slug" }
         },
-        "source_alignment": { "$ref": "#/$defs/sourceAlignment" },
+        "programme_requirement": {
+          "enum": [
+            "source_supported_recommended_allocation",
+            "programme_policy_requirement",
+            "mandatory_author_created_core"
+          ]
+        },
+        "source_coverage_status": { "enum": ["partial", "missing", "not_applicable"] },
+        "architecture_coverage_status": { "const": "designed" },
+        "production_coverage_status": { "const": "not_started" },
+        "content_strategy": {
+          "enum": [
+            "source_supported_clean_room_authoring_required",
+            "programme_policy",
+            "author_created_required"
+          ]
+        },
+        "release_status": { "const": "blocked" },
         "blocking_gaps": {
           "type": "array",
           "minItems": 1,
@@ -249,6 +293,7 @@
           "required": [
             "official_outcome_count",
             "route_linked_outcomes",
+            "programme_policy_outcomes",
             "missing_route_outcomes",
             "exact_grade_outcomes",
             "school_stage_outcomes"
@@ -256,7 +301,8 @@
           "properties": {
             "official_outcome_count": { "type": "integer", "minimum": 1 },
             "route_linked_outcomes": { "type": "integer", "minimum": 1 },
-            "missing_route_outcomes": { "type": "integer", "minimum": 2 },
+            "programme_policy_outcomes": { "type": "integer", "minimum": 1 },
+            "missing_route_outcomes": { "const": 2 },
             "exact_grade_outcomes": { "const": 0 },
             "school_stage_outcomes": { "type": "integer", "minimum": 1 }
           }

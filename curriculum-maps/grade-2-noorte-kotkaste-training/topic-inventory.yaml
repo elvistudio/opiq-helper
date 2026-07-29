@@ -1,9 +1,10 @@
 artifact_id: grade-2-noorte-kotkaste-training-topic-inventory
 artifact_type: grade_programme_topic_inventory
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   qa_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   source_id: grade-2-noorte-kotkaste-training
 completeness:
   declared_complete: false
@@ -38,6 +39,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 27
 route_id: grade-2-noorte-kotkaste-training
@@ -51,21 +53,24 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33637
+    display_title_language: et
+    display_title_original: Järgib looduses viibides turvalise käitumise põhimõtteid
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-jargib-looduses-viibides-turvalise-kaitumi-6635811417
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: järgib looduses viibides turvalise käitumise põhimõtteid
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
-      - Hoia sooja!
       - Järgib looduses viibides turvalise käitumise põhimõtteid
+      - Hoia sooja!
       - Jää paigale!
       - Looduslik oht
       - Looduslikest ohtudest hoidumine
@@ -84,9 +89,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33637-0d1ff783ca
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Järgib looduses viibides turvalise käitumise põhimõtteid
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-jargib-looduses-viibides-turvalise-kaitumi-6635811417
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -94,18 +100,21 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33626
+    display_title_language: et
+    display_title_original: Kirjeldab Noorte Kotkaste sümboolikat
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-kirjeldab-noorte-kotkaste-sumboolikat-ca9732f99e
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: kirjeldab noorte kotkaste sümboolikat
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
       - Kirjeldab Noorte Kotkaste sümboolikat
       - Kotkamärgi elemendid
@@ -116,9 +125,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33626-2c7d4ef42c
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Kirjeldab Noorte Kotkaste sümboolikat
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-kirjeldab-noorte-kotkaste-sumboolikat-ca9732f99e
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -126,31 +136,35 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33643
+    display_title_language: et
+    display_title_original: Laulab koos kaaslastega Eesti Vabariigi hümni
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-laulab-koos-kaaslastega-eesti-vabariigi-hu-2078e642b7
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: laulab koos kaaslastega eesti vabariigi hümni
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Laulab koos kaaslastega Eesti Vabariigi hümni
       - Eesti Vabariigi hümn
       - Eesti hümn
-      - Laulab koos kaaslastega Eesti Vabariigi hümni
       - Lisaks!
       - Pea meeles!
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33643-fa415aa299
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Laulab koos kaaslastega Eesti Vabariigi hümni
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-laulab-koos-kaaslastega-eesti-vabariigi-hu-2078e642b7
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -158,29 +172,33 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33644
+    display_title_language: et
+    display_title_original: Nimetab Eesti Vabariigi presidendi
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-nimetab-eesti-vabariigi-presidendi-d0d74ab703
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: nimetab eesti vabariigi presidendi
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Nimetab Eesti Vabariigi presidendi
       - Eesti Vabariigi president
       - Eesti president
-      - Nimetab Eesti Vabariigi presidendi
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33644-6d10ca1a89
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Nimetab Eesti Vabariigi presidendi
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-nimetab-eesti-vabariigi-presidendi-d0d74ab703
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -188,21 +206,24 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33620
+    display_title_language: et
+    display_title_original: Nimetab noorkotkaste piduliku esindusvormi elemente ja kandmise põhimõtteid
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-nimetab-noorkotkaste-piduliku-esindusvormi-8ee3cf4ba9
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: nimetab noorkotkaste piduliku esindusvormi elemente ja kandmise põhimõtteid
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
-      - Kuidas peaks noorkotkas käituma?
       - Nimetab noorkotkaste piduliku esindusvormi elemente ja kandmise põhimõtteid
+      - Kuidas peaks noorkotkas käituma?
       - Noorkotka pidulik vorm
       - Noorkotka vormielemendid
       - Pea meeles!
@@ -216,9 +237,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33620-9241e08122
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Nimetab noorkotkaste piduliku esindusvormi elemente ja kandmise põhimõtteid
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-nimetab-noorkotkaste-piduliku-esindusvormi-8ee3cf4ba9
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -226,33 +248,37 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33631
+    display_title_language: et
+    display_title_original: On osalenud laagris
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-on-osalenud-laagris-c79d942696
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: on osalenud laagris
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - On osalenud laagris
       - Hügieen
       - Hügieenitarbed
       - Korra hoidmine laagris
       - Noorte Kotkaste laagrid
       - Oluline on teada!
-      - On osalenud laagris
       - Sinu hügieenikombed
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33631-f4f924e87d
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: On osalenud laagris
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-on-osalenud-laagris-c79d942696
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -260,18 +286,21 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33645
+    display_title_language: et
+    display_title_original: On osalenud riiklike tähtpäevade tähistamisel
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-on-osalenud-riiklike-tahtpaevade-tahistami-758251ba8b
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: on osalenud riiklike tähtpäevade tähistamisel
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
       - On osalenud riiklike tähtpäevade tähistamisel
       - Riikliku tähtpäeva tähistamine
@@ -280,9 +309,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33645-12348caaeb
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: On osalenud riiklike tähtpäevade tähistamisel
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-on-osalenud-riiklike-tahtpaevade-tahistami-758251ba8b
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -290,31 +320,35 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33630
+    display_title_language: et
+    display_title_original: Osaleb koos juhendajaga rahulikus tempos matkal
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-osaleb-koos-juhendajaga-rahulikus-tempos-m-e6608eee4c
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: osaleb koos juhendajaga rahulikus tempos matkal
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Osaleb koos juhendajaga rahulikus tempos matkal
       - Arutle sõbraga!
       - Lisa!
       - Matkamine
       - Matkavarustus
-      - Osaleb koos juhendajaga rahulikus tempos matkal
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33630-f4695af846
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Osaleb koos juhendajaga rahulikus tempos matkal
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-osaleb-koos-juhendajaga-rahulikus-tempos-m-e6608eee4c
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -322,32 +356,36 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33635
+    display_title_language: et
+    display_title_original: Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-oskab-anda-esmaabi-pisihaavade-ja-ninavere-bca9a465ed
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: oskab anda esmaabi pisihaavade ja ninaverejooksu korral
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
       - Esmaabi ninaverejooksu korral
       - Esmaabi pisihaava korral
       - Esmased sidumisvõtted
       - Ninaverejooks
-      - Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
       - Pisihaavad
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33635-e0bed8c4c6
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-oskab-anda-esmaabi-pisihaavade-ja-ninavere-bca9a465ed
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -355,19 +393,23 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33636
+    display_title_language: et
+    display_title_original: Oskab käituda linnaruumis ja avalikes kohtades
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-oskab-kaituda-linnaruumis-ja-avalikes-koht-4a15623ea0
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: oskab käituda linnaruumis ja avalikes kohtades
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Oskab käituda linnaruumis ja avalikes kohtades
       - Hea teada!
       - Käitumine linnas eksimise korral
       - Liiklejad
@@ -377,7 +419,6 @@ topics:
       - Lisaks!
       - ORIENTEERU
       - Ohutuse luuletus
-      - Oskab käituda linnaruumis ja avalikes kohtades
       - PLANEERI
       - Pea meeles!
       - SEISATA
@@ -387,9 +428,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33636-5f7a6dc81c
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Oskab käituda linnaruumis ja avalikes kohtades
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-oskab-kaituda-linnaruumis-ja-avalikes-koht-4a15623ea0
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -397,31 +439,35 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33633
+    display_title_language: et
+    display_title_original: Oskab teha kingapaelasõlme
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-oskab-teha-kingapaelasolme-b9aa36cf73
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: oskab teha kingapaelasõlme
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Oskab teha kingapaelasõlme
       - Arutle!
       - Harjuta kingapaelasõlme sidumist!
       - Kingapaelasõlm
       - Lisa!
-      - Oskab teha kingapaelasõlme
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33633-50d338744f
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Oskab teha kingapaelasõlme
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-oskab-teha-kingapaelasolme-b9aa36cf73
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -429,32 +475,36 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33623
+    display_title_language: et
+    display_title_original: Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-selgitab-eakohaselt-mis-on-kaitseliit-ning-01f5c2c595
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: selgitab eakohaselt mis on kaitseliit ning teab kes kuuluvad kaitseliitu
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
       - Kaitseliidu allüksused
       - Kaitseliit
       - Kes kuuluvad Kaitseliitu?
       - Mis on Kaitseliit?
-      - Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
       - Uuri lisaks!
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33623-4c4fb948a8
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-selgitab-eakohaselt-mis-on-kaitseliit-ning-01f5c2c595
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -462,32 +512,36 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33622
+    display_title_language: et
+    display_title_original: Selgitab, kes on noorkotkas
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-selgitab-kes-on-noorkotkas-21c9dc42be
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: selgitab kes on noorkotkas
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Selgitab, kes on noorkotkas
       - Millega tegelevad noorkotkad?
       - Noored Kotkad
       - Noorkotkaste tegevused
       - Noorte Kotkaste laager
       - Noorte Kotkaste tegevus
-      - Selgitab, kes on noorkotkas
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33622-89c59feb68
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Selgitab, kes on noorkotkas
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-selgitab-kes-on-noorkotkas-21c9dc42be
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -495,19 +549,23 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33634
+    display_title_language: et
+    display_title_original: Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-hairekeskuse-numbrit-ja-oskab-edastad-919666d7c9
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab häirekeskuse numbrit ja oskab edastada hädaabikutset
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
       - Esmaabi andmine
       - Hea teada!
       - Helistamine häirekeskusesse
@@ -516,15 +574,15 @@ topics:
       - Häirekeskuse number
       - Häirekeskuse number on 112.
       - Pea meeles!
-      - Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
       - Õnnetuse hindamine
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33634-a987e78474
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-hairekeskuse-numbrit-ja-oskab-edastad-919666d7c9
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -532,19 +590,23 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33621
+    display_title_language: et
+    display_title_original: Teab, kes on tema rühmapealik ja oskab temaga kontakteeruda
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-kes-on-tema-ruhmapealik-ja-oskab-tema-e1f9553a2b
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab kes on tema rühmapealik ja oskab temaga kontakteeruda
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab, kes on tema rühmapealik ja oskab temaga kontakteeruda
       - Hea idee!
       - Kes on sinu rühmapealik?
       - Lisa! Kokkulepped rühmas
@@ -552,15 +614,15 @@ topics:
       - Noortejuht
       - Pea meeles!
       - Rühmapealikuga kontakteerumine
-      - Teab, kes on tema rühmapealik ja oskab temaga kontakteeruda
       - Telefonikõne rühmapealikuga
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33621-a13ee31a07
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab, kes on tema rühmapealik ja oskab temaga kontakteeruda
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-kes-on-tema-ruhmapealik-ja-oskab-tema-e1f9553a2b
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -568,25 +630,28 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33638
+    display_title_language: et
+    display_title_original: Teab, kuidas käituda tulekahju korral
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-kuidas-kaituda-tulekahju-korral-c2d761ee3a
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab kuidas käituda tulekahju korral
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab, kuidas käituda tulekahju korral
       - Hoonest ei saa väljuda
       - Häirekeskuse number
       - Käitumine tulekahju korral
       - Lisaks!
       - Pea meeles!
-      - Teab, kuidas käituda tulekahju korral
       - Tulekahju tekkepõhjused
       - Tulekahju tekkimine
       - Uuri lisaks!
@@ -594,9 +659,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33638-2c83b60a32
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab, kuidas käituda tulekahju korral
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-kuidas-kaituda-tulekahju-korral-c2d761ee3a
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -604,29 +670,33 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33641
+    display_title_language: et
+    display_title_original: Teab, millal on Eesti iseseisvuspäev
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-millal-on-eesti-iseseisvuspaev-e8430de510
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab millal on eesti iseseisvuspäev
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
-      - Eesti Vabariigi aastapäev
       - Teab, millal on Eesti iseseisvuspäev
+      - Eesti Vabariigi aastapäev
       - Tegevused Eesti Vabariigi aastapäeval
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33641-1793983322
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab, millal on Eesti iseseisvuspäev
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-millal-on-eesti-iseseisvuspaev-e8430de510
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -634,32 +704,36 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33629
+    display_title_language: et
+    display_title_original: Teab, mis on matkamine
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-mis-on-matkamine-2b11ad3659
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab mis on matkamine
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab, mis on matkamine
       - Lisaks!
       - Matkaliigid
       - Matkamine
-      - Teab, mis on matkamine
       - Ööbimisvõimalused matkal
       - Ööbimisvõimalused metsas
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33629-e7abe2aa3e
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab, mis on matkamine
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-mis-on-matkamine-2b11ad3659
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -667,33 +741,37 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33627
+    display_title_language: et
+    display_title_original: Teab noorkotkaste tervitust ja selgitab selle tähendust
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-noorkotkaste-tervitust-ja-selgitab-se-3f29a4db63
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab noorkotkaste tervitust ja selgitab selle tähendust
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab noorkotkaste tervitust ja selgitab selle tähendust
       - Juhtlause
       - Kuidas tervitust anda?
       - Noorkotka tervitus
       - Noorkotka tervituse tähendus
       - Noorkotkaste tervitus
-      - Teab noorkotkaste tervitust ja selgitab selle tähendust
       - Tervituse kasutamine
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33627-a5506d4d1b
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab noorkotkaste tervitust ja selgitab selle tähendust
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-noorkotkaste-tervitust-ja-selgitab-se-3f29a4db63
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -701,32 +779,36 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33639
+    display_title_language: et
+    display_title_original: Teab oma koduaadressi ja vanema kontaktandmeid
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-oma-koduaadressi-ja-vanema-kontaktand-3b29ab6f96
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab oma koduaadressi ja vanema kontaktandmeid
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab oma koduaadressi ja vanema kontaktandmeid
       - Minu aadress
       - Minu kodu aadress
       - Noorkotka aadress
-      - Teab oma koduaadressi ja vanema kontaktandmeid
       - Vanema telefoninumbri teadmine
       - Õpi number selgeks!
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33639-47b03c2555
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab oma koduaadressi ja vanema kontaktandmeid
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-oma-koduaadressi-ja-vanema-kontaktand-3b29ab6f96
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -734,24 +816,27 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33628
+    display_title_language: et
+    display_title_original: Teab rivikäsklusi ning oskab nende järgi liikuda
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-teab-rivikasklusi-ning-oskab-nende-jargi-l-1c696e3da2
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: teab rivikäsklusi ning oskab nende järgi liikuda
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Teab rivikäsklusi ning oskab nende järgi liikuda
       - Harjuta!
       - Riviõpe
       - Riviõpe 1
       - Riviõpe 2
-      - Teab rivikäsklusi ning oskab nende järgi liikuda
       - Viirg ja kolonn
       - Viirg ja kolonn 1
       - Viirg ja kolonn 2
@@ -759,9 +844,10 @@ topics:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33628-48130ce1e8
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Teab rivikäsklusi ning oskab nende järgi liikuda
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-teab-rivikasklusi-ning-oskab-nende-jargi-l-1c696e3da2
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -769,32 +855,36 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33646
+    display_title_language: et
+    display_title_original: Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-tuleb-vahemalt-kolmele-valjaoppeuritusele-b71528233b
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
       - Head ideed noortejuhile!
       - Liikumine Noorte Kotkaste üritusele
       - Liikumine on oluline
       - Liikumisharjumus
       - Pea meeles!
-      - Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33646-1f3cddd7a9
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-tuleb-vahemalt-kolmele-valjaoppeuritusele-b71528233b
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -802,34 +892,38 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33642
+    display_title_language: et
+    display_title_original: Tunneb Eesti lippu
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-tunneb-eesti-lippu-fb4d1d25d4
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: tunneb eesti lippu
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Tunneb Eesti lippu
       - Eesti Vabariigi lipp
       - Eesti lipp
       - Eesti lipuvärvid
       - Lipuvärvi tähendused
       - MUST
       - SININE
-      - Tunneb Eesti lippu
       - VALGE
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33642-28578854c3
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Tunneb Eesti lippu
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-tunneb-eesti-lippu-fb4d1d25d4
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -837,33 +931,37 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33640
+    display_title_language: et
+    display_title_original: Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-tunneb-eesti-vabariigi-sumboleid-vapp-ja-r-54421b7bf4
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: tunneb eesti vabariigi sümboleid vapp ja rahvussümbolid
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
       - Eesti Vabariigi vapp
       - Eesti rahvussümbolid
       - Millised rahvussümbolid on pildil?
       - Rahvussümbol
       - Suur ja väike riigivapp
       - Suure riigivapi elemendid
-      - Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33640-815f86c48e
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-tunneb-eesti-vabariigi-sumboleid-vapp-ja-r-54421b7bf4
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -871,30 +969,34 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33625
+    display_title_language: et
+    display_title_original: Tunneb noorkotkaste kombeid
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-tunneb-noorkotkaste-kombeid-afaeb07819
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: tunneb noorkotkaste kombeid
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Tunneb noorkotkaste kombeid
       - Noorkotka kombed
       - Noorkotkaste kombed
       - Noorkotkaste kombed korda!
-      - Tunneb noorkotkaste kombeid
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33625-1fac34f988
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Tunneb noorkotkaste kombeid
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-tunneb-noorkotkaste-kombeid-afaeb07819
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -902,19 +1004,23 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33632
+    display_title_language: et
+    display_title_original: Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-tunneb-ara-ja-nimetab-kolm-erinevat-puud-p-ec6be028a5
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: tunneb ära ja nimetab kolm erinevat puud põõsast rohttaime looma ning seent
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
       - Jalutuskäik kodukohas
       - Levinumad linnud
       - Linnud
@@ -924,16 +1030,16 @@ topics:
       - Rohttaimed
       - Soovitused
       - Söödavad seened
-      - Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
       - Tuntumad loomad
       - Tuntumad taimed
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33632-62d349cf7e
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-tunneb-ara-ja-nimetab-kolm-erinevat-puud-p-ec6be028a5
   - authoring_gap: complete_prose_and_tasks_required
     automatic_translated_topics_used_as_source_prose: false
@@ -941,31 +1047,35 @@ topics:
       - kaitseliit_noorte_kot_2_et
     canonical_urls:
       - https://www.opiq.ee/kit/594/chapter/33624
+    display_title_language: et
+    display_title_original: Ütleb peast noorkotkaste tõotuse ja arutleb selle tähenduse üle
     duplicate_group: grade-2-noorte-kotkaste-training-duplicate-supplementary-utleb-peast-noorkotkaste-tootuse-ja-arutle-7ad836a621
-    edition_relationships: single_record_group
     evidence_level: heading_only
     full_prose_status: missing
     kit_ids:
       - "594"
-    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
     official_outcome_candidates: []
     original_heading_key: ütleb peast noorkotkaste tõotuse ja arutleb selle tähenduse üle
     programme_types:
       - supplementary
     route_id: grade-2-noorte-kotkaste-training
+    source_grouping_status: single_record_group
     source_headings:
+      - Ütleb peast noorkotkaste tõotuse ja arutleb selle tähenduse üle
       - Noorkotkaste pühalik tõotus
       - Tõotus 1
       - Tõotus 2
       - Tõotuse tähendus
       - Tõotuse tähendus 1
       - Tõotuse tähendus 2
-      - Ütleb peast noorkotkaste tõotuse ja arutleb selle tähenduse üle
     source_languages:
       - et
     source_record_ids:
       - grade-2-noorte-kotkaste-training-record-594-https-www-opiq-ee-kit-594-chapter-33624-f6527d69e3
+    source_relationship_ids: []
     task_example_status: not_captured
-    title_et: Ütleb peast noorkotkaste tõotuse ja arutleb selle tähenduse üle
-    title_ru: Русское название не подтверждено исходником
+    title_et: null
+    title_ru: null
     topic_id: grade-2-noorte-kotkaste-training-topic-supplementary-utleb-peast-noorkotkaste-tootuse-ja-arutle-7ad836a621

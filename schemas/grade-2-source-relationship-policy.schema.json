@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opiq-helper.local/schemas/grade-2-source-relationship-policy.schema.json",
+  "title": "Grade 2 authored source relationship policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_type", "policy_id", "relationships", "claim_boundary"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "grade_2_source_relationship_policy" },
+    "policy_id": { "$ref": "#/$defs/slug" },
+    "relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/relationship" }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "equivalence_requires_authored_evidence",
+        "title_similarity_is_not_evidence",
+        "simplified_or_supplementary_default_sequence_forbidden",
+        "unknown_relationships_remain_explicit"
+      ],
+      "properties": {
+        "equivalence_requires_authored_evidence": { "const": true },
+        "title_similarity_is_not_evidence": { "const": true },
+        "simplified_or_supplementary_default_sequence_forbidden": { "const": true },
+        "unknown_relationships_remain_explicit": { "const": true }
+      }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "bookRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route_id", "kit_id"],
+      "properties": {
+        "route_id": { "$ref": "#/$defs/slug" },
+        "kit_id": { "type": "string", "pattern": "^[0-9]+$" }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relationship_id",
+        "book_refs",
+        "relationship_type",
+        "primary_comprehension_language",
+        "terminology_support_language",
+        "sequencing_role",
+        "evidence_basis",
+        "notes"
+      ],
+      "properties": {
+        "relationship_id": { "$ref": "#/$defs/slug" },
+        "book_refs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/bookRef" }
+        },
+        "relationship_type": {
+          "enum": [
+            "parallel_language_edition",
+            "complementary_distinct_source",
+            "same_language_alternative",
+            "unknown"
+          ]
+        },
+        "primary_comprehension_language": { "enum": ["ru", "et"] },
+        "terminology_support_language": { "type": ["string", "null"], "enum": ["ru", "et", null] },
+        "sequencing_role": { "type": "string", "pattern": "^[a-z0-9]+(?:[_-][a-z0-9]+)*$" },
+        "evidence_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(?:[_-][a-z0-9]+)*$" }
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    }
+  }
+}

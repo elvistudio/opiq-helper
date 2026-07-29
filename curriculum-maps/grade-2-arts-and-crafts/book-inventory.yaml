@@ -208,6 +208,9 @@ books:
       - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10967-26d1739c58
       - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10968-5c992c0a31
       - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10969-7cfe769e8a
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -413,6 +416,9 @@ books:
       - grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11456-9175cf5758
       - grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11457-6ec729e52e
       - grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11458-b80db390f0
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -626,6 +632,9 @@ books:
       - grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20343-0a3a175136
       - grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20344-980057c3e8
       - grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20345-e35a7ac003
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -633,9 +642,10 @@ books:
     task_example_record_count: 0
     title: Трудовое обучение и искусство. 2 часть
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_kunst_ja_tooopetus.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
   qa_path: project-files/outputs/opiq_2klass_kunst_ja_tooopetus_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
   source_id: grade-2-arts-and-crafts
 completeness:
   declared_complete: false
@@ -664,6 +674,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 263
 route_id: grade-2-arts-and-crafts
@@ -681,6 +692,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10881-8eb18f64dd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 1
     title: Ruumilised seened (kortsutamine)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -689,6 +703,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10890-58ddba41c0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 2
     title: Kaart ruumilise kuusega
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -697,6 +714,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10891-474376e979
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 3
     title: Ruumiline kuusk
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -705,6 +725,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10892-0dcb9f7912
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 4
     title: Võrguga jõulukaart
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -713,6 +736,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10893-2741d59817
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 5
     title: Tikkimisriidest kaart
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -721,6 +747,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10894-78516952b7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 6
     title: Jõulukaartidest kollaaž
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -729,6 +758,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10895-bf1d5aead7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 7
     title: Lillepärg (rühmatöö)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -737,6 +769,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10896-8031f7bb55
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 8
     title: Lillepael
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -745,6 +780,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10897-7e578e379a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 9
     title: Lill
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -753,6 +791,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10898-64b3f6ece2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 10
     title: Lumikellukesed
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -761,6 +802,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10899-b52613f47e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 11
     title: Päevalilled (rühmatöö)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -769,6 +813,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10882-94382c168e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 12
     title: Õun (rebimine)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -777,6 +824,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10900-57b1a085a5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 13
     title: Rebimine
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -785,6 +835,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10901-f82b4b92f8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 14
     title: Lillespiraal
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -793,6 +846,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10883-af521b4463
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 15
     title: Ruumiline kaart
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -801,6 +857,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10884-883b6a0f2f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 16
     title: Kass ja krokodill (ribatehnika)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -809,6 +868,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10885-bb65c2fe90
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 17
     title: Portree
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -817,6 +879,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10886-b6558f7f81
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 18
     title: Kuusk (ühistöö)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -825,6 +890,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10887-83f85cdfe6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 19
     title: Leevike
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -833,6 +901,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10888-cc1178305e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 20
     title: Jõuluvana
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -841,6 +912,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10889-9a505ae7a7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 21
     title: Quilling
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -849,6 +923,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10902-f57d5e5709
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 22
     title: Lehepärg
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -857,6 +934,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10911-31fb8a8207
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 23
     title: Ilutulestik (puhumistehnika)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -865,6 +945,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10912-b5e54641ca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 24
     title: Talv (värvusõpetus)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -873,6 +956,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10913-c2eb7eb405
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 25
     title: Talv
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -881,6 +967,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10914-7c4f0814b9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 26
     title: Leevikesed ja rasvatihased
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -889,6 +978,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10915-0154ff0611
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 27
     title: Leevikesed
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -897,6 +989,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10916-f2adb7c32f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 28
     title: Tulp
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -905,6 +1000,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10917-90b1ccd1f4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 29
     title: Lill
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -913,6 +1011,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10918-eb9164d562
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 30
     title: Eri värvi kuused
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -921,6 +1022,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10919-9bfb098ce3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 31
     title: Piltide trükkimine
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -929,6 +1033,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10920-cd3795f815
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 32
     title: Plastkaartidega maalimine
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -937,6 +1044,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10903-1ed9e34a1f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 33
     title: Värviring
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -945,6 +1055,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10904-55c1a08ffe
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 34
     title: Värvusõpetus
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -953,6 +1066,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10905-d3c064af73
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 35
     title: Sügisene puu (svammitrükk)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -961,6 +1077,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10906-78933b296a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 36
     title: Puuviljad (värvusõpetus)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -969,6 +1088,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10907-584dfd99f8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 37
     title: Õunapuu (korgitrükk)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -977,6 +1099,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10908-ffc4954714
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 38
     title: Küünal
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -985,6 +1110,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10909-8b54237fab
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 39
     title: Tuisupoiss piilub aknast (värvusõpetus)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -993,6 +1121,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10910-ca354271e0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 40
     title: Talvine mets (puhumistehnika)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1001,6 +1132,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10921-38c31647e3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 41
     title: Elevant ja kaelkirjak
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1009,6 +1143,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10930-b251ad7e04
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 42
     title: Spoonist jõuluehted
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1017,6 +1154,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10931-4275ac3c06
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 43
     title: Krõll (narmaste sõlmimine)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1025,6 +1165,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10932-23a6aaa0ea
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 44
     title: Ruumiline aknakaunistus papptaldrikutest
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1033,6 +1176,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10933-50a01ca308
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 45
     title: Papist rullist kalad
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1041,6 +1187,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10934-86791bad84
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 46
     title: Nublu
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1049,6 +1198,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10935-6c134eb0a7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 47
     title: Munatops
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1057,6 +1209,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10936-8f0ca90a95
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 48
     title: Muna
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1065,6 +1220,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10937-8ef9580e43
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 49
     title: Lind
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1073,6 +1231,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10938-418bb589e6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 50
     title: Kuused
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1081,6 +1242,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10939-486a728c7f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 51
     title: Lumememm ja jänku (õmblemine)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1089,6 +1253,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10922-d24ce7d786
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 52
     title: Siilid
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1097,6 +1264,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10940-51a0246e4b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 53
     title: Volditud lumememm
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1105,6 +1275,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10941-4e3747aa40
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 54
     title: Jõululatern
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1113,6 +1286,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10942-65c460a3ea
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 55
     title: Pajupõõsas
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1121,6 +1297,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10943-da202655c9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 56
     title: Pikk Hermann
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1129,6 +1308,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10944-f8cb071113
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 57
     title: Põrsas (värvusõpetus)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1137,6 +1319,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10945-b67cfb6f29
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 58
     title: Veealune maailm
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1145,6 +1330,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10946-c19554379a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 59
     title: Nööbi õmblemine
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1153,6 +1341,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10947-1a1bdf1c8b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 60
     title: Sokihiir
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1161,6 +1352,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10948-88ee8d3c0a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 61
     title: Muffinivormidest kaart
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1169,6 +1363,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10949-7c291e6523
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 62
     title: Nahast kaelakee
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1177,6 +1374,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10923-b4ef5eaa89
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 63
     title: Tibu ja liblikas
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1185,6 +1385,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10950-e963601f1e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 64
     title: Piimapakist kotike
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1193,6 +1396,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10951-16677f028a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 65
     title: Kiletrükk
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1201,6 +1407,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10952-2c28fcfeec
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 66
     title: Mullikiletrükk
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1209,6 +1418,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10924-e77a426618
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 67
     title: Reljeefsed pildid
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1217,6 +1429,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10925-a42116caea
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 68
     title: Kuivatatud puulehtedest pilt
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1225,6 +1440,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10926-075f7a240a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 69
     title: Lehepärg (ühistöö)
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1233,6 +1451,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10927-c78ace7d65
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 70
     title: Looduslikest vahenditest loomad
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1241,6 +1462,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10928-ed86ab4384
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 71
     title: Õmmeldud pilt
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1249,6 +1473,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10929-791f4a00f4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 72
     title: Siil
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1257,6 +1484,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10953-c57a668629
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 73
     title: Jõuluingel
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1265,6 +1495,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10962-600b2bb78d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 74
     title: Lilled
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1273,6 +1506,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10963-2b46d6aa56
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 75
     title: Lillepott
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1281,6 +1517,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10964-eb070fe0ca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 76
     title: Lilledega kübar
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1289,6 +1528,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10965-2509edcadb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 77
     title: Pildiraam
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1297,6 +1539,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10966-2a85243278
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 78
     title: Lill
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1305,6 +1550,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10967-26d1739c58
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 79
     title: Purjekas
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1313,6 +1561,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10968-5c992c0a31
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 80
     title: Lill
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1321,6 +1572,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10969-7cfe769e8a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 81
     title: Liblikas
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1329,6 +1583,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10954-9dca198166
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 82
     title: Jõululind
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1337,6 +1594,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10955-57ce526fff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 83
     title: Lill
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1345,6 +1605,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10956-feffcbdead
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 84
     title: Mask
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1353,6 +1616,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10957-aa1dddb50c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 85
     title: Tulp
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1361,6 +1627,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10958-7dfe803359
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 86
     title: Tulp alusega
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1369,6 +1638,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10959-3debce770a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 87
     title: Kahekordne kolmnurk
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1377,6 +1649,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10960-056afa9e3a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 88
     title: Liblikas
   - book_id: kunsti-_ja_tööõpetus._2._osa
@@ -1385,6 +1660,9 @@ source_records:
     kit_id: "192"
     language: et
     record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10961-2374a68589
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 89
     title: Lill emale
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1393,6 +1671,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11374-1615c1246d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 90
     title: Tööks vajalikud materjalid
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1401,6 +1682,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11375-57a8c9f7f2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 91
     title: Kuidas teha kaardile raami
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1409,6 +1693,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11376-755a5654aa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 92
     title: Kuidas teha kaardile lehti
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1417,6 +1704,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11377-c6b61f4285
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 93
     title: Volditud lips
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1425,6 +1715,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11378-74e4886262
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 94
     title: Volditud vest
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1433,6 +1726,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11379-27f94784f1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 95
     title: Lihtne volditud särk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1441,6 +1737,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11380-7cb34c2b59
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 96
     title: Volditud särk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1449,6 +1748,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11381-e2df8865a3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 97
     title: Kikilipsuga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1457,6 +1759,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11382-19d1787d79
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 98
     title: Purjekaga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1465,6 +1770,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11383-e9220bbd4c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 99
     title: Autodega kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1473,6 +1781,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11384-79c9db1f89
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 100
     title: Õmmeldud kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1481,6 +1792,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11385-fcd66cef62
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 101
     title: Joonistatud lipsud
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1489,6 +1803,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11386-4e4d8119e4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 102
     title: Võrguga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1497,6 +1814,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11395-2bffd9a99e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 103
     title: Erineva suurusega küünlad
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1505,6 +1825,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11396-6f487f6b19
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 104
     title: Lainepapist küünlad
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1513,6 +1836,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11397-8c5ecf9603
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 105
     title: Pabernöörist küünal
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1521,6 +1847,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11398-05ec39ca23
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 106
     title: Pop-up-tehnikas kollaaž
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1529,6 +1858,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11399-44ab432625
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 107
     title: Pop-up-tehnikas kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1537,6 +1869,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11400-e83560dfc9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 108
     title: Pop-up-tehnikas kera
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1545,6 +1880,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11401-606bdbc181
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 109
     title: Kalkapaberist jõuluehted
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1553,6 +1891,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11402-9667a17348
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 110
     title: Joonistatud kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1561,6 +1902,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11403-6e8c770136
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 111
     title: Kahekordse kolmnurgaga kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1569,6 +1913,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11404-16632ebc17
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 112
     title: Kihiline kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1577,6 +1924,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11387-0039516007
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 113
     title: Sinepituubist kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1585,6 +1935,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11405-6f41f0816a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 114
     title: Pooleks volditud ringidest kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1593,6 +1946,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11406-d3e26ca184
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 115
     title: Ribastatud paberist kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1601,6 +1957,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11407-64dfa6c6a6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 116
     title: Nöörist või traadist kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1609,6 +1968,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11408-598045f9f2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 117
     title: Risti punutud paela või traadiga kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1617,6 +1979,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11409-3c153bec3a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 118
     title: Pitsilisest paberist, paberiribadest või paeltest kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1625,6 +1990,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11410-21193a5f91
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 119
     title: Punutud kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1633,6 +2001,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11411-268beeddb5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 120
     title: Tikkimisriidest kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1641,6 +2012,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11412-5f14974fe8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 121
     title: Erinevat värvi kuused
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1649,6 +2023,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11413-81dd17d5a0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 122
     title: Nööpidest kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1657,6 +2034,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11414-e9265c4507
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 123
     title: Ruumiline kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1665,6 +2045,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11388-3256ecd6ec
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 124
     title: Teeküünlatopsist kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1673,6 +2056,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11415-8adc538b3c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 125
     title: Ribadest kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1681,6 +2067,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11416-f7a0b99704
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 126
     title: PVA liimi, metallipuru ja tähekestega kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1689,6 +2078,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11417-ef42e773c5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 127
     title: Traadi või pärlitega ja PVA liimiga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1697,6 +2089,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11418-01518733f1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 128
     title: Paberiribadest kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1705,6 +2100,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11419-63e4f6ec89
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 129
     title: Siksak-tehnikas kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1713,6 +2111,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11420-aa123738e6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 130
     title: Pitsilisest koogipaberist kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1721,6 +2122,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11421-777779c826
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 131
     title: Elupuuoksast kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1729,6 +2133,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11389-ea06aca8f1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 132
     title: Samblikuga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1737,6 +2144,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11390-ccaaf333d8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 133
     title: Kingipakkidega kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1745,6 +2155,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11391-20191d3e21
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 134
     title: Kahepoolse teibiga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1753,6 +2166,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11392-4cf297cacc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 135
     title: Tagasipööratud äärega kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1761,6 +2177,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11393-7ba87beecb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 136
     title: Pabernöörist jõulupärg
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1769,6 +2188,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11394-2640165002
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 137
     title: Ringidest jõulupärg ja kuusk
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1777,6 +2199,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11422-46fd3ba070
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 138
     title: Erikujulised südamed
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1785,6 +2210,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11423-a6baed4ee0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 139
     title: Ruumiline süda
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1793,6 +2221,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11424-8eb24fecca
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 140
     title: Rullitud paberiribadest südamed
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1801,6 +2232,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11425-212016285a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 141
     title: Pitsiga südamed
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1809,6 +2243,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11426-57f11ee82e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 142
     title: Lahtikäiv kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1817,6 +2254,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11427-b7cc234bdb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 143
     title: Üllatuskaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1825,6 +2265,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11428-94476185db
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 144
     title: Valik kevadpühade kaarte
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1833,6 +2276,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11429-9d4fc1819e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 145
     title: Pop-up-tehnikas kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1841,6 +2287,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11430-781650a864
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 146
     title: Lehvikust lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1849,6 +2298,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11439-6d13179cf2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 147
     title: Muffinivormidest kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1857,6 +2309,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11440-fcf30ebe02
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 148
     title: Tagasipööratud äärtega lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1865,6 +2320,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11441-256355f9c3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 149
     title: Pop-up-tehnikas lilledega kaardid
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1873,6 +2331,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11442-6019cb4ab0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 150
     title: Pop-up-tehnikas lillepotid
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1881,6 +2342,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11443-2876815ea1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 151
     title: Tulbikaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1889,6 +2353,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11444-054bfcd591
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 152
     title: Lumikellukesed
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1897,6 +2364,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11445-81c3f5666d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 153
     title: Volditud lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1905,6 +2375,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11446-283aeb0d97
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 154
     title: Volditud lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1913,6 +2386,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11447-e8f1aa28bf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 155
     title: Paberiribadest lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1921,6 +2397,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11448-c847e7fc64
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 156
     title: Venivast krepp-paberist lilled
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1929,6 +2408,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11431-7f102046f5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 157
     title: Pabernöörist lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1937,6 +2419,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11432-5e72ab5a0a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 158
     title: Rullitud paberiribadest lilled
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1945,6 +2430,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11433-8d3cc7bfaf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 159
     title: Pooleks volditud ringidest lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1953,6 +2441,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11434-d6e8144e0e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 160
     title: Lainepapist lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1961,6 +2452,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11435-b7db10152b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 161
     title: Pooleks volditud südametest lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1969,6 +2463,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11436-6449c71938
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 162
     title: Ringidest lill
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1977,6 +2474,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11437-ecf8153d0e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 163
     title: Tulbid
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1985,6 +2485,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11438-62b8140b2b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 164
     title: Tulbid potis
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -1993,6 +2496,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11449-ac5f88b43e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 165
     title: Liivakaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2001,6 +2507,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11458-b80db390f0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 166
     title: Volditud liblikaga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2009,6 +2518,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11450-7cefc465e8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 167
     title: Nööbikaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2017,6 +2529,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11451-3799ec447d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 168
     title: Punutud kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2025,6 +2540,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11452-2bc48f6879
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 169
     title: Pitsilise koogipaberiga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2033,6 +2551,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11453-9dbbcbfe9f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 170
     title: Pildiraamid
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2041,6 +2562,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11454-5438ccb093
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 171
     title: Pitsilise paberiga kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2049,6 +2573,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11455-d608be067d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 172
     title: Värvilaikudega kaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2057,6 +2584,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11456-9175cf5758
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 173
     title: Täpikaart
   - book_id: kunsti-_ja_tööõpetus._4._osa._tähtpäevakaardid
@@ -2065,6 +2595,9 @@ source_records:
     kit_id: "200"
     language: et
     record_id: grade-2-arts-and-crafts-record-200-https-www-opiq-ee-kit-200-chapter-11457-6ec729e52e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 174
     title: Kujundirauaga tehtud kaardid
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2073,6 +2606,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20257-608804d8c7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 175
     title: Объемные грибы (работа с мятой бумагой)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2081,6 +2617,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20266-717a6720a2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 176
     title: Открытка с объемной елочкой
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2089,6 +2628,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20267-9274d9365f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 177
     title: Объемная елочка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2097,6 +2639,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20268-d9556fb13e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 178
     title: Рождественская открытка с сеткой
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2105,6 +2650,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20269-03929ae3d8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 179
     title: Открытка из ткани
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2113,6 +2661,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20270-2015210b65
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 180
     title: Коллаж из рождественских открыток
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2121,6 +2672,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20271-87af216b1d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 181
     title: Венок из цветов (групповая работа)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2129,6 +2683,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20272-2d0ab90c16
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 182
     title: Гирлянда из цветов
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2137,6 +2694,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20273-414af9e2fd
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 183
     title: Цветы
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2145,6 +2705,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20274-248715756f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 184
     title: Подснежники
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2153,6 +2716,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20275-1d14f7fa93
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 185
     title: Подсолнухи (групповая работа)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2161,6 +2727,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20258-6c726d9cd4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 186
     title: Яблоко (работа с рваной бумагой)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2169,6 +2738,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20276-5797addecc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 187
     title: Картина из рваной бумаги
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2177,6 +2749,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20277-a8c39bfa20
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 188
     title: Цветочная спираль
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2185,6 +2760,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20259-79422a975f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 189
     title: Объемная открытка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2193,6 +2771,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20260-c89135a1a9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 190
     title: Кот и крокодил (плетение из бумажных полосок)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2201,6 +2782,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20261-e5a8c8a2dc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 191
     title: Портрет
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2209,6 +2793,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20262-e0a1e2d4fa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 192
     title: Елка (совместная работа)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2217,6 +2804,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20263-007430c1b9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 193
     title: Снегирь
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2225,6 +2815,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20264-3fa0438cee
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 194
     title: Дед Мороз
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2233,6 +2826,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20265-aea65d90cf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 195
     title: Квиллинг (бумагокручение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2241,6 +2837,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20278-3e0cd9ec64
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 196
     title: Венок из листьев
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2249,6 +2848,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20287-694c43b1ae
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 197
     title: Салют (техника сдувания)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2257,6 +2859,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20288-90d3767fb3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 198
     title: Зима (цветоведение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2265,6 +2870,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20289-13958ac6bc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 199
     title: Зима
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2273,6 +2881,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20290-4b91a33d69
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 200
     title: Снегири и синицы
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2281,6 +2892,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20291-ef57506901
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 201
     title: Снегири
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2289,6 +2903,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20292-e5beb9a3d9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 202
     title: Тюльпан
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2297,6 +2914,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20293-623560dac0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 203
     title: Цветок
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2305,6 +2925,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20294-e18ddf0f0c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 204
     title: Разноцветные елочки
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2313,6 +2936,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20295-309a9dd2fb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 205
     title: Печатание картинок
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2321,6 +2947,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20296-66ce8798e0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 206
     title: Рисование пластиковой картой
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2329,6 +2958,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20279-e598f5cc5b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 207
     title: Цветовой круг (цветоведение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2337,6 +2969,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20280-2cd241b197
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 208
     title: Зонтик (цветоведение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2345,6 +2980,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20281-1ee8b05347
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 209
     title: Осеннее дерево (оттиски губкой)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2353,6 +2991,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20282-e69db40bbb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 210
     title: Фрукты (цветоведение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2361,6 +3002,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20283-d6937705f2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 211
     title: Яблоня (оттиски пробкой)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2369,6 +3013,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20284-41dc530c85
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 212
     title: Свеча
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2377,6 +3024,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20285-2bc038be8f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 213
     title: Заснеженное окно (цветоведение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2385,6 +3035,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20286-fbe0ea967a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 214
     title: Зимний лес (техника сдувания)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2393,6 +3046,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20297-be4769a75e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 215
     title: Слон и жираф
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2401,6 +3057,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20306-e8ce29792e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 216
     title: Рождественские украшения из шпона
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2409,6 +3068,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20307-38a70c17d0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 217
     title: Крыль (плетение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2417,6 +3079,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20308-918e4fdf1d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 218
     title: Объемное украшение для окна из бумажной тарелки
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2425,6 +3090,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20309-b87d2136f8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 219
     title: Рыбки из картонной втулки
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2433,6 +3101,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20310-4b45d27e81
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 220
     title: Нублик
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2441,6 +3112,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20311-a1078a0938
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 221
     title: Подставка для яйца
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2449,6 +3123,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20312-d85a48ea84
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 222
     title: Яйцо
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2457,6 +3134,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20313-b68f3ab0ff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 223
     title: Птица
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2465,6 +3145,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20314-1a57bb7a2b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 224
     title: Елочки
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2473,6 +3156,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20315-4df4517d0e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 225
     title: Снеговик и зайчик (шитье)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2481,6 +3167,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20298-ead7e76315
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 226
     title: Ежики
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2489,6 +3178,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20316-02ac1f8876
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 227
     title: Снеговик из бумаги гармошкой
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2497,6 +3189,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20317-fc0c74f17f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 228
     title: Рождественский фонарик
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2505,6 +3200,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20318-b488f40183
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 229
     title: Куст вербы
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2513,6 +3211,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20319-fd1723da9e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 230
     title: Длинный Герман
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2521,6 +3222,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20320-7e6dbc4bdb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 231
     title: Поросенок (цветоведение)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2529,6 +3233,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20321-de4a2f6c9d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 232
     title: Подводный мир
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2537,6 +3244,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20322-c308b5639a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 233
     title: Пришивание пуговиц
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2545,6 +3255,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20323-384fc6f89f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 234
     title: Мышка из носка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2553,6 +3266,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20324-674054e728
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 235
     title: Открытка из формочек для маффинов
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2561,6 +3277,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20325-fe98b50cd4
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 236
     title: Ожерелье из кожи
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2569,6 +3288,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20299-1cf92192dc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 237
     title: Цыпленок и бабочка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2577,6 +3299,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20326-ccab884631
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 238
     title: Сумочка из молочного пакета
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2585,6 +3310,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20327-e1cc9e9ef3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 239
     title: Оттиски пленкой
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2593,6 +3321,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20328-6c6f3fe5b7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 240
     title: Оттиски пузырчатой пленкой
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2601,6 +3332,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20300-97e99696d1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 241
     title: Рельефные картинки
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2609,6 +3343,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20301-24af738e6e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 242
     title: Картинка из сухих листьев
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2617,6 +3354,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20302-76eb6c7572
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 243
     title: Венок из листьев (совместная работа)
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2625,6 +3365,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20303-046d332ba3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 244
     title: Животные из природных материалов
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2633,6 +3376,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20304-c7c2ff2b37
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 245
     title: Вышитая картинка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2641,6 +3387,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20305-e88bc90b98
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 246
     title: Ежик
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2649,6 +3398,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20329-9f5123a725
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 247
     title: Рождественский ангел
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2657,6 +3409,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20338-4d98bde2f6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 248
     title: Цветы
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2665,6 +3420,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20339-fb7fe215bf
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 249
     title: Цветочный горшок
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2673,6 +3431,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20340-d2352d667f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 250
     title: Шляпа с цветами
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2681,6 +3442,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20341-d510f5ccb2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 251
     title: Рама для фотографии
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2689,6 +3453,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20342-74dd39e9ff
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 252
     title: Цветок
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2697,6 +3464,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20343-0a3a175136
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 253
     title: Парусник
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2705,6 +3475,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20344-980057c3e8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 254
     title: Цветок
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2713,6 +3486,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20345-e35a7ac003
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 255
     title: Бабочка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2721,6 +3497,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20330-03b0c45bf0
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 256
     title: Рождественская птица
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2729,6 +3508,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20331-8d326d92ab
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 257
     title: Цветок
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2737,6 +3519,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20332-512f048625
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 258
     title: Маска
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2745,6 +3530,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20333-2fe2716ab6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 259
     title: Тюльпан
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2753,6 +3541,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20334-46bdf8861f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 260
     title: Подставка для тюльпана
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2761,6 +3552,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20335-dc729ea191
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 261
     title: Двойной треугольник
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2769,6 +3563,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20336-cb21058731
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 262
     title: Бабочка
   - book_id: трудовое_обучение_и_искусство._2_часть
@@ -2777,6 +3574,9 @@ source_records:
     kit_id: "371"
     language: ru
     record_id: grade-2-arts-and-crafts-record-371-https-www-opiq-ee-kit-371-chapter-20337-eb1dcfe25f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+      role: primary_route_capture
     source_sequence: 263
     title: Цветок для мамы
 subject: arts and crafts

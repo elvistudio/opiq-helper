@@ -64,7 +64,8 @@ books:
       - https://www.opiq.ee/kit/86/chapter/4231
       - https://www.opiq.ee/kit/86/chapter/4232
       - https://www.opiq.ee/kit/86/chapter/4233
-    edition_relationships: []
+    edition_relationships:
+      - mixed-human-science-manual-review
     eligibility:
       access_verification_required: true
       curated_core_candidate: false
@@ -150,6 +151,9 @@ books:
       - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4231-5f375213f9
       - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4232-4bdcd8d3bc
       - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4233-2b84007eb1
+    source_archive_refs:
+      - path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+        role: primary_route_capture
     source_limitations:
       - Complete instructional page prose is not present in the canonical record model.
       - Customer access to Opiq chapters has not been checked.
@@ -157,9 +161,10 @@ books:
     task_example_record_count: 0
     title: Природа и человек для 2 класса
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_priroda_i_chelovek.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
   qa_path: project-files/outputs/opiq_2klass_priroda_i_chelovek_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
   source_id: grade-2-nature-and-human-studies
 completeness:
   declared_complete: false
@@ -188,6 +193,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 60
 route_id: grade-2-nature-and-human-studies
@@ -205,6 +211,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4190-d155bc21ed
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 1
     title: Дом и соседи
   - book_id: avita_природа_и__2_ru__kit86
@@ -213,6 +222,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4199-c1e05faa63
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 2
     title: Круговорот воды в природе
   - book_id: avita_природа_и__2_ru__kit86
@@ -221,6 +233,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4200-60b9baa7a2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 3
     title: Прогноз погоды
   - book_id: avita_природа_и__2_ru__kit86
@@ -229,6 +244,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4201-aa0086d909
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 4
     title: Погода
   - book_id: avita_природа_и__2_ru__kit86
@@ -237,6 +255,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4202-d571199adc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 5
     title: Здоровье
   - book_id: avita_природа_и__2_ru__kit86
@@ -245,6 +266,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4203-7eab16099b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 6
     title: Первая помощь
   - book_id: avita_природа_и__2_ru__kit86
@@ -253,6 +277,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4204-6e63aaec73
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 7
     title: Животные
   - book_id: avita_природа_и__2_ru__kit86
@@ -261,6 +288,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4205-73fef63f4a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 8
     title: Описание животного
   - book_id: avita_природа_и__2_ru__kit86
@@ -269,6 +299,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4206-9721ba3344
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 9
     title: Места обитания
   - book_id: avita_природа_и__2_ru__kit86
@@ -277,6 +310,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4207-fc0bb0b1aa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 10
     title: Лесные животные
   - book_id: avita_природа_и__2_ru__kit86
@@ -285,6 +321,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4208-fa0fa8527a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 11
     title: Лось и косуля
   - book_id: avita_природа_и__2_ru__kit86
@@ -293,6 +332,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4191-a0bd3957e2
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 12
     title: В деревне или в городе?
   - book_id: avita_природа_и__2_ru__kit86
@@ -301,6 +343,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4209-45010cabaa
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 13
     title: Бурый медведь и кабан
   - book_id: avita_природа_и__2_ru__kit86
@@ -309,6 +354,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4210-2354c0a5f8
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 14
     title: Волк и лисица
   - book_id: avita_природа_и__2_ru__kit86
@@ -317,6 +365,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4211-183a86af36
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 15
     title: Зоопарк и домашние любимцы
   - book_id: avita_природа_и__2_ru__kit86
@@ -325,6 +376,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4212-f33b5c0f53
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 16
     title: Рождество
   - book_id: avita_природа_и__2_ru__kit86
@@ -333,6 +387,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4192-91c9b1b4dc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 17
     title: Близкие люди
   - book_id: avita_природа_и__2_ru__kit86
@@ -341,6 +398,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4193-7bbea406b1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 18
     title: Лес
   - book_id: avita_природа_и__2_ru__kit86
@@ -349,6 +409,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4194-b66b18cb61
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 19
     title: Лиственные деревья
   - book_id: avita_природа_и__2_ru__kit86
@@ -357,6 +420,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4195-464c38ddd7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 20
     title: Хвойные деревья
   - book_id: avita_природа_и__2_ru__kit86
@@ -365,6 +431,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4196-6b7194189e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 21
     title: Кустарники
   - book_id: avita_природа_и__2_ru__kit86
@@ -373,6 +442,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4197-e837b5b381
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 22
     title: Кустарнички
   - book_id: avita_природа_и__2_ru__kit86
@@ -381,6 +453,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4198-21ac44248d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 23
     title: Парк
   - book_id: avita_природа_и__2_ru__kit86
@@ -389,6 +464,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4213-b811b92a0e
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 24
     title: Книги и библиотека
   - book_id: avita_природа_и__2_ru__kit86
@@ -397,6 +475,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4222-a7e618d998
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 25
     title: Наследие прошлого
   - book_id: avita_природа_и__2_ru__kit86
@@ -405,6 +486,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4223-1de5b270d7
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 26
     title: Друзья
   - book_id: avita_природа_и__2_ru__kit86
@@ -413,6 +497,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4224-1f6605bc9d
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 27
     title: Театр и кино
   - book_id: avita_природа_и__2_ru__kit86
@@ -421,6 +508,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4225-aa01f2470c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 28
     title: Почта
   - book_id: avita_природа_и__2_ru__kit86
@@ -429,6 +519,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4226-a94232f20a
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 29
     title: Транспорт
   - book_id: avita_природа_и__2_ru__kit86
@@ -437,6 +530,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4227-39bec07815
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 30
     title: Фабрика
   - book_id: avita_природа_и__2_ru__kit86
@@ -445,6 +541,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4228-ebd6de7787
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 31
     title: Рынок
   - book_id: avita_природа_и__2_ru__kit86
@@ -453,6 +552,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4229-d0a69c7390
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 32
     title: Деньги
   - book_id: avita_природа_и__2_ru__kit86
@@ -461,6 +563,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4230-44b818cac5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 33
     title: Из чего что сделано?
   - book_id: avita_природа_и__2_ru__kit86
@@ -469,6 +574,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4231-5f375213f9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 34
     title: Окружающая среда
   - book_id: avita_природа_и__2_ru__kit86
@@ -477,6 +585,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4214-44f7f08ab5
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 35
     title: Право
   - book_id: avita_природа_и__2_ru__kit86
@@ -485,6 +596,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4232-4bdcd8d3bc
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 36
     title: Повторное использование предметов
   - book_id: avita_природа_и__2_ru__kit86
@@ -493,6 +607,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12105-2f79d3c10b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 37
     title: Сад
   - book_id: avita_природа_и__2_ru__kit86
@@ -501,6 +618,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12106-1218a49eb9
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 38
     title: Травянистые растения
   - book_id: avita_природа_и__2_ru__kit86
@@ -509,6 +629,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12107-d18b6f56a3
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 39
     title: Многолетние растения
   - book_id: avita_природа_и__2_ru__kit86
@@ -517,6 +640,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12108-200e21ac62
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 40
     title: Животные сада
   - book_id: avita_природа_и__2_ru__kit86
@@ -525,6 +651,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12109-e18b7514ee
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 41
     title: Ботанический сад
   - book_id: avita_природа_и__2_ru__kit86
@@ -533,6 +662,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12110-89d8e64763
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 42
     title: Поле и зерновые культуры
   - book_id: avita_природа_и__2_ru__kit86
@@ -541,6 +673,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12111-e303e43306
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 43
     title: Домашние животные
   - book_id: avita_природа_и__2_ru__kit86
@@ -549,6 +684,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12112-929cf26b06
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 44
     title: Болото
   - book_id: avita_природа_и__2_ru__kit86
@@ -557,6 +695,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12113-0396bdda1c
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 45
     title: Животные, обитающие на болоте
   - book_id: avita_природа_и__2_ru__kit86
@@ -565,6 +706,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4215-0f790d7571
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 46
     title: Музей
   - book_id: avita_природа_и__2_ru__kit86
@@ -573,6 +717,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12114-de9c838245
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 47
     title: Водоёмы
   - book_id: avita_природа_и__2_ru__kit86
@@ -581,6 +728,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12115-b5b86fcaeb
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 48
     title: Водные растения
   - book_id: avita_природа_и__2_ru__kit86
@@ -589,6 +739,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12116-c288535374
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 49
     title: Водные животные
   - book_id: avita_природа_и__2_ru__kit86
@@ -597,6 +750,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12117-e981682919
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 50
     title: Старинные развалины городов
   - book_id: avita_природа_и__2_ru__kit86
@@ -605,6 +761,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12118-e717e94855
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 51
     title: Картинка и карта родного города Эрика
   - book_id: avita_природа_и__2_ru__kit86
@@ -613,6 +772,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12119-e9b61e62f1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 52
     title: Карта Эстонии
   - book_id: avita_природа_и__2_ru__kit86
@@ -621,6 +783,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4216-0828b0491b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 53
     title: Музей здоровья
   - book_id: avita_природа_и__2_ru__kit86
@@ -629,6 +794,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4217-28e61d945b
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 54
     title: Измерение
   - book_id: avita_природа_и__2_ru__kit86
@@ -637,6 +805,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4218-260a373070
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 55
     title: Человек
   - book_id: avita_природа_и__2_ru__kit86
@@ -645,6 +816,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4219-4bdd770fb6
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 56
     title: Тело человека
   - book_id: avita_природа_и__2_ru__kit86
@@ -653,6 +827,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4220-41c48ae26f
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 57
     title: Новая жизнь
   - book_id: avita_природа_и__2_ru__kit86
@@ -661,6 +838,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4221-980b7f3c94
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 58
     title: Знаменательные даты
   - book_id: avita_природа_и__2_ru__kit86
@@ -669,6 +849,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-12121-bb54143423
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 59
     title: Понятия
   - book_id: avita_природа_и__2_ru__kit86
@@ -677,6 +860,9 @@ source_records:
     kit_id: "86"
     language: ru
     record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4233-2b84007eb1
+    source_archive_ref:
+      path: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+      role: primary_route_capture
     source_sequence: 60
     title: Толкование слов
 subject: science and human studies

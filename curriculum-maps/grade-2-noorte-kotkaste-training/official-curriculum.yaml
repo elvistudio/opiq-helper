@@ -1,13 +1,14 @@
 allocation_status:
-  curated_grade_2_allocation: opiq_helper_recommended_allocation
+  curated_grade_2_allocation: not_applicable
   national_exact_grade_claimed: false
-  notes: National stage-I scope remains distinct from this recommended Grade 2 allocation.
+  notes: Supplementary youth-organisation material; not ordinary school-curriculum coverage.
 artifact_id: grade-2-noorte-kotkaste-training-official-curriculum
 artifact_type: grade_programme_official_curriculum_map
 canonical_route:
+  additional_source_archives: []
   md_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   qa_path: project-files/outputs/opiq_2klass_noorte_kotkaste_valjaope_qa.json
-  source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
   source_id: grade-2-noorte-kotkaste-training
 completeness:
   declared_complete: false
@@ -16,12 +17,9 @@ completeness:
     - Captured task examples do not establish complete assessment evidence.
   status: partial
 grade: 2
+mapping_status: not_applicable_supplementary
 official_fields: []
-official_scope:
-  exact_grade_claimed: false
-  kind: school_stage
-  school_stage: 1
-  terminal_grade: 3
+official_scope: null
 outcomes: []
 programme_role: supplementary_youth_training
 provenance:
@@ -43,6 +41,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   verification_date: 2026-07-29
 record_count: 27
 regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml

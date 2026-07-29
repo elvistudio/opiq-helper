@@ -19,7 +19,9 @@ export const architectureSchemaPath = 'schemas/grade-2-programme.schema.json';
 export const routeSchemaPath = 'schemas/grade-2-programme-route.schema.json';
 export const coverageSchemaPath = 'schemas/grade-2-programme-coverage.schema.json';
 export const topicAlignmentSchemaPath = 'schemas/grade-2-programme-topic-alignment.schema.json';
+export const sourceRelationshipSchemaPath = 'schemas/grade-2-source-relationship-policy.schema.json';
 export const topicAlignmentPolicyPath = 'grade-programmes/grade-2/topic-alignment-policy.yaml';
+export const sourceRelationshipPolicyPath = 'grade-programmes/grade-2/source-relationship-policy.yaml';
 export const architectureDocPath = 'docs/grade-2-course-architecture.md';
 export const programmeId = 'grade-2-standalone-commercial-programme-2026-27';
 
@@ -134,6 +136,7 @@ const authoritativeInputs = Object.freeze([
   frameworkPath,
   sourceRegistryPath,
   topicAlignmentPolicyPath,
+  sourceRelationshipPolicyPath,
 ]);
 
 function sha256(value) {
@@ -193,7 +196,12 @@ function routeCommon(routeModel, artifactType, suffix) {
     canonical_route: {
       source_id: definition.id,
       md_path: definition.output_path,
-      source_archive: definition.source_archive,
+      primary_source_archive: definition.source_archive,
+      additional_source_archives: definition.additional_source_archives.map((entry) => ({
+        path: entry.path,
+        role: entry.role,
+        source_book_ids: [...entry.source_book_ids].sort(bytewise),
+      })),
       qa_path: definition.qa_path,
     },
     programme_role: roleFor(definition.id),
@@ -214,6 +222,45 @@ function routeCommon(routeModel, artifactType, suffix) {
   };
 }
 
+function archiveReferenceForBook(routeModel, bookId) {
+  const additional = routeModel.definition.additional_source_archives.find((entry) => (
+    entry.source_book_ids.includes(bookId)
+  ));
+  return additional
+    ? { path: additional.path, role: additional.role }
+    : { path: routeModel.definition.source_archive, role: 'primary_route_capture' };
+}
+
+function headingLanguage(value) {
+  const hasCyrillic = /\p{Script=Cyrillic}/u.test(value);
+  const hasLatin = /\p{Script=Latin}/u.test(value);
+  if (hasCyrillic && hasLatin) return 'mixed';
+  if (hasCyrillic) return 'ru';
+  if (hasLatin) return 'et';
+  return 'unknown';
+}
+
+export function sourceFaithfulTitle(headings) {
+  const originals = [...new Set(headings.filter(Boolean))];
+  const classified = originals.map((title) => ({ title, language: headingLanguage(title) }));
+  const languages = new Set(classified.map((entry) => entry.language));
+  const displayLanguage = languages.has('mixed') || (languages.has('ru') && languages.has('et'))
+    ? 'mixed'
+    : languages.has('ru')
+      ? 'ru'
+      : languages.has('et')
+        ? 'et'
+        : 'unknown';
+  const confirmedRu = classified.filter((entry) => entry.language === 'ru');
+  const confirmedEt = classified.filter((entry) => entry.language === 'et');
+  return {
+    display_title_original: originals[0],
+    display_title_language: displayLanguage,
+    title_ru: confirmedRu.length === 1 ? confirmedRu[0].title : null,
+    title_et: confirmedEt.length === 1 ? confirmedEt[0].title : null,
+  };
+}
+
 function frameworkOutcomes(framework) {
   return framework.outcome_sets.flatMap((set) => set.outcomes.map((outcome) => ({
     ...outcome,
@@ -225,6 +272,21 @@ function frameworkOutcomes(framework) {
 
 function buildOfficialMap(routeModel, outcomeById, topicInventory, alignmentPolicy) {
   const ids = routeOutcomeIds[routeModel.definition.id];
+  if (supplementaryRouteIds.includes(routeModel.definition.id)) {
+    return {
+      ...routeCommon(routeModel, 'grade_programme_official_curriculum_map', 'official-curriculum'),
+      regulatory_baseline_ref: outcomeIndexPath,
+      mapping_status: 'not_applicable_supplementary',
+      official_scope: null,
+      official_fields: [],
+      outcomes: [],
+      allocation_status: {
+        national_exact_grade_claimed: false,
+        curated_grade_2_allocation: 'not_applicable',
+        notes: 'Supplementary youth-organisation material; not ordinary school-curriculum coverage.',
+      },
+    };
+  }
   const outcomes = ids.map((id) => {
     const source = outcomeById.get(id);
     if (!source) throw new Error(`${routeModel.definition.id}: unknown outcome ${id}.`);
@@ -257,6 +319,7 @@ function buildOfficialMap(routeModel, outcomeById, topicInventory, alignmentPoli
   )))].sort(bytewise);
   return {
     ...routeCommon(routeModel, 'grade_programme_official_curriculum_map', 'official-curriculum'),
+    mapping_status: 'mapped_recommended_grade_2_allocation',
     regulatory_baseline_ref: outcomeIndexPath,
     official_scope: { kind: 'school_stage', school_stage: 1, terminal_grade: 3, exact_grade_claimed: false },
     official_fields: officialFields,
@@ -273,7 +336,7 @@ function recordId(routeId, record) {
   return stableId(`${routeId}-record`, `${record.kit_id}:${record.url}`);
 }
 
-function buildBookInventory(routeModel) {
+function buildBookInventory(routeModel, relationshipPolicy) {
   const groups = new Map();
   for (const record of routeModel.canonical_records) {
     const key = `${record.kit_id}:${record.book_id}`;
@@ -289,6 +352,13 @@ function buildBookInventory(routeModel) {
     const ordinary = programmeType === 'ordinary_curriculum';
     const canonicalUrls = records.map((record) => record.url).sort(bytewise);
     const taskRecords = records.filter((record) => record.task_examples.length > 0);
+    const sourceArchiveRef = archiveReferenceForBook(routeModel, first.book_id);
+    const relationshipIds = relationshipPolicy.relationships
+      .filter((relationship) => relationship.book_refs.some((reference) => (
+        reference.route_id === routeModel.definition.id && reference.kit_id === first.kit_id
+      )))
+      .map((relationship) => relationship.relationship_id)
+      .sort(bytewise);
     return {
       book_id: first.book_id,
       kit_id: first.kit_id,
@@ -320,6 +390,7 @@ function buildBookInventory(routeModel) {
       full_prose_available: false,
       canonical_urls: canonicalUrls,
       record_ids: records.map((record) => recordId(routeModel.definition.id, record)).sort(bytewise),
+      source_archive_refs: [sourceArchiveRef],
       eligibility: {
         internal_source_analysis: true,
         optional_companion_candidate: true,
@@ -334,9 +405,7 @@ function buildBookInventory(routeModel) {
         access_verification_required: true,
         teacher_only_use: false,
       },
-      edition_relationships: routeModel.definition.edition_distinctions
-        .filter(([left, right]) => left === first.kit_id || right === first.kit_id)
-        .map(([left, right, note]) => `Kits ${left} and ${right}: ${note}`),
+      edition_relationships: relationshipIds,
       source_limitations: [
         'Complete instructional page prose is not present in the canonical record model.',
         'Customer access to Opiq chapters has not been checked.',
@@ -361,6 +430,7 @@ function buildBookInventory(routeModel) {
       book_id: record.book_id,
       title: record.title,
       language: record.language,
+      source_archive_ref: archiveReferenceForBook(routeModel, record.book_id),
       source_sequence: record.source_sequence,
     })),
   };
@@ -373,7 +443,7 @@ function normalizedTopicKey(record) {
   return `${record.programme_type}\0${headingKey}`;
 }
 
-function buildTopicInventory(routeModel) {
+function buildTopicInventory(routeModel, relationshipPolicy) {
   const groups = new Map();
   for (const record of routeModel.canonical_records) {
     const key = normalizedTopicKey(record) || `${record.kit_id}:${record.url}`;
@@ -388,31 +458,46 @@ function buildTopicInventory(routeModel) {
     const languages = [...new Set(records.map((record) => record.language))].sort(bytewise);
     const hasTasks = records.some((record) => record.task_examples.length > 0);
     const multipleKits = new Set(records.map((record) => record.kit_id)).size > 1;
+    const allSourceHeadings = new Set(records.flatMap((record) => (
+      record.headings.length > 0 ? record.headings : [record.title]
+    )));
+    const sourceHeadings = [
+      original,
+      ...[...allSourceHeadings].filter((heading) => heading !== original).sort(bytewise),
+    ];
+    const faithfulTitle = sourceFaithfulTitle(sourceHeadings);
+    const topicKitIds = [...new Set(records.map((record) => record.kit_id))].sort(bytewise);
+    const sourceRelationshipIds = relationshipPolicy.relationships
+      .filter((relationship) => relationship.book_refs.some((reference) => (
+        reference.route_id === routeModel.definition.id && topicKitIds.includes(reference.kit_id)
+      )))
+      .map((relationship) => relationship.relationship_id)
+      .sort(bytewise);
     return {
       topic_id: stableId(`${routeModel.definition.id}-topic`, key),
       original_heading_key: originalHeadingKey,
-      title_ru: languages.includes('ru') ? original : 'Русское название не подтверждено исходником',
-      title_et: languages.includes('et') ? original : 'Eestikeelne pealkiri ei ole lähteandmetes kinnitatud',
+      ...faithfulTitle,
       route_id: routeModel.definition.id,
       source_record_ids: records.map((record) => recordId(routeModel.definition.id, record)).sort(bytewise),
       canonical_urls: records.map((record) => record.url).sort(bytewise),
-      kit_ids: [...new Set(records.map((record) => record.kit_id))].sort(bytewise),
+      kit_ids: topicKitIds,
       book_ids: [...new Set(records.map((record) => record.book_id))].sort(bytewise),
       source_languages: languages,
-      source_headings: [...new Set(records.flatMap((record) => record.headings.length > 0 ? record.headings : [record.title]))].sort(bytewise),
+      source_headings: sourceHeadings,
       programme_types: [...new Set(records.map((record) => record.programme_type))].sort(bytewise),
       evidence_level: hasTasks ? 'heading_and_task_example' : 'heading_only',
       task_example_status: hasTasks ? 'partial_captured' : 'not_captured',
       full_prose_status: 'missing',
-      edition_relationships: records.length === 1
+      source_grouping_status: records.length === 1
         ? 'single_record_group'
         : multipleKits
-          ? 'same_title_multiple_editions'
-          : 'same_title_multiple_records',
+          ? 'multiple_kit_same_normalized_heading'
+          : 'multiple_record_same_normalized_heading',
+      source_relationship_ids: sourceRelationshipIds,
       duplicate_group: stableId(`${routeModel.definition.id}-duplicate`, key),
       authoring_gap: hasTasks ? 'complete_prose_and_tasks_required' : 'complete_prose_and_tasks_required',
       automatic_translated_topics_used_as_source_prose: false,
-      notes: 'Clustered only within this route from original headings; translated query metadata is not treated as source prose.',
+      notes: 'Clustered only within this route from original headings; language-specific titles are populated only from confirmed source script, never record-language metadata.',
     };
   });
   return {
@@ -543,23 +628,40 @@ function programmePolicySourceAlignment(entry) {
   };
 }
 
-function buildCoverageRow(outcome, routeIds, sourceAlignment) {
-  const missingRoute = routeIds.length === 0;
-  const sourceMissing = sourceAlignment.status === 'missing';
-  const sourceAmbiguous = sourceAlignment.status === 'ambiguous';
-  const hasTaskEvidence = sourceAlignment.task_evidence_status === 'linked';
-  const sourceTopicPresence = sourceAlignment.evidence_layer === 'programme_policy'
+function buildCoverageRow(outcome, routeAlignments, programmePolicyAlignment = null) {
+  const routeIds = routeAlignments.map((entry) => entry.route_id);
+  const missingRoute = routeIds.length === 0 && programmePolicyAlignment === null;
+  const sourceAlignments = routeAlignments.map((entry) => entry.source_alignment);
+  const aggregateAlignments = programmePolicyAlignment ? [programmePolicyAlignment] : sourceAlignments;
+  const statuses = aggregateAlignments.map((alignment) => alignment.status);
+  const sourceMissing = aggregateAlignments.length === 0 || statuses.every((status) => status === 'missing');
+  const sourceAmbiguous = statuses.includes('ambiguous') || (statuses.includes('missing') && !sourceMissing);
+  const hasTaskEvidence = sourceAlignments.length > 0
+    && sourceAlignments.every((alignment) => alignment.task_evidence_status === 'linked');
+  const taskEvidenceStatus = programmePolicyAlignment
+    ? 'not_applicable'
+    : sourceAlignments.length === 0
+      ? 'not_applicable'
+      : hasTaskEvidence
+        ? 'linked'
+        : sourceAlignments.some((alignment) => alignment.task_evidence_status === 'not_captured')
+          ? 'not_captured'
+          : 'not_linked';
+  const sourceTopicPresence = programmePolicyAlignment
     ? 'not_applicable'
     : sourceMissing
       ? 'missing'
       : sourceAmbiguous
         ? 'ambiguous'
-        : sourceAlignment.match_basis.includes('book_or_kit_metadata')
-          && !sourceAlignment.match_basis.includes('original_heading')
+        : sourceAlignments.every((alignment) => (
+          alignment.match_basis.includes('book_or_kit_metadata')
+          && !alignment.match_basis.includes('original_heading')
+        ))
           ? 'metadata_only'
           : hasTaskEvidence
             ? 'heading_and_task_example'
             : 'heading_only';
+  const topicClusterRefs = [...new Set(sourceAlignments.flatMap((alignment) => alignment.topic_cluster_refs))].sort(bytewise);
   return {
     outcome_id: outcome.outcome_or_requirement_id,
     official_scope: outcome.scope,
@@ -570,29 +672,46 @@ function buildCoverageRow(outcome, routeIds, sourceAlignment) {
         : 'opiq_helper_recommended_allocation',
     curriculum_alignment_status: outcome.evidence_status,
     source_topic_presence: sourceTopicPresence,
-    task_evidence_status: sourceAlignment.task_evidence_status,
+    task_evidence_status: taskEvidenceStatus,
     full_prose_status: 'missing',
     lesson_authoring_status: 'not_started',
     assessment_evidence_status: sourceMissing ? 'missing' : sourceAmbiguous ? 'ambiguous' : hasTaskEvidence ? 'partial' : 'missing',
     coverage_status: sourceMissing ? 'missing' : sourceAmbiguous ? 'ambiguous' : 'partial',
     route_ids: routeIds,
-    topic_cluster_refs: sourceAlignment.topic_cluster_refs,
-    source_alignment: sourceAlignment,
+    route_alignments: routeAlignments,
+    programme_policy_alignment: programmePolicyAlignment,
+    topic_cluster_refs: topicClusterRefs,
+    programme_requirement: missingRoute
+      ? 'mandatory_author_created_core'
+      : programmePolicyAlignment
+        ? 'programme_policy_requirement'
+        : 'source_supported_recommended_allocation',
+    source_coverage_status: missingRoute ? 'missing' : programmePolicyAlignment ? 'not_applicable' : 'partial',
+    architecture_coverage_status: 'designed',
+    production_coverage_status: 'not_started',
+    content_strategy: missingRoute
+      ? 'author_created_required'
+      : programmePolicyAlignment
+        ? 'programme_policy'
+        : 'source_supported_clean_room_authoring_required',
+    release_status: 'blocked',
     blocking_gaps: missingRoute
-      ? ['No exclusive Grade 2 manifest route exists for this official field.']
+      ? ['No Grade 2 manifest route or source-topic evidence exists; clean-room subject production has not started.']
       : sourceMissing
-        ? ['No relevant source topic was verified for this outcome within its declared route.']
-      : sourceAlignment.evidence_layer === 'programme_policy'
+        ? ['No relevant source topic was verified for this outcome within its declared routes.']
+      : programmePolicyAlignment
         ? ['Programme policy supports the allocation, but complete authored lessons and assessment evidence remain unavailable.']
-        : ['Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.'],
+        : [
+          'Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.',
+          'Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.',
+        ],
   };
 }
 
 function buildRouteCoverage(routeModel, officialMap, frameworkById) {
   const rows = officialMap.outcomes.map((outcome) => buildCoverageRow(
     frameworkById.get(outcome.outcome_id),
-    [routeModel.definition.id],
-    outcome.source_alignment,
+    [{ route_id: routeModel.definition.id, source_alignment: outcome.source_alignment }],
   ));
   return {
     schema_version: architectureVersion,
@@ -726,9 +845,122 @@ function buildMastery() {
       strand('grade-2-arts-and-crafts', 'regular_weekly', ['art reflection', 'safe practical work'], 30, 50, ['192', '371']),
       strand('grade-2-music', 'regular_weekly', ['active participation', 'listening and rhythm'], 25, 40, ['188', '193', '238', '556']),
     ],
-    missing_route_strands: [
-      { strand_id: 'grade-2-foreign-language-gap', field_id: 'foreign_language', source_status: 'missing_route', content_strategy: 'school_specific_resource_required', release_status: 'blocked' },
-      { strand_id: 'grade-2-physical-education-gap', field_id: 'physical_education', source_status: 'missing_route', content_strategy: 'school_specific_resource_required', release_status: 'blocked' },
+    author_created_strands: [
+      {
+        strand_id: 'grade-2-author-created-english-mastery',
+        subject_id: 'grade-2-author-created-english',
+        cadence: 'daily_or_near_daily',
+        content_strategy: 'author_created_required',
+        core_skills: ['basic oral interaction', 'short familiar instructions', 'familiar vocabulary', 'word and short-phrase reading', 'word and short-phrase writing'],
+        assessment_evidence: ['short individual oral check', 'short individual reading or writing check'],
+        revision_cycle: 'Frequent retrieval of familiar words and phrases with correction and spaced reuse.',
+      },
+      {
+        strand_id: 'grade-2-author-created-physical-education-mastery',
+        subject_id: 'grade-2-author-created-physical-education',
+        cadence: 'daily_plus_two_to_three_complete_sessions_weekly',
+        content_strategy: 'author_created_required',
+        core_skills: ['locomotor movement', 'coordination', 'balance', 'cooperative games', 'age-appropriate strength and endurance', 'safe movement'],
+        assessment_evidence: ['individual movement observation', 'individual safe-participation observation'],
+        revision_cycle: 'Daily movement practice plus weekly revisiting of movement and safety routines.',
+      },
+    ],
+    provenance: provenance(),
+  };
+}
+
+function buildAuthorCreatedSubjects() {
+  return {
+    ...commonProgramme('grade_programme_author_created_subjects', 'grade-2-author-created-subjects'),
+    subjects: [
+      {
+        subject_id: 'grade-2-author-created-english',
+        subject_field: 'foreign_language',
+        official_outcome_ids: ['ee-prk-2026-stage1-foreign-language-a1'],
+        required_in_default_programme: true,
+        programme_requirement: 'mandatory_author_created_core',
+        source_status: 'missing_route',
+        source_coverage_status: 'missing',
+        content_strategy: 'author_created_required',
+        target_level: 'beginner_A1',
+        architecture_status: 'designed',
+        architecture_coverage_status: 'designed',
+        lesson_authoring_status: 'not_started',
+        assessment_authoring_status: 'not_started',
+        production_coverage_status: 'not_started',
+        release_status: 'blocked',
+        opiq_companion_status: 'not_available',
+        mastery_cadence: {
+          pattern: 'daily_or_near_daily',
+          notes: 'Short recurring language work with regular revision; no national weekly-hours claim.',
+        },
+        annual_progression: [
+          'understand and use familiar spoken words',
+          'follow short familiar instructions',
+          'use familiar everyday vocabulary in short oral labels',
+          'read individual words and short phrases',
+          'write words and short phrases',
+        ],
+        vocabulary_domains: ['self and family', 'home and neighbourhood', 'school routines', 'books and messages', 'rhythm and celebration'],
+        oral_progression: ['repeat and recognise', 'respond with a familiar word', 'use a short supported phrase'],
+        reading_writing_progression: ['recognise words', 'read short phrases', 'copy and independently write familiar words or short phrases'],
+        revision_cycle: 'Immediate correction, frequent retrieval and spaced reuse in a later programme period.',
+        individual_evidence_model: ['short source-closed oral response', 'short individual reading check', 'short individual writing check'],
+        estimated_lesson_range: estimate(55, 80, 'Architecture-only range for an A1 author-created core; lessons and assessments are not authored.'),
+        natural_project_links: [
+          'grade-2-project-stories-books-messages',
+          'grade-2-project-home-neighbourhood',
+          'grade-2-project-rhythm-sound-celebration',
+        ],
+      },
+      {
+        subject_id: 'grade-2-author-created-physical-education',
+        subject_field: 'physical_education',
+        official_outcome_ids: ['ee-prk-2026-stage1-physical-education-water-safety'],
+        required_in_default_programme: true,
+        programme_requirement: 'mandatory_author_created_core',
+        source_status: 'missing_route',
+        source_coverage_status: 'missing',
+        content_strategy: 'author_created_required',
+        target_level: null,
+        architecture_status: 'designed',
+        architecture_coverage_status: 'designed',
+        lesson_authoring_status: 'not_started',
+        assessment_authoring_status: 'not_started',
+        production_coverage_status: 'not_started',
+        release_status: 'blocked',
+        opiq_companion_status: 'not_available',
+        mastery_cadence: {
+          pattern: 'daily_plus_two_to_three_complete_sessions_weekly',
+          notes: 'A daily short movement break, two to three complete sessions weekly and a regular longer outdoor block; no national weekly-hours claim.',
+        },
+        annual_progression: [
+          'basic locomotor movement',
+          'coordination and balance',
+          'age-appropriate strength and endurance',
+          'movement games and teamwork',
+          'safe movement indoors and outdoors',
+          'water-safety decisions',
+        ],
+        vocabulary_domains: [],
+        oral_progression: [],
+        reading_writing_progression: [],
+        revision_cycle: 'Movement and safety routines recur across weekly sessions and natural project contexts.',
+        individual_evidence_model: ['individual movement-skill observation', 'individual safe-choice observation', 'individual cooperation reflection'],
+        estimated_lesson_range: estimate(80, 120, 'Architecture-only range combining complete sessions and bounded outdoor blocks; no training tasks are authored.'),
+        natural_project_links: [
+          'grade-2-project-weather-water-safety',
+          'grade-2-project-living-nature-nearby',
+          'grade-2-project-rights-duties-team',
+        ],
+        conditional_swimming: {
+          status: 'conditional_not_assumed_available',
+          requires_pool_or_safe_water_environment: true,
+          competent_adult_supervision_required: true,
+          universal_family_access_assumed: false,
+          replacement_for_land_based_core: false,
+        },
+      },
     ],
     provenance: provenance(),
   };
@@ -740,7 +972,7 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
     ['home-neighbourhood', 'Дом и окрестности', 'Kodu ja naabruskond', 'Как описать обязанности, место и безопасный маршрут?', ['grade-2-human-studies', 'grade-2-russian', 'grade-2-estonian-second-language'], ['ee-prk-2026-stage1-human-studies-rights-duties', 'ee-prk-2026-stage1-russian-conscious-reading']],
     ['measure-useful-object', 'Измеряем и создаём полезную вещь', 'Mõõdame ja loome kasuliku eseme', 'Как измерение и безопасная работа помогают создать полезную вещь?', ['grade-2-mathematics', 'grade-2-arts-and-crafts'], ['ee-prk-2026-stage1-mathematics-real-life', 'ee-prk-2026-stage1-technology-safe-work']],
     ['living-nature-nearby', 'Живая природа рядом', 'Elusloodus meie ümber', 'Как наблюдение помогает узнавать живую природу?', ['grade-2-science', 'grade-2-russian', 'grade-2-estonian-second-language'], ['ee-prk-2026-stage1-natural-science-guided-inquiry', 'ee-prk-2026-stage1-russian-conscious-reading']],
-    ['stories-books-messages', 'Истории, книги и сообщения', 'Lood, raamatud ja sõnumid', 'Как понять и передать основную мысль короткого текста?', ['grade-2-russian', 'grade-2-estonian', 'grade-2-estonian-second-language'], ['ee-prk-2026-stage1-russian-conscious-reading', 'ee-prk-2026-stage1-estonian-conscious-reading']],
+    ['stories-books-messages', 'Истории, книги и сообщения', 'Lood, raamatud ja sõnumid', 'Как понять и передать основную мысль короткого текста?', ['grade-2-russian', 'grade-2-estonian-second-language'], ['ee-prk-2026-stage1-russian-conscious-reading', 'ee-prk-2026-stage1-estonian-second-language-instructions']],
     ['rhythm-sound-celebration', 'Ритм, звук и праздник', 'Rütm, heli ja tähtpäev', 'Как ритм, песня и визуальный образ создают общее событие?', ['grade-2-music', 'grade-2-arts-and-crafts', 'grade-2-russian'], ['ee-prk-2026-stage1-music-active-participation', 'ee-prk-2026-stage1-art-reflection']],
     ['rights-duties-team', 'Права, обязанности и команда', 'Õigused, kohustused ja meeskond', 'Как договориться о правилах и показать личный вклад?', ['grade-2-human-studies', 'grade-2-russian', 'grade-2-estonian-second-language'], ['ee-prk-2026-stage1-human-studies-rights-duties', 'ee-prk-2026-stage1-general-learning']],
     ['responsible-everyday-choice', 'Ответственный повседневный выбор', 'Vastutustundlik igapäevane valik', 'Как наблюдения, числа и материалы помогают сделать ответственный выбор?', ['grade-2-science', 'grade-2-mathematics', 'grade-2-arts-and-crafts'], ['ee-prk-2026-stage1-cross-curricular-learning', 'ee-prk-2026-stage1-mathematics-real-life']],
@@ -763,6 +995,50 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
       });
       const unresolved = sourceAlignments.filter((alignment) => ['missing', 'ambiguous'].includes(alignment.status));
       const linkedRoutes = sourceAlignments.filter((alignment) => alignment.topic_cluster_refs.length > 0);
+      const optionalFirstLanguageExtension = projectId === 'grade-2-project-stories-books-messages'
+        ? [{
+          profile_id: 'first-language-estonian-alternative',
+          activation: 'explicit_profile_selection',
+          route_ids: ['grade-2-estonian'],
+          outcome_ids: ['ee-prk-2026-stage1-estonian-conscious-reading'],
+          source_alignment_ids: ['p-stories-estonian'],
+          companion_candidate_ids: ['grade-2-estonian-kit-232'],
+        }]
+        : [];
+      const authorCreatedSubjectRoles = [
+        ...([
+          'grade-2-project-stories-books-messages',
+          'grade-2-project-home-neighbourhood',
+          'grade-2-project-rhythm-sound-celebration',
+        ].includes(projectId)
+          ? [{
+            role_id: `${projectId}-english-role`,
+            subject_id: 'grade-2-author-created-english',
+            role: 'familiar words, short instructions, oral labels or short phrases',
+            official_outcome_ids: ['ee-prk-2026-stage1-foreign-language-a1'],
+            source_evidence_claimed: false,
+          }]
+          : []),
+        ...([
+          'grade-2-project-weather-water-safety',
+          'grade-2-project-living-nature-nearby',
+          'grade-2-project-rights-duties-team',
+        ].includes(projectId)
+          ? [{
+            role_id: `${projectId}-physical-education-role`,
+            subject_id: 'grade-2-author-created-physical-education',
+            role: projectId === 'grade-2-project-weather-water-safety'
+              ? 'safe movement and water-safety architecture'
+              : projectId === 'grade-2-project-living-nature-nearby'
+                ? 'safe outdoor activity'
+                : 'cooperative movement games',
+            official_outcome_ids: projectId === 'grade-2-project-weather-water-safety'
+              ? ['ee-prk-2026-stage1-physical-education-water-safety']
+              : [],
+            source_evidence_claimed: false,
+          }]
+          : []),
+      ];
       return {
         project_id: projectId,
         title_ru: ru,
@@ -771,6 +1047,12 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
         linked_route_ids: routes,
         linked_outcome_ids: outcomes,
         source_alignments: sourceAlignments,
+        profile_scope: {
+          default_profile_required: true,
+          default_route_ids: routes,
+          alternative_profile_extensions: optionalFirstLanguageExtension,
+        },
+        author_created_subject_roles: authorCreatedSubjectRoles,
         topic_cluster_refs: [...new Set(sourceAlignments.flatMap((alignment) => alignment.topic_cluster_refs))].sort(bytewise),
         prerequisites: index === 0 ? [] : [`grade-2-project-${base[index - 1][0]}`],
         estimated_lesson_range: estimate(3, 6, 'Architecture estimate includes individual Grade 2 evidence, practical application and separate language checks.'),
@@ -801,6 +1083,16 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
         pilot_candidate: projectId === 'grade-2-project-weather-water-safety'
           ? { issue: 40, status: 'architecture_ready' }
           : null,
+        school_specific_outcome_gaps: projectId === 'grade-2-project-weather-water-safety'
+          ? [{
+            outcome_id: 'ee-prk-2026-stage1-physical-education-water-safety',
+            source_status: 'missing_route',
+            content_strategy: 'author_created_required',
+            architecture_status: 'designed',
+            lesson_authoring_status: 'not_started',
+            replacement_by_human_studies_forbidden: true,
+          }]
+          : [],
       };
     }),
     provenance: provenance(),
@@ -856,17 +1148,19 @@ function buildCalendar(projects) {
       purpose: 'Support school oversight with compact current evidence; no portfolio, weekly log or platform is claimed as nationally mandatory.',
       portfolio_nationally_mandatory: false,
     },
-    school_specific_placeholders: [
+    author_created_required_subjects: [
       {
-        field_id: 'foreign_language',
+        subject_id: 'grade-2-author-created-english',
         source_status: 'missing_route',
-        activation: 'school_curriculum_dependent',
+        content_strategy: 'author_created_required',
+        activation: 'required_default_programme',
         release_status: 'blocked',
       },
       {
-        field_id: 'physical_education',
+        subject_id: 'grade-2-author-created-physical-education',
         source_status: 'missing_route',
-        activation: 'school_curriculum_dependent',
+        content_strategy: 'author_created_required',
+        activation: 'required_default_programme',
         release_status: 'blocked',
       },
     ],
@@ -884,7 +1178,7 @@ function buildRoadmap() {
       { stage_id: 'clean-room-authoring', status: 'not_started', deliverables: ['standalone explanations', 'tasks', 'answer evidence'], entry_gate: 'Architecture review and source-gap decisions are accepted.' },
       { stage_id: 'production-validation', status: 'blocked', deliverables: ['originality review', 'teacher review', 'classroom and home trials'], entry_gate: 'Production materials exist and pass structural validation.' },
     ],
-    future_material_ids: ['grade-2-foreign-language-school-specific-core', 'grade-2-physical-education-school-specific-core'],
+    future_material_ids: ['grade-2-author-created-english-core', 'grade-2-author-created-physical-education-core'],
     release_blocker_codes: releaseBlockerCodes,
     release_blockers: knownGaps,
     non_goals: ['No full lessons are authored in this change.', 'No textbook prose or task body is reconstructed.', 'No publication or effectiveness status is granted.'],
@@ -904,32 +1198,28 @@ function buildProgrammeCoverage(frameworkOutcomesList, routeArtifacts, alignment
   }
   const grade2Outcomes = frameworkOutcomesList.filter((outcome) => outcome.downstream_relevance.grade_2);
   const rows = grade2Outcomes.map((outcome) => {
-    const routeIds = routeByOutcome.get(outcome.outcome_or_requirement_id) ?? [];
-    const routeOutcome = routeArtifacts.find((entry) => (
-      !mixedRouteIds.includes(entry.routeModel.definition.id)
-      && entry.officialMap.outcomes.some((candidate) => candidate.outcome_id === outcome.outcome_or_requirement_id)
-    )) ?? routeArtifacts.find((entry) => (
-      entry.officialMap.outcomes.some((candidate) => candidate.outcome_id === outcome.outcome_or_requirement_id)
-    ));
-    let sourceAlignment;
-    if (routeOutcome) {
-      sourceAlignment = routeOutcome.officialMap.outcomes.find((entry) => (
+    const routeIds = commonOutcomeIds.includes(outcome.outcome_or_requirement_id)
+      ? []
+      : routeByOutcome.get(outcome.outcome_or_requirement_id) ?? [];
+    const routeAlignments = routeIds.map((routeId) => {
+      const route = routeArtifacts.find((entry) => entry.routeModel.definition.id === routeId);
+      const routeOutcome = route?.officialMap.outcomes.find((entry) => (
         entry.outcome_id === outcome.outcome_or_requirement_id
-      )).source_alignment;
-    } else if (commonOutcomeIds.includes(outcome.outcome_or_requirement_id)) {
-      sourceAlignment = programmePolicySourceAlignment(
+      ));
+      if (!routeOutcome) {
+        throw new Error(`${outcome.outcome_or_requirement_id}: ${routeId} has no independent route outcome alignment.`);
+      }
+      return { route_id: routeId, source_alignment: routeOutcome.source_alignment };
+    });
+    let programmePolicyAlignment = null;
+    if (commonOutcomeIds.includes(outcome.outcome_or_requirement_id)) {
+      programmePolicyAlignment = programmePolicySourceAlignment(
         alignmentPolicy.programme_policy_alignments.find((entry) => (
           entry.outcome_id === outcome.outcome_or_requirement_id
         )),
       );
-    } else {
-      sourceAlignment = missingSourceAlignment(
-        `missing-${outcome.outcome_or_requirement_id}`,
-        'missing_route',
-        'No exclusive Grade 2 manifest route exists for this official field.',
-      );
     }
-    return buildCoverageRow(outcome, routeIds, sourceAlignment);
+    return buildCoverageRow(outcome, routeAlignments, programmePolicyAlignment);
   });
   return {
     schema_version: architectureVersion,
@@ -943,7 +1233,8 @@ function buildProgrammeCoverage(frameworkOutcomesList, routeArtifacts, alignment
     summary: {
       official_outcome_count: rows.length,
       route_linked_outcomes: rows.filter((row) => row.route_ids.length > 0).length,
-      missing_route_outcomes: rows.filter((row) => row.route_ids.length === 0).length,
+      programme_policy_outcomes: rows.filter((row) => row.programme_policy_alignment !== null).length,
+      missing_route_outcomes: rows.filter((row) => row.programme_requirement === 'mandatory_author_created_core').length,
       exact_grade_outcomes: rows.filter((row) => row.official_scope.kind === 'exact_grade').length,
       school_stage_outcomes: rows.filter((row) => row.official_scope.kind === 'school_stage').length,
     },
@@ -963,7 +1254,7 @@ function buildArchitecture(routeArtifacts) {
       estonian_stretch_level: 'A1-A2',
       first_language_estonian_route: 'grade-2-estonian',
       first_language_estonian_activation: 'explicit_profile_selection',
-      foreign_language_status: 'school_curriculum_dependent',
+      foreign_language_status: 'mandatory_author_created_core_missing_route',
     },
     alternative_profiles: [
       { profile_id: 'first-language-estonian-alternative', route_id: 'grade-2-estonian', activation: 'explicit_language_profile_selection' },
@@ -993,9 +1284,13 @@ function buildArchitecture(routeArtifacts) {
       field_id: fieldId,
       outcome_ids: missingFieldOutcomes[fieldId],
       source_status: 'missing_route',
-      content_strategy: 'school_specific_resource_required',
+      programme_requirement: 'mandatory_author_created_core',
+      content_strategy: 'author_created_required',
+      architecture_status: 'designed',
+      production_status: 'not_started',
       release_status: 'blocked',
     })),
+    author_created_subjects: `${programmeDirectory}/author-created-subjects.yaml`,
     mastery_strands: `${programmeDirectory}/mastery-strands.yaml`,
     project_modules: `${programmeDirectory}/project-modules.yaml`,
     annual_sequence: `${programmeDirectory}/teaching-calendar.yaml`,
@@ -1057,6 +1352,8 @@ Russian is the primary explanation language. The default Estonian route is
 \`grade-2-estonian-second-language\`, with A1 as the core and A1–A2 only as a supported stretch.
 First-language Estonian is an explicit alternative profile. Simplified books in kits
 ${simplifiedKitIds.join(', ')} require learner-specific opt-in and are never default route content.
+The Stories, Books and Messages default closure uses Russian plus Estonian as a second language; first-language
+Estonian is activated only through its typed optional profile extension.
 
 ## Evidence inventory
 
@@ -1072,23 +1369,34 @@ array position. Outcome mappings are ${outcomeCounts.verified} verified, ${outco
 ${outcomeCounts.ambiguous} ambiguous and ${outcomeCounts.missing} missing. Project-role mappings are
 ${projectCounts.verified} verified, ${projectCounts.partial} partial, ${projectCounts.ambiguous} ambiguous and
 ${projectCounts.missing} missing; ambiguous and missing roles remain explicit clean-room bridge requirements.
+Programme coverage retains one independent alignment for every listed route, so subject-pure and mixed-route
+evidence, task status and topic references cannot be copied or aggregated into a stronger claim. The authored
+\`${sourceRelationshipPolicyPath}\` records reviewed parallel, complementary, alternative or unknown book
+relationships; title similarity alone never establishes edition equivalence.
 
 All official outcomes retain school-stage-I scope with terminal Grade 3 and
 \`exact_grade_claimed: false\`. Grade 2 allocation is an Opiq Helper recommendation, not a national exact-grade
 claim. Russian language and reading are separate mastery/evidence strands inside the Russian route. First-language
 and second-language Estonian remain separate routes. The mixed nature/human-studies route has independently
 authored science and human-studies alignments. Youth-training routes remain supplementary and never substitute
-for the ordinary core or physical education.
+for the ordinary core or physical education; their official mapping is explicitly not applicable.
 
 ## Delivery and companion boundary
 
 The planned commercial core must work without Opiq. All companion candidates are internal-only,
 access-unverified references with a mandatory standalone fallback. Supplementary, mixed and simplified books
 have separate eligibility flags and are not silently promoted to ordinary default use.
+Kit 330 remains an optional reviewed project source from its dedicated additional archive. The mixed kit 86
+requires manual topic review. Topic titles preserve original source script and never infer a translation from
+record-language metadata.
 
 ## Gaps and release status
 
-Foreign language and physical education have no exclusive Grade 2 manifest route. Complete page prose and
+English at beginner A1 and physical education are mandatory author-created programme cores with designed
+architecture, missing manifest routes, no fake companions and production status \`not_started\`. Physical
+education includes daily movement, two to three complete weekly sessions, a regular outdoor block and a
+conditional swimming model requiring a safe environment and competent adult supervision. Human-studies
+water-safety discussion cannot replace the physical-education outcome. Complete page prose and
 1,530 task-example records are missing, so lessons, clean-room tasks and assessment materials remain future work.
 The Weather, Water and Safety module is an architecture-only pilot for issue #40, not a production lesson.
 Completeness is **partial** and the commercial release gate is **blocked**. This architecture does not claim
@@ -1120,27 +1428,28 @@ Required design order:
 }
 
 export async function loadGrade2CourseArchitectureInputs(rootDir) {
-  const [manifest, outcomeIndex, framework, sourceRegistry, alignmentPolicy, model] = await Promise.all([
+  const [manifest, outcomeIndex, framework, sourceRegistry, alignmentPolicy, relationshipPolicy, model] = await Promise.all([
     readFile(path.join(rootDir, 'source-manifest.json'), 'utf8').then(JSON.parse),
     readFile(path.join(rootDir, outcomeIndexPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
     readFile(path.join(rootDir, frameworkPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
     readFile(path.join(rootDir, sourceRegistryPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
     readFile(path.join(rootDir, topicAlignmentPolicyPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
+    readFile(path.join(rootDir, sourceRelationshipPolicyPath), 'utf8').then((value) => YAML.parse(value, { uniqueKeys: true })),
     loadGrade2CanonicalSourceModel(rootDir),
   ]);
   const manifestDiagnostics = validateGrade2Manifest(model);
   if (manifestDiagnostics.length > 0) {
     throw new Error(manifestDiagnostics.map((entry) => `${entry.code}: ${entry.message}`).join('\n'));
   }
-  return { rootDir, manifest, outcomeIndex, framework, sourceRegistry, alignmentPolicy, model };
+  return { rootDir, manifest, outcomeIndex, framework, sourceRegistry, alignmentPolicy, relationshipPolicy, model };
 }
 
 export function buildGrade2CourseArchitecture(inputs) {
   const allFrameworkOutcomes = frameworkOutcomes(inputs.framework);
   const outcomeById = new Map(allFrameworkOutcomes.map((outcome) => [outcome.outcome_or_requirement_id, outcome]));
   const routeArtifacts = inputs.model.routes.map((routeModel) => {
-    const bookInventory = buildBookInventory(routeModel);
-    const topicInventoryWithoutCandidates = buildTopicInventory(routeModel);
+    const bookInventory = buildBookInventory(routeModel, inputs.relationshipPolicy);
+    const topicInventoryWithoutCandidates = buildTopicInventory(routeModel, inputs.relationshipPolicy);
     const officialMap = buildOfficialMap(
       routeModel,
       outcomeById,
@@ -1153,13 +1462,14 @@ export function buildGrade2CourseArchitecture(inputs) {
   });
   const routeIndex = buildRouteIndex(routeArtifacts);
   const mastery = buildMastery();
+  const authorCreatedSubjects = buildAuthorCreatedSubjects();
   const projects = buildProjects(routeArtifacts, inputs.alignmentPolicy);
   const language = buildLanguage();
   const calendar = buildCalendar(projects);
   const roadmap = buildRoadmap();
   const coverage = buildProgrammeCoverage(allFrameworkOutcomes, routeArtifacts, inputs.alignmentPolicy);
   const architecture = buildArchitecture(routeArtifacts);
-  const programme = { architecture, routeIndex, coverage, projects, mastery, language, calendar, roadmap };
+  const programme = { architecture, routeIndex, coverage, projects, mastery, authorCreatedSubjects, language, calendar, roadmap };
   const artifacts = { inputs, routes: routeArtifacts, programme };
   const files = new Map();
   for (const route of routeArtifacts) {
@@ -1174,6 +1484,7 @@ export function buildGrade2CourseArchitecture(inputs) {
   files.set(`${programmeDirectory}/programme-coverage.yaml`, stableYaml(coverage));
   files.set(`${programmeDirectory}/project-modules.yaml`, stableYaml(projects));
   files.set(`${programmeDirectory}/mastery-strands.yaml`, stableYaml(mastery));
+  files.set(`${programmeDirectory}/author-created-subjects.yaml`, stableYaml(authorCreatedSubjects));
   files.set(`${programmeDirectory}/language-progression.yaml`, stableYaml(language));
   files.set(`${programmeDirectory}/teaching-calendar.yaml`, stableYaml(calendar));
   files.set(`${programmeDirectory}/implementation-roadmap.yaml`, stableYaml(roadmap));
@@ -1208,7 +1519,15 @@ export function validateGrade2CourseArchitecture(artifacts) {
     if (route.routeModel.definition.grade !== 2 || route.bookInventory.source_records.some((record) => !record.record_id.startsWith('grade-2-'))) diagnostics.push(diagnostic('adjacent_grade_source_forbidden', `${id} includes an adjacent-grade source.`));
     if (manifestRoute && route.bookInventory.canonical_route.md_path !== manifestRoute.md_path) diagnostics.push(diagnostic('route_md_path_mismatch', `${id} uses the wrong md_path.`));
     if (manifestRoute && route.bookInventory.canonical_route.qa_path !== manifestRoute.qa_path) diagnostics.push(diagnostic('route_qa_path_mismatch', `${id} uses the wrong qa_path.`));
-    if (manifestRoute && route.bookInventory.canonical_route.source_archive !== manifestRoute.source_archive) diagnostics.push(diagnostic('route_archive_path_mismatch', `${id} uses the wrong source archive.`));
+    if (manifestRoute && route.bookInventory.canonical_route.primary_source_archive !== manifestRoute.source_archive) diagnostics.push(diagnostic('route_archive_path_mismatch', `${id} uses the wrong primary source archive.`));
+    if (manifestRoute && !sameStableValue(
+      route.bookInventory.canonical_route.additional_source_archives,
+      (manifestRoute.additional_source_archives ?? []).map((entry) => ({
+        path: entry.path,
+        role: entry.role,
+        source_book_ids: [...entry.source_book_ids].sort(bytewise),
+      })),
+    )) diagnostics.push(diagnostic('route_additional_archive_mismatch', `${id} has stale additional archive provenance.`));
     if (route.bookInventory.record_count !== route.bookInventory.source_records.length || route.bookInventory.record_count !== route.routeModel.definition.expected_record_count) diagnostics.push(diagnostic('route_record_count_mismatch', `${id} record count does not reconcile.`));
     if (route.bookInventory.books.some((book) => book.full_prose_available !== false)) diagnostics.push(diagnostic('missing_prose_marked_ready', `${id} cannot claim complete prose.`));
     if (route.coverage.rows.some((row) => row.full_prose_status === 'missing' && row.lesson_authoring_status !== 'not_started')) diagnostics.push(diagnostic('missing_prose_marked_lesson_ready', `${id} marks a missing-prose row lesson-ready.`));
@@ -1238,6 +1557,45 @@ export function validateGrade2CourseArchitecture(artifacts) {
       if (supplementaryRouteIds.includes(id) !== book.eligibility.youth_training_use) {
         diagnostics.push(diagnostic('youth_training_eligibility_mismatch', `${id} kit ${book.kit_id} has inconsistent youth-training eligibility.`));
       }
+      const expectedArchive = archiveReferenceForBook(route.routeModel, book.book_id);
+      if (!sameStableValue(book.source_archive_refs, [expectedArchive])) {
+        diagnostics.push(diagnostic('book_archive_provenance_mismatch', `${id} kit ${book.kit_id} must reference its exact registered archive.`));
+      }
+    }
+    for (const sourceRecord of route.bookInventory.source_records) {
+      const canonicalRecord = route.routeModel.canonical_records.find((record) => (
+        recordId(id, record) === sourceRecord.record_id
+      ));
+      const expectedArchive = canonicalRecord
+        ? archiveReferenceForBook(route.routeModel, canonicalRecord.book_id)
+        : null;
+      if (!expectedArchive || !sameStableValue(sourceRecord.source_archive_ref, expectedArchive)) {
+        diagnostics.push(diagnostic('record_archive_provenance_mismatch', `${sourceRecord.record_id} must reference its owning registered archive.`));
+      }
+    }
+    for (const topic of route.topicInventory.topics) {
+      const expectedTitle = sourceFaithfulTitle(topic.source_headings);
+      const actualTitle = {
+        display_title_original: topic.display_title_original,
+        display_title_language: topic.display_title_language,
+        title_ru: topic.title_ru,
+        title_et: topic.title_et,
+      };
+      if (!sameStableValue(actualTitle, expectedTitle)) {
+        diagnostics.push(diagnostic('topic_title_not_source_faithful', `${topic.topic_id} derives a language-specific title without matching source-script evidence.`, `${routeDir(id)}/topic-inventory.yaml`, topic.topic_id));
+      }
+      if (topic.kit_ids.includes('578') && topic.display_title_language === 'et' && topic.title_ru !== null) {
+        diagnostics.push(diagnostic('kit_578_estonian_heading_marked_russian', `${topic.topic_id} cannot label an Estonian source heading as confirmed Russian title.`, `${routeDir(id)}/topic-inventory.yaml`, topic.topic_id));
+      }
+      const expectedRelationshipIds = inputs.relationshipPolicy.relationships
+        .filter((relationship) => relationship.book_refs.some((reference) => (
+          reference.route_id === id && topic.kit_ids.includes(reference.kit_id)
+        )))
+        .map((relationship) => relationship.relationship_id)
+        .sort(bytewise);
+      if (!sameStableValue(topic.source_relationship_ids, expectedRelationshipIds)) {
+        diagnostics.push(diagnostic('topic_source_relationship_untraceable', `${topic.topic_id} source relationships must come only from the authored relationship policy.`, `${routeDir(id)}/topic-inventory.yaml`, topic.topic_id));
+      }
     }
     for (const outcome of route.officialMap.outcomes) {
       const indexed = inputs.outcomeIndex.outcomes.find((entry) => entry.outcome_id === outcome.outcome_id);
@@ -1250,8 +1608,14 @@ export function validateGrade2CourseArchitecture(artifacts) {
       }
     }
     if (id === 'grade-2-nature-and-human-studies' && route.officialMap.official_fields.length !== 2) diagnostics.push(diagnostic('mixed_official_fields_collapsed', 'Mixed nature/human-studies route must preserve two official fields.'));
-    if (supplementaryRouteIds.includes(id) && route.officialMap.outcomes.length !== 0) {
-      diagnostics.push(diagnostic('supplementary_route_marked_core_curriculum', `${id} cannot provide ordinary core outcome coverage.`));
+    if (supplementaryRouteIds.includes(id) && (
+      route.officialMap.mapping_status !== 'not_applicable_supplementary'
+      || route.officialMap.official_scope !== null
+      || route.officialMap.official_fields.length !== 0
+      || route.officialMap.outcomes.length !== 0
+      || route.officialMap.allocation_status.curated_grade_2_allocation !== 'not_applicable'
+    )) {
+      diagnostics.push(diagnostic('supplementary_route_marked_core_curriculum', `${id} cannot provide ordinary school-curriculum mapping or allocation.`));
     }
   }
   const expectedOutcomeAlignmentKeys = Object.entries(routeOutcomeIds)
@@ -1267,7 +1631,10 @@ export function validateGrade2CourseArchitecture(artifacts) {
     diagnostics.push(diagnostic('programme_policy_alignment_missing', 'The authored policy must contain exactly one programme-policy alignment for every common outcome.', topicAlignmentPolicyPath, 'programme-policy-alignments'));
   }
   const projectIdsAndRoutes = programme.projects.projects.flatMap((project) => (
-    project.linked_route_ids.map((routeId) => `${project.project_id}\0${routeId}`)
+    [
+      ...project.linked_route_ids,
+      ...project.profile_scope.alternative_profile_extensions.flatMap((extension) => extension.route_ids),
+    ].map((routeId) => `${project.project_id}\0${routeId}`)
   )).sort(bytewise);
   const policyProjectKeys = policyEntryKeys(alignmentPolicy.project_alignments, ['project_id', 'route_id']);
   if (!sameStableValue(projectIdsAndRoutes, policyProjectKeys)) {
@@ -1280,6 +1647,27 @@ export function validateGrade2CourseArchitecture(artifacts) {
   ].map((entry) => entry.alignment_id);
   if (new Set(policyIds).size !== policyIds.length) {
     diagnostics.push(diagnostic('duplicate_topic_alignment_id', 'Topic-alignment policy IDs must be globally unique.', topicAlignmentPolicyPath, 'topic-alignment-policy'));
+  }
+  const relationshipIds = inputs.relationshipPolicy.relationships.map((entry) => entry.relationship_id);
+  if (new Set(relationshipIds).size !== relationshipIds.length) {
+    diagnostics.push(diagnostic('duplicate_source_relationship_id', 'Source-relationship policy IDs must be globally unique.', sourceRelationshipPolicyPath, 'source-relationship-policy'));
+  }
+  for (const relationship of inputs.relationshipPolicy.relationships) {
+    if (relationship.relationship_type === 'parallel_language_edition'
+        && !relationship.evidence_basis.includes('reviewed_body_equivalence')) {
+      diagnostics.push(diagnostic('parallel_edition_without_reviewed_evidence', `${relationship.relationship_id} cannot infer edition equivalence from title or metadata alone.`, sourceRelationshipPolicyPath, relationship.relationship_id));
+    }
+    for (const reference of relationship.book_refs) {
+      const route = routes.find((candidate) => candidate.routeModel.definition.id === reference.route_id);
+      const book = route?.bookInventory.books.find((candidate) => candidate.kit_id === reference.kit_id);
+      if (!book || !book.edition_relationships.includes(relationship.relationship_id)) {
+        diagnostics.push(diagnostic('source_relationship_book_unknown', `${relationship.relationship_id} references an unknown or unlinked book.`, sourceRelationshipPolicyPath, relationship.relationship_id));
+      }
+      if (book && ['simplified_curriculum', 'supplementary'].includes(book.programme_type)
+          && relationship.sequencing_role.includes('default')) {
+        diagnostics.push(diagnostic('nonordinary_source_in_default_relationship', `${relationship.relationship_id} cannot place simplified or supplementary evidence in the default sequence.`, sourceRelationshipPolicyPath, relationship.relationship_id));
+      }
+    }
   }
   for (const entry of [...alignmentPolicy.outcome_alignments, ...alignmentPolicy.project_alignments]) {
     const route = routes.find((candidate) => candidate.routeModel.definition.id === entry.route_id);
@@ -1323,7 +1711,13 @@ export function validateGrade2CourseArchitecture(artifacts) {
         diagnostics.push(diagnostic('topic_alignment_generated_mismatch', `${outcome.outcome_id} does not match its authored alignment policy.`, `${routeDir(route.routeModel.definition.id)}/official-curriculum.yaml`, outcome.outcome_id));
       }
       const coverageRow = route.coverage.rows.find((row) => row.outcome_id === outcome.outcome_id);
-      if (!coverageRow || !sameStableValue(coverageRow.source_alignment, expected) || !sameStableValue(coverageRow.topic_cluster_refs, expected.topic_cluster_refs)) {
+      if (!coverageRow
+          || !sameStableValue(coverageRow.route_ids, [route.routeModel.definition.id])
+          || !sameStableValue(coverageRow.route_alignments, [{
+            route_id: route.routeModel.definition.id,
+            source_alignment: expected,
+          }])
+          || !sameStableValue(coverageRow.topic_cluster_refs, expected.topic_cluster_refs)) {
         diagnostics.push(diagnostic('coverage_alignment_generated_mismatch', `${outcome.outcome_id} coverage does not match its authored alignment policy.`, `${routeDir(route.routeModel.definition.id)}/coverage-matrix.yaml`, outcome.outcome_id));
       }
     }
@@ -1386,6 +1780,34 @@ export function validateGrade2CourseArchitecture(artifacts) {
     if (!sameStableValue(project.topic_cluster_refs, expectedTopicRefs)) {
       diagnostics.push(diagnostic('project_topic_refs_untraceable', `${project.project_id} topic refs must be the closure of its source alignments.`, `${programmeDirectory}/project-modules.yaml`, project.project_id));
     }
+    if (!sameStableValue(project.profile_scope.default_route_ids, project.linked_route_ids)) {
+      diagnostics.push(diagnostic('project_default_profile_route_mismatch', `${project.project_id} default profile routes must equal the generated source-alignment closure.`, `${programmeDirectory}/project-modules.yaml`, project.project_id));
+    }
+    if (project.profile_scope.default_route_ids.includes('grade-2-estonian')) {
+      diagnostics.push(diagnostic('first_language_estonian_in_default_closure', `${project.project_id} cannot activate first-language Estonian in the default learner profile.`, `${programmeDirectory}/project-modules.yaml`, project.project_id));
+    }
+    const alternativeCompanions = new Set(project.profile_scope.alternative_profile_extensions.flatMap((extension) => (
+      extension.companion_candidate_ids
+    )));
+    if (project.opiq_companion_candidate_ids.some((candidateId) => alternativeCompanions.has(candidateId))) {
+      diagnostics.push(diagnostic('alternative_companion_in_default_project', `${project.project_id} cannot activate an alternative-profile companion in its default closure.`, `${programmeDirectory}/project-modules.yaml`, project.project_id));
+    }
+    for (const extension of project.profile_scope.alternative_profile_extensions) {
+      for (const alignmentId of extension.source_alignment_ids) {
+        const entry = alignmentPolicy.project_alignments.find((candidate) => candidate.alignment_id === alignmentId);
+        if (!entry || entry.project_id !== project.project_id || !extension.route_ids.includes(entry.route_id)) {
+          diagnostics.push(diagnostic('project_profile_activation_missing', `${project.project_id} alternative profile must cite an exact authored project alignment.`, `${programmeDirectory}/project-modules.yaml`, project.project_id));
+        }
+      }
+    }
+  }
+  const storiesProject = programme.projects.projects.find((project) => (
+    project.project_id === 'grade-2-project-stories-books-messages'
+  ));
+  if (!storiesProject
+      || storiesProject.profile_scope.alternative_profile_extensions.length !== 1
+      || !storiesProject.profile_scope.alternative_profile_extensions[0].source_alignment_ids.includes('p-stories-estonian')) {
+    diagnostics.push(diagnostic('project_profile_activation_missing', 'Stories, Books and Messages must keep first-language Estonian behind explicit profile activation.', `${programmeDirectory}/project-modules.yaml`, 'grade-2-project-stories-books-messages'));
   }
   const mixedRoute = routes.find((route) => route.routeModel.definition.id === 'grade-2-nature-and-human-studies');
   if (mixedRoute) {
@@ -1425,27 +1847,52 @@ export function validateGrade2CourseArchitecture(artifacts) {
     ));
   }
   for (const row of programme.coverage.rows) {
-    let expectedAlignment;
-    const route = routes.find((candidate) => candidate.officialMap.outcomes.some((outcome) => outcome.outcome_id === row.outcome_id));
-    if (route) {
-      expectedAlignment = route.officialMap.outcomes.find((outcome) => outcome.outcome_id === row.outcome_id).source_alignment;
-    } else if (commonOutcomeIds.includes(row.outcome_id)) {
-      expectedAlignment = programmePolicySourceAlignment(
+    const expectedRouteAlignments = commonOutcomeIds.includes(row.outcome_id)
+      ? []
+      : routes
+        .filter((candidate) => candidate.officialMap.outcomes.some((outcome) => outcome.outcome_id === row.outcome_id))
+        .map((candidate) => ({
+          route_id: candidate.routeModel.definition.id,
+          source_alignment: candidate.officialMap.outcomes.find((outcome) => outcome.outcome_id === row.outcome_id).source_alignment,
+        }));
+    const expectedProgrammePolicyAlignment = commonOutcomeIds.includes(row.outcome_id)
+      ? programmePolicySourceAlignment(
         alignmentPolicy.programme_policy_alignments.find((entry) => entry.outcome_id === row.outcome_id),
-      );
-    } else {
-      expectedAlignment = missingSourceAlignment(
-        `missing-${row.outcome_id}`,
-        'missing_route',
-        'No exclusive Grade 2 manifest route exists for this official field.',
-      );
+      )
+      : null;
+    const frameworkOutcome = frameworkOutcomes(inputs.framework).find((entry) => (
+      entry.outcome_or_requirement_id === row.outcome_id
+    ));
+    const expectedRow = buildCoverageRow(
+      frameworkOutcome,
+      expectedRouteAlignments,
+      expectedProgrammePolicyAlignment,
+    );
+    const alignmentRouteIds = row.route_alignments.map((entry) => entry.route_id);
+    if (new Set(alignmentRouteIds).size !== alignmentRouteIds.length) {
+      diagnostics.push(diagnostic('programme_duplicate_route_alignment', `${row.outcome_id} has duplicate route alignments.`, `${programmeDirectory}/programme-coverage.yaml`, row.outcome_id));
     }
-    if (!sameStableValue(row.source_alignment, expectedAlignment)
-        || !sameStableValue(row.topic_cluster_refs, expectedAlignment.topic_cluster_refs)) {
+    if (row.route_ids.some((routeId) => !alignmentRouteIds.includes(routeId))) {
+      diagnostics.push(diagnostic('programme_route_id_without_alignment', `${row.outcome_id} lists a route without its independent alignment.`, `${programmeDirectory}/programme-coverage.yaml`, row.outcome_id));
+    }
+    if (alignmentRouteIds.some((routeId) => !row.route_ids.includes(routeId))) {
+      diagnostics.push(diagnostic('programme_route_alignment_without_id', `${row.outcome_id} contains an alignment for an undeclared route.`, `${programmeDirectory}/programme-coverage.yaml`, row.outcome_id));
+    }
+    if (!sameStableValue(row, expectedRow)) {
       diagnostics.push(diagnostic('programme_coverage_alignment_mismatch', `${row.outcome_id} does not match its authored source or programme-policy alignment.`, `${programmeDirectory}/programme-coverage.yaml`, row.outcome_id));
     }
   }
   const architecture = programme.architecture;
+  const scienceRoute = routes.find((entry) => entry.routeModel.definition.id === 'grade-2-science');
+  const planetBook = scienceRoute?.bookInventory.books.find((book) => book.kit_id === '330');
+  const planetArchive = 'project-files/inputs/final-zips/opiq_2klass_minu_vaike_kallis_planeet_v2.zip';
+  if (!planetBook
+      || !sameStableValue(planetBook.source_archive_refs, [{ path: planetArchive, role: 'supplementary_book_capture' }])
+      || scienceRoute.bookInventory.source_records.some((record) => (
+        record.kit_id === '330' && record.source_archive_ref.path !== planetArchive
+      ))) {
+    diagnostics.push(diagnostic('kit_330_additional_archive_provenance_missing', 'Kit 330 and all of its records must resolve to the registered supplementary archive.'));
+  }
   if (architecture.learner_profile.estonian_subject_route !== 'grade-2-estonian-second-language') diagnostics.push(diagnostic('wrong_default_estonian_route', 'First-language Estonian cannot replace the default second-language route.'));
   if (programme.mastery.mastery_strands.filter((strand) => strand.route_id === 'grade-2-russian').length !== 2
       || !programme.mastery.mastery_strands.some((strand) => strand.strand_id === 'grade-2-russian-language-mastery')
@@ -1453,6 +1900,12 @@ export function validateGrade2CourseArchitecture(artifacts) {
         strand.strand_id === 'grade-2-russian-reading-mastery' && strand.source_kit_ids.includes('454')
       ))) {
     diagnostics.push(diagnostic('russian_language_reading_strand_missing', 'Russian language and reading must remain separate mastery strands inside the Russian route.'));
+  }
+  const russianLanguage = programme.mastery.mastery_strands.find((strand) => strand.strand_id === 'grade-2-russian-language-mastery');
+  const russianReading = programme.mastery.mastery_strands.find((strand) => strand.strand_id === 'grade-2-russian-reading-mastery');
+  if (!sameStableValue(russianLanguage?.source_kit_ids, ['186', '292'])
+      || !sameStableValue(russianReading?.source_kit_ids, ['454'])) {
+    diagnostics.push(diagnostic('russian_kit_role_mismatch', 'Kits 186/292 are Russian language and writing; kit 454 is the separate reading strand.'));
   }
   for (const strand of [...programme.mastery.mastery_strands, ...programme.mastery.subject_strands]) {
     const routeArtifact = routes.find((candidate) => candidate.routeModel.definition.id === strand.route_id);
@@ -1467,11 +1920,54 @@ export function validateGrade2CourseArchitecture(artifacts) {
   if (programme.projects.principle !== 'projects_apply_but_do_not_replace_mastery_strands' || programme.mastery.mastery_strands.length < 3) diagnostics.push(diagnostic('project_replaces_mastery', 'Projects cannot replace required mastery strands.'));
   if (programme.projects.projects.some((project) => !project.individual_grade_2_evidence)) diagnostics.push(diagnostic('shared_product_replaces_individual_evidence', 'Every project requires individual Grade 2 evidence.'));
   if (programme.projects.projects.some((project) => project.linked_route_ids.some((routeId) => supplementaryRouteIds.includes(routeId)))) diagnostics.push(diagnostic('youth_training_used_as_core_project', 'Youth-training routes cannot fill ordinary projects or physical-education gaps.'));
+  if (programme.projects.projects.some((project) => project.linked_route_ids.includes('grade-2-nature-and-human-studies'))) diagnostics.push(diagnostic('mixed_route_used_as_mandatory_project_core', 'Mixed-subject support requires a manually reviewed optional topic role and cannot be a mandatory project route.'));
+  const authorSubjects = programme.authorCreatedSubjects.subjects;
+  const english = authorSubjects.find((subject) => subject.subject_id === 'grade-2-author-created-english');
+  const physicalEducation = authorSubjects.find((subject) => subject.subject_id === 'grade-2-author-created-physical-education');
+  if (!english || !physicalEducation
+      || authorSubjects.some((subject) => subject.source_status !== 'missing_route'
+        || subject.content_strategy !== 'author_created_required'
+        || subject.architecture_status !== 'designed'
+        || subject.lesson_authoring_status !== 'not_started'
+        || subject.release_status !== 'blocked'
+        || subject.opiq_companion_status !== 'not_available')) {
+    diagnostics.push(diagnostic('author_created_subject_contract_invalid', 'English and physical education must be designed mandatory author-created cores with missing routes and blocked production.'));
+  }
+  if (english?.target_level !== 'beginner_A1') {
+    diagnostics.push(diagnostic('english_a1_architecture_missing', 'Author-created English must retain beginner A1 progression.'));
+  }
+  if (!physicalEducation?.conditional_swimming
+      || physicalEducation.conditional_swimming.status !== 'conditional_not_assumed_available'
+      || !physicalEducation.conditional_swimming.competent_adult_supervision_required
+      || physicalEducation.conditional_swimming.universal_family_access_assumed) {
+    diagnostics.push(diagnostic('conditional_swimming_safety_invalid', 'Swimming must remain conditional on a safe environment and competent adult supervision, without universal access assumptions.'));
+  }
+  for (const subject of authorSubjects) {
+    const projectRoleIds = programme.projects.projects
+      .filter((project) => project.author_created_subject_roles.some((role) => role.subject_id === subject.subject_id))
+      .map((project) => project.project_id)
+      .sort(bytewise);
+    if (!sameStableValue(projectRoleIds, [...subject.natural_project_links].sort(bytewise))) {
+      diagnostics.push(diagnostic('author_created_project_role_mismatch', `${subject.subject_id} must appear only in its natural authored project links.`));
+    }
+    if (projectRoleIds.length === programme.projects.projects.length) {
+      diagnostics.push(diagnostic('author_created_subject_forced_into_all_projects', `${subject.subject_id} cannot be added artificially to every project.`));
+    }
+  }
   const pilots = programme.projects.projects.filter((project) => project.pilot_candidate !== null);
   if (pilots.length !== 1
       || pilots[0].project_id !== 'grade-2-project-weather-water-safety'
       || pilots[0].pilot_candidate.issue !== 40) {
     diagnostics.push(diagnostic('weather_water_safety_pilot_missing', 'Exactly one architecture-only Weather, Water and Safety handoff must target issue #40.'));
+  }
+  const weatherPilot = pilots[0];
+  const waterSafetyGap = weatherPilot?.school_specific_outcome_gaps.find((gap) => (
+    gap.outcome_id === 'ee-prk-2026-stage1-physical-education-water-safety'
+  ));
+  if (!waterSafetyGap
+      || !waterSafetyGap.replacement_by_human_studies_forbidden
+      || waterSafetyGap.content_strategy !== 'author_created_required') {
+    diagnostics.push(diagnostic('water_safety_replacement_boundary_missing', 'Human-studies safety discussion cannot replace the author-created physical-education water-safety outcome.'));
   }
   if (programme.routeIndex.routes.some((route) => route.companion_candidates.some((candidate) => candidate.customer_visible && candidate.access.mode === 'unverified'))) diagnostics.push(diagnostic('unverified_companion_customer_visible', 'Unverified Opiq companion cannot be customer-visible.'));
   if (programme.routeIndex.routes.some((route) => route.companion_candidates.some((candidate) => candidate.teacher_only))) diagnostics.push(diagnostic('teacher_only_source_presented_to_pupil', 'Teacher-only source cannot be a pupil companion.'));
@@ -1492,6 +1988,10 @@ export function validateGrade2CourseArchitecture(artifacts) {
     }
   }
   if (JSON.stringify(architecture.official_field_gaps.map((gap) => gap.field_id)) !== JSON.stringify(missingFields)) diagnostics.push(diagnostic('missing_official_field_gaps', 'Foreign-language and physical-education gaps must remain explicit.'));
+  if (programme.projects.projects.length !== 8
+      || new Set(programme.calendar.periods.flatMap((period) => period.project_ids)).size !== 8) {
+    diagnostics.push(diagnostic('required_project_sequence_incomplete', 'All eight required projects must remain scheduled exactly once.'));
+  }
   if (architecture.completeness.declared_complete || programme.coverage.completeness.declared_complete) diagnostics.push(diagnostic('false_completeness_claim', 'Grade 2 architecture must remain incomplete.'));
   if (architecture.release_gate.publication_ready || architecture.delivery_model.publication_status !== 'internal_review') diagnostics.push(diagnostic('publication_readiness_claim_forbidden', 'Architecture cannot claim publication readiness.'));
   if (!sameStableValue(architecture.release_gate.blocker_codes, releaseBlockerCodes)
@@ -1515,8 +2015,8 @@ export function validateGrade2CourseArchitecture(artifacts) {
 
 export async function validateGrade2CourseArchitectureSchemas(rootDir, artifacts) {
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
-  const [programmeSchema, routeSchema, coverageSchema, topicAlignmentSchema] = await Promise.all(
-    [architectureSchemaPath, routeSchemaPath, coverageSchemaPath, topicAlignmentSchemaPath].map((schemaPath) => (
+  const [programmeSchema, routeSchema, coverageSchema, topicAlignmentSchema, sourceRelationshipSchema] = await Promise.all(
+    [architectureSchemaPath, routeSchemaPath, coverageSchemaPath, topicAlignmentSchemaPath, sourceRelationshipSchemaPath].map((schemaPath) => (
       readFile(path.join(rootDir, schemaPath), 'utf8').then(JSON.parse)
     )),
   );
@@ -1524,9 +2024,11 @@ export async function validateGrade2CourseArchitectureSchemas(rootDir, artifacts
   const validateRoute = ajv.compile(routeSchema);
   const validateCoverage = ajv.compile(coverageSchema);
   const validateTopicAlignment = ajv.compile(topicAlignmentSchema);
+  const validateSourceRelationship = ajv.compile(sourceRelationshipSchema);
   const failures = [];
   for (const [label, value, validate] of [
     ['inputs/topic-alignment-policy', artifacts.inputs.alignmentPolicy, validateTopicAlignment],
+    ['inputs/source-relationship-policy', artifacts.inputs.relationshipPolicy, validateSourceRelationship],
     ...artifacts.routes.flatMap((route) => [
       [`${route.routeModel.definition.id}/official`, route.officialMap, validateRoute],
       [`${route.routeModel.definition.id}/books`, route.bookInventory, validateRoute],
@@ -1538,6 +2040,7 @@ export async function validateGrade2CourseArchitectureSchemas(rootDir, artifacts
     ['programme/coverage', artifacts.programme.coverage, validateCoverage],
     ['programme/projects', artifacts.programme.projects, validateProgramme],
     ['programme/mastery', artifacts.programme.mastery, validateProgramme],
+    ['programme/author-created-subjects', artifacts.programme.authorCreatedSubjects, validateProgramme],
     ['programme/language', artifacts.programme.language, validateProgramme],
     ['programme/calendar', artifacts.programme.calendar, validateProgramme],
     ['programme/roadmap', artifacts.programme.roadmap, validateProgramme],

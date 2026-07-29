@@ -5,6 +5,7 @@ import { before, test } from 'node:test';
 import {
   buildGrade2CourseArchitectureArtifacts,
   checkGrade2CourseArchitectureFiles,
+  sourceFaithfulTitle,
   validateGrade2CourseArchitecture,
   validateGrade2CourseArchitectureSchemas,
 } from './lib/grade-2-course-architecture.mjs';
@@ -63,14 +64,15 @@ test('source model accounts for 2,483 canonical records and 41 books', () => {
   assert.equal(baseline.programme.routeIndex.book_variant_count, 41);
 });
 
-test('exactly 44 route artifacts and eight generated programme YAML artifacts are materialized', () => {
+test('exactly 44 route artifacts and nine generated programme YAML artifacts are materialized', () => {
   const routeFiles = [...baseline.files.keys()].filter((name) => name.startsWith('curriculum-maps/grade-2-'));
   const programmeFiles = [...baseline.files.keys()].filter((name) => (
     name.startsWith('grade-programmes/grade-2/') && name.endsWith('.yaml')
   ));
   assert.equal(routeFiles.length, 44);
-  assert.equal(programmeFiles.length, 8);
+  assert.equal(programmeFiles.length, 9);
   assert.ok(!baseline.files.has('grade-programmes/grade-2/topic-alignment-policy.yaml'));
+  assert.ok(!baseline.files.has('grade-programmes/grade-2/source-relationship-policy.yaml'));
 });
 
 test('the authored alignment policy remains an input rather than generated output', () => {
@@ -100,11 +102,34 @@ test('programme coverage contains the 15 Grade 2 relevant outcomes without exact
   assert.equal(baseline.programme.coverage.rows.length, 15);
   assert.deepEqual(baseline.programme.coverage.summary, {
     official_outcome_count: 15,
-    route_linked_outcomes: 13,
+    route_linked_outcomes: 9,
+    programme_policy_outcomes: 4,
     missing_route_outcomes: 2,
     exact_grade_outcomes: 0,
     school_stage_outcomes: 15,
   });
+});
+
+test('programme coverage preserves one independent alignment for every declared route', () => {
+  for (const row of baseline.programme.coverage.rows) {
+    assert.deepEqual(row.route_ids, row.route_alignments.map((entry) => entry.route_id));
+    assert.equal(new Set(row.route_alignments.map((entry) => entry.route_id)).size, row.route_alignments.length);
+  }
+  const science = baseline.programme.coverage.rows.find((row) => (
+    row.outcome_id === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+  ));
+  assert.deepEqual(science.route_ids, ['grade-2-science', 'grade-2-nature-and-human-studies']);
+  assert.deepEqual(science.route_alignments.map((entry) => entry.source_alignment.policy_alignment_id), [
+    'grade-2-science-guided-inquiry',
+    'grade-2-mixed-science-inquiry',
+  ]);
+  const human = baseline.programme.coverage.rows.find((row) => (
+    row.outcome_id === 'ee-prk-2026-stage1-human-studies-rights-duties'
+  ));
+  assert.deepEqual(human.route_alignments.map((entry) => entry.source_alignment.policy_alignment_id), [
+    'grade-2-human-rights-duties',
+    'grade-2-mixed-human-rights',
+  ]);
 });
 
 test('foreign language and physical education remain explicit route gaps', () => {
@@ -127,6 +152,26 @@ test('Estonian first-language and second-language routes remain separate', () =>
   );
 });
 
+test('Stories default profile uses Russian and Estonian second language only', () => {
+  const project = baseline.programme.projects.projects.find((entry) => (
+    entry.project_id === 'grade-2-project-stories-books-messages'
+  ));
+  assert.deepEqual(project.profile_scope.default_route_ids, [
+    'grade-2-russian',
+    'grade-2-estonian-second-language',
+  ]);
+  assert.ok(!project.linked_route_ids.includes('grade-2-estonian'));
+  assert.deepEqual(project.profile_scope.alternative_profile_extensions, [{
+    profile_id: 'first-language-estonian-alternative',
+    activation: 'explicit_profile_selection',
+    route_ids: ['grade-2-estonian'],
+    outcome_ids: ['ee-prk-2026-stage1-estonian-conscious-reading'],
+    source_alignment_ids: ['p-stories-estonian'],
+    companion_candidate_ids: ['grade-2-estonian-kit-232'],
+  }]);
+  assert.ok(!project.opiq_companion_candidate_ids.includes('grade-2-estonian-kit-232'));
+});
+
 test('the learner profile is Russian-primary with A1 core and bounded A1–A2 stretch', () => {
   assert.deepEqual(baseline.programme.architecture.learner_profile, {
     primary_language: 'ru',
@@ -137,7 +182,7 @@ test('the learner profile is Russian-primary with A1 core and bounded A1–A2 st
     estonian_stretch_level: 'A1-A2',
     first_language_estonian_route: 'grade-2-estonian',
     first_language_estonian_activation: 'explicit_profile_selection',
-    foreign_language_status: 'school_curriculum_dependent',
+    foreign_language_status: 'mandatory_author_created_core_missing_route',
   });
 });
 
@@ -159,6 +204,17 @@ test('youth-training routes are supplementary and have no core outcomes', () => 
       baseline.programme.architecture.route_strands.find((entry) => entry.route_id === id).programme_role,
       'supplementary_youth_training',
     );
+  }
+});
+
+test('youth-training official mapping is explicitly not applicable', () => {
+  for (const id of ['grade-2-kodututarde-training', 'grade-2-noorte-kotkaste-training']) {
+    const official = route(id).officialMap;
+    assert.equal(official.mapping_status, 'not_applicable_supplementary');
+    assert.equal(official.official_scope, null);
+    assert.deepEqual(official.official_fields, []);
+    assert.deepEqual(official.outcomes, []);
+    assert.equal(official.allocation_status.curated_grade_2_allocation, 'not_applicable');
   }
 });
 
@@ -203,6 +259,67 @@ test('route-local topic clustering preserves all record identities', () => {
   assert.equal(refs.length, 2483);
   assert.equal(new Set(refs).size, 2483);
   assert.equal(baseline.routes.reduce((sum, entry) => sum + entry.topicInventory.topics.length, 0), 2220);
+});
+
+test('topic titles are source-faithful rather than inferred from record language', () => {
+  assert.deepEqual(sourceFaithfulTitle(['Русский заголовок']), {
+    display_title_original: 'Русский заголовок',
+    display_title_language: 'ru',
+    title_ru: 'Русский заголовок',
+    title_et: null,
+  });
+  assert.deepEqual(sourceFaithfulTitle(['Eestikeelne pealkiri']), {
+    display_title_original: 'Eestikeelne pealkiri',
+    display_title_language: 'et',
+    title_ru: null,
+    title_et: 'Eestikeelne pealkiri',
+  });
+  assert.deepEqual(sourceFaithfulTitle(['Eesti pealkiri', 'Русский заголовок']), {
+    display_title_original: 'Eesti pealkiri',
+    display_title_language: 'mixed',
+    title_ru: 'Русский заголовок',
+    title_et: 'Eesti pealkiri',
+  });
+  assert.deepEqual(sourceFaithfulTitle(['Water / Вода']), {
+    display_title_original: 'Water / Вода',
+    display_title_language: 'mixed',
+    title_ru: null,
+    title_et: null,
+  });
+  assert.deepEqual(sourceFaithfulTitle(['123 + 456']), {
+    display_title_original: '123 + 456',
+    display_title_language: 'unknown',
+    title_ru: null,
+    title_et: null,
+  });
+  const kit578 = route('grade-2-mathematics').topicInventory.topics.find((topic) => (
+    topic.kit_ids.includes('578') && topic.original_heading_key === 'arvud ja järgarvud'
+  ));
+  assert.notEqual(kit578.title_ru, 'Arvud ja järgarvud');
+});
+
+test('book and record archive provenance resolves kit 330 to the additional archive', () => {
+  const science = route('grade-2-science');
+  const additionalPath = 'project-files/inputs/final-zips/opiq_2klass_minu_vaike_kallis_planeet_v2.zip';
+  const primaryPath = science.routeModel.definition.source_archive;
+  const planet = science.bookInventory.books.find((book) => book.kit_id === '330');
+  assert.deepEqual(planet.source_archive_refs, [{
+    path: additionalPath,
+    role: 'supplementary_book_capture',
+  }]);
+  assert.ok(science.bookInventory.source_records.filter((record) => record.kit_id === '330')
+    .every((record) => record.source_archive_ref.path === additionalPath));
+  assert.ok(science.bookInventory.source_records.filter((record) => record.kit_id !== '330')
+    .every((record) => record.source_archive_ref.path === primaryPath));
+});
+
+test('source relationship policy is authored and never inferred from title similarity', () => {
+  assert.equal(baseline.inputs.relationshipPolicy.artifact_type, 'grade_2_source_relationship_policy');
+  assert.equal(baseline.inputs.relationshipPolicy.claim_boundary.title_similarity_is_not_evidence, true);
+  assert.ok(baseline.inputs.relationshipPolicy.relationships.some((entry) => (
+    entry.relationship_id === 'koolibri-science-edition-status-unknown'
+    && entry.relationship_type === 'unknown'
+  )));
 });
 
 test('1,530 source records truthfully retain missing task examples', () => {
@@ -263,9 +380,9 @@ test('captured task evidence is linked only to selected source records', () => {
 });
 
 test('programme-policy outcomes do not claim source-topic evidence', () => {
-  const policyRows = baseline.programme.coverage.rows.filter((row) => row.source_alignment.evidence_layer === 'programme_policy');
+  const policyRows = baseline.programme.coverage.rows.filter((row) => row.programme_policy_alignment !== null);
   assert.equal(policyRows.length, 4);
-  assert.ok(policyRows.every((row) => row.topic_cluster_refs.length === 0));
+  assert.ok(policyRows.every((row) => row.topic_cluster_refs.length === 0 && row.route_alignments.length === 0));
 });
 
 test('eight projects have exact authored route-role alignments', () => {
@@ -293,6 +410,49 @@ test('Weather, Water and Safety remains an architecture-only pilot', () => {
   ]);
   assert.ok(pilot.author_created_components_required.includes('clean-room instructions'));
   assert.deepEqual(pilot.pilot_candidate, { issue: 40, status: 'architecture_ready' });
+  assert.deepEqual(pilot.school_specific_outcome_gaps, [{
+    outcome_id: 'ee-prk-2026-stage1-physical-education-water-safety',
+    source_status: 'missing_route',
+    content_strategy: 'author_created_required',
+    architecture_status: 'designed',
+    lesson_authoring_status: 'not_started',
+    replacement_by_human_studies_forbidden: true,
+  }]);
+});
+
+test('English and physical education have designed author-created architectures', () => {
+  const [english, physicalEducation] = baseline.programme.authorCreatedSubjects.subjects;
+  assert.equal(english.subject_id, 'grade-2-author-created-english');
+  assert.equal(english.target_level, 'beginner_A1');
+  assert.equal(english.source_status, 'missing_route');
+  assert.equal(english.content_strategy, 'author_created_required');
+  assert.equal(english.opiq_companion_status, 'not_available');
+  assert.ok(english.annual_progression.some((entry) => entry.includes('short phrases')));
+  assert.equal(physicalEducation.subject_id, 'grade-2-author-created-physical-education');
+  assert.equal(physicalEducation.mastery_cadence.pattern, 'daily_plus_two_to_three_complete_sessions_weekly');
+  assert.equal(physicalEducation.conditional_swimming.status, 'conditional_not_assumed_available');
+  assert.equal(physicalEducation.conditional_swimming.competent_adult_supervision_required, true);
+  assert.equal(physicalEducation.conditional_swimming.universal_family_access_assumed, false);
+});
+
+test('English and physical education link only to natural projects', () => {
+  const rolesBySubject = (subjectId) => baseline.programme.projects.projects
+    .filter((project) => project.author_created_subject_roles.some((role) => role.subject_id === subjectId))
+    .map((project) => project.project_id)
+    .sort();
+  assert.deepEqual(rolesBySubject('grade-2-author-created-english'), [
+    'grade-2-project-home-neighbourhood',
+    'grade-2-project-rhythm-sound-celebration',
+    'grade-2-project-stories-books-messages',
+  ]);
+  assert.deepEqual(rolesBySubject('grade-2-author-created-physical-education'), [
+    'grade-2-project-living-nature-nearby',
+    'grade-2-project-rights-duties-team',
+    'grade-2-project-weather-water-safety',
+  ]);
+  assert.ok(baseline.programme.projects.projects.every((project) => (
+    project.author_created_subject_roles.every((role) => role.source_evidence_claimed === false)
+  )));
 });
 
 test('projects preserve individual subject and Estonian evidence', () => {
@@ -317,7 +477,18 @@ test('Russian language and reading remain distinct mastery evidence in one route
   ]);
   assert.ok(russian[0].core_skills.some((skill) => skill.includes('language')));
   assert.ok(russian[1].core_skills.some((skill) => skill.includes('reading')));
+  assert.deepEqual(russian[0].source_kit_ids, ['186', '292']);
   assert.deepEqual(russian[1].source_kit_ids, ['454']);
+});
+
+test('supplementary kit 330 and mixed kit 86 stay outside mandatory mastery and project core', () => {
+  const masteryKits = [
+    ...baseline.programme.mastery.mastery_strands,
+    ...baseline.programme.mastery.subject_strands,
+  ].flatMap((strand) => strand.source_kit_ids);
+  assert.ok(!masteryKits.includes('330'));
+  assert.ok(!baseline.programme.projects.projects.flatMap((project) => project.linked_route_ids)
+    .includes('grade-2-nature-and-human-studies'));
 });
 
 test('topic programme types are derived from their exact source records', () => {
@@ -359,11 +530,14 @@ test('science, human studies, arts and music remain regular subject strands', ()
   assert.ok(baseline.programme.mastery.subject_strands.every((strand) => strand.cadence === 'regular_weekly'));
 });
 
-test('foreign language and physical education remain missing mastery strands', () => {
+test('English and physical education are mandatory author-created mastery strands', () => {
   assert.deepEqual(
-    baseline.programme.mastery.missing_route_strands.map((strand) => strand.field_id),
-    ['foreign_language', 'physical_education'],
+    baseline.programme.mastery.author_created_strands.map((strand) => strand.subject_id),
+    ['grade-2-author-created-english', 'grade-2-author-created-physical-education'],
   );
+  assert.ok(baseline.programme.mastery.author_created_strands.every((strand) => (
+    strand.content_strategy === 'author_created_required'
+  )));
 });
 
 test('all projects are distributed across four planning periods', () => {
@@ -371,8 +545,8 @@ test('all projects are distributed across four planning periods', () => {
   assert.deepEqual(scheduled, baseline.programme.projects.projects.map((project) => project.project_id));
   assert.ok(baseline.programme.calendar.periods.every((period) => period.project_ids.length === 2));
   assert.deepEqual(
-    baseline.programme.calendar.school_specific_placeholders.map((entry) => entry.field_id),
-    ['foreign_language', 'physical_education'],
+    baseline.programme.calendar.author_created_required_subjects.map((entry) => entry.subject_id),
+    ['grade-2-author-created-english', 'grade-2-author-created-physical-education'],
   );
 });
 
@@ -419,7 +593,15 @@ test('canonical route paths exactly match source-manifest paths', () => {
     const manifest = baseline.inputs.manifest.sources.find((source) => source.id === entry.routeModel.definition.id);
     assert.equal(entry.bookInventory.canonical_route.md_path, manifest.md_path);
     assert.equal(entry.bookInventory.canonical_route.qa_path, manifest.qa_path);
-    assert.equal(entry.bookInventory.canonical_route.source_archive, manifest.source_archive);
+    assert.equal(entry.bookInventory.canonical_route.primary_source_archive, manifest.source_archive);
+    assert.deepEqual(
+      entry.bookInventory.canonical_route.additional_source_archives,
+      (manifest.additional_source_archives ?? []).map(({ path, role, source_book_ids: sourceBookIds }) => ({
+        path,
+        role,
+        source_book_ids: [...sourceBookIds].sort(),
+      })),
+    );
   }
 });
 
@@ -617,6 +799,289 @@ test('rejects duplicate policy alignment IDs', () => expectCode(
   'duplicate_topic_alignment_id',
 ));
 
+test('rejects programme route ID without an independent alignment', () => expectCode(
+  (candidate) => {
+    const row = candidate.programme.coverage.rows.find((entry) => (
+      entry.outcome_id === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+    ));
+    row.route_alignments.pop();
+  },
+  'programme_route_id_without_alignment',
+));
+
+test('rejects route alignment without a declared route ID', () => expectCode(
+  (candidate) => {
+    const row = candidate.programme.coverage.rows.find((entry) => (
+      entry.outcome_id === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+    ));
+    row.route_ids.pop();
+  },
+  'programme_route_alignment_without_id',
+));
+
+test('rejects duplicate programme route alignment', () => expectCode(
+  (candidate) => {
+    const row = candidate.programme.coverage.rows.find((entry) => (
+      entry.outcome_id === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+    ));
+    row.route_alignments.push(structuredClone(row.route_alignments[0]));
+  },
+  'programme_duplicate_route_alignment',
+));
+
+test('rejects copying pure-route alignment into the mixed route', () => expectCode(
+  (candidate) => {
+    const row = candidate.programme.coverage.rows.find((entry) => (
+      entry.outcome_id === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+    ));
+    row.route_alignments[1].source_alignment = structuredClone(row.route_alignments[0].source_alignment);
+  },
+  'programme_coverage_alignment_mismatch',
+));
+
+test('rejects transferring task evidence between programme routes', () => expectCode(
+  (candidate) => {
+    const row = candidate.programme.coverage.rows.find((entry) => (
+      entry.outcome_id === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+    ));
+    row.route_alignments[1].source_alignment.task_evidence_status = row.route_alignments[0].source_alignment.task_evidence_status;
+    row.route_alignments[1].source_alignment.task_evidence_source_record_ids =
+      structuredClone(row.route_alignments[0].source_alignment.task_evidence_source_record_ids);
+  },
+  'programme_coverage_alignment_mismatch',
+));
+
+test('rejects first-language Estonian in a default project closure', () => expectCode(
+  (candidate) => {
+    const project = candidate.programme.projects.projects.find((entry) => (
+      entry.project_id === 'grade-2-project-stories-books-messages'
+    ));
+    project.profile_scope.default_route_ids.push('grade-2-estonian');
+  },
+  'first_language_estonian_in_default_closure',
+));
+
+test('rejects an alternative companion in the default project', () => expectCode(
+  (candidate) => {
+    const project = candidate.programme.projects.projects.find((entry) => (
+      entry.project_id === 'grade-2-project-stories-books-messages'
+    ));
+    project.opiq_companion_candidate_ids.push('grade-2-estonian-kit-232');
+  },
+  'alternative_companion_in_default_project',
+));
+
+test('rejects an alternative project role without explicit profile activation', () => expectCode(
+  (candidate) => {
+    candidate.programme.projects.projects.find((entry) => (
+      entry.project_id === 'grade-2-project-stories-books-messages'
+    )).profile_scope.alternative_profile_extensions = [];
+  },
+  'project_profile_activation_missing',
+));
+
+test('rejects youth-training school-stage scope', () => expectCode(
+  (candidate) => {
+    const official = route('grade-2-kodututarde-training', candidate).officialMap;
+    official.mapping_status = 'mapped_recommended_grade_2_allocation';
+    official.official_scope = { kind: 'school_stage', school_stage: 1, terminal_grade: 3, exact_grade_claimed: false };
+  },
+  'supplementary_route_marked_core_curriculum',
+));
+
+test('rejects youth-training curated Grade 2 allocation', () => expectCode(
+  (candidate) => {
+    route('grade-2-noorte-kotkaste-training', candidate)
+      .officialMap.allocation_status.curated_grade_2_allocation = 'opiq_helper_recommended_allocation';
+  },
+  'supplementary_route_marked_core_curriculum',
+));
+
+test('rejects youth-training route in annual project sequence', () => expectCode(
+  (candidate) => {
+    candidate.programme.projects.projects[0].linked_route_ids.push('grade-2-kodututarde-training');
+  },
+  'youth_training_used_as_core_project',
+));
+
+test('rejects language-specific title inferred only from record metadata', () => expectCode(
+  (candidate) => {
+    const topic = route('grade-2-estonian', candidate).topicInventory.topics.find((entry) => (
+      entry.display_title_language === 'et'
+    ));
+    topic.title_ru = topic.display_title_original;
+  },
+  'topic_title_not_source_faithful',
+));
+
+test('rejects kit 578 Estonian heading marked as confirmed Russian title', () => expectCode(
+  (candidate) => {
+    const topic = route('grade-2-mathematics', candidate).topicInventory.topics.find((entry) => (
+      entry.kit_ids.includes('578')
+    ));
+    topic.display_title_language = 'et';
+    topic.title_ru = 'Arvud ja järgarvud';
+  },
+  'kit_578_estonian_heading_marked_russian',
+));
+
+test('rejects kit 330 without additional archive provenance', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.books
+      .find((book) => book.kit_id === '330').source_archive_refs = [];
+  },
+  'kit_330_additional_archive_provenance_missing',
+));
+
+test('rejects kit 330 linked to the primary science archive', () => expectCode(
+  (candidate) => {
+    const science = route('grade-2-science', candidate);
+    science.bookInventory.books.find((book) => book.kit_id === '330').source_archive_refs = [{
+      path: science.routeModel.definition.source_archive,
+      role: 'primary_route_capture',
+    }];
+  },
+  'kit_330_additional_archive_provenance_missing',
+));
+
+test('rejects an unregistered archive reference', () => expectCode(
+  (candidate) => {
+    route('grade-2-science', candidate).bookInventory.source_records[0].source_archive_ref = {
+      path: 'project-files/inputs/final-zips/not-registered.zip',
+      role: 'primary_route_capture',
+    };
+  },
+  'record_archive_provenance_mismatch',
+));
+
+test('rejects edition equivalence inferred only from titles or metadata', () => expectCode(
+  (candidate) => {
+    candidate.inputs.relationshipPolicy.relationships
+      .find((entry) => entry.relationship_id === 'koolibri-science-edition-status-unknown')
+      .relationship_type = 'parallel_language_edition';
+  },
+  'parallel_edition_without_reviewed_evidence',
+));
+
+test('rejects supplementary kit 330 in mastery core', () => expectCode(
+  (candidate) => {
+    candidate.programme.mastery.subject_strands
+      .find((strand) => strand.route_id === 'grade-2-science').source_kit_ids.push('330');
+  },
+  'mastery_nonordinary_source',
+));
+
+test('rejects mixed route in mandatory subject core', () => expectCode(
+  (candidate) => {
+    const strand = structuredClone(candidate.programme.mastery.subject_strands[0]);
+    strand.strand_id = 'grade-2-mixed-mandatory-core';
+    strand.route_id = 'grade-2-nature-and-human-studies';
+    strand.source_kit_ids = ['86'];
+    candidate.programme.mastery.subject_strands.push(strand);
+  },
+  'mastery_nonordinary_source',
+));
+
+test('rejects English or PE counted as a source-supported route outcome', () => expectCode(
+  (candidate) => {
+    const pe = candidate.programme.coverage.rows.find((row) => (
+      row.outcome_id === 'ee-prk-2026-stage1-physical-education-water-safety'
+    ));
+    const human = candidate.programme.coverage.rows.find((row) => (
+      row.outcome_id === 'ee-prk-2026-stage1-human-studies-rights-duties'
+    ));
+    pe.route_ids = ['grade-2-human-studies'];
+    pe.route_alignments = [structuredClone(human.route_alignments[0])];
+  },
+  'programme_coverage_alignment_mismatch',
+));
+
+test('rejects English or PE without author-created-required semantics', () => expectCode(
+  (candidate) => {
+    candidate.programme.authorCreatedSubjects.subjects[0].content_strategy = 'source_supported';
+  },
+  'author_created_subject_contract_invalid',
+));
+
+test('rejects publication-ready English or PE architecture', () => expectCode(
+  (candidate) => {
+    candidate.programme.authorCreatedSubjects.subjects[1].release_status = 'ready';
+  },
+  'author_created_subject_contract_invalid',
+));
+
+test('rejects human studies as replacement for PE water safety', () => expectCode(
+  (candidate) => {
+    candidate.programme.projects.projects.find((entry) => (
+      entry.project_id === 'grade-2-project-weather-water-safety'
+    )).school_specific_outcome_gaps[0].replacement_by_human_studies_forbidden = false;
+  },
+  'water_safety_replacement_boundary_missing',
+));
+
+test('rejects swimming architecture without conditional access and supervision', () => expectCode(
+  (candidate) => {
+    candidate.programme.authorCreatedSubjects.subjects[1]
+      .conditional_swimming.competent_adult_supervision_required = false;
+  },
+  'conditional_swimming_safety_invalid',
+));
+
+test('rejects any missing required annual project', () => expectCode(
+  (candidate) => {
+    candidate.programme.projects.projects.pop();
+  },
+  'required_project_sequence_incomplete',
+));
+
+test('rejects English or PE artificially attached to all projects', () => expectCode(
+  (candidate) => {
+    for (const project of candidate.programme.projects.projects) {
+      if (!project.author_created_subject_roles.some((role) => (
+        role.subject_id === 'grade-2-author-created-english'
+      ))) {
+        project.author_created_subject_roles.push({
+          role_id: `${project.project_id}-english-role`,
+          subject_id: 'grade-2-author-created-english',
+          role: 'artificial English role',
+          official_outcome_ids: [],
+          source_evidence_claimed: false,
+        });
+      }
+    }
+  },
+  'author_created_subject_forced_into_all_projects',
+));
+
+test('rejects fake Opiq companion for English or PE', () => expectCode(
+  (candidate) => {
+    candidate.programme.authorCreatedSubjects.subjects[0].opiq_companion_status = 'internal_candidate';
+  },
+  'author_created_subject_contract_invalid',
+));
+
+test('rejects Russian reading strand without kit 454', () => expectCode(
+  (candidate) => {
+    candidate.programme.mastery.mastery_strands
+      .find((strand) => strand.strand_id === 'grade-2-russian-reading-mastery').source_kit_ids = ['292'];
+  },
+  'russian_kit_role_mismatch',
+));
+
+test('rejects kit 454 as Russian language or grammar core', () => expectCode(
+  (candidate) => {
+    candidate.programme.mastery.mastery_strands
+      .find((strand) => strand.strand_id === 'grade-2-russian-language-mastery').source_kit_ids = ['186', '292', '454'];
+  },
+  'russian_kit_role_mismatch',
+));
+
+test('Grade 2 generation never emits or rewrites Grade 4 artifacts', () => {
+  assert.ok([...baseline.files.keys()].every((file) => (
+    !file.startsWith('curriculum-maps/grade-4-') && !file.startsWith('grade-programmes/grade-4/')
+  )));
+});
+
 test('rejects route-set drift', () => expectCode(
   (candidate) => { candidate.routes.pop(); },
   'grade_2_route_set_mismatch',
@@ -624,7 +1089,7 @@ test('rejects route-set drift', () => expectCode(
 
 test('rejects archive and QA path drift', () => {
   expectCode(
-    (candidate) => { candidate.routes[0].bookInventory.canonical_route.source_archive = 'project-files/inputs/not-the-route.zip'; },
+    (candidate) => { candidate.routes[0].bookInventory.canonical_route.primary_source_archive = 'project-files/inputs/not-the-route.zip'; },
     'route_archive_path_mismatch',
   );
   expectCode(

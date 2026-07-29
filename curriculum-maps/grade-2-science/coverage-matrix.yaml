@@ -9,9 +9,12 @@ grade: 2
 official_curriculum_ref: curriculum-maps/grade-2-science/official-curriculum.yaml
 route_id: grade-2-science
 rows:
-  - assessment_evidence_status: partial
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
     blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
       - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
     coverage_status: partial
     curated_grade_2_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: verified
@@ -23,30 +26,37 @@ rows:
       school_stage: 1
       terminal_grade: 3
     outcome_id: ee-prk-2026-stage1-natural-science-guided-inquiry
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-science
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Inquiry, weather and observation-card headings support a bounded stage-I alignment without reconstructing missing
+            prose.
+          policy_alignment_id: grade-2-science-guided-inquiry
+          source_record_ids:
+            - grade-2-science-record-121-https-www-opiq-ee-kit-121-chapter-6264-396ed97b25
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-science-topic-ordinary-curriculum-ilm-9beb5d4b11
+            - grade-2-science-topic-ordinary-curriculum-kuidas-loodust-uuritakse-1b1fe30494
+            - grade-2-science-topic-ordinary-curriculum-veekogu-vaatluskaart-1b59c6183b
     route_ids:
       - grade-2-science
-    source_alignment:
-      evidence_layer: source_topic
-      match_basis:
-        - captured_task_example
-        - original_heading
-        - reviewed_subject_mapping
-      notes: Inquiry, weather and observation-card headings support a bounded stage-I alignment without reconstructing missing
-        prose.
-      policy_alignment_id: grade-2-science-guided-inquiry
-      source_record_ids:
-        - grade-2-science-record-121-https-www-opiq-ee-kit-121-chapter-6264-396ed97b25
-        - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
-        - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
-      status: partial
-      task_evidence_source_record_ids:
-        - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
-        - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
-      task_evidence_status: linked
-      topic_cluster_refs:
-        - grade-2-science-topic-ordinary-curriculum-ilm-9beb5d4b11
-        - grade-2-science-topic-ordinary-curriculum-kuidas-loodust-uuritakse-1b1fe30494
-        - grade-2-science-topic-ordinary-curriculum-veekogu-vaatluskaart-1b59c6183b
+    source_coverage_status: partial
     source_topic_presence: heading_and_task_example
     task_evidence_status: linked
     topic_cluster_refs:

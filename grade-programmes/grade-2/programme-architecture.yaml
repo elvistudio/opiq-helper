@@ -5,6 +5,7 @@ alternative_profiles:
 annual_sequence: grade-programmes/grade-2/teaching-calendar.yaml
 artifact_id: grade-2-programme-architecture
 artifact_type: grade_programme_architecture
+author_created_subjects: grade-programmes/grade-2/author-created-subjects.yaml
 completeness:
   declared_complete: false
   known_gaps:
@@ -49,7 +50,7 @@ learner_profile:
   estonian_subject_route: grade-2-estonian-second-language
   first_language_estonian_activation: explicit_profile_selection
   first_language_estonian_route: grade-2-estonian
-  foreign_language_status: school_curriculum_dependent
+  foreign_language_status: mandatory_author_created_core_missing_route
   primary_language: ru
   subject_explanation_language: ru
   subject_support_language: et
@@ -71,16 +72,22 @@ learner_specific_book_profiles:
     profile_id: simplified-kit-286-opt-in
 mastery_strands: grade-programmes/grade-2/mastery-strands.yaml
 official_field_gaps:
-  - content_strategy: school_specific_resource_required
+  - architecture_status: designed
+    content_strategy: author_created_required
     field_id: foreign_language
     outcome_ids:
       - ee-prk-2026-stage1-foreign-language-a1
+    production_status: not_started
+    programme_requirement: mandatory_author_created_core
     release_status: blocked
     source_status: missing_route
-  - content_strategy: school_specific_resource_required
+  - architecture_status: designed
+    content_strategy: author_created_required
     field_id: physical_education
     outcome_ids:
       - ee-prk-2026-stage1-physical-education-water-safety
+    production_status: not_started
+    programme_requirement: mandatory_author_created_core
     release_status: blocked
     source_status: missing_route
 opiq_companion_policy:
@@ -111,6 +118,7 @@ provenance:
     - compliance/estonia/2026-27/curriculum-framework.yaml
     - external-sources/official/estonia/2026-27/source-registry.yaml
     - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
   claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
     effectiveness finding.
   generated_by: scripts/generate-grade-2-course-architecture.mjs

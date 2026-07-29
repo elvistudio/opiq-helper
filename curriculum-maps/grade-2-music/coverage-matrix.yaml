@@ -9,9 +9,12 @@ grade: 2
 official_curriculum_ref: curriculum-maps/grade-2-music/official-curriculum.yaml
 route_id: grade-2-music
 rows:
-  - assessment_evidence_status: partial
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
     blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
       - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
     coverage_status: partial
     curated_grade_2_allocation: opiq_helper_recommended_allocation
     curriculum_alignment_status: verified
@@ -23,25 +26,32 @@ rows:
       school_stage: 1
       terminal_grade: 3
     outcome_id: ee-prk-2026-stage1-music-active-participation
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-music
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: The song topic has captured task evidence for active participation but does not establish a complete music
+            programme.
+          policy_alignment_id: grade-2-music-participation
+          source_record_ids:
+            - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-music-topic-ordinary-curriculum-laul-soprusest-0a50b0f145
     route_ids:
       - grade-2-music
-    source_alignment:
-      evidence_layer: source_topic
-      match_basis:
-        - captured_task_example
-        - original_heading
-        - reviewed_subject_mapping
-      notes: The song topic has captured task evidence for active participation but does not establish a complete music
-        programme.
-      policy_alignment_id: grade-2-music-participation
-      source_record_ids:
-        - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
-      status: partial
-      task_evidence_source_record_ids:
-        - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
-      task_evidence_status: linked
-      topic_cluster_refs:
-        - grade-2-music-topic-ordinary-curriculum-laul-soprusest-0a50b0f145
+    source_coverage_status: partial
     source_topic_presence: heading_and_task_example
     task_evidence_status: linked
     topic_cluster_refs:

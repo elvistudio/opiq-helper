@@ -8,6 +8,7 @@
     { "$ref": "#/$defs/routeIndex" },
     { "$ref": "#/$defs/projects" },
     { "$ref": "#/$defs/mastery" },
+    { "$ref": "#/$defs/authorCreatedSubjects" },
     { "$ref": "#/$defs/language" },
     { "$ref": "#/$defs/calendar" },
     { "$ref": "#/$defs/roadmap" }
@@ -163,6 +164,7 @@
             "delivery_model",
             "route_strands",
             "official_field_gaps",
+            "author_created_subjects",
             "mastery_strands",
             "project_modules",
             "annual_sequence",
@@ -201,7 +203,7 @@
                 "estonian_stretch_level": { "const": "A1-A2" },
                 "first_language_estonian_route": { "const": "grade-2-estonian" },
                 "first_language_estonian_activation": { "const": "explicit_profile_selection" },
-                "foreign_language_status": { "const": "school_curriculum_dependent" }
+                "foreign_language_status": { "const": "mandatory_author_created_core_missing_route" }
               }
             },
             "alternative_profiles": {
@@ -281,7 +283,7 @@
               "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["field_id", "outcome_ids", "source_status", "content_strategy", "release_status"],
+                "required": ["field_id", "outcome_ids", "source_status", "programme_requirement", "content_strategy", "architecture_status", "production_status", "release_status"],
                 "properties": {
                   "field_id": { "enum": ["foreign_language", "physical_education"] },
                   "outcome_ids": {
@@ -290,13 +292,15 @@
                     "items": { "$ref": "#/$defs/slug" }
                   },
                   "source_status": { "const": "missing_route" },
-                  "content_strategy": {
-                    "const": "school_specific_resource_required"
-                  },
+                  "programme_requirement": { "const": "mandatory_author_created_core" },
+                  "content_strategy": { "const": "author_created_required" },
+                  "architecture_status": { "const": "designed" },
+                  "production_status": { "const": "not_started" },
                   "release_status": { "const": "blocked" }
                 }
               }
             },
+            "author_created_subjects": { "$ref": "#/$defs/repositoryPath" },
             "mastery_strands": { "$ref": "#/$defs/repositoryPath" },
             "project_modules": { "$ref": "#/$defs/repositoryPath" },
             "annual_sequence": { "$ref": "#/$defs/repositoryPath" },
@@ -446,7 +450,7 @@
     "project": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["project_id", "title_ru", "title_et", "driving_question_ru", "linked_route_ids", "linked_outcome_ids", "source_alignments", "topic_cluster_refs", "prerequisites", "estimated_lesson_range", "shared_product", "individual_grade_2_evidence", "russian_language_or_reading_evidence", "estonian_language_evidence", "mathematics_or_data_evidence", "practical_or_outdoor_component", "source_gaps", "author_created_components_required", "opiq_companion_candidate_ids", "pilot_candidate"],
+      "required": ["project_id", "title_ru", "title_et", "driving_question_ru", "linked_route_ids", "linked_outcome_ids", "source_alignments", "profile_scope", "author_created_subject_roles", "topic_cluster_refs", "prerequisites", "estimated_lesson_range", "shared_product", "individual_grade_2_evidence", "russian_language_or_reading_evidence", "estonian_language_evidence", "mathematics_or_data_evidence", "practical_or_outdoor_component", "source_gaps", "author_created_components_required", "opiq_companion_candidate_ids", "pilot_candidate", "school_specific_outcome_gaps"],
       "properties": {
         "project_id": { "$ref": "#/$defs/slug" },
         "title_ru": { "type": "string", "minLength": 3 },
@@ -459,6 +463,77 @@
           "minItems": 2,
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/projectSourceAlignment" }
+        },
+        "profile_scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["default_profile_required", "default_route_ids", "alternative_profile_extensions"],
+          "properties": {
+            "default_profile_required": { "const": true },
+            "default_route_ids": {
+              "type": "array",
+              "minItems": 2,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/routeId" }
+            },
+            "alternative_profile_extensions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["profile_id", "activation", "route_ids", "outcome_ids", "source_alignment_ids", "companion_candidate_ids"],
+                "properties": {
+                  "profile_id": { "const": "first-language-estonian-alternative" },
+                  "activation": { "const": "explicit_profile_selection" },
+                  "route_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/$defs/routeId" }
+                  },
+                  "outcome_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/$defs/slug" }
+                  },
+                  "source_alignment_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/$defs/slug" }
+                  },
+                  "companion_candidate_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/$defs/slug" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "author_created_subject_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role_id", "subject_id", "role", "official_outcome_ids", "source_evidence_claimed"],
+            "properties": {
+              "role_id": { "$ref": "#/$defs/slug" },
+              "subject_id": {
+                "enum": ["grade-2-author-created-english", "grade-2-author-created-physical-education"]
+              },
+              "role": { "type": "string", "minLength": 10 },
+              "official_outcome_ids": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": { "$ref": "#/$defs/slug" }
+              },
+              "source_evidence_claimed": { "const": false }
+            }
+          }
         },
         "topic_cluster_refs": { "type": "array", "items": { "$ref": "#/$defs/slug" } },
         "prerequisites": { "type": "array", "items": { "$ref": "#/$defs/slug" } },
@@ -485,6 +560,22 @@
               }
             }
           ]
+        },
+        "school_specific_outcome_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["outcome_id", "source_status", "content_strategy", "architecture_status", "lesson_authoring_status", "replacement_by_human_studies_forbidden"],
+            "properties": {
+              "outcome_id": { "$ref": "#/$defs/slug" },
+              "source_status": { "const": "missing_route" },
+              "content_strategy": { "const": "author_created_required" },
+              "architecture_status": { "const": "designed" },
+              "lesson_authoring_status": { "const": "not_started" },
+              "replacement_by_human_studies_forbidden": { "const": true }
+            }
+          }
         }
       }
     },
@@ -533,27 +624,200 @@
         { "$ref": "#/$defs/common" },
         {
           "type": "object",
-          "required": ["mastery_strands", "subject_strands", "missing_route_strands", "provenance"],
+          "required": ["mastery_strands", "subject_strands", "author_created_strands", "provenance"],
           "properties": {
             "artifact_type": { "const": "grade_programme_mastery_strands" },
             "mastery_strands": { "type": "array", "minItems": 4, "items": { "$ref": "#/$defs/masteryStrand" } },
             "subject_strands": { "type": "array", "minItems": 4, "items": { "$ref": "#/$defs/masteryStrand" } },
-            "missing_route_strands": {
+            "author_created_strands": {
               "type": "array",
               "minItems": 2,
               "maxItems": 2,
               "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["strand_id", "field_id", "source_status", "content_strategy", "release_status"],
+                "required": ["strand_id", "subject_id", "cadence", "content_strategy", "core_skills", "assessment_evidence", "revision_cycle"],
                 "properties": {
                   "strand_id": { "$ref": "#/$defs/slug" },
-                  "field_id": { "enum": ["foreign_language", "physical_education"] },
-                  "source_status": { "const": "missing_route" },
-                  "content_strategy": { "enum": ["author_created_required", "additional_source_capture_required", "school_specific_resource_required"] },
-                  "release_status": { "const": "blocked" }
+                  "subject_id": {
+                    "enum": ["grade-2-author-created-english", "grade-2-author-created-physical-education"]
+                  },
+                  "cadence": {
+                    "enum": ["daily_or_near_daily", "daily_plus_two_to_three_complete_sessions_weekly"]
+                  },
+                  "content_strategy": { "const": "author_created_required" },
+                  "core_skills": {
+                    "type": "array",
+                    "minItems": 4,
+                    "items": { "type": "string", "minLength": 3 }
+                  },
+                  "assessment_evidence": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": { "type": "string", "minLength": 3 }
+                  },
+                  "revision_cycle": { "type": "string", "minLength": 10 }
                 }
               }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "authorCreatedSubject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_id",
+        "subject_field",
+        "official_outcome_ids",
+        "required_in_default_programme",
+        "programme_requirement",
+        "source_status",
+        "source_coverage_status",
+        "content_strategy",
+        "target_level",
+        "architecture_status",
+        "architecture_coverage_status",
+        "lesson_authoring_status",
+        "assessment_authoring_status",
+        "production_coverage_status",
+        "release_status",
+        "opiq_companion_status",
+        "mastery_cadence",
+        "annual_progression",
+        "vocabulary_domains",
+        "oral_progression",
+        "reading_writing_progression",
+        "revision_cycle",
+        "individual_evidence_model",
+        "estimated_lesson_range",
+        "natural_project_links"
+      ],
+      "properties": {
+        "subject_id": {
+          "enum": ["grade-2-author-created-english", "grade-2-author-created-physical-education"]
+        },
+        "subject_field": { "enum": ["foreign_language", "physical_education"] },
+        "official_outcome_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "required_in_default_programme": { "const": true },
+        "programme_requirement": { "const": "mandatory_author_created_core" },
+        "source_status": { "const": "missing_route" },
+        "source_coverage_status": { "const": "missing" },
+        "content_strategy": { "const": "author_created_required" },
+        "target_level": { "type": ["string", "null"], "enum": ["beginner_A1", null] },
+        "architecture_status": { "const": "designed" },
+        "architecture_coverage_status": { "const": "designed" },
+        "lesson_authoring_status": { "const": "not_started" },
+        "assessment_authoring_status": { "const": "not_started" },
+        "production_coverage_status": { "const": "not_started" },
+        "release_status": { "const": "blocked" },
+        "opiq_companion_status": { "const": "not_available" },
+        "mastery_cadence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pattern", "notes"],
+          "properties": {
+            "pattern": {
+              "enum": ["daily_or_near_daily", "daily_plus_two_to_three_complete_sessions_weekly"]
+            },
+            "notes": { "type": "string", "minLength": 20 }
+          }
+        },
+        "annual_progression": {
+          "type": "array",
+          "minItems": 5,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "vocabulary_domains": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "oral_progression": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "reading_writing_progression": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "revision_cycle": { "type": "string", "minLength": 20 },
+        "individual_evidence_model": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "estimated_lesson_range": { "$ref": "#/$defs/lessonEstimate" },
+        "natural_project_links": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "conditional_swimming": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "requires_pool_or_safe_water_environment",
+            "competent_adult_supervision_required",
+            "universal_family_access_assumed",
+            "replacement_for_land_based_core"
+          ],
+          "properties": {
+            "status": { "const": "conditional_not_assumed_available" },
+            "requires_pool_or_safe_water_environment": { "const": true },
+            "competent_adult_supervision_required": { "const": true },
+            "universal_family_access_assumed": { "const": false },
+            "replacement_for_land_based_core": { "const": false }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "subject_id": { "const": "grade-2-author-created-english" } },
+            "required": ["subject_id"]
+          },
+          "then": {
+            "properties": {
+              "subject_field": { "const": "foreign_language" },
+              "target_level": { "const": "beginner_A1" },
+              "conditional_swimming": false
+            }
+          },
+          "else": {
+            "required": ["conditional_swimming"],
+            "properties": {
+              "subject_field": { "const": "physical_education" },
+              "target_level": { "type": "null" }
+            }
+          }
+        }
+      ]
+    },
+    "authorCreatedSubjects": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["subjects", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_author_created_subjects" },
+            "subjects": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "$ref": "#/$defs/authorCreatedSubject" }
             },
             "provenance": { "$ref": "#/$defs/provenance" }
           }
@@ -636,7 +900,7 @@
         { "$ref": "#/$defs/common" },
         {
           "type": "object",
-          "required": ["planning_status", "periods", "monthly_evidence_checkpoints", "school_specific_placeholders", "national_weekly_hours_claimed", "provenance"],
+          "required": ["planning_status", "periods", "monthly_evidence_checkpoints", "author_created_required_subjects", "national_weekly_hours_claimed", "provenance"],
           "properties": {
             "artifact_type": { "const": "grade_programme_teaching_calendar" },
             "planning_status": { "const": "recommended_not_national_timetable" },
@@ -668,18 +932,21 @@
                 "portfolio_nationally_mandatory": { "const": false }
               }
             },
-            "school_specific_placeholders": {
+            "author_created_required_subjects": {
               "type": "array",
               "minItems": 2,
               "maxItems": 2,
               "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": ["field_id", "source_status", "activation", "release_status"],
+                "required": ["subject_id", "source_status", "content_strategy", "activation", "release_status"],
                 "properties": {
-                  "field_id": { "enum": ["foreign_language", "physical_education"] },
+                  "subject_id": {
+                    "enum": ["grade-2-author-created-english", "grade-2-author-created-physical-education"]
+                  },
                   "source_status": { "const": "missing_route" },
-                  "activation": { "const": "school_curriculum_dependent" },
+                  "content_strategy": { "const": "author_created_required" },
+                  "activation": { "const": "required_default_programme" },
                   "release_status": { "const": "blocked" }
                 }
               }
