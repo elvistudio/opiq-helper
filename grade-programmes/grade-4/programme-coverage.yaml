@@ -1,0 +1,715 @@
+artifact_id: grade-4-programme-coverage
+artifact_type: grade_programme_coverage_matrix
+completeness:
+  declared_complete: false
+  known_gaps:
+    - "Final Riigi Teataja refresh remains tracked under issue #37."
+    - The official baseline is intentionally non-exhaustive outside its declared scope.
+    - Complete Opiq instructional page prose was not captured.
+    - Task bodies were only partially captured.
+    - An exclusive Grade 4 art route is missing.
+    - An exclusive Grade 4 technology, craft and home-economics route is missing.
+    - An exclusive Grade 4 physical-education route is missing.
+    - The independently authored standalone commercial core is not implemented.
+    - Originality review is not yet applicable because production materials are absent.
+    - Customer companion access has not been verified.
+    - Default-core source programme types remain unverified.
+    - Pedagogical effectiveness has not been established.
+  status: partial
+missing_exclusive_route_fields:
+  - art
+  - technology_craft_home_economics
+  - physical_education
+outcome_index_ref: compliance/estonia/2026-27/outcome-index.yaml
+programme_id: grade-4-standalone-commercial-programme-2026-27
+rows:
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-general-self-correction
+    route_ids:
+      - grade-4-russian
+      - grade-4-russian-reading
+      - grade-4-estonian-second-language
+      - grade-4-english
+      - grade-4-human-studies-and-society
+      - grade-4-science
+      - grade-4-mathematics
+      - grade-4-music
+      - grade-4-estonian
+    source_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: Self-correction is a programme design requirement and is not inferred from arbitrary subject chapters.
+      policy_alignment_id: programme-self-correction
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-assessment-formative
+    route_ids:
+      - grade-4-russian
+      - grade-4-russian-reading
+      - grade-4-estonian-second-language
+      - grade-4-english
+      - grade-4-human-studies-and-society
+      - grade-4-science
+      - grade-4-mathematics
+      - grade-4-music
+      - grade-4-estonian
+    source_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: Formative assessment is implemented at programme-policy level and is not evidenced by route-level task presence.
+      policy_alignment_id: programme-formative-assessment
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-school-curriculum-class-allocation
+    route_ids:
+      - grade-4-russian
+      - grade-4-russian-reading
+      - grade-4-estonian-second-language
+      - grade-4-english
+      - grade-4-human-studies-and-society
+      - grade-4-science
+      - grade-4-mathematics
+      - grade-4-music
+      - grade-4-estonian
+    source_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: Class-by-class allocation is an authored programme-policy decision and has no arbitrary source topic.
+      policy_alignment_id: programme-class-allocation
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-estonian-source-comparison
+    route_ids:
+      - grade-4-estonian
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings cover information sources, source trust and opinion formation, but complete task evidence is not
+        captured.
+      policy_alignment_id: outcome-estonian-source-comparison
+      source_record_ids:
+        - grade-4-estonian-record-533-https-www-opiq-ee-kit-533-chapter-30093-281d59a6d8
+        - grade-4-estonian-record-533-https-www-opiq-ee-kit-533-chapter-30106-b26d5ac726
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-estonian-topic-kokkuvote-infootsing-ja-arvamuse-kujundamine-9847f6a3ab
+        - grade-4-estonian-topic-teabekirjanduse-liigid-e84db453f9
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-estonian-topic-kokkuvote-infootsing-ja-arvamuse-kujundamine-9847f6a3ab
+      - grade-4-estonian-topic-teabekirjanduse-liigid-e84db453f9
+  - assessment_evidence_status: partial
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-russian-main-idea
+    route_ids:
+      - grade-4-russian
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The captured task explicitly asks the learner to determine a text topic; it supports only part of the wider
+        stage-II outcome.
+      policy_alignment_id: outcome-russian-main-idea
+      source_record_ids:
+        - grade-4-russian-record-243-https-www-opiq-ee-kit-243-chapter-13782-93384a0181
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-russian-record-243-https-www-opiq-ee-kit-243-chapter-13782-93384a0181
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-russian-topic-record-2f524f9cb7
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-4-russian-topic-record-2f524f9cb7
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: partial
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-literature-reading-response
+    route_ids:
+      - grade-4-russian-reading
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - book_or_kit_metadata
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The record identifies a child-literature work and questions, but no task example is captured in the canonical
+        record.
+      policy_alignment_id: outcome-russian-reading-response
+      source_record_ids:
+        - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22448-fb61dc1c80
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-russian-reading-topic-record-79d3b6a4df
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-russian-reading-topic-record-79d3b6a4df
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-estonian-second-language-daily-communication
+    route_ids:
+      - grade-4-estonian-second-language
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings explicitly describe a familiar morning routine, questions and a peer dialogue; the task body is not
+        captured.
+      policy_alignment_id: outcome-estonian-second-daily-communication
+      source_record_ids:
+        - grade-4-estonian-second-language-record-150-https-www-opiq-ee-kit-150-chapter-8339-14d09c3fe5
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-estonian-second-language-topic-enne-koolipaeva-4295f90c02
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-estonian-second-language-topic-enne-koolipaeva-4295f90c02
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-foreign-language-a2
+    route_ids:
+      - grade-4-english
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - book_or_kit_metadata
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Familiar school and family topics support a Grade 4 progression toward A2 but do not prove the terminal stage-II
+        level.
+      policy_alignment_id: outcome-english-a2-progression
+      source_record_ids:
+        - grade-4-english-record-332-https-www-opiq-ee-kit-332-chapter-18619-3cac97c02f
+        - grade-4-english-record-451-https-www-opiq-ee-kit-451-chapter-24501-4941072bd9
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-english-topic-a-doctor-s-family-cbc7e6ef12
+        - grade-4-english-topic-back-to-school-bbaa193a73
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-english-topic-a-doctor-s-family-cbc7e6ef12
+      - grade-4-english-topic-back-to-school-bbaa193a73
+  - assessment_evidence_status: partial
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-mathematics-representations
+    route_ids:
+      - grade-4-mathematics
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The captured tasks require extracting and representing practical information, but do not prove every
+        representation transition.
+      policy_alignment_id: outcome-mathematics-representations
+      source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-mathematics-record-70-https-www-opiq-ee-kit-70-chapter-3354-ab6f6300ab
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-mathematics-topic-milleks-on-numbrid-ja-arvud-e3ed8fd48c
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-4-mathematics-topic-milleks-on-numbrid-ja-arvud-e3ed8fd48c
+  - assessment_evidence_status: partial
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-natural-science-inquiry
+    route_ids:
+      - grade-4-science
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The records use evidence to examine Earth shape, supporting inquiry practice but not the complete
+        local-field-study outcome.
+      policy_alignment_id: outcome-natural-science-inquiry
+      source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-science-topic-maa-kuju-4c14102446
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-4-science-topic-maa-kuju-4c14102446
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-human-studies-decisions
+    route_ids:
+      - grade-4-human-studies-and-society
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Conflict resolution and reaching a solution support decision-making, while consequence evidence remains
+        incomplete.
+      policy_alignment_id: outcome-human-studies-decisions
+      source_record_ids:
+        - grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2733-521903fbc7
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-human-studies-and-society-topic-konflikt-f836134b7f
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-human-studies-and-society-topic-konflikt-f836134b7f
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: partial
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-social-information-fact-opinion
+    route_ids:
+      - grade-4-human-studies-and-society
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings distinguish truth and falsehood in thinking, but source-reliability and full fact-opinion task
+        evidence are not captured.
+      policy_alignment_id: outcome-social-fact-opinion
+      source_record_ids:
+        - grade-4-human-studies-and-society-record-55-https-www-opiq-ee-kit-55-chapter-2722-811331fcff
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-human-studies-and-society-topic-kuidas-me-motleme-65833d70b0
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-human-studies-and-society-topic-kuidas-me-motleme-65833d70b0
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - No exclusive Grade 4 manifest route exists for this official field.
+    coverage_status: missing
+    curated_grade_4_allocation: local_school_allocation_candidate
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-art-design-process
+    route_ids: []
+    source_alignment:
+      evidence_layer: missing_route
+      match_basis:
+        - missing_route
+      notes: No exclusive Grade 4 manifest route exists for this official field.
+      policy_alignment_id: missing-ee-prk-2026-stage2-art-design-process
+      source_record_ids: []
+      status: missing
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: missing
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: partial
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-music-cultural-participation
+    route_ids:
+      - grade-4-music
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Estonian folk instruments and a listening-response task support both cultural range and discussion, without
+        proving complete coverage.
+      policy_alignment_id: outcome-music-cultural-participation
+      source_record_ids:
+        - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+        - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-music-record-174-https-www-opiq-ee-kit-174-chapter-9816-fb641b2713
+        - grade-4-music-record-206-https-www-opiq-ee-kit-206-chapter-11700-58900e3ac7
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-music-topic-eesti-rahvapillid-c4496d6932
+        - grade-4-music-topic-marmotte-00dfb72e63
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-4-music-topic-eesti-rahvapillid-c4496d6932
+      - grade-4-music-topic-marmotte-00dfb72e63
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - No exclusive Grade 4 manifest route exists for this official field.
+    coverage_status: missing
+    curated_grade_4_allocation: local_school_allocation_candidate
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-technology-sustainable-safe-work
+    route_ids: []
+    source_alignment:
+      evidence_layer: missing_route
+      match_basis:
+        - missing_route
+      notes: No exclusive Grade 4 manifest route exists for this official field.
+      policy_alignment_id: missing-ee-prk-2026-stage2-technology-sustainable-safe-work
+      source_record_ids: []
+      status: missing
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: missing
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - No exclusive Grade 4 manifest route exists for this official field.
+    coverage_status: missing
+    curated_grade_4_allocation: local_school_allocation_candidate
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-physical-education-safe-movement
+    route_ids: []
+    source_alignment:
+      evidence_layer: missing_route
+      match_basis:
+        - missing_route
+      notes: No exclusive Grade 4 manifest route exists for this official field.
+      policy_alignment_id: missing-ee-prk-2026-stage2-physical-education-safe-movement
+      source_record_ids: []
+      status: missing
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: missing
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-cross-curricular-environment
+    route_ids:
+      - grade-4-human-studies-and-society
+      - grade-4-science
+    source_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: The cross-curricular theme is carried by reviewed programme and project design rather than a positional chapter
+        reference.
+      policy_alignment_id: programme-environment-theme
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: official_exact_grade
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: true
+      grade: 4
+      kind: exact_grade
+    outcome_id: ee-plrk-2026-grade4-mathematics-number-range
+    route_ids:
+      - grade-4-mathematics-simplified
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings explicitly cover reading numbers and addition to one hundred, matching the exact Grade 4 simplified
+        outcome.
+      policy_alignment_id: outcome-simplified-number-range
+      source_record_ids:
+        - grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15803-ec865471ea
+        - grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15833-1859b2bcb1
+      status: verified
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-mathematics-simplified-topic-arvu-kumnendkoostis-13-18-0ee743aa48
+        - grade-4-mathematics-simplified-topic-liitmine-sajani-192-199-b976dc3f3c
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-mathematics-simplified-topic-arvu-kumnendkoostis-13-18-0ee743aa48
+      - grade-4-mathematics-simplified-topic-liitmine-sajani-192-199-b976dc3f3c
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: official_exact_grade
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: true
+      grade: 4
+      kind: exact_grade
+    outcome_id: ee-plrk-2026-grade4-human-studies-safe-behaviour
+    route_ids:
+      - grade-4-human-studies-simplified
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings explicitly cover traffic signs and fire behaviour named by the exact Grade 4 simplified outcome.
+      policy_alignment_id: outcome-simplified-safe-behaviour
+      source_record_ids:
+        - grade-4-human-studies-simplified-record-287-https-www-opiq-ee-kit-287-chapter-17908-e3da833253
+        - grade-4-human-studies-simplified-record-287-https-www-opiq-ee-kit-287-chapter-17911-f6ce9300ec
+      status: verified
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-human-studies-simplified-topic-kaitumine-tulekahju-korral-kodus-207189b0d1
+        - grade-4-human-studies-simplified-topic-liiklusmargid-4e6284978b
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-human-studies-simplified-topic-kaitumine-tulekahju-korral-kodus-207189b0d1
+      - grade-4-human-studies-simplified-topic-liiklusmargid-4e6284978b
+schema_version: "1.0"
+summary:
+  exact_grade_outcomes: 2
+  missing_route_outcomes: 3
+  official_outcome_count: 19
+  route_linked_outcomes: 16
+  school_stage_outcomes: 17
+target_school_year: 2026/27

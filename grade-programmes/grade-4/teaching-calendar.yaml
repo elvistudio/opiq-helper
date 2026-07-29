@@ -1,0 +1,67 @@
+artifact_id: grade-4-teaching-calendar
+artifact_type: grade_programme_teaching_calendar
+grade: 4
+monthly_evidence_checkpoints:
+  classification: recommended_good_practice
+  portfolio_nationally_mandatory: false
+  purpose: Support school oversight with compact current evidence; no portfolio, weekly log or platform is claimed as
+    nationally mandatory.
+national_weekly_hours_claimed: false
+periods:
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-1
+    practical_focus: Bounded observation and local application.
+    prerequisites: []
+    project_ids:
+      - grade-4-project-my-place-community
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-2
+    practical_focus: Community or cultural application.
+    prerequisites:
+      - programme-period-1
+    project_ids:
+      - grade-4-project-nature-weather
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-3
+    practical_focus: Bounded observation and local application.
+    prerequisites:
+      - programme-period-2
+    project_ids:
+      - grade-4-project-safe-school-route
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-4
+    practical_focus: Community or cultural application.
+    prerequisites:
+      - programme-period-3
+    project_ids:
+      - grade-4-project-culture-stories-music
+      - grade-4-project-everyday-mathematics
+      - grade-4-project-responsible-environment
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+planning_status: recommended_not_national_timetable
+programme_id: grade-4-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
+  claim_boundary: Recommended Grade 4 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  verification_date: 2026-07-28
+schema_version: "1.0"
+target_school_year: 2026/27

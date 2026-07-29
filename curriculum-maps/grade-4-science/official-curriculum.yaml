@@ -1,0 +1,91 @@
+allocation_status:
+  curated_grade_4_allocation: opiq_helper_recommended_allocation
+  national_exact_grade_claimed: false
+  notes: National stage-II scope remains distinct from this recommended Grade 4 allocation.
+artifact_id: grade-4-science-official-curriculum
+artifact_type: grade_programme_official_curriculum_map
+canonical_route:
+  md_path: project-files/outputs/opiq_4klass_loodusopetus.md
+  qa_path: project-files/outputs/opiq_4klass_loodusopetus_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_4klass_loodusopetus_4_klassile_opiq_v2.zip
+  source_id: grade-4-science
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+grade: 4
+official_fields:
+  - loodusained
+official_scope:
+  exact_grade_claimed: false
+  kind: school_stage
+  school_stage: 2
+  terminal_grade: 6
+outcomes:
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: verified
+    grade_4_allocation_note: This is an Opiq Helper recommended Grade 4 allocation of a national stage-II endpoint.
+    official_reference: PRÕK lisa 4 punkt 2.1.3, II kooliaste, punkt 3
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    official_subject: loodusõpetus
+    official_wording_et: Sõnastab koos kaaslastega loodusteadusliku uurimisküsimuse või hüpoteesi, kavandab ja teeb uurimuse
+      kodukoha veekogu, asula, metsa, niidu vms põhjal, kogub ja vormistab andmeid ning esitleb uurimistulemusi.
+    outcome_id: ee-prk-2026-stage2-natural-science-inquiry
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The records use evidence to examine Earth shape, supporting inquiry practice but not the complete
+        local-field-study outcome.
+      policy_alignment_id: outcome-natural-science-inquiry
+      source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-science-topic-maa-kuju-4c14102446
+    source_id: ee-prok-2026-appendix-04
+    subject_field: loodusained
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: Вместе с одноклассниками формулирует исследовательский вопрос или гипотезу, планирует и проводит
+      исследование местного водоёма, поселения, леса, луга или другого объекта, собирает и оформляет данные и
+      представляет результаты.
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
+  verification_date: 2026-07-28
+record_count: 338
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+route_id: grade-4-science
+schema_version: "1.0"
+subject: science
+subject_et: loodusõpetus

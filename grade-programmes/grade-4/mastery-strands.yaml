@@ -1,0 +1,256 @@
+artifact_id: grade-4-mastery-strands
+artifact_type: grade_programme_mastery_strands
+grade: 4
+mastery_strands:
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - language structures
+      - written expression
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 110
+      minimum: 70
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-russian
+    strand_id: grade-4-russian-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: three_to_four_times_weekly
+    core_skills:
+      - meaningful reading
+      - individual response
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 75
+      minimum: 45
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-russian-reading
+    strand_id: grade-4-russian-reading-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - A1–A2 interaction
+      - supported production
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 110
+      minimum: 70
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-estonian-second-language
+    strand_id: grade-4-estonian-second-language-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: daily_or_near_daily
+    core_skills:
+      - representations
+      - reasoning and correction
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 130
+      minimum: 90
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-mathematics
+    strand_id: grade-4-mathematics-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: three_to_four_times_weekly
+    core_skills:
+      - progress toward stage-II A2
+      - familiar communication
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 85
+      minimum: 55
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-english
+    strand_id: grade-4-english-mastery
+missing_route_strands:
+  - content_strategy: author_created_required
+    field_id: art
+    release_status: blocked
+    source_status: missing_route
+    strand_id: grade-4-art-gap
+  - content_strategy: additional_source_capture_required
+    field_id: technology_craft_home_economics
+    release_status: blocked
+    source_status: missing_route
+    strand_id: grade-4-technology-gap
+  - content_strategy: school_specific_resource_required
+    field_id: physical_education
+    release_status: blocked
+    source_status: missing_route
+    strand_id: grade-4-physical-education-gap
+programme_id: grade-4-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
+  claim_boundary: Recommended Grade 4 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  verification_date: 2026-07-28
+schema_version: "1.0"
+subject_strands:
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: weekly
+    core_skills:
+      - inquiry
+      - observation and evidence
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 55
+      minimum: 35
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-science
+    strand_id: grade-4-science-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: weekly
+    core_skills:
+      - decisions
+      - fact and opinion
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 40
+      minimum: 25
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-human-studies-and-society
+    strand_id: grade-4-human-studies-and-society-mastery
+  - assessment_evidence:
+      - individual first attempt
+      - correction after feedback
+    cadence: weekly
+    core_skills:
+      - listening
+      - cultural participation
+    estimated_lesson_range:
+      confidence: low
+      estimate_basis:
+        - topic_cluster_count
+        - revision
+        - assessment
+        - language_support
+        - source_readiness
+      maximum: 40
+      minimum: 25
+      notes: Range reflects source clusters and reserved authoring, revision, assessment and language-support work.
+    estonian_language_functions:
+      - name
+      - describe
+      - compare
+      - sequence
+    planning_basis: opiq_helper_recommendation_not_national_timetable
+    revision_cycle: Immediate correction plus spaced revisit in a later programme period.
+    route_id: grade-4-music
+    strand_id: grade-4-music-mastery
+target_school_year: 2026/27

@@ -1,0 +1,1083 @@
+artifact_id: grade-4-russian-reading-topic-inventory
+artifact_type: grade_programme_topic_inventory
+canonical_route:
+  md_path: project-files/outputs/opiq_4klass_vene_lugemine.md
+  qa_path: project-files/outputs/opiq_4klass_vene_lugemine_qa.json
+  source_archive: project-files/inputs/final-zips/opiq_4klass_4_opiq_v2.zip
+  source_id: grade-4-russian-reading
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+deduplication_policy:
+  cross_route_deduplication: false
+  edition_policy: preserve_without_obsolescence_claim
+  normalization: nfc_casefold_whitespace_punctuation
+  source_record_preservation: all_records_retained
+grade: 4
+inventory_scope: route_bounded_original_headings_and_metadata
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
+  verification_date: 2026-07-28
+record_count: 34
+route_id: grade-4-russian-reading
+schema_version: "1.0"
+subject: Russian reading
+subject_et: vene keele lugemine
+topics:
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22443
+    duplicate_group: grade-4-russian-reading-duplicate-record-c4f663d4f2
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: александр куприн слон
+    route_id: grade-4-russian-reading
+    source_headings:
+      - II
+      - III
+      - IV
+      - VI
+      - АЛЕКСАНДР КУПРИН. Слон
+      - Вопросы
+      - Задания
+      - Слон
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22443-79cb00b34c
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: АЛЕКСАНДР КУПРИН. Слон
+    topic_id: grade-4-russian-reading-topic-record-c4f663d4f2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22436
+    duplicate_group: grade-4-russian-reading-duplicate-record-1146eed37d
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: александр пушкин евгений онегин
+    route_id: grade-4-russian-reading
+    source_headings:
+      - АЛЕКСАНДР ПУШКИН. Евгений Онегин
+      - Вопросы
+      - Задания
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22436-e8f0d47f7e
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: АЛЕКСАНДР ПУШКИН. Евгений Онегин
+    topic_id: grade-4-russian-reading-topic-record-1146eed37d
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22448
+    duplicate_group: grade-4-russian-reading-duplicate-record-79d3b6a4df
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates:
+      - ee-prk-2026-stage2-literature-reading-response
+    original_heading_key: александр пушкин сказка о царе салтане о сыне его славном и могучем богатыре князе гвидоне
+      салтановиче и о прекрасной царевне лебеди
+    route_id: grade-4-russian-reading
+    source_headings:
+      - АЛЕКСАНДР ПУШКИН. Сказка о царе Салтане, о сыне его славном и могучем богатыре князе Гвидоне Салтановиче и о
+        прекрасной царевне Лебеди
+      - Вопросы
+      - Задания
+      - Сказка о царе Салтане
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22448-fb61dc1c80
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: АЛЕКСАНДР ПУШКИН. Сказка о царе Салтане, о сыне его славном и могучем богатыре князе Гвидоне Салтановиче и о
+      прекрасной царевне Лебеди
+    topic_id: grade-4-russian-reading-topic-record-79d3b6a4df
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22437
+    duplicate_group: grade-4-russian-reading-duplicate-record-3a109dd2e9
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: антон хансен таммсааре мальчик и бабочка
+    route_id: grade-4-russian-reading
+    source_headings:
+      - АНТОН-ХАНСЕН ТАММСААРЕ. Мальчик и бабочка
+      - Вопросы
+      - Задания
+      - Мальчик и бабочка
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22437-f5c8af4986
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: АНТОН-ХАНСЕН ТАММСААРЕ. Мальчик и бабочка
+    topic_id: grade-4-russian-reading-topic-record-3a109dd2e9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22452
+    duplicate_group: grade-4-russian-reading-duplicate-record-feec4bcfb3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: антон чехов ванька
+    route_id: grade-4-russian-reading
+    source_headings:
+      - "* * *"
+      - АНТОН ЧЕХОВ. Ванька
+      - Вопросы
+      - Задания
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22452-8a7ff40542
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: АНТОН ЧЕХОВ. Ванька
+    topic_id: grade-4-russian-reading-topic-record-feec4bcfb3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22444
+    duplicate_group: grade-4-russian-reading-duplicate-record-2ec1eec0a4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: астрид линдгрен мио мой мио
+    route_id: grade-4-russian-reading
+    source_headings:
+      - АСТРИД ЛИНДГРЕН. Мио, мой Мио
+      - Вопросы
+      - Задания
+      - И день и ночь в пути
+      - Колодец-сказочник
+      - Мирамис
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22444-a0afb10f61
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: АСТРИД ЛИНДГРЕН. Мио, мой Мио
+    topic_id: grade-4-russian-reading-topic-record-2ec1eec0a4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22450
+    duplicate_group: grade-4-russian-reading-duplicate-record-7639539b41
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: василий ян никита и микитка
+    route_id: grade-4-russian-reading
+    source_headings:
+      - "* * *"
+      - 4. Найди значение.
+      - В боярской усадьбе
+      - В избе у Микитки
+      - ВАСИЛИЙ ЯН. Никита и Микитка
+      - Вопросы
+      - Задания
+      - Письма из столицы домой
+      - Поездка в Москву
+      - Скорое делание книжное
+      - Учимся слушать
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22450-cdfc2dbc49
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ВАСИЛИЙ ЯН. Никита и Микитка
+    topic_id: grade-4-russian-reading-topic-record-7639539b41
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22432
+    duplicate_group: grade-4-russian-reading-duplicate-record-6566e67c98
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: виталий бианки лесной оркестр
+    route_id: grade-4-russian-reading
+    source_headings:
+      - 1. Соедини пары.
+      - ВИТАЛИЙ БИАНКИ. Лесной оркестр
+      - Вопросы
+      - Задания
+      - Лесной оркестр
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22432-7b1beb8b27
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ВИТАЛИЙ БИАНКИ. Лесной оркестр
+    topic_id: grade-4-russian-reading-topic-record-6566e67c98
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22447
+    duplicate_group: grade-4-russian-reading-duplicate-record-c352e39ec0
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: владимир одоевский мороз иванович
+    route_id: grade-4-russian-reading
+    source_headings:
+      - ВЛАДИМИР ОДОЕВСКИЙ. Мороз Иванович
+      - Вопросы
+      - Задания
+      - Мороз Иванович
+      - Учимся слушать
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22447-9272d05613
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ВЛАДИМИР ОДОЕВСКИЙ. Мороз Иванович
+    topic_id: grade-4-russian-reading-topic-record-c352e39ec0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22461
+    duplicate_group: grade-4-russian-reading-duplicate-record-95a02556f3
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: генрих сапгир смеянцы
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - ГЕНРИХ САПГИР. Смеянцы
+      - Задания
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22461-a315ca4ae0
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ГЕНРИХ САПГИР. Смеянцы
+    topic_id: grade-4-russian-reading-topic-record-95a02556f3
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22463
+    duplicate_group: grade-4-russian-reading-duplicate-record-321b95038f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: джанни родари дорога которая никуда не ведёт
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - ДЖАННИ РОДАРИ. Дорога, которая никуда не ведёт
+      - Задания
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22463-ea5c420275
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ДЖАННИ РОДАРИ. Дорога, которая никуда не ведёт
+    topic_id: grade-4-russian-reading-topic-record-321b95038f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22462
+    duplicate_group: grade-4-russian-reading-duplicate-record-302778776e
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: джанни родари машинка для приготовления уроков
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - ДЖАННИ РОДАРИ. Машинка для приготовления уроков
+      - Задания
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22462-83946132eb
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ДЖАННИ РОДАРИ. Машинка для приготовления уроков
+    topic_id: grade-4-russian-reading-topic-record-302778776e
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22464
+    duplicate_group: grade-4-russian-reading-duplicate-record-364841ce3c
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: дорогой друг
+    route_id: grade-4-russian-reading
+    source_headings:
+      - 1. Найди авторов произведений.
+      - 2. Найди авторов произведений.
+      - 3. Определи произведение.
+      - 4. Назови сказки о животных.
+      - 5. Русские народные сказки.
+      - 6. Найди авторов произведений.
+      - 7. Найди авторов стихотворений.
+      - Дорогой друг!
+      - Подумай и назови
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22464-293d9a9b90
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: Дорогой друг!
+    topic_id: grade-4-russian-reading-topic-record-364841ce3c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22435
+    duplicate_group: grade-4-russian-reading-duplicate-record-e38062b9c8
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: константин бальмонт к зиме
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - К зиме
+      - КОНСТАНТИН БАЛЬМОНТ. К зиме
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22435-92d64fb4af
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: КОНСТАНТИН БАЛЬМОНТ. К зиме
+    topic_id: grade-4-russian-reading-topic-record-e38062b9c8
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22434
+    duplicate_group: grade-4-russian-reading-duplicate-record-6f571aa58f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: константин паустовский заячьи лапы
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - Заячьи лапы
+      - КОНСТАНТИН ПАУСТОВСКИЙ. Заячьи лапы
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22434-ed5b6acb7c
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: КОНСТАНТИН ПАУСТОВСКИЙ. Заячьи лапы
+    topic_id: grade-4-russian-reading-topic-record-6f571aa58f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22440
+    duplicate_group: grade-4-russian-reading-duplicate-record-5f47ac9ccf
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: лидия чарская сибирочка
+    route_id: grade-4-russian-reading
+    source_headings:
+      - "* * *"
+      - Вместо вступления
+      - Вопросы
+      - ГЛАВА I. В огромном городе
+      - ГЛАВА I. Дедушка и внучка
+      - ГЛАВА II. Под свист ветра и песнь метели. – Неожиданное горе
+      - ГЛАВА II. Тяжёлое разочарование
+      - ГЛАВА III. Никс решает дело
+      - ГЛАВА IV. Четыре мохнатых зверя
+      - ГЛАВА XXII. «Христианка и львы»
+      - ГЛАВА XXIII. Ужас. – Спаситель
+      - ГЛАВА XXIV. Спасена
+      - ГЛАВА XXV. Крестик
+      - ГЛАВА XXVI. Что было дальше
+      - ГЛАВА XXVII. Две Али – две княжны
+      - Две Али – две княжны (2)
+      - Две Али – две княжны (3)
+      - Задания
+      - Заключение
+      - ЛИДИЯ ЧАРСКАЯ. Сибирочка
+      - Никс решает дело (2)
+      - Учимся слушать
+      - ЧАСТЬ I. В глуши Cибири
+      - ЧАСТЬ II. Маленькая укротительница львов
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22440-b605e55585
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЛИДИЯ ЧАРСКАЯ. Сибирочка
+    topic_id: grade-4-russian-reading-topic-record-5f47ac9ccf
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22455
+    duplicate_group: grade-4-russian-reading-duplicate-record-5b847c1a62
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: марк твен приключения тома сойера
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - ГЛАВА II. Великолепный маляр
+      - Задания
+      - МАРК ТВЕН. Приключения Тома Сойера
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22455-2d99366a58
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: МАРК ТВЕН. Приключения Тома Сойера
+    topic_id: grade-4-russian-reading-topic-record-5b847c1a62
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22445
+    duplicate_group: grade-4-russian-reading-duplicate-record-3643e2df78
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: мира лобе бабушка на яблоне
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Бабушка на яблоне
+      - Бабушка на яблоне (2)
+      - Бабушка на яблоне (3)
+      - Бабушка на яблоне (4)
+      - Вопросы
+      - Задания
+      - МИРА ЛОБЕ. Бабушка на яблоне
+      - Учимся слушать
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22445-c29bd612e3
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: МИРА ЛОБЕ. Бабушка на яблоне
+    topic_id: grade-4-russian-reading-topic-record-3643e2df78
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22438
+    duplicate_group: grade-4-russian-reading-duplicate-record-2f9b5a4bc2
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: михаил зощенко не надо врать
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - МИХАИЛ ЗОЩЕНКО. Не надо врать
+      - Не надо врать
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22438-878636faef
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: МИХАИЛ ЗОЩЕНКО. Не надо врать
+    topic_id: grade-4-russian-reading-topic-record-2f9b5a4bc2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22433
+    duplicate_group: grade-4-russian-reading-duplicate-record-30fd1c5098
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: михаил пришвин золотой луг
+    route_id: grade-4-russian-reading
+    source_headings:
+      - "* * *"
+      - Вопросы
+      - Задания
+      - МИХАИЛ ПРИШВИН. Золотой луг
+      - Учимся слушать
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22433-7982099efe
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: МИХАИЛ ПРИШВИН. Золотой луг
+    topic_id: grade-4-russian-reading-topic-record-30fd1c5098
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22458
+    duplicate_group: grade-4-russian-reading-duplicate-record-c5172bfffc
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: михаил ревенко как христофор колумб в поход собрался или о том как европа нечаянно открыла америку
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - МИХАИЛ РЕВЕНКО. Как Христофор Колумб в поход собрался, или О том, как Европа нечаянно открыла Америку
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22458-823a3d04e1
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: МИХАИЛ РЕВЕНКО. Как Христофор Колумб в поход собрался, или О том, как Европа нечаянно открыла Америку
+    topic_id: grade-4-russian-reading-topic-record-c5172bfffc
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22459
+    duplicate_group: grade-4-russian-reading-duplicate-record-61134be223
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: михаил ревенко человек с луны или о том как и сто лет спустя помнят папуасы друга и заступника н н миклухо маклая
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - Как живут на Луне?
+      - МИХАИЛ РЕВЕНКО. «Человек с Луны», или О том, как и сто лет спустя помнят папуасы друга и заступника Н. Н.
+        Миклухо-Маклая
+      - Учимся слушать
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22459-8a1aec62c4
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: МИХАИЛ РЕВЕНКО. «Человек с Луны», или О том, как и сто лет спустя помнят папуасы друга и заступника Н. Н.
+      Миклухо-Маклая
+    topic_id: grade-4-russian-reading-topic-record-61134be223
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22451
+    duplicate_group: grade-4-russian-reading-duplicate-record-1a3cff80de
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: николай некрасов крестьянские дети
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - НИКОЛАЙ НЕКРАСОВ. Крестьянские дети
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22451-16f4638b4d
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: НИКОЛАЙ НЕКРАСОВ. Крестьянские дети
+    topic_id: grade-4-russian-reading-topic-record-1a3cff80de
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22453
+    duplicate_group: grade-4-russian-reading-duplicate-record-fba6533ede
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: оскар лутс щенок в школе
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - ОСКАР ЛУТС. Щенок в школе
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22453-36aaee4e88
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ОСКАР ЛУТС. Щенок в школе
+    topic_id: grade-4-russian-reading-topic-record-fba6533ede
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22446
+    duplicate_group: grade-4-russian-reading-duplicate-record-92c4c0361f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: русская народная сказка морозко
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - РУССКАЯ НАРОДНАЯ СКАЗКА. Морозко
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22446-798b7ba258
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: РУССКАЯ НАРОДНАЯ СКАЗКА. Морозко
+    topic_id: grade-4-russian-reading-topic-record-92c4c0361f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22460
+    duplicate_group: grade-4-russian-reading-duplicate-record-0598fc7a5b
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: саша чёрный дневник фокса микки
+    route_id: grade-4-russian-reading
+    source_headings:
+      - "* * *"
+      - 1. Кого Микки видел в зоологическом саду?
+      - 2. Какие животные понравились Микки?
+      - 3. О каких животных идёт речь?
+      - Вопросы
+      - Дневник Фокса Микки (2)
+      - Задания
+      - Осенний кавардак
+      - САША ЧЁРНЫЙ. Дневник Фокса Микки
+      - Учимся слушать
+      - Я один
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22460-08d8299a4b
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: САША ЧЁРНЫЙ. Дневник Фокса Микки
+    topic_id: grade-4-russian-reading-topic-record-0598fc7a5b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22431
+    duplicate_group: grade-4-russian-reading-duplicate-record-7de7053ee0
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: сергей есенин с добрым утром
+    route_id: grade-4-russian-reading
+    source_headings:
+      - 1. Найди пары.
+      - Вопросы
+      - Задания
+      - СЕРГЕЙ ЕСЕНИН. С добрым утром!
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22431-7cb1ebe3c7
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: СЕРГЕЙ ЕСЕНИН. С добрым утром!
+    topic_id: grade-4-russian-reading-topic-record-7de7053ee0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22441
+    duplicate_group: grade-4-russian-reading-duplicate-record-fa1d68dbc1
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: филип пулман чучело и его слуга
+    route_id: grade-4-russian-reading
+    source_headings:
+      - 1. Восстанови порядок событий.
+      - 2. Перескажи текст по своему плану.
+      - 3. Найди пары.
+      - 4. Придумай конец сказки.
+      - Вопросы
+      - Задания
+      - Молния
+      - Разбойники
+      - Сказка у костра
+      - ФИЛИП ПУЛМАН. Чучело и его слуга
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22441-bdab874605
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ФИЛИП ПУЛМАН. Чучело и его слуга
+    topic_id: grade-4-russian-reading-topic-record-fa1d68dbc1
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22442
+    duplicate_group: grade-4-russian-reading-duplicate-record-b101a55f54
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: эно рауд муфта полботинка и моховая борода
+    route_id: grade-4-russian-reading
+    source_headings:
+      - 1. Определи героев сказки.
+      - 2. Машина Муфты
+      - Вопросы
+      - Задания
+      - КНИГА 1. Встреча у киоска
+      - КНИГА 4. Ужасный случай в лесу
+      - ЭНО РАУД. Муфта, Полботинка и Моховая Борода
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22442-308c550fec
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЭНО РАУД. Муфта, Полботинка и Моховая Борода
+    topic_id: grade-4-russian-reading-topic-record-b101a55f54
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22449
+    duplicate_group: grade-4-russian-reading-duplicate-record-c99cb762fc
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: юнна мориц песенка про сказку
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - ЮННА МОРИЦ. Песенка про сказку
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22449-20eff74623
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЮННА МОРИЦ. Песенка про сказку
+    topic_id: grade-4-russian-reading-topic-record-c99cb762fc
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22454
+    duplicate_group: grade-4-russian-reading-duplicate-record-40727837f4
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: юри парийыги сассь газетчик покупает коньки
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - ЮРИ ПАРИЙЫГИ. Сассь-газетчик покупает коньки
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22454-f21aeba3c4
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЮРИ ПАРИЙЫГИ. Сассь-газетчик покупает коньки
+    topic_id: grade-4-russian-reading-topic-record-40727837f4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22457
+    duplicate_group: grade-4-russian-reading-duplicate-record-117be0a562
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: юрий никифоров валуны
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - ЮРИЙ НИКИФОРОВ. Валуны
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22457-31d7f0a48f
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЮРИЙ НИКИФОРОВ. Валуны
+    topic_id: grade-4-russian-reading-topic-record-117be0a562
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22456
+    duplicate_group: grade-4-russian-reading-duplicate-record-86fe9dda66
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: юрий никифоров жилая рига
+    route_id: grade-4-russian-reading
+    source_headings:
+      - Вопросы
+      - Задания
+      - ЮРИЙ НИКИФОРОВ. Жилая рига
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22456-ad1c203d73
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЮРИЙ НИКИФОРОВ. Жилая рига
+    topic_id: grade-4-russian-reading-topic-record-86fe9dda66
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - русское_слово._чтение_для_4_клacca__kit415
+    canonical_urls:
+      - https://www.opiq.ee/kit/415/chapter/22439
+    duplicate_group: grade-4-russian-reading-duplicate-record-e10cc71b6f
+    edition_relationships: single_record_group
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "415"
+    notes: Clustered only within this route from original headings; translated query metadata is not treated as source prose.
+    official_outcome_candidates: []
+    original_heading_key: юрий яковлев багульник
+    route_id: grade-4-russian-reading
+    source_headings:
+      - "* * *"
+      - Багульник
+      - Вопросы
+      - Задания
+      - ЮРИЙ ЯКОВЛЕВ. Багульник
+    source_languages:
+      - ru
+    source_record_ids:
+      - grade-4-russian-reading-record-415-https-www-opiq-ee-kit-415-chapter-22439-7eaa1ee57f
+    task_example_status: not_captured
+    title_et: Eestikeelne pealkiri ei ole lähteandmetes kinnitatud
+    title_ru: ЮРИЙ ЯКОВЛЕВ. Багульник
+    topic_id: grade-4-russian-reading-topic-record-e10cc71b6f

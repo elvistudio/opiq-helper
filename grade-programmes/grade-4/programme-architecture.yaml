@@ -1,0 +1,196 @@
+alternative_profiles:
+  - activation: explicit_language_profile_selection
+    profile_id: first-language-estonian-alternative
+    route_id: grade-4-estonian
+  - activation: learner_specific_simplified_opt_in
+    profile_id: grade-4-human-studies-simplified-opt-in
+    route_id: grade-4-human-studies-simplified
+  - activation: learner_specific_simplified_opt_in
+    profile_id: grade-4-mathematics-simplified-opt-in
+    route_id: grade-4-mathematics-simplified
+annual_sequence: grade-programmes/grade-4/teaching-calendar.yaml
+artifact_id: grade-4-programme-architecture
+artifact_type: grade_programme_architecture
+completeness:
+  declared_complete: false
+  known_gaps:
+    - "Final Riigi Teataja refresh remains tracked under issue #37."
+    - The official baseline is intentionally non-exhaustive outside its declared scope.
+    - Complete Opiq instructional page prose was not captured.
+    - Task bodies were only partially captured.
+    - An exclusive Grade 4 art route is missing.
+    - An exclusive Grade 4 technology, craft and home-economics route is missing.
+    - An exclusive Grade 4 physical-education route is missing.
+    - The independently authored standalone commercial core is not implemented.
+    - Originality review is not yet applicable because production materials are absent.
+    - Customer companion access has not been verified.
+    - Default-core source programme types remain unverified.
+    - Pedagogical effectiveness has not been established.
+  status: partial
+delivery_model:
+  core_mode: standalone_commercial_core
+  customer_can_complete_without_opiq: true
+  opiq_companion_policy: optional
+  opiq_required: false
+  publication_status: internal_review
+estonian_language_progression: grade-programmes/grade-4/language-progression.yaml
+grade: 4
+implementation_roadmap: grade-programmes/grade-4/implementation-roadmap.yaml
+known_gaps:
+  - "Final Riigi Teataja refresh remains tracked under issue #37."
+  - The official baseline is intentionally non-exhaustive outside its declared scope.
+  - Complete Opiq instructional page prose was not captured.
+  - Task bodies were only partially captured.
+  - An exclusive Grade 4 art route is missing.
+  - An exclusive Grade 4 technology, craft and home-economics route is missing.
+  - An exclusive Grade 4 physical-education route is missing.
+  - The independently authored standalone commercial core is not implemented.
+  - Originality review is not yet applicable because production materials are absent.
+  - Customer companion access has not been verified.
+  - Default-core source programme types remain unverified.
+  - Pedagogical effectiveness has not been established.
+learner_profile:
+  english_role: foreign_language
+  estonian_subject_level: A1-A2
+  estonian_subject_route: grade-4-estonian-second-language
+  primary_language: ru
+  subject_explanation_language: ru
+  subject_support_language: et
+mastery_strands: grade-programmes/grade-4/mastery-strands.yaml
+official_field_gaps:
+  - content_strategy: author_created_required
+    field_id: art
+    outcome_ids:
+      - ee-prk-2026-stage2-art-design-process
+    release_status: blocked
+    source_status: missing_route
+  - content_strategy: additional_source_capture_required
+    field_id: technology_craft_home_economics
+    outcome_ids:
+      - ee-prk-2026-stage2-technology-sustainable-safe-work
+    release_status: blocked
+    source_status: missing_route
+  - content_strategy: school_specific_resource_required
+    field_id: physical_education
+    outcome_ids:
+      - ee-prk-2026-stage2-physical-education-safe-movement
+    release_status: blocked
+    source_status: missing_route
+opiq_companion_policy:
+  access_mode: unverified
+  check_status: not_checked
+  default_visibility: internal_only
+  standalone_fallback_required: true
+  teacher_only_allowed: false
+practical_and_community_learning:
+  classification: recommended_good_practice
+  principle: Use safe age-appropriate application while retaining individual evidence and explicit source gaps.
+programme_id: grade-4-standalone-commercial-programme-2026-27
+project_modules: grade-programmes/grade-4/project-modules.yaml
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
+  claim_boundary: Recommended Grade 4 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  verification_date: 2026-07-28
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+release_gate:
+  blocker_codes:
+    - default_core_programme_type_unverified
+  blockers:
+    - "Final Riigi Teataja refresh remains tracked under issue #37."
+    - The official baseline is intentionally non-exhaustive outside its declared scope.
+    - Complete Opiq instructional page prose was not captured.
+    - Task bodies were only partially captured.
+    - An exclusive Grade 4 art route is missing.
+    - An exclusive Grade 4 technology, craft and home-economics route is missing.
+    - An exclusive Grade 4 physical-education route is missing.
+    - The independently authored standalone commercial core is not implemented.
+    - Originality review is not yet applicable because production materials are absent.
+    - Customer companion access has not been verified.
+    - Default-core source programme types remain unverified.
+    - Pedagogical effectiveness has not been established.
+  classroom_ready: false
+  effectiveness_claimed: false
+  publication_ready: false
+  status: blocked
+revision_and_assessment_calendar: grade-programmes/grade-4/teaching-calendar.yaml
+route_strands:
+  - book_inventory_ref: curriculum-maps/grade-4-russian/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-russian/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-russian/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-russian
+    topic_inventory_ref: curriculum-maps/grade-4-russian/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-russian-reading/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-russian-reading/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-russian-reading/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-russian-reading
+    topic_inventory_ref: curriculum-maps/grade-4-russian-reading/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-estonian/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-estonian/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-estonian/official-curriculum.yaml
+    programme_role: alternative_language_profile
+    route_id: grade-4-estonian
+    topic_inventory_ref: curriculum-maps/grade-4-estonian/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-estonian-second-language/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-estonian-second-language/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-estonian-second-language/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-estonian-second-language
+    topic_inventory_ref: curriculum-maps/grade-4-estonian-second-language/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-english/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-english/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-english/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-english
+    topic_inventory_ref: curriculum-maps/grade-4-english/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-human-studies-and-society/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-human-studies-and-society/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-human-studies-and-society/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-human-studies-and-society
+    topic_inventory_ref: curriculum-maps/grade-4-human-studies-and-society/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-human-studies-simplified/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-human-studies-simplified/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-human-studies-simplified/official-curriculum.yaml
+    programme_role: learner_specific_simplified
+    route_id: grade-4-human-studies-simplified
+    topic_inventory_ref: curriculum-maps/grade-4-human-studies-simplified/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-science/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-science/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-science/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-science
+    topic_inventory_ref: curriculum-maps/grade-4-science/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-mathematics/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-mathematics/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-mathematics/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-mathematics
+    topic_inventory_ref: curriculum-maps/grade-4-mathematics/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-mathematics-simplified/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-mathematics-simplified/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-mathematics-simplified/official-curriculum.yaml
+    programme_role: learner_specific_simplified
+    route_id: grade-4-mathematics-simplified
+    topic_inventory_ref: curriculum-maps/grade-4-mathematics-simplified/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-4-music/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-4-music/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-4-music/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-4-music
+    topic_inventory_ref: curriculum-maps/grade-4-music/topic-inventory.yaml
+schema_version: "1.0"
+target_school_year: 2026/27

@@ -1,0 +1,56 @@
+artifact_id: grade-4-mathematics-simplified-coverage
+artifact_type: grade_programme_route_coverage
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Full prose, complete task bodies, authored lessons and assessment evidence remain unavailable.
+  status: partial
+grade: 4
+official_curriculum_ref: curriculum-maps/grade-4-mathematics-simplified/official-curriculum.yaml
+route_id: grade-4-mathematics-simplified
+rows:
+  - assessment_evidence_status: missing
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: official_exact_grade
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: true
+      grade: 4
+      kind: exact_grade
+    outcome_id: ee-plrk-2026-grade4-mathematics-number-range
+    route_ids:
+      - grade-4-mathematics-simplified
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The headings explicitly cover reading numbers and addition to one hundred, matching the exact Grade 4 simplified
+        outcome.
+      policy_alignment_id: outcome-simplified-number-range
+      source_record_ids:
+        - grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15803-ec865471ea
+        - grade-4-mathematics-simplified-record-282-https-www-opiq-ee-kit-282-chapter-15833-1859b2bcb1
+      status: verified
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-4-mathematics-simplified-topic-arvu-kumnendkoostis-13-18-0ee743aa48
+        - grade-4-mathematics-simplified-topic-liitmine-sajani-192-199-b976dc3f3c
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-4-mathematics-simplified-topic-arvu-kumnendkoostis-13-18-0ee743aa48
+      - grade-4-mathematics-simplified-topic-liitmine-sajani-192-199-b976dc3f3c
+schema_version: "1.0"
+summary:
+  ambiguous: 0
+  missing: 0
+  outcome_count: 1
+  partial: 1
+  verified_full_coverage: 0
+topic_inventory_ref: curriculum-maps/grade-4-mathematics-simplified/topic-inventory.yaml

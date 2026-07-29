@@ -1,0 +1,68 @@
+artifact_id: grade-4-implementation-roadmap
+artifact_type: grade_programme_implementation_roadmap
+future_material_ids:
+  - grade-4-art-author-created-core
+  - grade-4-technology-author-created-core
+  - grade-4-physical-education-school-specific-core
+grade: 4
+non_goals:
+  - No full lessons are authored in this change.
+  - No textbook prose or task body is reconstructed.
+  - No publication or effectiveness status is granted.
+programme_id: grade-4-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-4-canonical-source-import.md
+    - docs/audits/grade-4-content-quality.md
+    - docs/audits/grade-4-live-catalogue-gap-review.md
+    - evaluations/grade-4-content-quality-report.json
+    - evaluations/grade-4-source-gap-report.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-4/topic-alignment-policy.yaml
+  claim_boundary: Recommended Grade 4 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-4-course-architecture.mjs
+  verification_date: 2026-07-28
+release_blocker_codes:
+  - default_core_programme_type_unverified
+release_blockers:
+  - "Final Riigi Teataja refresh remains tracked under issue #37."
+  - The official baseline is intentionally non-exhaustive outside its declared scope.
+  - Complete Opiq instructional page prose was not captured.
+  - Task bodies were only partially captured.
+  - An exclusive Grade 4 art route is missing.
+  - An exclusive Grade 4 technology, craft and home-economics route is missing.
+  - An exclusive Grade 4 physical-education route is missing.
+  - The independently authored standalone commercial core is not implemented.
+  - Originality review is not yet applicable because production materials are absent.
+  - Customer companion access has not been verified.
+  - Default-core source programme types remain unverified.
+  - Pedagogical effectiveness has not been established.
+schema_version: "1.0"
+stages:
+  - deliverables:
+      - route maps
+      - source inventories
+      - coverage and programme architecture
+    entry_gate: Authoritative inputs validate.
+    stage_id: architecture-and-evidence
+    status: complete
+  - deliverables:
+      - standalone explanations
+      - tasks
+      - answer evidence
+    entry_gate: Architecture review and source-gap decisions are accepted.
+    stage_id: clean-room-authoring
+    status: not_started
+  - deliverables:
+      - originality review
+      - teacher review
+      - classroom and home trials
+    entry_gate: Production materials exist and pass structural validation.
+    stage_id: production-validation
+    status: blocked
+status: architecture_only
+target_school_year: 2026/27

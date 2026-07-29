@@ -1,0 +1,58 @@
+artifact_id: grade-4-science-coverage
+artifact_type: grade_programme_route_coverage
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Full prose, complete task bodies, authored lessons and assessment evidence remain unavailable.
+  status: partial
+grade: 4
+official_curriculum_ref: curriculum-maps/grade-4-science/official-curriculum.yaml
+route_id: grade-4-science
+rows:
+  - assessment_evidence_status: partial
+    blocking_gaps:
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    coverage_status: partial
+    curated_grade_4_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 2
+      terminal_grade: 6
+    outcome_id: ee-prk-2026-stage2-natural-science-inquiry
+    route_ids:
+      - grade-4-science
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The records use evidence to examine Earth shape, supporting inquiry practice but not the complete
+        local-field-study outcome.
+      policy_alignment_id: outcome-natural-science-inquiry
+      source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-4-science-record-11-https-www-opiq-ee-kit-11-chapter-457-81bab0ce8a
+        - grade-4-science-record-480-https-www-opiq-ee-kit-480-chapter-26384-62aea8d6d4
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-4-science-topic-maa-kuju-4c14102446
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-4-science-topic-maa-kuju-4c14102446
+schema_version: "1.0"
+summary:
+  ambiguous: 0
+  missing: 0
+  outcome_count: 1
+  partial: 1
+  verified_full_coverage: 0
+topic_inventory_ref: curriculum-maps/grade-4-science/topic-inventory.yaml

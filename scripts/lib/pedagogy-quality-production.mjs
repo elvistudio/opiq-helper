@@ -67,6 +67,42 @@ const WATER_LEGACY_CONTROL_LESSONS = [
   'lesson-plans/grade-5-science/water-use-cycle/lesson-06.yaml',
 ];
 
+const WATER_QUALITY_SHARED_DEPENDENCIES = new Set([
+  'external-sources/registry.yaml',
+  'lesson-plans/language-profiles.yaml',
+  'project-files/inputs/final-zips/opiq_opiq_loodusopetus_5_klassile_2024_opiq_v2.zip',
+  'project-files/outputs/opiq_5klass_loodusopetus.md',
+  'project-files/outputs/opiq_5klass_loodusopetus_qa.json',
+  'schemas/annual-course-components.schema.json',
+  'schemas/annual-course.schema.json',
+  'schemas/course-map.schema.json',
+  'schemas/curriculum-map.schema.json',
+  'schemas/external-source-registry.schema.json',
+  'schemas/language-profiles.schema.json',
+  'schemas/lesson-plan.schema.json',
+  'schemas/pedagogy-generation-integration.schema.json',
+  'schemas/pedagogy-regression-cases.schema.json',
+  'schemas/teacher-pack.schema.json',
+  'schemas/teaching-plan-common.schema.json',
+  'schemas/thematic-plan.schema.json',
+  'schemas/topic-synthesis.schema.json',
+  'source-manifest.json',
+]);
+
+const WATER_QUALITY_SCOPED_PREFIXES = [
+  'annual-courses/grade-5-science/',
+  'curriculum-maps/grade-5-science/',
+  'knowledge/pedagogy/',
+  'lesson-plans/grade-5-science/',
+  'pedagogical-reviews/grade-5-science/',
+  'teacher-packs/grade-5-science/',
+];
+
+function waterQualityDependencyPath(repositoryPath) {
+  return WATER_QUALITY_SHARED_DEPENDENCIES.has(repositoryPath)
+    || WATER_QUALITY_SCOPED_PREFIXES.some((prefix) => repositoryPath.startsWith(prefix));
+}
+
 const DEMAND_ORDER = new Map([
   ['none', 0],
   ['very_low', 1],
@@ -1624,9 +1660,9 @@ export async function loadWaterPilotPedagogyQualityRepository({
     ...configuration,
     records,
     loadedArtifactPaths: uniqueSorted([
-      ...(lessonRepository.loadedArtifactPaths ?? []),
-      ...(teacherPackRepository.loadedArtifactPaths ?? []),
-      ...(currentHomeschoolRepository.loadedArtifactPaths ?? []),
+      ...(lessonRepository.loadedArtifactPaths ?? []).filter(waterQualityDependencyPath),
+      ...(teacherPackRepository.loadedArtifactPaths ?? []).filter(waterQualityDependencyPath),
+      ...(currentHomeschoolRepository.loadedArtifactPaths ?? []).filter(waterQualityDependencyPath),
       configuration.cataloguePath,
       configuration.exceptionsPath,
       ...records.flatMap((record) => record.checked_artifacts ?? []),

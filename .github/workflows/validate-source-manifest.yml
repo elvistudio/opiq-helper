@@ -8,6 +8,7 @@ on:
       - project-files/**
       - evaluations/**
       - curriculum-maps/**
+      - grade-programmes/**
       - compliance/**
       - lesson-plans/**
       - teacher-packs/**
@@ -17,6 +18,8 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/grade-4-course-architecture.md
+      - docs/templates/grade-programme.md
       - docs/2026-27-curriculum-compliance-baseline.md
       - docs/compliance/**
       - docs/audits/grade-4-source-intake.md
@@ -50,6 +53,7 @@ on:
       - project-files/**
       - evaluations/**
       - curriculum-maps/**
+      - grade-programmes/**
       - compliance/**
       - lesson-plans/**
       - teacher-packs/**
@@ -59,6 +63,8 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/grade-4-course-architecture.md
+      - docs/templates/grade-programme.md
       - docs/2026-27-curriculum-compliance-baseline.md
       - docs/compliance/**
       - docs/audits/grade-4-source-intake.md
@@ -252,6 +258,12 @@ jobs:
 
       - name: Check Grade 4 live-catalogue gap artifacts
         run: npm run check:grade-4-catalogue-gap
+
+      - name: Test Grade 4 course architecture
+        run: npm run test:grade-4-course-architecture
+
+      - name: Check generated Grade 4 course architecture
+        run: npm run check:grade-4-course-architecture
 
       - name: Verify generated grade 2 source indexes
         run: npm run check:grade-2-sources

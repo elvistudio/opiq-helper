@@ -1,0 +1,672 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/grade-programme.schema.json",
+  "title": "Opiq Helper multi-subject grade programme artifacts",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/architecture" },
+    { "$ref": "#/$defs/routeIndex" },
+    { "$ref": "#/$defs/projects" },
+    { "$ref": "#/$defs/mastery" },
+    { "$ref": "#/$defs/language" },
+    { "$ref": "#/$defs/calendar" },
+    { "$ref": "#/$defs/roadmap" }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "routeId": {
+      "type": "string",
+      "pattern": "^grade-4-[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "releaseBlockerCode": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "projectSourceAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_alignment_id",
+        "route_id",
+        "status",
+        "topic_cluster_refs",
+        "source_record_ids",
+        "match_basis",
+        "task_evidence_status",
+        "task_evidence_source_record_ids",
+        "notes"
+      ],
+      "properties": {
+        "policy_alignment_id": { "$ref": "#/$defs/slug" },
+        "route_id": { "$ref": "#/$defs/routeId" },
+        "status": { "enum": ["verified", "partial", "missing", "ambiguous"] },
+        "topic_cluster_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "match_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "original_heading",
+              "captured_task_example",
+              "book_or_kit_metadata",
+              "reviewed_subject_mapping"
+            ]
+          }
+        },
+        "task_evidence_status": { "enum": ["linked", "not_linked", "not_captured"] },
+        "task_evidence_source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    },
+    "lessonEstimate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum", "maximum", "estimate_basis", "confidence", "notes"],
+      "properties": {
+        "minimum": { "type": "integer", "minimum": 1 },
+        "maximum": { "type": "integer", "minimum": 1 },
+        "estimate_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "topic_cluster_count",
+              "prerequisite_complexity",
+              "practical_work",
+              "revision",
+              "assessment",
+              "language_support",
+              "source_readiness"
+            ]
+          }
+        },
+        "confidence": { "enum": ["low", "medium"] },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "declared_complete", "known_gaps"],
+      "properties": {
+        "status": { "const": "partial" },
+        "declared_complete": { "const": false },
+        "known_gaps": {
+          "type": "array",
+          "minItems": 10,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 10 }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authoritative_inputs", "generated_by", "verification_date", "claim_boundary"],
+      "properties": {
+        "authoritative_inputs": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "generated_by": { "const": "scripts/generate-grade-4-course-architecture.mjs" },
+        "verification_date": { "const": "2026-07-28" },
+        "claim_boundary": { "type": "string", "minLength": 30 }
+      }
+    },
+    "common": {
+      "type": "object",
+      "required": ["schema_version", "artifact_type", "artifact_id", "programme_id", "grade", "target_school_year"],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "artifact_type": { "type": "string" },
+        "artifact_id": { "$ref": "#/$defs/slug" },
+        "programme_id": { "const": "grade-4-standalone-commercial-programme-2026-27" },
+        "grade": { "const": 4 },
+        "target_school_year": { "const": "2026/27" }
+      }
+    },
+    "architecture": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": [
+            "learner_profile",
+            "alternative_profiles",
+            "regulatory_baseline_ref",
+            "delivery_model",
+            "route_strands",
+            "official_field_gaps",
+            "mastery_strands",
+            "project_modules",
+            "annual_sequence",
+            "practical_and_community_learning",
+            "revision_and_assessment_calendar",
+            "estonian_language_progression",
+            "opiq_companion_policy",
+            "implementation_roadmap",
+            "completeness",
+            "release_gate",
+            "known_gaps",
+            "provenance"
+          ],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_architecture" },
+            "learner_profile": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "primary_language",
+                "estonian_subject_route",
+                "estonian_subject_level",
+                "subject_explanation_language",
+                "subject_support_language",
+                "english_role"
+              ],
+              "properties": {
+                "primary_language": { "const": "ru" },
+                "estonian_subject_route": { "const": "grade-4-estonian-second-language" },
+                "estonian_subject_level": { "const": "A1-A2" },
+                "subject_explanation_language": { "const": "ru" },
+                "subject_support_language": { "const": "et" },
+                "english_role": { "const": "foreign_language" }
+              }
+            },
+            "alternative_profiles": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["profile_id", "route_id", "activation"],
+                "properties": {
+                  "profile_id": { "$ref": "#/$defs/slug" },
+                  "route_id": { "$ref": "#/$defs/routeId" },
+                  "activation": {
+                    "enum": ["explicit_language_profile_selection", "learner_specific_simplified_opt_in"]
+                  }
+                }
+              }
+            },
+            "regulatory_baseline_ref": {
+              "const": "compliance/estonia/2026-27/outcome-index.yaml"
+            },
+            "delivery_model": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "core_mode",
+                "opiq_required",
+                "opiq_companion_policy",
+                "customer_can_complete_without_opiq",
+                "publication_status"
+              ],
+              "properties": {
+                "core_mode": { "const": "standalone_commercial_core" },
+                "opiq_required": { "const": false },
+                "opiq_companion_policy": { "const": "optional" },
+                "customer_can_complete_without_opiq": { "const": true },
+                "publication_status": { "const": "internal_review" }
+              }
+            },
+            "route_strands": {
+              "type": "array",
+              "minItems": 11,
+              "maxItems": 11,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["route_id", "programme_role", "official_curriculum_ref", "book_inventory_ref", "topic_inventory_ref", "coverage_ref"],
+                "properties": {
+                  "route_id": { "$ref": "#/$defs/routeId" },
+                  "programme_role": {
+                    "enum": ["default_ordinary_core", "alternative_language_profile", "learner_specific_simplified"]
+                  },
+                  "official_curriculum_ref": { "$ref": "#/$defs/repositoryPath" },
+                  "book_inventory_ref": { "$ref": "#/$defs/repositoryPath" },
+                  "topic_inventory_ref": { "$ref": "#/$defs/repositoryPath" },
+                  "coverage_ref": { "$ref": "#/$defs/repositoryPath" }
+                }
+              }
+            },
+            "official_field_gaps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["field_id", "outcome_ids", "source_status", "content_strategy", "release_status"],
+                "properties": {
+                  "field_id": { "enum": ["art", "technology_craft_home_economics", "physical_education"] },
+                  "outcome_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "$ref": "#/$defs/slug" }
+                  },
+                  "source_status": { "const": "missing_route" },
+                  "content_strategy": {
+                    "enum": ["author_created_required", "additional_source_capture_required", "school_specific_resource_required"]
+                  },
+                  "release_status": { "const": "blocked" }
+                }
+              }
+            },
+            "mastery_strands": { "$ref": "#/$defs/repositoryPath" },
+            "project_modules": { "$ref": "#/$defs/repositoryPath" },
+            "annual_sequence": { "$ref": "#/$defs/repositoryPath" },
+            "practical_and_community_learning": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["classification", "principle"],
+              "properties": {
+                "classification": { "const": "recommended_good_practice" },
+                "principle": { "type": "string", "minLength": 20 }
+              }
+            },
+            "revision_and_assessment_calendar": { "$ref": "#/$defs/repositoryPath" },
+            "estonian_language_progression": { "$ref": "#/$defs/repositoryPath" },
+            "opiq_companion_policy": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["default_visibility", "access_mode", "check_status", "standalone_fallback_required", "teacher_only_allowed"],
+              "properties": {
+                "default_visibility": { "const": "internal_only" },
+                "access_mode": { "const": "unverified" },
+                "check_status": { "const": "not_checked" },
+                "standalone_fallback_required": { "const": true },
+                "teacher_only_allowed": { "const": false }
+              }
+            },
+            "implementation_roadmap": { "$ref": "#/$defs/repositoryPath" },
+            "completeness": { "$ref": "#/$defs/completeness" },
+            "release_gate": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["status", "publication_ready", "classroom_ready", "effectiveness_claimed", "blocker_codes", "blockers"],
+              "properties": {
+                "status": { "const": "blocked" },
+                "publication_ready": { "const": false },
+                "classroom_ready": { "const": false },
+                "effectiveness_claimed": { "const": false },
+                "blocker_codes": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": { "$ref": "#/$defs/releaseBlockerCode" }
+                },
+                "blockers": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": { "type": "string", "minLength": 10 }
+                }
+              }
+            },
+            "known_gaps": {
+              "type": "array",
+              "minItems": 10,
+              "items": { "type": "string", "minLength": 10 }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "routeIndex": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["canonical_record_total", "live_student_kit_count", "new_exact_grade_4_student_candidates", "simplified_route_count", "mixed_route_count", "routes", "missing_exclusive_route_fields", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_route_index" },
+            "canonical_record_total": { "const": 2212 },
+            "live_student_kit_count": { "const": 31 },
+            "new_exact_grade_4_student_candidates": { "const": 0 },
+            "simplified_route_count": { "const": 2 },
+            "mixed_route_count": { "const": 1 },
+            "routes": {
+              "type": "array",
+              "minItems": 11,
+              "maxItems": 11,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["route_id", "record_count", "kit_ids", "programme_type", "programme_role", "md_path", "route_directory", "companion_candidates"],
+                "properties": {
+                  "route_id": { "$ref": "#/$defs/routeId" },
+                  "record_count": { "type": "integer", "minimum": 1 },
+                  "kit_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "type": "string", "pattern": "^[0-9]+$" }
+                  },
+                  "programme_type": { "enum": ["unknown", "mixed_subject", "simplified_curriculum"] },
+                  "programme_role": { "enum": ["default_ordinary_core", "alternative_language_profile", "learner_specific_simplified"] },
+                  "md_path": { "$ref": "#/$defs/repositoryPath" },
+                  "route_directory": { "$ref": "#/$defs/repositoryPath" },
+                  "companion_candidates": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": ["candidate_id", "kit_id", "canonical_urls", "visibility", "access", "check_status", "standalone_fallback_required", "customer_visible", "teacher_only"],
+                      "properties": {
+                        "candidate_id": { "$ref": "#/$defs/slug" },
+                        "kit_id": { "type": "string", "pattern": "^[0-9]+$" },
+                        "canonical_urls": {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/kit/[0-9]+/chapter/[0-9]+$" }
+                        },
+                        "visibility": { "const": "internal_only" },
+                        "access": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": ["mode"],
+                          "properties": { "mode": { "const": "unverified" } }
+                        },
+                        "check_status": { "const": "not_checked" },
+                        "standalone_fallback_required": { "const": true },
+                        "customer_visible": { "const": false },
+                        "teacher_only": { "const": false }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "missing_exclusive_route_fields": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": { "enum": ["art", "technology_craft_home_economics", "physical_education"] }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project_id", "title_ru", "title_et", "driving_question_ru", "linked_route_ids", "linked_outcome_ids", "source_alignments", "topic_cluster_refs", "prerequisites", "estimated_lesson_range", "shared_product", "individual_grade_4_evidence", "russian_subject_evidence", "estonian_language_evidence", "mathematics_or_data_evidence", "practical_or_community_component", "source_gaps", "author_created_components_required", "opiq_companion_candidate_ids"],
+      "properties": {
+        "project_id": { "$ref": "#/$defs/slug" },
+        "title_ru": { "type": "string", "minLength": 3 },
+        "title_et": { "type": "string", "minLength": 3 },
+        "driving_question_ru": { "type": "string", "minLength": 10 },
+        "linked_route_ids": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/routeId" } },
+        "linked_outcome_ids": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/slug" } },
+        "source_alignments": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/projectSourceAlignment" }
+        },
+        "topic_cluster_refs": { "type": "array", "items": { "$ref": "#/$defs/slug" } },
+        "prerequisites": { "type": "array", "items": { "$ref": "#/$defs/slug" } },
+        "estimated_lesson_range": { "$ref": "#/$defs/lessonEstimate" },
+        "shared_product": { "type": "string", "minLength": 10 },
+        "individual_grade_4_evidence": { "type": "string", "minLength": 10 },
+        "russian_subject_evidence": { "type": "string", "minLength": 10 },
+        "estonian_language_evidence": { "type": "string", "minLength": 10 },
+        "mathematics_or_data_evidence": { "type": "string", "minLength": 10 },
+        "practical_or_community_component": { "type": "string", "minLength": 10 },
+        "source_gaps": { "type": "array", "items": { "type": "string", "minLength": 10 } },
+        "author_created_components_required": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 10 } },
+        "opiq_companion_candidate_ids": { "type": "array", "items": { "$ref": "#/$defs/slug" } }
+      }
+    },
+    "projects": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["principle", "projects", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_project_modules" },
+            "principle": { "const": "projects_apply_but_do_not_replace_mastery_strands" },
+            "projects": { "type": "array", "minItems": 4, "maxItems": 6, "items": { "$ref": "#/$defs/project" } },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "masteryStrand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strand_id", "route_id", "cadence", "planning_basis", "core_skills", "estonian_language_functions", "assessment_evidence", "revision_cycle", "estimated_lesson_range"],
+      "properties": {
+        "strand_id": { "$ref": "#/$defs/slug" },
+        "route_id": { "$ref": "#/$defs/routeId" },
+        "cadence": { "enum": ["daily_or_near_daily", "three_to_four_times_weekly", "weekly", "project_window"] },
+        "planning_basis": { "const": "opiq_helper_recommendation_not_national_timetable" },
+        "core_skills": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 3 } },
+        "estonian_language_functions": { "type": "array", "items": { "type": "string", "minLength": 3 } },
+        "assessment_evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 3 } },
+        "revision_cycle": { "type": "string", "minLength": 10 },
+        "estimated_lesson_range": { "$ref": "#/$defs/lessonEstimate" }
+      }
+    },
+    "mastery": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["mastery_strands", "subject_strands", "missing_route_strands", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_mastery_strands" },
+            "mastery_strands": { "type": "array", "minItems": 5, "items": { "$ref": "#/$defs/masteryStrand" } },
+            "subject_strands": { "type": "array", "minItems": 3, "items": { "$ref": "#/$defs/masteryStrand" } },
+            "missing_route_strands": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["strand_id", "field_id", "source_status", "content_strategy", "release_status"],
+                "properties": {
+                  "strand_id": { "$ref": "#/$defs/slug" },
+                  "field_id": { "enum": ["art", "technology_craft_home_economics", "physical_education"] },
+                  "source_status": { "const": "missing_route" },
+                  "content_strategy": { "enum": ["author_created_required", "additional_source_capture_required", "school_specific_resource_required"] },
+                  "release_status": { "const": "blocked" }
+                }
+              }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "language": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["profile", "progression_stages", "subject_strands", "guardrails", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_language_progression" },
+            "profile": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["primary_explanation_language", "support_language", "target_level"],
+              "properties": {
+                "primary_explanation_language": { "const": "ru" },
+                "support_language": { "const": "et" },
+                "target_level": { "const": "A1-A2" }
+              }
+            },
+            "progression_stages": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["stage_id", "focus", "support_level"],
+                "properties": {
+                  "stage_id": { "$ref": "#/$defs/slug" },
+                  "focus": { "type": "string", "minLength": 5 },
+                  "support_level": { "enum": ["full_scaffold", "partial_scaffold", "reduced_scaffold", "independent_short_production"] }
+                }
+              }
+            },
+            "subject_strands": {
+              "type": "array",
+              "minItems": 8,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["route_id", "target_terms", "instruction_verbs", "sentence_frames", "oral_output", "written_output", "support_level", "later_reuse"],
+                "properties": {
+                  "route_id": { "$ref": "#/$defs/routeId" },
+                  "target_terms": { "type": "array", "items": { "type": "string", "minLength": 2 } },
+                  "instruction_verbs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } },
+                  "sentence_frames": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 3 } },
+                  "oral_output": { "type": "string", "minLength": 5 },
+                  "written_output": { "type": "string", "minLength": 5 },
+                  "support_level": { "enum": ["full_scaffold", "partial_scaffold", "reduced_scaffold", "independent_short_production"] },
+                  "later_reuse": { "type": "string", "minLength": 5 }
+                }
+              }
+            },
+            "guardrails": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["subject_understanding_language", "estonian_production_separate", "content_reduction_for_language_limit", "translated_query_topics_are_terminology_evidence"],
+              "properties": {
+                "subject_understanding_language": { "const": "ru" },
+                "estonian_production_separate": { "const": true },
+                "content_reduction_for_language_limit": { "const": false },
+                "translated_query_topics_are_terminology_evidence": { "const": false }
+              }
+            },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "calendar": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["planning_status", "periods", "monthly_evidence_checkpoints", "national_weekly_hours_claimed", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_teaching_calendar" },
+            "planning_status": { "const": "recommended_not_national_timetable" },
+            "periods": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["period_id", "mastery_continues", "project_ids", "practical_focus", "revision_focus", "assessment_evidence", "prerequisites"],
+                "properties": {
+                  "period_id": { "$ref": "#/$defs/slug" },
+                  "mastery_continues": { "const": true },
+                  "project_ids": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/slug" } },
+                  "practical_focus": { "type": "string", "minLength": 5 },
+                  "revision_focus": { "type": "string", "minLength": 5 },
+                  "assessment_evidence": { "type": "string", "minLength": 5 },
+                  "prerequisites": { "type": "array", "items": { "$ref": "#/$defs/slug" } }
+                }
+              }
+            },
+            "monthly_evidence_checkpoints": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["classification", "purpose", "portfolio_nationally_mandatory"],
+              "properties": {
+                "classification": { "const": "recommended_good_practice" },
+                "purpose": { "type": "string", "minLength": 20 },
+                "portfolio_nationally_mandatory": { "const": false }
+              }
+            },
+            "national_weekly_hours_claimed": { "const": false },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "roadmap": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "required": ["status", "stages", "future_material_ids", "release_blocker_codes", "release_blockers", "non_goals", "provenance"],
+          "properties": {
+            "artifact_type": { "const": "grade_programme_implementation_roadmap" },
+            "status": { "const": "architecture_only" },
+            "stages": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["stage_id", "status", "deliverables", "entry_gate"],
+                "properties": {
+                  "stage_id": { "$ref": "#/$defs/slug" },
+                  "status": { "enum": ["complete", "not_started", "blocked"] },
+                  "deliverables": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 5 } },
+                  "entry_gate": { "type": "string", "minLength": 10 }
+                }
+              }
+            },
+            "future_material_ids": { "type": "array", "minItems": 3, "items": { "$ref": "#/$defs/slug" } },
+            "release_blocker_codes": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/releaseBlockerCode" }
+            },
+            "release_blockers": { "type": "array", "minItems": 5, "items": { "type": "string", "minLength": 10 } },
+            "non_goals": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 10 } },
+            "provenance": { "$ref": "#/$defs/provenance" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}
