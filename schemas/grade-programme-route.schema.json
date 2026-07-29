@@ -547,7 +547,7 @@
         "duplicate_group": { "$ref": "#/$defs/slug" },
         "official_outcome_candidates": {
           "type": "array",
-          "minItems": 1,
+          "minItems": 0,
           "uniqueItems": true,
           "items": { "$ref": "#/$defs/slug" }
         },

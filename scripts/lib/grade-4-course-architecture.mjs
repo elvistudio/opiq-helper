@@ -357,7 +357,6 @@ function buildTopicInventory(routeModel) {
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(record);
   }
-  const outcomeCandidates = routeOutcomeIds[routeModel.definition.id];
   const topics = [...groups.entries()].sort(([a], [b]) => bytewise(a, b)).map(([key, records]) => {
     const first = records[0];
     const original = first.headings[0] || first.title;
@@ -385,7 +384,6 @@ function buildTopicInventory(routeModel) {
           ? 'same_title_multiple_editions'
           : 'same_title_multiple_records',
       duplicate_group: stableId(`${routeModel.definition.id}-duplicate`, key),
-      official_outcome_candidates: outcomeCandidates,
       authoring_gap: hasTasks ? 'complete_prose_and_tasks_required' : 'complete_prose_and_tasks_required',
       automatic_translated_topics_used_as_source_prose: false,
       notes: 'Clustered only within this route from original headings; translated query metadata is not treated as source prose.',
@@ -401,6 +399,33 @@ function buildTopicInventory(routeModel) {
       source_record_preservation: 'all_records_retained',
     },
     topics,
+  };
+}
+
+function buildTopicOutcomeCandidateIndex(topicInventory, officialMap) {
+  const candidatesByTopicId = new Map(
+    topicInventory.topics.map((topic) => [topic.topic_id, new Set()]),
+  );
+  for (const outcome of officialMap.outcomes) {
+    for (const topicId of outcome.source_alignment.topic_cluster_refs) {
+      const candidates = candidatesByTopicId.get(topicId);
+      if (!candidates) {
+        throw new Error(`${outcome.outcome_id}: resolved alignment references unknown topic ${topicId}.`);
+      }
+      candidates.add(outcome.outcome_id);
+    }
+  }
+  return candidatesByTopicId;
+}
+
+function applyOfficialOutcomeCandidates(topicInventory, officialMap) {
+  const candidatesByTopicId = buildTopicOutcomeCandidateIndex(topicInventory, officialMap);
+  return {
+    ...topicInventory,
+    topics: topicInventory.topics.map((topic) => ({
+      ...topic,
+      official_outcome_candidates: [...candidatesByTopicId.get(topic.topic_id)].sort(bytewise),
+    })),
   };
 }
 
@@ -1037,8 +1062,14 @@ export function buildGrade4CourseArchitecture(inputs) {
   const outcomeById = new Map(allFrameworkOutcomes.map((outcome) => [outcome.outcome_or_requirement_id, outcome]));
   const routeArtifacts = inputs.model.routes.map((routeModel) => {
     const bookInventory = buildBookInventory(routeModel);
-    const topicInventory = buildTopicInventory(routeModel);
-    const officialMap = buildOfficialMap(routeModel, outcomeById, topicInventory, inputs.alignmentPolicy);
+    const topicInventoryWithoutCandidates = buildTopicInventory(routeModel);
+    const officialMap = buildOfficialMap(
+      routeModel,
+      outcomeById,
+      topicInventoryWithoutCandidates,
+      inputs.alignmentPolicy,
+    );
+    const topicInventory = applyOfficialOutcomeCandidates(topicInventoryWithoutCandidates, officialMap);
     const coverage = buildRouteCoverage(routeModel, officialMap, outcomeById);
     return { routeModel, officialMap, bookInventory, topicInventory, coverage };
   });
@@ -1199,6 +1230,48 @@ export function validateGrade4CourseArchitecture(artifacts) {
         diagnostics.push(diagnostic('coverage_alignment_generated_mismatch', `${outcome.outcome_id} coverage does not match its authored alignment policy.`, `${routeDir(route.routeModel.definition.id)}/coverage-matrix.yaml`, outcome.outcome_id));
       }
     }
+    const expectedCandidatesByTopicId = buildTopicOutcomeCandidateIndex(
+      route.topicInventory,
+      route.officialMap,
+    );
+    const routeOutcomeUniverse = [...(routeOutcomeIds[route.routeModel.definition.id] ?? [])].sort(bytewise);
+    let routeWideFallbackUsed = route.topicInventory.topics.length > 0;
+    for (const topic of route.topicInventory.topics) {
+      const expectedCandidates = [...expectedCandidatesByTopicId.get(topic.topic_id)].sort(bytewise);
+      const actualCandidates = [...topic.official_outcome_candidates].sort(bytewise);
+      const unexpectedCandidates = actualCandidates.filter((outcomeId) => !expectedCandidates.includes(outcomeId));
+      const missingCandidates = expectedCandidates.filter((outcomeId) => !actualCandidates.includes(outcomeId));
+      if (unexpectedCandidates.length > 0) {
+        diagnostics.push(diagnostic(
+          'topic_outcome_candidate_unaligned',
+          `${topic.topic_id} includes outcomes absent from its resolved authored alignment: ${unexpectedCandidates.join(', ')}.`,
+          `${routeDir(route.routeModel.definition.id)}/topic-inventory.yaml`,
+          topic.topic_id,
+        ));
+      }
+      if (missingCandidates.length > 0) {
+        diagnostics.push(diagnostic(
+          'topic_outcome_candidate_missing',
+          `${topic.topic_id} omits outcomes present in its resolved authored alignment: ${missingCandidates.join(', ')}.`,
+          `${routeDir(route.routeModel.definition.id)}/topic-inventory.yaml`,
+          topic.topic_id,
+        ));
+      }
+      if (!sameStableValue(actualCandidates, routeOutcomeUniverse)) routeWideFallbackUsed = false;
+    }
+    if (routeWideFallbackUsed && route.topicInventory.topics.some((topic) => (
+      !sameStableValue(
+        [...expectedCandidatesByTopicId.get(topic.topic_id)].sort(bytewise),
+        routeOutcomeUniverse,
+      )
+    ))) {
+      diagnostics.push(diagnostic(
+        'topic_outcome_candidates_route_fallback',
+        `${route.routeModel.definition.id} assigns the route outcome universe to every topic instead of using authored alignments.`,
+        `${routeDir(route.routeModel.definition.id)}/topic-inventory.yaml`,
+        route.routeModel.definition.id,
+      ));
+    }
   }
   for (const project of programme.projects.projects) {
     for (const routeId of project.linked_route_ids) {
@@ -1222,6 +1295,23 @@ export function validateGrade4CourseArchitecture(artifacts) {
     const [human, social] = mixedRoute.officialMap.outcomes;
     if (human && social && sameStableValue(human.source_alignment.topic_cluster_refs, social.source_alignment.topic_cluster_refs)) {
       diagnostics.push(diagnostic('mixed_route_alignment_collapsed', 'Human-studies and social-studies outcomes need separate authored topic evidence.', `${routeDir(mixedRoute.routeModel.definition.id)}/official-curriculum.yaml`, mixedRoute.routeModel.definition.id));
+    }
+    if (human && social && !sameStableValue(human.source_alignment.topic_cluster_refs, social.source_alignment.topic_cluster_refs)) {
+      const alignedTopicIds = new Set([
+        ...human.source_alignment.topic_cluster_refs,
+        ...social.source_alignment.topic_cluster_refs,
+      ]);
+      const candidateSets = mixedRoute.topicInventory.topics
+        .filter((topic) => alignedTopicIds.has(topic.topic_id))
+        .map((topic) => JSON.stringify([...topic.official_outcome_candidates].sort(bytewise)));
+      if (candidateSets.length > 1 && new Set(candidateSets).size === 1) {
+        diagnostics.push(diagnostic(
+          'mixed_route_topic_candidates_collapsed',
+          'Mixed-route topics cannot share an identical outcome-candidate set when their authored alignments differ.',
+          `${routeDir(mixedRoute.routeModel.definition.id)}/topic-inventory.yaml`,
+          mixedRoute.routeModel.definition.id,
+        ));
+      }
     }
   }
   for (const row of programme.coverage.rows) {

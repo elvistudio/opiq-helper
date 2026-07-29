@@ -136,6 +136,7 @@ test('unknown programme types remain ineligible for ordinary default use', () =>
 
 test('topic deduplication is route-bounded and preserves all 2212 record identities', () => {
   let records = 0;
+  let topics = 0;
   for (const route of baseline.routes) {
     const refs = route.topicInventory.topics.flatMap((topic) => topic.source_record_ids);
     assert.equal(new Set(refs).size, route.routeModel.definition.expected_record_count);
@@ -144,8 +145,10 @@ test('topic deduplication is route-bounded and preserves all 2212 record identit
       && topic.automatic_translated_topics_used_as_source_prose === false
     )));
     records += refs.length;
+    topics += route.topicInventory.topics.length;
   }
   assert.equal(records, 2212);
+  assert.equal(topics, 1768);
 });
 
 test('authored outcome policy gives every route outcome stable source evidence', () => {
@@ -156,6 +159,49 @@ test('authored outcome policy gives every route outcome stable source evidence',
   assert.equal(alignments.filter((alignment) => alignment.status === 'ambiguous').length, 0);
   assert.equal(alignments.filter((alignment) => alignment.status === 'missing').length, 0);
   assert.ok(alignments.every((alignment) => alignment.policy_alignment_id && alignment.topic_cluster_refs.length > 0));
+});
+
+test('topic outcome candidates are the exact reverse index of authored outcome alignments', () => {
+  for (const route of baseline.routes) {
+    const expected = new Map(route.topicInventory.topics.map((topic) => [topic.topic_id, new Map()]));
+    for (const outcome of route.officialMap.outcomes) {
+      for (const topicId of outcome.source_alignment.topic_cluster_refs) {
+        expected.get(topicId).set(outcome.outcome_id, outcome.source_alignment.policy_alignment_id);
+      }
+    }
+    for (const topic of route.topicInventory.topics) {
+      assert.deepEqual(
+        topic.official_outcome_candidates,
+        [...expected.get(topic.topic_id).keys()].sort(),
+        topic.topic_id,
+      );
+      for (const outcomeId of topic.official_outcome_candidates) {
+        assert.match(expected.get(topic.topic_id).get(outcomeId), /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+      }
+    }
+  }
+});
+
+test('mixed human and society topics receive only independently authored outcome candidates', () => {
+  const route = baseline.routes.find((entry) => (
+    entry.routeModel.definition.id === 'grade-4-human-studies-and-society'
+  ));
+  const byHeading = new Map(route.topicInventory.topics.map((topic) => [topic.original_heading_key, topic]));
+  assert.deepEqual(byHeading.get('konflikt').official_outcome_candidates, [
+    'ee-prk-2026-stage2-human-studies-decisions',
+  ]);
+  assert.deepEqual(byHeading.get('kuidas me mõtleme').official_outcome_candidates, [
+    'ee-prk-2026-stage2-social-information-fact-opinion',
+  ]);
+  assert.deepEqual(byHeading.get('eluviis').official_outcome_candidates, []);
+  assert.deepEqual(byHeading.get('emotsioonid ja kehakeel').official_outcome_candidates, []);
+});
+
+test('unaligned source topics retain an explicit empty outcome-candidate list', () => {
+  const unaligned = baseline.routes.flatMap((route) => route.topicInventory.topics)
+    .filter((topic) => topic.official_outcome_candidates.length === 0);
+  assert.ok(unaligned.length > 0);
+  assert.ok(unaligned.every((topic) => Array.isArray(topic.official_outcome_candidates)));
 });
 
 test('captured task evidence is linked only to exact aligned source records', () => {
@@ -221,6 +267,8 @@ test('generator contains no positional topic-selection fallback', async () => {
   const source = await readFile('scripts/lib/grade-4-course-architecture.mjs', 'utf8');
   assert.doesNotMatch(source, /topics\s*\[\s*0\s*\]/);
   assert.doesNotMatch(source, /topics\.slice\s*\(/);
+  assert.doesNotMatch(source, /const\s+outcomeCandidates\s*=\s*routeOutcomeIds/);
+  assert.doesNotMatch(source, /official_outcome_candidates:\s*outcomeCandidates/);
 });
 
 test('programme-wide outcomes are allocated without hiding the three real route gaps', () => {
@@ -407,6 +455,67 @@ test('rejects task evidence not attached to the selected topic', () => expectCod
 test('rejects generated outcome mapping that differs from authored policy', () => expectCode(
   (candidate) => { candidate.routes[0].officialMap.outcomes[0].source_alignment.topic_cluster_refs = []; },
   'topic_alignment_generated_mismatch',
+));
+
+test('rejects topic outcome candidate absent from its authored alignment', () => expectCode(
+  (candidate) => {
+    const route = candidate.routes.find((entry) => entry.topicInventory.topics.some((topic) => (
+      topic.official_outcome_candidates.length === 0
+    )));
+    route.topicInventory.topics.find((topic) => topic.official_outcome_candidates.length === 0)
+      .official_outcome_candidates.push(route.officialMap.outcomes[0].outcome_id);
+  },
+  'topic_outcome_candidate_unaligned',
+));
+
+test('rejects topic missing an outcome from its authored alignment', () => expectCode(
+  (candidate) => {
+    const topic = candidate.routes.flatMap((route) => route.topicInventory.topics)
+      .find((entry) => entry.official_outcome_candidates.length > 0);
+    topic.official_outcome_candidates = [];
+  },
+  'topic_outcome_candidate_missing',
+));
+
+test('rejects route-wide outcome-candidate fallback assignment', () => expectCode(
+  (candidate) => {
+    const route = candidate.routes.find((entry) => entry.topicInventory.topics.length > 1);
+    const routeOutcomes = route.officialMap.outcomes.map((outcome) => outcome.outcome_id).sort();
+    for (const topic of route.topicInventory.topics) {
+      topic.official_outcome_candidates = [...routeOutcomes];
+    }
+  },
+  'topic_outcome_candidates_route_fallback',
+));
+
+test('rejects collapsed candidates across independently aligned mixed-route topics', () => expectCode(
+  (candidate) => {
+    const route = candidate.routes.find((entry) => (
+      entry.routeModel.definition.id === 'grade-4-human-studies-and-society'
+    ));
+    const candidates = route.officialMap.outcomes.map((outcome) => outcome.outcome_id).sort();
+    for (const topicId of route.officialMap.outcomes.flatMap((outcome) => (
+      outcome.source_alignment.topic_cluster_refs
+    ))) {
+      route.topicInventory.topics.find((topic) => topic.topic_id === topicId)
+        .official_outcome_candidates = [...candidates];
+    }
+  },
+  'mixed_route_topic_candidates_collapsed',
+));
+
+test('rejects stale topic candidates after a resolved policy alignment changes', () => expectCode(
+  (candidate) => {
+    const route = candidate.routes.find((entry) => entry.topicInventory.topics.some((topic) => (
+      topic.official_outcome_candidates.length === 0
+    )));
+    const outcome = route.officialMap.outcomes[0];
+    const replacement = route.topicInventory.topics.find((topic) => (
+      topic.official_outcome_candidates.length === 0
+    ));
+    outcome.source_alignment.topic_cluster_refs = [replacement.topic_id];
+  },
+  'topic_outcome_candidate_missing',
 ));
 
 test('rejects arbitrary source topic on a programme-policy outcome', () => expectCode(
