@@ -105,8 +105,92 @@ permissions:
   contents: read
 
 jobs:
+  changes:
+    name: Classify source validation scope
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      mode: ${{ steps.scope.outputs.mode }}
+      run_pedagogy_quality: ${{ steps.scope.outputs.run_pedagogy_quality }}
+      run_pedagogy_regressions: ${{ steps.scope.outputs.run_pedagogy_regressions }}
+      run_pedagogy_evidence: ${{ steps.scope.outputs.run_pedagogy_evidence }}
+      changed_path_count: ${{ steps.scope.outputs.changed_path_count }}
+      reason_codes: ${{ steps.scope.outputs.reason_codes }}
+
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+
+      - name: Test source validation scope classifier
+        run: node --test scripts/classify-source-validation-scope.test.mjs
+
+      - name: Classify changed paths
+        id: scope
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          force_full() {
+            node scripts/classify-source-validation-scope.mjs \
+              --full \
+              --reason "$1" \
+              --github-output "$GITHUB_OUTPUT" \
+              --summary "$GITHUB_STEP_SUMMARY"
+          }
+
+          case "$EVENT_NAME" in
+            pull_request)
+              base_sha="$PR_BASE_SHA"
+              head_sha="$PR_HEAD_SHA"
+              ;;
+            push)
+              base_sha="$PUSH_BEFORE_SHA"
+              head_sha="$PUSH_HEAD_SHA"
+              ;;
+            workflow_dispatch)
+              force_full workflow_dispatch
+              exit 0
+              ;;
+            *)
+              force_full unsupported_event
+              exit 0
+              ;;
+          esac
+
+          if [ -z "$base_sha" ] || [ -z "$head_sha" ] || [[ "$base_sha" =~ ^0+$ ]]; then
+            force_full unusable_change_range
+            exit 0
+          fi
+
+          if ! git cat-file -e "${base_sha}^{commit}" \
+            || ! git cat-file -e "${head_sha}^{commit}"; then
+            force_full unavailable_change_range
+            exit 0
+          fi
+
+          git diff --no-renames --name-only -z "$base_sha" "$head_sha" \
+            | node scripts/classify-source-validation-scope.mjs \
+                --stdin0 \
+                --github-output "$GITHUB_OUTPUT" \
+                --summary "$GITHUB_STEP_SUMMARY"
+
   core:
     name: Validate core, source, and grade records
+    needs: changes
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -317,6 +401,8 @@ jobs:
 
   pedagogy_quality:
     name: Validate pedagogical quality
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_quality == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -344,6 +430,8 @@ jobs:
 
   pedagogy_regressions:
     name: Validate pedagogical regressions
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_regressions == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -371,6 +459,8 @@ jobs:
 
   pedagogy_evidence:
     name: Validate pedagogical evidence and readiness
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_evidence == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -404,8 +494,9 @@ jobs:
 
   validate:
     name: Validate manifest and source records
-    if: ${{ !cancelled() }}
+    if: ${{ always() }}
     needs:
+      - changes
       - core
       - pedagogy_quality
       - pedagogy_regressions
@@ -414,14 +505,42 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Require every validation group to pass
+      - name: Require the selected validation groups to pass
+        shell: bash
         env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
           CORE_RESULT: ${{ needs.core.result }}
           QUALITY_RESULT: ${{ needs.pedagogy_quality.result }}
           REGRESSIONS_RESULT: ${{ needs.pedagogy_regressions.result }}
           EVIDENCE_RESULT: ${{ needs.pedagogy_evidence.result }}
+          RUN_QUALITY: ${{ needs.changes.outputs.run_pedagogy_quality }}
+          RUN_REGRESSIONS: ${{ needs.changes.outputs.run_pedagogy_regressions }}
+          RUN_EVIDENCE: ${{ needs.changes.outputs.run_pedagogy_evidence }}
         run: |
+          set -euo pipefail
+
+          require_selected_job() {
+            local requested="$1"
+            local actual="$2"
+            local label="$3"
+            if [ "$requested" = "true" ]; then
+              if [ "$actual" != "success" ]; then
+                echo "$label was selected but ended as $actual" >&2
+                return 1
+              fi
+            elif [ "$requested" = "false" ]; then
+              if [ "$actual" != "skipped" ]; then
+                echo "$label was not selected but ended as $actual" >&2
+                return 1
+              fi
+            else
+              echo "$label selection output is invalid: $requested" >&2
+              return 1
+            fi
+          }
+
+          test "$CHANGES_RESULT" = "success"
           test "$CORE_RESULT" = "success"
-          test "$QUALITY_RESULT" = "success"
-          test "$REGRESSIONS_RESULT" = "success"
-          test "$EVIDENCE_RESULT" = "success"
+          require_selected_job "$RUN_QUALITY" "$QUALITY_RESULT" "pedagogy quality"
+          require_selected_job "$RUN_REGRESSIONS" "$REGRESSIONS_RESULT" "pedagogy regressions"
+          require_selected_job "$RUN_EVIDENCE" "$EVIDENCE_RESULT" "pedagogy evidence"
