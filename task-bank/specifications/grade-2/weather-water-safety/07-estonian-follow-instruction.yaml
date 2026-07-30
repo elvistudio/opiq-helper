@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-estonian-follow-instruction-spec
+status: internal_review
+grade: 2
+subject: estonian_second_language
+subject_et: eesti keel teise keelena
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-estonian-second-language-instructions
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Follow one short familiar Estonian weather instruction and show the requested observable response.
+prerequisite_skills:
+  - Recognize familiar Estonian weather words.
+  - Follow a one-step classroom direction.
+cognitive_action: follow_instruction
+task_archetype: one_step_instruction
+response_mode: short_answer
+difficulty: foundational
+expected_time_minutes: 4
+permitted_value_ranges:
+  - Use one independently authored A1 instruction of no more than eight Estonian words.
+common_misconceptions:
+  - Responding to a familiar noun while missing the action verb.
+expected_learner_evidence:
+  - Selects the weather symbol named by the instruction.
+  - Produces the separately requested short Estonian label.
+success_evidence_type: selected_response
+accessibility_support:
+  - Use three simple author-created text symbols with no decorative detail.
+language_support:
+  - Give the task explanation in Russian and keep the Estonian instruction at A1 level.
+project_or_real_life_contexts:
+  - Responding to a familiar classroom weather direction.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-estonian-second-language
+  source_roles:
+    - route_id: grade-2-estonian-second-language
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-estonian-second-language
+      canonical_url: https://www.opiq.ee/kit/129/chapter/6948
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - The second-language route supports familiar weather vocabulary and short observable responses.
+    - The instruction, response set, language support, and answer must be independently created.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - First-language Estonian books are outside this route and cannot support the default learner profile.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: A1 core language is supported while the stage-I outcome remains broader than an exact Grade 2 allocation.

@@ -1,0 +1,98 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-weather-data-comparison-spec
+status: internal_review
+grade: 2
+subject: mathematics
+subject_et: matemaatika
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-mathematics-real-life
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Read an original weather dataset, compare whole numbers, and express one numerical difference.
+prerequisite_skills:
+  - Compare whole numbers within 100.
+  - Subtract a smaller whole number from a larger one.
+cognitive_action: compare_and_calculate
+task_archetype: small_data_table
+response_mode: computational
+difficulty: core
+expected_time_minutes: 6
+permitted_value_ranges:
+  - Use four independently chosen whole-number measurements from 5 to 60 with one unique maximum.
+common_misconceptions:
+  - Naming the larger value without calculating the difference.
+  - Subtracting in the wrong order.
+expected_learner_evidence:
+  - Identifies the largest value.
+  - Shows a subtraction that gives the requested difference.
+success_evidence_type: calculation
+accessibility_support:
+  - Align numbers vertically and label each value with its unit.
+language_support:
+  - Provide Russian terms for greater than, less than, and difference.
+project_or_real_life_contexts:
+  - Comparing independently created daily rainfall totals for four days.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-mathematics
+  source_roles:
+    - route_id: grade-2-mathematics
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-mathematics
+      canonical_url: https://www.opiq.ee/kit/165/chapter/9263
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_matemaatika.md
+    - project-files/outputs/opiq_2klass_matemaatika_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Ordinary mathematics coverage connects calendar-scale weather observations with numerical interpretation.
+    - Only the broad operation of reading and comparing data is retained for the neutral specification.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - The commercial dataset, values, labels, order, and calculations must be newly authored.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: The real-life mathematics outcome is allocated to school stage I, not nationally to Grade 2 alone.

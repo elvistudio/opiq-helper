@@ -1,0 +1,62 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-pe-water-safety-decision-task
+specification_id: g2-pe-water-safety-decision-spec
+task_version: "1.0.0"
+grade: 2
+subject: physical_education
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-physical-education-water-safety
+target_skill: Choose and justify the safest immediate action in an independently authored water-safety decision.
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+customer_content:
+  prompt: "Во время занятия у берега твой красный мяч уплыл за линию, которую взрослый назвал границей безопасной зоны. Что нужно сделать сразу? Выбери действие и объясни два признака безопасного решения."
+  supplied_materials:
+    - "A. Плыть за мячом, пока он виден."
+    - "B. Остаться в безопасной зоне и сразу сообщить взрослому."
+    - "C. Попросить другого ребёнка достать мяч."
+  supplied_data: []
+  answer_format: "Буква варианта и короткое объяснение по-русски."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: "B. Нужно остаться внутри безопасной зоны и сообщить взрослому: ребёнок не приближается к опасности, а решение принимает ответственный взрослый."
+  worked_solution: null
+  success_criteria:
+    - criterion_id: immediate-water-safety-action
+      dimension: subject_result
+      description: "Выбран вариант B без входа за границу безопасной зоны."
+    - criterion_id: water-safety-reason
+      dimension: subject_result
+      description: "Объяснение называет дистанцию от опасности и помощь взрослого."
+  acceptable_variants:
+    - "Допустима формулировка «не идти за мячом и позвать взрослого»."
+  common_errors:
+    - "Спасение предмета поставлено выше соблюдения границы безопасности."
+    - "Опасное действие передано другому ребёнку."
+  feedback:
+    correct: "Безопасность важнее мяча: ты остаёшься в зоне и обращаешься к взрослому."
+    retry: "Найди вариант, где ни один ребёнок не пересекает установленную границу."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-pe-water-safety-decision-spec
+  notes: "This missing-route task was created independently from the official outcome and neutral constraints."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-pe-water-safety-decision-review

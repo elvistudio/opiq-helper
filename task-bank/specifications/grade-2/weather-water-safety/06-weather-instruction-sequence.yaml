@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-weather-instruction-sequence-spec
+status: internal_review
+grade: 2
+subject: russian
+subject_et: vene keel
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-russian-conscious-reading
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Arrange independently authored weather-report instructions into a coherent logical sequence.
+prerequisite_skills:
+  - Read four short Russian action sentences.
+  - Recognize first, next, and final actions.
+cognitive_action: sequence_actions
+task_archetype: ordered_instruction_cards
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+permitted_value_ranges:
+  - Use four original actions with one unambiguous order and no source-derived characters.
+common_misconceptions:
+  - Placing the reporting step before the observation is recorded.
+expected_learner_evidence:
+  - Writes the four card letters in a coherent order.
+  - Explains one adjacency using a Russian because-clause.
+success_evidence_type: ordered_sequence
+accessibility_support:
+  - Give each instruction a large letter and a single action verb.
+language_support:
+  - Provide Russian sequencing words beside the response line.
+project_or_real_life_contexts:
+  - Preparing a small class weather report with independently designed steps.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-russian
+  source_roles:
+    - route_id: grade-2-russian
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-russian
+      canonical_url: https://www.opiq.ee/kit/454/chapter/24778
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_vene_keel.md
+    - project-files/outputs/opiq_2klass_vene_keel_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Age-appropriate reading analysis can support a short sequence with observable comprehension evidence.
+    - The final instruction sequence must be invented independently from any publisher question order.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - The source is consulted only for broad reading demand and contributes no customer-ready sequence.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: The source is internal evidence for neutral design only and does not become authorship of the commercial task.

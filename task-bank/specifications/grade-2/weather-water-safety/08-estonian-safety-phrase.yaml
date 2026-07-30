@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-estonian-safety-phrase-spec
+status: internal_review
+grade: 2
+subject: estonian_second_language
+subject_et: eesti keel teise keelena
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-estonian-second-language-instructions
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Produce a short supported Estonian weather-safety phrase with a separately assessed communicative meaning.
+prerequisite_skills:
+  - Recognize one familiar safety verb in Estonian.
+  - Copy or complete a short phrase frame.
+cognitive_action: produce_supported_phrase
+task_archetype: bounded_phrase_completion
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+permitted_value_ranges:
+  - Require an independently authored Estonian output of three to six words at bounded A1 to A2 level.
+common_misconceptions:
+  - Producing weather vocabulary without communicating the requested safe action.
+expected_learner_evidence:
+  - Chooses a safe action for the supplied independent weather condition.
+  - Completes a short Estonian phrase that communicates that action.
+success_evidence_type: oral_or_written_phrase
+accessibility_support:
+  - Offer a two-part phrase frame and a small independent word bank.
+language_support:
+  - Explain the safety decision in Russian and assess the Estonian phrase separately.
+project_or_real_life_contexts:
+  - Giving a brief familiar safety reminder before outdoor activity.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-estonian-second-language
+  source_roles:
+    - route_id: grade-2-estonian-second-language
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-estonian-second-language
+      canonical_url: https://www.opiq.ee/kit/129/chapter/6948
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena.md
+    - project-files/outputs/opiq_2klass_eesti_keel_teise_keelena_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Familiar weather language offers a broad opportunity for short supported second-language production.
+    - The new safety context and phrase frame must not reproduce the source lesson context or sequence.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - Language support cannot lower the independent safety decision expected from the learner.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: The short phrase is observable language evidence and does not turn the source relationship into commercial authorship.

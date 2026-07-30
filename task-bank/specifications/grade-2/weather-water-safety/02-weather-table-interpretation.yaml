@@ -1,0 +1,98 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-weather-table-interpretation-spec
+status: internal_review
+grade: 2
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-natural-science-guided-inquiry
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Record short weather observations in a table and state one pattern supported by the entries.
+prerequisite_skills:
+  - Read a three-column table.
+  - Compare simple weather observations.
+cognitive_action: record_and_interpret
+task_archetype: completed_observation_table
+response_mode: procedural
+difficulty: core
+expected_time_minutes: 8
+permitted_value_ranges:
+  - Use three independently selected observation times and whole-number temperatures from 0 to 20 degrees.
+common_misconceptions:
+  - Giving a conclusion that is not supported by any row.
+  - Copying a value into the wrong column.
+expected_learner_evidence:
+  - Completes all missing cells from supplied independent observations.
+  - States one comparison that cites two table entries.
+success_evidence_type: completed_table
+accessibility_support:
+  - Use a high-contrast table with a sample row that contains different data from the scored rows.
+language_support:
+  - Provide Russian comparison starters and keep weather labels visually consistent.
+project_or_real_life_contexts:
+  - A classroom observation log for one independently invented day.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-science
+  source_roles:
+    - route_id: grade-2-science
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-science
+      canonical_url: https://www.opiq.ee/kit/132/chapter/7105
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_loodusopetus.md
+    - project-files/outputs/opiq_2klass_loodusopetus_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Ordinary source coverage supports measurement and observation as broad science operations.
+    - A table can provide observable evidence without reusing any publisher data or sequence.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - All times, values, table layout, and explanatory language must be independently created.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: The inquiry outcome is stage-I evidence and the repository does not establish complete Grade 2 coverage.

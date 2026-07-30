@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-weather-message-main-point-spec
+status: internal_review
+grade: 2
+subject: russian
+subject_et: vene keel
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-russian-conscious-reading
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Read a newly authored short weather message and identify its main point using textual evidence.
+prerequisite_skills:
+  - Read four short Russian sentences.
+  - Distinguish a central message from one detail.
+cognitive_action: identify_main_point
+task_archetype: short_informational_message
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 6
+permitted_value_ranges:
+  - Use an independently authored Russian message of 35 to 50 words with one clear main point.
+common_misconceptions:
+  - Selecting a vivid detail instead of the message that covers the whole text.
+expected_learner_evidence:
+  - States the main point in one Russian sentence.
+  - Names one supporting detail from the new message.
+success_evidence_type: short_written_response
+accessibility_support:
+  - Break the message into four short lines and bold no answer-bearing words.
+language_support:
+  - Provide a Russian main-point sentence starter.
+project_or_real_life_contexts:
+  - A fictional class weather notice written solely for this task.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-russian
+  source_roles:
+    - route_id: grade-2-russian
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-russian
+      canonical_url: https://www.opiq.ee/kit/454/chapter/24778
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_vene_keel.md
+    - project-files/outputs/opiq_2klass_vene_keel_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Kit 454 may support internal analysis of age-appropriate conscious-reading demands.
+    - The new message must have independent wording, topic details, structure, and answer explanation.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - No literary text, character, passage structure, question, or answer from the reading source may be reused.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: Conscious reading is supported by stage-I evidence and no exact Grade 2 national allocation is claimed.

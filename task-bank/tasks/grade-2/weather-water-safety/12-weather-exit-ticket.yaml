@@ -1,0 +1,66 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-weather-exit-ticket-task
+specification_id: g2-weather-exit-ticket-spec
+task_version: "1.0.0"
+grade: 2
+subject: science
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-assessment-formative
+target_skill: Give one source-closed subject result, one correction reflection, and one separate supported Estonian output.
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 6
+customer_content:
+  prompt: "Заполни три отдельные рамки. 1) Сделай вывод по данным. 2) Исправь неверную запись и скажи, что проверил(а). 3) Отдельно дополни короткую фразу на эстонском."
+  supplied_materials:
+    - "Данные: в 09:00 было 7 °C, в 13:00 было 14 °C."
+    - "Неверная запись: «В 13:00 было холоднее»."
+    - "Эстонская рамка: Kell 13 on ____."
+  supplied_data:
+    - "Слова для эстонской рамки: soojem | külmem."
+  answer_format: "Три пронумерованных коротких ответа."
+  estonian_output_requirement:
+    required: true
+    level: A1
+    maximum_words: 4
+    support: "Одно подходящее эстонское слово дано в мини-банке."
+answer_contract:
+  answer: "1) В 13:00 было теплее на 7 °C. 2) Верно: «В 13:00 было теплее»; я сравнил(а) 14 и 7. 3) Kell 13 on soojem."
+  worked_solution: null
+  success_criteria:
+    - criterion_id: exit-subject-result
+      dimension: subject_result
+      description: "Вывод верно сравнивает 14 °C и 7 °C."
+    - criterion_id: exit-correction-reflection
+      dimension: reflection
+      description: "Неверная запись исправлена и назван способ проверки."
+    - criterion_id: exit-estonian-output
+      dimension: estonian_language
+      description: "Отдельная эстонская рамка завершена словом soojem."
+  acceptable_variants:
+    - "В первой рамке допустимо «днём теплее», если отдельно указана разница 7 °C."
+  common_errors:
+    - "Исправление смешано с эстонской рамкой и не может быть оценено отдельно."
+    - "Выбрано külmem вопреки данным."
+  feedback:
+    correct: "Три результата разделены: вывод, исправление и эстонская фраза."
+    retry: "Сначала сравни 14 и 7, затем исправь русскую запись и только после этого заполни отдельную эстонскую рамку."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-weather-exit-ticket-spec
+  notes: "The exit data, false statement, three-box structure, language frame, and feedback were newly authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-weather-exit-ticket-review

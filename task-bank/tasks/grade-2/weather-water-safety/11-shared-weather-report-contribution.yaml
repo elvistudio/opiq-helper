@@ -1,0 +1,70 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-shared-weather-report-contribution-task
+specification_id: g2-shared-weather-report-contribution-spec
+task_version: "1.0.0"
+grade: 2
+subject: science
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-cross-curricular-learning
+  - ee-prk-2026-stage1-natural-science-guided-inquiry
+  - ee-prk-2026-stage1-mathematics-real-life
+target_skill: Produce an individually attributable evidence statement for a shared weather report.
+response_mode: open_ended
+difficulty: core
+expected_time_minutes: 8
+customer_content:
+  prompt: "Подготовь свою часть общего сообщения. Напиши одно точное предложение о данных и одно предложение-сравнение. Поставь в своей рамке личный код. Только после проверки рамки группа может перенести идеи в общий текст."
+  supplied_materials:
+    - "Северная точка — 8 °C."
+    - "Восточная точка — 12 °C."
+    - "Южная точка — 15 °C."
+    - "Западная точка — 10 °C."
+  supplied_data:
+    - "Каждый ученик сдаёт отдельную подписанную рамку из двух предложений."
+  answer_format: "Два индивидуальных предложения по-русски и личный код."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: null
+  worked_solution: null
+  success_criteria:
+    - criterion_id: individual-accurate-weather-statement
+      dimension: subject_result
+      description: "Первое предложение точно передаёт одно значение и его точку."
+    - criterion_id: individual-supported-comparison
+      dimension: subject_result
+      description: "Второе предложение сравнивает минимум два значения без ошибки."
+    - criterion_id: attributable-project-contribution
+      dimension: individual_contribution
+      description: "Обе фразы и личный код находятся в отдельной рамке ученика."
+  acceptable_variants:
+    - "Любые два предложения, удовлетворяющие всем трём критериям, принимаются."
+  common_errors:
+    - "В сравнении нет двух чисел или точек."
+    - "Есть только общий групповой текст без индивидуальной рамки."
+  feedback:
+    correct: "Твоя отдельная рамка содержит точный факт и проверяемое сравнение."
+    retry: "Проверь одно значение, сравни его с другим и подпиши только свою рамку."
+  open_ended_justification: "Несколько формулировок могут быть правильными, потому что ученик самостоятельно выбирает факт и сравнение из нового набора данных."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-shared-weather-report-contribution-spec
+  notes: "The four-point dataset, individual evidence frame, workflow, and rubric were independently authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-shared-weather-report-contribution-review

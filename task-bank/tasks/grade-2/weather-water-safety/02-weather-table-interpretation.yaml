@@ -1,0 +1,64 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-weather-table-interpretation-task
+specification_id: g2-weather-table-interpretation-spec
+task_version: "1.0.0"
+grade: 2
+subject: science
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-natural-science-guided-inquiry
+target_skill: Record short weather observations in a table and state one pattern supported by the entries.
+response_mode: procedural
+difficulty: core
+expected_time_minutes: 8
+customer_content:
+  prompt: "Перенеси три наблюдения в таблицу с колонками «время», «температура», «небо». После таблицы напиши, когда было теплее всего, и сравни это значение с утренним."
+  supplied_materials:
+    - "08:00 — 6 °C, ясно."
+    - "12:00 — 11 °C, облачно."
+    - "16:00 — 9 °C, облачно."
+  supplied_data:
+    - "Строки таблицы: 08:00; 12:00; 16:00."
+    - "Колонки таблицы: температура; небо."
+  answer_format: "Заполненная таблица и одно предложение-сравнение по-русски."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: "08:00 — 6 °C, ясно; 12:00 — 11 °C, облачно; 16:00 — 9 °C, облачно. Теплее всего было в 12:00: на 5 °C теплее, чем утром."
+  worked_solution: "Шаг 1: перенести каждое время в свою строку. Шаг 2: рядом записать соответствующие температуру и состояние неба. Шаг 3: сравнить 6, 11 и 9; наибольшее значение 11. Шаг 4: вычислить 11 − 6 = 5 °C."
+  success_criteria:
+    - criterion_id: complete-weather-table
+      dimension: subject_result
+      description: "Все три наблюдения перенесены в правильные строки и колонки."
+    - criterion_id: supported-table-comparison
+      dimension: subject_result
+      description: "Сравнение опирается на значения 11 °C и 6 °C."
+  acceptable_variants:
+    - "Допустима перестановка колонок, если заголовки и значения остаются однозначными."
+  common_errors:
+    - "Температура записана в колонку состояния неба."
+    - "Названо самое тёплое время без сравнения с утром."
+  feedback:
+    correct: "Таблица заполнена точно, а вывод подтверждён двумя значениями."
+    retry: "Проверь каждую строку и затем сравни полуденную температуру с утренней."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-weather-table-interpretation-spec
+  notes: "All times, values, table organization, and explanations were independently authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-weather-table-interpretation-review
