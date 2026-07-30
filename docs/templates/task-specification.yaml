@@ -1,0 +1,94 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: replace-with-neutral-specification-id
+status: draft
+grade: 2
+subject: replace_with_subject
+subject_et: Asenda õppeaine
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - replace-with-verified-outcome-id
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Describe the neutral skill without source-ready customer wording.
+prerequisite_skills:
+  - Name one prerequisite skill.
+cognitive_action: replace_with_action
+task_archetype: replace_with_archetype
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+permitted_value_ranges:
+  - State independent limits for values, length, or response size.
+common_misconceptions:
+  - Name one likely misconception.
+expected_learner_evidence:
+  - Name one observable learner response.
+success_evidence_type: short_written_response
+accessibility_support:
+  - Describe one non-answer-bearing access support.
+language_support:
+  - Describe language support separately from subject difficulty.
+project_or_real_life_contexts:
+  - Describe a broad context opportunity, not a source context.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - replace-with-manifest-route
+  source_roles:
+    - route_id: replace-with-manifest-route
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: replace-with-manifest-route
+      canonical_url: https://www.opiq.ee/kit/000/chapter/000
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - replace-with-manifest-md-path
+    - replace-with-route-qa-path
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Record only a neutral capability, difficulty, or evidence finding.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - Explain the applicable source, subject, and claim boundaries.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: State the official scope and explain what the source evidence does not prove.
