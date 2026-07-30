@@ -105,6 +105,55 @@ permissions:
   contents: read
 
 jobs:
+  changes:
+    name: Classify source validation scope
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      mode: ${{ steps.scope.outputs.mode }}
+      run_pedagogy_quality: ${{ steps.scope.outputs.run_pedagogy_quality }}
+      run_pedagogy_regressions: ${{ steps.scope.outputs.run_pedagogy_regressions }}
+      run_pedagogy_evidence: ${{ steps.scope.outputs.run_pedagogy_evidence }}
+
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+
+      - name: Test source validation scope classifier
+        run: npm run test:validation-scope
+
+      - name: Classify changed paths
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            test -n "$BASE_SHA"
+            test -n "$HEAD_SHA"
+            git diff --no-renames --name-only -z "$BASE_SHA" "$HEAD_SHA" \
+              | node scripts/classify-source-validation-scope.mjs \
+                  --stdin0 \
+                  --github-output "$GITHUB_OUTPUT" \
+                  --summary "$GITHUB_STEP_SUMMARY"
+          else
+            node scripts/classify-source-validation-scope.mjs \
+              --full \
+              --reason "$GITHUB_EVENT_NAME" \
+              --github-output "$GITHUB_OUTPUT" \
+              --summary "$GITHUB_STEP_SUMMARY"
+          fi
+
   core:
     name: Validate core, source, and grade records
     runs-on: ubuntu-latest
@@ -317,6 +366,8 @@ jobs:
 
   pedagogy_quality:
     name: Validate pedagogical quality
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_quality == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -344,6 +395,8 @@ jobs:
 
   pedagogy_regressions:
     name: Validate pedagogical regressions
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_regressions == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -371,6 +424,8 @@ jobs:
 
   pedagogy_evidence:
     name: Validate pedagogical evidence and readiness
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_evidence == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -404,8 +459,9 @@ jobs:
 
   validate:
     name: Validate manifest and source records
-    if: ${{ !cancelled() }}
+    if: ${{ always() }}
     needs:
+      - changes
       - core
       - pedagogy_quality
       - pedagogy_regressions
@@ -414,14 +470,42 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Require every validation group to pass
+      - name: Require selected validation groups to pass
         env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
           CORE_RESULT: ${{ needs.core.result }}
           QUALITY_RESULT: ${{ needs.pedagogy_quality.result }}
           REGRESSIONS_RESULT: ${{ needs.pedagogy_regressions.result }}
           EVIDENCE_RESULT: ${{ needs.pedagogy_evidence.result }}
+          RUN_QUALITY: ${{ needs.changes.outputs.run_pedagogy_quality }}
+          RUN_REGRESSIONS: ${{ needs.changes.outputs.run_pedagogy_regressions }}
+          RUN_EVIDENCE: ${{ needs.changes.outputs.run_pedagogy_evidence }}
         run: |
+          set -euo pipefail
+
+          require_selected_job() {
+            local requested="$1"
+            local actual="$2"
+            local label="$3"
+
+            if [ "$requested" = "true" ]; then
+              test "$actual" = "success" || {
+                echo "$label was selected but finished with $actual" >&2
+                return 1
+              }
+            elif [ "$requested" = "false" ]; then
+              test "$actual" = "skipped" || {
+                echo "$label was not selected but finished with $actual" >&2
+                return 1
+              }
+            else
+              echo "$label has invalid selection output: $requested" >&2
+              return 1
+            fi
+          }
+
+          test "$CHANGES_RESULT" = "success"
           test "$CORE_RESULT" = "success"
-          test "$QUALITY_RESULT" = "success"
-          test "$REGRESSIONS_RESULT" = "success"
-          test "$EVIDENCE_RESULT" = "success"
+          require_selected_job "$RUN_QUALITY" "$QUALITY_RESULT" "pedagogical quality"
+          require_selected_job "$RUN_REGRESSIONS" "$REGRESSIONS_RESULT" "pedagogical regressions"
+          require_selected_job "$RUN_EVIDENCE" "$EVIDENCE_RESULT" "pedagogical evidence"
