@@ -239,12 +239,54 @@ test('real seed tasks remain internal-only and under internal review', () => {
   )));
 });
 
-test('real seed reviews remain pending with no invented reviewer identity', () => {
-  assert.ok(baseline.reviews.every((artifact) => (
+test('real seed reviews preserve exactly the two recorded human approvals', () => {
+  const approvedReviewIds = [
+    'g2-time-measurement-problem-review',
+    'g2-weather-data-comparison-review',
+  ];
+  const approvedReviewIdSet = new Set(approvedReviewIds);
+  const reviewedCommitSha = 'a450745bbd382c4758d7cbc96f998b27db76288e';
+
+  assert.deepEqual(
+    baseline.reviews
+      .filter((artifact) => artifact.data.status === 'approved')
+      .map((artifact) => artifact.data.review_id)
+      .sort(),
+    approvedReviewIds,
+    'no seed reviews other than 03 and 04 may be approved',
+  );
+
+  for (const reviewId of approvedReviewIds) {
+    const review = baseline.reviews.find(
+      (artifact) => artifact.data.review_id === reviewId,
+    )?.data;
+    assert.ok(review, `missing approved review ${reviewId}`);
+    assert.equal(review.reviewer, 'astzhalkouski');
+    assert.equal(review.reviewer_role, 'Human originality reviewer');
+    assert.equal(review.reviewed_version.commit_sha, reviewedCommitSha);
+
+    const task = baseline.tasks.find(
+      (artifact) => artifact.data.task_id === review.task_id,
+    )?.data;
+    assert.ok(task, `missing task ${review.task_id} for ${reviewId}`);
+    const currentFingerprint = computeTaskFingerprint(task);
+    assert.deepEqual(review.reviewed_version.content_fingerprint, currentFingerprint);
+    assert.deepEqual(
+      indexEntryForTask(baseline, task).current_fingerprint,
+      currentFingerprint,
+    );
+  }
+
+  const pendingReviews = baseline.reviews.filter(
+    (artifact) => !approvedReviewIdSet.has(artifact.data.review_id),
+  );
+  assert.equal(pendingReviews.length, 10);
+  assert.ok(pendingReviews.every((artifact) => (
     artifact.data.status === 'pending'
     && artifact.data.reviewer === null
     && artifact.data.reviewer_role === null
     && artifact.data.reviewed_on === null
+    && artifact.data.reviewed_version.commit_sha === null
   )));
 });
 
