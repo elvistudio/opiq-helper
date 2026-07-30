@@ -7,6 +7,55 @@ defaults_policy:
     These profiles are planning defaults, not diagnoses of an individual pupil. A teacher may
     record a justified learner-specific override without changing the course's subject objective.
 profiles:
+  - profile_id: grade-2-science-a1-default
+    grade: 2
+    subject: science
+    instruction_language: ru
+    subject_support_language: et
+    learner_language_level: A1
+    russian_explanation_role: >-
+      Russian carries the complete Grade 2 subject explanation and individual conclusion while
+      Estonian is limited to visible weather terms and one short supported oral sentence.
+    expected_output:
+      - terms
+      - labels
+      - familiar_instructions
+      - sentence_frames
+      - one_or_two_sentence_oral_answers
+    warning_thresholds:
+      max_new_terms_per_lesson: 5
+      max_new_instruction_verbs_per_lesson: 2
+      max_new_sentence_structures_per_lesson: 1
+      max_independent_output_sentences: 1
+      warn_if_no_recycled_terms_after_first_lesson: true
+    notes: >-
+      This is a planning default for the bounded Grade 2 weather pilot, not a diagnosis or an
+      official exact-grade language requirement.
+  - profile_id: grade-2-mathematics-a1-a2-default
+    grade: 2
+    subject: mathematics
+    instruction_language: ru
+    subject_support_language: et
+    learner_language_level: A1-A2
+    russian_explanation_role: >-
+      Russian carries data interpretation and calculation reasoning while Estonian supports
+      recognition and one short oral report that remains separate from mathematics evidence.
+    expected_output:
+      - terms
+      - labels
+      - familiar_instructions
+      - sentence_frames
+      - one_or_two_sentence_oral_answers
+      - data_description
+    warning_thresholds:
+      max_new_terms_per_lesson: 4
+      max_new_instruction_verbs_per_lesson: 2
+      max_new_sentence_structures_per_lesson: 1
+      max_independent_output_sentences: 1
+      warn_if_no_recycled_terms_after_first_lesson: true
+    notes: >-
+      This is a planning default for the bounded Grade 2 data lesson and does not establish
+      curriculum completeness or an individual learner level.
   - profile_id: grade-5-science-a1-a2-default
     grade: 5
     subject: science

@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/grade-2-project-module-implementation.schema.json",
+  "title": "Grade 2 bounded project-module implementation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "module_id",
+    "project_ref",
+    "programme_id",
+    "period_ref",
+    "grade",
+    "title_ru",
+    "title_et",
+    "implementation_status",
+    "delivery",
+    "source_routes",
+    "lesson_contract",
+    "task_bank_integration",
+    "shared_product",
+    "physical_education_boundary",
+    "teacher_pack",
+    "readiness",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "grade_2_project_module_implementation" },
+    "module_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+    "project_ref": { "const": "grade-2-project-weather-water-safety" },
+    "programme_id": { "const": "grade-2-standalone-commercial-programme-2026-27" },
+    "period_ref": { "const": "programme-period-1" },
+    "grade": { "const": 2 },
+    "title_ru": { "const": "Погода, вода и безопасность" },
+    "title_et": { "const": "Ilm, vesi ja ohutus" },
+    "implementation_status": { "const": "partial_internal_authoring" },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core_mode",
+        "opiq_required",
+        "customer_can_complete_without_opiq",
+        "visibility",
+        "publication_status"
+      ],
+      "properties": {
+        "core_mode": { "const": "standalone_commercial_core" },
+        "opiq_required": { "const": false },
+        "customer_can_complete_without_opiq": { "const": true },
+        "visibility": { "const": "internal_only" },
+        "publication_status": { "const": "internal_review" }
+      }
+    },
+    "source_routes": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "grade-2-science",
+          "grade-2-mathematics",
+          "grade-2-human-studies",
+          "grade-2-russian",
+          "grade-2-estonian-second-language"
+        ]
+      }
+    },
+    "lesson_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_slots",
+        "authored_lesson_count",
+        "planned_lesson_count",
+        "slots"
+      ],
+      "properties": {
+        "total_slots": { "const": 4 },
+        "authored_lesson_count": { "const": 2 },
+        "planned_lesson_count": { "const": 2 },
+        "slots": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/lessonSlot" }
+        }
+      }
+    },
+    "task_bank_integration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_bearing_lesson_id",
+        "approved_task_ids",
+        "pending_task_ids_integrated",
+        "reviewed_commit_sha"
+      ],
+      "properties": {
+        "task_bearing_lesson_id": { "const": "grade-2-weather-water-safety-02-data-time" },
+        "approved_task_ids": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "g2-weather-data-comparison-task",
+              "g2-time-measurement-problem-task"
+            ]
+          }
+        },
+        "pending_task_ids_integrated": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "reviewed_commit_sha": {
+          "const": "a450745bbd382c4758d7cbc96f998b27db76288e"
+        }
+      }
+    },
+    "shared_product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product",
+        "assembled_from_attributable_individual_work",
+        "individual_observation_required",
+        "individual_calculation_required",
+        "individual_oral_output_required",
+        "shared_evidence_replaces_individual"
+      ],
+      "properties": {
+        "product": { "const": "weather_board_and_planned_report" },
+        "assembled_from_attributable_individual_work": { "const": true },
+        "individual_observation_required": { "const": true },
+        "individual_calculation_required": { "const": true },
+        "individual_oral_output_required": { "const": true },
+        "shared_evidence_replaces_individual": { "const": false }
+      }
+    },
+    "physical_education_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_slot",
+        "source_status",
+        "content_strategy",
+        "lesson_authoring_status",
+        "human_studies_support_bounded",
+        "replacement_by_human_studies_forbidden"
+      ],
+      "properties": {
+        "lesson_slot": { "const": 3 },
+        "source_status": { "const": "missing_route" },
+        "content_strategy": { "const": "author_created_required" },
+        "lesson_authoring_status": { "const": "planned" },
+        "human_studies_support_bounded": { "const": true },
+        "replacement_by_human_studies_forbidden": { "const": true }
+      }
+    },
+    "teacher_pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "materials_index_path"],
+      "properties": {
+        "path": { "const": "teacher-packs/grade-2/weather-water-safety" },
+        "materials_index_path": {
+          "const": "teacher-packs/grade-2/weather-water-safety/materials-index.yaml"
+        }
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "module_complete",
+        "release_ready",
+        "teacher_approved",
+        "classroom_trial",
+        "home_trial",
+        "effectiveness_claimed"
+      ],
+      "properties": {
+        "module_complete": { "const": false },
+        "release_ready": { "const": false },
+        "teacher_approved": { "const": false },
+        "classroom_trial": { "const": "not_tested" },
+        "home_trial": { "const": "not_started" },
+        "effectiveness_claimed": { "const": false }
+      }
+    },
+    "claim_boundary": { "type": "string", "minLength": 30 }
+  },
+  "$defs": {
+    "lessonSlot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "position",
+            "status",
+            "lesson_id",
+            "lesson_path",
+            "title_ru",
+            "title_et",
+            "primary_subject",
+            "canonical_route_id",
+            "content_complete",
+            "release_ready"
+          ],
+          "properties": {
+            "position": { "enum": [1, 2] },
+            "status": { "const": "authored_internal" },
+            "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
+            "lesson_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
+            "title_ru": { "type": "string", "minLength": 3 },
+            "title_et": { "type": "string", "minLength": 3 },
+            "primary_subject": { "enum": ["science", "mathematics"] },
+            "canonical_route_id": { "enum": ["grade-2-science", "grade-2-mathematics"] },
+            "content_complete": { "const": true },
+            "release_ready": { "const": false }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "position",
+            "status",
+            "lesson_id",
+            "lesson_path",
+            "title_ru",
+            "title_et",
+            "planned_focus",
+            "content_complete",
+            "release_ready"
+          ],
+          "properties": {
+            "position": { "enum": [3, 4] },
+            "status": { "const": "planned" },
+            "lesson_id": { "const": null },
+            "lesson_path": { "const": null },
+            "title_ru": { "type": "string", "minLength": 3 },
+            "title_et": { "type": "string", "minLength": 3 },
+            "planned_focus": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 10 }
+            },
+            "content_complete": { "const": false },
+            "release_ready": { "const": false }
+          }
+        }
+      ]
+    }
+  }
+}

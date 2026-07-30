@@ -450,7 +450,8 @@ export function validateCommercialCourseFixtures(fixtures) {
   }
   const production = validateLessonPlanRepository(fixtures.repository);
   if (
-    production.summary.lessons !== 10
+    production.summary.profiles !== 5
+    || production.summary.lessons !== 12
     || production.summary.annualCourses !== 1
     || production.summary.annualComponents !== 4
     || production.summary.annualUnits !== 10
@@ -464,7 +465,7 @@ export function validateCommercialCourseFixtures(fixtures) {
       severity: 'error',
       file: 'lesson-plans',
       field: '/',
-      reason: `legacy production baseline changed: ${JSON.stringify(production.summary)}`,
+      reason: `production baseline changed: ${JSON.stringify(production.summary)}`,
     });
   }
   return {

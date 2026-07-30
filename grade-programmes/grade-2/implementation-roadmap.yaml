@@ -4,10 +4,24 @@ future_material_ids:
   - grade-2-author-created-english-core
   - grade-2-author-created-physical-education-core
 grade: 2
+implementation_facts:
+  authored_lesson_count: 2
+  classroom_trial_status: not_tested
+  companion_access_status: unverified_internal_only
+  effectiveness_established: false
+  final_riigi_teataja_refresh_status: pending_under_issue_37
+  home_trial_status: not_started
+  pending_task_originality_review_count: 10
+  pilot_authoring_status: in_progress
+  planned_lesson_count: 2
+  production_validation_status: blocked
+  standalone_commercial_core_status: partial
+  task_bank_status: implemented
+  teacher_review_status: pending
 non_goals:
-  - No full lessons are authored in this change.
-  - No textbook prose or task body is reconstructed.
-  - No publication or effectiveness status is granted.
+  - Lessons 3 and 4 are not authored in this slice.
+  - No textbook prose or source task body is reconstructed.
+  - No publication, classroom readiness, home readiness or effectiveness status is granted.
 programme_id: grade-2-standalone-commercial-programme-2026-27
 provenance:
   authoritative_inputs:
@@ -39,9 +53,9 @@ release_blocker_codes:
   - task_examples_missing_for_1530_records
   - foreign_language_route_missing
   - physical_education_route_missing
-  - standalone_commercial_core_not_implemented
-  - clean_room_task_bank_not_implemented
-  - originality_review_not_applicable_to_absent_materials
+  - standalone_commercial_core_partial_two_of_four_lessons
+  - ten_task_originality_reviews_pending
+  - lesson_originality_review_pending
   - customer_companion_access_not_verified
   - pedagogical_effectiveness_not_established
 release_blockers:
@@ -52,9 +66,9 @@ release_blockers:
   - Task examples are missing for 1530 canonical records.
   - An exclusive Grade 2 foreign-language route is missing.
   - An exclusive Grade 2 physical-education route is missing.
-  - The independently authored standalone commercial core is not implemented.
-  - A clean-room task bank has not been implemented.
-  - Originality review is not yet applicable because production materials are absent.
+  - "The independently authored standalone commercial core is partial: two of four pilot lessons are authored."
+  - Ten clean-room task originality reviews remain pending; only two task-bank items are approved.
+  - Lesson-level originality review remains pending for the two authored pilot lessons.
   - Customer companion access has not been verified.
   - Pedagogical effectiveness has not been established.
 schema_version: "1.0"
@@ -67,18 +81,26 @@ stages:
     stage_id: architecture-and-evidence
     status: complete
   - deliverables:
-      - standalone explanations
-      - tasks
-      - answer evidence
-    entry_gate: Architecture review and source-gap decisions are accepted.
-    stage_id: clean-room-authoring
-    status: not_started
+      - 12 specifications
+      - 12 authored internal tasks
+      - 12 originality review records
+      - 2 approved task integrations
+    entry_gate: Task-bank schema, fingerprints and review-state validation pass.
+    stage_id: clean-room-task-bank
+    status: complete
   - deliverables:
-      - originality review
+      - 2 authored internal lessons
+      - 2 planned lesson slots
+      - partial standalone teacher pack
+    entry_gate: Only approved task-bank items may be integrated.
+    stage_id: pilot-lesson-authoring
+    status: in_progress
+  - deliverables:
+      - lesson originality review
       - teacher review
       - classroom and home trials
-    entry_gate: Production materials exist and pass structural validation.
+    entry_gate: All four lessons exist and every pending human review is resolved.
     stage_id: production-validation
     status: blocked
-status: architecture_only
+status: partial_implementation
 target_school_year: 2026/27

@@ -556,7 +556,13 @@
               "required": ["issue", "status"],
               "properties": {
                 "issue": { "const": 40 },
-                "status": { "enum": ["architecture_ready", "source_review_required"] }
+                "status": {
+                  "enum": [
+                    "architecture_ready",
+                    "source_review_required",
+                    "partial_internal_authoring"
+                  ]
+                }
               }
             }
           ]
@@ -572,7 +578,7 @@
               "source_status": { "const": "missing_route" },
               "content_strategy": { "const": "author_created_required" },
               "architecture_status": { "const": "designed" },
-              "lesson_authoring_status": { "const": "not_started" },
+              "lesson_authoring_status": { "enum": ["not_started", "planned"] },
               "replacement_by_human_studies_forbidden": { "const": true }
             }
           }
@@ -964,10 +970,19 @@
         { "$ref": "#/$defs/common" },
         {
           "type": "object",
-          "required": ["status", "stages", "future_material_ids", "release_blocker_codes", "release_blockers", "non_goals", "provenance"],
+          "required": [
+            "status",
+            "stages",
+            "implementation_facts",
+            "future_material_ids",
+            "release_blocker_codes",
+            "release_blockers",
+            "non_goals",
+            "provenance"
+          ],
           "properties": {
             "artifact_type": { "const": "grade_programme_implementation_roadmap" },
-            "status": { "const": "architecture_only" },
+            "status": { "enum": ["architecture_only", "partial_implementation"] },
             "stages": {
               "type": "array",
               "minItems": 3,
@@ -977,10 +992,44 @@
                 "required": ["stage_id", "status", "deliverables", "entry_gate"],
                 "properties": {
                   "stage_id": { "$ref": "#/$defs/slug" },
-                  "status": { "enum": ["complete", "not_started", "blocked"] },
+                  "status": { "enum": ["complete", "in_progress", "not_started", "blocked"] },
                   "deliverables": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 5 } },
                   "entry_gate": { "type": "string", "minLength": 10 }
                 }
+              }
+            },
+            "implementation_facts": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "task_bank_status",
+                "pilot_authoring_status",
+                "standalone_commercial_core_status",
+                "authored_lesson_count",
+                "planned_lesson_count",
+                "pending_task_originality_review_count",
+                "companion_access_status",
+                "final_riigi_teataja_refresh_status",
+                "production_validation_status",
+                "teacher_review_status",
+                "classroom_trial_status",
+                "home_trial_status",
+                "effectiveness_established"
+              ],
+              "properties": {
+                "task_bank_status": { "const": "implemented" },
+                "pilot_authoring_status": { "const": "in_progress" },
+                "standalone_commercial_core_status": { "const": "partial" },
+                "authored_lesson_count": { "const": 2 },
+                "planned_lesson_count": { "const": 2 },
+                "pending_task_originality_review_count": { "const": 10 },
+                "companion_access_status": { "const": "unverified_internal_only" },
+                "final_riigi_teataja_refresh_status": { "const": "pending_under_issue_37" },
+                "production_validation_status": { "const": "blocked" },
+                "teacher_review_status": { "const": "pending" },
+                "classroom_trial_status": { "const": "not_tested" },
+                "home_trial_status": { "const": "not_started" },
+                "effectiveness_established": { "const": false }
               }
             },
             "future_material_ids": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/slug" } },

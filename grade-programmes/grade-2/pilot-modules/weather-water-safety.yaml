@@ -1,0 +1,105 @@
+schema_version: "1.0"
+artifact_type: grade_2_project_module_implementation
+module_id: grade-2-weather-water-safety-pilot
+project_ref: grade-2-project-weather-water-safety
+programme_id: grade-2-standalone-commercial-programme-2026-27
+period_ref: programme-period-1
+grade: 2
+title_ru: Погода, вода и безопасность
+title_et: Ilm, vesi ja ohutus
+implementation_status: partial_internal_authoring
+delivery:
+  core_mode: standalone_commercial_core
+  opiq_required: false
+  customer_can_complete_without_opiq: true
+  visibility: internal_only
+  publication_status: internal_review
+source_routes:
+  - grade-2-science
+  - grade-2-mathematics
+  - grade-2-human-studies
+  - grade-2-russian
+  - grade-2-estonian-second-language
+lesson_contract:
+  total_slots: 4
+  authored_lesson_count: 2
+  planned_lesson_count: 2
+  slots:
+    - position: 1
+      status: authored_internal
+      lesson_id: grade-2-weather-water-safety-01-observation
+      lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml
+      title_ru: Наблюдаем погоду безопасно
+      title_et: Vaatleme ilma ohutult
+      primary_subject: science
+      canonical_route_id: grade-2-science
+      content_complete: true
+      release_ready: false
+    - position: 2
+      status: authored_internal
+      lesson_id: grade-2-weather-water-safety-02-data-time
+      lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml
+      title_ru: Сравниваем данные о погоде и время
+      title_et: Võrdleme ilmaandmeid ja aega
+      primary_subject: mathematics
+      canonical_route_id: grade-2-mathematics
+      content_complete: true
+      release_ready: false
+    - position: 3
+      status: planned
+      lesson_id: null
+      lesson_path: null
+      title_ru: Безопасность у воды
+      title_et: Ohutus vee ääres
+      planned_focus:
+        - Авторский результат по физической культуре при отсутствующем выделенном маршруте.
+        - Ограниченная поддержка inimeseõpetus без замены результата по физической культуре.
+        - Никакое задание task bank со статусом pending не считается одобренным.
+      content_complete: false
+      release_ready: false
+    - position: 4
+      status: planned
+      lesson_id: null
+      lesson_path: null
+      title_ru: Наш отчёт о погоде, воде и безопасности
+      title_et: Meie ilma, vee ja ohutuse aruanne
+      planned_focus:
+        - Индивидуальный научный вывод и индивидуальное математическое доказательство.
+        - Короткая поддержанная эстонская фраза и индивидуальная рефлексия.
+        - Задания task bank 11 и 12 не интегрируются до отдельного одобрения.
+      content_complete: false
+      release_ready: false
+task_bank_integration:
+  task_bearing_lesson_id: grade-2-weather-water-safety-02-data-time
+  approved_task_ids:
+    - g2-weather-data-comparison-task
+    - g2-time-measurement-problem-task
+  pending_task_ids_integrated: []
+  reviewed_commit_sha: a450745bbd382c4758d7cbc96f998b27db76288e
+shared_product:
+  product: weather_board_and_planned_report
+  assembled_from_attributable_individual_work: true
+  individual_observation_required: true
+  individual_calculation_required: true
+  individual_oral_output_required: true
+  shared_evidence_replaces_individual: false
+physical_education_boundary:
+  lesson_slot: 3
+  source_status: missing_route
+  content_strategy: author_created_required
+  lesson_authoring_status: planned
+  human_studies_support_bounded: true
+  replacement_by_human_studies_forbidden: true
+teacher_pack:
+  path: teacher-packs/grade-2/weather-water-safety
+  materials_index_path: teacher-packs/grade-2/weather-water-safety/materials-index.yaml
+readiness:
+  module_complete: false
+  release_ready: false
+  teacher_approved: false
+  classroom_trial: not_tested
+  home_trial: not_started
+  effectiveness_claimed: false
+claim_boundary: >-
+  Внутренний частичный авторский срез: завершены только уроки 1 и 2; модуль не
+  завершён, не одобрен учителем, не апробирован и не готов к выпуску.

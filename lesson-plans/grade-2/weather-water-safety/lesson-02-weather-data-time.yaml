@@ -1,0 +1,1092 @@
+schema_version: "1.3"
+artifact_type: bilingual_lesson
+lesson_id: grade-2-weather-water-safety-02-data-time
+grade: 2
+subject: mathematics
+subject_et: matemaatika
+title_ru: Сравниваем данные о погоде и время
+title_et: Võrdleme ilmaandmeid ja aega
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы должны точно составлять заявленные сорок пять минут.
+unit_ref: grade-2-weather-water-safety-pilot
+position_in_unit: 2
+canonical_route:
+  source_id: grade-2-mathematics
+  md_path: project-files/outputs/opiq_2klass_matemaatika.md
+  source_archive: project-files/inputs/final-zips/opiq_2klass_matemaatika_2_klassile_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_matemaatika_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-2-mathematics-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-2-mathematics-official-curriculum
+  official_outcome_refs:
+    - ee-prk-2026-stage1-mathematics-real-life
+  course_map_ref: grade-2-project-weather-water-safety
+  opiq_records: []
+  author_materials:
+    - material_id: g2-weather-data-time-explanation
+      title: Самостоятельное объяснение сравнения данных и времени
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-weather-data-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather data and time standalone explanation
+        notes: Original explanation supplies every strategy needed without Opiq access.
+    - material_id: g2-weather-data-time-worked-example
+      title: Разобранный пример с другими длительностями
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-weather-data-explanation.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 weather data and time worked example
+        notes: Original example models the operation order without revealing either integrated task answer.
+    - material_id: g2-weather-data-comparison-task
+      title: Одобренное задание о сравнении данных осадков
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-weather-data-comparison-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/03-weather-data-comparison.yaml
+        notes: Learner rendering preserves the approved customer projection and excludes teacher answers.
+    - material_id: g2-time-measurement-problem-task
+      title: Одобренная задача о длительности наблюдения
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-time-measurement-problem-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/04-time-measurement-problem.yaml
+        notes: Learner rendering preserves the approved customer projection and excludes teacher answers.
+    - material_id: g2-weather-data-comparison-expected-answers
+      title: Teacher-only expected answer для сравнения осадков
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-weather-data-comparison-task answer contract
+        notes: Approved expected answer remains in a teacher-only file after the first attempt.
+    - material_id: g2-weather-data-comparison-worked-solution
+      title: Teacher-only worked solution для сравнения осадков
+      material_type: worked_solution
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_solution
+        source_reference: g2-weather-data-comparison-task worked solution
+        notes: Approved calculation steps remain separated from every learner-facing file.
+    - material_id: g2-time-measurement-problem-expected-answers
+      title: Teacher-only expected answer для задачи о времени
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-time-measurement-problem-task answer contract
+        notes: Approved expected answer remains in a teacher-only file after the first attempt.
+    - material_id: g2-time-measurement-problem-worked-solution
+      title: Teacher-only worked solution для задачи о времени
+      material_type: worked_solution
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_solution
+        source_reference: g2-time-measurement-problem-task worked solution
+        notes: Approved add-then-convert steps remain separated from every learner-facing file.
+    - material_id: g2-weather-data-time-assessment
+      title: Раздельная выходная карточка урока 2
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-exit-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 weather data and time exit card
+        notes: Original exit card separates calculation checks from the Estonian oral frame.
+    - material_id: g2-weather-data-time-lesson-guide
+      title: Внутренний guide урока 2
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-02-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather data and time lesson procedure
+        notes: Teacher guide records exact approved task integration, timing, and evidence separation.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: activate-data
+      language_mode: activate_prior_knowledge
+      description: Ученик активирует знакомое содержание на русском языке.
+    - sequence: 2
+      stage_id: explain-data-time-ru
+      language_mode: establish_concept_ru
+      description: Полное предметное объяснение сначала даётся по-русски.
+    - sequence: 3
+      stage_id: bridge-data-et
+      language_mode: introduce_term_et
+      description: Эстонские единицы вводятся после понимания содержания.
+    - sequence: 4
+      stage_id: solve-approved-tasks
+      language_mode: supported_task_et
+      description: Индивидуальное задание выполняется с видимой языковой опорой.
+    - sequence: 5
+      stage_id: assess-data-separately
+      language_mode: short_oral_answer_et
+      description: Предметный результат и короткая эстонская фраза проверяются отдельно.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: solve-weather-data-and-time
+      text_ru: Ученик сравнивает четыре значения осадков и решает задачу на общую длительность.
+      observable_output_ru: Индивидуальные записи показывают максимум, минимум, разность, сложение и перевод шестидесяти минут в один час.
+      curriculum_outcome_refs:
+        - ee-prk-2026-stage1-mathematics-real-life
+  estonian_language_objectives:
+    - objective_id: say-one-data-frame-et
+      text_ru: Ученик произносит одну короткую поддержанную фразу о результате после вычисления.
+      text_et: Õpilane ütleb ühe toetatud lause tulemuse kohta.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 1
+      language_functions:
+        - name
+        - compare
+        - report
+  subject_success_criteria:
+    - criterion_id: subject-two-correct-solutions
+      descriptor: Обе работы показывают требуемые действия и сохраняют правильные единицы.
+      acceptable_evidence: Два индивидуальных learner sheets до просмотра teacher-only guidance.
+  estonian_success_criteria:
+    - criterion_id: language-one-data-sentence
+      descriptor: Одна выбранная короткая рамка с результатом понятна слушателю.
+      acceptable_evidence: Индивидуальная устная фраза после завершения математической работы.
+  prerequisites:
+    - Ученик сравнивает двузначные целые числа и выполняет сложение и вычитание в пределах ста.
+    - Ученик знает, что число в задаче читается вместе с единицей измерения.
+  anticipated_misconceptions:
+    - Из максимума вычитается второе по величине число вместо минимума.
+    - Шестьдесят минут ошибочно называются двумя часами.
+language_load:
+  new_terms_et:
+    - term_et: millimeeter
+      equivalent_ru: миллиметр
+      simple_definition_et: Millimeeter on väike pikkusühik.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time bilingual word bank
+        notes: Short original definition supports bounded A1-A2 mathematics language.
+      first_use_stage: bridge-data-et
+      reuse_stage_refs:
+        - assess-data-separately
+    - term_et: minut
+      equivalent_ru: минута
+      simple_definition_et: Minut on ajaühik.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time bilingual word bank
+        notes: Short original definition supports bounded A1-A2 mathematics language.
+      first_use_stage: bridge-data-et
+      reuse_stage_refs:
+        - assess-data-separately
+    - term_et: tund
+      equivalent_ru: час
+      simple_definition_et: Tund on kuuskümmend minutit.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time bilingual word bank
+        notes: Short original definition supports bounded A1-A2 mathematics language.
+      first_use_stage: bridge-data-et
+      reuse_stage_refs:
+        - assess-data-separately
+    - term_et: kokku
+      equivalent_ru: всего
+      simple_definition_et: Kokku näitab kogu hulka või aega.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time bilingual word bank
+        notes: Short original definition supports bounded A1-A2 mathematics language.
+      first_use_stage: bridge-data-et
+      reuse_stage_refs:
+        - assess-data-separately
+  recycled_terms_et:
+    - term_et: ilm
+      equivalent_ru: погода
+      source_lesson_id: grade-2-weather-water-safety-01-observation
+      reuse_stage_refs:
+        - activate-data
+        - solve-approved-tasks
+  new_instruction_verbs_et:
+    - verb_et: võrdle
+      equivalent_ru: сравни
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time instruction bank
+        notes: Instruction verb is introduced only after the Russian calculation strategy.
+      first_use_stage: bridge-data-et
+      reuse_stage_refs:
+        - solve-approved-tasks
+    - verb_et: liida
+      equivalent_ru: сложи
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time instruction bank
+        notes: Instruction verb is introduced only after the Russian calculation strategy.
+      first_use_stage: bridge-data-et
+      reuse_stage_refs:
+        - solve-approved-tasks
+  recycled_instruction_verbs_et: []
+  model_sentences:
+    - text_et: Kokku on kümme minutit.
+      translation_ru: Всего десять минут.
+      terms_et:
+        - kokku
+        - minut
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data and time oral model
+        notes: Original model uses data different from both approved integrated tasks.
+  sentence_frames:
+    - frame_id: data-result-frame
+      frame_et: Kokku on ___ minutit.
+      purpose_ru: Рамка поддерживает одну короткую фразу после полного русского вычисления.
+      stage_refs:
+        - bridge-data-et
+        - assess-data-separately
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 data result frame
+        notes: Original A1-A2 frame remains separate from mathematics assessment.
+  expected_receptive_language_et:
+    - Võrdle arve.
+    - Liida ajad.
+    - Ütle üks lause.
+  expected_supported_productive_language_et:
+    - Kõige rohkem on ___.
+    - Kokku on ___ minutit.
+  expected_independent_productive_language_et:
+    - Kokku on ___ minutit.
+  full_expected_answer_ru: Ученик правильно находит максимум и минимум осадков, вычисляет разность, складывает две
+    длительности и показывает равенство шестидесяти минут одному часу.
+  short_expected_oral_answer_et: Kokku on ___ minutit.
+  oral_output_terms_et:
+    - kokku
+    - minut
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 4
+  new_instruction_verbs: 2
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Русский язык сохраняет полную вычислительную нагрузку; эстонская продукция ограничена одной фразой.
+scaffolds:
+  - scaffold_id: data-russian-explanation
+    type: russian_explanation
+    description_ru: Учитель по-русски моделирует оба алгоритма без раскрытия ответов индивидуальных задач.
+    stage_refs:
+      - explain-data-time-ru
+    release:
+      at_stage: solve-approved-tasks
+      how_reduced_ru: Во время первой попытки остаются только нейтральные шаги стратегии.
+    provenance:
+      category: author_created_explanation
+      source_reference: grade-2 data and time standalone explanation
+      notes: Original Russian explanation precedes and preserves full independent calculations.
+  - scaffold_id: data-word-bank
+    type: word_bank
+    description_ru: Четыре новых слова и повторяемое ilm остаются видимыми без готового ответа.
+    stage_refs:
+      - bridge-data-et
+      - solve-approved-tasks
+    release:
+      at_stage: assess-data-separately
+      how_reduced_ru: На выходе ученик самостоятельно выбирает одну из двух рамок.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-2 data and time word bank
+      notes: Original bounded word bank does not alter either approved task projection.
+  - scaffold_id: data-sentence-frame
+    type: sentence_frame
+    description_ru: Рамка поддерживает один краткий устный отчёт после вычисления.
+    stage_refs:
+      - bridge-data-et
+      - assess-data-separately
+    release:
+      at_stage: assess-data-separately
+      how_reduced_ru: Ученик сам выбирает число из собственной завершённой работы.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-2 data result frame
+      notes: Original frame keeps the oral output separate from the task-bank answer contract.
+multimodal_support:
+  - support_id: weather-data-table-support
+    type: table
+    stage_refs:
+      - solve-approved-tasks
+    material_ref: g2-weather-data-comparison-task
+    provenance:
+      category: author_created_task_set
+      source_reference: g2-weather-data-comparison-task
+      notes: Approved learner table supplies the exact four-value data comparison projection.
+stages:
+  - stage_id: activate-data
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Вспомнить, что число читается вместе с подписью и единицей.
+    language_purpose_et: Taaskasutada sõna ilm.
+    teacher_action_ru: Показывает два числа с разными подписями и просит назвать, что именно измерено.
+    pupil_action_ru: По-русски связывает каждое число с подписью и единицей измерения.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Число нужно читать вместе с подписью.
+      et:
+        - ilm
+    material_refs:
+      - g2-weather-data-time-explanation
+    provenance_refs:
+      - g2-weather-data-time-explanation
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что обозначает это число?
+      subject_evidence: Ученик называет величину и единицу.
+      language_evidence: Ученик узнаёт повторяемое слово ilm.
+    expected_evidence_of_learning: Индивидуальный ответ связывает число с величиной и единицей измерения.
+    transition: Переход к русскому алгоритму сравнения.
+  - stage_id: explain-data-time-ru
+    duration_minutes: 8
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Освоить алгоритмы максимум–минимум–разность и сложение длительностей.
+    language_purpose_et: Sisu mõistmine toimub vene keeles.
+    teacher_action_ru: По-русски моделирует порядок сравнения и правило 60 минут равно 1 часу.
+    pupil_action_ru: Расставляет карточки шагов в правильном порядке и объясняет выбор.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Сначала нахожу максимум и минимум, затем разность.
+      et: []
+    material_refs:
+      - g2-weather-data-time-explanation
+    provenance_refs:
+      - g2-weather-data-time-explanation
+    scaffold_refs:
+      - data-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какой шаг выполняется перед вычитанием?
+      subject_evidence: Ученик называет максимум, минимум и действие разности.
+      language_evidence: Эстонская продукция на этапе объяснения не требуется.
+    expected_evidence_of_learning: Ученик по-русски воспроизводит оба вычислительных алгоритма по порядку.
+    transition: Переход к примеру с другими данными.
+  - stage_id: bridge-data-et
+    duration_minutes: 7
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Закрепить единицы и краткую устную рамку после понимания математики.
+    language_purpose_et: Õppida millimeeter, minut, tund ja kokku.
+    teacher_action_ru: Показывает четыре слова и моделирует две короткие рамки без ответов к заданиям.
+    pupil_action_ru: Соотносит единицы с величинами и повторяет одну рамку с нейтральным числом.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Миллиметр — единица длины, минута и час — единицы времени.
+      et:
+        - Kokku on kümme minutit.
+    material_refs:
+      - g2-weather-data-time-explanation
+    provenance_refs:
+      - g2-weather-data-time-explanation
+    scaffold_refs:
+      - data-word-bank
+      - data-sentence-frame
+    new_language_items:
+      - millimeeter
+      - minut
+      - tund
+      - kokku
+      - võrdle
+      - liida
+    formative_check:
+      prompt_ru: Покажи слово для часа.
+      subject_evidence: Ученик правильно различает единицы длины и времени.
+      language_evidence: Ученик узнаёт четыре новых слова.
+    expected_evidence_of_learning: Единицы измерения связаны с правильными величинами до индивидуальных задач.
+    transition: Переход к двум индивидуальным заданиям.
+  - stage_id: solve-approved-tasks
+    duration_minutes: 17
+    stage_type: independent_output
+    content_purpose_ru: Получить индивидуальные вычисления по двум одобренным заданиям.
+    language_purpose_et: Hoida matemaatika ja eesti keele tõend eraldi.
+    teacher_action_ru: Выдаёт только два одобренных learner files и не показывает teacher-only guidance.
+    pupil_action_ru: Индивидуально решает обе задачи, показывает действия и только затем обсуждает записи.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я показываю сравнение, действие и единицу.
+        - Я складываю две длительности.
+      et: []
+    material_refs:
+      - g2-weather-data-comparison-task
+      - g2-time-measurement-problem-task
+    provenance_refs:
+      - g2-weather-data-comparison-task
+      - g2-time-measurement-problem-task
+    scaffold_refs:
+      - data-word-bank
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие два числа нужно использовать для разности?
+      subject_evidence: Есть индивидуальные максимум, минимум, разность и add-then-convert решение.
+      language_evidence: Эстонская продукция не входит в task-bank answers.
+    expected_evidence_of_learning: Каждый ученик сохраняет собственные вычисления до общей проверки или доски.
+    transition: Переход к раздельной выходной проверке.
+  - stage_id: assess-data-separately
+    duration_minutes: 8
+    stage_type: assessment
+    content_purpose_ru: Отдельно проверить математику и короткую эстонскую фразу.
+    language_purpose_et: Hinnata üht lühikest lauset eraldi.
+    teacher_action_ru: Проверяет ответы по teacher-only guidance и отдельно слушает одну рамку.
+    pupil_action_ru: Проверяет единицы и действие, затем произносит одну выбранную эстонскую фразу.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я могу объяснить, почему использовал(а) эту единицу.
+      et:
+        - Kõige rohkem on ___.
+        - Kokku on ___ minutit.
+    material_refs:
+      - g2-weather-data-time-assessment
+    provenance_refs:
+      - g2-weather-data-time-assessment
+    scaffold_refs:
+      - data-sentence-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Почему в ответе нужно сохранить единицу?
+      subject_evidence: Выходная карточка подтверждает проверку подписи, действия и единицы.
+      language_evidence: Одна короткая фраза отмечена отдельно от математики.
+    expected_evidence_of_learning: Математические строки и индивидуальный устный output имеют разные критерии.
+    transition: Урок завершается без интеграции других task-bank items.
+questions:
+  - question_id: data-strategy-question
+    question_ru: Как проверить, что для разности выбраны самое большое и самое маленькое значения?
+    question_et: Kuidas sa arve võrdled?
+    full_expected_answer_ru: Нужно сравнить все четыре значения, отметить максимум и минимум, затем вычесть минимум из максимума.
+    short_oral_answer_et: Kõige rohkem on ___.
+    acceptable_variants:
+      - Допустим любой верный способ сравнения всех четырёх значений.
+    misconception_to_watch: Ученик сравнивает максимум только с соседним или вторым по величине значением.
+    objective_refs:
+      - solve-weather-data-and-time
+      - say-one-data-frame-et
+    provenance_refs:
+      - g2-weather-data-comparison-task
+practical_work: null
+assessment:
+  - criterion_id: data-time-subject
+    domain: subject_understanding
+    what_is_checked: Максимум, минимум, разность, сложение длительностей и перевод единицы.
+    acceptable_evidence: Два индивидуальных решения с действиями и единицами.
+    success_threshold: Обе задачи решены с показанными действиями.
+    affects: subject_assessment
+  - criterion_id: data-et-recognition
+    domain: estonian_terminology_recognition
+    what_is_checked: Различение слов millimeeter, minut, tund и kokku.
+    acceptable_evidence: Указание правильного слова по значению.
+    success_threshold: Не менее трёх из четырёх слов.
+    affects: language_assessment
+  - criterion_id: data-et-supported
+    domain: supported_estonian_production
+    what_is_checked: Использование одной видимой рамки с собственным результатом.
+    acceptable_evidence: Короткая фраза после завершения математики.
+    success_threshold: Одна понятная поддержанная фраза.
+    affects: language_assessment
+  - criterion_id: data-et-independent
+    domain: independent_estonian_production
+    what_is_checked: Самостоятельный выбор уместной рамки для результата.
+    acceptable_evidence: Индивидуальная устная фраза на выходе.
+    success_threshold: Уместная рамка выбрана без подсказки ответа.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторить предметный алгоритм по одному шагу, сохранив тот же предметный результат.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить прочитать одну короткую фразу по видимой рамке без сокращения предметной работы.
+      preserves_subject_objective: true
+  challenge_extension: Добавить второе доказательство к русскому предметному ответу без увеличения обязательной эстонской части.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Материалы упрощённой программы не используются в обычном маршруте этого урока.
+homework:
+  content_task_ru: Обязательного домашнего задания нет; по указанию учителя можно проверить единицы в своих двух решениях.
+  estonian_language_component: При желании один раз прочитать выбранную короткую рамку.
+  expected_minutes: 5
+  source_reference: g2-weather-data-time-explanation
+  required_opiq_url: null
+  adult_support_expected: false
+  success_guidance_ru: Повторная проверка не требует Opiq, новых данных или раскрытия teacher-only guidance.
+  provenance:
+    category: author_created_worksheet
+    source_reference: grade-2 data and time optional consolidation
+    notes: No required home work or Opiq access is introduced by this lesson.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: false
+  teacher_review:
+    status: pending
+    reviewer_role: null
+    reviewed_at: null
+    notes: Независимая педагогическая проверка урока ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе или дома.
+  classroom_ready: false
+  readiness_status: materials_resolved
+delivery_model:
+  core_mode: standalone_commercial_core
+  opiq_required: false
+  opiq_companion_policy: none
+  family_overlay_supported: false
+  customer_can_complete_without_opiq: true
+  publication_status: internal_review
+commercial_core:
+  explanation_material_ids:
+    - g2-weather-data-time-explanation
+  worked_example_material_ids:
+    - g2-weather-data-time-worked-example
+  task_material_ids:
+    - g2-weather-data-comparison-task
+    - g2-time-measurement-problem-task
+  expected_answer_material_ids:
+    - g2-weather-data-comparison-expected-answers
+    - g2-time-measurement-problem-expected-answers
+  worked_solution_material_ids:
+    - g2-weather-data-comparison-worked-solution
+    - g2-time-measurement-problem-worked-solution
+  assessment_material_ids:
+    - g2-weather-data-time-assessment
+  assessment_criterion_ids:
+    - data-time-subject
+    - data-et-independent
+  learner_output_refs:
+    - solve-weather-data-and-time
+    - data-strategy-question
+  success_criteria_refs:
+    - subject-two-correct-solutions
+    - language-one-data-sentence
+  task_contracts:
+    - task_material_id: g2-weather-data-comparison-task
+      response_mode: computational
+      open_ended: false
+      expected_answer_material_ids:
+        - g2-weather-data-comparison-expected-answers
+      worked_solution_material_ids:
+        - g2-weather-data-comparison-worked-solution
+    - task_material_id: g2-time-measurement-problem-task
+      response_mode: computational
+      open_ended: false
+      expected_answer_material_ids:
+        - g2-time-measurement-problem-expected-answers
+      worked_solution_material_ids:
+        - g2-time-measurement-problem-worked-solution
+opiq_companions: []
+originality_review:
+  review_id: grade-2-weather-water-safety-02-data-time-originality-review
+  status: pending
+  reviewer: null
+  reviewer_role: null
+  reviewed_on: null
+  reviewed_version:
+    commit_sha: null
+    content_fingerprint:
+      algorithm: sha256
+      specification_version: "1.0"
+      value: null
+      file_count: null
+  covered_author_material_ids:
+    - g2-weather-data-time-explanation
+    - g2-weather-data-time-worked-example
+    - g2-weather-data-comparison-task
+    - g2-time-measurement-problem-task
+    - g2-weather-data-comparison-expected-answers
+    - g2-weather-data-comparison-worked-solution
+    - g2-time-measurement-problem-expected-answers
+    - g2-time-measurement-problem-worked-solution
+    - g2-weather-data-time-assessment
+    - g2-weather-data-time-lesson-guide
+  internal_source_analysis_refs:
+    - task-bank/reviews/grade-2/weather-water-safety/03-weather-data-comparison.yaml
+    - task-bank/reviews/grade-2/weather-water-safety/04-time-measurement-problem.yaml
+    - a450745bbd382c4758d7cbc96f998b27db76288e
+  dimensions:
+    wording_independence: pending
+    context_independence: pending
+    data_independence: pending
+    question_sequence_independence: pending
+    scaffolding_independence: pending
+    distractor_independence: not_applicable
+    visual_independence: not_applicable
+    answer_independence: pending
+  prohibited_source_content:
+    copied_text: false
+    screenshots: false
+    copied_illustrations: false
+    copied_answer_keys: false
+    extracted_interactive_content: false
+  notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
+family_overlay_hooks: []
+provenance:
+  category: author_created_bridge
+  source_reference: grade-2-project-weather-water-safety; grade-2-mathematics-official-curriculum
+  notes: Independently authored standalone lesson uses registered Grade 2 route architecture without copying source prose
+    or tasks.
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: 5ed93ce78d62eb984f1b43926e3e831d1a7ae62d9e6b6ae17c01cd14d4aa4a31
+  selection_input:
+    purpose: map_or_data_interpretation
+    content_types:
+      - data_table
+      - word_problem
+    required_capabilities:
+      - data_interpretation
+      - calculation
+    desired_capabilities:
+      - formative_assessment
+      - retrieval
+    phase_needs:
+      - activation
+      - explanation
+      - guided_practice
+      - formative_assessment
+    context_flags:
+      practical: false
+      map_or_data: true
+      retrieval: true
+      assessment: true
+    maximum_total_productive_language_demand: low
+    delivery:
+      group_size: 24
+      supported_group_formats:
+        - individual
+        - pair
+        - whole_class
+    resources:
+      available:
+        - paper
+        - writing_tool
+        - clock
+        - window_view
+      unavailable:
+        - internet
+        - laboratory_materials
+      printer_available: true
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: false
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: low
+      max_teacher_facilitation: medium
+      max_learner_setup: minimal
+      max_parent_effort: none
+      accessibility_priorities:
+        - working_memory_support
+        - language_scaffolding
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: guided-individual-evidence
+      preferred_target_ids:
+        - individual-record
+        - short-oral-report
+      excluded_target_ids: []
+      preferred_group_formats:
+        - individual
+        - pair
+        - whole_class
+      teacher_overrides: []
+    homeschool:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 45
+      maximum_sessions: 1
+      maximum_total_productive_language_demand: low
+      resources:
+        available:
+          - paper
+          - writing_tool
+        unavailable:
+          - internet
+          - laboratory_materials
+          - measuring_tools
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: g2-weather-data-time-explanation
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-data-time-worked-example
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-data-comparison-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-time-measurement-problem-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-data-time-assessment
+          delivery_scope:
+            - classroom
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      answer_key_release: self_managed_after_attempt
+      teacher_override_policy: require_preservation
+      adapted_task_contracts: []
+      practical_policy: null
+    future_retrieval_windows: []
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids:
+        - assess-data-separately
+      criterion_refs:
+        - data-time-subject
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids:
+        - assess-data-separately
+      criterion_refs:
+        - data-et-recognition
+        - data-et-supported
+        - data-et-independent
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance:
+      source: lesson_assessment_bindings
+  phase_bindings:
+    - dna_phase_id: activate-data
+      lesson_stage_ids:
+        - activate-data
+      timing_allocations:
+        - lesson_stage_id: activate-data
+          activity_minutes: 5
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-data-time-lesson-guide
+      student_material_ids:
+        - g2-weather-data-time-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - data-strategy-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-02-data-time/activate-data
+        learner_instruction_ru: По-русски связывает каждое число с подписью и единицей измерения.
+        prompt_source_refs:
+          - stage:activate-data:pupil_action_ru
+        learner_success_criterion_ru:
+          - Индивидуальный ответ связывает число с величиной и единицей измерения.
+        learner_language_support_ru:
+          - ilm
+        answer_evidence_refs:
+          - stage:activate-data:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:activate-data:teacher_action_ru
+        answer_language_refs:
+          - question:data-strategy-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:data-strategy-question:acceptable_variants
+        misconception_refs:
+          - question:data-strategy-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап activate-data полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: explain-data-time-ru
+      lesson_stage_ids:
+        - explain-data-time-ru
+      timing_allocations:
+        - lesson_stage_id: explain-data-time-ru
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-data-time-lesson-guide
+      student_material_ids:
+        - g2-weather-data-time-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - data-strategy-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-02-data-time/explain-data-time-ru
+        learner_instruction_ru: Расставляет карточки шагов в правильном порядке и объясняет выбор.
+        prompt_source_refs:
+          - stage:explain-data-time-ru:pupil_action_ru
+        learner_success_criterion_ru:
+          - Ученик по-русски воспроизводит оба вычислительных алгоритма по порядку.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:explain-data-time-ru:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:explain-data-time-ru:teacher_action_ru
+        answer_language_refs:
+          - question:data-strategy-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:data-strategy-question:acceptable_variants
+        misconception_refs:
+          - question:data-strategy-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап explain-data-time-ru полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: bridge-data-et
+      lesson_stage_ids:
+        - bridge-data-et
+      timing_allocations:
+        - lesson_stage_id: bridge-data-et
+          activity_minutes: 7
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-data-time-lesson-guide
+      student_material_ids:
+        - g2-weather-data-time-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - data-strategy-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-02-data-time/bridge-data-et
+        learner_instruction_ru: Соотносит единицы с величинами и повторяет одну рамку с нейтральным числом.
+        prompt_source_refs:
+          - stage:bridge-data-et:pupil_action_ru
+        learner_success_criterion_ru:
+          - Единицы измерения связаны с правильными величинами до индивидуальных задач.
+        learner_language_support_ru:
+          - Kokku on kümme minutit.
+        answer_evidence_refs:
+          - stage:bridge-data-et:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:bridge-data-et:teacher_action_ru
+        answer_language_refs:
+          - question:data-strategy-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:data-strategy-question:acceptable_variants
+        misconception_refs:
+          - question:data-strategy-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап bridge-data-et полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: solve-approved-tasks
+      lesson_stage_ids:
+        - solve-approved-tasks
+      timing_allocations:
+        - lesson_stage_id: solve-approved-tasks
+          activity_minutes: 17
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-data-time-lesson-guide
+      student_material_ids:
+        - g2-weather-data-comparison-task
+        - g2-time-measurement-problem-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - data-strategy-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-2-weather-water-safety-02-data-time/solve-approved-tasks
+        learner_instruction_ru: Индивидуально решает обе задачи, показывает действия и только затем обсуждает записи.
+        prompt_source_refs:
+          - stage:solve-approved-tasks:pupil_action_ru
+        learner_success_criterion_ru:
+          - Каждый ученик сохраняет собственные вычисления до общей проверки или доски.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:solve-approved-tasks:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:solve-approved-tasks:teacher_action_ru
+        answer_language_refs:
+          - question:data-strategy-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:data-strategy-question:acceptable_variants
+        misconception_refs:
+          - question:data-strategy-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап solve-approved-tasks полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: assess-data-separately
+      lesson_stage_ids:
+        - assess-data-separately
+      timing_allocations:
+        - lesson_stage_id: assess-data-separately
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-data-time-lesson-guide
+      student_material_ids:
+        - g2-weather-data-time-assessment
+      answer_key_material_ids: []
+      assessment_refs:
+        - data-time-subject
+        - data-et-recognition
+      oral_answer_refs:
+        - data-strategy-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-2-weather-water-safety-02-data-time/assess-data-separately
+        learner_instruction_ru: Проверяет единицы и действие, затем произносит одну выбранную эстонскую фразу.
+        prompt_source_refs:
+          - stage:assess-data-separately:pupil_action_ru
+        learner_success_criterion_ru:
+          - Математические строки и индивидуальный устный output имеют разные критерии.
+        learner_language_support_ru:
+          - Kõige rohkem on ___.
+          - Kokku on ___ minutit.
+        answer_evidence_refs:
+          - stage:assess-data-separately:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:assess-data-separately:teacher_action_ru
+        answer_language_refs:
+          - question:data-strategy-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:data-strategy-question:acceptable_variants
+        misconception_refs:
+          - question:data-strategy-question:misconception_to_watch
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап assess-data-separately полностью связан с авторскими материалами и длительностью этого урока.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations: []
+    non_dna_allocations: []
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/selection-request.yaml
+    selection_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/homeschool-request.yaml
+    homeschool_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/homeschool-decision.yaml
+    homeschool_package_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/homeschool-package.yaml
+    parent_guidance_path: teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md
+    weekly_study_plan_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/weekly-study-plan.md
+    homeschool_rendered_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-02-data-time/homeschool-rendered.md
+    home_practical_policy_path: null
+  status:
+    structural_state: proposed
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    homeschool_ready: false
+    effectiveness_claimed: false
