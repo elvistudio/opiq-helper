@@ -2,7 +2,7 @@ schema_version: "1.0"
 artifact_type: authored_commercial_task
 task_id: g2-weather-observation-conclusion-task
 specification_id: g2-weather-observation-conclusion-spec
-task_version: "1.0.0"
+task_version: "1.0.1"
 grade: 2
 subject: science
 instruction_language: ru
@@ -17,7 +17,7 @@ customer_content:
   prompt: "Прочитай две записи дежурного. Напиши О рядом с наблюдением и В рядом с выводом. Затем объясни один выбор: «Я так решил(а), потому что…»"
   supplied_materials:
     - "1. На верёвке во дворе синие ленты вытянулись в одну сторону."
-    - "2. На улице дует ветер."
+    - "2. По положению лент дежурный решил, что ветер дует в сторону ворот."
   supplied_data: []
   answer_format: "Две буквы и одно короткое объяснение по-русски."
   estonian_output_requirement:
@@ -26,7 +26,7 @@ customer_content:
     maximum_words: null
     support: "Эстонский ответ не требуется."
 answer_contract:
-  answer: "1 — О; 2 — В. Ленты можно увидеть, а ветер заключают по их движению."
+  answer: "1 — О; 2 — В. Положение лент можно увидеть, а направление ветра дежурный определяет по этому признаку."
   worked_solution: null
   success_criteria:
     - criterion_id: observation-conclusion
@@ -36,13 +36,13 @@ answer_contract:
       dimension: subject_result
       description: "Объяснение связывает вывод с движением лент."
   acceptable_variants:
-    - "Допустима формулировка о том, что направление лент является видимым признаком ветра."
+    - "Допустима формулировка о том, что положение лент — видимый признак, а направление ветра — вывод по этому признаку."
   common_errors:
     - "Обе записи названы наблюдениями."
     - "Причина не связана с данными задачи."
   feedback:
     correct: "Верно: ты отделил(а) увиденный признак от вывода."
-    retry: "Спроси себя, какую запись можно увидеть прямо, а какую нужно объяснить по признаку."
+    retry: "Спроси себя, какая запись сообщает увиденный признак, а какая — решение дежурного по этому признаку."
 standalone_contract:
   works_without_opiq: true
   external_access_required: false
