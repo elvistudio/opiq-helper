@@ -326,7 +326,49 @@
       }
     },
     "originalityDimension": {
-      "enum": ["independent", "changes_required", "not_applicable"]
+      "enum": ["pending", "independent", "changes_required", "not_applicable"]
+    },
+    "originalityDimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wording_independence",
+        "context_independence",
+        "data_independence",
+        "question_sequence_independence",
+        "scaffolding_independence",
+        "distractor_independence",
+        "visual_independence",
+        "answer_independence"
+      ],
+      "properties": {
+        "wording_independence": { "$ref": "#/$defs/originalityDimension" },
+        "context_independence": { "$ref": "#/$defs/originalityDimension" },
+        "data_independence": { "$ref": "#/$defs/originalityDimension" },
+        "question_sequence_independence": { "$ref": "#/$defs/originalityDimension" },
+        "scaffolding_independence": { "$ref": "#/$defs/originalityDimension" },
+        "distractor_independence": { "$ref": "#/$defs/originalityDimension" },
+        "visual_independence": { "$ref": "#/$defs/originalityDimension" },
+        "answer_independence": { "$ref": "#/$defs/originalityDimension" }
+      }
+    },
+    "prohibitedSourceContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "copied_text",
+        "screenshots",
+        "copied_illustrations",
+        "copied_answer_keys",
+        "extracted_interactive_content"
+      ],
+      "properties": {
+        "copied_text": { "const": false },
+        "screenshots": { "const": false },
+        "copied_illustrations": { "const": false },
+        "copied_answer_keys": { "const": false },
+        "extracted_interactive_content": { "const": false }
+      }
     },
     "originalityReview": {
       "type": "object",
@@ -378,48 +420,8 @@
           "uniqueItems": true,
           "items": { "type": "string", "minLength": 1 }
         },
-        "dimensions": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "wording_independence",
-            "context_independence",
-            "data_independence",
-            "question_sequence_independence",
-            "scaffolding_independence",
-            "distractor_independence",
-            "visual_independence",
-            "answer_independence"
-          ],
-          "properties": {
-            "wording_independence": { "$ref": "#/$defs/originalityDimension" },
-            "context_independence": { "$ref": "#/$defs/originalityDimension" },
-            "data_independence": { "$ref": "#/$defs/originalityDimension" },
-            "question_sequence_independence": { "$ref": "#/$defs/originalityDimension" },
-            "scaffolding_independence": { "$ref": "#/$defs/originalityDimension" },
-            "distractor_independence": { "$ref": "#/$defs/originalityDimension" },
-            "visual_independence": { "$ref": "#/$defs/originalityDimension" },
-            "answer_independence": { "$ref": "#/$defs/originalityDimension" }
-          }
-        },
-        "prohibited_source_content": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "copied_text",
-            "screenshots",
-            "copied_illustrations",
-            "copied_answer_keys",
-            "extracted_interactive_content"
-          ],
-          "properties": {
-            "copied_text": { "const": false },
-            "screenshots": { "const": false },
-            "copied_illustrations": { "const": false },
-            "copied_answer_keys": { "const": false },
-            "extracted_interactive_content": { "const": false }
-          }
-        },
+        "dimensions": { "$ref": "#/$defs/originalityDimensions" },
+        "prohibited_source_content": { "$ref": "#/$defs/prohibitedSourceContent" },
         "notes": { "type": "string", "minLength": 10 }
       }
     },

@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/authored-task.schema.json",
+  "title": "Independently authored commercial task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "task_id",
+    "specification_id",
+    "task_version",
+    "grade",
+    "subject",
+    "instruction_language",
+    "learner_language_level",
+    "official_outcome_ids",
+    "target_skill",
+    "response_mode",
+    "difficulty",
+    "expected_time_minutes",
+    "customer_content",
+    "answer_contract",
+    "standalone_contract",
+    "authoring_provenance",
+    "originality_review_ref"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "authored_commercial_task" },
+    "task_id": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "specification_id": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "task_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+    "subject": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "instruction_language": { "enum": ["ru", "et"] },
+    "learner_language_level": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel"
+    },
+    "official_outcome_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+      }
+    },
+    "target_skill": { "type": "string", "minLength": 10 },
+    "response_mode": {
+      "enum": ["open_ended", "short_answer", "procedural", "computational"]
+    },
+    "difficulty": { "enum": ["foundational", "core", "challenge"] },
+    "expected_time_minutes": { "type": "integer", "minimum": 1, "maximum": 30 },
+    "customer_content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt",
+        "supplied_materials",
+        "supplied_data",
+        "answer_format",
+        "estonian_output_requirement"
+      ],
+      "properties": {
+        "prompt": { "type": "string", "minLength": 10 },
+        "supplied_materials": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "supplied_data": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "answer_format": { "type": "string", "minLength": 5 },
+        "estonian_output_requirement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required", "level", "maximum_words", "support"],
+          "properties": {
+            "required": { "type": "boolean" },
+            "level": {
+              "oneOf": [
+                { "type": "null" },
+                {
+                  "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel"
+                }
+              ]
+            },
+            "maximum_words": {
+              "oneOf": [
+                { "type": "null" },
+                { "type": "integer", "minimum": 1, "maximum": 20 }
+              ]
+            },
+            "support": { "type": "string", "minLength": 5 }
+          }
+        }
+      }
+    },
+    "answer_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "answer",
+        "worked_solution",
+        "success_criteria",
+        "acceptable_variants",
+        "common_errors",
+        "feedback"
+      ],
+      "properties": {
+        "answer": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1 }
+          ]
+        },
+        "worked_solution": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 10 }
+          ]
+        },
+        "success_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["criterion_id", "dimension", "description"],
+            "properties": {
+              "criterion_id": {
+                "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+              },
+              "dimension": {
+                "enum": ["subject_result", "estonian_language", "reflection", "individual_contribution"]
+              },
+              "description": { "type": "string", "minLength": 5 }
+            }
+          }
+        },
+        "acceptable_variants": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "common_errors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "feedback": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["correct", "retry"],
+          "properties": {
+            "correct": { "type": "string", "minLength": 5 },
+            "retry": { "type": "string", "minLength": 5 }
+          }
+        },
+        "open_ended_justification": { "type": "string", "minLength": 10 }
+      }
+    },
+    "standalone_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "works_without_opiq",
+        "external_access_required",
+        "customer_visibility",
+        "publication_status"
+      ],
+      "properties": {
+        "works_without_opiq": { "const": true },
+        "external_access_required": { "const": false },
+        "customer_visibility": { "enum": ["internal_only", "customer_visible"] },
+        "publication_status": {
+          "enum": [
+            "internal_draft",
+            "internal_review",
+            "publication_ready",
+            "customer_released"
+          ]
+        }
+      }
+    },
+    "authoring_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "authoring_method",
+        "specification_ref",
+        "notes",
+        "used_source_task_text",
+        "used_source_answer_text",
+        "used_source_screenshot",
+        "used_source_illustration",
+        "used_extracted_interactive_content"
+      ],
+      "properties": {
+        "category": { "const": "author_created_task_set" },
+        "authoring_method": { "const": "independently_authored_from_neutral_specification" },
+        "specification_ref": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+        },
+        "notes": { "type": "string", "minLength": 15 },
+        "used_source_task_text": { "const": false },
+        "used_source_answer_text": { "const": false },
+        "used_source_screenshot": { "const": false },
+        "used_source_illustration": { "const": false },
+        "used_extracted_interactive_content": { "const": false }
+      }
+    },
+    "originality_review_ref": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "response_mode": { "const": "open_ended" } },
+        "required": ["response_mode"]
+      },
+      "then": {
+        "properties": {
+          "answer_contract": {
+            "type": "object",
+            "required": ["open_ended_justification"],
+            "properties": {
+              "answer": { "type": "null" },
+              "open_ended_justification": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "answer_contract": {
+            "type": "object",
+            "properties": { "answer": { "type": "string", "minLength": 1 } }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "response_mode": { "enum": ["procedural", "computational"] }
+        },
+        "required": ["response_mode"]
+      },
+      "then": {
+        "properties": {
+          "answer_contract": {
+            "type": "object",
+            "properties": {
+              "worked_solution": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
