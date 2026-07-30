@@ -5,6 +5,8 @@ on:
     paths:
       - source-manifest.json
       - scripts/**
+      - task-bank/**
+      - test-fixtures/task-bank/**
       - project-files/**
       - evaluations/**
       - curriculum-maps/**
@@ -51,6 +53,8 @@ on:
     paths:
       - source-manifest.json
       - scripts/**
+      - task-bank/**
+      - test-fixtures/task-bank/**
       - project-files/**
       - evaluations/**
       - curriculum-maps/**
@@ -155,6 +159,12 @@ jobs:
 
       - name: Check commercial course schemas
         run: npm run check:commercial-course-schema
+
+      - name: Test clean-room task bank
+        run: npm run test:task-bank
+
+      - name: Check clean-room task bank
+        run: npm run check:task-bank
 
       - name: Test multilingual topic synthesis
         run: npm run test:synthesis

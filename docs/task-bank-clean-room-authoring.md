@@ -88,7 +88,7 @@ Real tasks start as `pending` with no reviewer identity or approval. A human rev
 An approved review requires:
 
 - an identified human reviewer and role;
-- a review date and exact commit SHA;
+- a real calendar review date in `YYYY-MM-DD` form and an exact commit SHA;
 - a fingerprint matching the current customer projection;
 - every independence dimension resolved as `independent` or `not_applicable`;
 - no prohibited source content;
@@ -128,6 +128,11 @@ Seed tasks remain:
 customer_visibility: internal_only
 publication_status: internal_review
 ```
+
+`internal_draft` and `internal_review` tasks must remain `internal_only`. A task may become
+`customer_visible` only at `publication_ready` or `customer_released`, and only with a current,
+complete approved human review. `publication_ready` may remain internal while release is prepared;
+`customer_released` must be customer-visible.
 
 Publication remains blocked until:
 

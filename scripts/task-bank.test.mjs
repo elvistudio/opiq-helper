@@ -15,6 +15,7 @@ let sourceDependentFixture;
 let tooSimilarFixture;
 let syntheticApprovalFixture;
 let unsafePathFixture;
+let validationWorkflow;
 
 async function loadFixture(name) {
   const file = `test-fixtures/task-bank/${name}`;
@@ -28,12 +29,18 @@ before(async () => {
     tooSimilarFixture,
     syntheticApprovalFixture,
     unsafePathFixture,
+    validationWorkflow,
   ] = await Promise.all([
     loadTaskBankRepository(),
     loadFixture('source-dependent-specification.yaml'),
     loadFixture('too-similar.yaml'),
     loadFixture('synthetic-approved-review.yaml'),
     loadFixture('unsafe-index-path.yaml'),
+    fs.readFile('.github/workflows/validate-source-manifest.yml', 'utf8')
+      .then((text) => parseStrictCurriculumYaml(
+        text,
+        '.github/workflows/validate-source-manifest.yml',
+      )),
   ]);
 });
 
@@ -106,6 +113,30 @@ function applySyntheticApproval(review) {
   review.similarity_flags = [];
 }
 
+function indexEntryForTask(repository, task) {
+  return repository.index.data.entries.find((entry) => entry.task_id === task.task_id);
+}
+
+function applyCurrentSyntheticApproval(repository, index = 0) {
+  const task = taskData(repository, index);
+  const review = reviewData(repository, index);
+  applySyntheticApproval(review);
+  indexEntryForTask(repository, task).current_fingerprint_status = 'current_approved';
+  return { task, review };
+}
+
+function setPublicationState(repository, {
+  index = 0,
+  publicationStatus,
+  customerVisibility,
+}) {
+  const task = taskData(repository, index);
+  task.standalone_contract.publication_status = publicationStatus;
+  task.standalone_contract.customer_visibility = customerVisibility;
+  indexEntryForTask(repository, task).publication_status = publicationStatus;
+  return task;
+}
+
 function setRoute(spec, routeId, role = 'neutral_skill_analysis') {
   const route = baseline.routesById.get(routeId);
   spec.source_analysis.source_status = 'available_route';
@@ -135,6 +166,36 @@ test('valid task bank contains exactly twelve specifications, tasks, reviews, an
     indexed: 12,
     errors: 0,
   }, diagnosticText(cloneRepository()));
+});
+
+test('task-bank paths are present in both executable workflow trigger filters', () => {
+  for (const triggerName of ['pull_request', 'push']) {
+    const paths = validationWorkflow.on?.[triggerName]?.paths;
+    assert.ok(Array.isArray(paths), `${triggerName}.paths must be an array`);
+    for (const expectedPath of ['task-bank/**', 'test-fixtures/task-bank/**']) {
+      assert.equal(
+        paths.filter((entry) => entry === expectedPath).length,
+        1,
+        `${expectedPath} must occur exactly once in ${triggerName}.paths`,
+      );
+    }
+  }
+});
+
+test('core workflow job executes both task-bank validation commands', () => {
+  const commands = validationWorkflow.jobs?.core?.steps
+    ?.map((step) => step.run)
+    .filter((run) => typeof run === 'string') ?? [];
+  for (const expectedCommand of [
+    'npm run test:task-bank',
+    'npm run check:task-bank',
+  ]) {
+    assert.equal(
+      commands.filter((command) => command.trim() === expectedCommand).length,
+      1,
+      `${expectedCommand} must occur exactly once as an executable core-job step`,
+    );
+  }
 });
 
 test('seed inventory has the requested subject distribution', () => {
@@ -465,6 +526,131 @@ test('publication-ready task rejects a pending review', () => {
   assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
 });
 
+test('customer-visible internal-review task rejects a pending review', () => {
+  const repository = cloneRepository();
+  setPublicationState(repository, {
+    publicationStatus: 'internal_review',
+    customerVisibility: 'customer_visible',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+});
+
+test('customer-visible internal-draft task is rejected', () => {
+  const repository = cloneRepository();
+  setPublicationState(repository, {
+    publicationStatus: 'internal_draft',
+    customerVisibility: 'customer_visible',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+});
+
+test('customer-visible publication-ready task rejects a pending review', () => {
+  const repository = cloneRepository();
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'customer_visible',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+  assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+});
+
+test('customer-visible task rejects changes-requested and rejected reviews', () => {
+  for (const reviewStatus of ['changes_requested', 'rejected']) {
+    const repository = cloneRepository();
+    const { task, review } = applyCurrentSyntheticApproval(repository);
+    review.status = reviewStatus;
+    indexEntryForTask(repository, task).current_fingerprint_status = 'current_pending_review';
+    setPublicationState(repository, {
+      publicationStatus: 'publication_ready',
+      customerVisibility: 'customer_visible',
+    });
+    assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+    assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+  }
+});
+
+test('customer-visible task rejects a missing review', () => {
+  const repository = cloneRepository();
+  repository.reviews.splice(0, 1);
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'customer_visible',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+  assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+});
+
+test('customer-released task cannot remain internal-only', () => {
+  const repository = cloneRepository();
+  applyCurrentSyntheticApproval(repository);
+  setPublicationState(repository, {
+    publicationStatus: 'customer_released',
+    customerVisibility: 'internal_only',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+  assert.ok(
+    !diagnosticCodes(repository).includes('TB_PUBLICATION_REVIEW_GATE'),
+    diagnosticText(repository),
+  );
+});
+
+test('customer-visible task rejects a stale approved review', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'customer_visible',
+  });
+  review.reviewed_version.content_fingerprint.value = '0'.repeat(64);
+  assertCode(repository, 'TB_STALE_REVIEW_FINGERPRINT');
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+  assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+});
+
+test('customer-visible task rejects an approved review with incomplete dimensions', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.dimensions.wording_independence = 'pending';
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'customer_visible',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+  assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+});
+
+test('customer-visible task rejects an approved review with similarity flags', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.similarity_flags = structuredClone(tooSimilarFixture.similarity_flags);
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'customer_visible',
+  });
+  assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+  assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+});
+
+test('publication-ready task may remain internal-only with a current approved review', () => {
+  const repository = cloneRepository();
+  applyCurrentSyntheticApproval(repository);
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'internal_only',
+  });
+  assert.deepEqual(validation(repository).diagnostics, []);
+});
+
+test('customer-released task may be customer-visible with a current approved review', () => {
+  const repository = cloneRepository();
+  applyCurrentSyntheticApproval(repository);
+  setPublicationState(repository, {
+    publicationStatus: 'customer_released',
+    customerVisibility: 'customer_visible',
+  });
+  assert.deepEqual(validation(repository).diagnostics, []);
+});
+
 test('approved review rejects a stale fingerprint', () => {
   const repository = cloneRepository();
   applySyntheticApproval(reviewData(repository));
@@ -472,6 +658,41 @@ test('approved review rejects a stale fingerprint', () => {
   taskData(repository).standalone_contract.publication_status = 'publication_ready';
   assertCode(repository, 'TB_STALE_REVIEW_FINGERPRINT');
   assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+});
+
+test('approved review accepts a valid leap-year ISO date', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.reviewed_on = '2024-02-29';
+  assert.deepEqual(validation(repository).diagnostics, []);
+});
+
+test('approved review rejects an invalid leap-day date', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.reviewed_on = '2026-02-29';
+  assertCode(repository, 'TB_APPROVED_REVIEW_DATE');
+});
+
+test('approved review rejects an impossible February date', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.reviewed_on = '2026-02-30';
+  assertCode(repository, 'TB_APPROVED_REVIEW_DATE');
+});
+
+test('approved review rejects a non-date string', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.reviewed_on = 'yesterday';
+  assertCode(repository, 'TB_APPROVED_REVIEW_DATE');
+});
+
+test('approved review accepts a valid ordinary ISO date', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.reviewed_on = '2026-07-30';
+  assert.deepEqual(validation(repository).diagnostics, []);
 });
 
 test('approved review rejects unresolved structural similarity fixture flags', () => {

@@ -111,6 +111,55 @@ function fingerprintEquals(left, right) {
     .every((field) => left?.[field] === right?.[field]);
 }
 
+function isValidIsoCalendarDate(value) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/u.exec(value ?? '');
+  if (!match) return false;
+  const [, yearText, monthText, dayText] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const candidate = new Date(0);
+  candidate.setUTCHours(0, 0, 0, 0);
+  candidate.setUTCFullYear(year, month - 1, day);
+  return candidate.getUTCFullYear() === year
+    && candidate.getUTCMonth() === month - 1
+    && candidate.getUTCDate() === day;
+}
+
+function hasResolvedIndependenceDimensions(review) {
+  return similarityDimensionFields.every(
+    (field) => ['independent', 'not_applicable'].includes(review?.dimensions?.[field]),
+  );
+}
+
+function hasNoProhibitedSourceContent(review) {
+  return [
+    'copied_text',
+    'screenshots',
+    'copied_illustrations',
+    'copied_answer_keys',
+    'extracted_interactive_content',
+  ].every((field) => review?.prohibited_source_content?.[field] === false);
+}
+
+function isCurrentApprovedHumanReview(task, review) {
+  return review?.status === 'approved'
+    && typeof review.reviewer === 'string'
+    && review.reviewer.length > 0
+    && typeof review.reviewer_role === 'string'
+    && review.reviewer_role.length > 0
+    && isValidIsoCalendarDate(review.reviewed_on)
+    && /^[0-9a-f]{40}$/u.test(review.reviewed_version?.commit_sha ?? '')
+    && fingerprintEquals(
+      review.reviewed_version?.content_fingerprint,
+      computeTaskFingerprint(task),
+    )
+    && hasResolvedIndependenceDimensions(review)
+    && hasNoProhibitedSourceContent(review)
+    && (review.similarity_flags ?? []).length === 0
+    && review.human_review_required === true;
+}
+
 function sameSet(left = [], right = []) {
   const leftSet = new Set(left);
   const rightSet = new Set(right);
@@ -880,6 +929,15 @@ function validateReview(diagnostics, artifact, tasksById, specificationsById) {
         'approved review requires a human reviewer, role, date, and commit SHA',
       );
     }
+    if (!isValidIsoCalendarDate(review.reviewed_on)) {
+      diagnostic(
+        diagnostics,
+        'TB_APPROVED_REVIEW_DATE',
+        artifact,
+        '/reviewed_on',
+        'approved review requires a real ISO calendar date in YYYY-MM-DD format',
+      );
+    }
     const incomplete = similarityDimensionFields.filter(
       (field) => !['independent', 'not_applicable'].includes(review.dimensions?.[field]),
     );
@@ -915,19 +973,60 @@ function validateReview(diagnostics, artifact, tasksById, specificationsById) {
 
 function validatePublication(diagnostics, taskArtifact, reviewArtifact) {
   const task = taskArtifact.data;
+  const visibility = task.standalone_contract?.customer_visibility;
   const status = task.standalone_contract?.publication_status;
-  if (!['publication_ready', 'customer_released'].includes(status)) return;
   const review = reviewArtifact?.data;
-  const current = review
-    && fingerprintEquals(review.reviewed_version?.content_fingerprint, computeTaskFingerprint(task));
-  const completeDimensions = review && similarityDimensionFields.every(
-    (field) => ['independent', 'not_applicable'].includes(review.dimensions?.[field]),
-  );
+  const hasCurrentApproval = isCurrentApprovedHumanReview(task, review);
+
   if (
-    review?.status !== 'approved'
-    || !current
-    || !completeDimensions
-    || (review.similarity_flags ?? []).length > 0
+    ['internal_draft', 'internal_review'].includes(status)
+    && visibility !== 'internal_only'
+  ) {
+    diagnostic(
+      diagnostics,
+      'TB_CUSTOMER_VISIBILITY_REVIEW_GATE',
+      taskArtifact,
+      '/standalone_contract/customer_visibility',
+      `${status} status requires internal-only customer visibility`,
+    );
+  } else if (
+    visibility === 'customer_visible'
+    && !['publication_ready', 'customer_released'].includes(status)
+  ) {
+    diagnostic(
+      diagnostics,
+      'TB_CUSTOMER_VISIBILITY_REVIEW_GATE',
+      taskArtifact,
+      '/standalone_contract',
+      'customer-visible content requires publication-ready or customer-released status',
+    );
+  } else if (
+    visibility === 'customer_visible'
+    && !hasCurrentApproval
+  ) {
+    diagnostic(
+      diagnostics,
+      'TB_CUSTOMER_VISIBILITY_REVIEW_GATE',
+      taskArtifact,
+      '/standalone_contract/customer_visibility',
+      'customer-visible content requires a current complete approved human originality review',
+    );
+  } else if (
+    status === 'customer_released'
+    && visibility !== 'customer_visible'
+  ) {
+    diagnostic(
+      diagnostics,
+      'TB_CUSTOMER_VISIBILITY_REVIEW_GATE',
+      taskArtifact,
+      '/standalone_contract',
+      'customer-released status requires customer-visible content',
+    );
+  }
+
+  if (
+    ['publication_ready', 'customer_released'].includes(status)
+    && !hasCurrentApproval
   ) {
     diagnostic(
       diagnostics,

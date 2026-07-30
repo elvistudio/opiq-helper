@@ -263,6 +263,82 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "standalone_contract": {
+            "type": "object",
+            "properties": {
+              "publication_status": {
+                "enum": ["internal_draft", "internal_review"]
+              }
+            },
+            "required": ["publication_status"]
+          }
+        },
+        "required": ["standalone_contract"]
+      },
+      "then": {
+        "properties": {
+          "standalone_contract": {
+            "type": "object",
+            "properties": {
+              "customer_visibility": { "const": "internal_only" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "standalone_contract": {
+            "type": "object",
+            "properties": {
+              "customer_visibility": { "const": "customer_visible" }
+            },
+            "required": ["customer_visibility"]
+          }
+        },
+        "required": ["standalone_contract"]
+      },
+      "then": {
+        "properties": {
+          "standalone_contract": {
+            "type": "object",
+            "properties": {
+              "publication_status": {
+                "enum": ["publication_ready", "customer_released"]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "standalone_contract": {
+            "type": "object",
+            "properties": {
+              "publication_status": { "const": "customer_released" }
+            },
+            "required": ["publication_status"]
+          }
+        },
+        "required": ["standalone_contract"]
+      },
+      "then": {
+        "properties": {
+          "standalone_contract": {
+            "type": "object",
+            "properties": {
+              "customer_visibility": { "const": "customer_visible" }
+            }
+          }
+        }
+      }
     }
   ]
 }
