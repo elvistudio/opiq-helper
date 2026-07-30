@@ -1,0 +1,1228 @@
+artifact_id: grade-2-kodututarde-training-topic-inventory
+artifact_type: grade_programme_topic_inventory
+canonical_route:
+  additional_source_archives: []
+  md_path: project-files/outputs/opiq_2klass_kodututarde_valjaope.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_kodututarde_valjaope_qa.json
+  source_id: grade-2-kodututarde-training
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+deduplication_policy:
+  cross_route_deduplication: false
+  edition_policy: preserve_without_obsolescence_claim
+  normalization: nfc_casefold_whitespace_punctuation_programme_type
+  source_record_preservation: all_records_retained
+grade: 2
+inventory_scope: route_bounded_original_headings_and_metadata
+programme_role: supplementary_youth_training
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  verification_date: 2026-07-29
+record_count: 31
+route_id: grade-2-kodututarde-training
+schema_version: "1.0"
+subject: Kodututred training
+subject_et: Kodutütarde väljaõpe
+topics:
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33615
+    display_title_language: et
+    display_title_original: Esitab loovalt Kodutütarde seadusi
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-esitab-loovalt-kodututarde-seadusi-fd3feb2b1f
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: esitab loovalt kodutütarde seadusi
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Esitab loovalt Kodutütarde seadusi
+      - Kodutütarde seadused
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33615-b754ea1b0e
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-esitab-loovalt-kodututarde-seadusi-fd3feb2b1f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33603
+    display_title_language: et
+    display_title_original: Järgib looduses viibides turvalise käitumise põhimõtteid
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-jargib-looduses-viibides-turvalise-kaitumi-6635811417
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: järgib looduses viibides turvalise käitumise põhimõtteid
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Järgib looduses viibides turvalise käitumise põhimõtteid
+      - Hoia sooja!
+      - Jää paigale!
+      - Looduslik oht
+      - Looduslikest ohtudest hoidumine
+      - Looduslikud ohud
+      - Metsas eksimise korral 1
+      - Metsas eksimise korral 2
+      - Metsas eksimise korral 3
+      - Metsas eksimisel
+      - Mida teha, kui oled eksinud?
+      - Ohutult lõkke süütamine
+      - Ohutus lõkke tegemisel
+      - Ohutus veekogu ääres
+      - Ole kuuldav ja nähtav!
+      - Pea meeles!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33603-7efb2dc591
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-jargib-looduses-viibides-turvalise-kaitumi-6635811417
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33593
+    display_title_language: et
+    display_title_original: Kirjeldab Kodutütarde sümboolikat
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-kirjeldab-kodututarde-sumboolikat-df6db06211
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: kirjeldab kodutütarde sümboolikat
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Kirjeldab Kodutütarde sümboolikat
+      - Kodutütarde lipp
+      - Kotkamärgi elemendid
+      - Kotkamärgi elementide tähendused
+      - Kotkamärk
+      - Lisa! Kotkamärk vormielemendina
+      - Mütsimärgi kandmine
+      - Ristikulehe kasutamine
+      - Ristikuleht
+      - Ristikumärk
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33593-86cdc1791b
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-kirjeldab-kodututarde-sumboolikat-df6db06211
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33614
+    display_title_language: et
+    display_title_original: Käitub kodutütrele sobivalt
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-kaitub-kodututrele-sobivalt-b1a238e302
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: käitub kodutütrele sobivalt
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Käitub kodutütrele sobivalt
+      - I järk
+      - Kodutütarde seadused igapäevaelus
+      - Kodutütarde seadused minu igapäevaselus
+      - Pea meeles!
+      - Vormielemendid
+      - Vormikandmine
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33614-89cf35ee29
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-kaitub-kodututrele-sobivalt-b1a238e302
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33609
+    display_title_language: et
+    display_title_original: Laulab koos kaaslastega Eesti Vabariigi hümni
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-laulab-koos-kaaslastega-eesti-vabariigi-hu-2078e642b7
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: laulab koos kaaslastega eesti vabariigi hümni
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Laulab koos kaaslastega Eesti Vabariigi hümni
+      - Eesti Vabariigi hümn
+      - Eesti hümn
+      - Lisaks!
+      - Pea meeles!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33609-9afcc68315
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-laulab-koos-kaaslastega-eesti-vabariigi-hu-2078e642b7
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33617
+    display_title_language: et
+    display_title_original: Lisamaterjal rühmavanemale
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-lisamaterjal-ruhmavanemale-50e6af2326
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: lisamaterjal rühmavanemale
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Lisamaterjal rühmavanemale
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33617-22c03130bc
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: Lisamaterjal rühmavanemale
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-lisamaterjal-ruhmavanemale-50e6af2326
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33610
+    display_title_language: et
+    display_title_original: Nimetab Eesti Vabariigi presidendi
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-nimetab-eesti-vabariigi-presidendi-d0d74ab703
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: nimetab eesti vabariigi presidendi
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Nimetab Eesti Vabariigi presidendi
+      - Eesti Vabariigi president
+      - Eesti president
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33610-2b4949dc8d
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-nimetab-eesti-vabariigi-presidendi-d0d74ab703
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33587
+    display_title_language: et
+    display_title_original: Nimetab kodutütarde piduliku esindusvormi elemente ja kandmise põhimõtteid
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-nimetab-kodututarde-piduliku-esindusvormi-6ac45c6add
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: nimetab kodutütarde piduliku esindusvormi elemente ja kandmise põhimõtteid
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Nimetab kodutütarde piduliku esindusvormi elemente ja kandmise põhimõtteid
+      - Hea teada!
+      - Kodutütarde pidulik vorm
+      - Kodutütre pidulik vorm
+      - Kodutütre vormi kandmine
+      - Lisaks!
+      - Vormi kandmine 1
+      - Vormi kandmine 2
+      - Vormi kandmine 3
+      - Vormielemendid
+      - Vormielemendid 1
+      - Vormielemendid 2
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33587-52c1d7269b
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-nimetab-kodututarde-piduliku-esindusvormi-6ac45c6add
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33598
+    display_title_language: et
+    display_title_original: On osalenud laagris
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-on-osalenud-laagris-c79d942696
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: on osalenud laagris
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - On osalenud laagris
+      - Hügieen
+      - Hügieenitarbed
+      - Kodutütarde laagrid
+      - Korra hoidmine laagris
+      - Oluline on teada!
+      - Sinu hügieenikombed
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33598-f1420728cd
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-on-osalenud-laagris-c79d942696
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33611
+    display_title_language: et
+    display_title_original: On osalenud riiklike tähtpäevade tähistamisel
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-on-osalenud-riiklike-tahtpaevade-tahistami-758251ba8b
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: on osalenud riiklike tähtpäevade tähistamisel
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - On osalenud riiklike tähtpäevade tähistamisel
+      - Riikliku tähtpäeva tähistamine
+      - Riiklikud tähtpäevad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33611-f38ad7a348
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-on-osalenud-riiklike-tahtpaevade-tahistami-758251ba8b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33597
+    display_title_language: et
+    display_title_original: Osaleb koos juhendajaga rahulikus tempos matkal
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-osaleb-koos-juhendajaga-rahulikus-tempos-m-e6608eee4c
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: osaleb koos juhendajaga rahulikus tempos matkal
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Osaleb koos juhendajaga rahulikus tempos matkal
+      - Arutle sõbraga!
+      - Lisa!
+      - Matkamine
+      - Matkavarustus
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33597-0d5bb0f25b
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-osaleb-koos-juhendajaga-rahulikus-tempos-m-e6608eee4c
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33601
+    display_title_language: et
+    display_title_original: Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-oskab-anda-esmaabi-pisihaavade-ja-ninavere-bca9a465ed
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: oskab anda esmaabi pisihaavade ja ninaverejooksu korral
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Oskab anda esmaabi pisihaavade ja ninaverejooksu korral
+      - Esmaabi ninaverejooksu korral
+      - Esmaabi pisihaava korral
+      - Esmased sidumisvõtted
+      - Ninaverejooks
+      - Pisihaavad
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33601-d747596f90
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-oskab-anda-esmaabi-pisihaavade-ja-ninavere-bca9a465ed
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33602
+    display_title_language: et
+    display_title_original: Oskab käituda linnaruumis ja avalikes kohtades
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-oskab-kaituda-linnaruumis-ja-avalikes-koht-4a15623ea0
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: oskab käituda linnaruumis ja avalikes kohtades
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Oskab käituda linnaruumis ja avalikes kohtades
+      - Hea teada!
+      - Käitumine linnas eksimise korral
+      - Liiklejad
+      - Liiklusmärgid
+      - Liiklusohutusnõuded ja reeglid
+      - Liiklusreeglid
+      - Lisaks!
+      - ORIENTEERU
+      - Ohutuse luuletus
+      - PLANEERI
+      - Pea meeles!
+      - SEISATA
+      - TUTVU
+      - Valgusfoor
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33602-e667c7992a
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-oskab-kaituda-linnaruumis-ja-avalikes-koht-4a15623ea0
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33599
+    display_title_language: et
+    display_title_original: Oskab teha kingapaelasõlme
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-oskab-teha-kingapaelasolme-b9aa36cf73
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: oskab teha kingapaelasõlme
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Oskab teha kingapaelasõlme
+      - Arutle!
+      - Harjuta kingapaelasõlme sidumist!
+      - Kingapaelasõlm
+      - Lisa!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33599-2422f7f800
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-oskab-teha-kingapaelasolme-b9aa36cf73
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33590
+    display_title_language: et
+    display_title_original: Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-selgitab-eakohaselt-mis-on-kaitseliit-ning-01f5c2c595
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: selgitab eakohaselt mis on kaitseliit ning teab kes kuuluvad kaitseliitu
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Selgitab eakohaselt, mis on Kaitseliit ning teab, kes kuuluvad Kaitseliitu
+      - Kaitseliidu allüksused
+      - Kaitseliit
+      - Kes kuuluvad Kaitseliitu?
+      - Mis on Kaitseliit?
+      - Uuri lisaks!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33590-f4c6fbfbb2
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-selgitab-eakohaselt-mis-on-kaitseliit-ning-01f5c2c595
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33589
+    display_title_language: et
+    display_title_original: Selgitab, kes on kodutütar
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-selgitab-kes-on-kodututar-59771832ef
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: selgitab kes on kodutütar
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Selgitab, kes on kodutütar
+      - Kes on kodutütred?
+      - Kodutütarde ja noorkotkaste laager
+      - Kodutütarde tegevused
+      - Kodutütred
+      - Millega tegelevad kodutütred?
+      - Vaata lisaks!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33589-24406117e6
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-selgitab-kes-on-kodututar-59771832ef
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33600
+    display_title_language: et
+    display_title_original: Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-hairekeskuse-numbrit-ja-oskab-edastad-919666d7c9
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab häirekeskuse numbrit ja oskab edastada hädaabikutset
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab häirekeskuse numbrit ja oskab edastada hädaabikutset
+      - Esmaabi andmine
+      - Hea teada!
+      - Helistamine häirekeskusesse
+      - Helistamine häirekeskusesse – 112
+      - Hädaabi number
+      - Häirekeskuse number
+      - Häirekeskuse number on 112.
+      - Pea meeles!
+      - Õnnetuse hindamine
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33600-92c37b6059
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-hairekeskuse-numbrit-ja-oskab-edastad-919666d7c9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33588
+    display_title_language: et
+    display_title_original: Teab, kes on tema rühmavanem ja oskab temaga kontakteeruda
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-kes-on-tema-ruhmavanem-ja-oskab-temag-e03db22bc9
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab kes on tema rühmavanem ja oskab temaga kontakteeruda
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab, kes on tema rühmavanem ja oskab temaga kontakteeruda
+      - Hea idee!
+      - Lisa!
+      - Minu rühm
+      - Noortejuht
+      - Pea meeles!
+      - Rühmavanem
+      - Rühmavanemaga kontakteerumine
+      - Telefonikõne rühmavanemaga
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33588-49b0bcb838
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-kes-on-tema-ruhmavanem-ja-oskab-temag-e03db22bc9
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33594
+    display_title_language: et
+    display_title_original: Teab kodutütarde tervitust ja selgitab selle tähendust
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-kodututarde-tervitust-ja-selgitab-sel-c598e8feff
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab kodutütarde tervitust ja selgitab selle tähendust
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab kodutütarde tervitust ja selgitab selle tähendust
+      - Juhtsõna
+      - Kodutütarde tervitus
+      - Kodutütre tervitus
+      - Kodutütre tervituse tähendus
+      - Kuidas tervitust anda?
+      - Tervituse andmine
+      - Tervituse kasutamine
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33594-ccf7a7ba81
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-kodututarde-tervitust-ja-selgitab-sel-c598e8feff
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33604
+    display_title_language: et
+    display_title_original: Teab, kuidas käituda tulekahju korral
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-kuidas-kaituda-tulekahju-korral-c2d761ee3a
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab kuidas käituda tulekahju korral
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab, kuidas käituda tulekahju korral
+      - Hoonest ei saa väljuda
+      - Häirekeskuse number
+      - Käitumine tulekahju korral
+      - Lisaks!
+      - Pea meeles!
+      - Tulekahju tekkepõhjused
+      - Tulekahju tekkimine
+      - Uuri lisaks!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33604-67386bf369
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-kuidas-kaituda-tulekahju-korral-c2d761ee3a
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33607
+    display_title_language: et
+    display_title_original: Teab, millal on Eesti iseseisvuspäev
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-millal-on-eesti-iseseisvuspaev-e8430de510
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab millal on eesti iseseisvuspäev
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab, millal on Eesti iseseisvuspäev
+      - Eesti Vabariigi aastapäev
+      - Tegevused Eesti Vabariigi aastapäeval
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33607-7f20c24360
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-millal-on-eesti-iseseisvuspaev-e8430de510
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33596
+    display_title_language: et
+    display_title_original: Teab, mis on matkamine
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-mis-on-matkamine-2b11ad3659
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab mis on matkamine
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab, mis on matkamine
+      - Lisaks!
+      - Matkaliigid
+      - Matkamine
+      - Ööbimisvõimalused matkal
+      - Ööbimisvõimalused metsas
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33596-74485c6a52
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-mis-on-matkamine-2b11ad3659
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33605
+    display_title_language: et
+    display_title_original: Teab oma koduaadressi ja vanema kontaktandmeid
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-oma-koduaadressi-ja-vanema-kontaktand-3b29ab6f96
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab oma koduaadressi ja vanema kontaktandmeid
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab oma koduaadressi ja vanema kontaktandmeid
+      - Kodutütre aadress
+      - Minu aadress
+      - Minu kodu aadress
+      - Vanema telefoninumbri teadmine
+      - Õpi number selgeks!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33605-07939d862b
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-oma-koduaadressi-ja-vanema-kontaktand-3b29ab6f96
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33595
+    display_title_language: et
+    display_title_original: Teab rivikäsklusi ning oskab nende järgi liikuda
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-teab-rivikasklusi-ning-oskab-nende-jargi-l-1c696e3da2
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: teab rivikäsklusi ning oskab nende järgi liikuda
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Teab rivikäsklusi ning oskab nende järgi liikuda
+      - Harjuta!
+      - Riviõpe
+      - Riviõpe 1
+      - Riviõpe 2
+      - Viirg ja kolonn
+      - Viirg ja kolonn 1
+      - Viirg ja kolonn 2
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33595-39dadc8c91
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-teab-rivikasklusi-ning-oskab-nende-jargi-l-1c696e3da2
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33616
+    display_title_language: et
+    display_title_original: Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-tuleb-vahemalt-kolmele-valjaoppeuritusele-b71528233b
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Tuleb vähemalt kolmele väljaõppeüritusele jala või osaleb rühmas kolmel kehalist aktiivsust nõudval tegevusel
+      - Head ideed noortejuhile!
+      - Liikumine Kodutütarde üritusele
+      - Liikumine on oluline
+      - Liikumisharjumus
+      - Pea meeles!
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33616-9734f6f373
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-tuleb-vahemalt-kolmele-valjaoppeuritusele-b71528233b
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33608
+    display_title_language: et
+    display_title_original: Tunneb Eesti lippu
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-tunneb-eesti-lippu-fb4d1d25d4
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: tunneb eesti lippu
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Tunneb Eesti lippu
+      - Eesti Vabariigi lipp
+      - Eesti lipp
+      - Eesti lipuvärvid
+      - Lipuvärvi tähendused
+      - MUST
+      - SININE
+      - VALGE
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33608-2e6fa5ba44
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-tunneb-eesti-lippu-fb4d1d25d4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33606
+    display_title_language: et
+    display_title_original: Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-tunneb-eesti-vabariigi-sumboleid-vapp-ja-r-54421b7bf4
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: tunneb eesti vabariigi sümboleid vapp ja rahvussümbolid
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Tunneb Eesti Vabariigi sümboleid (vapp ja rahvussümbolid)
+      - Eesti Vabariigi vapp
+      - Eesti rahvussümbolid
+      - Millised rahvussümbolid on pildil?
+      - Rahvussümbol
+      - Suur ja väike riigivapp
+      - Suure riigivapi elemendid
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33606-59c052dfe2
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-tunneb-eesti-vabariigi-sumboleid-vapp-ja-r-54421b7bf4
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33592
+    display_title_language: et
+    display_title_original: Tunneb kodutütarde seadusi
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-tunneb-kodututarde-seadusi-65efc2651f
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: tunneb kodutütarde seadusi
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Tunneb kodutütarde seadusi
+      - Kodutütarde seadused
+      - Kodutütre seadused
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33592-c65d370641
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-tunneb-kodututarde-seadusi-65efc2651f
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33612
+    display_title_language: et
+    display_title_original: Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-tunneb-ara-ja-nimetab-kolm-erinevat-puud-p-ec6be028a5
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: tunneb ära ja nimetab kolm erinevat puud põõsast rohttaime looma ning seent
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Tunneb ära ja nimetab kolm erinevat puud, põõsast, rohttaime, looma ning seent
+      - Jalutuskäik kodukohas
+      - Levinumad linnud
+      - Linnud
+      - Loodus minu kodu ümbruses
+      - Loodus sinu ümber
+      - Puud ja põõsad
+      - Rohttaimed
+      - Soovitused
+      - Söödavad seened
+      - Tuntumad loomad
+      - Tuntumad taimed
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33612-e91fad7c0a
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-tunneb-ara-ja-nimetab-kolm-erinevat-puud-p-ec6be028a5
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33613
+    display_title_language: et
+    display_title_original: Tunneb ära viis paigalindu oma kodukohas
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-tunneb-ara-viis-paigalindu-oma-kodukohas-1b5b9dede6
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: tunneb ära viis paigalindu oma kodukohas
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Tunneb ära viis paigalindu oma kodukohas
+      - Eesti linnud
+      - Hea teada!
+      - Lindude toitmine talvel
+      - Lisaks!
+      - Paigalindude toitmine talvel
+      - Paigalinnud
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33613-87abeae678
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-tunneb-ara-viis-paigalindu-oma-kodukohas-1b5b9dede6
+  - authoring_gap: complete_prose_and_tasks_required
+    automatic_translated_topics_used_as_source_prose: false
+    book_ids:
+      - kodutütarde_i_järk_(2026)
+    canonical_urls:
+      - https://www.opiq.ee/kit/593/chapter/33591
+    display_title_language: et
+    display_title_original: Ütleb peast kodutütarde tõotuse ja arutleb selle tähenduse üle
+    duplicate_group: grade-2-kodututarde-training-duplicate-supplementary-utleb-peast-kodututarde-tootuse-ja-arutleb-34cb793a43
+    evidence_level: heading_only
+    full_prose_status: missing
+    kit_ids:
+      - "593"
+    notes: Clustered only within this route from original headings; language-specific titles are populated only from
+      confirmed source script, never record-language metadata.
+    official_outcome_candidates: []
+    original_heading_key: ütleb peast kodutütarde tõotuse ja arutleb selle tähenduse üle
+    programme_types:
+      - supplementary
+    route_id: grade-2-kodututarde-training
+    source_grouping_status: single_record_group
+    source_headings:
+      - Ütleb peast kodutütarde tõotuse ja arutleb selle tähenduse üle
+      - Kodutütarde pühalik tõotus
+      - Tõotus
+      - Tõotuse tähendus
+      - Tõotuse tähendus 1
+      - Tõotuse tähendus 2
+    source_languages:
+      - et
+    source_record_ids:
+      - grade-2-kodututarde-training-record-593-https-www-opiq-ee-kit-593-chapter-33591-50757278c6
+    source_relationship_ids: []
+    task_example_status: not_captured
+    title_et: null
+    title_ru: null
+    topic_id: grade-2-kodututarde-training-topic-supplementary-utleb-peast-kodututarde-tootuse-ja-arutleb-34cb793a43

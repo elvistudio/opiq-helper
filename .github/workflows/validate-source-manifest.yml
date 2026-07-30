@@ -18,6 +18,7 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/grade-2-course-architecture.md
       - docs/grade-4-course-architecture.md
       - docs/templates/grade-programme.md
       - docs/2026-27-curriculum-compliance-baseline.md
@@ -63,6 +64,7 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/grade-2-course-architecture.md
       - docs/grade-4-course-architecture.md
       - docs/templates/grade-programme.md
       - docs/2026-27-curriculum-compliance-baseline.md
@@ -91,12 +93,16 @@ on:
       - .github/workflows/validate-source-manifest.yml
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
-  validate:
-    name: Validate manifest and source records
+  core:
+    name: Validate core, source, and grade records
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -108,6 +114,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install locked dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
@@ -199,39 +207,6 @@ jobs:
       - name: Check generated water pedagogy pilot
         run: npm run generate:pedagogy-water-pilot -- --check
 
-      - name: Test pedagogical quality gates
-        run: npm run test:pedagogy-quality
-
-      - name: Check pedagogical quality gates
-        run: npm run check:pedagogy-quality
-
-      - name: Check generated pedagogical quality report
-        run: npm run check:pedagogy-quality-report
-
-      - name: Test pedagogical regression cases
-        run: npm run test:pedagogy-regressions
-
-      - name: Check pedagogical regression cases
-        run: npm run check:pedagogy-regressions
-
-      - name: Check generated pedagogical regression report
-        run: npm run check:pedagogy-regression-report
-
-      - name: Test pedagogical human evidence
-        run: npm run test:pedagogy-evidence
-
-      - name: Check pedagogical human evidence
-        run: npm run check:pedagogy-evidence
-
-      - name: Test evidence-gated pedagogical readiness
-        run: npm run test:pedagogy-readiness
-
-      - name: Check evidence-gated pedagogical readiness
-        run: npm run check:pedagogy-readiness
-
-      - name: Check generated pedagogical readiness report
-        run: npm run check:pedagogy-readiness-report
-
       - name: Verify generated grade 1 mathematics QA
         run: node scripts/generate-grade-1-mathematics-qa.mjs --check
 
@@ -270,6 +245,12 @@ jobs:
 
       - name: Test grade 2 catalogue integrity guards
         run: npm run test:grade-2-sources
+
+      - name: Test Grade 2 course architecture
+        run: npm run test:grade-2-course-architecture
+
+      - name: Check generated Grade 2 course architecture
+        run: npm run check:grade-2-course-architecture
 
       - name: Test grade 2 content-quality audit
         run: npm run test:grade-2-content-quality
@@ -321,3 +302,117 @@ jobs:
 
       - name: Validate source manifest
         run: node scripts/check-source-manifest.mjs
+
+  pedagogy_quality:
+    name: Validate pedagogical quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test pedagogical quality gates
+        run: npm run test:pedagogy-quality
+
+      - name: Check pedagogical quality gates
+        run: npm run check:pedagogy-quality
+
+      - name: Check generated pedagogical quality report
+        run: npm run check:pedagogy-quality-report
+
+  pedagogy_regressions:
+    name: Validate pedagogical regressions
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test pedagogical regression cases
+        run: npm run test:pedagogy-regressions
+
+      - name: Check pedagogical regression cases
+        run: npm run check:pedagogy-regressions
+
+      - name: Check generated pedagogical regression report
+        run: npm run check:pedagogy-regression-report
+
+  pedagogy_evidence:
+    name: Validate pedagogical evidence and readiness
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test pedagogical human evidence
+        run: npm run test:pedagogy-evidence
+
+      - name: Check pedagogical human evidence
+        run: npm run check:pedagogy-evidence
+
+      - name: Test evidence-gated pedagogical readiness
+        run: npm run test:pedagogy-readiness
+
+      - name: Check evidence-gated pedagogical readiness
+        run: npm run check:pedagogy-readiness
+
+      - name: Check generated pedagogical readiness report
+        run: npm run check:pedagogy-readiness-report
+
+  validate:
+    name: Validate manifest and source records
+    if: ${{ !cancelled() }}
+    needs:
+      - core
+      - pedagogy_quality
+      - pedagogy_regressions
+      - pedagogy_evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Require every validation group to pass
+        env:
+          CORE_RESULT: ${{ needs.core.result }}
+          QUALITY_RESULT: ${{ needs.pedagogy_quality.result }}
+          REGRESSIONS_RESULT: ${{ needs.pedagogy_regressions.result }}
+          EVIDENCE_RESULT: ${{ needs.pedagogy_evidence.result }}
+        run: |
+          test "$CORE_RESULT" = "success"
+          test "$QUALITY_RESULT" = "success"
+          test "$REGRESSIONS_RESULT" = "success"
+          test "$EVIDENCE_RESULT" = "success"

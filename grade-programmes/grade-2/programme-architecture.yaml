@@ -1,0 +1,227 @@
+alternative_profiles:
+  - activation: explicit_language_profile_selection
+    profile_id: first-language-estonian-alternative
+    route_id: grade-2-estonian
+annual_sequence: grade-programmes/grade-2/teaching-calendar.yaml
+artifact_id: grade-2-programme-architecture
+artifact_type: grade_programme_architecture
+author_created_subjects: grade-programmes/grade-2/author-created-subjects.yaml
+completeness:
+  declared_complete: false
+  known_gaps:
+    - "Final Riigi Teataja refresh remains tracked under issue #37."
+    - The official baseline is intentionally non-exhaustive outside its declared scope.
+    - Live Grade 2 Opiq catalogue completeness has not been verified.
+    - Complete Opiq instructional page prose was not captured.
+    - Task examples are missing for 1530 canonical records.
+    - An exclusive Grade 2 foreign-language route is missing.
+    - An exclusive Grade 2 physical-education route is missing.
+    - The independently authored standalone commercial core is not implemented.
+    - A clean-room task bank has not been implemented.
+    - Originality review is not yet applicable because production materials are absent.
+    - Customer companion access has not been verified.
+    - Pedagogical effectiveness has not been established.
+  status: partial
+delivery_model:
+  core_mode: standalone_commercial_core
+  customer_can_complete_without_opiq: true
+  opiq_companion_policy: optional
+  opiq_required: false
+  publication_status: internal_review
+estonian_language_progression: grade-programmes/grade-2/language-progression.yaml
+grade: 2
+implementation_roadmap: grade-programmes/grade-2/implementation-roadmap.yaml
+known_gaps:
+  - "Final Riigi Teataja refresh remains tracked under issue #37."
+  - The official baseline is intentionally non-exhaustive outside its declared scope.
+  - Live Grade 2 Opiq catalogue completeness has not been verified.
+  - Complete Opiq instructional page prose was not captured.
+  - Task examples are missing for 1530 canonical records.
+  - An exclusive Grade 2 foreign-language route is missing.
+  - An exclusive Grade 2 physical-education route is missing.
+  - The independently authored standalone commercial core is not implemented.
+  - A clean-room task bank has not been implemented.
+  - Originality review is not yet applicable because production materials are absent.
+  - Customer companion access has not been verified.
+  - Pedagogical effectiveness has not been established.
+learner_profile:
+  estonian_core_level: A1
+  estonian_stretch_level: A1-A2
+  estonian_subject_route: grade-2-estonian-second-language
+  first_language_estonian_activation: explicit_profile_selection
+  first_language_estonian_route: grade-2-estonian
+  foreign_language_status: mandatory_author_created_core_missing_route
+  primary_language: ru
+  subject_explanation_language: ru
+  subject_support_language: et
+learner_specific_book_profiles:
+  - activation: learner_specific_simplified_opt_in
+    kit_id: "272"
+    profile_id: simplified-kit-272-opt-in
+  - activation: learner_specific_simplified_opt_in
+    kit_id: "273"
+    profile_id: simplified-kit-273-opt-in
+  - activation: learner_specific_simplified_opt_in
+    kit_id: "274"
+    profile_id: simplified-kit-274-opt-in
+  - activation: learner_specific_simplified_opt_in
+    kit_id: "501"
+    profile_id: simplified-kit-501-opt-in
+  - activation: learner_specific_simplified_opt_in
+    kit_id: "286"
+    profile_id: simplified-kit-286-opt-in
+mastery_strands: grade-programmes/grade-2/mastery-strands.yaml
+official_field_gaps:
+  - architecture_status: designed
+    content_strategy: author_created_required
+    field_id: foreign_language
+    outcome_ids:
+      - ee-prk-2026-stage1-foreign-language-a1
+    production_status: not_started
+    programme_requirement: mandatory_author_created_core
+    release_status: blocked
+    source_status: missing_route
+  - architecture_status: designed
+    content_strategy: author_created_required
+    field_id: physical_education
+    outcome_ids:
+      - ee-prk-2026-stage1-physical-education-water-safety
+    production_status: not_started
+    programme_requirement: mandatory_author_created_core
+    release_status: blocked
+    source_status: missing_route
+opiq_companion_policy:
+  access_mode: unverified
+  check_status: not_checked
+  default_visibility: internal_only
+  standalone_fallback_required: true
+  teacher_only_allowed: false
+practical_and_community_learning:
+  classification: recommended_good_practice
+  principle: Use safe age-appropriate application while retaining individual evidence and explicit source gaps.
+programme_id: grade-2-standalone-commercial-programme-2026-27
+project_modules: grade-programmes/grade-2/project-modules.yaml
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  verification_date: 2026-07-29
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+release_gate:
+  blocker_codes:
+    - final_riigi_teataja_refresh_pending_under_37
+    - official_baseline_intentionally_non_exhaustive
+    - live_grade_2_opiq_catalogue_completeness_unverified
+    - full_instructional_prose_not_captured
+    - task_examples_missing_for_1530_records
+    - foreign_language_route_missing
+    - physical_education_route_missing
+    - standalone_commercial_core_not_implemented
+    - clean_room_task_bank_not_implemented
+    - originality_review_not_applicable_to_absent_materials
+    - customer_companion_access_not_verified
+    - pedagogical_effectiveness_not_established
+  blockers:
+    - "Final Riigi Teataja refresh remains tracked under issue #37."
+    - The official baseline is intentionally non-exhaustive outside its declared scope.
+    - Live Grade 2 Opiq catalogue completeness has not been verified.
+    - Complete Opiq instructional page prose was not captured.
+    - Task examples are missing for 1530 canonical records.
+    - An exclusive Grade 2 foreign-language route is missing.
+    - An exclusive Grade 2 physical-education route is missing.
+    - The independently authored standalone commercial core is not implemented.
+    - A clean-room task bank has not been implemented.
+    - Originality review is not yet applicable because production materials are absent.
+    - Customer companion access has not been verified.
+    - Pedagogical effectiveness has not been established.
+  classroom_ready: false
+  effectiveness_claimed: false
+  publication_ready: false
+  status: blocked
+revision_and_assessment_calendar: grade-programmes/grade-2/teaching-calendar.yaml
+route_strands:
+  - book_inventory_ref: curriculum-maps/grade-2-estonian/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-estonian/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-estonian/official-curriculum.yaml
+    programme_role: alternative_language_profile
+    route_id: grade-2-estonian
+    topic_inventory_ref: curriculum-maps/grade-2-estonian/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-estonian-second-language/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-estonian-second-language/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-estonian-second-language/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-estonian-second-language
+    topic_inventory_ref: curriculum-maps/grade-2-estonian-second-language/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-mathematics/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-mathematics/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-mathematics/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-mathematics
+    topic_inventory_ref: curriculum-maps/grade-2-mathematics/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-science/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-science/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-science/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-science
+    topic_inventory_ref: curriculum-maps/grade-2-science/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-human-studies/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-human-studies/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-human-studies/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-human-studies
+    topic_inventory_ref: curriculum-maps/grade-2-human-studies/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-nature-and-human-studies/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-nature-and-human-studies/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-nature-and-human-studies/official-curriculum.yaml
+    programme_role: mixed_subject_support
+    route_id: grade-2-nature-and-human-studies
+    topic_inventory_ref: curriculum-maps/grade-2-nature-and-human-studies/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-arts-and-crafts/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-arts-and-crafts/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-arts-and-crafts/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-arts-and-crafts
+    topic_inventory_ref: curriculum-maps/grade-2-arts-and-crafts/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-music/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-music/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-music/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-music
+    topic_inventory_ref: curriculum-maps/grade-2-music/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-kodututarde-training/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-kodututarde-training/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-kodututarde-training/official-curriculum.yaml
+    programme_role: supplementary_youth_training
+    route_id: grade-2-kodututarde-training
+    topic_inventory_ref: curriculum-maps/grade-2-kodututarde-training/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-noorte-kotkaste-training/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-noorte-kotkaste-training/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-noorte-kotkaste-training/official-curriculum.yaml
+    programme_role: supplementary_youth_training
+    route_id: grade-2-noorte-kotkaste-training
+    topic_inventory_ref: curriculum-maps/grade-2-noorte-kotkaste-training/topic-inventory.yaml
+  - book_inventory_ref: curriculum-maps/grade-2-russian/book-inventory.yaml
+    coverage_ref: curriculum-maps/grade-2-russian/coverage-matrix.yaml
+    official_curriculum_ref: curriculum-maps/grade-2-russian/official-curriculum.yaml
+    programme_role: default_ordinary_core
+    route_id: grade-2-russian
+    topic_inventory_ref: curriculum-maps/grade-2-russian/topic-inventory.yaml
+schema_version: "1.0"
+target_school_year: 2026/27

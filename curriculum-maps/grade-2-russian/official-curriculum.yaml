@@ -1,0 +1,97 @@
+allocation_status:
+  curated_grade_2_allocation: opiq_helper_recommended_allocation
+  national_exact_grade_claimed: false
+  notes: National stage-I scope remains distinct from this recommended Grade 2 allocation.
+artifact_id: grade-2-russian-official-curriculum
+artifact_type: grade_programme_official_curriculum_map
+canonical_route:
+  additional_source_archives: []
+  md_path: project-files/outputs/opiq_2klass_vene_keel.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_vene_keel_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_vene_keel_qa.json
+  source_id: grade-2-russian
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+grade: 2
+mapping_status: mapped_recommended_grade_2_allocation
+official_fields:
+  - keel ja kirjandus
+official_scope:
+  exact_grade_claimed: false
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+outcomes:
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: verified
+    grade_2_allocation_note: This is an Opiq Helper recommended Grade 2 allocation of a national stage-I endpoint; it is not
+      an official exact-grade requirement.
+    official_reference: PRÕK lisa 1 punkt 2.3.3, I kooliaste, punkt 5
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    official_subject: null
+    official_wording_et: Omandab lugemistehnilise vilumuse ja teadliku lugemisoskuse.
+    outcome_id: ee-prk-2026-stage1-russian-conscious-reading
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - captured_task_example
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Language and reading books remain distinct evidence strands inside one Russian route; only the exact captured
+        task is linked.
+      policy_alignment_id: grade-2-russian-conscious-reading
+      source_record_ids:
+        - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+        - grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24726-558dc944f1
+      status: partial
+      task_evidence_source_record_ids:
+        - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+      task_evidence_status: linked
+      topic_cluster_refs:
+        - grade-2-russian-topic-ordinary-curriculum-76fb76249d
+        - grade-2-russian-topic-ordinary-curriculum-b1c0299845
+    source_id: ee-prok-2026-appendix-01
+    subject_field: keel ja kirjandus
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: Овладевает техникой и осознанным навыком чтения.
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  verification_date: 2026-07-29
+record_count: 321
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+route_id: grade-2-russian
+schema_version: "1.0"
+subject: Russian language
+subject_et: vene keel

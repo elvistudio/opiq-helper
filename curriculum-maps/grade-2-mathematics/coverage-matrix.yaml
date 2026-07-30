@@ -1,0 +1,69 @@
+artifact_id: grade-2-mathematics-coverage
+artifact_type: grade_programme_route_coverage
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Full prose, complete task bodies, authored lessons and assessment evidence remain unavailable.
+  status: partial
+grade: 2
+official_curriculum_ref: curriculum-maps/grade-2-mathematics/official-curriculum.yaml
+route_id: grade-2-mathematics
+rows:
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-mathematics-real-life
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-mathematics
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Measurement and time records provide bounded captured task examples; full mathematics coverage is not inferred.
+          policy_alignment_id: grade-2-mathematics-real-life
+          source_record_ids:
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4624-8a46d97c52
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4643-bcb3250a87
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4624-8a46d97c52
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4643-bcb3250a87
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-mathematics-topic-ordinary-curriculum-sekund-133cd8110a
+            - grade-2-mathematics-topic-ordinary-curriculum-sirgloik-millimeeter-1eb9454173
+    route_ids:
+      - grade-2-mathematics
+    source_coverage_status: partial
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-2-mathematics-topic-ordinary-curriculum-sekund-133cd8110a
+      - grade-2-mathematics-topic-ordinary-curriculum-sirgloik-millimeeter-1eb9454173
+schema_version: "1.0"
+summary:
+  ambiguous: 0
+  missing: 0
+  outcome_count: 1
+  partial: 1
+  verified_full_coverage: 0
+topic_inventory_ref: curriculum-maps/grade-2-mathematics/topic-inventory.yaml

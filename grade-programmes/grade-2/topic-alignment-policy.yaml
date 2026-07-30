@@ -1,0 +1,186 @@
+schema_version: "1.0"
+artifact_type: grade_2_topic_alignment_policy
+verified_on: "2026-07-29"
+outcome_alignments:
+  - alignment_id: grade-2-estonian-conscious-reading
+    outcome_id: ee-prk-2026-stage1-estonian-conscious-reading
+    route_id: grade-2-estonian
+    topic_selectors:
+      - original_heading_key: loeme tähti ja raamatuid
+    match_basis: [original_heading, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence: { status: not_captured, source_record_ids: [] }
+    notes: Authored stage-I reading alignment; the heading is evidence of topic presence, not proof of complete outcome coverage.
+  - alignment_id: grade-2-estonian-second-language-instructions
+    outcome_id: ee-prk-2026-stage1-estonian-second-language-instructions
+    route_id: grade-2-estonian-second-language
+    topic_selectors:
+      - original_heading_key: mis on koolikotis
+      - original_heading_key: leiutised
+    match_basis: [original_heading, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence: { status: not_captured, source_record_ids: [] }
+    notes: Authored A1 instruction alignment; complete language-task bodies are not present in the canonical source model.
+  - alignment_id: grade-2-mathematics-real-life
+    outcome_id: ee-prk-2026-stage1-mathematics-real-life
+    route_id: grade-2-mathematics
+    topic_selectors:
+      - source_record_id: grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4624-8a46d97c52
+      - source_record_id: grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4643-bcb3250a87
+    match_basis: [original_heading, captured_task_example, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4624-8a46d97c52
+        - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4643-bcb3250a87
+    notes: Measurement and time records provide bounded captured task examples; full mathematics coverage is not inferred.
+  - alignment_id: grade-2-science-guided-inquiry
+    outcome_id: ee-prk-2026-stage1-natural-science-guided-inquiry
+    route_id: grade-2-science
+    topic_selectors:
+      - source_record_id: grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
+      - source_record_id: grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
+      - original_heading_key: veekogu vaatluskaart
+    match_basis: [original_heading, captured_task_example, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
+        - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
+    notes: Inquiry, weather and observation-card headings support a bounded stage-I alignment without reconstructing missing prose.
+  - alignment_id: grade-2-human-rights-duties
+    outcome_id: ee-prk-2026-stage1-human-studies-rights-duties
+    route_id: grade-2-human-studies
+    topic_selectors:
+      - source_record_id: grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
+      - source_record_id: grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
+    match_basis: [original_heading, captured_task_example, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
+        - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
+    notes: Rights, duties and family-responsibility records provide direct topic and bounded task evidence for authored alignment.
+  - alignment_id: grade-2-mixed-science-inquiry
+    outcome_id: ee-prk-2026-stage1-natural-science-guided-inquiry
+    route_id: grade-2-nature-and-human-studies
+    topic_selectors:
+      - source_record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4200-60b9baa7a2
+    match_basis: [original_heading, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence: { status: not_captured, source_record_ids: [] }
+    notes: Weather forecasting is independently aligned to science; the mixed route is not treated as subject-pure evidence.
+  - alignment_id: grade-2-mixed-human-rights
+    outcome_id: ee-prk-2026-stage1-human-studies-rights-duties
+    route_id: grade-2-nature-and-human-studies
+    topic_selectors:
+      - source_record_id: grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4214-44f7f08ab5
+    match_basis: [original_heading, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence: { status: not_captured, source_record_ids: [] }
+    notes: The rights topic is independently aligned to human studies; science topics do not inherit this candidate.
+  - alignment_id: grade-2-art-reflection
+    outcome_id: ee-prk-2026-stage1-art-reflection
+    route_id: grade-2-arts-and-crafts
+    topic_selectors:
+      - source_record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10903-1ed9e34a1f
+    match_basis: [original_heading, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence: { status: not_captured, source_record_ids: [] }
+    notes: The colour-wheel topic supports an authored art-reflection candidate but not complete assessment or lesson evidence.
+  - alignment_id: grade-2-technology-safe-work
+    outcome_id: ee-prk-2026-stage1-technology-safe-work
+    route_id: grade-2-arts-and-crafts
+    topic_selectors:
+      - source_record_id: grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10946-c19554379a
+    match_basis: [original_heading, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence: { status: not_captured, source_record_ids: [] }
+    notes: Button sewing provides bounded practical-work evidence; safety procedure prose and production instructions remain unauthored.
+  - alignment_id: grade-2-music-participation
+    outcome_id: ee-prk-2026-stage1-music-active-participation
+    route_id: grade-2-music
+    topic_selectors:
+      - source_record_id: grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
+    match_basis: [original_heading, captured_task_example, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
+    notes: The song topic has captured task evidence for active participation but does not establish a complete music programme.
+  - alignment_id: grade-2-russian-conscious-reading
+    outcome_id: ee-prk-2026-stage1-russian-conscious-reading
+    route_id: grade-2-russian
+    topic_selectors:
+      - source_record_id: grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+      - source_record_id: grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24726-558dc944f1
+    match_basis: [original_heading, captured_task_example, reviewed_subject_mapping]
+    confidence: partial
+    task_evidence:
+      status: linked
+      source_record_ids:
+        - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+    notes: Language and reading books remain distinct evidence strands inside one Russian route; only the exact captured task is linked.
+programme_policy_alignments:
+  - alignment_id: grade-2-policy-assessment-formative
+    outcome_id: ee-prk-2026-stage1-assessment-formative
+    route_ids: [grade-2-russian, grade-2-estonian-second-language, grade-2-mathematics, grade-2-science, grade-2-human-studies, grade-2-arts-and-crafts, grade-2-music, grade-2-estonian]
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs: [individual-first-attempt, correction-after-feedback]
+    notes: The programme architecture reserves individual first attempts and correction without claiming implemented assessment materials.
+  - alignment_id: grade-2-policy-cross-curricular-learning
+    outcome_id: ee-prk-2026-stage1-cross-curricular-learning
+    route_ids: [grade-2-russian, grade-2-estonian-second-language, grade-2-mathematics, grade-2-science, grade-2-human-studies, grade-2-arts-and-crafts, grade-2-music, grade-2-estonian]
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs: [project-modules, individual-grade-2-evidence]
+    notes: Eight authored project modules link route evidence while preserving subject mastery and individual attribution.
+  - alignment_id: grade-2-policy-general-learning
+    outcome_id: ee-prk-2026-stage1-general-learning
+    route_ids: [grade-2-russian, grade-2-estonian-second-language, grade-2-mathematics, grade-2-science, grade-2-human-studies, grade-2-arts-and-crafts, grade-2-music, grade-2-estonian]
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs: [mastery-strands, spaced-revision, self-correction]
+    notes: The architecture provides planning structures for learning, retrieval and correction; production tasks are not yet authored.
+  - alignment_id: grade-2-policy-school-allocation
+    outcome_id: ee-prk-2026-stage1-school-curriculum-class-allocation
+    route_ids: [grade-2-russian, grade-2-estonian-second-language, grade-2-mathematics, grade-2-science, grade-2-human-studies, grade-2-arts-and-crafts, grade-2-music, grade-2-estonian]
+    evidence_layer: programme_policy
+    confidence: partial
+    policy_refs: [recommended-grade-2-allocation, school-decision-boundary]
+    notes: Grade 2 allocation is explicitly an Opiq Helper recommendation and remains distinct from national stage-I endpoints.
+project_alignments:
+  - { alignment_id: p-weather-science, project_id: grade-2-project-weather-water-safety, route_id: grade-2-science, topic_selectors: [{ original_heading_key: ilm }, { original_heading_key: veekogu vaatluskaart }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Weather and water observations support the architecture-only issue #40 pilot." }
+  - { alignment_id: p-weather-math, project_id: grade-2-project-weather-water-safety, route_id: grade-2-mathematics, topic_selectors: [{ original_heading_key: sirglõik millimeeter }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Measurement is linked as a bounded data role; no practical worksheet is authored here." }
+  - { alignment_id: p-weather-human, project_id: grade-2-project-weather-water-safety, route_id: grade-2-human-studies, topic_selectors: [{ original_heading_key: veeohutus i }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Water-safety topic evidence supports safe decision architecture without replacing physical education." }
+  - { alignment_id: p-weather-russian, project_id: grade-2-project-weather-water-safety, route_id: grade-2-russian, topic_selectors: [{ original_heading_key: учимся читать выразительно по ролям }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Russian supports reading and explanation evidence; it does not prove weather content coverage." }
+  - { alignment_id: p-weather-est2, project_id: grade-2-project-weather-water-safety, route_id: grade-2-estonian-second-language, topic_selectors: [{ original_heading_key: mis on koolikotis }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "The bounded Estonian role is following familiar instructions, not independent science explanation." }
+  - { alignment_id: p-home-human, project_id: grade-2-project-home-neighbourhood, route_id: grade-2-human-studies, topic_selectors: [{ original_heading_key: домашние обязанности членов семьи }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Family duties provide direct topic evidence for the home and neighbourhood project." }
+  - { alignment_id: p-home-russian, project_id: grade-2-project-home-neighbourhood, route_id: grade-2-russian, topic_selectors: [{ original_heading_key: учимся читать выразительно по ролям }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Russian supplies an individual reading and explanation strand for the shared project." }
+  - { alignment_id: p-home-est2, project_id: grade-2-project-home-neighbourhood, route_id: grade-2-estonian-second-language, topic_selectors: [{ original_heading_key: minu pere }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "A family heading supplies bounded A1 naming and sentence-frame evidence." }
+  - { alignment_id: p-measure-math, project_id: grade-2-project-measure-useful-object, route_id: grade-2-mathematics, topic_selectors: [{ original_heading_key: pikkuse mõõtmine millimeetrites }], match_basis: [original_heading, captured_task_example, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Length measurement is the exact mathematics role for the useful-object project." }
+  - { alignment_id: p-measure-arts, project_id: grade-2-project-measure-useful-object, route_id: grade-2-arts-and-crafts, topic_selectors: [{ original_heading_key: nööbi õmblemine }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "A practical craft topic is linked while safety procedure authoring remains a future gate." }
+  - { alignment_id: p-nature-science, project_id: grade-2-project-living-nature-nearby, route_id: grade-2-science, topic_selectors: [{ original_heading_key: loomade kehaosad }], match_basis: [original_heading, captured_task_example, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Animal observation supports a bounded guided-inquiry project role." }
+  - { alignment_id: p-nature-russian, project_id: grade-2-project-living-nature-nearby, route_id: grade-2-russian, topic_selectors: [{ original_heading_key: учимся читать выразительно по ролям }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Russian supplies individual reading and explanation evidence, not science outcome substitution." }
+  - { alignment_id: p-nature-est2, project_id: grade-2-project-living-nature-nearby, route_id: grade-2-estonian-second-language, topic_selectors: [{ original_heading_key: leiutised }], match_basis: [original_heading, reviewed_subject_mapping], confidence: ambiguous, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "No direct nature heading is captured; this role is limited to familiar instruction support." }
+  - { alignment_id: p-stories-russian, project_id: grade-2-project-stories-books-messages, route_id: grade-2-russian, topic_selectors: [{ original_heading_key: светлячок маячок }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "The dedicated reading book is explicitly represented inside the Russian route." }
+  - { alignment_id: p-stories-estonian, project_id: grade-2-project-stories-books-messages, route_id: grade-2-estonian, topic_selectors: [{ original_heading_key: loeme tähti ja raamatuid }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "First-language Estonian is an explicit alternative profile, not the default learner route." }
+  - { alignment_id: p-stories-est2, project_id: grade-2-project-stories-books-messages, route_id: grade-2-estonian-second-language, topic_selectors: [{ original_heading_key: mis on koolikotis }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "Second-language Estonian provides supported A1 message handling only." }
+  - { alignment_id: p-rhythm-music, project_id: grade-2-project-rhythm-sound-celebration, route_id: grade-2-music, topic_selectors: [{ original_heading_key: laul sõprusest }], match_basis: [original_heading, captured_task_example, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Song participation is the exact music evidence role for the project." }
+  - { alignment_id: p-rhythm-arts, project_id: grade-2-project-rhythm-sound-celebration, route_id: grade-2-arts-and-crafts, topic_selectors: [{ original_heading_key: värviring }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "Colour reflection supports the visual role without importing supplementary holiday cards as core." }
+  - { alignment_id: p-rhythm-russian, project_id: grade-2-project-rhythm-sound-celebration, route_id: grade-2-russian, topic_selectors: [{ original_heading_key: светлячок маячок }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "Russian retains an individually attributable reading response in the shared project." }
+  - { alignment_id: p-rights-human, project_id: grade-2-project-rights-duties-team, route_id: grade-2-human-studies, topic_selectors: [{ original_heading_key: lapse kohustused ja õigused }], match_basis: [original_heading, captured_task_example, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Rights and duties are the exact human-studies evidence role." }
+  - { alignment_id: p-rights-russian, project_id: grade-2-project-rights-duties-team, route_id: grade-2-russian, topic_selectors: [{ original_heading_key: учимся читать выразительно по ролям }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Russian supports an individual explanation and reading evidence strand." }
+  - { alignment_id: p-rights-est2, project_id: grade-2-project-rights-duties-team, route_id: grade-2-estonian-second-language, topic_selectors: [{ original_heading_key: mis on koolikotis }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "Estonian production is bounded to familiar A1 instructions and short supported statements." }
+  - { alignment_id: p-choice-science, project_id: grade-2-project-responsible-everyday-choice, route_id: grade-2-science, topic_selectors: [{ original_heading_key: kuidas loodust uuritakse }], match_basis: [original_heading, captured_task_example, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Guided observation is the science evidence role for responsible choices." }
+  - { alignment_id: p-choice-math, project_id: grade-2-project-responsible-everyday-choice, route_id: grade-2-mathematics, topic_selectors: [{ original_heading_key: sekund }], match_basis: [original_heading, captured_task_example, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_linked, source_record_ids: [] }, notes: "Time measurement supplies a bounded mathematics representation role." }
+  - { alignment_id: p-choice-arts, project_id: grade-2-project-responsible-everyday-choice, route_id: grade-2-arts-and-crafts, topic_selectors: [{ original_heading_key: nööbi õmblemine }], match_basis: [original_heading, reviewed_subject_mapping], confidence: partial, task_evidence: { status: not_captured, source_record_ids: [] }, notes: "The practical topic supports material choice while production safety instructions remain unauthored." }
+claim_boundary: >
+  These authored mappings establish traceable Grade 2 source-topic candidates and project roles only; they do not prove
+  national exact-grade allocation, complete curriculum coverage, full instructional content, publication readiness or
+  pedagogical effectiveness.

@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/grade-2-programme-topic-alignment.schema.json",
+  "title": "Opiq Helper Grade 2 authored topic-alignment policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "verified_on",
+    "outcome_alignments",
+    "programme_policy_alignments",
+    "project_alignments",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "grade_2_topic_alignment_policy" },
+    "verified_on": { "const": "2026-07-29" },
+    "outcome_alignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceAlignment" }
+    },
+    "programme_policy_alignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/programmePolicyAlignment" }
+    },
+    "project_alignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/projectAlignment" }
+    },
+    "claim_boundary": { "type": "string", "minLength": 40 }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "routeId": {
+      "enum": [
+        "grade-2-estonian",
+        "grade-2-estonian-second-language",
+        "grade-2-mathematics",
+        "grade-2-science",
+        "grade-2-human-studies",
+        "grade-2-nature-and-human-studies",
+        "grade-2-arts-and-crafts",
+        "grade-2-music",
+        "grade-2-kodututarde-training",
+        "grade-2-noorte-kotkaste-training",
+        "grade-2-russian"
+      ]
+    },
+    "topicSelector": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source_record_id"],
+          "properties": {
+            "source_record_id": { "$ref": "#/$defs/slug" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["original_heading_key"],
+          "properties": {
+            "original_heading_key": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
+    "taskEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "source_record_ids"],
+      "properties": {
+        "status": { "enum": ["linked", "not_linked", "not_captured"] },
+        "source_record_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "linked" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": { "source_record_ids": { "type": "array", "minItems": 1 } }
+          },
+          "else": {
+            "properties": { "source_record_ids": { "type": "array", "maxItems": 0 } }
+          }
+        }
+      ]
+    },
+    "sourceAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alignment_id",
+        "outcome_id",
+        "route_id",
+        "topic_selectors",
+        "match_basis",
+        "confidence",
+        "task_evidence",
+        "notes"
+      ],
+      "properties": {
+        "alignment_id": { "$ref": "#/$defs/slug" },
+        "outcome_id": { "$ref": "#/$defs/slug" },
+        "route_id": { "$ref": "#/$defs/routeId" },
+        "topic_selectors": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/topicSelector" }
+        },
+        "match_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "original_heading",
+              "captured_task_example",
+              "book_or_kit_metadata",
+              "reviewed_subject_mapping"
+            ]
+          }
+        },
+        "confidence": { "enum": ["verified", "partial", "ambiguous", "missing"] },
+        "task_evidence": { "$ref": "#/$defs/taskEvidence" },
+        "notes": { "type": "string", "minLength": 20 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "confidence": { "enum": ["verified", "partial"] } },
+            "required": ["confidence"]
+          },
+          "then": {
+            "properties": { "topic_selectors": { "type": "array", "minItems": 1 } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "confidence": { "const": "missing" } },
+            "required": ["confidence"]
+          },
+          "then": {
+            "properties": { "topic_selectors": { "type": "array", "maxItems": 0 } }
+          }
+        }
+      ]
+    },
+    "programmePolicyAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alignment_id",
+        "outcome_id",
+        "route_ids",
+        "evidence_layer",
+        "confidence",
+        "policy_refs",
+        "notes"
+      ],
+      "properties": {
+        "alignment_id": { "$ref": "#/$defs/slug" },
+        "outcome_id": { "$ref": "#/$defs/slug" },
+        "route_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/routeId" }
+        },
+        "evidence_layer": { "const": "programme_policy" },
+        "confidence": { "enum": ["verified", "partial", "ambiguous"] },
+        "policy_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    },
+    "projectAlignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alignment_id",
+        "project_id",
+        "route_id",
+        "topic_selectors",
+        "match_basis",
+        "confidence",
+        "task_evidence",
+        "notes"
+      ],
+      "properties": {
+        "alignment_id": { "$ref": "#/$defs/slug" },
+        "project_id": { "$ref": "#/$defs/slug" },
+        "route_id": { "$ref": "#/$defs/routeId" },
+        "topic_selectors": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/topicSelector" }
+        },
+        "match_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "original_heading",
+              "captured_task_example",
+              "book_or_kit_metadata",
+              "reviewed_subject_mapping"
+            ]
+          }
+        },
+        "confidence": { "enum": ["verified", "partial", "ambiguous", "missing"] },
+        "task_evidence": { "$ref": "#/$defs/taskEvidence" },
+        "notes": { "type": "string", "minLength": 20 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "confidence": { "enum": ["verified", "partial"] } },
+            "required": ["confidence"]
+          },
+          "then": {
+            "properties": { "topic_selectors": { "type": "array", "minItems": 1 } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "confidence": { "const": "missing" } },
+            "required": ["confidence"]
+          },
+          "then": {
+            "properties": { "topic_selectors": { "type": "array", "maxItems": 0 } }
+          }
+        }
+      ]
+    }
+  }
+}

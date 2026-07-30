@@ -1,0 +1,704 @@
+artifact_id: grade-2-programme-coverage
+artifact_type: grade_programme_coverage_matrix
+completeness:
+  declared_complete: false
+  known_gaps:
+    - "Final Riigi Teataja refresh remains tracked under issue #37."
+    - The official baseline is intentionally non-exhaustive outside its declared scope.
+    - Live Grade 2 Opiq catalogue completeness has not been verified.
+    - Complete Opiq instructional page prose was not captured.
+    - Task examples are missing for 1530 canonical records.
+    - An exclusive Grade 2 foreign-language route is missing.
+    - An exclusive Grade 2 physical-education route is missing.
+    - The independently authored standalone commercial core is not implemented.
+    - A clean-room task bank has not been implemented.
+    - Originality review is not yet applicable because production materials are absent.
+    - Customer companion access has not been verified.
+    - Pedagogical effectiveness has not been established.
+  status: partial
+missing_exclusive_route_fields:
+  - foreign_language
+  - physical_education
+outcome_index_ref: compliance/estonia/2026-27/outcome-index.yaml
+programme_id: grade-2-standalone-commercial-programme-2026-27
+rows:
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    content_strategy: programme_policy
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-general-learning
+    production_coverage_status: not_started
+    programme_policy_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: The architecture provides planning structures for learning, retrieval and correction; production tasks are not
+        yet authored.
+      policy_alignment_id: grade-2-policy-general-learning
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    programme_requirement: programme_policy_requirement
+    release_status: blocked
+    route_alignments: []
+    route_ids: []
+    source_coverage_status: not_applicable
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    content_strategy: programme_policy
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-assessment-formative
+    production_coverage_status: not_started
+    programme_policy_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: The programme architecture reserves individual first attempts and correction without claiming implemented
+        assessment materials.
+      policy_alignment_id: grade-2-policy-assessment-formative
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    programme_requirement: programme_policy_requirement
+    release_status: blocked
+    route_alignments: []
+    route_ids: []
+    source_coverage_status: not_applicable
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    content_strategy: programme_policy
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-school-curriculum-class-allocation
+    production_coverage_status: not_started
+    programme_policy_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: Grade 2 allocation is explicitly an Opiq Helper recommendation and remains distinct from national stage-I
+        endpoints.
+      policy_alignment_id: grade-2-policy-school-allocation
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    programme_requirement: programme_policy_requirement
+    release_status: blocked
+    route_alignments: []
+    route_ids: []
+    source_coverage_status: not_applicable
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-estonian-conscious-reading
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-estonian
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Authored stage-I reading alignment; the heading is evidence of topic presence, not proof of complete outcome
+            coverage.
+          policy_alignment_id: grade-2-estonian-conscious-reading
+          source_record_ids:
+            - grade-2-estonian-record-232-https-www-opiq-ee-kit-232-chapter-15700-f131e1fe40
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-estonian-topic-ordinary-curriculum-loeme-tahti-ja-raamatuid-611ae0637d
+    route_ids:
+      - grade-2-estonian
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-estonian-topic-ordinary-curriculum-loeme-tahti-ja-raamatuid-611ae0637d
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-russian-conscious-reading
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-russian
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Language and reading books remain distinct evidence strands inside one Russian route; only the exact captured
+            task is linked.
+          policy_alignment_id: grade-2-russian-conscious-reading
+          source_record_ids:
+            - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+            - grade-2-russian-record-454-https-www-opiq-ee-kit-454-chapter-24726-558dc944f1
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-russian-record-292-https-www-opiq-ee-kit-292-chapter-16103-e10e5311ff
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-russian-topic-ordinary-curriculum-76fb76249d
+            - grade-2-russian-topic-ordinary-curriculum-b1c0299845
+    route_ids:
+      - grade-2-russian
+    source_coverage_status: partial
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-2-russian-topic-ordinary-curriculum-76fb76249d
+      - grade-2-russian-topic-ordinary-curriculum-b1c0299845
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-estonian-second-language-instructions
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-estonian-second-language
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Authored A1 instruction alignment; complete language-task bodies are not present in the canonical source model.
+          policy_alignment_id: grade-2-estonian-second-language-instructions
+          source_record_ids:
+            - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6942-8d572f0ea7
+            - grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-7003-66075f1daf
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-estonian-second-language-topic-ordinary-curriculum-leiutised-02b99d01a3
+            - grade-2-estonian-second-language-topic-ordinary-curriculum-mis-on-koolikotis-4aea1f15d5
+    route_ids:
+      - grade-2-estonian-second-language
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-estonian-second-language-topic-ordinary-curriculum-leiutised-02b99d01a3
+      - grade-2-estonian-second-language-topic-ordinary-curriculum-mis-on-koolikotis-4aea1f15d5
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - No Grade 2 manifest route or source-topic evidence exists; clean-room subject production has not started.
+    content_strategy: author_created_required
+    coverage_status: missing
+    curated_grade_2_allocation: local_school_allocation_candidate
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-foreign-language-a1
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: mandatory_author_created_core
+    release_status: blocked
+    route_alignments: []
+    route_ids: []
+    source_coverage_status: missing
+    source_topic_presence: missing
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-mathematics-real-life
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-mathematics
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Measurement and time records provide bounded captured task examples; full mathematics coverage is not inferred.
+          policy_alignment_id: grade-2-mathematics-real-life
+          source_record_ids:
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4624-8a46d97c52
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4643-bcb3250a87
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4624-8a46d97c52
+            - grade-2-mathematics-record-95-https-www-opiq-ee-kit-95-chapter-4643-bcb3250a87
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-mathematics-topic-ordinary-curriculum-sekund-133cd8110a
+            - grade-2-mathematics-topic-ordinary-curriculum-sirgloik-millimeeter-1eb9454173
+    route_ids:
+      - grade-2-mathematics
+    source_coverage_status: partial
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-2-mathematics-topic-ordinary-curriculum-sekund-133cd8110a
+      - grade-2-mathematics-topic-ordinary-curriculum-sirgloik-millimeeter-1eb9454173
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-natural-science-guided-inquiry
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-science
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Inquiry, weather and observation-card headings support a bounded stage-I alignment without reconstructing missing
+            prose.
+          policy_alignment_id: grade-2-science-guided-inquiry
+          source_record_ids:
+            - grade-2-science-record-121-https-www-opiq-ee-kit-121-chapter-6264-396ed97b25
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20582-3220f627d9
+            - grade-2-science-record-379-https-www-opiq-ee-kit-379-chapter-20598-5c4d5991b8
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-science-topic-ordinary-curriculum-ilm-9beb5d4b11
+            - grade-2-science-topic-ordinary-curriculum-kuidas-loodust-uuritakse-1b1fe30494
+            - grade-2-science-topic-ordinary-curriculum-veekogu-vaatluskaart-1b59c6183b
+      - route_id: grade-2-nature-and-human-studies
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Weather forecasting is independently aligned to science; the mixed route is not treated as subject-pure evidence.
+          policy_alignment_id: grade-2-mixed-science-inquiry
+          source_record_ids:
+            - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4200-60b9baa7a2
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-nature-and-human-studies-topic-mixed-subject-d636ac6572
+    route_ids:
+      - grade-2-science
+      - grade-2-nature-and-human-studies
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-nature-and-human-studies-topic-mixed-subject-d636ac6572
+      - grade-2-science-topic-ordinary-curriculum-ilm-9beb5d4b11
+      - grade-2-science-topic-ordinary-curriculum-kuidas-loodust-uuritakse-1b1fe30494
+      - grade-2-science-topic-ordinary-curriculum-veekogu-vaatluskaart-1b59c6183b
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-human-studies-rights-duties
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-human-studies
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Rights, duties and family-responsibility records provide direct topic and bounded task evidence for authored
+            alignment.
+          policy_alignment_id: grade-2-human-rights-duties
+          source_record_ids:
+            - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
+            - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-human-studies-record-229-https-www-opiq-ee-kit-229-chapter-13081-6719830786
+            - grade-2-human-studies-record-449-https-www-opiq-ee-kit-449-chapter-26256-25f43c29ec
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-human-studies-topic-ordinary-curriculum-a49b66c3a0
+            - grade-2-human-studies-topic-ordinary-curriculum-lapse-kohustused-ja-oigused-03b15cb058
+      - route_id: grade-2-nature-and-human-studies
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: The rights topic is independently aligned to human studies; science topics do not inherit this candidate.
+          policy_alignment_id: grade-2-mixed-human-rights
+          source_record_ids:
+            - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4214-44f7f08ab5
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-nature-and-human-studies-topic-mixed-subject-1b7093c749
+    route_ids:
+      - grade-2-human-studies
+      - grade-2-nature-and-human-studies
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-human-studies-topic-ordinary-curriculum-a49b66c3a0
+      - grade-2-human-studies-topic-ordinary-curriculum-lapse-kohustused-ja-oigused-03b15cb058
+      - grade-2-nature-and-human-studies-topic-mixed-subject-1b7093c749
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-art-reflection
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-arts-and-crafts
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: The colour-wheel topic supports an authored art-reflection candidate but not complete assessment or lesson
+            evidence.
+          policy_alignment_id: grade-2-art-reflection
+          source_record_ids:
+            - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10903-1ed9e34a1f
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-arts-and-crafts-topic-ordinary-curriculum-varviring-9d964e1794
+    route_ids:
+      - grade-2-arts-and-crafts
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-arts-and-crafts-topic-ordinary-curriculum-varviring-9d964e1794
+  - architecture_coverage_status: designed
+    assessment_evidence_status: partial
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-music-active-participation
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-music
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - captured_task_example
+            - original_heading
+            - reviewed_subject_mapping
+          notes: The song topic has captured task evidence for active participation but does not establish a complete music
+            programme.
+          policy_alignment_id: grade-2-music-participation
+          source_record_ids:
+            - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
+          status: partial
+          task_evidence_source_record_ids:
+            - grade-2-music-record-188-https-www-opiq-ee-kit-188-chapter-10639-2209559c1f
+          task_evidence_status: linked
+          topic_cluster_refs:
+            - grade-2-music-topic-ordinary-curriculum-laul-soprusest-0a50b0f145
+    route_ids:
+      - grade-2-music
+    source_coverage_status: partial
+    source_topic_presence: heading_and_task_example
+    task_evidence_status: linked
+    topic_cluster_refs:
+      - grade-2-music-topic-ordinary-curriculum-laul-soprusest-0a50b0f145
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-technology-safe-work
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-arts-and-crafts
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Button sewing provides bounded practical-work evidence; safety procedure prose and production instructions remain
+            unauthored.
+          policy_alignment_id: grade-2-technology-safe-work
+          source_record_ids:
+            - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10946-c19554379a
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-arts-and-crafts-topic-ordinary-curriculum-noobi-omblemine-695904069e
+    route_ids:
+      - grade-2-arts-and-crafts
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-arts-and-crafts-topic-ordinary-curriculum-noobi-omblemine-695904069e
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - No Grade 2 manifest route or source-topic evidence exists; clean-room subject production has not started.
+    content_strategy: author_created_required
+    coverage_status: missing
+    curated_grade_2_allocation: local_school_allocation_candidate
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-physical-education-water-safety
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: mandatory_author_created_core
+    release_status: blocked
+    route_alignments: []
+    route_ids: []
+    source_coverage_status: missing
+    source_topic_presence: missing
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Programme policy supports the allocation, but complete authored lessons and assessment evidence remain
+        unavailable.
+    content_strategy: programme_policy
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-cross-curricular-learning
+    production_coverage_status: not_started
+    programme_policy_alignment:
+      evidence_layer: programme_policy
+      match_basis:
+        - programme_policy
+      notes: Eight authored project modules link route evidence while preserving subject mastery and individual attribution.
+      policy_alignment_id: grade-2-policy-cross-curricular-learning
+      source_record_ids: []
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_applicable
+      topic_cluster_refs: []
+    programme_requirement: programme_policy_requirement
+    release_status: blocked
+    route_alignments: []
+    route_ids: []
+    source_coverage_status: not_applicable
+    source_topic_presence: not_applicable
+    task_evidence_status: not_applicable
+    topic_cluster_refs: []
+schema_version: "1.0"
+summary:
+  exact_grade_outcomes: 0
+  missing_route_outcomes: 2
+  official_outcome_count: 15
+  programme_policy_outcomes: 4
+  route_linked_outcomes: 9
+  school_stage_outcomes: 15
+target_school_year: 2026/27

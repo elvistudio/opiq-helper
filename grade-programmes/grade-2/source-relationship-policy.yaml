@@ -1,0 +1,111 @@
+schema_version: "1.0"
+artifact_type: grade_2_source_relationship_policy
+policy_id: grade-2-source-relationship-policy-2026-27
+relationships:
+  - relationship_id: russian-language-core-alternatives
+    book_refs:
+      - route_id: grade-2-russian
+        kit_id: "186"
+      - route_id: grade-2-russian
+        kit_id: "292"
+    relationship_type: same_language_alternative
+    primary_comprehension_language: ru
+    terminology_support_language: null
+    sequencing_role: complementary_language_and_writing_sequence
+    evidence_basis:
+      - qa_book_metadata
+      - product_policy_review
+    notes: Both Russian-language kits support grammar and writing; neither is inferred to replace the other.
+  - relationship_id: estonian-first-language-alternatives
+    book_refs:
+      - route_id: grade-2-estonian
+        kit_id: "118"
+      - route_id: grade-2-estonian
+        kit_id: "232"
+      - route_id: grade-2-estonian
+        kit_id: "458"
+    relationship_type: same_language_alternative
+    primary_comprehension_language: et
+    terminology_support_language: null
+    sequencing_role: explicit_first_language_profile_only
+    evidence_basis:
+      - qa_book_metadata
+      - product_policy_review
+    notes: These first-language Estonian sources are alternatives inside an explicitly selected profile, not default programme requirements.
+  - relationship_id: avita-science-complementary-editions
+    book_refs:
+      - route_id: grade-2-science
+        kit_id: "379"
+      - route_id: grade-2-science
+        kit_id: "570"
+    relationship_type: complementary_distinct_source
+    primary_comprehension_language: ru
+    terminology_support_language: et
+    sequencing_role: mixed_authored_sequence_after_topic_review
+    evidence_basis:
+      - qa_book_metadata
+      - product_policy_review
+    notes: Different record inventories prevent treating these books as full translations or automatic substitutes.
+  - relationship_id: koolibri-science-edition-status-unknown
+    book_refs:
+      - route_id: grade-2-science
+        kit_id: "121"
+      - route_id: grade-2-science
+        kit_id: "132"
+    relationship_type: unknown
+    primary_comprehension_language: ru
+    terminology_support_language: et
+    sequencing_role: manual_topic_review_required
+    evidence_basis:
+      - qa_book_metadata
+      - insufficient_body_evidence
+    notes: Similar titles and publisher metadata do not establish parallel-edition equivalence without reviewed content evidence.
+  - relationship_id: supplementary-planet-project-source
+    book_refs:
+      - route_id: grade-2-science
+        kit_id: "330"
+      - route_id: grade-2-science
+        kit_id: "379"
+    relationship_type: complementary_distinct_source
+    primary_comprehension_language: ru
+    terminology_support_language: et
+    sequencing_role: optional_reviewed_project_source
+    evidence_basis:
+      - grade_2_planet_source_audit
+      - product_policy_review
+    notes: Kit 330 remains supplementary and may be selected only for a reviewed project topic; it is never mastery core.
+  - relationship_id: mixed-human-science-manual-review
+    book_refs:
+      - route_id: grade-2-nature-and-human-studies
+        kit_id: "86"
+      - route_id: grade-2-science
+        kit_id: "132"
+      - route_id: grade-2-human-studies
+        kit_id: "229"
+    relationship_type: complementary_distinct_source
+    primary_comprehension_language: ru
+    terminology_support_language: null
+    sequencing_role: manual_topic_review_required
+    evidence_basis:
+      - mixed_subject_boundary_audit
+      - product_policy_review
+    notes: The mixed book may support a reviewed topic role but cannot inherit science or human-studies outcome evidence from subject-pure routes.
+  - relationship_id: mathematics-578-language-status
+    book_refs:
+      - route_id: grade-2-mathematics
+        kit_id: "95"
+      - route_id: grade-2-mathematics
+        kit_id: "578"
+    relationship_type: unknown
+    primary_comprehension_language: ru
+    terminology_support_language: et
+    sequencing_role: manual_topic_review_required
+    evidence_basis:
+      - qa_book_metadata
+      - source_heading_script_review
+    notes: Kit 578 record language metadata cannot turn its Estonian source headings into confirmed Russian titles or prove edition equivalence.
+claim_boundary:
+  equivalence_requires_authored_evidence: true
+  title_similarity_is_not_evidence: true
+  simplified_or_supplementary_default_sequence_forbidden: true
+  unknown_relationships_remain_explicit: true
