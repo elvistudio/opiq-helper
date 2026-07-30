@@ -1,0 +1,34 @@
+schema_version: "1.0"
+artifact_type: task_originality_review
+review_id: g2-weather-message-main-point-review
+task_id: g2-weather-message-main-point-task
+specification_id: g2-weather-message-main-point-spec
+status: pending
+reviewer: null
+reviewer_role: null
+reviewed_on: null
+reviewed_version:
+  commit_sha: null
+  content_fingerprint:
+    algorithm: sha256
+    specification_version: "1.0"
+    value: ce7ce5c4f4f77adf6119b6778535b46a2f6a45845ef1cd9a4b6464b6072599d0
+    file_count: 1
+dimensions:
+  wording_independence: pending
+  context_independence: pending
+  data_independence: pending
+  question_sequence_independence: pending
+  scaffolding_independence: pending
+  distractor_independence: pending
+  visual_independence: pending
+  answer_independence: pending
+prohibited_source_content:
+  copied_text: false
+  screenshots: false
+  copied_illustrations: false
+  copied_answer_keys: false
+  extracted_interactive_content: false
+similarity_flags: []
+human_review_required: true
+notes: Human originality review has not yet been assigned or completed.

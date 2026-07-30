@@ -1,0 +1,62 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-time-measurement-problem-task
+specification_id: g2-time-measurement-problem-spec
+task_version: "1.0.0"
+grade: 2
+subject: mathematics
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-mathematics-real-life
+target_skill: Solve a newly authored real-life elapsed-time problem and show the calculation in ordered steps.
+response_mode: computational
+difficulty: core
+expected_time_minutes: 7
+customer_content:
+  prompt: "Мира 25 минут отмечала погоду во дворе, а потом 35 минут готовила свой лист наблюдений. Сколько времени заняла вся работа? Покажи действия по шагам и дай ответ в минутах и часах."
+  supplied_materials: []
+  supplied_data:
+    - "Наблюдение — 25 минут."
+    - "Подготовка листа — 35 минут."
+    - "60 минут — 1 час."
+  answer_format: "Два шага вычисления и ответ с единицами времени."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: "25 + 35 = 60 минут; 60 минут = 1 час. Вся работа заняла 60 минут, или 1 час."
+  worked_solution: "Шаг 1: сложить длительности двух частей: 25 + 35 = 60 минут. Шаг 2: заменить 60 минут равной единицей: 60 минут = 1 час. Ответ: 60 минут, или 1 час."
+  success_criteria:
+    - criterion_id: add-two-durations
+      dimension: subject_result
+      description: "Две длительности сложены: 25 + 35 = 60."
+    - criterion_id: convert-sixty-minutes
+      dimension: subject_result
+      description: "60 минут верно преобразованы в 1 час."
+  acceptable_variants:
+    - "Допустим ответ только 60 минут после верного вычисления, если отдельно записано равенство 60 минут = 1 час."
+  common_errors:
+    - "Из 35 вычтено 25."
+    - "60 минут названы двумя часами."
+  feedback:
+    correct: "Верно: обе части сложены, а минуты правильно переведены в часы."
+    retry: "Работа состоит из двух частей, поэтому сначала сложи их длительности."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-time-measurement-problem-spec
+  notes: "The learner name, observation workflow, values, and worked calculation were newly authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-time-measurement-problem-review

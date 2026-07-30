@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/task-originality-review.schema.json",
+  "title": "Version-specific human originality review for an authored task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "review_id",
+    "task_id",
+    "specification_id",
+    "status",
+    "reviewer",
+    "reviewer_role",
+    "reviewed_on",
+    "reviewed_version",
+    "dimensions",
+    "prohibited_source_content",
+    "similarity_flags",
+    "human_review_required",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "task_originality_review" },
+    "review_id": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "task_id": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "specification_id": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "status": { "enum": ["pending", "changes_requested", "approved", "rejected"] },
+    "reviewer": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "minLength": 1, "pattern": "\\S" }
+      ]
+    },
+    "reviewer_role": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "minLength": 1, "pattern": "\\S" }
+      ]
+    },
+    "reviewed_on": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "format": "date" }
+      ]
+    },
+    "reviewed_version": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/reviewedVersion"
+    },
+    "dimensions": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/originalityDimensions"
+    },
+    "prohibited_source_content": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/prohibitedSourceContent"
+    },
+    "similarity_flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "same_unusual_context",
+          "same_characters",
+          "same_number_set",
+          "same_question_sequence",
+          "same_scaffolding",
+          "same_distractors",
+          "same_visual_layout_description",
+          "same_answer_explanation"
+        ]
+      }
+    },
+    "human_review_required": { "const": true },
+    "notes": { "type": "string", "minLength": 10 }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "pending" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "reviewer": { "type": "null" },
+          "reviewer_role": { "type": "null" },
+          "reviewed_on": { "type": "null" },
+          "dimensions": {
+            "type": "object",
+            "properties": {
+              "wording_independence": { "const": "pending" },
+              "context_independence": { "const": "pending" },
+              "data_independence": { "const": "pending" },
+              "question_sequence_independence": { "const": "pending" },
+              "scaffolding_independence": { "const": "pending" },
+              "distractor_independence": { "const": "pending" },
+              "visual_independence": { "const": "pending" },
+              "answer_independence": { "const": "pending" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

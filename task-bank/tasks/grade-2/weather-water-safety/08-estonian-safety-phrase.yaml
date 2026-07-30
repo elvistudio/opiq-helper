@@ -1,0 +1,61 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-estonian-safety-phrase-task
+specification_id: g2-estonian-safety-phrase-spec
+task_version: "1.0.0"
+grade: 2
+subject: estonian_second_language
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-estonian-second-language-instructions
+target_skill: Produce a short supported Estonian weather-safety phrase with a separately assessed communicative meaning.
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+customer_content:
+  prompt: "На улице сильный холодный ветер. Выбери безопасное действие, а затем составь короткую фразу на эстонском из слов банка."
+  supplied_materials:
+    - "Действия: выйти без шапки; надеть шапку; оставить шапку дома."
+    - "Банк слов: Pane | müts | pähe."
+  supplied_data: []
+  answer_format: "Название безопасного действия по-русски и фраза из трёх эстонских слов."
+  estonian_output_requirement:
+    required: true
+    level: A1-A2
+    maximum_words: 3
+    support: "Все нужные эстонские слова даны в независимом банке."
+answer_contract:
+  answer: "Надеть шапку. Pane müts pähe."
+  worked_solution: null
+  success_criteria:
+    - criterion_id: selects-weather-safety-action
+      dimension: subject_result
+      description: "Выбрано действие «надеть шапку» как подходящее условию."
+    - criterion_id: produces-estonian-safety-phrase
+      dimension: estonian_language
+      description: "Три слова расположены как Pane müts pähe и передают безопасное действие."
+  acceptable_variants:
+    - "Допустимо устное произнесение фразы, если отдельно зафиксирован выбор безопасного действия."
+  common_errors:
+    - "Фраза составлена верно, но выбрано другое действие."
+    - "Выбор верен, но порядок эстонских слов не передаёт инструкцию."
+  feedback:
+    correct: "Безопасное действие выбрано верно, а эстонская фраза сообщает его отдельно."
+    retry: "Сначала реши, что безопасно при холодном ветре, затем начни фразу с действия Pane."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-estonian-safety-phrase-spec
+  notes: "The weather condition, decisions, word bank, and assessment split were independently authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-estonian-safety-phrase-review

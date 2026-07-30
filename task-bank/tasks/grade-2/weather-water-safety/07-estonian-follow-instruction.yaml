@@ -1,0 +1,61 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-estonian-follow-instruction-task
+specification_id: g2-estonian-follow-instruction-spec
+task_version: "1.0.0"
+grade: 2
+subject: estonian_second_language
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-estonian-second-language-instructions
+target_skill: Follow one short familiar Estonian weather instruction and show the requested observable response.
+response_mode: short_answer
+difficulty: foundational
+expected_time_minutes: 4
+customer_content:
+  prompt: "Прочитай короткую инструкцию на эстонском. Выбери нужную карточку и подпиши её одним словом по-эстонски."
+  supplied_materials:
+    - "Инструкция: Vali pilvise ilma kaart."
+    - "A — päike; B — pilved; C — vihm."
+  supplied_data: []
+  answer_format: "Буква карточки и одно эстонское слово."
+  estonian_output_requirement:
+    required: true
+    level: A1
+    maximum_words: 1
+    support: "Слова для выбора уже даны на карточках."
+answer_contract:
+  answer: "B — pilved."
+  worked_solution: null
+  success_criteria:
+    - criterion_id: follows-estonian-instruction
+      dimension: subject_result
+      description: "Выбрана карточка B, соответствующая облачной погоде."
+    - criterion_id: writes-estonian-weather-word
+      dimension: estonian_language
+      description: "Слово pilved записано разборчиво; небольшая орфографическая ошибка обсуждается отдельно."
+  acceptable_variants:
+    - "Допустимо слово pilvine, если карточка B выбрана верно."
+  common_errors:
+    - "Выбрана карточка по знакомому слову, но не по смыслу инструкции."
+    - "Дан только русский ответ."
+  feedback:
+    correct: "Ты понял(а) инструкцию и отдельно записал(а) эстонское слово."
+    retry: "Найди в инструкции слово pilvise и сопоставь его с подписями карточек."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-estonian-follow-instruction-spec
+  notes: "The instruction, card set, labels, and response contract were independently authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-estonian-follow-instruction-review

@@ -1,0 +1,34 @@
+schema_version: "1.0"
+artifact_type: task_originality_review
+review_id: g2-weather-data-comparison-review
+task_id: g2-weather-data-comparison-task
+specification_id: g2-weather-data-comparison-spec
+status: approved
+reviewer: astzhalkouski
+reviewer_role: Human originality reviewer
+reviewed_on: "2026-07-30"
+reviewed_version:
+  commit_sha: a450745bbd382c4758d7cbc96f998b27db76288e
+  content_fingerprint:
+    algorithm: sha256
+    specification_version: "1.0"
+    value: c7b5daf520966d4d3dc04cd41837ff2c765c1f7fb80f657f8f69edc59575d218
+    file_count: 1
+dimensions:
+  wording_independence: independent
+  context_independence: independent
+  data_independence: independent
+  question_sequence_independence: independent
+  scaffolding_independence: independent
+  distractor_independence: not_applicable
+  visual_independence: not_applicable
+  answer_independence: independent
+prohibited_source_content:
+  copied_text: false
+  screenshots: false
+  copied_illustrations: false
+  copied_answer_keys: false
+  extracted_interactive_content: false
+similarity_flags: []
+human_review_required: true
+notes: Reviewed against the exact referenced source page and the full Grade 2 mathematics route. The authored rain-gauge context, four-value precipitation data set, maximum/minimum comparison sequence, scaffolding, and answer explanation are independent from the captured source tasks and visuals. Generic mathematical wording and isolated ordinary numbers were treated as non-distinctive false positives. No prohibited source content or unresolved similarity flags were found.

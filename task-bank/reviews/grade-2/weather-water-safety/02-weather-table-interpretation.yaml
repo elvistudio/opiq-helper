@@ -1,0 +1,34 @@
+schema_version: "1.0"
+artifact_type: task_originality_review
+review_id: g2-weather-table-interpretation-review
+task_id: g2-weather-table-interpretation-task
+specification_id: g2-weather-table-interpretation-spec
+status: pending
+reviewer: null
+reviewer_role: null
+reviewed_on: null
+reviewed_version:
+  commit_sha: null
+  content_fingerprint:
+    algorithm: sha256
+    specification_version: "1.0"
+    value: 8590522b010ab410c30a7d7a2eeb9bf9e9959982563a52b0146e683f909e9081
+    file_count: 1
+dimensions:
+  wording_independence: pending
+  context_independence: pending
+  data_independence: pending
+  question_sequence_independence: pending
+  scaffolding_independence: pending
+  distractor_independence: pending
+  visual_independence: pending
+  answer_independence: pending
+prohibited_source_content:
+  copied_text: false
+  screenshots: false
+  copied_illustrations: false
+  copied_answer_keys: false
+  extracted_interactive_content: false
+similarity_flags: []
+human_review_required: true
+notes: Human originality review has not yet been assigned or completed.

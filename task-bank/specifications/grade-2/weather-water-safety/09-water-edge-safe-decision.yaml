@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-water-edge-safe-decision-spec
+status: internal_review
+grade: 2
+subject: human_studies
+subject_et: inimeseõpetus
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-human-studies-rights-duties
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Select and explain a responsible everyday decision when noticing a risk near water.
+prerequisite_skills:
+  - Recognize an adult as a source of help.
+  - Give one reason for a choice.
+cognitive_action: evaluate_safe_decision
+task_archetype: everyday_decision
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+permitted_value_ranges:
+  - Use one newly authored everyday situation with three independent response options.
+common_misconceptions:
+  - Treating personal confidence as a reason to approach the hazard alone.
+expected_learner_evidence:
+  - Selects the responsible option.
+  - Explains how the choice protects self or others.
+success_evidence_type: selected_response
+accessibility_support:
+  - Keep each option to one sentence and use no source-derived illustration.
+language_support:
+  - Provide a Russian because-clause starter without naming the correct option.
+project_or_real_life_contexts:
+  - Noticing an unsafe object beside a shallow pond in a public park.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-human-studies
+  source_roles:
+    - route_id: grade-2-human-studies
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-human-studies
+      canonical_url: https://www.opiq.ee/kit/579/chapter/32048
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_inimeseopetus.md
+    - project-files/outputs/opiq_2klass_inimeseopetus_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Human-studies evidence supports broad consideration of rules, responsibility, and safe everyday choices.
+    - The task may assess risk recognition but cannot replace the physical-education water-safety outcome.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - This specification supports a human-studies decision and makes no physical-education mastery claim.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: true
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: The human-studies outcome supports responsibility only and is not a substitute for physical-education water safety.

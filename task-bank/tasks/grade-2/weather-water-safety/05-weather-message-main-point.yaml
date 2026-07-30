@@ -1,0 +1,60 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-weather-message-main-point-task
+specification_id: g2-weather-message-main-point-spec
+task_version: "1.0.0"
+grade: 2
+subject: russian
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-russian-conscious-reading
+target_skill: Read a newly authored short weather message and identify its main point using textual evidence.
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 6
+customer_content:
+  prompt: "Прочитай сообщение. Напиши его главную мысль одним предложением. Затем выпиши одну деталь, которая подтверждает эту мысль."
+  supplied_materials:
+    - "Утром двор был сухим. К обеду появились тёмные облака, и начался короткий дождь. Ребята перенесли чтение с площадки в класс. После дождя они снова вышли на улицу."
+  supplied_data: []
+  answer_format: "Одна главная мысль и одна подтверждающая деталь по-русски."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: "Погода на короткое время изменила план ребят. Деталь: из-за дождя чтение перенесли в класс."
+  worked_solution: null
+  success_criteria:
+    - criterion_id: weather-message-main-point
+      dimension: subject_result
+      description: "Главная мысль охватывает всё сообщение, а не одну случайную деталь."
+    - criterion_id: message-supporting-detail
+      dimension: subject_result
+      description: "Выбранная деталь прямо подтверждает главную мысль."
+  acceptable_variants:
+    - "Допустима мысль о временном влиянии дождя на занятие при наличии подходящей детали."
+  common_errors:
+    - "Главной мыслью назван только сухой двор утром."
+    - "Выписана деталь, не связанная с сформулированной мыслью."
+  feedback:
+    correct: "Главная мысль охватывает весь текст и подтверждена деталью."
+    retry: "Проверь, объясняет ли твоя мысль, зачем в сообщении нужны все четыре предложения."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-weather-message-main-point-spec
+  notes: "The short message, setting, event order, prompt, and answer explanation are new."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-weather-message-main-point-review

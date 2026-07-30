@@ -1,0 +1,21 @@
+case_id: substantial-structural-dependence
+description: This isolated invalid fixture preserves multiple distinctive source-task structures and must remain blocked for human review.
+structural_dependencies:
+  - same unusual storm-shelter context
+  - same named characters in the same roles
+  - same number set in the same order
+  - same three-question sequence
+  - same hint and intermediate scaffold order
+  - same distractor set
+  - same four-panel visual layout description
+  - same answer explanation structure
+similarity_flags:
+  - same_unusual_context
+  - same_characters
+  - same_number_set
+  - same_question_sequence
+  - same_scaffolding
+  - same_distractors
+  - same_visual_layout_description
+  - same_answer_explanation
+expected_diagnostic_code: TB_APPROVED_REVIEW_SIMILARITY

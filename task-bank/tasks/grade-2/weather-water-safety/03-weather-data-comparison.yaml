@@ -1,0 +1,65 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-weather-data-comparison-task
+specification_id: g2-weather-data-comparison-spec
+task_version: "1.0.1"
+grade: 2
+subject: mathematics
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-mathematics-real-life
+target_skill: Read an original weather dataset, compare whole numbers, and express one numerical difference.
+response_mode: computational
+difficulty: core
+expected_time_minutes: 6
+customer_content:
+  prompt: "Четыре дня подряд в одинаковых размеченных дождемерах записывали глубину выпавших осадков. В какой день выпало больше всего осадков? На сколько миллиметров это значение больше самого маленького? Запиши сравнение и вычисление."
+  supplied_materials:
+    - "Все дождемеры одинаковые и размечены в миллиметрах глубины осадков."
+    - "Понедельник — 13 мм."
+    - "Вторник — 28 мм."
+    - "Среда — 17 мм."
+    - "Четверг — 22 мм."
+  supplied_data:
+    - "Глубина осадков: 13, 28, 17, 22 миллиметра."
+  answer_format: "Название дня, сравнение чисел и одно действие вычитания."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: "Больше всего осадков выпало во вторник. 28 > 22 > 17 > 13; 28 − 13 = 15 мм."
+  worked_solution: "Шаг 1: сравнить показания глубины осадков 13, 28, 17 и 22 мм; наибольшее показание 28 мм, наименьшее 13 мм. Шаг 2: найти разность: 28 − 13 = 15. Шаг 3: записать единицу глубины осадков — 15 мм."
+  success_criteria:
+    - criterion_id: maximum-weather-value
+      dimension: subject_result
+      description: "Правильно найдено наибольшее показание глубины осадков 28 мм."
+    - criterion_id: weather-value-difference
+      dimension: subject_result
+      description: "Показано вычисление 28 − 13 = 15 мм."
+  acceptable_variants:
+    - "Полная цепочка сравнений необязательна, если максимум, минимум и вычитание указаны верно."
+  common_errors:
+    - "Вычислено 28 − 22 вместо разности между максимумом и минимумом."
+    - "В ответе пропущены миллиметры."
+  feedback:
+    correct: "Верно: ты нашёл(ла) наибольшее и наименьшее показания глубины осадков и их разность."
+    retry: "Сначала обведи самое большое и самое маленькое показания дождемеров, затем вычти меньшее из большего."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-weather-data-comparison-spec
+  notes: "The rain-gauge context, four-value dataset, order, and solution were independently selected."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-weather-data-comparison-review

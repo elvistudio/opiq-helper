@@ -1,0 +1,97 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-weather-observation-conclusion-spec
+status: internal_review
+grade: 2
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-natural-science-guided-inquiry
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Distinguish a directly observed weather fact from a conclusion supported by that fact.
+prerequisite_skills:
+  - Recognize common weather features.
+  - Read one short factual sentence.
+cognitive_action: distinguish_evidence_and_conclusion
+task_archetype: paired_observation_and_inference
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+permitted_value_ranges:
+  - Use two newly authored weather statements with no borrowed names or measurements.
+common_misconceptions:
+  - Treating a prediction or opinion as something directly observed.
+expected_learner_evidence:
+  - Labels one statement as an observation and the other as a conclusion.
+  - Gives one brief reason tied to visible or measured evidence.
+success_evidence_type: short_written_response
+accessibility_support:
+  - Present the two statements on separate lines with observation and conclusion icons.
+language_support:
+  - Give Russian sentence starters for the reason without supplying the decision.
+project_or_real_life_contexts:
+  - A short class weather check before going outdoors.
+source_analysis:
+  source_status: available_route
+  route_ids:
+    - grade-2-science
+  source_roles:
+    - route_id: grade-2-science
+      role: neutral_skill_analysis
+      manual_topic_review_required: false
+  canonical_record_refs:
+    - route_id: grade-2-science
+      canonical_url: https://www.opiq.ee/kit/132/chapter/7104
+      programme_type: ordinary_curriculum
+      evidence_role: neutral_skill_analysis
+  evidence_basis:
+    - source-manifest.json
+    - project-files/outputs/opiq_2klass_loodusopetus.md
+    - project-files/outputs/opiq_2klass_loodusopetus_qa.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - Ordinary Grade 2 source coverage includes weather elements as a broad science topic.
+    - The commercial task should elicit a distinction between evidence and a supported conclusion.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - Source relationships justify only the neutral skill target and do not supply customer wording.
+  content_strategy: neutral_source_analysis
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: false
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: The outcome is verified for school stage I and is not an exact national Grade 2 allocation.

@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/task-specification.schema.json",
+  "title": "Clean-room neutral task specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "specification_id",
+    "status",
+    "grade",
+    "subject",
+    "subject_et",
+    "instruction_language",
+    "learner_language_level",
+    "official_outcome_ids",
+    "official_scope",
+    "target_skill",
+    "prerequisite_skills",
+    "cognitive_action",
+    "task_archetype",
+    "response_mode",
+    "difficulty",
+    "expected_time_minutes",
+    "permitted_value_ranges",
+    "common_misconceptions",
+    "expected_learner_evidence",
+    "success_evidence_type",
+    "accessibility_support",
+    "language_support",
+    "project_or_real_life_contexts",
+    "source_analysis",
+    "authoring_constraints",
+    "prohibited_operations",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "clean_room_task_specification" },
+    "specification_id": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+    },
+    "status": { "enum": ["draft", "internal_review", "retired"] },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+    "subject": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "subject_et": { "type": "string", "minLength": 1 },
+    "instruction_language": { "enum": ["ru", "et"] },
+    "learner_language_level": {
+      "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/learnerLanguageLevel"
+    },
+    "official_outcome_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+      }
+    },
+    "official_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "school_stage",
+        "terminal_grade",
+        "exact_grade_claimed"
+      ],
+      "properties": {
+        "kind": { "enum": ["school_stage", "exact_grade"] },
+        "school_stage": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        },
+        "terminal_grade": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        },
+        "exact_grade_claimed": { "type": "boolean" }
+      }
+    },
+    "target_skill": { "type": "string", "minLength": 10 },
+    "prerequisite_skills": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "cognitive_action": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "task_archetype": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "response_mode": {
+      "enum": ["open_ended", "short_answer", "procedural", "computational"]
+    },
+    "difficulty": { "enum": ["foundational", "core", "challenge"] },
+    "expected_time_minutes": { "type": "integer", "minimum": 1, "maximum": 30 },
+    "permitted_value_ranges": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "common_misconceptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "expected_learner_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "success_evidence_type": {
+      "enum": [
+        "selected_response",
+        "short_written_response",
+        "ordered_sequence",
+        "completed_table",
+        "calculation",
+        "oral_or_written_phrase",
+        "individual_contribution",
+        "exit_ticket"
+      ]
+    },
+    "accessibility_support": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "language_support": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "project_or_real_life_contexts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "source_analysis": { "$ref": "#/$defs/sourceAnalysis" },
+    "authoring_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wording_must_be_independent",
+        "context_must_be_independent",
+        "data_must_be_independent",
+        "sequence_must_be_independent",
+        "scaffolding_must_be_independent",
+        "visual_must_be_independent",
+        "answer_explanation_must_be_independent"
+      ],
+      "properties": {
+        "wording_must_be_independent": { "const": true },
+        "context_must_be_independent": { "const": true },
+        "data_must_be_independent": { "const": true },
+        "sequence_must_be_independent": { "const": true },
+        "scaffolding_must_be_independent": { "const": true },
+        "visual_must_be_independent": { "const": true },
+        "answer_explanation_must_be_independent": { "const": true }
+      }
+    },
+    "prohibited_operations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "copy_source_wording",
+        "paraphrase_source_task",
+        "reuse_source_context",
+        "reuse_source_data",
+        "reuse_source_sequence",
+        "reconstruct_source_visual",
+        "extract_interactive_payload"
+      ],
+      "properties": {
+        "copy_source_wording": { "const": true },
+        "paraphrase_source_task": { "const": true },
+        "reuse_source_context": { "const": true },
+        "reuse_source_data": { "const": true },
+        "reuse_source_sequence": { "const": true },
+        "reconstruct_source_visual": { "const": true },
+        "extract_interactive_payload": { "const": true }
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage_outcome_is_exact_grade_allocation",
+        "curriculum_completeness_claimed",
+        "source_relationship_is_commercial_authorship",
+        "notes"
+      ],
+      "properties": {
+        "stage_outcome_is_exact_grade_allocation": { "const": false },
+        "curriculum_completeness_claimed": { "const": false },
+        "source_relationship_is_commercial_authorship": { "const": false },
+        "notes": { "type": "string", "minLength": 20 }
+      }
+    }
+  },
+  "$defs": {
+    "sourceRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route_id", "role", "manual_topic_review_required"],
+      "properties": {
+        "route_id": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+        },
+        "role": {
+          "enum": [
+            "neutral_skill_analysis",
+            "mixed_subject_support",
+            "optional_project_support"
+          ]
+        },
+        "manual_topic_review_required": { "type": "boolean" }
+      }
+    },
+    "canonicalRecordRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_id",
+        "canonical_url",
+        "programme_type",
+        "evidence_role"
+      ],
+      "properties": {
+        "route_id": {
+          "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+        },
+        "canonical_url": {
+          "type": "string",
+          "pattern": "^https://www\\.opiq\\.ee/kit/[0-9]+/chapter/[0-9]+$"
+        },
+        "programme_type": {
+          "enum": [
+            "ordinary_curriculum",
+            "simplified_curriculum",
+            "supplementary",
+            "supplementary_material",
+            "youth_training"
+          ]
+        },
+        "evidence_role": {
+          "enum": ["neutral_skill_analysis", "optional_project_support"]
+        }
+      }
+    },
+    "sourceAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_status",
+        "route_ids",
+        "source_roles",
+        "canonical_record_refs",
+        "evidence_basis",
+        "neutral_findings",
+        "excluded_source_elements",
+        "boundary_notes",
+        "content_strategy",
+        "manual_topic_review_required",
+        "replacement_by_human_studies_forbidden"
+      ],
+      "properties": {
+        "source_status": { "enum": ["available_route", "missing_route"] },
+        "route_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug"
+          }
+        },
+        "source_roles": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sourceRole" }
+        },
+        "canonical_record_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/canonicalRecordRef" }
+        },
+        "evidence_basis": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath"
+          }
+        },
+        "neutral_findings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "excluded_source_elements": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "wording",
+              "story_context",
+              "characters",
+              "numbers_and_data",
+              "question_sequence",
+              "scaffolding_sequence",
+              "distractors",
+              "visual_layout",
+              "answer_wording",
+              "interactive_sequence"
+            ]
+          }
+        },
+        "boundary_notes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 10 }
+        },
+        "content_strategy": {
+          "enum": ["neutral_source_analysis", "author_created_required"]
+        },
+        "manual_topic_review_required": { "type": "boolean" },
+        "replacement_by_human_studies_forbidden": { "type": "boolean" }
+      }
+    }
+  }
+}

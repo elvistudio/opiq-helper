@@ -1,0 +1,62 @@
+schema_version: "1.0"
+artifact_type: authored_commercial_task
+task_id: g2-water-edge-safe-decision-task
+specification_id: g2-water-edge-safe-decision-spec
+task_version: "1.0.0"
+grade: 2
+subject: human_studies
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-human-studies-rights-duties
+target_skill: Select and explain a responsible everyday decision when noticing a risk near water.
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+customer_content:
+  prompt: "В парке ты заметил(а), что маленький самокат лежит у самого края мелкого пруда. Как поступить ответственно? Выбери вариант и объясни, кого защищает твой выбор."
+  supplied_materials:
+    - "A. Подойти к воде одному и быстро достать самокат."
+    - "B. Остаться на дорожке и позвать взрослого смотрителя."
+    - "C. Толкнуть самокат палкой дальше от дорожки."
+  supplied_data: []
+  answer_format: "Буква варианта и одно объяснение по-русски."
+  estonian_output_requirement:
+    required: false
+    level: null
+    maximum_words: null
+    support: "Эстонский ответ не требуется."
+answer_contract:
+  answer: "B. Нужно остаться на дорожке и позвать взрослого: так ребёнок не приближается к воде, а взрослый может безопасно решить проблему."
+  worked_solution: null
+  success_criteria:
+    - criterion_id: responsible-water-edge-choice
+      dimension: subject_result
+      description: "Выбран вариант B с обращением к взрослому."
+    - criterion_id: protects-self-or-others
+      dimension: subject_result
+      description: "Объяснение связывает выбор с защитой себя или других."
+  acceptable_variants:
+    - "Допустима формулировка о предупреждении других детей при сохранении дистанции и обращении к взрослому."
+  common_errors:
+    - "Опасное приближение оправдано тем, что пруд кажется мелким."
+    - "Выбран вариант B без объяснения ответственности."
+  feedback:
+    correct: "Ты сохранил(а) безопасную дистанцию и передал(а) решение взрослому."
+    retry: "Выбери действие, при котором ребёнку не нужно подходить к краю воды."
+standalone_contract:
+  works_without_opiq: true
+  external_access_required: false
+  customer_visibility: internal_only
+  publication_status: internal_review
+authoring_provenance:
+  category: author_created_task_set
+  authoring_method: independently_authored_from_neutral_specification
+  specification_ref: g2-water-edge-safe-decision-spec
+  notes: "The scooter situation, decision options, rationale, and feedback are newly authored."
+  used_source_task_text: false
+  used_source_answer_text: false
+  used_source_screenshot: false
+  used_source_illustration: false
+  used_extracted_interactive_content: false
+originality_review_ref: g2-water-edge-safe-decision-review

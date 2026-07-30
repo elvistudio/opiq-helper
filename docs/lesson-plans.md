@@ -6,6 +6,24 @@ The teaching-plan formats turn verified curriculum evidence and selected canonic
 
 The documented model is a teaching design, not a claim that a particular technique guarantees learning outcomes.
 
+## Clean-room task-bank integration
+
+Reusable commercial tasks are authored and reviewed through the separate workflow in
+[`task-bank-clean-room-authoring.md`](task-bank-clean-room-authoring.md). The task bank does not
+duplicate the lesson schema.
+
+Use the authored task's stable `task_id` consistently in:
+
+- `commercial_core.task_material_ids`;
+- `commercial_core.task_contracts[].task_material_id`;
+- `evidence_linkage.author_materials[].material_id`;
+- `originality_review.covered_author_material_ids`.
+
+The linked `author_materials` entry retains the authored-task artifact path, audience, language,
+and author-created provenance. Lesson task contracts continue to enforce expected answers and
+worked solutions. A task-bank originality approval is version-specific and does not, by itself,
+make a lesson or course publication-ready.
+
 ## Artifacts
 
 | Artifact | Schema | Production example | Purpose |

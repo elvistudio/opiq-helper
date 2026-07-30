@@ -1,0 +1,87 @@
+schema_version: "1.0"
+artifact_type: clean_room_task_specification
+specification_id: g2-pe-water-safety-decision-spec
+status: internal_review
+grade: 2
+subject: physical_education
+subject_et: kehaline kasvatus
+instruction_language: ru
+learner_language_level: A1-A2
+official_outcome_ids:
+  - ee-prk-2026-stage1-physical-education-water-safety
+official_scope:
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+  exact_grade_claimed: false
+target_skill: Choose and justify the safest immediate action in an independently authored water-safety decision.
+prerequisite_skills:
+  - Recognize that water conditions can change quickly.
+  - Identify a supervising adult.
+cognitive_action: apply_water_safety_rule
+task_archetype: missing_route_safety_decision
+response_mode: short_answer
+difficulty: core
+expected_time_minutes: 5
+permitted_value_ranges:
+  - Use one original scenario with three plausible actions and one clearly safest immediate response.
+common_misconceptions:
+  - Entering the water to retrieve an object without adult supervision.
+expected_learner_evidence:
+  - Selects the safest immediate action.
+  - Gives a reason that mentions distance from danger and adult help.
+success_evidence_type: selected_response
+accessibility_support:
+  - Use short text-only choices so no visual reconstruction or interpretation is required.
+language_support:
+  - Explain the situation in Russian and provide a short reason frame.
+project_or_real_life_contexts:
+  - An unfamiliar floating object seen beyond the marked safe area.
+source_analysis:
+  source_status: missing_route
+  route_ids: []
+  source_roles: []
+  canonical_record_refs: []
+  evidence_basis:
+    - source-manifest.json
+    - compliance/estonia/2026-27/outcome-index.yaml
+  neutral_findings:
+    - The official outcome index contains a verified stage-I water-safety outcome.
+    - The manifest has no matching physical-education route, so all task content must be author-created.
+  excluded_source_elements:
+    - wording
+    - story_context
+    - characters
+    - numbers_and_data
+    - question_sequence
+    - scaffolding_sequence
+    - distractors
+    - visual_layout
+    - answer_wording
+    - interactive_sequence
+  boundary_notes:
+    - No Opiq route or companion is invented, and human-studies evidence cannot replace this outcome.
+  content_strategy: author_created_required
+  manual_topic_review_required: false
+  replacement_by_human_studies_forbidden: true
+authoring_constraints:
+  wording_must_be_independent: true
+  context_must_be_independent: true
+  data_must_be_independent: true
+  sequence_must_be_independent: true
+  scaffolding_must_be_independent: true
+  visual_must_be_independent: true
+  answer_explanation_must_be_independent: true
+prohibited_operations:
+  copy_source_wording: true
+  paraphrase_source_task: true
+  reuse_source_context: true
+  reuse_source_data: true
+  reuse_source_sequence: true
+  reconstruct_source_visual: true
+  extract_interactive_payload: true
+claim_boundary:
+  stage_outcome_is_exact_grade_allocation: false
+  curriculum_completeness_claimed: false
+  source_relationship_is_commercial_authorship: false
+  notes: Missing-route authoring is explicit and the stage-I outcome is not claimed as an exact Grade 2 allocation.
