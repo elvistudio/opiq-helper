@@ -95,6 +95,8 @@ export async function loadCurriculumMapRepository({
   courseSchemaPath = 'schemas/course-map.schema.json',
   gradeProgrammeRouteSchemaPath = 'schemas/grade-programme-route.schema.json',
   gradeProgrammeCoverageSchemaPath = 'schemas/grade-programme-coverage.schema.json',
+  grade2ProgrammeRouteSchemaPath = 'schemas/grade-2-programme-route.schema.json',
+  grade2ProgrammeCoverageSchemaPath = 'schemas/grade-2-programme-coverage.schema.json',
   additionalSourceIds = [],
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
@@ -104,13 +106,26 @@ export async function loadCurriculumMapRepository({
   const courseSchemaFile = safeRepositoryPath(absoluteRoot, courseSchemaPath, 'course schema path');
   const gradeProgrammeRouteSchemaFile = safeRepositoryPath(absoluteRoot, gradeProgrammeRouteSchemaPath, 'grade programme route schema path');
   const gradeProgrammeCoverageSchemaFile = safeRepositoryPath(absoluteRoot, gradeProgrammeCoverageSchemaPath, 'grade programme coverage schema path');
+  const grade2ProgrammeRouteSchemaFile = safeRepositoryPath(absoluteRoot, grade2ProgrammeRouteSchemaPath, 'Grade 2 programme route schema path');
+  const grade2ProgrammeCoverageSchemaFile = safeRepositoryPath(absoluteRoot, grade2ProgrammeCoverageSchemaPath, 'Grade 2 programme coverage schema path');
 
-  const [manifestText, curriculumSchemaText, courseSchemaText, gradeProgrammeRouteSchemaText, gradeProgrammeCoverageSchemaText, yamlFiles] = await Promise.all([
+  const [
+    manifestText,
+    curriculumSchemaText,
+    courseSchemaText,
+    gradeProgrammeRouteSchemaText,
+    gradeProgrammeCoverageSchemaText,
+    grade2ProgrammeRouteSchemaText,
+    grade2ProgrammeCoverageSchemaText,
+    yamlFiles,
+  ] = await Promise.all([
     fs.readFile(manifestFile, 'utf8'),
     fs.readFile(curriculumSchemaFile, 'utf8'),
     fs.readFile(courseSchemaFile, 'utf8'),
     fs.readFile(gradeProgrammeRouteSchemaFile, 'utf8'),
     fs.readFile(gradeProgrammeCoverageSchemaFile, 'utf8'),
+    fs.readFile(grade2ProgrammeRouteSchemaFile, 'utf8'),
+    fs.readFile(grade2ProgrammeCoverageSchemaFile, 'utf8'),
     listYamlFiles(mapsDirectory),
   ]);
   const manifest = JSON.parse(manifestText);
@@ -169,6 +184,8 @@ export async function loadCurriculumMapRepository({
       course: JSON.parse(courseSchemaText),
       gradeProgrammeRoute: JSON.parse(gradeProgrammeRouteSchemaText),
       gradeProgrammeCoverage: JSON.parse(gradeProgrammeCoverageSchemaText),
+      grade2ProgrammeRoute: JSON.parse(grade2ProgrammeRouteSchemaText),
+      grade2ProgrammeCoverage: JSON.parse(grade2ProgrammeCoverageSchemaText),
     },
     artifacts,
     routes,
@@ -178,6 +195,8 @@ export async function loadCurriculumMapRepository({
       courseSchemaPath,
       gradeProgrammeRouteSchemaPath,
       gradeProgrammeCoverageSchemaPath,
+      grade2ProgrammeRouteSchemaPath,
+      grade2ProgrammeCoverageSchemaPath,
       ...artifacts.map((artifact) => artifact.file),
       ...Object.values(routes).flatMap(({ source }) => [
         source.md_path,
@@ -195,6 +214,8 @@ function createSchemaValidators(schemas) {
     course: ajv.compile(schemas.course),
     gradeProgrammeRoute: ajv.compile(schemas.gradeProgrammeRoute),
     gradeProgrammeCoverage: ajv.compile(schemas.gradeProgrammeCoverage),
+    grade2ProgrammeRoute: ajv.compile(schemas.grade2ProgrammeRoute),
+    grade2ProgrammeCoverage: ajv.compile(schemas.grade2ProgrammeCoverage),
   };
 }
 
@@ -286,14 +307,18 @@ function validateOfficialArtifact(diagnostics, artifact, context) {
 function validateGradeProgrammeRouteArtifact(diagnostics, artifact, context) {
   const data = artifact.data;
   const source = context.manifest.sources?.find((candidate) => candidate.id === data.route_id);
-  if (!source || source.grade !== 4) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/route_id', `unknown Grade 4 manifest route ${data.route_id ?? '<missing>'}`));
+  if (!source || source.grade !== data.grade || ![2, 4].includes(data.grade)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/route_id', `unknown Grade ${data.grade ?? '<missing>'} manifest route ${data.route_id ?? '<missing>'}`));
     return;
   }
   const comparisons = [
     ['route_id', data.canonical_route?.source_id, source.id],
     ['canonical_route/md_path', data.canonical_route?.md_path, source.md_path],
-    ['canonical_route/source_archive', data.canonical_route?.source_archive, source.source_archive],
+    [
+      data.grade === 2 ? 'canonical_route/primary_source_archive' : 'canonical_route/source_archive',
+      data.grade === 2 ? data.canonical_route?.primary_source_archive : data.canonical_route?.source_archive,
+      source.source_archive,
+    ],
     ['canonical_route/qa_path', data.canonical_route?.qa_path, source.qa_path],
     ['record_count', data.record_count, source.record_count],
   ];
@@ -322,9 +347,9 @@ function validateGradeProgrammeRouteArtifact(diagnostics, artifact, context) {
     }
   }
   if (data.artifact_type === 'grade_programme_official_curriculum_map') {
-    if (data.completeness?.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'Grade 4 route map must remain incomplete'));
+    if (data.completeness?.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', `Grade ${data.grade} route map must remain incomplete`));
     if (data.official_scope?.kind === 'school_stage' && data.official_scope.exact_grade_claimed !== false) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/official_scope', 'school-stage evidence cannot claim exact Grade 4 scope'));
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/official_scope', `school-stage evidence cannot claim exact Grade ${data.grade} scope`));
     }
   }
 }
@@ -332,10 +357,10 @@ function validateGradeProgrammeRouteArtifact(diagnostics, artifact, context) {
 function validateGradeProgrammeCoverageArtifact(diagnostics, artifact, context) {
   const data = artifact.data;
   const source = context.manifest.sources?.find((candidate) => candidate.id === data.route_id);
-  if (!source || source.grade !== 4) {
-    diagnostics.push(makeDiagnostic('error', artifact.file, '/route_id', `unknown Grade 4 manifest route ${data.route_id ?? '<missing>'}`));
+  if (!source || source.grade !== data.grade || ![2, 4].includes(data.grade)) {
+    diagnostics.push(makeDiagnostic('error', artifact.file, '/route_id', `unknown Grade ${data.grade ?? '<missing>'} manifest route ${data.route_id ?? '<missing>'}`));
   }
-  if (data.completeness?.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', 'Grade 4 route coverage must remain incomplete'));
+  if (data.completeness?.declared_complete) diagnostics.push(makeDiagnostic('error', artifact.file, '/completeness', `Grade ${data.grade} route coverage must remain incomplete`));
   if ((data.rows ?? []).some((row) => (
     row.source_topic_presence === 'heading_only' && row.coverage_status === 'verified'
   ))) {
@@ -711,9 +736,21 @@ export function validateCurriculumMapRepository(context) {
     artifactTypes.set(type, [...(artifactTypes.get(type) ?? []), artifact]);
     if (type === officialArtifactType) addSchemaDiagnostics(diagnostics, artifact, validators.curriculum);
     else if (courseArtifactTypes.has(type)) addSchemaDiagnostics(diagnostics, artifact, validators.course);
-    else if (gradeProgrammeRouteTypes.has(type)) addSchemaDiagnostics(diagnostics, artifact, validators.gradeProgrammeRoute);
-    else if (type === gradeProgrammeCoverageType) addSchemaDiagnostics(diagnostics, artifact, validators.gradeProgrammeCoverage);
-    else diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_type', `unknown artifact type ${type ?? '<missing>'}`));
+    else if (gradeProgrammeRouteTypes.has(type)) {
+      addSchemaDiagnostics(
+        diagnostics,
+        artifact,
+        artifact.data.grade === 2 ? validators.grade2ProgrammeRoute : validators.gradeProgrammeRoute,
+      );
+    } else if (type === gradeProgrammeCoverageType) {
+      addSchemaDiagnostics(
+        diagnostics,
+        artifact,
+        artifact.data.grade === 2 ? validators.grade2ProgrammeCoverage : validators.gradeProgrammeCoverage,
+      );
+    } else {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_type', `unknown artifact type ${type ?? '<missing>'}`));
+    }
   }
   for (const type of [officialArtifactType, 'book_inventory', 'topic_inventory', 'thematic_unit']) {
     const count = artifactTypes.get(type)?.length ?? 0;
@@ -729,13 +766,21 @@ export function validateCurriculumMapRepository(context) {
   for (const artifact of gradeProgrammeArtifacts) validateGradeProgrammeRouteArtifact(diagnostics, artifact, context);
   for (const artifact of gradeProgrammeCoverageArtifacts) validateGradeProgrammeCoverageArtifact(diagnostics, artifact, context);
   if (gradeProgrammeArtifacts.length > 0 || gradeProgrammeCoverageArtifacts.length > 0) {
-    const grade4Routes = context.manifest.sources?.filter((source) => source.grade === 4) ?? [];
-    for (const source of grade4Routes) {
-      for (const type of [...gradeProgrammeRouteTypes, gradeProgrammeCoverageType]) {
-        const count = context.artifacts.filter((artifact) => (
-          artifact.data.artifact_type === type && artifact.data.route_id === source.id
-        )).length;
-        if (count !== 1) diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `${source.id} requires exactly one ${type}, found ${count}`));
+    const programmeGrades = new Set([
+      ...gradeProgrammeArtifacts,
+      ...gradeProgrammeCoverageArtifacts,
+    ].map((artifact) => artifact.data.grade));
+    for (const grade of [...programmeGrades].sort((left, right) => left - right)) {
+      const gradeRoutes = context.manifest.sources?.filter((source) => source.grade === grade) ?? [];
+      for (const source of gradeRoutes) {
+        for (const type of [...gradeProgrammeRouteTypes, gradeProgrammeCoverageType]) {
+          const count = context.artifacts.filter((artifact) => (
+            artifact.data.artifact_type === type
+            && artifact.data.grade === grade
+            && artifact.data.route_id === source.id
+          )).length;
+          if (count !== 1) diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `${source.id} requires exactly one ${type}, found ${count}`));
+        }
       }
     }
   }

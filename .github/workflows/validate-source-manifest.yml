@@ -18,6 +18,7 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/grade-2-course-architecture.md
       - docs/grade-4-course-architecture.md
       - docs/templates/grade-programme.md
       - docs/2026-27-curriculum-compliance-baseline.md
@@ -63,6 +64,7 @@ on:
       - knowledge/**
       - schemas/**
       - docs/curriculum-maps.md
+      - docs/grade-2-course-architecture.md
       - docs/grade-4-course-architecture.md
       - docs/templates/grade-programme.md
       - docs/2026-27-curriculum-compliance-baseline.md
@@ -98,7 +100,7 @@ jobs:
   validate:
     name: Validate manifest and source records
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
 
     steps:
       - name: Check out repository
@@ -270,6 +272,12 @@ jobs:
 
       - name: Test grade 2 catalogue integrity guards
         run: npm run test:grade-2-sources
+
+      - name: Test Grade 2 course architecture
+        run: npm run test:grade-2-course-architecture
+
+      - name: Check generated Grade 2 course architecture
+        run: npm run check:grade-2-course-architecture
 
       - name: Test grade 2 content-quality audit
         run: npm run test:grade-2-content-quality

@@ -1,0 +1,107 @@
+artifact_id: grade-2-nature-and-human-studies-coverage
+artifact_type: grade_programme_route_coverage
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Full prose, complete task bodies, authored lessons and assessment evidence remain unavailable.
+  status: partial
+grade: 2
+official_curriculum_ref: curriculum-maps/grade-2-nature-and-human-studies/official-curriculum.yaml
+route_id: grade-2-nature-and-human-studies
+rows:
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-natural-science-guided-inquiry
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-nature-and-human-studies
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: Weather forecasting is independently aligned to science; the mixed route is not treated as subject-pure evidence.
+          policy_alignment_id: grade-2-mixed-science-inquiry
+          source_record_ids:
+            - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4200-60b9baa7a2
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-nature-and-human-studies-topic-mixed-subject-d636ac6572
+    route_ids:
+      - grade-2-nature-and-human-studies
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-nature-and-human-studies-topic-mixed-subject-d636ac6572
+  - architecture_coverage_status: designed
+    assessment_evidence_status: missing
+    blocking_gaps:
+      - Each route alignment remains independent; combined partial or ambiguous support does not prove full coverage.
+      - Authored topic alignment does not prove full outcome coverage; prose and assessment authoring remain incomplete.
+    content_strategy: source_supported_clean_room_authoring_required
+    coverage_status: partial
+    curated_grade_2_allocation: opiq_helper_recommended_allocation
+    curriculum_alignment_status: verified
+    full_prose_status: missing
+    lesson_authoring_status: not_started
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    outcome_id: ee-prk-2026-stage1-human-studies-rights-duties
+    production_coverage_status: not_started
+    programme_policy_alignment: null
+    programme_requirement: source_supported_recommended_allocation
+    release_status: blocked
+    route_alignments:
+      - route_id: grade-2-nature-and-human-studies
+        source_alignment:
+          evidence_layer: source_topic
+          match_basis:
+            - original_heading
+            - reviewed_subject_mapping
+          notes: The rights topic is independently aligned to human studies; science topics do not inherit this candidate.
+          policy_alignment_id: grade-2-mixed-human-rights
+          source_record_ids:
+            - grade-2-nature-and-human-studies-record-86-https-www-opiq-ee-kit-86-chapter-4214-44f7f08ab5
+          status: partial
+          task_evidence_source_record_ids: []
+          task_evidence_status: not_captured
+          topic_cluster_refs:
+            - grade-2-nature-and-human-studies-topic-mixed-subject-1b7093c749
+    route_ids:
+      - grade-2-nature-and-human-studies
+    source_coverage_status: partial
+    source_topic_presence: heading_only
+    task_evidence_status: not_captured
+    topic_cluster_refs:
+      - grade-2-nature-and-human-studies-topic-mixed-subject-1b7093c749
+schema_version: "1.0"
+summary:
+  ambiguous: 0
+  missing: 0
+  outcome_count: 2
+  partial: 2
+  verified_full_coverage: 0
+topic_inventory_ref: curriculum-maps/grade-2-nature-and-human-studies/topic-inventory.yaml

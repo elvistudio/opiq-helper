@@ -1,0 +1,86 @@
+artifact_id: grade-2-teaching-calendar
+artifact_type: grade_programme_teaching_calendar
+author_created_required_subjects:
+  - activation: required_default_programme
+    content_strategy: author_created_required
+    release_status: blocked
+    source_status: missing_route
+    subject_id: grade-2-author-created-english
+  - activation: required_default_programme
+    content_strategy: author_created_required
+    release_status: blocked
+    source_status: missing_route
+    subject_id: grade-2-author-created-physical-education
+grade: 2
+monthly_evidence_checkpoints:
+  classification: recommended_good_practice
+  portfolio_nationally_mandatory: false
+  purpose: Support school oversight with compact current evidence; no portfolio, weekly log or platform is claimed as
+    nationally mandatory.
+national_weekly_hours_claimed: false
+periods:
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-1
+    practical_focus: Bounded observation and local application.
+    prerequisites: []
+    project_ids:
+      - grade-2-project-weather-water-safety
+      - grade-2-project-home-neighbourhood
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-2
+    practical_focus: Community or cultural application.
+    prerequisites:
+      - programme-period-1
+    project_ids:
+      - grade-2-project-measure-useful-object
+      - grade-2-project-living-nature-nearby
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-3
+    practical_focus: Bounded observation and local application.
+    prerequisites:
+      - programme-period-2
+    project_ids:
+      - grade-2-project-stories-books-messages
+      - grade-2-project-rhythm-sound-celebration
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+  - assessment_evidence: Separate subject evidence and Estonian production check.
+    mastery_continues: true
+    period_id: programme-period-4
+    practical_focus: Community or cultural application.
+    prerequisites:
+      - programme-period-3
+    project_ids:
+      - grade-2-project-rights-duties-team
+      - grade-2-project-responsible-everyday-choice
+    revision_focus: Spaced retrieval of prior subject concepts with correction after the first attempt.
+planning_status: recommended_not_national_timetable
+programme_id: grade-2-standalone-commercial-programme-2026-27
+provenance:
+  authoritative_inputs:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  claim_boundary: Recommended Grade 2 architecture; it is not a national exact-grade timetable, published course or
+    effectiveness finding.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  verification_date: 2026-07-29
+schema_version: "1.0"
+target_school_year: 2026/27

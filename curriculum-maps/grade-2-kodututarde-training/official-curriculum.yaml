@@ -1,0 +1,51 @@
+allocation_status:
+  curated_grade_2_allocation: not_applicable
+  national_exact_grade_claimed: false
+  notes: Supplementary youth-organisation material; not ordinary school-curriculum coverage.
+artifact_id: grade-2-kodututarde-training-official-curriculum
+artifact_type: grade_programme_official_curriculum_map
+canonical_route:
+  additional_source_archives: []
+  md_path: project-files/outputs/opiq_2klass_kodututarde_valjaope.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kodututarde_i_jark_2026_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_kodututarde_valjaope_qa.json
+  source_id: grade-2-kodututarde-training
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+grade: 2
+mapping_status: not_applicable_supplementary
+official_fields: []
+official_scope: null
+outcomes: []
+programme_role: supplementary_youth_training
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  verification_date: 2026-07-29
+record_count: 31
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+route_id: grade-2-kodututarde-training
+schema_version: "1.0"
+subject: Kodututred training
+subject_et: Kodutütarde väljaõpe

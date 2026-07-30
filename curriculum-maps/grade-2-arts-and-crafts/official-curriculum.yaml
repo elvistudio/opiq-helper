@@ -1,0 +1,131 @@
+allocation_status:
+  curated_grade_2_allocation: opiq_helper_recommended_allocation
+  national_exact_grade_claimed: false
+  notes: National stage-I scope remains distinct from this recommended Grade 2 allocation.
+artifact_id: grade-2-arts-and-crafts-official-curriculum
+artifact_type: grade_programme_official_curriculum_map
+canonical_route:
+  additional_source_archives: []
+  md_path: project-files/outputs/opiq_2klass_kunst_ja_tooopetus.md
+  primary_source_archive: project-files/inputs/final-zips/opiq_2klass_kasitootuba_opiq_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_kunst_ja_tooopetus_qa.json
+  source_id: grade-2-arts-and-crafts
+completeness:
+  declared_complete: false
+  known_gaps:
+    - Complete instructional prose is unavailable for this route.
+    - Captured task examples do not establish complete assessment evidence.
+  status: partial
+grade: 2
+mapping_status: mapped_recommended_grade_2_allocation
+official_fields:
+  - kunstiained
+  - tehnoloogia
+official_scope:
+  exact_grade_claimed: false
+  kind: school_stage
+  school_stage: 1
+  terminal_grade: 3
+outcomes:
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: verified
+    grade_2_allocation_note: This is an Opiq Helper recommended Grade 2 allocation of a national stage-I endpoint; it is not
+      an official exact-grade requirement.
+    official_reference: PRÕK lisa 3 punkt 2.1.3, I kooliaste, refleksioon
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    official_subject: null
+    official_wording_et: Kirjeldab ette antud küsimustele toetudes enda tööd ja mõtestab valminud tööd.
+    outcome_id: ee-prk-2026-stage1-art-reflection
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: The colour-wheel topic supports an authored art-reflection candidate but not complete assessment or lesson
+        evidence.
+      policy_alignment_id: grade-2-art-reflection
+      source_record_ids:
+        - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10903-1ed9e34a1f
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-2-arts-and-crafts-topic-ordinary-curriculum-varviring-9d964e1794
+    source_id: ee-prok-2026-appendix-03
+    subject_field: kunstiained
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: По предложенным вопросам описывает свою работу и осмысливает готовый результат.
+  - allocation_basis: opiq_helper_recommended_allocation
+    curriculum: ordinary
+    evidence_status: verified
+    grade_2_allocation_note: This is an Opiq Helper recommended Grade 2 allocation of a national stage-I endpoint; it is not
+      an official exact-grade requirement.
+    official_reference: PRÕK lisa 7 punkt 2.1.2, I kooliaste, punkt 1
+    official_scope:
+      exact_grade_claimed: false
+      kind: school_stage
+      school_stage: 1
+      terminal_grade: 3
+    official_subject: tööõpetus
+    official_wording_et: Eristab esemelist keskkonda (materjale ja töövahendeid) ning töötab ohutult.
+    outcome_id: ee-prk-2026-stage1-technology-safe-work
+    source_alignment:
+      evidence_layer: source_topic
+      match_basis:
+        - original_heading
+        - reviewed_subject_mapping
+      notes: Button sewing provides bounded practical-work evidence; safety procedure prose and production instructions remain
+        unauthored.
+      policy_alignment_id: grade-2-technology-safe-work
+      source_record_ids:
+        - grade-2-arts-and-crafts-record-192-https-www-opiq-ee-kit-192-chapter-10946-c19554379a
+      status: partial
+      task_evidence_source_record_ids: []
+      task_evidence_status: not_captured
+      topic_cluster_refs:
+        - grade-2-arts-and-crafts-topic-ordinary-curriculum-noobi-omblemine-695904069e
+    source_id: ee-prok-2026-appendix-07
+    subject_field: tehnoloogia
+    translation_provenance:
+      kind: opiq_helper_translation
+      notes: Неофициальный перевод Opiq Helper; эстонский текст является нормативным.
+      source_language: et
+      verified_on: 2026-07-28
+    translation_ru: Различает предметную среду, материалы и инструменты и работает безопасно.
+programme_role: default_ordinary_core
+provenance:
+  claim_boundary: Architecture and source metadata only; no textbook prose, task bodies, publication readiness or effectiveness claim.
+  generated_by: scripts/generate-grade-2-course-architecture.mjs
+  generated_from:
+    - source-manifest.json
+    - docs/audits/grade-2-complete-captured-catalog.md
+    - docs/audits/grade-2-content-quality.md
+    - docs/audits/grade-2-estonian-subject-separation.md
+    - docs/audits/grade-2-science-subject-separation.md
+    - docs/audits/grade-2-nature-and-human-studies-source-audit.md
+    - docs/audits/grade-2-arts-and-crafts-source-audit.md
+    - docs/audits/grade-2-music-source-audit.md
+    - docs/audits/grade-2-youth-training-source-audit.md
+    - docs/audits/grade-2-minu-vaike-kallis-planeet.md
+    - scripts/generate-grade-2-source-indexes.mjs
+    - compliance/estonia/2026-27/outcome-index.yaml
+    - compliance/estonia/2026-27/curriculum-framework.yaml
+    - external-sources/official/estonia/2026-27/source-registry.yaml
+    - grade-programmes/grade-2/topic-alignment-policy.yaml
+    - grade-programmes/grade-2/source-relationship-policy.yaml
+  verification_date: 2026-07-29
+record_count: 263
+regulatory_baseline_ref: compliance/estonia/2026-27/outcome-index.yaml
+route_id: grade-2-arts-and-crafts
+schema_version: "1.0"
+subject: arts and crafts
+subject_et: kunst ja tööõpetus
