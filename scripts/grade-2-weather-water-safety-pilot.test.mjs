@@ -6,6 +6,7 @@ import {
   loadGrade2WeatherWaterSafetyPilot,
   pilotPaths,
   validateGrade2WeatherWaterSafetyPilot,
+  weatherOutputContract,
 } from './lib/grade-2-weather-water-safety-pilot.mjs';
 import { checkGeneratedLessons } from './generate-grade-2-weather-water-safety-pilot.mjs';
 import { computeTaskFingerprint } from './lib/task-bank.mjs';
@@ -63,6 +64,18 @@ test('module identity and programme period remain exact', () => {
   assert.equal(repository.module.title_et, 'Ilm, vesi ja ohutus');
   const period = repository.calendar.periods.find((item) => item.period_id === 'programme-period-1');
   assert.ok(period.project_ids.includes(repository.module.project_ref));
+  assert.equal(
+    pilotPaths.moduleSchema,
+    'schemas/grade-2-weather-water-safety-pilot.schema.json',
+  );
+  assert.equal(
+    repository.moduleSchema.$id,
+    'https://elvistudio.github.io/opiq-helper/schemas/grade-2-weather-water-safety-pilot.schema.json',
+  );
+  assert.equal(
+    repository.moduleSchema.title,
+    'Grade 2 weather, water and safety pilot snapshot',
+  );
 });
 
 test('exactly two lessons are authored and slots 3–4 remain planned', () => {
@@ -205,13 +218,52 @@ test('lesson 1 keeps bounded A1 weather vocabulary and one oral output', () => {
   assert.equal(lesson(1).learner_language_profile.learner_language_level, 'A1');
   assert.deepEqual(
     lesson(1).language_load.new_terms_et.map((term) => term.term_et),
-    ['ilm', 'vihm', 'tuul', 'pilv', 'päike'],
+    weatherOutputContract.terms,
+  );
+  assert.deepEqual(
+    lesson(1).language_load.expected_supported_productive_language_et,
+    weatherOutputContract.examples,
   );
   assert.deepEqual(
     lesson(1).language_load.expected_independent_productive_language_et,
-    ['Täna on ___.'],
+    [weatherOutputContract.frame],
   );
+  assert.equal(
+    lesson(1).language_load.sentence_frames[0].frame_id,
+    weatherOutputContract.frameId,
+  );
+  assert.equal(
+    lesson(1).language_load.sentence_frames[0].frame_et,
+    weatherOutputContract.frame,
+  );
+  assert.equal(
+    lesson(1).language_load.short_expected_oral_answer_et,
+    weatherOutputContract.frame,
+  );
+  assert.equal(lesson(1).questions[0].short_oral_answer_et, weatherOutputContract.frame);
+  assert.equal(lesson(1).practical_work.short_estonian_conclusion, weatherOutputContract.frame);
+  assert.ok(lesson(1).scaffolds.some((entry) => (
+    entry.scaffold_id === weatherOutputContract.scaffoldId
+  )));
   assert.equal(lesson(1).objectives.estonian_language_objectives[0].minimum_quantity, 1);
+});
+
+test('lesson 1 semantic validator rejects noun substitutions in the productive frame', async (t) => {
+  const model = lesson(1).language_load.model_sentences[0];
+  const original = model.text_et;
+  try {
+    for (const rejected of weatherOutputContract.rejectedExamples) {
+      await t.test(rejected, async () => {
+        model.text_et = rejected;
+        const result = await validateGrade2WeatherWaterSafetyPilot(repository);
+        assert.ok(result.diagnostics.some((entry) => (
+          entry.code === 'PILOT_LANGUAGE_BOUNDS'
+        )));
+      });
+    }
+  } finally {
+    model.text_et = original;
+  }
 });
 
 test('lesson 1 preserves window-first supervised observation safety', async () => {
@@ -316,6 +368,16 @@ test('materials index resolves conventional pack roles with teacher-only answers
   assert.ok(indexed
     .filter((item) => ['answer_key', 'expected_answers', 'worked_solution'].includes(item.material_type))
     .every((item) => item.audience === 'teacher'));
+  const lesson2AnswerKey = repository.materialsIndex.materials.find((entry) => (
+    entry.material.material_id === 'g2-weather-water-answer-key'
+  ));
+  assert.deepEqual(
+    lesson2AnswerKey.lesson_ids,
+    ['grade-2-weather-water-safety-02-data-time'],
+  );
+  assert.ok(!lesson2AnswerKey.lesson_ids.includes(
+    'grade-2-weather-water-safety-01-observation',
+  ));
   assert.deepEqual(repository.materialsIndex.opiq_sources, []);
 });
 

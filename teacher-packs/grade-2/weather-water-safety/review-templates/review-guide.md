@@ -10,6 +10,8 @@ The reviewer should inspect:
 - individual evidence before any shared board;
 - window-first observation and adult-supervised outdoor boundaries;
 - separate subject and Estonian-language criteria;
+- the exact one-sentence productive contract `Täna on ___ ilm.` with only
+  `vihmane`, `tuuline`, `pilvine`, or `päikeseline` in the blank;
 - the explicit absence of authored lessons 3 and 4.
 
 A completed review must be stored as a separate record. This guide does not

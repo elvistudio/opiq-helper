@@ -613,16 +613,16 @@ function buildLesson1() {
       id: 'bridge-weather-et',
       minutes: 7,
       type: 'estonian_language_bridge',
-      contentPurpose: 'Связать уже понятые признаки с пятью ограниченными терминами.',
-      languagePurpose: 'Õppida ilm, vihm, tuul, pilv ja päike.',
+      contentPurpose: 'Связать уже понятые признаки с пятью ограниченными словами для описания погоды.',
+      languagePurpose: 'Õppida ilm, vihmane, tuuline, pilvine ja päikeseline.',
       teacherAction: 'Показывает слова рядом с русскими эквивалентами и моделирует одну короткую рамку.',
-      pupilAction: 'Соотносит пять слов с признаками и повторяет одну рамку с поддержкой.',
+      pupilAction: 'Соотносит пять слов с погодными условиями и повторяет одну рамку с поддержкой.',
       materials: ['g2-weather-observation-explanation'],
-      scaffolds: ['weather-word-bank', 'weather-sentence-frame'],
-      newLanguage: ['ilm', 'vihm', 'tuul', 'pilv', 'päike', 'vaatle'],
+      scaffolds: ['weather-word-bank', 'weather-description-sentence-frame'],
+      newLanguage: ['ilm', 'vihmane', 'tuuline', 'pilvine', 'päikeseline', 'vaatle'],
       ru: ['Это слово обозначает наблюдаемый признак.'],
-      et: ['Täna on pilv.'],
-      prompt: 'Покажи слово для ветра.',
+      et: ['Täna on pilvine ilm.'],
+      prompt: 'Покажи слово для облачной погоды.',
       subjectEvidence: 'Ученик сохраняет связь слова с наблюдаемым признаком.',
       languageEvidence: 'Ученик узнаёт не менее четырёх из пяти слов.',
       expectedEvidence: 'Ученик соотносит целевые слова с безопасно наблюдаемыми признаками погоды.',
@@ -637,9 +637,9 @@ function buildLesson1() {
       teacherAction: 'Организует наблюдение через закрытое окно или разрешённый контролируемый выход.',
       pupilAction: 'Самостоятельно заполняет лист, пишет русский вывод и только затем передаёт одну запись на доску.',
       materials: ['g2-weather-observation-task'],
-      scaffolds: ['weather-word-bank', 'weather-sentence-frame'],
+      scaffolds: ['weather-word-bank', 'weather-description-sentence-frame'],
       ru: ['Я вижу признак и могу назвать доказательство.'],
-      et: ['Täna on tuul.'],
+      et: ['Täna on tuuline ilm.'],
       prompt: 'Какое доказательство записано на твоём листе?',
       subjectEvidence: 'Лист содержит время, признак и индивидуальное доказательство.',
       languageEvidence: 'Короткая фраза дана по рамке после предметного вывода.',
@@ -655,9 +655,9 @@ function buildLesson1() {
       teacherAction: 'Собирает карточку и отдельно отмечает предметный результат и понятность фразы.',
       pupilAction: 'Пишет признак с доказательством и произносит одну короткую эстонскую фразу.',
       materials: ['g2-weather-observation-assessment'],
-      scaffolds: ['weather-sentence-frame'],
+      scaffolds: ['weather-description-sentence-frame'],
       ru: ['Признак подтверждается моим наблюдением.'],
-      et: ['Täna on ___.'],
+      et: ['Täna on ___ ilm.'],
       prompt: 'Как доказательство связано с признаком?',
       subjectEvidence: 'Письменная предметная строка содержит признак и наблюдаемое доказательство.',
       languageEvidence: 'Отдельно зафиксирована одна понятная поддержанная фраза.',
@@ -718,10 +718,10 @@ function buildLesson1() {
     languageLoad: {
       new_terms_et: [
         ['ilm', 'погода', 'Ilm on õhu ja taeva seisund.'],
-        ['vihm', 'дождь', 'Vihm on taevast langev vesi.'],
-        ['tuul', 'ветер', 'Tuul on liikuv õhk.'],
-        ['pilv', 'облако', 'Pilv on taevas nähtav veepiiskade kogum.'],
-        ['päike', 'солнце', 'Päike annab valgust ja soojust.'],
+        ['vihmane', 'дождливая', 'Vihmane ilm tähendab, et sajab vihma.'],
+        ['tuuline', 'ветреная', 'Tuulise ilmaga liiguvad oksad, lipp või rohi.'],
+        ['pilvine', 'облачная', 'Pilvise ilmaga on taevas palju pilvi.'],
+        ['päikeseline', 'солнечная', 'Päikeselise ilmaga paistab päike.'],
       ].map(([termEt, equivalentRu, definition]) => ({
         term_et: termEt,
         equivalent_ru: equivalentRu,
@@ -748,9 +748,9 @@ function buildLesson1() {
       }],
       recycled_instruction_verbs_et: [],
       model_sentences: [{
-        text_et: 'Täna on tuul.',
+        text_et: 'Täna on tuuline ilm.',
         translation_ru: 'Сегодня ветрено.',
-        terms_et: ['tuul'],
+        terms_et: ['tuuline', 'ilm'],
         provenance: provenance(
           'author_created_bridge',
           'grade-2 weather oral model',
@@ -758,8 +758,8 @@ function buildLesson1() {
         ),
       }],
       sentence_frames: [{
-        frame_id: 'weather-today-frame',
-        frame_et: 'Täna on ___.',
+        frame_id: 'weather-description-frame',
+        frame_et: 'Täna on ___ ilm.',
         purpose_ru: 'Рамка ограничивает обязательную эстонскую продукцию одной короткой фразой.',
         stage_refs: ['bridge-weather-et', 'individual-weather-observation', 'assess-weather-separately'],
         provenance: provenance(
@@ -769,11 +769,16 @@ function buildLesson1() {
         ),
       }],
       expected_receptive_language_et: ['Vaatle ilma.', 'Näita sõna.', 'Ütle üks lause.'],
-      expected_supported_productive_language_et: ['Täna on pilv.', 'Täna on tuul.'],
-      expected_independent_productive_language_et: ['Täna on ___.'],
+      expected_supported_productive_language_et: [
+        'Täna on vihmane ilm.',
+        'Täna on tuuline ilm.',
+        'Täna on pilvine ilm.',
+        'Täna on päikeseline ilm.',
+      ],
+      expected_independent_productive_language_et: ['Täna on ___ ilm.'],
       full_expected_answer_ru: 'Я наблюдал(а) погоду в указанное время, записал(а) текущий признак и подтвердил(а) его тем, что можно было безопасно увидеть.',
-      short_expected_oral_answer_et: 'Täna on ___.',
-      oral_output_terms_et: ['vihm', 'tuul', 'pilv', 'päike'],
+      short_expected_oral_answer_et: 'Täna on ___ ilm.',
+      oral_output_terms_et: ['ilm', 'vihmane', 'tuuline', 'pilvine', 'päikeseline'],
     },
     cognitiveLoad: {
       new_subject_concepts: 2,
@@ -815,13 +820,13 @@ function buildLesson1() {
         ),
       },
       {
-        scaffold_id: 'weather-sentence-frame',
+        scaffold_id: 'weather-description-sentence-frame',
         type: 'sentence_frame',
         description_ru: 'Рамка поддерживает одну короткую устную фразу после русского вывода.',
         stage_refs: ['bridge-weather-et', 'individual-weather-observation', 'assess-weather-separately'],
         release: {
           at_stage: 'assess-weather-separately',
-          how_reduced_ru: 'Ученик самостоятельно выбирает одно подходящее слово для пустого места.',
+          how_reduced_ru: 'Ученик самостоятельно выбирает одно подходящее прилагательное для пустого места.',
         },
         provenance: provenance(
           'author_created_bridge',
@@ -846,7 +851,7 @@ function buildLesson1() {
       question_ru: 'Какой признак погоды ты наблюдал(а) и чем можешь его доказать?',
       question_et: 'Milline ilm on täna?',
       full_expected_answer_ru: 'Ответ называет текущий признак и конкретное безопасно наблюдаемое доказательство.',
-      short_oral_answer_et: 'Täna on ___.',
+      short_oral_answer_et: 'Täna on ___ ilm.',
       acceptable_variants: ['Допустим любой точный текущий признак с соответствующим наблюдаемым доказательством.'],
       misconception_to_watch: 'Ученик сообщает прогноз или мнение вместо наблюдаемого доказательства.',
       objective_refs: ['record-current-weather-evidence', 'say-one-weather-frame-et'],
@@ -879,7 +884,7 @@ function buildLesson1() {
       expected_observation_ru: 'Запись соответствует условиям в месте и времени наблюдения и содержит видимое доказательство.',
       expected_conclusion_ru: 'Вывод описывает текущую погоду и не превращает одно наблюдение в общий прогноз.',
       russian_report_target: 'Один полный русский вывод с признаком и доказательством на индивидуальном листе.',
-      short_estonian_conclusion: 'Täna on ___.',
+      short_estonian_conclusion: 'Täna on ___ ilm.',
       opiq_source_record_ids: [],
       provenance_refs: ['g2-weather-observation-task', 'g2-weather-observation-explanation'],
     },
@@ -887,8 +892,8 @@ function buildLesson1() {
       ['weather-subject-understanding', 'subject_understanding', 'Связь текущего признака с наблюдаемым доказательством.', 'Индивидуальный русский вывод и заполненная строка доказательства.', 'Один точный признак и одно уместное доказательство.', 'subject_assessment'],
       ['weather-practical-safety', 'practical_skill', 'Следование безопасной процедуре и индивидуальная фиксация до доски.', 'Заполненный лист и соблюдение teacher-controlled boundary.', 'Все обязательные безопасные шаги соблюдены.', 'subject_assessment'],
       ['weather-et-recognition', 'estonian_terminology_recognition', 'Узнавание пяти целевых погодных слов.', 'Выбор или указание не менее четырёх слов.', 'Не менее четырёх из пяти слов.', 'language_assessment'],
-      ['weather-et-supported', 'supported_estonian_production', 'Заполнение устной рамки подходящим словом.', 'Короткая фраза с видимой рамкой.', 'Одна понятная поддержанная фраза.', 'language_assessment'],
-      ['weather-et-independent', 'independent_estonian_production', 'Самостоятельный выбор одного уместного слова в рамке.', 'Индивидуальная устная фраза на выходе.', 'Одно уместное слово выбрано без подсказки ответа.', 'language_assessment'],
+      ['weather-et-supported', 'supported_estonian_production', 'Заполнение устной рамки подходящим погодным прилагательным.', 'Короткая фраза с видимой рамкой.', 'Одна понятная поддержанная фраза.', 'language_assessment'],
+      ['weather-et-independent', 'independent_estonian_production', 'Самостоятельный выбор одного уместного погодного прилагательного в рамке.', 'Индивидуальная устная фраза на выходе.', 'Одно уместное прилагательное выбрано без подсказки ответа.', 'language_assessment'],
     ].map(([criterion_id, domain, what_is_checked, acceptable_evidence, success_threshold, affects]) => ({
       criterion_id,
       domain,
@@ -899,7 +904,7 @@ function buildLesson1() {
     })),
     homework: {
       content_task_ru: 'Обязательного домашнего наблюдения нет; по указанию учителя можно перечитать безопасный порядок.',
-      estonian_language_component: 'При желании один раз прочитать рамку «Täna on ___.».',
+      estonian_language_component: 'При желании один раз прочитать рамку «Täna on ___ ilm.».',
       expected_minutes: 5,
       source_reference: 'g2-weather-observation-explanation',
       required_opiq_url: null,
@@ -1439,6 +1444,7 @@ function buildMaterialsIndex(lessons) {
     }))
   ));
   const bothLessonIds = lessons.map((lesson) => lesson.lesson_id);
+  const lesson2Id = lessons.find((lesson) => lesson.position_in_unit === 2)?.lesson_id;
   const sharedEntries = [
     material({
       id: 'g2-weather-water-pack-overview',
@@ -1507,7 +1513,9 @@ function buildMaterialsIndex(lessons) {
       notes: 'Teacher-only answer key is separated from all learner-facing task files.',
     }),
   ].map((entry) => ({
-    lesson_ids: bothLessonIds,
+    lesson_ids: entry.material_id === 'g2-weather-water-answer-key'
+      ? [lesson2Id]
+      : bothLessonIds,
     required_for_pack: true,
     material: entry,
   }));

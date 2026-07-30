@@ -18,7 +18,7 @@ import { checkGeneratedLessons } from '../generate-grade-2-weather-water-safety-
 
 export const pilotPaths = Object.freeze({
   module: 'grade-programmes/grade-2/pilot-modules/weather-water-safety.yaml',
-  moduleSchema: 'schemas/grade-2-project-module-implementation.schema.json',
+  moduleSchema: 'schemas/grade-2-weather-water-safety-pilot.schema.json',
   lesson1: 'lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml',
   lesson2: 'lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml',
   materialsIndex: 'teacher-packs/grade-2/weather-water-safety/materials-index.yaml',
@@ -26,6 +26,26 @@ export const pilotPaths = Object.freeze({
   calendar: 'grade-programmes/grade-2/teaching-calendar.yaml',
   packageJson: 'package.json',
   workflow: '.github/workflows/validate-source-manifest.yml',
+});
+
+export const weatherOutputContract = Object.freeze({
+  frameId: 'weather-description-frame',
+  scaffoldId: 'weather-description-sentence-frame',
+  frame: 'Täna on ___ ilm.',
+  terms: Object.freeze(['ilm', 'vihmane', 'tuuline', 'pilvine', 'päikeseline']),
+  choices: Object.freeze(['vihmane', 'tuuline', 'pilvine', 'päikeseline']),
+  examples: Object.freeze([
+    'Täna on vihmane ilm.',
+    'Täna on tuuline ilm.',
+    'Täna on pilvine ilm.',
+    'Täna on päikeseline ilm.',
+  ]),
+  rejectedExamples: Object.freeze([
+    'Täna on tuul.',
+    'Täna on pilv.',
+    'Täna on päike.',
+    'Täna on vihm.',
+  ]),
 });
 
 export const approvedTaskContracts = Object.freeze([
@@ -218,9 +238,38 @@ function validateLessonContracts(diagnostics, repository) {
     diagnostic(diagnostics, 'PILOT_LANGUAGE_LEVEL', 'lesson-plans/grade-2/weather-water-safety', '/learner_language_profile', 'expected A1 for lesson 1 and A1-A2 for lesson 2');
   }
   const lesson1Terms = lesson1.language_load?.new_terms_et?.map((entry) => entry.term_et);
-  if (!sameSet(lesson1Terms, ['ilm', 'vihm', 'tuul', 'pilv', 'päike'])
-      || lesson1.language_load?.expected_independent_productive_language_et?.length !== 1) {
-    diagnostic(diagnostics, 'PILOT_LANGUAGE_BOUNDS', pilotPaths.lesson1, '/language_load', 'lesson 1 must retain exactly five bounded terms and one short output');
+  const lesson1Frame = lesson1.language_load?.sentence_frames?.find((entry) => (
+    entry.frame_id === weatherOutputContract.frameId
+  ));
+  const lesson1Model = lesson1.language_load?.model_sentences?.[0];
+  const lesson1Serialized = JSON.stringify(lesson1);
+  if (JSON.stringify(lesson1Terms) !== JSON.stringify(weatherOutputContract.terms)
+      || lesson1Frame?.frame_et !== weatherOutputContract.frame
+      || lesson1.language_load?.sentence_frames?.length !== 1
+      || lesson1Model?.text_et !== 'Täna on tuuline ilm.'
+      || !sameSet(lesson1Model?.terms_et, ['ilm', 'tuuline'])
+      || JSON.stringify(lesson1.language_load?.expected_supported_productive_language_et)
+        !== JSON.stringify(weatherOutputContract.examples)
+      || JSON.stringify(lesson1.language_load?.expected_independent_productive_language_et)
+        !== JSON.stringify([weatherOutputContract.frame])
+      || lesson1.language_load?.short_expected_oral_answer_et !== weatherOutputContract.frame
+      || JSON.stringify(lesson1.language_load?.oral_output_terms_et)
+        !== JSON.stringify(weatherOutputContract.terms)
+      || lesson1.questions?.[0]?.short_oral_answer_et !== weatherOutputContract.frame
+      || lesson1.practical_work?.short_estonian_conclusion !== weatherOutputContract.frame
+      || !lesson1.scaffolds?.some((entry) => (
+        entry.scaffold_id === weatherOutputContract.scaffoldId
+      ))
+      || weatherOutputContract.rejectedExamples.some((example) => (
+        lesson1Serialized.includes(example)
+      ))) {
+    diagnostic(
+      diagnostics,
+      'PILOT_LANGUAGE_BOUNDS',
+      pilotPaths.lesson1,
+      '/language_load',
+      'lesson 1 must retain the exact five-term A1 weather-description contract and one short Täna on ___ ilm. output',
+    );
   }
   if (lesson1.practical_work?.opiq_source_record_ids?.length !== 0
       || !normalize(lesson1.practical_work?.safety_requirements).match(/закрытое окно/iu)
@@ -331,6 +380,21 @@ async function validateMaterials(diagnostics, repository) {
   if (!requiredTypes.every((type) => materialTypes.includes(type))) {
     diagnostic(diagnostics, 'PILOT_PACK_TYPES', pilotPaths.materialsIndex, '/materials', 'teacher pack is missing a required conventional material type');
   }
+  const answerKeyEntry = repository.materialsIndex.materials?.find((entry) => (
+    entry.material?.material_id === 'g2-weather-water-answer-key'
+  ));
+  if (!sameSet(
+    answerKeyEntry?.lesson_ids,
+    ['grade-2-weather-water-safety-02-data-time'],
+  )) {
+    diagnostic(
+      diagnostics,
+      'PILOT_ANSWER_KEY_LINK',
+      pilotPaths.materialsIndex,
+      '/materials/g2-weather-water-answer-key/lesson_ids',
+      'lesson 2 answer key must link only grade-2-weather-water-safety-02-data-time',
+    );
+  }
   const answerGuidance = await readText(
     repository.rootDir,
     'teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md',
@@ -363,6 +427,23 @@ async function validateMaterials(diagnostics, repository) {
     const content = await readText(repository.rootDir, repositoryPath);
     if (/https?:\/\/(?:www\.)?opiq\.ee\//iu.test(content)) {
       diagnostic(diagnostics, 'PILOT_STUDENT_OPIQ_URL', repositoryPath, '/', 'learner material must not require or expose an Opiq URL');
+    }
+  }
+  for (const repositoryPath of [
+    'teacher-packs/grade-2/weather-water-safety/student/lesson-01-weather-explanation.md',
+    'teacher-packs/grade-2/weather-water-safety/student/lesson-01-observation-sheet.md',
+    'teacher-packs/grade-2/weather-water-safety/student/lesson-01-exit-card.md',
+  ]) {
+    const content = await readText(repository.rootDir, repositoryPath);
+    if (!content.includes(weatherOutputContract.frame)
+        || weatherOutputContract.rejectedExamples.some((example) => content.includes(example))) {
+      diagnostic(
+        diagnostics,
+        'PILOT_LEARNER_WEATHER_OUTPUT',
+        repositoryPath,
+        '/',
+        'lesson 1 learner material must use only the Täna on ___ ilm. productive contract',
+      );
     }
   }
 }
@@ -417,6 +498,19 @@ function validateWorkflow(diagnostics, repository) {
       diagnostic(diagnostics, 'PILOT_WORKFLOW', pilotPaths.workflow, '/', `workflow is missing ${required}`);
     }
   }
+  if (pilotPaths.moduleSchema !== 'schemas/grade-2-weather-water-safety-pilot.schema.json'
+      || repository.moduleSchema?.$id
+        !== 'https://elvistudio.github.io/opiq-helper/schemas/grade-2-weather-water-safety-pilot.schema.json'
+      || repository.moduleSchema?.title
+        !== 'Grade 2 weather, water and safety pilot snapshot') {
+    diagnostic(
+      diagnostics,
+      'PILOT_SCHEMA_IDENTITY',
+      pilotPaths.moduleSchema,
+      '/',
+      'module schema path, $id, and title must identify this exact pilot snapshot',
+    );
+  }
 }
 
 export async function loadGrade2WeatherWaterSafetyPilot({
@@ -463,6 +557,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
   return {
     rootDir: absoluteRoot,
     module,
+    moduleSchema,
     materialsIndex,
     roadmap,
     calendar,

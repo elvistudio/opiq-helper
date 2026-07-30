@@ -196,9 +196,9 @@ language_load:
       reuse_stage_refs:
         - individual-weather-observation
         - assess-weather-separately
-    - term_et: vihm
-      equivalent_ru: дождь
-      simple_definition_et: Vihm on taevast langev vesi.
+    - term_et: vihmane
+      equivalent_ru: дождливая
+      simple_definition_et: Vihmane ilm tähendab, et sajab vihma.
       provenance:
         category: author_created_bridge
         source_reference: grade-2 weather bilingual word bank
@@ -207,9 +207,9 @@ language_load:
       reuse_stage_refs:
         - individual-weather-observation
         - assess-weather-separately
-    - term_et: tuul
-      equivalent_ru: ветер
-      simple_definition_et: Tuul on liikuv õhk.
+    - term_et: tuuline
+      equivalent_ru: ветреная
+      simple_definition_et: Tuulise ilmaga liiguvad oksad, lipp või rohi.
       provenance:
         category: author_created_bridge
         source_reference: grade-2 weather bilingual word bank
@@ -218,9 +218,9 @@ language_load:
       reuse_stage_refs:
         - individual-weather-observation
         - assess-weather-separately
-    - term_et: pilv
-      equivalent_ru: облако
-      simple_definition_et: Pilv on taevas nähtav veepiiskade kogum.
+    - term_et: pilvine
+      equivalent_ru: облачная
+      simple_definition_et: Pilvise ilmaga on taevas palju pilvi.
       provenance:
         category: author_created_bridge
         source_reference: grade-2 weather bilingual word bank
@@ -229,9 +229,9 @@ language_load:
       reuse_stage_refs:
         - individual-weather-observation
         - assess-weather-separately
-    - term_et: päike
-      equivalent_ru: солнце
-      simple_definition_et: Päike annab valgust ja soojust.
+    - term_et: päikeseline
+      equivalent_ru: солнечная
+      simple_definition_et: Päikeselise ilmaga paistab päike.
       provenance:
         category: author_created_bridge
         source_reference: grade-2 weather bilingual word bank
@@ -253,17 +253,18 @@ language_load:
         - individual-weather-observation
   recycled_instruction_verbs_et: []
   model_sentences:
-    - text_et: Täna on tuul.
+    - text_et: Täna on tuuline ilm.
       translation_ru: Сегодня ветрено.
       terms_et:
-        - tuul
+        - tuuline
+        - ilm
       provenance:
         category: author_created_bridge
         source_reference: grade-2 weather oral model
         notes: Original short sentence models one bounded supported weather statement.
   sentence_frames:
-    - frame_id: weather-today-frame
-      frame_et: Täna on ___.
+    - frame_id: weather-description-frame
+      frame_et: Täna on ___ ilm.
       purpose_ru: Рамка ограничивает обязательную эстонскую продукцию одной короткой фразой.
       stage_refs:
         - bridge-weather-et
@@ -278,18 +279,21 @@ language_load:
     - Näita sõna.
     - Ütle üks lause.
   expected_supported_productive_language_et:
-    - Täna on pilv.
-    - Täna on tuul.
+    - Täna on vihmane ilm.
+    - Täna on tuuline ilm.
+    - Täna on pilvine ilm.
+    - Täna on päikeseline ilm.
   expected_independent_productive_language_et:
-    - Täna on ___.
+    - Täna on ___ ilm.
   full_expected_answer_ru: Я наблюдал(а) погоду в указанное время, записал(а) текущий признак и подтвердил(а) его тем, что
     можно было безопасно увидеть.
-  short_expected_oral_answer_et: Täna on ___.
+  short_expected_oral_answer_et: Täna on ___ ilm.
   oral_output_terms_et:
-    - vihm
-    - tuul
-    - pilv
-    - päike
+    - ilm
+    - vihmane
+    - tuuline
+    - pilvine
+    - päikeseline
 cognitive_load:
   new_subject_concepts: 2
   new_estonian_terms: 5
@@ -323,7 +327,7 @@ scaffolds:
       category: author_created_bridge
       source_reference: grade-2 weather word bank
       notes: Bounded bilingual word bank contains five independently authored term links.
-  - scaffold_id: weather-sentence-frame
+  - scaffold_id: weather-description-sentence-frame
     type: sentence_frame
     description_ru: Рамка поддерживает одну короткую устную фразу после русского вывода.
     stage_refs:
@@ -332,7 +336,7 @@ scaffolds:
       - assess-weather-separately
     release:
       at_stage: assess-weather-separately
-      how_reduced_ru: Ученик самостоятельно выбирает одно подходящее слово для пустого места.
+      how_reduced_ru: Ученик самостоятельно выбирает одно подходящее прилагательное для пустого места.
     provenance:
       category: author_created_bridge
       source_reference: grade-2 weather sentence frame
@@ -404,10 +408,10 @@ stages:
   - stage_id: bridge-weather-et
     duration_minutes: 7
     stage_type: estonian_language_bridge
-    content_purpose_ru: Связать уже понятые признаки с пятью ограниченными терминами.
-    language_purpose_et: Õppida ilm, vihm, tuul, pilv ja päike.
+    content_purpose_ru: Связать уже понятые признаки с пятью ограниченными словами для описания погоды.
+    language_purpose_et: Õppida ilm, vihmane, tuuline, pilvine ja päikeseline.
     teacher_action_ru: Показывает слова рядом с русскими эквивалентами и моделирует одну короткую рамку.
-    pupil_action_ru: Соотносит пять слов с признаками и повторяет одну рамку с поддержкой.
+    pupil_action_ru: Соотносит пять слов с погодными условиями и повторяет одну рамку с поддержкой.
     teacher_language:
       - ru
       - et
@@ -415,23 +419,23 @@ stages:
       ru:
         - Это слово обозначает наблюдаемый признак.
       et:
-        - Täna on pilv.
+        - Täna on pilvine ilm.
     material_refs:
       - g2-weather-observation-explanation
     provenance_refs:
       - g2-weather-observation-explanation
     scaffold_refs:
       - weather-word-bank
-      - weather-sentence-frame
+      - weather-description-sentence-frame
     new_language_items:
       - ilm
-      - vihm
-      - tuul
-      - pilv
-      - päike
+      - vihmane
+      - tuuline
+      - pilvine
+      - päikeseline
       - vaatle
     formative_check:
-      prompt_ru: Покажи слово для ветра.
+      prompt_ru: Покажи слово для облачной погоды.
       subject_evidence: Ученик сохраняет связь слова с наблюдаемым признаком.
       language_evidence: Ученик узнаёт не менее четырёх из пяти слов.
     expected_evidence_of_learning: Ученик соотносит целевые слова с безопасно наблюдаемыми признаками погоды.
@@ -450,14 +454,14 @@ stages:
       ru:
         - Я вижу признак и могу назвать доказательство.
       et:
-        - Täna on tuul.
+        - Täna on tuuline ilm.
     material_refs:
       - g2-weather-observation-task
     provenance_refs:
       - g2-weather-observation-task
     scaffold_refs:
       - weather-word-bank
-      - weather-sentence-frame
+      - weather-description-sentence-frame
     new_language_items: []
     formative_check:
       prompt_ru: Какое доказательство записано на твоём листе?
@@ -479,13 +483,13 @@ stages:
       ru:
         - Признак подтверждается моим наблюдением.
       et:
-        - Täna on ___.
+        - Täna on ___ ilm.
     material_refs:
       - g2-weather-observation-assessment
     provenance_refs:
       - g2-weather-observation-assessment
     scaffold_refs:
-      - weather-sentence-frame
+      - weather-description-sentence-frame
     new_language_items: []
     formative_check:
       prompt_ru: Как доказательство связано с признаком?
@@ -498,7 +502,7 @@ questions:
     question_ru: Какой признак погоды ты наблюдал(а) и чем можешь его доказать?
     question_et: Milline ilm on täna?
     full_expected_answer_ru: Ответ называет текущий признак и конкретное безопасно наблюдаемое доказательство.
-    short_oral_answer_et: Täna on ___.
+    short_oral_answer_et: Täna on ___ ilm.
     acceptable_variants:
       - Допустим любой точный текущий признак с соответствующим наблюдаемым доказательством.
     misconception_to_watch: Ученик сообщает прогноз или мнение вместо наблюдаемого доказательства.
@@ -540,7 +544,7 @@ practical_work:
   expected_observation_ru: Запись соответствует условиям в месте и времени наблюдения и содержит видимое доказательство.
   expected_conclusion_ru: Вывод описывает текущую погоду и не превращает одно наблюдение в общий прогноз.
   russian_report_target: Один полный русский вывод с признаком и доказательством на индивидуальном листе.
-  short_estonian_conclusion: Täna on ___.
+  short_estonian_conclusion: Täna on ___ ilm.
   opiq_source_record_ids: []
   provenance_refs:
     - g2-weather-observation-task
@@ -566,15 +570,15 @@ assessment:
     affects: language_assessment
   - criterion_id: weather-et-supported
     domain: supported_estonian_production
-    what_is_checked: Заполнение устной рамки подходящим словом.
+    what_is_checked: Заполнение устной рамки подходящим погодным прилагательным.
     acceptable_evidence: Короткая фраза с видимой рамкой.
     success_threshold: Одна понятная поддержанная фраза.
     affects: language_assessment
   - criterion_id: weather-et-independent
     domain: independent_estonian_production
-    what_is_checked: Самостоятельный выбор одного уместного слова в рамке.
+    what_is_checked: Самостоятельный выбор одного уместного погодного прилагательного в рамке.
     acceptable_evidence: Индивидуальная устная фраза на выходе.
-    success_threshold: Одно уместное слово выбрано без подсказки ответа.
+    success_threshold: Одно уместное прилагательное выбрано без подсказки ответа.
     affects: language_assessment
 differentiation:
   supports:
@@ -590,7 +594,7 @@ differentiation:
     notes: Материалы упрощённой программы не используются в обычном маршруте этого урока.
 homework:
   content_task_ru: Обязательного домашнего наблюдения нет; по указанию учителя можно перечитать безопасный порядок.
-  estonian_language_component: При желании один раз прочитать рамку «Täna on ___.».
+  estonian_language_component: При желании один раз прочитать рамку «Täna on ___ ilm.».
   expected_minutes: 5
   source_reference: g2-weather-observation-explanation
   required_opiq_url: null
@@ -703,7 +707,7 @@ pedagogical_integration:
   content_identity:
     specification_version: "1.0"
     algorithm: sha256
-    value: 6fa84ff2f5fa351c86db0ebde994c20d1705236325dcad1219c0087a1fb138dc
+    value: 28a5659daaeb992c05b0d6fc9d53f6601a978dd448ac9626473e38bbb5d365d6
   selection_input:
     purpose: practical_investigation
     content_types:
@@ -938,13 +942,13 @@ pedagogical_integration:
       render_contract:
         execution_mode: teacher_led
         task_id: grade-2-weather-water-safety-01-observation/bridge-weather-et
-        learner_instruction_ru: Соотносит пять слов с признаками и повторяет одну рамку с поддержкой.
+        learner_instruction_ru: Соотносит пять слов с погодными условиями и повторяет одну рамку с поддержкой.
         prompt_source_refs:
           - stage:bridge-weather-et:pupil_action_ru
         learner_success_criterion_ru:
           - Ученик соотносит целевые слова с безопасно наблюдаемыми признаками погоды.
         learner_language_support_ru:
-          - Täna on pilv.
+          - Täna on pilvine ilm.
         answer_evidence_refs:
           - stage:bridge-weather-et:expected_evidence_of_learning
         teacher_action_source_refs:
@@ -986,7 +990,7 @@ pedagogical_integration:
         learner_success_criterion_ru:
           - Каждый ученик создаёт собственный лист до сборки подписанной общей доски.
         learner_language_support_ru:
-          - Täna on tuul.
+          - Täna on tuuline ilm.
         answer_evidence_refs:
           - stage:individual-weather-observation:expected_evidence_of_learning
         teacher_action_source_refs:
@@ -1030,7 +1034,7 @@ pedagogical_integration:
         learner_success_criterion_ru:
           - Предметная и эстонская строки заполнены независимо друг от друга.
         learner_language_support_ru:
-          - Täna on ___.
+          - Täna on ___ ilm.
         answer_evidence_refs:
           - stage:assess-weather-separately:expected_evidence_of_learning
         teacher_action_source_refs:
