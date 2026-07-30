@@ -103,6 +103,23 @@ function assertCode(repository, code) {
   );
 }
 
+function assertIndexStatusDiagnostic(repository, expectedStatus, context = '') {
+  const result = validation(repository);
+  const statusDiagnostic = result.diagnostics.find(
+    (entry) => entry.code === 'TB_INDEX_FINGERPRINT_STATUS',
+  );
+  assert.ok(
+    statusDiagnostic,
+    `expected TB_INDEX_FINGERPRINT_STATUS for ${expectedStatus}${context
+      ? ` (${context})`
+      : ''}\n${diagnosticText(repository)}`,
+  );
+  assert.equal(
+    statusDiagnostic.reason,
+    `current fingerprint status must be ${expectedStatus}`,
+  );
+}
+
 function applySyntheticApproval(review) {
   review.status = syntheticApprovalFixture.status;
   review.reviewer = syntheticApprovalFixture.reviewer;
@@ -695,6 +712,44 @@ test('approved review accepts a valid ordinary ISO date', () => {
   assert.deepEqual(validation(repository).diagnostics, []);
 });
 
+test('approved review rejects whitespace-only reviewer identities and blocks release', () => {
+  const cases = [
+    ['space-only reviewer', 'reviewer', '   '],
+    ['space-only reviewer role', 'reviewer_role', '   '],
+    ['tab-only reviewer', 'reviewer', '\t\t'],
+    ['newline-only reviewer role', 'reviewer_role', '\n\n'],
+  ];
+
+  for (const [label, field, value] of cases) {
+    const repository = cloneRepository();
+    const { task, review } = applyCurrentSyntheticApproval(repository);
+    review[field] = value;
+    setPublicationState(repository, {
+      publicationStatus: 'publication_ready',
+      customerVisibility: 'customer_visible',
+    });
+    indexEntryForTask(repository, task).current_fingerprint_status = 'current_approved';
+
+    assertCode(repository, 'TB_SCHEMA_INVALID');
+    assertCode(repository, 'TB_APPROVED_REVIEW_IDENTITY');
+    assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+    assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+    assertIndexStatusDiagnostic(repository, 'current_pending_review', label);
+  }
+});
+
+test('approved review accepts non-empty identities with surrounding whitespace', () => {
+  const repository = cloneRepository();
+  const { review } = applyCurrentSyntheticApproval(repository);
+  review.reviewer = '  Reviewer Name  ';
+  review.reviewer_role = '\t Originality reviewer \n';
+  setPublicationState(repository, {
+    publicationStatus: 'publication_ready',
+    customerVisibility: 'customer_visible',
+  });
+  assert.deepEqual(validation(repository).diagnostics, []);
+});
+
 test('approved review rejects unresolved structural similarity fixture flags', () => {
   const repository = cloneRepository();
   applySyntheticApproval(reviewData(repository));
@@ -746,6 +801,126 @@ test('changed customer content makes review and index fingerprints stale', () =>
   taskData(repository).customer_content.prompt += ' Дополнительное новое предложение.';
   assertCode(repository, 'TB_STALE_REVIEW_FINGERPRINT');
   assertCode(repository, 'TB_STALE_INDEX_FINGERPRINT');
+});
+
+test('pending current review derives current-pending index state', () => {
+  const repository = cloneRepository();
+  const task = taskData(repository);
+  indexEntryForTask(repository, task).current_fingerprint_status = 'current_approved';
+  assertIndexStatusDiagnostic(repository, 'current_pending_review');
+});
+
+test('valid current approved review derives current-approved index state', () => {
+  const repository = cloneRepository();
+  const { task } = applyCurrentSyntheticApproval(repository);
+  indexEntryForTask(repository, task).current_fingerprint_status = 'current_pending_review';
+  assertIndexStatusDiagnostic(repository, 'current_approved');
+});
+
+test('approved review with stale review fingerprint derives stale index state', () => {
+  const repository = cloneRepository();
+  const { task, review } = applyCurrentSyntheticApproval(repository);
+  review.reviewed_version.content_fingerprint.value = '0'.repeat(64);
+  indexEntryForTask(repository, task).current_fingerprint_status = 'current_approved';
+  assertCode(repository, 'TB_STALE_REVIEW_FINGERPRINT');
+  assertIndexStatusDiagnostic(repository, 'stale');
+});
+
+test('stale index fingerprint derives stale index state and both index diagnostics', () => {
+  const repository = cloneRepository();
+  const task = taskData(repository);
+  const entry = indexEntryForTask(repository, task);
+  entry.current_fingerprint.value = '0'.repeat(64);
+  entry.current_fingerprint_status = 'current_pending_review';
+  assertCode(repository, 'TB_STALE_INDEX_FINGERPRINT');
+  assertIndexStatusDiagnostic(repository, 'stale');
+});
+
+test('invalid approved-review properties cannot retain current-approved index state', () => {
+  const cases = [
+    {
+      label: 'invalid date',
+      mutate(review) {
+        review.reviewed_on = '2026-02-30';
+      },
+      expectedCodes: ['TB_APPROVED_REVIEW_DATE'],
+    },
+    {
+      label: 'invalid commit SHA',
+      mutate(review) {
+        review.reviewed_version.commit_sha = 'not-a-commit-sha';
+      },
+      expectedCodes: ['TB_SCHEMA_INVALID'],
+    },
+    {
+      label: 'missing commit SHA',
+      mutate(review) {
+        review.reviewed_version.commit_sha = null;
+      },
+      expectedCodes: ['TB_APPROVED_REVIEW_IDENTITY'],
+    },
+    {
+      label: 'unresolved dimension',
+      mutate(review) {
+        review.dimensions.wording_independence = 'pending';
+      },
+      expectedCodes: ['TB_APPROVED_REVIEW_DIMENSIONS'],
+    },
+    {
+      label: 'prohibited source content',
+      mutate(review) {
+        review.prohibited_source_content.copied_text = true;
+      },
+      expectedCodes: [],
+    },
+    {
+      label: 'similarity flags',
+      mutate(review) {
+        review.similarity_flags = structuredClone(tooSimilarFixture.similarity_flags);
+      },
+      expectedCodes: ['TB_APPROVED_REVIEW_SIMILARITY'],
+    },
+    {
+      label: 'human review requirement disabled',
+      mutate(review) {
+        review.human_review_required = false;
+      },
+      expectedCodes: ['TB_SCHEMA_INVALID'],
+    },
+  ];
+
+  for (const { label, mutate, expectedCodes } of cases) {
+    const repository = cloneRepository();
+    const { task, review } = applyCurrentSyntheticApproval(repository);
+    mutate(review);
+    setPublicationState(repository, {
+      publicationStatus: 'publication_ready',
+      customerVisibility: 'customer_visible',
+    });
+    indexEntryForTask(repository, task).current_fingerprint_status = 'current_approved';
+
+    for (const code of expectedCodes) assertCode(repository, code);
+    assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+    assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+    assertIndexStatusDiagnostic(repository, 'current_pending_review', label);
+  }
+});
+
+test('non-approved current reviews derive current-pending index state', () => {
+  for (const status of ['changes_requested', 'rejected']) {
+    const repository = cloneRepository();
+    const { task, review } = applyCurrentSyntheticApproval(repository);
+    review.status = status;
+    setPublicationState(repository, {
+      publicationStatus: 'publication_ready',
+      customerVisibility: 'customer_visible',
+    });
+    indexEntryForTask(repository, task).current_fingerprint_status = 'current_approved';
+
+    assertCode(repository, 'TB_PUBLICATION_REVIEW_GATE');
+    assertCode(repository, 'TB_CUSTOMER_VISIBILITY_REVIEW_GATE');
+    assertIndexStatusDiagnostic(repository, 'current_pending_review');
+  }
 });
 
 test('duplicate YAML keys are rejected by strict parsing', async () => {

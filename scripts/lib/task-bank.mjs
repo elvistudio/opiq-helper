@@ -126,6 +126,10 @@ function isValidIsoCalendarDate(value) {
     && candidate.getUTCDate() === day;
 }
 
+function hasNonWhitespaceText(value) {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
 function hasResolvedIndependenceDimensions(review) {
   return similarityDimensionFields.every(
     (field) => ['independent', 'not_applicable'].includes(review?.dimensions?.[field]),
@@ -144,10 +148,8 @@ function hasNoProhibitedSourceContent(review) {
 
 function isCurrentApprovedHumanReview(task, review) {
   return review?.status === 'approved'
-    && typeof review.reviewer === 'string'
-    && review.reviewer.length > 0
-    && typeof review.reviewer_role === 'string'
-    && review.reviewer_role.length > 0
+    && hasNonWhitespaceText(review.reviewer)
+    && hasNonWhitespaceText(review.reviewer_role)
     && isValidIsoCalendarDate(review.reviewed_on)
     && /^[0-9a-f]{40}$/u.test(review.reviewed_version?.commit_sha ?? '')
     && fingerprintEquals(
@@ -916,8 +918,8 @@ function validateReview(diagnostics, artifact, tasksById, specificationsById) {
   }
   if (review.status === 'approved') {
     if (
-      !review.reviewer
-      || !review.reviewer_role
+      !hasNonWhitespaceText(review.reviewer)
+      || !hasNonWhitespaceText(review.reviewer_role)
       || !review.reviewed_on
       || !review.reviewed_version?.commit_sha
     ) {
@@ -1165,7 +1167,15 @@ function validateIndex(
       );
     }
     const currentFingerprint = computeTaskFingerprint(task);
-    if (!fingerprintEquals(currentFingerprint, entry.current_fingerprint)) {
+    const indexFingerprintCurrent = fingerprintEquals(
+      currentFingerprint,
+      entry.current_fingerprint,
+    );
+    const reviewFingerprintCurrent = fingerprintEquals(
+      currentFingerprint,
+      review.reviewed_version?.content_fingerprint,
+    );
+    if (!indexFingerprintCurrent) {
       diagnostic(
         diagnostics,
         'TB_STALE_INDEX_FINGERPRINT',
@@ -1174,13 +1184,14 @@ function validateIndex(
         'indexed fingerprint is stale',
       );
     }
-    const expectedStatus = review.status === 'approved'
-      ? 'current_approved'
-      : 'current_pending_review';
-    if (
-      fingerprintEquals(currentFingerprint, entry.current_fingerprint)
-      && entry.current_fingerprint_status !== expectedStatus
-    ) {
+    const expectedStatus = (
+      !indexFingerprintCurrent || !reviewFingerprintCurrent
+    )
+      ? 'stale'
+      : isCurrentApprovedHumanReview(task, review)
+        ? 'current_approved'
+        : 'current_pending_review';
+    if (entry.current_fingerprint_status !== expectedStatus) {
       diagnostic(
         diagnostics,
         'TB_INDEX_FINGERPRINT_STATUS',

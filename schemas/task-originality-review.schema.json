@@ -37,13 +37,13 @@
     "reviewer": {
       "oneOf": [
         { "type": "null" },
-        { "type": "string", "minLength": 1 }
+        { "type": "string", "minLength": 1, "pattern": "\\S" }
       ]
     },
     "reviewer_role": {
       "oneOf": [
         { "type": "null" },
-        { "type": "string", "minLength": 1 }
+        { "type": "string", "minLength": 1, "pattern": "\\S" }
       ]
     },
     "reviewed_on": {
