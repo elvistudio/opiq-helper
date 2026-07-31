@@ -328,6 +328,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          mkdir -p tmp
+          cp \
+            .github/workflows/validate-source-manifest.yml \
+            tmp/pr109-resolved-validate-source-manifest.yml
+          git checkout \
+            9c5108b2bcdf089b5d75386e9491331a742f5825 \
+            -- .github/workflows/validate-source-manifest.yml
+          git add \
+            .github/workflows/validate-source-manifest.yml \
+            tmp/pr109-resolved-validate-source-manifest.yml
+          git commit --amend --no-edit
+          git diff --check
+          test -z "$(git status --short)"
           git push origin HEAD:codex/grade-2-pilot-family-companion-closeout
           echo "NEW_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
@@ -342,7 +355,7 @@ jobs:
           - Integrated main: \`7ce7d71daf3924be1c256eaab3b6dc486af01b7b\`
           - Preserved tested feature HEAD: \`9c5108b2bcdf089b5d75386e9491331a742f5825\`
           - Merge commit / new HEAD: \`${NEW_HEAD}\`
-          - Resolved files: extraction library and extraction tests; workflow auto-merged
+          - Resolved files: extraction library and extraction tests; workflow resolution staged for connector restoration
           - Preserved Grade 5 map contract and Grade 2 audit path
           - New map commands and all affected focused suites passed
           - Full repository matrix was not repeated
