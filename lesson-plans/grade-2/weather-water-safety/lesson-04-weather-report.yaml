@@ -1,0 +1,1405 @@
+schema_version: "1.3"
+artifact_type: bilingual_lesson
+lesson_id: grade-2-weather-water-safety-04-weather-report
+grade: 2
+subject: science
+subject_et: loodusõpetus
+title_ru: Наш отчёт о погоде и итог модуля
+title_et: Meie ilmateade ja mooduli kokkuvõte
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы должны точно составлять заявленные сорок пять минут.
+unit_ref: grade-2-weather-water-safety-pilot
+position_in_unit: 4
+canonical_route:
+  source_id: grade-2-science
+  md_path: project-files/outputs/opiq_2klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-2-science-a1-default
+  learner_language_level: A1
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-2-science-official-curriculum
+  official_outcome_refs:
+    - ee-prk-2026-stage1-natural-science-guided-inquiry
+  course_map_ref: grade-2-project-weather-water-safety
+  opiq_records: []
+  author_materials:
+    - material_id: g2-weather-report-explanation
+      title: Русское объяснение точного отчёта о погоде
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-report-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 standalone weather-report explanation
+        notes: Original Russian-first explanation separates a precise fact, a comparison, and attributable individual evidence.
+    - material_id: g2-weather-report-worked-example
+      title: Нейтральный пример точного факта и сравнения
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-report-explanation.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 neutral A/B weather dataset
+        notes: The worked example uses 5 °C and 9 °C, not either pending task dataset.
+    - material_id: g2-shared-weather-report-contribution-task
+      title: Индивидуальный вклад в общий отчёт о погоде
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-shared-weather-report-contribution-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/11-shared-weather-report-contribution.yaml
+        notes: Learner rendering preserves the pending open-ended customer projection and excludes teacher-only criteria and
+          examples.
+    - material_id: g2-weather-shared-report-template
+      title: Шаблон общей доски и короткого отчёта
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-shared-report-template.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The group selects from verified individual contributions, so several accurate shared reports are valid.
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-2 attributable shared weather report template
+        notes: The shared template records personal codes and cannot replace the individual contribution.
+    - material_id: g2-weather-exit-ticket-task
+      title: Индивидуальная выходная карточка с тремя ответами
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-weather-exit-ticket-task.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/12-weather-exit-ticket.yaml
+        notes: Learner rendering preserves the pending customer projection, blank Estonian frame, and word bank without the
+          completed answer.
+    - material_id: g2-weather-module-reflection
+      title: Индивидуальная итоговая рефлексия модуля
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-module-reflection.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The learner identifies a personal checking action, so no single fixed reflection wording is valid.
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 weather module individual reflection
+        notes: Original reflection remains separate from the task 11 contribution and task 12 exit evidence.
+    - material_id: g2-shared-weather-report-success-guidance
+      title: Teacher-only criteria for the open-ended contribution
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-shared-weather-report-contribution-task answer contract
+        notes: Guidance uses the source criteria and expressly forbids a mandatory wording.
+    - material_id: g2-weather-exit-ticket-expected-answers
+      title: Teacher-only exact exit-ticket answer
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-weather-exit-ticket-task answer contract
+        notes: The exact answer is available only after the individual first attempt.
+    - material_id: g2-weather-report-lesson-guide
+      title: Внутреннее руководство урока 4
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-04-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 final weather-report lesson procedure
+        notes: Teacher guide fixes the 45-minute sequence, evidence attribution, answer timing, and release blockers.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: retrieve-module-evidence
+      language_mode: activate_prior_knowledge
+      description: Ученик вспоминает личное evidence на русском языке.
+    - sequence: 2
+      stage_id: explain-evidence-report-ru
+      language_mode: establish_concept_ru
+      description: Требования к точному отчёту полностью объясняются по-русски.
+    - sequence: 3
+      stage_id: check-four-point-data
+      language_mode: introduce_term_et
+      description: Три эстонских слова вводятся рецептивно после понимания данных.
+    - sequence: 4
+      stage_id: draft-individual-contribution
+      language_mode: full_subject_answer_ru
+      description: Открытая задача 11 выполняется индивидуально по-русски.
+    - sequence: 5
+      stage_id: verify-attribution-code
+      language_mode: full_subject_answer_ru
+      description: Личный код проверяется до общего продукта.
+    - sequence: 6
+      stage_id: assemble-shared-weather-report
+      language_mode: full_subject_answer_ru
+      description: Группа собирает отчёт только из проверенных вкладов.
+    - sequence: 7
+      stage_id: complete-individual-exit-ticket
+      language_mode: supported_task_et
+      description: Задача 12 выполняется с пустой рамкой и мини-банком.
+    - sequence: 8
+      stage_id: check-estonian-output-separately
+      language_mode: short_oral_answer_et
+      description: После первой попытки произносится одна короткая эстонская фраза.
+    - sequence: 9
+      stage_id: reflect-and-handoff-evidence
+      language_mode: recycle_language
+      description: Предметное, языковое и рефлексивное evidence сдаётся раздельно.
+  learner_estonian_level: A1
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: produce-attributable-weather-report-evidence
+      text_ru: Ученик создаёт точный индивидуальный факт и сравнение до участия в общем отчёте.
+      observable_output_ru: Отдельная рамка содержит два предложения и личный код, а общий отчёт использует только проверенные вклады.
+      curriculum_outcome_refs:
+        - ee-prk-2026-stage1-natural-science-guided-inquiry
+    - objective_id: check-and-correct-weather-data-claim
+      text_ru: Ученик проверяет короткий вывод по двум температурам и исправляет неверную запись.
+      observable_output_ru: Первые две рамки exit ticket отдельно показывают вывод, разницу и способ проверки.
+      curriculum_outcome_refs:
+        - ee-prk-2026-stage1-natural-science-guided-inquiry
+  estonian_language_objectives:
+    - objective_id: say-one-warmer-time-sentence-et
+      text_ru: Ученик после предметной первой попытки произносит одну поддержанную фразу о более тёплом времени.
+      text_et: Õpilane ütleb ühe toetatud lause soojema aja kohta.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 1
+      language_functions:
+        - compare
+        - report
+  subject_success_criteria:
+    - criterion_id: individual-weather-report-contribution
+      descriptor: Личная рамка содержит точный факт, верное сравнение и личный код до групповой сборки.
+      acceptable_evidence: Индивидуальная рамка задачи 11 и связанная с ней запись на общей доске.
+    - criterion_id: individual-weather-exit-evidence
+      descriptor: Первые две рамки exit ticket верно сравнивают 14 °C и 7 °C и объясняют проверку.
+      acceptable_evidence: Два отдельных русских ответа задачи 12 до просмотра teacher-only guidance.
+  estonian_success_criteria:
+    - criterion_id: language-one-warmer-time-sentence
+      descriptor: Отдельная рамка завершена единственным подходящим словом и произнесена как одна короткая фраза.
+      acceptable_evidence: Третья строка задачи 12 и отдельный короткий устный ответ.
+  prerequisites:
+    - Ученик читает целые температуры и сравнивает значения в пределах двадцати.
+    - Ученик различает индивидуальную работу и общий продукт.
+  anticipated_misconceptions:
+    - Групповой текст сдаётся вместо отдельной личной рамки.
+    - Слово külmem выбирается вопреки сравнению 14 °C и 7 °C.
+language_load:
+  new_terms_et:
+    - term_et: soojem
+      equivalent_ru: теплее
+      simple_definition_et: Soojem tähendab kõrgemat temperatuuri.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather comparison word bank
+        notes: Original concise receptive definition supports one bounded output.
+      first_use_stage: check-four-point-data
+      reuse_stage_refs:
+        - complete-individual-exit-ticket
+        - check-estonian-output-separately
+    - term_et: külmem
+      equivalent_ru: холоднее
+      simple_definition_et: Külmem tähendab madalamat temperatuuri.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather comparison word bank
+        notes: Original concise receptive contrast remains in the supplied mini-bank.
+      first_use_stage: check-four-point-data
+      reuse_stage_refs:
+        - complete-individual-exit-ticket
+    - term_et: kell
+      equivalent_ru: в ... часов
+      simple_definition_et: Kell näitab aega.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 time-in-weather-report word bank
+        notes: Original concise definition supports the supplied exit frame.
+      first_use_stage: check-four-point-data
+      reuse_stage_refs:
+        - complete-individual-exit-ticket
+        - check-estonian-output-separately
+  recycled_terms_et:
+    - term_et: ilm
+      equivalent_ru: погода
+      source_lesson_id: grade-2-weather-water-safety-01-observation
+      reuse_stage_refs:
+        - retrieve-module-evidence
+        - assemble-shared-weather-report
+  new_instruction_verbs_et: []
+  recycled_instruction_verbs_et: []
+  model_sentences:
+    - text_et: Kell 13 on soojem.
+      translation_ru: В 13 часов теплее.
+      terms_et:
+        - kell
+        - soojem
+      provenance:
+        category: author_created_bridge
+        source_reference: g2-weather-exit-ticket-task bounded oral answer
+        notes: The exact model is teacher-visible and released to the learner only after the first attempt.
+  sentence_frames:
+    - frame_id: weather-exit-warmer-frame
+      frame_et: Kell 13 on ____.
+      purpose_ru: Рамка поддерживает одну отдельную A1-фразу после русского сравнения данных.
+      stage_refs:
+        - complete-individual-exit-ticket
+        - check-estonian-output-separately
+      provenance:
+        category: author_created_bridge
+        source_reference: g2-weather-exit-ticket-task customer frame
+        notes: The blank frame and two-word bank preserve the pending task projection.
+  expected_receptive_language_et:
+    - soojem
+    - külmem
+    - kell
+  expected_supported_productive_language_et:
+    - Kell 13 on soojem.
+  expected_independent_productive_language_et:
+    - Kell 13 on soojem.
+  full_expected_answer_ru: Ученик создаёт собственный точный факт и сравнение, сохраняет личный код, участвует в
+    проверяемом общем отчёте и отдельно исправляет неверный вывод по 14 °C и 7 °C.
+  short_expected_oral_answer_et: Kell 13 on soojem.
+  oral_output_terms_et:
+    - kell
+    - soojem
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 3
+  new_instruction_verbs: 0
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Полный отчёт и проверка выполняются по-русски; обязательная эстонская продукция ограничена одной короткой фразой.
+scaffolds:
+  - scaffold_id: weather-report-russian-explanation
+    type: russian_explanation
+    description_ru: Русское объяснение отделяет точный факт, сравнение и личную атрибуцию.
+    stage_refs:
+      - explain-evidence-report-ru
+    release:
+      at_stage: draft-individual-contribution
+      how_reduced_ru: Во время личной первой попытки остаются только данные и пустая рамка ученика.
+    provenance:
+      category: author_created_explanation
+      source_reference: grade-2 weather-report standalone explanation
+      notes: Original explanation uses a neutral dataset distinct from both pending tasks.
+  - scaffold_id: weather-report-four-point-table
+    type: partially_completed_table
+    description_ru: Четырёхточечная таблица сохраняет все исходные значения задачи 11.
+    stage_refs:
+      - check-four-point-data
+      - draft-individual-contribution
+      - verify-attribution-code
+      - assemble-shared-weather-report
+    release:
+      at_stage: assemble-shared-weather-report
+      how_reduced_ru: В общий отчёт переносится только проверенная идея с личным кодом.
+    provenance:
+      category: author_created_task_set
+      source_reference: g2-shared-weather-report-contribution-task customer dataset
+      notes: The table preserves the exact four-point learner data.
+  - scaffold_id: weather-report-word-bank
+    type: word_bank
+    description_ru: Мини-банк soojem | külmem поддерживает только отдельную выходную рамку.
+    stage_refs:
+      - check-four-point-data
+      - complete-individual-exit-ticket
+    release:
+      at_stage: check-estonian-output-separately
+      how_reduced_ru: После первой попытки ученик произносит одну завершённую фразу.
+    provenance:
+      category: author_created_bridge
+      source_reference: g2-weather-exit-ticket-task customer word bank
+      notes: The two supplied choices remain visible without a completed answer.
+  - scaffold_id: weather-exit-sentence-frame
+    type: sentence_frame
+    description_ru: Пустая рамка Kell 13 on ____. отделена от двух русских ответов.
+    stage_refs:
+      - complete-individual-exit-ticket
+      - check-estonian-output-separately
+    release:
+      at_stage: check-estonian-output-separately
+      how_reduced_ru: После первой попытки остаётся единственная завершённая устная фраза.
+    provenance:
+      category: author_created_bridge
+      source_reference: g2-weather-exit-ticket-task customer frame
+      notes: No second productive sentence is introduced.
+multimodal_support:
+  - support_id: four-point-weather-table-support
+    type: table
+    stage_refs:
+      - check-four-point-data
+      - draft-individual-contribution
+      - assemble-shared-weather-report
+    material_ref: g2-weather-shared-report-template
+    provenance:
+      category: author_created_worksheet
+      source_reference: grade-2 shared weather report table
+      notes: The printable table externalises four values and attribution checks.
+  - support_id: three-box-exit-support
+    type: diagram
+    stage_refs:
+      - complete-individual-exit-ticket
+      - check-estonian-output-separately
+    material_ref: g2-weather-exit-ticket-task
+    provenance:
+      category: author_created_assessment
+      source_reference: g2-weather-exit-ticket-task three-box response structure
+      notes: Three separate boxes keep content, correction, and language evidence distinct.
+stages:
+  - stage_id: retrieve-module-evidence
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Вспомнить личные доказательства, созданные в предыдущих уроках модуля.
+    language_purpose_et: Aktiveerida tuttav sõna ilm ilma uue lauseta.
+    teacher_action_ru: Просит каждого ученика назвать по-русски одно собственное наблюдение, вычисление или безопасное решение.
+    pupil_action_ru: Индивидуально называет одно личное доказательство и не заменяет его групповым ответом.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - У меня есть собственное доказательство.
+      et: []
+    material_refs:
+      - g2-weather-report-explanation
+    provenance_refs:
+      - g2-weather-report-explanation
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какое личное доказательство из модуля принадлежит тебе?
+      subject_evidence: Каждый ученик различает личное и групповое доказательство.
+      language_evidence: Новая эстонская продукция не требуется.
+    expected_evidence_of_learning: Краткое индивидуальное называние одного доказательства.
+    transition: Переход к русскому объяснению точного отчёта.
+  - stage_id: explain-evidence-report-ru
+    duration_minutes: 6
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Понять требования точного факта, сравнения и проверяемого личного вклада.
+    language_purpose_et: Mõista sisu kõigepealt vene keeles.
+    teacher_action_ru: По-русски разбирает нейтральный пример 5 °C и 9 °C, не раскрывая данные или ответы задач 11/12.
+    pupil_action_ru: Объясняет по-русски, что нужно проверить в точном факте и сравнении.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Проверяю точку, число и направление сравнения.
+      et: []
+    material_refs:
+      - g2-weather-report-explanation
+    provenance_refs:
+      - g2-weather-report-explanation
+    scaffold_refs:
+      - weather-report-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие три элемента делают вклад проверяемым?
+      subject_evidence: Названы факт, сравнение и личный код.
+      language_evidence: Предметное объяснение остаётся русским.
+    expected_evidence_of_learning: Ученик объясняет критерии точности без готового ответа задачи.
+    transition: Переход к чтению четырёх новых значений.
+  - stage_id: check-four-point-data
+    duration_minutes: 5
+    stage_type: guided_practice
+    content_purpose_ru: Точно прочитать четыре точки и проверить диапазон данных до написания вывода.
+    language_purpose_et: Tunda ära sõnad soojem, külmem ja kell.
+    teacher_action_ru: Показывает четыре точки 8, 12, 15 и 10 °C и моделирует только процедуру проверки.
+    pupil_action_ru: Индивидуально сверяет названия точек и значения, затем устно называет возможную пару для сравнения.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Сравню два значения после проверки каждой точки.
+      et: []
+    material_refs:
+      - g2-shared-weather-report-contribution-task
+    provenance_refs:
+      - g2-shared-weather-report-contribution-task
+    scaffold_refs:
+      - weather-report-four-point-table
+      - weather-report-word-bank
+    new_language_items:
+      - soojem
+      - külmem
+      - kell
+    formative_check:
+      prompt_ru: Какие два значения ты собираешься сравнить?
+      subject_evidence: Пара значений существует в четырёхточечном наборе.
+      language_evidence: Ученик узнаёт три эстонских слова без обязательной фразы.
+    expected_evidence_of_learning: Отмеченная пара точек перед самостоятельным письмом.
+    transition: Переход к закрытой индивидуальной работе над вкладом.
+  - stage_id: draft-individual-contribution
+    duration_minutes: 8
+    stage_type: independent_output
+    content_purpose_ru: Создать отдельный точный факт, сравнение и личный код до групповой сборки.
+    language_purpose_et: Eestikeelset produktiivset vastust ei nõuta.
+    teacher_action_ru: Выдаёт задачу 11, не показывает критерии teacher-only guidance и не предлагает обязательную формулировку.
+    pupil_action_ru: Самостоятельно пишет два русских предложения и ставит личный код в отдельной рамке.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Мой точный факт.
+        - Моё сравнение.
+      et: []
+    material_refs:
+      - g2-shared-weather-report-contribution-task
+    provenance_refs:
+      - g2-shared-weather-report-contribution-task
+    scaffold_refs:
+      - weather-report-four-point-table
+    new_language_items: []
+    formative_check:
+      prompt_ru: Сохраняют ли обе фразы точные значения и точки?
+      subject_evidence: Есть один точный факт и одно верное сравнение.
+      language_evidence: Эстонский ответ не требуется.
+    expected_evidence_of_learning: Отдельная индивидуальная рамка задачи 11 с двумя фразами и кодом.
+    transition: Проверка атрибуции до переноса в общий продукт.
+  - stage_id: verify-attribution-code
+    duration_minutes: 3
+    stage_type: revision
+    content_purpose_ru: Проверить полноту индивидуального evidence без стандартизации формулировки.
+    language_purpose_et: Hoida keele- ja ainehindamine eraldi.
+    teacher_action_ru: Проверяет наличие точного факта, сравнения и личного кода по критериям, не диктуя текст.
+    pupil_action_ru: Исправляет только собственную рамку и предъявляет её до групповой работы.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я проверил(а) свою рамку.
+      et: []
+    material_refs:
+      - g2-shared-weather-report-contribution-task
+    provenance_refs:
+      - g2-shared-weather-report-contribution-task
+    scaffold_refs:
+      - weather-report-four-point-table
+    new_language_items: []
+    formative_check:
+      prompt_ru: Можно ли связать обе фразы с личным кодом?
+      subject_evidence: Рамка остаётся индивидуально атрибутируемой.
+      language_evidence: Языковая оценка пока не проводится.
+    expected_evidence_of_learning: Проверенная индивидуальная рамка до общей сборки.
+    transition: Только проверенные идеи переходят на общую доску.
+  - stage_id: assemble-shared-weather-report
+    duration_minutes: 6
+    stage_type: guided_practice
+    content_purpose_ru: Собрать общую доску и короткий отчёт из проверенных индивидуальных вкладов.
+    language_purpose_et: Kasutada andmeid ilma uue kohustusliku eesti lauseta.
+    teacher_action_ru: Организует перенос идей с личными кодами и проверку короткого группового отчёта.
+    pupil_action_ru: Переносит только идею из проверенной рамки и участвует в проверке общего текста.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Общий отчёт собран из проверенных личных вкладов.
+      et: []
+    material_refs:
+      - g2-weather-shared-report-template
+      - g2-shared-weather-report-contribution-task
+    provenance_refs:
+      - g2-weather-shared-report-template
+      - g2-shared-weather-report-contribution-task
+    scaffold_refs:
+      - weather-report-four-point-table
+    new_language_items: []
+    formative_check:
+      prompt_ru: У каждой перенесённой идеи есть проверяемый личный код?
+      subject_evidence: Общий отчёт содержит точный факт и сравнение из атрибутируемых рамок.
+      language_evidence: Дополнительная эстонская продукция не требуется.
+    expected_evidence_of_learning: Общая доска, короткий групповой отчёт и сохранённые личные рамки.
+    transition: Групповой продукт откладывается перед индивидуальным exit ticket.
+  - stage_id: complete-individual-exit-ticket
+    duration_minutes: 6
+    stage_type: assessment
+    content_purpose_ru: Самостоятельно дать вывод, исправление с проверкой и отдельную языковую строку.
+    language_purpose_et: Täita üks lühike raam Kell 13 on ____.
+    teacher_action_ru: Выдаёт задачу 12 без ответа и не показывает teacher-only guidance до завершения трёх рамок.
+    pupil_action_ru: Самостоятельно пишет три пронумерованных ответа, используя пустую рамку и банк soojem | külmem.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Вывод и исправление записаны отдельно.
+      et:
+        - Kell 13 on ____.
+    material_refs:
+      - g2-weather-exit-ticket-task
+    provenance_refs:
+      - g2-weather-exit-ticket-task
+    scaffold_refs:
+      - weather-exit-sentence-frame
+      - weather-report-word-bank
+    new_language_items: []
+    formative_check:
+      prompt_ru: Все ли три ответа отделены и основаны на 14 °C и 7 °C?
+      subject_evidence: Вывод и исправление можно оценить отдельно.
+      language_evidence: Одна рамка заполнена одним словом из банка.
+    expected_evidence_of_learning: Три пронумерованных индивидуальных ответа задачи 12 до показа ответа.
+    transition: Проверка единственной эстонской строки после первой попытки.
+  - stage_id: check-estonian-output-separately
+    duration_minutes: 3
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Сохранить предметный ответ задачи 12 отдельным от языкового evidence.
+    language_purpose_et: Kontrollida ainult lauset Kell 13 on soojem.
+    teacher_action_ru: После первой попытки проверяет отдельную строку и при необходимости возвращает к сравнению 14 и 7.
+    pupil_action_ru: Произносит одну завершённую эстонскую фразу без добавления второй фразы.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru: []
+      et:
+        - Kell 13 on soojem.
+    material_refs:
+      - g2-weather-exit-ticket-task
+      - g2-weather-exit-ticket-expected-answers
+    provenance_refs:
+      - g2-weather-exit-ticket-task
+      - g2-weather-exit-ticket-expected-answers
+    scaffold_refs:
+      - weather-exit-sentence-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какое одно слово соответствует данным?
+      subject_evidence: Предметная корректность уже записана в первых двух рамках.
+      language_evidence: Произнесена только одна короткая фраза Kell 13 on soojem.
+    expected_evidence_of_learning: Одна отдельная поддержанная эстонская фраза.
+    transition: Переход к личной рефлексии и сдаче evidence.
+  - stage_id: reflect-and-handoff-evidence
+    duration_minutes: 3
+    stage_type: assessment
+    content_purpose_ru: Зафиксировать способ проверки и сдать все индивидуальные доказательства отдельно.
+    language_purpose_et: Mitte lisada teist eestikeelset lauset.
+    teacher_action_ru: Собирает рамку задачи 11, exit ticket и рефлексию отдельно; общий отчёт хранит как дополнительный продукт.
+    pupil_action_ru: Отмечает один способ проверки и сдаёт три отдельные единицы evidence.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я назвал(а) один способ проверки.
+      et: []
+    material_refs:
+      - g2-weather-module-reflection
+      - g2-shared-weather-report-contribution-task
+      - g2-weather-exit-ticket-task
+    provenance_refs:
+      - g2-weather-module-reflection
+      - g2-shared-weather-report-contribution-task
+      - g2-weather-exit-ticket-task
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие личные evidence сданы отдельно от общего отчёта?
+      subject_evidence: Сданы вклад, exit ticket и рефлексия каждого ученика.
+      language_evidence: Второй эстонской фразы нет.
+    expected_evidence_of_learning: Три отдельные индивидуальные единицы evidence и общий продукт как дополнение.
+    transition: Урок и внутреннее авторство модуля завершены без заявления о release readiness.
+questions:
+  - question_id: weather-report-evidence-question
+    question_ru: Как проверить, что общий отчёт основан на точных и личных доказательствах?
+    question_et: Kumb kellaaeg on soojem?
+    full_expected_answer_ru: Нужно проверить точку и число в каждом факте, сравнить не меньше двух значений и сохранить
+      личный код каждой использованной рамки.
+    short_oral_answer_et: Kell 13 on soojem.
+    acceptable_variants:
+      - Допустима любая русская формулировка, сохраняющая проверку данных и личную атрибуцию.
+    misconception_to_watch: Общий текст принимается без отдельных рамок или без проверки чисел.
+    objective_refs:
+      - produce-attributable-weather-report-evidence
+      - check-and-correct-weather-data-claim
+      - say-one-warmer-time-sentence-et
+    provenance_refs:
+      - g2-shared-weather-report-contribution-task
+      - g2-weather-exit-ticket-task
+practical_work: null
+assessment:
+  - criterion_id: weather-report-individual-contribution
+    domain: subject_understanding
+    what_is_checked: Точный факт, верное сравнение и личный код до общей сборки.
+    acceptable_evidence: Отдельная рамка задачи 11.
+    success_threshold: Все три исходных критерия выполнены без обязательной формулировки.
+    affects: subject_assessment
+  - criterion_id: weather-report-exit-data
+    domain: subject_understanding
+    what_is_checked: Раздельный вывод и исправление по 14 °C и 7 °C.
+    acceptable_evidence: Первые две пронумерованные рамки задачи 12.
+    success_threshold: Названы верное сравнение, разница и способ проверки.
+    affects: subject_assessment
+  - criterion_id: weather-report-et-recognition
+    domain: estonian_terminology_recognition
+    what_is_checked: Понимание soojem, külmem и kell.
+    acceptable_evidence: Выбор слова по данным до произнесения фразы.
+    success_threshold: Поняты все три единицы в контексте рамки.
+    affects: language_assessment
+  - criterion_id: weather-report-et-supported
+    domain: supported_estonian_production
+    what_is_checked: Заполнение видимой рамки одним словом из банка.
+    acceptable_evidence: Третья рамка задачи 12.
+    success_threshold: Рамка завершена словом soojem.
+    affects: language_assessment
+  - criterion_id: weather-report-et-independent
+    domain: independent_estonian_production
+    what_is_checked: Произнесение единственной короткой фразы после первой попытки.
+    acceptable_evidence: Отдельный короткий устный ответ.
+    success_threshold: Произнесено Kell 13 on soojem. без второй фразы.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторить предметный алгоритм по одному шагу, сохранив тот же предметный результат.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить прочитать одну короткую фразу по видимой рамке без сокращения предметной работы.
+      preserves_subject_objective: true
+  challenge_extension: Добавить второе доказательство к русскому предметному ответу без увеличения обязательной эстонской части.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Материалы упрощённой программы не используются в обычном маршруте этого урока.
+homework:
+  content_task_ru: Обязательного домашнего задания нет; модуль завершается сдачей трёх индивидуальных единиц evidence.
+  estonian_language_component: При желании один раз прочитать строку «Kell 13 on soojem.» после проверки в классе.
+  expected_minutes: 5
+  source_reference: g2-weather-report-explanation
+  required_opiq_url: null
+  adult_support_expected: false
+  success_guidance_ru: Повторение не требует Opiq, новых данных, групповой работы или взрослого.
+  provenance:
+    category: author_created_worksheet
+    source_reference: grade-2 weather-report optional consolidation
+    notes: No required home work or home-ready claim is introduced.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: false
+  teacher_review:
+    status: pending
+    reviewer_role: null
+    reviewed_at: null
+    notes: Независимая педагогическая проверка урока ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе или дома.
+  classroom_ready: false
+  readiness_status: materials_resolved
+delivery_model:
+  core_mode: standalone_commercial_core
+  opiq_required: false
+  opiq_companion_policy: none
+  family_overlay_supported: false
+  customer_can_complete_without_opiq: true
+  publication_status: internal_review
+commercial_core:
+  explanation_material_ids:
+    - g2-weather-report-explanation
+  worked_example_material_ids:
+    - g2-weather-report-worked-example
+  task_material_ids:
+    - g2-shared-weather-report-contribution-task
+    - g2-weather-exit-ticket-task
+  expected_answer_material_ids:
+    - g2-shared-weather-report-success-guidance
+    - g2-weather-exit-ticket-expected-answers
+  worked_solution_material_ids: []
+  assessment_material_ids:
+    - g2-weather-module-reflection
+  assessment_criterion_ids:
+    - weather-report-individual-contribution
+    - weather-report-exit-data
+    - weather-report-et-independent
+  learner_output_refs:
+    - weather-report-evidence-question
+    - produce-attributable-weather-report-evidence
+    - check-and-correct-weather-data-claim
+  success_criteria_refs:
+    - individual-weather-report-contribution
+    - individual-weather-exit-evidence
+    - language-one-warmer-time-sentence
+  task_contracts:
+    - task_material_id: g2-shared-weather-report-contribution-task
+      response_mode: open_ended
+      open_ended: true
+      open_ended_exemption:
+        reason: Several fact-and-comparison combinations satisfy the three exact task criteria.
+    - task_material_id: g2-weather-exit-ticket-task
+      response_mode: short_answer
+      open_ended: false
+      expected_answer_material_ids:
+        - g2-weather-exit-ticket-expected-answers
+opiq_companions: []
+originality_review:
+  review_id: grade-2-weather-water-safety-04-weather-report-originality-review
+  status: pending
+  reviewer: null
+  reviewer_role: null
+  reviewed_on: null
+  reviewed_version:
+    commit_sha: null
+    content_fingerprint:
+      algorithm: sha256
+      specification_version: "1.0"
+      value: null
+      file_count: null
+  covered_author_material_ids:
+    - g2-weather-report-explanation
+    - g2-weather-report-worked-example
+    - g2-shared-weather-report-contribution-task
+    - g2-weather-shared-report-template
+    - g2-weather-exit-ticket-task
+    - g2-weather-module-reflection
+    - g2-shared-weather-report-success-guidance
+    - g2-weather-exit-ticket-expected-answers
+    - g2-weather-report-lesson-guide
+  internal_source_analysis_refs:
+    - grade-programmes/grade-2/project-modules.yaml#grade-2-project-weather-water-safety
+    - task-bank/reviews/grade-2/weather-water-safety/11-shared-weather-report-contribution.yaml
+    - task-bank/reviews/grade-2/weather-water-safety/12-weather-exit-ticket.yaml
+    - compliance/estonia/2026-27/outcome-index.yaml
+  dimensions:
+    wording_independence: pending
+    context_independence: pending
+    data_independence: pending
+    question_sequence_independence: pending
+    scaffolding_independence: pending
+    distractor_independence: not_applicable
+    visual_independence: not_applicable
+    answer_independence: pending
+  prohibited_source_content:
+    copied_text: false
+    screenshots: false
+    copied_illustrations: false
+    copied_answer_keys: false
+    extracted_interactive_content: false
+  notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
+family_overlay_hooks: []
+provenance:
+  category: author_created_bridge
+  source_reference: grade-2-project-weather-water-safety; grade-2-science-official-curriculum
+  notes: Independently authored science lesson uses only the permitted guided-inquiry outcome; cross-curricular,
+    mathematics, and formative task metadata remain task-level and are not promoted to lesson evidence.
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: e2d8fd7a3cd0c0b2da381b6d6be4d3d9c4691385d7f7c94119a8e6d0c3a00218
+  selection_input:
+    purpose: guided_application
+    content_types:
+      - conceptual_text
+      - data_table
+      - shared_report
+      - exit_ticket
+    required_capabilities:
+      - data_interpretation
+      - individual_evidence
+      - attributable_group_product
+    desired_capabilities:
+      - formative_assessment
+      - retrieval
+    phase_needs:
+      - activation
+      - explanation
+      - guided_practice
+      - formative_assessment
+    context_flags:
+      practical: false
+      map_or_data: true
+      retrieval: true
+      assessment: true
+    maximum_total_productive_language_demand: low
+    delivery:
+      group_size: 24
+      supported_group_formats:
+        - individual
+        - pair
+        - whole_class
+    resources:
+      available:
+        - paper
+        - writing_tool
+        - shared_board
+      unavailable:
+        - internet
+        - laboratory_materials
+      printer_available: true
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: false
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: low
+      max_teacher_facilitation: medium
+      max_learner_setup: minimal
+      max_parent_effort: none
+      accessibility_priorities:
+        - working_memory_support
+        - language_scaffolding
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: guided-individual-evidence
+      preferred_target_ids:
+        - individual-record
+        - short-oral-report
+      excluded_target_ids: []
+      preferred_group_formats:
+        - individual
+        - pair
+        - whole_class
+      teacher_overrides: []
+    homeschool:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 45
+      maximum_sessions: 1
+      maximum_total_productive_language_demand: low
+      resources:
+        available:
+          - paper
+          - writing_tool
+        unavailable:
+          - internet
+          - laboratory_materials
+          - measuring_tools
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: g2-weather-report-explanation
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-report-worked-example
+          delivery_scope:
+            - classroom
+        - material_id: g2-shared-weather-report-contribution-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-shared-report-template
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-exit-ticket-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-module-reflection
+          delivery_scope:
+            - classroom
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      answer_key_release: self_managed_after_attempt
+      teacher_override_policy: require_preservation
+      adapted_task_contracts: []
+      practical_policy: null
+    future_retrieval_windows: []
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids:
+        - complete-individual-exit-ticket
+      criterion_refs:
+        - weather-report-individual-contribution
+        - weather-report-exit-data
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids:
+        - complete-individual-exit-ticket
+      criterion_refs:
+        - weather-report-et-recognition
+        - weather-report-et-supported
+        - weather-report-et-independent
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance:
+      source: lesson_assessment_bindings
+  phase_bindings:
+    - dna_phase_id: retrieve-module-evidence
+      lesson_stage_ids:
+        - retrieve-module-evidence
+      timing_allocations:
+        - lesson_stage_id: retrieve-module-evidence
+          activity_minutes: 5
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-weather-report-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-04-weather-report/retrieve-module-evidence
+        learner_instruction_ru: Индивидуально называет одно личное доказательство и не заменяет его групповым ответом.
+        prompt_source_refs:
+          - stage:retrieve-module-evidence:pupil_action_ru
+        learner_success_criterion_ru:
+          - Краткое индивидуальное называние одного доказательства.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:retrieve-module-evidence:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:retrieve-module-evidence:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап retrieve-module-evidence полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: explain-evidence-report-ru
+      lesson_stage_ids:
+        - explain-evidence-report-ru
+      timing_allocations:
+        - lesson_stage_id: explain-evidence-report-ru
+          activity_minutes: 6
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-weather-report-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-04-weather-report/explain-evidence-report-ru
+        learner_instruction_ru: Объясняет по-русски, что нужно проверить в точном факте и сравнении.
+        prompt_source_refs:
+          - stage:explain-evidence-report-ru:pupil_action_ru
+        learner_success_criterion_ru:
+          - Ученик объясняет критерии точности без готового ответа задачи.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:explain-evidence-report-ru:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:explain-evidence-report-ru:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап explain-evidence-report-ru полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: check-four-point-data
+      lesson_stage_ids:
+        - check-four-point-data
+      timing_allocations:
+        - lesson_stage_id: check-four-point-data
+          activity_minutes: 5
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-shared-weather-report-contribution-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-04-weather-report/check-four-point-data
+        learner_instruction_ru: Индивидуально сверяет названия точек и значения, затем устно называет возможную пару для сравнения.
+        prompt_source_refs:
+          - stage:check-four-point-data:pupil_action_ru
+        learner_success_criterion_ru:
+          - Отмеченная пара точек перед самостоятельным письмом.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:check-four-point-data:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:check-four-point-data:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап check-four-point-data полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: draft-individual-contribution
+      lesson_stage_ids:
+        - draft-individual-contribution
+      timing_allocations:
+        - lesson_stage_id: draft-individual-contribution
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-shared-weather-report-contribution-task
+      answer_key_material_ids:
+        - g2-shared-weather-report-success-guidance
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-2-weather-water-safety-04-weather-report/draft-individual-contribution
+        learner_instruction_ru: Самостоятельно пишет два русских предложения и ставит личный код в отдельной рамке.
+        prompt_source_refs:
+          - stage:draft-individual-contribution:pupil_action_ru
+        learner_success_criterion_ru:
+          - Отдельная индивидуальная рамка задачи 11 с двумя фразами и кодом.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:draft-individual-contribution:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:draft-individual-contribution:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап draft-individual-contribution полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: verify-attribution-code
+      lesson_stage_ids:
+        - verify-attribution-code
+      timing_allocations:
+        - lesson_stage_id: verify-attribution-code
+          activity_minutes: 3
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-shared-weather-report-contribution-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-04-weather-report/verify-attribution-code
+        learner_instruction_ru: Исправляет только собственную рамку и предъявляет её до групповой работы.
+        prompt_source_refs:
+          - stage:verify-attribution-code:pupil_action_ru
+        learner_success_criterion_ru:
+          - Проверенная индивидуальная рамка до общей сборки.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:verify-attribution-code:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:verify-attribution-code:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап verify-attribution-code полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: assemble-shared-weather-report
+      lesson_stage_ids:
+        - assemble-shared-weather-report
+      timing_allocations:
+        - lesson_stage_id: assemble-shared-weather-report
+          activity_minutes: 6
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-weather-shared-report-template
+        - g2-shared-weather-report-contribution-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-04-weather-report/assemble-shared-weather-report
+        learner_instruction_ru: Переносит только идею из проверенной рамки и участвует в проверке общего текста.
+        prompt_source_refs:
+          - stage:assemble-shared-weather-report:pupil_action_ru
+        learner_success_criterion_ru:
+          - Общая доска, короткий групповой отчёт и сохранённые личные рамки.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:assemble-shared-weather-report:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:assemble-shared-weather-report:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап assemble-shared-weather-report полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: complete-individual-exit-ticket
+      lesson_stage_ids:
+        - complete-individual-exit-ticket
+      timing_allocations:
+        - lesson_stage_id: complete-individual-exit-ticket
+          activity_minutes: 6
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-weather-exit-ticket-task
+      answer_key_material_ids:
+        - g2-weather-exit-ticket-expected-answers
+      assessment_refs:
+        - weather-report-individual-contribution
+        - weather-report-exit-data
+        - weather-report-et-recognition
+        - weather-report-et-supported
+        - weather-report-et-independent
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-2-weather-water-safety-04-weather-report/complete-individual-exit-ticket
+        learner_instruction_ru: Самостоятельно пишет три пронумерованных ответа, используя пустую рамку и банк soojem | külmem.
+        prompt_source_refs:
+          - stage:complete-individual-exit-ticket:pupil_action_ru
+        learner_success_criterion_ru:
+          - Три пронумерованных индивидуальных ответа задачи 12 до показа ответа.
+        learner_language_support_ru:
+          - Kell 13 on ____.
+        answer_evidence_refs:
+          - stage:complete-individual-exit-ticket:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:complete-individual-exit-ticket:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап complete-individual-exit-ticket полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: check-estonian-output-separately
+      lesson_stage_ids:
+        - check-estonian-output-separately
+      timing_allocations:
+        - lesson_stage_id: check-estonian-output-separately
+          activity_minutes: 3
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-weather-exit-ticket-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-04-weather-report/check-estonian-output-separately
+        learner_instruction_ru: Произносит одну завершённую эстонскую фразу без добавления второй фразы.
+        prompt_source_refs:
+          - stage:check-estonian-output-separately:pupil_action_ru
+        learner_success_criterion_ru:
+          - Одна отдельная поддержанная эстонская фраза.
+        learner_language_support_ru:
+          - Kell 13 on soojem.
+        answer_evidence_refs:
+          - stage:check-estonian-output-separately:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:check-estonian-output-separately:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап check-estonian-output-separately полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: reflect-and-handoff-evidence
+      lesson_stage_ids:
+        - reflect-and-handoff-evidence
+      timing_allocations:
+        - lesson_stage_id: reflect-and-handoff-evidence
+          activity_minutes: 3
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-report-lesson-guide
+      student_material_ids:
+        - g2-weather-module-reflection
+        - g2-shared-weather-report-contribution-task
+        - g2-weather-exit-ticket-task
+      answer_key_material_ids: []
+      assessment_refs:
+        - weather-report-individual-contribution
+        - weather-report-exit-data
+        - weather-report-et-recognition
+        - weather-report-et-supported
+        - weather-report-et-independent
+      oral_answer_refs:
+        - weather-report-evidence-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-2-weather-water-safety-04-weather-report/reflect-and-handoff-evidence
+        learner_instruction_ru: Отмечает один способ проверки и сдаёт три отдельные единицы evidence.
+        prompt_source_refs:
+          - stage:reflect-and-handoff-evidence:pupil_action_ru
+        learner_success_criterion_ru:
+          - Три отдельные индивидуальные единицы evidence и общий продукт как дополнение.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:reflect-and-handoff-evidence:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:reflect-and-handoff-evidence:teacher_action_ru
+        answer_language_refs:
+          - question:weather-report-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-report-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-report-evidence-question:misconception_to_watch
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап reflect-and-handoff-evidence полностью связан с авторскими материалами и длительностью этого урока.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations: []
+    non_dna_allocations: []
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/selection-request.yaml
+    selection_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/homeschool-request.yaml
+    homeschool_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/homeschool-decision.yaml
+    homeschool_package_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/homeschool-package.yaml
+    parent_guidance_path: teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md
+    weekly_study_plan_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/weekly-study-plan.md
+    homeschool_rendered_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-04-weather-report/homeschool-rendered.md
+    home_practical_policy_path: null
+  status:
+    structural_state: proposed
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    homeschool_ready: false
+    effectiveness_claimed: false

@@ -22,6 +22,7 @@ export const pilotPaths = Object.freeze({
   lesson1: 'lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml',
   lesson2: 'lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml',
   lesson3: 'lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml',
+  lesson4: 'lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml',
   materialsIndex: 'teacher-packs/grade-2/weather-water-safety/materials-index.yaml',
   roadmap: 'grade-programmes/grade-2/implementation-roadmap.yaml',
   calendar: 'grade-programmes/grade-2/teaching-calendar.yaml',
@@ -75,6 +76,8 @@ export const approvedTaskContracts = Object.freeze([
 export const pendingInternalTaskContracts = Object.freeze([
   {
     taskId: 'g2-water-edge-safe-decision-task',
+    lessonIndex: 2,
+    lessonPath: 'lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml',
     fingerprint: 'a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3',
     learnerPath: 'teacher-packs/grade-2/weather-water-safety/student/g2-water-edge-safe-decision-task.md',
     teacherPath: 'teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md',
@@ -86,6 +89,8 @@ export const pendingInternalTaskContracts = Object.freeze([
   },
   {
     taskId: 'g2-pe-water-safety-decision-task',
+    lessonIndex: 2,
+    lessonPath: 'lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml',
     fingerprint: '1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922',
     learnerPath: 'teacher-packs/grade-2/weather-water-safety/student/g2-pe-water-safety-decision-task.md',
     teacherPath: 'teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md',
@@ -93,6 +98,34 @@ export const pendingInternalTaskContracts = Object.freeze([
       'B. Нужно остаться внутри безопасной зоны и сообщить взрослому: ребёнок не приближается к опасности, а решение принимает ответственный взрослый.',
       'Выбран вариант B без входа за границу безопасной зоны.',
       'Безопасность важнее мяча: ты остаёшься в зоне и обращаешься к взрослому.',
+    ],
+  },
+  {
+    taskId: 'g2-shared-weather-report-contribution-task',
+    lessonIndex: 3,
+    lessonPath: 'lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml',
+    fingerprint: '303d0dc6c06e02f2aef83c38ed9fb024b1e89e00aa43195451c1645d851b90c0',
+    learnerPath: 'teacher-packs/grade-2/weather-water-safety/student/g2-shared-weather-report-contribution-task.md',
+    teacherPath: 'teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md',
+    answerSentinels: [
+      'Первое предложение точно передаёт одно значение и его точку.',
+      'Второе предложение сравнивает минимум два значения без ошибки.',
+      'Обе фразы и личный код находятся в отдельной рамке ученика.',
+      'Единственного ответа нет.',
+    ],
+  },
+  {
+    taskId: 'g2-weather-exit-ticket-task',
+    lessonIndex: 3,
+    lessonPath: 'lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml',
+    fingerprint: 'b72ab93feeda22c38dce62e6b3c2c74c5500194f32e5ba8c0df2c63cf2ab3bc1',
+    learnerPath: 'teacher-packs/grade-2/weather-water-safety/student/g2-weather-exit-ticket-task.md',
+    teacherPath: 'teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md',
+    answerSentinels: [
+      '1) В 13:00 было теплее на 7 °C. 2) Верно: «В 13:00 было теплее»; я сравнил(а) 14 и 7. 3) Kell 13 on soojem.',
+      'Вывод верно сравнивает 14 °C и 7 °C.',
+      'Неверная запись исправлена и назван способ проверки.',
+      'Отдельная эстонская рамка завершена словом soojem.',
     ],
   },
 ]);
@@ -104,8 +137,6 @@ export const pendingUnintegratedTaskIds = Object.freeze([
   'g2-weather-instruction-sequence-task',
   'g2-estonian-follow-instruction-task',
   'g2-estonian-safety-phrase-task',
-  'g2-shared-weather-report-contribution-task',
-  'g2-weather-exit-ticket-task',
 ]);
 
 export const waterSafetyLanguageContract = Object.freeze({
@@ -115,6 +146,14 @@ export const waterSafetyLanguageContract = Object.freeze({
     'Kutsu täiskasvanu.',
     'Ära mine vette.',
   ]),
+});
+
+export const weatherReportLanguageContract = Object.freeze({
+  frameId: 'weather-exit-warmer-frame',
+  frame: 'Kell 13 on ____.',
+  sentence: 'Kell 13 on soojem.',
+  choices: Object.freeze(['soojem', 'külmem']),
+  receptive: Object.freeze(['soojem', 'külmem', 'kell']),
 });
 
 const exactRoutes = Object.freeze([
@@ -219,27 +258,20 @@ function validateModuleContract(diagnostics, repository) {
     diagnostic(diagnostics, 'PILOT_CALENDAR', pilotPaths.calendar, '/periods', 'pilot project is not scheduled in programme-period-1');
   }
   if (slots.length !== 4
-      || authored.length !== 3
-      || planned.length !== 1
+      || authored.length !== 4
+      || planned.length !== 0
       || module.lesson_contract.total_slots !== 4
-      || module.lesson_contract.authored_lesson_count !== 3
-      || module.lesson_contract.planned_lesson_count !== 1) {
-    diagnostic(diagnostics, 'PILOT_SLOT_COUNT', pilotPaths.module, '/lesson_contract', 'expected exactly three authored and one planned slot');
+      || module.lesson_contract.authored_lesson_count !== 4
+      || module.lesson_contract.planned_lesson_count !== 0
+      || module.implementation_status !== 'internal_authoring_complete') {
+    diagnostic(diagnostics, 'PILOT_SLOT_COUNT', pilotPaths.module, '/lesson_contract', 'expected exactly four authored and zero planned slots with internal authoring complete');
   }
   if (slots.some((slot, index) => slot.position !== index + 1)) {
     diagnostic(diagnostics, 'PILOT_SLOT_ORDER', pilotPaths.module, '/lesson_contract/slots', 'lesson positions must be 1 through 4');
   }
   const expectedLessonIds = new Set(lessons.map((lesson) => lesson.lesson_id));
   if (!sameSet(authored.map((slot) => slot.lesson_id), expectedLessonIds)) {
-    diagnostic(diagnostics, 'PILOT_LESSON_LINKS', pilotPaths.module, '/lesson_contract/slots', 'authored slots must exactly link lesson artifacts 1 through 3');
-  }
-  for (const [index, slot] of planned.entries()) {
-    if (slot.lesson_id !== null
-        || slot.lesson_path !== null
-        || slot.content_complete !== false
-        || slot.release_ready !== false) {
-      diagnostic(diagnostics, 'PILOT_PLANNED_READY', pilotPaths.module, `/lesson_contract/slots/${index + 3}`, 'planned slots cannot have lesson paths, content completion, or release readiness');
-    }
+    diagnostic(diagnostics, 'PILOT_LESSON_LINKS', pilotPaths.module, '/lesson_contract/slots', 'authored slots must exactly link lesson artifacts 1 through 4');
   }
   const lesson3Slot = slots[2];
   if (lesson3Slot?.lesson_id !== 'grade-2-weather-water-safety-03-safe-decisions'
@@ -249,15 +281,35 @@ function validateModuleContract(diagnostics, repository) {
       || lesson3Slot?.release_ready !== false) {
     diagnostic(diagnostics, 'PILOT_LESSON_3_SLOT', pilotPaths.module, '/lesson_contract/slots/2', 'lesson 3 slot must be the authored internal human-studies lesson and remain non-release-ready');
   }
+  const lesson4Slot = slots[3];
+  if (lesson4Slot?.lesson_id !== 'grade-2-weather-water-safety-04-weather-report'
+      || lesson4Slot?.lesson_path !== pilotPaths.lesson4
+      || lesson4Slot?.title_ru !== 'Наш отчёт о погоде и итог модуля'
+      || lesson4Slot?.title_et !== 'Meie ilmateade ja mooduli kokkuvõte'
+      || lesson4Slot?.primary_subject !== 'science'
+      || lesson4Slot?.canonical_route_id !== 'grade-2-science'
+      || lesson4Slot?.content_complete !== true
+      || lesson4Slot?.release_ready !== false) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_SLOT', pilotPaths.module, '/lesson_contract/slots/3', 'lesson 4 slot must be the exact authored internal science lesson and remain non-release-ready');
+  }
+  if (module.readiness?.authoring_complete !== true
+      || module.readiness?.module_complete !== true
+      || module.readiness?.release_ready !== false
+      || module.readiness?.teacher_approved !== false
+      || module.readiness?.classroom_trial !== 'not_tested'
+      || module.readiness?.home_trial !== 'not_started'
+      || module.readiness?.effectiveness_claimed !== false) {
+    diagnostic(diagnostics, 'PILOT_MODULE_READINESS', pilotPaths.module, '/readiness', 'authoring and module content must be complete while every release, review, trial, and effectiveness claim remains blocked');
+  }
   if (!sameSet(module.source_routes, exactRoutes)) {
     diagnostic(diagnostics, 'PILOT_ROUTE_SCOPE', pilotPaths.module, '/source_routes', 'module must retain only the five registered Grade 2 routes');
   }
 }
 
 function validateLessonContracts(diagnostics, repository) {
-  const [lesson1, lesson2, lesson3] = repository.lessons;
+  const [lesson1, lesson2, lesson3, lesson4] = repository.lessons;
   for (const [index, lesson] of repository.lessons.entries()) {
-    const file = [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3][index];
+    const file = [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3, pilotPaths.lesson4][index];
     if (lesson.grade !== 2 || lesson.unit_ref !== repository.module.module_id) {
       diagnostic(diagnostics, 'PILOT_LESSON_IDENTITY', file, '/', 'lesson must be Grade 2 and link the pilot module');
     }
@@ -292,8 +344,9 @@ function validateLessonContracts(diagnostics, repository) {
   }
   if (lesson1.learner_language_profile?.learner_language_level !== 'A1'
       || lesson2.learner_language_profile?.learner_language_level !== 'A1-A2'
-      || lesson3.learner_language_profile?.learner_language_level !== 'A1-A2') {
-    diagnostic(diagnostics, 'PILOT_LANGUAGE_LEVEL', 'lesson-plans/grade-2/weather-water-safety', '/learner_language_profile', 'expected A1 for lesson 1 and A1-A2 for lessons 2–3');
+      || lesson3.learner_language_profile?.learner_language_level !== 'A1-A2'
+      || lesson4.learner_language_profile?.learner_language_level !== 'A1') {
+    diagnostic(diagnostics, 'PILOT_LANGUAGE_LEVEL', 'lesson-plans/grade-2/weather-water-safety', '/learner_language_profile', 'expected A1 for lessons 1 and 4 and A1-A2 for lessons 2–3');
   }
   const lesson1Terms = lesson1.language_load?.new_terms_et?.map((entry) => entry.term_et);
   const lesson1Frame = lesson1.language_load?.sentence_frames?.find((entry) => (
@@ -348,7 +401,9 @@ function validateLessonContracts(diagnostics, repository) {
       diagnostic(diagnostics, 'PILOT_TASK_STABLE_REFS', pilotPaths.lesson2, '/evidence_linkage', `${taskId} is missing from a required stable reference`);
     }
   }
-  const lesson3TaskIds = pendingInternalTaskContracts.map((entry) => entry.taskId);
+  const lesson3TaskIds = pendingInternalTaskContracts
+    .filter((entry) => entry.lessonIndex === 2)
+    .map((entry) => entry.taskId);
   const peRole = lesson3.author_created_subject_roles?.[0];
   const lesson3ObjectiveOutcomes = lesson3.objectives?.content_objectives
     ?.flatMap((entry) => entry.curriculum_outcome_refs ?? []);
@@ -454,6 +509,130 @@ function validateLessonContracts(diagnostics, repository) {
       || languageCriteria.some((entry) => entry.affects !== 'language_assessment')) {
     diagnostic(diagnostics, 'PILOT_LESSON_3_EVIDENCE', pilotPaths.lesson3, '/assessment', 'human-studies, PE, and Estonian evidence must remain independently scored');
   }
+
+  const scienceOutcome = 'ee-prk-2026-stage1-natural-science-guided-inquiry';
+  const lesson4ObjectiveOutcomes = lesson4.objectives?.content_objectives
+    ?.flatMap((entry) => entry.curriculum_outcome_refs ?? []) ?? [];
+  const lesson4TaskIds = pendingInternalTaskContracts
+    .filter((entry) => entry.lessonIndex === 3)
+    .map((entry) => entry.taskId);
+  if (lesson4.lesson_id !== 'grade-2-weather-water-safety-04-weather-report'
+      || lesson4.position_in_unit !== 4
+      || lesson4.title_ru !== 'Наш отчёт о погоде и итог модуля'
+      || lesson4.title_et !== 'Meie ilmateade ja mooduli kokkuvõte'
+      || lesson4.subject !== 'science'
+      || lesson4.subject_et !== 'loodusõpetus'
+      || lesson4.canonical_route?.source_id !== 'grade-2-science'
+      || lesson4.canonical_route?.md_path !== 'project-files/outputs/opiq_2klass_loodusopetus.md'
+      || lesson4.canonical_route?.source_archive
+        !== 'project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip'
+      || lesson4.canonical_route?.qa_path !== 'project-files/outputs/opiq_2klass_loodusopetus_qa.json'
+      || lesson4.evidence_linkage?.curriculum_map_id !== 'grade-2-science-official-curriculum'
+      || JSON.stringify(lesson4.evidence_linkage?.official_outcome_refs)
+        !== JSON.stringify([scienceOutcome])
+      || lesson4ObjectiveOutcomes.length !== 2
+      || lesson4ObjectiveOutcomes.some((outcomeId) => outcomeId !== scienceOutcome)
+      || (lesson4.author_created_subject_roles ?? []).length !== 0
+      || /cross-curricular|mathematics-real-life|assessment-formative/iu.test(
+        JSON.stringify({
+          evidence: lesson4.evidence_linkage,
+          objectives: lesson4.objectives,
+        }),
+      )) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_IDENTITY', pilotPaths.lesson4, '/', 'lesson 4 must use only the exact Grade 2 science route and guided-inquiry lesson outcome without promoting task-level metadata');
+  }
+  if (!sameSet(lesson4.commercial_core?.task_material_ids, lesson4TaskIds)
+      || !sameSet(
+        lesson4.commercial_core?.task_contracts?.map((entry) => entry.task_material_id),
+        lesson4TaskIds,
+      )
+      || lesson4TaskIds.some((taskId) => (
+        !materialById(lesson4, taskId)
+        || !lesson4.originality_review?.covered_author_material_ids?.includes(taskId)
+      ))) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_TASK_IDS', pilotPaths.lesson4, '/commercial_core', 'lesson 4 must integrate exactly pending tasks 11 and 12 as covered internal materials');
+  }
+  const openTask = lesson4.commercial_core?.task_contracts?.find((entry) => (
+    entry.task_material_id === 'g2-shared-weather-report-contribution-task'
+  ));
+  const exitTask = lesson4.commercial_core?.task_contracts?.find((entry) => (
+    entry.task_material_id === 'g2-weather-exit-ticket-task'
+  ));
+  if (openTask?.response_mode !== 'open_ended'
+      || openTask?.open_ended !== true
+      || !normalize(openTask?.open_ended_exemption?.reason)
+      || Object.hasOwn(openTask ?? {}, 'expected_answer_material_ids')
+      || exitTask?.response_mode !== 'short_answer'
+      || exitTask?.open_ended !== false
+      || !sameSet(exitTask?.expected_answer_material_ids, ['g2-weather-exit-ticket-expected-answers'])) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_TASK_MODES', pilotPaths.lesson4, '/commercial_core/task_contracts', 'task 11 must remain criteria-based open-ended and task 12 must remain closed with a teacher-only answer');
+  }
+  const reportLanguage = lesson4.language_load ?? {};
+  if (reportLanguage.model_sentences?.length !== 1
+      || reportLanguage.model_sentences?.[0]?.text_et !== weatherReportLanguageContract.sentence
+      || reportLanguage.sentence_frames?.length !== 1
+      || reportLanguage.sentence_frames?.[0]?.frame_id !== weatherReportLanguageContract.frameId
+      || reportLanguage.sentence_frames?.[0]?.frame_et !== weatherReportLanguageContract.frame
+      || JSON.stringify(reportLanguage.expected_receptive_language_et)
+        !== JSON.stringify(weatherReportLanguageContract.receptive)
+      || JSON.stringify(reportLanguage.expected_supported_productive_language_et)
+        !== JSON.stringify([weatherReportLanguageContract.sentence])
+      || JSON.stringify(reportLanguage.expected_independent_productive_language_et)
+        !== JSON.stringify([weatherReportLanguageContract.sentence])
+      || reportLanguage.short_expected_oral_answer_et !== weatherReportLanguageContract.sentence
+      || lesson4.questions?.[0]?.short_oral_answer_et !== weatherReportLanguageContract.sentence
+      || lesson4.objectives?.estonian_language_objectives?.[0]?.minimum_quantity !== 1
+      || lesson4.cognitive_load?.independent_output_sentences !== 1) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_LANGUAGE', pilotPaths.lesson4, '/language_load', 'Kell 13 on soojem. must remain the only required productive Estonian sentence with the exact blank frame and receptive word set');
+  }
+  const expectedStageIds = [
+    'retrieve-module-evidence',
+    'explain-evidence-report-ru',
+    'check-four-point-data',
+    'draft-individual-contribution',
+    'verify-attribution-code',
+    'assemble-shared-weather-report',
+    'complete-individual-exit-ticket',
+    'check-estonian-output-separately',
+    'reflect-and-handoff-evidence',
+  ];
+  const expectedStageMinutes = [5, 6, 5, 8, 3, 6, 6, 3, 3];
+  const actualStageIds = lesson4.stages?.map((entry) => entry.stage_id) ?? [];
+  const actualStageMinutes = lesson4.stages?.map((entry) => entry.duration_minutes) ?? [];
+  if (JSON.stringify(actualStageIds) !== JSON.stringify(expectedStageIds)
+      || JSON.stringify(actualStageMinutes) !== JSON.stringify(expectedStageMinutes)
+      || actualStageMinutes.reduce((sum, minutes) => sum + minutes, 0) !== 45
+      || actualStageIds.indexOf('draft-individual-contribution')
+        >= actualStageIds.indexOf('assemble-shared-weather-report')
+      || actualStageIds.indexOf('complete-individual-exit-ticket')
+        >= actualStageIds.indexOf('check-estonian-output-separately')
+      || lesson4.practical_work !== null) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_SEQUENCE', pilotPaths.lesson4, '/stages', 'lesson 4 must retain the exact 45-minute sequence, individual work before group assembly, and first attempt before answer checking');
+  }
+  const exitBinding = lesson4.pedagogical_integration?.phase_bindings?.find((entry) => (
+    entry.dna_phase_id === 'complete-individual-exit-ticket'
+  ));
+  const contributionBinding = lesson4.pedagogical_integration?.phase_bindings?.find((entry) => (
+    entry.dna_phase_id === 'draft-individual-contribution'
+  ));
+  if (exitBinding?.source_access_policy !== 'closed_first_attempt'
+      || exitBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
+      || !sameSet(exitBinding?.answer_key_material_ids, ['g2-weather-exit-ticket-expected-answers'])
+      || contributionBinding?.source_access_policy !== 'closed_first_attempt'
+      || contributionBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
+      || !sameSet(contributionBinding?.answer_key_material_ids, ['g2-shared-weather-report-success-guidance'])) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_FIRST_ATTEMPT', pilotPaths.lesson4, '/pedagogical_integration/phase_bindings', 'both pending tasks require an individual closed first attempt before teacher-only guidance');
+  }
+  const lesson4SubjectCriteria = lesson4.assessment?.filter((entry) => entry.affects === 'subject_assessment') ?? [];
+  const lesson4LanguageCriteria = lesson4.assessment?.filter((entry) => entry.affects === 'language_assessment') ?? [];
+  if (!sameSet(lesson4SubjectCriteria.map((entry) => entry.criterion_id), [
+    'weather-report-individual-contribution',
+    'weather-report-exit-data',
+  ])
+      || lesson4LanguageCriteria.length !== 3
+      || lesson4.assessment?.some((entry) => entry.affects === 'both')) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_EVIDENCE', pilotPaths.lesson4, '/assessment', 'individual contribution, exit content, and the three language evidence levels must remain independently scored');
+  }
 }
 
 function validateTaskBankIntegration(diagnostics, repository) {
@@ -475,25 +654,51 @@ function validateTaskBankIntegration(diagnostics, repository) {
       || integration.approved?.reviewed_commit_sha !== approvedTaskContracts[0].reviewCommit) {
     diagnostic(diagnostics, 'PILOT_APPROVED_TASK_DECLARATION', pilotPaths.module, '/task_bank_integration/approved', 'lesson 2 must retain exactly the two approved task IDs and reviewed commit');
   }
-  const pendingFingerprints = integration.pending_internal?.task_fingerprints ?? [];
-  if (integration.pending_internal?.lesson_id !== repository.lessons[2]?.lesson_id
-      || integration.pending_internal?.publication_unlocks !== false
-      || integration.pending_internal?.customer_visibility_unlocks !== false
-      || !sameSet(
-        pendingFingerprints.map((entry) => entry.task_id),
-        pendingInternalTaskContracts.map((entry) => entry.taskId),
-      )
-      || pendingInternalTaskContracts.some((contract) => (
-        pendingFingerprints.find((entry) => entry.task_id === contract.taskId)?.value
-          !== contract.fingerprint
-      ))) {
-    diagnostic(diagnostics, 'PILOT_PENDING_INTERNAL_DECLARATION', pilotPaths.module, '/task_bank_integration/pending_internal', 'tasks 09 and 10 must remain fingerprint-pinned pending internal integrations with no publication or visibility unlock');
+  const pendingGroups = Array.isArray(integration.pending_internal)
+    ? integration.pending_internal
+    : [];
+  if (pendingGroups.length !== 2) {
+    diagnostic(diagnostics, 'PILOT_PENDING_INTERNAL_DECLARATION', pilotPaths.module, '/task_bank_integration/pending_internal', 'exactly two lesson-scoped pending internal integration groups are required');
+  }
+  for (const lessonIndex of [2, 3]) {
+    const expectedLesson = repository.lessons[lessonIndex];
+    const expectedContracts = pendingInternalTaskContracts.filter((contract) => (
+      contract.lessonIndex === lessonIndex
+    ));
+    const group = pendingGroups.find((entry) => entry.lesson_id === expectedLesson?.lesson_id);
+    const pendingFingerprints = group?.task_fingerprints ?? [];
+    if (!group
+        || group.publication_unlocks !== false
+        || group.customer_visibility_unlocks !== false
+        || !sameSet(
+          pendingFingerprints.map((entry) => entry.task_id),
+          expectedContracts.map((entry) => entry.taskId),
+        )
+        || expectedContracts.some((contract) => (
+          pendingFingerprints.find((entry) => entry.task_id === contract.taskId)?.value
+            !== contract.fingerprint
+        ))) {
+      diagnostic(diagnostics, 'PILOT_PENDING_INTERNAL_DECLARATION', pilotPaths.module, '/task_bank_integration/pending_internal', `lesson ${lessonIndex + 1} pending tasks must remain fingerprint-pinned with no publication or visibility unlock`);
+    }
   }
   if (!sameSet(
     integration.pending_unintegrated_task_ids,
     pendingUnintegratedTaskIds,
   )) {
-    diagnostic(diagnostics, 'PILOT_PENDING_UNINTEGRATED', pilotPaths.module, '/task_bank_integration/pending_unintegrated_task_ids', 'the other eight pending tasks must remain explicitly unintegrated');
+    diagnostic(diagnostics, 'PILOT_PENDING_UNINTEGRATED', pilotPaths.module, '/task_bank_integration/pending_unintegrated_task_ids', 'the other six pending tasks must remain explicitly unintegrated');
+  }
+  const approvedDeclaredIds = integration.approved?.task_ids ?? [];
+  const pendingDeclaredIds = pendingGroups.flatMap((group) => (
+    group.task_fingerprints?.map((entry) => entry.task_id) ?? []
+  ));
+  const allDeclaredIds = [
+    ...approvedDeclaredIds,
+    ...pendingDeclaredIds,
+    ...(integration.pending_unintegrated_task_ids ?? []),
+  ];
+  if (new Set(allDeclaredIds).size !== allDeclaredIds.length
+      || !sameSet(allDeclaredIds, repository.taskBank.index.data.entries.map((entry) => entry.task_id))) {
+    diagnostic(diagnostics, 'PILOT_TASK_INTEGRATION_PARTITION', pilotPaths.module, '/task_bank_integration', 'approved, pending internal, and pending unintegrated task sets must be disjoint and cover all twelve tasks exactly once');
   }
   for (const contract of approvedTaskContracts) {
     const task = taskArtifact(repository.taskBank, contract.taskId)?.data;
@@ -519,7 +724,6 @@ function validateTaskBankIntegration(diagnostics, repository) {
       diagnostic(diagnostics, 'PILOT_TASK_MATERIAL', pilotPaths.lesson2, '/evidence_linkage/author_materials', `${contract.taskId} material reference is unstable`);
     }
   }
-  const lesson3 = repository.lessons[2];
   for (const contract of pendingInternalTaskContracts) {
     const task = taskArtifact(repository.taskBank, contract.taskId)?.data;
     const reviewArtifactData = reviewArtifact(repository.taskBank, contract.taskId);
@@ -545,22 +749,27 @@ function validateTaskBankIntegration(diagnostics, repository) {
         || integration.approved?.task_ids?.includes(contract.taskId)) {
       diagnostic(diagnostics, 'PILOT_PENDING_TASK_APPROVAL', pilotPaths.module, '/task_bank_integration', `${contract.taskId} cannot be treated as approved`);
     }
-    const material = materialById(lesson3, contract.taskId);
+    const taskLesson = repository.lessons[contract.lessonIndex];
+    const material = materialById(taskLesson, contract.taskId);
     if (material?.material_id !== contract.taskId
         || material?.artifact_path !== contract.learnerPath) {
-      diagnostic(diagnostics, 'PILOT_PENDING_TASK_MATERIAL', pilotPaths.lesson3, '/evidence_linkage/author_materials', `${contract.taskId} pending learner material reference is unstable`);
+      diagnostic(diagnostics, 'PILOT_PENDING_TASK_MATERIAL', contract.lessonPath, '/evidence_linkage/author_materials', `${contract.taskId} pending learner material reference is unstable`);
     }
   }
 }
 
 function validateSharedAndPeBoundaries(diagnostics, repository) {
   const shared = repository.module.shared_product ?? {};
-  if (!shared.assembled_from_attributable_individual_work
+  if (shared.product !== 'weather_board_and_group_report'
+      || !shared.assembled_from_attributable_individual_work
       || !shared.individual_observation_required
       || !shared.individual_calculation_required
       || !shared.individual_oral_output_required
+      || !shared.individual_report_contribution_required
+      || !shared.individual_exit_ticket_required
+      || !shared.report_transfer_requires_personal_code
       || shared.shared_evidence_replaces_individual !== false) {
-    diagnostic(diagnostics, 'PILOT_SHARED_EVIDENCE', pilotPaths.module, '/shared_product', 'shared product must retain attributable individual observation, calculation, and oral evidence');
+    diagnostic(diagnostics, 'PILOT_SHARED_EVIDENCE', pilotPaths.module, '/shared_product', 'shared report must retain attributable observation, calculation, contribution, exit-ticket, and oral evidence for every learner');
   }
   const boundary = repository.module.physical_education_boundary ?? {};
   if (boundary.lesson_slot !== 3
@@ -716,15 +925,48 @@ async function validateMaterials(diagnostics, repository) {
       diagnostic(diagnostics, 'PILOT_LESSON_3_MATERIAL_BOUNDARY', repositoryPath, '/', 'lesson 3 materials must retain the exact Estonian phrase, dry-only boundary, and no Opiq URL');
     }
   }
-  const packRoot = safeRepositoryPath(
-    repository.rootDir,
-    'teacher-packs/grade-2/weather-water-safety',
-    'teacher-packs/grade-2/weather-water-safety',
-  );
-  const lesson4Files = (await fs.readdir(packRoot, { recursive: true }))
-    .filter((entry) => /lesson[-_ ]?0?4/iu.test(entry));
-  if (lesson4Files.length > 0) {
-    diagnostic(diagnostics, 'PILOT_LESSON_4_CONTENT', 'teacher-packs/grade-2/weather-water-safety', '/', `lesson 4 must remain planned without authored files: ${lesson4Files.join(', ')}`);
+  const lesson4ExitPath = 'teacher-packs/grade-2/weather-water-safety/student/g2-weather-exit-ticket-task.md';
+  const lesson4Exit = await readText(repository.rootDir, lesson4ExitPath);
+  if (!lesson4Exit.includes(weatherReportLanguageContract.frame)
+      || !weatherReportLanguageContract.choices.every((choice) => lesson4Exit.includes(choice))
+      || lesson4Exit.includes(weatherReportLanguageContract.sentence)
+      || !lesson4Exit.includes('Три пронумерованных коротких ответа.')) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_EXIT_BOUNDARY', lesson4ExitPath, '/', 'learner exit ticket must expose only the blank frame, two-word bank, and three numbered responses before the first attempt');
+  }
+  const lesson4ContributionPath = 'teacher-packs/grade-2/weather-water-safety/student/g2-shared-weather-report-contribution-task.md';
+  const lesson4Contribution = await readText(repository.rootDir, lesson4ContributionPath);
+  for (const required of [
+    'Северная точка — 8 °C.',
+    'Восточная точка — 12 °C.',
+    'Южная точка — 15 °C.',
+    'Западная точка — 10 °C.',
+    'Личный код',
+    'Только потом группа переносит идеи',
+  ]) {
+    if (!lesson4Contribution.includes(required)) {
+      diagnostic(diagnostics, 'PILOT_LESSON_4_CONTRIBUTION_BOUNDARY', lesson4ContributionPath, '/', `individual contribution is missing ${required}`);
+    }
+  }
+  const sharedTemplatePath = 'teacher-packs/grade-2/weather-water-safety/student/lesson-04-shared-report-template.md';
+  const sharedTemplate = await readText(repository.rootDir, sharedTemplatePath);
+  const reflectionPath = 'teacher-packs/grade-2/weather-water-safety/student/lesson-04-module-reflection.md';
+  const reflection = await readText(repository.rootDir, reflectionPath);
+  if (!/личн(ый|ого) код/iu.test(sharedTemplate)
+      || !/не заменяет отдельные рамки/iu.test(sharedTemplate)
+      || !/не заменяет индивидуальную рамку/iu.test(reflection)
+      || !/три ответа выходной карточки/iu.test(reflection)) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_ATTRIBUTION_BOUNDARY', pilotPaths.materialsIndex, '/materials', 'shared report and reflection must preserve every learner contribution and exit ticket as separate evidence');
+  }
+  const lesson4GuidePath = 'teacher-packs/grade-2/weather-water-safety/teacher/lesson-04-guide.md';
+  const lesson4Guide = await readText(repository.rootDir, lesson4GuidePath);
+  const lesson4AnswerPath = 'teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md';
+  const lesson4Answer = await readText(repository.rootDir, lesson4AnswerPath);
+  if (!lesson4Guide.includes('grade-2-science')
+      || !lesson4Guide.includes('ee-prk-2026-stage1-natural-science-guided-inquiry')
+      || !lesson4Guide.includes(weatherReportLanguageContract.sentence)
+      || !lesson4Answer.includes(weatherReportLanguageContract.sentence)
+      || /https?:\/\/(?:www\.)?opiq\.ee\//iu.test(`${lesson4Guide}\n${lesson4Answer}`)) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_MATERIAL_BOUNDARY', pilotPaths.materialsIndex, '/materials', 'lesson 4 teacher materials must retain the exact science route, one Estonian answer, and no Opiq URL');
   }
 }
 
@@ -732,12 +974,12 @@ function validateRoadmap(diagnostics, repository) {
   const facts = repository.roadmap.implementation_facts ?? {};
   const expected = {
     task_bank_status: 'implemented',
-    pilot_authoring_status: 'in_progress',
-    standalone_commercial_core_status: 'partial',
-    authored_lesson_count: 3,
-    planned_lesson_count: 1,
-    pending_task_internal_integration_count: 2,
-    pending_task_unintegrated_count: 8,
+    pilot_authoring_status: 'internal_authoring_complete',
+    standalone_commercial_core_status: 'authored_internal',
+    authored_lesson_count: 4,
+    planned_lesson_count: 0,
+    pending_task_internal_integration_count: 4,
+    pending_task_unintegrated_count: 6,
     pending_task_originality_review_count: 10,
     companion_access_status: 'unverified_internal_only',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
@@ -754,8 +996,9 @@ function validateRoadmap(diagnostics, repository) {
   }
   if (repository.roadmap.status !== 'partial_implementation'
       || !repository.roadmap.release_blocker_codes?.includes('ten_task_originality_reviews_pending')
+      || !repository.roadmap.release_blocker_codes?.includes('standalone_commercial_core_internal_authoring_complete_not_release_ready')
       || repository.roadmap.release_blocker_codes?.includes('clean_room_task_bank_not_implemented')) {
-    diagnostic(diagnostics, 'PILOT_ROADMAP_STATUS', pilotPaths.roadmap, '/', 'roadmap must report partial implementation and the current review blocker');
+    diagnostic(diagnostics, 'PILOT_ROADMAP_STATUS', pilotPaths.roadmap, '/', 'roadmap must report complete internal authoring while release remains blocked by reviews and trials');
   }
 }
 
@@ -829,7 +1072,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
     loadTaskBankRepository({ rootDir: absoluteRoot }),
   ]);
   const lessonArtifacts = plans.artifacts.filter((artifact) => (
-    [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3].includes(artifact.file)
+    [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3, pilotPaths.lesson4].includes(artifact.file)
   ));
   const lessonByPath = new Map(lessonArtifacts.map((artifact) => [artifact.file, artifact.data]));
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
@@ -851,6 +1094,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
       lessonByPath.get(pilotPaths.lesson1),
       lessonByPath.get(pilotPaths.lesson2),
       lessonByPath.get(pilotPaths.lesson3),
+      lessonByPath.get(pilotPaths.lesson4),
     ].filter(Boolean),
     validators: {
       module: ajv.compile(moduleSchema),
@@ -883,8 +1127,8 @@ export async function validateGrade2WeatherWaterSafetyPilot(repository) {
   for (const entry of taskResult.diagnostics) {
     diagnostic(diagnostics, 'PILOT_TASK_BANK', entry.file, entry.field, entry.reason);
   }
-  if (repository.lessons.length !== 3) {
-    diagnostic(diagnostics, 'PILOT_LESSON_COUNT', 'lesson-plans/grade-2/weather-water-safety', '/', 'expected exactly three authored lesson files');
+  if (repository.lessons.length !== 4) {
+    diagnostic(diagnostics, 'PILOT_LESSON_COUNT', 'lesson-plans/grade-2/weather-water-safety', '/', 'expected exactly four authored lesson files');
   } else {
     validateModuleContract(diagnostics, repository);
     validateLessonContracts(diagnostics, repository);

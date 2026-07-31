@@ -427,7 +427,7 @@ test('eight projects have exact authored route-role alignments', () => {
   }
 });
 
-test('Weather, Water and Safety records the bounded partial-authoring pilot', () => {
+test('Weather, Water and Safety records complete internal authoring without release readiness', () => {
   const pilot = baseline.programme.projects.projects.find((project) => (
     project.project_id === 'grade-2-project-weather-water-safety'
   ));
@@ -440,7 +440,7 @@ test('Weather, Water and Safety records the bounded partial-authoring pilot', ()
     'grade-2-estonian-second-language',
   ]);
   assert.ok(pilot.author_created_components_required.includes('clean-room instructions'));
-  assert.deepEqual(pilot.pilot_candidate, { issue: 40, status: 'partial_internal_authoring' });
+  assert.deepEqual(pilot.pilot_candidate, { issue: 40, status: 'internal_authoring_complete' });
   assert.deepEqual(pilot.school_specific_outcome_gaps, [{
     outcome_id: 'ee-prk-2026-stage1-physical-education-water-safety',
     source_status: 'missing_route',
@@ -611,7 +611,7 @@ test('required release blockers are exact and deterministic', () => {
     'task_examples_missing_for_1530_records',
     'foreign_language_route_missing',
     'physical_education_route_missing',
-    'standalone_commercial_core_partial_three_of_four_lessons',
+    'standalone_commercial_core_internal_authoring_complete_not_release_ready',
     'ten_task_originality_reviews_pending',
     'lesson_originality_review_pending',
     'customer_companion_access_not_verified',
@@ -624,13 +624,13 @@ test('implementation roadmap reports only the bounded production progress', () =
   assert.equal(roadmap.status, 'partial_implementation');
   assert.deepEqual(roadmap.implementation_facts, {
     task_bank_status: 'implemented',
-    pilot_authoring_status: 'in_progress',
-    standalone_commercial_core_status: 'partial',
-    authored_lesson_count: 3,
-    planned_lesson_count: 1,
+    pilot_authoring_status: 'internal_authoring_complete',
+    standalone_commercial_core_status: 'authored_internal',
+    authored_lesson_count: 4,
+    planned_lesson_count: 0,
     pending_task_originality_review_count: 10,
-    pending_task_internal_integration_count: 2,
-    pending_task_unintegrated_count: 8,
+    pending_task_internal_integration_count: 4,
+    pending_task_unintegrated_count: 6,
     companion_access_status: 'unverified_internal_only',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
     production_validation_status: 'blocked',
@@ -645,7 +645,7 @@ test('implementation roadmap reports only the bounded production progress', () =
   );
   assert.equal(
     roadmap.stages.find((stage) => stage.stage_id === 'pilot-lesson-authoring').status,
-    'in_progress',
+    'complete',
   );
   assert.equal(
     roadmap.stages.find((stage) => stage.stage_id === 'production-validation').status,

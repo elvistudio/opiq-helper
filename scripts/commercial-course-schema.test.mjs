@@ -132,7 +132,7 @@ test('production baseline includes the bounded Grade 2 lesson slice', () => {
   const result = validateLessonPlanRepository(structuredClone(baseline.repository));
   assert.deepEqual(result.summary, {
     profiles: 6,
-    lessons: 13,
+    lessons: 14,
     units: 2,
     annualCourses: 1,
     annualComponents: 4,

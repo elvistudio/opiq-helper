@@ -35,7 +35,7 @@
     "grade": { "const": 2 },
     "title_ru": { "const": "Погода, вода и безопасность" },
     "title_et": { "const": "Ilm, vesi ja ohutus" },
-    "implementation_status": { "const": "partial_internal_authoring" },
+    "implementation_status": { "const": "internal_authoring_complete" },
     "delivery": {
       "type": "object",
       "additionalProperties": false,
@@ -80,8 +80,8 @@
       ],
       "properties": {
         "total_slots": { "const": 4 },
-        "authored_lesson_count": { "const": 3 },
-        "planned_lesson_count": { "const": 1 },
+        "authored_lesson_count": { "const": 4 },
+        "planned_lesson_count": { "const": 0 },
         "slots": {
           "type": "array",
           "minItems": 4,
@@ -123,30 +123,15 @@
           }
         },
         "pending_internal": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "lesson_id",
-            "task_fingerprints",
-            "publication_unlocks",
-            "customer_visibility_unlocks"
-          ],
-          "properties": {
-            "lesson_id": { "const": "grade-2-weather-water-safety-03-safe-decisions" },
-            "task_fingerprints": {
-              "type": "array",
-              "minItems": 2,
-              "maxItems": 2,
-              "items": { "$ref": "#/$defs/pendingTaskFingerprint" }
-            },
-            "publication_unlocks": { "const": false },
-            "customer_visibility_unlocks": { "const": false }
-          }
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/pendingTaskGroup" }
         },
         "pending_unintegrated_task_ids": {
           "type": "array",
-          "minItems": 8,
-          "maxItems": 8,
+          "minItems": 6,
+          "maxItems": 6,
           "uniqueItems": true,
           "items": {
             "enum": [
@@ -155,9 +140,7 @@
               "g2-weather-message-main-point-task",
               "g2-weather-instruction-sequence-task",
               "g2-estonian-follow-instruction-task",
-              "g2-estonian-safety-phrase-task",
-              "g2-shared-weather-report-contribution-task",
-              "g2-weather-exit-ticket-task"
+              "g2-estonian-safety-phrase-task"
             ]
           }
         }
@@ -172,14 +155,20 @@
         "individual_observation_required",
         "individual_calculation_required",
         "individual_oral_output_required",
+        "individual_report_contribution_required",
+        "individual_exit_ticket_required",
+        "report_transfer_requires_personal_code",
         "shared_evidence_replaces_individual"
       ],
       "properties": {
-        "product": { "const": "weather_board_and_planned_report" },
+        "product": { "const": "weather_board_and_group_report" },
         "assembled_from_attributable_individual_work": { "const": true },
         "individual_observation_required": { "const": true },
         "individual_calculation_required": { "const": true },
         "individual_oral_output_required": { "const": true },
+        "individual_report_contribution_required": { "const": true },
+        "individual_exit_ticket_required": { "const": true },
+        "report_transfer_requires_personal_code": { "const": true },
         "shared_evidence_replaces_individual": { "const": false }
       }
     },
@@ -218,6 +207,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "authoring_complete",
         "module_complete",
         "release_ready",
         "teacher_approved",
@@ -226,7 +216,8 @@
         "effectiveness_claimed"
       ],
       "properties": {
-        "module_complete": { "const": false },
+        "authoring_complete": { "const": true },
+        "module_complete": { "const": true },
         "release_ready": { "const": false },
         "teacher_approved": { "const": false },
         "classroom_trial": { "const": "not_tested" },
@@ -237,27 +228,105 @@
     "claim_boundary": { "type": "string", "minLength": 30 }
   },
   "$defs": {
-    "pendingTaskFingerprint": {
+    "pendingTaskGroup": {
       "oneOf": [
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["task_id", "value"],
+          "required": [
+            "lesson_id",
+            "task_fingerprints",
+            "publication_unlocks",
+            "customer_visibility_unlocks"
+          ],
           "properties": {
-            "task_id": { "const": "g2-water-edge-safe-decision-task" },
-            "value": { "const": "a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3" }
+            "lesson_id": { "const": "grade-2-weather-water-safety-03-safe-decisions" },
+            "task_fingerprints": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/$defs/pendingTask09Fingerprint" },
+                  { "$ref": "#/$defs/pendingTask10Fingerprint" }
+                ]
+              }
+            },
+            "publication_unlocks": { "const": false },
+            "customer_visibility_unlocks": { "const": false }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["task_id", "value"],
+          "required": [
+            "lesson_id",
+            "task_fingerprints",
+            "publication_unlocks",
+            "customer_visibility_unlocks"
+          ],
           "properties": {
-            "task_id": { "const": "g2-pe-water-safety-decision-task" },
-            "value": { "const": "1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922" }
+            "lesson_id": { "const": "grade-2-weather-water-safety-04-weather-report" },
+            "task_fingerprints": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/$defs/pendingTask11Fingerprint" },
+                  { "$ref": "#/$defs/pendingTask12Fingerprint" }
+                ]
+              }
+            },
+            "publication_unlocks": { "const": false },
+            "customer_visibility_unlocks": { "const": false }
           }
         }
       ]
+    },
+    "pendingTaskFingerprint": {
+      "oneOf": [
+        { "$ref": "#/$defs/pendingTask09Fingerprint" },
+        { "$ref": "#/$defs/pendingTask10Fingerprint" },
+        { "$ref": "#/$defs/pendingTask11Fingerprint" },
+        { "$ref": "#/$defs/pendingTask12Fingerprint" }
+      ]
+    },
+    "pendingTask09Fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "value"],
+      "properties": {
+        "task_id": { "const": "g2-water-edge-safe-decision-task" },
+        "value": { "const": "a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3" }
+      }
+    },
+    "pendingTask10Fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "value"],
+      "properties": {
+        "task_id": { "const": "g2-pe-water-safety-decision-task" },
+        "value": { "const": "1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922" }
+      }
+    },
+    "pendingTask11Fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "value"],
+      "properties": {
+        "task_id": { "const": "g2-shared-weather-report-contribution-task" },
+        "value": { "const": "303d0dc6c06e02f2aef83c38ed9fb024b1e89e00aa43195451c1645d851b90c0" }
+      }
+    },
+    "pendingTask12Fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "value"],
+      "properties": {
+        "task_id": { "const": "g2-weather-exit-ticket-task" },
+        "value": { "const": "b72ab93feeda22c38dce62e6b3c2c74c5500194f32e5ba8c0df2c63cf2ab3bc1" }
+      }
     },
     "lessonSlot": {
       "oneOf": [
@@ -277,7 +346,7 @@
             "release_ready"
           ],
           "properties": {
-            "position": { "enum": [1, 2, 3] },
+            "position": { "enum": [1, 2, 3, 4] },
             "status": { "const": "authored_internal" },
             "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
             "lesson_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
@@ -286,37 +355,6 @@
             "primary_subject": { "enum": ["science", "mathematics", "human_studies"] },
             "canonical_route_id": { "enum": ["grade-2-science", "grade-2-mathematics", "grade-2-human-studies"] },
             "content_complete": { "const": true },
-            "release_ready": { "const": false }
-          }
-        },
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "position",
-            "status",
-            "lesson_id",
-            "lesson_path",
-            "title_ru",
-            "title_et",
-            "planned_focus",
-            "content_complete",
-            "release_ready"
-          ],
-          "properties": {
-            "position": { "const": 4 },
-            "status": { "const": "planned" },
-            "lesson_id": { "const": null },
-            "lesson_path": { "const": null },
-            "title_ru": { "type": "string", "minLength": 3 },
-            "title_et": { "type": "string", "minLength": 3 },
-            "planned_focus": {
-              "type": "array",
-              "minItems": 1,
-              "uniqueItems": true,
-              "items": { "type": "string", "minLength": 10 }
-            },
-            "content_complete": { "const": false },
             "release_ready": { "const": false }
           }
         }
