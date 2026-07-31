@@ -28,6 +28,7 @@
     "extraction": { "$ref": "#/$defs/extraction" },
     "route_context": { "$ref": "#/$defs/routeContext" },
     "annual_allocation": { "$ref": "#/$defs/annualAllocation" },
+    "general_learning_outcomes": { "$ref": "#/$defs/generalLearningOutcomes" },
     "thematic_blocks": {
       "type": "array",
       "minItems": 1,
@@ -37,6 +38,11 @@
       "type": "array",
       "minItems": 1,
       "items": { "$ref": "#/$defs/lessonRange" }
+    },
+    "unnumbered_rows": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/unnumberedRow" }
     },
     "unresolved_items": {
       "type": "array",
@@ -199,6 +205,16 @@
         }
       }
     },
+    "generalLearningOutcomes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_pages", "values_and_attitudes", "inquiry_skills"],
+      "properties": {
+        "source_pages": { "$ref": "#/$defs/pageRefs" },
+        "values_and_attitudes": { "$ref": "#/$defs/stringArray" },
+        "inquiry_skills": { "$ref": "#/$defs/stringArray" }
+      }
+    },
     "thematicBlock": {
       "type": "object",
       "additionalProperties": false,
@@ -316,6 +332,46 @@
         }
       }
     },
+    "unnumberedRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_id",
+        "block_id",
+        "placement",
+        "topic_et",
+        "methods_and_practical_work",
+        "assessment",
+        "source_pages",
+        "extraction_confidence",
+        "unresolved_fields"
+      ],
+      "properties": {
+        "row_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "block_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "placement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["after_lesson", "before_lesson"],
+          "properties": {
+            "after_lesson": { "type": "integer", "minimum": 1 },
+            "before_lesson": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "methods_and_practical_work": { "$ref": "#/$defs/stringArray" },
+        "assessment": { "$ref": "#/$defs/stringArray" },
+        "source_pages": { "$ref": "#/$defs/pageRefs" },
+        "extraction_confidence": { "enum": ["high", "medium", "low"] },
+        "unresolved_fields": { "$ref": "#/$defs/stringArray" }
+      }
+    },
     "unresolvedItem": {
       "type": "object",
       "additionalProperties": false,
@@ -333,7 +389,9 @@
           "type": "string",
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
         },
-        "scope": { "enum": ["thematic_block", "lesson_range", "source_table"] },
+        "scope": {
+          "enum": ["thematic_block", "lesson_range", "unnumbered_row", "source_table"]
+        },
         "source_pages": { "$ref": "#/$defs/pageRefs" },
         "source_fragment_et": { "$ref": "#/$defs/nonEmptyString" },
         "description_et": { "$ref": "#/$defs/nonEmptyString" },

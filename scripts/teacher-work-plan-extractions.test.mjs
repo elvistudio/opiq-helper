@@ -28,6 +28,9 @@ const grade6Baseline = baselineCollection.repositories.find(
 const grade7GeographyBaseline = baselineCollection.repositories.find(
   ({ artifact }) => artifact.source.grade === 7 && artifact.source.subject === 'geography',
 );
+const grade7ScienceBaseline = baselineCollection.repositories.find(
+  ({ artifact }) => artifact.source.grade === 7 && artifact.source.subject === 'science',
+);
 
 function cloneRepository(repository) {
   return {
@@ -56,7 +59,7 @@ function assertInvalid(baseline, mutate, pattern) {
   assert.match(renderDiagnostics(result), pattern);
 }
 
-test('production collection discovers three registered extractions deterministically', () => {
+test('production collection discovers four registered extractions deterministically', () => {
   assert.deepEqual(baselineCollection.discoveredPaths, EXTRACTION_PATHS);
   assert.deepEqual(
     baselineCollection.repositories.map(({ extractionPath }) => extractionPath),
@@ -148,6 +151,38 @@ test('Grade 7 geography extraction matches the visually verified source', () => 
   });
 });
 
+test('Grade 7 geography extraction remains byte-identical to origin/main', () => {
+  const expectedSha = 'e8260b9ad4f5810e60638efb8a4f0cfa26b3fb36e847fbf0555e6547210546f4';
+  assert.equal(
+    crypto.createHash('sha256').update(grade7GeographyBaseline.artifactText).digest('hex'),
+    expectedSha,
+  );
+  const fromMain = spawnSync(
+    'git',
+    ['show', 'origin/main:evaluations/teacher-work-plans/grade-7-geography-extraction.json'],
+    { cwd: repositoryRoot, encoding: null },
+  );
+  assert.equal(fromMain.status, 0, String(fromMain.stderr));
+  assert.equal(crypto.createHash('sha256').update(fromMain.stdout).digest('hex'), expectedSha);
+});
+
+test('Grade 7 science extraction matches the visually verified source', () => {
+  const result = validateTeacherWorkPlanExtractionRepository(grade7ScienceBaseline);
+  assert.deepEqual(result, {
+    diagnostics: [],
+    summary: {
+      errors: 0,
+      extraction_id: 'grade-7-science-teacher-work-plan-extraction',
+      thematic_blocks: 4,
+      lesson_ranges: 58,
+      lessons_covered: 70,
+      unresolved_items: 10,
+      source_pages: 17,
+      derived_hours: 70,
+    },
+  });
+});
+
 test('all artifact serializations are deterministic', () => {
   for (const repository of baselineCollection.repositories) {
     assert.equal(
@@ -178,6 +213,13 @@ test('all source PDFs are unchanged regular files with verified provenance', () 
   assert.equal(
     grade7GeographyBaseline.artifact.source.sha256,
     'd25874fcf0c211d1b1f1e0a22d2beb50cb4046eb05eaec31bfb1068bbbcf82aa',
+  );
+  assert.equal(grade7ScienceBaseline.sourceIsRegularFile, true);
+  assert.equal(grade7ScienceBaseline.sourcePdfPageCount, 17);
+  assert.equal(grade7ScienceBaseline.sourceBytes.byteLength, 325726);
+  assert.equal(
+    grade7ScienceBaseline.artifact.source.sha256,
+    'fb883aaf6429af4b543def1eb18deca3909ec541b4eaa5eccc7efb880368f35f',
   );
 });
 
@@ -226,6 +268,94 @@ test('Grade 7 geography retains required source ambiguities', () => {
   assert.ok(
     artifact.unresolved_items.some(({ item_id }) => item_id === 'lesson-week-header-switch'),
   );
+});
+
+test('Grade 7 science preserves page coverage, ranges and derived allocations', () => {
+  const artifact = grade7ScienceBaseline.artifact;
+  assert.deepEqual(
+    artifact.extraction.verified_pages,
+    Array.from({ length: 17 }, (_, index) => index + 1),
+  );
+  assert.equal(artifact.lesson_ranges.length, 58);
+  assert.deepEqual(
+    artifact.lesson_ranges
+      .filter((range) => range.lesson_end > range.lesson_start)
+      .map((range) => [range.lesson_start, range.lesson_end]),
+    [[4, 5], [9, 10], [11, 12], [16, 17], [18, 19], [26, 27], [31, 32], [65, 70]],
+  );
+  assert.equal(
+    artifact.lesson_ranges.every((range) => range.record_kind === 'source_table_row'),
+    true,
+  );
+  assert.deepEqual(
+    artifact.thematic_blocks.map((block) => block.derived_hours),
+    [
+      { minimum: 19, maximum: 19, basis: 'numbered_lesson_span', source_text: 'lessons 1-19' },
+      { minimum: 15, maximum: 15, basis: 'numbered_lesson_span', source_text: 'lessons 20-34' },
+      { minimum: 18, maximum: 18, basis: 'numbered_lesson_span', source_text: 'lessons 35-52' },
+      { minimum: 18, maximum: 18, basis: 'numbered_lesson_span', source_text: 'lessons 53-70' },
+    ],
+  );
+  assert.equal(
+    artifact.thematic_blocks.every(
+      (block) => !Object.hasOwn(block, 'declared_hours') && !Object.hasOwn(block, 'approximate_weeks'),
+    ),
+    true,
+  );
+  assert.deepEqual(
+    artifact.completeness.lesson_number_coverage,
+    { lesson_start: 1, lesson_end: 70, gaps: [], overlaps: [] },
+  );
+  assert.deepEqual(artifact.general_learning_outcomes.source_pages, [1]);
+  assert.equal(artifact.general_learning_outcomes.values_and_attitudes.length, 5);
+  assert.equal(artifact.general_learning_outcomes.inquiry_skills.length, 13);
+});
+
+test('Grade 7 science keeps the unnumbered wrap-up row outside numbered coverage', () => {
+  const artifact = grade7ScienceBaseline.artifact;
+  assert.deepEqual(artifact.unnumbered_rows, [
+    {
+      row_id: 'inimene-uurib-loodust-wrap-up',
+      block_id: 'inimene-uurib-loodust',
+      placement: { after_lesson: 19, before_lesson: 20 },
+      topic_et: 'Kordamine, kinnistamine ja hindamine',
+      methods_and_practical_work: ['Õpilased esitavad tööraamatu või tehtud tööde mapi.'],
+      assessment: ['Tööraamatu või tehtud tööde mapi esitamine.'],
+      source_pages: [6],
+      extraction_confidence: 'high',
+      unresolved_fields: ['unnumbered-wrap-up-row'],
+    },
+  ]);
+  assert.equal(artifact.lesson_ranges.some((range) => range.lesson_start === 71), false);
+});
+
+test('Grade 7 science retains source ambiguities and page continuations', () => {
+  const artifact = grade7ScienceBaseline.artifact;
+  const findRange = (start, end = start) => artifact.lesson_ranges.find(
+    (range) => range.lesson_start === start && range.lesson_end === end,
+  );
+  assert.deepEqual(findRange(14).source_pages, [5]);
+  assert.equal(findRange(14).extraction_confidence, 'medium');
+  assert.ok(findRange(14).unresolved_fields.includes('lesson-14-missing-topic-cell'));
+  assert.deepEqual(findRange(33).source_pages, [9, 10]);
+  assert.equal(findRange(33).extraction_confidence, 'medium');
+  assert.ok(findRange(33).unresolved_fields.includes('lesson-33-missing-topic-cell'));
+  assert.deepEqual(findRange(18, 19).source_pages, [5, 6]);
+  assert.deepEqual(findRange(26, 27).source_pages, [8, 9]);
+  assert.deepEqual(findRange(59).source_pages, [15, 16]);
+  assert.equal(findRange(65, 70).topic_et, 'Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid');
+  const thirdBlock = artifact.thematic_blocks[2];
+  assert.equal(thirdBlock.title_et, 'LOODUSNÄHTUSED');
+  assert.equal(thirdBlock.extraction_confidence, 'medium');
+  assert.ok(thirdBlock.unresolved_fields.includes('third-block-heading-not-printed'));
+  for (const itemId of [
+    'blank-final-page',
+    'pdf-author-metadata-mismatch',
+    'reserve-hours-note-vs-visible-range',
+    'reserve-range-not-six-distinct-topics',
+  ]) {
+    assert.ok(artifact.unresolved_items.some((item) => item.item_id === itemId));
+  }
 });
 
 test('Grade 6 covers all pages and lessons with source-preserved ranges', () => {
@@ -652,6 +782,194 @@ test('unknown Grade 7 geography fields are rejected by the strict schema', () =>
   }, /unknown field invented_hours/u);
 });
 
+test('wrong Grade 7 science SHA-256 and byte size are rejected', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.source.sha256 = '0'.repeat(64);
+  }, /source\/sha256/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.source.byte_size = 325725;
+  }, /source\/byte_size/u);
+});
+
+test('Grade 7 science page count 16 or 18 is rejected', () => {
+  for (const pageCount of [16, 18]) {
+    assertInvalid(grade7ScienceBaseline, (repository) => {
+      repository.artifact.source.page_count = pageCount;
+    }, /source\/page_count/u);
+  }
+});
+
+test('Grade 7 science page reference 0 or 18 is rejected', () => {
+  for (const page of [0, 18]) {
+    assertInvalid(grade7ScienceBaseline, (repository) => {
+      repository.artifact.lesson_ranges[0].source_pages = [page];
+    }, /source_pages|must be >= 1/u);
+  }
+});
+
+test('missing Grade 7 science lessons 14, 33 or 70 are rejected', () => {
+  for (const lesson of [14, 33, 70]) {
+    assertInvalid(grade7ScienceBaseline, (repository) => {
+      const index = repository.artifact.lesson_ranges.findIndex(
+        (range) => range.lesson_start <= lesson && range.lesson_end >= lesson,
+      );
+      repository.artifact.lesson_ranges.splice(index, 1);
+    }, new RegExp(`missing lesson numbers:|source range|expected 58`, 'u'));
+  }
+});
+
+test('Grade 7 science overlap at lesson 35 and lesson 71 are rejected', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const range = repository.artifact.lesson_ranges.find((entry) => entry.lesson_start === 35);
+    range.lesson_start = 34;
+  }, /overlapping lesson numbers: 34|explicit multi-lesson ranges differ/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const range = repository.artifact.lesson_ranges.find((entry) => entry.lesson_start === 65);
+    range.lesson_end = 71;
+  }, /outside 1-70|explicit multi-lesson ranges differ/u);
+});
+
+test('Grade 7 science rejects geography and adjacent science routes', () => {
+  for (const sourceId of ['grade-7-geography', 'grade-6-science']) {
+    assertInvalid(grade7ScienceBaseline, (repository) => {
+      repository.artifact.route_context.source_id = sourceId;
+    }, /route context differs|route grade or subject differs/u);
+  }
+});
+
+test('Grade 7 science cannot become geography or geograafia', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.source.subject = 'geography';
+    repository.artifact.source.subject_et = 'geograafia';
+  }, /grade or subject differs|source\/subject/u);
+});
+
+test('Grade 7 geography PDF cannot back the science extraction', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.source.repository_path =
+      'project-files/inputs/originals/teacher-work-plans/Geo-tookava-7-klass-Reet-Tuisk.pdf';
+  }, /source path differs|source\/repository_path|provenance/u);
+});
+
+test('wrong Grade 7 science md_path is rejected', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.route_context.md_path =
+      'project-files/outputs/opiq_7klass_geograafia.md';
+  }, /route_context\/md_path|route context differs/u);
+});
+
+test('Grade 7 science canonical and completeness claims are rejected', () => {
+  for (const mutate of [
+    (artifact) => { artifact.source.canonical = true; },
+    (artifact) => { artifact.completeness.official_curriculum_complete = true; },
+    (artifact) => { artifact.completeness.canonical_opiq_mapping_complete = true; },
+    (artifact) => { artifact.route_context.mapping_status = 'complete'; },
+  ]) {
+    assertInvalid(grade7ScienceBaseline, (repository) => {
+      mutate(repository.artifact);
+    }, /canonical|completeness|mapping_status|mapping must remain deferred/u);
+  }
+});
+
+test('Grade 7 science requires derived hours matching block spans and total 70', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.thematic_blocks[0].derived_hours.minimum = 18;
+    repository.artifact.thematic_blocks[0].derived_hours.maximum = 18;
+  }, /aggregate hour range is 69-69|derived allocation must equal/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.thematic_blocks[0].main_numbered_lesson_span.lesson_end = 18;
+  }, /main numbered lesson span differs|derived allocation must equal/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    delete repository.artifact.thematic_blocks[0].derived_hours;
+    repository.artifact.thematic_blocks[0].declared_hours = 19;
+  }, /must use derived_hours exclusively|derived_hours|hour allocation differs/u);
+});
+
+test('Grade 7 science cannot infer approximate weeks', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.thematic_blocks[0].approximate_weeks = 9.5;
+  }, /approximate weeks cannot be inferred/u);
+});
+
+test('Grade 7 science requires its separate unnumbered wrap-up row', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    delete repository.artifact.unnumbered_rows;
+  }, /expected 1 registered unnumbered source row|unnumbered row/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.unnumbered_rows[0].lesson_start = 20;
+  }, /unknown field lesson_start/u);
+});
+
+test('unnumbered wrap-up cannot enter lesson coverage or derived hours', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const numbered = structuredClone(repository.artifact.lesson_ranges[14]);
+    numbered.topic_et = repository.artifact.unnumbered_rows[0].topic_et;
+    repository.artifact.lesson_ranges.splice(15, 0, numbered);
+  }, /overlapping lesson numbers|expected 58 source-table/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.thematic_blocks[0].derived_hours.minimum = 20;
+    repository.artifact.thematic_blocks[0].derived_hours.maximum = 20;
+  }, /aggregate hour range is 71-71|derived allocation must equal/u);
+});
+
+test('Grade 7 science keeps range 65-70 as one source-table record', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const index = repository.artifact.lesson_ranges.findIndex(
+      (range) => range.lesson_start === 65,
+    );
+    const original = repository.artifact.lesson_ranges[index];
+    const replacements = Array.from({ length: 6 }, (_, offset) => ({
+      ...structuredClone(original),
+      lesson_start: 65 + offset,
+      lesson_end: 65 + offset,
+      topic_et: `Väljamõeldud varuteema ${offset + 1}`,
+    }));
+    repository.artifact.lesson_ranges.splice(index, 1, ...replacements);
+  }, /explicit multi-lesson ranges differ|expected 58 source-table/u);
+});
+
+test('Grade 7 science required ambiguity markers and page evidence cannot disappear', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const range = repository.artifact.lesson_ranges.find((entry) => entry.lesson_start === 14);
+    range.unresolved_fields = [];
+  }, /source range 14-14 differs/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const range = repository.artifact.lesson_ranges.find((entry) => entry.lesson_start === 33);
+    range.source_pages = [9];
+  }, /source range 33-33 differs/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    const range = repository.artifact.lesson_ranges.find((entry) => entry.lesson_start === 33);
+    range.unresolved_fields = ['cross-page-table-continuations'];
+  }, /source range 33-33 differs/u);
+  for (const itemId of [
+    'third-block-heading-not-printed',
+    'blank-final-page',
+    'pdf-author-metadata-mismatch',
+  ]) {
+    assertInvalid(grade7ScienceBaseline, (repository) => {
+      repository.artifact.unresolved_items = repository.artifact.unresolved_items
+        .filter((item) => item.item_id !== itemId);
+    }, new RegExp(`required source ambiguity ${itemId}|unknown unresolved item ID ${itemId}`, 'u'));
+  }
+});
+
+test('Grade 7 science retains course-wide page 1 learning outcomes', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    delete repository.artifact.general_learning_outcomes;
+  }, /general_learning_outcomes|course-wide page 1 learning outcomes/u);
+});
+
+test('Grade 7 science unnumbered rows are strict and uniquely identified', () => {
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.unnumbered_rows[0].invented_lesson = 20;
+  }, /unknown field invented_lesson/u);
+  assertInvalid(grade7ScienceBaseline, (repository) => {
+    repository.artifact.unnumbered_rows.push(
+      structuredClone(repository.artifact.unnumbered_rows[0]),
+    );
+  }, /row_id values must be unique|expected 1 registered unnumbered/u);
+});
+
 test('altered Grade 6 artifact still violates its registered contract', () => {
   assertInvalid(grade6Baseline, (repository) => {
     repository.artifact.thematic_blocks[0].declared_hours = 11;
@@ -671,7 +989,7 @@ test('production extraction file order is enforced', () => {
 
 test('unregistered production extraction files are rejected', () => {
   const collection = {
-    discoveredPaths: [...baselineCollection.discoveredPaths, 'evaluations/teacher-work-plans/grade-7-science-extraction.json'],
+    discoveredPaths: [...baselineCollection.discoveredPaths, 'evaluations/teacher-work-plans/grade-8-science-extraction.json'],
     repositories: baselineCollection.repositories.map(cloneRepository),
   };
   assert.match(
@@ -680,34 +998,35 @@ test('unregistered production extraction files are rejected', () => {
   );
 });
 
-test('scope guard allows only Grade 7 geography extraction-phase support files', () => {
+test('scope guard allows only Grade 7 science extraction-phase support files', () => {
   assert.deepEqual(validateTeacherWorkPlanChangedPaths([
-    'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+    'evaluations/teacher-work-plans/grade-7-science-extraction.json',
     'schemas/teacher-work-plan-extraction.schema.json',
     'scripts/lib/teacher-work-plan-extractions.mjs',
     'scripts/teacher-work-plan-extractions.test.mjs',
     'scripts/check-teacher-work-plan-extractions.mjs',
     'scripts/classify-source-validation-scope.mjs',
     'scripts/classify-source-validation-scope.test.mjs',
-    'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
+    'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
     '.github/workflows/validate-source-manifest.yml',
   ]), []);
 });
 
-test('scope guard rejects protected paths, prior artifacts, and Grade 7 science', () => {
+test('scope guard rejects protected paths and all three prior artifacts', () => {
   const diagnostics = validateTeacherWorkPlanChangedPaths([
     'source-manifest.json',
     'evaluations/teacher-work-plans/grade-5-science-extraction.json',
     'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+    'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+    'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
     'curriculum-maps/grade-7-geography/coverage-matrix.yaml',
     'project-files/inputs/originals/teacher-work-plans/source.pdf',
     'project-files/outputs/opiq_7klass_geograafia.md',
     'annual-courses/grade-7-geography/annual-architecture.yaml',
     'lesson-plans/grade-7-geography/lesson-01.yaml',
     'teacher-packs/grade-7-geography/materials.yaml',
-    'evaluations/teacher-work-plans/grade-7-science-extraction.json',
   ]);
-  assert.equal(diagnostics.length, 10);
+  assert.equal(diagnostics.length, 11);
 });
 
 test('changed-path collector reports repository changes without duplicates', () => {
@@ -716,10 +1035,10 @@ test('changed-path collector reports repository changes without duplicates', () 
     paths,
     [...new Set(paths)].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
   );
-  assert.ok(paths.includes('evaluations/teacher-work-plans/grade-7-geography-extraction.json'));
+  assert.ok(paths.includes('evaluations/teacher-work-plans/grade-7-science-extraction.json'));
 });
 
-test('check command validates all three registered extractions together', () => {
+test('check command validates all four registered extractions together', () => {
   const result = spawnSync(
     process.execPath,
     ['scripts/check-teacher-work-plan-extractions.mjs'],
@@ -729,7 +1048,9 @@ test('check command validates all three registered extractions together', () => 
   assert.match(result.stdout, /grade-5-science-teacher-work-plan-extraction/u);
   assert.match(result.stdout, /grade-6-science-teacher-work-plan-extraction/u);
   assert.match(result.stdout, /grade-7-geography-teacher-work-plan-extraction/u);
+  assert.match(result.stdout, /grade-7-science-teacher-work-plan-extraction/u);
   assert.match(result.stdout, /31 pages and 104-106 declared block hours verified/u);
   assert.match(result.stdout, /17 pages and 35 derived block hours verified/u);
-  assert.match(result.stdout, /collection valid: 3 artifacts/u);
+  assert.match(result.stdout, /17 pages and 70 derived block hours verified/u);
+  assert.match(result.stdout, /collection valid: 4 artifacts/u);
 });
