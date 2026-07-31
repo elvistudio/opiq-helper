@@ -624,8 +624,8 @@ artifact_readiness:
 delivery_model:
   core_mode: standalone_commercial_core
   opiq_required: false
-  opiq_companion_policy: none
-  family_overlay_supported: false
+  opiq_companion_policy: optional
+  family_overlay_supported: true
   customer_can_complete_without_opiq: true
   publication_status: internal_review
 commercial_core:
@@ -655,7 +655,41 @@ commercial_core:
       open_ended: true
       open_ended_exemption:
         reason: The correct observation depends on current local weather and must be supported by individual evidence.
-opiq_companions: []
+opiq_companions:
+  - companion_id: g2-weather-water-01-weather-observation-companion
+    source_record:
+      record_id: grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be
+      canonical_url: https://www.opiq.ee/kit/570/chapter/32084
+      canonical_source_id: grade-2-science
+      book_id: avita_природовед_2_ru
+      title: Ilm
+      language: ru
+      programme_type: ordinary
+      instructional_roles:
+        - optional_extension
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-2-science / kit 570 / chapter 32084
+        notes: Canonical Grade 2 ordinary-curriculum record selected by the project architecture; full prose and customer access
+          remain unverified.
+      selection_rationale: Optional internal illustration of weather observation after the standalone explanation; it is not
+        required evidence.
+    kit_id: 570
+    chapter_id: 32084
+    companion_role: additional_explanation
+    access:
+      mode: unverified
+      last_checked_on: null
+      check_status: not_checked
+      notes: The record is retained for internal companion evaluation; customer access has not been verified.
+    publication_visibility: internal_only
+    standalone_fallback:
+      exists: true
+      author_material_ids:
+        - g2-weather-observation-explanation
+      lesson_stage_refs:
+        - explain-weather-ru
+      notes: The author-created Russian explanation covers the same bounded weather-observation role without Opiq.
 originality_review:
   review_id: grade-2-weather-water-safety-01-observation-originality-review
   status: pending
@@ -695,7 +729,59 @@ originality_review:
     copied_answer_keys: false
     extracted_interactive_content: false
   notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
-family_overlay_hooks: []
+family_overlay_hooks:
+  - hook_id: g2-weather-water-01-foundation-participation
+    hook_role: foundation_participation
+    supported_lanes:
+      - foundation
+    core_refs:
+      stage_ids:
+        - activate-weather
+      material_ids:
+        - g2-weather-observation-explanation
+      objective_ids: []
+      assessment_criterion_ids: []
+    shared_product_supported: true
+    individual_evidence_required: false
+    shared_evidence_replaces_individual: false
+    notes: Foundation participation is bounded observation or listening and is never reported as Grade 2 mastery.
+  - hook_id: g2-weather-water-01-grade-2-responsibility
+    hook_role: grade_2_responsibility
+    supported_lanes:
+      - grade_2
+    core_refs:
+      stage_ids:
+        - individual-weather-observation
+      material_ids:
+        - g2-weather-observation-task
+      objective_ids:
+        - record-current-weather-evidence
+      assessment_criterion_ids:
+        - weather-subject-understanding
+        - weather-practical-safety
+    shared_product_supported: true
+    individual_evidence_required: true
+    shared_evidence_replaces_individual: false
+    notes: The Grade 2 lane retains the lesson subject evidence separately; shared work and Estonian evidence cannot replace
+      it.
+  - hook_id: g2-weather-water-01-grade-4-extension
+    hook_role: grade_4_extension
+    supported_lanes:
+      - grade_4
+    core_refs:
+      stage_ids:
+        - individual-weather-observation
+      material_ids:
+        - g2-weather-observation-task
+      objective_ids:
+        - record-current-weather-evidence
+      assessment_criterion_ids:
+        - weather-subject-understanding
+    shared_product_supported: true
+    individual_evidence_required: true
+    shared_evidence_replaces_individual: false
+    notes: This stable extension hook adds no Grade 4 outcome or mandatory Grade 2 work and cannot count group work as
+      mastery.
 provenance:
   category: author_created_bridge
   source_reference: grade-2-project-weather-water-safety; grade-2-science-official-curriculum

@@ -20,6 +20,9 @@
     "lesson_contract",
     "task_bank_integration",
     "shared_product",
+    "family_overlay",
+    "companion_access_status",
+    "opiq_companion_summary",
     "physical_education_boundary",
     "teacher_pack",
     "readiness",
@@ -172,6 +175,76 @@
         "shared_evidence_replaces_individual": { "const": false }
       }
     },
+    "family_overlay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supported",
+        "implementation_status",
+        "hook_count",
+        "supported_lanes",
+        "grade_2_individual_evidence_required",
+        "shared_evidence_replaces_individual",
+        "hook_index"
+      ],
+      "properties": {
+        "supported": { "const": true },
+        "implementation_status": { "const": "hooks_only" },
+        "hook_count": { "const": 12 },
+        "supported_lanes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "enum": ["foundation", "grade_2", "grade_4"] }
+        },
+        "grade_2_individual_evidence_required": { "const": true },
+        "shared_evidence_replaces_individual": { "const": false },
+        "hook_index": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/familyHookIndexEntry" }
+        }
+      }
+    },
+    "companion_access_status": { "const": "unverified_internal_only" },
+    "opiq_companion_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "committed_companion_count",
+        "customer_visible_companion_count",
+        "all_companions_optional",
+        "all_companions_have_standalone_fallback",
+        "eligible_role_gaps"
+      ],
+      "properties": {
+        "committed_companion_count": { "const": 4 },
+        "customer_visible_companion_count": { "const": 0 },
+        "all_companions_optional": { "const": true },
+        "all_companions_have_standalone_fallback": { "const": true },
+        "eligible_role_gaps": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "status"],
+            "properties": {
+              "role": {
+                "enum": [
+                  "water_cycle",
+                  "estonian_terminology_and_short_oral_output"
+                ]
+              },
+              "status": { "const": "no_exact_eligible_selected_record" }
+            }
+          }
+        }
+      }
+    },
     "physical_education_boundary": {
       "type": "object",
       "additionalProperties": false,
@@ -228,6 +301,25 @@
     "claim_boundary": { "type": "string", "minLength": 30 }
   },
   "$defs": {
+    "familyHookIndexEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lesson_id", "hook_id"],
+      "properties": {
+        "lesson_id": {
+          "enum": [
+            "grade-2-weather-water-safety-01-observation",
+            "grade-2-weather-water-safety-02-data-time",
+            "grade-2-weather-water-safety-03-safe-decisions",
+            "grade-2-weather-water-safety-04-weather-report"
+          ]
+        },
+        "hook_id": {
+          "type": "string",
+          "pattern": "^g2-weather-water-0[1-4]-(?:foundation-participation|grade-2-responsibility|grade-4-extension)$"
+        }
+      }
+    },
     "pendingTaskGroup": {
       "oneOf": [
         {

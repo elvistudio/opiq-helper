@@ -833,8 +833,8 @@ artifact_readiness:
 delivery_model:
   core_mode: standalone_commercial_core
   opiq_required: false
-  opiq_companion_policy: none
-  family_overlay_supported: false
+  opiq_companion_policy: optional
+  family_overlay_supported: true
   customer_can_complete_without_opiq: true
   publication_status: internal_review
 commercial_core:
@@ -873,7 +873,42 @@ commercial_core:
       open_ended: false
       expected_answer_material_ids:
         - g2-pe-water-safety-decision-expected-answers
-opiq_companions: []
+opiq_companions:
+  - companion_id: g2-weather-water-03-human-studies-safety-companion
+    source_record:
+      record_id: grade-2-human-studies-record-494-https-www-opiq-ee-kit-494-chapter-27188-5c6cb21a30
+      canonical_url: https://www.opiq.ee/kit/494/chapter/27188
+      canonical_source_id: grade-2-human-studies
+      book_id: avita_inimeseõpe_2_et__kit494
+      title: VEEOHUTUS I
+      language: et
+      programme_type: ordinary
+      instructional_roles:
+        - optional_extension
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-2-human-studies / kit 494 / chapter 27188
+        notes: Canonical Grade 2 ordinary-curriculum record selected by the project architecture; full prose and customer access
+          remain unverified.
+      selection_rationale: Optional internal human-studies water-safety exploration after the standalone rule; it is not
+        evidence for physical education.
+    kit_id: 494
+    chapter_id: 27188
+    companion_role: project_source
+    access:
+      mode: unverified
+      last_checked_on: null
+      check_status: not_checked
+      notes: The record is retained for internal companion evaluation; customer access has not been verified.
+    publication_visibility: internal_only
+    standalone_fallback:
+      exists: true
+      author_material_ids:
+        - g2-water-safety-explanation
+      lesson_stage_refs:
+        - explain-water-safety-ru
+      notes: The author-created dry-safety explanation covers the human-studies role; neither source can satisfy the separate
+        PE outcome.
 originality_review:
   review_id: grade-2-weather-water-safety-03-safe-decisions-originality-review
   status: pending
@@ -917,7 +952,62 @@ originality_review:
     copied_answer_keys: false
     extracted_interactive_content: false
   notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
-family_overlay_hooks: []
+family_overlay_hooks:
+  - hook_id: g2-weather-water-03-foundation-participation
+    hook_role: foundation_participation
+    supported_lanes:
+      - foundation
+    core_refs:
+      stage_ids:
+        - retrieve-weather-data
+      material_ids:
+        - g2-water-safety-explanation
+      objective_ids: []
+      assessment_criterion_ids: []
+    shared_product_supported: true
+    individual_evidence_required: false
+    shared_evidence_replaces_individual: false
+    notes: Foundation participation is bounded observation or listening and is never reported as Grade 2 mastery.
+  - hook_id: g2-weather-water-03-grade-2-responsibility
+    hook_role: grade_2_responsibility
+    supported_lanes:
+      - grade_2
+    core_refs:
+      stage_ids:
+        - attempt-human-studies-task
+        - attempt-pe-task
+      material_ids:
+        - g2-water-edge-safe-decision-task
+        - g2-pe-water-safety-decision-task
+      objective_ids:
+        - make-responsible-water-edge-choice
+        - apply-dry-water-safety-decision
+      assessment_criterion_ids:
+        - water-safety-human-studies
+        - water-safety-pe-dry-decision
+    shared_product_supported: true
+    individual_evidence_required: true
+    shared_evidence_replaces_individual: false
+    notes: The Grade 2 lane retains the lesson subject evidence separately; shared work and Estonian evidence cannot replace
+      it.
+  - hook_id: g2-weather-water-03-grade-4-extension
+    hook_role: grade_4_extension
+    supported_lanes:
+      - grade_4
+    core_refs:
+      stage_ids:
+        - attempt-human-studies-task
+      material_ids:
+        - g2-water-edge-safe-decision-task
+      objective_ids:
+        - make-responsible-water-edge-choice
+      assessment_criterion_ids:
+        - water-safety-human-studies
+    shared_product_supported: true
+    individual_evidence_required: true
+    shared_evidence_replaces_individual: false
+    notes: This stable extension hook adds no Grade 4 outcome or mandatory Grade 2 work and cannot count group work as
+      mastery.
 provenance:
   category: author_created_bridge
   source_reference: grade-2-project-weather-water-safety; grade-2-human-studies-official-curriculum

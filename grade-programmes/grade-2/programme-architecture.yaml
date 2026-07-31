@@ -99,6 +99,12 @@ opiq_companion_policy:
   default_visibility: internal_only
   standalone_fallback_required: true
   teacher_only_allowed: false
+pilot_closeout:
+  acceptance_audit_status: implemented
+  customer_companion_access_status: unverified
+  family_overlay_hook_count: 12
+  family_overlay_hook_status: implemented_hooks_only
+  opiq_companion_metadata_status: internal_candidates_only
 practical_and_community_learning:
   classification: recommended_good_practice
   principle: Use safe age-appropriate application while retaining individual evidence and explicit source gaps.

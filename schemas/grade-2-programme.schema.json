@@ -30,6 +30,24 @@
       "type": "string",
       "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
     },
+    "pilotCloseoutStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_overlay_hook_status",
+        "family_overlay_hook_count",
+        "opiq_companion_metadata_status",
+        "customer_companion_access_status",
+        "acceptance_audit_status"
+      ],
+      "properties": {
+        "family_overlay_hook_status": { "const": "implemented_hooks_only" },
+        "family_overlay_hook_count": { "const": 12 },
+        "opiq_companion_metadata_status": { "const": "internal_candidates_only" },
+        "customer_companion_access_status": { "const": "unverified" },
+        "acceptance_audit_status": { "const": "implemented" }
+      }
+    },
     "projectSourceAlignment": {
       "type": "object",
       "additionalProperties": false,
@@ -172,6 +190,7 @@
             "revision_and_assessment_calendar",
             "estonian_language_progression",
             "opiq_companion_policy",
+            "pilot_closeout",
             "implementation_roadmap",
             "completeness",
             "release_gate",
@@ -327,6 +346,7 @@
                 "teacher_only_allowed": { "const": false }
               }
             },
+            "pilot_closeout": { "$ref": "#/$defs/pilotCloseoutStatus" },
             "implementation_roadmap": { "$ref": "#/$defs/repositoryPath" },
             "completeness": { "$ref": "#/$defs/completeness" },
             "release_gate": {
@@ -1011,6 +1031,11 @@
                 "pending_task_internal_integration_count",
                 "pending_task_unintegrated_count",
                 "companion_access_status",
+                "family_overlay_hook_status",
+                "family_overlay_hook_count",
+                "opiq_companion_metadata_status",
+                "customer_companion_access_status",
+                "acceptance_audit_status",
                 "final_riigi_teataja_refresh_status",
                 "production_validation_status",
                 "teacher_review_status",
@@ -1028,6 +1053,11 @@
                 "pending_task_internal_integration_count": { "const": 4 },
                 "pending_task_unintegrated_count": { "const": 6 },
                 "companion_access_status": { "const": "unverified_internal_only" },
+                "family_overlay_hook_status": { "const": "implemented_hooks_only" },
+                "family_overlay_hook_count": { "const": 12 },
+                "opiq_companion_metadata_status": { "const": "internal_candidates_only" },
+                "customer_companion_access_status": { "const": "unverified" },
+                "acceptance_audit_status": { "const": "implemented" },
                 "final_riigi_teataja_refresh_status": { "const": "pending_under_issue_37" },
                 "production_validation_status": { "const": "blocked" },
                 "teacher_review_status": { "const": "pending" },
