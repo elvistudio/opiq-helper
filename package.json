@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "check:teacher-work-plans": "node scripts/check-teacher-work-plan-extractions.mjs",
     "check:2026-27-compliance": "node scripts/generate-2026-27-compliance.mjs --check",
     "check:commercial-course-schema": "node scripts/check-commercial-course-schema.mjs",
     "check:task-bank": "node scripts/check-task-bank.mjs",
@@ -94,6 +95,7 @@
     "test:teacher-packs": "node --test scripts/teacher-packs.test.mjs",
     "test:synthesis": "node --test scripts/topic-synthesis.test.mjs",
     "test:topics": "node --test scripts/known-topic-regressions.test.mjs",
+    "test:teacher-work-plans": "node --test scripts/teacher-work-plan-extractions.test.mjs",
     "test:validation-scope": "node --test scripts/classify-source-validation-scope.test.mjs"
   },
   "devDependencies": {

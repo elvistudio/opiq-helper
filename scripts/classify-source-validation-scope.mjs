@@ -11,6 +11,25 @@ const HEAVY_JOB_OUTPUTS = Object.freeze([
   'run_pedagogy_evidence',
 ]);
 
+const CONDITIONAL_JOB_OUTPUTS = Object.freeze([
+  ...HEAVY_JOB_OUTPUTS,
+  'run_teacher_work_plans',
+]);
+
+const TEACHER_WORK_PLAN_EXACT = new Set([
+  'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+  'docs/migrations/teacher-work-plans-5-7-integration.md',
+  'schemas/teacher-work-plan-extraction.schema.json',
+  'scripts/check-teacher-work-plan-extractions.mjs',
+  'scripts/lib/teacher-work-plan-extractions.mjs',
+  'scripts/teacher-work-plan-extractions.test.mjs',
+]);
+
+const TEACHER_WORK_PLAN_PREFIXES = Object.freeze([
+  'evaluations/teacher-work-plans/',
+  'project-files/inputs/originals/teacher-work-plans/',
+]);
+
 const ALWAYS_FULL_EXACT = new Map([
   ['source-manifest.json', 'source_manifest'],
   ['package.json', 'package_definition'],
@@ -69,6 +88,13 @@ function extractGrade(repositoryPath) {
   return match ? Number.parseInt(match[1], 10) : null;
 }
 
+function shouldRunTeacherWorkPlans(paths) {
+  return paths.some((repositoryPath) => (
+    TEACHER_WORK_PLAN_EXACT.has(repositoryPath)
+    || TEACHER_WORK_PLAN_PREFIXES.some((prefix) => repositoryPath.startsWith(prefix))
+  ));
+}
+
 export function classifyRepositoryPath(repositoryPath) {
   if (!validRepositoryPath(repositoryPath)) {
     return { scope: 'full', reason: 'invalid_repository_path' };
@@ -109,6 +135,7 @@ function fullResult(paths, reasons, forced = false) {
     run_pedagogy_quality: true,
     run_pedagogy_regressions: true,
     run_pedagogy_evidence: true,
+    run_teacher_work_plans: forced || shouldRunTeacherWorkPlans(paths),
     changed_path_count: paths.length,
     reason_codes: uniqueSorted(reasons),
     forced,
@@ -142,6 +169,7 @@ export function classifyChangedPaths(rawPaths, { forceFullReason = null } = {}) 
     run_pedagogy_quality: false,
     run_pedagogy_regressions: false,
     run_pedagogy_evidence: false,
+    run_teacher_work_plans: shouldRunTeacherWorkPlans(paths),
     changed_path_count: paths.length,
     reason_codes: uniqueSorted(classifications.map((item) => item.reason)),
     forced: false,
@@ -213,7 +241,7 @@ async function readPaths(inputMode) {
 async function appendGitHubOutputs(outputPath, result) {
   const lines = [
     `mode=${result.mode}`,
-    ...HEAVY_JOB_OUTPUTS.map((key) => `${key}=${String(result[key])}`),
+    ...CONDITIONAL_JOB_OUTPUTS.map((key) => `${key}=${String(result[key])}`),
     `changed_path_count=${result.changed_path_count}`,
     `reason_codes=${result.reason_codes.join(',')}`,
   ];

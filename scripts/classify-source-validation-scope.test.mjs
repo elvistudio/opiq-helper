@@ -101,6 +101,27 @@ test('grade 5 content requires the full suite', () => {
   assertFull(['lesson-plans/grade-5-science/water/lesson-01.yaml']);
 });
 
+test('teacher work-plan paths select the focused extraction job', () => {
+  for (const repositoryPath of [
+    'evaluations/teacher-work-plans/grade-5-science-extraction.json',
+    'project-files/inputs/originals/teacher-work-plans/source.pdf',
+    'schemas/teacher-work-plan-extraction.schema.json',
+    'scripts/lib/teacher-work-plan-extractions.mjs',
+    'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+  ]) {
+    assert.equal(classifyChangedPaths([repositoryPath]).run_teacher_work_plans, true);
+  }
+});
+
+test('unrelated changes do not select the teacher work-plan job', () => {
+  assert.equal(classifyChangedPaths(['docs/lesson-plans.md']).run_teacher_work_plans, false);
+  assert.equal(
+    classifyChangedPaths(['lesson-plans/grade-5-science/water/lesson-01.yaml'])
+      .run_teacher_work_plans,
+    false,
+  );
+});
+
 test('unbounded shared content requires the full suite', () => {
   const result = assertFull(['compliance/estonia/2026-27/outcome-index.yaml']);
   assert.ok(result.reason_codes.includes('unbounded_shared_content'));
@@ -186,6 +207,7 @@ test('CLI consumes NUL-delimited paths and writes GitHub outputs', async () => {
     const outputs = await fs.readFile(outputPath, 'utf8');
     assert.match(outputs, /^mode=core_only$/mu);
     assert.match(outputs, /^run_pedagogy_quality=false$/mu);
+    assert.match(outputs, /^run_teacher_work_plans=false$/mu);
     const summary = await fs.readFile(summaryPath, 'utf8');
     assert.match(summary, /Heavy pedagogical jobs: \*\*skip\*\*/u);
   } finally {
