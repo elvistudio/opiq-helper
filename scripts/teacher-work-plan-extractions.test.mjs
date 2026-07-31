@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -9,6 +10,7 @@ import {
   EXTRACTION_PATHS,
   collectTeacherWorkPlanChangedPaths,
   loadTeacherWorkPlanExtractionRepositories,
+  requiresTeacherWorkPlanScopeValidation,
   serializeTeacherWorkPlanExtraction,
   validateTeacherWorkPlanChangedPaths,
   validateTeacherWorkPlanExtractionRepositories,
@@ -1012,6 +1014,31 @@ test('scope guard allows only Grade 7 science extraction-phase support files', (
   ]), []);
 });
 
+test('scope guard activates for extraction content but not unrelated or support-only changes', () => {
+  assert.equal(requiresTeacherWorkPlanScopeValidation([
+    'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
+    'grade-programmes/grade-2/programme-architecture.yaml',
+    'schemas/teacher-work-plan-extraction.schema.json',
+    'scripts/check-teacher-work-plan-extractions.mjs',
+    'scripts/lib/teacher-work-plan-extractions.mjs',
+    'scripts/teacher-work-plan-extractions.test.mjs',
+  ]), false);
+
+  for (const repositoryPath of [
+    'evaluations/teacher-work-plans/grade-5-science-extraction.json',
+    'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+    'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+    'evaluations/teacher-work-plans/grade-7-science-extraction.json',
+    'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+    'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+    'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
+    'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+    'project-files/inputs/originals/teacher-work-plans/source.pdf',
+  ]) {
+    assert.equal(requiresTeacherWorkPlanScopeValidation([repositoryPath]), true);
+  }
+});
+
 test('scope guard rejects protected paths and all three prior artifacts', () => {
   const diagnostics = validateTeacherWorkPlanChangedPaths([
     'source-manifest.json',
@@ -1029,13 +1056,48 @@ test('scope guard rejects protected paths and all three prior artifacts', () => 
   assert.equal(diagnostics.length, 11);
 });
 
-test('changed-path collector reports repository changes without duplicates', () => {
-  const paths = collectTeacherWorkPlanChangedPaths({ rootDir: repositoryRoot });
-  assert.deepEqual(
-    paths,
-    [...new Set(paths)].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
+test('changed-path collector reports repository changes without duplicates', async () => {
+  const temporaryDirectory = await fs.mkdtemp(
+    path.join(os.tmpdir(), 'opiq-teacher-work-plan-paths-'),
   );
-  assert.ok(paths.includes('evaluations/teacher-work-plans/grade-7-science-extraction.json'));
+  const gitEnvironment = {
+    ...process.env,
+    GIT_AUTHOR_EMAIL: 'test@example.invalid',
+    GIT_AUTHOR_NAME: 'Test Author',
+    GIT_COMMITTER_EMAIL: 'test@example.invalid',
+    GIT_COMMITTER_NAME: 'Test Committer',
+  };
+  const runGit = (argumentsList) => {
+    const result = spawnSync('git', argumentsList, {
+      cwd: temporaryDirectory,
+      encoding: 'utf8',
+      env: gitEnvironment,
+    });
+    assert.equal(result.status, 0, result.stderr);
+  };
+
+  try {
+    runGit(['init']);
+    await fs.writeFile(path.join(temporaryDirectory, 'staged.txt'), 'baseline\n', 'utf8');
+    await fs.writeFile(path.join(temporaryDirectory, 'tracked.txt'), 'baseline\n', 'utf8');
+    runGit(['add', 'staged.txt', 'tracked.txt']);
+    runGit(['commit', '-m', 'baseline']);
+
+    await fs.writeFile(path.join(temporaryDirectory, 'staged.txt'), 'staged\n', 'utf8');
+    runGit(['add', 'staged.txt']);
+    await fs.writeFile(path.join(temporaryDirectory, 'tracked.txt'), 'unstaged\n', 'utf8');
+    await fs.writeFile(path.join(temporaryDirectory, 'untracked.txt'), 'untracked\n', 'utf8');
+
+    assert.deepEqual(
+      collectTeacherWorkPlanChangedPaths({
+        rootDir: temporaryDirectory,
+        baseRef: 'HEAD',
+      }),
+      ['staged.txt', 'tracked.txt', 'untracked.txt'],
+    );
+  } finally {
+    await fs.rm(temporaryDirectory, { recursive: true, force: true });
+  }
 });
 
 test('check command validates all four registered extractions together', () => {

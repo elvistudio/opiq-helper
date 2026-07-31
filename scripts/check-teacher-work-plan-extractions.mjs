@@ -5,6 +5,7 @@ import {
   collectTeacherWorkPlanChangedPaths,
   formatTeacherWorkPlanDiagnostic,
   loadTeacherWorkPlanExtractionRepositories,
+  requiresTeacherWorkPlanScopeValidation,
   validateTeacherWorkPlanChangedPaths,
   validateTeacherWorkPlanExtractionRepositories,
 } from './lib/teacher-work-plan-extractions.mjs';
@@ -12,11 +13,12 @@ import {
 async function main() {
   const collection = await loadTeacherWorkPlanExtractionRepositories();
   const validation = validateTeacherWorkPlanExtractionRepositories(collection);
-  const scopeDiagnostics = validateTeacherWorkPlanChangedPaths(
-    collectTeacherWorkPlanChangedPaths({
-      baseRef: process.env.TEACHER_WORK_PLAN_BASE_REF ?? 'origin/main',
-    }),
-  );
+  const changedPaths = collectTeacherWorkPlanChangedPaths({
+    baseRef: process.env.TEACHER_WORK_PLAN_BASE_REF ?? 'origin/main',
+  });
+  const scopeDiagnostics = requiresTeacherWorkPlanScopeValidation(changedPaths)
+    ? validateTeacherWorkPlanChangedPaths(changedPaths)
+    : [];
   const diagnostics = [...validation.diagnostics, ...scopeDiagnostics];
 
   if (diagnostics.length > 0) {
