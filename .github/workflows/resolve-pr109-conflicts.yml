@@ -164,6 +164,12 @@ jobs:
           path = Path('scripts/teacher-work-plan-extractions.test.mjs')
           text = path.read_text(encoding='utf-8')
 
+          branch_dependent = "'origin/main:evaluations/teacher-work-plans/grade-5-science-extraction.json'"
+          pinned_baseline = "'f48810bd913269b71961f73befff6a55dbdf89a5:evaluations/teacher-work-plans/grade-5-science-extraction.json'"
+          if branch_dependent not in text:
+              raise SystemExit('missing branch-dependent Grade 5 baseline reference')
+          text = text.replace(branch_dependent, pinned_baseline, 1)
+
           if "import os from 'node:os';" not in text:
               text = text.replace(
                   "import fs from 'node:fs/promises';\n",
@@ -277,7 +283,7 @@ jobs:
           required = [
               "test('scope guard allows the Grade 5 mapping-phase support files'",
               "test('scope guard activates only for extraction content'",
-              "mapping_status",
+              "f48810bd913269b71961f73befff6a55dbdf89a5:evaluations/teacher-work-plans/grade-5-science-extraction.json",
               "opiq-teacher-work-plan-paths-",
           ]
           missing = [item for item in required if item not in text]
