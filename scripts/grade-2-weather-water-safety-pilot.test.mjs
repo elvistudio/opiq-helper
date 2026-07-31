@@ -795,13 +795,17 @@ test('lesson 4 learner task projections keep exact data and no teacher answer', 
   assert.match(exit, /3\. `Kell 13 on ____\.`/u);
 });
 
-test('lesson 4 answer access follows both individual first attempts', () => {
+test('lesson 4 assessment evidence is bound to the exact evidence-producing phases', () => {
+  const bindings = new Map(lesson(4).pedagogical_integration.phase_bindings.map((item) => (
+    [item.dna_phase_id, item]
+  )));
   const contributionBinding = lesson(4).pedagogical_integration.phase_bindings.find((item) => (
     item.dna_phase_id === 'draft-individual-contribution'
   ));
-  const exitBinding = lesson(4).pedagogical_integration.phase_bindings.find((item) => (
-    item.dna_phase_id === 'complete-individual-exit-ticket'
-  ));
+  const verifyBinding = bindings.get('verify-attribution-code');
+  const exitBinding = bindings.get('complete-individual-exit-ticket');
+  const oralBinding = bindings.get('check-estonian-output-separately');
+  const reflectionBinding = bindings.get('reflect-and-handoff-evidence');
   for (const binding of [contributionBinding, exitBinding]) {
     assert.equal(binding.source_access_policy, 'closed_first_attempt');
     assert.equal(binding.render_contract.answer_access_policy, 'after_first_attempt');
@@ -810,10 +814,92 @@ test('lesson 4 answer access follows both individual first attempts', () => {
     contributionBinding.answer_key_material_ids,
     ['g2-shared-weather-report-success-guidance'],
   );
+  assert.deepEqual(verifyBinding.assessment_refs, [
+    'weather-report-individual-contribution',
+  ]);
+  assert.equal(verifyBinding.render_contract.evaluation_mode, 'evidence_criterion');
+  assert.deepEqual(verifyBinding.answer_key_material_ids, []);
   assert.deepEqual(
-    exitBinding.answer_key_material_ids,
+    exitBinding.assessment_refs,
+    [
+      'weather-report-exit-data',
+      'weather-report-et-recognition',
+      'weather-report-et-supported',
+    ],
+  );
+  assert.equal(exitBinding.render_contract.evaluation_mode, 'evidence_criterion');
+  assert.deepEqual(exitBinding.answer_key_material_ids, []);
+  assert.deepEqual(oralBinding.assessment_refs, ['weather-report-et-independent']);
+  assert.equal(oralBinding.render_contract.evaluation_mode, 'evidence_criterion');
+  assert.equal(oralBinding.render_contract.answer_access_policy, 'after_first_attempt');
+  assert.deepEqual(
+    oralBinding.answer_key_material_ids,
     ['g2-weather-exit-ticket-expected-answers'],
   );
+  assert.deepEqual(reflectionBinding.assessment_refs, []);
+  assert.equal(reflectionBinding.render_contract.evaluation_mode, 'teacher_observation');
+  assert.equal(reflectionBinding.source_access_policy, 'open');
+  assert.equal(reflectionBinding.render_contract.answer_access_policy, 'not_applicable');
+  assert.deepEqual(
+    lesson(4).pedagogical_integration.assessment_integration,
+    {
+      subject_assessment: {
+        enabled: true,
+        target_phase_ids: [
+          'verify-attribution-code',
+          'complete-individual-exit-ticket',
+        ],
+        criterion_refs: [
+          'weather-report-individual-contribution',
+          'weather-report-exit-data',
+        ],
+      },
+      estonian_language_assessment: {
+        enabled: true,
+        target_phase_ids: [
+          'complete-individual-exit-ticket',
+          'check-estonian-output-separately',
+        ],
+        criterion_refs: [
+          'weather-report-et-recognition',
+          'weather-report-et-supported',
+          'weather-report-et-independent',
+        ],
+      },
+      separation_policy: 'separate_subject_and_estonian_language_evidence',
+      provenance: { source: 'lesson_assessment_bindings' },
+    },
+  );
+  for (const [stageId, binding] of bindings) {
+    if (![
+      'verify-attribution-code',
+      'complete-individual-exit-ticket',
+      'check-estonian-output-separately',
+    ].includes(stageId)) {
+      assert.deepEqual(binding.assessment_refs, []);
+    }
+  }
+});
+
+test('lesson 4 validator rejects independent Estonian evidence moved into the exit phase', async () => {
+  const bindings = new Map(lesson(4).pedagogical_integration.phase_bindings.map((item) => (
+    [item.dna_phase_id, item]
+  )));
+  const exitBinding = bindings.get('complete-individual-exit-ticket');
+  const oralBinding = bindings.get('check-estonian-output-separately');
+  const originalExitRefs = exitBinding.assessment_refs;
+  const originalOralRefs = oralBinding.assessment_refs;
+  try {
+    exitBinding.assessment_refs = [...originalExitRefs, 'weather-report-et-independent'];
+    oralBinding.assessment_refs = [];
+    const result = await validateGrade2WeatherWaterSafetyPilot(repository);
+    assert.ok(result.diagnostics.some((item) => (
+      item.code === 'PILOT_LESSON_4_ASSESSMENT_BINDING'
+    )));
+  } finally {
+    exitBinding.assessment_refs = originalExitRefs;
+    oralBinding.assessment_refs = originalOralRefs;
+  }
 });
 
 test('focused commands and CI path filters cover the new production slice', () => {

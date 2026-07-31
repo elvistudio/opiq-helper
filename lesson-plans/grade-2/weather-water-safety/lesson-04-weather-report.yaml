@@ -979,6 +979,7 @@ pedagogical_integration:
     subject_assessment:
       enabled: true
       target_phase_ids:
+        - verify-attribution-code
         - complete-individual-exit-ticket
       criterion_refs:
         - weather-report-individual-contribution
@@ -987,6 +988,7 @@ pedagogical_integration:
       enabled: true
       target_phase_ids:
         - complete-individual-exit-ticket
+        - check-estonian-output-separately
       criterion_refs:
         - weather-report-et-recognition
         - weather-report-et-supported
@@ -1175,7 +1177,8 @@ pedagogical_integration:
       student_material_ids:
         - g2-shared-weather-report-contribution-task
       answer_key_material_ids: []
-      assessment_refs: []
+      assessment_refs:
+        - weather-report-individual-contribution
       oral_answer_refs:
         - weather-report-evidence-question
       source_access_policy: open
@@ -1198,7 +1201,7 @@ pedagogical_integration:
           - question:weather-report-evidence-question:acceptable_variants
         misconception_refs:
           - question:weather-report-evidence-question:misconception_to_watch
-        evaluation_mode: teacher_observation
+        evaluation_mode: evidence_criterion
         answer_access_policy: not_applicable
       binding_rationale_ru: Этап verify-attribution-code полностью связан с авторскими материалами и длительностью этого урока.
     - dna_phase_id: assemble-shared-weather-report
@@ -1257,14 +1260,11 @@ pedagogical_integration:
         - g2-weather-report-lesson-guide
       student_material_ids:
         - g2-weather-exit-ticket-task
-      answer_key_material_ids:
-        - g2-weather-exit-ticket-expected-answers
+      answer_key_material_ids: []
       assessment_refs:
-        - weather-report-individual-contribution
         - weather-report-exit-data
         - weather-report-et-recognition
         - weather-report-et-supported
-        - weather-report-et-independent
       oral_answer_refs:
         - weather-report-evidence-question
       source_access_policy: closed_first_attempt
@@ -1305,8 +1305,10 @@ pedagogical_integration:
         - g2-weather-report-lesson-guide
       student_material_ids:
         - g2-weather-exit-ticket-task
-      answer_key_material_ids: []
-      assessment_refs: []
+      answer_key_material_ids:
+        - g2-weather-exit-ticket-expected-answers
+      assessment_refs:
+        - weather-report-et-independent
       oral_answer_refs:
         - weather-report-evidence-question
       source_access_policy: open
@@ -1330,8 +1332,8 @@ pedagogical_integration:
           - question:weather-report-evidence-question:acceptable_variants
         misconception_refs:
           - question:weather-report-evidence-question:misconception_to_watch
-        evaluation_mode: teacher_observation
-        answer_access_policy: not_applicable
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
       binding_rationale_ru: Этап check-estonian-output-separately полностью связан с авторскими материалами и длительностью этого урока.
     - dna_phase_id: reflect-and-handoff-evidence
       lesson_stage_ids:
@@ -1350,15 +1352,10 @@ pedagogical_integration:
         - g2-shared-weather-report-contribution-task
         - g2-weather-exit-ticket-task
       answer_key_material_ids: []
-      assessment_refs:
-        - weather-report-individual-contribution
-        - weather-report-exit-data
-        - weather-report-et-recognition
-        - weather-report-et-supported
-        - weather-report-et-independent
+      assessment_refs: []
       oral_answer_refs:
         - weather-report-evidence-question
-      source_access_policy: closed_first_attempt
+      source_access_policy: open
       render_contract:
         execution_mode: assessment_task
         task_id: grade-2-weather-water-safety-04-weather-report/reflect-and-handoff-evidence
@@ -1378,8 +1375,8 @@ pedagogical_integration:
           - question:weather-report-evidence-question:acceptable_variants
         misconception_refs:
           - question:weather-report-evidence-question:misconception_to_watch
-        evaluation_mode: evidence_criterion
-        answer_access_policy: after_first_attempt
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
       binding_rationale_ru: Этап reflect-and-handoff-evidence полностью связан с авторскими материалами и длительностью этого урока.
   timing_reconciliation:
     compatibility_rules_version: "1.0"

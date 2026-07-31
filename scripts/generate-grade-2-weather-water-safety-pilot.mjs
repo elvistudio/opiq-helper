@@ -120,8 +120,13 @@ function integrationFor(lesson, {
   outdoorAccessAvailable = contextFlags.practical,
   assessmentStageId = lesson.stages.at(-1).stage_id,
   assessmentBindingCriterionIds,
+  subjectAssessmentStageIds = [assessmentStageId],
+  estonianAssessmentStageIds = [assessmentStageId],
+  assessmentCriterionIdsByStage,
   closedFirstAttemptStageIds = [],
   answerKeyMaterialIdsByStage = {},
+  sourceAccessPolicyByStage = {},
+  answerAccessPolicyByStage = {},
 }) {
   const scopes = lesson.evidence_linkage.author_materials
     .filter((entry) => entry.audience === 'student')
@@ -136,6 +141,14 @@ function integrationFor(lesson, {
   const oralAnswer = lesson.questions[0].question_id;
   const phaseBindings = lesson.stages.map((stage) => {
     const closedFirstAttempt = closedFirstAttemptStageIds.includes(stage.stage_id);
+    const assessmentRefs = assessmentCriterionIdsByStage === undefined
+      ? stage.stage_type === 'assessment'
+        ? boundAssessmentCriterionIds
+        : []
+      : assessmentCriterionIdsByStage[stage.stage_id] ?? [];
+    const evidenceCriterionEvaluation = assessmentCriterionIdsByStage === undefined
+      ? stage.stage_type === 'assessment'
+      : assessmentRefs.length > 0;
     return {
     dna_phase_id: stage.stage_id,
     lesson_stage_ids: [stage.stage_id],
@@ -152,13 +165,12 @@ function integrationFor(lesson, {
       lesson.evidence_linkage.author_materials.find((entry) => entry.material_id === id)?.audience === 'student'
     )),
     answer_key_material_ids: answerKeyMaterialIdsByStage[stage.stage_id] ?? [],
-    assessment_refs: stage.stage_type === 'assessment'
-      ? boundAssessmentCriterionIds
-      : [],
+    assessment_refs: assessmentRefs,
     oral_answer_refs: [oralAnswer],
-    source_access_policy: stage.stage_type === 'assessment' || closedFirstAttempt
-      ? 'closed_first_attempt'
-      : 'open',
+    source_access_policy: sourceAccessPolicyByStage[stage.stage_id]
+      ?? (stage.stage_type === 'assessment' || closedFirstAttempt
+        ? 'closed_first_attempt'
+        : 'open'),
     render_contract: {
       execution_mode: stage.stage_type === 'practical_observation'
         ? 'practical_task'
@@ -177,14 +189,15 @@ function integrationFor(lesson, {
       answer_language_refs: [`question:${oralAnswer}:short_oral_answer_et`],
       acceptable_variant_refs: [`question:${oralAnswer}:acceptable_variants`],
       misconception_refs: [`question:${oralAnswer}:misconception_to_watch`],
-      evaluation_mode: stage.stage_type === 'assessment'
+      evaluation_mode: evidenceCriterionEvaluation
         ? 'evidence_criterion'
         : 'teacher_observation',
-      answer_access_policy: stage.stage_type === 'assessment'
-        ? 'after_first_attempt'
-        : closedFirstAttempt
+      answer_access_policy: answerAccessPolicyByStage[stage.stage_id]
+        ?? (stage.stage_type === 'assessment'
           ? 'after_first_attempt'
-          : 'not_applicable',
+          : closedFirstAttempt
+            ? 'after_first_attempt'
+            : 'not_applicable'),
     },
     binding_rationale_ru: `Этап ${stage.stage_id} полностью связан с авторскими материалами и длительностью этого урока.`,
   };
@@ -268,14 +281,14 @@ function integrationFor(lesson, {
     assessment_integration: {
       subject_assessment: {
         enabled: true,
-        target_phase_ids: [assessmentStageId],
+        target_phase_ids: subjectAssessmentStageIds,
         criterion_refs: lesson.assessment
           .filter((entry) => entry.affects === 'subject_assessment')
           .map((entry) => entry.criterion_id),
       },
       estonian_language_assessment: {
         enabled: true,
-        target_phase_ids: [assessmentStageId],
+        target_phase_ids: estonianAssessmentStageIds,
         criterion_refs: lesson.assessment
           .filter((entry) => entry.affects === 'language_assessment')
           .map((entry) => entry.criterion_id),
@@ -2672,17 +2685,35 @@ function buildLesson4() {
       resourcesAvailable: ['paper', 'writing_tool', 'shared_board'],
       outdoorAccessAvailable: false,
       assessmentStageId: 'complete-individual-exit-ticket',
-      assessmentBindingCriterionIds: [
-        'weather-report-individual-contribution',
-        'weather-report-exit-data',
-        'weather-report-et-recognition',
-        'weather-report-et-supported',
-        'weather-report-et-independent',
+      subjectAssessmentStageIds: [
+        'verify-attribution-code',
+        'complete-individual-exit-ticket',
       ],
+      estonianAssessmentStageIds: [
+        'complete-individual-exit-ticket',
+        'check-estonian-output-separately',
+      ],
+      assessmentCriterionIdsByStage: {
+        'verify-attribution-code': ['weather-report-individual-contribution'],
+        'complete-individual-exit-ticket': [
+          'weather-report-exit-data',
+          'weather-report-et-recognition',
+          'weather-report-et-supported',
+        ],
+        'check-estonian-output-separately': ['weather-report-et-independent'],
+        'reflect-and-handoff-evidence': [],
+      },
       closedFirstAttemptStageIds: ['draft-individual-contribution', 'complete-individual-exit-ticket'],
       answerKeyMaterialIdsByStage: {
         'draft-individual-contribution': ['g2-shared-weather-report-success-guidance'],
-        'complete-individual-exit-ticket': ['g2-weather-exit-ticket-expected-answers'],
+        'check-estonian-output-separately': ['g2-weather-exit-ticket-expected-answers'],
+      },
+      sourceAccessPolicyByStage: {
+        'reflect-and-handoff-evidence': 'open',
+      },
+      answerAccessPolicyByStage: {
+        'check-estonian-output-separately': 'after_first_attempt',
+        'reflect-and-handoff-evidence': 'not_applicable',
       },
     },
     languagePath: stages.map((entry, index) => ({
