@@ -15,7 +15,215 @@ const outputPaths = {
   lesson3: 'lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml',
   lesson4: 'lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml',
   materialsIndex: `${packRoot}/materials-index.yaml`,
+  acceptanceAudit: 'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
 };
+
+const internalCompanionAccess = Object.freeze({
+  mode: 'unverified',
+  last_checked_on: null,
+  check_status: 'not_checked',
+  notes: 'The record is retained for internal companion evaluation; customer access has not been verified.',
+});
+
+function internalCompanion({
+  companionId,
+  recordId,
+  canonicalUrl,
+  canonicalSourceId,
+  bookId,
+  title,
+  language,
+  kitId,
+  chapterId,
+  companionRole,
+  fallbackMaterialIds,
+  fallbackStageRefs,
+  fallbackNotes,
+  selectionRationale,
+}) {
+  return {
+    companion_id: companionId,
+    source_record: {
+      record_id: recordId,
+      canonical_url: canonicalUrl,
+      canonical_source_id: canonicalSourceId,
+      book_id: bookId,
+      title,
+      language,
+      programme_type: 'ordinary',
+      instructional_roles: ['optional_extension'],
+      provenance: {
+        category: 'opiq_textbook',
+        source_reference: `${canonicalSourceId} / kit ${kitId} / chapter ${chapterId}`,
+        notes: 'Canonical Grade 2 ordinary-curriculum record selected by the project architecture; full prose and customer access remain unverified.',
+      },
+      selection_rationale: selectionRationale,
+    },
+    kit_id: kitId,
+    chapter_id: chapterId,
+    companion_role: companionRole,
+    access: { ...internalCompanionAccess },
+    publication_visibility: 'internal_only',
+    standalone_fallback: {
+      exists: true,
+      author_material_ids: fallbackMaterialIds,
+      lesson_stage_refs: fallbackStageRefs,
+      notes: fallbackNotes,
+    },
+  };
+}
+
+export const pilotCompanionContracts = Object.freeze([
+  Object.freeze({
+    lessonPosition: 1,
+    companion: internalCompanion({
+      companionId: 'g2-weather-water-01-weather-observation-companion',
+      recordId: 'grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be',
+      canonicalUrl: 'https://www.opiq.ee/kit/570/chapter/32084',
+      canonicalSourceId: 'grade-2-science',
+      bookId: 'avita_природовед_2_ru',
+      title: 'Ilm',
+      language: 'ru',
+      kitId: 570,
+      chapterId: 32084,
+      companionRole: 'additional_explanation',
+      fallbackMaterialIds: ['g2-weather-observation-explanation'],
+      fallbackStageRefs: ['explain-weather-ru'],
+      fallbackNotes: 'The author-created Russian explanation covers the same bounded weather-observation role without Opiq.',
+      selectionRationale: 'Optional internal illustration of weather observation after the standalone explanation; it is not required evidence.',
+    }),
+  }),
+  Object.freeze({
+    lessonPosition: 2,
+    companion: internalCompanion({
+      companionId: 'g2-weather-water-02-millimetre-revision-companion',
+      recordId: 'grade-2-mathematics-record-578-https-www-opiq-ee-kit-578-chapter-32039-10b9ff9d7f',
+      canonicalUrl: 'https://www.opiq.ee/kit/578/chapter/32039',
+      canonicalSourceId: 'grade-2-mathematics',
+      bookId: 'avita_математика_2_et__kit578',
+      title: 'Sirglõik. Millimeeter',
+      language: 'ru',
+      kitId: 578,
+      chapterId: 32039,
+      companionRole: 'revision',
+      fallbackMaterialIds: ['g2-weather-data-time-explanation'],
+      fallbackStageRefs: ['bridge-data-et'],
+      fallbackNotes: 'The author-created data explanation already teaches the millimetre notation needed by the lesson without Opiq.',
+      selectionRationale: 'Optional internal revision of millimetre notation only; it does not supply the rainfall calculation or answer.',
+    }),
+  }),
+  Object.freeze({
+    lessonPosition: 3,
+    companion: internalCompanion({
+      companionId: 'g2-weather-water-03-human-studies-safety-companion',
+      recordId: 'grade-2-human-studies-record-494-https-www-opiq-ee-kit-494-chapter-27188-5c6cb21a30',
+      canonicalUrl: 'https://www.opiq.ee/kit/494/chapter/27188',
+      canonicalSourceId: 'grade-2-human-studies',
+      bookId: 'avita_inimeseõpe_2_et__kit494',
+      title: 'VEEOHUTUS I',
+      language: 'et',
+      kitId: 494,
+      chapterId: 27188,
+      companionRole: 'project_source',
+      fallbackMaterialIds: ['g2-water-safety-explanation'],
+      fallbackStageRefs: ['explain-water-safety-ru'],
+      fallbackNotes: 'The author-created dry-safety explanation covers the human-studies role; neither source can satisfy the separate PE outcome.',
+      selectionRationale: 'Optional internal human-studies water-safety exploration after the standalone rule; it is not evidence for physical education.',
+    }),
+  }),
+  Object.freeze({
+    lessonPosition: 4,
+    companion: internalCompanion({
+      companionId: 'g2-weather-water-04-weather-map-companion',
+      recordId: 'grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be',
+      canonicalUrl: 'https://www.opiq.ee/kit/570/chapter/32084',
+      canonicalSourceId: 'grade-2-science',
+      bookId: 'avita_природовед_2_ru',
+      title: 'Ilm',
+      language: 'ru',
+      kitId: 570,
+      chapterId: 32084,
+      companionRole: 'project_source',
+      fallbackMaterialIds: ['g2-weather-report-explanation', 'g2-shared-weather-report-contribution-task'],
+      fallbackStageRefs: ['check-four-point-data', 'assemble-shared-weather-report'],
+      fallbackNotes: 'The author-created explanation and contribution task provide the same weather-data and report role without Opiq.',
+      selectionRationale: 'Optional internal weather-map exploration after individual evidence; it cannot replace the contribution or exit ticket.',
+    }),
+  }),
+]);
+
+export const pilotCompanionGaps = Object.freeze([
+  Object.freeze({
+    role: 'water_cycle',
+    status: 'no_exact_eligible_selected_record',
+    notes: 'The selected project architecture contains no exact Grade 2 water-cycle record, so no companion is committed.',
+  }),
+  Object.freeze({
+    role: 'estonian_terminology_and_short_oral_output',
+    status: 'no_exact_eligible_selected_record',
+    notes: 'The selected Estonian-second-language record is about a school bag and is not relevant to the pilot outputs.',
+  }),
+]);
+
+const familyHookRefsByPosition = Object.freeze({
+  1: {
+    foundation: { stage_ids: ['activate-weather'], material_ids: ['g2-weather-observation-explanation'], objective_ids: [], assessment_criterion_ids: [] },
+    grade2: { stage_ids: ['individual-weather-observation'], material_ids: ['g2-weather-observation-task'], objective_ids: ['record-current-weather-evidence'], assessment_criterion_ids: ['weather-subject-understanding', 'weather-practical-safety'] },
+    grade4: { stage_ids: ['individual-weather-observation'], material_ids: ['g2-weather-observation-task'], objective_ids: ['record-current-weather-evidence'], assessment_criterion_ids: ['weather-subject-understanding'] },
+  },
+  2: {
+    foundation: { stage_ids: ['activate-data'], material_ids: ['g2-weather-data-time-explanation'], objective_ids: [], assessment_criterion_ids: [] },
+    grade2: { stage_ids: ['solve-approved-tasks'], material_ids: ['g2-weather-data-comparison-task', 'g2-time-measurement-problem-task'], objective_ids: ['solve-weather-data-and-time'], assessment_criterion_ids: ['data-time-subject'] },
+    grade4: { stage_ids: ['solve-approved-tasks'], material_ids: ['g2-weather-data-comparison-task', 'g2-time-measurement-problem-task'], objective_ids: ['solve-weather-data-and-time'], assessment_criterion_ids: ['data-time-subject'] },
+  },
+  3: {
+    foundation: { stage_ids: ['retrieve-weather-data'], material_ids: ['g2-water-safety-explanation'], objective_ids: [], assessment_criterion_ids: [] },
+    grade2: { stage_ids: ['attempt-human-studies-task', 'attempt-pe-task'], material_ids: ['g2-water-edge-safe-decision-task', 'g2-pe-water-safety-decision-task'], objective_ids: ['make-responsible-water-edge-choice', 'apply-dry-water-safety-decision'], assessment_criterion_ids: ['water-safety-human-studies', 'water-safety-pe-dry-decision'] },
+    grade4: { stage_ids: ['attempt-human-studies-task'], material_ids: ['g2-water-edge-safe-decision-task'], objective_ids: ['make-responsible-water-edge-choice'], assessment_criterion_ids: ['water-safety-human-studies'] },
+  },
+  4: {
+    foundation: { stage_ids: ['retrieve-module-evidence'], material_ids: ['g2-weather-report-explanation'], objective_ids: [], assessment_criterion_ids: [] },
+    grade2: { stage_ids: ['draft-individual-contribution', 'verify-attribution-code', 'complete-individual-exit-ticket'], material_ids: ['g2-shared-weather-report-contribution-task', 'g2-weather-exit-ticket-task'], objective_ids: ['produce-attributable-weather-report-evidence', 'check-and-correct-weather-data-claim'], assessment_criterion_ids: ['weather-report-individual-contribution', 'weather-report-exit-data'] },
+    grade4: { stage_ids: ['assemble-shared-weather-report'], material_ids: ['g2-weather-shared-report-template', 'g2-shared-weather-report-contribution-task'], objective_ids: ['check-and-correct-weather-data-claim'], assessment_criterion_ids: ['weather-report-individual-contribution'] },
+  },
+});
+
+function familyOverlayHooks(position) {
+  const refs = familyHookRefsByPosition[position];
+  const prefix = `g2-weather-water-0${position}`;
+  return [
+    {
+      hook_id: `${prefix}-foundation-participation`,
+      hook_role: 'foundation_participation',
+      supported_lanes: ['foundation'],
+      core_refs: refs.foundation,
+      shared_product_supported: true,
+      individual_evidence_required: false,
+      shared_evidence_replaces_individual: false,
+      notes: 'Foundation participation is bounded observation or listening and is never reported as Grade 2 mastery.',
+    },
+    {
+      hook_id: `${prefix}-grade-2-responsibility`,
+      hook_role: 'grade_2_responsibility',
+      supported_lanes: ['grade_2'],
+      core_refs: refs.grade2,
+      shared_product_supported: true,
+      individual_evidence_required: true,
+      shared_evidence_replaces_individual: false,
+      notes: 'The Grade 2 lane retains the lesson subject evidence separately; shared work and Estonian evidence cannot replace it.',
+    },
+    {
+      hook_id: `${prefix}-grade-4-extension`,
+      hook_role: 'grade_4_extension',
+      supported_lanes: ['grade_4'],
+      core_refs: refs.grade4,
+      shared_product_supported: true,
+      individual_evidence_required: true,
+      shared_evidence_replaces_individual: false,
+      notes: 'This stable extension hook adds no Grade 4 outcome or mandatory Grade 2 work and cannot count group work as mastery.',
+    },
+  ];
+}
 
 const approaches = [
   'content_language_dual_objectives',
@@ -398,6 +606,10 @@ function commonLesson({
   languagePath,
   provenanceNotes = 'Independently authored standalone lesson uses registered Grade 2 route architecture without copying source prose or tasks.',
 }) {
+  const companions = pilotCompanionContracts
+    .filter((entry) => entry.lessonPosition === position)
+    .map((entry) => structuredClone(entry.companion));
+  const familyHooks = familyOverlayHooks(position);
   const lesson = {
     schema_version: '1.3',
     artifact_type: 'bilingual_lesson',
@@ -516,15 +728,15 @@ function commonLesson({
     delivery_model: {
       core_mode: 'standalone_commercial_core',
       opiq_required: false,
-      opiq_companion_policy: 'none',
-      family_overlay_supported: false,
+      opiq_companion_policy: companions.length > 0 ? 'optional' : 'none',
+      family_overlay_supported: true,
       customer_can_complete_without_opiq: true,
       publication_status: 'internal_review',
     },
     commercial_core: commercialCore,
-    opiq_companions: [],
+    opiq_companions: companions,
     originality_review: pendingOriginality(lessonId, materials, originalityRefs),
-    family_overlay_hooks: [],
+    family_overlay_hooks: familyHooks,
     provenance: provenance(
       'author_created_bridge',
       `${projectId}; ${officialMapId}`,
@@ -2893,6 +3105,331 @@ function buildMaterialsIndex(lessons) {
   };
 }
 
+function auditCell(value) {
+  return String(value).replaceAll('|', '\\|').replaceAll('\n', '<br>');
+}
+
+export function buildGrade2WeatherWaterSafetyAcceptanceAudit(lessons) {
+  const lessonPaths = [outputPaths.lesson1, outputPaths.lesson2, outputPaths.lesson3, outputPaths.lesson4];
+  const companionIds = lessons.flatMap((lesson) => (
+    lesson.opiq_companions.map((entry) => entry.companion_id)
+  ));
+  const rows = [
+    {
+      criterion: 'Complete thematic module with a justified lesson range',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; grade-programmes/grade-2/project-modules.yaml`,
+      ids: 'grade-2-weather-water-safety-pilot; grade-2-project-weather-water-safety; lesson slots 1–4',
+      implemented: 'Four 45-minute lessons are internally authored inside the architecture estimate of 3–6 lessons.',
+      blocked: 'Release remains blocked; internal authoring completion is not publication readiness.',
+    },
+    {
+      criterion: 'Standalone Russian lessons with Estonian support',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: lessonPaths.join('; '),
+      ids: lessons.map((lesson) => lesson.lesson_id).join('; '),
+      implemented: 'Every lesson uses Russian-first subject explanation, bounded Estonian support and an author-created standalone core.',
+      blocked: 'Teacher approval and trials have not occurred.',
+    },
+    {
+      criterion: 'Original examples, tasks, answers, worked solutions and assessment',
+      status: 'blocked_human_review',
+      gate: 'human_review',
+      evidence: 'teacher-packs/grade-2/weather-water-safety/materials-index.yaml; task-bank/reviews/grade-2/weather-water-safety',
+      ids: '39 teacher-pack materials; task reviews 03/04 approved; task reviews 01/02/05–12 pending',
+      implemented: 'The authored material set, answer separation and task fingerprints are structurally complete.',
+      blocked: 'Ten task originality reviews and all four lesson originality reviews remain pending.',
+    },
+    {
+      criterion: 'Daily mastery connections for mathematics, Russian and Estonian as a second language',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: lessonPaths.join('; '),
+      ids: 'grade-2-mathematics; instruction_language ru; grade-2-estonian-second-language language objectives',
+      implemented: 'Mathematics evidence, Russian subject reasoning and separate bounded Estonian outputs recur through the module.',
+      blocked: 'This does not claim complete annual mastery coverage.',
+    },
+    {
+      criterion: 'Project line and shared product across the module',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; ${outputPaths.lesson4}`,
+      ids: 'weather_board_and_group_report; assemble-shared-weather-report',
+      implemented: 'Observation, data, safety decisions and attributable report contributions feed the shared weather report.',
+      blocked: 'The shared product does not replace individual evidence.',
+    },
+    {
+      criterion: 'Extended practical block',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: outputPaths.lesson1,
+      ids: 'individual-weather-observation',
+      implemented: 'Lesson 1 retains the 17-minute supervised practical observation block.',
+      blocked: 'No unsupervised or real-water activity is authorized.',
+    },
+    {
+      criterion: 'Individual Grade 2 mastery checks and exit tickets',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: lessonPaths.join('; '),
+      ids: 'safe-individual-weather-observation; solve-approved-tasks; attempt-human-studies-task; attempt-pe-task; complete-individual-exit-ticket',
+      implemented: 'Each lesson retains attributable individual subject evidence before shared work.',
+      blocked: 'Human validation of the assessment design remains pending.',
+    },
+    {
+      criterion: 'Optional companion: weather observation',
+      status: 'implemented_internal_only',
+      gate: 'access',
+      evidence: outputPaths.lesson1,
+      ids: 'g2-weather-water-01-weather-observation-companion; grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be; https://www.opiq.ee/kit/570/chapter/32084',
+      implemented: 'Exact selected Grade 2 science record, narrow role and standalone fallback are committed.',
+      blocked: 'Customer access is unverified; visibility is internal_only.',
+    },
+    {
+      criterion: 'Optional companion: weather map work',
+      status: 'implemented_internal_only',
+      gate: 'access',
+      evidence: outputPaths.lesson4,
+      ids: 'g2-weather-water-04-weather-map-companion; grade-2-science-record-570-https-www-opiq-ee-kit-570-chapter-32084-9b5b2527be; https://www.opiq.ee/kit/570/chapter/32084',
+      implemented: 'The selected weather record is available only after individual evidence as optional project-source exploration.',
+      blocked: 'It cannot replace the individual contribution or exit ticket and access is unverified.',
+    },
+    {
+      criterion: 'Optional companion: water cycle',
+      status: 'not_applicable',
+      gate: 'engineering',
+      evidence: 'grade-programmes/grade-2/project-modules.yaml; docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
+      ids: 'water_cycle gap; grade-2-project-weather-water-safety',
+      implemented: 'The gap is recorded explicitly instead of inventing or promoting a source record.',
+      blocked: 'No exact eligible water-cycle record exists in the selected Grade 2 project architecture.',
+    },
+    {
+      criterion: 'Optional companion: water safety',
+      status: 'implemented_internal_only',
+      gate: 'access',
+      evidence: outputPaths.lesson3,
+      ids: 'g2-weather-water-03-human-studies-safety-companion; grade-2-human-studies-record-494-https-www-opiq-ee-kit-494-chapter-27188-5c6cb21a30; https://www.opiq.ee/kit/494/chapter/27188',
+      implemented: 'The exact human-studies water-safety record has a bounded optional role and author-created fallback.',
+      blocked: 'It is not PE evidence and customer access is unverified.',
+    },
+    {
+      criterion: 'Optional companion: Estonian terminology and short oral output',
+      status: 'not_applicable',
+      gate: 'engineering',
+      evidence: 'grade-programmes/grade-2/project-modules.yaml; curriculum-maps/grade-2-estonian-second-language/topic-inventory.yaml',
+      ids: 'grade-2-estonian-second-language-record-129-https-www-opiq-ee-kit-129-chapter-6942-8d572f0ea7',
+      implemented: 'The language output remains fully author-created and standalone.',
+      blocked: 'The only selected second-language record is Mis on koolikotis? and is not relevant to weather or safety output.',
+    },
+    {
+      criterion: 'Stable mixed-age family overlay hooks',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; ${lessonPaths.join('; ')}`,
+      ids: lessons.flatMap((lesson) => lesson.family_overlay_hooks.map((hook) => hook.hook_id)).join('; '),
+      implemented: 'Exactly 12 unique lesson-scoped hooks cover foundation, Grade 2 and Grade 4 lanes.',
+      blocked: 'The state is hooks_only, not a completed mixed-age family product.',
+    },
+    {
+      criterion: 'Parent guide, material list, time estimates and answer key',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: 'teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md; teacher-packs/grade-2/weather-water-safety/materials-index.yaml; teacher-packs/grade-2/weather-water-safety/answers',
+      ids: 'g2-weather-water-parent-guide; g2-weather-water-answer-key',
+      implemented: 'Parent workload, four 45-minute lessons, materials and teacher-only answer guidance are recorded.',
+      blocked: 'Home trial remains not_started.',
+    },
+    {
+      criterion: 'Every lesson maps to verified outcome IDs',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${lessonPaths.join('; ')}; curriculum-maps/grade-2-science/official-curriculum.yaml; curriculum-maps/grade-2-mathematics/official-curriculum.yaml; curriculum-maps/grade-2-human-studies/official-curriculum.yaml`,
+      ids: 'ee-prk-2026-stage1-natural-science-guided-inquiry; ee-prk-2026-stage1-mathematics-real-life; ee-prk-2026-stage1-human-studies-rights-duties; ee-prk-2026-stage1-physical-education-water-safety',
+      implemented: 'Lesson-level outcome references resolve; the PE outcome remains a separate author-created missing-route role.',
+      blocked: 'The missing PE source route remains a release blocker.',
+    },
+    {
+      criterion: 'Module works without Opiq access',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; ${lessonPaths.join('; ')}`,
+      ids: 'opiq_required false; customer_can_complete_without_opiq true',
+      implemented: 'All required explanations, tasks, answers and assessments are author-created and standalone.',
+      blocked: 'No blocker for standalone completion.',
+    },
+    {
+      criterion: 'Every Opiq link has role, access, verification date and fallback metadata',
+      status: 'blocked_access_verification',
+      gate: 'access',
+      evidence: lessonPaths.join('; '),
+      ids: companionIds.join('; '),
+      implemented: 'Every committed companion has exact source metadata, a narrow role, internal_only visibility and a resolving standalone fallback.',
+      blocked: 'No access check occurred, so last_checked_on is truthfully null and check_status is not_checked.',
+    },
+    {
+      criterion: 'All commercial tasks pass originality review',
+      status: 'blocked_human_review',
+      gate: 'human_review',
+      evidence: 'task-bank/reviews/grade-2/weather-water-safety; task-bank/index.yaml',
+      ids: '12 task reviews',
+      implemented: 'Two task reviews are approved and fingerprints remain current.',
+      blocked: 'Ten task reviews remain pending.',
+    },
+    {
+      criterion: 'Russian subject understanding and Estonian output are separately assessed',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: lessonPaths.join('; '),
+      ids: 'separate_content_and_estonian_language_evidence; subject_assessment; language_assessment',
+      implemented: 'Every lesson has distinct subject and language criteria and evidence bindings.',
+      blocked: 'No language score can change a subject score.',
+    },
+    {
+      criterion: 'Project work and mastery practice are both present',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; ${lessonPaths.join('; ')}`,
+      ids: 'weather_board_and_group_report; individual lesson evidence stages',
+      implemented: 'Daily individual work feeds a bounded shared report.',
+      blocked: 'The shared report cannot satisfy individual mastery.',
+    },
+    {
+      criterion: 'Grade 2 individual evidence cannot be replaced by the shared product',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; ${lessonPaths.join('; ')}`,
+      ids: 'shared_evidence_replaces_individual false; 12 family hooks',
+      implemented: 'Observation, calculation, human-studies/PE decisions, contribution, exit ticket and Estonian evidence remain individual.',
+      blocked: 'No shared-evidence substitution is allowed.',
+    },
+    {
+      criterion: 'Parent workload and learner time are recorded',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: 'teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md; lesson-plans/grade-2/weather-water-safety',
+      ids: 'four lessons × 45 minutes; homework expected_minutes 5 optional',
+      implemented: 'Time, materials, supervision and no-required-homework boundaries are explicit.',
+      blocked: 'Home readiness is not claimed.',
+    },
+    {
+      criterion: 'Schemas, validators, tests and CI pass',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: 'schemas/grade-2-weather-water-safety-pilot.schema.json; scripts/lib/grade-2-weather-water-safety-pilot.mjs; .github/workflows/validate-source-manifest.yml',
+      ids: 'test:grade-2-weather-water-safety-pilot; check:grade-2-weather-water-safety-pilot',
+      implemented: 'Focused deterministic validation and CI wiring cover the closeout metadata.',
+      blocked: 'Passing engineering checks does not establish publication readiness.',
+    },
+    {
+      criterion: 'Family overlay implementation boundary',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: pilotPathsForAudit('module'),
+      ids: 'implementation_status hooks_only; hook_count 12',
+      implemented: 'Foundation participation, Grade 2 responsibility and Grade 4 extension hooks are stable.',
+      blocked: 'No Grade 4 curriculum outcome or completed mixed-age product is claimed.',
+    },
+    {
+      criterion: 'Customer companion access',
+      status: 'blocked_access_verification',
+      gate: 'access',
+      evidence: `${pilotPathsForAudit('module')}; grade-programmes/grade-2/implementation-roadmap.yaml`,
+      ids: 'companion_access_status unverified_internal_only; customer_companion_access_not_verified',
+      implemented: 'Four exact internal candidate companions and standalone fallbacks are recorded.',
+      blocked: 'Access mode remains unverified, no date is invented and no companion is customer-visible.',
+    },
+    {
+      criterion: 'Lesson originality reviews',
+      status: 'blocked_human_review',
+      gate: 'human_review',
+      evidence: lessonPaths.join('; '),
+      ids: lessons.map((lesson) => lesson.originality_review.review_id).join('; '),
+      implemented: 'Review scopes remain explicit.',
+      blocked: 'All four lesson reviews remain pending with null reviewer, date, commit and fingerprint.',
+    },
+    {
+      criterion: 'Teacher review',
+      status: 'blocked_human_review',
+      gate: 'human_review',
+      evidence: 'teacher-packs/grade-2/weather-water-safety/review-templates/teacher-review-template.yaml; teacher-packs/grade-2/weather-water-safety/materials-index.yaml',
+      ids: 'teacher_review_status pending',
+      implemented: 'The review workflow and template exist.',
+      blocked: 'No teacher approval is recorded.',
+    },
+    {
+      criterion: 'Classroom and home trials',
+      status: 'blocked_trial_or_effectiveness',
+      gate: 'trial_effectiveness',
+      evidence: 'teacher-packs/grade-2/weather-water-safety/review-templates/classroom-trial-template.yaml; teacher-packs/grade-2/weather-water-safety/review-templates/home-trial-template.yaml',
+      ids: 'classroom_trial not_tested; home_trial not_started',
+      implemented: 'Trial templates and explicit states exist.',
+      blocked: 'Neither trial has occurred.',
+    },
+    {
+      criterion: 'Pedagogical effectiveness',
+      status: 'blocked_trial_or_effectiveness',
+      gate: 'trial_effectiveness',
+      evidence: `${pilotPathsForAudit('module')}; grade-programmes/grade-2/implementation-roadmap.yaml`,
+      ids: 'effectiveness_claimed false; effectiveness_established false',
+      implemented: 'The claim boundary explicitly forbids an effectiveness claim.',
+      blocked: 'Effectiveness is not established.',
+    },
+    {
+      criterion: 'Final Riigi Teataja refresh',
+      status: 'blocked_human_review',
+      gate: 'human_review',
+      evidence: 'grade-programmes/grade-2/implementation-roadmap.yaml; compliance/estonia/2026-27/outcome-index.yaml',
+      ids: 'final_riigi_teataja_refresh_pending_under_37; issue #37',
+      implemented: 'The dependency remains explicitly tracked.',
+      blocked: 'Final official-source refresh remains outside this PR under #37.',
+    },
+    {
+      criterion: 'Physical-education water-safety boundary',
+      status: 'implemented',
+      gate: 'engineering',
+      evidence: `${pilotPathsForAudit('module')}; ${outputPaths.lesson3}; grade-programmes/grade-2/project-modules.yaml`,
+      ids: 'ee-prk-2026-stage1-physical-education-water-safety; source_status missing_route; route_ids []',
+      implemented: 'The PE outcome remains separate author-created dry evidence with no source claim.',
+      blocked: 'Human studies and its Opiq companion cannot replace PE coverage.',
+    },
+  ];
+  const header = [
+    '# Grade 2 weather, water and safety pilot acceptance audit',
+    '',
+    'Status: deterministic internal closeout audit for issue #40; the issue remains open and publication readiness is not claimed.',
+    '',
+    'This file is generated by `scripts/generate-grade-2-weather-water-safety-pilot.mjs`. It evaluates the current issue #40 deliverables and acceptance criteria without changing the issue body.',
+    '',
+    '## Result boundary',
+    '',
+    `- Four lessons are internally authored; ${lessons.length} lesson files are linked.`,
+    `- Twelve family hooks are present; ${lessons.flatMap((lesson) => lesson.family_overlay_hooks).length} hook records are linked.`,
+    `- Four internal companions are present; ${companionIds.length} companion records are linked.`,
+    '- Customer access, lesson/task originality reviews, teacher review, trials, release and effectiveness remain blocked as stated below.',
+    '',
+    '## Deliverables and acceptance criteria',
+    '',
+    '| # | Criterion | Status | Gate | Exact evidence files | Exact IDs | Implemented | Remains blocked |',
+    '|---:|---|---|---|---|---|---|---|',
+    ...rows.map((row, index) => (
+      `| ${index + 1} | ${auditCell(row.criterion)} | \`${row.status}\` | \`${row.gate}\` | ${auditCell(row.evidence)} | ${auditCell(row.ids)} | ${auditCell(row.implemented)} | ${auditCell(row.blocked)} |`
+    )),
+    '',
+    '## Closeout decision',
+    '',
+    'The autonomous engineering slice is implemented, but issue #40 is not complete. Human originality review, teacher review, access verification, classroom/home trials, final official-source refresh and effectiveness evidence remain unresolved. No approval, publication, readiness, access or effectiveness state is changed by this audit.',
+    '',
+  ];
+  return header.join('\n');
+}
+
+function pilotPathsForAudit(key) {
+  if (key === 'module') return 'grade-programmes/grade-2/pilot-modules/weather-water-safety.yaml';
+  throw new Error(`Unknown pilot audit path key: ${key}`);
+}
+
 function serialize(value) {
   return YAML.stringify(value, { aliasDuplicateObjects: false, lineWidth: 120 });
 }
@@ -2906,6 +3443,7 @@ export async function generatedLessonFiles(rootDir = process.cwd()) {
     [outputPaths.lesson3, serialize(lesson3)],
     [outputPaths.lesson4, serialize(lesson4)],
     [outputPaths.materialsIndex, serialize(buildMaterialsIndex(lessons))],
+    [outputPaths.acceptanceAudit, buildGrade2WeatherWaterSafetyAcceptanceAudit(lessons)],
   ]);
 }
 

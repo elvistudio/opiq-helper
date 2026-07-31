@@ -5,6 +5,7 @@ import { before, test } from 'node:test';
 import {
   buildGrade2CourseArchitectureArtifacts,
   checkGrade2CourseArchitectureFiles,
+  grade2PilotCloseoutStatus,
   sourceFaithfulTitle,
   validateGrade2CourseArchitecture,
   validateGrade2CourseArchitectureSchemas,
@@ -632,6 +633,11 @@ test('implementation roadmap reports only the bounded production progress', () =
     pending_task_internal_integration_count: 4,
     pending_task_unintegrated_count: 6,
     companion_access_status: 'unverified_internal_only',
+    family_overlay_hook_status: 'implemented_hooks_only',
+    family_overlay_hook_count: 12,
+    opiq_companion_metadata_status: 'internal_candidates_only',
+    customer_companion_access_status: 'unverified',
+    acceptance_audit_status: 'implemented',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
     production_validation_status: 'blocked',
     teacher_review_status: 'pending',
@@ -650,6 +656,17 @@ test('implementation roadmap reports only the bounded production progress', () =
   assert.equal(
     roadmap.stages.find((stage) => stage.stage_id === 'production-validation').status,
     'blocked',
+  );
+});
+
+test('pilot closeout status is identical across architecture, coverage and roadmap', () => {
+  assert.deepEqual(baseline.programme.architecture.pilot_closeout, grade2PilotCloseoutStatus);
+  assert.deepEqual(baseline.programme.coverage.pilot_closeout, grade2PilotCloseoutStatus);
+  assert.deepEqual(
+    Object.fromEntries(Object.keys(grade2PilotCloseoutStatus).map((field) => (
+      [field, baseline.programme.roadmap.implementation_facts[field]]
+    ))),
+    grade2PilotCloseoutStatus,
   );
 });
 
@@ -1252,4 +1269,11 @@ test('rejects canonical record-total drift', () => expectCode(
 test('rejects release-blocker drift', () => expectCode(
   (candidate) => { candidate.programme.architecture.release_gate.blocker_codes.pop(); },
   'release_blocker_set_mismatch',
+));
+
+test('rejects pilot closeout status drift', () => expectCode(
+  (candidate) => {
+    candidate.programme.roadmap.implementation_facts.customer_companion_access_status = 'verified';
+  },
+  'pilot_closeout_status_mismatch',
 ));

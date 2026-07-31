@@ -15,6 +15,14 @@ const GRADE_7_GEOGRAPHY_PATH =
   'evaluations/teacher-work-plans/grade-7-geography-extraction.json';
 const GRADE_7_SCIENCE_PATH =
   'evaluations/teacher-work-plans/grade-7-science-extraction.json';
+const EXTRACTION_AUDIT_PATHS = Object.freeze([
+  'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+  'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+  'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
+  'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+]);
+const EXTRACTION_SOURCE_PREFIX =
+  'project-files/inputs/originals/teacher-work-plans/';
 export const EXTRACTION_CONTRACTS = Object.freeze({
   'grade-5-science-teacher-work-plan-extraction': Object.freeze({
     extractionPath: GRADE_5_PATH,
@@ -369,6 +377,17 @@ function compareBytewise(left, right) {
 
 function uniqueSorted(values) {
   return [...new Set(values)].sort(compareBytewise);
+}
+
+export function requiresTeacherWorkPlanScopeValidation(changedPaths) {
+  const triggerPaths = new Set([
+    ...EXTRACTION_PATHS,
+    ...EXTRACTION_AUDIT_PATHS,
+  ]);
+  return uniqueSorted(changedPaths).some((repositoryPath) => (
+    triggerPaths.has(repositoryPath)
+    || repositoryPath.startsWith(EXTRACTION_SOURCE_PREFIX)
+  ));
 }
 
 function safeRepositoryPath(rootDir, repositoryPath, label) {

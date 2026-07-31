@@ -74,6 +74,61 @@ function courseMapFor(context, mapId) {
   )?.data;
 }
 
+function grade2ProjectFor(context, projectId) {
+  const projectArtifact = context.grade2Programme?.projectModules?.data;
+  const project = projectArtifact?.projects?.find((entry) => entry.project_id === projectId);
+  return project ? { grade: projectArtifact.grade, project } : null;
+}
+
+function grade2BookInventoryFor(context, routeId) {
+  return context.curriculum?.artifacts?.find((artifact) => (
+    artifact.data.artifact_type === 'grade_programme_book_inventory'
+      && artifact.data.route_id === routeId
+  ))?.data;
+}
+
+function commonProgrammeType(value) {
+  return ({
+    ordinary_curriculum: 'ordinary',
+    simplified_curriculum: 'simplified_curriculum',
+    supplementary: 'supplementary',
+    teacher_support: 'teacher_support',
+  })[value] ?? 'unknown';
+}
+
+function normalizedSubject(value) {
+  return value?.trim().toLowerCase().replace(/[\s-]+/gu, '_');
+}
+
+function grade2ProjectRecords(context, projectContext, routeId) {
+  const alignment = projectContext?.project?.source_alignments?.find((entry) => (
+    entry.route_id === routeId
+  ));
+  const inventory = grade2BookInventoryFor(context, routeId);
+  if (!alignment || !inventory) return { alignment, inventory, records: [] };
+  const selectedIds = new Set(alignment.source_record_ids ?? []);
+  const records = (inventory.source_records ?? [])
+    .filter((entry) => selectedIds.has(entry.record_id))
+    .map((entry) => {
+      const book = inventory.books?.find((candidate) => (
+        candidate.book_id === entry.book_id && candidate.record_ids?.includes(entry.record_id)
+      ));
+      return {
+        authoritative: {
+          record_id: entry.record_id,
+          canonical_url: entry.canonical_url,
+          canonical_source_id: routeId,
+          book_id: entry.book_id,
+          title: entry.title,
+          language: entry.language,
+          programme_type: commonProgrammeType(book?.programme_type),
+        },
+        book,
+      };
+    });
+  return { alignment, inventory, records };
+}
+
 function validateCommercialCore(diagnostics, artifact) {
   const lesson = artifact.data;
   const core = lesson.commercial_core ?? {};
@@ -213,25 +268,47 @@ function validateCompanions(diagnostics, artifact, context) {
     diagnostic(diagnostics, artifact, '/opiq_companions', `duplicate companion ID ${duplicate}`);
   }
   const courseMap = courseMapFor(context, lesson.evidence_linkage?.course_map_ref);
+  const projectContext = grade2ProjectFor(context, lesson.evidence_linkage?.course_map_ref);
+  const projectRecords = grade2ProjectRecords(
+    context,
+    projectContext,
+    lesson.canonical_route?.source_id,
+  );
   const selectedRecordByUrl = new Map(
-    (courseMap?.selected_records ?? []).map((record) => [record.canonical_url, record]),
+    courseMap
+      ? (courseMap.selected_records ?? []).map((record) => [record.canonical_url, {
+        authoritative: record,
+        book: null,
+      }])
+      : projectRecords.records.map((entry) => [entry.authoritative.canonical_url, entry]),
   );
   const materials = new Set((lesson.evidence_linkage?.author_materials ?? []).map((entry) => entry.material_id));
   const stages = new Set((lesson.stages ?? []).map((entry) => entry.stage_id));
   for (const [index, companion] of companions.entries()) {
     const field = `/opiq_companions/${index}`;
     const record = companion.source_record ?? {};
-    const authoritativeRecord = selectedRecordByUrl.get(record.canonical_url);
+    const selectedRecord = selectedRecordByUrl.get(record.canonical_url);
+    const authoritativeRecord = selectedRecord?.authoritative;
     if (record.canonical_source_id !== lesson.canonical_route?.source_id) {
       diagnostic(diagnostics, artifact, `${field}/source_record/canonical_source_id`, 'companion source snapshot must use the lesson canonical route');
     }
-    if (!courseMap || courseMap.grade !== lesson.grade || courseMap.subject !== lesson.subject) {
+    const mapMatchesLesson = courseMap
+      ? courseMap.grade === lesson.grade && courseMap.subject === lesson.subject
+      : projectContext?.grade === lesson.grade
+        && projectRecords.inventory?.grade === lesson.grade
+        && normalizedSubject(projectRecords.inventory?.subject) === normalizedSubject(lesson.subject);
+    if (!mapMatchesLesson) {
       diagnostic(diagnostics, artifact, `${field}/source_record`, 'companion course-map grade and subject must match the lesson');
     }
     if (!authoritativeRecord) {
       diagnostic(diagnostics, artifact, `${field}/source_record/canonical_url`, 'companion URL is not selected in the linked course map');
     } else {
-      for (const mismatch of differingRecordFields(record, authoritativeRecord)) {
+      const fields = courseMap
+        ? differingRecordFields(record, authoritativeRecord)
+        : Object.keys(authoritativeRecord).filter((key) => (
+          !isDeepStrictEqual(record?.[key], authoritativeRecord[key])
+        ));
+      for (const mismatch of fields) {
         diagnostic(
           diagnostics,
           artifact,
@@ -246,6 +323,23 @@ function validateCompanions(diagnostics, artifact, context) {
           `${field}/source_record/canonical_source_id`,
           'authoritative companion record is not owned by the lesson canonical route',
         );
+      }
+      if (!courseMap) {
+        const expectedSourceReference = `${authoritativeRecord.canonical_source_id} / kit ${companion.kit_id} / chapter ${companion.chapter_id}`;
+        if (!sameSet(record.instructional_roles, ['optional_extension'])) {
+          diagnostic(diagnostics, artifact, `${field}/source_record/instructional_roles`, 'Grade 2 project companion must remain an optional extension');
+        }
+        if (record.provenance?.category !== 'opiq_textbook'
+            || record.provenance?.source_reference !== expectedSourceReference) {
+          diagnostic(diagnostics, artifact, `${field}/source_record/provenance`, 'Grade 2 project companion provenance must identify the exact registered route and URL coordinates');
+        }
+        const eligibility = selectedRecord?.book?.eligibility ?? {};
+        if (eligibility.ordinary_default_use !== true
+            || eligibility.learner_specific_simplified_use !== false
+            || eligibility.supplementary_use !== false
+            || eligibility.mixed_subject_use !== false) {
+          diagnostic(diagnostics, artifact, `${field}/source_record`, 'Grade 2 project companion must be an ordinary default-eligible record, not simplified, supplementary, or mixed-subject content');
+        }
       }
     }
     const coordinates = parseOpiqCoordinates(authoritativeRecord?.canonical_url);

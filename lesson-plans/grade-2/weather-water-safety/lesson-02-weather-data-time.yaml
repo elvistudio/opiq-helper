@@ -622,8 +622,8 @@ artifact_readiness:
 delivery_model:
   core_mode: standalone_commercial_core
   opiq_required: false
-  opiq_companion_policy: none
-  family_overlay_supported: false
+  opiq_companion_policy: optional
+  family_overlay_supported: true
   customer_can_complete_without_opiq: true
   publication_status: internal_review
 commercial_core:
@@ -666,7 +666,40 @@ commercial_core:
         - g2-time-measurement-problem-expected-answers
       worked_solution_material_ids:
         - g2-time-measurement-problem-worked-solution
-opiq_companions: []
+opiq_companions:
+  - companion_id: g2-weather-water-02-millimetre-revision-companion
+    source_record:
+      record_id: grade-2-mathematics-record-578-https-www-opiq-ee-kit-578-chapter-32039-10b9ff9d7f
+      canonical_url: https://www.opiq.ee/kit/578/chapter/32039
+      canonical_source_id: grade-2-mathematics
+      book_id: avita_математика_2_et__kit578
+      title: Sirglõik. Millimeeter
+      language: ru
+      programme_type: ordinary
+      instructional_roles:
+        - optional_extension
+      provenance:
+        category: opiq_textbook
+        source_reference: grade-2-mathematics / kit 578 / chapter 32039
+        notes: Canonical Grade 2 ordinary-curriculum record selected by the project architecture; full prose and customer access
+          remain unverified.
+      selection_rationale: Optional internal revision of millimetre notation only; it does not supply the rainfall calculation or answer.
+    kit_id: 578
+    chapter_id: 32039
+    companion_role: revision
+    access:
+      mode: unverified
+      last_checked_on: null
+      check_status: not_checked
+      notes: The record is retained for internal companion evaluation; customer access has not been verified.
+    publication_visibility: internal_only
+    standalone_fallback:
+      exists: true
+      author_material_ids:
+        - g2-weather-data-time-explanation
+      lesson_stage_refs:
+        - bridge-data-et
+      notes: The author-created data explanation already teaches the millimetre notation needed by the lesson without Opiq.
 originality_review:
   review_id: grade-2-weather-water-safety-02-data-time-originality-review
   status: pending
@@ -711,7 +744,60 @@ originality_review:
     copied_answer_keys: false
     extracted_interactive_content: false
   notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
-family_overlay_hooks: []
+family_overlay_hooks:
+  - hook_id: g2-weather-water-02-foundation-participation
+    hook_role: foundation_participation
+    supported_lanes:
+      - foundation
+    core_refs:
+      stage_ids:
+        - activate-data
+      material_ids:
+        - g2-weather-data-time-explanation
+      objective_ids: []
+      assessment_criterion_ids: []
+    shared_product_supported: true
+    individual_evidence_required: false
+    shared_evidence_replaces_individual: false
+    notes: Foundation participation is bounded observation or listening and is never reported as Grade 2 mastery.
+  - hook_id: g2-weather-water-02-grade-2-responsibility
+    hook_role: grade_2_responsibility
+    supported_lanes:
+      - grade_2
+    core_refs:
+      stage_ids:
+        - solve-approved-tasks
+      material_ids:
+        - g2-weather-data-comparison-task
+        - g2-time-measurement-problem-task
+      objective_ids:
+        - solve-weather-data-and-time
+      assessment_criterion_ids:
+        - data-time-subject
+    shared_product_supported: true
+    individual_evidence_required: true
+    shared_evidence_replaces_individual: false
+    notes: The Grade 2 lane retains the lesson subject evidence separately; shared work and Estonian evidence cannot replace
+      it.
+  - hook_id: g2-weather-water-02-grade-4-extension
+    hook_role: grade_4_extension
+    supported_lanes:
+      - grade_4
+    core_refs:
+      stage_ids:
+        - solve-approved-tasks
+      material_ids:
+        - g2-weather-data-comparison-task
+        - g2-time-measurement-problem-task
+      objective_ids:
+        - solve-weather-data-and-time
+      assessment_criterion_ids:
+        - data-time-subject
+    shared_product_supported: true
+    individual_evidence_required: true
+    shared_evidence_replaces_individual: false
+    notes: This stable extension hook adds no Grade 4 outcome or mandatory Grade 2 work and cannot count group work as
+      mastery.
 provenance:
   category: author_created_bridge
   source_reference: grade-2-project-weather-water-safety; grade-2-mathematics-official-curriculum

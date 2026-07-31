@@ -13,7 +13,12 @@ import {
   weatherOutputContract,
   weatherReportLanguageContract,
 } from './lib/grade-2-weather-water-safety-pilot.mjs';
-import { checkGeneratedLessons } from './generate-grade-2-weather-water-safety-pilot.mjs';
+import {
+  checkGeneratedLessons,
+  pilotCompanionContracts,
+  pilotCompanionGaps,
+} from './generate-grade-2-weather-water-safety-pilot.mjs';
+import { computeLessonContentIdentity } from './lib/pedagogy-generation-integration.mjs';
 import { computeTaskFingerprint } from './lib/task-bank.mjs';
 
 let repository;
@@ -43,6 +48,45 @@ function material(lessonData, materialId) {
 
 function normalized(value) {
   return String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim().toLowerCase();
+}
+
+async function treeFingerprint(rootPath) {
+  const entries = [];
+  async function visit(relativePath = '') {
+    const directory = relativePath ? `${rootPath}/${relativePath}` : rootPath;
+    const children = await fs.readdir(directory, { withFileTypes: true });
+    children.sort((left, right) => Buffer.from(left.name).compare(Buffer.from(right.name)));
+    for (const child of children) {
+      if (child.name === '.DS_Store') continue;
+      const childPath = relativePath ? `${relativePath}/${child.name}` : child.name;
+      if (child.isDirectory()) {
+        await visit(childPath);
+      } else if (child.isFile()) {
+        const content = await fs.readFile(`${rootPath}/${childPath}`);
+        entries.push({
+          path: childPath,
+          sha256: crypto.createHash('sha256').update(content).digest('hex'),
+        });
+      }
+    }
+  }
+  await visit();
+  return crypto.createHash('sha256').update(JSON.stringify(entries)).digest('hex');
+}
+
+async function expectPilotDiagnostic(mutator, acceptedCodes) {
+  const candidate = {
+    ...repository,
+    lessons: structuredClone(repository.lessons),
+    module: structuredClone(repository.module),
+    roadmap: structuredClone(repository.roadmap),
+  };
+  mutator(candidate);
+  const result = await validateGrade2WeatherWaterSafetyPilot(candidate);
+  assert.ok(result.diagnostics.some((entry) => acceptedCodes.includes(entry.code)), [
+    `expected one of ${acceptedCodes.join(', ')}`,
+    `found ${result.diagnostics.map((entry) => entry.code).join(', ')}`,
+  ].join('; '));
 }
 
 test.before(async () => {
@@ -108,15 +152,36 @@ test('exactly four lessons are internally authored and no slot remains planned',
   assert.equal(slots[3].release_ready, false);
 });
 
-test('lessons 1 through 3 remain byte-stable on the stacked base contract', async () => {
-  const expected = new Map([
-    [pilotPaths.lesson1, '7b763646147d2a76b0e6770b88008812d15b43d162d4dc16cef23bc5cbf3b879'],
-    [pilotPaths.lesson2, '64c74886be109c2dc845b2b90b5163b0632061d97b30a1ed703d1670d450e209'],
-    [pilotPaths.lesson3, '2e95c7b6946dbb7f15be0f6d2641b2be90522c3b4f0cee60234e1abb6c4579a4'],
-  ]);
-  for (const [repositoryPath, fingerprint] of expected) {
-    const content = await fs.readFile(repositoryPath);
-    assert.equal(crypto.createHash('sha256').update(content).digest('hex'), fingerprint);
+test('protected task, learner, answer and source artifacts remain byte-identical', async () => {
+  const sourceManifest = await fs.readFile('source-manifest.json');
+  assert.equal(
+    crypto.createHash('sha256').update(sourceManifest).digest('hex'),
+    '036e178a800f9462e90abfc6dfea7943b5392a11d896f0ea240d438d9bab3197',
+  );
+  assert.equal(
+    await treeFingerprint('teacher-packs/grade-2/weather-water-safety/student'),
+    'c30fa6822eab636d4f6e48399cf207de7f82b54c9faa58af95268f47725e24f9',
+  );
+  assert.equal(
+    await treeFingerprint('teacher-packs/grade-2/weather-water-safety/answers'),
+    '62675b0119e72f894066acc2bf2908f41af5cf0c56b004e7f56029995a1d6f4c',
+  );
+  assert.equal(
+    await treeFingerprint('task-bank'),
+    '7fb1351e3f3d4c2f9fc2f19a0856db6506bba35c5c49042c52c778860c842747',
+  );
+  assert.equal(
+    await treeFingerprint('project-files'),
+    '21ab208cd1d72aa5cf6831ff579127d6c79fb39597ba17772dbdc3199b711ec8',
+  );
+});
+
+test('all authored lesson content identities are regenerated and current', () => {
+  for (const lessonData of repository.lessons) {
+    assert.deepEqual(
+      lessonData.pedagogical_integration.content_identity,
+      computeLessonContentIdentity(lessonData),
+    );
   }
 });
 
@@ -309,12 +374,129 @@ test('pending learner renderings preserve projections and exclude answer contrac
   }
 });
 
-test('all four lessons are customer-complete without Opiq', () => {
-  for (const lessonData of repository.lessons) {
+test('all four lessons remain customer-complete with exact optional internal companions', () => {
+  for (const [index, lessonData] of repository.lessons.entries()) {
     assert.equal(lessonData.delivery_model.opiq_required, false);
+    assert.equal(lessonData.delivery_model.opiq_companion_policy, 'optional');
+    assert.equal(lessonData.delivery_model.family_overlay_supported, true);
     assert.equal(lessonData.delivery_model.customer_can_complete_without_opiq, true);
     assert.deepEqual(lessonData.evidence_linkage.opiq_records, []);
-    assert.deepEqual(lessonData.opiq_companions, []);
+    assert.deepEqual(
+      lessonData.opiq_companions,
+      pilotCompanionContracts.filter((entry) => entry.lessonPosition === index + 1)
+        .map((entry) => entry.companion),
+    );
+    for (const companion of lessonData.opiq_companions) {
+      assert.equal(companion.publication_visibility, 'internal_only');
+      assert.deepEqual(companion.access, {
+        mode: 'unverified',
+        last_checked_on: null,
+        check_status: 'not_checked',
+        notes: 'The record is retained for internal companion evaluation; customer access has not been verified.',
+      });
+      assert.equal(companion.standalone_fallback.exists, true);
+      assert.ok(companion.standalone_fallback.author_material_ids.length > 0);
+      assert.ok(companion.standalone_fallback.lesson_stage_refs.length > 0);
+      assert.equal(companion.source_record.programme_type, 'ordinary');
+      assert.deepEqual(companion.source_record.instructional_roles, ['optional_extension']);
+    }
+  }
+});
+
+test('module records exactly twelve stable family hooks and two honest companion gaps', () => {
+  const hooks = repository.lessons.flatMap((lessonData) => lessonData.family_overlay_hooks);
+  assert.equal(hooks.length, 12);
+  assert.equal(new Set(hooks.map((hook) => hook.hook_id)).size, 12);
+  assert.deepEqual(repository.module.family_overlay, {
+    supported: true,
+    implementation_status: 'hooks_only',
+    hook_count: 12,
+    supported_lanes: ['foundation', 'grade_2', 'grade_4'],
+    grade_2_individual_evidence_required: true,
+    shared_evidence_replaces_individual: false,
+    hook_index: repository.lessons.flatMap((lessonData) => (
+      lessonData.family_overlay_hooks.map((hook) => ({
+        lesson_id: lessonData.lesson_id,
+        hook_id: hook.hook_id,
+      }))
+    )),
+  });
+  for (const lessonData of repository.lessons) {
+    assert.deepEqual(
+      lessonData.family_overlay_hooks.map((hook) => hook.hook_role),
+      ['foundation_participation', 'grade_2_responsibility', 'grade_4_extension'],
+    );
+    const foundation = lessonData.family_overlay_hooks[0];
+    const grade2 = lessonData.family_overlay_hooks[1];
+    const grade4 = lessonData.family_overlay_hooks[2];
+    assert.deepEqual(foundation.supported_lanes, ['foundation']);
+    assert.equal(foundation.individual_evidence_required, false);
+    assert.deepEqual(foundation.core_refs.objective_ids, []);
+    assert.deepEqual(foundation.core_refs.assessment_criterion_ids, []);
+    assert.deepEqual(grade2.supported_lanes, ['grade_2']);
+    assert.equal(grade2.individual_evidence_required, true);
+    assert.ok(grade2.core_refs.stage_ids.length > 0);
+    assert.ok(grade2.core_refs.material_ids.length > 0);
+    assert.ok(grade2.core_refs.objective_ids.length > 0);
+    assert.ok(grade2.core_refs.assessment_criterion_ids.length > 0);
+    assert.deepEqual(grade4.supported_lanes, ['grade_4']);
+    assert.match(grade4.notes, /adds no Grade 4 outcome/iu);
+    assert.ok(lessonData.family_overlay_hooks.every((hook) => (
+      hook.shared_evidence_replaces_individual === false
+    )));
+  }
+  assert.equal(repository.module.companion_access_status, 'unverified_internal_only');
+  assert.equal(repository.module.opiq_companion_summary.committed_companion_count, 4);
+  assert.equal(repository.module.opiq_companion_summary.customer_visible_companion_count, 0);
+  assert.deepEqual(
+    repository.module.opiq_companion_summary.eligible_role_gaps,
+    pilotCompanionGaps.map(({ role, status }) => ({ role, status })),
+  );
+  assert.ok(repository.lessons.every((lessonData) => (
+    lessonData.opiq_companions.every((companion) => (
+      companion.source_record.canonical_source_id !== 'grade-2-estonian-second-language'
+    ))
+  )));
+});
+
+test('family and companion semantic guards reject invalid mutations', async (t) => {
+  const cases = [
+    ['Grade 1 or Grade 3 companion', (candidate) => {
+      candidate.lessons[0].opiq_companions[0].source_record.canonical_source_id = 'grade-1-science';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ELIGIBILITY', 'PILOT_PLAN_REPOSITORY']],
+    ['first-language Estonian in a second-language role', (candidate) => {
+      candidate.lessons[0].opiq_companions[0].source_record.canonical_source_id = 'grade-2-estonian';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ELIGIBILITY', 'PILOT_PLAN_REPOSITORY']],
+    ['invented PE companion', (candidate) => {
+      candidate.lessons[2].opiq_companions[0].source_record.canonical_source_id = 'grade-2-physical-education';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ELIGIBILITY', 'PILOT_COMPANION_PE_SUBSTITUTION']],
+    ['customer-visible companion', (candidate) => {
+      candidate.lessons[0].opiq_companions[0].publication_visibility = 'customer_visible';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ACCESS', 'PILOT_PLAN_REPOSITORY']],
+    ['missing fallback', (candidate) => {
+      delete candidate.lessons[1].opiq_companions[0].standalone_fallback;
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_FALLBACK', 'PILOT_PLAN_REPOSITORY']],
+    ['invented verification date', (candidate) => {
+      candidate.lessons[1].opiq_companions[0].access.last_checked_on = '2026-07-31';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ACCESS']],
+    ['simplified companion', (candidate) => {
+      candidate.lessons[1].opiq_companions[0].source_record.programme_type = 'simplified_curriculum';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ELIGIBILITY', 'PILOT_PLAN_REPOSITORY']],
+    ['supplementary companion', (candidate) => {
+      candidate.lessons[1].opiq_companions[0].source_record.programme_type = 'supplementary';
+    }, ['PILOT_COMPANION_CONTRACT', 'PILOT_COMPANION_ELIGIBILITY', 'PILOT_PLAN_REPOSITORY']],
+    ['foundation counted as mastery', (candidate) => {
+      candidate.lessons[0].family_overlay_hooks[0].core_refs.objective_ids = ['record-current-weather-evidence'];
+    }, ['PILOT_FAMILY_HOOK_CONTRACT', 'PILOT_FOUNDATION_NOT_MASTERY']],
+    ['nonexistent lesson-scoped hook reference', (candidate) => {
+      candidate.lessons[0].family_overlay_hooks[1].core_refs.stage_ids = ['not-a-real-stage'];
+    }, ['PILOT_FAMILY_HOOK_CONTRACT', 'PILOT_FAMILY_HOOK_REF']],
+    ['shared evidence replaces individual evidence', (candidate) => {
+      candidate.lessons[3].family_overlay_hooks[1].shared_evidence_replaces_individual = true;
+    }, ['PILOT_FAMILY_HOOK_CONTRACT', 'PILOT_FAMILY_SHARED_EVIDENCE']],
+  ];
+  for (const [name, mutate, codes] of cases) {
+    await t.test(name, () => expectPilotDiagnostic(mutate, codes));
   }
 });
 
@@ -633,6 +815,11 @@ test('roadmap truthfully records complete internal authoring and blocked validat
     pending_task_unintegrated_count: 6,
     pending_task_originality_review_count: 10,
     companion_access_status: 'unverified_internal_only',
+    family_overlay_hook_status: 'implemented_hooks_only',
+    family_overlay_hook_count: 12,
+    opiq_companion_metadata_status: 'internal_candidates_only',
+    customer_companion_access_status: 'unverified',
+    acceptance_audit_status: 'implemented',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
     production_validation_status: 'blocked',
     teacher_review_status: 'pending',
@@ -645,6 +832,56 @@ test('roadmap truthfully records complete internal authoring and blocked validat
     'standalone_commercial_core_internal_authoring_complete_not_release_ready',
   ));
   assert.ok(!repository.roadmap.release_blocker_codes.includes('clean_room_task_bank_not_implemented'));
+});
+
+test('roadmap cannot remove access, review or trial blockers', async (t) => {
+  const cases = [
+    ['access', (candidate) => {
+      candidate.roadmap.release_blocker_codes = candidate.roadmap.release_blocker_codes
+        .filter((code) => code !== 'customer_companion_access_not_verified');
+    }, ['PILOT_ROADMAP_STATUS']],
+    ['lesson review', (candidate) => {
+      candidate.roadmap.release_blocker_codes = candidate.roadmap.release_blocker_codes
+        .filter((code) => code !== 'lesson_originality_review_pending');
+    }, ['PILOT_ROADMAP_STATUS']],
+    ['teacher review', (candidate) => {
+      candidate.roadmap.implementation_facts.teacher_review_status = 'approved';
+    }, ['PILOT_ROADMAP']],
+    ['classroom trial', (candidate) => {
+      candidate.roadmap.implementation_facts.classroom_trial_status = 'completed';
+    }, ['PILOT_ROADMAP']],
+    ['home trial', (candidate) => {
+      candidate.roadmap.implementation_facts.home_trial_status = 'completed';
+    }, ['PILOT_ROADMAP']],
+  ];
+  for (const [name, mutate, codes] of cases) {
+    await t.test(name, () => expectPilotDiagnostic(mutate, codes));
+  }
+});
+
+test('deterministic issue #40 acceptance audit covers every closeout status and boundary', () => {
+  const audit = repository.acceptanceAuditText;
+  for (const status of [
+    'implemented',
+    'implemented_internal_only',
+    'blocked_human_review',
+    'blocked_access_verification',
+    'blocked_trial_or_effectiveness',
+    'not_applicable',
+  ]) {
+    assert.ok(audit.includes(`\`${status}\``));
+  }
+  for (const required of [
+    'issue #40; the issue remains open',
+    'Exactly 12 unique lesson-scoped hooks',
+    'Customer access is unverified',
+    'No exact eligible water-cycle record exists',
+    'Mis on koolikotis?',
+    'source_status missing_route; route_ids []',
+    'Passing engineering checks does not establish publication readiness',
+  ]) {
+    assert.ok(audit.includes(required), `missing acceptance-audit boundary: ${required}`);
+  }
 });
 
 test('materials index resolves conventional pack roles with teacher-only answers', () => {
@@ -916,6 +1153,7 @@ test('focused commands and CI path filters cover the new production slice', () =
     'teacher-packs/**',
     'grade-programmes/**',
     'schemas/**',
+    'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
     'npm run test:grade-2-weather-water-safety-pilot',
     'npm run check:grade-2-weather-water-safety-pilot',
   ]) {

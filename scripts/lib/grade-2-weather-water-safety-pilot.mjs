@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import Ajv2020 from 'ajv/dist/2020.js';
 import {
   parseStrictCurriculumYaml,
@@ -14,7 +15,12 @@ import {
   loadTaskBankRepository,
   validateTaskBankRepository,
 } from './task-bank.mjs';
-import { checkGeneratedLessons } from '../generate-grade-2-weather-water-safety-pilot.mjs';
+import {
+  buildGrade2WeatherWaterSafetyLessons,
+  checkGeneratedLessons,
+  pilotCompanionContracts,
+  pilotCompanionGaps,
+} from '../generate-grade-2-weather-water-safety-pilot.mjs';
 
 export const pilotPaths = Object.freeze({
   module: 'grade-programmes/grade-2/pilot-modules/weather-water-safety.yaml',
@@ -24,6 +30,8 @@ export const pilotPaths = Object.freeze({
   lesson3: 'lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml',
   lesson4: 'lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml',
   materialsIndex: 'teacher-packs/grade-2/weather-water-safety/materials-index.yaml',
+  acceptanceAudit: 'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
+  projectModules: 'grade-programmes/grade-2/project-modules.yaml',
   roadmap: 'grade-programmes/grade-2/implementation-roadmap.yaml',
   calendar: 'grade-programmes/grade-2/teaching-calendar.yaml',
   packageJson: 'package.json',
@@ -238,6 +246,29 @@ function materialById(lesson, materialId) {
   ));
 }
 
+function grade2BookInventory(repository, routeId) {
+  return repository.plans.curriculum.artifacts.find((artifact) => (
+    artifact.data.artifact_type === 'grade_programme_book_inventory'
+      && artifact.data.route_id === routeId
+  ))?.data;
+}
+
+function exactProjectAlignment(repository, routeId) {
+  const project = repository.plans.grade2Programme.projectModules.data.projects.find((entry) => (
+    entry.project_id === repository.module.project_ref
+  ));
+  return project?.source_alignments?.find((entry) => entry.route_id === routeId);
+}
+
+function expectedHookIds(position) {
+  const prefix = `g2-weather-water-0${position}`;
+  return [
+    `${prefix}-foundation-participation`,
+    `${prefix}-grade-2-responsibility`,
+    `${prefix}-grade-4-extension`,
+  ];
+}
+
 function allPackPaths(index) {
   return [...new Set((index.materials ?? []).flatMap((entry) => [
     entry.material?.artifact_path,
@@ -304,6 +335,35 @@ function validateModuleContract(diagnostics, repository) {
   if (!sameSet(module.source_routes, exactRoutes)) {
     diagnostic(diagnostics, 'PILOT_ROUTE_SCOPE', pilotPaths.module, '/source_routes', 'module must retain only the five registered Grade 2 routes');
   }
+  const hooks = lessons.flatMap((lesson) => lesson.family_overlay_hooks ?? []);
+  const hookIndex = module.family_overlay?.hook_index ?? [];
+  const expectedIndex = lessons.flatMap((lesson) => (
+    (lesson.family_overlay_hooks ?? []).map((hook) => `${lesson.lesson_id}/${hook.hook_id}`)
+  ));
+  const actualIndex = hookIndex.map((entry) => `${entry.lesson_id}/${entry.hook_id}`);
+  if (module.family_overlay?.supported !== true
+      || module.family_overlay?.implementation_status !== 'hooks_only'
+      || module.family_overlay?.hook_count !== 12
+      || !sameSet(module.family_overlay?.supported_lanes, ['foundation', 'grade_2', 'grade_4'])
+      || module.family_overlay?.grade_2_individual_evidence_required !== true
+      || module.family_overlay?.shared_evidence_replaces_individual !== false
+      || hooks.length !== 12
+      || hookIndex.length !== 12
+      || !sameSet(actualIndex, expectedIndex)) {
+    diagnostic(diagnostics, 'PILOT_FAMILY_SUMMARY', pilotPaths.module, '/family_overlay', 'module must index exactly twelve lesson hooks and remain hooks_only with individual Grade 2 evidence');
+  }
+  const companions = lessons.flatMap((lesson) => lesson.opiq_companions ?? []);
+  const gaps = module.opiq_companion_summary?.eligible_role_gaps ?? [];
+  if (module.companion_access_status !== 'unverified_internal_only'
+      || module.opiq_companion_summary?.committed_companion_count !== 4
+      || module.opiq_companion_summary?.customer_visible_companion_count !== 0
+      || module.opiq_companion_summary?.all_companions_optional !== true
+      || module.opiq_companion_summary?.all_companions_have_standalone_fallback !== true
+      || companions.length !== 4
+      || !sameSet(gaps.map((entry) => entry.role), pilotCompanionGaps.map((entry) => entry.role))
+      || gaps.some((entry) => entry.status !== 'no_exact_eligible_selected_record')) {
+    diagnostic(diagnostics, 'PILOT_COMPANION_SUMMARY', pilotPaths.module, '/opiq_companion_summary', 'module companion summary must retain four internal candidates, two exact gaps and unverified access');
+  }
 }
 
 function validateLessonContracts(diagnostics, repository) {
@@ -316,9 +376,10 @@ function validateLessonContracts(diagnostics, repository) {
     if (lesson.delivery_model?.opiq_required !== false
         || lesson.delivery_model?.customer_can_complete_without_opiq !== true
         || lesson.delivery_model?.publication_status !== 'internal_review'
-        || (lesson.evidence_linkage?.opiq_records ?? []).length !== 0
-        || (lesson.opiq_companions ?? []).length !== 0) {
-      diagnostic(diagnostics, 'PILOT_STANDALONE', file, '/delivery_model', 'lesson must remain standalone, internal, and Opiq-free');
+        || lesson.delivery_model?.opiq_companion_policy !== ((lesson.opiq_companions ?? []).length > 0 ? 'optional' : 'none')
+        || lesson.delivery_model?.family_overlay_supported !== true
+        || (lesson.evidence_linkage?.opiq_records ?? []).length !== 0) {
+      diagnostic(diagnostics, 'PILOT_STANDALONE', file, '/delivery_model', 'lesson must remain standalone and internal with only optional companions and family hooks');
     }
     if (lesson.artifact_readiness?.classroom_ready !== false
         || lesson.artifact_readiness?.teacher_review?.status !== 'pending'
@@ -716,6 +777,151 @@ function validateLessonContracts(diagnostics, repository) {
   }
 }
 
+function validateFamilyAndCompanions(diagnostics, repository) {
+  const generatedLessons = buildGrade2WeatherWaterSafetyLessons();
+  const globalHookIds = [];
+  const globalCompanionIds = [];
+  for (const [index, lesson] of repository.lessons.entries()) {
+    const position = index + 1;
+    const file = [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3, pilotPaths.lesson4][index];
+    const expectedLesson = generatedLessons[index];
+    const hooks = lesson.family_overlay_hooks ?? [];
+    globalHookIds.push(...hooks.map((entry) => entry.hook_id));
+    if (hooks.length !== 3
+        || !isDeepStrictEqual(hooks, expectedLesson.family_overlay_hooks)
+        || !isDeepStrictEqual(hooks.map((entry) => entry.hook_id), expectedHookIds(position))) {
+      diagnostic(diagnostics, 'PILOT_FAMILY_HOOK_CONTRACT', file, '/family_overlay_hooks', 'lesson must contain the exact three stable family-overlay hooks for its position');
+    }
+    const knownRefs = {
+      stage_ids: new Set((lesson.stages ?? []).map((entry) => entry.stage_id)),
+      material_ids: new Set((lesson.evidence_linkage?.author_materials ?? []).map((entry) => entry.material_id)),
+      objective_ids: new Set([
+        ...(lesson.objectives?.content_objectives ?? []).map((entry) => entry.objective_id),
+        ...(lesson.objectives?.estonian_language_objectives ?? []).map((entry) => entry.objective_id),
+      ]),
+      assessment_criterion_ids: new Set((lesson.assessment ?? []).map((entry) => entry.criterion_id)),
+    };
+    for (const hook of hooks) {
+      for (const [field, values] of Object.entries(hook.core_refs ?? {})) {
+        for (const value of values ?? []) {
+          if (!knownRefs[field]?.has(value)) {
+            diagnostic(diagnostics, 'PILOT_FAMILY_HOOK_REF', file, `/family_overlay_hooks/${hook.hook_id}/core_refs/${field}`, `unknown lesson-scoped reference ${value}`);
+          }
+        }
+      }
+      if (hook.shared_evidence_replaces_individual !== false) {
+        diagnostic(diagnostics, 'PILOT_FAMILY_SHARED_EVIDENCE', file, `/family_overlay_hooks/${hook.hook_id}`, 'shared family evidence cannot replace individual evidence');
+      }
+    }
+    const foundation = hooks.find((entry) => entry.hook_role === 'foundation_participation');
+    const grade2 = hooks.find((entry) => entry.hook_role === 'grade_2_responsibility');
+    const grade4 = hooks.find((entry) => entry.hook_role === 'grade_4_extension');
+    if (!foundation
+        || !isDeepStrictEqual(foundation.supported_lanes, ['foundation'])
+        || foundation.individual_evidence_required !== false
+        || foundation.core_refs?.objective_ids?.length !== 0
+        || foundation.core_refs?.assessment_criterion_ids?.length !== 0) {
+      diagnostic(diagnostics, 'PILOT_FOUNDATION_NOT_MASTERY', file, '/family_overlay_hooks', 'foundation participation must remain bounded participation without Grade 2 mastery refs');
+    }
+    if (!grade2
+        || !isDeepStrictEqual(grade2.supported_lanes, ['grade_2'])
+        || grade2.individual_evidence_required !== true
+        || grade2.core_refs?.stage_ids?.length === 0
+        || grade2.core_refs?.material_ids?.length === 0
+        || grade2.core_refs?.objective_ids?.length === 0
+        || grade2.core_refs?.assessment_criterion_ids?.length === 0) {
+      diagnostic(diagnostics, 'PILOT_GRADE_2_INDIVIDUAL_EVIDENCE', file, '/family_overlay_hooks', 'Grade 2 responsibility hook must resolve the lesson individual evidence stage, material, objective and subject criterion');
+    }
+    if (!grade4
+        || !isDeepStrictEqual(grade4.supported_lanes, ['grade_4'])
+        || grade4.individual_evidence_required !== true
+        || !/adds no Grade 4 outcome/iu.test(grade4.notes ?? '')) {
+      diagnostic(diagnostics, 'PILOT_GRADE_4_EXTENSION_ONLY', file, '/family_overlay_hooks', 'Grade 4 hook must remain an extension-only hook with no authored Grade 4 outcome');
+    }
+
+    const companions = lesson.opiq_companions ?? [];
+    globalCompanionIds.push(...companions.map((entry) => entry.companion_id));
+    if (!isDeepStrictEqual(companions, expectedLesson.opiq_companions)) {
+      diagnostic(diagnostics, 'PILOT_COMPANION_CONTRACT', file, '/opiq_companions', 'lesson companion inventory must equal the exact eligible internal-only contract');
+    }
+    for (const companion of companions) {
+      const record = companion.source_record ?? {};
+      const source = repository.plans.curriculum.manifest.sources.find((entry) => (
+        entry.id === record.canonical_source_id
+      ));
+      const inventory = grade2BookInventory(repository, record.canonical_source_id);
+      const alignment = exactProjectAlignment(repository, record.canonical_source_id);
+      const canonicalRecord = inventory?.source_records?.find((entry) => (
+        entry.record_id === record.record_id
+      ));
+      const book = inventory?.books?.find((entry) => (
+        entry.book_id === record.book_id && entry.record_ids?.includes(record.record_id)
+      ));
+      if (!source
+          || source.grade !== 2
+          || source.subject !== lesson.subject
+          || source.id !== lesson.canonical_route?.source_id
+          || source.md_path !== lesson.canonical_route?.md_path
+          || !alignment?.source_record_ids?.includes(record.record_id)
+          || canonicalRecord?.canonical_url !== record.canonical_url
+          || canonicalRecord?.book_id !== record.book_id
+          || canonicalRecord?.title !== record.title
+          || canonicalRecord?.language !== record.language
+          || book?.programme_type !== 'ordinary_curriculum'
+          || book?.eligibility?.ordinary_default_use !== true
+          || book?.eligibility?.learner_specific_simplified_use !== false
+          || book?.eligibility?.supplementary_use !== false
+          || book?.eligibility?.mixed_subject_use !== false
+          || record.programme_type !== 'ordinary'
+          || !isDeepStrictEqual(record.instructional_roles, ['optional_extension'])) {
+        diagnostic(diagnostics, 'PILOT_COMPANION_ELIGIBILITY', file, `/opiq_companions/${companion.companion_id}/source_record`, 'companion must be the exact selected ordinary Grade 2 record for the lesson route');
+      }
+      const coordinates = /^https:\/\/www\.opiq\.ee\/kit\/(\d+)\/chapter\/(\d+)$/u.exec(record.canonical_url ?? '');
+      if (!coordinates
+          || Number(coordinates[1]) !== companion.kit_id
+          || Number(coordinates[2]) !== companion.chapter_id) {
+        diagnostic(diagnostics, 'PILOT_COMPANION_COORDINATES', file, `/opiq_companions/${companion.companion_id}`, 'kit and chapter coordinates must equal the exact canonical URL');
+      }
+      if (companion.publication_visibility !== 'internal_only'
+          || companion.access?.mode !== 'unverified'
+          || companion.access?.check_status !== 'not_checked'
+          || companion.access?.last_checked_on !== null
+          || !/customer access has not been verified/iu.test(companion.access?.notes ?? '')) {
+        diagnostic(diagnostics, 'PILOT_COMPANION_ACCESS', file, `/opiq_companions/${companion.companion_id}/access`, 'companion must remain internal_only and unverified/not_checked without an invented date');
+      }
+      const fallback = companion.standalone_fallback ?? {};
+      if (fallback.exists !== true
+          || fallback.author_material_ids?.length === 0
+          || fallback.lesson_stage_refs?.length === 0
+          || fallback.author_material_ids?.some((id) => !knownRefs.material_ids.has(id))
+          || fallback.lesson_stage_refs?.some((id) => !knownRefs.stage_ids.has(id))) {
+        diagnostic(diagnostics, 'PILOT_COMPANION_FALLBACK', file, `/opiq_companions/${companion.companion_id}/standalone_fallback`, 'companion requires a resolving author-material and lesson-stage fallback');
+      }
+    }
+    if (lesson.delivery_model?.opiq_required !== false
+        || lesson.delivery_model?.customer_can_complete_without_opiq !== true
+        || lesson.delivery_model?.opiq_companion_policy !== (companions.length > 0 ? 'optional' : 'none')
+        || (lesson.evidence_linkage?.opiq_records ?? []).length !== 0) {
+      diagnostic(diagnostics, 'PILOT_COMPANION_OPTIONAL', file, '/delivery_model', 'lesson must remain complete without every companion');
+    }
+  }
+  if (new Set(globalHookIds).size !== 12 || globalHookIds.length !== 12) {
+    diagnostic(diagnostics, 'PILOT_FAMILY_HOOK_UNIQUENESS', pilotPaths.module, '/family_overlay/hook_index', 'all twelve family hook IDs must be globally unique');
+  }
+  if (new Set(globalCompanionIds).size !== globalCompanionIds.length) {
+    diagnostic(diagnostics, 'PILOT_COMPANION_UNIQUENESS', pilotPaths.module, '/opiq_companion_summary', 'companion IDs must be globally unique');
+  }
+  const lesson3Companions = repository.lessons[2].opiq_companions ?? [];
+  if (lesson3Companions.some((entry) => (
+    entry.source_record?.canonical_source_id !== 'grade-2-human-studies'
+      || /physical-education|grade-2-pe/iu.test(JSON.stringify(entry))
+  ))
+      || repository.lessons[2].author_created_subject_roles?.[0]?.source_evidence_claimed !== false
+      || (repository.lessons[2].author_created_subject_roles?.[0]?.opiq_record_ids ?? []).length !== 0) {
+    diagnostic(diagnostics, 'PILOT_COMPANION_PE_SUBSTITUTION', pilotPaths.lesson3, '/opiq_companions', 'lesson 3 companion can support only human studies and cannot satisfy the PE missing-route outcome');
+  }
+}
+
 function validateTaskBankIntegration(diagnostics, repository) {
   const approvedIds = repository.taskBank.reviews
     .filter((artifact) => artifact.data.status === 'approved')
@@ -1063,6 +1269,11 @@ function validateRoadmap(diagnostics, repository) {
     pending_task_unintegrated_count: 6,
     pending_task_originality_review_count: 10,
     companion_access_status: 'unverified_internal_only',
+    family_overlay_hook_status: 'implemented_hooks_only',
+    family_overlay_hook_count: 12,
+    opiq_companion_metadata_status: 'internal_candidates_only',
+    customer_companion_access_status: 'unverified',
+    acceptance_audit_status: 'implemented',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
     production_validation_status: 'blocked',
     teacher_review_status: 'pending',
@@ -1077,9 +1288,56 @@ function validateRoadmap(diagnostics, repository) {
   }
   if (repository.roadmap.status !== 'partial_implementation'
       || !repository.roadmap.release_blocker_codes?.includes('ten_task_originality_reviews_pending')
+      || !repository.roadmap.release_blocker_codes?.includes('lesson_originality_review_pending')
       || !repository.roadmap.release_blocker_codes?.includes('standalone_commercial_core_internal_authoring_complete_not_release_ready')
+      || !repository.roadmap.release_blocker_codes?.includes('customer_companion_access_not_verified')
+      || !repository.roadmap.release_blocker_codes?.includes('pedagogical_effectiveness_not_established')
       || repository.roadmap.release_blocker_codes?.includes('clean_room_task_bank_not_implemented')) {
     diagnostic(diagnostics, 'PILOT_ROADMAP_STATUS', pilotPaths.roadmap, '/', 'roadmap must report complete internal authoring while release remains blocked by reviews and trials');
+  }
+}
+
+function validateAcceptanceAudit(diagnostics, repository) {
+  const audit = repository.acceptanceAuditText;
+  const required = [
+    'issue #40; the issue remains open',
+    'individual-weather-observation',
+    '17-minute supervised practical observation block',
+    'separate_content_and_estonian_language_evidence',
+    'weather_board_and_group_report',
+    'Exactly 12 unique lesson-scoped hooks',
+    'hooks_only',
+    'g2-weather-water-01-weather-observation-companion',
+    'g2-weather-water-02-millimetre-revision-companion',
+    'g2-weather-water-03-human-studies-safety-companion',
+    'g2-weather-water-04-weather-map-companion',
+    'Customer access is unverified',
+    'Two task reviews are approved',
+    'Ten task reviews remain pending',
+    'All four lesson reviews remain pending',
+    'No teacher approval is recorded',
+    'Neither trial has occurred',
+    'Effectiveness is not established',
+    'issue #37',
+    'source_status missing_route; route_ids []',
+    'Passing engineering checks does not establish publication readiness',
+    'No exact eligible water-cycle record exists',
+    'Mis on koolikotis?',
+  ];
+  if (!required.every((value) => audit.includes(value))) {
+    diagnostic(diagnostics, 'PILOT_ACCEPTANCE_AUDIT', pilotPaths.acceptanceAudit, '/', 'acceptance audit must cover every issue #40 deliverable, required blocker and exact companion gap');
+  }
+  for (const status of [
+    'implemented',
+    'implemented_internal_only',
+    'blocked_human_review',
+    'blocked_access_verification',
+    'blocked_trial_or_effectiveness',
+    'not_applicable',
+  ]) {
+    if (!audit.includes(`\`${status}\``)) {
+      diagnostic(diagnostics, 'PILOT_ACCEPTANCE_AUDIT_STATUS', pilotPaths.acceptanceAudit, '/', `acceptance audit is missing status ${status}`);
+    }
   }
 }
 
@@ -1097,6 +1355,7 @@ function validateWorkflow(diagnostics, repository) {
     'teacher-packs/**',
     'grade-programmes/**',
     'schemas/**',
+    pilotPaths.acceptanceAudit,
     'npm run test:grade-2-weather-water-safety-pilot',
     'npm run check:grade-2-weather-water-safety-pilot',
   ]) {
@@ -1135,6 +1394,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
     calendar,
     packageJson,
     workflowText,
+    acceptanceAuditText,
     plans,
     taskBank,
   ] = await Promise.all([
@@ -1149,6 +1409,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
     readYaml(absoluteRoot, pilotPaths.calendar),
     readJson(absoluteRoot, pilotPaths.packageJson),
     readText(absoluteRoot, pilotPaths.workflow),
+    readText(absoluteRoot, pilotPaths.acceptanceAudit),
     loadLessonPlanRepository({ rootDir: absoluteRoot }),
     loadTaskBankRepository({ rootDir: absoluteRoot }),
   ]);
@@ -1169,6 +1430,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
     calendar,
     packageJson,
     workflowText,
+    acceptanceAuditText,
     plans,
     taskBank,
     lessons: [
@@ -1213,11 +1475,13 @@ export async function validateGrade2WeatherWaterSafetyPilot(repository) {
   } else {
     validateModuleContract(diagnostics, repository);
     validateLessonContracts(diagnostics, repository);
+    validateFamilyAndCompanions(diagnostics, repository);
     validateTaskBankIntegration(diagnostics, repository);
     validateSharedAndPeBoundaries(diagnostics, repository);
   }
   await validateMaterials(diagnostics, repository);
   validateRoadmap(diagnostics, repository);
+  validateAcceptanceAudit(diagnostics, repository);
   validateWorkflow(diagnostics, repository);
   const stale = await checkGeneratedLessons(repository.rootDir);
   for (const repositoryPath of stale) {

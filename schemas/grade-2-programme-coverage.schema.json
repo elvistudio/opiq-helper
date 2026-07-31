@@ -16,6 +16,24 @@
       "type": "string",
       "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*$"
     },
+    "pilotCloseoutStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_overlay_hook_status",
+        "family_overlay_hook_count",
+        "opiq_companion_metadata_status",
+        "customer_companion_access_status",
+        "acceptance_audit_status"
+      ],
+      "properties": {
+        "family_overlay_hook_status": { "const": "implemented_hooks_only" },
+        "family_overlay_hook_count": { "const": 12 },
+        "opiq_companion_metadata_status": { "const": "internal_candidates_only" },
+        "customer_companion_access_status": { "const": "unverified" },
+        "acceptance_audit_status": { "const": "implemented" }
+      }
+    },
     "scope": {
       "oneOf": [
         {
@@ -265,6 +283,7 @@
         "outcome_index_ref",
         "rows",
         "missing_exclusive_route_fields",
+        "pilot_closeout",
         "summary",
         "completeness"
       ],
@@ -287,6 +306,7 @@
           "uniqueItems": true,
           "items": { "enum": ["foreign_language", "physical_education"] }
         },
+        "pilot_closeout": { "$ref": "#/$defs/pilotCloseoutStatus" },
         "summary": {
           "type": "object",
           "additionalProperties": false,

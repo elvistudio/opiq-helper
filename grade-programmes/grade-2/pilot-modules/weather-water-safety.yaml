@@ -106,6 +106,52 @@ shared_product:
   individual_exit_ticket_required: true
   report_transfer_requires_personal_code: true
   shared_evidence_replaces_individual: false
+family_overlay:
+  supported: true
+  implementation_status: hooks_only
+  hook_count: 12
+  supported_lanes:
+    - foundation
+    - grade_2
+    - grade_4
+  grade_2_individual_evidence_required: true
+  shared_evidence_replaces_individual: false
+  hook_index:
+    - lesson_id: grade-2-weather-water-safety-01-observation
+      hook_id: g2-weather-water-01-foundation-participation
+    - lesson_id: grade-2-weather-water-safety-01-observation
+      hook_id: g2-weather-water-01-grade-2-responsibility
+    - lesson_id: grade-2-weather-water-safety-01-observation
+      hook_id: g2-weather-water-01-grade-4-extension
+    - lesson_id: grade-2-weather-water-safety-02-data-time
+      hook_id: g2-weather-water-02-foundation-participation
+    - lesson_id: grade-2-weather-water-safety-02-data-time
+      hook_id: g2-weather-water-02-grade-2-responsibility
+    - lesson_id: grade-2-weather-water-safety-02-data-time
+      hook_id: g2-weather-water-02-grade-4-extension
+    - lesson_id: grade-2-weather-water-safety-03-safe-decisions
+      hook_id: g2-weather-water-03-foundation-participation
+    - lesson_id: grade-2-weather-water-safety-03-safe-decisions
+      hook_id: g2-weather-water-03-grade-2-responsibility
+    - lesson_id: grade-2-weather-water-safety-03-safe-decisions
+      hook_id: g2-weather-water-03-grade-4-extension
+    - lesson_id: grade-2-weather-water-safety-04-weather-report
+      hook_id: g2-weather-water-04-foundation-participation
+    - lesson_id: grade-2-weather-water-safety-04-weather-report
+      hook_id: g2-weather-water-04-grade-2-responsibility
+    - lesson_id: grade-2-weather-water-safety-04-weather-report
+      hook_id: g2-weather-water-04-grade-4-extension
+companion_access_status: unverified_internal_only
+opiq_companion_summary:
+  committed_companion_count: 4
+  customer_visible_companion_count: 0
+  all_companions_optional: true
+  all_companions_have_standalone_fallback: true
+  eligible_role_gaps:
+    - role: water_cycle
+      status: no_exact_eligible_selected_record
+    - role: estonian_terminology_and_short_oral_output
+      status: no_exact_eligible_selected_record
 physical_education_boundary:
   lesson_slot: 3
   source_status: missing_route

@@ -121,6 +121,17 @@ const releaseBlockerCodes = Object.freeze([
   'customer_companion_access_not_verified',
   'pedagogical_effectiveness_not_established',
 ]);
+export const grade2PilotCloseoutStatus = Object.freeze({
+  family_overlay_hook_status: 'implemented_hooks_only',
+  family_overlay_hook_count: 12,
+  opiq_companion_metadata_status: 'internal_candidates_only',
+  customer_companion_access_status: 'unverified',
+  acceptance_audit_status: 'implemented',
+});
+
+function pilotCloseoutStatus() {
+  return { ...grade2PilotCloseoutStatus };
+}
 const authoritativeInputs = Object.freeze([
   'source-manifest.json',
   'docs/audits/grade-2-complete-captured-catalog.md',
@@ -1218,6 +1229,7 @@ function buildRoadmap() {
       pending_task_internal_integration_count: 4,
       pending_task_unintegrated_count: 6,
       companion_access_status: 'unverified_internal_only',
+      ...pilotCloseoutStatus(),
       final_riigi_teataja_refresh_status: 'pending_under_issue_37',
       production_validation_status: 'blocked',
       teacher_review_status: 'pending',
@@ -1277,6 +1289,7 @@ function buildProgrammeCoverage(frameworkOutcomesList, routeArtifacts, alignment
     outcome_index_ref: outcomeIndexPath,
     rows,
     missing_exclusive_route_fields: missingFields,
+    pilot_closeout: pilotCloseoutStatus(),
     summary: {
       official_outcome_count: rows.length,
       route_linked_outcomes: rows.filter((row) => row.route_ids.length > 0).length,
@@ -1354,6 +1367,7 @@ function buildArchitecture(routeArtifacts) {
       standalone_fallback_required: true,
       teacher_only_allowed: false,
     },
+    pilot_closeout: pilotCloseoutStatus(),
     implementation_roadmap: `${programmeDirectory}/implementation-roadmap.yaml`,
     completeness: { status: 'partial', declared_complete: false, known_gaps: knownGaps },
     release_gate: {
@@ -2082,6 +2096,14 @@ export function validateGrade2CourseArchitecture(artifacts) {
   if (!sameStableValue(architecture.release_gate.blocker_codes, releaseBlockerCodes)
       || !sameStableValue(programme.roadmap.release_blocker_codes, releaseBlockerCodes)) {
     diagnostics.push(diagnostic('release_blocker_set_mismatch', 'The required Grade 2 architecture blocker set must remain exact and deterministic.'));
+  }
+  const roadmapCloseout = Object.fromEntries(Object.keys(grade2PilotCloseoutStatus).map((field) => (
+    [field, programme.roadmap.implementation_facts?.[field]]
+  )));
+  if (!sameStableValue(architecture.pilot_closeout, grade2PilotCloseoutStatus)
+      || !sameStableValue(programme.coverage.pilot_closeout, grade2PilotCloseoutStatus)
+      || !sameStableValue(roadmapCloseout, grade2PilotCloseoutStatus)) {
+    diagnostics.push(diagnostic('pilot_closeout_status_mismatch', 'Family hooks, internal companion metadata and acceptance-audit facts must remain exact without changing access or release blockers.'));
   }
   if (programme.calendar.national_weekly_hours_claimed) diagnostics.push(diagnostic('unsupported_weekly_hours_claim', 'No national weekly-hour claim is supported.'));
   if (programme.routeIndex.book_variant_count !== 41) diagnostics.push(diagnostic('catalogue_reconciliation_mismatch', 'Grade 2 book/kit accounting changed.'));
