@@ -317,8 +317,8 @@ jobs:
           npm run test:teacher-work-plans
           npm run check:teacher-work-plans
           npm run test:validation-scope
-          npm run test:curriculum-maps
-          npm run check:curriculum-maps
+          npm run test:curriculum
+          npm run check:curriculum
           npm run test:grade-2-weather-water-safety-pilot
           npm run check:grade-2-weather-water-safety-pilot
           git diff --check
