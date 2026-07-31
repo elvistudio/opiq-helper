@@ -7,7 +7,7 @@ period_ref: programme-period-1
 grade: 2
 title_ru: Погода, вода и безопасность
 title_et: Ilm, vesi ja ohutus
-implementation_status: partial_internal_authoring
+implementation_status: internal_authoring_complete
 delivery:
   core_mode: standalone_commercial_core
   opiq_required: false
@@ -22,8 +22,8 @@ source_routes:
   - grade-2-estonian-second-language
 lesson_contract:
   total_slots: 4
-  authored_lesson_count: 3
-  planned_lesson_count: 1
+  authored_lesson_count: 4
+  planned_lesson_count: 0
   slots:
     - position: 1
       status: authored_internal
@@ -56,16 +56,14 @@ lesson_contract:
       content_complete: true
       release_ready: false
     - position: 4
-      status: planned
-      lesson_id: null
-      lesson_path: null
-      title_ru: Наш отчёт о погоде, воде и безопасности
-      title_et: Meie ilma, vee ja ohutuse aruanne
-      planned_focus:
-        - Индивидуальный научный вывод и индивидуальное математическое доказательство.
-        - Короткая поддержанная эстонская фраза и индивидуальная рефлексия.
-        - Задания task bank 11 и 12 не интегрируются до отдельного одобрения.
-      content_complete: false
+      status: authored_internal
+      lesson_id: grade-2-weather-water-safety-04-weather-report
+      lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml
+      title_ru: Наш отчёт о погоде и итог модуля
+      title_et: Meie ilmateade ja mooduli kokkuvõte
+      primary_subject: science
+      canonical_route_id: grade-2-science
+      content_complete: true
       release_ready: false
 task_bank_integration:
   approved:
@@ -75,14 +73,22 @@ task_bank_integration:
       - g2-time-measurement-problem-task
     reviewed_commit_sha: a450745bbd382c4758d7cbc96f998b27db76288e
   pending_internal:
-    lesson_id: grade-2-weather-water-safety-03-safe-decisions
-    task_fingerprints:
-      - task_id: g2-water-edge-safe-decision-task
-        value: a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3
-      - task_id: g2-pe-water-safety-decision-task
-        value: 1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922
-    publication_unlocks: false
-    customer_visibility_unlocks: false
+    - lesson_id: grade-2-weather-water-safety-03-safe-decisions
+      task_fingerprints:
+        - task_id: g2-water-edge-safe-decision-task
+          value: a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3
+        - task_id: g2-pe-water-safety-decision-task
+          value: 1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922
+      publication_unlocks: false
+      customer_visibility_unlocks: false
+    - lesson_id: grade-2-weather-water-safety-04-weather-report
+      task_fingerprints:
+        - task_id: g2-shared-weather-report-contribution-task
+          value: 303d0dc6c06e02f2aef83c38ed9fb024b1e89e00aa43195451c1645d851b90c0
+        - task_id: g2-weather-exit-ticket-task
+          value: b72ab93feeda22c38dce62e6b3c2c74c5500194f32e5ba8c0df2c63cf2ab3bc1
+      publication_unlocks: false
+      customer_visibility_unlocks: false
   pending_unintegrated_task_ids:
     - g2-weather-observation-conclusion-task
     - g2-weather-table-interpretation-task
@@ -90,14 +96,15 @@ task_bank_integration:
     - g2-weather-instruction-sequence-task
     - g2-estonian-follow-instruction-task
     - g2-estonian-safety-phrase-task
-    - g2-shared-weather-report-contribution-task
-    - g2-weather-exit-ticket-task
 shared_product:
-  product: weather_board_and_planned_report
+  product: weather_board_and_group_report
   assembled_from_attributable_individual_work: true
   individual_observation_required: true
   individual_calculation_required: true
   individual_oral_output_required: true
+  individual_report_contribution_required: true
+  individual_exit_ticket_required: true
+  report_transfer_requires_personal_code: true
   shared_evidence_replaces_individual: false
 physical_education_boundary:
   lesson_slot: 3
@@ -110,12 +117,13 @@ teacher_pack:
   path: teacher-packs/grade-2/weather-water-safety
   materials_index_path: teacher-packs/grade-2/weather-water-safety/materials-index.yaml
 readiness:
-  module_complete: false
+  authoring_complete: true
+  module_complete: true
   release_ready: false
   teacher_approved: false
   classroom_trial: not_tested
   home_trial: not_started
   effectiveness_claimed: false
 claim_boundary: >-
-  Внутренний частичный авторский срез: завершены только уроки 1, 2 и 3; урок 4 остаётся планом; модуль не
-  завершён, не одобрен учителем, не апробирован и не готов к выпуску.
+  Внутреннее авторство всех четырёх уроков завершено, но модуль не одобрен учителем, не прошёл проверки
+  оригинальности и апробации, не готов к выпуску и не подтверждает педагогическую эффективность.

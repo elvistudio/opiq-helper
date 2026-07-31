@@ -451,7 +451,7 @@ export function validateCommercialCourseFixtures(fixtures) {
   const production = validateLessonPlanRepository(fixtures.repository);
   if (
     production.summary.profiles !== 6
-    || production.summary.lessons !== 13
+    || production.summary.lessons !== 14
     || production.summary.annualCourses !== 1
     || production.summary.annualComponents !== 4
     || production.summary.annualUnits !== 10

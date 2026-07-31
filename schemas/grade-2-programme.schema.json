@@ -560,7 +560,7 @@
                   "enum": [
                     "architecture_ready",
                     "source_review_required",
-                    "partial_internal_authoring"
+                    "internal_authoring_complete"
                   ]
                 }
               }
@@ -1020,13 +1020,13 @@
               ],
               "properties": {
                 "task_bank_status": { "const": "implemented" },
-                "pilot_authoring_status": { "const": "in_progress" },
-                "standalone_commercial_core_status": { "const": "partial" },
-                "authored_lesson_count": { "const": 3 },
-                "planned_lesson_count": { "const": 1 },
+                "pilot_authoring_status": { "const": "internal_authoring_complete" },
+                "standalone_commercial_core_status": { "const": "authored_internal" },
+                "authored_lesson_count": { "const": 4 },
+                "planned_lesson_count": { "const": 0 },
                 "pending_task_originality_review_count": { "const": 10 },
-                "pending_task_internal_integration_count": { "const": 2 },
-                "pending_task_unintegrated_count": { "const": 8 },
+                "pending_task_internal_integration_count": { "const": 4 },
+                "pending_task_unintegrated_count": { "const": 6 },
                 "companion_access_status": { "const": "unverified_internal_only" },
                 "final_riigi_teataja_refresh_status": { "const": "pending_under_issue_37" },
                 "production_validation_status": { "const": "blocked" },

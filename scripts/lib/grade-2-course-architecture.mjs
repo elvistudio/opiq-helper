@@ -100,10 +100,10 @@ const knownGaps = Object.freeze([
   'Task examples are missing for 1530 canonical records.',
   'An exclusive Grade 2 foreign-language route is missing.',
   'An exclusive Grade 2 physical-education route is missing.',
-  'The independently authored standalone commercial core is partial: three of four pilot lessons are authored.',
+  'The standalone commercial core is internally authored for all four pilot lessons but is not release-ready.',
   'Ten clean-room task originality reviews remain pending; only two task-bank items are approved.',
-  'Two pending task-bank items are integrated only in the internal lesson 3 review slice; eight pending items remain unintegrated.',
-  'Lesson-level originality review remains pending for the three authored pilot lessons.',
+  'Four pending task-bank items are integrated only in internal lessons 3 and 4; six pending items remain unintegrated.',
+  'Lesson-level originality review remains pending for all four authored pilot lessons.',
   'Customer companion access has not been verified.',
   'Pedagogical effectiveness has not been established.',
 ]);
@@ -115,7 +115,7 @@ const releaseBlockerCodes = Object.freeze([
   'task_examples_missing_for_1530_records',
   'foreign_language_route_missing',
   'physical_education_route_missing',
-  'standalone_commercial_core_partial_three_of_four_lessons',
+  'standalone_commercial_core_internal_authoring_complete_not_release_ready',
   'ten_task_originality_reviews_pending',
   'lesson_originality_review_pending',
   'customer_companion_access_not_verified',
@@ -1110,7 +1110,7 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
           return `${alignment.route_id}-kit-${book.kit_id}`;
         }),
         pilot_candidate: projectId === 'grade-2-project-weather-water-safety'
-          ? { issue: 40, status: 'partial_internal_authoring' }
+          ? { issue: 40, status: 'internal_authoring_complete' }
           : null,
         school_specific_outcome_gaps: projectId === 'grade-2-project-weather-water-safety'
           ? [{
@@ -1205,18 +1205,18 @@ function buildRoadmap() {
     stages: [
       { stage_id: 'architecture-and-evidence', status: 'complete', deliverables: ['route maps', 'source inventories', 'coverage and programme architecture'], entry_gate: 'Authoritative inputs validate.' },
       { stage_id: 'clean-room-task-bank', status: 'complete', deliverables: ['12 specifications', '12 authored internal tasks', '12 originality review records', '2 approved task integrations'], entry_gate: 'Task-bank schema, fingerprints and review-state validation pass.' },
-      { stage_id: 'pilot-lesson-authoring', status: 'in_progress', deliverables: ['3 authored internal lessons', '1 planned lesson slot', 'partial standalone teacher pack'], entry_gate: 'Approved and explicitly pending-internal task integrations remain separate; pending tasks cannot unlock release.' },
+      { stage_id: 'pilot-lesson-authoring', status: 'complete', deliverables: ['4 authored internal lessons', '0 planned lesson slots', 'internally authored standalone teacher pack'], entry_gate: 'Approved and explicitly pending-internal task integrations remain separate; pending tasks cannot unlock release.' },
       { stage_id: 'production-validation', status: 'blocked', deliverables: ['lesson originality review', 'teacher review', 'classroom and home trials'], entry_gate: 'All four lessons exist and every pending human review is resolved.' },
     ],
     implementation_facts: {
       task_bank_status: 'implemented',
-      pilot_authoring_status: 'in_progress',
-      standalone_commercial_core_status: 'partial',
-      authored_lesson_count: 3,
-      planned_lesson_count: 1,
+      pilot_authoring_status: 'internal_authoring_complete',
+      standalone_commercial_core_status: 'authored_internal',
+      authored_lesson_count: 4,
+      planned_lesson_count: 0,
       pending_task_originality_review_count: 10,
-      pending_task_internal_integration_count: 2,
-      pending_task_unintegrated_count: 8,
+      pending_task_internal_integration_count: 4,
+      pending_task_unintegrated_count: 6,
       companion_access_status: 'unverified_internal_only',
       final_riigi_teataja_refresh_status: 'pending_under_issue_37',
       production_validation_status: 'blocked',
@@ -1228,7 +1228,7 @@ function buildRoadmap() {
     future_material_ids: ['grade-2-author-created-english-core', 'grade-2-author-created-physical-education-core'],
     release_blocker_codes: releaseBlockerCodes,
     release_blockers: knownGaps,
-    non_goals: ['Lesson 4 is not authored in this slice.', 'No textbook prose or source task body is reconstructed.', 'No publication, classroom readiness, home readiness or effectiveness status is granted.'],
+    non_goals: ['No textbook prose or source task body is reconstructed.', 'No publication, classroom readiness, home readiness or effectiveness status is granted.', 'Internal authoring completion does not resolve originality reviews, teacher review, trials, or companion access.'],
     provenance: provenance(),
   };
 }

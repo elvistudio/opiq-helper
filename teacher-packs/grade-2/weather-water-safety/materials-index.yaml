@@ -17,6 +17,7 @@ lesson_ids:
   - grade-2-weather-water-safety-01-observation
   - grade-2-weather-water-safety-02-data-time
   - grade-2-weather-water-safety-03-safe-decisions
+  - grade-2-weather-water-safety-04-weather-report
 opiq_sources: []
 reviewable_content:
   specification_version: "1.0"
@@ -25,6 +26,7 @@ reviewable_content:
     - lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml
     - lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml
     - lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml
+    - lesson-plans/grade-2/weather-water-safety/lesson-04-weather-report.yaml
   directory_paths:
     - teacher-packs/grade-2/weather-water-safety/student
     - teacher-packs/grade-2/weather-water-safety/teacher
@@ -53,6 +55,7 @@ materials:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
       - grade-2-weather-water-safety-03-safe-decisions
+      - grade-2-weather-water-safety-04-weather-report
     required_for_pack: true
     material:
       material_id: g2-weather-water-pack-overview
@@ -67,11 +70,12 @@ materials:
       provenance:
         category: author_created_bridge
         source_reference: grade-2-weather-water-safety-pilot
-        notes: Internal overview states the three-authored and one-planned lesson boundary.
+        notes: Internal overview states the four-authored, zero-planned internal-authoring boundary.
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
       - grade-2-weather-water-safety-03-safe-decisions
+      - grade-2-weather-water-safety-04-weather-report
     required_for_pack: true
     material:
       material_id: g2-weather-water-teacher-guide
@@ -86,11 +90,12 @@ materials:
       provenance:
         category: author_created_explanation
         source_reference: grade-2-weather-water-safety-pilot
-        notes: Internal guide records standalone delivery and the incomplete module boundary.
+        notes: Internal guide records standalone delivery and the authoring-complete but non-release-ready boundary.
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
       - grade-2-weather-water-safety-03-safe-decisions
+      - grade-2-weather-water-safety-04-weather-report
     required_for_pack: true
     material:
       material_id: g2-weather-water-rubric
@@ -110,6 +115,7 @@ materials:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
       - grade-2-weather-water-safety-03-safe-decisions
+      - grade-2-weather-water-safety-04-weather-report
     required_for_pack: true
     material:
       material_id: g2-weather-water-parent-guide
@@ -128,6 +134,7 @@ materials:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
       - grade-2-weather-water-safety-03-safe-decisions
+      - grade-2-weather-water-safety-04-weather-report
     required_for_pack: true
     material:
       material_id: g2-weather-water-homeschool-guide
@@ -566,3 +573,161 @@ materials:
         category: author_created_explanation
         source_reference: grade-2 dry water-safety lesson procedure
         notes: Teacher guide records the dry-only boundary, pending-task status, exact timing, and evidence separation.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-report-explanation
+      title: Русское объяснение точного отчёта о погоде
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-report-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 standalone weather-report explanation
+        notes: Original Russian-first explanation separates a precise fact, a comparison, and attributable individual evidence.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-report-worked-example
+      title: Нейтральный пример точного факта и сравнения
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-report-explanation.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 neutral A/B weather dataset
+        notes: The worked example uses 5 °C and 9 °C, not either pending task dataset.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-shared-weather-report-contribution-task
+      title: Индивидуальный вклад в общий отчёт о погоде
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-shared-weather-report-contribution-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/11-shared-weather-report-contribution.yaml
+        notes: Learner rendering preserves the pending open-ended customer projection and excludes teacher-only criteria and
+          examples.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-shared-report-template
+      title: Шаблон общей доски и короткого отчёта
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-shared-report-template.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The group selects from verified individual contributions, so several accurate shared reports are valid.
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-2 attributable shared weather report template
+        notes: The shared template records personal codes and cannot replace the individual contribution.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-exit-ticket-task
+      title: Индивидуальная выходная карточка с тремя ответами
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-weather-exit-ticket-task.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/12-weather-exit-ticket.yaml
+        notes: Learner rendering preserves the pending customer projection, blank Estonian frame, and word bank without the
+          completed answer.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-module-reflection
+      title: Индивидуальная итоговая рефлексия модуля
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-04-module-reflection.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The learner identifies a personal checking action, so no single fixed reflection wording is valid.
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 weather module individual reflection
+        notes: Original reflection remains separate from the task 11 contribution and task 12 exit evidence.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-shared-weather-report-success-guidance
+      title: Teacher-only criteria for the open-ended contribution
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-shared-weather-report-contribution-task answer contract
+        notes: Guidance uses the source criteria and expressly forbids a mandatory wording.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-exit-ticket-expected-answers
+      title: Teacher-only exact exit-ticket answer
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-04-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-weather-exit-ticket-task answer contract
+        notes: The exact answer is available only after the individual first attempt.
+  - lesson_ids:
+      - grade-2-weather-water-safety-04-weather-report
+    required_for_pack: true
+    material:
+      material_id: g2-weather-report-lesson-guide
+      title: Внутреннее руководство урока 4
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-04-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 final weather-report lesson procedure
+        notes: Teacher guide fixes the 45-minute sequence, evidence attribution, answer timing, and release blockers.
