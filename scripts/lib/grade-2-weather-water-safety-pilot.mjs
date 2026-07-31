@@ -21,6 +21,7 @@ export const pilotPaths = Object.freeze({
   moduleSchema: 'schemas/grade-2-weather-water-safety-pilot.schema.json',
   lesson1: 'lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml',
   lesson2: 'lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml',
+  lesson3: 'lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml',
   materialsIndex: 'teacher-packs/grade-2/weather-water-safety/materials-index.yaml',
   roadmap: 'grade-programmes/grade-2/implementation-roadmap.yaml',
   calendar: 'grade-programmes/grade-2/teaching-calendar.yaml',
@@ -70,6 +71,51 @@ export const approvedTaskContracts = Object.freeze([
     ],
   },
 ]);
+
+export const pendingInternalTaskContracts = Object.freeze([
+  {
+    taskId: 'g2-water-edge-safe-decision-task',
+    fingerprint: 'a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3',
+    learnerPath: 'teacher-packs/grade-2/weather-water-safety/student/g2-water-edge-safe-decision-task.md',
+    teacherPath: 'teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md',
+    answerSentinels: [
+      'B. Нужно остаться на дорожке и позвать взрослого: так ребёнок не приближается к воде, а взрослый может безопасно решить проблему.',
+      'Выбран вариант B с обращением к взрослому.',
+      'Ты сохранил(а) безопасную дистанцию и передал(а) решение взрослому.',
+    ],
+  },
+  {
+    taskId: 'g2-pe-water-safety-decision-task',
+    fingerprint: '1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922',
+    learnerPath: 'teacher-packs/grade-2/weather-water-safety/student/g2-pe-water-safety-decision-task.md',
+    teacherPath: 'teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md',
+    answerSentinels: [
+      'B. Нужно остаться внутри безопасной зоны и сообщить взрослому: ребёнок не приближается к опасности, а решение принимает ответственный взрослый.',
+      'Выбран вариант B без входа за границу безопасной зоны.',
+      'Безопасность важнее мяча: ты остаёшься в зоне и обращаешься к взрослому.',
+    ],
+  },
+]);
+
+export const pendingUnintegratedTaskIds = Object.freeze([
+  'g2-weather-observation-conclusion-task',
+  'g2-weather-table-interpretation-task',
+  'g2-weather-message-main-point-task',
+  'g2-weather-instruction-sequence-task',
+  'g2-estonian-follow-instruction-task',
+  'g2-estonian-safety-phrase-task',
+  'g2-shared-weather-report-contribution-task',
+  'g2-weather-exit-ticket-task',
+]);
+
+export const waterSafetyLanguageContract = Object.freeze({
+  sentence: 'Ma kutsun täiskasvanu.',
+  receptive: Object.freeze([
+    'Jää ohutusse kohta.',
+    'Kutsu täiskasvanu.',
+    'Ära mine vette.',
+  ]),
+});
 
 const exactRoutes = Object.freeze([
   'grade-2-science',
@@ -173,27 +219,35 @@ function validateModuleContract(diagnostics, repository) {
     diagnostic(diagnostics, 'PILOT_CALENDAR', pilotPaths.calendar, '/periods', 'pilot project is not scheduled in programme-period-1');
   }
   if (slots.length !== 4
-      || authored.length !== 2
-      || planned.length !== 2
+      || authored.length !== 3
+      || planned.length !== 1
       || module.lesson_contract.total_slots !== 4
-      || module.lesson_contract.authored_lesson_count !== 2
-      || module.lesson_contract.planned_lesson_count !== 2) {
-    diagnostic(diagnostics, 'PILOT_SLOT_COUNT', pilotPaths.module, '/lesson_contract', 'expected exactly two authored and two planned slots');
+      || module.lesson_contract.authored_lesson_count !== 3
+      || module.lesson_contract.planned_lesson_count !== 1) {
+    diagnostic(diagnostics, 'PILOT_SLOT_COUNT', pilotPaths.module, '/lesson_contract', 'expected exactly three authored and one planned slot');
   }
   if (slots.some((slot, index) => slot.position !== index + 1)) {
     diagnostic(diagnostics, 'PILOT_SLOT_ORDER', pilotPaths.module, '/lesson_contract/slots', 'lesson positions must be 1 through 4');
   }
   const expectedLessonIds = new Set(lessons.map((lesson) => lesson.lesson_id));
   if (!sameSet(authored.map((slot) => slot.lesson_id), expectedLessonIds)) {
-    diagnostic(diagnostics, 'PILOT_LESSON_LINKS', pilotPaths.module, '/lesson_contract/slots', 'authored slots must exactly link the two lesson artifacts');
+    diagnostic(diagnostics, 'PILOT_LESSON_LINKS', pilotPaths.module, '/lesson_contract/slots', 'authored slots must exactly link lesson artifacts 1 through 3');
   }
   for (const [index, slot] of planned.entries()) {
     if (slot.lesson_id !== null
         || slot.lesson_path !== null
         || slot.content_complete !== false
         || slot.release_ready !== false) {
-      diagnostic(diagnostics, 'PILOT_PLANNED_READY', pilotPaths.module, `/lesson_contract/slots/${index + 2}`, 'planned slots cannot have lesson paths, content completion, or release readiness');
+      diagnostic(diagnostics, 'PILOT_PLANNED_READY', pilotPaths.module, `/lesson_contract/slots/${index + 3}`, 'planned slots cannot have lesson paths, content completion, or release readiness');
     }
+  }
+  const lesson3Slot = slots[2];
+  if (lesson3Slot?.lesson_id !== 'grade-2-weather-water-safety-03-safe-decisions'
+      || lesson3Slot?.lesson_path !== pilotPaths.lesson3
+      || lesson3Slot?.primary_subject !== 'human_studies'
+      || lesson3Slot?.canonical_route_id !== 'grade-2-human-studies'
+      || lesson3Slot?.release_ready !== false) {
+    diagnostic(diagnostics, 'PILOT_LESSON_3_SLOT', pilotPaths.module, '/lesson_contract/slots/2', 'lesson 3 slot must be the authored internal human-studies lesson and remain non-release-ready');
   }
   if (!sameSet(module.source_routes, exactRoutes)) {
     diagnostic(diagnostics, 'PILOT_ROUTE_SCOPE', pilotPaths.module, '/source_routes', 'module must retain only the five registered Grade 2 routes');
@@ -201,9 +255,9 @@ function validateModuleContract(diagnostics, repository) {
 }
 
 function validateLessonContracts(diagnostics, repository) {
-  const [lesson1, lesson2] = repository.lessons;
+  const [lesson1, lesson2, lesson3] = repository.lessons;
   for (const [index, lesson] of repository.lessons.entries()) {
-    const file = [pilotPaths.lesson1, pilotPaths.lesson2][index];
+    const file = [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3][index];
     if (lesson.grade !== 2 || lesson.unit_ref !== repository.module.module_id) {
       diagnostic(diagnostics, 'PILOT_LESSON_IDENTITY', file, '/', 'lesson must be Grade 2 and link the pilot module');
     }
@@ -229,13 +283,17 @@ function validateLessonContracts(diagnostics, repository) {
     }
     if (lesson.originality_review?.status !== 'pending'
         || lesson.originality_review?.reviewer !== null
-        || lesson.originality_review?.reviewed_on !== null) {
+        || lesson.originality_review?.reviewer_role !== null
+        || lesson.originality_review?.reviewed_on !== null
+        || lesson.originality_review?.reviewed_version?.commit_sha !== null
+        || lesson.originality_review?.reviewed_version?.content_fingerprint?.value !== null) {
       diagnostic(diagnostics, 'PILOT_LESSON_ORIGINALITY', file, '/originality_review', 'lesson-level originality review must remain pending without invented identity');
     }
   }
   if (lesson1.learner_language_profile?.learner_language_level !== 'A1'
-      || lesson2.learner_language_profile?.learner_language_level !== 'A1-A2') {
-    diagnostic(diagnostics, 'PILOT_LANGUAGE_LEVEL', 'lesson-plans/grade-2/weather-water-safety', '/learner_language_profile', 'expected A1 for lesson 1 and A1-A2 for lesson 2');
+      || lesson2.learner_language_profile?.learner_language_level !== 'A1-A2'
+      || lesson3.learner_language_profile?.learner_language_level !== 'A1-A2') {
+    diagnostic(diagnostics, 'PILOT_LANGUAGE_LEVEL', 'lesson-plans/grade-2/weather-water-safety', '/learner_language_profile', 'expected A1 for lesson 1 and A1-A2 for lessons 2–3');
   }
   const lesson1Terms = lesson1.language_load?.new_terms_et?.map((entry) => entry.term_et);
   const lesson1Frame = lesson1.language_load?.sentence_frames?.find((entry) => (
@@ -290,6 +348,112 @@ function validateLessonContracts(diagnostics, repository) {
       diagnostic(diagnostics, 'PILOT_TASK_STABLE_REFS', pilotPaths.lesson2, '/evidence_linkage', `${taskId} is missing from a required stable reference`);
     }
   }
+  const lesson3TaskIds = pendingInternalTaskContracts.map((entry) => entry.taskId);
+  const peRole = lesson3.author_created_subject_roles?.[0];
+  const lesson3ObjectiveOutcomes = lesson3.objectives?.content_objectives
+    ?.flatMap((entry) => entry.curriculum_outcome_refs ?? []);
+  if (lesson3.lesson_id !== 'grade-2-weather-water-safety-03-safe-decisions'
+      || lesson3.position_in_unit !== 3
+      || lesson3.subject !== 'human_studies'
+      || lesson3.subject_et !== 'inimeseõpetus'
+      || lesson3.canonical_route?.source_id !== 'grade-2-human-studies'
+      || lesson3.canonical_route?.md_path !== 'project-files/outputs/opiq_2klass_inimeseopetus.md'
+      || lesson3.canonical_route?.qa_path !== 'project-files/outputs/opiq_2klass_inimeseopetus_qa.json'
+      || JSON.stringify(lesson3.evidence_linkage?.official_outcome_refs)
+        !== JSON.stringify(['ee-prk-2026-stage1-human-studies-rights-duties'])
+      || !sameSet(lesson3ObjectiveOutcomes, [
+        'ee-prk-2026-stage1-human-studies-rights-duties',
+        'ee-prk-2026-stage1-physical-education-water-safety',
+      ])) {
+    diagnostic(diagnostics, 'PILOT_LESSON_3_IDENTITY', pilotPaths.lesson3, '/', 'lesson 3 must use the Grade 2 human-studies route for only the human-studies outcome and carry the PE outcome separately');
+  }
+  if (lesson3.author_created_subject_roles?.length !== 1
+      || peRole?.subject_id !== 'grade-2-author-created-physical-education'
+      || peRole?.subject !== 'physical_education'
+      || peRole?.subject_et !== 'kehaline kasvatus'
+      || JSON.stringify(peRole?.official_outcome_ids)
+        !== JSON.stringify(['ee-prk-2026-stage1-physical-education-water-safety'])
+      || peRole?.source_status !== 'missing_route'
+      || peRole?.content_strategy !== 'author_created_required'
+      || peRole?.source_evidence_claimed !== false
+      || peRole?.replacement_by_human_studies_forbidden !== true
+      || peRole?.route_ids?.length !== 0
+      || peRole?.opiq_record_ids?.length !== 0
+      || peRole?.opiq_urls?.length !== 0
+      || Object.hasOwn(peRole ?? {}, 'md_path')
+      || /https?:\/\//iu.test(JSON.stringify(peRole ?? {}))) {
+    diagnostic(diagnostics, 'PILOT_PE_ROLE', pilotPaths.lesson3, '/author_created_subject_roles/0', 'PE outcome requires the exact author-created missing-route role with no human-studies replacement, route, md_path, record, or URL');
+  }
+  if (!sameSet(lesson3.commercial_core?.task_material_ids, lesson3TaskIds)
+      || !sameSet(
+        lesson3.commercial_core?.task_contracts?.map((entry) => entry.task_material_id),
+        lesson3TaskIds,
+      )
+      || lesson3TaskIds.some((taskId) => (
+        !materialById(lesson3, taskId)
+        || !lesson3.originality_review?.covered_author_material_ids?.includes(taskId)
+      ))) {
+    diagnostic(diagnostics, 'PILOT_PENDING_INTERNAL_TASK_IDS', pilotPaths.lesson3, '/commercial_core', 'lesson 3 must integrate exactly pending tasks 09 and 10 as covered internal materials');
+  }
+  const phrase = waterSafetyLanguageContract.sentence;
+  if (lesson3.language_load?.model_sentences?.length !== 1
+      || lesson3.language_load?.model_sentences?.[0]?.text_et !== phrase
+      || lesson3.language_load?.sentence_frames?.length !== 1
+      || lesson3.language_load?.sentence_frames?.[0]?.frame_et !== phrase
+      || JSON.stringify(lesson3.language_load?.expected_receptive_language_et)
+        !== JSON.stringify(waterSafetyLanguageContract.receptive)
+      || JSON.stringify(lesson3.language_load?.expected_supported_productive_language_et)
+        !== JSON.stringify([phrase])
+      || JSON.stringify(lesson3.language_load?.expected_independent_productive_language_et)
+        !== JSON.stringify([phrase])
+      || lesson3.language_load?.short_expected_oral_answer_et !== phrase
+      || lesson3.questions?.[0]?.short_oral_answer_et !== phrase
+      || lesson3.practical_work?.short_estonian_conclusion !== phrase
+      || lesson3.objectives?.estonian_language_objectives?.[0]?.minimum_quantity !== 1
+      || lesson3.cognitive_load?.independent_output_sentences !== 1) {
+    diagnostic(diagnostics, 'PILOT_LESSON_3_LANGUAGE', pilotPaths.lesson3, '/language_load', 'Ma kutsun täiskasvanu. must remain the only required productive Estonian sentence');
+  }
+  const stageIds = lesson3.stages?.map((entry) => entry.stage_id) ?? [];
+  const humanTaskIndex = stageIds.indexOf('attempt-human-studies-task');
+  const peTaskIndex = stageIds.indexOf('attempt-pe-task');
+  const discussionIndex = stageIds.indexOf('discuss-after-individual-work');
+  if (lesson3.stages?.reduce((sum, entry) => sum + entry.duration_minutes, 0) !== 45
+      || lesson3.stages?.length !== 9
+      || humanTaskIndex < 0
+      || peTaskIndex < 0
+      || discussionIndex <= humanTaskIndex
+      || discussionIndex <= peTaskIndex) {
+    diagnostic(diagnostics, 'PILOT_LESSON_3_SEQUENCE', pilotPaths.lesson3, '/stages', 'lesson 3 must total 45 minutes with both individual task attempts before pair discussion');
+  }
+  const practicalText = normalize(JSON.stringify(lesson3.practical_work));
+  const pupilStepsText = normalize((lesson3.practical_work?.pupil_steps ?? []).join(' '));
+  const prohibitedPupilActions = [
+    /(?:войти|входить) в воду/iu,
+    /(?:плыть|поплыть)/iu,
+    /дотянуться до воды/iu,
+    /бросить спасательн/iu,
+    /(?:вытянуть|перенести) (?:человека|другого ребёнка)/iu,
+    /проверить (?:глубину|течение|л[её]д|опору|устойчивость)/iu,
+  ];
+  if (lesson3.practical_work?.opiq_source_record_ids?.length !== 0
+      || !practicalText.includes('только в сухом классе')
+      || !practicalText.includes('не подходит к реальной воде')
+      || !practicalText.includes('не пересекать линию')
+      || !practicalText.includes('не отправлять другого ребёнка')
+      || prohibitedPupilActions.some((pattern) => pattern.test(pupilStepsText))
+      || lesson3.pedagogical_integration?.selection_input?.resources?.outdoor_access_available !== false) {
+    diagnostic(diagnostics, 'PILOT_LESSON_3_DRY_SAFETY', pilotPaths.lesson3, '/practical_work', 'lesson 3 practical work must remain an adult-controlled dry classroom simulation with no real-water exposure');
+  }
+  const subjectCriteria = lesson3.assessment?.filter((entry) => entry.affects === 'subject_assessment') ?? [];
+  const languageCriteria = lesson3.assessment?.filter((entry) => entry.affects === 'language_assessment') ?? [];
+  if (!sameSet(subjectCriteria.map((entry) => entry.criterion_id), [
+    'water-safety-human-studies',
+    'water-safety-pe-dry-decision',
+  ])
+      || languageCriteria.length !== 3
+      || languageCriteria.some((entry) => entry.affects !== 'language_assessment')) {
+    diagnostic(diagnostics, 'PILOT_LESSON_3_EVIDENCE', pilotPaths.lesson3, '/assessment', 'human-studies, PE, and Estonian evidence must remain independently scored');
+  }
 }
 
 function validateTaskBankIntegration(diagnostics, repository) {
@@ -301,13 +465,36 @@ function validateTaskBankIntegration(diagnostics, repository) {
       || pending.length !== 10) {
     diagnostic(diagnostics, 'PILOT_APPROVAL_SET', 'task-bank/reviews', '/', 'task bank must have exactly two approved and ten pending reviews');
   }
-  if (!sameSet(
-    repository.module.task_bank_integration?.approved_task_ids,
-    approvedTaskContracts.map((entry) => entry.taskId),
-  ) || repository.module.task_bank_integration?.pending_task_ids_integrated?.length !== 0) {
-    diagnostic(diagnostics, 'PILOT_PENDING_TASK', pilotPaths.module, '/task_bank_integration', 'no pending task may be integrated or treated as approved');
-  }
+  const integration = repository.module.task_bank_integration ?? {};
   const lesson2 = repository.lessons[1];
+  if (!sameSet(
+    integration.approved?.task_ids,
+    approvedTaskContracts.map((entry) => entry.taskId),
+  )
+      || integration.approved?.lesson_id !== lesson2.lesson_id
+      || integration.approved?.reviewed_commit_sha !== approvedTaskContracts[0].reviewCommit) {
+    diagnostic(diagnostics, 'PILOT_APPROVED_TASK_DECLARATION', pilotPaths.module, '/task_bank_integration/approved', 'lesson 2 must retain exactly the two approved task IDs and reviewed commit');
+  }
+  const pendingFingerprints = integration.pending_internal?.task_fingerprints ?? [];
+  if (integration.pending_internal?.lesson_id !== repository.lessons[2]?.lesson_id
+      || integration.pending_internal?.publication_unlocks !== false
+      || integration.pending_internal?.customer_visibility_unlocks !== false
+      || !sameSet(
+        pendingFingerprints.map((entry) => entry.task_id),
+        pendingInternalTaskContracts.map((entry) => entry.taskId),
+      )
+      || pendingInternalTaskContracts.some((contract) => (
+        pendingFingerprints.find((entry) => entry.task_id === contract.taskId)?.value
+          !== contract.fingerprint
+      ))) {
+    diagnostic(diagnostics, 'PILOT_PENDING_INTERNAL_DECLARATION', pilotPaths.module, '/task_bank_integration/pending_internal', 'tasks 09 and 10 must remain fingerprint-pinned pending internal integrations with no publication or visibility unlock');
+  }
+  if (!sameSet(
+    integration.pending_unintegrated_task_ids,
+    pendingUnintegratedTaskIds,
+  )) {
+    diagnostic(diagnostics, 'PILOT_PENDING_UNINTEGRATED', pilotPaths.module, '/task_bank_integration/pending_unintegrated_task_ids', 'the other eight pending tasks must remain explicitly unintegrated');
+  }
   for (const contract of approvedTaskContracts) {
     const task = taskArtifact(repository.taskBank, contract.taskId)?.data;
     const review = reviewArtifact(repository.taskBank, contract.taskId)?.data;
@@ -332,6 +519,38 @@ function validateTaskBankIntegration(diagnostics, repository) {
       diagnostic(diagnostics, 'PILOT_TASK_MATERIAL', pilotPaths.lesson2, '/evidence_linkage/author_materials', `${contract.taskId} material reference is unstable`);
     }
   }
+  const lesson3 = repository.lessons[2];
+  for (const contract of pendingInternalTaskContracts) {
+    const task = taskArtifact(repository.taskBank, contract.taskId)?.data;
+    const reviewArtifactData = reviewArtifact(repository.taskBank, contract.taskId);
+    const review = reviewArtifactData?.data;
+    const entry = indexEntry(repository.taskBank, contract.taskId);
+    const computed = task ? computeTaskFingerprint(task) : null;
+    if (!task || !review || !entry
+        || computed.value !== contract.fingerprint
+        || review.reviewed_version?.content_fingerprint?.value !== contract.fingerprint
+        || entry.current_fingerprint?.value !== contract.fingerprint
+        || entry.current_fingerprint_status !== 'current_pending_review') {
+      diagnostic(diagnostics, 'PILOT_PENDING_TASK_FINGERPRINT', 'task-bank', '/', `${contract.taskId} fingerprint is missing, stale, or not pending review`);
+      continue;
+    }
+    if (review.status !== 'pending'
+        || review.reviewer !== null
+        || review.reviewer_role !== null
+        || review.reviewed_on !== null
+        || review.reviewed_version?.commit_sha !== null) {
+      diagnostic(diagnostics, 'PILOT_PENDING_TASK_REVIEW', reviewArtifactData.file, '/', `${contract.taskId} must remain pending with null identity, date, and reviewed commit`);
+    }
+    if (approvedIds.includes(contract.taskId)
+        || integration.approved?.task_ids?.includes(contract.taskId)) {
+      diagnostic(diagnostics, 'PILOT_PENDING_TASK_APPROVAL', pilotPaths.module, '/task_bank_integration', `${contract.taskId} cannot be treated as approved`);
+    }
+    const material = materialById(lesson3, contract.taskId);
+    if (material?.material_id !== contract.taskId
+        || material?.artifact_path !== contract.learnerPath) {
+      diagnostic(diagnostics, 'PILOT_PENDING_TASK_MATERIAL', pilotPaths.lesson3, '/evidence_linkage/author_materials', `${contract.taskId} pending learner material reference is unstable`);
+    }
+  }
 }
 
 function validateSharedAndPeBoundaries(diagnostics, repository) {
@@ -347,7 +566,7 @@ function validateSharedAndPeBoundaries(diagnostics, repository) {
   if (boundary.lesson_slot !== 3
       || boundary.source_status !== 'missing_route'
       || boundary.content_strategy !== 'author_created_required'
-      || boundary.lesson_authoring_status !== 'planned'
+      || boundary.lesson_authoring_status !== 'authored_internal'
       || !boundary.human_studies_support_bounded
       || !boundary.replacement_by_human_studies_forbidden) {
     diagnostic(diagnostics, 'PILOT_PE_BOUNDARY', pilotPaths.module, '/physical_education_boundary', 'lesson 3 must preserve the missing PE route and forbid human-studies replacement');
@@ -422,6 +641,44 @@ async function validateMaterials(diagnostics, repository) {
       }
     }
   }
+  const pendingAnswerGuidanceCache = new Map();
+  for (const contract of pendingInternalTaskContracts) {
+    const learner = await readText(repository.rootDir, contract.learnerPath);
+    const sourceTask = taskArtifact(repository.taskBank, contract.taskId)?.data;
+    const teacher = pendingAnswerGuidanceCache.has(contract.teacherPath)
+      ? pendingAnswerGuidanceCache.get(contract.teacherPath)
+      : await readText(repository.rootDir, contract.teacherPath);
+    pendingAnswerGuidanceCache.set(contract.teacherPath, teacher);
+    for (const sourceLine of [
+      sourceTask?.customer_content?.prompt,
+      ...(sourceTask?.customer_content?.supplied_materials ?? []),
+      ...(sourceTask?.customer_content?.supplied_data ?? []),
+      sourceTask?.customer_content?.answer_format,
+    ].filter(Boolean)) {
+      if (!normalize(learner).includes(normalize(sourceLine))) {
+        diagnostic(diagnostics, 'PILOT_PENDING_TASK_PROJECTION', contract.learnerPath, '/', `${contract.taskId} learner projection is incomplete`);
+      }
+    }
+    const teacherOnly = [
+      sourceTask?.answer_contract?.answer,
+      sourceTask?.answer_contract?.worked_solution,
+      ...(sourceTask?.answer_contract?.success_criteria ?? []).map((entry) => entry.description),
+      ...(sourceTask?.answer_contract?.acceptable_variants ?? []),
+      ...(sourceTask?.answer_contract?.common_errors ?? []),
+      sourceTask?.answer_contract?.feedback?.correct,
+      sourceTask?.answer_contract?.feedback?.retry,
+    ].filter(Boolean);
+    for (const sentinel of teacherOnly) {
+      if (normalize(learner).includes(normalize(sentinel))) {
+        diagnostic(diagnostics, 'PILOT_PENDING_ANSWER_LEAK', contract.learnerPath, '/', `${contract.taskId} learner file exposes teacher-only answer material`);
+      }
+    }
+    for (const sentinel of contract.answerSentinels) {
+      if (!normalize(teacher).includes(normalize(sentinel))) {
+        diagnostic(diagnostics, 'PILOT_PENDING_ANSWER_GUIDANCE', contract.teacherPath, '/', `${contract.taskId} teacher guidance is missing: ${sentinel}`);
+      }
+    }
+  }
   const studentPaths = packPaths.filter((repositoryPath) => repositoryPath.includes('/student/'));
   for (const repositoryPath of studentPaths) {
     const content = await readText(repository.rootDir, repositoryPath);
@@ -446,6 +703,29 @@ async function validateMaterials(diagnostics, repository) {
       );
     }
   }
+  for (const repositoryPath of [
+    'teacher-packs/grade-2/weather-water-safety/student/lesson-03-safety-explanation.md',
+    'teacher-packs/grade-2/weather-water-safety/student/lesson-03-exit-card.md',
+    'teacher-packs/grade-2/weather-water-safety/teacher/lesson-03-guide.md',
+    'teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md',
+  ]) {
+    const content = await readText(repository.rootDir, repositoryPath);
+    if (!content.includes(waterSafetyLanguageContract.sentence)
+        || !/сух|dry/iu.test(content)
+        || /https?:\/\/(?:www\.)?opiq\.ee\//iu.test(content)) {
+      diagnostic(diagnostics, 'PILOT_LESSON_3_MATERIAL_BOUNDARY', repositoryPath, '/', 'lesson 3 materials must retain the exact Estonian phrase, dry-only boundary, and no Opiq URL');
+    }
+  }
+  const packRoot = safeRepositoryPath(
+    repository.rootDir,
+    'teacher-packs/grade-2/weather-water-safety',
+    'teacher-packs/grade-2/weather-water-safety',
+  );
+  const lesson4Files = (await fs.readdir(packRoot, { recursive: true }))
+    .filter((entry) => /lesson[-_ ]?0?4/iu.test(entry));
+  if (lesson4Files.length > 0) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_CONTENT', 'teacher-packs/grade-2/weather-water-safety', '/', `lesson 4 must remain planned without authored files: ${lesson4Files.join(', ')}`);
+  }
 }
 
 function validateRoadmap(diagnostics, repository) {
@@ -454,8 +734,10 @@ function validateRoadmap(diagnostics, repository) {
     task_bank_status: 'implemented',
     pilot_authoring_status: 'in_progress',
     standalone_commercial_core_status: 'partial',
-    authored_lesson_count: 2,
-    planned_lesson_count: 2,
+    authored_lesson_count: 3,
+    planned_lesson_count: 1,
+    pending_task_internal_integration_count: 2,
+    pending_task_unintegrated_count: 8,
     pending_task_originality_review_count: 10,
     companion_access_status: 'unverified_internal_only',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
@@ -547,7 +829,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
     loadTaskBankRepository({ rootDir: absoluteRoot }),
   ]);
   const lessonArtifacts = plans.artifacts.filter((artifact) => (
-    [pilotPaths.lesson1, pilotPaths.lesson2].includes(artifact.file)
+    [pilotPaths.lesson1, pilotPaths.lesson2, pilotPaths.lesson3].includes(artifact.file)
   ));
   const lessonByPath = new Map(lessonArtifacts.map((artifact) => [artifact.file, artifact.data]));
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
@@ -568,6 +850,7 @@ export async function loadGrade2WeatherWaterSafetyPilot({
     lessons: [
       lessonByPath.get(pilotPaths.lesson1),
       lessonByPath.get(pilotPaths.lesson2),
+      lessonByPath.get(pilotPaths.lesson3),
     ].filter(Boolean),
     validators: {
       module: ajv.compile(moduleSchema),
@@ -600,8 +883,8 @@ export async function validateGrade2WeatherWaterSafetyPilot(repository) {
   for (const entry of taskResult.diagnostics) {
     diagnostic(diagnostics, 'PILOT_TASK_BANK', entry.file, entry.field, entry.reason);
   }
-  if (repository.lessons.length !== 2) {
-    diagnostic(diagnostics, 'PILOT_LESSON_COUNT', 'lesson-plans/grade-2/weather-water-safety', '/', 'expected exactly two authored lesson files');
+  if (repository.lessons.length !== 3) {
+    diagnostic(diagnostics, 'PILOT_LESSON_COUNT', 'lesson-plans/grade-2/weather-water-safety', '/', 'expected exactly three authored lesson files');
   } else {
     validateModuleContract(diagnostics, repository);
     validateLessonContracts(diagnostics, repository);
@@ -628,6 +911,7 @@ export async function validateGrade2WeatherWaterSafetyPilot(repository) {
       plannedLessons: repository.module.lesson_contract?.planned_lesson_count ?? 0,
       packMaterials: repository.materialsIndex.materials?.length ?? 0,
       approvedTasks: approvedTaskContracts.length,
+      pendingInternalTasks: pendingInternalTaskContracts.length,
       errors: diagnostics.length,
     },
   };

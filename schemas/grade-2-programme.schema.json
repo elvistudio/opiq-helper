@@ -578,7 +578,7 @@
               "source_status": { "const": "missing_route" },
               "content_strategy": { "const": "author_created_required" },
               "architecture_status": { "const": "designed" },
-              "lesson_authoring_status": { "enum": ["not_started", "planned"] },
+              "lesson_authoring_status": { "enum": ["not_started", "planned", "authored_internal"] },
               "replacement_by_human_studies_forbidden": { "const": true }
             }
           }
@@ -1008,6 +1008,8 @@
                 "authored_lesson_count",
                 "planned_lesson_count",
                 "pending_task_originality_review_count",
+                "pending_task_internal_integration_count",
+                "pending_task_unintegrated_count",
                 "companion_access_status",
                 "final_riigi_teataja_refresh_status",
                 "production_validation_status",
@@ -1020,9 +1022,11 @@
                 "task_bank_status": { "const": "implemented" },
                 "pilot_authoring_status": { "const": "in_progress" },
                 "standalone_commercial_core_status": { "const": "partial" },
-                "authored_lesson_count": { "const": 2 },
-                "planned_lesson_count": { "const": 2 },
+                "authored_lesson_count": { "const": 3 },
+                "planned_lesson_count": { "const": 1 },
                 "pending_task_originality_review_count": { "const": 10 },
+                "pending_task_internal_integration_count": { "const": 2 },
+                "pending_task_unintegrated_count": { "const": 8 },
                 "companion_access_status": { "const": "unverified_internal_only" },
                 "final_riigi_teataja_refresh_status": { "const": "pending_under_issue_37" },
                 "production_validation_status": { "const": "blocked" },

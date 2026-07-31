@@ -130,6 +130,7 @@ export async function loadLessonPlanRepository({
   grade2OfficialMapPaths = [
     'curriculum-maps/grade-2-science/official-curriculum.yaml',
     'curriculum-maps/grade-2-mathematics/official-curriculum.yaml',
+    'curriculum-maps/grade-2-human-studies/official-curriculum.yaml',
   ],
   externalSourceRegistryPath = 'external-sources/registry.yaml',
   commonSchemaPath = 'schemas/teaching-plan-common.schema.json',
@@ -277,7 +278,7 @@ function validateOfficialLink(diagnostics, artifact, mapId, outcomeIds, indexes,
   }
   if (
     officialMap.grade !== artifact.data.grade
-    || officialMap.subject !== artifact.data.subject
+    || officialMap.subject.replaceAll(' ', '_') !== artifact.data.subject.replaceAll(' ', '_')
     || officialMap.subject_et !== artifact.data.subject_et
   ) {
     diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/curriculum_map_id`, 'official curriculum map grade and subject must match the artifact'));
@@ -465,6 +466,7 @@ function validateLessonReadiness(diagnostics, artifact, materialState) {
 
 function validateLessonEvidence(diagnostics, artifact, context, indexes) {
   const lesson = artifact.data;
+  const authorCreatedRoles = lesson.author_created_subject_roles ?? [];
   const records = lesson.evidence_linkage?.opiq_records ?? [];
   addDuplicateDiagnostics(diagnostics, records.map((record) => record.record_id), {
     file: artifact.file, field: '/evidence_linkage/opiq_records', label: 'lesson Opiq record ID',
@@ -527,12 +529,38 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
     if (records.length > 0) {
       diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/opiq_records', 'standalone Grade 2 project lessons must not treat project architecture as selected Opiq page evidence'));
     }
+    const projectAuthorRoles = grade2Project.author_created_subject_roles ?? [];
+    for (const [index, role] of authorCreatedRoles.entries()) {
+      const field = `/author_created_subject_roles/${index}`;
+      const matchingProjectRole = projectAuthorRoles.find((entry) => (
+        entry.subject_id === role.subject_id
+      ));
+      if (!matchingProjectRole) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/subject_id`, `Grade 2 project does not declare author-created subject ${role.subject_id}`));
+      }
+      for (const outcomeId of role.official_outcome_ids ?? []) {
+        if (!(matchingProjectRole?.official_outcome_ids ?? []).includes(outcomeId)) {
+          diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/official_outcome_ids`, `Grade 2 project author-created role does not carry outcome ${outcomeId}`));
+        }
+      }
+      if (role.source_status !== 'missing_route'
+          || role.content_strategy !== 'author_created_required'
+          || role.source_evidence_claimed !== false
+          || role.replacement_by_human_studies_forbidden !== true
+          || (role.route_ids ?? []).length !== 0
+          || (role.opiq_record_ids ?? []).length !== 0
+          || (role.opiq_urls ?? []).length !== 0) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, field, 'author-created missing-route role cannot claim a route, Opiq evidence, or human-studies replacement'));
+      }
+    }
   }
   const objectiveOutcomes = (lesson.objectives?.content_objectives ?? [])
     .flatMap((objective) => objective.curriculum_outcome_refs ?? []);
   const linkedOutcomes = lesson.evidence_linkage?.official_outcome_refs ?? [];
+  const authorCreatedOutcomes = authorCreatedRoles
+    .flatMap((role) => role.official_outcome_ids ?? []);
   for (const outcomeId of objectiveOutcomes) {
-    if (!linkedOutcomes.includes(outcomeId)) {
+    if (!linkedOutcomes.includes(outcomeId) && !authorCreatedOutcomes.includes(outcomeId)) {
       diagnostics.push(makeDiagnostic('error', artifact.file, '/objectives/content_objectives', `objective references unlinked outcome ${outcomeId}`));
     }
   }

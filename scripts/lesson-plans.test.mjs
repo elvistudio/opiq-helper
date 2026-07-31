@@ -156,7 +156,7 @@ test('production repository passes with documented architecture and pedagogical 
     assert.match(warningText, new RegExp(`topic synthesis ${unitId} is planned but has not yet been authored`, 'u'));
   }
   assert.doesNotMatch(warningText, /no direct Russian Opiq explanation/u);
-  assert.equal(result.summary.lessons, 12);
+  assert.equal(result.summary.lessons, 13);
   assert.equal(result.summary.annualCourses, 1);
   assert.equal(result.summary.annualComponents, 4);
   assert.equal(result.summary.annualUnits, 10);

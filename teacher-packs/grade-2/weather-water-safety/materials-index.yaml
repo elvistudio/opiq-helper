@@ -16,6 +16,7 @@ canonical_route:
 lesson_ids:
   - grade-2-weather-water-safety-01-observation
   - grade-2-weather-water-safety-02-data-time
+  - grade-2-weather-water-safety-03-safe-decisions
 opiq_sources: []
 reviewable_content:
   specification_version: "1.0"
@@ -23,6 +24,7 @@ reviewable_content:
     - grade-programmes/grade-2/pilot-modules/weather-water-safety.yaml
     - lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml
     - lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml
+    - lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml
   directory_paths:
     - teacher-packs/grade-2/weather-water-safety/student
     - teacher-packs/grade-2/weather-water-safety/teacher
@@ -50,6 +52,7 @@ materials:
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
+      - grade-2-weather-water-safety-03-safe-decisions
     required_for_pack: true
     material:
       material_id: g2-weather-water-pack-overview
@@ -64,10 +67,11 @@ materials:
       provenance:
         category: author_created_bridge
         source_reference: grade-2-weather-water-safety-pilot
-        notes: Internal overview states the two-authored and two-planned lesson boundary.
+        notes: Internal overview states the three-authored and one-planned lesson boundary.
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
+      - grade-2-weather-water-safety-03-safe-decisions
     required_for_pack: true
     material:
       material_id: g2-weather-water-teacher-guide
@@ -86,6 +90,7 @@ materials:
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
+      - grade-2-weather-water-safety-03-safe-decisions
     required_for_pack: true
     material:
       material_id: g2-weather-water-rubric
@@ -100,10 +105,11 @@ materials:
       provenance:
         category: author_created_assessment
         source_reference: grade-2-weather-water-safety-pilot
-        notes: Original rubric separates subject, calculation, and Estonian-language evidence.
+        notes: Original rubric separates science, mathematics, human-studies, PE, and Estonian-language evidence.
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
+      - grade-2-weather-water-safety-03-safe-decisions
     required_for_pack: true
     material:
       material_id: g2-weather-water-parent-guide
@@ -121,6 +127,7 @@ materials:
   - lesson_ids:
       - grade-2-weather-water-safety-01-observation
       - grade-2-weather-water-safety-02-data-time
+      - grade-2-weather-water-safety-03-safe-decisions
     required_for_pack: true
     material:
       material_id: g2-weather-water-homeschool-guide
@@ -424,3 +431,138 @@ materials:
         category: author_created_explanation
         source_reference: grade-2 weather data and time lesson procedure
         notes: Teacher guide records exact approved task integration, timing, and evidence separation.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-water-safety-explanation
+      title: Самостоятельное русское объяснение безопасного решения у воды
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-safety-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 dry water-safety decision explanation
+        notes: Original Russian-first explanation establishes the stop, stay, and tell-an-adult sequence without source prose.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-water-safety-dry-simulation
+      title: Разобранная сухая симуляция безопасной границы
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-safety-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 classroom-only water-safety simulation
+        notes: Original classroom model uses floor markers and scenario cards without real water or rescue practice.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-water-edge-safe-decision-task
+      title: Внутреннее задание о ответственном решении у края воды
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-water-edge-safe-decision-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/09-water-edge-safe-decision.yaml
+        notes: Learner rendering preserves the pending customer projection and excludes every answer-contract field.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-pe-water-safety-decision-task
+      title: Внутреннее задание по решению о безопасности у воды
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-pe-water-safety-decision-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/10-pe-water-safety-decision.yaml
+        notes: Learner rendering preserves the pending customer projection and excludes every answer-contract field.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-water-edge-safe-decision-expected-answers
+      title: Teacher-only guidance к заданию о ответственном решении
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-water-edge-safe-decision-task answer contract
+        notes: Pending-task answer guidance remains teacher-only and is available only after the individual first attempt.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-pe-water-safety-decision-expected-answers
+      title: Teacher-only guidance к заданию по безопасности у воды
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-pe-water-safety-decision-task answer contract
+        notes: Pending-task answer guidance remains teacher-only and is available only after the individual first attempt.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-water-safety-assessment
+      title: Раздельная выходная карточка урока 3
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-exit-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 dry water-safety decision exit card
+        notes: Original exit card separates human-studies, PE, and supported Estonian evidence.
+  - lesson_ids:
+      - grade-2-weather-water-safety-03-safe-decisions
+    required_for_pack: true
+    material:
+      material_id: g2-water-safety-lesson-guide
+      title: Внутренний guide урока 3
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-03-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 dry water-safety lesson procedure
+        notes: Teacher guide records the dry-only boundary, pending-task status, exact timing, and evidence separation.

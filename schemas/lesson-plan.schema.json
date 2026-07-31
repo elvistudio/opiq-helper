@@ -59,6 +59,12 @@
     "unit_ref": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "position_in_unit": { "type": "integer", "minimum": 1 },
     "canonical_route": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/canonicalRoute" },
+    "author_created_subject_roles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/authorCreatedSubjectRole" }
+    },
     "instruction_language": { "const": "ru" },
     "subject_support_language": { "const": "et" },
     "learner_language_profile": { "$ref": "#/$defs/learnerProfileUse" },
@@ -203,6 +209,41 @@
     "slug": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
     "provenance": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/provenance" },
     "nonEmptyStringArray": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/nonEmptyStringArray" },
+    "authorCreatedSubjectRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_id",
+        "subject",
+        "subject_et",
+        "official_outcome_ids",
+        "source_status",
+        "route_ids",
+        "source_evidence_claimed",
+        "content_strategy",
+        "replacement_by_human_studies_forbidden",
+        "opiq_record_ids",
+        "opiq_urls"
+      ],
+      "properties": {
+        "subject_id": { "$ref": "#/$defs/slug" },
+        "subject": { "type": "string", "minLength": 1 },
+        "subject_et": { "type": "string", "minLength": 1 },
+        "official_outcome_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "source_status": { "const": "missing_route" },
+        "route_ids": { "type": "array", "maxItems": 0 },
+        "source_evidence_claimed": { "const": false },
+        "content_strategy": { "const": "author_created_required" },
+        "replacement_by_human_studies_forbidden": { "const": true },
+        "opiq_record_ids": { "type": "array", "maxItems": 0 },
+        "opiq_urls": { "type": "array", "maxItems": 0 }
+      }
+    },
     "learnerProfileUse": {
       "type": "object",
       "additionalProperties": false,
