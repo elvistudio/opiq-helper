@@ -11,6 +11,10 @@ export const PROVENANCE_PATH =
 
 const GRADE_5_PATH = 'evaluations/teacher-work-plans/grade-5-science-extraction.json';
 const GRADE_6_PATH = 'evaluations/teacher-work-plans/grade-6-science-extraction.json';
+const GRADE_7_GEOGRAPHY_PATH =
+  'evaluations/teacher-work-plans/grade-7-geography-extraction.json';
+const GRADE_7_GEOGRAPHY_AUDIT_PATH =
+  'docs/audits/grade-7-geography-teacher-work-plan-extraction.md';
 
 export const EXTRACTION_CONTRACTS = Object.freeze({
   'grade-5-science-teacher-work-plan-extraction': Object.freeze({
@@ -29,11 +33,22 @@ export const EXTRACTION_CONTRACTS = Object.freeze({
     lessonEnd: 70,
     weeklyHours: 2,
     annualHours: 70,
+    blockIds: Object.freeze([
+      'jogi-ja-jarv-vesi-kui-elukeskkond',
+      'vesi-kui-aine-vee-kasutamine',
+      'asula-elukeskkonnana',
+      'pinnavormid-ja-pinnamood',
+      'soo-elukeskkonnana',
+    ]),
     blockSpans: Object.freeze([[1, 25], [26, 43], [44, 50], [51, 60], [61, 70]]),
+    allocationField: 'declared_hours',
     blockHours: Object.freeze([26, 14, 10, 10, 10]),
     aggregateHours: Object.freeze({ minimum: 70, maximum: 70 }),
+    requireApproximateWeeks: true,
     explicitRanges: null,
     unassignedAnnualLesson: null,
+    requiredUnresolvedIds: Object.freeze([]),
+    lessonRequirements: null,
   }),
   'grade-6-science-teacher-work-plan-extraction': Object.freeze({
     extractionPath: GRADE_6_PATH,
@@ -51,10 +66,21 @@ export const EXTRACTION_CONTRACTS = Object.freeze({
     lessonEnd: 105,
     weeklyHours: 3,
     annualHours: 105,
+    blockIds: Object.freeze([
+      'muld',
+      'aed-ja-pold-elukeskkonnana',
+      'mets-elukeskkonnana',
+      'ohk',
+      'laanemeri-elukeskkonnana',
+      'elukeskkonnad-eestis',
+      'eesti-loodusvarad',
+      'loodus-ja-keskkonnakaitse-eestis',
+    ]),
     blockSpans: Object.freeze([
       [1, 12], [13, 27], [28, 41], [42, 61],
       [62, 74], [75, 82], [83, 92], [93, 104],
     ]),
+    allocationField: 'declared_hours',
     blockHours: Object.freeze([
       12,
       15,
@@ -66,8 +92,94 @@ export const EXTRACTION_CONTRACTS = Object.freeze({
       14,
     ]),
     aggregateHours: Object.freeze({ minimum: 104, maximum: 106 }),
+    requireApproximateWeeks: true,
     explicitRanges: Object.freeze([[3, 4], [76, 77], [98, 99], [102, 103]]),
     unassignedAnnualLesson: 105,
+    requiredUnresolvedIds: Object.freeze([]),
+    lessonRequirements: null,
+  }),
+  'grade-7-geography-teacher-work-plan-extraction': Object.freeze({
+    extractionPath: GRADE_7_GEOGRAPHY_PATH,
+    sourcePath: 'project-files/inputs/originals/teacher-work-plans/Geo-tookava-7-klass-Reet-Tuisk.pdf',
+    grade: 7,
+    subject: 'geography',
+    subjectEt: 'geograafia',
+    route: Object.freeze({
+      source_id: 'grade-7-geography',
+      md_path: 'project-files/outputs/opiq_7klass_geograafia.md',
+      mapping_status: 'deferred',
+    }),
+    pageCount: 17,
+    lessonStart: 1,
+    lessonEnd: 35,
+    weeklyHours: 1,
+    annualHours: 35,
+    blockIds: Object.freeze(['kaardiopetus', 'geoloogia', 'pinnamood', 'rahvastik']),
+    blockSpans: Object.freeze([[1, 11], [12, 20], [21, 29], [30, 35]]),
+    allocationField: 'derived_hours',
+    blockHours: Object.freeze([
+      Object.freeze({
+        minimum: 11,
+        maximum: 11,
+        basis: 'numbered_lesson_span',
+        source_text: 'lessons 1-11',
+      }),
+      Object.freeze({
+        minimum: 9,
+        maximum: 9,
+        basis: 'numbered_lesson_span',
+        source_text: 'lessons 12-20',
+      }),
+      Object.freeze({
+        minimum: 9,
+        maximum: 9,
+        basis: 'numbered_lesson_span',
+        source_text: 'lessons 21-29',
+      }),
+      Object.freeze({
+        minimum: 6,
+        maximum: 6,
+        basis: 'numbered_lesson_span',
+        source_text: 'lessons 30-35',
+      }),
+    ]),
+    aggregateHours: Object.freeze({ minimum: 35, maximum: 35 }),
+    requireApproximateWeeks: false,
+    explicitRanges: Object.freeze([]),
+    unassignedAnnualLesson: null,
+    requiredUnresolvedIds: Object.freeze([
+      'lesson-6-missing-topic-cell',
+      'analysis-rows-at-block-start',
+      'lesson-week-header-switch',
+      'lesson-35-page-continuation',
+      'previous-grade-prerequisite-references',
+      'pdf-author-metadata-mismatch',
+      'cross-page-table-continuations',
+    ]),
+    lessonRequirements: Object.freeze({
+      6: Object.freeze({
+        topic_et: 'Orienteerumine kaardi ja kompassiga',
+        source_pages: Object.freeze([4]),
+        extraction_confidence: 'medium',
+        unresolved_fields: Object.freeze(['lesson-6-missing-topic-cell']),
+      }),
+      12: Object.freeze({
+        unresolved_fields: Object.freeze(['analysis-rows-at-block-start']),
+      }),
+      21: Object.freeze({
+        unresolved_fields: Object.freeze(['analysis-rows-at-block-start']),
+      }),
+      30: Object.freeze({
+        unresolved_fields: Object.freeze(['analysis-rows-at-block-start']),
+      }),
+      35: Object.freeze({
+        source_pages: Object.freeze([16, 17]),
+        unresolved_fields: Object.freeze([
+          'cross-page-table-continuations',
+          'lesson-35-page-continuation',
+        ]),
+      }),
+    }),
   }),
 });
 
@@ -200,9 +312,9 @@ function allocationBounds(value) {
   return { minimum: Number.NaN, maximum: Number.NaN };
 }
 
-function aggregateHourAllocations(blocks) {
+function aggregateHourAllocations(blocks, allocationField) {
   return blocks.reduce((sum, block) => {
-    const bounds = allocationBounds(block.declared_hours);
+    const bounds = allocationBounds(block[allocationField]);
     return {
       minimum: sum.minimum + bounds.minimum,
       maximum: sum.maximum + bounds.maximum,
@@ -482,6 +594,12 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
   if (new Set(blockIds).size !== blockIds.length) {
     diagnostics.push(makeDiagnostic('/thematic_blocks', 'block_id values must be unique'));
   }
+  if (!sameValues(blockIds, contract.blockIds)) {
+    diagnostics.push(makeDiagnostic(
+      '/thematic_blocks',
+      'block_id order differs from the registered source-table contract',
+    ));
+  }
   if (artifact.thematic_blocks.length !== contract.blockSpans.length) {
     diagnostics.push(makeDiagnostic(
       '/thematic_blocks',
@@ -506,35 +624,75 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
         'main numbered lesson span differs from the registered source-table contract',
       ));
     }
-    const bounds = allocationBounds(block.declared_hours);
+    const allocation = block[contract.allocationField];
+    const oppositeField = contract.allocationField === 'declared_hours'
+      ? 'derived_hours'
+      : 'declared_hours';
+    const bounds = allocationBounds(allocation);
     if (
       !Number.isFinite(bounds.minimum)
       || !Number.isFinite(bounds.maximum)
       || bounds.minimum > bounds.maximum
     ) {
       diagnostics.push(makeDiagnostic(
-        `/thematic_blocks/${index}/declared_hours`,
+        `/thematic_blocks/${index}/${contract.allocationField}`,
         'hour allocation must have minimum less than or equal to maximum',
       ));
     }
-    if (!sameValues(block.declared_hours, contract.blockHours[index])) {
+    if (oppositeField in block) {
       diagnostics.push(makeDiagnostic(
-        `/thematic_blocks/${index}/declared_hours`,
-        'hour allocation differs from the registered source heading',
+        `/thematic_blocks/${index}/${oppositeField}`,
+        `registered extraction must use ${contract.allocationField} exclusively`,
+      ));
+    }
+    if (!sameValues(allocation, contract.blockHours[index])) {
+      diagnostics.push(makeDiagnostic(
+        `/thematic_blocks/${index}/${contract.allocationField}`,
+        contract.allocationField === 'declared_hours'
+          ? 'hour allocation differs from the registered source heading'
+          : 'hour allocation differs from the registered source contract',
+      ));
+    }
+    if (contract.allocationField === 'derived_hours' && expectedSpan) {
+      const spanLength = expectedSpan[1] - expectedSpan[0] + 1;
+      if (
+        bounds.minimum !== spanLength
+        || bounds.maximum !== spanLength
+        || allocation?.basis !== 'numbered_lesson_span'
+      ) {
+        diagnostics.push(makeDiagnostic(
+          `/thematic_blocks/${index}/derived_hours`,
+          'derived allocation must equal the numbered lesson span',
+        ));
+      }
+    }
+    if (contract.requireApproximateWeeks && !('approximate_weeks' in block)) {
+      diagnostics.push(makeDiagnostic(
+        `/thematic_blocks/${index}/approximate_weeks`,
+        'registered source contract requires approximate week evidence',
+      ));
+    }
+    if (!contract.requireApproximateWeeks && 'approximate_weeks' in block) {
+      diagnostics.push(makeDiagnostic(
+        `/thematic_blocks/${index}/approximate_weeks`,
+        'approximate weeks cannot be inferred when the source does not state them',
       ));
     }
   }
 
-  const declaredHours = aggregateHourAllocations(artifact.thematic_blocks);
-  if (!sameValues(declaredHours, contract.aggregateHours)) {
+  const allocatedHours = aggregateHourAllocations(
+    artifact.thematic_blocks,
+    contract.allocationField,
+  );
+  if (!sameValues(allocatedHours, contract.aggregateHours)) {
     diagnostics.push(makeDiagnostic(
       '/thematic_blocks',
-      `aggregate hour range is ${declaredHours.minimum}-${declaredHours.maximum}, expected ${contract.aggregateHours.minimum}-${contract.aggregateHours.maximum}`,
+      `aggregate hour range is ${allocatedHours.minimum}-${allocatedHours.maximum}, expected ${contract.aggregateHours.minimum}-${contract.aggregateHours.maximum}`,
     ));
   }
   if (
-    contract.annualHours < declaredHours.minimum
-    || contract.annualHours > declaredHours.maximum
+    contract.annualHours < allocatedHours.minimum
+    || contract.annualHours > allocatedHours.maximum
   ) {
     diagnostics.push(makeDiagnostic(
       '/annual_allocation/declared_annual_hours',
@@ -554,6 +712,32 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
         `/lesson_ranges/${index}/source_pages`,
         'page-level evidence is required',
       ));
+    }
+  }
+  if (contract.lessonRequirements) {
+    for (const [lessonText, requirements] of Object.entries(contract.lessonRequirements)) {
+      const lesson = Number.parseInt(lessonText, 10);
+      const range = artifact.lesson_ranges.find(
+        (candidate) => candidate.lesson_start === lesson && candidate.lesson_end === lesson,
+      );
+      if (!range) {
+        diagnostics.push(makeDiagnostic(
+          '/lesson_ranges',
+          `registered source row for lesson ${lesson} is missing`,
+        ));
+        continue;
+      }
+      for (const [field, expected] of Object.entries(requirements)) {
+        const matches = field === 'unresolved_fields'
+          ? expected.every((itemId) => range[field].includes(itemId))
+          : sameValues(range[field], expected);
+        if (!matches) {
+          diagnostics.push(makeDiagnostic(
+            `/lesson_ranges/${lesson - contract.lessonStart}/${field}`,
+            `lesson ${lesson} differs from required source evidence`,
+          ));
+        }
+      }
     }
   }
   if (!orderedLessonRanges(artifact.lesson_ranges)) {
@@ -601,7 +785,7 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
     if (unassigned.length > 0) {
       diagnostics.push(makeDiagnostic(
         '/lesson_ranges',
-        'Grade 5 extraction cannot contain an unassigned annual slot',
+        'registered extraction cannot contain an unassigned annual slot',
       ));
     }
   } else if (
@@ -635,6 +819,14 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
       '/unresolved_items',
       'item_id values must be unique within an extraction',
     ));
+  }
+  for (const requiredId of contract.requiredUnresolvedIds) {
+    if (!unresolvedIds.includes(requiredId)) {
+      diagnostics.push(makeDiagnostic(
+        '/unresolved_items',
+        `required source ambiguity ${requiredId} is missing`,
+      ));
+    }
   }
   const unresolvedIdSet = new Set(unresolvedIds);
   for (const [groupName, records] of [
@@ -693,9 +885,9 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
       lessons_covered: coverage.expected.length - coverage.missing.length,
       unresolved_items: artifact.unresolved_items.length,
       source_pages: expectedPages.length,
-      declared_hours: declaredHours.minimum === declaredHours.maximum
-        ? declaredHours.minimum
-        : declaredHours,
+      [contract.allocationField]: allocatedHours.minimum === allocatedHours.maximum
+        ? allocatedHours.minimum
+        : allocatedHours,
     },
   };
 }
@@ -747,8 +939,11 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
   for (const repositoryPath of uniqueSorted(changedPaths)) {
     if (repositoryPath === 'source-manifest.json') {
       diagnostics.push(makeDiagnostic(repositoryPath, 'source-manifest.json must remain unchanged'));
-    } else if (repositoryPath === GRADE_5_PATH) {
-      diagnostics.push(makeDiagnostic(repositoryPath, 'committed Grade 5 extraction must remain byte-identical'));
+    } else if (repositoryPath === GRADE_5_PATH || repositoryPath === GRADE_6_PATH) {
+      diagnostics.push(makeDiagnostic(
+        repositoryPath,
+        'committed Grade 5 and Grade 6 extractions must remain byte-identical',
+      ));
     } else if (repositoryPath.startsWith('curriculum-maps/')) {
       diagnostics.push(makeDiagnostic(repositoryPath, 'curriculum maps are outside extraction scope'));
     } else if (repositoryPath.startsWith('project-files/inputs/originals/')) {
@@ -764,10 +959,17 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
     } else {
       const gradeMatch = repositoryPath.match(/(?:^|\/)grade-(\d+)(?=$|[-/])/u);
       const grade = gradeMatch ? Number.parseInt(gradeMatch[1], 10) : null;
-      if (grade !== null && ![5, 6].includes(grade)) {
+      const registeredGrade7Path = repositoryPath === GRADE_7_GEOGRAPHY_PATH
+        || repositoryPath === GRADE_7_GEOGRAPHY_AUDIT_PATH;
+      if (grade === 7 && !registeredGrade7Path) {
         diagnostics.push(makeDiagnostic(
           repositoryPath,
-          'other grades are outside the registered Grade 5-6 extraction scope',
+          'only the registered Grade 7 geography extraction and audit are in scope',
+        ));
+      } else if (grade !== null && ![5, 6, 7].includes(grade)) {
+        diagnostics.push(makeDiagnostic(
+          repositoryPath,
+          'other grades are outside the registered Grade 5-7 extraction scope',
         ));
       }
     }

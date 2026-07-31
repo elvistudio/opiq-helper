@@ -1,0 +1,2299 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "teacher_work_plan_extraction",
+  "extraction_id": "grade-7-geography-teacher-work-plan-extraction",
+  "source": {
+    "repository_path": "project-files/inputs/originals/teacher-work-plans/Geo-tookava-7-klass-Reet-Tuisk.pdf",
+    "original_filename": "Geo_töökava_7.klass_Reet_Tuisk.pdf",
+    "sha256": "d25874fcf0c211d1b1f1e0a22d2beb50cb4046eb05eaec31bfb1068bbbcf82aa",
+    "byte_size": 366595,
+    "page_count": 17,
+    "displayed_title": "ÕPETAJA TÖÖKAVA NÄIDIS GEOGRAAFIA 7. KLASS",
+    "author": "Reet Tuisk",
+    "grade": 7,
+    "subject": "geography",
+    "subject_et": "geograafia",
+    "language": "et",
+    "provenance_kind": "supplementary_teacher_work_plan",
+    "canonical": false
+  },
+  "extraction": {
+    "method": "embedded_text_plus_visual_page_verification",
+    "embedded_text_used": true,
+    "visual_verification": "all_pages_rendered_and_reviewed",
+    "verified_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "ocr_used": false,
+    "transformations": [
+      "PDF-i sisseehitatud tekst eraldati tabelite kaupa ja normaliseeriti lühikesteks eestikeelseteks väljadeks.",
+      "Lehekülgede vahel jätkuvad tabelilahtrid ühendati kõigi 17 renderdatud lehekülje visuaalse kontrolli alusel.",
+      "Iga nähtav number 1-35 säilitati eraldi lesson-range kirjena; erinevaid nummerdatud tunde ei ühendatud.",
+      "PDF-i URI-annotatsioonid säilitati source-captured linkidena ilma nende praegust toimivust väitmata."
+    ],
+    "limitations": [
+      "Allikas on õpetaja töökava näidis, mitte ametliku õppekava ammendav ega kohustuslik järjestus.",
+      "Plokkide pealkirjad ei deklareeri tunnimahte; plokkide mahud tuletati üksnes nähtavatest nummerdatud tunnivahemikest.",
+      "PDF-is kasutatakse alguses silti Õppetund ja hiljem Õppenädal; ühe tunni nädalakoormus ei muuda neid termineid samatähenduslikuks.",
+      "PDF-is leiduvate vanade välislinkide praegust kättesaadavust ega sisu ei kontrollitud.",
+      "Kanooniliste Opiq-lehtede ja URL-idega vastendamine on teadlikult edasi lükatud."
+    ]
+  },
+  "route_context": {
+    "source_id": "grade-7-geography",
+    "md_path": "project-files/outputs/opiq_7klass_geograafia.md",
+    "mapping_status": "deferred"
+  },
+  "annual_allocation": {
+    "weekly_hours": 1,
+    "declared_annual_hours": 35,
+    "extracted_lesson_span": {
+      "lesson_start": 1,
+      "lesson_end": 35
+    }
+  },
+  "thematic_blocks": [
+    {
+      "block_id": "kaardiopetus",
+      "title_et": "KAARDIÕPETUS",
+      "normalized_summary_et": "Kaartide liike, mõõtkava, suundi, koordinaate ja ajavööndeid õpitakse atlase, digikaartide ning praktilise orienteerumise kaudu.",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "derived_hours": {
+        "minimum": 11,
+        "maximum": 11,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 1-11"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 1,
+        "lesson_end": 11
+      },
+      "teaching_goals": [
+        "Õpetada kaardi legendi, registri, mõõtkava ja kaardivõrgu kasutamist.",
+        "Arendada suundade, vahemaade, koordinaatide ja kellaaja määramise oskust.",
+        "Rakendada kaarti ja kompassi looduses ning lihtsa plaani koostamisel."
+      ],
+      "learning_outcomes": [
+        "Õpilane leiab sobiva kaardi ja kasutab atlase kohanimede registrit.",
+        "Õpilane määrab suundi, mõõdab vahemaid ja leiab geograafilisi koordinaate.",
+        "Õpilane määrab ajavööndite kaardilt ajaerinevusi ja koostab lihtsa plaani.",
+        "Õpilane kasutab trüki- ja arvutikaarte info kirjeldamiseks ning järelduste tegemiseks."
+      ],
+      "learning_content": [
+        "Maa kuju ja suurus ning kaartide otstarve.",
+        "Mõõtkava, vahemaad, suunad ja orienteerumine.",
+        "Geograafilised koordinaadid ja ajavööndid."
+      ],
+      "key_concepts": [
+        "plaan",
+        "kaart",
+        "atlas",
+        "mõõtkava",
+        "asimuut",
+        "kaardivõrk",
+        "geograafilised koordinaadid",
+        "ajavöönd"
+      ],
+      "practical_work": [
+        "Vahemaade mõõtmine erineva mõõtkavaga kaartidel.",
+        "Kaardi ja kompassiga orienteerumine ning lihtsa plaani koostamine.",
+        "Koordinaatide ja ajavööndite praktilised ülesanded."
+      ],
+      "ict_activities": [
+        "Interaktiivsete kaartide, satelliidivaadete ja kaardiportaalide kasutamine."
+      ],
+      "assessment": [
+        "Praktiliste kaardiülesannete ja plaani hindamine.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "loodusõpetus",
+        "matemaatika",
+        "ajalugu",
+        "arvutiõpetus",
+        "kehaline kasvatus",
+        "võõrkeel"
+      ],
+      "transversal_themes": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "gloobus",
+        "kompass",
+        "joonlaud",
+        "mall",
+        "töölehed",
+        "arvuti"
+      ],
+      "external_links": [
+        "http://www.fourmilab.ch/cgi-bin/Earth/action?opt=-p",
+        "https://maps.google.com/",
+        "http://www.oppekava.ee/index.php/Geograafia",
+        "http://wiki.openstreetmap.org/wiki/Et:Beginners_Guide"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references",
+        "lesson-6-missing-topic-cell",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "geoloogia",
+      "title_et": "GEOLOOGIA",
+      "normalized_summary_et": "Maa siseehitust, laamtektoonikat, maavärinaid, vulkanismi ning kivimite teket ja kasutamist seostatakse kaartide, animatsioonide ja kiviminäidistega.",
+      "source_pages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "derived_hours": {
+        "minimum": 9,
+        "maximum": 9,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 12-20"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 12,
+        "lesson_end": 20
+      },
+      "teaching_goals": [
+        "Selgitada Maa siseehituse ja laamade liikumise seost geoloogiliste protsessidega.",
+        "Kujundada maavärina- ja vulkaaniohu mõistmist ning ohutut käitumist.",
+        "Õpetada kivimite teket, omadusi ja kasutamist."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab Maa siseehitust ja laamade liikumist.",
+        "Õpilane selgitab maavärinate ning vulkaanipursete põhjusi ja tagajärgi.",
+        "Õpilane tunneb peamisi setteid ja kivimeid ning kirjeldab nende teket ja kasutust.",
+        "Õpilane mõistab geoloogiliste uuringute vajalikkust."
+      ],
+      "learning_content": [
+        "Maa siseehitus ja laamtektoonika.",
+        "Maavärinad ja vulkaaniline tegevus.",
+        "Kivimid, setted, kivimiringe ja kasutamine."
+      ],
+      "key_concepts": [
+        "maakoor",
+        "vahevöö",
+        "tuum",
+        "laam",
+        "magma",
+        "vulkaan",
+        "maavärin",
+        "tsunami",
+        "murenemine",
+        "sete",
+        "settekivim",
+        "tardkivim",
+        "kivistis"
+      ],
+      "practical_work": [
+        "Laamade liikumise ja geoloogiliste protsesside seoste analüüs.",
+        "Maavärinate ja vulkaanipursete tagajärgede rühmatöö.",
+        "Kiviminäidiste iseloomustamine ja kasutuse seostamine omadustega."
+      ],
+      "ict_activities": [
+        "Interaktiivsete laama-, maavärina- ja vulkaanikaartide ning animatsioonide kasutamine."
+      ],
+      "assessment": [
+        "Mõistekaartide, rühmatööde ja kivimite praktilise töö hindamine.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "füüsika",
+        "keemia",
+        "bioloogia",
+        "ajalugu",
+        "matemaatika",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_themes": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "keskkond ja jätkusuutlik areng",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "Maa siseehituse joonised",
+        "laamtektoonika kaart",
+        "kivimikollektsioon",
+        "töölehed"
+      ],
+      "external_links": [
+        "http://earthquake.usgs.gov/earthquakes/map/",
+        "http://volcanoes.usgs.gov/",
+        "http://www.gi.ee/geomoodulid/files/modules/kivimid.html"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "previous-grade-prerequisite-references",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "pinnamood",
+      "title_et": "PINNAMOOD",
+      "normalized_summary_et": "Pinnavorme ja reljeefi kujutamist, mäestikke, tasandikke, maailmamere põhjareljeefi ning pinnamoe muutumist õpitakse kaartide, profiilide ja pildianalüüsi kaudu.",
+      "source_pages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "derived_hours": {
+        "minimum": 9,
+        "maximum": 9,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 21-29"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 21,
+        "lesson_end": 29
+      },
+      "teaching_goals": [
+        "Eristada pinnavorme ja kirjeldada pinnamoodi kaartidel.",
+        "Seostada pinnamood inimeste elu, majandustegevuse ja ohutusega.",
+        "Selgitada sise- ja välisjõudude mõju pinnavormide muutumisele."
+      ],
+      "learning_outcomes": [
+        "Õpilane leiab kaardilt suuremad mäestikud, mägismaad ja tasandikud.",
+        "Õpilane iseloomustab pinnavorme kaardi, pildi ja profiili järgi.",
+        "Õpilane kirjeldab maailmamere põhjareljeefi ning selle seost laamadega.",
+        "Õpilane toob näiteid pinnamoe muutumisest ja mägialade riskidest."
+      ],
+      "learning_content": [
+        "Pinnavormid, pinnamood ja kujutamine kaartidel.",
+        "Mäestikud, mägismaad, tasandikud ja maailmamere põhjareljeef.",
+        "Pinnamoe muutumine sise- ja välisjõudude toimel."
+      ],
+      "key_concepts": [
+        "reljeef",
+        "samakõrgusjoon",
+        "absoluutne kõrgus",
+        "suhteline kõrgus",
+        "profiiljoon",
+        "mäestik",
+        "tasandik",
+        "mandrilava",
+        "süvik",
+        "erosioon"
+      ],
+      "practical_work": [
+        "Pinnavormi kirjeldamine ja kujutamine samakõrgusjoontega.",
+        "Profiiljoone lugemine või koostamine.",
+        "Mäestike, tasandike ja põhjareljeefi kaardivõrdlus."
+      ],
+      "ict_activities": [
+        "Digitaalse profiiliprogrammi ja teemakohaste esitluste kasutamine."
+      ],
+      "assessment": [
+        "Kaardi-, profiili- ja pildianalüüsi ülesannete hindamine.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "matemaatika",
+        "füüsika",
+        "keemia",
+        "ajalugu",
+        "kunstiõpetus",
+        "keeleõpetus",
+        "arvutiõpetus"
+      ],
+      "transversal_themes": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "equipment_and_materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "künka mudel",
+        "suuremõõtkavalised kaardid",
+        "pildimaterjal",
+        "kontuurkaart",
+        "töölehed"
+      ],
+      "external_links": [
+        "http://www.geocontext.org/publ/2010/04/profiler/en/",
+        "http://www.oppekava.ee/index.php/Geograafia"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "lesson-week-header-switch",
+        "previous-grade-prerequisite-references",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "rahvastik",
+      "title_et": "RAHVASTIK",
+      "normalized_summary_et": "Riikide asendit, maailma rahvaid, rahvastiku paiknemist ja muutumist ning linnastumist õpitakse kaartide, andmebaaside, graafikute ja diagrammide kaudu.",
+      "source_pages": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "derived_hours": {
+        "minimum": 6,
+        "maximum": 6,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 30-35"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 30,
+        "lesson_end": 35
+      },
+      "teaching_goals": [
+        "Kujundada ülevaade maailma rahvastikust, paiknemisest ja muutumisest.",
+        "Õpetada riigi geograafilise asendi kirjeldamist.",
+        "Arendada graafikute, diagrammide ja rahvastikuandmete tõlgendamist.",
+        "Selgitada linnastumise põhjusi ja probleeme."
+      ],
+      "learning_outcomes": [
+        "Õpilane iseloomustab riigi geograafilist asendit ja leiab suuremaid riike ning linnu.",
+        "Õpilane väärtustab rahvaste keelelist ja kultuurilist mitmekesisust.",
+        "Õpilane kirjeldab rahvastiku paiknemist ja rahvaarvu muutumist.",
+        "Õpilane selgitab linnastumist ning sellega kaasnevaid probleeme."
+      ],
+      "learning_content": [
+        "Riigid maailmakaardil ja rahvaste mitmekesisus.",
+        "Rahvastiku paiknemine, tihedus ja rahvaarvu muutumine.",
+        "Linnastumine."
+      ],
+      "key_concepts": [
+        "riik",
+        "poliitiline kaart",
+        "geograafiline asend",
+        "rahvastik",
+        "rass",
+        "rahvastiku tihedus",
+        "iive",
+        "migratsioon",
+        "linnastumine",
+        "linnastu"
+      ],
+      "practical_work": [
+        "Riigi geograafilise asendi kirjeldamine ja kontuurkaardi täitmine.",
+        "Rahvastikukaartide, tabelite, graafikute ja diagrammide analüüs.",
+        "Linnastumise põhjuste ja mõjude arutelu."
+      ],
+      "ict_activities": [
+        "Interaktiivsete rahvastiku-, migratsiooni- ja linnastumisandmete kasutamine."
+      ],
+      "assessment": [
+        "Kaardi- ja andmeanalüüsi ülesannete hindamine.",
+        "Kordamine ja õppeaasta lõpetamine."
+      ],
+      "cross_curricular_links": [
+        "ajalugu",
+        "ühiskonnaõpetus",
+        "matemaatika",
+        "kunstiõpetus",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_themes": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet",
+        "keskkond ja jätkusuutlik areng",
+        "väärtused ja kõlblus",
+        "tervis ja ohutus"
+      ],
+      "equipment_and_materials": [
+        "maailma atlas",
+        "poliitiline kaart",
+        "kontuurkaardid",
+        "tabelid",
+        "graafikud",
+        "diagrammid"
+      ],
+      "external_links": [
+        "http://www.worldometers.info/world-population/",
+        "http://migrationsmap.net/#/EST/arrivals",
+        "http://esa.un.org/unpd/wup/Maps/maps_overview.htm"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "lesson-week-header-switch",
+        "lesson-35-page-continuation",
+        "previous-grade-prerequisite-references",
+        "cross-page-table-continuations"
+      ]
+    }
+  ],
+  "lesson_ranges": [
+    {
+      "lesson_start": 1,
+      "lesson_end": 1,
+      "topic_et": "Õppeaasta sissejuhatus ning Maa kuju ja suurus",
+      "concepts_et": [
+        "Päikesesüsteem",
+        "planeet",
+        "gloobus",
+        "manner",
+        "ookean",
+        "satelliidifoto"
+      ],
+      "methods_and_practical_work": [
+        "Paaristöö Maa kuju tõendite kohta.",
+        "Maadeavastuste kaardi praktiline kasutamine."
+      ],
+      "ict": [
+        "Maa satelliidi- ja ööpäevavaadete uurimine."
+      ],
+      "assessment": [
+        "Esitluse küsimustele vastamine."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "loodusõpetus",
+        "ajalugu",
+        "matemaatika",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "gloobus",
+        "maailma atlas",
+        "maadeavastuste kaart"
+      ],
+      "external_links": [
+        "http://www.fourmilab.ch/cgi-bin/Earth/action?opt=-p",
+        "https://maps.google.com/",
+        "http://koolielu.ee/waramu/view/1-0c7ba0ad-ac60-4068-8c8d-30c1775976f2",
+        "http://koolielu.ee/waramu/view/1-994f5538-c3f1-4ca3-bd4f-73ea23ae72b5"
+      ],
+      "source_pages": [
+        2
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 2,
+      "lesson_end": 2,
+      "topic_et": "Kaartide mitmekesisus",
+      "concepts_et": [
+        "plaan",
+        "kaart",
+        "leppemärgid",
+        "üldgeograafiline kaart",
+        "temaatiline kaart",
+        "atlas",
+        "kohanimede register"
+      ],
+      "methods_and_practical_work": [
+        "Plaani ja kaardi võrdlus.",
+        "Atlase sisukorra ja kohanimede registri praktiline kasutamine.",
+        "Koha geograafilise asendi kirjeldamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Väidete kontrollimine ja asendi kirjelduse koostamine."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "asula plaan"
+      ],
+      "external_links": [],
+      "source_pages": [
+        2,
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 3,
+      "lesson_end": 3,
+      "topic_et": "Trüki- ja arvutikaardid",
+      "concepts_et": [
+        "arvutikaart",
+        "interaktiivne kaart"
+      ],
+      "methods_and_practical_work": [
+        "Trüki- ja arvutikaartide eeliste ning puuduste võrdlus.",
+        "Koolitee kaardistamine."
+      ],
+      "ict": [
+        "Interaktiivsete kaardiportaalide praktiline kasutamine."
+      ],
+      "assessment": [
+        "Kaardiportaali tööjuhise täitmine."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "arvutiõpetus",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "arvuti",
+        "töölehed"
+      ],
+      "external_links": [
+        "http://www.emhi.ee/",
+        "http://koolielu.ee/waramu/download?rid=1-e2473972bd0f984e8d2a8b2282730acbfe5075af",
+        "http://www.oppekava.ee/index.php/Geograafia",
+        "http://www.liikluskasvatus.ee/opetajale/uldhariduskool/iii-kooliaste/koolitee-kaardistamine/",
+        "http://www.geo.ut.ee/kooligeo/Lingid/Lingid_interaktiivsed_kaardid.htm",
+        "http://www.360.tallinn.ee/pano/list/et/"
+      ],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 4,
+      "lesson_end": 4,
+      "topic_et": "Mõõtkava",
+      "concepts_et": [
+        "mõõtkava",
+        "arvmõõtkava",
+        "võrdlusmõõtkava",
+        "joonmõõtkava"
+      ],
+      "methods_and_practical_work": [
+        "Mõõtkava teisendamine ja vahemaade mõõtmine eri kaartidel."
+      ],
+      "ict": [],
+      "assessment": [
+        "Vahemaa- ja mõõtkavaülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "joonlaud"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-dd34e007-c175-4d42-8d26-b6064296acbd"
+      ],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 5,
+      "lesson_end": 5,
+      "topic_et": "Suunad looduses ja kaardil",
+      "concepts_et": [
+        "Maa telg",
+        "poolus",
+        "Põhjanael",
+        "ilmakaared",
+        "asimuut"
+      ],
+      "methods_and_practical_work": [
+        "Ilmakaarte ja asimuudi määramine kaardil ning looduses.",
+        "Õpilase enesehinnang."
+      ],
+      "ict": [],
+      "assessment": [
+        "Praktilise suunamääramise enesehindamine."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kooliümbrus."
+      ],
+      "subject_integration": [
+        "loodusõpetus",
+        "matemaatika",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine",
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "linnaplaan",
+        "mall",
+        "joonlaud",
+        "kompass"
+      ],
+      "external_links": [],
+      "source_pages": [
+        3,
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 6,
+      "lesson_end": 6,
+      "topic_et": "Orienteerumine kaardi ja kompassiga",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Orienteerumine ning kaardi ja kompassi kasutamine looduses."
+      ],
+      "ict": [],
+      "assessment": [
+        "Praktilise orienteerumisoskuse vaatlus."
+      ],
+      "learning_environment": [
+        "Looduskeskkond."
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "kompass",
+        "Paralepa orienteerumiskaart"
+      ],
+      "external_links": [],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "lesson-6-missing-topic-cell"
+      ]
+    },
+    {
+      "lesson_start": 7,
+      "lesson_end": 7,
+      "topic_et": "Plaani koostamine ja orienteerimine",
+      "concepts_et": [
+        "ilmakaared",
+        "seisupunkt",
+        "sammupaar",
+        "mõõtkava",
+        "kiirtemeetod",
+        "leppemärk"
+      ],
+      "methods_and_practical_work": [
+        "Sammupaari mõõtmine.",
+        "Lihtsa kooliümbruse plaani koostamine.",
+        "Orienteerumine loodus- või linnakeskkonnas."
+      ],
+      "ict": [
+        "Interaktiivse plaani koostamise võimalustega tutvumine."
+      ],
+      "assessment": [
+        "Rühmatööna koostatud plaani hindamine."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kooliümbrus."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "kehaline kasvatus",
+        "kunstiõpetus",
+        "arvutiõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "kompass",
+        "joonlaud",
+        "tööalus",
+        "tööleht"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/download?rid=1-640397817f3aaa42250edbfed31336ba22266f28&attachmentId=2992",
+        "http://wiki.openstreetmap.org/wiki/Et:Beginners_Guide",
+        "http://geograafiaoues.wordpress.com/kaardiopetus/toolehed-opilastele/plaani-koostmine/"
+      ],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 8,
+      "lesson_end": 8,
+      "topic_et": "Geograafilised koordinaadid",
+      "concepts_et": [
+        "kaardivõrk",
+        "ekvaator",
+        "geograafiline laius",
+        "algmeridiaan",
+        "geograafiline pikkus",
+        "geograafilised koordinaadid"
+      ],
+      "methods_and_practical_work": [
+        "Paralleelide ja meridiaanide võrdlus.",
+        "Koordinaatide määramine ning koha leidmine."
+      ],
+      "ict": [
+        "Interaktiivse koordinaadimängu kasutamine."
+      ],
+      "assessment": [
+        "Koordinaadiülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-2e3c189a-87bc-4b27-bbc9-6dc0f08c4949",
+        "http://www.kidsgeo.com/geography-games/latitude-longitude-map-game.php"
+      ],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 9,
+      "lesson_end": 9,
+      "topic_et": "Ajavööndid",
+      "concepts_et": [
+        "meridiaan",
+        "geograafiline pikkus",
+        "ajavöönd",
+        "maailmaaeg",
+        "vööndiaeg",
+        "kohalik päikeseaeg",
+        "kuupäevaraja"
+      ],
+      "methods_and_practical_work": [
+        "Kellaaja määramine ajavööndite kaardi abil.",
+        "Arutelu suveaja ja ajavööndite vahel reisimise üle."
+      ],
+      "ict": [
+        "Interaktiivsete ajavööndikaartide kasutamine."
+      ],
+      "assessment": [
+        "Ajavööndi- ja päikeseaja ülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "loodusõpetus",
+        "matemaatika",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas"
+      ],
+      "external_links": [
+        "http://www.fourmilab.ch/cgi-bin/Earth/action?opt=-p",
+        "http://koolielu.ee/waramu/view/1-f18b1bc0-b1fe-480d-bde9-81bb09f8aad3",
+        "http://koolielu.ee/waramu/view/1-cfa9f728-4ff1-4081-9ea4-7875d703d64b",
+        "http://www.timeanddate.co/",
+        "http://www.timezonecheck.com/",
+        "http://24timezones.com/"
+      ],
+      "source_pages": [
+        4,
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 10,
+      "lesson_end": 10,
+      "topic_et": "Kaardiõpetuse kordamine",
+      "concepts_et": [
+        "kaardiõpetuse põhimõisted"
+      ],
+      "methods_and_practical_work": [
+        "Praktiliste kordamis- ja olümpiaadiülesannete lahendamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kordamisülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "joonlaud",
+        "mall"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-2ffa4e9e077b97efc5617aa20a6e362c886665e4",
+        "http://taurus.gg.bg.ut.ee/kooligeo/materjalid/olympiaadid/kogumik_geo_olymp.pdf"
+      ],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 11,
+      "lesson_end": 11,
+      "topic_et": "Kaardiõpetuse kontrolltöö",
+      "concepts_et": [
+        "kaardiõpetuse põhimõisted"
+      ],
+      "methods_and_practical_work": [],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "joonlaud",
+        "mall"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 12,
+      "lesson_end": 12,
+      "topic_et": "Kontrolltöö analüüs ja Maa siseehitus",
+      "concepts_et": [
+        "maakoor",
+        "vahevöö",
+        "tuum",
+        "mandriline maakoor",
+        "ookeaniline maakoor"
+      ],
+      "methods_and_practical_work": [
+        "Eelmise kontrolltöö tulemuste analüüs.",
+        "Maa siseehituse uurimisvõimaluste arutelu.",
+        "Mandrilise ja ookeanilise maakoore võrdlus."
+      ],
+      "ict": [
+        "Maa siseehituse esitluse kasutamine."
+      ],
+      "assessment": [
+        "Kontrolltöö tulemuste analüüs ja võrdlusülesanne."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "ajalugu",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "Maa siseehituse joonised",
+        "Eesti atlas"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-d0b6255a-cc85-4894-b38d-bf53570c9f49"
+      ],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 13,
+      "lesson_end": 13,
+      "topic_et": "Laamad",
+      "concepts_et": [
+        "mandriline maakoor",
+        "ookeaniline maakoor",
+        "vahevöö",
+        "magma",
+        "laam"
+      ],
+      "methods_and_practical_work": [
+        "Laamtektoonika esitluse ja üldgeograafilise kaardi seostamine."
+      ],
+      "ict": [
+        "Interaktiivsed laamamängud ja animatsioonid."
+      ],
+      "assessment": [
+        "Laamade kaardi tõlgendamine."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "ajalugu",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "laamade kaart"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-d0b6255a-cc85-4894-b38d-bf53570c9f49",
+        "http://www.purposegames.com/game/laamad-quiz",
+        "http://kids.earth.nasa.gov/archive/pangaea/Pangaea_game.html",
+        "http://www.gi.ee/geomoodulid/files/modules/laamtektoonika.html",
+        "http://whs.moodledo.co.uk/mod/resource/view.php?id=52981"
+      ],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 14,
+      "lesson_end": 14,
+      "topic_et": "Laamade liikumine ja kaasnevad protsessid",
+      "concepts_et": [
+        "Maa siseenergia",
+        "kurrutus",
+        "murrang",
+        "mäestik",
+        "maavärin",
+        "vulkanism",
+        "ookeani keskmäestik",
+        "süvik"
+      ],
+      "methods_and_practical_work": [
+        "Laamade äärealade protsesside mõistekaardi ja seotud teksti koostamine."
+      ],
+      "ict": [
+        "Interaktiivse laamtektoonika kaardi kasutamine."
+      ],
+      "assessment": [
+        "Mõistekaart ja protsesside selgitus."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "matemaatika",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "laamtektoonika kaart",
+        "joonised"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-d0b6255a-cc85-4894-b38d-bf53570c9f49",
+        "http://ees.as.uky.edu/sites/default/files/elearning/module04swf.swf"
+      ],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 15,
+      "lesson_end": 15,
+      "topic_et": "Maavärinad",
+      "concepts_et": [
+        "murrang",
+        "kolle",
+        "epitsenter",
+        "seismilised lained",
+        "maavärin",
+        "tsunami",
+        "seismograaf"
+      ],
+      "methods_and_practical_work": [
+        "Reaalaja maavärinakaardi uurimine.",
+        "Maavärinate ja tsunami tagajärgede ning riskide rühmaanalüüs."
+      ],
+      "ict": [
+        "Interaktiivsete maavärinakaartide ja tsunami animatsiooni kasutamine."
+      ],
+      "assessment": [
+        "Tagajärgede ja ohutusabinõude analüüs."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "matemaatika",
+        "ajalugu",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "laamtektoonika kaart"
+      ],
+      "external_links": [
+        "http://earthquake.usgs.gov/earthquakes/recenteqsww/",
+        "http://earthquake.usgs.gov/earthquakes/map/",
+        "http://realtimetools.de/",
+        "http://koolielu.ee/waramu/view/1-11f86446-3257-451f-96c9-40ea97cff3ce",
+        "http://en.wikipedia.org/wiki/File:20110311Houshu.ogg",
+        "http://ansatte.uit.no/kku000/webgeology/webgeology_files/estonian/maavarinad2.html",
+        "http://news.bbc.co.uk/2/hi/science/nature/7533950.stm"
+      ],
+      "source_pages": [
+        7,
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 16,
+      "lesson_end": 16,
+      "topic_et": "Vulkanism",
+      "concepts_et": [
+        "magma",
+        "laava",
+        "vulkaan",
+        "magmakolle",
+        "lõõr",
+        "kraater",
+        "geiser",
+        "Maa siseenergia"
+      ],
+      "methods_and_practical_work": [
+        "Vulkanismi põhjuste ja leviku uurimine.",
+        "Vulkaanipurske tagajärgede mõistekaardi koostamine."
+      ],
+      "ict": [
+        "Interaktiivse vulkaanimudeli ja vulkaanikaardi kasutamine."
+      ],
+      "assessment": [
+        "Mõistekaart ja õpilase enesehinnang."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia",
+        "ajalugu",
+        "keeleõpetus",
+        "kunstiõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "vulkanismiesitlus"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-91fb1a91-9933-4757-b201-2c670a812797",
+        "http://kids.discovery.com/games/build-play/volcano-explorer",
+        "http://volcanoes.usgs.gov/",
+        "http://www.gi.ee/geomoodulid/files/modules/vulkanism.html",
+        "http://www.volcano.si.edu/world/globallists.cfm?listpage=googleearth"
+      ],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 17,
+      "lesson_end": 17,
+      "topic_et": "Kivimid ja kivimite teke",
+      "concepts_et": [
+        "mineraal",
+        "kivim",
+        "paljand",
+        "murenemine",
+        "sete",
+        "settekivim",
+        "kivistis",
+        "tardkivim",
+        "moondekivim"
+      ],
+      "methods_and_practical_work": [
+        "Kivimiliikide tekke selgitamine rühmatööna."
+      ],
+      "ict": [
+        "Kivimiringe animatsioonide kasutamine."
+      ],
+      "assessment": [
+        "Kivimiringe selgitus või mõistekaart."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia",
+        "bioloogia",
+        "ajalugu",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine",
+        "tehnoloogia ja innovatsioon",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kiviminäidised"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-3ab29c13-06bc-4db1-a9f9-948a5d87539b",
+        "http://www.teachersdomain.org/ext/ess05_int_rockcycle/index.html",
+        "http://www.geolsoc.org.uk/gsl/pid/3892;jsessionid=1170A0391CDB1A1F22AC4D445BF9095A",
+        "http://www.gi.ee/geomoodulid/files/modules/kivimid.html",
+        "http://www.learner.org/interactives/rockcycle/diagram.html"
+      ],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 18,
+      "lesson_end": 18,
+      "topic_et": "Kivimite iseloomustamine ja kasutamine",
+      "concepts_et": [
+        "kivim",
+        "sete",
+        "settekivim",
+        "kivistis",
+        "tardkivim",
+        "moondekivim"
+      ],
+      "methods_and_practical_work": [
+        "Kivimi- ja settenäidiste rühmapõhine iseloomustamine ning kasutuse uurimine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Praktilise töö leht või tabel."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia",
+        "bioloogia",
+        "ajalugu",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "elukestev õpe ja karjääri planeerimine",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kivimikollektsioon",
+        "Eesti atlas",
+        "töölehed",
+        "pildimaterjal"
+      ],
+      "external_links": [
+        "http://www.gi.ee/geomoodulid/files/modules/maavarad.html"
+      ],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 19,
+      "lesson_end": 19,
+      "topic_et": "Geoloogia kordamine",
+      "concepts_et": [
+        "geoloogia ploki põhimõisted"
+      ],
+      "methods_and_practical_work": [
+        "Kordamis- ja olümpiaadiülesannete lahendamine."
+      ],
+      "ict": [
+        "Animatsioonide kordav kasutamine."
+      ],
+      "assessment": [
+        "Kordamisülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia",
+        "matemaatika",
+        "bioloogia",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "joonised",
+        "skeemid"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-98913685e9b36dd364782fe3710552d66315328d",
+        "http://taurus.gg.bg.ut.ee/kooligeo/materjalid/olympiaadid/kogumik_geo_olymp.pdf",
+        "http://whs.moodledo.co.uk/course/view.php?id=1365"
+      ],
+      "source_pages": [
+        9,
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 20,
+      "lesson_end": 20,
+      "topic_et": "Geoloogia kontrolltöö",
+      "concepts_et": [
+        "geoloogia ploki põhimõisted"
+      ],
+      "methods_and_practical_work": [],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia",
+        "matemaatika",
+        "bioloogia",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "joonised",
+        "skeemid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 21,
+      "lesson_end": 21,
+      "topic_et": "Kontrolltöö analüüs ning pinnavormid ja pinnamood",
+      "concepts_et": [
+        "pinnavorm",
+        "liitvorm",
+        "positiivne pinnavorm",
+        "negatiivne pinnavorm",
+        "reljeef"
+      ],
+      "methods_and_practical_work": [
+        "Eelmise kontrolltöö tulemuste analüüs.",
+        "Reljeefimõistete süstematiseerimine ja kaardinäidete leidmine.",
+        "Pinnamoe kirjeldamine pildi põhjal."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö analüüs ja rühmatöö."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "keeleõpetus",
+        "ajalugu"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "Eesti atlas",
+        "pinnavormide kaart",
+        "pildimaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 22,
+      "lesson_end": 22,
+      "topic_et": "Pinnamoe kujutamine kaartidel",
+      "concepts_et": [
+        "reljeef",
+        "samakõrgusjoon",
+        "horisontaalide lõikevahe",
+        "absoluutne kõrgus",
+        "suhteline kõrgus",
+        "profiiljoon",
+        "mõõtkava"
+      ],
+      "methods_and_practical_work": [
+        "Pinnavormi kirjeldamine ja kujutamine horisontaalidega.",
+        "Profiiljoone lugemine või koostamine."
+      ],
+      "ict": [
+        "Ristprofiili koostamine digiprogrammiga."
+      ],
+      "assessment": [
+        "Kaardi- ja profiiliülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "kunstiõpetus",
+        "keeleõpetus",
+        "arvutiõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "elukestev õpe ja karjääri planeerimine",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "künka mudel",
+        "suuremõõtkavalised kaardid",
+        "maailma atlas",
+        "Eesti atlas"
+      ],
+      "external_links": [
+        "http://www.geocontext.org/publ/2010/04/profiler/en/"
+      ],
+      "source_pages": [
+        11,
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 23,
+      "lesson_end": 23,
+      "topic_et": "Mäestikud ja mägismaad",
+      "concepts_et": [
+        "mägi",
+        "jalam",
+        "nõlv",
+        "tipp",
+        "mäeahelik",
+        "kurrutus",
+        "mäestik",
+        "mägismaa"
+      ],
+      "methods_and_practical_work": [
+        "Mäestike kaardi- ja pildivõrdlus.",
+        "Mõistete paigutamine skeemile.",
+        "Kontuurkaardi täitmine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Mäestiku iseloomustus ja kontuurkaart."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "keeleõpetus",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "laamtektoonika kaart",
+        "pildimaterjal",
+        "kontuurkaart"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-a9a74ca9-4995-4869-9800-ccb5abc47e47",
+        "http://www.oppekava.ee/index.php/Geograafia"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 24,
+      "lesson_end": 24,
+      "topic_et": "Tasandikud",
+      "concepts_et": [
+        "tasandik",
+        "kiltmaa",
+        "madalik",
+        "alamik",
+        "suhteline kõrgus",
+        "absoluutne kõrgus"
+      ],
+      "methods_and_practical_work": [
+        "Inimtegevuse võrdlemine tasandikel ja mäestikes.",
+        "Kontuurkaardi täitmine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Võrdlusülesanne ja kontuurkaart."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "ajalugu",
+        "keeleõpetus",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas",
+        "pildimaterjal",
+        "kontuurkaart"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-78076434-6151-4d9f-8fc1-374bb8611fd1",
+        "http://www.oppekava.ee/index.php/Geograafia"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 25,
+      "lesson_end": 25,
+      "topic_et": "Maailmamere põhjareljeef",
+      "concepts_et": [
+        "mandrilava",
+        "mandrinõlv",
+        "ookeani keskmäestik",
+        "süvik"
+      ],
+      "methods_and_practical_work": [
+        "Põhjareljeefi seostamine laamade liikumisega.",
+        "Põhjareljeefi näidete leidmine kaardilt."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kaardipõhine põhjareljeefi kirjeldus."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "ajalugu"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "maailma atlas"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-999198b5-66f0-4b9a-8c05-f01fb82c8492"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 26,
+      "lesson_end": 26,
+      "topic_et": "Pinnamoe muutumine",
+      "concepts_et": [
+        "Maa sisejõud",
+        "välisjõud",
+        "murenemine",
+        "edasikanne",
+        "settimine",
+        "erosioon"
+      ],
+      "methods_and_practical_work": [
+        "Sise- ja välisjõudude mõju võrdlus.",
+        "Pinnavormide kujunemise pildianalüüs.",
+        "Õpilase enesehinnang."
+      ],
+      "ict": [],
+      "assessment": [
+        "Võrdlus ja enesehinnang."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "pildimaterjal"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-f96ed142-ceb5-474f-a7e2-da077d78d833",
+        "http://whs.moodledo.co.uk/mod/resource/view.php?inpopup=true&id=53674"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 27,
+      "lesson_end": 27,
+      "topic_et": "Välisjõud ja pinnavormid",
+      "concepts_et": [
+        "välisjõud",
+        "murenemine",
+        "sete",
+        "erosioon",
+        "uhtorg",
+        "kanjon",
+        "delta",
+        "luide"
+      ],
+      "methods_and_practical_work": [
+        "Välisjõudude ja pinnavormide mõistekaardi koostamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Mõistekaart ja protsesside selgitus."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia",
+        "ajalugu",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "maailma atlas",
+        "pildimaterjal"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-f96ed142-ceb5-474f-a7e2-da077d78d833"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 28,
+      "lesson_end": 28,
+      "topic_et": "Pinnamoe kordamine",
+      "concepts_et": [
+        "pinnamoe ploki põhimõisted"
+      ],
+      "methods_and_practical_work": [
+        "Kordavate töölehtede ja kaarditundmise ülesannete lahendamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kordamisülesanded."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "füüsika",
+        "keemia",
+        "ajalugu",
+        "kunstiõpetus",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "töölehed",
+        "maailma atlas"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-98913685e9b36dd364782fe3710552d66315328d"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 29,
+      "lesson_end": 29,
+      "topic_et": "Pinnamoe kontrolltöö",
+      "concepts_et": [
+        "pinnamoe ploki põhimõisted"
+      ],
+      "methods_and_practical_work": [],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "füüsika",
+        "keemia",
+        "ajalugu",
+        "kunstiõpetus",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 30,
+      "lesson_end": 30,
+      "topic_et": "Kontrolltöö analüüs ja riigid maailmakaardil",
+      "concepts_et": [
+        "riik",
+        "poliitiline kaart",
+        "üldgeograafiline kaart",
+        "riigipiir",
+        "geograafiline asend"
+      ],
+      "methods_and_practical_work": [
+        "Eelmise kontrolltöö tulemuste analüüs.",
+        "Riigi asendi kirjeldamine ja kontuurkaardi täitmine."
+      ],
+      "ict": [
+        "Interaktiivsete riigimängude kasutamine."
+      ],
+      "assessment": [
+        "Kontrolltöö analüüs, riigi kirjeldus ja kontuurkaart."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "ühiskonnaõpetus",
+        "keeleõpetus",
+        "kunstiõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet"
+      ],
+      "materials": [
+        "maailma atlas",
+        "poliitiline kaart",
+        "kontuurkaart"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-01d76072-79a4-46b2-99e8-122c9fb1044c",
+        "http://www.oppekava.ee/index.php/Geograafia",
+        "http://www.purposegames.com/ww-search.php?q=Europe+countries"
+      ],
+      "source_pages": [
+        14,
+        15
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 31,
+      "lesson_end": 31,
+      "topic_et": "Maailma rassid ja rahvad",
+      "concepts_et": [
+        "rass",
+        "rahvas",
+        "rahvastik",
+        "rahvus"
+      ],
+      "methods_and_practical_work": [
+        "Maailma piirkondade rassilise ja keelelise mitmekesisuse rühmatöö.",
+        "Arutelu kultuurilise mitmekesisuse üle."
+      ],
+      "ict": [
+        "Digitaalse pildimaterjali kasutamine."
+      ],
+      "assessment": [
+        "Rühmatöö ja arutelu."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "kultuuriline identiteet",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-c1bcddde-9bcd-462f-9e7e-12380a3ad1c1"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 32,
+      "lesson_end": 32,
+      "topic_et": "Rahvastiku paiknemine",
+      "concepts_et": [
+        "rahvastiku tihedus",
+        "pinnamood",
+        "kliima",
+        "rannik"
+      ],
+      "methods_and_practical_work": [
+        "Tiheda ja hõreda asustusega piirkondade ning mõjutegurite rühmaanalüüs."
+      ],
+      "ict": [
+        "Interaktiivsete rahvastikutiheduse kaartide kasutamine."
+      ],
+      "assessment": [
+        "Kaardipõhine asustuse analüüs."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "matemaatika",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "maailma atlas"
+      ],
+      "external_links": [
+        "http://www.dwtkns.com/density/",
+        "http://sedac.ciesin.columbia.edu/gpw/",
+        "http://www.globalhealthfacts.org/data/topic/map.aspx?ind=85#map"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 33,
+      "lesson_end": 33,
+      "topic_et": "Maailma rahvaarvu muutumine",
+      "concepts_et": [
+        "iive",
+        "migratsioon",
+        "diagramm",
+        "graafik"
+      ],
+      "methods_and_practical_work": [
+        "Rahvaarvu, sündimuse, suremuse ja rände andmete analüüs.",
+        "Piirkondade võrdlus ning arvutusülesanded."
+      ],
+      "ict": [
+        "Rahvastikukella, andmebaaside ja migratsioonikaardi kasutamine."
+      ],
+      "assessment": [
+        "Tabeli-, graafiku- ja kaardianalüüs."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "ühiskonnaõpetus",
+        "matemaatika",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "maailma atlas",
+        "tabelid",
+        "diagrammid"
+      ],
+      "external_links": [
+        "http://www.worldometers.info/world-population/",
+        "http://www.bbc.co.uk/news/world-15391515-",
+        "http://www.globalhealthfacts.org/data/topic/map.aspx?ind=86",
+        "http://www.globalhealthfacts.org/data/topic/map.aspx?ind=90",
+        "http://www.globalhealthfacts.org/data/topic/map.aspx?ind=98",
+        "http://migrationsmap.net/#/EST/arrivals"
+      ],
+      "source_pages": [
+        15,
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 34,
+      "lesson_end": 34,
+      "topic_et": "Linnastumine",
+      "concepts_et": [
+        "linnastumine",
+        "linn",
+        "linnastu"
+      ],
+      "methods_and_practical_work": [
+        "Linnastumise kaartide, diagrammide ja graafikute analüüs.",
+        "Linnastumise probleemide mõistekaart või arutelu.",
+        "Maailma suuremate linnade kontuurkaart."
+      ],
+      "ict": [
+        "Interaktiivsete linnastumisallikate kasutamine."
+      ],
+      "assessment": [
+        "Andmeanalüüs, arutelu ja kontuurkaart."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "matemaatika",
+        "kunstiõpetus",
+        "keeleõpetus",
+        "võõrkeel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet",
+        "keskkond ja jätkusuutlik areng",
+        "väärtused ja kõlblus",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "maailma atlas"
+      ],
+      "external_links": [
+        "http://news.bbc.co.uk/2/shared/spl/hi/world/06/urbanisation/html/urbanisation.stm",
+        "http://esa.un.org/unpd/wup/Maps/maps_urban_2025.htm",
+        "http://esa.un.org/unpd/wup/Analytical-Figures/Fig_3.htm",
+        "http://esa.un.org/unpd/wup/Analytical-Figures/Fig_5.htm",
+        "http://esa.un.org/unpd/wup/Analytical-Figures/Fig_6.htm",
+        "http://www.oppekava.ee/index.php/Geograafia",
+        "http://esa.un.org/unpd/wup/Maps/maps_overview.htm"
+      ],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 35,
+      "lesson_end": 35,
+      "topic_et": "Kordamine ja õppeaasta lõpetamine",
+      "concepts_et": [
+        "rahvastiku ploki põhimõisted"
+      ],
+      "methods_and_practical_work": [
+        "Kordavate töölehtede ja näidiskontrolltööde lahendamine.",
+        "Riikide ja linnade kaarditundmise kordamine.",
+        "Õppeaasta lõpetamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kordamisülesanded ja õppeaasta kokkuvõte."
+      ],
+      "learning_environment": [
+        "Klassiruum ja kaarditöö."
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "ajalugu",
+        "kunstiõpetus",
+        "keeleõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "maailma atlas",
+        "graafikud",
+        "diagrammid"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-3d8a6da9-055a-4760-ba67-47a0678c878b"
+      ],
+      "source_pages": [
+        16,
+        17
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations",
+        "lesson-35-page-continuation"
+      ]
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "lesson-6-missing-topic-cell",
+      "scope": "lesson_range",
+      "source_pages": [
+        4
+      ],
+      "source_fragment_et": "6. [teema lahter tühi]; Orienteerumine, kaardi ja kompassi kasutamine looduses.",
+      "description_et": "Tunni 6 teema lahter on visuaalselt tühi, kuid tegevus kirjeldab orienteerumist kaardi ja kompassiga.",
+      "normalized_handling_et": "Teemaks normaliseeriti tegevuse põhjal „Orienteerumine kaardi ja kompassiga”, säilitades keskmise kindluse ja lahendamata lähtekuju.",
+      "status": "open"
+    },
+    {
+      "item_id": "analysis-rows-at-block-start",
+      "scope": "source_table",
+      "source_pages": [
+        6,
+        11,
+        14
+      ],
+      "source_fragment_et": "12., 21. ja 30. rida algavad kontrolltöö tulemuste analüüsiga uue ploki pealkirja all.",
+      "description_et": "Read ühendavad eelmise ploki kontrolltöö analüüsi uue ploki esimese õppesisuga.",
+      "normalized_handling_et": "Read säilitati visuaalse tabelipaigutuse järgi uues plokis ega viidud automaatselt eelmisesse plokki.",
+      "status": "open"
+    },
+    {
+      "item_id": "lesson-week-header-switch",
+      "scope": "source_table",
+      "source_pages": [
+        2,
+        6,
+        11,
+        14
+      ],
+      "source_fragment_et": "Kaardiõpetuse ja geoloogia tabelis „Õppetund”; pinnamoe ja rahvastiku tabelis „Õppenädal”.",
+      "description_et": "Allikas vahetab nummerdusveeru terminit dokumendi keskel.",
+      "normalized_handling_et": "Numbrid säilitati lesson_start ja lesson_end väljadena, kuid terminoloogilist vahet ei esitatud allikaülese samatähenduslikkusena.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "lesson-35-page-continuation",
+      "scope": "lesson_range",
+      "source_pages": [
+        16,
+        17
+      ],
+      "source_fragment_et": "35. Kordamine; järgmisel lehel Õppeaasta lõpetamine.",
+      "description_et": "Tunni 35 teema ja tegevused jätkuvad leheküljel 17 ilma uue numbrita.",
+      "normalized_handling_et": "Mõlemad funktsioonid ühendati tunni 35 kirjesse ja source_pages säilitati [16, 17]; fiktiivset tundi 36 ei loodud.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "previous-grade-prerequisite-references",
+      "scope": "source_table",
+      "source_pages": [
+        1,
+        6,
+        10,
+        14
+      ],
+      "source_fragment_et": "Viited 3., 4., 5. ja 6. klassis varem õpitule.",
+      "description_et": "Plokkide eelteadmised viitavad mitme varasema klassi loodusõpetuse, ajaloo, inimeseõpetuse ja ühiskonnaõpetuse sisule.",
+      "normalized_handling_et": "Viited säilitati Grade 7 geography prerequisite-kontekstina ega loodud teiste klasside või Grade 7 science marsruudikirjeid.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "pdf-author-metadata-mismatch",
+      "scope": "source_table",
+      "source_pages": [
+        1
+      ],
+      "source_fragment_et": "Õpetaja: Reet Tuisk",
+      "description_et": "PDF-i nähtav autor on Reet Tuisk, kuid faili tehniline Author-väli on Mare.",
+      "normalized_handling_et": "Autorina säilitati provenance ja nähtava tiitellehe väärtus Reet Tuisk; tehnilist välja ei kasutatud pedagoogilise autorluse tõendina.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "cross-page-table-continuations",
+      "scope": "source_table",
+      "source_pages": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17
+      ],
+      "source_fragment_et": "Mitme nummerdatud rea lahtrid jätkuvad järgmise PDF-lehekülje alguses ilma uut numbrit lisamata.",
+      "description_et": "Leheküljepiir ei tähista uut tunni- ega nädalakirjet.",
+      "normalized_handling_et": "Jätkuvad lahtrid ühendati eelmise nummerdatud reaga ja mõlemad leheküljed säilitati source_pages väljal.",
+      "status": "resolved_with_normalization"
+    }
+  ],
+  "completeness": {
+    "source_pages_extracted": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "source_pages_visually_verified": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "lesson_number_coverage": {
+      "lesson_start": 1,
+      "lesson_end": 35,
+      "gaps": [],
+      "overlaps": []
+    },
+    "declared_complete_for_this_pdf": true,
+    "official_curriculum_complete": false,
+    "canonical_opiq_mapping_complete": false
+  }
+}

@@ -84,6 +84,17 @@
         { "$ref": "#/$defs/boundedInterval" }
       ]
     },
+    "derivedHourAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum", "maximum", "basis", "source_text"],
+      "properties": {
+        "minimum": { "type": "integer", "minimum": 1 },
+        "maximum": { "type": "integer", "minimum": 1 },
+        "basis": { "const": "numbered_lesson_span" },
+        "source_text": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
     "source": {
       "type": "object",
       "additionalProperties": false,
@@ -196,9 +207,7 @@
         "title_et",
         "normalized_summary_et",
         "source_pages",
-        "declared_hours",
         "main_numbered_lesson_span",
-        "approximate_weeks",
         "teaching_goals",
         "learning_outcomes",
         "learning_content",
@@ -213,6 +222,24 @@
         "extraction_confidence",
         "unresolved_fields"
       ],
+      "oneOf": [
+        {
+          "required": ["declared_hours"],
+          "properties": { "declared_hours": true },
+          "not": {
+            "required": ["derived_hours"],
+            "properties": { "derived_hours": true }
+          }
+        },
+        {
+          "required": ["derived_hours"],
+          "properties": { "derived_hours": true },
+          "not": {
+            "required": ["declared_hours"],
+            "properties": { "declared_hours": true }
+          }
+        }
+      ],
       "properties": {
         "block_id": {
           "type": "string",
@@ -222,6 +249,7 @@
         "normalized_summary_et": { "$ref": "#/$defs/nonEmptyString" },
         "source_pages": { "$ref": "#/$defs/pageRefs" },
         "declared_hours": { "$ref": "#/$defs/hourAllocation" },
+        "derived_hours": { "$ref": "#/$defs/derivedHourAllocation" },
         "main_numbered_lesson_span": {
           "type": "object",
           "additionalProperties": false,
