@@ -1,0 +1,369 @@
+name: Resolve PR 109 conflicts
+
+on:
+  push:
+    branches:
+      - automation/resolve-pr109-conflicts
+    paths:
+      - .github/workflows/resolve-pr109-conflicts.yml
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: codex/grade-2-pilot-family-companion-closeout
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Merge current main and resolve expected conflicts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FEATURE_HEAD='9c5108b2bcdf089b5d75386e9491331a742f5825'
+          MAIN_HEAD='7ce7d71daf3924be1c256eaab3b6dc486af01b7b'
+
+          test "$(git rev-parse HEAD)" = "$FEATURE_HEAD"
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$MAIN_HEAD"
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          set +e
+          git merge --no-commit --no-ff "$MAIN_HEAD"
+          merge_status=$?
+          set -e
+
+          mapfile -t conflicts < <(git diff --name-only --diff-filter=U | LC_ALL=C sort)
+          printf 'Conflicts (%s):\n' "${#conflicts[@]}"
+          printf '%s\n' "${conflicts[@]}"
+
+          expected=(
+            '.github/workflows/validate-source-manifest.yml'
+            'scripts/lib/teacher-work-plan-extractions.mjs'
+            'scripts/teacher-work-plan-extractions.test.mjs'
+          )
+
+          if (( merge_status != 0 )); then
+            test "${#conflicts[@]}" -eq "${#expected[@]}"
+            for index in "${!expected[@]}"; do
+              test "${conflicts[$index]}" = "${expected[$index]}"
+            done
+          elif (( ${#conflicts[@]} != 0 )); then
+            echo 'Merge reported success but unresolved files remain.' >&2
+            exit 1
+          fi
+
+          git checkout --theirs -- .github/workflows/validate-source-manifest.yml
+          python <<'PY'
+          from pathlib import Path
+
+          path = Path('.github/workflows/validate-source-manifest.yml')
+          text = path.read_text(encoding='utf-8')
+          grade2 = '      - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md\n'
+          anchor = '      - docs/audits/grade-6-science-teacher-work-plan-extraction.md\n'
+          if text.count(grade2) == 0:
+              if text.count(anchor) != 2:
+                  raise SystemExit(f'unexpected Grade 6 workflow anchor count: {text.count(anchor)}')
+              text = text.replace(anchor, anchor + grade2)
+          if text.count(grade2) != 2:
+              raise SystemExit(f'unexpected Grade 2 audit path count: {text.count(grade2)}')
+          required = [
+              'run_teacher_work_plan_maps',
+              'Validate teacher work-plan curriculum maps',
+              'npm run test:teacher-work-plan-maps',
+              'npm run check:teacher-work-plan-maps',
+              'docs/audits/grade-5-science-teacher-work-plan-crosswalk.md',
+              'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
+              'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f'workflow lost main contract entries: {missing}')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          git checkout --theirs -- scripts/lib/teacher-work-plan-extractions.mjs
+          python <<'PY'
+          from pathlib import Path
+
+          path = Path('scripts/lib/teacher-work-plan-extractions.mjs')
+          text = path.read_text(encoding='utf-8')
+
+          constants_anchor = (
+              "const GRADE_7_SCIENCE_PATH =\n"
+              "  'evaluations/teacher-work-plans/grade-7-science-extraction.json';\n"
+          )
+          constants = (
+              "const EXTRACTION_AUDIT_PATHS = Object.freeze([\n"
+              "  'docs/audits/grade-5-science-teacher-work-plan-extraction.md',\n"
+              "  'docs/audits/grade-6-science-teacher-work-plan-extraction.md',\n"
+              "  'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',\n"
+              "  'docs/audits/grade-7-science-teacher-work-plan-extraction.md',\n"
+              "]);\n"
+              "const EXTRACTION_SOURCE_PREFIX =\n"
+              "  'project-files/inputs/originals/teacher-work-plans/';\n"
+          )
+          if 'const EXTRACTION_AUDIT_PATHS' not in text:
+              if text.count(constants_anchor) != 1:
+                  raise SystemExit('unexpected extraction constants anchor')
+              text = text.replace(constants_anchor, constants_anchor + constants)
+
+          function_anchor = (
+              "function uniqueSorted(values) {\n"
+              "  return [...new Set(values)].sort(compareBytewise);\n"
+              "}\n"
+          )
+          guard_function = (
+              "\nexport function requiresTeacherWorkPlanScopeValidation(changedPaths) {\n"
+              "  const triggerPaths = new Set([\n"
+              "    ...EXTRACTION_PATHS,\n"
+              "    ...EXTRACTION_AUDIT_PATHS,\n"
+              "  ]);\n"
+              "  return uniqueSorted(changedPaths).some((repositoryPath) => (\n"
+              "    triggerPaths.has(repositoryPath)\n"
+              "    || repositoryPath.startsWith(EXTRACTION_SOURCE_PREFIX)\n"
+              "  ));\n"
+              "}\n"
+          )
+          if 'export function requiresTeacherWorkPlanScopeValidation' not in text:
+              if text.count(function_anchor) != 1:
+                  raise SystemExit('unexpected uniqueSorted anchor')
+              text = text.replace(function_anchor, function_anchor + guard_function)
+
+          required = [
+              "mapping_status: 'partial'",
+              'export function requiresTeacherWorkPlanScopeValidation',
+              'EXTRACTION_AUDIT_PATHS',
+              'EXTRACTION_SOURCE_PREFIX',
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f'extraction library lost required contracts: {missing}')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          git checkout --theirs -- scripts/teacher-work-plan-extractions.test.mjs
+          python <<'PY'
+          from pathlib import Path
+
+          path = Path('scripts/teacher-work-plan-extractions.test.mjs')
+          text = path.read_text(encoding='utf-8')
+
+          if "import os from 'node:os';" not in text:
+              text = text.replace(
+                  "import fs from 'node:fs/promises';\n",
+                  "import fs from 'node:fs/promises';\nimport os from 'node:os';\n",
+                  1,
+              )
+
+          if '  requiresTeacherWorkPlanScopeValidation,\n' not in text:
+              text = text.replace(
+                  '  loadTeacherWorkPlanExtractionRepositories,\n',
+                  '  loadTeacherWorkPlanExtractionRepositories,\n  requiresTeacherWorkPlanScopeValidation,\n',
+                  1,
+              )
+
+          activation_test = r"""
+          test('scope guard activates only for extraction content', () => {
+            assert.equal(requiresTeacherWorkPlanScopeValidation([
+              'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
+              'grade-programmes/grade-2/programme-architecture.yaml',
+              'schemas/teacher-work-plan-extraction.schema.json',
+              'scripts/check-teacher-work-plan-extractions.mjs',
+              'scripts/lib/teacher-work-plan-extractions.mjs',
+              'scripts/teacher-work-plan-extractions.test.mjs',
+              'schemas/teacher-work-plan-curriculum-map.schema.json',
+              'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
+              'scripts/teacher-work-plan-curriculum-maps.test.mjs',
+              'scripts/check-teacher-work-plan-curriculum-maps.mjs',
+              'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
+              'docs/audits/grade-5-science-teacher-work-plan-crosswalk.md',
+            ]), false);
+
+            for (const repositoryPath of [
+              'evaluations/teacher-work-plans/grade-5-science-extraction.json',
+              'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+              'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+              'evaluations/teacher-work-plans/grade-7-science-extraction.json',
+              'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+              'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+              'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
+              'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+              'project-files/inputs/originals/teacher-work-plans/source.pdf',
+            ]) {
+              assert.equal(requiresTeacherWorkPlanScopeValidation([repositoryPath]), true);
+            }
+          });
+
+          """.lstrip()
+
+          if "test('scope guard activates only for extraction content'" not in text:
+              marker = "test('scope guard rejects protected paths and all three unmapped artifacts'"
+              if marker not in text:
+                  raise SystemExit('missing protected-path test marker')
+              text = text.replace(marker, activation_test + marker, 1)
+
+          collector_start = "test('changed-path collector reports repository changes without duplicates', () => {"
+          next_test = "test('check command validates all four registered extractions together'"
+          start = text.find(collector_start)
+          end = text.find(next_test, start)
+          if start < 0 or end < 0:
+              raise SystemExit('missing changed-path collector test block')
+
+          collector_test = r"""
+          test('changed-path collector reports repository changes without duplicates', async () => {
+            const temporaryDirectory = await fs.mkdtemp(
+              path.join(os.tmpdir(), 'opiq-teacher-work-plan-paths-'),
+            );
+            const gitEnvironment = {
+              ...process.env,
+              GIT_AUTHOR_EMAIL: 'test@example.invalid',
+              GIT_AUTHOR_NAME: 'Test Author',
+              GIT_COMMITTER_EMAIL: 'test@example.invalid',
+              GIT_COMMITTER_NAME: 'Test Committer',
+            };
+            const runGit = (argumentsList) => {
+              const result = spawnSync('git', argumentsList, {
+                cwd: temporaryDirectory,
+                encoding: 'utf8',
+                env: gitEnvironment,
+              });
+              assert.equal(result.status, 0, result.stderr);
+            };
+
+            try {
+              runGit(['init']);
+              await fs.writeFile(path.join(temporaryDirectory, 'staged.txt'), 'baseline\n', 'utf8');
+              await fs.writeFile(path.join(temporaryDirectory, 'tracked.txt'), 'baseline\n', 'utf8');
+              runGit(['add', 'staged.txt', 'tracked.txt']);
+              runGit(['commit', '-m', 'baseline']);
+
+              await fs.writeFile(path.join(temporaryDirectory, 'staged.txt'), 'staged\n', 'utf8');
+              runGit(['add', 'staged.txt']);
+              await fs.writeFile(path.join(temporaryDirectory, 'tracked.txt'), 'unstaged\n', 'utf8');
+              await fs.writeFile(path.join(temporaryDirectory, 'untracked.txt'), 'untracked\n', 'utf8');
+
+              assert.deepEqual(
+                collectTeacherWorkPlanChangedPaths({
+                  rootDir: temporaryDirectory,
+                  baseRef: 'HEAD',
+                }),
+                ['staged.txt', 'tracked.txt', 'untracked.txt'],
+              );
+            } finally {
+              await fs.rm(temporaryDirectory, { recursive: true, force: true });
+            }
+          });
+
+          """.lstrip()
+
+          text = text[:start] + collector_test + text[end:]
+
+          required = [
+              "test('scope guard allows the Grade 5 mapping-phase support files'",
+              "test('scope guard activates only for extraction content'",
+              "mapping_status",
+              "opiq-teacher-work-plan-paths-",
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f'extraction tests lost required coverage: {missing}')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          git add \
+            .github/workflows/validate-source-manifest.yml \
+            scripts/lib/teacher-work-plan-extractions.mjs \
+            scripts/teacher-work-plan-extractions.test.mjs
+
+          if git diff --name-only --diff-filter=U | grep -q .; then
+            echo 'Unresolved conflicts remain:' >&2
+            git diff --name-only --diff-filter=U >&2
+            exit 1
+          fi
+
+          git status --short
+          git commit -m 'Merge current main into Grade 2 closeout'
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Run affected validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run test:teacher-work-plan-maps
+          npm run check:teacher-work-plan-maps
+          npm run test:teacher-work-plans
+          npm run check:teacher-work-plans
+          npm run test:validation-scope
+          npm run test:curriculum-maps
+          npm run check:curriculum-maps
+          npm run test:grade-2-weather-water-safety-pilot
+          npm run check:grade-2-weather-water-safety-pilot
+          git diff --check
+          git status --short
+
+      - name: Push resolved branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git push origin HEAD:codex/grade-2-pilot-family-companion-closeout
+          echo "NEW_HEAD=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Report success
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          body=$(cat <<EOF
+          Conflict resolution completed for PR #109.
+
+          - Integrated main: \`7ce7d71daf3924be1c256eaab3b6dc486af01b7b\`
+          - Preserved tested feature HEAD: \`9c5108b2bcdf089b5d75386e9491331a742f5825\`
+          - Merge commit / new HEAD: \`${NEW_HEAD}\`
+          - Resolved files: workflow, extraction library, extraction tests
+          - Preserved Grade 5 map contract and Grade 2 audit path
+          - New map commands and all affected focused suites passed
+          - Full repository matrix was not repeated
+          - Workflow: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          EOF
+          )
+          gh api "repos/${GITHUB_REPOSITORY}/issues/109/comments" -f body="$body"
+
+      - name: Remove helper branch
+        if: success()
+        shell: bash
+        run: git push origin --delete automation/resolve-pr109-conflicts || true
+
+      - name: Report failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          body=$(cat <<EOF
+          Automated conflict resolution failed for PR #109. No merge claim is made.
+
+          Workflow: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          EOF
+          )
+          gh api "repos/${GITHUB_REPOSITORY}/issues/109/comments" -f body="$body" || true
