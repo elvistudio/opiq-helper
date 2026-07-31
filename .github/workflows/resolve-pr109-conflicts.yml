@@ -1,0 +1,282 @@
+name: Resolve PR 109 conflicts
+
+on:
+  push:
+    branches:
+      - codex/grade-2-pilot-family-companion-closeout
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out conflict branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: codex/grade-2-pilot-family-companion-closeout
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Merge current main and resolve expected conflicts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          branch='codex/grade-2-pilot-family-companion-closeout'
+          expected_tested_head='9c5108b2bcdf089b5d75386e9491331a742f5825'
+          expected_main='7ce7d71daf3924be1c256eaab3b6dc486af01b7b'
+          trigger_head="$(git rev-parse HEAD)"
+          tested_head="$(git rev-parse HEAD^)"
+
+          if [[ "$tested_head" != "$expected_tested_head" ]]; then
+            echo "Unexpected tested parent: $tested_head" >&2
+            exit 1
+          fi
+
+          changed="$(git diff --name-only HEAD^ HEAD)"
+          if [[ "$changed" != '.github/workflows/resolve-pr109-conflicts.yml' ]]; then
+            echo "Trigger commit changed unexpected paths:" >&2
+            printf '%s\n' "$changed" >&2
+            exit 1
+          fi
+
+          git fetch origin main
+          actual_main="$(git rev-parse origin/main)"
+          if [[ "$actual_main" != "$expected_main" ]]; then
+            echo "main moved: $actual_main" >&2
+            exit 1
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          # Remove the one-shot trigger commit from the final branch history.
+          git reset --hard "$tested_head"
+
+          set +e
+          git merge --no-commit --no-ff origin/main
+          merge_status=$?
+          set -e
+
+          if [[ $merge_status -eq 0 ]]; then
+            echo 'Expected conflicts were not produced; refusing an unreviewed merge.' >&2
+            exit 1
+          fi
+
+          mapfile -t conflicts < <(git diff --name-only --diff-filter=U | sort)
+          expected_conflicts=(
+            '.github/workflows/validate-source-manifest.yml'
+            'scripts/lib/teacher-work-plan-extractions.mjs'
+            'scripts/teacher-work-plan-extractions.test.mjs'
+          )
+
+          if [[ "${conflicts[*]}" != "${expected_conflicts[*]}" ]]; then
+            echo 'Unexpected conflict set:' >&2
+            printf '%s\n' "${conflicts[@]}" >&2
+            exit 1
+          fi
+
+          # Start from current main for every conflict, then layer the narrow PR additions.
+          git checkout --theirs -- \
+            .github/workflows/validate-source-manifest.yml \
+            scripts/lib/teacher-work-plan-extractions.mjs \
+            scripts/teacher-work-plan-extractions.test.mjs
+
+          python <<'PY'
+          from pathlib import Path
+
+          # Workflow: preserve all current-main jobs and add only the Grade 2 audit path
+          # to the two top-level path filter blocks.
+          workflow_path = Path('.github/workflows/validate-source-manifest.yml')
+          workflow = workflow_path.read_text()
+          grade2 = '      - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md\n'
+          marker = '      - docs/audits/grade-6-science-teacher-work-plan-extraction.md\n'
+          if grade2 not in workflow:
+              if workflow.count(marker) != 2:
+                  raise SystemExit(f'unexpected workflow marker count: {workflow.count(marker)}')
+              workflow = workflow.replace(marker, marker + grade2)
+          if workflow.count(grade2) != 2:
+              raise SystemExit(f'unexpected Grade 2 audit path count: {workflow.count(grade2)}')
+          workflow_path.write_text(workflow)
+
+          # Extraction library: retain current-main Grade 5 partial mapping and all
+          # crosswalk behavior, adding only a branch-independent activation predicate.
+          library_path = Path('scripts/lib/teacher-work-plan-extractions.mjs')
+          library = library_path.read_text()
+          constants_marker = (
+              "const GRADE_7_SCIENCE_PATH =\n"
+              "  'evaluations/teacher-work-plans/grade-7-science-extraction.json';\n"
+          )
+          constants = constants_marker + (
+              "const EXTRACTION_AUDIT_PATHS = Object.freeze([\n"
+              "  'docs/audits/grade-5-science-teacher-work-plan-extraction.md',\n"
+              "  'docs/audits/grade-6-science-teacher-work-plan-extraction.md',\n"
+              "  'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',\n"
+              "  'docs/audits/grade-7-science-teacher-work-plan-extraction.md',\n"
+              "]);\n"
+              "const EXTRACTION_SOURCE_PREFIX =\n"
+              "  'project-files/inputs/originals/teacher-work-plans/';\n"
+          )
+          if 'const EXTRACTION_AUDIT_PATHS' not in library:
+              if library.count(constants_marker) != 1:
+                  raise SystemExit('unexpected extraction constants marker')
+              library = library.replace(constants_marker, constants, 1)
+
+          function_marker = (
+              "function uniqueSorted(values) {\n"
+              "  return [...new Set(values)].sort(compareBytewise);\n"
+              "}\n"
+          )
+          function_block = function_marker + (
+              "\nexport function requiresTeacherWorkPlanScopeValidation(changedPaths) {\n"
+              "  const triggerPaths = new Set([\n"
+              "    ...EXTRACTION_PATHS,\n"
+              "    ...EXTRACTION_AUDIT_PATHS,\n"
+              "  ]);\n"
+              "  return uniqueSorted(changedPaths).some((repositoryPath) => (\n"
+              "    triggerPaths.has(repositoryPath)\n"
+              "    || repositoryPath.startsWith(EXTRACTION_SOURCE_PREFIX)\n"
+              "  ));\n"
+              "}\n"
+          )
+          if 'export function requiresTeacherWorkPlanScopeValidation' not in library:
+              if library.count(function_marker) != 1:
+                  raise SystemExit('unexpected uniqueSorted marker')
+              library = library.replace(function_marker, function_block, 1)
+          if "mapping_status: 'partial'" not in library:
+              raise SystemExit('Grade 5 partial mapping status was not preserved')
+          library_path.write_text(library)
+
+          # Tests: preserve current-main Grade 5 mapping tests and add the activation
+          # predicate plus an isolated Git fixture for changed-path collection.
+          test_path = Path('scripts/teacher-work-plan-extractions.test.mjs')
+          tests = test_path.read_text()
+          if "import os from 'node:os';" not in tests:
+              tests = tests.replace(
+                  "import fs from 'node:fs/promises';\n",
+                  "import fs from 'node:fs/promises';\nimport os from 'node:os';\n",
+                  1,
+              )
+          if '  requiresTeacherWorkPlanScopeValidation,\n' not in tests:
+              tests = tests.replace(
+                  '  loadTeacherWorkPlanExtractionRepositories,\n',
+                  '  loadTeacherWorkPlanExtractionRepositories,\n  requiresTeacherWorkPlanScopeValidation,\n',
+                  1,
+              )
+
+          activation_test = r'''test('scope guard activates only for extraction content', () => {
+            assert.equal(requiresTeacherWorkPlanScopeValidation([
+              'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
+              'grade-programmes/grade-2/programme-architecture.yaml',
+              'schemas/teacher-work-plan-extraction.schema.json',
+              'scripts/check-teacher-work-plan-extractions.mjs',
+              'scripts/lib/teacher-work-plan-extractions.mjs',
+              'scripts/teacher-work-plan-extractions.test.mjs',
+              'schemas/teacher-work-plan-curriculum-map.schema.json',
+              'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
+              'scripts/teacher-work-plan-curriculum-maps.test.mjs',
+              'scripts/check-teacher-work-plan-curriculum-maps.mjs',
+              'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
+              'docs/audits/grade-5-science-teacher-work-plan-crosswalk.md',
+            ]), false);
+
+            for (const repositoryPath of [
+              'evaluations/teacher-work-plans/grade-5-science-extraction.json',
+              'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+              'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+              'evaluations/teacher-work-plans/grade-7-science-extraction.json',
+              'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+              'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+              'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
+              'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+              'project-files/inputs/originals/teacher-work-plans/source.pdf',
+            ]) {
+              assert.equal(requiresTeacherWorkPlanScopeValidation([repositoryPath]), true);
+            }
+          });
+
+          '''
+          insertion_marker = "test('scope guard rejects protected paths and all three unmapped artifacts', () => {"
+          if "test('scope guard activates only for extraction content'" not in tests:
+              if tests.count(insertion_marker) != 1:
+                  raise SystemExit('unexpected scope rejection marker')
+              tests = tests.replace(insertion_marker, activation_test + insertion_marker, 1)
+
+          old_start = "test('changed-path collector reports repository changes without duplicates', () => {"
+          next_test = "test('check command validates all four registered extractions together', () => {"
+          isolated_test = r'''test('changed-path collector reports repository changes without duplicates', async () => {
+            const temporaryDirectory = await fs.mkdtemp(
+              path.join(os.tmpdir(), 'opiq-teacher-work-plan-paths-'),
+            );
+            const gitEnvironment = {
+              ...process.env,
+              GIT_AUTHOR_EMAIL: 'test@example.invalid',
+              GIT_AUTHOR_NAME: 'Test Author',
+              GIT_COMMITTER_EMAIL: 'test@example.invalid',
+              GIT_COMMITTER_NAME: 'Test Committer',
+            };
+            const runGit = (argumentsList) => {
+              const result = spawnSync('git', argumentsList, {
+                cwd: temporaryDirectory,
+                encoding: 'utf8',
+                env: gitEnvironment,
+              });
+              assert.equal(result.status, 0, result.stderr);
+            };
+
+            try {
+              runGit(['init']);
+              await fs.writeFile(path.join(temporaryDirectory, 'staged.txt'), 'baseline\n', 'utf8');
+              await fs.writeFile(path.join(temporaryDirectory, 'tracked.txt'), 'baseline\n', 'utf8');
+              runGit(['add', 'staged.txt', 'tracked.txt']);
+              runGit(['commit', '-m', 'baseline']);
+
+              await fs.writeFile(path.join(temporaryDirectory, 'staged.txt'), 'staged\n', 'utf8');
+              runGit(['add', 'staged.txt']);
+              await fs.writeFile(path.join(temporaryDirectory, 'tracked.txt'), 'unstaged\n', 'utf8');
+              await fs.writeFile(path.join(temporaryDirectory, 'untracked.txt'), 'untracked\n', 'utf8');
+
+              assert.deepEqual(
+                collectTeacherWorkPlanChangedPaths({
+                  rootDir: temporaryDirectory,
+                  baseRef: 'HEAD',
+                }),
+                ['staged.txt', 'tracked.txt', 'untracked.txt'],
+              );
+            } finally {
+              await fs.rm(temporaryDirectory, { recursive: true, force: true });
+            }
+          });
+
+          '''
+          if old_start in tests:
+              start = tests.index(old_start)
+              end = tests.index(next_test, start)
+              tests = tests[:start] + isolated_test + tests[end:]
+          if "test('scope guard allows the Grade 5 mapping-phase support files'" not in tests:
+              raise SystemExit('Grade 5 mapping-phase test was not preserved')
+          test_path.write_text(tests)
+          PY
+
+          git add \
+            .github/workflows/validate-source-manifest.yml \
+            scripts/lib/teacher-work-plan-extractions.mjs \
+            scripts/teacher-work-plan-extractions.test.mjs
+
+          if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
+            echo 'Unresolved conflicts remain.' >&2
+            exit 1
+          fi
+
+          git commit -m 'Merge current main into Grade 2 closeout'
+
+          final_head="$(git rev-parse HEAD)"
+          echo "Resolved HEAD: $final_head"
+          git diff --check origin/main...HEAD
+
+          # The temporary trigger commit is intentionally removed; protect the update
+          # against concurrent branch movement.
+          git push --force-with-lease="refs/heads/${branch}:${trigger_head}" origin "HEAD:${branch}"
