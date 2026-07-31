@@ -73,7 +73,7 @@ test('production collection discovers four registered extractions deterministica
   assert.deepEqual(first.diagnostics, []);
 });
 
-test('Grade 5 extraction retains all previous guarantees and byte identity', async () => {
+test('Grade 5 extraction changes only mapping_status from deferred to partial', async () => {
   const result = validateTeacherWorkPlanExtractionRepository(grade5Baseline);
   assert.deepEqual(result, {
     diagnostics: [],
@@ -88,13 +88,11 @@ test('Grade 5 extraction retains all previous guarantees and byte identity', asy
       declared_hours: 70,
     },
   });
-  assert.equal(
-    crypto.createHash('sha256').update(grade5Baseline.artifactText).digest('hex'),
-    '32d78d9320ed911836c4d51707f651ff6416282273ad2d301e3f19718422131d',
-  );
+  assert.equal(grade5Baseline.artifact.route_context.mapping_status, 'partial');
+  assert.equal(grade5Baseline.artifact.completeness.canonical_opiq_mapping_complete, false);
   const fromMain = spawnSync(
     'git',
-    ['show', 'origin/main:evaluations/teacher-work-plans/grade-5-science-extraction.json'],
+    ['show', 'f48810bd913269b71961f73befff6a55dbdf89a5:evaluations/teacher-work-plans/grade-5-science-extraction.json'],
     { cwd: repositoryRoot, encoding: null },
   );
   assert.equal(fromMain.status, 0, String(fromMain.stderr));
@@ -102,6 +100,10 @@ test('Grade 5 extraction retains all previous guarantees and byte identity', asy
     crypto.createHash('sha256').update(fromMain.stdout).digest('hex'),
     '32d78d9320ed911836c4d51707f651ff6416282273ad2d301e3f19718422131d',
   );
+  const fromMainArtifact = JSON.parse(fromMain.stdout.toString('utf8'));
+  const currentWithDeferredStatus = structuredClone(grade5Baseline.artifact);
+  currentWithDeferredStatus.route_context.mapping_status = 'deferred';
+  assert.deepEqual(currentWithDeferredStatus, fromMainArtifact);
 });
 
 test('Grade 6 extraction summary matches the visually verified source', () => {
@@ -1000,21 +1002,27 @@ test('unregistered production extraction files are rejected', () => {
   );
 });
 
-test('scope guard allows only Grade 7 science extraction-phase support files', () => {
+test('scope guard allows the Grade 5 mapping-phase support files', () => {
   assert.deepEqual(validateTeacherWorkPlanChangedPaths([
-    'evaluations/teacher-work-plans/grade-7-science-extraction.json',
+    'evaluations/teacher-work-plans/grade-5-science-extraction.json',
     'schemas/teacher-work-plan-extraction.schema.json',
+    'schemas/teacher-work-plan-curriculum-map.schema.json',
     'scripts/lib/teacher-work-plan-extractions.mjs',
+    'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
     'scripts/teacher-work-plan-extractions.test.mjs',
+    'scripts/teacher-work-plan-curriculum-maps.test.mjs',
     'scripts/check-teacher-work-plan-extractions.mjs',
+    'scripts/check-teacher-work-plan-curriculum-maps.mjs',
     'scripts/classify-source-validation-scope.mjs',
     'scripts/classify-source-validation-scope.test.mjs',
-    'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
+    'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
+    'curriculum-maps/grade-5-science/topic-inventory.yaml',
+    'docs/audits/grade-5-science-teacher-work-plan-crosswalk.md',
     '.github/workflows/validate-source-manifest.yml',
   ]), []);
 });
 
-test('scope guard activates for extraction content but not unrelated or support-only changes', () => {
+test('scope guard activates only for extraction content', () => {
   assert.equal(requiresTeacherWorkPlanScopeValidation([
     'docs/audits/grade-2-weather-water-safety-pilot-acceptance.md',
     'grade-programmes/grade-2/programme-architecture.yaml',
@@ -1022,6 +1030,12 @@ test('scope guard activates for extraction content but not unrelated or support-
     'scripts/check-teacher-work-plan-extractions.mjs',
     'scripts/lib/teacher-work-plan-extractions.mjs',
     'scripts/teacher-work-plan-extractions.test.mjs',
+    'schemas/teacher-work-plan-curriculum-map.schema.json',
+    'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
+    'scripts/teacher-work-plan-curriculum-maps.test.mjs',
+    'scripts/check-teacher-work-plan-curriculum-maps.mjs',
+    'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
+    'docs/audits/grade-5-science-teacher-work-plan-crosswalk.md',
   ]), false);
 
   for (const repositoryPath of [
@@ -1039,12 +1053,12 @@ test('scope guard activates for extraction content but not unrelated or support-
   }
 });
 
-test('scope guard rejects protected paths and all three prior artifacts', () => {
+test('scope guard rejects protected paths and all three unmapped artifacts', () => {
   const diagnostics = validateTeacherWorkPlanChangedPaths([
     'source-manifest.json',
-    'evaluations/teacher-work-plans/grade-5-science-extraction.json',
     'evaluations/teacher-work-plans/grade-6-science-extraction.json',
     'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
+    'evaluations/teacher-work-plans/grade-7-science-extraction.json',
     'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
     'curriculum-maps/grade-7-geography/coverage-matrix.yaml',
     'project-files/inputs/originals/teacher-work-plans/source.pdf',

@@ -1,0 +1,677 @@
+name: Validate source manifest
+
+on:
+  pull_request:
+    paths:
+      - source-manifest.json
+      - scripts/**
+      - task-bank/**
+      - test-fixtures/task-bank/**
+      - project-files/**
+      - evaluations/**
+      - curriculum-maps/**
+      - grade-programmes/**
+      - compliance/**
+      - lesson-plans/**
+      - teacher-packs/**
+      - pedagogical-reviews/**
+      - annual-courses/**
+      - external-sources/**
+      - knowledge/**
+      - schemas/**
+      - docs/curriculum-maps.md
+      - docs/grade-2-course-architecture.md
+      - docs/grade-4-course-architecture.md
+      - docs/templates/grade-programme.md
+      - docs/2026-27-curriculum-compliance-baseline.md
+      - docs/compliance/**
+      - docs/audits/grade-4-source-intake.md
+      - docs/audits/grade-4-canonical-source-import.md
+      - docs/audits/grade-4-content-quality.md
+      - docs/audits/grade-4-kit-details-evidence.md
+      - docs/audits/grade-4-live-catalogue-gap-review.md
+      - docs/audits/grade-5-science-teacher-work-plan-extraction.md
+      - docs/audits/grade-6-science-teacher-work-plan-extraction.md
+      - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md
+      - docs/audits/grade-7-geography-teacher-work-plan-extraction.md
+      - docs/audits/grade-7-science-teacher-work-plan-extraction.md
+      - docs/migrations/teacher-work-plans-5-7-integration.md
+      - docs/grade-5-science-annual-course.md
+      - docs/lesson-plans.md
+      - docs/pedagogical-knowledge-base.md
+      - docs/pedagogical-taxonomy.md
+      - docs/lesson-pedagogy-engine.md
+      - docs/homeschool-learning-engine.md
+      - docs/pedagogical-review-and-trial-workflow.md
+      - docs/pedagogy-quality-gates.md
+      - docs/pedagogy-regressions.md
+      - docs/teacher-pack-content-fingerprint.md
+      - docs/topic-synthesis-policy.md
+      - docs/templates/**
+      - README.md
+      - .github/ISSUE_TEMPLATE/**
+      - package.json
+      - package-lock.json
+      - .github/workflows/validate-source-manifest.yml
+  push:
+    branches:
+      - main
+    paths:
+      - source-manifest.json
+      - scripts/**
+      - task-bank/**
+      - test-fixtures/task-bank/**
+      - project-files/**
+      - evaluations/**
+      - curriculum-maps/**
+      - grade-programmes/**
+      - compliance/**
+      - lesson-plans/**
+      - teacher-packs/**
+      - pedagogical-reviews/**
+      - annual-courses/**
+      - external-sources/**
+      - knowledge/**
+      - schemas/**
+      - docs/curriculum-maps.md
+      - docs/grade-2-course-architecture.md
+      - docs/grade-4-course-architecture.md
+      - docs/templates/grade-programme.md
+      - docs/2026-27-curriculum-compliance-baseline.md
+      - docs/compliance/**
+      - docs/audits/grade-4-source-intake.md
+      - docs/audits/grade-4-canonical-source-import.md
+      - docs/audits/grade-4-content-quality.md
+      - docs/audits/grade-4-kit-details-evidence.md
+      - docs/audits/grade-4-live-catalogue-gap-review.md
+      - docs/audits/grade-5-science-teacher-work-plan-extraction.md
+      - docs/audits/grade-6-science-teacher-work-plan-extraction.md
+      - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md
+      - docs/audits/grade-7-geography-teacher-work-plan-extraction.md
+      - docs/audits/grade-7-science-teacher-work-plan-extraction.md
+      - docs/migrations/teacher-work-plans-5-7-integration.md
+      - docs/grade-5-science-annual-course.md
+      - docs/lesson-plans.md
+      - docs/pedagogical-knowledge-base.md
+      - docs/pedagogical-taxonomy.md
+      - docs/lesson-pedagogy-engine.md
+      - docs/homeschool-learning-engine.md
+      - docs/pedagogical-review-and-trial-workflow.md
+      - docs/pedagogy-quality-gates.md
+      - docs/pedagogy-regressions.md
+      - docs/teacher-pack-content-fingerprint.md
+      - docs/topic-synthesis-policy.md
+      - docs/templates/**
+      - README.md
+      - .github/ISSUE_TEMPLATE/**
+      - package.json
+      - package-lock.json
+      - .github/workflows/validate-source-manifest.yml
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  changes:
+    name: Classify source validation scope
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      mode: ${{ steps.scope.outputs.mode }}
+      run_pedagogy_quality: ${{ steps.scope.outputs.run_pedagogy_quality }}
+      run_pedagogy_regressions: ${{ steps.scope.outputs.run_pedagogy_regressions }}
+      run_pedagogy_evidence: ${{ steps.scope.outputs.run_pedagogy_evidence }}
+      run_teacher_work_plans: ${{ steps.scope.outputs.run_teacher_work_plans }}
+      run_teacher_work_plan_maps: ${{ steps.scope.outputs.run_teacher_work_plan_maps }}
+
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+
+      - name: Test source validation scope classifier
+        run: npm run test:validation-scope
+
+      - name: Classify changed paths
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            test -n "$BASE_SHA"
+            test -n "$HEAD_SHA"
+            git diff --no-renames --name-only -z "$BASE_SHA" "$HEAD_SHA" \
+              | node scripts/classify-source-validation-scope.mjs \
+                  --stdin0 \
+                  --github-output "$GITHUB_OUTPUT" \
+                  --summary "$GITHUB_STEP_SUMMARY"
+          else
+            node scripts/classify-source-validation-scope.mjs \
+              --full \
+              --reason "$GITHUB_EVENT_NAME" \
+              --github-output "$GITHUB_OUTPUT" \
+              --summary "$GITHUB_STEP_SUMMARY"
+          fi
+
+  core_shared:
+    name: Validate shared contracts and source manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test known-topic regression runner
+        run: npm run test:topics
+
+      - name: Check known-topic regressions
+        run: npm run check:topics
+
+      - name: Test curriculum map validator
+        run: npm run test:curriculum
+
+      - name: Check curriculum maps
+        run: npm run check:curriculum
+
+      - name: Test official 2026/27 source registry
+        run: npm run test:official-source-registry
+
+      - name: Check official 2026/27 source registry
+        run: npm run check:official-source-registry
+
+      - name: Test 2026/27 curriculum and home-learning compliance
+        run: npm run test:2026-27-compliance
+
+      - name: Check generated 2026/27 compliance baseline
+        run: npm run check:2026-27-compliance
+
+      - name: Test bilingual teaching-plan validator
+        run: npm run test:plans
+
+      - name: Check bilingual teaching plans
+        run: npm run check:plans
+
+      - name: Test commercial course schemas
+        run: npm run test:commercial-course-schema
+
+      - name: Check commercial course schemas
+        run: npm run check:commercial-course-schema
+
+      - name: Validate source manifest
+        run: node scripts/check-source-manifest.mjs
+
+  core_pedagogy:
+    name: Validate pedagogical support records
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test multilingual topic synthesis
+        run: npm run test:synthesis
+
+      - name: Test teacher-pack validator
+        run: npm run test:teacher-packs
+
+      - name: Check teacher packs
+        run: npm run check:teacher-packs
+
+      - name: Test teacher-pack fingerprinting
+        run: npm run test:fingerprints
+
+      - name: Check teacher-pack fingerprints
+        run: npm run check:fingerprints
+
+      - name: Test pedagogical review validator
+        run: npm run test:reviews
+
+      - name: Check pedagogical review workflow
+        run: npm run check:reviews
+
+      - name: Test pedagogical knowledge
+        run: npm run test:pedagogy
+
+      - name: Check pedagogical knowledge
+        run: npm run check:pedagogy
+
+      - name: Test lesson pedagogy selection
+        run: npm run test:pedagogy-selection
+
+      - name: Check lesson pedagogy selection
+        run: npm run check:pedagogy-selection
+
+      - name: Inspect deterministic pedagogy fixtures
+        run: npm run select:pedagogy
+
+      - name: Test homeschool pedagogy adaptation
+        run: npm run test:pedagogy-homeschool
+
+      - name: Check homeschool pedagogy adaptation
+        run: npm run check:pedagogy-homeschool
+
+      - name: Test pedagogy generation integration
+        run: npm run test:pedagogy-integration
+
+      - name: Check pedagogy generation integration
+        run: npm run check:pedagogy-integration
+
+      - name: Check generated water pedagogy pilot
+        run: npm run generate:pedagogy-water-pilot -- --check
+
+  core_grades:
+    name: Validate grade-specific source records
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Verify generated grade 1 mathematics QA
+        run: node scripts/generate-grade-1-mathematics-qa.mjs --check
+
+      - name: Test Grade 4 source intake audit
+        run: npm run test:grade-4-source-intake
+
+      - name: Check generated Grade 4 source intake audit
+        run: npm run check:grade-4-source-intake
+
+      - name: Test Grade 4 canonical source import
+        run: npm run test:grade-4-sources
+
+      - name: Check generated Grade 4 canonical sources
+        run: npm run check:grade-4-sources
+
+      - name: Test Grade 4 content-quality audit
+        run: npm run test:grade-4-content-quality
+
+      - name: Check Grade 4 content quality
+        run: npm run check:grade-4-content-quality
+
+      - name: Test Grade 4 live-catalogue gap review
+        run: npm run test:grade-4-catalogue-gap
+
+      - name: Check Grade 4 live-catalogue gap artifacts
+        run: npm run check:grade-4-catalogue-gap
+
+      - name: Test Grade 4 course architecture
+        run: npm run test:grade-4-course-architecture
+
+      - name: Check generated Grade 4 course architecture
+        run: npm run check:grade-4-course-architecture
+
+      - name: Verify generated grade 2 source indexes
+        run: npm run check:grade-2-sources
+
+      - name: Test grade 2 catalogue integrity guards
+        run: npm run test:grade-2-sources
+
+      - name: Test Grade 2 course architecture
+        run: npm run test:grade-2-course-architecture
+
+      - name: Check generated Grade 2 course architecture
+        run: npm run check:grade-2-course-architecture
+
+      - name: Test Grade 2 weather, water and safety pilot
+        run: npm run test:grade-2-weather-water-safety-pilot
+
+      - name: Check Grade 2 weather, water and safety pilot
+        run: npm run check:grade-2-weather-water-safety-pilot
+
+      - name: Test grade 2 content-quality audit
+        run: npm run test:grade-2-content-quality
+
+      - name: Check grade 2 content quality
+        run: npm run check:grade-2-content-quality
+
+      - name: Verify generated grade 3 mathematics QA
+        run: npm run check:grade-3-mathematics
+
+      - name: Test grade 3 mathematics original-source migration
+        run: npm run test:grade-3-mathematics
+
+      - name: Verify generated grade 3 Russian source
+        run: npm run check:grade-3-russian
+
+      - name: Test grade 3 Russian original-source migration
+        run: npm run test:grade-3-russian
+
+      - name: Verify generated grade 3 Russian-reading source
+        run: npm run check:grade-3-russian-reading
+
+      - name: Test grade 3 Russian-reading source import
+        run: npm run test:grade-3-russian-reading
+
+      - name: Verify generated grade 3 music source
+        run: npm run check:grade-3-music
+
+      - name: Test grade 3 music source import
+        run: npm run test:grade-3-music
+
+      - name: Verify generated grade 3 Estonian sources
+        run: npm run check:grade-3-estonian
+
+      - name: Test grade 3 Estonian source import
+        run: npm run test:grade-3-estonian
+
+      - name: Verify generated grade 3 arts-and-crafts source
+        run: npm run check:grade-3-arts-and-crafts
+
+      - name: Test grade 3 arts-and-crafts source import
+        run: npm run test:grade-3-arts-and-crafts
+
+      - name: Verify generated grade 3 English source
+        run: npm run check:grade-3-english
+
+      - name: Test grade 3 English source import
+        run: npm run test:grade-3-english
+
+  core:
+    name: Validate core, source, and grade records
+    if: ${{ always() }}
+    needs:
+      - core_shared
+      - core_pedagogy
+      - core_grades
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Require every core validation group to pass
+        env:
+          SHARED_RESULT: ${{ needs.core_shared.result }}
+          PEDAGOGY_RESULT: ${{ needs.core_pedagogy.result }}
+          GRADES_RESULT: ${{ needs.core_grades.result }}
+        run: |
+          set -euo pipefail
+          test "$SHARED_RESULT" = "success"
+          test "$PEDAGOGY_RESULT" = "success"
+          test "$GRADES_RESULT" = "success"
+
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test clean-room task bank
+        run: npm run test:task-bank
+
+      - name: Check clean-room task bank
+        run: npm run check:task-bank
+
+  pedagogy_quality:
+    name: Validate pedagogical quality
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_quality == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test pedagogical quality gates
+        run: npm run test:pedagogy-quality
+
+      - name: Check generated pedagogical quality report
+        run: npm run check:pedagogy-quality-report
+
+  pedagogy_regressions:
+    name: Validate pedagogical regressions
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_regressions == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test pedagogical regression cases
+        run: npm run test:pedagogy-regressions
+
+      - name: Check generated pedagogical regression report
+        run: npm run check:pedagogy-regression-report
+
+  pedagogy_evidence:
+    name: Validate pedagogical evidence and readiness
+    needs: changes
+    if: ${{ needs.changes.outputs.run_pedagogy_evidence == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test pedagogical human evidence
+        run: npm run test:pedagogy-evidence
+
+      - name: Check pedagogical human evidence
+        run: npm run check:pedagogy-evidence
+
+      - name: Test evidence-gated pedagogical readiness
+        run: npm run test:pedagogy-readiness
+
+      - name: Check generated pedagogical readiness report
+        run: npm run check:pedagogy-readiness-report
+
+  teacher_work_plans:
+    name: Validate teacher work-plan extractions
+    needs: changes
+    if: ${{ needs.changes.outputs.run_teacher_work_plans == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test teacher work-plan extraction contracts
+        run: npm run test:teacher-work-plans
+
+      - name: Check teacher work-plan extractions
+        run: npm run check:teacher-work-plans
+
+  teacher_work_plan_maps:
+    name: Validate teacher work-plan curriculum maps
+    needs: changes
+    if: ${{ needs.changes.outputs.run_teacher_work_plan_maps == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test teacher work-plan curriculum maps
+        run: npm run test:teacher-work-plan-maps
+
+      - name: Check teacher work-plan curriculum maps
+        run: npm run check:teacher-work-plan-maps
+
+  validate:
+    name: Validate manifest and source records
+    if: ${{ always() }}
+    needs:
+      - changes
+      - core
+      - pedagogy_quality
+      - pedagogy_regressions
+      - pedagogy_evidence
+      - teacher_work_plans
+      - teacher_work_plan_maps
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Require selected validation groups to pass
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          CORE_RESULT: ${{ needs.core.result }}
+          QUALITY_RESULT: ${{ needs.pedagogy_quality.result }}
+          REGRESSIONS_RESULT: ${{ needs.pedagogy_regressions.result }}
+          EVIDENCE_RESULT: ${{ needs.pedagogy_evidence.result }}
+          TEACHER_WORK_PLANS_RESULT: ${{ needs.teacher_work_plans.result }}
+          TEACHER_WORK_PLAN_MAPS_RESULT: ${{ needs.teacher_work_plan_maps.result }}
+          RUN_QUALITY: ${{ needs.changes.outputs.run_pedagogy_quality }}
+          RUN_REGRESSIONS: ${{ needs.changes.outputs.run_pedagogy_regressions }}
+          RUN_EVIDENCE: ${{ needs.changes.outputs.run_pedagogy_evidence }}
+          RUN_TEACHER_WORK_PLANS: ${{ needs.changes.outputs.run_teacher_work_plans }}
+          RUN_TEACHER_WORK_PLAN_MAPS: ${{ needs.changes.outputs.run_teacher_work_plan_maps }}
+        run: |
+          set -euo pipefail
+
+          require_selected_job() {
+            local requested="$1"
+            local actual="$2"
+            local label="$3"
+
+            if [ "$requested" = "true" ]; then
+              test "$actual" = "success" || {
+                echo "$label was selected but finished with $actual" >&2
+                return 1
+              }
+            elif [ "$requested" = "false" ]; then
+              test "$actual" = "skipped" || {
+                echo "$label was not selected but finished with $actual" >&2
+                return 1
+              }
+            else
+              echo "$label has invalid selection output: $requested" >&2
+              return 1
+            fi
+          }
+
+          test "$CHANGES_RESULT" = "success"
+          test "$CORE_RESULT" = "success"
+          require_selected_job "$RUN_QUALITY" "$QUALITY_RESULT" "pedagogical quality"
+          require_selected_job "$RUN_REGRESSIONS" "$REGRESSIONS_RESULT" "pedagogical regressions"
+          require_selected_job "$RUN_EVIDENCE" "$EVIDENCE_RESULT" "pedagogical evidence"
+          require_selected_job "$RUN_TEACHER_WORK_PLANS" "$TEACHER_WORK_PLANS_RESULT" "teacher work plans"
+          require_selected_job "$RUN_TEACHER_WORK_PLAN_MAPS" "$TEACHER_WORK_PLAN_MAPS_RESULT" "teacher work-plan curriculum maps"

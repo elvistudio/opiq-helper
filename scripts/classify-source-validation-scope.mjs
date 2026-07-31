@@ -14,6 +14,7 @@ const HEAVY_JOB_OUTPUTS = Object.freeze([
 const CONDITIONAL_JOB_OUTPUTS = Object.freeze([
   ...HEAVY_JOB_OUTPUTS,
   'run_teacher_work_plans',
+  'run_teacher_work_plan_maps',
 ]);
 
 const TEACHER_WORK_PLAN_EXACT = new Set([
@@ -34,6 +35,19 @@ const TEACHER_WORK_PLAN_EXACT = new Set([
 const TEACHER_WORK_PLAN_PREFIXES = Object.freeze([
   'evaluations/teacher-work-plans/',
   'project-files/inputs/originals/teacher-work-plans/',
+]);
+
+const TEACHER_WORK_PLAN_MAP_EXACT = new Set([
+  'source-manifest.json',
+  'evaluations/teacher-work-plans/grade-5-science-extraction.json',
+  'project-files/outputs/opiq_5klass_loodusopetus.md',
+  'project-files/outputs/opiq_5klass_loodusopetus_qa.json',
+  'curriculum-maps/grade-5-science/book-inventory.yaml',
+  'curriculum-maps/grade-5-science/topic-inventory.yaml',
+  'schemas/teacher-work-plan-curriculum-map.schema.json',
+  'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
+  'scripts/check-teacher-work-plan-curriculum-maps.mjs',
+  'scripts/teacher-work-plan-curriculum-maps.test.mjs',
 ]);
 
 const ALWAYS_FULL_EXACT = new Map([
@@ -102,6 +116,14 @@ function shouldRunTeacherWorkPlans(paths) {
   ));
 }
 
+function shouldRunTeacherWorkPlanMaps(paths) {
+  return paths.some((repositoryPath) => (
+    TEACHER_WORK_PLAN_MAP_EXACT.has(repositoryPath)
+    || /^curriculum-maps\/grade-[0-9]+-[a-z0-9-]+\/teacher-work-plan-crosswalk\.ya?ml$/u.test(repositoryPath)
+    || /^scripts\/[^/]*teacher-work-plan-curriculum-map[^/]*$/u.test(repositoryPath)
+  ));
+}
+
 export function classifyRepositoryPath(repositoryPath) {
   if (!validRepositoryPath(repositoryPath)) {
     return { scope: 'full', reason: 'invalid_repository_path' };
@@ -143,6 +165,7 @@ function fullResult(paths, reasons, forced = false) {
     run_pedagogy_regressions: true,
     run_pedagogy_evidence: true,
     run_teacher_work_plans: forced || shouldRunTeacherWorkPlans(paths),
+    run_teacher_work_plan_maps: forced || shouldRunTeacherWorkPlanMaps(paths),
     changed_path_count: paths.length,
     reason_codes: uniqueSorted(reasons),
     forced,
@@ -177,6 +200,7 @@ export function classifyChangedPaths(rawPaths, { forceFullReason = null } = {}) 
     run_pedagogy_regressions: false,
     run_pedagogy_evidence: false,
     run_teacher_work_plans: shouldRunTeacherWorkPlans(paths),
+    run_teacher_work_plan_maps: shouldRunTeacherWorkPlanMaps(paths),
     changed_path_count: paths.length,
     reason_codes: uniqueSorted(classifications.map((item) => item.reason)),
     forced: false,
