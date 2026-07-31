@@ -4,14 +4,14 @@ import process from 'node:process';
 import {
   collectTeacherWorkPlanChangedPaths,
   formatTeacherWorkPlanDiagnostic,
-  loadTeacherWorkPlanExtractionRepository,
+  loadTeacherWorkPlanExtractionRepositories,
   validateTeacherWorkPlanChangedPaths,
-  validateTeacherWorkPlanExtractionRepository,
+  validateTeacherWorkPlanExtractionRepositories,
 } from './lib/teacher-work-plan-extractions.mjs';
 
 async function main() {
-  const repository = await loadTeacherWorkPlanExtractionRepository();
-  const validation = validateTeacherWorkPlanExtractionRepository(repository);
+  const collection = await loadTeacherWorkPlanExtractionRepositories();
+  const validation = validateTeacherWorkPlanExtractionRepositories(collection);
   const scopeDiagnostics = validateTeacherWorkPlanChangedPaths(
     collectTeacherWorkPlanChangedPaths({
       baseRef: process.env.TEACHER_WORK_PLAN_BASE_REF ?? 'origin/main',
@@ -27,14 +27,19 @@ async function main() {
     return;
   }
 
-  const summary = validation.summary;
-  console.log(
-    'Teacher work-plan extraction valid: '
-    + `${summary.thematic_blocks} thematic blocks, `
-    + `${summary.lesson_ranges} lesson ranges covering ${summary.lessons_covered} lessons, `
-    + `${summary.unresolved_items} unresolved items; `
-    + `${summary.source_pages} pages and ${summary.declared_hours} declared hours verified.`,
-  );
+  for (const summary of validation.summaries) {
+    const hours = typeof summary.declared_hours === 'number'
+      ? String(summary.declared_hours)
+      : `${summary.declared_hours.minimum}-${summary.declared_hours.maximum}`;
+    console.log(
+      `${summary.extraction_id}: `
+      + `${summary.thematic_blocks} thematic blocks, `
+      + `${summary.lesson_ranges} lesson ranges covering ${summary.lessons_covered} lessons, `
+      + `${summary.unresolved_items} unresolved items; `
+      + `${summary.source_pages} pages and ${hours} declared block hours verified.`,
+    );
+  }
+  console.log(`Teacher work-plan extraction collection valid: ${validation.summaries.length} artifacts.`);
 }
 
 main().catch((error) => {

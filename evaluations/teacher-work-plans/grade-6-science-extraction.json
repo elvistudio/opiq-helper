@@ -1,0 +1,4466 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "teacher_work_plan_extraction",
+  "extraction_id": "grade-6-science-teacher-work-plan-extraction",
+  "source": {
+    "repository_path": "project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-6-klassile.pdf",
+    "original_filename": "Loodusõpetuse-töökava-näidis-6.-klassile.pdf",
+    "sha256": "2b63ada1c2821e63a8aadda0bf93246499c2f8430cd305592a82a709a0160762",
+    "byte_size": 493983,
+    "page_count": 31,
+    "displayed_title": "ÕPETAJA TÖÖKAVA NÄIDIS LOODUSÕPETUS PÕHIKOOLI II KOOLIASTE",
+    "author": "Vaike Rootsmaa",
+    "grade": 6,
+    "subject": "science",
+    "subject_et": "loodusõpetus",
+    "language": "et",
+    "provenance_kind": "supplementary_teacher_work_plan",
+    "canonical": false
+  },
+  "extraction": {
+    "method": "embedded_text_plus_visual_page_verification",
+    "embedded_text_used": true,
+    "visual_verification": "all_pages_rendered_and_reviewed",
+    "verified_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "ocr_used": false,
+    "transformations": [
+      "PDF-i sisseehitatud tekst eraldati tabelite kaupa ja normaliseeriti NFC-kujule.",
+      "Lehekülgede vahel jätkuvad tabelilahtrid ühendati kõigi 31 renderdatud lehekülje visuaalse kontrolli alusel.",
+      "Pikad kirjeldused koondati lühikesteks eestikeelseteks väljadeks ning otsesed tunnivahemikud säilitati.",
+      "Aastaplaani 105. tund säilitati jaotamata struktuurse kohana, sest PDF-i viimane nähtav tunninumber on 104."
+    ],
+    "limitations": [
+      "Allikas on õpetaja töökava näidis, mitte ametliku õppekava ammendav ega kohustuslik järjestus.",
+      "ÕHK ja LÄÄNEMERI kasutavad paindlikke tunnivahemikke; ühte paindlikku tundi ei omistatud kummalegi plokile.",
+      "Plokkide pealkirjade tunnivahemik ja nähtav tunnijada ei anna üheselt 105 tunni jaotust.",
+      "Kanooniliste Opiq-lehtede ja URL-idega vastendamine on teadlikult edasi lükatud."
+    ]
+  },
+  "route_context": {
+    "source_id": "grade-6-science",
+    "md_path": "project-files/outputs/opiq_6klass_loodusopetus.md",
+    "mapping_status": "deferred"
+  },
+  "annual_allocation": {
+    "weekly_hours": 3,
+    "declared_annual_hours": 105,
+    "extracted_lesson_span": {
+      "lesson_start": 1,
+      "lesson_end": 105
+    }
+  },
+  "thematic_blocks": [
+    {
+      "block_id": "muld",
+      "title_et": "MULD",
+      "normalized_summary_et": "Mulla koostise, tekke, vee ja õhu sisalduse, mullaorganismide, aineringe ning mullakaitse uurimine seotakse mullakaeve ja komposti vaatlustega.",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "declared_hours": 12,
+      "main_numbered_lesson_span": {
+        "lesson_start": 1,
+        "lesson_end": 12
+      },
+      "approximate_weeks": 4,
+      "teaching_goals": [
+        "Kujundada mulla koostise, tekke ja tähtsuse uurimise oskust.",
+        "Seostada mullaorganismid, lagunemine ja aineringe.",
+        "Põhjendada mulla pika kujunemise tõttu selle kaitse vajadust."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab ja võrdleb mullaproove ning mullakaeve horisonte.",
+        "Õpilane põhjendab katsetega vee ja õhu olemasolu mullas.",
+        "Õpilane selgitab huumuse teket, aineringet ja mulla osa kooslustes."
+      ],
+      "learning_content": [
+        "Mulla koostis, teke ja areng.",
+        "Mullakaeve, mullaõhk, mullavesi ja vee liikumine.",
+        "Mullaorganismid, aineringe ja mulla osa kooslustes."
+      ],
+      "key_concepts": [
+        "muld",
+        "aineringe",
+        "kivimite murenemine",
+        "mullasõmerad",
+        "mullaõhk",
+        "mullavesi",
+        "huumus",
+        "huumushorisont",
+        "liivmuld",
+        "savimuld"
+      ],
+      "practical_work": [
+        "Mullakaeve kirjeldamine ja proovide võrdlemine.",
+        "Komposti, mullaorganismide ja aineringe vaatlus.",
+        "Mulla vee läbilaskvuse ja koostise uurimine."
+      ],
+      "ict_activities": [
+        "Digitaalse mullakaardi ja liigimaterjalide kasutamine."
+      ],
+      "assessment": [
+        "Õpimapi ja välitöö tulemuste hindamine.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "geograafia",
+        "eesti keel",
+        "matemaatika"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "tervis ja ohutus",
+        "kultuuriline identiteet"
+      ],
+      "equipment_and_materials": [
+        "mullakaeve töövahendid",
+        "mullaproovid",
+        "töölehed",
+        "mõõtevahendid",
+        "pildimaterjal"
+      ],
+      "external_links": [
+        "http://xgis.maaamet.ee/xGIS/XGis",
+        "http://www.ebu.ee/elustik/mullaelustik.ppt"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations",
+        "grade-5-prerequisite-references",
+        "pdf-author-metadata-mismatch"
+      ]
+    },
+    {
+      "block_id": "aed-ja-pold-elukeskkonnana",
+      "title_et": "AED JA PÕLD ELUKESKKONNANA",
+      "normalized_summary_et": "Aia ja põllu kooslusi käsitletakse toidutootmise, fotosünteesi, mullaviljakuse, taimekahjustajate, tõrjeviiside, mahepõllumajanduse ja mullakaitse kaudu.",
+      "source_pages": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "declared_hours": 15,
+      "main_numbered_lesson_span": {
+        "lesson_start": 13,
+        "lesson_end": 27
+      },
+      "approximate_weeks": 5,
+      "teaching_goals": [
+        "Seostada kultuurtaimede kasvutingimused toidu kvaliteedi ja põllumajandusega.",
+        "Võrrelda aia ja põllu kooslusi ning inimese rolli nende kujunemisel.",
+        "Hinnata keemilise tõrje, mahepõllumajanduse ja mullakaitse valikuid."
+      ],
+      "learning_outcomes": [
+        "Õpilane tunneb kultuurtaimi ning selgitab fotosünteesi ja mullaviljakust.",
+        "Õpilane koostab aia ja põllu toiduahelaid ning võrdleb keemilist ja biotõrjet.",
+        "Õpilane selgitab muldade kahjustumise põhjusi ja kaitsevõimalusi."
+      ],
+      "learning_content": [
+        "Aiataimed, põllukultuurid ja fotosüntees.",
+        "Mullaviljakus, väetised, viljavaheldus ja sümbioos.",
+        "Kahjurid, taimehaigused, tõrje, mahepõllumajandus ja mullakaitse."
+      ],
+      "key_concepts": [
+        "fotosüntees",
+        "orgaaniline aine",
+        "väetis",
+        "viljavaheldus",
+        "liblikõielised",
+        "mügarbakterid",
+        "sümbioos",
+        "kultuurtaim",
+        "umbrohi",
+        "kahjur",
+        "taimehaigus",
+        "biotõrje",
+        "mahepõllumajandus"
+      ],
+      "practical_work": [
+        "Kodu- või kooliaia plaani koostamine ja taimede võrdlemine.",
+        "Kasvutingimuste katse ning aia ja põllu toiduahelad.",
+        "Toitumise, toodete ja mulla kasutuse uurimused."
+      ],
+      "ict_activities": [
+        "Veebimaterjalide ja videote kasutamine taimekahjustajate ning põllumajanduse uurimiseks."
+      ],
+      "assessment": [
+        "Rühmatööde esitlused ja enesehinnang.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "keemia",
+        "inimeseõpetus",
+        "kunstiõpetus"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "tervis ja ohutus",
+        "teabekeskkond",
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "equipment_and_materials": [
+        "taime- ja toidunäidised",
+        "pildimaterjal",
+        "töölehed",
+        "õpimapp"
+      ],
+      "external_links": [
+        "http://www.aialeht.ee",
+        "http://www.saare.ee/mahepollumajandus-eestis",
+        "http://www.ampser.ee/index.php?page=20"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "mets-elukeskkonnana",
+      "title_et": "METS ELUKESKKONNANA",
+      "normalized_summary_et": "Metsa kui ökosüsteemi uurimine hõlmab elutingimusi, rindeid, metsatüüpe, liike ja toitumissuhteid ning metsa kasutamist, puidutöötlemist ja kaitset.",
+      "source_pages": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "declared_hours": 14,
+      "main_numbered_lesson_span": {
+        "lesson_start": 28,
+        "lesson_end": 41
+      },
+      "approximate_weeks": {
+        "minimum": 4,
+        "maximum": 5,
+        "source_text": "~4-5 nädalat"
+      },
+      "teaching_goals": [
+        "Käsitleda metsa ökosüsteemi bioloogilisest ja majanduslikust vaatest.",
+        "Võrrelda metsatüüpe, rindeid ja tüüpilisi liike.",
+        "Selgitada säästva metsanduse ja metsakaitse põhimõtteid."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab metsa kui ökosüsteemi ja võrdleb metsatüüpe.",
+        "Õpilane koostab metsa toiduahelaid ja seostab liike kasvutingimustega.",
+        "Õpilane selgitab metsa kasutamist, majandamist ja kaitset."
+      ],
+      "learning_content": [
+        "Elutingimused metsas, metsarinded ja metsatüübid.",
+        "Eesti metsade liigid ja toitumissuhted.",
+        "Metsade kasutamine, puidutöötlemine ja kaitse."
+      ],
+      "key_concepts": [
+        "ökosüsteem",
+        "põlismets",
+        "loodusmets",
+        "majandusmets",
+        "jahiuluk",
+        "sõraline",
+        "tippkiskja",
+        "metsarinne",
+        "nõmmemets",
+        "palumets",
+        "laanemets",
+        "salumets"
+      ],
+      "practical_work": [
+        "Metsa välivaatlus ja liikide määramine.",
+        "Metsatüüpide mõistekaardid, toiduahelad ja võrdlus.",
+        "Puidunäidiste uurimine ning kaitseala juhtum."
+      ],
+      "ict_activities": [
+        "Digitaalsete liigimaterjalide ja metsamängu kasutamine."
+      ],
+      "assessment": [
+        "Rühmatööd, vahekontroll ja enesehinnang.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "geograafia",
+        "eesti keel",
+        "ajalugu",
+        "arvutiõpetus"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "teabekeskkond",
+        "kultuuriline identiteet",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "liigimäärajad",
+        "töölehed",
+        "pildimaterjal",
+        "puidunäidised",
+        "kaart"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/taimed/general/kooslus.html",
+        "http://loodus.keskkonnainfo.ee",
+        "http://www.rmk.ee/et/metsamajandus"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "ohk",
+      "title_et": "ÕHK",
+      "normalized_summary_et": "Õhu omadused ja koostis seotakse ilmavaatluste, temperatuuri, tuule, niiskuse, pilvede, sademete, veeringe, organismide kohastumuste ning õhusaastega.",
+      "source_pages": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "declared_hours": {
+        "minimum": 18,
+        "maximum": 19,
+        "source_text": "18-19 tundi"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 42,
+        "lesson_end": 61
+      },
+      "approximate_weeks": 6,
+      "teaching_goals": [
+        "Õpetada mõõtma ja tõlgendama ilmaelemente.",
+        "Selgitada õhu koostist, omadusi ja rolli eluprotsessides.",
+        "Seostada õhk elukeskkonna, kohastumuste ja saaste vältimisega."
+      ],
+      "learning_outcomes": [
+        "Õpilane mõõdab ilmaelemente ning tõlgendab kaarte, graafikuid ja tuuleroosi.",
+        "Õpilane selgitab õhu koostist, veeringet ning hapniku rolli.",
+        "Õpilane võrdleb vett ja õhku elukeskkonnana ning põhjendab õhusaaste vähendamist."
+      ],
+      "learning_content": [
+        "Õhutemperatuur, õhu liikumine, tuul ja ilmakaart.",
+        "Õhu koostis ja omadused, niiskus, pilved, sademed ja veeringe.",
+        "Õhk elukeskkonnana, kohastumused ja õhusaaste."
+      ],
+      "key_concepts": [
+        "õhkkond",
+        "õhk",
+        "gaas",
+        "hapnik",
+        "süsihappegaas",
+        "lämmastik",
+        "tuul",
+        "tuule kiirus",
+        "tuule suund",
+        "kondenseerumine",
+        "pilv",
+        "sademed",
+        "veeringe",
+        "ilm",
+        "ilmastik"
+      ],
+      "practical_work": [
+        "Temperatuuri, tuule, õhurõhu, niiskuse, pilvisuse ja sademete mõõtmine.",
+        "Õhu omaduste ja koostise katsed.",
+        "Ilmakaartide, graafikute ja vaatluslehtede analüüs."
+      ],
+      "ict_activities": [
+        "Ilmaandmete, veebikaartide ja digigraafikute kasutamine."
+      ],
+      "assessment": [
+        "Vahekokkuvõtted, vaatluslehed ja rühmatööna tehtav ilmaülevaade.",
+        "Õpilase enesehinnang."
+      ],
+      "cross_curricular_links": [
+        "füüsika",
+        "geograafia",
+        "bioloogia",
+        "matemaatika"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "tehnoloogia ja innovatsioon",
+        "teabekeskkond"
+      ],
+      "equipment_and_materials": [
+        "termomeeter",
+        "baromeeter",
+        "anemomeeter",
+        "psühromeeter",
+        "sadememõõtja",
+        "ilmavaatlusleht"
+      ],
+      "external_links": [
+        "http://www.emhi.ee",
+        "http://www.ilm.ee",
+        "http://www.sigrimigri.ee/VEEMANG-HTML/"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "air-hour-range",
+        "air-numbering-vs-declared-hours",
+        "flexible-hour-allocation-unassigned",
+        "analysis-rows-at-block-start",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "laanemeri-elukeskkonnana",
+      "title_et": "LÄÄNEMERI ELUKESKKONNANA",
+      "normalized_summary_et": "Läänemere asend, ilmastikumõju, rannik, riimvesi, elustik, rannaasustus, reostumine ja kaitse moodustavad mereökosüsteemi terviku.",
+      "source_pages": [
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "declared_hours": {
+        "minimum": 13,
+        "maximum": 14,
+        "source_text": "13-14 tundi"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 62,
+        "lesson_end": 74
+      },
+      "approximate_weeks": {
+        "minimum": 4,
+        "maximum": 5,
+        "source_text": "~4-5 nädalat"
+      },
+      "teaching_goals": [
+        "Kujundada Läänemere geograafilise asendi ja rannikuvormide tundmist.",
+        "Seostada riimvee omadused mere elustiku ja toitumissuhetega.",
+        "Hinnata inimtegevuse, reostuse ja kaitse seoseid."
+      ],
+      "learning_outcomes": [
+        "Õpilane näitab kaardil Läänemere riike, lahtesid, väinu, saari ja poolsaari.",
+        "Õpilane selgitab riimvee eripära ning kirjeldab mere ja ranniku liike.",
+        "Õpilane kirjeldab rannaasustust, reostusallikaid ja kaitsevõimalusi."
+      ],
+      "learning_content": [
+        "Läänemere asend, ilmastikumõju ja rannik.",
+        "Merevee omadused, riimvesi ning mere ja ranniku elustik.",
+        "Rannaasustus, reostumine ja kaitse."
+      ],
+      "key_concepts": [
+        "vee soolsus",
+        "segu",
+        "lahus",
+        "lahusti",
+        "riimvesi",
+        "rannajoon",
+        "rand",
+        "rannik",
+        "laugrannik",
+        "järskrannik",
+        "maa- ja merebriis",
+        "rohevetikad",
+        "pruunvetikad",
+        "punavetikad",
+        "põhjaloomastik",
+        "siirdekala"
+      ],
+      "practical_work": [
+        "Kontuurkaardi ja ilmakaartide kasutamine.",
+        "Soolsuse, segu ja lahuse praktiline uurimine.",
+        "Liikide määramine, toiduahelad ja rannikupiirkonna rühmatöö."
+      ],
+      "ict_activities": [
+        "Ranniku-, liigi- ja kaitsematerjalide veebiuuring."
+      ],
+      "assessment": [
+        "Suuline kaardivastus, rühmatöö või poster.",
+        "Kordamine ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "geograafia",
+        "bioloogia",
+        "füüsika"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "kultuuriline identiteet",
+        "teabekeskkond",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "seinakaart ja kontuurkaart",
+        "atlas",
+        "soolsuskatse vahendid",
+        "liigimäärajad",
+        "pildimaterjal"
+      ],
+      "external_links": [
+        "http://eestirannik.ut.ee/et",
+        "http://rannarohumaad.weebly.com/linnud.html",
+        "http://www.envir.ee/"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "baltic-hour-range",
+        "flexible-hour-allocation-unassigned",
+        "cross-page-table-continuations",
+        "lesson-69-topic-continuation"
+      ]
+    },
+    {
+      "block_id": "elukeskkonnad-eestis",
+      "title_et": "ELUKESKKONNAD EESTIS",
+      "normalized_summary_et": "Eesti elukeskkondade koondteema seob tootjad, tarbijad, lagundajad, toiduvõrgustikud, toitumissuhted, energia ja inimese mõju ökosüsteemidele.",
+      "source_pages": [
+        23,
+        24,
+        25
+      ],
+      "declared_hours": 8,
+      "main_numbered_lesson_span": {
+        "lesson_start": 75,
+        "lesson_end": 82
+      },
+      "approximate_weeks": 3,
+      "teaching_goals": [
+        "Koondada õpitud elukeskkonnad ökosüsteemideks.",
+        "Selgitada toitumissuhteid ja looduslikku tasakaalu.",
+        "Uurida inimese mõju ökosüsteemidele."
+      ],
+      "learning_outcomes": [
+        "Õpilane eristab ökosüsteemi elusat ja eluta osa.",
+        "Õpilane koostab toiduahelaid ja toiduvõrgustikke ning selgitab aineringet.",
+        "Õpilane analüüsib inimese mõju elukeskkondadele."
+      ],
+      "learning_content": [
+        "Eesti eluslooduse mitmekesisus.",
+        "Tootjad, tarbijad, lagundajad ja toitumissuhted.",
+        "Inimese mõju ökosüsteemidele."
+      ],
+      "key_concepts": [
+        "toiduvõrgustik",
+        "laguahel",
+        "energia",
+        "parasitism",
+        "kisklus",
+        "sümbioos",
+        "konkurents"
+      ],
+      "practical_work": [
+        "Koosluste mitmekesisuse digitaalne või välipõhine ülevaade.",
+        "Toiduvõrgustike koostamine.",
+        "Kooliümbruse keskkonnaseisundi väike uurimus."
+      ],
+      "ict_activities": [
+        "Arvutipõhine infootsing ja digimäng."
+      ],
+      "assessment": [
+        "Kontrolltöö analüüs, uurimisaruande hindamine ja kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "inimeseõpetus"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "equipment_and_materials": [
+        "arvuti",
+        "õpimapp",
+        "välitöövahendid",
+        "pildimaterjal"
+      ],
+      "external_links": [
+        "http://bio.edu.ee"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "eesti-loodusvarad",
+      "title_et": "EESTI LOODUSVARAD",
+      "normalized_summary_et": "Eesti loodusvarasid, maavarasid ja energiaallikaid uuritakse nende kasutamise, paiknemise, kaevandamise, keskkonnamõju ning säästva tarbimise kaudu.",
+      "source_pages": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "declared_hours": 10,
+      "main_numbered_lesson_span": {
+        "lesson_start": 83,
+        "lesson_end": 92
+      },
+      "approximate_weeks": 3,
+      "teaching_goals": [
+        "Tutvustada taastuvaid ja taastumatuid loodusvarasid.",
+        "Õpetada tundma Eesti maavarasid, kaevandamisviise ja keskkonnamõju.",
+        "Kavandada ja analüüsida energiatarbimise uurimust."
+      ],
+      "learning_outcomes": [
+        "Õpilane liigitab loodusvarasid ja tunneb peamisi Eesti maavarasid.",
+        "Õpilane võrdleb kaevandamisviise ning selgitab keskkonnaprobleeme.",
+        "Õpilane hindab energia säästmise ja taastuvenergia võimalusi."
+      ],
+      "learning_content": [
+        "Eesti loodusvarad ja maavarad.",
+        "Kaevandamine, kasutamine ja keskkonnaprobleemid.",
+        "Energiaallikad ning energiatarbimise uurimus."
+      ],
+      "key_concepts": [
+        "loodusvara",
+        "taastuv loodusvara",
+        "taastumatu loodusvara",
+        "maavara",
+        "sete",
+        "liiv",
+        "kruus",
+        "savi",
+        "turvas",
+        "kivim",
+        "lubjakivi",
+        "graniit",
+        "põlevkivi",
+        "karjäär",
+        "maa-alune kaevandus",
+        "energia"
+      ],
+      "practical_work": [
+        "Kivimite ja setete kirjeldamine ning kollektsiooni koostamine.",
+        "Maavarade kaardistamine ja kaevandamisviiside võrdlus.",
+        "Energiatarbimise küsitluse kavandamine, läbiviimine ja analüüs."
+      ],
+      "ict_activities": [
+        "Maavarade ja energiatootmise digimaterjalide kasutamine."
+      ],
+      "assessment": [
+        "Uurimistöö kokkuvõte, kordamine ja kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "geograafia",
+        "bioloogia"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "teabekeskkond",
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "equipment_and_materials": [
+        "kivimite ja setete näidised",
+        "Eesti atlas",
+        "kontuurkaart",
+        "arvuti",
+        "küsitlusleht"
+      ],
+      "external_links": [
+        "http://www.ut.ee/BGGM/maavara/maapou.pdf",
+        "http://www.energia.ee/et/polevkivienergeetika-alaleht"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "block_id": "loodus-ja-keskkonnakaitse-eestis",
+      "title_et": "LOODUS- JA KESKKONNAKAITSE EESTIS",
+      "normalized_summary_et": "Koondteema käsitleb inimese mõju, looduskaitset, kaitsealasid, elurikkust, pärandkooslusi, kodukoha muutusi, jäätmekäitlust ja säästvat tarbimist.",
+      "source_pages": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "declared_hours": 14,
+      "main_numbered_lesson_span": {
+        "lesson_start": 93,
+        "lesson_end": 104
+      },
+      "approximate_weeks": 5,
+      "teaching_goals": [
+        "Seostada looduse ilu, elurikkus ja kaitsevajadus.",
+        "Tutvustada kaitsealasid, liigikaitset ja pärandkooslusi.",
+        "Kujundada keskkonnahoidlikku tarbimist ja kodukoha probleemide lahendamist."
+      ],
+      "learning_outcomes": [
+        "Õpilane selgitab looduskaitse vajalikkust ja toob näiteid kaitsemeetmetest.",
+        "Õpilane põhjendab niitude ja bioloogilise mitmekesisuse kaitset.",
+        "Õpilane analüüsib jäätmekäitlust, tarbimist ja kodukoha keskkonnaprobleeme."
+      ],
+      "learning_content": [
+        "Inimese mõju keskkonnale ja looduskaitse Eestis.",
+        "Kaitsealad, liigikaitse, niidud ja pärandkooslused.",
+        "Kodukoha muutused, jäätmekäitlus ja säästev tarbimine."
+      ],
+      "key_concepts": [
+        "looduskaitse",
+        "bioloogiline mitmekesisus",
+        "looduslik niit",
+        "kultuurniit",
+        "puisniit",
+        "pärandkooslus",
+        "keskkonnakaitse",
+        "jäätmed",
+        "ökomärgis",
+        "kaitsealune üksikobjekt",
+        "looduskaitseala",
+        "rahvuspark",
+        "maastikukaitseala"
+      ],
+      "practical_work": [
+        "Kaitsealade kaarditöö ja rühmaettekanded.",
+        "Niidu liigirikkuse uurimine.",
+        "Kodukoha probleemide kaardistamine, jäätmete sortimine ja kaitseala õppekäik."
+      ],
+      "ict_activities": [
+        "Kaitsealade, liigikaitse ja säästva tarbimise veebimaterjalid."
+      ],
+      "assessment": [
+        "Rühmaettekanded, õppekäigu aruanne ja õpimapi kokkuvõttev hinne."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "teabekeskkond",
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "equipment_and_materials": [
+        "kaitsealade kaart",
+        "ümbruskonna kaart",
+        "liigimaterjal",
+        "töölehed",
+        "õpimapp"
+      ],
+      "external_links": [
+        "http://www.keskkonnaamet.ee",
+        "http://www.envir.ee/1688",
+        "http://www.envir.ee/2853"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start",
+        "protection-numbering-vs-declared-hours",
+        "annual-lesson-105-unassigned",
+        "cross-page-table-continuations",
+        "grade-5-prerequisite-references"
+      ]
+    }
+  ],
+  "lesson_ranges": [
+    {
+      "lesson_start": 1,
+      "lesson_end": 1,
+      "topic_et": "Õppeaasta sissejuhatus ja töökorraldus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        1
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 2,
+      "lesson_end": 2,
+      "topic_et": "Komposti valmistamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        1,
+        2
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 3,
+      "lesson_end": 4,
+      "topic_et": "Mullakaeve kirjeldamine",
+      "concepts_et": [
+        "huumus",
+        "huumushorisont",
+        "liivmuld",
+        "savimuld"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "kultuuriline identiteet"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "uuritavad näidised"
+      ],
+      "external_links": [
+        "http://xgis.maaamet.ee/xGIS/XGis"
+      ],
+      "source_pages": [
+        2,
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 5,
+      "lesson_end": 5,
+      "topic_et": "Muldade teke ja areng",
+      "concepts_et": [
+        "kivimite murenemine"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "uuritavad näidised"
+      ],
+      "external_links": [],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 6,
+      "lesson_end": 6,
+      "topic_et": "Mulla koostis",
+      "concepts_et": [
+        "mulla tahke osa",
+        "mullasõmerad"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "uuritavad näidised"
+      ],
+      "external_links": [],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "grade-5-prerequisite-references"
+      ]
+    },
+    {
+      "lesson_start": 7,
+      "lesson_end": 7,
+      "topic_et": "Vee liikumine mullas",
+      "concepts_et": [
+        "mullaõhk",
+        "mullavesi"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "grade-5-prerequisite-references"
+      ]
+    },
+    {
+      "lesson_start": 8,
+      "lesson_end": 8,
+      "topic_et": "Mullaorganismide välivaatlus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "tööleht või õpimapp"
+      ],
+      "external_links": [],
+      "source_pages": [
+        3,
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 9,
+      "lesson_end": 9,
+      "topic_et": "Mullaorganismid",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 10,
+      "lesson_end": 10,
+      "topic_et": "Aineringe",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpilase enesehinnang."
+      ],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 11,
+      "lesson_end": 11,
+      "topic_et": "Mulla osa koosluses ja kordamine",
+      "concepts_et": [
+        "muld Kordamine"
+      ],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        4,
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 12,
+      "lesson_end": 12,
+      "topic_et": "Kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "uuritavad näidised"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 13,
+      "lesson_end": 13,
+      "topic_et": "Kontrolltöö analüüs ja aiataimed",
+      "concepts_et": [
+        "kultuurtaim",
+        "umbrohi",
+        "ravimtaim"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine.",
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 14,
+      "lesson_end": 14,
+      "topic_et": "Viljapuuja juurviljaaed, iluaed",
+      "concepts_et": [
+        "köögivili",
+        "puuvili",
+        "sort",
+        "maitsetaim"
+      ],
+      "methods_and_practical_work": [
+        "Paaristöö ja võrdlev analüüs."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "inimeseõpetus"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 15,
+      "lesson_end": 15,
+      "topic_et": "Iluaed",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 16,
+      "lesson_end": 16,
+      "topic_et": "Fotosüntees",
+      "concepts_et": [
+        "fotosüntees",
+        "orgaaniline aine"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 17,
+      "lesson_end": 17,
+      "topic_et": "Mulla viljakus",
+      "concepts_et": [
+        "väetis",
+        "viljavaheldus"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "keemia",
+        "ajalugu"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "uuritavad näidised"
+      ],
+      "external_links": [],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 18,
+      "lesson_end": 18,
+      "topic_et": "Aed kui kooslus",
+      "concepts_et": [
+        "liblikõielised",
+        "mügarbakter",
+        "sümbioos"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 19,
+      "lesson_end": 19,
+      "topic_et": "Põld kui kooslus",
+      "concepts_et": [
+        "kahjurid",
+        "taimehaigused"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine.",
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "tööleht või õpimapp",
+        "uuritavad näidised",
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [
+        "http://www.aialeht.ee/news/aialeht/taimehaigused/"
+      ],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 20,
+      "lesson_end": 20,
+      "topic_et": "Keemilise tõrje mõju loodusele",
+      "concepts_et": [
+        "keemiline tõrje",
+        "biotõrje"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "uuritavad näidised"
+      ],
+      "external_links": [
+        "http://www.hortitrade.eu/tooted/biotorje/"
+      ],
+      "source_pages": [
+        7,
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 21,
+      "lesson_end": 21,
+      "topic_et": "Mahepõllundus",
+      "concepts_et": [
+        "mahepõllundus"
+      ],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.sahver.ee/mahepollumajandus-eestis"
+      ],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 22,
+      "lesson_end": 22,
+      "topic_et": "Põlluja aiasaadused kui toiduained",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "inimeseõpetus"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.ampser.ee/index.php?page=20"
+      ],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 23,
+      "lesson_end": 23,
+      "topic_et": "Inimtegevuse mõju mullale",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Õpilase enesehinnang."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [
+        "http://www.youtube.com/watch?v=EW5ZiOzMfTA",
+        "http://www.youtube.com/watch?v=y_f64JfUrFY",
+        "http://www.youtube.com/watch?v=D0VIgbG7bAI",
+        "http://www.youtube.com/watch?v=f3ksq4qOiPw"
+      ],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 24,
+      "lesson_end": 24,
+      "topic_et": "Mulla reostumine ja hävimine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.vaderstad.com/ee/Know-How/Kulvimeetodid"
+      ],
+      "source_pages": [
+        8,
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 25,
+      "lesson_end": 25,
+      "topic_et": "Mulla kaitse",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [
+        "http://www.vaderstad.com/ee/Know-How/Kulvimeetodid/"
+      ],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 26,
+      "lesson_end": 26,
+      "topic_et": "Kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 27,
+      "lesson_end": 27,
+      "topic_et": "Kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 28,
+      "lesson_end": 28,
+      "topic_et": "Kontrolltöö analüüs ja elutingimused metsas",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine.",
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "mõõtevahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 29,
+      "lesson_end": 29,
+      "topic_et": "Mets kui elukooslus",
+      "concepts_et": [
+        "ökosüsteem"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://bio.edu.ee/taimed/general/kooslus.html",
+        "http://loodus.keskkonnainfo.ee:88/ecological/forests/F1171904677"
+      ],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 30,
+      "lesson_end": 30,
+      "topic_et": "Metsarinded",
+      "concepts_et": [
+        "rinne",
+        "rindelisus"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [
+        "http://www.studioviridis.ee/muraste/veeb/index.php?option=com_content&task=view&id=24"
+      ],
+      "source_pages": [
+        10,
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 31,
+      "lesson_end": 31,
+      "topic_et": "Eesti metsade liigid ja nendevahelised seosed",
+      "concepts_et": [
+        "sõraline",
+        "tippkiskja"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [
+        "http://www.studioviridis.ee/muraste/veeb/index.php?option=com_content&task=view&id=83",
+        "http://sagadi.ee/looduskool/oppematerjalid/6050"
+      ],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 32,
+      "lesson_end": 32,
+      "topic_et": "Liigid ja elutingimused nõmmemetsas",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas",
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://sagadi.ee/looduskool/oppematerjalid",
+        "http://sagadi.ee/files/t%C3%B6%C3%B6lehe%20tagak%C3%BClg.pdf"
+      ],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 33,
+      "lesson_end": 33,
+      "topic_et": "Liigid ja elutingimused palumetsas",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas",
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://sagadi.ee/files/M%C3%84ND.pdf"
+      ],
+      "source_pages": [
+        11,
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 34,
+      "lesson_end": 34,
+      "topic_et": "Liigid ja elutingimused laanemetsas",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://sagadi.ee/looduskool/oppematerjalid/6582"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 35,
+      "lesson_end": 35,
+      "topic_et": "Liigid ja elutingimused salumetsas",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://sagadi.ee/files/SARAPUU.pdf"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 36,
+      "lesson_end": 36,
+      "topic_et": "Eesti metsad",
+      "concepts_et": [
+        "põlismets",
+        "loodusmets",
+        "majandusmets"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.rmk.ee/et",
+        "http://www.rmk.ee/metsa-majandamine/metsamajandus"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 37,
+      "lesson_end": 37,
+      "topic_et": "Metsade tähtsus ja kasutamine",
+      "concepts_et": [
+        "jahiuluk"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia",
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "kultuuriline identiteet"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://sagadi.ee/looduskool/oppematerjalid/6050"
+      ],
+      "source_pages": [
+        12,
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 38,
+      "lesson_end": 38,
+      "topic_et": "Puidu töötlemine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "materials": [
+        "uuritavad näidised"
+      ],
+      "external_links": [
+        "http://www.erm.ee/et/Avasta/Rahvakultuur/Talupoja-argielu/Puutood"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 39,
+      "lesson_end": 39,
+      "topic_et": "Metsade kaitse",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Õpilase enesehinnang."
+      ],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.elfond.ee/et/teemad/mets/metsade-kaitse"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 40,
+      "lesson_end": 40,
+      "topic_et": "Kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "arvutiõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "teabekeskkond"
+      ],
+      "materials": [
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [
+        "http://www.elfond.ee/et/metsamaeng"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 41,
+      "lesson_end": 41,
+      "topic_et": "Kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 42,
+      "lesson_end": 42,
+      "topic_et": "Kontrolltöö analüüs ja ilmavaatlused",
+      "concepts_et": [
+        "õhkkond",
+        "ilm",
+        "ilmastik"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine.",
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "tööleht või õpimapp",
+        "uuritavad näidised",
+        "mõõtevahendid"
+      ],
+      "external_links": [
+        "http://www.vvvs.ee/?452",
+        "http://keri.ee/ilmajaam/Current_Monitor.html"
+      ],
+      "source_pages": [
+        14
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 43,
+      "lesson_end": 43,
+      "topic_et": "Õhutemperatuur ja selle mõõtmine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine.",
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "mõõtevahendid"
+      ],
+      "external_links": [
+        "http://www.emhi.ee/index.php?ide=7"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 44,
+      "lesson_end": 44,
+      "topic_et": "Õhu liikumine soojenedes ja tuul",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 45,
+      "lesson_end": 45,
+      "topic_et": "Ilmakaart",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 46,
+      "lesson_end": 46,
+      "topic_et": "Õhutemperatuuri ööpäevane muutumine ja kliimajoonised",
+      "concepts_et": [
+        "kuu keskmine temperatuur",
+        "kuu sademete hulk"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [
+        "http://www.emhi.ee/?ide=21,783",
+        "http://www.fk.ut.ee/elsee/"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 47,
+      "lesson_end": 47,
+      "topic_et": "Õhu liikumine ja tuul",
+      "concepts_et": [
+        "tuule suund",
+        "tuuleroos"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [
+        "http://www.emhi.ee/index.php?ide=6,747"
+      ],
+      "source_pages": [
+        15,
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 48,
+      "lesson_end": 48,
+      "topic_et": "Tuule kiirus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "mõõtevahendid"
+      ],
+      "external_links": [
+        "http://mereviki.vta.ee/mediawiki/index.php/Beauforti_skaala"
+      ],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 49,
+      "lesson_end": 49,
+      "topic_et": "Vahekokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele.",
+        "Vahekokkuvõte."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 50,
+      "lesson_end": 50,
+      "topic_et": "Õhu koostis ja omadused",
+      "concepts_et": [
+        "õhk",
+        "gaas"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 51,
+      "lesson_end": 51,
+      "topic_et": "Õhu koostis: hapnik, süsihappegaas ja lämmastik",
+      "concepts_et": [
+        "süsihappegaas",
+        "lämmastik"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia",
+        "füüsika",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "lesson-51-topic-continuation"
+      ]
+    },
+    {
+      "lesson_start": 52,
+      "lesson_end": 52,
+      "topic_et": "Õhu niiskus",
+      "concepts_et": [
+        "kuiv õhk",
+        "niiske õhk"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "mõõtevahendid"
+      ],
+      "external_links": [
+        "http://agromet3.weebly.com/index.html"
+      ],
+      "source_pages": [
+        16,
+        17
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 53,
+      "lesson_end": 53,
+      "topic_et": "Pilvisus",
+      "concepts_et": [
+        "konden-seerumine"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "füüsika",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.emhi.ee/index.php?ide=29,720,868",
+        "http://www.emhi.ee/index.php?ide=19,821"
+      ],
+      "source_pages": [
+        17
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 54,
+      "lesson_end": 54,
+      "topic_et": "Sademed",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "füüsika",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "mõõtevahendid"
+      ],
+      "external_links": [
+        "http://www.emhi.ee/index.php?ide=19,821"
+      ],
+      "source_pages": [
+        17
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 55,
+      "lesson_end": 55,
+      "topic_et": "Veeringe",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia",
+        "füüsika",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.sigrimigri.ee/VEEMANG-HTML/"
+      ],
+      "source_pages": [
+        17
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 56,
+      "lesson_end": 56,
+      "topic_et": "Vahekokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Vahekokkuvõte."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas",
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://users.kmg.tartu.ee/~aare/ilm/niiskeohk.htm"
+      ],
+      "source_pages": [
+        17
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 57,
+      "lesson_end": 57,
+      "topic_et": "Õhk kui elukeskkond",
+      "concepts_et": [
+        "õhu tähtsus",
+        "liikide kohastumused (hingamine, tolmlemine, lendamine)"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        17,
+        18
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 58,
+      "lesson_end": 58,
+      "topic_et": "Vee ja õhu kui elukeskkonna võrdlemine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        18
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 59,
+      "lesson_end": 59,
+      "topic_et": "Õhu saastumine",
+      "concepts_et": [
+        "põlemine",
+        "kõdunemine"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpilase enesehinnang."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "kodanikualgatus ja ettevõtlikkus"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        18
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 60,
+      "lesson_end": 60,
+      "topic_et": "Kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        18,
+        19
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 61,
+      "lesson_end": 61,
+      "topic_et": "Ilmaelemendid ja välivaatlus",
+      "concepts_et": [
+        "õhutemperatuur",
+        "pilvisus",
+        "pilvetüübid",
+        "tuule suund",
+        "tuule kiirus",
+        "sademete liik",
+        "sademete hulk",
+        "õhuniiskus",
+        "õhurõhk"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine.",
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass",
+        "õues"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "füüsika",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "tööleht või õpimapp",
+        "mõõtevahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        19
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 62,
+      "lesson_end": 62,
+      "topic_et": "Läänemere asend ja ümbritsevad riigid, suuremad lahed, väinad, saared, poolsaared",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "kultuuriline identiteet"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        20
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 63,
+      "lesson_end": 63,
+      "topic_et": "Läänemere asend ja ümbritsevad riigid, suuremad lahed, väinad, saared, poolsaared",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        20
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 64,
+      "lesson_end": 64,
+      "topic_et": "Läänemere mõju ilmastikule",
+      "concepts_et": [
+        "maaja merebriis",
+        "mere mõju erinevatel aastaaegadel"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "kaart või atlas",
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [],
+      "source_pages": [
+        20,
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 65,
+      "lesson_end": 65,
+      "topic_et": "Läänemere rannik",
+      "concepts_et": [
+        "rannajoon",
+        "rand",
+        "rannik",
+        "laugrannik",
+        "järskrannik"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "kultuuriline identiteet"
+      ],
+      "materials": [
+        "kaart või atlas",
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [
+        "http://eestirannik.ut.ee/et",
+        "http://eestirannik.ut.ee/rannatuubid"
+      ],
+      "source_pages": [
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 66,
+      "lesson_end": 66,
+      "topic_et": "Vesi Läänemeres",
+      "concepts_et": [
+        "merevee omadused",
+        "vee soolsus",
+        "segu",
+        "lahus",
+        "lahusti"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 67,
+      "lesson_end": 67,
+      "topic_et": "Elutingimused Läänemeres",
+      "concepts_et": [
+        "riimvesi",
+        "siirdekala"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "kaart või atlas",
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [],
+      "source_pages": [
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 68,
+      "lesson_end": 68,
+      "topic_et": "Mere, ranniku ja saarte elustik",
+      "concepts_et": [
+        "rohevetikad",
+        "pruunvetikad",
+        "punavetikad",
+        "põhjaloomastik"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://loodus.keskkonnainfo.ee:88/ecological/sea/F1172603171"
+      ],
+      "source_pages": [
+        21,
+        22
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 69,
+      "lesson_end": 69,
+      "topic_et": "Läänemere kalad ja rannikulinnud",
+      "concepts_et": [
+        "rannikulinnud"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://rannarohumaad.weebly.com/linnud.html",
+        "http://www.keskkonnaamet.ee/lk100/index.php?id=11021",
+        "http://www.keskkonnaamet.ee/lk100/index.php?id=11376",
+        "http://eestirannik.ut.ee/ulesanded"
+      ],
+      "source_pages": [
+        22
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "lesson-69-topic-continuation"
+      ]
+    },
+    {
+      "lesson_start": 70,
+      "lesson_end": 70,
+      "topic_et": "Mere mõju inimtegevusele ja rannaasustuse kujunemisele",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "pildi- või videomaterjal",
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [
+        "http://ruhnu.ee/",
+        "http://vormsi.ee/",
+        "http://www.saaremaa.ee/",
+        "http://www.puhkaeestis.ee/et/sihtkohad/rannajoon",
+        "http://www.keskkonnaamet.ee/lk100/index.php?id=11350",
+        "http://www.keskkonnaamet.ee/lk100/index.php?id=11383"
+      ],
+      "source_pages": [
+        22
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 71,
+      "lesson_end": 71,
+      "topic_et": "Läänemere reostumine ja kaitse",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele.",
+        "Õpilase enesehinnang."
+      ],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "tööleht või õpimapp"
+      ],
+      "external_links": [
+        "http://www.envir.ee/204864",
+        "http://www.envir.ee/1156547",
+        "http://www.tallinnavesi.ee/images/stories/lastele/R2ndurTilk_toolehed.pdf",
+        "http://www.tallinn.ee/g4128s58376"
+      ],
+      "source_pages": [
+        22,
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 72,
+      "lesson_end": 72,
+      "topic_et": "Rannaasustus, Läänemere reostumine ja kaitse",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 73,
+      "lesson_end": 73,
+      "topic_et": "Kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine.",
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 74,
+      "lesson_end": 74,
+      "topic_et": "Kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 75,
+      "lesson_end": 75,
+      "topic_et": "Kontrolltöö analüüs ja Eesti eluslooduse mitmekesisus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine.",
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass",
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "inimeseõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [],
+      "source_pages": [
+        24
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 76,
+      "lesson_end": 77,
+      "topic_et": "Eesti eluslooduse mitmekesisus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvuti ja internetiühendus"
+      ],
+      "external_links": [],
+      "source_pages": [
+        24
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 78,
+      "lesson_end": 78,
+      "topic_et": "Tootjad, tarbijad ja lagundajad",
+      "concepts_et": [
+        "Toiduvõrgustik",
+        "Laguahel"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        24,
+        25
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 79,
+      "lesson_end": 79,
+      "topic_et": "Toitumissuhted ökosüsteemis",
+      "concepts_et": [
+        "energia",
+        "parasitism",
+        "kisklus",
+        "sümbioos",
+        "konkurents"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        25
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 80,
+      "lesson_end": 80,
+      "topic_et": "Inimese mõju ökosüsteemidele",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        25
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 81,
+      "lesson_end": 81,
+      "topic_et": "Kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs.",
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        25
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 82,
+      "lesson_end": 82,
+      "topic_et": "Kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Paaristöö ja võrdlev analüüs.",
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs.",
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        25
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 83,
+      "lesson_end": 83,
+      "topic_et": "Kontrolltöö analüüs ja loodusvarade jaotamine",
+      "concepts_et": [
+        "loodusvara",
+        "maavara",
+        "taastumatu loodusvara",
+        "taastuv loodusvara"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine.",
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        26
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 84,
+      "lesson_end": 84,
+      "topic_et": "Maavarad ja nende kasutamine",
+      "concepts_et": [
+        "setted (liiv, kruus, savi, turvas)",
+        "kivimid (lubjakivi, graniit, põlevkivi)"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "uuritavad näidised"
+      ],
+      "external_links": [
+        "http://www.ut.ee/BGGM/maavara/maapou.pdf"
+      ],
+      "source_pages": [
+        26
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 85,
+      "lesson_end": 85,
+      "topic_et": "Maavarade kaevandamine",
+      "concepts_et": [
+        "karjäär",
+        "maa-alune kaevandus",
+        "keskkonnaprobleem"
+      ],
+      "methods_and_practical_work": [
+        "Paaristöö ja võrdlev analüüs."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [
+        "http://uttv.ee/naita?id=4909",
+        "http://mi.ttu.ee/polevkivi/"
+      ],
+      "source_pages": [
+        27
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 86,
+      "lesson_end": 86,
+      "topic_et": "Eesti maavarade paiknemine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [
+        "http://www.ut.ee/BGGM/maavara/yleriigilised.pdf"
+      ],
+      "source_pages": [
+        27
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 87,
+      "lesson_end": 87,
+      "topic_et": "Loodusvarad energiaallikatena",
+      "concepts_et": [
+        "energia",
+        "soojusenergia",
+        "elektrienergia"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "https://www.energia.ee/et/polevkivienergeetika-avaleht",
+        "https://www.energia.ee/et/kodu-mudel"
+      ],
+      "source_pages": [
+        27
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 88,
+      "lesson_end": 88,
+      "topic_et": "Uurimustöö planeerimine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        27
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 89,
+      "lesson_end": 89,
+      "topic_et": "Uurimustöö teostamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        27,
+        28
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 90,
+      "lesson_end": 90,
+      "topic_et": "Uurimistööde kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Uurimuse kavandamine, läbiviimine või tulemuste analüüs.",
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        28
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 91,
+      "lesson_end": 91,
+      "topic_et": "Kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        28
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 92,
+      "lesson_end": 92,
+      "topic_et": "Kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        28
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 93,
+      "lesson_end": 93,
+      "topic_et": "Kontrolltöö analüüs ja inimese mõju keskkonnale",
+      "concepts_et": [
+        "loodusmaastik",
+        "kultuurmaastik"
+      ],
+      "methods_and_practical_work": [
+        "Teadmiste ja arusaamise kontroll."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Kontrolltöö või selle tulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.looduskalender.ee/"
+      ],
+      "source_pages": [
+        29
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "analysis-rows-at-block-start"
+      ]
+    },
+    {
+      "lesson_start": 94,
+      "lesson_end": 94,
+      "topic_et": "Looduskaitse Eestis",
+      "concepts_et": [
+        "kaitsealused üksikobjektid",
+        "kaitsealad"
+      ],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [
+        "http://www.keskkonnaamet.ee/keskkonnakaitse/looduskaitse-3/"
+      ],
+      "source_pages": [
+        29
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 95,
+      "lesson_end": 95,
+      "topic_et": "Kaitsealade näiteid",
+      "concepts_et": [
+        "looduskaitsealad",
+        "rahvuspargid",
+        "maastiku-kaitsealad"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöö, info koondamine ja tulemuste esitamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "pildi- või videomaterjal"
+      ],
+      "external_links": [
+        "http://www.keskkonnaamet.ee/lk100/index.php?id=10584"
+      ],
+      "source_pages": [
+        29
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 96,
+      "lesson_end": 96,
+      "topic_et": "Bioloogilise mitmekesisuse kaitse",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Paaristöö ja võrdlev analüüs."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.envir.ee/1688"
+      ],
+      "source_pages": [
+        29,
+        30
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ]
+    },
+    {
+      "lesson_start": 97,
+      "lesson_end": 97,
+      "topic_et": "Niit kui Eesti liigirikkaim kooslus",
+      "concepts_et": [
+        "looduslik niit",
+        "kultuurniit",
+        "puisniit",
+        "pärandkooslus"
+      ],
+      "methods_and_practical_work": [
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.orhidee.ee/index.php?id=5"
+      ],
+      "source_pages": [
+        30
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 98,
+      "lesson_end": 99,
+      "topic_et": "Kodukoha looduskeskkonna muutumine",
+      "concepts_et": [
+        "keskkonnakaitse"
+      ],
+      "methods_and_practical_work": [
+        "Välivaatlus või õppekäik koos tulemuste dokumenteerimisega.",
+        "Praktiline vaatlus või katse ja tulemuste põhjendamine."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õppekäik"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        30
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 100,
+      "lesson_end": 100,
+      "topic_et": "Jäätmekäitlus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.envir.ee/625",
+        "http://www.taaratark.ee/game/"
+      ],
+      "source_pages": [
+        30
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "grade-5-prerequisite-references"
+      ]
+    },
+    {
+      "lesson_start": 101,
+      "lesson_end": 101,
+      "topic_et": "Säästev tarbimine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [
+        "Veebimaterjali, digikaardi või andmestiku kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.envir.ee/2853"
+      ],
+      "source_pages": [
+        30
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 102,
+      "lesson_end": 103,
+      "topic_et": "Kaitseala või kaitstava objekti õppekäik",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Näidete võrdlemine, arutelu ja järelduste sõnastamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaart või atlas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        30
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 104,
+      "lesson_end": 104,
+      "topic_et": "Õppeaasta kokkuvõte",
+      "concepts_et": [
+        "võib olla osa õppekäigust kaitsealale"
+      ],
+      "methods_and_practical_work": [
+        "Õpitu kordamine ja seoste korrastamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpetaja hinnang tööle, vastusele või esitlusele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        31
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 105,
+      "lesson_end": 105,
+      "topic_et": "Aastaplaani allikas jaotamata 105. tund",
+      "concepts_et": [],
+      "methods_and_practical_work": [],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        1,
+        31
+      ],
+      "extraction_confidence": "low",
+      "unresolved_fields": [
+        "annual-lesson-105-unassigned"
+      ],
+      "record_kind": "unassigned_annual_slot"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "air-hour-range",
+      "scope": "thematic_block",
+      "source_pages": [
+        13
+      ],
+      "source_fragment_et": "ÕHK 18-19 tundi (~6 nädalat)",
+      "description_et": "Õhuploki maht on allikas vahemik, mitte üks täisarv.",
+      "normalized_handling_et": "Säilitati range-object minimum 18, maximum 19 ja allikatekst; ühte väärtust ei valitud.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "baltic-hour-range",
+      "scope": "thematic_block",
+      "source_pages": [
+        19
+      ],
+      "source_fragment_et": "LÄÄNEMERI ELUKESKKONNANA 13-14 tundi (~4-5 nädalat)",
+      "description_et": "Läänemere ploki tunnid ja nädalad on esitatud vahemikena.",
+      "normalized_handling_et": "Mõlemad vahemikud säilitati rangete minimum, maximum ja source_text väljadena.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "flexible-hour-allocation-unassigned",
+      "scope": "source_table",
+      "source_pages": [
+        13,
+        19
+      ],
+      "source_fragment_et": "ÕHK 18-19 tundi; LÄÄNEMERI 13-14 tundi",
+      "description_et": "Plokkide miinimumsumma on 104 ja maksimumsumma 106; allikas ei näita, kumba plokki kuulub 105 tunni plaani paindlik tund.",
+      "normalized_handling_et": "Aastamaht 105 valideeritakse vahemiku sees, kuid paindlikku tundi ei omistata ÕHK ega LÄÄNEMERI plokile.",
+      "status": "open"
+    },
+    {
+      "item_id": "annual-lesson-105-unassigned",
+      "scope": "source_table",
+      "source_pages": [
+        1,
+        31
+      ],
+      "source_fragment_et": "Tundide arv: 3 nädalatundi; tabeli viimane nähtav tunninumber on 104.",
+      "description_et": "Aastamaht on 105, kuid PDF-is puudub eraldi nummerdatud 105. tunni rida.",
+      "normalized_handling_et": "Lesson range 105 on madala kindlusega jaotamata aastaplaani koht, mitte välja mõeldud teema ega plokipaigutus.",
+      "status": "open"
+    },
+    {
+      "item_id": "air-numbering-vs-declared-hours",
+      "scope": "thematic_block",
+      "source_pages": [
+        13,
+        14,
+        19
+      ],
+      "source_fragment_et": "ÕHK 18-19 tundi; nähtav jada 42.-61.",
+      "description_et": "Pealkirja vahemik on 18-19 tundi, kuid pealkirjade vahel on 20 tunninumbrit; esimene rida sisaldab eelmise kontrolltöö analüüsi.",
+      "normalized_handling_et": "Pealkirja maht ja nähtav jada säilitati eraldi; analüüsirida ei määratud vaikimisi eelmisele plokile.",
+      "status": "open"
+    },
+    {
+      "item_id": "protection-numbering-vs-declared-hours",
+      "scope": "thematic_block",
+      "source_pages": [
+        28,
+        29,
+        31
+      ],
+      "source_fragment_et": "LOODUS- JA KESKKONNAKAITSE EESTIS 14 tundi; nähtav jada 93.-104.",
+      "description_et": "Pealkiri deklareerib 14 tundi, kuid nähtav tunnijada annab 12 numbrit ja algab eelmise kontrolltöö analüüsiga.",
+      "normalized_handling_et": "Deklareeritud 14 tundi ning nähtav 93-104 jada säilitati muutmata; puuduvaid teemasid ei tuletatud.",
+      "status": "open"
+    },
+    {
+      "item_id": "analysis-rows-at-block-start",
+      "scope": "source_table",
+      "source_pages": [
+        6,
+        10,
+        14,
+        24,
+        26,
+        29
+      ],
+      "source_fragment_et": "Kontrolltöö tulemuste analüüs paikneb uue ploki esimese nummerdatud rea alguses.",
+      "description_et": "Read 13, 28, 42, 75, 83 ja 93 seovad eelmise kontrolltöö analüüsi uue ploki teemaga.",
+      "normalized_handling_et": "Read jäid visuaalse tabelipaigutuse järgi uue pealkirja alla ja märgiti semantiliselt ebaselgeks; neid ei viidud naaberplokki.",
+      "status": "open"
+    },
+    {
+      "item_id": "cross-page-table-continuations",
+      "scope": "source_table",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        30
+      ],
+      "source_fragment_et": "Mitme tunni lahtrid jätkuvad järgmise PDF-lehekülje alguses ilma tunninumbrit kordamata.",
+      "description_et": "Leheküljepiir ei tähista uut tunnikirjet.",
+      "normalized_handling_et": "Jätkuvad lahtrid ühendati eelmise nummerdatud reaga ja mõlemad leheküljed säilitati source_pages väljal.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "grade-5-prerequisite-references",
+      "scope": "lesson_range",
+      "source_pages": [
+        3,
+        30
+      ],
+      "source_fragment_et": "meenutada 5. klassi soo teemat; 5. klassis tehtud kapillaarsuse katset; 5. klassis käsitletut",
+      "description_et": "Tunnid 6, 7 ja 100 viitavad varasema klassi eelteadmistele.",
+      "normalized_handling_et": "Viited säilitati Grade 6 prerequisite-kontekstina ega marsruuditud Grade 5 sisuks.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "lesson-51-topic-continuation",
+      "scope": "lesson_range",
+      "source_pages": [
+        16
+      ],
+      "source_fragment_et": "51. - hapnik - süsihappegaas - lämmastik",
+      "description_et": "Tunni 51 teema lahter jätkab tunni 50 õhu koostise teemat ainult mõistetega.",
+      "normalized_handling_et": "Teemaks normaliseeriti õhu koostise mõisted, säilitades eraldi tunninumbri 51.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "lesson-69-topic-continuation",
+      "scope": "lesson_range",
+      "source_pages": [
+        22
+      ],
+      "source_fragment_et": "69. - kalad - rannikulinnud",
+      "description_et": "Tunni 69 teema lahter jätkab eelmise rea Läänemere elustiku loetelu.",
+      "normalized_handling_et": "Teemaks normaliseeriti Läänemere kalad ja rannikulinnud, säilitades eraldi tunninumbri 69.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "pdf-author-metadata-mismatch",
+      "scope": "source_table",
+      "source_pages": [
+        1
+      ],
+      "source_fragment_et": "Õpetaja: Vaike Rootsmaa",
+      "description_et": "PDF-i nähtav autor on Vaike Rootsmaa, kuid faili tehniline Author-väli on Mare.",
+      "normalized_handling_et": "Autorina säilitati provenance ja nähtava tiitellehe väärtus Vaike Rootsmaa; tehnilist välja ei kasutatud pedagoogilise autorluse tõendina.",
+      "status": "resolved_with_normalization"
+    }
+  ],
+  "completeness": {
+    "source_pages_extracted": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "source_pages_visually_verified": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "lesson_number_coverage": {
+      "lesson_start": 1,
+      "lesson_end": 105,
+      "gaps": [],
+      "overlaps": []
+    },
+    "declared_complete_for_this_pdf": true,
+    "official_curriculum_complete": false,
+    "canonical_opiq_mapping_complete": false
+  }
+}

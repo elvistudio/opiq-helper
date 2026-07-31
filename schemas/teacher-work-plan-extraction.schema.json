@@ -62,6 +62,28 @@
         "minimum": 1
       }
     },
+    "boundedInterval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum", "maximum", "source_text"],
+      "properties": {
+        "minimum": { "type": "number", "exclusiveMinimum": 0 },
+        "maximum": { "type": "number", "exclusiveMinimum": 0 },
+        "source_text": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "hourAllocation": {
+      "oneOf": [
+        { "type": "integer", "minimum": 1 },
+        { "$ref": "#/$defs/boundedInterval" }
+      ]
+    },
+    "weekAllocation": {
+      "oneOf": [
+        { "type": "number", "exclusiveMinimum": 0 },
+        { "$ref": "#/$defs/boundedInterval" }
+      ]
+    },
     "source": {
       "type": "object",
       "additionalProperties": false,
@@ -176,6 +198,7 @@
         "source_pages",
         "declared_hours",
         "main_numbered_lesson_span",
+        "approximate_weeks",
         "teaching_goals",
         "learning_outcomes",
         "learning_content",
@@ -198,7 +221,7 @@
         "title_et": { "$ref": "#/$defs/nonEmptyString" },
         "normalized_summary_et": { "$ref": "#/$defs/nonEmptyString" },
         "source_pages": { "$ref": "#/$defs/pageRefs" },
-        "declared_hours": { "type": "integer", "minimum": 1 },
+        "declared_hours": { "$ref": "#/$defs/hourAllocation" },
         "main_numbered_lesson_span": {
           "type": "object",
           "additionalProperties": false,
@@ -208,7 +231,7 @@
             "lesson_end": { "type": "integer", "minimum": 1 }
           }
         },
-        "approximate_weeks": { "type": "number", "exclusiveMinimum": 0 },
+        "approximate_weeks": { "$ref": "#/$defs/weekAllocation" },
         "teaching_goals": { "$ref": "#/$defs/stringArray" },
         "learning_outcomes": { "$ref": "#/$defs/stringArray" },
         "learning_content": { "$ref": "#/$defs/stringArray" },
@@ -259,7 +282,10 @@
         "external_links": { "$ref": "#/$defs/stringArray" },
         "source_pages": { "$ref": "#/$defs/pageRefs" },
         "extraction_confidence": { "enum": ["high", "medium", "low"] },
-        "unresolved_fields": { "$ref": "#/$defs/stringArray" }
+        "unresolved_fields": { "$ref": "#/$defs/stringArray" },
+        "record_kind": {
+          "enum": ["source_table_row", "unassigned_annual_slot"]
+        }
       }
     },
     "unresolvedItem": {
