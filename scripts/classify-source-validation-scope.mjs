@@ -17,9 +17,13 @@ const CONDITIONAL_JOB_OUTPUTS = Object.freeze([
 ]);
 
 const TEACHER_WORK_PLAN_EXACT = new Set([
+  'source-manifest.json',
   'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
+  'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
   'docs/migrations/teacher-work-plans-5-7-integration.md',
   'schemas/teacher-work-plan-extraction.schema.json',
+  'scripts/classify-source-validation-scope.mjs',
+  'scripts/classify-source-validation-scope.test.mjs',
   'scripts/check-teacher-work-plan-extractions.mjs',
   'scripts/lib/teacher-work-plan-extractions.mjs',
   'scripts/teacher-work-plan-extractions.test.mjs',
@@ -92,6 +96,7 @@ function shouldRunTeacherWorkPlans(paths) {
   return paths.some((repositoryPath) => (
     TEACHER_WORK_PLAN_EXACT.has(repositoryPath)
     || TEACHER_WORK_PLAN_PREFIXES.some((prefix) => repositoryPath.startsWith(prefix))
+    || /^scripts\/[^/]*teacher-work-plan[^/]*$/u.test(repositoryPath)
   ));
 }
 
