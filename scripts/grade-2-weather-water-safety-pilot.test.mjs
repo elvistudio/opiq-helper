@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import test from 'node:test';
 import {
@@ -10,6 +11,7 @@ import {
   validateGrade2WeatherWaterSafetyPilot,
   waterSafetyLanguageContract,
   weatherOutputContract,
+  weatherReportLanguageContract,
 } from './lib/grade-2-weather-water-safety-pilot.mjs';
 import { checkGeneratedLessons } from './generate-grade-2-weather-water-safety-pilot.mjs';
 import { computeTaskFingerprint } from './lib/task-bank.mjs';
@@ -52,11 +54,11 @@ test('focused repository contract passes without errors', () => {
   assert.deepEqual(validation.diagnostics, []);
   assert.deepEqual(validation.summary, {
     modules: 1,
-    authoredLessons: 3,
-    plannedLessons: 1,
-    packMaterials: 30,
+    authoredLessons: 4,
+    plannedLessons: 0,
+    packMaterials: 39,
     approvedTasks: 2,
-    pendingInternalTasks: 2,
+    pendingInternalTasks: 4,
     errors: 0,
   });
 });
@@ -82,15 +84,15 @@ test('module identity and programme period remain exact', () => {
   );
 });
 
-test('exactly three lessons are authored and only slot 4 remains planned', () => {
+test('exactly four lessons are internally authored and no slot remains planned', () => {
   const slots = repository.module.lesson_contract.slots;
-  assert.equal(repository.lessons.length, 3);
+  assert.equal(repository.lessons.length, 4);
   assert.equal(slots.length, 4);
   assert.deepEqual(slots.map((slot) => slot.status), [
     'authored_internal',
     'authored_internal',
     'authored_internal',
-    'planned',
+    'authored_internal',
   ]);
   assert.equal(slots[2].lesson_id, 'grade-2-weather-water-safety-03-safe-decisions');
   assert.equal(slots[2].lesson_path, pilotPaths.lesson3);
@@ -98,16 +100,32 @@ test('exactly three lessons are authored and only slot 4 remains planned', () =>
   assert.equal(slots[2].canonical_route_id, 'grade-2-human-studies');
   assert.equal(slots[2].content_complete, true);
   assert.equal(slots[2].release_ready, false);
-  assert.equal(slots[3].lesson_id, null);
-  assert.equal(slots[3].lesson_path, null);
-  assert.equal(slots[3].content_complete, false);
+  assert.equal(slots[3].lesson_id, 'grade-2-weather-water-safety-04-weather-report');
+  assert.equal(slots[3].lesson_path, pilotPaths.lesson4);
+  assert.equal(slots[3].primary_subject, 'science');
+  assert.equal(slots[3].canonical_route_id, 'grade-2-science');
+  assert.equal(slots[3].content_complete, true);
   assert.equal(slots[3].release_ready, false);
+});
+
+test('lessons 1 through 3 remain byte-stable on the stacked base contract', async () => {
+  const expected = new Map([
+    [pilotPaths.lesson1, '7b763646147d2a76b0e6770b88008812d15b43d162d4dc16cef23bc5cbf3b879'],
+    [pilotPaths.lesson2, '64c74886be109c2dc845b2b90b5163b0632061d97b30a1ed703d1670d450e209'],
+    [pilotPaths.lesson3, '2e95c7b6946dbb7f15be0f6d2641b2be90522c3b4f0cee60234e1abb6c4579a4'],
+  ]);
+  for (const [repositoryPath, fingerprint] of expected) {
+    const content = await fs.readFile(repositoryPath);
+    assert.equal(crypto.createHash('sha256').update(content).digest('hex'), fingerprint);
+  }
 });
 
 test('all module and lesson readiness remains internal and non-release-ready', () => {
   assert.equal(repository.module.delivery.visibility, 'internal_only');
   assert.equal(repository.module.delivery.publication_status, 'internal_review');
-  assert.equal(repository.module.readiness.module_complete, false);
+  assert.equal(repository.module.implementation_status, 'internal_authoring_complete');
+  assert.equal(repository.module.readiness.authoring_complete, true);
+  assert.equal(repository.module.readiness.module_complete, true);
   assert.equal(repository.module.readiness.release_ready, false);
   assert.equal(repository.module.readiness.teacher_approved, false);
   assert.equal(repository.module.readiness.effectiveness_claimed, false);
@@ -151,19 +169,37 @@ test('task-bank approval set is exactly two approved and ten pending', () => {
   )));
 });
 
-test('tasks 09 and 10 remain fingerprint-pinned pending internal integrations', () => {
+test('tasks 09 through 12 remain lesson-scoped fingerprint-pinned pending internal integrations', () => {
   const integration = repository.module.task_bank_integration;
-  assert.equal(integration.pending_internal.lesson_id, lesson(3).lesson_id);
-  assert.equal(integration.pending_internal.publication_unlocks, false);
-  assert.equal(integration.pending_internal.customer_visibility_unlocks, false);
-  assert.deepEqual(
-    integration.pending_internal.task_fingerprints,
-    pendingInternalTaskContracts.map((contract) => ({
-      task_id: contract.taskId,
-      value: contract.fingerprint,
-    })),
-  );
+  assert.equal(integration.pending_internal.length, 2);
+  for (const lessonIndex of [2, 3]) {
+    const expectedLesson = lesson(lessonIndex + 1);
+    const contracts = pendingInternalTaskContracts.filter((contract) => (
+      contract.lessonIndex === lessonIndex
+    ));
+    const group = integration.pending_internal.find((item) => (
+      item.lesson_id === expectedLesson.lesson_id
+    ));
+    assert.equal(group.publication_unlocks, false);
+    assert.equal(group.customer_visibility_unlocks, false);
+    assert.deepEqual(
+      group.task_fingerprints,
+      contracts.map((contract) => ({
+        task_id: contract.taskId,
+        value: contract.fingerprint,
+      })),
+    );
+  }
   assert.deepEqual(integration.pending_unintegrated_task_ids, pendingUnintegratedTaskIds);
+  assert.equal(integration.pending_unintegrated_task_ids.length, 6);
+  const pendingIds = integration.pending_internal.flatMap((group) => (
+    group.task_fingerprints.map((item) => item.task_id)
+  ));
+  assert.equal(new Set(pendingIds).size, pendingIds.length);
+  assert.ok(pendingIds.every((taskId) => (
+    !integration.pending_unintegrated_task_ids.includes(taskId)
+    && !integration.approved.task_ids.includes(taskId)
+  )));
   for (const contract of pendingInternalTaskContracts) {
     const taskReview = review(contract.taskId);
     assert.equal(computeTaskFingerprint(task(contract.taskId)).value, contract.fingerprint);
@@ -240,11 +276,12 @@ test('teacher answers do not leak into learner task files', async () => {
 });
 
 test('pending learner renderings preserve projections and exclude answer contracts', async () => {
-  const teacher = await fs.readFile(
-    pendingInternalTaskContracts[0].teacherPath,
-    'utf8',
-  );
+  const teacherCache = new Map();
   for (const contract of pendingInternalTaskContracts) {
+    const teacher = teacherCache.has(contract.teacherPath)
+      ? teacherCache.get(contract.teacherPath)
+      : await fs.readFile(contract.teacherPath, 'utf8');
+    teacherCache.set(contract.teacherPath, teacher);
     const sourceTask = task(contract.taskId);
     const learner = await fs.readFile(contract.learnerPath, 'utf8');
     for (const sourceLine of [
@@ -272,7 +309,7 @@ test('pending learner renderings preserve projections and exclude answer contrac
   }
 });
 
-test('all three lessons are customer-complete without Opiq', () => {
+test('all four lessons are customer-complete without Opiq', () => {
   for (const lessonData of repository.lessons) {
     assert.equal(lessonData.delivery_model.opiq_required, false);
     assert.equal(lessonData.delivery_model.customer_can_complete_without_opiq, true);
@@ -414,11 +451,14 @@ test('lesson 3 is a 45-minute dry-only sequence with individual work before pair
 
 test('shared product never replaces individual observation, calculation or oral evidence', () => {
   assert.deepEqual(repository.module.shared_product, {
-    product: 'weather_board_and_planned_report',
+    product: 'weather_board_and_group_report',
     assembled_from_attributable_individual_work: true,
     individual_observation_required: true,
     individual_calculation_required: true,
     individual_oral_output_required: true,
+    individual_report_contribution_required: true,
+    individual_exit_ticket_required: true,
+    report_transfer_requires_personal_code: true,
     shared_evidence_replaces_individual: false,
   });
   assert.match(
@@ -521,14 +561,14 @@ test('pending integrations cannot unlock publication or customer visibility', as
       value: 'customer_visible',
     },
     {
-      name: 'pending publication unlock',
-      target: repository.module.task_bank_integration.pending_internal,
+      name: 'lesson 3 pending publication unlock',
+      target: repository.module.task_bank_integration.pending_internal[0],
       field: 'publication_unlocks',
       value: true,
     },
     {
-      name: 'pending visibility unlock',
-      target: repository.module.task_bank_integration.pending_internal,
+      name: 'lesson 4 pending visibility unlock',
+      target: repository.module.task_bank_integration.pending_internal[1],
       field: 'customer_visibility_unlocks',
       value: true,
     },
@@ -574,21 +614,23 @@ test('no supplementary, mixed or simplified route is promoted into the pilot cor
   assert.equal(lesson(1).canonical_route.source_id, 'grade-2-science');
   assert.equal(lesson(2).canonical_route.source_id, 'grade-2-mathematics');
   assert.equal(lesson(3).canonical_route.source_id, 'grade-2-human-studies');
+  assert.equal(lesson(4).canonical_route.source_id, 'grade-2-science');
   assert.equal(lesson(1).differentiation.simplified_curriculum_opt_in.enabled, false);
   assert.equal(lesson(2).differentiation.simplified_curriculum_opt_in.enabled, false);
   assert.equal(lesson(3).differentiation.simplified_curriculum_opt_in.enabled, false);
+  assert.equal(lesson(4).differentiation.simplified_curriculum_opt_in.enabled, false);
 });
 
-test('roadmap truthfully records partial authoring and blocked validation', () => {
+test('roadmap truthfully records complete internal authoring and blocked validation', () => {
   assert.equal(repository.roadmap.status, 'partial_implementation');
   assert.deepEqual(repository.roadmap.implementation_facts, {
     task_bank_status: 'implemented',
-    pilot_authoring_status: 'in_progress',
-    standalone_commercial_core_status: 'partial',
-    authored_lesson_count: 3,
-    planned_lesson_count: 1,
-    pending_task_internal_integration_count: 2,
-    pending_task_unintegrated_count: 8,
+    pilot_authoring_status: 'internal_authoring_complete',
+    standalone_commercial_core_status: 'authored_internal',
+    authored_lesson_count: 4,
+    planned_lesson_count: 0,
+    pending_task_internal_integration_count: 4,
+    pending_task_unintegrated_count: 6,
     pending_task_originality_review_count: 10,
     companion_access_status: 'unverified_internal_only',
     final_riigi_teataja_refresh_status: 'pending_under_issue_37',
@@ -599,6 +641,9 @@ test('roadmap truthfully records partial authoring and blocked validation', () =
     effectiveness_established: false,
   });
   assert.ok(repository.roadmap.release_blocker_codes.includes('ten_task_originality_reviews_pending'));
+  assert.ok(repository.roadmap.release_blocker_codes.includes(
+    'standalone_commercial_core_internal_authoring_complete_not_release_ready',
+  ));
   assert.ok(!repository.roadmap.release_blocker_codes.includes('clean_room_task_bank_not_implemented'));
 });
 
@@ -629,16 +674,146 @@ test('materials index resolves conventional pack roles with teacher-only answers
   assert.deepEqual(repository.materialsIndex.opiq_sources, []);
 });
 
-test('lesson 4 remains planned without authored lesson or pack files', async () => {
-  assert.equal(repository.module.lesson_contract.slots[3].status, 'planned');
-  assert.equal(repository.module.lesson_contract.slots[3].lesson_path, null);
-  const lessonFiles = await fs.readdir('lesson-plans/grade-2/weather-water-safety');
-  const packFiles = await fs.readdir(
-    'teacher-packs/grade-2/weather-water-safety',
-    { recursive: true },
+test('lesson 4 has the exact science identity without promoted task outcomes', () => {
+  const lessonData = lesson(4);
+  assert.equal(lessonData.lesson_id, 'grade-2-weather-water-safety-04-weather-report');
+  assert.equal(lessonData.position_in_unit, 4);
+  assert.equal(lessonData.title_ru, 'Наш отчёт о погоде и итог модуля');
+  assert.equal(lessonData.title_et, 'Meie ilmateade ja mooduli kokkuvõte');
+  assert.equal(lessonData.subject, 'science');
+  assert.equal(lessonData.canonical_route.source_id, 'grade-2-science');
+  assert.deepEqual(
+    lessonData.evidence_linkage.official_outcome_refs,
+    ['ee-prk-2026-stage1-natural-science-guided-inquiry'],
   );
-  assert.ok(!lessonFiles.some((name) => /lesson[-_ ]?0?4/iu.test(name)));
-  assert.ok(!packFiles.some((name) => /lesson[-_ ]?0?4/iu.test(name)));
+  assert.ok(lessonData.objectives.content_objectives.every((objective) => (
+    objective.curriculum_outcome_refs.length === 1
+    && objective.curriculum_outcome_refs[0]
+      === 'ee-prk-2026-stage1-natural-science-guided-inquiry'
+  )));
+  assert.doesNotMatch(
+    JSON.stringify({
+      evidence: lessonData.evidence_linkage,
+      objectives: lessonData.objectives,
+    }),
+    /cross-curricular|mathematics-real-life|assessment-formative/iu,
+  );
+});
+
+test('lesson 4 keeps the exact 45-minute individual-before-group sequence', () => {
+  assert.deepEqual(lesson(4).stages.map((stage) => stage.duration_minutes), [
+    5, 6, 5, 8, 3, 6, 6, 3, 3,
+  ]);
+  assert.deepEqual(lesson(4).stages.map((stage) => stage.stage_id), [
+    'retrieve-module-evidence',
+    'explain-evidence-report-ru',
+    'check-four-point-data',
+    'draft-individual-contribution',
+    'verify-attribution-code',
+    'assemble-shared-weather-report',
+    'complete-individual-exit-ticket',
+    'check-estonian-output-separately',
+    'reflect-and-handoff-evidence',
+  ]);
+  assert.equal(lesson(4).practical_work, null);
+});
+
+test('lesson 4 keeps one exact bounded Estonian output', () => {
+  const language = lesson(4).language_load;
+  assert.deepEqual(language.expected_receptive_language_et, weatherReportLanguageContract.receptive);
+  assert.deepEqual(
+    language.expected_supported_productive_language_et,
+    [weatherReportLanguageContract.sentence],
+  );
+  assert.deepEqual(
+    language.expected_independent_productive_language_et,
+    [weatherReportLanguageContract.sentence],
+  );
+  assert.deepEqual(
+    language.model_sentences.map((item) => item.text_et),
+    [weatherReportLanguageContract.sentence],
+  );
+  assert.deepEqual(
+    language.sentence_frames.map((item) => item.frame_et),
+    [weatherReportLanguageContract.frame],
+  );
+  assert.equal(language.short_expected_oral_answer_et, weatherReportLanguageContract.sentence);
+  assert.equal(lesson(4).questions[0].short_oral_answer_et, weatherReportLanguageContract.sentence);
+  assert.equal(lesson(4).cognitive_load.independent_output_sentences, 1);
+});
+
+test('lesson 4 integrates open task 11 and closed task 12 without changing review state', () => {
+  const contracts = lesson(4).commercial_core.task_contracts;
+  assert.deepEqual(
+    contracts.map((item) => item.task_material_id),
+    ['g2-shared-weather-report-contribution-task', 'g2-weather-exit-ticket-task'],
+  );
+  assert.equal(contracts[0].response_mode, 'open_ended');
+  assert.equal(contracts[0].open_ended, true);
+  assert.ok(contracts[0].open_ended_exemption.reason.length > 10);
+  assert.equal(contracts[1].response_mode, 'short_answer');
+  assert.equal(contracts[1].open_ended, false);
+  assert.deepEqual(
+    contracts[1].expected_answer_material_ids,
+    ['g2-weather-exit-ticket-expected-answers'],
+  );
+  for (const taskId of [
+    'g2-shared-weather-report-contribution-task',
+    'g2-weather-exit-ticket-task',
+  ]) {
+    assert.equal(review(taskId).status, 'pending');
+    assert.equal(review(taskId).reviewer, null);
+    assert.equal(review(taskId).reviewer_role, null);
+    assert.equal(review(taskId).reviewed_on, null);
+    assert.equal(review(taskId).reviewed_version.commit_sha, null);
+  }
+});
+
+test('lesson 4 learner task projections keep exact data and no teacher answer', async () => {
+  const contribution = await fs.readFile(
+    'teacher-packs/grade-2/weather-water-safety/student/g2-shared-weather-report-contribution-task.md',
+    'utf8',
+  );
+  for (const value of ['Северная точка — 8 °C.', 'Восточная точка — 12 °C.', 'Южная точка — 15 °C.', 'Западная точка — 10 °C.']) {
+    assert.ok(contribution.includes(value));
+  }
+  assert.match(contribution, /Личный код/iu);
+  assert.match(contribution, /Только потом группа переносит идеи/iu);
+  const exit = await fs.readFile(
+    'teacher-packs/grade-2/weather-water-safety/student/g2-weather-exit-ticket-task.md',
+    'utf8',
+  );
+  assert.match(exit, /09:00 было 7 °C/iu);
+  assert.match(exit, /13:00 было 14 °C/iu);
+  assert.match(exit, /В 13:00 было холоднее/iu);
+  assert.ok(exit.includes(weatherReportLanguageContract.frame));
+  assert.match(exit, /soojem \| külmem/u);
+  assert.ok(!exit.includes(weatherReportLanguageContract.sentence));
+  assert.match(exit, /Три пронумерованных коротких ответа/iu);
+  assert.match(exit, /1\. Вывод по данным:/u);
+  assert.match(exit, /2\. Исправление и способ проверки:/u);
+  assert.match(exit, /3\. `Kell 13 on ____\.`/u);
+});
+
+test('lesson 4 answer access follows both individual first attempts', () => {
+  const contributionBinding = lesson(4).pedagogical_integration.phase_bindings.find((item) => (
+    item.dna_phase_id === 'draft-individual-contribution'
+  ));
+  const exitBinding = lesson(4).pedagogical_integration.phase_bindings.find((item) => (
+    item.dna_phase_id === 'complete-individual-exit-ticket'
+  ));
+  for (const binding of [contributionBinding, exitBinding]) {
+    assert.equal(binding.source_access_policy, 'closed_first_attempt');
+    assert.equal(binding.render_contract.answer_access_policy, 'after_first_attempt');
+  }
+  assert.deepEqual(
+    contributionBinding.answer_key_material_ids,
+    ['g2-shared-weather-report-success-guidance'],
+  );
+  assert.deepEqual(
+    exitBinding.answer_key_material_ids,
+    ['g2-weather-exit-ticket-expected-answers'],
+  );
 });
 
 test('focused commands and CI path filters cover the new production slice', () => {
