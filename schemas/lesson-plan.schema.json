@@ -221,7 +221,6 @@
         "route_ids",
         "source_evidence_claimed",
         "content_strategy",
-        "replacement_by_human_studies_forbidden",
         "opiq_record_ids",
         "opiq_urls"
       ],
@@ -239,7 +238,7 @@
         "route_ids": { "type": "array", "maxItems": 0 },
         "source_evidence_claimed": { "const": false },
         "content_strategy": { "const": "author_created_required" },
-        "replacement_by_human_studies_forbidden": { "const": true },
+        "replacement_by_human_studies_forbidden": { "type": "boolean" },
         "opiq_record_ids": { "type": "array", "maxItems": 0 },
         "opiq_urls": { "type": "array", "maxItems": 0 }
       }

@@ -486,6 +486,20 @@ test('semantic validation rejects every attempt to turn the PE role into source 
   }
 });
 
+test('semantic validation rejects removal of the exact lesson 3 PE role', async () => {
+  const original = lesson(3).author_created_subject_roles;
+  try {
+    lesson(3).author_created_subject_roles = [];
+    const result = await validateGrade2WeatherWaterSafetyPilot(repository);
+    assert.ok(result.diagnostics.some((item) => (
+      item.code === 'PILOT_PE_ROLE'
+      || item.code === 'PILOT_PLAN_REPOSITORY'
+    )));
+  } finally {
+    lesson(3).author_created_subject_roles = original;
+  }
+});
+
 test('pending integrations cannot unlock publication or customer visibility', async (t) => {
   const cases = [
     {

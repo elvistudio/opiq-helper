@@ -49,6 +49,13 @@ function lessonById(repository, lessonId) {
   return found.data;
 }
 
+function grade2Project(repository, projectId = 'grade-2-project-weather-water-safety') {
+  const found = repository.grade2Programme.projectModules.data.projects
+    .find((project) => project.project_id === projectId);
+  assert.ok(found, `missing Grade 2 project ${projectId}`);
+  return found;
+}
+
 function annual(repository) {
   const found = artifacts(repository, 'annual_course_plan')[0];
   assert.ok(found, 'missing annual course');
@@ -125,6 +132,14 @@ function assertWarnsWithoutErrors(repository, pattern) {
   const foundWarnings = warnings(repository);
   assert.ok(foundWarnings.length > 0, 'expected validation warning');
   assert.match(diagnosticText(foundWarnings), pattern);
+}
+
+function assertHasErrorCodes(repository, expectedCodes) {
+  const found = errors(repository);
+  const codes = new Set(found.map((diagnostic) => diagnostic.code).filter(Boolean));
+  for (const code of expectedCodes) {
+    assert.ok(codes.has(code), `missing diagnostic code ${code}\n${diagnosticText(found)}`);
+  }
 }
 
 test('production repository passes with documented architecture and pedagogical warnings', () => {
@@ -518,6 +533,136 @@ test('author-created bridge with explicit provenance is valid', () => {
     .find((material) => material.provenance.category === 'author_created_bridge');
   assert.ok(bridge);
   assert.match(bridge.provenance.source_reference, /lesson 03/u);
+  assert.deepEqual(errors(repository), []);
+});
+
+test('ordinary Grade 5 lessons cannot legalize outcomes with author-created roles', () => {
+  const repository = cloneRepository();
+  const target = lesson(repository, 1);
+  const outcomeId = 'grade-5-arbitrary-author-created-outcome';
+  target.author_created_subject_roles = [{
+    subject_id: 'grade-2-author-created-english',
+    subject: 'english',
+    subject_et: 'inglise keel',
+    official_outcome_ids: [outcomeId],
+    source_status: 'missing_route',
+    route_ids: [],
+    source_evidence_claimed: false,
+    content_strategy: 'author_created_required',
+    opiq_record_ids: [],
+    opiq_urls: [],
+  }];
+  target.objectives.content_objectives[0].curriculum_outcome_refs.push(outcomeId);
+  assertHasErrorCodes(repository, [
+    'LESSON_AUTHOR_CREATED_ROLE_PROJECT_REQUIRED',
+    'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+  ]);
+});
+
+test('Grade 2 lessons cannot use a role absent from the matching project', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  const outcomeId = 'ee-prk-2026-stage1-foreign-language-a1';
+  target.author_created_subject_roles.push({
+    subject_id: 'grade-2-author-created-english',
+    subject: 'english',
+    subject_et: 'inglise keel',
+    official_outcome_ids: [outcomeId],
+    source_status: 'missing_route',
+    route_ids: [],
+    source_evidence_claimed: false,
+    content_strategy: 'author_created_required',
+    opiq_record_ids: [],
+    opiq_urls: [],
+  });
+  target.objectives.content_objectives[0].curriculum_outcome_refs.push(outcomeId);
+  assertHasErrorCodes(repository, [
+    'LESSON_AUTHOR_CREATED_ROLE_NOT_DECLARED',
+    'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+  ]);
+});
+
+test('matching Grade 2 roles cannot add outcomes absent from the project declaration', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  const role = target.author_created_subject_roles[0];
+  const outcomeId = 'grade-2-undeclared-author-created-outcome';
+  role.official_outcome_ids.push(outcomeId);
+  target.objectives.content_objectives[1].curriculum_outcome_refs.push(outcomeId);
+  assertHasErrorCodes(repository, [
+    'LESSON_AUTHOR_CREATED_ROLE_OUTCOME_NOT_DECLARED',
+    'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+  ]);
+});
+
+test('malformed role outcomes never enter the validated outcome set', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  const role = target.author_created_subject_roles[0];
+  role.official_outcome_ids.push(role.official_outcome_ids[0]);
+  assertHasErrorCodes(repository, [
+    'LESSON_AUTHOR_CREATED_ROLE_OUTCOME_INVALID',
+    'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+  ]);
+});
+
+test('author-created subject metadata must match the declared role identity', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  target.author_created_subject_roles[0].subject = 'human_studies';
+  assertHasErrorCodes(repository, [
+    'LESSON_AUTHOR_CREATED_ROLE_IDENTITY_MISMATCH',
+    'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+  ]);
+});
+
+test('malformed missing-route semantics cannot legalize an objective outcome', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  target.author_created_subject_roles[0].source_evidence_claimed = true;
+  assertHasErrorCodes(repository, [
+    'LESSON_AUTHOR_CREATED_ROLE_MISSING_ROUTE_INVALID',
+    'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+  ]);
+});
+
+test('removing the exact lesson 3 PE role leaves its objective outcome unlinked', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  delete target.author_created_subject_roles;
+  assertHasErrorCodes(repository, ['LESSON_OBJECTIVE_OUTCOME_UNLINKED']);
+});
+
+test('the exact lesson 3 PE role remains valid', () => {
+  const repository = cloneRepository();
+  assert.deepEqual(errors(repository), []);
+});
+
+test('a non-PE missing-route role does not require a human-studies replacement flag', () => {
+  const repository = cloneRepository();
+  const target = lessonById(repository, 'grade-2-weather-water-safety-03-safe-decisions');
+  const project = grade2Project(repository);
+  const outcomeId = 'ee-prk-2026-stage1-foreign-language-a1';
+  project.author_created_subject_roles.push({
+    role_id: 'grade-2-project-weather-water-safety-english-role',
+    subject_id: 'grade-2-author-created-english',
+    role: 'bounded English language contribution',
+    official_outcome_ids: [outcomeId],
+    source_evidence_claimed: false,
+  });
+  target.author_created_subject_roles.push({
+    subject_id: 'grade-2-author-created-english',
+    subject: 'english',
+    subject_et: 'inglise keel',
+    official_outcome_ids: [outcomeId],
+    source_status: 'missing_route',
+    route_ids: [],
+    source_evidence_claimed: false,
+    content_strategy: 'author_created_required',
+    opiq_record_ids: [],
+    opiq_urls: [],
+  });
+  target.objectives.content_objectives[0].curriculum_outcome_refs.push(outcomeId);
   assert.deepEqual(errors(repository), []);
 });
 
