@@ -615,13 +615,18 @@ function validateLessonContracts(diagnostics, repository) {
   const contributionBinding = lesson4.pedagogical_integration?.phase_bindings?.find((entry) => (
     entry.dna_phase_id === 'draft-individual-contribution'
   ));
+  const oralCheckBinding = lesson4.pedagogical_integration?.phase_bindings?.find((entry) => (
+    entry.dna_phase_id === 'check-estonian-output-separately'
+  ));
   if (exitBinding?.source_access_policy !== 'closed_first_attempt'
       || exitBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
-      || !sameSet(exitBinding?.answer_key_material_ids, ['g2-weather-exit-ticket-expected-answers'])
+      || !sameSet(exitBinding?.answer_key_material_ids, [])
       || contributionBinding?.source_access_policy !== 'closed_first_attempt'
       || contributionBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
-      || !sameSet(contributionBinding?.answer_key_material_ids, ['g2-shared-weather-report-success-guidance'])) {
-    diagnostic(diagnostics, 'PILOT_LESSON_4_FIRST_ATTEMPT', pilotPaths.lesson4, '/pedagogical_integration/phase_bindings', 'both pending tasks require an individual closed first attempt before teacher-only guidance');
+      || !sameSet(contributionBinding?.answer_key_material_ids, ['g2-shared-weather-report-success-guidance'])
+      || oralCheckBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
+      || !sameSet(oralCheckBinding?.answer_key_material_ids, ['g2-weather-exit-ticket-expected-answers'])) {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_FIRST_ATTEMPT', pilotPaths.lesson4, '/pedagogical_integration/phase_bindings', 'both pending tasks require an individual closed first attempt and task 12 answers may appear only in the later oral check');
   }
   const lesson4SubjectCriteria = lesson4.assessment?.filter((entry) => entry.affects === 'subject_assessment') ?? [];
   const lesson4LanguageCriteria = lesson4.assessment?.filter((entry) => entry.affects === 'language_assessment') ?? [];
@@ -629,9 +634,85 @@ function validateLessonContracts(diagnostics, repository) {
     'weather-report-individual-contribution',
     'weather-report-exit-data',
   ])
-      || lesson4LanguageCriteria.length !== 3
+      || !sameSet(lesson4LanguageCriteria.map((entry) => entry.criterion_id), [
+        'weather-report-et-recognition',
+        'weather-report-et-supported',
+        'weather-report-et-independent',
+      ])
       || lesson4.assessment?.some((entry) => entry.affects === 'both')) {
     diagnostic(diagnostics, 'PILOT_LESSON_4_EVIDENCE', pilotPaths.lesson4, '/assessment', 'individual contribution, exit content, and the three language evidence levels must remain independently scored');
+  }
+  const phaseBindings = lesson4.pedagogical_integration?.phase_bindings ?? [];
+  const bindingByStage = new Map(phaseBindings.map((entry) => [entry.dna_phase_id, entry]));
+  const expectedAssessmentRefs = new Map(expectedStageIds.map((stageId) => [stageId, []]));
+  expectedAssessmentRefs.set('verify-attribution-code', [
+    'weather-report-individual-contribution',
+  ]);
+  expectedAssessmentRefs.set('complete-individual-exit-ticket', [
+    'weather-report-exit-data',
+    'weather-report-et-recognition',
+    'weather-report-et-supported',
+  ]);
+  expectedAssessmentRefs.set('check-estonian-output-separately', [
+    'weather-report-et-independent',
+  ]);
+  const subjectIntegration = lesson4.pedagogical_integration?.assessment_integration
+    ?.subject_assessment;
+  const languageIntegration = lesson4.pedagogical_integration?.assessment_integration
+    ?.estonian_language_assessment;
+  const criterionAffects = new Map((lesson4.assessment ?? []).map((entry) => (
+    [entry.criterion_id, entry.affects]
+  )));
+  const exitAnswerBindings = phaseBindings.filter((entry) => (
+    entry.answer_key_material_ids?.includes('g2-weather-exit-ticket-expected-answers')
+  ));
+  const verifyBinding = bindingByStage.get('verify-attribution-code');
+  const reflectionBinding = bindingByStage.get('reflect-and-handoff-evidence');
+  const assessmentBindingsExact = phaseBindings.length === expectedStageIds.length
+    && expectedStageIds.every((stageId) => (
+      JSON.stringify(bindingByStage.get(stageId)?.assessment_refs)
+        === JSON.stringify(expectedAssessmentRefs.get(stageId))
+    ));
+  if (!assessmentBindingsExact
+      || verifyBinding?.render_contract?.evaluation_mode !== 'evidence_criterion'
+      || verifyBinding?.answer_key_material_ids?.length !== 0
+      || exitBinding?.render_contract?.evaluation_mode !== 'evidence_criterion'
+      || exitBinding?.source_access_policy !== 'closed_first_attempt'
+      || exitBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
+      || oralCheckBinding?.render_contract?.evaluation_mode !== 'evidence_criterion'
+      || oralCheckBinding?.render_contract?.answer_access_policy !== 'after_first_attempt'
+      || exitAnswerBindings.length !== 1
+      || exitAnswerBindings[0]?.dna_phase_id !== 'check-estonian-output-separately'
+      || reflectionBinding?.assessment_refs?.length !== 0
+      || reflectionBinding?.render_contract?.evaluation_mode !== 'teacher_observation'
+      || reflectionBinding?.source_access_policy !== 'open'
+      || reflectionBinding?.render_contract?.answer_access_policy !== 'not_applicable'
+      || JSON.stringify(subjectIntegration?.target_phase_ids) !== JSON.stringify([
+        'verify-attribution-code',
+        'complete-individual-exit-ticket',
+      ])
+      || JSON.stringify(subjectIntegration?.criterion_refs) !== JSON.stringify([
+        'weather-report-individual-contribution',
+        'weather-report-exit-data',
+      ])
+      || JSON.stringify(languageIntegration?.target_phase_ids) !== JSON.stringify([
+        'complete-individual-exit-ticket',
+        'check-estonian-output-separately',
+      ])
+      || JSON.stringify(languageIntegration?.criterion_refs) !== JSON.stringify([
+        'weather-report-et-recognition',
+        'weather-report-et-supported',
+        'weather-report-et-independent',
+      ])
+      || subjectIntegration?.criterion_refs?.some((criterionId) => (
+        criterionAffects.get(criterionId) !== 'subject_assessment'
+      ))
+      || languageIntegration?.criterion_refs?.some((criterionId) => (
+        criterionAffects.get(criterionId) !== 'language_assessment'
+      ))
+      || lesson4.pedagogical_integration?.assessment_integration?.separation_policy
+        !== 'separate_subject_and_estonian_language_evidence') {
+    diagnostic(diagnostics, 'PILOT_LESSON_4_ASSESSMENT_BINDING', pilotPaths.lesson4, '/pedagogical_integration', 'lesson 4 assessment criteria, subject/language targets, first-attempt answer release, and unscored reflection must remain bound to their exact phases');
   }
 }
 
