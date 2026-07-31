@@ -1,0 +1,2831 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "teacher_work_plan_extraction",
+  "extraction_id": "grade-7-science-teacher-work-plan-extraction",
+  "source": {
+    "repository_path": "project-files/inputs/originals/teacher-work-plans/Opetaja-tookava-Loodusopetus-7-klass.pdf",
+    "original_filename": "Õpetaja-töökava_Loodusõpetus_7.-klass.pdf",
+    "sha256": "fb883aaf6429af4b543def1eb18deca3909ec541b4eaa5eccc7efb880368f35f",
+    "byte_size": 325726,
+    "page_count": 17,
+    "displayed_title": "ÕPETAJA TÖÖKAVA",
+    "author": "Riina Murulaid",
+    "grade": 7,
+    "subject": "science",
+    "subject_et": "loodusõpetus",
+    "language": "et",
+    "provenance_kind": "supplementary_teacher_work_plan",
+    "canonical": false
+  },
+  "extraction": {
+    "method": "embedded_text_plus_visual_page_verification",
+    "embedded_text_used": true,
+    "visual_verification": "all_pages_rendered_and_reviewed",
+    "verified_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "ocr_used": false,
+    "transformations": [
+      "PDF-i sisseehitatud tekst eraldati tabelite kaupa ja pikad lahtrid normaliseeriti lühikesteks eestikeelseteks väljadeks.",
+      "Lehekülgede vahel jätkuvad tabeliread ühendati kõigi 17 renderdatud lehekülje visuaalse kontrolli alusel.",
+      "Kõik nähtavad tunninumbrid 1-70 säilitati 58 source-table range-kirjes ning numbrita kokkuvõtterida eraldi unnumbered_rows kirjes.",
+      "PDF-i trükitud ja annotatsioonidena talletatud URL-id säilitati source-captured linkidena ilma nende praegust toimivust väitmata."
+    ],
+    "limitations": [
+      "Allikas on õpetaja töökava näidis, mitte ametliku õppekava ammendav ega kohustuslik järjestus.",
+      "Plokkide pealkirjad ei deklareeri tunnimahte; plokkide mahud tuletati üksnes nähtavatest nummerdatud tunnivahemikest.",
+      "Kolmanda ploki eraldi trükitud pealkirja ei tuvastatud; nimetus LOODUSNÄHTUSED normaliseeriti tunni 35, õppesisu ja tunni 52 kokkuvõtte põhjal.",
+      "Planeerimismärkused nimetavad viis vaheaega, ei kasuta trimestri- ega veerandijaotust ning jätavad ligikaudu kümme varutundi; need ei tõenda õppekava täielikkust.",
+      "PDF-is leiduvate vanade välislinkide praegust kättesaadavust ega sisu ei kontrollitud.",
+      "Lehekülg 17 sisaldab ainult leheküljenumbrit ning ei loonud õppekirjet.",
+      "Kanooniliste Opiq-lehtede ja URL-idega vastendamine on teadlikult edasi lükatud."
+    ]
+  },
+  "route_context": {
+    "source_id": "grade-7-science",
+    "md_path": "project-files/outputs/opiq_7klass_loodusopetus.md",
+    "mapping_status": "deferred"
+  },
+  "annual_allocation": {
+    "weekly_hours": 2,
+    "declared_annual_hours": 70,
+    "extracted_lesson_span": {
+      "lesson_start": 1,
+      "lesson_end": 70
+    }
+  },
+  "general_learning_outcomes": {
+    "source_pages": [
+      1
+    ],
+    "values_and_attitudes": [
+      "Õpilane tunneb huvi loodusteaduste õppimise ning loodusteadusliku ja tehnikaalase karjääri vastu.",
+      "Õpilane väärtustab uurimistegevust ja loovust loodusnähtuste tundmaõppimisel.",
+      "Õpilane usub oma võimetesse ja tegutseb loodusnähtusi uurides enesekindlalt.",
+      "Õpilane järgib katsetamisel kokkuleppeid ning hoiab korda ja katsevahendeid.",
+      "Õpilane väärtustab elusa ja eluta looduse mitmekesisust."
+    ],
+    "inquiry_skills": [
+      "Õpilane vaatleb ja esitab loodusteaduslikke küsimusi.",
+      "Õpilane sõnastab katse või vaatlusega kontrollitava uurimisküsimuse või hüpoteesi.",
+      "Õpilane kavandab ja viib koostöös läbi uurimuse või katse.",
+      "Õpilane eristab mõõdetavaid ja mittemõõdetavaid muutujaid.",
+      "Õpilane eristab lihtsas katses sõltumatut ja sõltuvat muutujat.",
+      "Õpilane hindab andmete usaldusväärsust ning kordus- ja kontrollkatsete vajadust.",
+      "Õpilane esitab tulemusi tabelite ja diagrammidena.",
+      "Õpilane leiab seoseid graafiliselt ja mittegraafiliselt esitatud andmetes.",
+      "Õpilane teeb andmetest järeldusi, ennustab tulemusi ja hindab hüpoteesi.",
+      "Õpilane esitab uurimistulemusi suuliselt, kirjalikult ja visuaalselt.",
+      "Õpilane rakendab loodusteaduslike probleemide lahendamisel matemaatikat.",
+      "Õpilane järgib katsejuhendeid ja ohutusnõudeid.",
+      "Õpilane põhjendab loodusteaduslike teadmiste vajalikkust igapäevaelus."
+    ]
+  },
+  "thematic_blocks": [
+    {
+      "block_id": "inimene-uurib-loodust",
+      "title_et": "INIMENE UURIB LOODUST",
+      "normalized_summary_et": "Loodusteaduslikku uurimist, mõõtmist, mõõtemääramatust ja andmete graafilist esitamist rakendatakse praktiliste mõõtmis- ja kaardistamisülesannete kaudu.",
+      "source_pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "derived_hours": {
+        "minimum": 19,
+        "maximum": 19,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 1-19"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 1,
+        "lesson_end": 19
+      },
+      "teaching_goals": [
+        "Arendada teadusliku ja mitteteadusliku info eristamist.",
+        "Õpetada mõõteriistade kasutamist ja usaldusväärsete mõõtmistulemuste hindamist.",
+        "Rakendada uurimuse etappe, muutujaid ja graafilist andmeesitust."
+      ],
+      "learning_outcomes": [
+        "Õpilane mõistab loodusteaduste ja tehnoloogia tähtsust.",
+        "Õpilane kirjeldab kehade omadusi kvalitatiivselt ja kvantitatiivselt.",
+        "Õpilane mõõdab pikkust, pindala, ruumala ja massi ning seostab uue varasemate teadmistega."
+      ],
+      "learning_content": [
+        "Loodusteadused ja tehnoloogia.",
+        "Teaduslik meetod, vaatlus ja katse.",
+        "Mõõteriistad, mõõteühikud ja mõõtmistulemuste usaldusväärsus.",
+        "Andmete graafiline esitamine."
+      ],
+      "key_concepts": [
+        "mõõtmine",
+        "mõõtühik",
+        "mõõteriist",
+        "füüsikaline suurus",
+        "pikkus",
+        "pindala",
+        "ruumala",
+        "mass"
+      ],
+      "practical_work": [
+        "Mõõteriistade kasutamine.",
+        "Kehade pikkuse, pindala, ruumala ja massi mõõtmine.",
+        "Objekti mõõdistamine ja plaani koostamine.",
+        "Muutujate seose uurimine graafikul."
+      ],
+      "ict_activities": [
+        "Digitaalsete mõõteriistade, veebiallikate ja graafikute kasutamine."
+      ],
+      "assessment": [
+        "Mõõtmisoskuse, ühikute teisendamise, töö vormistamise ja uurimistulemuste esitamise hindamine."
+      ],
+      "cross_curricular_links": [
+        "matemaatika",
+        "geograafia",
+        "ajalugu",
+        "ühiskonnaõpetus",
+        "eesti keel",
+        "kehaline kasvatus"
+      ],
+      "transversal_themes": [
+        "elukestev õpe ja karjääri planeerimine",
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "ühiskonna jätkusuutlik areng",
+        "kultuuriline identiteet"
+      ],
+      "equipment_and_materials": [
+        "mõõteriistad",
+        "kaalud",
+        "termomeetrid",
+        "mõõtesilinder",
+        "ülevooluanum",
+        "mõõdulint"
+      ],
+      "external_links": [
+        "novaator.ee",
+        "loodusajakiri.ee",
+        "ilmateenistus.ee",
+        "http://www.globe.ee/doc/GLOBE_atmosfaar_2.PDF",
+        "http://opetaja.edu.ee/hindamismudelid/index.php",
+        "http://www.kalkulaator.ee/?lang=1&page=12",
+        "http://www.sisekaitse.ee/?id=28068"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "unnumbered-wrap-up-row",
+        "lesson-14-missing-topic-cell",
+        "cross-page-table-continuations",
+        "previous-grade-prerequisite-references"
+      ]
+    },
+    {
+      "block_id": "ainete-ja-kehade-mitmekesisus",
+      "title_et": "AINETE JA KEHADE MITMEKESISUS",
+      "normalized_summary_et": "Ainete ehitust, olekuid, tihedust, puhtaid aineid, segusid ja lahuseid uuritakse mudelite, mõõtmiste ning segude eraldamise kaudu.",
+      "source_pages": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "derived_hours": {
+        "minimum": 15,
+        "maximum": 15,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 20-34"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 20,
+        "lesson_end": 34
+      },
+      "teaching_goals": [
+        "Selgitada ainete osakestest koosnemist ja mudelite kasutamist.",
+        "Õpetada aine omaduste, tiheduse, lahuste ja segude uurimist.",
+        "Harjutada sobivate segude eraldamise meetodite valimist."
+      ],
+      "learning_outcomes": [
+        "Õpilane eristab aatomit, molekuli, lihtainet ja liitainet.",
+        "Õpilane valmistab lahuse ja lahutab segu sobiva meetodiga.",
+        "Õpilane eristab aineid omaduste järgi ja kasutab nähtuse selgitamiseks mudelit."
+      ],
+      "learning_content": [
+        "Aatom, molekul, rakk ja keemiline element.",
+        "Aine olekud ja tihedus.",
+        "Puhtad ained, segud, materjalid ja lahused."
+      ],
+      "key_concepts": [
+        "aatom",
+        "molekul",
+        "keemiline element",
+        "lihtaine",
+        "liitaine",
+        "puhas aine",
+        "segu",
+        "lahus",
+        "tihedus",
+        "mudel"
+      ],
+      "practical_work": [
+        "Molekulimudelite koostamine.",
+        "Tiheduse määramine.",
+        "Lahuse omaduste uurimine.",
+        "Segu lahutamine ja kromatograafia."
+      ],
+      "ict_activities": [
+        "Perioodilisuse tabelite, aine olekute simulatsioonide ja videote kasutamine."
+      ],
+      "assessment": [
+        "Laboritöö oskuste, arvutuste, mudelite ja tööde kaitsmise hindamine."
+      ],
+      "cross_curricular_links": [
+        "keemia",
+        "füüsika",
+        "bioloogia",
+        "matemaatika",
+        "geograafia",
+        "inimeseõpetus",
+        "kunstiõpetus"
+      ],
+      "transversal_themes": [
+        "teabekeskkond",
+        "tervis ja ohutus",
+        "tehnoloogia ja innovatsioon",
+        "ühiskonna jätkusuutlik areng",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "molekulimudelid",
+        "kaalud",
+        "mõõtesilindrid",
+        "kivimite ja mineraalide kogud",
+        "segude eraldamise vahendid"
+      ],
+      "external_links": [
+        "http://www.ptable.com/",
+        "http://www.periodictable.com/",
+        "http://www.webelements.com/",
+        "http://koolielu.ee/waramu/view/1-3c6b4eed-dd52-4489-bcc9-bf8c39db0561",
+        "http://www.periodicvideos.com/",
+        "https://phet.colorado.edu/en/simulation/legacy/states-of-matter-basics",
+        "http://youtu.be/E8AvfXar9zs",
+        "http://youtu.be/bJDeoah-Cd0"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "lesson-33-missing-topic-cell",
+        "cross-page-table-continuations",
+        "previous-grade-prerequisite-references"
+      ]
+    },
+    {
+      "block_id": "loodusnahtused",
+      "title_et": "LOODUSNÄHTUSED",
+      "normalized_summary_et": "Füüsikalisi, keemilisi ja bioloogilisi nähtusi seostatakse liikumise, energia, soojusjuhtivuse, reaktsioonide, kivimite ning organismide kasvu ja arenguga.",
+      "source_pages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "derived_hours": {
+        "minimum": 18,
+        "maximum": 18,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 35-52"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 35,
+        "lesson_end": 52
+      },
+      "teaching_goals": [
+        "Eristada füüsikalisi, keemilisi ja bioloogilisi nähtusi.",
+        "Rakendada kiiruse, energia ja soojusjuhtivuse mõisteid.",
+        "Uurida keemilisi reaktsioone ja organismide kasvu katsete abil."
+      ],
+      "learning_outcomes": [
+        "Õpilane liigitab loodusnähtusi ja kirjeldab liikumist.",
+        "Õpilane selgitab energia ülekandumist ja muundumist.",
+        "Õpilane uurib soojusjuhtivust, keemilisi reaktsioone ning kasvu ja arengut."
+      ],
+      "learning_content": [
+        "Liikumine ja kiirus.",
+        "Energia liigid, ülekandumine ja muundumine.",
+        "Soojusjuhtivus.",
+        "Keemiline reaktsioon.",
+        "Organismide kasv ja areng."
+      ],
+      "key_concepts": [
+        "energia",
+        "mehaaniline liikumine",
+        "trajektoor",
+        "kiirus",
+        "keemiline reaktsioon",
+        "põlemine",
+        "hingamine",
+        "kõdunemine",
+        "fotosüntees"
+      ],
+      "practical_work": [
+        "Kiiruse mõõtmine.",
+        "Energia muundumise ja soojusjuhtivuse uurimine.",
+        "Keemiliste reaktsioonide ja kivimite uurimine.",
+        "Pikaajaline kasvukatse."
+      ],
+      "ict_activities": [
+        "Rändekaardi, katsevideote ja andmelugejate kasutamine."
+      ],
+      "assessment": [
+        "Probleemülesanded, praktilised tööd, tööde kaitsmine ja kokkuvõtte esitamine."
+      ],
+      "cross_curricular_links": [
+        "matemaatika",
+        "inimeseõpetus",
+        "geograafia",
+        "eesti keel",
+        "tööõpetus",
+        "käsitöö",
+        "bioloogia"
+      ],
+      "transversal_themes": [
+        "tervis ja ohutus",
+        "ühiskonna jätkusuutlik areng",
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet"
+      ],
+      "equipment_and_materials": [
+        "stopper",
+        "joonlaud",
+        "küünal",
+        "termomeeter",
+        "soojustusmaterjalid",
+        "reaktiivid",
+        "kivimid",
+        "salatiseemned"
+      ],
+      "external_links": [
+        "http://birdmap.5dvision.ee/",
+        "http://rakett69.ee/internetisaated/ii-hooaeg/saade/37890428",
+        "http://koolielu.ee/waramu/view/1-b521be3f-3307-4f83-919d-0d01a24a6545",
+        "http://www.chemicum.com/ava.htm"
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "third-block-heading-not-printed",
+        "previous-grade-prerequisite-references"
+      ]
+    },
+    {
+      "block_id": "elusa-ja-eluta-looduse-seosed",
+      "title_et": "ELUSA JA ELUTA LOODUSE SEOSED",
+      "normalized_summary_et": "Ökosüsteeme, süsinikuringet, fotosünteesi, kohastumist, looduslikku tasakaalu, säästvat tarbimist ja taaskasutust uuritakse praktiliste ning projektipõhiste tegevustega.",
+      "source_pages": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "derived_hours": {
+        "minimum": 18,
+        "maximum": 18,
+        "basis": "numbered_lesson_span",
+        "source_text": "lessons 53-70"
+      },
+      "main_numbered_lesson_span": {
+        "lesson_start": 53,
+        "lesson_end": 70
+      },
+      "teaching_goals": [
+        "Selgitada elusa ja eluta looduse seoseid süsinikuringe näitel.",
+        "Seostada kohastumisi keskkonnatingimustega.",
+        "Arendada säästva tarbimise, taaskasutuse ja keskkonnamõju analüüsi oskust."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab süsinikuringet ja põhjendab energiasäästu vajadust.",
+        "Õpilane seostab kohastumisi füüsikalis-keemiliste tingimustega.",
+        "Õpilane esitab taaskasutusideid ja analüüsib ökoloogilist jalajälge."
+      ],
+      "learning_content": [
+        "Ökosüsteemid ja süsinikuringe.",
+        "Kohastumine keskkonnatingimustega.",
+        "Inimtegevus, tehnoloogia ja looduslik tasakaal.",
+        "Energia tarbimine ja materjalide taaskasutamine."
+      ],
+      "key_concepts": [
+        "süsinikuringe",
+        "kohanemine",
+        "kohastumine",
+        "kasvuhooneefekt",
+        "ökoloogiline jalajälg",
+        "taaskasutus"
+      ],
+      "practical_work": [
+        "Ökosüsteemi taimeruuduga uurimine.",
+        "Fotosünteesi ja kasvuhooneefekti uurimine.",
+        "Aastarõngaste uurimine.",
+        "Ökoloogilise jalajälje projekt ja taaskasutustoote valmistamine."
+      ],
+      "ict_activities": [
+        "Satelliitpiltide, virtuaalkatsete, jalajäljekalkulaatori ja õppevideote kasutamine."
+      ],
+      "assessment": [
+        "Projektitöö, rühmaettekanne, praktilise töö tulemused ja näitus."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "tööõpetus",
+        "inimeseõpetus",
+        "ajalugu",
+        "eesti keel",
+        "käsitöö",
+        "kunstiõpetus"
+      ],
+      "transversal_themes": [
+        "ühiskonna jätkusuutlik areng",
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet"
+      ],
+      "equipment_and_materials": [
+        "taimeruudu vahendid",
+        "vesikatk ja katsevahendid",
+        "puutüve läbilõiked",
+        "termomeeter",
+        "taaskasutatavad materjalid"
+      ],
+      "external_links": [
+        "http://www.accuweather.com/en/ee/national/satellite",
+        "https://www.youtube.com/watch?v=S-3FQvBXnfs&list=PLl6vIhcYSFdnZzVJXDW6jyHB4E1oAJxz_",
+        "http://sahm.ttu.ee/balticseapic/index.php",
+        "http://www.ut.ee/volvox/materials/fotosyntees.pdf",
+        "http://mudelid.5dvision.ee/leht/",
+        "http://entsyklopeedia.ee/artikkel/aastar%C3%B5ngas1",
+        "http://jalajalg.positium.ee/",
+        "http://eestipandipakend.ee/oppematerjalid/"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "reserve-hours-note-vs-visible-range",
+        "reserve-range-not-six-distinct-topics",
+        "cross-page-table-continuations",
+        "previous-grade-prerequisite-references"
+      ]
+    }
+  ],
+  "lesson_ranges": [
+    {
+      "lesson_start": 1,
+      "lesson_end": 1,
+      "topic_et": "Loodusainete uurimisvaldkonnad",
+      "concepts_et": [
+        "keemia",
+        "füüsika",
+        "bioloogia"
+      ],
+      "methods_and_practical_work": [
+        "Loodusajakirjade ja tööraamatu abil võrreldakse loodusainete uurimisobjekte ning meetodeid."
+      ],
+      "ict": [
+        "Veebipõhiste loodusteadusallikate uurimine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusained"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon",
+        "teabekeskkond",
+        "elukestev õpe ja karjääri planeerimine",
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "loodusajakirjad",
+        "tööraamat"
+      ],
+      "external_links": [
+        "novaator.ee",
+        "loodusajakiri.ee"
+      ],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 2,
+      "lesson_end": 2,
+      "topic_et": "Teadus ja tehnoloogia ning teadusliku teadmise eristamine",
+      "concepts_et": [
+        "teadus",
+        "tehnoloogia",
+        "mitteteaduslik teadmine"
+      ],
+      "methods_and_practical_work": [
+        "Arutletakse loodusteaduslike teadmistega seotud elukutsete, õppimisvõimaluste ja piiriteaduste üle."
+      ],
+      "ict": [],
+      "assessment": [
+        "Arutelus põhjendatud teadusliku ja mitteteadusliku info eristamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "keemia",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine",
+        "tehnoloogia ja innovatsioon",
+        "ühiskonna jätkusuutlik areng",
+        "kultuuriline identiteet"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 3,
+      "lesson_end": 3,
+      "topic_et": "Uurimuse etapid",
+      "concepts_et": [
+        "uurimisküsimus",
+        "hüpotees",
+        "uurimismeetod"
+      ],
+      "methods_and_practical_work": [
+        "Meenutatakse varasemaid uurimusi ja sõnastatakse hüpoteese."
+      ],
+      "ict": [],
+      "assessment": [
+        "Uurimuse etappide ja hüpoteesi sõnastamise kontroll."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusained",
+        "5. klassi loodusõpetus",
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 4,
+      "lesson_end": 5,
+      "topic_et": "Vaatlus ja katse",
+      "concepts_et": [
+        "vaatlus",
+        "katse",
+        "lühiuurimus"
+      ],
+      "methods_and_practical_work": [
+        "Kavandatakse lühiuurimus või pilvevaatlus ning arutatakse töö planeerimist ja tulemuste tutvustamist."
+      ],
+      "ict": [
+        "Ilmateenistuse ja GLOBE atmosfäärimaterjali kasutamine."
+      ],
+      "assessment": [
+        "Valmistöö tutvustamine kaasõpilastele."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "aineülene uurimus"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus",
+        "teabekeskkond"
+      ],
+      "materials": [
+        "tööraamat",
+        "veebimaterjalid"
+      ],
+      "external_links": [
+        "ilmateenistus.ee",
+        "http://www.globe.ee/doc/GLOBE_atmosfaar_2.PDF"
+      ],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 6,
+      "lesson_end": 6,
+      "topic_et": "Kehade omadused ja mõõtmine",
+      "concepts_et": [
+        "keha omadus",
+        "mõõtmine",
+        "mõõteriist"
+      ],
+      "methods_and_practical_work": [
+        "Arutletakse mõõtmise ajaloo ja mõõteriistade kasutamise üle."
+      ],
+      "ict": [],
+      "assessment": [
+        "Hindamismudelite abil võib kavandada mõõtmisoskuse hindamise."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "ühiskonnaõpetus",
+        "matemaatika",
+        "varasem loodusõpetus"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon",
+        "ühiskonna jätkusuutlik areng",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "mõõteriistad"
+      ],
+      "external_links": [
+        "http://opetaja.edu.ee/hindamismudelid/index.php"
+      ],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 7,
+      "lesson_end": 7,
+      "topic_et": "Füüsikaline suurus ja mõõteühik",
+      "concepts_et": [
+        "füüsikaline suurus",
+        "mõõteühik"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse vanu ja uusi mõõtühikuid ning eri riikide ühikuid."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "kultuuriline identiteet"
+      ],
+      "materials": [
+        "mõõtühikute tabelid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 8,
+      "lesson_end": 8,
+      "topic_et": "Mõõtmine ja mõõteriist",
+      "concepts_et": [
+        "mõõtepiirkond",
+        "skaala väikseim jaotis",
+        "otsene mõõtmine",
+        "kaudne mõõtmine",
+        "hindamine"
+      ],
+      "methods_and_practical_work": [
+        "Määratakse mõõteriistade mõõtepiirkond ja skaala jaotised ning mõõdetakse lihtsamaid füüsikalisi suurusi."
+      ],
+      "ict": [
+        "Digitaalsete ja tavaliste mõõteriistade skaalade võrdlemine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "keemia",
+        "füüsika",
+        "liiklusõpetus",
+        "3. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "kaalud",
+        "termomeetrid",
+        "joonlaud"
+      ],
+      "external_links": [],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 9,
+      "lesson_end": 10,
+      "topic_et": "Pindala mõõtmine ja mõõteühikute teisendamine",
+      "concepts_et": [
+        "pindala",
+        "ühikruudu meetod",
+        "mõõteühikute teisendamine"
+      ],
+      "methods_and_practical_work": [
+        "Mõõdetakse puulehtede, peopesa või mündi pindala."
+      ],
+      "ict": [
+        "Ühikute teisendamise veebikeskkonna kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "pindala mõõtmise objektid"
+      ],
+      "external_links": [
+        "http://www.kalkulaator.ee/?lang=1&page=12"
+      ],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 11,
+      "lesson_end": 12,
+      "topic_et": "Ruumala mõõtmine ja ruumalaühikute teisendamine",
+      "concepts_et": [
+        "ruumala",
+        "ruumalaühik",
+        "ühikute teisendamine"
+      ],
+      "methods_and_practical_work": [
+        "Mõõdetakse korrapärase keha, kivi, ehte ja väljahingatava õhu ruumala."
+      ],
+      "ict": [],
+      "assessment": [
+        "Vormistatud mõõtmistulemuste hindamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "keemia",
+        "füüsika",
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "mõõtesilinder",
+        "ülevooluanum"
+      ],
+      "external_links": [],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 13,
+      "lesson_end": 13,
+      "topic_et": "Mass",
+      "concepts_et": [
+        "mass"
+      ],
+      "methods_and_practical_work": [
+        "Mõõdetakse massi erinevate kaaludega ja võrreldakse loomade või taevakehade masse."
+      ],
+      "ict": [],
+      "assessment": [
+        "Mõõteühikute teisendamise oskuse hindamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "keemia",
+        "füüsika",
+        "astronoomia",
+        "bioloogia",
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "digitaalsed kaalud",
+        "manuaalsed kaalud"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 14,
+      "lesson_end": 14,
+      "topic_et": "Ühikute teisendamise kontroll ja kordamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Ühikute teisendamise kontrolltöö ning vaheajaeelne kordamine ja kinnistamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö ühikute teisendamise kohta."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "lesson-14-missing-topic-cell"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 15,
+      "lesson_end": 15,
+      "topic_et": "Mõõtmistulemuste usaldusväärsus ja mõõtemääramatus",
+      "concepts_et": [
+        "mõõtmistulemuse usaldusväärsus",
+        "mõõtemääramatus"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse mõõtjate kontrolltempleid ning analüüsitakse mõõtmistulemuste täpsust ja määramatust."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusteadused",
+        "tehnika"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "stopper",
+        "mõõtejoonlaud",
+        "mõõdulint"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 16,
+      "lesson_end": 17,
+      "topic_et": "Mõõtmiste rakendamine plaani koostamisel ja kaardistamisel",
+      "concepts_et": [
+        "plaan",
+        "mõõdistamine",
+        "kaardistamine"
+      ],
+      "methods_and_practical_work": [
+        "Määratakse sammupaari pikkus, mõõdetakse koolilähedast objekti ja koostatakse rakendatav plaan."
+      ],
+      "ict": [
+        "Kaardi koostamise video vaatamine."
+      ],
+      "assessment": [
+        "Hinnatakse koostööd, planeerimisoskust, keelelist korrektsust ja täpsust."
+      ],
+      "learning_environment": [
+        "klass",
+        "kooliümbrus"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "geograafia",
+        "matemaatika",
+        "kehaline kasvatus",
+        "3. klassi loodusõpetus"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "mõõdulint"
+      ],
+      "external_links": [
+        "http://www.sisekaitse.ee/?id=28068"
+      ],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 18,
+      "lesson_end": 19,
+      "topic_et": "Kehade omaduste uurimine graafikute abil",
+      "concepts_et": [
+        "sõltuv muutuja",
+        "sõltumatu muutuja",
+        "graafik"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse liiva massi sõltuvust ruumalast või õhupalli kukkumisaja sõltuvust algkõrgusest korduskatsetega."
+      ],
+      "ict": [],
+      "assessment": [
+        "Graafiku vormistamise nõuete järgimine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        5,
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 20,
+      "lesson_end": 20,
+      "topic_et": "Kehade koostis: aatom, molekul, kristall, tuum ja elektronkate",
+      "concepts_et": [
+        "aatom",
+        "molekul",
+        "kristall",
+        "aatomituum",
+        "elektronkate"
+      ],
+      "methods_and_practical_work": [
+        "Molekuli mõiste kaudu võrreldakse keemia, füüsika ja bioloogia uurimisvaadet ning uuritakse kanamuna koostist."
+      ],
+      "ict": [],
+      "assessment": [
+        "Allikate teaduslikkuse hindamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "keemia",
+        "füüsika",
+        "bioloogia",
+        "5. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus",
+        "teabekeskkond"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 21,
+      "lesson_end": 21,
+      "topic_et": "Keemilised elemendid, perioodilisuse tabel ja mudelid",
+      "concepts_et": [
+        "keemiline element",
+        "perioodilisuse tabel",
+        "mudel"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse perioodilisuse tabeleid, koostatakse elemendisümbolitest sõnu ja hinnatakse infoallikaid."
+      ],
+      "ict": [
+        "Interaktiivsete perioodilisuse tabelite kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusõpetus",
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "ainete näidised",
+        "grafiit",
+        "mudelid"
+      ],
+      "external_links": [
+        "http://www.ptable.com/",
+        "http://www.periodictable.com/",
+        "http://www.webelements.com/",
+        "http://koolielu.ee/waramu/view/1-3c6b4eed-dd52-4489-bcc9-bf8c39db0561"
+      ],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 22,
+      "lesson_end": 22,
+      "topic_et": "Liht- ja liitained ning nende valemid",
+      "concepts_et": [
+        "lihtaine",
+        "liitaine",
+        "valem"
+      ],
+      "methods_and_practical_work": [
+        "Mudelikomplektidega koostatakse vee, hapniku ja teiste ainete molekule."
+      ],
+      "ict": [
+        "Ainete valemite uurimine veebivideote abil."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "varasem loodusõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "molekulimudeli komplektid"
+      ],
+      "external_links": [
+        "http://www.periodicvideos.com/"
+      ],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 23,
+      "lesson_end": 23,
+      "topic_et": "Aine kolm olekut",
+      "concepts_et": [
+        "tahkis",
+        "vedelik",
+        "gaas",
+        "aur",
+        "aine oleku mudel"
+      ],
+      "methods_and_practical_work": [
+        "Aineosakeste paiknemist ja liikumist võrreldakse eri olekutes ning eristatakse gaasi ja auru."
+      ],
+      "ict": [
+        "Aine olekute ja lumehelveste tekke simulatsioonide kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "5. klassi loodusõpetus",
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "kuiva jää katsevahendid"
+      ],
+      "external_links": [
+        "https://phet.colorado.edu/en/simulation/legacy/states-of-matter-basics",
+        "http://youtu.be/E8AvfXar9zs",
+        "http://youtu.be/bJDeoah-Cd0"
+      ],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 24,
+      "lesson_end": 24,
+      "topic_et": "Elementide teema kordamine ja kinnistamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Koostatakse ettekandeid elementide leidumise ja omaduste kohta."
+      ],
+      "ict": [],
+      "assessment": [
+        "Lühiettekanne."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusained"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 25,
+      "lesson_end": 25,
+      "topic_et": "Tihedus ja tiheduse kaudne mõõtmine",
+      "concepts_et": [
+        "tihedus",
+        "mass",
+        "ruumala"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse sama massi või ruumalaga eri materjalidest kehi ja tuletatakse tiheduse ühik."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geoloogia"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "eri materjalidest kehad",
+        "kaalud"
+      ],
+      "external_links": [],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 26,
+      "lesson_end": 27,
+      "topic_et": "Tiheduse mõõtmine",
+      "concepts_et": [
+        "tihedus",
+        "sukeldumismeetod"
+      ],
+      "methods_and_practical_work": [
+        "Mõõdetakse kivi või muu keha tihedus massi ja sukeldumisel leitud ruumala järgi."
+      ],
+      "ict": [],
+      "assessment": [
+        "Arvutuste koos ühikutega vormistamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "keemia",
+        "füüsika",
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "kaalud",
+        "mõõtesilindrid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        8,
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 28,
+      "lesson_end": 28,
+      "topic_et": "Ainete ja kehade teema kordamine ning kinnistamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Korratakse tiheduse ja aineehituse teemasid."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö või valmis tööde kaitsmine ja tagasiside."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 29,
+      "lesson_end": 29,
+      "topic_et": "Puhtad ained ja segud",
+      "concepts_et": [
+        "puhas aine",
+        "segu",
+        "lahus",
+        "materjal",
+        "kivim",
+        "mineraal"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse puhtaid aineid, segusid, kivimeid ja mineraale elukeskkonnas."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus",
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "kivimite ja mineraalide kogud",
+        "mikroskoobid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 30,
+      "lesson_end": 30,
+      "topic_et": "Lahuse omaduste praktiline uurimine",
+      "concepts_et": [
+        "lahus",
+        "soolasisaldus",
+        "külmumistemperatuur",
+        "keemistemperatuur"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse vee külmumistemperatuuri sõltuvust soolasisaldusest või lahuse keemistemperatuuri."
+      ],
+      "ict": [],
+      "assessment": [
+        "Uurimistulemuste analüüs."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "keeduklaasid",
+        "mõõtesilinder",
+        "jää",
+        "klaaspulgad",
+        "kaalud",
+        "katseklaasid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 31,
+      "lesson_end": 32,
+      "topic_et": "Ainete eraldamine segudest",
+      "concepts_et": [
+        "segu",
+        "setitamine",
+        "filtrimine",
+        "aurustamine"
+      ],
+      "methods_and_practical_work": [
+        "Segu eraldatakse koostisosadeks ainete erinevate omaduste põhjal."
+      ],
+      "ict": [],
+      "assessment": [
+        "Laboritöö oskused ja tööpinna korrashoid."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "5. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "portselankauss",
+        "keeduklaas",
+        "lehter",
+        "piirituslamp",
+        "statiiv"
+      ],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 33,
+      "lesson_end": 33,
+      "topic_et": "Veepuhastusjaama õppekäik või kromatograafia",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õppekäik veepuhastusjaama.",
+        "Kromatograafia segude eraldamise võimalusena."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "veepuhastusjaam",
+        "klass või labor"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng",
+        "elukestev õpe ja karjääri planeerimine",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "vees lahustuvad viltpliiatsid",
+        "filterpaber või muu vett imav paber"
+      ],
+      "external_links": [],
+      "source_pages": [
+        9,
+        10
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "lesson-33-missing-topic-cell",
+        "cross-page-table-continuations"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 34,
+      "lesson_end": 34,
+      "topic_et": "Segude eraldamise kordamine ja kinnistamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Kromatograafiatöödest koostatakse näitus."
+      ],
+      "ict": [],
+      "assessment": [
+        "Tööde näitus ja tagasiside."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 35,
+      "lesson_end": 35,
+      "topic_et": "Loodusnähtused: bioloogilised, füüsikalised ja keemilised nähtused",
+      "concepts_et": [
+        "bioloogiline nähtus",
+        "füüsikaline nähtus",
+        "keemiline nähtus"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse igapäevaseid loodusnähtusi ja uuritakse küünla põlemisel samaaegselt toimuvaid protsesse."
+      ],
+      "ict": [],
+      "assessment": [
+        "Nähtuste liigitamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "loodusained"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine",
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "küünal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "third-block-heading-not-printed"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 36,
+      "lesson_end": 36,
+      "topic_et": "Liikumised looduses ja trajektoor",
+      "concepts_et": [
+        "mehaaniline liikumine",
+        "trajektoor",
+        "taustkeha"
+      ],
+      "methods_and_practical_work": [
+        "Liikumist kirjeldatakse taustkeha suhtes ning uuritakse lindude rännet."
+      ],
+      "ict": [
+        "Lindude rändekaardi uurimine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "3. klassi loodusõpetus"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [
+        "http://birdmap.5dvision.ee/"
+      ],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 37,
+      "lesson_end": 37,
+      "topic_et": "Kiirus ja kiiruse mõõtmine",
+      "concepts_et": [
+        "kiirus",
+        "tee pikkus",
+        "aeg"
+      ],
+      "methods_and_practical_work": [
+        "Rakendatakse kiiruse valemit probleemülesannetes ja teisendatakse ühikuid."
+      ],
+      "ict": [],
+      "assessment": [
+        "Probleemülesannete lahendamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 38,
+      "lesson_end": 38,
+      "topic_et": "Kiiruse praktiline mõõtmine",
+      "concepts_et": [
+        "kiirus"
+      ],
+      "methods_and_practical_work": [
+        "Mõõdetakse paberlennuki, veetilga või keha liikumiskiirust ning soovi korral uuritakse sõltuvust raskusest või kaldest."
+      ],
+      "ict": [],
+      "assessment": [
+        "Praktilise mõõtmise ja arvutuse vormistamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "stopper",
+        "joonlaud",
+        "paberlennuk",
+        "kaldpind"
+      ],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 39,
+      "lesson_end": 39,
+      "topic_et": "Energia",
+      "concepts_et": [
+        "energia",
+        "kalor",
+        "džaul"
+      ],
+      "methods_and_practical_work": [
+        "Kontrollitakse ühikute teisendamist ja seostatakse energia mõiste igapäevaeluga."
+      ],
+      "ict": [],
+      "assessment": [
+        "Ühikute teisendamise kontroll."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusained",
+        "inimeseõpetus",
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus",
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 40,
+      "lesson_end": 40,
+      "topic_et": "Energia muundumine ja ülekandumine",
+      "concepts_et": [
+        "energia muundumine",
+        "energia ülekandumine",
+        "energia jäävuse seadus"
+      ],
+      "methods_and_practical_work": [
+        "Energia muutusi märgatakse ülesannetes või kooliümbruse vaatlusel."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "kooliümbrus"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "loodusained",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng",
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 41,
+      "lesson_end": 41,
+      "topic_et": "Energia muundumise uurimine",
+      "concepts_et": [
+        "keemiline energia",
+        "elektrienergia",
+        "soojusenergia"
+      ],
+      "methods_and_practical_work": [
+        "Ehitatakse kartuli- või sidrunipatarei või jälgitakse vee temperatuuri vispeldamisel."
+      ],
+      "ict": [
+        "Rakett69 veebisaate kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "kartul või sidrun",
+        "juhtmed",
+        "vask- ja tsinkelektroodid",
+        "LED-lamp"
+      ],
+      "external_links": [
+        "http://rakett69.ee/internetisaated/ii-hooaeg/saade/37890428"
+      ],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 42,
+      "lesson_end": 42,
+      "topic_et": "Energia teema kinnistamine ja hindamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Energia teema kordamine ja kinnistamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Energia teema hindamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 43,
+      "lesson_end": 43,
+      "topic_et": "Soojusjuhid looduses ja elukeskkonnas",
+      "concepts_et": [
+        "soojusjuht",
+        "soojusisolatsioon"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse õhu ja metallide soojusjuhtivust ning uuritakse termofotosid, soojustust ja looduslikke isolaatoreid."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "tööõpetus",
+        "käsitöö",
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon",
+        "tervis ja ohutus"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 44,
+      "lesson_end": 44,
+      "topic_et": "Materjalide soojusjuhtivuse uurimine",
+      "concepts_et": [
+        "soojusjuhtivus",
+        "soojusisolaator"
+      ],
+      "methods_and_practical_work": [
+        "Mõõdetakse vee või anduri jahtumist erinevate isolatsioonimaterjalide korral."
+      ],
+      "ict": [
+        "Andmelugeja või termoanduri kasutamine."
+      ],
+      "assessment": [
+        "Jahtumisgraafiku koostamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "termomeeter või termoandur",
+        "keeduklaasid",
+        "soojust isoleerivad materjalid"
+      ],
+      "external_links": [
+        "http://koolielu.ee/waramu/view/1-b521be3f-3307-4f83-919d-0d01a24a6545"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 45,
+      "lesson_end": 45,
+      "topic_et": "Soojusjuhtivuse teema hindamine ja kinnistamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Tehakse praktiline või muu kinnistav tegevus."
+      ],
+      "ict": [],
+      "assessment": [
+        "Töö hindamine, kaitsmine ja tagasiside."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 46,
+      "lesson_end": 46,
+      "topic_et": "Keemilised reaktsioonid meie ümber",
+      "concepts_et": [
+        "keemiline reaktsioon",
+        "reaktsiooni lähteaine",
+        "reaktsiooni saadus"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse elektrolüüsi, põlemist või muid näitkatseid ning nende energiaseost."
+      ],
+      "ict": [
+        "Keemiakatsete veebivideote uurimine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.chemicum.com/ava.htm"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 47,
+      "lesson_end": 47,
+      "topic_et": "Keemiliste reaktsioonide uurimine",
+      "concepts_et": [
+        "keemiline reaktsioon",
+        "energia neeldumine",
+        "energia eraldumine"
+      ],
+      "methods_and_practical_work": [
+        "Katsetes kirjeldatakse tähelepanekuid ja energia neeldumist või eraldumist."
+      ],
+      "ict": [],
+      "assessment": [
+        "Katsekirjelduse täpsus ja ohutusnõuete järgimine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "kaitseprillid",
+        "katseklaasid",
+        "igapäevased reaktiivid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 48,
+      "lesson_end": 48,
+      "topic_et": "Kivimite uurimine",
+      "concepts_et": [
+        "kivim",
+        "kõvadus",
+        "kaltsiumkarbonaat"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse kivimite välistunnuseid, kõvadust, tihedust, kuumutamist ja reaktsiooni happega."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus",
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "kivimid",
+        "soolhappelahus",
+        "kaalud",
+        "luup või mikroskoop"
+      ],
+      "external_links": [],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 49,
+      "lesson_end": 49,
+      "topic_et": "Katsete kokkuvõtete esitamine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Esitatakse katsete tulemused ja järeldused või tehakse katlakivi eemaldamise praktiline töö."
+      ],
+      "ict": [],
+      "assessment": [
+        "Tulemuste vormistamise ja järelduste hindamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "käsitöö",
+        "toitlustamine"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "kaltsiumkarbonaat",
+        "happed",
+        "katlakivi eemaldamise vahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 50,
+      "lesson_end": 50,
+      "topic_et": "Kasvamine ja areng",
+      "concepts_et": [
+        "kasvamine",
+        "areng"
+      ],
+      "methods_and_practical_work": [
+        "Bioloogiliste, keemiliste ja füüsikaliste nähtuste tunnuseid võrreldakse laste kasvugraafikul."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "bioloogia",
+        "matemaatika"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 51,
+      "lesson_end": 51,
+      "topic_et": "Salati kasvukiirust mõjutavad tegurid",
+      "concepts_et": [
+        "kasvukiirus",
+        "muutuja"
+      ],
+      "methods_and_practical_work": [
+        "Pikema perioodi jooksul uuritakse väetise või muu kasvutingimuse mõju, hoides ülejäänud tegurid muutumatuna."
+      ],
+      "ict": [],
+      "assessment": [
+        "Pikaajalise katse andmete ja järelduste hindamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "kultuuriline identiteet",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "salatiseemned",
+        "lillepotid",
+        "muld",
+        "väetised"
+      ],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 52,
+      "lesson_end": 52,
+      "topic_et": "Loodusnähtuste liikide kokkuvõte",
+      "concepts_et": [
+        "keemiline nähtus",
+        "füüsikaline nähtus",
+        "bioloogiline nähtus"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse loodusnähtuste ühiseid ja erinevaid tunnuseid ning koostatakse plakat või lühiettekanne."
+      ],
+      "ict": [],
+      "assessment": [
+        "Plakat või lühiettekanne."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "third-block-heading-not-printed"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 53,
+      "lesson_end": 53,
+      "topic_et": "Inimene uurib ökosüsteeme",
+      "concepts_et": [
+        "toiduahel",
+        "toiduvõrgustik",
+        "ökoloogiline püramiid",
+        "ökosüsteem"
+      ],
+      "methods_and_practical_work": [
+        "Koostatakse ökoloogiline püramiid ja uuritakse ökosüsteeme satelliitfotodel."
+      ],
+      "ict": [
+        "Satelliitfotode ja kaugseirevideo kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "3. klassi loodusõpetus",
+        "5. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng",
+        "teabekeskkond"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://www.accuweather.com/en/ee/national/satellite",
+        "https://www.youtube.com/watch?v=S-3FQvBXnfs&list=PLl6vIhcYSFdnZzVJXDW6jyHB4E1oAJxz_",
+        "http://sahm.ttu.ee/balticseapic/index.php"
+      ],
+      "source_pages": [
+        14
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 54,
+      "lesson_end": 54,
+      "topic_et": "Ökosüsteemi uurimine taimeruudu meetodil",
+      "concepts_et": [
+        "taimeruut",
+        "liik",
+        "katvus"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöös määratakse taimeruudul liikide arv ja katvus ning võrreldakse kasvukohti."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "kooliümbrus"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "taimeruudu raam või nöör ja pulgad",
+        "taimede välimääraja"
+      ],
+      "external_links": [],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 55,
+      "lesson_end": 55,
+      "topic_et": "Süsinikuringe ökosüsteemides",
+      "concepts_et": [
+        "süsinik",
+        "süsinikuringe",
+        "süsinikdioksiid"
+      ],
+      "methods_and_practical_work": [
+        "Koostatakse süsinikuringe skeem ning valmistutakse fotosünteesi uurimiseks."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 56,
+      "lesson_end": 56,
+      "topic_et": "Süsinikuringe kinnistamine ja õuesõpe",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Meenutatakse fotosünteesiks vajalikke tingimusi."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass",
+        "õuesõpe"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 57,
+      "lesson_end": 57,
+      "topic_et": "Fotosünteesi uurimine",
+      "concepts_et": [
+        "fotosüntees"
+      ],
+      "methods_and_practical_work": [
+        "Fotosünteesi uuritakse praktilise või virtuaalse katsega."
+      ],
+      "ict": [
+        "Virtuaalse fotosünteesikatse kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "vesikatk",
+        "purk",
+        "lehter",
+        "katseklaas"
+      ],
+      "external_links": [
+        "http://www.ut.ee/volvox/materials/fotosyntees.pdf",
+        "http://mudelid.5dvision.ee/leht/"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 58,
+      "lesson_end": 58,
+      "topic_et": "Süsinikuringe uurimine puu aastarõngaste abil",
+      "concepts_et": [
+        "aastarõngas",
+        "süsinikuringe"
+      ],
+      "methods_and_practical_work": [
+        "Uuritakse puutüve kettaid või pildimaterjali ning määratakse aastarõngaste järgi puu vanust."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "tööõpetus"
+      ],
+      "transversal_integration": [],
+      "materials": [
+        "puutüve läbilõiked või pildimaterjal"
+      ],
+      "external_links": [
+        "http://entsyklopeedia.ee/artikkel/aastar%C3%B5ngas1"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 59,
+      "lesson_end": 59,
+      "topic_et": "Kasvuhooneefekti modelleerimine",
+      "concepts_et": [
+        "kasvuhooneefekt",
+        "mudel"
+      ],
+      "methods_and_practical_work": [
+        "Rühmad võrdlevad eri pinnaga ja gaasikeskkonnaga minikasvuhoonete temperatuuri."
+      ],
+      "ict": [],
+      "assessment": [
+        "Katsetingimuste ja tulemuste võrdlus."
+      ],
+      "learning_environment": [
+        "klass",
+        "päikeselise ilmaga lõunapoolne aken"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [
+        "termomeeter",
+        "katseklaas või purk",
+        "hõõglamp",
+        "süsinikdioksiidi tekitavad vahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        15,
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "cross-page-table-continuations"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 60,
+      "lesson_end": 60,
+      "topic_et": "Kohastumine elukeskkonna tingimustega",
+      "concepts_et": [
+        "kohanemine",
+        "kohastumine"
+      ],
+      "methods_and_practical_work": [
+        "Võrreldakse loomade ja taimede kohastumisi ning nende seost keskkonna keemiliste ja füüsikaliste tingimustega."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusained"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 61,
+      "lesson_end": 61,
+      "topic_et": "Teadus, tehnoloogia ja looduslik tasakaal",
+      "concepts_et": [
+        "looduslik tasakaal",
+        "tehnoloogia mõju"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöös koostatakse ettekanne tehnoloogia mõjust elukeskkonnale."
+      ],
+      "ict": [],
+      "assessment": [
+        "Rühmaettekanne."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "ühiskonna jätkusuutlik areng",
+        "tehnoloogia ja innovatsioon",
+        "teabekeskkond",
+        "kultuuriline identiteet"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 62,
+      "lesson_end": 62,
+      "topic_et": "Ökoloogiline jalajälg ja säästev eluviis",
+      "concepts_et": [
+        "ökoloogiline jalajälg",
+        "säästev eluviis"
+      ],
+      "methods_and_practical_work": [
+        "Tundi võib teha projektipõhiselt; arvutatakse jalajälge ning uuritakse vee- või elektritarbimise vähendamist."
+      ],
+      "ict": [
+        "Ökoloogilise jalajälje kalkulaatori kasutamine."
+      ],
+      "assessment": [
+        "Projektitöö andmete ja säästuettepanekute esitamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loodusained",
+        "inimeseõpetus",
+        "5. klassi loodusõpetus",
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [
+        "kultuuriline identiteet",
+        "ühiskonna jätkusuutlik areng",
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [],
+      "external_links": [
+        "http://jalajalg.positium.ee/"
+      ],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 63,
+      "lesson_end": 63,
+      "topic_et": "Säästlik tarbimine ja materjalide taaskasutus",
+      "concepts_et": [
+        "säästlik tarbimine",
+        "taaskasutus"
+      ],
+      "methods_and_practical_work": [
+        "Tundi võib teha projektipõhiselt; analüüsitakse jäätmete teket ja ühekordsete pakendite kasutamist."
+      ],
+      "ict": [
+        "Pakendite õppematerjalide kasutamine."
+      ],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "tööõpetus",
+        "käsitöö",
+        "6. klassi loodusõpetus"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [
+        "http://eestipandipakend.ee/oppematerjalid/"
+      ],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "previous-grade-prerequisite-references"
+      ],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 64,
+      "lesson_end": 64,
+      "topic_et": "Materjalide taaskasutus",
+      "concepts_et": [
+        "taaskasutus"
+      ],
+      "methods_and_practical_work": [
+        "Disainitakse või valmistatakse kasutatud materjalidest toode või taies."
+      ],
+      "ict": [],
+      "assessment": [
+        "Esitlus või näitus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [],
+      "record_kind": "source_table_row"
+    },
+    {
+      "lesson_start": 65,
+      "lesson_end": 70,
+      "topic_et": "Õppekäigud, viktoriinid ja tööde lõpetamise varutunnid",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õppekäik näiteks pakendikäitluse ettevõttesse.",
+        "Viktoriinid.",
+        "Pooleliolevate tööde lõpetamine varutundides."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õppekäigu või viktoriini refleksioon."
+      ],
+      "learning_environment": [
+        "õppekäigu sihtkoht",
+        "klass"
+      ],
+      "subject_integration": [
+        "klassijuhatajatöö"
+      ],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "reserve-hours-note-vs-visible-range",
+        "reserve-range-not-six-distinct-topics"
+      ],
+      "record_kind": "source_table_row"
+    }
+  ],
+  "unnumbered_rows": [
+    {
+      "row_id": "inimene-uurib-loodust-wrap-up",
+      "block_id": "inimene-uurib-loodust",
+      "placement": {
+        "after_lesson": 19,
+        "before_lesson": 20
+      },
+      "topic_et": "Kordamine, kinnistamine ja hindamine",
+      "methods_and_practical_work": [
+        "Õpilased esitavad tööraamatu või tehtud tööde mapi."
+      ],
+      "assessment": [
+        "Tööraamatu või tehtud tööde mapi esitamine."
+      ],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "unnumbered-wrap-up-row"
+      ]
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "unnumbered-wrap-up-row",
+      "scope": "unnumbered_row",
+      "source_pages": [
+        6
+      ],
+      "source_fragment_et": "Kordamine; kinnistamine, hindamine. Õpilased esitavad TR või tehtud tööde mapi.",
+      "description_et": "Pärast vahemikku 18-19 ja enne järgmise ploki tundi 20 paikneb eraldi numbrita kokkuvõtte- ja hindamisrida.",
+      "normalized_handling_et": "Rida säilitati eraldi unnumbered_rows kirjena paigutusega pärast tundi 19 ja enne tundi 20; sellele ei antud tunninumbrit ega arvestatud tunnimahus.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "lesson-14-missing-topic-cell",
+      "scope": "lesson_range",
+      "source_pages": [
+        5
+      ],
+      "source_fragment_et": "14. [teema lahter tühi]; TK - ühikute teisendamine. Vaheaja-eelne tund, kordamiseks, kinnistamiseks.",
+      "description_et": "Tunni 14 teema lahter on visuaalselt tühi, kuid meetodilahter kirjeldab kontrolli ja kordamist.",
+      "normalized_handling_et": "Teemaks normaliseeriti meetodilahtri põhjal „Ühikute teisendamise kontroll ja kordamine” ning säilitati keskmine kindlus.",
+      "status": "open"
+    },
+    {
+      "item_id": "lesson-33-missing-topic-cell",
+      "scope": "lesson_range",
+      "source_pages": [
+        9,
+        10
+      ],
+      "source_fragment_et": "33. [teema lahter tühi]; Õppekäik veepuhastusjaama või kromatograafia, kui segude eraldamise võimalus.",
+      "description_et": "Tunni 33 teema lahter on tühi ning tegevus jätkub järgmisel leheküljel.",
+      "normalized_handling_et": "Teema normaliseeriti meetodilahtri kahe alternatiivi põhjal ja source_pages säilitati [9, 10] keskmise kindlusega.",
+      "status": "open"
+    },
+    {
+      "item_id": "third-block-heading-not-printed",
+      "scope": "thematic_block",
+      "source_pages": [
+        10,
+        13
+      ],
+      "source_fragment_et": "Õppesisu füüsikalistest, keemilistest ja bioloogilistest nähtustest; 35. Loodusnähtused; 52. Kokkuvõte loodusnähtuste liikidest.",
+      "description_et": "Kolmanda ploki sisu ja tunnivahemik 35-52 on nähtavad, kuid teiste plokkidega analoogset eraldi trükitud pealkirja ei leitud.",
+      "normalized_handling_et": "Ploki title_et normaliseeriti väärtuseks LOODUSNÄHTUSED sisukirjelduse ning tundide 35 ja 52 järgi, extraction_confidence on medium.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "reserve-hours-note-vs-visible-range",
+      "scope": "source_table",
+      "source_pages": [
+        1,
+        16
+      ],
+      "source_fragment_et": "On jäetud varutunde (~10); 65-70 Õppekäigud, viktoriinid; Varutunnid tööde lõpetamiseks.",
+      "description_et": "Planeerimismärkus nimetab ligikaudu kümmet varutundi, kuid tabeli nähtav lõpuvahemik hõlmab kuut nummerdatud tundi ja mitut võimalikku tegevust.",
+      "normalized_handling_et": "Säilitati nii ligikaudne märkus kui ka täpne source-table vahemik 65-70; nelja lisatundi ega täielikku üksühesust ei tuletatud.",
+      "status": "open"
+    },
+    {
+      "item_id": "cross-page-table-continuations",
+      "scope": "source_table",
+      "source_pages": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        15,
+        16
+      ],
+      "source_fragment_et": "Read 18-19, 26-27, 33 ja 59 jätkuvad järgmise PDF-lehekülje alguses ilma uut tunninumbrit lisamata.",
+      "description_et": "Leheküljepiir ei tähista uut nummerdatud kirjet.",
+      "normalized_handling_et": "Jätkuvad lahtrid ühendati eelneva source-table reaga ja kõik tõendusleheküljed säilitati source_pages väljal.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "previous-grade-prerequisite-references",
+      "scope": "source_table",
+      "source_pages": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "source_fragment_et": "Viited 3., 4., 5. ja 6. klassis varem õpitule.",
+      "description_et": "Tabel seob uue sisu varasemate klasside loodusõpetuse ja teiste ainete teadmistega.",
+      "normalized_handling_et": "Viited säilitati Grade 7 science prerequisite- või cross-curricular kontekstina ega loodud teiste klasside extraction- või route-kirjeid.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "blank-final-page",
+      "scope": "source_table",
+      "source_pages": [
+        17
+      ],
+      "source_fragment_et": "Leheküljel on nähtav ainult leheküljenumber 17.",
+      "description_et": "PDF-i viimane lehekülg ei sisalda õppesisu ega tabelirida.",
+      "normalized_handling_et": "Lehekülg 17 säilitati extracted ja visually verified page coverage väljal, kuid sellest ei loodud õppekirjet.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "pdf-author-metadata-mismatch",
+      "scope": "source_table",
+      "source_pages": [
+        1
+      ],
+      "source_fragment_et": "Õpetaja: Riina Murulaid; PDF technical Author: Riina Leet.",
+      "description_et": "Nähtava tiitellehe ja provenance autor erineb PDF-i tehnilise Author-välja väärtusest.",
+      "normalized_handling_et": "Source author säilitati väärtusena Riina Murulaid; tehniline väärtus Riina Leet dokumenteeriti ainult metadata lahknevusena.",
+      "status": "resolved_with_normalization"
+    },
+    {
+      "item_id": "reserve-range-not-six-distinct-topics",
+      "scope": "lesson_range",
+      "source_pages": [
+        16
+      ],
+      "source_fragment_et": "65-70 Õppekäigud, viktoriinid; Varutunnid tööde lõpetamiseks.",
+      "description_et": "Allikas esitab vahemiku 65-70 ühe tabelireana ega anna kuut eraldi teemat.",
+      "normalized_handling_et": "Vahemik säilitati ühe source_table_row kirjena; kuut eraldi väljamõeldud tunniteemat ei loodud.",
+      "status": "resolved_with_normalization"
+    }
+  ],
+  "completeness": {
+    "source_pages_extracted": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "source_pages_visually_verified": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "lesson_number_coverage": {
+      "lesson_start": 1,
+      "lesson_end": 70,
+      "gaps": [],
+      "overlaps": []
+    },
+    "declared_complete_for_this_pdf": true,
+    "official_curriculum_complete": false,
+    "canonical_opiq_mapping_complete": false
+  }
+}
