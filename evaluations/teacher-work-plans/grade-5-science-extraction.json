@@ -1,0 +1,3232 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "teacher_work_plan_extraction",
+  "extraction_id": "grade-5-science-teacher-work-plan-extraction",
+  "source": {
+    "repository_path": "project-files/inputs/originals/teacher-work-plans/Loodusopetuse-tookava-naidis-5-klassile.pdf",
+    "original_filename": "Loodusõpetuse-töökava-näidis-5.-klassile.pdf",
+    "sha256": "fd7593800bbc0bada390e98f92f7c45dcf21c0e09a780d407f45fb7e921e9c90",
+    "byte_size": 506197,
+    "page_count": 25,
+    "displayed_title": "ÕPETAJA TÖÖKAVA NÄIDIS LOODUSÕPETUS PÕHIKOOLI II KOOLIASTE",
+    "author": "Vaike Rootsmaa",
+    "grade": 5,
+    "subject": "science",
+    "subject_et": "loodusõpetus",
+    "language": "et",
+    "provenance_kind": "supplementary_teacher_work_plan",
+    "canonical": false
+  },
+  "extraction": {
+    "method": "embedded_text_plus_visual_page_verification",
+    "embedded_text_used": true,
+    "visual_verification": "all_pages_rendered_and_reviewed",
+    "verified_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "ocr_used": false,
+    "transformations": [
+      "PDF-i sisseehitatud tekst normaliseeriti NFC-kujule ning reavahetused ühendati loetavateks väljadeks.",
+      "Üle leheküljepiiri jätkuvad tabelilahtrid ühendati visuaalse kontrolli alusel sama tunni kirjesse.",
+      "Pikad eesmärgid, õpitulemused ja tegevuskirjeldused lühendati eesti keeles ilma teemapealkirju ja põhimõisteid muutmata.",
+      "Allikas esitatud üksiktunnid ja vahemikud säilitati lesson_start ja lesson_end väljadena; kattuvad või numbrita read jäeti unresolved_items loendisse."
+    ],
+    "limitations": [
+      "Allikas on õpetaja töökava näidis, mitte ametliku õppekava ammendav ega kohustuslik järjestus.",
+      "Esimese kolme ploki deklareeritud tunnimahud ei ühti üksüheselt tabeli unikaalsete tunninumbrite arvuga; erinevus on säilitatud lahendamata kirjetena.",
+      "Osa vanu välislinke on PDF-is reavahetustega või võib olla aegunud; linke ei kasutatud Opiq-vastete loomiseks.",
+      "Kanooniliste Opiq-lehtede ja URL-idega vastendamine on teadlikult edasi lükatud järgmisse etappi."
+    ]
+  },
+  "route_context": {
+    "source_id": "grade-5-science",
+    "md_path": "project-files/outputs/opiq_5klass_loodusopetus.md",
+    "mapping_status": "deferred"
+  },
+  "annual_allocation": {
+    "weekly_hours": 2,
+    "declared_annual_hours": 70,
+    "extracted_lesson_span": {
+      "lesson_start": 1,
+      "lesson_end": 70
+    }
+  },
+  "thematic_blocks": [
+    {
+      "block_id": "jogi-ja-jarv-vesi-kui-elukeskkond",
+      "title_et": "JÕGI JA JÄRV. VESI KUI ELUKESKKOND",
+      "normalized_summary_et": "Veekogude uurimine ühendab loodusteadusliku meetodi, Eesti jõgede ja järvede kaarditöö, vee-elustiku kohastumused, toiduahelad ning kohaliku veekogu kasutamise ja kaitse.",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "declared_hours": 26,
+      "main_numbered_lesson_span": {
+        "lesson_start": 1,
+        "lesson_end": 25
+      },
+      "approximate_weeks": 13,
+      "teaching_goals": [
+        "Kujundada veekogu uurimise ja tulemuste esitamise oskusi.",
+        "Seostada vee omadused elutingimuste, aastaringi ja elustiku kohastumustega.",
+        "Tutvustada Eesti jõgesid, järvi ja kohaliku veekogu kultuurilist ning keskkonnakaitselist tähendust."
+      ],
+      "learning_outcomes": [
+        "Õpilane uurib veekogu ohutult, töötleb andmeid ja esitab järeldusi.",
+        "Õpilane näitab kaardil suuremaid Eesti jõgesid ja järvi ning kirjeldab jõe osi ja veerežiimi.",
+        "Õpilane selgitab vee-elustiku kohastumusi, veeõitsengut ja koostab toiduahelaid või toiduvõrgustikke."
+      ],
+      "learning_content": [
+        "Loodusteaduslik uurimus ja veekogu kui uurimisobjekt.",
+        "Jõed, järved, vee liikumine, veetaseme muutused ja vee omadused.",
+        "Vee-elustik, kohastumused, toiduahelad, kasutamine ja kaitse."
+      ],
+      "key_concepts": [
+        "jõgi",
+        "jõesäng",
+        "lähe",
+        "suue",
+        "peajõgi",
+        "lisajõgi",
+        "jõestik",
+        "voolukiirus",
+        "kärestik",
+        "juga",
+        "järv",
+        "umbjärv",
+        "läbivoolujärv",
+        "rannajärv",
+        "tootja",
+        "tarbija",
+        "lagundaja",
+        "toiduahel",
+        "toiduvõrgustik",
+        "hõljum",
+        "veeõitsemine",
+        "veetaim",
+        "kaldataim"
+      ],
+      "practical_work": [
+        "Kohaliku veekogu õppekäik, mõõtmised ja elustiku kirjeldamine.",
+        "Veetaimede, veeloomade, märgumise, pindpinevuse, ujuvuse ja lahustuvuse katsed.",
+        "Kaarditöö, veekogude võrdlus ning uurimistulemuste esitamine."
+      ],
+      "ict_activities": [
+        "Veebipõhised liigi- ja veekogumaterjalid.",
+        "Digitaalne kaarditöö Maa-ameti geoportaalis.",
+        "Videofilmi ja veebiharjutuste kasutamine."
+      ],
+      "assessment": [
+        "Õpimapp ja liigikirjeldused.",
+        "Vahekokkuvõtte viktoriin.",
+        "Uurimistöö esitlus ning lühitest."
+      ],
+      "cross_curricular_links": [
+        "bioloogia",
+        "geograafia",
+        "eesti keel",
+        "kunstiõpetus",
+        "matemaatika",
+        "füüsika",
+        "keemia",
+        "ajalugu",
+        "muusika",
+        "kehaline kasvatus",
+        "inimeseõpetus"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "tervis ja ohutus",
+        "tehnoloogia ja innovatsioon",
+        "teabekeskkond",
+        "kultuuriline identiteet",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "välitöövahendid ja mõõtesensorid",
+        "liigimäärajad",
+        "Eesti kaart, atlas ja kontuurkaardid",
+        "veeproovid ja lihtsad katsevahendid",
+        "õpimapp"
+      ],
+      "external_links": [
+        "http://www.keskkonnaharidus.ee/?569",
+        "https://www.maaamet.ee",
+        "http://bio.edu.ee/loomad/",
+        "http://bio.edu.ee/taimed/"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "parenthetical-lesson-6",
+        "river-block-declared-hours"
+      ]
+    },
+    {
+      "block_id": "vesi-kui-aine-vee-kasutamine",
+      "title_et": "VESI KUI AINE, VEE KASUTAMINE",
+      "normalized_summary_et": "Plokk käsitleb vee olekuid ja omadusi, soojuspaisumist, märgamist, kapillaarsust, põhjavett, joogivett, veekasutust, reostust ja puhastamist koos praktiliste ning veebipõhiste ülesannetega.",
+      "source_pages": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "declared_hours": 14,
+      "main_numbered_lesson_span": {
+        "lesson_start": 26,
+        "lesson_end": 43
+      },
+      "approximate_weeks": 7,
+      "teaching_goals": [
+        "Võrrelda tahkise, vedeliku ja gaasi omadusi ning vee olekumuutusi.",
+        "Selgitada põhjavett, joogivee saamist ja vee säästlikku kasutamist.",
+        "Kavandada vee omaduste ja puhastamise katseid ning hinnata reostuse mõju."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab vee olekuid, olekumuutusi, soojuspaisumist, märgamist ja kapillaarsust.",
+        "Õpilane uurib pinnaste vee läbilaskvust ja selgitab põhjavee kujunemist.",
+        "Õpilane põhjendab vee säästmist ning kirjeldab setitamist, sõelumist ja filtreerimist."
+      ],
+      "learning_content": [
+        "Vee omadused, olekud ja olekumuutused.",
+        "Vedela ja gaasilise aine omadused, soojuspaisumine, märgamine ja kapillaarsus.",
+        "Põhjavesi, joogivesi, veekasutus, reostus, kaitse ja puhastamine."
+      ],
+      "key_concepts": [
+        "aine",
+        "tahkis",
+        "vedelik",
+        "gaas",
+        "aurumine",
+        "veeldumine",
+        "tahkumine",
+        "sulamine",
+        "soojuspaisumine",
+        "märgamine",
+        "kapillaarsus",
+        "kokkusurutavus",
+        "voolavus",
+        "lenduvus",
+        "põhjavesi",
+        "allikas",
+        "joogivesi",
+        "setitamine",
+        "sõelumine",
+        "filtreerimine"
+      ],
+      "practical_work": [
+        "Vedelike, tahkiste, kokkusurutavuse, voolavuse ja aurumise võrdluskatsed.",
+        "Veetermomeetri, kapillaarsuse ja pinnaste läbilaskvuse katsed.",
+        "Veekulu jälgimine ning vee puhastamise uurimus."
+      ],
+      "ict_activities": [
+        "Veebiharjutused vee-elustiku ja vee omaduste kohta.",
+        "Veebimaterjalide põhjal toitelisuse, läbipaistvuse, saastuse ja voolu mõju uurimine."
+      ],
+      "assessment": [
+        "Praktilise töö juhendi järgimise ja vormistamise hindamine.",
+        "Veebiharjutuste tulemused, enesehinnang ja õpilaste koostatud kokkuvõtteküsimused."
+      ],
+      "cross_curricular_links": [
+        "füüsika",
+        "keemia",
+        "bioloogia",
+        "geograafia",
+        "eesti keel",
+        "kunstiõpetus",
+        "arvutiõpetus"
+      ],
+      "transversal_themes": [
+        "tervis ja ohutus",
+        "keskkond ja jätkusuutlik areng",
+        "tehnoloogia ja innovatsioon",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "erinevad vedelikud ja tahkised",
+        "plastpudelid, pipetid ja termomeetrid",
+        "liiv, savi, kruus, muld ja turvas",
+        "sõelad ja filtrid",
+        "arvutid"
+      ],
+      "external_links": [
+        "http://www.sagadi.ee/files/veevoldik.pdf",
+        "http://bio.edu.ee/noor/",
+        "http://www.sakulate.ee/66est.html"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "water-substance-block-declared-hours",
+        "adjacent-grade-optional-topics"
+      ]
+    },
+    {
+      "block_id": "asula-elukeskkonnana",
+      "title_et": "ASULA ELUKESKKONNANA",
+      "normalized_summary_et": "Plokk võrdleb maa- ja linnakeskkonda, Eesti linnu, koduasula plaani, asula elutingimusi ning inimkaaslejaid taimi ja loomi, sidudes kohaliku vaatluse keskkonna ja tervisega.",
+      "source_pages": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "declared_hours": 10,
+      "main_numbered_lesson_span": {
+        "lesson_start": 44,
+        "lesson_end": 50
+      },
+      "approximate_weeks": 5,
+      "teaching_goals": [
+        "Võrrelda maa- ja linnakeskkonda ning loodus- ja tehiskeskkonda.",
+        "Uurida koduasula plaani, elustikku ja keskkonnaprobleeme.",
+        "Kujundada turvalist ja keskkonnahoidlikku käitumist asulas."
+      ],
+      "learning_outcomes": [
+        "Õpilane näitab kaardil Eesti suuremaid linnu ja koostab lihtsa asulaplaani.",
+        "Õpilane kirjeldab asula elutingimusi, inimkaaslejaid liike ja keskkonnaprobleeme.",
+        "Õpilane pakub kohaliku keskkonnaseisundi parandamise võimalusi."
+      ],
+      "learning_content": [
+        "Maa-asula ja linn kui elukeskkonnad.",
+        "Eesti linnad ja koduasula plaan.",
+        "Asula elustik, park, inimkaaslejad, prahitaimed ja parasiidid."
+      ],
+      "key_concepts": [
+        "tehiskooslus",
+        "asula plaan",
+        "parasiit",
+        "inimkaasleja loom",
+        "prahitaim",
+        "park",
+        "mõõtkava"
+      ],
+      "practical_work": [
+        "Maa- ja linnakeskkonna SWOT-võrdlus.",
+        "Kooliümbruse lihtsa plaani koostamine ja pargielustiku vaatlus.",
+        "Linnuvaatlus, toidulauavaatlus või pesakasti ehitamine hooaja järgi."
+      ],
+      "ict_activities": [
+        "Maa-ameti kaardi kasutamine.",
+        "Veebipõhised linnu- ja pargimaterjalid."
+      ],
+      "assessment": [
+        "Kaardi- ja plaaniülesanded.",
+        "Iseseisev kokkuvõte ning kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "geograafia",
+        "matemaatika",
+        "bioloogia",
+        "eesti keel",
+        "tööõpetus",
+        "kehaline kasvatus",
+        "inimeseõpetus"
+      ],
+      "transversal_themes": [
+        "keskkond ja jätkusuutlik areng",
+        "tervis ja ohutus",
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet"
+      ],
+      "equipment_and_materials": [
+        "Eesti halduskaart ja kontuurkaart",
+        "mõõdulindid, kompassid ja plaanialused",
+        "pargi töölehed ja liigimäärajad",
+        "pildimaterjal asula liikidest"
+      ],
+      "external_links": [
+        "http://www.eoy.ee/talv/Maaramine.html",
+        "http://www.eoy.ee/varamu/pesakast.htm",
+        "https://www.maaamet.ee",
+        "http://www.sagadi.ee/looduskool/oppematerjalid"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "unnumbered-seasonal-settlement-activity",
+        "settlement-block-declared-hours"
+      ]
+    },
+    {
+      "block_id": "pinnavormid-ja-pinnamood",
+      "title_et": "PINNAVORMID JA PINNAMOOD",
+      "normalized_summary_et": "Plokk õpetab pinnavormide kirjeldamist ja kujutamist samakõrgusjoontega, Eesti pinnamoe suurvorme, mandrijää mõju ning pinnamoe ja inimtegevuse vastastikuseid seoseid.",
+      "source_pages": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "declared_hours": 10,
+      "main_numbered_lesson_span": {
+        "lesson_start": 51,
+        "lesson_end": 60
+      },
+      "approximate_weeks": 5,
+      "teaching_goals": [
+        "Kirjeldada pinnavormi kuju, kõrgust ja nõlva samakõrgusjoonte järgi.",
+        "Tunda Eesti suuremaid pinnavorme ja mandrijää kujundavat mõju.",
+        "Seostada pinnamood inimtegevuse ja inimtekkeliste pinnavormidega."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab kaardi järgi kodumaakonna ja Eesti pinnamoodi.",
+        "Õpilane toob näiteid mandrijää mõjust Eesti pinnamoele.",
+        "Õpilane selgitab pinnamoe mõju inimtegevusele ja vastupidi."
+      ],
+      "learning_content": [
+        "Pinnavormid ja nende kujutamine kaardil.",
+        "Eesti kõrgustikud, madalikud, tasandikud ja paekallas.",
+        "Mandrijää, moreen, rändrahnud, voored ning inimtekkelised pinnavormid."
+      ],
+      "key_concepts": [
+        "pinnavorm",
+        "küngas",
+        "org",
+        "nõgu",
+        "mägi",
+        "nõlv",
+        "jalam",
+        "samakõrgusjoon",
+        "suhteline kõrgus",
+        "absoluutne kõrgus",
+        "kõrgustik",
+        "tasandik",
+        "madalik",
+        "paekallas",
+        "pinnamood",
+        "mandrijää",
+        "voor",
+        "moreen",
+        "rändrahn"
+      ],
+      "practical_work": [
+        "Kaalikamudelist samakõrgusjoontega plaani koostamine.",
+        "Orienteerumis- ja kontuurkaardiülesanded.",
+        "Pinnavormide modelleerimine plastiliinis või liivas."
+      ],
+      "ict_activities": [
+        "Maa-ameti kaardi ja digitaalse töölehe kasutamine.",
+        "Põhja-Eesti klindi ja liustike videomaterjalid."
+      ],
+      "assessment": [
+        "Kaardiülesanded, enesehinnang, kokkuvõtte modelleerimisülesanne ja kontrolltöö."
+      ],
+      "cross_curricular_links": [
+        "geograafia",
+        "kehaline kasvatus",
+        "eesti keel",
+        "ajalugu",
+        "muusika",
+        "tööõpetus",
+        "kunstiõpetus"
+      ],
+      "transversal_themes": [
+        "tehnoloogia ja innovatsioon",
+        "kultuuriline identiteet",
+        "keskkond ja jätkusuutlik areng",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "kaalikas, nuga ja alus",
+        "orienteerumis-, seina- ja kontuurkaardid",
+        "atlas",
+        "plastiliin või liiv",
+        "fotod ja videod"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee",
+        "http://www.klint.envir.ee/",
+        "http://www.jaaaeg.ee/"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "block_id": "soo-elukeskkonnana",
+      "title_et": "SOO ELUKESKKONNANA",
+      "normalized_summary_et": "Plokk käsitleb soode teket, arenguetappe, paiknemist, elutingimusi, elustikku, tähtsust, kaitset ning turba kasutamist ja tootmist.",
+      "source_pages": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "declared_hours": 10,
+      "main_numbered_lesson_span": {
+        "lesson_start": 61,
+        "lesson_end": 70
+      },
+      "approximate_weeks": 5,
+      "teaching_goals": [
+        "Selgitada soode teket, arengut ja paiknemist Eestis.",
+        "Võrrelda madalsoo, siirdesoo ja raba tingimusi ning elustikku.",
+        "Hinnata soode tähtsust, kaitset ja turba kasutamise valikuid."
+      ],
+      "learning_outcomes": [
+        "Õpilane kirjeldab kaardi järgi soode paiknemist ja põhjendab Eesti sooderohkust.",
+        "Õpilane seostab turbasambla omadused raba tingimustega ning võrdleb sootüüpe.",
+        "Õpilane selgitab soode tähtsust ja kaitse vajadust."
+      ],
+      "learning_content": [
+        "Soo elukeskkond, teke ja paiknemine.",
+        "Madalsoo, siirdesoo ja raba areng ning elutingimused.",
+        "Soode elustik, tähtsus, kaitse, turvas ja kütteturba tootmine."
+      ],
+      "key_concepts": [
+        "madalsoo",
+        "siirdesoo",
+        "raba",
+        "älves",
+        "laugas",
+        "turbasammal",
+        "turvas"
+      ],
+      "practical_work": [
+        "Õppekäik sookaitsealale.",
+        "Turbasambla veehoiuvõime, turba ja mulla ning madalsoo- ja rabaturba võrdlus.",
+        "Sootüüpide, soode tähtsuse ja turba kasutamise rühmatööd."
+      ],
+      "ict_activities": [
+        "Soo arengu ja turbatootmise video.",
+        "Veebimaterjalide põhjal sooelustiku tööleht."
+      ],
+      "assessment": [
+        "Kordamisküsimused, seisukoha põhjendamine, kontrolltöö ja tulemuste analüüs."
+      ],
+      "cross_curricular_links": [
+        "geograafia",
+        "bioloogia",
+        "eesti keel",
+        "füüsika"
+      ],
+      "transversal_themes": [
+        "tervis ja ohutus",
+        "tehnoloogia ja innovatsioon",
+        "keskkond ja jätkusuutlik areng",
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "equipment_and_materials": [
+        "turvas ja turbasammal",
+        "mikroskoop või binokulaar",
+        "soo- ja taimematerjalid",
+        "Eesti atlase soode kaart"
+      ],
+      "external_links": [
+        "http://www.ctc.ee/leia-kiiresti/uudised/laenutame-turbakohvrit",
+        "http://bio.edu.ee/loomad/",
+        "http://bio.edu.ee/taimed/"
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    }
+  ],
+  "lesson_ranges": [
+    {
+      "lesson_start": 1,
+      "lesson_end": 1,
+      "topic_et": "Õppeaasta sissejuhatus ja töökorraldus",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Eelteadmiste kaardistamine, uurimisrühmade moodustamine ja õpimapi kokkulepped."
+      ],
+      "ict": [],
+      "assessment": [],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "õpimapp ja tööjuhendid"
+      ],
+      "external_links": [
+        "http://www.keskkonnaharidus.ee/?569"
+      ],
+      "source_pages": [
+        2
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 2,
+      "lesson_end": 3,
+      "topic_et": "Veekogu kui uurimisobjekt",
+      "concepts_et": [
+        "uurimisküsimus",
+        "hüpotees",
+        "vaatlus",
+        "mõõtmine"
+      ],
+      "methods_and_practical_work": [
+        "Õppekäik veekogu äärde, plaani visandamine, mõõtmised, proovide ja vaatlusandmete kogumine."
+      ],
+      "ict": [
+        "Mõõtesensorite võimalik kasutamine."
+      ],
+      "assessment": [
+        "Rühma uurimisplaan ja kogutud andmed."
+      ],
+      "learning_environment": [
+        "kohalik veekogu"
+      ],
+      "subject_integration": [
+        "kehaline kasvatus",
+        "inimeseõpetus",
+        "kunstiõpetus",
+        "ajalugu",
+        "muusika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "topsluubid",
+        "termomeeter",
+        "kell",
+        "proovinõud",
+        "püünisvõrk",
+        "fotoaparaat",
+        "Secchi ketas"
+      ],
+      "external_links": [
+        "http://www.elfond.ee/et/"
+      ],
+      "source_pages": [
+        2,
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 4,
+      "lesson_end": 4,
+      "topic_et": "Õppekäigu andmete süstematiseerimine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Tööjaotus, mõõtmistulemuste vormistamine, plaani täiendamine ja liikide määramine."
+      ],
+      "ict": [
+        "Internetiotsing ja Maa-ameti kaart."
+      ],
+      "assessment": [
+        "Esialgne õpimapi materjal."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "õpimapp",
+        "kohaliku veekogu kaart"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee"
+      ],
+      "source_pages": [
+        3
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 5,
+      "lesson_end": 6,
+      "topic_et": "Veetaimed ja nende kohastumused",
+      "concepts_et": [
+        "veetaim",
+        "kaldataim"
+      ],
+      "methods_and_practical_work": [
+        "Veetaimede vaatlus, liigikirjeldused, maismaa- ja veetaimede võrdlus ning vesikatku katse."
+      ],
+      "ict": [
+        "Veebipõhised taimemäärajad."
+      ],
+      "assessment": [
+        "Individuaalne liigikirjeldus."
+      ],
+      "learning_environment": [
+        "veekogu",
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "esinemis- ja väljendusoskus"
+      ],
+      "materials": [
+        "taimemäärajad",
+        "arvutid",
+        "vesikatk"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/taimed/"
+      ],
+      "source_pages": [
+        3,
+        4
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "parenthetical-lesson-6"
+      ]
+    },
+    {
+      "lesson_start": 7,
+      "lesson_end": 7,
+      "topic_et": "Vee-elustik ühe järve või jõe näitel",
+      "concepts_et": [
+        "vee-elustik"
+      ],
+      "methods_and_practical_work": [
+        "Saadjärve filmi vaatamine, liikide rühmitamine ja filmi küsimustele vastamine."
+      ],
+      "ict": [
+        "Videofilm."
+      ],
+      "assessment": [
+        "Liikide rühmitamise tabel."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "ettevalmistatud liikide tabel"
+      ],
+      "external_links": [
+        "http://www.youtube.com/watch?v=Vtadl5GM_xg"
+      ],
+      "source_pages": [
+        4
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 8,
+      "lesson_end": 8,
+      "topic_et": "Veeloomade kohastumused",
+      "concepts_et": [
+        "raskusjõud",
+        "üleslükkejõud",
+        "tihedus",
+        "ujupõis"
+      ],
+      "methods_and_practical_work": [
+        "Uppumise ja ujumise katse ning kala liikumise arutelu."
+      ],
+      "ict": [],
+      "assessment": [
+        "Katse tööleht õpimapis."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "uurimuslik tegevus"
+      ],
+      "materials": [
+        "veenõud",
+        "erinevad katsekehad"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 9,
+      "lesson_end": 9,
+      "topic_et": "Vesi kui elukeskkond: märgamine",
+      "concepts_et": [
+        "märgamine",
+        "mittemärgamine"
+      ],
+      "methods_and_practical_work": [
+        "Materjalide märgumise ja veelindude sulgede mittemärgumise katsed."
+      ],
+      "ict": [],
+      "assessment": [
+        "Katse järeldused."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "uurimuslik tegevus"
+      ],
+      "materials": [
+        "riie",
+        "paber",
+        "kile",
+        "puit",
+        "metall",
+        "linnusuled",
+        "pesuaine"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 10,
+      "lesson_end": 10,
+      "topic_et": "Veeloomade hingamine ja liikumine",
+      "concepts_et": [
+        "hingamine",
+        "liikumine",
+        "kohastumus"
+      ],
+      "methods_and_practical_work": [
+        "Liigikirjelduste süntees ja valitud katse vee hapnikusisalduse või liikumise kohta."
+      ],
+      "ict": [
+        "Võimalik Vernier' mõõtmine."
+      ],
+      "assessment": [
+        "Liigikirjelduste näitus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "kunstiõpetus",
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "loodusteaduslik uurimus"
+      ],
+      "materials": [
+        "liigikirjeldused",
+        "katsevahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        5
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 11,
+      "lesson_end": 11,
+      "topic_et": "Vee omadused ja looduslik vesi",
+      "concepts_et": [
+        "puhas vesi",
+        "looduslik vesi",
+        "pindpinevus",
+        "veemolekul"
+      ],
+      "methods_and_practical_work": [
+        "Veeproovide kirjeldamine, kraani- ja loodusliku vee võrdlus ning pindpinevuse katse."
+      ],
+      "ict": [
+        "Pindpinevuse video."
+      ],
+      "assessment": [
+        "Katse kirjeldus ja järeldus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "veeproovid",
+        "mündid",
+        "pipetid",
+        "nõelad",
+        "pesuaine"
+      ],
+      "external_links": [
+        "http://www.sagadi.ee/files/veevoldik.pdf"
+      ],
+      "source_pages": [
+        5,
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 12,
+      "lesson_end": 12,
+      "topic_et": "Väikesed veeorganismid ja veeõitsemine",
+      "concepts_et": [
+        "vesikirp",
+        "hõljum",
+        "rohevetikas",
+        "veeõitsemine"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöö väikeste veeorganismide rollist toiduahelas ja veeõitsemise põhjustest."
+      ],
+      "ict": [
+        "Slaidiesitlus ja veebitekstid."
+      ],
+      "assessment": [
+        "Rühmatöö kokkuvõte."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "organismide pildid ja tekstid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 13,
+      "lesson_end": 13,
+      "topic_et": "Toiduahelad ja toiduvõrgustikud",
+      "concepts_et": [
+        "tootja",
+        "tarbija",
+        "lagundaja",
+        "toiduahel",
+        "toiduvõrgustik"
+      ],
+      "methods_and_practical_work": [
+        "Paaris- või rühmatöö toiduahelate ja toiduvõrgustike koostamiseks."
+      ],
+      "ict": [
+        "Liigiandmebaasid."
+      ],
+      "assessment": [
+        "Õpimapi toiduvõrgustiku leht."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "liigikirjeldused"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/loomad/",
+        "http://bio.edu.ee/taimed/"
+      ],
+      "source_pages": [
+        6
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 14,
+      "lesson_end": 14,
+      "topic_et": "Vahekokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpilaste koostatud viktoriiniküsimused ja kirjalikud vastused."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpimapp ja rühmaviktoriin."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "sotsiaalne pädevus"
+      ],
+      "materials": [
+        "õpimapp"
+      ],
+      "external_links": [],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 15,
+      "lesson_end": 15,
+      "topic_et": "Eesti jõed",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Jõgede kandmine kontuurkaardile, atlase registri kasutamine ja kaardivõistlus."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontuurkaart."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "kunstiõpetus",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "teabekeskkond"
+      ],
+      "materials": [
+        "Eesti kaart",
+        "atlas",
+        "kontuurkaart"
+      ],
+      "external_links": [],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 16,
+      "lesson_end": 16,
+      "topic_et": "Jõgi ja selle osad",
+      "concepts_et": [
+        "jõgi",
+        "jõesäng",
+        "lähe",
+        "suue",
+        "peajõgi",
+        "lisajõgi",
+        "jõestik"
+      ],
+      "methods_and_practical_work": [
+        "Ühe konkreetse jõe kaardi ja fotode põhjal mõistete selgitamine."
+      ],
+      "ict": [
+        "Maa-ameti kaardiserver."
+      ],
+      "assessment": [
+        "Kaardi ja foto seostamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "ruumiline mõtlemine"
+      ],
+      "materials": [
+        "suuremõõtkavaline jõekaart",
+        "fotod"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee"
+      ],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 17,
+      "lesson_end": 17,
+      "topic_et": "Vee voolamine ja veetaseme kõikumine jões",
+      "concepts_et": [
+        "jõe langus",
+        "voolukiirus",
+        "kärestik",
+        "juga",
+        "suurvesi",
+        "madalvesi"
+      ],
+      "methods_and_practical_work": [
+        "Jõe vee töö vaatlus ning jõeloogete, jugade, kärestike ja veetaseme näidete analüüs."
+      ],
+      "ict": [
+        "Veetaseme andmed."
+      ],
+      "assessment": [
+        "Seoste selgitamine."
+      ],
+      "learning_environment": [
+        "jõgi või oja",
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "kaardid",
+        "pildid",
+        "veetaseme andmed"
+      ],
+      "external_links": [
+        "http://www.emhi.ee/?ide=9,654"
+      ],
+      "source_pages": [
+        7
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 18,
+      "lesson_end": 18,
+      "topic_et": "Eesti järved, järvevee omadused ja toitained",
+      "concepts_et": [
+        "järvenõgu",
+        "järv",
+        "umbjärv",
+        "läbivoolujärv",
+        "rannajärv",
+        "lahusti"
+      ],
+      "methods_and_practical_work": [
+        "Järvede kaarditöö ning lahustuvuse ja lihtsa veepuhastuse katse."
+      ],
+      "ict": [
+        "Järveteemaline veebimaterjal."
+      ],
+      "assessment": [
+        "Kontuurkaart ja katse järeldus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "tööõpetus"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "Eesti kaart",
+        "kontuurkaart",
+        "veetopsid",
+        "sool",
+        "suhkur",
+        "liiv",
+        "õli"
+      ],
+      "external_links": [
+        "http://jarved.weebly.com/index.html"
+      ],
+      "source_pages": [
+        7,
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 19,
+      "lesson_end": 19,
+      "topic_et": "Jõe ja järve elutingimuste erinevused ning aastaring",
+      "concepts_et": [
+        "veekogu aastaring",
+        "vee tihedus"
+      ],
+      "methods_and_practical_work": [
+        "Venni diagramm, hooajalise veekogu vaatlus ja vee tiheduse arutelu."
+      ],
+      "ict": [],
+      "assessment": [
+        "Võrdlusdiagramm."
+      ],
+      "learning_environment": [
+        "klass",
+        "võimalusel veekogu"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "aastaaegade veekogupildid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 20,
+      "lesson_end": 20,
+      "topic_et": "Veekogude võrdlemine",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Kahe Eesti jõe või järve võrdlemine kaartide ja teabeallikate põhjal."
+      ],
+      "ict": [],
+      "assessment": [
+        "Õpilase enesehinnang ja võrdlus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "kaardilugemisoskus"
+      ],
+      "materials": [
+        "atlas",
+        "kaardid",
+        "tekstid",
+        "pildid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        8
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 21,
+      "lesson_end": 21,
+      "topic_et": "Kodupiirkonna veekogud kaardil",
+      "concepts_et": [
+        "tasane pinnamood",
+        "künklik pinnamood",
+        "jõeorg",
+        "jõelooke",
+        "järvenõgu",
+        "sissevool",
+        "väljavool"
+      ],
+      "methods_and_practical_work": [
+        "Kohaliku veekogu kallaste, taimkatte, soostumise ja kaardipildi uurimine."
+      ],
+      "ict": [
+        "Maa-ameti põhikaart."
+      ],
+      "assessment": [
+        "Kohaliku kaardi tõlgendus."
+      ],
+      "learning_environment": [
+        "klass",
+        "kohalik veekogu"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "kultuuriline identiteet"
+      ],
+      "materials": [
+        "suuremõõtkavaline kaart"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee"
+      ],
+      "source_pages": [
+        8,
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 22,
+      "lesson_end": 22,
+      "topic_et": "Kodupiirkonna veekogudega seotud sündmused",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Muistendite, ajaloo, traditsioonide ja kunstiteoste kogumine või loomine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Näitus või stend."
+      ],
+      "learning_environment": [
+        "klass",
+        "kodukoht"
+      ],
+      "subject_integration": [
+        "ajalugu",
+        "eesti keel",
+        "kunst",
+        "muusika"
+      ],
+      "transversal_integration": [
+        "kultuuriline identiteet",
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "kohalikud allikad ja loovtöövahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 23,
+      "lesson_end": 24,
+      "topic_et": "Uurimistööde esitlemine ja ettekanded",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Ettekanded, liikide äratundmine, toiduahelate koostamine ja kaardikordus."
+      ],
+      "ict": [
+        "Esitlused."
+      ],
+      "assessment": [
+        "Uurimistöö esitlus ja põhjendamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "loovtöö"
+      ],
+      "transversal_integration": [
+        "esinemis- ja väljendusoskus"
+      ],
+      "materials": [
+        "uurimistöö materjalid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 25,
+      "lesson_end": 25,
+      "topic_et": "Jõe ja järve ploki kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Lühitest katsete ja käsitletud liikide põhjal."
+      ],
+      "ict": [],
+      "assessment": [
+        "Lühitest."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        9
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "river-block-declared-hours"
+      ]
+    },
+    {
+      "lesson_start": 26,
+      "lesson_end": 26,
+      "topic_et": "Vee omadused",
+      "concepts_et": [
+        "aine",
+        "vedelik",
+        "veemolekul"
+      ],
+      "methods_and_practical_work": [
+        "Vedelike ja tahkiste võrdlus ning aatomi, molekuli ja aine arutelu."
+      ],
+      "ict": [
+        "Vee voldik."
+      ],
+      "assessment": [
+        "Võrdluse ja katse vormistus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "vesi",
+        "õli",
+        "äädikhape",
+        "piim",
+        "metall",
+        "puit",
+        "jää"
+      ],
+      "external_links": [
+        "http://www.sagadi.ee/files/veevoldik.pdf"
+      ],
+      "source_pages": [
+        10
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 27,
+      "lesson_end": 27,
+      "topic_et": "Vee olekud ja nende muutumine",
+      "concepts_et": [
+        "aine olek",
+        "tahkis",
+        "gaas",
+        "aurumine",
+        "veeldumine",
+        "tahkumine",
+        "sulamine",
+        "kondenseerumine"
+      ],
+      "methods_and_practical_work": [
+        "Veemolekuli loo, pildi- või fotoseeria koostamine olekumuutuste kirjeldamiseks."
+      ],
+      "ict": [
+        "Veeringe skeem ja katseideede veebileht."
+      ],
+      "assessment": [
+        "Pildiseeria ja suuline selgitus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "kunstiõpetus",
+        "eesti keel",
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "pildiseeria",
+        "veeringe skeem"
+      ],
+      "external_links": [
+        "http://www.stevespanglerscience.com/experiments/"
+      ],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 28,
+      "lesson_end": 28,
+      "topic_et": "Vedela ja gaasilise aine omadused",
+      "concepts_et": [
+        "kokkusurutavus",
+        "voolavus",
+        "lenduvus"
+      ],
+      "methods_and_practical_work": [
+        "Vee ja õhu kokkusurutavuse, vee voolavuse, lõhna leviku ja aurumise katsed."
+      ],
+      "ict": [],
+      "assessment": [
+        "Oletused ja järeldused."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "plastpudelid",
+        "pipetid",
+        "alusklaasid",
+        "lõhnav vedelik"
+      ],
+      "external_links": [],
+      "source_pages": [
+        11
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 29,
+      "lesson_end": 29,
+      "topic_et": "Vee soojuspaisumine",
+      "concepts_et": [
+        "soojuspaisumine"
+      ],
+      "methods_and_practical_work": [
+        "Veetermomeetri katse ning jahtumise, jäätumise ja anuma purunemise arutelu."
+      ],
+      "ict": [
+        "Veetermomeetri video."
+      ],
+      "assessment": [
+        "Katse joonis ja järeldus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "termomeetri valmistamise vahendid"
+      ],
+      "external_links": [
+        "http://www.stevespanglerscience.com/experiment/water-thermometer-sick-science"
+      ],
+      "source_pages": [
+        11,
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 30,
+      "lesson_end": 30,
+      "topic_et": "Märgamine ja kapillaarsus",
+      "concepts_et": [
+        "märgamine",
+        "kapillaarsus"
+      ],
+      "methods_and_practical_work": [
+        "Vee liikumine pinnases ja kromatograafia katse."
+      ],
+      "ict": [
+        "Kapillaarsuse video."
+      ],
+      "assessment": [
+        "Katse kirjeldus ja järeldus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [
+        "muld",
+        "salvrätik",
+        "viltpliiats",
+        "vesi"
+      ],
+      "external_links": [
+        "http://vimeo.com/31150062"
+      ],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 31,
+      "lesson_end": 31,
+      "topic_et": "Põhjavesi",
+      "concepts_et": [
+        "põhjavesi",
+        "allikas",
+        "vee läbilaskvus"
+      ],
+      "methods_and_practical_work": [
+        "Põhjavee mudel ja vee imbumise võrdlus läbi erinevate pinnaste."
+      ],
+      "ict": [],
+      "assessment": [
+        "Maapinna läbilõike tõlgendamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "läbipaistvad topsid",
+        "liiv",
+        "savi",
+        "kruus",
+        "muld",
+        "turvas"
+      ],
+      "external_links": [],
+      "source_pages": [
+        12
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 32,
+      "lesson_end": 32,
+      "topic_et": "Joogivesi ja vee kasutamine",
+      "concepts_et": [
+        "joogivesi",
+        "veetarbimine"
+      ],
+      "methods_and_practical_work": [
+        "Veeallikate joogikõlblikkuse arutelu, koduse veetarbimise jälgimine ja säästuvõtete kavandamine."
+      ],
+      "ict": [
+        "Veeprobleemide videod ja faktilehed."
+      ],
+      "assessment": [
+        "Veekulu arvutus ja säästuettepanek."
+      ],
+      "learning_environment": [
+        "klass",
+        "kodu"
+      ],
+      "subject_integration": [
+        "keemia",
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "veearvesti näidud"
+      ],
+      "external_links": [
+        "http://www.youtube.com/user/water/videos"
+      ],
+      "source_pages": [
+        12,
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 33,
+      "lesson_end": 33,
+      "topic_et": "Vee reostumine, kaitse ja puhastamine",
+      "concepts_et": [
+        "setitamine",
+        "sõelumine",
+        "filtreerimine"
+      ],
+      "methods_and_practical_work": [
+        "Reostunud vee puhastamise uurimuse kavandamine ja läbiviimine; võimalik veepuhastusjaama külastus."
+      ],
+      "ict": [
+        "Veekvaliteedi veebimaterjal."
+      ],
+      "assessment": [
+        "Uurimisplaan ja katse järeldused."
+      ],
+      "learning_environment": [
+        "klass",
+        "võimalik õppekäik"
+      ],
+      "subject_integration": [
+        "füüsika",
+        "keemia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "sõel",
+        "kohvifilter",
+        "liiv",
+        "õli",
+        "muud seguained"
+      ],
+      "external_links": [
+        "http://www.sakulate.ee/66est.html"
+      ],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 34,
+      "lesson_end": 34,
+      "topic_et": "Vee säästliku kasutamise kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Kooli või kodu veesäästujuhendi koostamine ning veekulu ja tariifide analüüs."
+      ],
+      "ict": [],
+      "assessment": [
+        "Veesäästujuhend."
+      ],
+      "learning_environment": [
+        "klass",
+        "kool"
+      ],
+      "subject_integration": [
+        "matemaatika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "kooli veekulu andmed"
+      ],
+      "external_links": [],
+      "source_pages": [
+        13
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 35,
+      "lesson_end": 35,
+      "topic_et": "Praktiline kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Juhendi järgi veega seotud praktilise töö läbiviimine ja tulemuste vormistamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Juhendist arusaamine, töö teostus ja vormistus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "õpilase valitud katsevahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        13,
+        14
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 36,
+      "lesson_end": 36,
+      "topic_et": "Kontrolltöö analüüs ja veebipõhine toiduahela kordus",
+      "concepts_et": [
+        "toiduahel"
+      ],
+      "methods_and_practical_work": [
+        "Veebiharjutuste lahendamine ja kontrolltöö tulemuste analüüs."
+      ],
+      "ict": [
+        "bio.edu.ee/noor veebikeskkond."
+      ],
+      "assessment": [
+        "Veebiharjutuste tulemused."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "bioloogia",
+        "arvutiõpetus"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        14
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 37,
+      "lesson_end": 37,
+      "topic_et": "Veekogu toitelisus",
+      "concepts_et": [
+        "toitelisus"
+      ],
+      "methods_and_practical_work": [
+        "Veebimaterjalide ülesanded."
+      ],
+      "ict": [
+        "Veebiharjutused."
+      ],
+      "assessment": [
+        "Ülesannete lahendamine."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "uurimisoskused",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        14
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 38,
+      "lesson_end": 38,
+      "topic_et": "Vee läbipaistvus",
+      "concepts_et": [
+        "läbipaistvus"
+      ],
+      "methods_and_practical_work": [
+        "Veebimaterjalide ülesanded."
+      ],
+      "ict": [
+        "Veebiharjutused."
+      ],
+      "assessment": [
+        "Ülesannete lahendamine."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "uurimisoskused",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        14,
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 39,
+      "lesson_end": 39,
+      "topic_et": "Jõe saastus",
+      "concepts_et": [
+        "saastus"
+      ],
+      "methods_and_practical_work": [
+        "Veebimaterjalide ülesanded."
+      ],
+      "ict": [
+        "Veebiharjutused."
+      ],
+      "assessment": [
+        "Ülesannete lahendamine."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "uurimisoskused",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 40,
+      "lesson_end": 40,
+      "topic_et": "Voolu mõju jõeelustikule",
+      "concepts_et": [
+        "vool",
+        "ökoloogiline tegur"
+      ],
+      "methods_and_practical_work": [
+        "Veebimaterjalide ülesanded."
+      ],
+      "ict": [
+        "Veebiharjutused."
+      ],
+      "assessment": [
+        "Ülesannete lahendamine."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "uurimisoskused",
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        15
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 41,
+      "lesson_end": 41,
+      "topic_et": "Lisatund veeülesannete lõpetamiseks",
+      "concepts_et": [
+        "gaaside lahustumine",
+        "aurustumine",
+        "kaste"
+      ],
+      "methods_and_practical_work": [
+        "Pooleli ülesannete lõpetamine ja huviliste lisateemad."
+      ],
+      "ict": [
+        "Veebiharjutused."
+      ],
+      "assessment": [
+        "Ülesannete lõpetatus."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        15,
+        16
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "adjacent-grade-optional-topics"
+      ]
+    },
+    {
+      "lesson_start": 42,
+      "lesson_end": 42,
+      "topic_et": "Lisatund lõpetamiseks ja kordamiseks",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Raskuste arutelu, enesehinnang ja ülesannete lõpetamine."
+      ],
+      "ict": [
+        "Õpetaja veebipõhine tulemuste vaade."
+      ],
+      "assessment": [
+        "Punktisumma ja enesehinnang."
+      ],
+      "learning_environment": [
+        "arvutiklass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "õpioskused"
+      ],
+      "materials": [
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/noor/"
+      ],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 43,
+      "lesson_end": 43,
+      "topic_et": "Vesi kui aine ploki kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Õpilaste koostatud küsimused ja vastuste vahetamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kokkuvõtteküsimused."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        16
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "water-substance-block-declared-hours"
+      ]
+    },
+    {
+      "lesson_start": 44,
+      "lesson_end": 44,
+      "topic_et": "Elukeskkond maa-asulas ja linnas",
+      "concepts_et": [
+        "maa-asula",
+        "linn",
+        "tehiskeskkond"
+      ],
+      "methods_and_practical_work": [
+        "Maa ja linna elukeskkonna SWOT-võrdlus."
+      ],
+      "ict": [],
+      "assessment": [
+        "Rühma võrdlus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        17
+      ],
+      "extraction_confidence": "medium",
+      "unresolved_fields": [
+        "unnumbered-seasonal-settlement-activity"
+      ]
+    },
+    {
+      "lesson_start": 45,
+      "lesson_end": 45,
+      "topic_et": "Eesti linnad",
+      "concepts_et": [
+        "linn",
+        "maakonnakeskus"
+      ],
+      "methods_and_practical_work": [
+        "Linnasiluettide ja sümbolite uurimine ning linnade kandmine kontuurkaardile."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontuurkaart."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "haldusjaotuse kaart",
+        "kontuurkaart"
+      ],
+      "external_links": [],
+      "source_pages": [
+        17,
+        18
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 46,
+      "lesson_end": 46,
+      "topic_et": "Koduasula plaan",
+      "concepts_et": [
+        "plaan",
+        "mõõtkava",
+        "põhjasuund"
+      ],
+      "methods_and_practical_work": [
+        "Kooliümbruse lihtsa plaani koostamine, mõõtmine ja mõõtkava arvutamine; soovitatav paaristund."
+      ],
+      "ict": [
+        "Maa-ameti kaart."
+      ],
+      "assessment": [
+        "Valminud plaan."
+      ],
+      "learning_environment": [
+        "kooliümbrus"
+      ],
+      "subject_integration": [
+        "matemaatika",
+        "geograafia",
+        "inimeseõpetus"
+      ],
+      "transversal_integration": [
+        "sotsiaalne pädevus"
+      ],
+      "materials": [
+        "mõõdulindid",
+        "plaanialused",
+        "pliiatsid",
+        "joonlauad",
+        "kompassid"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee"
+      ],
+      "source_pages": [
+        18
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 47,
+      "lesson_end": 47,
+      "topic_et": "Elutingimused asulas ja park",
+      "concepts_et": [
+        "park",
+        "eluta tegur",
+        "elus tegur"
+      ],
+      "methods_and_practical_work": [
+        "Pargielustiku ja aastaajaliste muutuste vaatlus ning liigimääramine."
+      ],
+      "ict": [
+        "Sagadi looduskooli materjalid."
+      ],
+      "assessment": [
+        "Liigikirjeldus või puu pass."
+      ],
+      "learning_environment": [
+        "park"
+      ],
+      "subject_integration": [
+        "inimeseõpetus",
+        "kehaline kasvatus",
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "sotsiaalne pädevus"
+      ],
+      "materials": [
+        "töölehed",
+        "liigimäärajad"
+      ],
+      "external_links": [
+        "http://www.sagadi.ee/looduskool/oppematerjalid"
+      ],
+      "source_pages": [
+        18
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 48,
+      "lesson_end": 48,
+      "topic_et": "Taimed ja loomad asulas",
+      "concepts_et": [
+        "inimkaasleja loom",
+        "parasiit",
+        "prahitaim"
+      ],
+      "methods_and_practical_work": [
+        "Looduslike ja inimtekkeliste koosluste, jäätmaade, heakorra ja prügi arutelu."
+      ],
+      "ict": [],
+      "assessment": [
+        "Arutelu järeldused."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus",
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "liikide pildid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        18,
+        19
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 49,
+      "lesson_end": 49,
+      "topic_et": "Asula ploki kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Suuremõõtkavalise kaardi ülesanded, puude ristsõna ja lehtede mitmekesisuse ülesanne."
+      ],
+      "ict": [
+        "Sagadi töölehed."
+      ],
+      "assessment": [
+        "Iseseisev ülesannete lahendamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [
+        "õpioskused"
+      ],
+      "materials": [
+        "kaart",
+        "töölehed"
+      ],
+      "external_links": [],
+      "source_pages": [
+        19
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 50,
+      "lesson_end": 50,
+      "topic_et": "Asula ploki kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        19
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "settlement-block-declared-hours"
+      ]
+    },
+    {
+      "lesson_start": 51,
+      "lesson_end": 51,
+      "topic_et": "Kontrolltöö analüüs ja pinnavormide kujutamine kaardil",
+      "concepts_et": [
+        "pinnavorm",
+        "samakõrgusjoon",
+        "suhteline kõrgus",
+        "absoluutne kõrgus"
+      ],
+      "methods_and_practical_work": [
+        "Viilutatud kaalika abil künka pealtvaate ja samakõrgusjoonte mudel."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö analüüs ja mudeli täpsus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "kaalikas",
+        "nuga",
+        "alus"
+      ],
+      "external_links": [],
+      "source_pages": [
+        19,
+        20
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 52,
+      "lesson_end": 52,
+      "topic_et": "Kodukoha ja Eesti pinnavormid",
+      "concepts_et": [
+        "küngas",
+        "mägi",
+        "nõlv",
+        "jalam"
+      ],
+      "methods_and_practical_work": [
+        "Võimalik paaristund orienteerumiskaardiga, orienteerumismäng ja profiili koostamine."
+      ],
+      "ict": [
+        "Digitaalne tööleht ja Maa-ameti kaart."
+      ],
+      "assessment": [
+        "Kaardiülesanded."
+      ],
+      "learning_environment": [
+        "kooliümbrus"
+      ],
+      "subject_integration": [
+        "kehaline kasvatus",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "sotsiaalne pädevus"
+      ],
+      "materials": [
+        "orienteerumiskaart"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee"
+      ],
+      "source_pages": [
+        20
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 53,
+      "lesson_end": 53,
+      "topic_et": "Orud ja nõod",
+      "concepts_et": [
+        "org",
+        "jõeorg",
+        "nõgu",
+        "järvenõgu"
+      ],
+      "methods_and_practical_work": [
+        "Suuremõõtkavalise kaardi ülesanded ja pinnavormi ristlõike joonistamine."
+      ],
+      "ict": [
+        "Maa-ameti kaart."
+      ],
+      "assessment": [
+        "Kaardi ja ristlõike tõlgendus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "kehaline kasvatus"
+      ],
+      "transversal_integration": [
+        "ruumiline mõtlemine"
+      ],
+      "materials": [
+        "suuremõõtkavaline kaart"
+      ],
+      "external_links": [
+        "https://www.maaamet.ee"
+      ],
+      "source_pages": [
+        20
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 54,
+      "lesson_end": 54,
+      "topic_et": "Suuremad kõrgustikud, madalikud ja tasandikud",
+      "concepts_et": [
+        "pinnamood",
+        "kõrgustik",
+        "tasandik",
+        "madalik"
+      ],
+      "methods_and_practical_work": [
+        "Eesti suurvormide kandmine kontuurkaardile ja näitamine seinakaardil."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontuurkaart."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "Eesti seinakaart",
+        "atlas",
+        "kontuurkaart"
+      ],
+      "external_links": [],
+      "source_pages": [
+        20,
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 55,
+      "lesson_end": 55,
+      "topic_et": "Põhja-Eesti pankrannik",
+      "concepts_et": [
+        "paekallas",
+        "paekivi"
+      ],
+      "methods_and_practical_work": [
+        "Paekivi, klindi, Tallinna sümbolite, pärimuse ja looduskaitse arutelu."
+      ],
+      "ict": [
+        "Põhja-Eesti klindi video."
+      ],
+      "assessment": [
+        "Arutelu seoste põhjendamine."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "muusika",
+        "tööõpetus",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "kultuuriline identiteet",
+        "keskkond ja jätkusuutlik areng",
+        "karjääriõpe"
+      ],
+      "materials": [
+        "fotod",
+        "video"
+      ],
+      "external_links": [
+        "http://www.klint.envir.ee/"
+      ],
+      "source_pages": [
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 56,
+      "lesson_end": 56,
+      "topic_et": "Mandrijää osa pinnamoe kujunemises",
+      "concepts_et": [
+        "mandrijää",
+        "moreen",
+        "rändrahn"
+      ],
+      "methods_and_practical_work": [
+        "Rändrahnude, jää liikumise ja mandrijää kujundatud pinnavormide analüüs."
+      ],
+      "ict": [
+        "Liustike veebimaterjalid."
+      ],
+      "assessment": [
+        "Protsessi kirjeldus piltide järgi."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "fotod",
+        "Eesti atlas"
+      ],
+      "external_links": [
+        "http://nsidc.org/cryosphere/glaciers/"
+      ],
+      "source_pages": [
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 57,
+      "lesson_end": 57,
+      "topic_et": "Voor ja jääaja pinnavormid",
+      "concepts_et": [
+        "voor"
+      ],
+      "methods_and_practical_work": [
+        "Võimalik Jääaja Keskuse külastus ja pinnavormide kaarditöö."
+      ],
+      "ict": [
+        "Jääaja Keskuse veebileht."
+      ],
+      "assessment": [
+        "Kaarditöö."
+      ],
+      "learning_environment": [
+        "Jääaja Keskus või klass"
+      ],
+      "subject_integration": [
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [
+        "Eesti atlas"
+      ],
+      "external_links": [
+        "http://www.jaaaeg.ee/"
+      ],
+      "source_pages": [
+        21
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 58,
+      "lesson_end": 58,
+      "topic_et": "Pinnamoe mõju inimtegevusele ja inimtekkelised pinnavormid",
+      "concepts_et": [
+        "linnamägi",
+        "maalinn",
+        "inimtekkeline pinnavorm"
+      ],
+      "methods_and_practical_work": [
+        "Kohalike pinnavormide kasutuse, teetammide, kraavide ja karjääride arutelu ning intervjuuidee."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kohaliku näite põhjendamine."
+      ],
+      "learning_environment": [
+        "klass",
+        "kodukoht"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "ajalugu"
+      ],
+      "transversal_integration": [
+        "elukestev õpe ja karjääri planeerimine"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        21,
+        22
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 59,
+      "lesson_end": 59,
+      "topic_et": "Pinnavormide kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Pinnavormide modelleerimine plastiliinis või liivas ning kordamisküsimused."
+      ],
+      "ict": [],
+      "assessment": [
+        "Mudel ja vastused."
+      ],
+      "learning_environment": [
+        "klass või liivakast"
+      ],
+      "subject_integration": [
+        "kunstiõpetus"
+      ],
+      "transversal_integration": [
+        "õpioskused"
+      ],
+      "materials": [
+        "plastiliin või liiv",
+        "lihtne kaart"
+      ],
+      "external_links": [],
+      "source_pages": [
+        22
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 60,
+      "lesson_end": 60,
+      "topic_et": "Pinnavormide kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Kaardiülesannetega kontrolltöö."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [
+        "pinnavormide kaart"
+      ],
+      "external_links": [],
+      "source_pages": [
+        22
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 61,
+      "lesson_end": 61,
+      "topic_et": "Kontrolltöö analüüs ja soo elukeskkond",
+      "concepts_et": [
+        "laugas",
+        "älves"
+      ],
+      "methods_and_practical_work": [
+        "Kontrolltöö analüüs, võimalik sookaitseala õppekäik ja rabavee arutelu."
+      ],
+      "ict": [
+        "Märgalade materjal."
+      ],
+      "assessment": [
+        "Kontrolltöö analüüs."
+      ],
+      "learning_environment": [
+        "klass",
+        "võimalusel sookaitseala"
+      ],
+      "subject_integration": [
+        "eesti keel"
+      ],
+      "transversal_integration": [
+        "tervis ja ohutus"
+      ],
+      "materials": [
+        "märgalade õppematerjal"
+      ],
+      "external_links": [],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 62,
+      "lesson_end": 62,
+      "topic_et": "Soode teke ja paiknemine",
+      "concepts_et": [
+        "turbasammal",
+        "turvas"
+      ],
+      "methods_and_practical_work": [
+        "Turbasambla veehoiuvõime, turba ja mulla võrdlus ning turbapreparaadi valmistamine."
+      ],
+      "ict": [
+        "Turbapreparaadi video."
+      ],
+      "assessment": [
+        "Katse järeldused."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "turvas",
+        "turbasammal",
+        "mikroskoop või binokulaar"
+      ],
+      "external_links": [
+        "http://www.ctc.ee/leia-kiiresti/uudised/laenutame-turbakohvrit"
+      ],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": [
+        "Allikas märgib turba ja mulla võrdluse võimaliku seosena 6. klassi mullateemaga; seda ei ole ümber marsruuditud."
+      ]
+    },
+    {
+      "lesson_start": 63,
+      "lesson_end": 63,
+      "topic_et": "Soode areng",
+      "concepts_et": [
+        "madalsoo",
+        "siirdesoo",
+        "raba"
+      ],
+      "methods_and_practical_work": [
+        "Soo arenguetappide ning madalsoo ja raba võrdlus filmi põhjal."
+      ],
+      "ict": [
+        "Soo arengu ja turbatootmise video."
+      ],
+      "assessment": [
+        "Võrdlustabel."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "geograafia"
+      ],
+      "transversal_integration": [
+        "tehnoloogia ja innovatsioon"
+      ],
+      "materials": [
+        "Eesti atlase soode kaart"
+      ],
+      "external_links": [
+        "http://www.youtube.com/watch?v=4cZqkELSd_c"
+      ],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 64,
+      "lesson_end": 64,
+      "topic_et": "Elutingimused soos",
+      "concepts_et": [
+        "toitained",
+        "niiskus",
+        "kohastumus"
+      ],
+      "methods_and_practical_work": [
+        "Madalsoo ja raba pinnase, taimede kohastumuste ning turbaproovide võrdlus."
+      ],
+      "ict": [],
+      "assessment": [
+        "Paaristöö võrdlus."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "sotsiaalne pädevus"
+      ],
+      "materials": [
+        "madalsoo- ja rabaturvas",
+        "taimepildid või herbaarlehed"
+      ],
+      "external_links": [],
+      "source_pages": [
+        23
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 65,
+      "lesson_end": 65,
+      "topic_et": "Soode elustik",
+      "concepts_et": [
+        "sooelustik"
+      ],
+      "methods_and_practical_work": [
+        "Soo selgroogsete ja taimede uurimine veebimaterjalide ning piltide põhjal."
+      ],
+      "ict": [
+        "Liigiandmebaasid."
+      ],
+      "assessment": [
+        "Tööleht."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "teabekeskkond",
+        "tehnoloogia ja innovatsioon",
+        "karjääriõpe"
+      ],
+      "materials": [
+        "pildid",
+        "arvutid"
+      ],
+      "external_links": [
+        "http://bio.edu.ee/loomad/",
+        "http://bio.edu.ee/taimed/"
+      ],
+      "source_pages": [
+        23,
+        24
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 66,
+      "lesson_end": 66,
+      "topic_et": "Soode tähtsus",
+      "concepts_et": [
+        "vee reservuaar",
+        "elupaik",
+        "puhkemaastik",
+        "looduskaitse"
+      ],
+      "methods_and_practical_work": [
+        "Rühmatöö soode tähtsusest ning kaitseala või kasutamise valikute kohta."
+      ],
+      "ict": [],
+      "assessment": [
+        "Rühma põhjendatud seisukoht."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "geograafia",
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng",
+        "karjääriõpe"
+      ],
+      "materials": [
+        "soode kaardid ja kirjeldused"
+      ],
+      "external_links": [],
+      "source_pages": [
+        24
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 67,
+      "lesson_end": 67,
+      "topic_et": "Turba kasutamine ja kütteturba tootmise tehnoloogia",
+      "concepts_et": [
+        "turvas",
+        "kütteturvas",
+        "turbatootmine"
+      ],
+      "methods_and_practical_work": [
+        "Turbatootmise protsessi ning turba kasutuse plusside ja miinuste arutelu; kaitse või tootmise väitlus."
+      ],
+      "ict": [],
+      "assessment": [
+        "Argumenteeritud seisukoht."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "eesti keel",
+        "füüsika"
+      ],
+      "transversal_integration": [
+        "keskkond ja jätkusuutlik areng"
+      ],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        24
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 68,
+      "lesson_end": 68,
+      "topic_et": "Soo ploki kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Kordamisküsimused ja võimaliku herbaariumi kavandamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kordamisküsimused."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [
+        "bioloogia"
+      ],
+      "transversal_integration": [
+        "õpioskused"
+      ],
+      "materials": [
+        "taimemääraja"
+      ],
+      "external_links": [],
+      "source_pages": [
+        24
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 69,
+      "lesson_end": 69,
+      "topic_et": "Soo ploki kontrolltöö",
+      "concepts_et": [],
+      "methods_and_practical_work": [],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö."
+      ],
+      "learning_environment": [
+        "klass"
+      ],
+      "subject_integration": [],
+      "transversal_integration": [],
+      "materials": [],
+      "external_links": [],
+      "source_pages": [
+        24
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    },
+    {
+      "lesson_start": 70,
+      "lesson_end": 70,
+      "topic_et": "Kontrolltöö analüüs ja õppeaasta kokkuvõte",
+      "concepts_et": [],
+      "methods_and_practical_work": [
+        "Kontrolltöö analüüs, loodusteemaline liikumis- või maastikumäng ja võimaliku suvise vaatlusülesande kavandamine."
+      ],
+      "ict": [],
+      "assessment": [
+        "Kontrolltöö analüüs ja aasta enesehinnang."
+      ],
+      "learning_environment": [
+        "klass",
+        "kooliümbrus"
+      ],
+      "subject_integration": [
+        "kehaline kasvatus"
+      ],
+      "transversal_integration": [
+        "vastutus õppimise kui protsessi eest"
+      ],
+      "materials": [
+        "maastikumängu vahendid"
+      ],
+      "external_links": [],
+      "source_pages": [
+        24,
+        25
+      ],
+      "extraction_confidence": "high",
+      "unresolved_fields": []
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "parenthetical-lesson-6",
+      "scope": "lesson_range",
+      "source_pages": [
+        4
+      ],
+      "source_fragment_et": "(6.) Veeloomad",
+      "description_et": "Veeloomade rida kannab sulgudes numbrit 6, mis kattub eelneva allikavahemikuga 5.–6.",
+      "normalized_handling_et": "Rida säilitati lahendamata kirjena ega lisatud teise lesson range'ina, et vältida 6. tunni dubleerimist; selle sisu on seotud veetaimede ja veeloomade paaristunni plokiga.",
+      "status": "open"
+    },
+    {
+      "item_id": "unnumbered-seasonal-settlement-activity",
+      "scope": "lesson_range",
+      "source_pages": [
+        17
+      ],
+      "source_fragment_et": "Praktiline tegevus, mille läbiviimine sõltub aastaajast ja konkreetsest tegevusest",
+      "description_et": "Linnuvaatluse, toidulauavaatluse või pesakasti tegevusel puudub tunninumber.",
+      "normalized_handling_et": "Tegevus säilitati eraldi lahendamata kirjena ning seostati tunni 44 unresolved_fields väljaga; seda ei loetud eraldi tunniks.",
+      "status": "open"
+    },
+    {
+      "item_id": "river-block-declared-hours",
+      "scope": "thematic_block",
+      "source_pages": [
+        1,
+        9
+      ],
+      "source_fragment_et": "26 tundi (~13 nädalat); tabeli põhijada 1.–25.",
+      "description_et": "Ploki deklareeritud 26 tundi ei kattu 25 unikaalse põhitunninumbriga; lisaks esineb kattuv sulgudes (6.) rida.",
+      "normalized_handling_et": "Säilitati nii deklareeritud 26 tundi kui ka kattumiseta aastane tunninumbrijada; erinevust ei oletatud ümber.",
+      "status": "open"
+    },
+    {
+      "item_id": "water-substance-block-declared-hours",
+      "scope": "thematic_block",
+      "source_pages": [
+        9,
+        16
+      ],
+      "source_fragment_et": "14 tundi (~7 nädalat); tabeli põhijada 26.–43.",
+      "description_et": "Ploki deklareeritud 14 tundi erineb 18 unikaalsest tabelinumbrist 26–43.",
+      "normalized_handling_et": "Deklareeritud maht säilitati temaatilise ploki väljal ja kõik nummerdatud read aastase katvuse väljal; erinevust ei tõlgendatud ametlikuks ajajaotuseks.",
+      "status": "open"
+    },
+    {
+      "item_id": "settlement-block-declared-hours",
+      "scope": "thematic_block",
+      "source_pages": [
+        16,
+        19
+      ],
+      "source_fragment_et": "10 tundi (~5 nädalat); tabeli põhijada 44.–50. ja üks numbrita praktiline rida.",
+      "description_et": "Ploki deklareeritud 10 tundi erineb seitsmest unikaalsest tunninumbrist ning numbrita hooajalisest tegevusest.",
+      "normalized_handling_et": "Deklareeritud maht ja numbrita tegevus säilitati eraldi; puuduvaid tunninumbreid ei tuletatud.",
+      "status": "open"
+    },
+    {
+      "item_id": "adjacent-grade-optional-topics",
+      "scope": "source_table",
+      "source_pages": [
+        15
+      ],
+      "source_fragment_et": "Kaste tekkimine, pilvede tekkimine ja udu tekkimine (sobib ka 6. klassile).",
+      "description_et": "Kolm lisateemat on Grade 5 PDF-is, kuid allikas märgib need sobivaks ka 6. klassile.",
+      "normalized_handling_et": "Kirjed märgiti valikuliseks lisamaterjaliks ega kasutatud Grade 6 allikana või Grade 5 kohustusliku sisu tõendina.",
+      "status": "resolved_with_normalization"
+    }
+  ],
+  "completeness": {
+    "source_pages_extracted": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "source_pages_visually_verified": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "lesson_number_coverage": {
+      "lesson_start": 1,
+      "lesson_end": 70,
+      "gaps": [],
+      "overlaps": []
+    },
+    "declared_complete_for_this_pdf": true,
+    "official_curriculum_complete": false,
+    "canonical_opiq_mapping_complete": false
+  }
+}

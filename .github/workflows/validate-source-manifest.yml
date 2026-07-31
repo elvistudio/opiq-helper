@@ -30,6 +30,8 @@ on:
       - docs/audits/grade-4-content-quality.md
       - docs/audits/grade-4-kit-details-evidence.md
       - docs/audits/grade-4-live-catalogue-gap-review.md
+      - docs/audits/grade-5-science-teacher-work-plan-extraction.md
+      - docs/migrations/teacher-work-plans-5-7-integration.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
@@ -78,6 +80,8 @@ on:
       - docs/audits/grade-4-content-quality.md
       - docs/audits/grade-4-kit-details-evidence.md
       - docs/audits/grade-4-live-catalogue-gap-review.md
+      - docs/audits/grade-5-science-teacher-work-plan-extraction.md
+      - docs/migrations/teacher-work-plans-5-7-integration.md
       - docs/grade-5-science-annual-course.md
       - docs/lesson-plans.md
       - docs/pedagogical-knowledge-base.md
@@ -114,6 +118,7 @@ jobs:
       run_pedagogy_quality: ${{ steps.scope.outputs.run_pedagogy_quality }}
       run_pedagogy_regressions: ${{ steps.scope.outputs.run_pedagogy_regressions }}
       run_pedagogy_evidence: ${{ steps.scope.outputs.run_pedagogy_evidence }}
+      run_teacher_work_plans: ${{ steps.scope.outputs.run_teacher_work_plans }}
 
     steps:
       - name: Check out repository history
@@ -542,6 +547,36 @@ jobs:
       - name: Check generated pedagogical readiness report
         run: npm run check:pedagogy-readiness-report
 
+  teacher_work_plans:
+    name: Validate teacher work-plan extractions
+    needs: changes
+    if: ${{ needs.changes.outputs.run_teacher_work_plans == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Test teacher work-plan extraction contracts
+        run: npm run test:teacher-work-plans
+
+      - name: Check teacher work-plan extractions
+        run: npm run check:teacher-work-plans
+
   validate:
     name: Validate manifest and source records
     if: ${{ always() }}
@@ -551,6 +586,7 @@ jobs:
       - pedagogy_quality
       - pedagogy_regressions
       - pedagogy_evidence
+      - teacher_work_plans
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -562,9 +598,11 @@ jobs:
           QUALITY_RESULT: ${{ needs.pedagogy_quality.result }}
           REGRESSIONS_RESULT: ${{ needs.pedagogy_regressions.result }}
           EVIDENCE_RESULT: ${{ needs.pedagogy_evidence.result }}
+          TEACHER_WORK_PLANS_RESULT: ${{ needs.teacher_work_plans.result }}
           RUN_QUALITY: ${{ needs.changes.outputs.run_pedagogy_quality }}
           RUN_REGRESSIONS: ${{ needs.changes.outputs.run_pedagogy_regressions }}
           RUN_EVIDENCE: ${{ needs.changes.outputs.run_pedagogy_evidence }}
+          RUN_TEACHER_WORK_PLANS: ${{ needs.changes.outputs.run_teacher_work_plans }}
         run: |
           set -euo pipefail
 
@@ -594,3 +632,4 @@ jobs:
           require_selected_job "$RUN_QUALITY" "$QUALITY_RESULT" "pedagogical quality"
           require_selected_job "$RUN_REGRESSIONS" "$REGRESSIONS_RESULT" "pedagogical regressions"
           require_selected_job "$RUN_EVIDENCE" "$EVIDENCE_RESULT" "pedagogical evidence"
+          require_selected_job "$RUN_TEACHER_WORK_PLANS" "$TEACHER_WORK_PLANS_RESULT" "teacher work plans"

@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/teacher-work-plan-extraction.schema.json",
+  "title": "Teacher work-plan extraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "extraction_id",
+    "source",
+    "extraction",
+    "route_context",
+    "annual_allocation",
+    "thematic_blocks",
+    "lesson_ranges",
+    "unresolved_items",
+    "completeness"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "teacher_work_plan_extraction" },
+    "extraction_id": {
+      "type": "string",
+      "pattern": "^grade-[0-9]+-[a-z0-9]+(?:-[a-z0-9]+)*-teacher-work-plan-extraction$"
+    },
+    "source": { "$ref": "#/$defs/source" },
+    "extraction": { "$ref": "#/$defs/extraction" },
+    "route_context": { "$ref": "#/$defs/routeContext" },
+    "annual_allocation": { "$ref": "#/$defs/annualAllocation" },
+    "thematic_blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/thematicBlock" }
+    },
+    "lesson_ranges": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/lessonRange" }
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/unresolvedItem" }
+    },
+    "completeness": { "$ref": "#/$defs/completeness" }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "pageRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository_path",
+        "original_filename",
+        "sha256",
+        "byte_size",
+        "page_count",
+        "displayed_title",
+        "author",
+        "grade",
+        "subject",
+        "subject_et",
+        "language",
+        "provenance_kind",
+        "canonical"
+      ],
+      "properties": {
+        "repository_path": {
+          "type": "string",
+          "pattern": "^project-files/inputs/originals/teacher-work-plans/[A-Za-z0-9.-]+\\.pdf$"
+        },
+        "original_filename": {
+          "type": "string",
+          "pattern": "\\.pdf$",
+          "minLength": 5
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "byte_size": { "type": "integer", "minimum": 1 },
+        "page_count": { "type": "integer", "minimum": 1 },
+        "displayed_title": { "$ref": "#/$defs/nonEmptyString" },
+        "author": { "$ref": "#/$defs/nonEmptyString" },
+        "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "subject": { "enum": ["science", "geography"] },
+        "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+        "language": { "const": "et" },
+        "provenance_kind": { "const": "supplementary_teacher_work_plan" },
+        "canonical": { "const": false }
+      }
+    },
+    "extraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "embedded_text_used",
+        "visual_verification",
+        "verified_pages",
+        "ocr_used",
+        "transformations",
+        "limitations"
+      ],
+      "properties": {
+        "method": { "$ref": "#/$defs/nonEmptyString" },
+        "embedded_text_used": { "type": "boolean" },
+        "visual_verification": { "$ref": "#/$defs/nonEmptyString" },
+        "verified_pages": { "$ref": "#/$defs/pageRefs" },
+        "ocr_used": { "type": "boolean" },
+        "transformations": { "$ref": "#/$defs/stringArray" },
+        "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "routeContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "md_path", "mapping_status"],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^grade-[0-9]+-[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "md_path": {
+          "type": "string",
+          "pattern": "^project-files/outputs/.+\\.md$"
+        },
+        "mapping_status": { "const": "deferred" }
+      }
+    },
+    "annualAllocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weekly_hours",
+        "declared_annual_hours",
+        "extracted_lesson_span"
+      ],
+      "properties": {
+        "weekly_hours": { "type": "number", "exclusiveMinimum": 0 },
+        "declared_annual_hours": { "type": "integer", "minimum": 1 },
+        "extracted_lesson_span": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lesson_start", "lesson_end"],
+          "properties": {
+            "lesson_start": { "type": "integer", "minimum": 1 },
+            "lesson_end": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "thematicBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "block_id",
+        "title_et",
+        "normalized_summary_et",
+        "source_pages",
+        "declared_hours",
+        "main_numbered_lesson_span",
+        "teaching_goals",
+        "learning_outcomes",
+        "learning_content",
+        "key_concepts",
+        "practical_work",
+        "ict_activities",
+        "assessment",
+        "cross_curricular_links",
+        "transversal_themes",
+        "equipment_and_materials",
+        "external_links",
+        "extraction_confidence",
+        "unresolved_fields"
+      ],
+      "properties": {
+        "block_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title_et": { "$ref": "#/$defs/nonEmptyString" },
+        "normalized_summary_et": { "$ref": "#/$defs/nonEmptyString" },
+        "source_pages": { "$ref": "#/$defs/pageRefs" },
+        "declared_hours": { "type": "integer", "minimum": 1 },
+        "main_numbered_lesson_span": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lesson_start", "lesson_end"],
+          "properties": {
+            "lesson_start": { "type": "integer", "minimum": 1 },
+            "lesson_end": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "approximate_weeks": { "type": "number", "exclusiveMinimum": 0 },
+        "teaching_goals": { "$ref": "#/$defs/stringArray" },
+        "learning_outcomes": { "$ref": "#/$defs/stringArray" },
+        "learning_content": { "$ref": "#/$defs/stringArray" },
+        "key_concepts": { "$ref": "#/$defs/stringArray" },
+        "practical_work": { "$ref": "#/$defs/stringArray" },
+        "ict_activities": { "$ref": "#/$defs/stringArray" },
+        "assessment": { "$ref": "#/$defs/stringArray" },
+        "cross_curricular_links": { "$ref": "#/$defs/stringArray" },
+        "transversal_themes": { "$ref": "#/$defs/stringArray" },
+        "equipment_and_materials": { "$ref": "#/$defs/stringArray" },
+        "external_links": { "$ref": "#/$defs/stringArray" },
+        "extraction_confidence": { "enum": ["high", "medium", "low"] },
+        "unresolved_fields": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "lessonRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_start",
+        "lesson_end",
+        "topic_et",
+        "concepts_et",
+        "methods_and_practical_work",
+        "ict",
+        "assessment",
+        "learning_environment",
+        "subject_integration",
+        "transversal_integration",
+        "materials",
+        "external_links",
+        "source_pages",
+        "extraction_confidence",
+        "unresolved_fields"
+      ],
+      "properties": {
+        "lesson_start": { "type": "integer", "minimum": 1 },
+        "lesson_end": { "type": "integer", "minimum": 1 },
+        "topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "concepts_et": { "$ref": "#/$defs/stringArray" },
+        "methods_and_practical_work": { "$ref": "#/$defs/stringArray" },
+        "ict": { "$ref": "#/$defs/stringArray" },
+        "assessment": { "$ref": "#/$defs/stringArray" },
+        "learning_environment": { "$ref": "#/$defs/stringArray" },
+        "subject_integration": { "$ref": "#/$defs/stringArray" },
+        "transversal_integration": { "$ref": "#/$defs/stringArray" },
+        "materials": { "$ref": "#/$defs/stringArray" },
+        "external_links": { "$ref": "#/$defs/stringArray" },
+        "source_pages": { "$ref": "#/$defs/pageRefs" },
+        "extraction_confidence": { "enum": ["high", "medium", "low"] },
+        "unresolved_fields": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "unresolvedItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "scope",
+        "source_pages",
+        "source_fragment_et",
+        "description_et",
+        "normalized_handling_et",
+        "status"
+      ],
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "scope": { "enum": ["thematic_block", "lesson_range", "source_table"] },
+        "source_pages": { "$ref": "#/$defs/pageRefs" },
+        "source_fragment_et": { "$ref": "#/$defs/nonEmptyString" },
+        "description_et": { "$ref": "#/$defs/nonEmptyString" },
+        "normalized_handling_et": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["open", "resolved_with_normalization"] }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_pages_extracted",
+        "source_pages_visually_verified",
+        "lesson_number_coverage",
+        "declared_complete_for_this_pdf",
+        "official_curriculum_complete",
+        "canonical_opiq_mapping_complete"
+      ],
+      "properties": {
+        "source_pages_extracted": { "$ref": "#/$defs/pageRefs" },
+        "source_pages_visually_verified": { "$ref": "#/$defs/pageRefs" },
+        "lesson_number_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lesson_start", "lesson_end", "gaps", "overlaps"],
+          "properties": {
+            "lesson_start": { "type": "integer", "minimum": 1 },
+            "lesson_end": { "type": "integer", "minimum": 1 },
+            "gaps": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "integer", "minimum": 1 }
+            },
+            "overlaps": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "integer", "minimum": 1 }
+            }
+          }
+        },
+        "declared_complete_for_this_pdf": { "const": true },
+        "official_curriculum_complete": { "const": false },
+        "canonical_opiq_mapping_complete": { "const": false }
+      }
+    }
+  }
+}
