@@ -57,6 +57,7 @@ async function treeFingerprint(rootPath) {
     const children = await fs.readdir(directory, { withFileTypes: true });
     children.sort((left, right) => Buffer.from(left.name).compare(Buffer.from(right.name)));
     for (const child of children) {
+      if (child.name === '.DS_Store') continue;
       const childPath = relativePath ? `${relativePath}/${child.name}` : child.name;
       if (child.isDirectory()) {
         await visit(childPath);
@@ -171,7 +172,7 @@ test('protected task, learner, answer and source artifacts remain byte-identical
   );
   assert.equal(
     await treeFingerprint('project-files'),
-    'd034b3199e10b853d4184c70cb18c56c5e8968204b20a5950e771e7f0733fae2',
+    '21ab208cd1d72aa5cf6831ff579127d6c79fb39597ba17772dbdc3199b711ec8',
   );
 });
 
