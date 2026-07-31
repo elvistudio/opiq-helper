@@ -1,0 +1,426 @@
+schema_version: "1.2"
+artifact_type: teacher_pack_materials_index
+pack_id: grade-2-weather-water-safety-teacher-pack
+unit_ref: grade-2-weather-water-safety-pilot
+pack_path: teacher-packs/grade-2/weather-water-safety
+grade: 2
+subject: integrated_project
+subject_et: lõimitud projekt
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-2-science
+  md_path: project-files/outputs/opiq_2klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_loodusopetus_qa.json
+lesson_ids:
+  - grade-2-weather-water-safety-01-observation
+  - grade-2-weather-water-safety-02-data-time
+opiq_sources: []
+reviewable_content:
+  specification_version: "1.0"
+  explicit_paths:
+    - grade-programmes/grade-2/pilot-modules/weather-water-safety.yaml
+    - lesson-plans/grade-2/weather-water-safety/lesson-01-weather-observation.yaml
+    - lesson-plans/grade-2/weather-water-safety/lesson-02-weather-data-time.yaml
+  directory_paths:
+    - teacher-packs/grade-2/weather-water-safety/student
+    - teacher-packs/grade-2/weather-water-safety/teacher
+    - teacher-packs/grade-2/weather-water-safety/answers
+    - teacher-packs/grade-2/weather-water-safety/parent
+  derived_material_paths: true
+pedagogical_review:
+  guide_path: teacher-packs/grade-2/weather-water-safety/review-templates/review-guide.md
+  template_path: teacher-packs/grade-2/weather-water-safety/review-templates/teacher-review-template.yaml
+  review_record_paths: []
+  classroom_status: pending
+  homeschool_status: pending
+  status: pending
+classroom_trial:
+  template_path: teacher-packs/grade-2/weather-water-safety/review-templates/classroom-trial-template.yaml
+  trial_record_paths: []
+  status: not_tested
+home_trial:
+  template_path: teacher-packs/grade-2/weather-water-safety/review-templates/home-trial-template.yaml
+  trial_record_paths: []
+  status: not_started
+readiness:
+  report_path: null
+materials:
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-water-pack-overview
+      title: Внутренний обзор teacher pack
+      material_type: pack_overview
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/pack-overview.md
+      audience: shared
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2-weather-water-safety-pilot
+        notes: Internal overview states the two-authored and two-planned lesson boundary.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-water-teacher-guide
+      title: Общее руководство учителя
+      material_type: teacher_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/pack-overview.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2-weather-water-safety-pilot
+        notes: Internal guide records standalone delivery and the incomplete module boundary.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-water-rubric
+      title: Rubric индивидуальных доказательств
+      material_type: rubric
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/assessment-rubric.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2-weather-water-safety-pilot
+        notes: Original rubric separates subject, calculation, and Estonian-language evidence.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-water-parent-guide
+      title: Памятка о материалах, времени и роли взрослого
+      material_type: parent_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md
+      audience: parent
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2-weather-water-safety-pilot
+        notes: Internal parent note sets time, supervision, and no-home-readiness boundaries.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-water-homeschool-guide
+      title: Ограниченная памятка для возможной домашней адаптации
+      material_type: homeschool_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md
+      audience: parent
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2-weather-water-safety-pilot
+        notes: Required index role explicitly states that no home trial or home-ready status exists.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-water-answer-key
+      title: Teacher-only answer guidance
+      material_type: answer_key
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-weather-data-comparison-task; g2-time-measurement-problem-task
+        notes: Teacher-only answer key is separated from all learner-facing task files.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+    required_for_pack: true
+    material:
+      material_id: g2-weather-observation-explanation
+      title: Самостоятельное русское объяснение наблюдения погоды
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-weather-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather observation standalone explanation
+        notes: Original explanation defines bounded observation without reproducing textbook prose.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+    required_for_pack: true
+    material:
+      material_id: g2-weather-observation-worked-example
+      title: Разобранный пример записи погоды
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-weather-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 weather observation model
+        notes: Original model separates direct evidence from an unsupported forecast.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+    required_for_pack: true
+    material:
+      material_id: g2-weather-observation-task
+      title: Индивидуальный лист наблюдения за погодой
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-observation-sheet.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The learner records current observed evidence, so no single fixed answer is valid.
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-2 weather observation procedure
+        notes: Original printable procedure requires individual evidence before the shared board.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+    required_for_pack: true
+    material:
+      material_id: g2-weather-observation-assessment
+      title: Раздельная выходная карточка урока 1
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-exit-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The learner records current observed evidence, so no single fixed answer is valid.
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 weather observation exit card
+        notes: Original exit card separates subject evidence from Estonian oral evidence.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+    required_for_pack: true
+    material:
+      material_id: g2-weather-observation-expected-guidance
+      title: Teacher-only guidance к открытому наблюдению
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-01-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: grade-2 weather observation teacher guidance
+        notes: Teacher-only guidance describes acceptable evidence without inventing one fixed weather answer.
+  - lesson_ids:
+      - grade-2-weather-water-safety-01-observation
+    required_for_pack: true
+    material:
+      material_id: g2-weather-observation-lesson-guide
+      title: Внутренний guide урока 1
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-01-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather observation lesson procedure
+        notes: Teacher guide records timing, safety controls, and evidence attribution.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-time-explanation
+      title: Самостоятельное объяснение сравнения данных и времени
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-weather-data-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather data and time standalone explanation
+        notes: Original explanation supplies every strategy needed without Opiq access.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-time-worked-example
+      title: Разобранный пример с другими длительностями
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-weather-data-explanation.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 weather data and time worked example
+        notes: Original example models the operation order without revealing either integrated task answer.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-comparison-task
+      title: Одобренное задание о сравнении данных осадков
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-weather-data-comparison-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/03-weather-data-comparison.yaml
+        notes: Learner rendering preserves the approved customer projection and excludes teacher answers.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-time-measurement-problem-task
+      title: Одобренная задача о длительности наблюдения
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-time-measurement-problem-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/04-time-measurement-problem.yaml
+        notes: Learner rendering preserves the approved customer projection and excludes teacher answers.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-comparison-expected-answers
+      title: Teacher-only expected answer для сравнения осадков
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-weather-data-comparison-task answer contract
+        notes: Approved expected answer remains in a teacher-only file after the first attempt.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-comparison-worked-solution
+      title: Teacher-only worked solution для сравнения осадков
+      material_type: worked_solution
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_solution
+        source_reference: g2-weather-data-comparison-task worked solution
+        notes: Approved calculation steps remain separated from every learner-facing file.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-time-measurement-problem-expected-answers
+      title: Teacher-only expected answer для задачи о времени
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-time-measurement-problem-task answer contract
+        notes: Approved expected answer remains in a teacher-only file after the first attempt.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-time-measurement-problem-worked-solution
+      title: Teacher-only worked solution для задачи о времени
+      material_type: worked_solution
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_worked_solution
+        source_reference: g2-time-measurement-problem-task worked solution
+        notes: Approved add-then-convert steps remain separated from every learner-facing file.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-time-assessment
+      title: Раздельная выходная карточка урока 2
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-02-exit-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-02-answer-guidance.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 weather data and time exit card
+        notes: Original exit card separates calculation checks from the Estonian oral frame.
+  - lesson_ids:
+      - grade-2-weather-water-safety-02-data-time
+    required_for_pack: true
+    material:
+      material_id: g2-weather-data-time-lesson-guide
+      title: Внутренний guide урока 2
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-02-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather data and time lesson procedure
+        notes: Teacher guide records exact approved task integration, timing, and evidence separation.

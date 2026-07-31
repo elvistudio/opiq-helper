@@ -100,9 +100,9 @@ const knownGaps = Object.freeze([
   'Task examples are missing for 1530 canonical records.',
   'An exclusive Grade 2 foreign-language route is missing.',
   'An exclusive Grade 2 physical-education route is missing.',
-  'The independently authored standalone commercial core is not implemented.',
-  'A clean-room task bank has not been implemented.',
-  'Originality review is not yet applicable because production materials are absent.',
+  'The independently authored standalone commercial core is partial: two of four pilot lessons are authored.',
+  'Ten clean-room task originality reviews remain pending; only two task-bank items are approved.',
+  'Lesson-level originality review remains pending for the two authored pilot lessons.',
   'Customer companion access has not been verified.',
   'Pedagogical effectiveness has not been established.',
 ]);
@@ -114,9 +114,9 @@ const releaseBlockerCodes = Object.freeze([
   'task_examples_missing_for_1530_records',
   'foreign_language_route_missing',
   'physical_education_route_missing',
-  'standalone_commercial_core_not_implemented',
-  'clean_room_task_bank_not_implemented',
-  'originality_review_not_applicable_to_absent_materials',
+  'standalone_commercial_core_partial_two_of_four_lessons',
+  'ten_task_originality_reviews_pending',
+  'lesson_originality_review_pending',
   'customer_companion_access_not_verified',
   'pedagogical_effectiveness_not_established',
 ]);
@@ -1109,7 +1109,7 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
           return `${alignment.route_id}-kit-${book.kit_id}`;
         }),
         pilot_candidate: projectId === 'grade-2-project-weather-water-safety'
-          ? { issue: 40, status: 'architecture_ready' }
+          ? { issue: 40, status: 'partial_internal_authoring' }
           : null,
         school_specific_outcome_gaps: projectId === 'grade-2-project-weather-water-safety'
           ? [{
@@ -1117,7 +1117,7 @@ function buildProjects(routeArtifacts, alignmentPolicy) {
             source_status: 'missing_route',
             content_strategy: 'author_created_required',
             architecture_status: 'designed',
-            lesson_authoring_status: 'not_started',
+            lesson_authoring_status: 'planned',
             replacement_by_human_studies_forbidden: true,
           }]
           : [],
@@ -1200,16 +1200,32 @@ function buildCalendar(projects) {
 function buildRoadmap() {
   return {
     ...commonProgramme('grade_programme_implementation_roadmap', 'grade-2-implementation-roadmap'),
-    status: 'architecture_only',
+    status: 'partial_implementation',
     stages: [
       { stage_id: 'architecture-and-evidence', status: 'complete', deliverables: ['route maps', 'source inventories', 'coverage and programme architecture'], entry_gate: 'Authoritative inputs validate.' },
-      { stage_id: 'clean-room-authoring', status: 'not_started', deliverables: ['standalone explanations', 'tasks', 'answer evidence'], entry_gate: 'Architecture review and source-gap decisions are accepted.' },
-      { stage_id: 'production-validation', status: 'blocked', deliverables: ['originality review', 'teacher review', 'classroom and home trials'], entry_gate: 'Production materials exist and pass structural validation.' },
+      { stage_id: 'clean-room-task-bank', status: 'complete', deliverables: ['12 specifications', '12 authored internal tasks', '12 originality review records', '2 approved task integrations'], entry_gate: 'Task-bank schema, fingerprints and review-state validation pass.' },
+      { stage_id: 'pilot-lesson-authoring', status: 'in_progress', deliverables: ['2 authored internal lessons', '2 planned lesson slots', 'partial standalone teacher pack'], entry_gate: 'Only approved task-bank items may be integrated.' },
+      { stage_id: 'production-validation', status: 'blocked', deliverables: ['lesson originality review', 'teacher review', 'classroom and home trials'], entry_gate: 'All four lessons exist and every pending human review is resolved.' },
     ],
+    implementation_facts: {
+      task_bank_status: 'implemented',
+      pilot_authoring_status: 'in_progress',
+      standalone_commercial_core_status: 'partial',
+      authored_lesson_count: 2,
+      planned_lesson_count: 2,
+      pending_task_originality_review_count: 10,
+      companion_access_status: 'unverified_internal_only',
+      final_riigi_teataja_refresh_status: 'pending_under_issue_37',
+      production_validation_status: 'blocked',
+      teacher_review_status: 'pending',
+      classroom_trial_status: 'not_tested',
+      home_trial_status: 'not_started',
+      effectiveness_established: false,
+    },
     future_material_ids: ['grade-2-author-created-english-core', 'grade-2-author-created-physical-education-core'],
     release_blocker_codes: releaseBlockerCodes,
     release_blockers: knownGaps,
-    non_goals: ['No full lessons are authored in this change.', 'No textbook prose or task body is reconstructed.', 'No publication or effectiveness status is granted.'],
+    non_goals: ['Lessons 3 and 4 are not authored in this slice.', 'No textbook prose or source task body is reconstructed.', 'No publication, classroom readiness, home readiness or effectiveness status is granted.'],
     provenance: provenance(),
   };
 }

@@ -427,7 +427,7 @@ test('eight projects have exact authored route-role alignments', () => {
   }
 });
 
-test('Weather, Water and Safety remains an architecture-only pilot', () => {
+test('Weather, Water and Safety records the bounded partial-authoring pilot', () => {
   const pilot = baseline.programme.projects.projects.find((project) => (
     project.project_id === 'grade-2-project-weather-water-safety'
   ));
@@ -440,13 +440,13 @@ test('Weather, Water and Safety remains an architecture-only pilot', () => {
     'grade-2-estonian-second-language',
   ]);
   assert.ok(pilot.author_created_components_required.includes('clean-room instructions'));
-  assert.deepEqual(pilot.pilot_candidate, { issue: 40, status: 'architecture_ready' });
+  assert.deepEqual(pilot.pilot_candidate, { issue: 40, status: 'partial_internal_authoring' });
   assert.deepEqual(pilot.school_specific_outcome_gaps, [{
     outcome_id: 'ee-prk-2026-stage1-physical-education-water-safety',
     source_status: 'missing_route',
     content_strategy: 'author_created_required',
     architecture_status: 'designed',
-    lesson_authoring_status: 'not_started',
+    lesson_authoring_status: 'planned',
     replacement_by_human_studies_forbidden: true,
   }]);
 });
@@ -611,12 +611,44 @@ test('required release blockers are exact and deterministic', () => {
     'task_examples_missing_for_1530_records',
     'foreign_language_route_missing',
     'physical_education_route_missing',
-    'standalone_commercial_core_not_implemented',
-    'clean_room_task_bank_not_implemented',
-    'originality_review_not_applicable_to_absent_materials',
+    'standalone_commercial_core_partial_two_of_four_lessons',
+    'ten_task_originality_reviews_pending',
+    'lesson_originality_review_pending',
     'customer_companion_access_not_verified',
     'pedagogical_effectiveness_not_established',
   ]);
+});
+
+test('implementation roadmap reports only the bounded production progress', () => {
+  const roadmap = baseline.programme.roadmap;
+  assert.equal(roadmap.status, 'partial_implementation');
+  assert.deepEqual(roadmap.implementation_facts, {
+    task_bank_status: 'implemented',
+    pilot_authoring_status: 'in_progress',
+    standalone_commercial_core_status: 'partial',
+    authored_lesson_count: 2,
+    planned_lesson_count: 2,
+    pending_task_originality_review_count: 10,
+    companion_access_status: 'unverified_internal_only',
+    final_riigi_teataja_refresh_status: 'pending_under_issue_37',
+    production_validation_status: 'blocked',
+    teacher_review_status: 'pending',
+    classroom_trial_status: 'not_tested',
+    home_trial_status: 'not_started',
+    effectiveness_established: false,
+  });
+  assert.equal(
+    roadmap.stages.find((stage) => stage.stage_id === 'clean-room-task-bank').status,
+    'complete',
+  );
+  assert.equal(
+    roadmap.stages.find((stage) => stage.stage_id === 'pilot-lesson-authoring').status,
+    'in_progress',
+  );
+  assert.equal(
+    roadmap.stages.find((stage) => stage.stage_id === 'production-validation').status,
+    'blocked',
+  );
 });
 
 test('canonical route paths exactly match source-manifest paths', () => {

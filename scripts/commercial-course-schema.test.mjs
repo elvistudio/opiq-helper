@@ -128,11 +128,11 @@ test('commercial fixture discovery and validation are deterministic', async () =
   assert.deepEqual(validation(second), validation(cloneFixtures()));
 });
 
-test('legacy production baseline remains byte-compatible in counts and warnings', () => {
+test('production baseline includes the bounded Grade 2 lesson slice', () => {
   const result = validateLessonPlanRepository(structuredClone(baseline.repository));
   assert.deepEqual(result.summary, {
-    profiles: 3,
-    lessons: 10,
+    profiles: 5,
+    lessons: 12,
     units: 2,
     annualCourses: 1,
     annualComponents: 4,
@@ -428,7 +428,10 @@ test('legacy annual schema 2.1 remains outside commercial annual semantics', () 
 
 test('legacy lesson versions still require at least one Opiq evidence record', () => {
   const repository = structuredClone(baseline.repository);
-  const legacy = repository.artifacts.find((entry) => entry.data.artifact_type === 'bilingual_lesson');
+  const legacy = repository.artifacts.find((entry) => (
+    entry.data.artifact_type === 'bilingual_lesson'
+    && entry.data.schema_version !== '1.3'
+  ));
   legacy.data.evidence_linkage.opiq_records = [];
   const result = validateLessonPlanRepository(repository);
   const text = result.diagnostics.map((entry) => `${entry.field} ${entry.reason}`).join('\n');

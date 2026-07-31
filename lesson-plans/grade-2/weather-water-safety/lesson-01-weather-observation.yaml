@@ -1,0 +1,1072 @@
+schema_version: "1.3"
+artifact_type: bilingual_lesson
+lesson_id: grade-2-weather-water-safety-01-observation
+grade: 2
+subject: science
+subject_et: loodusõpetus
+title_ru: Наблюдаем погоду безопасно
+title_et: Vaatleme ilma ohutult
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы должны точно составлять заявленные сорок пять минут.
+unit_ref: grade-2-weather-water-safety-pilot
+position_in_unit: 1
+canonical_route:
+  source_id: grade-2-science
+  md_path: project-files/outputs/opiq_2klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_2klass_loodus_ja_inimeseopetus_2_klassile_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_loodusopetus_qa.json
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-2-science-a1-default
+  learner_language_level: A1
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-2-science-official-curriculum
+  official_outcome_refs:
+    - ee-prk-2026-stage1-natural-science-guided-inquiry
+  course_map_ref: grade-2-project-weather-water-safety
+  opiq_records: []
+  author_materials:
+    - material_id: g2-weather-observation-explanation
+      title: Самостоятельное русское объяснение наблюдения погоды
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-weather-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather observation standalone explanation
+        notes: Original explanation defines bounded observation without reproducing textbook prose.
+    - material_id: g2-weather-observation-worked-example
+      title: Разобранный пример записи погоды
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-weather-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 weather observation model
+        notes: Original model separates direct evidence from an unsupported forecast.
+    - material_id: g2-weather-observation-task
+      title: Индивидуальный лист наблюдения за погодой
+      material_type: worksheet
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-observation-sheet.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The learner records current observed evidence, so no single fixed answer is valid.
+      provenance:
+        category: author_created_worksheet
+        source_reference: grade-2 weather observation procedure
+        notes: Original printable procedure requires individual evidence before the shared board.
+    - material_id: g2-weather-observation-assessment
+      title: Раздельная выходная карточка урока 1
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-01-exit-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_exemption:
+        open_ended: true
+        reason: The learner records current observed evidence, so no single fixed answer is valid.
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 weather observation exit card
+        notes: Original exit card separates subject evidence from Estonian oral evidence.
+    - material_id: g2-weather-observation-expected-guidance
+      title: Teacher-only guidance к открытому наблюдению
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-01-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: grade-2 weather observation teacher guidance
+        notes: Teacher-only guidance describes acceptable evidence without inventing one fixed weather answer.
+    - material_id: g2-weather-observation-lesson-guide
+      title: Внутренний guide урока 1
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-01-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 weather observation lesson procedure
+        notes: Teacher guide records timing, safety controls, and evidence attribution.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: activate-weather
+      language_mode: activate_prior_knowledge
+      description: Ученик активирует знакомое содержание на русском языке.
+    - sequence: 2
+      stage_id: explain-weather-ru
+      language_mode: establish_concept_ru
+      description: Полное предметное объяснение сначала даётся по-русски.
+    - sequence: 3
+      stage_id: bridge-weather-et
+      language_mode: introduce_term_et
+      description: Эстонские единицы вводятся после понимания содержания.
+    - sequence: 4
+      stage_id: individual-weather-observation
+      language_mode: supported_task_et
+      description: Индивидуальное задание выполняется с видимой языковой опорой.
+    - sequence: 5
+      stage_id: assess-weather-separately
+      language_mode: short_oral_answer_et
+      description: Предметный результат и короткая эстонская фраза проверяются отдельно.
+  learner_estonian_level: A1
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: record-current-weather-evidence
+      text_ru: Ученик безопасно наблюдает текущую погоду и записывает признак вместе с доказательством.
+      observable_output_ru: Индивидуальный лист содержит время, признак, доказательство и краткий русский вывод.
+      curriculum_outcome_refs:
+        - ee-prk-2026-stage1-natural-science-guided-inquiry
+  estonian_language_objectives:
+    - objective_id: say-one-weather-frame-et
+      text_ru: Ученик произносит одну короткую поддержанную фразу о наблюдаемой погоде.
+      text_et: Õpilane ütleb ühe toetatud lause ilma kohta.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 1
+      language_functions:
+        - name
+        - describe
+  subject_success_criteria:
+    - criterion_id: subject-weather-evidence
+      descriptor: Запись связывает текущий признак погоды с безопасно наблюдаемым доказательством.
+      acceptable_evidence: Индивидуальный лист и русский вывод ученика, созданные до общей доски.
+  estonian_success_criteria:
+    - criterion_id: language-one-weather-sentence
+      descriptor: Одна короткая фраза по видимой рамке понятна слушателю.
+      acceptable_evidence: Индивидуальная устная фраза с одним уместным целевым словом.
+  prerequisites:
+    - Ученик может описать по-русски то, что видит в данный момент.
+  anticipated_misconceptions:
+    - Прогноз на вечер ошибочно записывается как текущее наблюдение.
+    - Наличие ветра определяется без наблюдаемого безопасного признака.
+language_load:
+  new_terms_et:
+    - term_et: ilm
+      equivalent_ru: погода
+      simple_definition_et: Ilm on õhu ja taeva seisund.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather bilingual word bank
+        notes: Short original definition supports only the bounded A1 weather vocabulary.
+      first_use_stage: bridge-weather-et
+      reuse_stage_refs:
+        - individual-weather-observation
+        - assess-weather-separately
+    - term_et: vihmane
+      equivalent_ru: дождливая
+      simple_definition_et: Vihmane ilm tähendab, et sajab vihma.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather bilingual word bank
+        notes: Short original definition supports only the bounded A1 weather vocabulary.
+      first_use_stage: bridge-weather-et
+      reuse_stage_refs:
+        - individual-weather-observation
+        - assess-weather-separately
+    - term_et: tuuline
+      equivalent_ru: ветреная
+      simple_definition_et: Tuulise ilmaga liiguvad oksad, lipp või rohi.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather bilingual word bank
+        notes: Short original definition supports only the bounded A1 weather vocabulary.
+      first_use_stage: bridge-weather-et
+      reuse_stage_refs:
+        - individual-weather-observation
+        - assess-weather-separately
+    - term_et: pilvine
+      equivalent_ru: облачная
+      simple_definition_et: Pilvise ilmaga on taevas palju pilvi.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather bilingual word bank
+        notes: Short original definition supports only the bounded A1 weather vocabulary.
+      first_use_stage: bridge-weather-et
+      reuse_stage_refs:
+        - individual-weather-observation
+        - assess-weather-separately
+    - term_et: päikeseline
+      equivalent_ru: солнечная
+      simple_definition_et: Päikeselise ilmaga paistab päike.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather bilingual word bank
+        notes: Short original definition supports only the bounded A1 weather vocabulary.
+      first_use_stage: bridge-weather-et
+      reuse_stage_refs:
+        - individual-weather-observation
+        - assess-weather-separately
+  recycled_terms_et: []
+  new_instruction_verbs_et:
+    - verb_et: vaatle
+      equivalent_ru: наблюдай
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather observation instruction
+        notes: The instruction verb is introduced with teacher modelling and a visible procedure.
+      first_use_stage: bridge-weather-et
+      reuse_stage_refs:
+        - individual-weather-observation
+  recycled_instruction_verbs_et: []
+  model_sentences:
+    - text_et: Täna on tuuline ilm.
+      translation_ru: Сегодня ветрено.
+      terms_et:
+        - tuuline
+        - ilm
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather oral model
+        notes: Original short sentence models one bounded supported weather statement.
+  sentence_frames:
+    - frame_id: weather-description-frame
+      frame_et: Täna on ___ ilm.
+      purpose_ru: Рамка ограничивает обязательную эстонскую продукцию одной короткой фразой.
+      stage_refs:
+        - bridge-weather-et
+        - individual-weather-observation
+        - assess-weather-separately
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 weather sentence frame
+        notes: Original A1 frame supports one oral output after the Russian conclusion.
+  expected_receptive_language_et:
+    - Vaatle ilma.
+    - Näita sõna.
+    - Ütle üks lause.
+  expected_supported_productive_language_et:
+    - Täna on vihmane ilm.
+    - Täna on tuuline ilm.
+    - Täna on pilvine ilm.
+    - Täna on päikeseline ilm.
+  expected_independent_productive_language_et:
+    - Täna on ___ ilm.
+  full_expected_answer_ru: Я наблюдал(а) погоду в указанное время, записал(а) текущий признак и подтвердил(а) его тем, что
+    можно было безопасно увидеть.
+  short_expected_oral_answer_et: Täna on ___ ilm.
+  oral_output_terms_et:
+    - ilm
+    - vihmane
+    - tuuline
+    - pilvine
+    - päikeseline
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 5
+  new_instruction_verbs: 1
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Полное понятие и процедура устанавливаются по-русски; эстонский output ограничен одной рамкой.
+scaffolds:
+  - scaffold_id: weather-russian-explanation
+    type: russian_explanation
+    description_ru: Учитель по-русски моделирует отличие наблюдения от прогноза и полный безопасный порядок.
+    stage_refs:
+      - explain-weather-ru
+    release:
+      at_stage: individual-weather-observation
+      how_reduced_ru: Ученик следует напечатанному порядку без повторного устного объяснения каждого шага.
+    provenance:
+      category: author_created_explanation
+      source_reference: grade-2 weather standalone explanation
+      notes: Original Russian explanation preserves full subject demand before language support.
+  - scaffold_id: weather-word-bank
+    type: word_bank
+    description_ru: Пять целевых слов остаются видимыми рядом с русскими эквивалентами.
+    stage_refs:
+      - bridge-weather-et
+      - individual-weather-observation
+    release:
+      at_stage: assess-weather-separately
+      how_reduced_ru: На выходной карточке остаётся только список слов без русского перевода.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-2 weather word bank
+      notes: Bounded bilingual word bank contains five independently authored term links.
+  - scaffold_id: weather-description-sentence-frame
+    type: sentence_frame
+    description_ru: Рамка поддерживает одну короткую устную фразу после русского вывода.
+    stage_refs:
+      - bridge-weather-et
+      - individual-weather-observation
+      - assess-weather-separately
+    release:
+      at_stage: assess-weather-separately
+      how_reduced_ru: Ученик самостоятельно выбирает одно подходящее прилагательное для пустого места.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-2 weather sentence frame
+      notes: Original frame limits productive language load to a single supported sentence.
+multimodal_support:
+  - support_id: weather-observation-table-support
+    type: table
+    stage_refs:
+      - individual-weather-observation
+    material_ref: g2-weather-observation-task
+    provenance:
+      category: author_created_worksheet
+      source_reference: grade-2 weather observation sheet
+      notes: Original table externalises the safe observation sequence and evidence fields.
+stages:
+  - stage_id: activate-weather
+    duration_minutes: 5
+    stage_type: activation
+    content_purpose_ru: Отделить наблюдение текущей погоды от предположения о будущем.
+    language_purpose_et: Aktiveerida tuttav sõna ilm.
+    teacher_action_ru: Показывает два высказывания и просит определить, где записано наблюдение.
+    pupil_action_ru: Выбирает наблюдаемое высказывание и объясняет выбор по-русски.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я могу увидеть этот признак сейчас.
+      et: []
+    material_refs:
+      - g2-weather-observation-explanation
+    provenance_refs:
+      - g2-weather-observation-explanation
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что можно проверить прямо сейчас?
+      subject_evidence: Ученик отличает наблюдение от прогноза.
+      language_evidence: Эстонская продукция на этом этапе не требуется.
+    expected_evidence_of_learning: Индивидуальный русский ответ называет один проверяемый текущий признак.
+    transition: Переход к полному русскому объяснению.
+  - stage_id: explain-weather-ru
+    duration_minutes: 8
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Сформировать полный безопасный алгоритм наблюдения погоды.
+    language_purpose_et: Sisu mõistmine toimub vene keeles.
+    teacher_action_ru: Объясняет признаки погоды, границы одного наблюдения и правила безопасности.
+    pupil_action_ru: Следит по объяснению и располагает пять признаков в порядке наблюдения.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Сначала я записываю время, потом наблюдаю признаки.
+      et: []
+    material_refs:
+      - g2-weather-observation-explanation
+    provenance_refs:
+      - g2-weather-observation-explanation
+    scaffold_refs:
+      - weather-russian-explanation
+    new_language_items: []
+    formative_check:
+      prompt_ru: Почему одно наблюдение не является прогнозом?
+      subject_evidence: Ученик связывает вывод с текущим временем и местом.
+      language_evidence: Содержание объясняется полностью по-русски.
+    expected_evidence_of_learning: Ученик по-русски воспроизводит не менее трёх шагов безопасной процедуры.
+    transition: Переход к пяти видимым эстонским словам.
+  - stage_id: bridge-weather-et
+    duration_minutes: 7
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Связать уже понятые признаки с пятью ограниченными словами для описания погоды.
+    language_purpose_et: Õppida ilm, vihmane, tuuline, pilvine ja päikeseline.
+    teacher_action_ru: Показывает слова рядом с русскими эквивалентами и моделирует одну короткую рамку.
+    pupil_action_ru: Соотносит пять слов с погодными условиями и повторяет одну рамку с поддержкой.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Это слово обозначает наблюдаемый признак.
+      et:
+        - Täna on pilvine ilm.
+    material_refs:
+      - g2-weather-observation-explanation
+    provenance_refs:
+      - g2-weather-observation-explanation
+    scaffold_refs:
+      - weather-word-bank
+      - weather-description-sentence-frame
+    new_language_items:
+      - ilm
+      - vihmane
+      - tuuline
+      - pilvine
+      - päikeseline
+      - vaatle
+    formative_check:
+      prompt_ru: Покажи слово для облачной погоды.
+      subject_evidence: Ученик сохраняет связь слова с наблюдаемым признаком.
+      language_evidence: Ученик узнаёт не менее четырёх из пяти слов.
+    expected_evidence_of_learning: Ученик соотносит целевые слова с безопасно наблюдаемыми признаками погоды.
+    transition: Переход к индивидуальному наблюдению.
+  - stage_id: individual-weather-observation
+    duration_minutes: 17
+    stage_type: practical_observation
+    content_purpose_ru: Получить индивидуальную запись признака и доказательства.
+    language_purpose_et: Kasutada üht toetatud lauset.
+    teacher_action_ru: Организует наблюдение через закрытое окно или разрешённый контролируемый выход.
+    pupil_action_ru: Самостоятельно заполняет лист, пишет русский вывод и только затем передаёт одну запись на доску.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я вижу признак и могу назвать доказательство.
+      et:
+        - Täna on tuuline ilm.
+    material_refs:
+      - g2-weather-observation-task
+    provenance_refs:
+      - g2-weather-observation-task
+    scaffold_refs:
+      - weather-word-bank
+      - weather-description-sentence-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какое доказательство записано на твоём листе?
+      subject_evidence: Лист содержит время, признак и индивидуальное доказательство.
+      language_evidence: Короткая фраза дана по рамке после предметного вывода.
+    expected_evidence_of_learning: Каждый ученик создаёт собственный лист до сборки подписанной общей доски.
+    transition: Переход к раздельной выходной проверке.
+  - stage_id: assess-weather-separately
+    duration_minutes: 8
+    stage_type: assessment
+    content_purpose_ru: Отдельно проверить предметное доказательство и языковой output.
+    language_purpose_et: Hinnata lühikest lauset eraldi.
+    teacher_action_ru: Собирает карточку и отдельно отмечает предметный результат и понятность фразы.
+    pupil_action_ru: Пишет признак с доказательством и произносит одну короткую эстонскую фразу.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Признак подтверждается моим наблюдением.
+      et:
+        - Täna on ___ ilm.
+    material_refs:
+      - g2-weather-observation-assessment
+    provenance_refs:
+      - g2-weather-observation-assessment
+    scaffold_refs:
+      - weather-description-sentence-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Как доказательство связано с признаком?
+      subject_evidence: Письменная предметная строка содержит признак и наблюдаемое доказательство.
+      language_evidence: Отдельно зафиксирована одна понятная поддержанная фраза.
+    expected_evidence_of_learning: Предметная и эстонская строки заполнены независимо друг от друга.
+    transition: Урок завершается без обязательного домашнего наблюдения.
+questions:
+  - question_id: weather-evidence-question
+    question_ru: Какой признак погоды ты наблюдал(а) и чем можешь его доказать?
+    question_et: Milline ilm on täna?
+    full_expected_answer_ru: Ответ называет текущий признак и конкретное безопасно наблюдаемое доказательство.
+    short_oral_answer_et: Täna on ___ ilm.
+    acceptable_variants:
+      - Допустим любой точный текущий признак с соответствующим наблюдаемым доказательством.
+    misconception_to_watch: Ученик сообщает прогноз или мнение вместо наблюдаемого доказательства.
+    objective_refs:
+      - record-current-weather-evidence
+      - say-one-weather-frame-et
+    provenance_refs:
+      - g2-weather-observation-task
+practical_work:
+  work_id: safe-individual-weather-observation
+  title_ru: Безопасное индивидуальное наблюдение погоды
+  title_et: Ohutu individuaalne ilmavaatlus
+  safety_requirements:
+    - Основной режим — наблюдение через закрытое окно без открывания и высовывания.
+    - Выход возможен только по решению учителя или взрослого и под непосредственным присмотром.
+    - Нельзя приближаться к дороге, воде, скользкому краю или грозе ради наблюдения.
+  teacher_controlled_steps:
+    - Учитель выбирает безопасное место и решает, остаётся ли группа в помещении.
+    - Учитель прекращает наблюдение при изменении условий или отсутствии контроля.
+  pupil_steps:
+    - Записать время и место до начала наблюдения.
+    - Отметить солнце, облака, дождь и безопасный признак ветра.
+    - Записать собственный русский вывод и короткую эстонскую фразу.
+    - Передать одну запись на общую доску только после завершения своего листа.
+  materials:
+    - Индивидуальный печатный лист
+    - Карандаш
+    - Часы
+    - Безопасный обзор через закрытое окно
+  observation_table:
+    columns:
+      - время
+      - солнце
+      - облака
+      - дождь
+      - ветер
+      - доказательство
+    data_collection_ru: Каждый ученик самостоятельно отмечает текущие признаки до совместного обсуждения.
+  expected_observation_ru: Запись соответствует условиям в месте и времени наблюдения и содержит видимое доказательство.
+  expected_conclusion_ru: Вывод описывает текущую погоду и не превращает одно наблюдение в общий прогноз.
+  russian_report_target: Один полный русский вывод с признаком и доказательством на индивидуальном листе.
+  short_estonian_conclusion: Täna on ___ ilm.
+  opiq_source_record_ids: []
+  provenance_refs:
+    - g2-weather-observation-task
+    - g2-weather-observation-explanation
+assessment:
+  - criterion_id: weather-subject-understanding
+    domain: subject_understanding
+    what_is_checked: Связь текущего признака с наблюдаемым доказательством.
+    acceptable_evidence: Индивидуальный русский вывод и заполненная строка доказательства.
+    success_threshold: Один точный признак и одно уместное доказательство.
+    affects: subject_assessment
+  - criterion_id: weather-practical-safety
+    domain: practical_skill
+    what_is_checked: Следование безопасной процедуре и индивидуальная фиксация до доски.
+    acceptable_evidence: Заполненный лист и соблюдение teacher-controlled boundary.
+    success_threshold: Все обязательные безопасные шаги соблюдены.
+    affects: subject_assessment
+  - criterion_id: weather-et-recognition
+    domain: estonian_terminology_recognition
+    what_is_checked: Узнавание пяти целевых погодных слов.
+    acceptable_evidence: Выбор или указание не менее четырёх слов.
+    success_threshold: Не менее четырёх из пяти слов.
+    affects: language_assessment
+  - criterion_id: weather-et-supported
+    domain: supported_estonian_production
+    what_is_checked: Заполнение устной рамки подходящим погодным прилагательным.
+    acceptable_evidence: Короткая фраза с видимой рамкой.
+    success_threshold: Одна понятная поддержанная фраза.
+    affects: language_assessment
+  - criterion_id: weather-et-independent
+    domain: independent_estonian_production
+    what_is_checked: Самостоятельный выбор одного уместного погодного прилагательного в рамке.
+    acceptable_evidence: Индивидуальная устная фраза на выходе.
+    success_threshold: Одно уместное прилагательное выбрано без подсказки ответа.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторить предметный алгоритм по одному шагу, сохранив тот же предметный результат.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить прочитать одну короткую фразу по видимой рамке без сокращения предметной работы.
+      preserves_subject_objective: true
+  challenge_extension: Добавить второе доказательство к русскому предметному ответу без увеличения обязательной эстонской части.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Материалы упрощённой программы не используются в обычном маршруте этого урока.
+homework:
+  content_task_ru: Обязательного домашнего наблюдения нет; по указанию учителя можно перечитать безопасный порядок.
+  estonian_language_component: При желании один раз прочитать рамку «Täna on ___ ilm.».
+  expected_minutes: 5
+  source_reference: g2-weather-observation-explanation
+  required_opiq_url: null
+  adult_support_expected: false
+  success_guidance_ru: Домашний выход к дороге или воде не требуется и не разрешается этим материалом.
+  provenance:
+    category: author_created_worksheet
+    source_reference: grade-2 weather optional consolidation
+    notes: No required home observation or Opiq access is introduced by this lesson.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: false
+  teacher_review:
+    status: pending
+    reviewer_role: null
+    reviewed_at: null
+    notes: Независимая педагогическая проверка урока ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе или дома.
+  classroom_ready: false
+  readiness_status: materials_resolved
+delivery_model:
+  core_mode: standalone_commercial_core
+  opiq_required: false
+  opiq_companion_policy: none
+  family_overlay_supported: false
+  customer_can_complete_without_opiq: true
+  publication_status: internal_review
+commercial_core:
+  explanation_material_ids:
+    - g2-weather-observation-explanation
+  worked_example_material_ids:
+    - g2-weather-observation-worked-example
+  task_material_ids:
+    - g2-weather-observation-task
+  expected_answer_material_ids: []
+  worked_solution_material_ids: []
+  assessment_material_ids:
+    - g2-weather-observation-assessment
+  assessment_criterion_ids:
+    - weather-subject-understanding
+    - weather-practical-safety
+    - weather-et-independent
+  learner_output_refs:
+    - safe-individual-weather-observation
+    - weather-evidence-question
+  success_criteria_refs:
+    - subject-weather-evidence
+    - language-one-weather-sentence
+  task_contracts:
+    - task_material_id: g2-weather-observation-task
+      response_mode: open_ended
+      open_ended: true
+      open_ended_exemption:
+        reason: The correct observation depends on current local weather and must be supported by individual evidence.
+opiq_companions: []
+originality_review:
+  review_id: grade-2-weather-water-safety-01-observation-originality-review
+  status: pending
+  reviewer: null
+  reviewer_role: null
+  reviewed_on: null
+  reviewed_version:
+    commit_sha: null
+    content_fingerprint:
+      algorithm: sha256
+      specification_version: "1.0"
+      value: null
+      file_count: null
+  covered_author_material_ids:
+    - g2-weather-observation-explanation
+    - g2-weather-observation-worked-example
+    - g2-weather-observation-task
+    - g2-weather-observation-assessment
+    - g2-weather-observation-expected-guidance
+    - g2-weather-observation-lesson-guide
+  internal_source_analysis_refs:
+    - grade-programmes/grade-2/project-modules.yaml#grade-2-project-weather-water-safety
+    - curriculum-maps/grade-2-science/official-curriculum.yaml
+  dimensions:
+    wording_independence: pending
+    context_independence: pending
+    data_independence: pending
+    question_sequence_independence: pending
+    scaffolding_independence: pending
+    distractor_independence: not_applicable
+    visual_independence: not_applicable
+    answer_independence: pending
+  prohibited_source_content:
+    copied_text: false
+    screenshots: false
+    copied_illustrations: false
+    copied_answer_keys: false
+    extracted_interactive_content: false
+  notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
+family_overlay_hooks: []
+provenance:
+  category: author_created_bridge
+  source_reference: grade-2-project-weather-water-safety; grade-2-science-official-curriculum
+  notes: Independently authored standalone lesson uses registered Grade 2 route architecture without copying source prose
+    or tasks.
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: 28a5659daaeb992c05b0d6fc9d53f6601a978dd448ac9626473e38bbb5d365d6
+  selection_input:
+    purpose: practical_investigation
+    content_types:
+      - conceptual_text
+      - practical_observation
+    required_capabilities:
+      - observation
+      - individual_evidence
+    desired_capabilities:
+      - formative_assessment
+      - retrieval
+    phase_needs:
+      - activation
+      - explanation
+      - guided_practice
+      - formative_assessment
+    context_flags:
+      practical: true
+      map_or_data: false
+      retrieval: false
+      assessment: true
+    maximum_total_productive_language_demand: low
+    delivery:
+      group_size: 24
+      supported_group_formats:
+        - individual
+        - pair
+        - whole_class
+    resources:
+      available:
+        - paper
+        - writing_tool
+        - clock
+        - window_view
+      unavailable:
+        - internet
+        - laboratory_materials
+      printer_available: true
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: true
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: low
+      max_teacher_facilitation: medium
+      max_learner_setup: minimal
+      max_parent_effort: none
+      accessibility_priorities:
+        - working_memory_support
+        - language_scaffolding
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: guided-individual-evidence
+      preferred_target_ids:
+        - individual-record
+        - short-oral-report
+      excluded_target_ids: []
+      preferred_group_formats:
+        - individual
+        - pair
+        - whole_class
+      teacher_overrides: []
+    homeschool:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 45
+      maximum_sessions: 1
+      maximum_total_productive_language_demand: low
+      resources:
+        available:
+          - paper
+          - writing_tool
+        unavailable:
+          - internet
+          - laboratory_materials
+          - measuring_tools
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: g2-weather-observation-explanation
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-observation-worked-example
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-observation-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-weather-observation-assessment
+          delivery_scope:
+            - classroom
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      answer_key_release: self_managed_after_attempt
+      teacher_override_policy: require_preservation
+      adapted_task_contracts: []
+      practical_policy: null
+    future_retrieval_windows: []
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids:
+        - assess-weather-separately
+      criterion_refs:
+        - weather-subject-understanding
+        - weather-practical-safety
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids:
+        - assess-weather-separately
+      criterion_refs:
+        - weather-et-recognition
+        - weather-et-supported
+        - weather-et-independent
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance:
+      source: lesson_assessment_bindings
+  phase_bindings:
+    - dna_phase_id: activate-weather
+      lesson_stage_ids:
+        - activate-weather
+      timing_allocations:
+        - lesson_stage_id: activate-weather
+          activity_minutes: 5
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-observation-lesson-guide
+      student_material_ids:
+        - g2-weather-observation-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-01-observation/activate-weather
+        learner_instruction_ru: Выбирает наблюдаемое высказывание и объясняет выбор по-русски.
+        prompt_source_refs:
+          - stage:activate-weather:pupil_action_ru
+        learner_success_criterion_ru:
+          - Индивидуальный русский ответ называет один проверяемый текущий признак.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:activate-weather:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:activate-weather:teacher_action_ru
+        answer_language_refs:
+          - question:weather-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап activate-weather полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: explain-weather-ru
+      lesson_stage_ids:
+        - explain-weather-ru
+      timing_allocations:
+        - lesson_stage_id: explain-weather-ru
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-observation-lesson-guide
+      student_material_ids:
+        - g2-weather-observation-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-01-observation/explain-weather-ru
+        learner_instruction_ru: Следит по объяснению и располагает пять признаков в порядке наблюдения.
+        prompt_source_refs:
+          - stage:explain-weather-ru:pupil_action_ru
+        learner_success_criterion_ru:
+          - Ученик по-русски воспроизводит не менее трёх шагов безопасной процедуры.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:explain-weather-ru:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:explain-weather-ru:teacher_action_ru
+        answer_language_refs:
+          - question:weather-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап explain-weather-ru полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: bridge-weather-et
+      lesson_stage_ids:
+        - bridge-weather-et
+      timing_allocations:
+        - lesson_stage_id: bridge-weather-et
+          activity_minutes: 7
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-observation-lesson-guide
+      student_material_ids:
+        - g2-weather-observation-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-01-observation/bridge-weather-et
+        learner_instruction_ru: Соотносит пять слов с погодными условиями и повторяет одну рамку с поддержкой.
+        prompt_source_refs:
+          - stage:bridge-weather-et:pupil_action_ru
+        learner_success_criterion_ru:
+          - Ученик соотносит целевые слова с безопасно наблюдаемыми признаками погоды.
+        learner_language_support_ru:
+          - Täna on pilvine ilm.
+        answer_evidence_refs:
+          - stage:bridge-weather-et:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:bridge-weather-et:teacher_action_ru
+        answer_language_refs:
+          - question:weather-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап bridge-weather-et полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: individual-weather-observation
+      lesson_stage_ids:
+        - individual-weather-observation
+      timing_allocations:
+        - lesson_stage_id: individual-weather-observation
+          activity_minutes: 17
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-observation-lesson-guide
+      student_material_ids:
+        - g2-weather-observation-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - weather-evidence-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: practical_task
+        task_id: grade-2-weather-water-safety-01-observation/individual-weather-observation
+        learner_instruction_ru: Самостоятельно заполняет лист, пишет русский вывод и только затем передаёт одну запись на доску.
+        prompt_source_refs:
+          - stage:individual-weather-observation:pupil_action_ru
+        learner_success_criterion_ru:
+          - Каждый ученик создаёт собственный лист до сборки подписанной общей доски.
+        learner_language_support_ru:
+          - Täna on tuuline ilm.
+        answer_evidence_refs:
+          - stage:individual-weather-observation:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:individual-weather-observation:teacher_action_ru
+        answer_language_refs:
+          - question:weather-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-evidence-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап individual-weather-observation полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: assess-weather-separately
+      lesson_stage_ids:
+        - assess-weather-separately
+      timing_allocations:
+        - lesson_stage_id: assess-weather-separately
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-weather-observation-lesson-guide
+      student_material_ids:
+        - g2-weather-observation-assessment
+      answer_key_material_ids: []
+      assessment_refs:
+        - weather-subject-understanding
+        - weather-et-recognition
+      oral_answer_refs:
+        - weather-evidence-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-2-weather-water-safety-01-observation/assess-weather-separately
+        learner_instruction_ru: Пишет признак с доказательством и произносит одну короткую эстонскую фразу.
+        prompt_source_refs:
+          - stage:assess-weather-separately:pupil_action_ru
+        learner_success_criterion_ru:
+          - Предметная и эстонская строки заполнены независимо друг от друга.
+        learner_language_support_ru:
+          - Täna on ___ ilm.
+        answer_evidence_refs:
+          - stage:assess-weather-separately:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:assess-weather-separately:teacher_action_ru
+        answer_language_refs:
+          - question:weather-evidence-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:weather-evidence-question:acceptable_variants
+        misconception_refs:
+          - question:weather-evidence-question:misconception_to_watch
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап assess-weather-separately полностью связан с авторскими материалами и длительностью этого урока.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations: []
+    non_dna_allocations: []
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/selection-request.yaml
+    selection_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/homeschool-request.yaml
+    homeschool_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/homeschool-decision.yaml
+    homeschool_package_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/homeschool-package.yaml
+    parent_guidance_path: teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md
+    weekly_study_plan_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/weekly-study-plan.md
+    homeschool_rendered_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-01-observation/homeschool-rendered.md
+    home_practical_policy_path: null
+  status:
+    structural_state: proposed
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    homeschool_ready: false
+    effectiveness_claimed: false

@@ -18,8 +18,14 @@ try {
     console.log(
       `Commercial-course schema check passed: ${result.summary.lessons} lesson fixtures, `
       + `${result.summary.thematicPlans} thematic aggregate, ${result.summary.annualCourses} annual aggregate; `
-      + 'legacy production remains 10 lessons, 1 annual course, 4 annual components, '
-      + '10 annual units, 36 annual selected pages, 84 page references, 0 external sources, and 15 warnings.',
+      + `production includes ${result.production.summary.profiles} profiles and `
+      + `${result.production.summary.lessons} lessons, with ${result.production.summary.annualCourses} annual course, `
+      + `${result.production.summary.annualComponents} annual components, `
+      + `${result.production.summary.annualUnits} annual units, `
+      + `${result.production.summary.annualSelectedPages} annual selected pages, `
+      + `${result.production.summary.pageReferences} page references, `
+      + `${result.production.summary.externalSources} external sources, and `
+      + `${result.production.summary.warnings} warnings.`,
     );
   }
 } catch (error) {

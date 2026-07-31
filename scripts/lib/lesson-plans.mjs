@@ -126,6 +126,11 @@ export async function loadLessonPlanRepository({
   rootDir = process.cwd(),
   lessonPlansPath = 'lesson-plans',
   annualCoursesPath = 'annual-courses',
+  grade2ProjectModulesPath = 'grade-programmes/grade-2/project-modules.yaml',
+  grade2OfficialMapPaths = [
+    'curriculum-maps/grade-2-science/official-curriculum.yaml',
+    'curriculum-maps/grade-2-mathematics/official-curriculum.yaml',
+  ],
   externalSourceRegistryPath = 'external-sources/registry.yaml',
   commonSchemaPath = 'schemas/teaching-plan-common.schema.json',
   profileSchemaPath = 'schemas/language-profiles.schema.json',
@@ -138,10 +143,20 @@ export async function loadLessonPlanRepository({
   pedagogyIntegrationSchemaPath = 'schemas/pedagogy-generation-integration.schema.json',
 } = {}) {
   const absoluteRoot = path.resolve(rootDir);
-  const [lessonFiles, annualFiles, externalRegistryArtifact] = await Promise.all([
+  const [
+    lessonFiles,
+    annualFiles,
+    externalRegistryArtifact,
+    grade2ProjectModules,
+    grade2OfficialMaps,
+  ] = await Promise.all([
     loadYamlArtifacts(absoluteRoot, lessonPlansPath),
     loadYamlArtifacts(absoluteRoot, annualCoursesPath),
     loadYamlArtifact(absoluteRoot, externalSourceRegistryPath),
+    loadYamlArtifact(absoluteRoot, grade2ProjectModulesPath),
+    Promise.all(grade2OfficialMapPaths.map((artifactPath) => (
+      loadYamlArtifact(absoluteRoot, artifactPath)
+    ))),
   ]);
   const externalArtifacts = [externalRegistryArtifact];
   const artifacts = [...lessonFiles, ...annualFiles];
@@ -170,12 +185,18 @@ export async function loadLessonPlanRepository({
   return {
     rootDir: absoluteRoot,
     curriculum,
+    grade2Programme: {
+      projectModules: grade2ProjectModules,
+      officialMaps: grade2OfficialMaps,
+    },
     schemas: Object.fromEntries(schemaEntries),
     artifacts,
     externalArtifacts,
     loadedArtifactPaths: [...new Set([
       ...(curriculum.loadedArtifactPaths ?? []),
       ...Object.values(schemaPaths),
+      grade2ProjectModules.file,
+      ...grade2OfficialMaps.map((artifact) => artifact.file),
       ...artifacts.map((artifact) => artifact.file),
       ...externalArtifacts.map((artifact) => artifact.file),
     ])].sort((left, right) => Buffer.from(left).compare(Buffer.from(right))),
@@ -213,14 +234,20 @@ export function createPedagogyGenerationIntegrationValidators(context) {
 
 function curriculumIndexes(context) {
   const officialMaps = findCurriculumArtifacts(context, 'official_curriculum_map');
+  const grade2OfficialMaps = context.grade2Programme?.officialMaps ?? [];
   const bookInventories = findCurriculumArtifacts(context, 'book_inventory');
   const topicInventories = findCurriculumArtifacts(context, 'topic_inventory');
   const courseMaps = findCurriculumArtifacts(context, 'thematic_unit');
+  const grade2Projects = context.grade2Programme?.projectModules?.data.projects ?? [];
   return {
-    officialById: new Map(officialMaps.map((artifact) => [artifact.data.map_id, artifact.data])),
+    officialById: new Map([
+      ...officialMaps.map((artifact) => [artifact.data.map_id, artifact.data]),
+      ...grade2OfficialMaps.map((artifact) => [artifact.data.artifact_id, artifact.data]),
+    ]),
     booksBySource: new Map(bookInventories.map((artifact) => [artifact.data.canonical_route.source_id, artifact.data])),
     topicsBySource: new Map(topicInventories.map((artifact) => [artifact.data.canonical_route.source_id, artifact.data])),
     courseMapById: new Map(courseMaps.map((artifact) => [artifact.data.map_id, artifact.data])),
+    grade2ProjectById: new Map(grade2Projects.map((project) => [project.project_id, project])),
   };
 }
 
@@ -278,6 +305,7 @@ function validateArtifactRouteAndPages(diagnostics, artifact, context, indexes, 
   const sourceId = artifact.data.canonical_route?.source_id;
   const bookInventory = indexes.booksBySource.get(sourceId);
   if (!bookInventory) {
+    if (options.allowEmptyStandaloneRoute && (records ?? []).length === 0) return routeData;
     diagnostics.push(makeDiagnostic('error', artifact.file, '/canonical_route/source_id', `no validated book inventory for ${sourceId ?? '<missing>'}`));
     return routeData;
   }
@@ -452,7 +480,12 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
     indexes,
     records,
     '/evidence_linkage/opiq_records',
-    { allowSimplifiedSelection },
+    {
+      allowSimplifiedSelection,
+      allowEmptyStandaloneRoute: lesson.schema_version === '1.3'
+        && lesson.grade === 2
+        && records.length === 0,
+    },
   );
   const officialMap = validateOfficialLink(
     diagnostics,
@@ -462,9 +495,10 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
     indexes,
   );
   const courseMap = indexes.courseMapById.get(lesson.evidence_linkage?.course_map_ref);
-  if (!courseMap) {
+  const grade2Project = indexes.grade2ProjectById.get(lesson.evidence_linkage?.course_map_ref);
+  if (!courseMap && !grade2Project) {
     diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/course_map_ref', `unknown course map ${lesson.evidence_linkage?.course_map_ref ?? '<missing>'}`));
-  } else {
+  } else if (courseMap) {
     if (
       courseMap.grade !== lesson.grade
       || courseMap.subject !== lesson.subject
@@ -477,6 +511,21 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
       if (!selectedUrls.has(record.canonical_url)) {
         diagnostics.push(makeDiagnostic('error', artifact.file, `/evidence_linkage/opiq_records/${index}/canonical_url`, 'lesson Opiq evidence must be selected in the linked merged course map'));
       }
+    }
+  } else {
+    if (lesson.grade !== 2) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/course_map_ref', 'Grade 2 project-module evidence is restricted to Grade 2 lessons'));
+    }
+    if (!(grade2Project.linked_route_ids ?? []).includes(lesson.canonical_route?.source_id)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/course_map_ref', 'Grade 2 project must link the lesson canonical route'));
+    }
+    for (const outcomeId of lesson.evidence_linkage?.official_outcome_refs ?? []) {
+      if (!(grade2Project.linked_outcome_ids ?? []).includes(outcomeId)) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/official_outcome_refs', `Grade 2 project does not link outcome ${outcomeId}`));
+      }
+    }
+    if (records.length > 0) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/opiq_records', 'standalone Grade 2 project lessons must not treat project architecture as selected Opiq page evidence'));
     }
   }
   const objectiveOutcomes = (lesson.objectives?.content_objectives ?? [])

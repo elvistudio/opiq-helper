@@ -352,6 +352,12 @@ jobs:
       - name: Check generated Grade 2 course architecture
         run: npm run check:grade-2-course-architecture
 
+      - name: Test Grade 2 weather, water and safety pilot
+        run: npm run test:grade-2-weather-water-safety-pilot
+
+      - name: Check Grade 2 weather, water and safety pilot
+        run: npm run check:grade-2-weather-water-safety-pilot
+
       - name: Test grade 2 content-quality audit
         run: npm run test:grade-2-content-quality
 

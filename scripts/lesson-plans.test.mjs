@@ -21,7 +21,10 @@ function artifacts(repository, type) {
 
 function lesson(repository, position = 1) {
   const found = artifacts(repository, 'bilingual_lesson')
-    .find((artifact) => artifact.data.position_in_unit === position);
+    .find((artifact) => (
+      artifact.data.unit_ref === 'grade-5-water-four-lesson-plan'
+      && artifact.data.position_in_unit === position
+    ));
   assert.ok(found, `missing lesson ${position}`);
   return found.data;
 }
@@ -153,7 +156,7 @@ test('production repository passes with documented architecture and pedagogical 
     assert.match(warningText, new RegExp(`topic synthesis ${unitId} is planned but has not yet been authored`, 'u'));
   }
   assert.doesNotMatch(warningText, /no direct Russian Opiq explanation/u);
-  assert.equal(result.summary.lessons, 10);
+  assert.equal(result.summary.lessons, 12);
   assert.equal(result.summary.annualCourses, 1);
   assert.equal(result.summary.annualComponents, 4);
   assert.equal(result.summary.annualUnits, 10);
@@ -843,7 +846,9 @@ test('unknown annual component reference fails', () => {
 
 test('excessive new vocabulary emits a configurable warning', () => {
   const repository = cloneRepository();
-  profiles(repository).profiles[0].warning_thresholds.max_new_terms_per_lesson = 2;
+  profiles(repository).profiles
+    .find((profile) => profile.profile_id === 'grade-5-science-a1-a2-default')
+    .warning_thresholds.max_new_terms_per_lesson = 2;
   assertWarnsWithoutErrors(repository, /new Estonian terms 3 exceed profile threshold 2/u);
 });
 
