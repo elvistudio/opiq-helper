@@ -62,7 +62,6 @@ jobs:
           printf '%s\n' "${conflicts[@]}"
 
           expected=(
-            '.github/workflows/validate-source-manifest.yml'
             'scripts/lib/teacher-work-plan-extractions.mjs'
             'scripts/teacher-work-plan-extractions.test.mjs'
           )
@@ -77,20 +76,12 @@ jobs:
             exit 1
           fi
 
-          git checkout --theirs -- .github/workflows/validate-source-manifest.yml
           python <<'PY'
           from pathlib import Path
 
           path = Path('.github/workflows/validate-source-manifest.yml')
           text = path.read_text(encoding='utf-8')
           grade2 = '      - docs/audits/grade-2-weather-water-safety-pilot-acceptance.md\n'
-          anchor = '      - docs/audits/grade-6-science-teacher-work-plan-extraction.md\n'
-          if text.count(grade2) == 0:
-              if text.count(anchor) != 2:
-                  raise SystemExit(f'unexpected Grade 6 workflow anchor count: {text.count(anchor)}')
-              text = text.replace(anchor, anchor + grade2)
-          if text.count(grade2) != 2:
-              raise SystemExit(f'unexpected Grade 2 audit path count: {text.count(grade2)}')
           required = [
               'run_teacher_work_plan_maps',
               'Validate teacher work-plan curriculum maps',
@@ -100,10 +91,11 @@ jobs:
               'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
               'docs/audits/grade-7-science-teacher-work-plan-extraction.md',
           ]
+          if text.count(grade2) != 2:
+              raise SystemExit(f'unexpected Grade 2 audit path count after auto-merge: {text.count(grade2)}')
           missing = [item for item in required if item not in text]
           if missing:
               raise SystemExit(f'workflow lost main contract entries: {missing}')
-          path.write_text(text, encoding='utf-8')
           PY
 
           git checkout --theirs -- scripts/lib/teacher-work-plan-extractions.mjs
@@ -296,7 +288,6 @@ jobs:
           PY
 
           git add \
-            .github/workflows/validate-source-manifest.yml \
             scripts/lib/teacher-work-plan-extractions.mjs \
             scripts/teacher-work-plan-extractions.test.mjs
 
@@ -346,14 +337,14 @@ jobs:
           - Integrated main: \`7ce7d71daf3924be1c256eaab3b6dc486af01b7b\`
           - Preserved tested feature HEAD: \`9c5108b2bcdf089b5d75386e9491331a742f5825\`
           - Merge commit / new HEAD: \`${NEW_HEAD}\`
-          - Resolved files: workflow, extraction library, extraction tests
+          - Resolved files: extraction library and extraction tests; workflow auto-merged
           - Preserved Grade 5 map contract and Grade 2 audit path
           - New map commands and all affected focused suites passed
           - Full repository matrix was not repeated
           - Workflow: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
           EOF
           )
-          gh api "repos/${GITHUB_REPOSITORY}/issues/109/comments" -f body="$body"
+          gh api "repos/${GITHUB_REPOSITORY}/issues/109/comments" -f body="$body" || true
 
       - name: Remove helper branch
         if: success()
