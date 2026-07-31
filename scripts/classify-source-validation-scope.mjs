@@ -20,6 +20,7 @@ const TEACHER_WORK_PLAN_EXACT = new Set([
   'source-manifest.json',
   'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
   'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+  'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
   'docs/migrations/teacher-work-plans-5-7-integration.md',
   'schemas/teacher-work-plan-extraction.schema.json',
   'scripts/classify-source-validation-scope.mjs',

@@ -28,15 +28,20 @@ async function main() {
   }
 
   for (const summary of validation.summaries) {
-    const hours = typeof summary.declared_hours === 'number'
-      ? String(summary.declared_hours)
-      : `${summary.declared_hours.minimum}-${summary.declared_hours.maximum}`;
+    const allocationField = Object.hasOwn(summary, 'derived_hours')
+      ? 'derived_hours'
+      : 'declared_hours';
+    const allocation = summary[allocationField];
+    const hours = typeof allocation === 'number'
+      ? String(allocation)
+      : `${allocation.minimum}-${allocation.maximum}`;
+    const allocationLabel = allocationField === 'derived_hours' ? 'derived' : 'declared';
     console.log(
       `${summary.extraction_id}: `
       + `${summary.thematic_blocks} thematic blocks, `
       + `${summary.lesson_ranges} lesson ranges covering ${summary.lessons_covered} lessons, `
       + `${summary.unresolved_items} unresolved items; `
-      + `${summary.source_pages} pages and ${hours} declared block hours verified.`,
+      + `${summary.source_pages} pages and ${hours} ${allocationLabel} block hours verified.`,
     );
   }
   console.log(`Teacher work-plan extraction collection valid: ${validation.summaries.length} artifacts.`);

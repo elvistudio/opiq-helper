@@ -105,6 +105,7 @@ test('teacher work-plan paths select the focused extraction job', () => {
   for (const repositoryPath of [
     'evaluations/teacher-work-plans/grade-5-science-extraction.json',
     'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+    'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
     'project-files/inputs/originals/teacher-work-plans/source.pdf',
     'schemas/teacher-work-plan-extraction.schema.json',
     'scripts/lib/teacher-work-plan-extractions.mjs',
@@ -113,6 +114,7 @@ test('teacher work-plan paths select the focused extraction job', () => {
     'scripts/classify-source-validation-scope.test.mjs',
     'docs/audits/grade-5-science-teacher-work-plan-extraction.md',
     'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
+    'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
     'source-manifest.json',
   ]) {
     assert.equal(classifyChangedPaths([repositoryPath]).run_teacher_work_plans, true);
