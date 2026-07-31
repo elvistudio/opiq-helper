@@ -180,7 +180,7 @@
           "type": "string",
           "pattern": "^project-files/outputs/.+\\.md$"
         },
-        "mapping_status": { "const": "deferred" }
+        "mapping_status": { "enum": ["deferred", "partial", "complete"] }
       }
     },
     "annualAllocation": {

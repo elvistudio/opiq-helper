@@ -15,9 +15,6 @@ const GRADE_7_GEOGRAPHY_PATH =
   'evaluations/teacher-work-plans/grade-7-geography-extraction.json';
 const GRADE_7_SCIENCE_PATH =
   'evaluations/teacher-work-plans/grade-7-science-extraction.json';
-const GRADE_7_SCIENCE_AUDIT_PATH =
-  'docs/audits/grade-7-science-teacher-work-plan-extraction.md';
-
 export const EXTRACTION_CONTRACTS = Object.freeze({
   'grade-5-science-teacher-work-plan-extraction': Object.freeze({
     extractionPath: GRADE_5_PATH,
@@ -28,7 +25,7 @@ export const EXTRACTION_CONTRACTS = Object.freeze({
     route: Object.freeze({
       source_id: 'grade-5-science',
       md_path: 'project-files/outputs/opiq_5klass_loodusopetus.md',
-      mapping_status: 'deferred',
+      mapping_status: 'partial',
     }),
     pageCount: 25,
     lessonStart: 1,
@@ -1129,10 +1126,10 @@ export function validateTeacherWorkPlanExtractionRepository(repository) {
       'official curriculum and canonical Opiq mapping completeness must remain false',
     ));
   }
-  if (artifact.route_context.mapping_status !== 'deferred') {
+  if (artifact.route_context.mapping_status === 'complete') {
     diagnostics.push(makeDiagnostic(
       '/route_context/mapping_status',
-      'canonical Opiq mapping must remain deferred in the extraction-only phase',
+      'complete mapping is forbidden without separate strict completeness proof',
     ));
   }
   if (artifact.source.canonical !== false) {
@@ -1214,16 +1211,20 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
     if (repositoryPath === 'source-manifest.json') {
       diagnostics.push(makeDiagnostic(repositoryPath, 'source-manifest.json must remain unchanged'));
     } else if (
-      repositoryPath === GRADE_5_PATH
-      || repositoryPath === GRADE_6_PATH
+      repositoryPath === GRADE_6_PATH
       || repositoryPath === GRADE_7_GEOGRAPHY_PATH
+      || repositoryPath === GRADE_7_SCIENCE_PATH
     ) {
       diagnostics.push(makeDiagnostic(
         repositoryPath,
         'previously committed extractions must remain byte-identical',
       ));
-    } else if (repositoryPath.startsWith('curriculum-maps/')) {
-      diagnostics.push(makeDiagnostic(repositoryPath, 'curriculum maps are outside extraction scope'));
+    } else if (
+      repositoryPath.startsWith('curriculum-maps/')
+      && repositoryPath !== 'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml'
+      && repositoryPath !== 'curriculum-maps/grade-5-science/topic-inventory.yaml'
+    ) {
+      diagnostics.push(makeDiagnostic(repositoryPath, 'only the registered Grade 5 teacher work-plan crosswalk and its exact-route topic inventory dependency are in mapping scope'));
     } else if (repositoryPath.startsWith('project-files/inputs/originals/')) {
       diagnostics.push(makeDiagnostic(repositoryPath, 'committed original sources must remain unchanged'));
     } else if (repositoryPath.startsWith('project-files/outputs/')) {
@@ -1237,17 +1238,10 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
     } else {
       const gradeMatch = repositoryPath.match(/(?:^|\/)grade-(\d+)(?=$|[-/])/u);
       const grade = gradeMatch ? Number.parseInt(gradeMatch[1], 10) : null;
-      const registeredGrade7Path = repositoryPath === GRADE_7_SCIENCE_PATH
-        || repositoryPath === GRADE_7_SCIENCE_AUDIT_PATH;
-      if (grade === 7 && !registeredGrade7Path) {
+      if (grade !== null && grade !== 5) {
         diagnostics.push(makeDiagnostic(
           repositoryPath,
-          'only the registered Grade 7 science extraction and audit are in scope',
-        ));
-      } else if (grade !== null && ![5, 6, 7].includes(grade)) {
-        diagnostics.push(makeDiagnostic(
-          repositoryPath,
-          'other grades are outside the registered Grade 5-7 extraction scope',
+          'only Grade 5 mapping-phase artifacts are in scope',
         ));
       }
     }

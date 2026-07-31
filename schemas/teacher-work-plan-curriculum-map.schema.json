@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elvistudio.github.io/opiq-helper/schemas/teacher-work-plan-curriculum-map.schema.json",
+  "title": "Teacher work-plan curriculum map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "map_id",
+    "grade",
+    "subject",
+    "subject_et",
+    "source_extraction",
+    "canonical_route",
+    "existing_curriculum_artifacts",
+    "mapping_scope",
+    "mapping_method",
+    "lesson_range_mappings",
+    "topic_inventory_comparison",
+    "mapping_summary",
+    "known_gaps",
+    "completeness"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "artifact_type": { "const": "teacher_work_plan_curriculum_map" },
+    "map_id": { "$ref": "#/$defs/slug" },
+    "grade": { "type": "integer", "minimum": 1, "maximum": 12 },
+    "subject": { "enum": ["science", "geography"] },
+    "subject_et": { "enum": ["loodusõpetus", "geograafia"] },
+    "source_extraction": { "$ref": "#/$defs/sourceExtraction" },
+    "canonical_route": { "$ref": "#/$defs/canonicalRoute" },
+    "existing_curriculum_artifacts": { "$ref": "#/$defs/existingArtifacts" },
+    "mapping_scope": { "$ref": "#/$defs/mappingScope" },
+    "mapping_method": { "$ref": "#/$defs/mappingMethod" },
+    "lesson_range_mappings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/lessonRangeMapping" }
+    },
+    "topic_inventory_comparison": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/topicComparison" }
+    },
+    "mapping_summary": { "$ref": "#/$defs/mappingSummary" },
+    "known_gaps": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "completeness": { "$ref": "#/$defs/completeness" }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)+$"
+    },
+    "sourceExtraction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "extraction_id",
+        "path",
+        "source_pdf_path",
+        "source_sha256",
+        "source_page_count",
+        "lesson_range_count",
+        "extracted_lesson_span"
+      ],
+      "properties": {
+        "extraction_id": { "$ref": "#/$defs/slug" },
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "source_pdf_path": { "$ref": "#/$defs/repositoryPath" },
+        "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "source_page_count": { "type": "integer", "minimum": 1 },
+        "lesson_range_count": { "type": "integer", "minimum": 1 },
+        "extracted_lesson_span": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lesson_start", "lesson_end"],
+          "properties": {
+            "lesson_start": { "type": "integer", "minimum": 1 },
+            "lesson_end": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "canonicalRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "md_path",
+        "source_archive",
+        "qa_path",
+        "record_count",
+        "coverage_status"
+      ],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/slug" },
+        "md_path": { "$ref": "#/$defs/repositoryPath" },
+        "source_archive": { "$ref": "#/$defs/repositoryPath" },
+        "qa_path": { "$ref": "#/$defs/repositoryPath" },
+        "record_count": { "type": "integer", "minimum": 1 },
+        "coverage_status": { "const": "available_not_curriculum_verified" }
+      }
+    },
+    "existingArtifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["book_inventory", "topic_inventory", "official_curriculum_map", "annual_architecture"],
+      "properties": {
+        "book_inventory": { "$ref": "#/$defs/repositoryPath" },
+        "topic_inventory": { "$ref": "#/$defs/repositoryPath" },
+        "official_curriculum_map": { "$ref": "#/$defs/repositoryPath" },
+        "annual_architecture": { "$ref": "#/$defs/repositoryPath" }
+      }
+    },
+    "mappingScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_locked",
+        "allowed_source_languages",
+        "adjacent_routes_forbidden",
+        "live_catalogue_checked",
+        "notes"
+      ],
+      "properties": {
+        "route_locked": { "const": true },
+        "allowed_source_languages": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [{ "const": "et" }, { "const": "ru" }],
+          "items": false
+        },
+        "adjacent_routes_forbidden": { "const": true },
+        "live_catalogue_checked": { "const": false },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "mappingMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit",
+        "source_range_splitting",
+        "canonical_evidence",
+        "topic_inventory_role",
+        "teacher_plan_role",
+        "notes"
+      ],
+      "properties": {
+        "unit": { "const": "source_lesson_range" },
+        "source_range_splitting": { "const": "forbidden" },
+        "canonical_evidence": { "const": "committed_route_only" },
+        "topic_inventory_role": { "const": "stable_record_registry" },
+        "teacher_plan_role": { "const": "supplementary_noncanonical" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "coverageStatus": {
+      "enum": ["matched", "partial", "missing", "ambiguous", "outside_route"]
+    },
+    "matchScope": {
+      "enum": [
+        "core_content",
+        "terminology",
+        "visual_or_map",
+        "practice",
+        "practical_work",
+        "fieldwork",
+        "revision",
+        "assessment",
+        "oral_language_support"
+      ]
+    },
+    "opiqMatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topic_inventory_ref",
+        "record_id",
+        "canonical_url",
+        "canonical_source_id",
+        "book_id",
+        "title",
+        "language",
+        "programme_type",
+        "instructional_roles",
+        "match_strength",
+        "match_scope",
+        "selection_rationale"
+      ],
+      "properties": {
+        "topic_inventory_ref": { "$ref": "#/$defs/slug" },
+        "record_id": { "$ref": "#/$defs/slug" },
+        "canonical_url": { "type": "string", "pattern": "^https://www\\.opiq\\.ee/kit/[0-9]+/chapter/[0-9]+$" },
+        "canonical_source_id": { "$ref": "#/$defs/slug" },
+        "book_id": { "$ref": "#/$defs/nonEmptyString" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "language": { "enum": ["et", "ru"] },
+        "programme_type": {
+          "enum": ["ordinary", "supplementary", "teacher_support", "simplified_curriculum", "unknown"]
+        },
+        "instructional_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "match_strength": { "enum": ["exact", "strong", "supporting"] },
+        "match_scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/matchScope" }
+        },
+        "selection_rationale": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "teacherPlanMaterial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provenance_kind", "canonical"],
+      "properties": {
+        "provenance_kind": { "const": "supplementary_teacher_work_plan" },
+        "canonical": { "const": false }
+      }
+    },
+    "opiqMaterial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_id", "programme_type"],
+      "properties": {
+        "record_id": { "$ref": "#/$defs/slug" },
+        "programme_type": {
+          "enum": ["ordinary", "supplementary", "teacher_support", "simplified_curriculum", "unknown"]
+        }
+      }
+    },
+    "evidenceClassification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["teacher_plan_material", "opiq_material", "bridging_content"],
+      "properties": {
+        "teacher_plan_material": { "$ref": "#/$defs/teacherPlanMaterial" },
+        "opiq_material": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/opiqMaterial" }
+        },
+        "bridging_content": {
+          "enum": [
+            "none",
+            "independently_authored_bridge_required",
+            "independently_authored_practical_required",
+            "independently_authored_assessment_required",
+            "teacher_review_required"
+          ]
+        }
+      }
+    },
+    "bridgeRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "reason"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "reason": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "lessonRangeMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mapping_id",
+        "source_block_id",
+        "lesson_start",
+        "lesson_end",
+        "source_pages",
+        "source_topic_et",
+        "normalized_mapping_topic_et",
+        "topic_inventory_refs",
+        "coverage_status",
+        "opiq_matches",
+        "evidence_classification",
+        "bridge_requirement",
+        "mapping_confidence",
+        "review_status",
+        "rationale",
+        "gap_notes"
+      ],
+      "properties": {
+        "mapping_id": { "$ref": "#/$defs/slug" },
+        "source_block_id": { "$ref": "#/$defs/slug" },
+        "lesson_start": { "type": "integer", "minimum": 1 },
+        "lesson_end": { "type": "integer", "minimum": 1 },
+        "source_pages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1 }
+        },
+        "source_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "normalized_mapping_topic_et": { "$ref": "#/$defs/nonEmptyString" },
+        "topic_inventory_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "coverage_status": { "$ref": "#/$defs/coverageStatus" },
+        "opiq_matches": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/opiqMatch" }
+        },
+        "evidence_classification": { "$ref": "#/$defs/evidenceClassification" },
+        "bridge_requirement": { "$ref": "#/$defs/bridgeRequirement" },
+        "mapping_confidence": { "enum": ["high", "medium", "low"] },
+        "review_status": { "enum": ["mapping_review_pending", "reviewed"] },
+        "rationale": { "$ref": "#/$defs/nonEmptyString" },
+        "gap_notes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "topicComparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topic_id",
+        "represented_in_teacher_plan",
+        "source_mapping_ids",
+        "representation_status",
+        "notes"
+      ],
+      "properties": {
+        "topic_id": { "$ref": "#/$defs/slug" },
+        "represented_in_teacher_plan": { "type": "boolean" },
+        "source_mapping_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "representation_status": {
+          "enum": ["represented", "partially_represented", "not_represented", "ambiguous"]
+        },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "mappingSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_source_lesson_ranges",
+        "matched_count",
+        "partial_count",
+        "missing_count",
+        "ambiguous_count",
+        "outside_route_count",
+        "mappings_with_russian_opiq_evidence",
+        "mappings_with_estonian_opiq_evidence",
+        "mappings_requiring_bridge",
+        "represented_topic_inventory_count",
+        "not_represented_topic_inventory_count"
+      ],
+      "properties": {
+        "total_source_lesson_ranges": { "type": "integer", "minimum": 0 },
+        "matched_count": { "type": "integer", "minimum": 0 },
+        "partial_count": { "type": "integer", "minimum": 0 },
+        "missing_count": { "type": "integer", "minimum": 0 },
+        "ambiguous_count": { "type": "integer", "minimum": 0 },
+        "outside_route_count": { "type": "integer", "minimum": 0 },
+        "mappings_with_russian_opiq_evidence": { "type": "integer", "minimum": 0 },
+        "mappings_with_estonian_opiq_evidence": { "type": "integer", "minimum": 0 },
+        "mappings_requiring_bridge": { "type": "integer", "minimum": 0 },
+        "represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "not_represented_topic_inventory_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "all_extracted_lesson_ranges_classified",
+        "declared_complete_for_source_extraction",
+        "canonical_opiq_mapping_complete",
+        "official_curriculum_complete",
+        "exact_grade_official_allocation_claimed",
+        "live_opiq_catalogue_complete"
+      ],
+      "properties": {
+        "all_extracted_lesson_ranges_classified": { "const": true },
+        "declared_complete_for_source_extraction": { "const": true },
+        "canonical_opiq_mapping_complete": { "const": false },
+        "official_curriculum_complete": { "const": false },
+        "exact_grade_official_allocation_claimed": { "const": false },
+        "live_opiq_catalogue_complete": { "const": false }
+      }
+    }
+  }
+}
