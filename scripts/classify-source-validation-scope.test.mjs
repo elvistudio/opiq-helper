@@ -123,6 +123,24 @@ test('teacher work-plan paths select the focused extraction job', () => {
   }
 });
 
+test('teacher work-plan curriculum-map dependencies select the focused map job', () => {
+  for (const repositoryPath of [
+    'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
+    'schemas/teacher-work-plan-curriculum-map.schema.json',
+    'scripts/lib/teacher-work-plan-curriculum-maps.mjs',
+    'scripts/check-teacher-work-plan-curriculum-maps.mjs',
+    'scripts/teacher-work-plan-curriculum-maps.test.mjs',
+    'evaluations/teacher-work-plans/grade-5-science-extraction.json',
+    'project-files/outputs/opiq_5klass_loodusopetus.md',
+    'project-files/outputs/opiq_5klass_loodusopetus_qa.json',
+    'curriculum-maps/grade-5-science/book-inventory.yaml',
+    'curriculum-maps/grade-5-science/topic-inventory.yaml',
+    'source-manifest.json',
+  ]) {
+    assert.equal(classifyChangedPaths([repositoryPath]).run_teacher_work_plan_maps, true);
+  }
+});
+
 test('unrelated changes do not select the teacher work-plan job', () => {
   assert.equal(classifyChangedPaths(['docs/lesson-plans.md']).run_teacher_work_plans, false);
   assert.equal(
@@ -130,6 +148,7 @@ test('unrelated changes do not select the teacher work-plan job', () => {
       .run_teacher_work_plans,
     false,
   );
+  assert.equal(classifyChangedPaths(['docs/lesson-plans.md']).run_teacher_work_plan_maps, false);
 });
 
 test('unbounded shared content requires the full suite', () => {
@@ -218,6 +237,7 @@ test('CLI consumes NUL-delimited paths and writes GitHub outputs', async () => {
     assert.match(outputs, /^mode=core_only$/mu);
     assert.match(outputs, /^run_pedagogy_quality=false$/mu);
     assert.match(outputs, /^run_teacher_work_plans=false$/mu);
+    assert.match(outputs, /^run_teacher_work_plan_maps=false$/mu);
     const summary = await fs.readFile(summaryPath, 'utf8');
     assert.match(summary, /Heavy pedagogical jobs: \*\*skip\*\*/u);
   } finally {

@@ -35,6 +35,15 @@ test('valid golden bilingual unit and production pilot pass', () => {
   assert.deepEqual(errors(cloneRepository()), []);
 });
 
+test('teacher work-plan crosswalk is explicitly delegated to its strict validator', () => {
+  const repository = cloneRepository();
+  const crosswalk = repository.artifacts.find(
+    (candidate) => candidate.data.artifact_type === 'teacher_work_plan_curriculum_map',
+  );
+  assert.ok(crosswalk);
+  assert.deepEqual(errors(repository), []);
+});
+
 test('multiple eligible books can contribute to one topic and unit', () => {
   const repository = cloneRepository();
   const unit = artifact(repository, 'thematic_unit');

@@ -81,6 +81,71 @@ topics:
           source_reference: grade-5-science / kit 17 / chapter 759
           notes: Canonical Russian-language page from the registered ordinary Avita book.
         selection_rationale: Provides Russian support when the curated sequence reaches lake formation and diversity.
+      - record_id: river-course-flow-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/757
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Путь реки от истока до устья
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 757
+          notes: Verified ordinary exact-route page added for teacher-plan river-course and flow mappings.
+        selection_rationale: Supplies direct Russian evidence for the river course, flow speed, and changing river sections.
+      - record_id: lake-properties-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/761
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Свойства озерной воды
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, practice_ru, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 761
+          notes: Verified ordinary exact-route page added for teacher-plan lake-property mappings.
+        selection_rationale: Supplies direct Russian evidence for lake-water properties, nutrient inputs, ageing, and use.
+      - record_id: river-flow-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6268
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Vee voolamine
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, experiment, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6268
+          notes: Verified ordinary exact-route page added for teacher-plan flow mappings.
+        selection_rationale: Adds explicit flow speed, rapids, waterfall, and investigation evidence absent from the prior deduplicated selection.
+      - record_id: lake-properties-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6271
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Järvevee omadused. Järv elukeskkonnana
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, experiment, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6271
+          notes: Verified ordinary exact-route page added for teacher-plan lake-property mappings.
+        selection_rationale: Supplies explicit transparency, temperature, oxygen, and lake-condition evidence.
+      - record_id: rivers-lakes-summary-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6280
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Kokkuvõte
+        language: et
+        programme_type: ordinary
+        instructional_roles: [revision, assessment, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6280
+          notes: Verified ordinary exact-route summary page added for teacher-plan revision mappings.
+        selection_rationale: Provides an explicit river-and-lake summary and review-question role without changing annual order.
     rejected_records: []
     source_recommendations:
       russian_explanation: [rivers-ru-avita, lakes-ru-avita]
@@ -150,7 +215,85 @@ topics:
           source_reference: grade-5-science / kit 122 / chapter 6276
           notes: Canonical Estonian-language practice page from the registered ordinary Koolibri book.
         selection_rationale: Adds practice and summary material with a distinct instructional role.
-    alternative_records: []
+    alternative_records:
+      - record_id: aquatic-animal-adaptations-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/762
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Приспособ­ленность животных к обитанию в воде
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, bilingual_visual, practice_ru, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 762
+          notes: Verified ordinary exact-route page added for teacher-plan aquatic-animal adaptation mappings.
+        selection_rationale: Supplies direct Russian evidence for breathing, movement, and body adaptations of aquatic animals.
+      - record_id: aquatic-plant-adaptations-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/763
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Приспособ­ленность растений к жизни в воде
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, bilingual_visual, practice_ru, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 763
+          notes: Verified ordinary exact-route page added for teacher-plan aquatic-plant adaptation mappings.
+        selection_rationale: Supplies direct Russian evidence for structural adaptations of aquatic plants.
+      - record_id: aquatic-adaptations-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6270
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Taimede ja loomade kohastumine eluks vees
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, experiment, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6270
+          notes: Verified ordinary exact-route page added for teacher-plan adaptation mappings.
+        selection_rationale: Explicitly covers aquatic plant and animal adaptations and a practical prompt.
+      - record_id: lake-nutrients-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6272
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Elurikkas järves on toitaineid parasjagu
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6272
+          notes: Verified ordinary exact-route page added for teacher-plan trophic-state mappings.
+        selection_rationale: Adds explicit nutrient, lake-type, and ageing evidence that the general community page lacks.
+      - record_id: lake-biota-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6273
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Järve elustik
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6273
+          notes: Verified ordinary exact-route page added for teacher-plan lake-biota mappings.
+        selection_rationale: Provides explicit lake plants, animals, and waterbird evidence for species-level source rows.
+      - record_id: river-biota-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6275
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Jõe elustik
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6275
+          notes: Verified ordinary exact-route page added for teacher-plan river-biota mappings.
+        selection_rationale: Provides explicit river plants, invertebrates, vertebrates, and species examples.
     rejected_records: []
     source_recommendations:
       russian_explanation: [freshwater-community-ru-avita]
@@ -273,6 +416,45 @@ topics:
           source_reference: grade-5-science / kit 9 / chapter 363
           notes: Canonical Estonian-language page from the registered older ordinary Avita book.
         selection_rationale: Retained as an optional older explanation but not assigned beside the newer Avita page.
+      - record_id: thermal-expansion-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/750
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Тепловое расширение, нагревание и охлаждение
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, experiment, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 750
+          notes: Verified ordinary exact-route page added for teacher-plan thermal-expansion mappings.
+        selection_rationale: Supplies direct Russian explanation and practical evidence for thermal expansion.
+      - record_id: surface-wetting-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/751
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Поверхност­ное натяжение и смачивание
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, experiment, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 751
+          notes: Verified ordinary exact-route page added for teacher-plan surface-tension mappings.
+        selection_rationale: Supplies explicit Russian surface-tension and wetting evidence.
+      - record_id: capillarity-ru-avita
+        canonical_url: https://www.opiq.ee/kit/17/chapter/752
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Капилляр­ность
+        language: ru
+        programme_type: ordinary
+        instructional_roles: [core_explanation_ru, experiment, practice_ru, revision]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 17 / chapter 752
+          notes: Verified ordinary exact-route page added for teacher-plan capillarity mappings.
+        selection_rationale: Supplies direct Russian capillarity explanation and practical evidence.
     rejected_records:
       - record_id: water-solid-liquid-simplified
         canonical_url: https://www.opiq.ee/kit/275/chapter/15515
@@ -923,7 +1105,72 @@ topics:
           source_reference: grade-5-science / kit 122 / chapter 6300
           notes: Canonical Estonian-language page from the registered ordinary Koolibri book.
         selection_rationale: Represents the available ordinary-programme settlement sequence and includes map work.
-    alternative_records: []
+    alternative_records:
+      - record_id: estonian-cities-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6302
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Eesti linnad ja maakonnad
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, map_skill, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6302
+          notes: Verified ordinary exact-route page added for teacher-plan city mappings.
+        selection_rationale: Adds explicit Estonian cities, counties, and map-work evidence.
+      - record_id: settlement-conditions-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6303
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Keskkonna­tingimused asulas
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6303
+          notes: Verified ordinary exact-route page added for teacher-plan settlement-condition mappings.
+        selection_rationale: Explicitly compares rural and urban conditions and their effects on organisms and people.
+      - record_id: settlement-plants-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6304
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Taimed
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, fieldwork, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6304
+          notes: Verified ordinary exact-route page added for teacher-plan settlement-plant mappings.
+        selection_rationale: Adds explicit green-space, tree, park-plant, and group-project evidence.
+      - record_id: settlement-animals-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6305
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Loomad
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6305
+          notes: Verified ordinary exact-route page added for teacher-plan settlement-animal mappings.
+        selection_rationale: Adds explicit urban insect, bird, rodent, and parasite evidence.
+      - record_id: settlements-summary-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6306
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Kokkuvõte
+        language: et
+        programme_type: ordinary
+        instructional_roles: [revision, assessment, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6306
+          notes: Verified ordinary exact-route summary page added for teacher-plan settlement revision mappings.
+        selection_rationale: Provides explicit settlement review questions without altering the curated annual sequence.
     rejected_records: []
     source_recommendations:
       russian_explanation: []
@@ -964,7 +1211,72 @@ topics:
           source_reference: grade-5-science / kit 122 / chapter 6309
           notes: Canonical Estonian-language map-skills page from the registered ordinary Koolibri book.
         selection_rationale: Provides page-level evidence for contour and relief map language and practice.
-    alternative_records: []
+    alternative_records:
+      - record_id: landforms-overview-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6308
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Pinnavormid ja pinnamood
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, map_skill, experiment, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6308
+          notes: Verified ordinary exact-route page added for teacher-plan landform mappings.
+        selection_rationale: Adds explicit landform, relief, model, and map-work evidence.
+      - record_id: major-landforms-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6311
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Suurpinnavormid
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, map_skill, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6311
+          notes: Verified ordinary exact-route page added for teacher-plan major-landform mappings.
+        selection_rationale: Explicitly covers Estonian uplands, lowlands, and map work.
+      - record_id: relief-formation-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6312
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Eesti pinnamoe kujunemine
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, map_skill, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6312
+          notes: Verified ordinary exact-route page added for teacher-plan relief-formation mappings.
+        selection_rationale: Adds explicit continental-ice and glacial-landform evidence.
+      - record_id: relief-human-impact-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6313
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Pinnamoe mõju inimtegevusele ja inimese kujundatud pinnavormid
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6313
+          notes: Verified ordinary exact-route page added for teacher-plan human-impact mappings.
+        selection_rationale: Explicitly covers relief effects on human activity and anthropogenic landforms.
+      - record_id: landforms-summary-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6314
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Kokkuvõte
+        language: et
+        programme_type: ordinary
+        instructional_roles: [revision, assessment, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6314
+          notes: Verified ordinary exact-route summary page added for teacher-plan landform revision mappings.
+        selection_rationale: Provides explicit landform review questions without changing annual order.
     rejected_records: []
     source_recommendations:
       russian_explanation: []
@@ -1005,7 +1317,72 @@ topics:
           source_reference: grade-5-science / kit 122 / chapter 6316
           notes: Canonical Estonian-language page from the registered ordinary Koolibri book.
         selection_rationale: Represents bog formation, conditions, map work, and a practical prompt.
-    alternative_records: []
+    alternative_records:
+      - record_id: bog-plants-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6317
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Taimed
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6317
+          notes: Verified ordinary exact-route page added for teacher-plan bog-plant mappings.
+        selection_rationale: Adds explicit bog plant, sphagnum, sundew, and cranberry evidence.
+      - record_id: bog-small-animals-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6318
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Putukad, kahepaiksed, roomajad
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6318
+          notes: Verified ordinary exact-route page added for teacher-plan bog-fauna mappings.
+        selection_rationale: Adds explicit insect, amphibian, reptile, and habitat evidence.
+      - record_id: bog-birds-mammals-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6319
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Linnud ja imetajad
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, bilingual_visual, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6319
+          notes: Verified ordinary exact-route page added for teacher-plan bog-fauna mappings.
+        selection_rationale: Adds explicit bog bird, mammal, and food-chain evidence.
+      - record_id: bog-use-protection-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6320
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Soode kasutamine ja kaitse
+        language: et
+        programme_type: ordinary
+        instructional_roles: [core_source_et, terminology_et, map_skill, practice_et, assessment]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6320
+          notes: Verified ordinary exact-route page added for teacher-plan bog-use mappings.
+        selection_rationale: Explicitly covers drainage, peat use, importance through protection, and map work.
+      - record_id: bog-summary-et-koolibri
+        canonical_url: https://www.opiq.ee/kit/122/chapter/6321
+        canonical_source_id: grade-5-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Kokkuvõte
+        language: et
+        programme_type: ordinary
+        instructional_roles: [revision, assessment, practice_et]
+        provenance:
+          category: opiq_textbook
+          source_reference: grade-5-science / kit 122 / chapter 6321
+          notes: Verified ordinary exact-route summary page added for teacher-plan bog revision mappings.
+        selection_rationale: Provides explicit bog review questions without changing annual order.
     rejected_records: []
     source_recommendations:
       russian_explanation: []

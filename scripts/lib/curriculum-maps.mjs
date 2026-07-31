@@ -13,6 +13,7 @@ const gradeProgrammeRouteTypes = new Set([
   'grade_programme_topic_inventory',
 ]);
 const gradeProgrammeCoverageType = 'grade_programme_route_coverage';
+const delegatedTeacherWorkPlanMapType = 'teacher_work_plan_curriculum_map';
 
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -748,6 +749,8 @@ export function validateCurriculumMapRepository(context) {
         artifact,
         artifact.data.grade === 2 ? validators.grade2ProgrammeCoverage : validators.gradeProgrammeCoverage,
       );
+    } else if (type === delegatedTeacherWorkPlanMapType) {
+      // Strict validation is delegated to teacher-work-plan-curriculum-maps.mjs.
     } else {
       diagnostics.push(makeDiagnostic('error', artifact.file, '/artifact_type', `unknown artifact type ${type ?? '<missing>'}`));
     }
