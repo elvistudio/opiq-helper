@@ -25,6 +25,7 @@ import {
   taskBindings,
   validateMaterialDeliveryScope,
   validateResolvedHomeMaterialSemantics,
+  WATER_PILOT_PACK,
 } from './lib/pedagogy-generation-integration.mjs';
 import {
   serializePedagogyYaml,
@@ -44,8 +45,22 @@ const lessonIds = [
   'grade-5-water-03-melting-condensation',
   'grade-5-water-04-changes-review',
 ];
+const forbiddenDocumentPattern = /\.(?:pdf|docx?)$/iu;
+const pedagogyArtifactRoots = [
+  'knowledge/pedagogy',
+  'lesson-plans/grade-5-science/water',
+  WATER_PILOT_PACK,
+];
 let generated;
 let validators;
+
+function isForbiddenPedagogyDocument(file, generatedTargets = new Set()) {
+  if (!forbiddenDocumentPattern.test(file)) return false;
+  return generatedTargets.has(file)
+    || pedagogyArtifactRoots.some((root) => file === root || file.startsWith(`${root}/`))
+    || /^evaluations\/pedagogy(?:[-/]|$)/u.test(file)
+    || /^docs\/migrations\/[^/]*pedagogy-integration\.[^/]+$/u.test(file);
+}
 
 async function readJson(file) {
   return JSON.parse(await fs.readFile(file, 'utf8'));
@@ -786,7 +801,7 @@ test('home safety: safety checks pass and no false readiness is introduced', () 
   assert.equal(row.homeschool.package.status.home_trial, 'not_started');
 });
 
-// Determinism and scope: 11 focused cases.
+// Determinism and scope: 12 focused cases.
 test('determinism: repeated generation is byte-identical', async () => {
   const second = await generateWaterPilotArtifacts();
   assert.equal(
@@ -839,10 +854,48 @@ test('scope: generator cannot target the source manifest or canonical Opiq outpu
   }
 });
 
-test('scope: no PDF or DOC is introduced', async () => {
-  const tracked = spawnSync('git', ['ls-files'], { encoding: 'utf8' }).stdout
-    .split('\n').filter(Boolean);
-  assert.equal(tracked.some((file) => /\.(?:pdf|docx?)$/iu.test(file)), false);
+test('scope: tracked PDF and DOC files stay outside pedagogy artifacts', () => {
+  const result = spawnSync('git', ['ls-files'], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stderr);
+  const tracked = result.stdout.split('\n').filter(Boolean);
+  assert.deepEqual(
+    tracked.filter((file) => isForbiddenPedagogyDocument(file, generated.files)),
+    [],
+  );
+});
+
+test('scope: document guard follows pedagogy artifact boundaries', () => {
+  const generatedPdf = 'generated/evaluation/pedagogy-report.pdf';
+  const generatedTargets = new Set([generatedPdf]);
+  assert.equal(
+    isForbiddenPedagogyDocument(
+      'project-files/inputs/originals/teacher-work-plans/source.pdf',
+      generatedTargets,
+    ),
+    false,
+  );
+  assert.equal(
+    isForbiddenPedagogyDocument(
+      'knowledge/pedagogy/references/source.pdf',
+      generatedTargets,
+    ),
+    true,
+  );
+  assert.equal(isForbiddenPedagogyDocument(generatedPdf, generatedTargets), true);
+  assert.equal(
+    isForbiddenPedagogyDocument(
+      'lesson-plans/grade-5-science/water/lesson-notes.doc',
+      generatedTargets,
+    ),
+    true,
+  );
+  assert.equal(
+    isForbiddenPedagogyDocument(
+      'teacher-packs/grade-5-science/water/teacher-guide.docx',
+      generatedTargets,
+    ),
+    true,
+  );
 });
 
 test('scope: generated production artifacts contain no personal data fields', () => {
