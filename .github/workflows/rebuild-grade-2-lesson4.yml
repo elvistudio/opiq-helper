@@ -1,0 +1,73 @@
+name: Rebuild Grade 2 lesson 4 branch
+
+on:
+  push:
+    branches:
+      - codex/rebuild-grade-2-weather-report-lesson-4
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: rebuild-grade-2-lesson-4
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild lesson 4 commits on merged main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          EXPECTED_MAIN: 110595b954c2d8226eaebe124a789e947150829a
+          OLD_AUTHORING: b93bc162142c0188d367bbe7ba262ae66ea2b1b5
+          OLD_CORRECTIVE: 0bb86acdc4ffa64ea0af0d7799e172fc0483861f
+          OUTPUT_BRANCH: codex/rebuilt-grade-2-weather-report-lesson-4-output
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          comment_failure() {
+            local code=$?
+            gh pr comment 103 --repo "$REPOSITORY" --body "Lesson 4 remote rebuild failed before updating PR #103. Workflow: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID. Exit code: $code."
+            exit "$code"
+          }
+          trap comment_failure ERR
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main codex/grade-2-weather-report-lesson-4 --force
+
+          actual_main=$(git rev-parse origin/main)
+          test "$actual_main" = "$EXPECTED_MAIN"
+          test "$(git rev-parse origin/codex/grade-2-weather-report-lesson-4)" = "$OLD_CORRECTIVE"
+
+          old_authoring_patch=$(git show "$OLD_AUTHORING" --pretty=format: | git patch-id --stable | awk '{print $1}')
+          old_corrective_patch=$(git show "$OLD_CORRECTIVE" --pretty=format: | git patch-id --stable | awk '{print $1}')
+
+          git switch --detach origin/main
+          git cherry-pick "$OLD_AUTHORING"
+          new_authoring=$(git rev-parse HEAD)
+          git cherry-pick "$OLD_CORRECTIVE"
+          new_corrective=$(git rev-parse HEAD)
+
+          new_authoring_patch=$(git show "$new_authoring" --pretty=format: | git patch-id --stable | awk '{print $1}')
+          new_corrective_patch=$(git show "$new_corrective" --pretty=format: | git patch-id --stable | awk '{print $1}')
+
+          test "$old_authoring_patch" = "$new_authoring_patch"
+          test "$old_corrective_patch" = "$new_corrective_patch"
+          git diff --check origin/main...HEAD
+
+          git push origin "HEAD:refs/heads/$OUTPUT_BRANCH" --force
+
+          gh pr comment 103 --repo "$REPOSITORY" --body "Lesson 4 remote rebuild succeeded. New base: \`$actual_main\`. Rebuilt commits: \`$new_authoring\`, \`$new_corrective\`. Stable patch-id matches: authoring \`$old_authoring_patch\`; corrective \`$old_corrective_patch\`. Output branch: \`$OUTPUT_BRANCH\`. Workflow: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID."
+
+          trap - ERR
