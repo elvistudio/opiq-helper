@@ -6,6 +6,11 @@ on:
       - automation/resolve-pr109-conflicts
     paths:
       - .github/workflows/resolve-pr109-conflicts.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/resolve-pr109-conflicts.yml
 
 permissions:
   contents: write
@@ -13,6 +18,7 @@ permissions:
 
 jobs:
   resolve:
+    if: github.event_name == 'push' || github.head_ref == 'automation/resolve-pr109-conflicts'
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
