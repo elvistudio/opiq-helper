@@ -22,8 +22,8 @@ source_routes:
   - grade-2-estonian-second-language
 lesson_contract:
   total_slots: 4
-  authored_lesson_count: 2
-  planned_lesson_count: 2
+  authored_lesson_count: 3
+  planned_lesson_count: 1
   slots:
     - position: 1
       status: authored_internal
@@ -46,16 +46,14 @@ lesson_contract:
       content_complete: true
       release_ready: false
     - position: 3
-      status: planned
-      lesson_id: null
-      lesson_path: null
-      title_ru: Безопасность у воды
-      title_et: Ohutus vee ääres
-      planned_focus:
-        - Авторский результат по физической культуре при отсутствующем выделенном маршруте.
-        - Ограниченная поддержка inimeseõpetus без замены результата по физической культуре.
-        - Никакое задание task bank со статусом pending не считается одобренным.
-      content_complete: false
+      status: authored_internal
+      lesson_id: grade-2-weather-water-safety-03-safe-decisions
+      lesson_path: lesson-plans/grade-2/weather-water-safety/lesson-03-safe-decisions.yaml
+      title_ru: Безопасные решения у воды
+      title_et: Ohutud otsused vee ääres
+      primary_subject: human_studies
+      canonical_route_id: grade-2-human-studies
+      content_complete: true
       release_ready: false
     - position: 4
       status: planned
@@ -70,12 +68,30 @@ lesson_contract:
       content_complete: false
       release_ready: false
 task_bank_integration:
-  task_bearing_lesson_id: grade-2-weather-water-safety-02-data-time
-  approved_task_ids:
-    - g2-weather-data-comparison-task
-    - g2-time-measurement-problem-task
-  pending_task_ids_integrated: []
-  reviewed_commit_sha: a450745bbd382c4758d7cbc96f998b27db76288e
+  approved:
+    lesson_id: grade-2-weather-water-safety-02-data-time
+    task_ids:
+      - g2-weather-data-comparison-task
+      - g2-time-measurement-problem-task
+    reviewed_commit_sha: a450745bbd382c4758d7cbc96f998b27db76288e
+  pending_internal:
+    lesson_id: grade-2-weather-water-safety-03-safe-decisions
+    task_fingerprints:
+      - task_id: g2-water-edge-safe-decision-task
+        value: a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3
+      - task_id: g2-pe-water-safety-decision-task
+        value: 1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922
+    publication_unlocks: false
+    customer_visibility_unlocks: false
+  pending_unintegrated_task_ids:
+    - g2-weather-observation-conclusion-task
+    - g2-weather-table-interpretation-task
+    - g2-weather-message-main-point-task
+    - g2-weather-instruction-sequence-task
+    - g2-estonian-follow-instruction-task
+    - g2-estonian-safety-phrase-task
+    - g2-shared-weather-report-contribution-task
+    - g2-weather-exit-ticket-task
 shared_product:
   product: weather_board_and_planned_report
   assembled_from_attributable_individual_work: true
@@ -87,7 +103,7 @@ physical_education_boundary:
   lesson_slot: 3
   source_status: missing_route
   content_strategy: author_created_required
-  lesson_authoring_status: planned
+  lesson_authoring_status: authored_internal
   human_studies_support_bounded: true
   replacement_by_human_studies_forbidden: true
 teacher_pack:
@@ -101,5 +117,5 @@ readiness:
   home_trial: not_started
   effectiveness_claimed: false
 claim_boundary: >-
-  Внутренний частичный авторский срез: завершены только уроки 1 и 2; модуль не
+  Внутренний частичный авторский срез: завершены только уроки 1, 2 и 3; урок 4 остаётся планом; модуль не
   завершён, не одобрен учителем, не апробирован и не готов к выпуску.

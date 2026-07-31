@@ -1,0 +1,1469 @@
+schema_version: "1.3"
+artifact_type: bilingual_lesson
+lesson_id: grade-2-weather-water-safety-03-safe-decisions
+grade: 2
+subject: human_studies
+subject_et: inimeseõpetus
+title_ru: Безопасные решения у воды
+title_et: Ohutud otsused vee ääres
+duration_minutes: 45
+duration_tolerance:
+  minutes: 0
+  reason: Все этапы должны точно составлять заявленные сорок пять минут.
+unit_ref: grade-2-weather-water-safety-pilot
+position_in_unit: 3
+canonical_route:
+  source_id: grade-2-human-studies
+  md_path: project-files/outputs/opiq_2klass_inimeseopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_2klass_inimeseopetus_algklassidele_i_osa_2023_ok_v2.zip
+  qa_path: project-files/outputs/opiq_2klass_inimeseopetus_qa.json
+author_created_subject_roles:
+  - subject_id: grade-2-author-created-physical-education
+    subject: physical_education
+    subject_et: kehaline kasvatus
+    official_outcome_ids:
+      - ee-prk-2026-stage1-physical-education-water-safety
+    source_status: missing_route
+    route_ids: []
+    source_evidence_claimed: false
+    content_strategy: author_created_required
+    replacement_by_human_studies_forbidden: true
+    opiq_record_ids: []
+    opiq_urls: []
+instruction_language: ru
+subject_support_language: et
+learner_language_profile:
+  profile_id: grade-2-human-studies-a1-a2-default
+  learner_language_level: A1-A2
+  uses_default: true
+  overrides: []
+evidence_linkage:
+  curriculum_map_id: grade-2-human-studies-official-curriculum
+  official_outcome_refs:
+    - ee-prk-2026-stage1-human-studies-rights-duties
+  course_map_ref: grade-2-project-weather-water-safety
+  opiq_records: []
+  author_materials:
+    - material_id: g2-water-safety-explanation
+      title: Самостоятельное русское объяснение безопасного решения у воды
+      material_type: explanation
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-safety-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 dry water-safety decision explanation
+        notes: Original Russian-first explanation establishes the stop, stay, and tell-an-adult sequence without source prose.
+    - material_id: g2-water-safety-dry-simulation
+      title: Разобранная сухая симуляция безопасной границы
+      material_type: worked_example
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-safety-explanation.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_worked_example
+        source_reference: grade-2 classroom-only water-safety simulation
+        notes: Original classroom model uses floor markers and scenario cards without real water or rescue practice.
+    - material_id: g2-water-edge-safe-decision-task
+      title: Внутреннее задание о ответственном решении у края воды
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-water-edge-safe-decision-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/09-water-edge-safe-decision.yaml
+        notes: Learner rendering preserves the pending customer projection and excludes every answer-contract field.
+    - material_id: g2-pe-water-safety-decision-task
+      title: Внутреннее задание по решению о безопасности у воды
+      material_type: task_set
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/g2-pe-water-safety-decision-task.md
+      audience: student
+      languages:
+        - ru
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      provenance:
+        category: author_created_task_set
+        source_reference: task-bank/tasks/grade-2/weather-water-safety/10-pe-water-safety-decision.yaml
+        notes: Learner rendering preserves the pending customer projection and excludes every answer-contract field.
+    - material_id: g2-water-edge-safe-decision-expected-answers
+      title: Teacher-only guidance к заданию о ответственном решении
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-water-edge-safe-decision-task answer contract
+        notes: Pending-task answer guidance remains teacher-only and is available only after the individual first attempt.
+    - material_id: g2-pe-water-safety-decision-expected-answers
+      title: Teacher-only guidance к заданию по безопасности у воды
+      material_type: expected_answers
+      artifact_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      audience: teacher
+      languages:
+        - ru
+      printable: true
+      provenance:
+        category: author_created_expected_answers
+        source_reference: g2-pe-water-safety-decision-task answer contract
+        notes: Pending-task answer guidance remains teacher-only and is available only after the individual first attempt.
+    - material_id: g2-water-safety-assessment
+      title: Раздельная выходная карточка урока 3
+      material_type: assessment
+      artifact_path: teacher-packs/grade-2/weather-water-safety/student/lesson-03-exit-card.md
+      audience: student
+      languages:
+        - ru
+        - et
+      printable: true
+      answer_key_path: teacher-packs/grade-2/weather-water-safety/answers/lesson-03-answer-guidance.md
+      provenance:
+        category: author_created_assessment
+        source_reference: grade-2 dry water-safety decision exit card
+        notes: Original exit card separates human-studies, PE, and supported Estonian evidence.
+    - material_id: g2-water-safety-lesson-guide
+      title: Внутренний guide урока 3
+      material_type: lesson_guide
+      artifact_path: teacher-packs/grade-2/weather-water-safety/teacher/lesson-03-guide.md
+      audience: teacher
+      languages:
+        - ru
+        - et
+      printable: true
+      provenance:
+        category: author_created_explanation
+        source_reference: grade-2 dry water-safety lesson procedure
+        notes: Teacher guide records the dry-only boundary, pending-task status, exact timing, and evidence separation.
+methodology:
+  model: russian_primary_estonian_supported
+  approaches:
+    - content_language_dual_objectives
+    - planned_translanguaging
+    - gradual_scaffolding
+    - pluriliteracies
+    - multimodal_support
+    - vocabulary_recycling
+    - cognitive_load_control
+    - separate_content_language_assessment
+  content_priority: subject_comprehension_not_reduced_by_language_support
+  language_path:
+    - sequence: 1
+      stage_id: retrieve-weather-data
+      language_mode: activate_prior_knowledge
+      description: Ученик вспоминает индивидуальную первую попытку на русском языке.
+    - sequence: 2
+      stage_id: explain-water-safety-ru
+      language_mode: establish_concept_ru
+      description: Полная безопасная последовательность сначала объясняется по-русски.
+    - sequence: 3
+      stage_id: bridge-adult-help-et
+      language_mode: introduce_term_et
+      description: Одна эстонская фраза вводится после понимания безопасного действия.
+    - sequence: 4
+      stage_id: demonstrate-dry-boundary
+      language_mode: supported_task_et
+      description: Сухая демонстрация использует только короткую видимую языковую опору.
+    - sequence: 5
+      stage_id: attempt-human-studies-task
+      language_mode: supported_task_et
+      description: Human-studies evidence создаётся индивидуально по-русски.
+    - sequence: 6
+      stage_id: attempt-pe-task
+      language_mode: supported_task_et
+      description: PE evidence создаётся индивидуально по-русски.
+    - sequence: 7
+      stage_id: discuss-after-individual-work
+      language_mode: supported_task_et
+      description: Парное обсуждение начинается только после двух индивидуальных ответов.
+    - sequence: 8
+      stage_id: assess-three-streams
+      language_mode: short_oral_answer_et
+      description: Предметные строки и одна эстонская фраза проверяются отдельно.
+    - sequence: 9
+      stage_id: recap-stop-stay-tell
+      language_mode: short_oral_answer_et
+      description: Ученик повторяет одну короткую поддержанную фразу в safety recap.
+  learner_estonian_level: A1-A2
+  planned_support_level: high
+  scaffold_release:
+    introduction: full_support
+    guided_practice: partial_support
+    final_output: short_independent_output
+  content_language_assessment_policy: separate_content_and_estonian_language_evidence
+objectives:
+  content_objectives:
+    - objective_id: make-responsible-water-edge-choice
+      text_ru: Ученик выбирает ответственное действие, объясняет, кого оно защищает, и называет обязанность обратиться к
+        взрослому.
+      observable_output_ru: Индивидуальный ответ задания 09 содержит выбор, защищаемого человека и взрослую помощь.
+      curriculum_outcome_refs:
+        - ee-prk-2026-stage1-human-studies-rights-duties
+    - objective_id: apply-dry-water-safety-decision
+      text_ru: Ученик в сухой симуляции не пересекает границу, не отправляет другого ребёнка и выбирает помощь взрослого.
+      observable_output_ru: Индивидуальный ответ задания 10 и teacher observation показывают дистанцию от опасности и взрослую помощь.
+      curriculum_outcome_refs:
+        - ee-prk-2026-stage1-physical-education-water-safety
+  estonian_language_objectives:
+    - objective_id: say-one-adult-help-phrase-et
+      text_ru: Ученик произносит одну короткую поддержанную фразу об обращении к взрослому.
+      text_et: Õpilane ütleb ühe toetatud lause täiskasvanu kutsumise kohta.
+      observable_output: give_short_oral_answer
+      minimum_quantity: 1
+      language_functions:
+        - report
+  subject_success_criteria:
+    - criterion_id: human-studies-responsible-choice
+      descriptor: Выбор защищает себя или других и немедленно передаёт решение взрослому.
+      acceptable_evidence: Индивидуальный ответ задания 09 до парного обсуждения.
+    - criterion_id: pe-dry-water-safety-choice
+      descriptor: Ученик сохраняет границу, не отправляет другого ребёнка и объясняет дистанцию и взрослую помощь.
+      acceptable_evidence: Индивидуальный ответ задания 10 и наблюдение в сухой classroom-only симуляции.
+  estonian_success_criteria:
+    - criterion_id: language-one-adult-help-sentence
+      descriptor: Одна поддержанная фраза Ma kutsun täiskasvanu. понятна слушателю.
+      acceptable_evidence: Отдельная устная языковая строка, не влияющая на human-studies или PE score.
+  prerequisites:
+    - Ученик узнаёт взрослого как источник немедленной помощи.
+    - Ученик может дать одну короткую причину выбора по-русски.
+  anticipated_misconceptions:
+    - Мелкая на вид вода ошибочно считается безопасной.
+    - Предмет ставится выше безопасной границы.
+    - Опасное действие передаётся другому ребёнку.
+    - Уверенность или умение плавать ошибочно отменяют обозначенную границу.
+language_load:
+  new_terms_et:
+    - term_et: täiskasvanu
+      equivalent_ru: взрослый
+      simple_definition_et: Täiskasvanu aitab ohu korral.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 dry water-safety bilingual word bank
+        notes: Short original definition supports only the bounded adult-help phrase and receptive instructions.
+      first_use_stage: bridge-adult-help-et
+      reuse_stage_refs:
+        - demonstrate-dry-boundary
+        - assess-three-streams
+        - recap-stop-stay-tell
+    - term_et: ohutu koht
+      equivalent_ru: безопасное место
+      simple_definition_et: Ohutu koht on ohust eemal.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 dry water-safety bilingual word bank
+        notes: Short original definition supports only the bounded adult-help phrase and receptive instructions.
+      first_use_stage: bridge-adult-help-et
+      reuse_stage_refs:
+        - demonstrate-dry-boundary
+        - assess-three-streams
+        - recap-stop-stay-tell
+    - term_et: vesi
+      equivalent_ru: вода
+      simple_definition_et: Vesi võib olla ohtlik.
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 dry water-safety bilingual word bank
+        notes: Short original definition supports only the bounded adult-help phrase and receptive instructions.
+      first_use_stage: bridge-adult-help-et
+      reuse_stage_refs:
+        - demonstrate-dry-boundary
+        - assess-three-streams
+        - recap-stop-stay-tell
+  recycled_terms_et:
+    - term_et: ilm
+      equivalent_ru: погода
+      source_lesson_id: grade-2-weather-water-safety-01-observation
+      reuse_stage_refs:
+        - retrieve-weather-data
+  new_instruction_verbs_et:
+    - verb_et: jää
+      equivalent_ru: останься
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 dry water-safety receptive instruction bank
+        notes: Instruction remains receptive and does not expand required Estonian production.
+      first_use_stage: bridge-adult-help-et
+      reuse_stage_refs:
+        - demonstrate-dry-boundary
+        - recap-stop-stay-tell
+    - verb_et: kutsu
+      equivalent_ru: позови
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 dry water-safety receptive instruction bank
+        notes: Instruction remains receptive and does not expand required Estonian production.
+      first_use_stage: bridge-adult-help-et
+      reuse_stage_refs:
+        - demonstrate-dry-boundary
+        - recap-stop-stay-tell
+    - verb_et: ära mine
+      equivalent_ru: не иди
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 dry water-safety receptive instruction bank
+        notes: Instruction remains receptive and does not expand required Estonian production.
+      first_use_stage: bridge-adult-help-et
+      reuse_stage_refs:
+        - demonstrate-dry-boundary
+        - recap-stop-stay-tell
+  recycled_instruction_verbs_et: []
+  model_sentences:
+    - text_et: Ma kutsun täiskasvanu.
+      translation_ru: Я позову взрослого.
+      terms_et:
+        - täiskasvanu
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 adult-help oral model
+        notes: Original short sentence is the only required productive Estonian output.
+  sentence_frames:
+    - frame_id: adult-help-phrase
+      frame_et: Ma kutsun täiskasvanu.
+      purpose_ru: Видимая опора ограничивает обязательную продукцию одной короткой фразой.
+      stage_refs:
+        - bridge-adult-help-et
+        - demonstrate-dry-boundary
+        - assess-three-streams
+        - recap-stop-stay-tell
+      provenance:
+        category: author_created_bridge
+        source_reference: grade-2 adult-help phrase card
+        notes: Original A1-A2 support remains separate from both subject scores.
+  expected_receptive_language_et:
+    - Jää ohutusse kohta.
+    - Kutsu täiskasvanu.
+    - Ära mine vette.
+  expected_supported_productive_language_et:
+    - Ma kutsun täiskasvanu.
+  expected_independent_productive_language_et:
+    - Ma kutsun täiskasvanu.
+  full_expected_answer_ru: Ученик остаётся за обозначенной границей, не отправляет другого ребёнка, сохраняет безопасное
+    расстояние и сразу сообщает взрослому.
+  short_expected_oral_answer_et: Ma kutsun täiskasvanu.
+  oral_output_terms_et:
+    - täiskasvanu
+cognitive_load:
+  new_subject_concepts: 2
+  new_estonian_terms: 3
+  new_instruction_verbs: 3
+  new_sentence_structures: 1
+  independent_output_sentences: 1
+  rationale: Два предметных evidence streams создаются по-русски; обязательный эстонский output ограничен одной
+    поддержанной фразой.
+scaffolds:
+  - scaffold_id: water-safety-russian-sequence
+    type: russian_explanation
+    description_ru: Шесть карточек показывают полный безопасный порядок без роли ребёнка-спасателя.
+    stage_refs:
+      - explain-water-safety-ru
+    release:
+      at_stage: attempt-human-studies-task
+      how_reduced_ru: Во время первой попытки остаётся только нейтральная рамка причины.
+    provenance:
+      category: author_created_explanation
+      source_reference: grade-2 dry water-safety decision sequence
+      notes: Original Russian sequence establishes the adult-controlled safety boundary.
+  - scaffold_id: dry-boundary-markers
+    type: teacher_modelling
+    description_ru: Лента и карточка безопасного места моделируют границу только на сухом полу класса.
+    stage_refs:
+      - demonstrate-dry-boundary
+      - attempt-pe-task
+      - recap-stop-stay-tell
+    release:
+      at_stage: assess-three-streams
+      how_reduced_ru: На выходе ученик объясняет границу по собственной записи.
+    provenance:
+      category: author_created_worked_example
+      source_reference: grade-2 classroom-only boundary simulation
+      notes: Original dry procedure forbids real-water exposure and rescue simulation.
+  - scaffold_id: adult-help-phrase-card
+    type: sentence_frame
+    description_ru: Карточка поддерживает только фразу Ma kutsun täiskasvanu.
+    stage_refs:
+      - bridge-adult-help-et
+      - demonstrate-dry-boundary
+      - assess-three-streams
+      - recap-stop-stay-tell
+    release:
+      at_stage: assess-three-streams
+      how_reduced_ru: Ученик самостоятельно читает одну видимую фразу.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-2 adult-help phrase card
+      notes: One visible phrase does not reduce or alter either subject task.
+  - scaffold_id: water-safety-reason-frame
+    type: sentence_frame
+    description_ru: Русская рамка причины не называет правильный вариант и не раскрывает answer contract.
+    stage_refs:
+      - attempt-human-studies-task
+      - attempt-pe-task
+      - discuss-after-individual-work
+    release:
+      at_stage: assess-three-streams
+      how_reduced_ru: На выходе ученик пишет причину без готовой рамки.
+    provenance:
+      category: author_created_bridge
+      source_reference: grade-2 water-safety neutral reason frame
+      notes: Original neutral support preserves both pending task projections.
+multimodal_support:
+  - support_id: dry-floor-boundary-support
+    type: demonstration
+    stage_refs:
+      - demonstrate-dry-boundary
+      - attempt-pe-task
+    material_ref: g2-water-safety-dry-simulation
+    provenance:
+      category: author_created_worked_example
+      source_reference: grade-2 classroom floor-marker model
+      notes: Dry floor markers externalise distance without representing real water.
+  - support_id: water-safety-scenario-card-support
+    type: real_object
+    stage_refs:
+      - attempt-human-studies-task
+      - attempt-pe-task
+    material_ref: g2-water-edge-safe-decision-task
+    provenance:
+      category: author_created_task_set
+      source_reference: g2-water-edge-safe-decision-task; g2-pe-water-safety-decision-task
+      notes: Text-only task cards preserve the pending learner projections without copied visual material.
+stages:
+  - stage_id: retrieve-weather-data
+    duration_minutes: 4
+    stage_type: activation
+    content_purpose_ru: Вспомнить порядок индивидуального ответа до общего обсуждения.
+    language_purpose_et: Meenutada tuttavat ühe lause reeglit.
+    teacher_action_ru: Напоминает, что в уроках 1–2 каждый ученик сначала создавал собственное доказательство.
+    pupil_action_ru: Индивидуально называет по-русски один пример безопасного порядка работы.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Сначала я отвечаю сам(а), потом обсуждаю.
+      et: []
+    material_refs:
+      - g2-water-safety-explanation
+    provenance_refs:
+      - g2-water-safety-explanation
+    scaffold_refs: []
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что мы делаем до общего обсуждения?
+      subject_evidence: Ученик называет индивидуальную первую попытку.
+      language_evidence: Эстонская продукция пока не требуется.
+    expected_evidence_of_learning: Каждый ученик вспоминает правило индивидуальной первой попытки.
+    transition: Переход к русскому объяснению безопасной границы.
+  - stage_id: explain-water-safety-ru
+    duration_minutes: 8
+    stage_type: russian_concept_explanation
+    content_purpose_ru: Понять последовательность остановись — оставайся — сообщи взрослому.
+    language_purpose_et: Sisu mõistmine toimub vene keeles.
+    teacher_action_ru: По-русски объясняет шесть шагов, ценность безопасной границы и немедленную помощь взрослого.
+    pupil_action_ru: Раскладывает карточки шести шагов и объясняет, почему предмет не важнее безопасности.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Предмет не важнее безопасности.
+        - Я остаюсь в безопасном месте и сообщаю взрослому.
+      et: []
+    material_refs:
+      - g2-water-safety-explanation
+    provenance_refs:
+      - g2-water-safety-explanation
+    scaffold_refs:
+      - water-safety-russian-sequence
+    new_language_items: []
+    formative_check:
+      prompt_ru: Почему нельзя идти за предметом, даже если вода кажется мелкой?
+      subject_evidence: Ученик связывает границу с защитой себя и других.
+      language_evidence: Полное предметное объяснение дано по-русски.
+    expected_evidence_of_learning: Ученик по-русски воспроизводит безопасную последовательность без роли спасателя.
+    transition: Переход к одной поддержанной эстонской фразе.
+  - stage_id: bridge-adult-help-et
+    duration_minutes: 5
+    stage_type: estonian_language_bridge
+    content_purpose_ru: Связать уже понятное обращение за помощью с одной короткой фразой.
+    language_purpose_et: Õppida lause Ma kutsun täiskasvanu.
+    teacher_action_ru: Показывает три воспринимаемые инструкции и моделирует только одну обязательную фразу.
+    pupil_action_ru: Следует знакомым жестам и один раз произносит поддержанную фразу.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я позову взрослого.
+      et:
+        - Ma kutsun täiskasvanu.
+    material_refs:
+      - g2-water-safety-explanation
+    provenance_refs:
+      - g2-water-safety-explanation
+    scaffold_refs:
+      - adult-help-phrase-card
+    new_language_items:
+      - täiskasvanu
+      - ohutu koht
+      - vesi
+      - jää
+      - kutsu
+      - ära mine
+    formative_check:
+      prompt_ru: Как по-эстонски сказать «Я позову взрослого»?
+      subject_evidence: Ученик сохраняет смысл немедленного обращения к взрослому.
+      language_evidence: Ученик произносит одну поддержанную фразу.
+    expected_evidence_of_learning: Короткая эстонская фраза понятна и не заменяет предметное объяснение.
+    transition: Переход к сухой демонстрации границы.
+  - stage_id: demonstrate-dry-boundary
+    duration_minutes: 6
+    stage_type: practical_observation
+    content_purpose_ru: Показать безопасное действие в сухой классной симуляции.
+    language_purpose_et: Mõista juhiseid ilma lisakõneta.
+    teacher_action_ru: Кладёт ленту на сухой пол, обозначает безопасное место и управляет сценарием без реальной воды.
+    pupil_action_ru: Останавливается перед лентой, указывает безопасное место и репетирует обращение к взрослому.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я не пересекаю границу.
+        - Я не отправляю другого ребёнка.
+      et:
+        - Ma kutsun täiskasvanu.
+    material_refs:
+      - g2-water-safety-dry-simulation
+    provenance_refs:
+      - g2-water-safety-dry-simulation
+    scaffold_refs:
+      - dry-boundary-markers
+      - adult-help-phrase-card
+    new_language_items: []
+    formative_check:
+      prompt_ru: Где нужно остановиться?
+      subject_evidence: Ученик остаётся со стороны безопасной зоны и не назначает ребёнка спасателем.
+      language_evidence: Эстонская фраза используется только как короткая поддержка.
+    expected_evidence_of_learning: Демонстрация подтверждает сухую classroom-only процедуру без контакта с водой.
+    transition: Переход к индивидуальному заданию 09.
+  - stage_id: attempt-human-studies-task
+    duration_minutes: 6
+    stage_type: independent_output
+    content_purpose_ru: Получить отдельное human-studies доказательство ответственного выбора.
+    language_purpose_et: Hoida inimeseõpetuse tõend vene keeles.
+    teacher_action_ru: Выдаёт learner rendering задания 09 без teacher-only guidance и не подсказывает вариант.
+    pupil_action_ru: Индивидуально выбирает вариант и объясняет, кого защищает выбор.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Мой выбор защищает ___, потому что ___.
+      et: []
+    material_refs:
+      - g2-water-edge-safe-decision-task
+    provenance_refs:
+      - g2-water-edge-safe-decision-task
+    scaffold_refs:
+      - water-safety-reason-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Кого защищает твой выбор?
+      subject_evidence: Зафиксированы ответственный вариант, защищаемый человек и роль взрослого.
+      language_evidence: Эстонский язык не входит в оценку задания 09.
+    expected_evidence_of_learning: Индивидуальный ответ задания 09 сохранён до любой парной проверки.
+    transition: Переход к индивидуальному заданию 10.
+  - stage_id: attempt-pe-task
+    duration_minutes: 6
+    stage_type: independent_output
+    content_purpose_ru: Получить отдельное author-created PE water-safety evidence.
+    language_purpose_et: Hoida kehalise kasvatuse tõend vene keeles.
+    teacher_action_ru: Выдаёт learner rendering задания 10 без teacher-only guidance и сохраняет сухую границу.
+    pupil_action_ru: Индивидуально выбирает немедленное действие и называет дистанцию от опасности и помощь взрослого.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Я остаюсь на расстоянии от опасности и сообщаю взрослому.
+      et: []
+    material_refs:
+      - g2-pe-water-safety-decision-task
+    provenance_refs:
+      - g2-pe-water-safety-decision-task
+    scaffold_refs:
+      - water-safety-reason-frame
+      - dry-boundary-markers
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие два признака делают решение безопасным?
+      subject_evidence: Ученик не пересекает границу, не отправляет другого ребёнка и выбирает помощь взрослого.
+      language_evidence: Эстонский язык не входит в оценку задания 10.
+    expected_evidence_of_learning: Индивидуальный ответ задания 10 сохранён как внутренний PE sample до обсуждения.
+    transition: Только теперь начинается парное обсуждение.
+  - stage_id: discuss-after-individual-work
+    duration_minutes: 4
+    stage_type: guided_practice
+    content_purpose_ru: Сравнить причины только после сохранения двух индивидуальных ответов.
+    language_purpose_et: Arutelu toimub vene keeles; eesti lause ei mõjuta ainehinnet.
+    teacher_action_ru: Разрешает парное сравнение после проверки наличия обеих индивидуальных первых попыток.
+    pupil_action_ru: Сравнивает причины с партнёром, не меняя исходный ответ и не разыгрывая спасение.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Мы оба оставляем ребёнка на безопасном расстоянии.
+      et: []
+    material_refs:
+      - g2-water-edge-safe-decision-task
+      - g2-pe-water-safety-decision-task
+    provenance_refs:
+      - g2-water-edge-safe-decision-task
+      - g2-pe-water-safety-decision-task
+    scaffold_refs:
+      - water-safety-reason-frame
+    new_language_items: []
+    formative_check:
+      prompt_ru: Что общего в двух безопасных решениях?
+      subject_evidence: Парное обсуждение следует после двух индивидуальных evidence samples.
+      language_evidence: Отдельная эстонская фраза здесь не оценивается.
+    expected_evidence_of_learning: Ученик сравнивает причины, сохраняя исходные индивидуальные ответы.
+    transition: Переход к трём отдельным выходным строкам.
+  - stage_id: assess-three-streams
+    duration_minutes: 4
+    stage_type: assessment
+    content_purpose_ru: Раздельно проверить human studies, PE и одну эстонскую фразу.
+    language_purpose_et: Hinnata lauset eraldi kahest ainetõendist.
+    teacher_action_ru: Собирает три отдельные строки и не объединяет эстонскую понятность с предметными баллами.
+    pupil_action_ru: Заполняет две русские предметные строки и отдельно произносит одну поддержанную эстонскую фразу.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Ответственный выбор защищает ___.
+        - Безопасное действие — оставаться за границей и сообщить взрослому.
+      et:
+        - Ma kutsun täiskasvanu.
+    material_refs:
+      - g2-water-safety-assessment
+    provenance_refs:
+      - g2-water-safety-assessment
+    scaffold_refs:
+      - adult-help-phrase-card
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какие три отдельные evidence строки нужно завершить?
+      subject_evidence: Human-studies и PE evidence имеют отдельные строки и критерии.
+      language_evidence: Одна фраза отмечается только как Estonian-language evidence.
+    expected_evidence_of_learning: Три независимые строки не позволяют языковому результату менять предметные оценки.
+    transition: Переход к двухминутному safety recap.
+  - stage_id: recap-stop-stay-tell
+    duration_minutes: 2
+    stage_type: revision
+    content_purpose_ru: Закрепить немедленное безопасное действие без практики спасения.
+    language_purpose_et: Korrata üht toetatud lauset.
+    teacher_action_ru: Закрывает урок общей формулой «остановись — останься — сообщи взрослому».
+    pupil_action_ru: Указывает безопасную сторону линии и повторяет формулу без приближения к реальной воде.
+    teacher_language:
+      - ru
+      - et
+    expected_pupil_language:
+      ru:
+        - Остановись — останься — сообщи взрослому.
+      et:
+        - Ma kutsun täiskasvanu.
+    material_refs:
+      - g2-water-safety-explanation
+    provenance_refs:
+      - g2-water-safety-explanation
+    scaffold_refs:
+      - dry-boundary-markers
+      - adult-help-phrase-card
+    new_language_items: []
+    formative_check:
+      prompt_ru: Какое действие выполняется сразу?
+      subject_evidence: Ученик выбирает безопасное место и помощь взрослого.
+      language_evidence: Повторяется только одна уже поддержанная фраза.
+    expected_evidence_of_learning: Финальный recap сохраняет взрослый контроль и classroom-only границу.
+    transition: Урок завершается без выхода к воде и без домашней практики.
+questions:
+  - question_id: water-safety-decision-question
+    question_ru: Какое немедленное действие защищает себя и других у обозначенной границы?
+    question_et: Mida sa teed?
+    full_expected_answer_ru: Нужно остаться в безопасном месте, не отправлять другого ребёнка и сразу сообщить взрослому.
+    short_oral_answer_et: Ma kutsun täiskasvanu.
+    acceptable_variants:
+      - Допустима любая краткая русская формулировка, сохраняющая дистанцию и немедленную помощь взрослого.
+    misconception_to_watch: Ученик пытается спасти предмет, выполнить спасение или отправить другого ребёнка.
+    objective_refs:
+      - make-responsible-water-edge-choice
+      - apply-dry-water-safety-decision
+      - say-one-adult-help-phrase-et
+    provenance_refs:
+      - g2-water-safety-explanation
+      - g2-water-edge-safe-decision-task
+      - g2-pe-water-safety-decision-task
+practical_work:
+  work_id: dry-water-safety-simulation
+  title_ru: Сухая симуляция безопасной границы
+  title_et: Kuiv ohutuspiiri simulatsioon
+  safety_requirements:
+    - Симуляция проводится только в сухом классе; ребёнок не подходит к реальной воде.
+    - Учитель полностью управляет лентой, карточками, очередностью и безопасным местом ожидания.
+    - Запрещены плавание, вход или дотягивание до воды, бросание спасательного оборудования и вытягивание или перенос
+      человека.
+    - Нельзя проверять глубину, течение, лёд, опору или устойчивость берега.
+    - Урок не является сертифицированным обучением плаванию, спасению или готовности у реальной воды.
+  teacher_controlled_steps:
+    - Разместить ленту на ровном сухом полу как условную границу.
+    - Обозначить карточкой безопасное место ожидания и роль взрослого.
+    - Остановить действие, если ребёнок пересекает линию или изображает спасение.
+  pupil_steps:
+    - Остановиться перед условной линией.
+    - Не пересекать линию и не отправлять другого ребёнка.
+    - Перейти или указать на безопасное место ожидания.
+    - Сообщить взрослому и выполнять его указание.
+  materials:
+    - Бумажная лента на сухом полу
+    - Текстовые карточки сценариев
+    - Карточка безопасного места
+    - Карандаш и learner sheets
+  observation_table:
+    columns:
+      - остановился
+      - не пересёк границу
+      - не отправил ребёнка
+      - выбрал взрослого
+      - назвал причину
+    data_collection_ru: Учитель отмечает только действия в сухой симуляции после индивидуального решения ученика.
+  expected_observation_ru: Ученик сохраняет обозначенную границу, безопасное расстояние и обращение к взрослому.
+  expected_conclusion_ru: Предмет не важнее безопасности; немедленное действие — остаться в безопасном месте и сообщить взрослому.
+  russian_report_target: Одна краткая русская причина с дистанцией от опасности и немедленной помощью взрослого.
+  short_estonian_conclusion: Ma kutsun täiskasvanu.
+  opiq_source_record_ids: []
+  provenance_refs:
+    - g2-water-safety-dry-simulation
+    - g2-water-safety-explanation
+assessment:
+  - criterion_id: water-safety-human-studies
+    domain: subject_understanding
+    what_is_checked: Ответственный выбор, защищаемый человек и обязанность обратиться к взрослому.
+    acceptable_evidence: Индивидуальный ответ задания 09 до обсуждения.
+    success_threshold: Все три элемента присутствуют.
+    affects: subject_assessment
+  - criterion_id: water-safety-pe-dry-decision
+    domain: practical_skill
+    what_is_checked: Граница, отказ отправлять другого ребёнка, дистанция от опасности и помощь взрослого.
+    acceptable_evidence: Индивидуальный ответ задания 10 и teacher observation сухой симуляции.
+    success_threshold: Безопасное немедленное действие и оба признака названы.
+    affects: subject_assessment
+  - criterion_id: water-safety-et-recognition
+    domain: estonian_terminology_recognition
+    what_is_checked: Понимание трёх воспринимаемых инструкций.
+    acceptable_evidence: Указание безопасного действия по инструкции без дополнительной продукции.
+    success_threshold: Поняты не менее двух из трёх инструкций.
+    affects: language_assessment
+  - criterion_id: water-safety-et-supported
+    domain: supported_estonian_production
+    what_is_checked: Произнесение видимой фразы Ma kutsun täiskasvanu.
+    acceptable_evidence: Одна поддержанная устная фраза.
+    success_threshold: Фраза понятна слушателю.
+    affects: language_assessment
+  - criterion_id: water-safety-et-independent
+    domain: independent_estonian_production
+    what_is_checked: Самостоятельное использование единственной требуемой фразы в exit evidence.
+    acceptable_evidence: Отдельная устная строка после двух предметных ответов.
+    success_threshold: Произнесена только требуемая короткая фраза.
+    affects: language_assessment
+differentiation:
+  supports:
+    - type: additional_russian_explanation
+      implementation_ru: Повторить предметный алгоритм по одному шагу, сохранив тот же предметный результат.
+      preserves_subject_objective: true
+    - type: reduced_estonian_output
+      implementation_ru: Разрешить прочитать одну короткую фразу по видимой рамке без сокращения предметной работы.
+      preserves_subject_objective: true
+  challenge_extension: Добавить второе доказательство к русскому предметному ответу без увеличения обязательной эстонской части.
+  simplified_curriculum_opt_in:
+    enabled: false
+    notes: Материалы упрощённой программы не используются в обычном маршруте этого урока.
+homework:
+  content_task_ru: Обязательного домашнего задания нет; нельзя подходить к воде или разыгрывать спасение для повторения урока.
+  estonian_language_component: При желании один раз прочитать дома фразу «Ma kutsun täiskasvanu.» без практической симуляции.
+  expected_minutes: 5
+  source_reference: g2-water-safety-explanation
+  required_opiq_url: null
+  adult_support_expected: false
+  success_guidance_ru: Повторение ограничено чтением; реальная вода, берег, лёд и спасательные действия не используются.
+  provenance:
+    category: author_created_worksheet
+    source_reference: grade-2 water-safety optional reading-only consolidation
+    notes: No required home practice, real-water exposure, Opiq access, or home-ready claim is introduced.
+artifact_readiness:
+  schema_complete: true
+  content_complete: true
+  materials_resolved: true
+  print_ready: false
+  teacher_review:
+    status: pending
+    reviewer_role: null
+    reviewed_at: null
+    notes: Независимая педагогическая проверка урока ещё не выполнена.
+  classroom_trial:
+    status: not_tested
+    tested_at: null
+    context: null
+    notes: Урок ещё не апробирован в классе или дома.
+  classroom_ready: false
+  readiness_status: materials_resolved
+delivery_model:
+  core_mode: standalone_commercial_core
+  opiq_required: false
+  opiq_companion_policy: none
+  family_overlay_supported: false
+  customer_can_complete_without_opiq: true
+  publication_status: internal_review
+commercial_core:
+  explanation_material_ids:
+    - g2-water-safety-explanation
+  worked_example_material_ids:
+    - g2-water-safety-dry-simulation
+  task_material_ids:
+    - g2-water-edge-safe-decision-task
+    - g2-pe-water-safety-decision-task
+  expected_answer_material_ids:
+    - g2-water-edge-safe-decision-expected-answers
+    - g2-pe-water-safety-decision-expected-answers
+  worked_solution_material_ids: []
+  assessment_material_ids:
+    - g2-water-safety-assessment
+  assessment_criterion_ids:
+    - water-safety-human-studies
+    - water-safety-pe-dry-decision
+    - water-safety-et-independent
+  learner_output_refs:
+    - dry-water-safety-simulation
+    - water-safety-decision-question
+  success_criteria_refs:
+    - human-studies-responsible-choice
+    - pe-dry-water-safety-choice
+    - language-one-adult-help-sentence
+  task_contracts:
+    - task_material_id: g2-water-edge-safe-decision-task
+      response_mode: short_answer
+      open_ended: false
+      expected_answer_material_ids:
+        - g2-water-edge-safe-decision-expected-answers
+    - task_material_id: g2-pe-water-safety-decision-task
+      response_mode: short_answer
+      open_ended: false
+      expected_answer_material_ids:
+        - g2-pe-water-safety-decision-expected-answers
+opiq_companions: []
+originality_review:
+  review_id: grade-2-weather-water-safety-03-safe-decisions-originality-review
+  status: pending
+  reviewer: null
+  reviewer_role: null
+  reviewed_on: null
+  reviewed_version:
+    commit_sha: null
+    content_fingerprint:
+      algorithm: sha256
+      specification_version: "1.0"
+      value: null
+      file_count: null
+  covered_author_material_ids:
+    - g2-water-safety-explanation
+    - g2-water-safety-dry-simulation
+    - g2-water-edge-safe-decision-task
+    - g2-pe-water-safety-decision-task
+    - g2-water-edge-safe-decision-expected-answers
+    - g2-pe-water-safety-decision-expected-answers
+    - g2-water-safety-assessment
+    - g2-water-safety-lesson-guide
+  internal_source_analysis_refs:
+    - grade-programmes/grade-2/project-modules.yaml#grade-2-project-weather-water-safety
+    - task-bank/reviews/grade-2/weather-water-safety/09-water-edge-safe-decision.yaml
+    - task-bank/reviews/grade-2/weather-water-safety/10-pe-water-safety-decision.yaml
+    - compliance/estonia/2026-27/outcome-index.yaml
+  dimensions:
+    wording_independence: pending
+    context_independence: pending
+    data_independence: pending
+    question_sequence_independence: pending
+    scaffolding_independence: pending
+    distractor_independence: not_applicable
+    visual_independence: not_applicable
+    answer_independence: pending
+  prohibited_source_content:
+    copied_text: false
+    screenshots: false
+    copied_illustrations: false
+    copied_answer_keys: false
+    extracted_interactive_content: false
+  notes: Lesson-level human originality review has not yet been performed; task-level approvals remain separate evidence.
+family_overlay_hooks: []
+provenance:
+  category: author_created_bridge
+  source_reference: grade-2-project-weather-water-safety; grade-2-human-studies-official-curriculum
+  notes: Independently authored standalone lesson uses registered Grade 2 route architecture without copying source prose
+    or tasks.
+pedagogical_integration:
+  integration_version: "1.0"
+  migration_state: integrated
+  content_identity:
+    specification_version: "1.0"
+    algorithm: sha256
+    value: c3ea590c6ca852764e35737ace7da921e88ea294d6387bff2de1dac8e0f416c2
+  selection_input:
+    purpose: guided_application
+    content_types:
+      - conceptual_text
+      - scenario_cards
+      - dry_simulation
+    required_capabilities:
+      - safe_decision
+      - individual_evidence
+    desired_capabilities:
+      - formative_assessment
+      - retrieval
+    phase_needs:
+      - activation
+      - explanation
+      - guided_practice
+      - formative_assessment
+    context_flags:
+      practical: true
+      map_or_data: false
+      retrieval: true
+      assessment: true
+    maximum_total_productive_language_demand: low
+    delivery:
+      group_size: 24
+      supported_group_formats:
+        - individual
+        - pair
+        - whole_class
+    resources:
+      available:
+        - paper
+        - writing_tool
+        - floor_markers
+        - scenario_cards
+      unavailable:
+        - internet
+        - laboratory_materials
+      printer_available: true
+      internet_available: false
+      projector_available: false
+      laboratory_materials_available: false
+      measuring_tools_available: false
+      outdoor_access_available: false
+      adult_safety_supervision_available: true
+    constraints:
+      max_teacher_preparation: low
+      max_teacher_facilitation: medium
+      max_learner_setup: minimal
+      max_parent_effort: none
+      accessibility_priorities:
+        - working_memory_support
+        - language_scaffolding
+      retrieval_first_attempt_without_source: true
+    preferences:
+      required_pattern_id: guided-individual-evidence
+      preferred_target_ids:
+        - individual-record
+        - short-oral-report
+      excluded_target_ids: []
+      preferred_group_formats:
+        - individual
+        - pair
+        - whole_class
+      teacher_overrides: []
+    homeschool:
+      variant: independent
+      learner_count: 1
+      learner_session_minutes: 45
+      maximum_sessions: 1
+      maximum_total_productive_language_demand: low
+      resources:
+        available:
+          - paper
+          - writing_tool
+        unavailable:
+          - internet
+          - laboratory_materials
+          - measuring_tools
+        printer_available: false
+        internet_available: false
+        projector_available: false
+        laboratory_materials_available: false
+        measuring_tools_available: false
+        outdoor_access_available: false
+        adult_safety_supervision_available: false
+      material_delivery_scopes:
+        - material_id: g2-water-safety-explanation
+          delivery_scope:
+            - classroom
+        - material_id: g2-water-safety-dry-simulation
+          delivery_scope:
+            - classroom
+        - material_id: g2-water-edge-safe-decision-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-pe-water-safety-decision-task
+          delivery_scope:
+            - classroom
+        - material_id: g2-water-safety-assessment
+          delivery_scope:
+            - classroom
+      adult_context:
+        available: false
+        max_support_minutes: 0
+        max_effort: none
+        allowed_roles: []
+        safety_supervision_available: false
+        subject_explanation_available: false
+      answer_key_release: self_managed_after_attempt
+      teacher_override_policy: require_preservation
+      adapted_task_contracts: []
+      practical_policy: null
+    future_retrieval_windows: []
+  assessment_integration:
+    subject_assessment:
+      enabled: true
+      target_phase_ids:
+        - assess-three-streams
+      criterion_refs:
+        - water-safety-human-studies
+        - water-safety-pe-dry-decision
+    estonian_language_assessment:
+      enabled: true
+      target_phase_ids:
+        - assess-three-streams
+      criterion_refs:
+        - water-safety-et-recognition
+        - water-safety-et-supported
+        - water-safety-et-independent
+    separation_policy: separate_subject_and_estonian_language_evidence
+    provenance:
+      source: lesson_assessment_bindings
+  phase_bindings:
+    - dna_phase_id: retrieve-weather-data
+      lesson_stage_ids:
+        - retrieve-weather-data
+      timing_allocations:
+        - lesson_stage_id: retrieve-weather-data
+          activity_minutes: 4
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-safety-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-03-safe-decisions/retrieve-weather-data
+        learner_instruction_ru: Индивидуально называет по-русски один пример безопасного порядка работы.
+        prompt_source_refs:
+          - stage:retrieve-weather-data:pupil_action_ru
+        learner_success_criterion_ru:
+          - Каждый ученик вспоминает правило индивидуальной первой попытки.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:retrieve-weather-data:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:retrieve-weather-data:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап retrieve-weather-data полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: explain-water-safety-ru
+      lesson_stage_ids:
+        - explain-water-safety-ru
+      timing_allocations:
+        - lesson_stage_id: explain-water-safety-ru
+          activity_minutes: 8
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-safety-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-03-safe-decisions/explain-water-safety-ru
+        learner_instruction_ru: Раскладывает карточки шести шагов и объясняет, почему предмет не важнее безопасности.
+        prompt_source_refs:
+          - stage:explain-water-safety-ru:pupil_action_ru
+        learner_success_criterion_ru:
+          - Ученик по-русски воспроизводит безопасную последовательность без роли спасателя.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:explain-water-safety-ru:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:explain-water-safety-ru:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап explain-water-safety-ru полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: bridge-adult-help-et
+      lesson_stage_ids:
+        - bridge-adult-help-et
+      timing_allocations:
+        - lesson_stage_id: bridge-adult-help-et
+          activity_minutes: 5
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-safety-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-03-safe-decisions/bridge-adult-help-et
+        learner_instruction_ru: Следует знакомым жестам и один раз произносит поддержанную фразу.
+        prompt_source_refs:
+          - stage:bridge-adult-help-et:pupil_action_ru
+        learner_success_criterion_ru:
+          - Короткая эстонская фраза понятна и не заменяет предметное объяснение.
+        learner_language_support_ru:
+          - Ma kutsun täiskasvanu.
+        answer_evidence_refs:
+          - stage:bridge-adult-help-et:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:bridge-adult-help-et:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап bridge-adult-help-et полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: demonstrate-dry-boundary
+      lesson_stage_ids:
+        - demonstrate-dry-boundary
+      timing_allocations:
+        - lesson_stage_id: demonstrate-dry-boundary
+          activity_minutes: 6
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-safety-dry-simulation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: practical_task
+        task_id: grade-2-weather-water-safety-03-safe-decisions/demonstrate-dry-boundary
+        learner_instruction_ru: Останавливается перед лентой, указывает безопасное место и репетирует обращение к взрослому.
+        prompt_source_refs:
+          - stage:demonstrate-dry-boundary:pupil_action_ru
+        learner_success_criterion_ru:
+          - Демонстрация подтверждает сухую classroom-only процедуру без контакта с водой.
+        learner_language_support_ru:
+          - Ma kutsun täiskasvanu.
+        answer_evidence_refs:
+          - stage:demonstrate-dry-boundary:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:demonstrate-dry-boundary:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап demonstrate-dry-boundary полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: attempt-human-studies-task
+      lesson_stage_ids:
+        - attempt-human-studies-task
+      timing_allocations:
+        - lesson_stage_id: attempt-human-studies-task
+          activity_minutes: 6
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-edge-safe-decision-task
+      answer_key_material_ids:
+        - g2-water-edge-safe-decision-expected-answers
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-2-weather-water-safety-03-safe-decisions/attempt-human-studies-task
+        learner_instruction_ru: Индивидуально выбирает вариант и объясняет, кого защищает выбор.
+        prompt_source_refs:
+          - stage:attempt-human-studies-task:pupil_action_ru
+        learner_success_criterion_ru:
+          - Индивидуальный ответ задания 09 сохранён до любой парной проверки.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:attempt-human-studies-task:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:attempt-human-studies-task:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап attempt-human-studies-task полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: attempt-pe-task
+      lesson_stage_ids:
+        - attempt-pe-task
+      timing_allocations:
+        - lesson_stage_id: attempt-pe-task
+          activity_minutes: 6
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-pe-water-safety-decision-task
+      answer_key_material_ids:
+        - g2-pe-water-safety-decision-expected-answers
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: learner_task
+        task_id: grade-2-weather-water-safety-03-safe-decisions/attempt-pe-task
+        learner_instruction_ru: Индивидуально выбирает немедленное действие и называет дистанцию от опасности и помощь взрослого.
+        prompt_source_refs:
+          - stage:attempt-pe-task:pupil_action_ru
+        learner_success_criterion_ru:
+          - Индивидуальный ответ задания 10 сохранён как внутренний PE sample до обсуждения.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:attempt-pe-task:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:attempt-pe-task:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап attempt-pe-task полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: discuss-after-individual-work
+      lesson_stage_ids:
+        - discuss-after-individual-work
+      timing_allocations:
+        - lesson_stage_id: discuss-after-individual-work
+          activity_minutes: 4
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-edge-safe-decision-task
+        - g2-pe-water-safety-decision-task
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-03-safe-decisions/discuss-after-individual-work
+        learner_instruction_ru: Сравнивает причины с партнёром, не меняя исходный ответ и не разыгрывая спасение.
+        prompt_source_refs:
+          - stage:discuss-after-individual-work:pupil_action_ru
+        learner_success_criterion_ru:
+          - Ученик сравнивает причины, сохраняя исходные индивидуальные ответы.
+        learner_language_support_ru: []
+        answer_evidence_refs:
+          - stage:discuss-after-individual-work:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:discuss-after-individual-work:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап discuss-after-individual-work полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: assess-three-streams
+      lesson_stage_ids:
+        - assess-three-streams
+      timing_allocations:
+        - lesson_stage_id: assess-three-streams
+          activity_minutes: 4
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-safety-assessment
+      answer_key_material_ids: []
+      assessment_refs:
+        - water-safety-human-studies
+        - water-safety-pe-dry-decision
+        - water-safety-et-recognition
+        - water-safety-et-supported
+        - water-safety-et-independent
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: closed_first_attempt
+      render_contract:
+        execution_mode: assessment_task
+        task_id: grade-2-weather-water-safety-03-safe-decisions/assess-three-streams
+        learner_instruction_ru: Заполняет две русские предметные строки и отдельно произносит одну поддержанную эстонскую фразу.
+        prompt_source_refs:
+          - stage:assess-three-streams:pupil_action_ru
+        learner_success_criterion_ru:
+          - Три независимые строки не позволяют языковому результату менять предметные оценки.
+        learner_language_support_ru:
+          - Ma kutsun täiskasvanu.
+        answer_evidence_refs:
+          - stage:assess-three-streams:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:assess-three-streams:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: evidence_criterion
+        answer_access_policy: after_first_attempt
+      binding_rationale_ru: Этап assess-three-streams полностью связан с авторскими материалами и длительностью этого урока.
+    - dna_phase_id: recap-stop-stay-tell
+      lesson_stage_ids:
+        - recap-stop-stay-tell
+      timing_allocations:
+        - lesson_stage_id: recap-stop-stay-tell
+          activity_minutes: 2
+          setup_minutes: 0
+          cleanup_minutes: 0
+          transition_minutes: 0
+          compatibility_basis: standard
+      teacher_material_ids:
+        - g2-water-safety-lesson-guide
+      student_material_ids:
+        - g2-water-safety-explanation
+      answer_key_material_ids: []
+      assessment_refs: []
+      oral_answer_refs:
+        - water-safety-decision-question
+      source_access_policy: open
+      render_contract:
+        execution_mode: teacher_led
+        task_id: grade-2-weather-water-safety-03-safe-decisions/recap-stop-stay-tell
+        learner_instruction_ru: Указывает безопасную сторону линии и повторяет формулу без приближения к реальной воде.
+        prompt_source_refs:
+          - stage:recap-stop-stay-tell:pupil_action_ru
+        learner_success_criterion_ru:
+          - Финальный recap сохраняет взрослый контроль и classroom-only границу.
+        learner_language_support_ru:
+          - Ma kutsun täiskasvanu.
+        answer_evidence_refs:
+          - stage:recap-stop-stay-tell:expected_evidence_of_learning
+        teacher_action_source_refs:
+          - stage:recap-stop-stay-tell:teacher_action_ru
+        answer_language_refs:
+          - question:water-safety-decision-question:short_oral_answer_et
+        acceptable_variant_refs:
+          - question:water-safety-decision-question:acceptable_variants
+        misconception_refs:
+          - question:water-safety-decision-question:misconception_to_watch
+        evaluation_mode: teacher_observation
+        answer_access_policy: not_applicable
+      binding_rationale_ru: Этап recap-stop-stay-tell полностью связан с авторскими материалами и длительностью этого урока.
+  timing_reconciliation:
+    compatibility_rules_version: "1.0"
+    reserve_allocations: []
+    non_dna_allocations: []
+  generated_artifacts:
+    selection_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/selection-request.yaml
+    selection_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/selection-decision.yaml
+    lesson_dna_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/lesson-dna.yaml
+    homeschool_request_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/homeschool-request.yaml
+    homeschool_decision_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/homeschool-decision.yaml
+    homeschool_package_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/homeschool-package.yaml
+    parent_guidance_path: teacher-packs/grade-2/weather-water-safety/parent/materials-time-guide.md
+    weekly_study_plan_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/weekly-study-plan.md
+    homeschool_rendered_path: teacher-packs/grade-2/weather-water-safety/planned/pedagogy/grade-2-weather-water-safety-03-safe-decisions/homeschool-rendered.md
+    home_practical_policy_path: null
+  status:
+    structural_state: proposed
+    teacher_review: pending
+    classroom_trial: not_tested
+    classroom_ready: false
+    homeschool_ready: false
+    effectiveness_claimed: false

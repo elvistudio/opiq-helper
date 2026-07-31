@@ -131,8 +131,8 @@ test('commercial fixture discovery and validation are deterministic', async () =
 test('production baseline includes the bounded Grade 2 lesson slice', () => {
   const result = validateLessonPlanRepository(structuredClone(baseline.repository));
   assert.deepEqual(result.summary, {
-    profiles: 5,
-    lessons: 12,
+    profiles: 6,
+    lessons: 13,
     units: 2,
     annualCourses: 1,
     annualComponents: 4,

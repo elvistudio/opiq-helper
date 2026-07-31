@@ -51,6 +51,26 @@ const authorProvenance = new Set([
   'author_created_worked_solution',
   'author_created_expected_answers',
 ]);
+const grade2AuthorCreatedSubjectIdentities = new Map([
+  ['grade-2-author-created-english', {
+    subject: 'english',
+    subjectEt: 'inglise keel',
+  }],
+  ['grade-2-author-created-physical-education', {
+    subject: 'physical_education',
+    subjectEt: 'kehaline kasvatus',
+  }],
+]);
+const authorCreatedRoleDiagnosticCodes = Object.freeze({
+  projectRequired: 'LESSON_AUTHOR_CREATED_ROLE_PROJECT_REQUIRED',
+  notDeclared: 'LESSON_AUTHOR_CREATED_ROLE_NOT_DECLARED',
+  projectDeclarationInvalid: 'LESSON_AUTHOR_CREATED_ROLE_PROJECT_DECLARATION_INVALID',
+  identityMismatch: 'LESSON_AUTHOR_CREATED_ROLE_IDENTITY_MISMATCH',
+  outcomeInvalid: 'LESSON_AUTHOR_CREATED_ROLE_OUTCOME_INVALID',
+  outcomeNotDeclared: 'LESSON_AUTHOR_CREATED_ROLE_OUTCOME_NOT_DECLARED',
+  missingRouteInvalid: 'LESSON_AUTHOR_CREATED_ROLE_MISSING_ROUTE_INVALID',
+  objectiveUnlinked: 'LESSON_OBJECTIVE_OUTCOME_UNLINKED',
+});
 
 function normalize(value) {
   return String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim().toLowerCase();
@@ -77,10 +97,26 @@ function addDuplicateDiagnostics(diagnostics, values, { file, field, label }) {
   }
 }
 
+function makeCodedDiagnostic(code, severity, file, field, reason) {
+  return {
+    ...makeDiagnostic(severity, file, field, reason),
+    code,
+  };
+}
+
 function sameSet(left, right) {
   const leftSet = new Set(left ?? []);
   const rightSet = new Set(right ?? []);
   return leftSet.size === rightSet.size && [...leftSet].every((value) => rightSet.has(value));
+}
+
+function validOutcomeIdList(values) {
+  return Array.isArray(values)
+    && values.length > 0
+    && values.every((outcomeId) => (
+      typeof outcomeId === 'string' && normalize(outcomeId) !== ''
+    ))
+    && new Set(values).size === values.length;
 }
 
 function findCurriculumArtifacts(context, type) {
@@ -130,6 +166,7 @@ export async function loadLessonPlanRepository({
   grade2OfficialMapPaths = [
     'curriculum-maps/grade-2-science/official-curriculum.yaml',
     'curriculum-maps/grade-2-mathematics/official-curriculum.yaml',
+    'curriculum-maps/grade-2-human-studies/official-curriculum.yaml',
   ],
   externalSourceRegistryPath = 'external-sources/registry.yaml',
   commonSchemaPath = 'schemas/teaching-plan-common.schema.json',
@@ -277,7 +314,7 @@ function validateOfficialLink(diagnostics, artifact, mapId, outcomeIds, indexes,
   }
   if (
     officialMap.grade !== artifact.data.grade
-    || officialMap.subject !== artifact.data.subject
+    || officialMap.subject.replaceAll(' ', '_') !== artifact.data.subject.replaceAll(' ', '_')
     || officialMap.subject_et !== artifact.data.subject_et
   ) {
     diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/curriculum_map_id`, 'official curriculum map grade and subject must match the artifact'));
@@ -465,6 +502,10 @@ function validateLessonReadiness(diagnostics, artifact, materialState) {
 
 function validateLessonEvidence(diagnostics, artifact, context, indexes) {
   const lesson = artifact.data;
+  const authorCreatedRoles = Array.isArray(lesson.author_created_subject_roles)
+    ? lesson.author_created_subject_roles
+    : [];
+  const validatedAuthorCreatedOutcomes = new Set();
   const records = lesson.evidence_linkage?.opiq_records ?? [];
   addDuplicateDiagnostics(diagnostics, records.map((record) => record.record_id), {
     file: artifact.file, field: '/evidence_linkage/opiq_records', label: 'lesson Opiq record ID',
@@ -496,6 +537,15 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
   );
   const courseMap = indexes.courseMapById.get(lesson.evidence_linkage?.course_map_ref);
   const grade2Project = indexes.grade2ProjectById.get(lesson.evidence_linkage?.course_map_ref);
+  if (authorCreatedRoles.length > 0 && !(grade2Project && lesson.grade === 2)) {
+    diagnostics.push(makeCodedDiagnostic(
+      authorCreatedRoleDiagnosticCodes.projectRequired,
+      'error',
+      artifact.file,
+      '/author_created_subject_roles',
+      'author-created subject roles require an explicitly declared Grade 2 project role',
+    ));
+  }
   if (!courseMap && !grade2Project) {
     diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/course_map_ref', `unknown course map ${lesson.evidence_linkage?.course_map_ref ?? '<missing>'}`));
   } else if (courseMap) {
@@ -527,13 +577,136 @@ function validateLessonEvidence(diagnostics, artifact, context, indexes) {
     if (records.length > 0) {
       diagnostics.push(makeDiagnostic('error', artifact.file, '/evidence_linkage/opiq_records', 'standalone Grade 2 project lessons must not treat project architecture as selected Opiq page evidence'));
     }
+    if (lesson.grade === 2) {
+      const projectAuthorRoles = Array.isArray(grade2Project.author_created_subject_roles)
+        ? grade2Project.author_created_subject_roles
+        : [];
+      for (const [index, role] of authorCreatedRoles.entries()) {
+        const field = `/author_created_subject_roles/${index}`;
+        const roleOutcomes = Array.isArray(role.official_outcome_ids)
+          ? role.official_outcome_ids
+          : [];
+        const matchingProjectRoles = projectAuthorRoles.filter((entry) => (
+          entry.subject_id === role.subject_id
+        ));
+        const matchingProjectRole = matchingProjectRoles.length === 1
+          ? matchingProjectRoles[0]
+          : null;
+        const projectRoleOutcomes = Array.isArray(matchingProjectRole?.official_outcome_ids)
+          ? matchingProjectRole.official_outcome_ids
+          : [];
+        let roleIsValid = true;
+        if (matchingProjectRoles.length === 0) {
+          roleIsValid = false;
+          diagnostics.push(makeCodedDiagnostic(
+            authorCreatedRoleDiagnosticCodes.notDeclared,
+            'error',
+            artifact.file,
+            `${field}/subject_id`,
+            `Grade 2 project does not declare author-created subject ${role.subject_id}`,
+          ));
+        } else if (
+          matchingProjectRoles.length !== 1
+          || typeof matchingProjectRole.role_id !== 'string'
+          || normalize(matchingProjectRole.role_id) === ''
+          || typeof matchingProjectRole.role !== 'string'
+          || normalize(matchingProjectRole.role) === ''
+          || matchingProjectRole.source_evidence_claimed !== false
+          || !validOutcomeIdList(projectRoleOutcomes)
+        ) {
+          roleIsValid = false;
+          diagnostics.push(makeCodedDiagnostic(
+            authorCreatedRoleDiagnosticCodes.projectDeclarationInvalid,
+            'error',
+            artifact.file,
+            `${field}/subject_id`,
+            `Grade 2 project declaration for ${role.subject_id} is invalid`,
+          ));
+        }
+        const expectedIdentity = grade2AuthorCreatedSubjectIdentities.get(role.subject_id);
+        if (
+          !expectedIdentity
+          || role.subject !== expectedIdentity.subject
+          || normalize(role.subject_et) !== expectedIdentity.subjectEt
+        ) {
+          roleIsValid = false;
+          diagnostics.push(makeCodedDiagnostic(
+            authorCreatedRoleDiagnosticCodes.identityMismatch,
+            'error',
+            artifact.file,
+            field,
+            `author-created role identity does not match subject metadata for ${role.subject_id}`,
+          ));
+        }
+        if (!validOutcomeIdList(roleOutcomes)) {
+          roleIsValid = false;
+          diagnostics.push(makeCodedDiagnostic(
+            authorCreatedRoleDiagnosticCodes.outcomeInvalid,
+            'error',
+            artifact.file,
+            `${field}/official_outcome_ids`,
+            'author-created role outcomes must be a non-empty unique list of IDs',
+          ));
+        }
+        for (const outcomeId of roleOutcomes) {
+          if (matchingProjectRole && !projectRoleOutcomes.includes(outcomeId)) {
+            roleIsValid = false;
+            diagnostics.push(makeCodedDiagnostic(
+              authorCreatedRoleDiagnosticCodes.outcomeNotDeclared,
+              'error',
+              artifact.file,
+              `${field}/official_outcome_ids`,
+              `Grade 2 project author-created role does not carry outcome ${outcomeId}`,
+            ));
+          }
+        }
+        if (
+          role.source_status !== 'missing_route'
+          || role.content_strategy !== 'author_created_required'
+          || role.source_evidence_claimed !== false
+          || !Array.isArray(role.route_ids)
+          || role.route_ids.length !== 0
+          || !Array.isArray(role.opiq_record_ids)
+          || role.opiq_record_ids.length !== 0
+          || !Array.isArray(role.opiq_urls)
+          || role.opiq_urls.length !== 0
+          || Object.hasOwn(role, 'md_path')
+          || Object.hasOwn(role, 'qa_path')
+          || Object.hasOwn(role, 'canonical_url')
+          || Object.hasOwn(role, 'source_record_ids')
+        ) {
+          roleIsValid = false;
+          diagnostics.push(makeCodedDiagnostic(
+            authorCreatedRoleDiagnosticCodes.missingRouteInvalid,
+            'error',
+            artifact.file,
+            field,
+            'author-created missing-route role cannot claim a route, source record, URL, or source evidence',
+          ));
+        }
+        if (roleIsValid) {
+          for (const outcomeId of roleOutcomes) {
+            validatedAuthorCreatedOutcomes.add(outcomeId);
+          }
+        }
+      }
+    }
   }
   const objectiveOutcomes = (lesson.objectives?.content_objectives ?? [])
     .flatMap((objective) => objective.curriculum_outcome_refs ?? []);
   const linkedOutcomes = lesson.evidence_linkage?.official_outcome_refs ?? [];
   for (const outcomeId of objectiveOutcomes) {
-    if (!linkedOutcomes.includes(outcomeId)) {
-      diagnostics.push(makeDiagnostic('error', artifact.file, '/objectives/content_objectives', `objective references unlinked outcome ${outcomeId}`));
+    if (
+      !linkedOutcomes.includes(outcomeId)
+      && !validatedAuthorCreatedOutcomes.has(outcomeId)
+    ) {
+      diagnostics.push(makeCodedDiagnostic(
+        authorCreatedRoleDiagnosticCodes.objectiveUnlinked,
+        'error',
+        artifact.file,
+        '/objectives/content_objectives',
+        `objective references unlinked outcome ${outcomeId}`,
+      ));
     }
   }
   if (officialMap && objectiveOutcomes.length === 0) {

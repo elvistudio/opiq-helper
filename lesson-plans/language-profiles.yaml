@@ -56,6 +56,29 @@ profiles:
     notes: >-
       This is a planning default for the bounded Grade 2 data lesson and does not establish
       curriculum completeness or an individual learner level.
+  - profile_id: grade-2-human-studies-a1-a2-default
+    grade: 2
+    subject: human_studies
+    instruction_language: ru
+    subject_support_language: et
+    learner_language_level: A1-A2
+    russian_explanation_role: >-
+      Russian carries the complete responsibility and dry water-safety reasoning while
+      Estonian is limited to three receptive instructions and one supported oral sentence.
+    expected_output:
+      - terms
+      - familiar_instructions
+      - sentence_frames
+      - one_or_two_sentence_oral_answers
+    warning_thresholds:
+      max_new_terms_per_lesson: 3
+      max_new_instruction_verbs_per_lesson: 3
+      max_new_sentence_structures_per_lesson: 1
+      max_independent_output_sentences: 1
+      warn_if_no_recycled_terms_after_first_lesson: true
+    notes: >-
+      This planning default is bounded to the internally authored Grade 2 safety lesson; it
+      does not establish an individual learner level, PE mastery, or real-water readiness.
   - profile_id: grade-5-science-a1-a2-default
     grade: 5
     subject: science

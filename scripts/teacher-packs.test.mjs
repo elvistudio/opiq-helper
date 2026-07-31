@@ -89,7 +89,7 @@ test('production water teacher pack resolves all files with honest readiness war
   assert.match(diagnosticText(foundWarnings), /teacher review .* pending/u);
   assert.match(diagnosticText(foundWarnings), /not been tested in a classroom/u);
   assert.equal(result.summary.packs, 2);
-  assert.equal(result.summary.lessons, 12);
+  assert.equal(result.summary.lessons, 13);
   assert.equal(result.summary.materials, 78);
   assert.equal(result.summary.studentDocuments, 37);
   assert.equal(thematic(repository).teacher_pack.classroom_ready, false);

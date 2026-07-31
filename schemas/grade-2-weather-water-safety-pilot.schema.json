@@ -80,8 +80,8 @@
       ],
       "properties": {
         "total_slots": { "const": 4 },
-        "authored_lesson_count": { "const": 2 },
-        "planned_lesson_count": { "const": 2 },
+        "authored_lesson_count": { "const": 3 },
+        "planned_lesson_count": { "const": 1 },
         "slots": {
           "type": "array",
           "minItems": 4,
@@ -94,31 +94,72 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "task_bearing_lesson_id",
-        "approved_task_ids",
-        "pending_task_ids_integrated",
-        "reviewed_commit_sha"
+        "approved",
+        "pending_internal",
+        "pending_unintegrated_task_ids"
       ],
       "properties": {
-        "task_bearing_lesson_id": { "const": "grade-2-weather-water-safety-02-data-time" },
-        "approved_task_ids": {
+        "approved": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lesson_id", "task_ids", "reviewed_commit_sha"],
+          "properties": {
+            "lesson_id": { "const": "grade-2-weather-water-safety-02-data-time" },
+            "task_ids": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "g2-weather-data-comparison-task",
+                  "g2-time-measurement-problem-task"
+                ]
+              }
+            },
+            "reviewed_commit_sha": {
+              "const": "a450745bbd382c4758d7cbc96f998b27db76288e"
+            }
+          }
+        },
+        "pending_internal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lesson_id",
+            "task_fingerprints",
+            "publication_unlocks",
+            "customer_visibility_unlocks"
+          ],
+          "properties": {
+            "lesson_id": { "const": "grade-2-weather-water-safety-03-safe-decisions" },
+            "task_fingerprints": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "$ref": "#/$defs/pendingTaskFingerprint" }
+            },
+            "publication_unlocks": { "const": false },
+            "customer_visibility_unlocks": { "const": false }
+          }
+        },
+        "pending_unintegrated_task_ids": {
           "type": "array",
-          "minItems": 2,
-          "maxItems": 2,
+          "minItems": 8,
+          "maxItems": 8,
           "uniqueItems": true,
           "items": {
             "enum": [
-              "g2-weather-data-comparison-task",
-              "g2-time-measurement-problem-task"
+              "g2-weather-observation-conclusion-task",
+              "g2-weather-table-interpretation-task",
+              "g2-weather-message-main-point-task",
+              "g2-weather-instruction-sequence-task",
+              "g2-estonian-follow-instruction-task",
+              "g2-estonian-safety-phrase-task",
+              "g2-shared-weather-report-contribution-task",
+              "g2-weather-exit-ticket-task"
             ]
           }
-        },
-        "pending_task_ids_integrated": {
-          "type": "array",
-          "maxItems": 0
-        },
-        "reviewed_commit_sha": {
-          "const": "a450745bbd382c4758d7cbc96f998b27db76288e"
         }
       }
     },
@@ -157,7 +198,7 @@
         "lesson_slot": { "const": 3 },
         "source_status": { "const": "missing_route" },
         "content_strategy": { "const": "author_created_required" },
-        "lesson_authoring_status": { "const": "planned" },
+        "lesson_authoring_status": { "const": "authored_internal" },
         "human_studies_support_bounded": { "const": true },
         "replacement_by_human_studies_forbidden": { "const": true }
       }
@@ -196,6 +237,28 @@
     "claim_boundary": { "type": "string", "minLength": 30 }
   },
   "$defs": {
+    "pendingTaskFingerprint": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["task_id", "value"],
+          "properties": {
+            "task_id": { "const": "g2-water-edge-safe-decision-task" },
+            "value": { "const": "a9fa9e4c5d80cc5de79c886e82e19a79eb2042a679b1a5db96ae0f85ba40cee3" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["task_id", "value"],
+          "properties": {
+            "task_id": { "const": "g2-pe-water-safety-decision-task" },
+            "value": { "const": "1d81778b9e7767e1b239b65b28e5ead76bb05ee08c4756f03777d13b7695c922" }
+          }
+        }
+      ]
+    },
     "lessonSlot": {
       "oneOf": [
         {
@@ -214,14 +277,14 @@
             "release_ready"
           ],
           "properties": {
-            "position": { "enum": [1, 2] },
+            "position": { "enum": [1, 2, 3] },
             "status": { "const": "authored_internal" },
             "lesson_id": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/slug" },
             "lesson_path": { "$ref": "https://elvistudio.github.io/opiq-helper/schemas/teaching-plan-common.schema.json#/$defs/repositoryPath" },
             "title_ru": { "type": "string", "minLength": 3 },
             "title_et": { "type": "string", "minLength": 3 },
-            "primary_subject": { "enum": ["science", "mathematics"] },
-            "canonical_route_id": { "enum": ["grade-2-science", "grade-2-mathematics"] },
+            "primary_subject": { "enum": ["science", "mathematics", "human_studies"] },
+            "canonical_route_id": { "enum": ["grade-2-science", "grade-2-mathematics", "grade-2-human-studies"] },
             "content_complete": { "const": true },
             "release_ready": { "const": false }
           }
@@ -241,7 +304,7 @@
             "release_ready"
           ],
           "properties": {
-            "position": { "enum": [3, 4] },
+            "position": { "const": 4 },
             "status": { "const": "planned" },
             "lesson_id": { "const": null },
             "lesson_path": { "const": null },
