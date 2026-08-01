@@ -1,0 +1,245 @@
+schema_version: "1.0"
+artifact_type: book_inventory
+map_id: grade-6-science-book-inventory
+grade: 6
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-6-science
+  md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+  qa_path: project-files/outputs/opiq_6klass_loodusopetus_qa.json
+source_audit:
+  source_records: 442
+  canonical_records: 436
+  cover_detail_records_excluded: 6
+  source_books: 6
+  books_with_page_records: 6
+  notes: "All 442 archive records were reconciled: one captured Kit Details record per book is excluded and all 436 remaining URLs match the canonical Markdown exactly."
+simplified_material_policy:
+  default_course_use: forbidden
+  explicit_opt_in_required: true
+  notes: Simplified-curriculum material remains forbidden for default-course use and requires explicit learner-specific opt-in; this policy does not assert that any registered Grade 6 book is simplified.
+books:
+  - book_id: 5k_loodusõpetus_avita_2025_est
+    kit_id: 572
+    kit_url: https://www.opiq.ee/Kit/Details/572
+    title: Loodusõpetus 6. klassile (2025)
+    publisher: Avita
+    language: et
+    source_record_count: 57
+    canonical_record_count: 56
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/572)
+      verified_on: 2026-08-01
+      notes: The committed archive, canonical record, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 6
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 6 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - fieldwork
+      - data_interpretation
+      - oral_answer_et
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - This publisher sequence covers bogs, soil, fields, forests, resources, protection, and settlements but not every inventory group.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-6-science / kit 572 / project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 6 route; programme eligibility remains unresolved.
+  - book_id: 5k_loodusõpetus_avita_est
+    kit_id: 8
+    kit_url: https://www.opiq.ee/Kit/Details/8
+    title: Loodusõpetus 6. klassile
+    publisher: Avita
+    language: et
+    source_record_count: 70
+    canonical_record_count: 69
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/8)
+      verified_on: 2026-08-01
+      notes: The committed archive, canonical record, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 6
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 6 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - practice_et
+      - map_skill
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - This older publisher sequence overlaps strongly with newer Estonian and Russian records and is retained mainly for distinct roles or alternatives.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-6-science / kit 8 / project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 6 route; programme eligibility remains unresolved.
+  - book_id: 5k_loodusõpetus_koolibri_2025_est
+    kit_id: 580
+    kit_url: https://www.opiq.ee/Kit/Details/580
+    title: Loodusõpetus 6. klassile 2025
+    publisher: Koolibri
+    language: et
+    source_record_count: 74
+    canonical_record_count: 73
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/580)
+      verified_on: 2026-08-01
+      notes: The committed archive, canonical record, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 6
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 6 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - experiment
+      - fieldwork
+      - data_interpretation
+      - revision
+      - assessment
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - No page group explicitly titled Elukeskkonnad Eestis is present in this edition even though related ecosystem evidence exists.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-6-science / kit 580 / project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 6 route; programme eligibility remains unresolved.
+  - book_id: 5k_loodusõpetus_koolibri_est
+    kit_id: 98
+    kit_url: https://www.opiq.ee/Kit/Details/98
+    title: Loodusõpetus 6. klassile
+    publisher: Koolibri
+    language: et
+    source_record_count: 86
+    canonical_record_count: 85
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/98)
+      verified_on: 2026-08-01
+      notes: The committed archive, canonical record, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 6
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 6 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - experiment
+      - fieldwork
+      - data_interpretation
+      - revision
+      - assessment
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - This older Estonian edition overlaps strongly with kit 580 but uniquely retains the explicit Elukeskkonnad Eestis group.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-6-science / kit 98 / project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 6 route; programme eligibility remains unresolved.
+  - book_id: 5k_loodusõpetus_avita_rus
+    kit_id: 18
+    kit_url: https://www.opiq.ee/Kit/Details/18
+    title: Природоведение для 6 класса
+    publisher: Avita
+    language: ru
+    source_record_count: 68
+    canonical_record_count: 67
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/18)
+      verified_on: 2026-08-01
+      notes: The committed archive, canonical record, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 6
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 6 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_explanation_ru
+      - practice_ru
+      - map_skill
+      - data_interpretation
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - The compact archive index retains a legacy grade-5 label for this Russian book; the captured kit title and canonical route normalize it to Grade 6.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-6-science / kit 18 / project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 6 route; programme eligibility remains unresolved.
+  - book_id: 5k_loodusõpetus_koolibri_rus
+    kit_id: 269
+    kit_url: https://www.opiq.ee/Kit/Details/269
+    title: Природо­ведение 6 класс
+    publisher: Koolibri
+    language: ru
+    source_record_count: 87
+    canonical_record_count: 86
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/269)
+      verified_on: 2026-08-01
+      notes: The committed archive, canonical record, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 6
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 6 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_explanation_ru
+      - practice_ru
+      - experiment
+      - fieldwork
+      - data_interpretation
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - The compact archive index retains a legacy grade-5 label for this Russian book; the captured kit title and canonical route normalize it to Grade 6.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-6-science / kit 269 / project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 6 route; programme eligibility remains unresolved.
+known_gaps:
+  - Programme type cannot be verified for any of the six books from committed evidence, so ordinary-course eligibility remains false.
+  - The archive records publisher sequence and route evidence, not official-curriculum completeness or official exact-grade allocation.
+  - The two Russian archive book summaries retain legacy grade-5 labels even though captured kit titles and the canonical Markdown route are normalized to Grade 6.
+  - No live Opiq catalogue completeness check was performed.

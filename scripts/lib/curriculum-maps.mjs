@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import Ajv2020 from 'ajv/dist/2020.js';
-import { parseDocument } from 'yaml';
+import { parseDocument, stringify } from 'yaml';
 import { parseOpiqRegressionMarkdown } from './opiq-regression-markdown.mjs';
 import { readCompactZip, readZipText } from './compact-zip.mjs';
 
@@ -14,6 +15,80 @@ const gradeProgrammeRouteTypes = new Set([
 ]);
 const gradeProgrammeCoverageType = 'grade_programme_route_coverage';
 const delegatedTeacherWorkPlanMapType = 'teacher_work_plan_curriculum_map';
+
+const courseRouteContracts = new Map([
+  ['grade-5-science', {
+    artifactPaths: {
+      book_inventory: 'curriculum-maps/grade-5-science/book-inventory.yaml',
+      topic_inventory: 'curriculum-maps/grade-5-science/topic-inventory.yaml',
+    },
+    thematicUnitPrefix: 'curriculum-maps/grade-5-science/',
+    requireThematicUnit: true,
+    allowAmbiguousTopicSelection: false,
+  }],
+  ['grade-6-science', {
+    artifactPaths: {
+      book_inventory: 'curriculum-maps/grade-6-science/book-inventory.yaml',
+      topic_inventory: 'curriculum-maps/grade-6-science/topic-inventory.yaml',
+    },
+    requireThematicUnit: false,
+    allowAmbiguousTopicSelection: true,
+    route: {
+      grade: 6,
+      subject: 'science',
+      subject_et: 'loodusõpetus',
+      md_path: 'project-files/outputs/opiq_6klass_loodusopetus.md',
+      source_archive: 'project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip',
+      qa_path: 'project-files/outputs/opiq_6klass_loodusopetus_qa.json',
+      record_count: 436,
+      coverage_status: 'available_not_curriculum_verified',
+    },
+    sourceAudit: {
+      source_records: 442,
+      canonical_records: 436,
+      cover_detail_records_excluded: 6,
+      source_books: 6,
+      books_with_page_records: 6,
+    },
+    languageCounts: { et: 283, ru: 153 },
+    checksums: {
+      source_archive_sha256: 'aa028590adc19ae5c1823a4b9bbb5eeaaba092f596a400c646972d99c398ed72',
+      output_file_sha256: '14c26e7227079f4d3af38f1b7d01b95fad708821a14c75deeb7d6e3eaf97f0a5',
+    },
+    books: [
+      {
+        book_id: '5k_loodusõpetus_avita_2025_est', kit_id: 572,
+        kit_url: 'https://www.opiq.ee/Kit/Details/572', title: 'Loodusõpetus 6. klassile (2025)',
+        publisher: 'Avita', language: 'et', source_record_count: 57, canonical_record_count: 56,
+      },
+      {
+        book_id: '5k_loodusõpetus_avita_est', kit_id: 8,
+        kit_url: 'https://www.opiq.ee/Kit/Details/8', title: 'Loodusõpetus 6. klassile',
+        publisher: 'Avita', language: 'et', source_record_count: 70, canonical_record_count: 69,
+      },
+      {
+        book_id: '5k_loodusõpetus_koolibri_2025_est', kit_id: 580,
+        kit_url: 'https://www.opiq.ee/Kit/Details/580', title: 'Loodusõpetus 6. klassile 2025',
+        publisher: 'Koolibri', language: 'et', source_record_count: 74, canonical_record_count: 73,
+      },
+      {
+        book_id: '5k_loodusõpetus_koolibri_est', kit_id: 98,
+        kit_url: 'https://www.opiq.ee/Kit/Details/98', title: 'Loodusõpetus 6. klassile',
+        publisher: 'Koolibri', language: 'et', source_record_count: 86, canonical_record_count: 85,
+      },
+      {
+        book_id: '5k_loodusõpetus_avita_rus', kit_id: 18,
+        kit_url: 'https://www.opiq.ee/Kit/Details/18', title: 'Природоведение для 6 класса',
+        publisher: 'Avita', language: 'ru', source_record_count: 68, canonical_record_count: 67,
+      },
+      {
+        book_id: '5k_loodusõpetus_koolibri_rus', kit_id: 269,
+        kit_url: 'https://www.opiq.ee/Kit/Details/269', title: 'Природо­ведение 6 класс',
+        publisher: 'Koolibri', language: 'ru', source_record_count: 87, canonical_record_count: 86,
+      },
+    ],
+  }],
+]);
 
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -71,6 +146,17 @@ export function parseStrictCurriculumYaml(text, file = '<memory>') {
   const value = document.toJS({ maxAliasCount: 0 });
   if (!isPlainObject(value)) throw new Error(`${file}: YAML root must be an object.`);
   return value;
+}
+
+export function serializeCurriculumYaml(value) {
+  return stringify(value, {
+    aliasDuplicateObjects: false,
+    lineWidth: 0,
+  });
+}
+
+function sha256(value) {
+  return createHash('sha256').update(value).digest('hex');
 }
 
 function parseJsonLines(text, file) {
@@ -133,7 +219,8 @@ export async function loadCurriculumMapRepository({
   const artifacts = [];
   for (const yamlFile of yamlFiles) {
     const file = relativeDisplay(absoluteRoot, yamlFile);
-    artifacts.push({ file, data: parseStrictCurriculumYaml(await fs.readFile(yamlFile, 'utf8'), file) });
+    const text = await fs.readFile(yamlFile, 'utf8');
+    artifacts.push({ file, text, data: parseStrictCurriculumYaml(text, file) });
   }
 
   const courseSourceIds = new Set([
@@ -154,11 +241,14 @@ export async function loadCurriculumMapRepository({
     const mdFile = safeRepositoryPath(absoluteRoot, source.md_path, `${sourceId} md_path`);
     const qaFile = safeRepositoryPath(absoluteRoot, source.qa_path, `${sourceId} qa_path`);
     const archiveFile = safeRepositoryPath(absoluteRoot, source.source_archive, `${sourceId} source_archive`);
-    const [markdown, qaText, archive] = await Promise.all([
-      fs.readFile(mdFile, 'utf8'),
+    const [markdownBuffer, qaText, archiveBuffer, archive, archiveStat] = await Promise.all([
+      fs.readFile(mdFile),
       fs.readFile(qaFile, 'utf8'),
+      fs.readFile(archiveFile),
       readCompactZip(archiveFile),
+      fs.lstat(archiveFile),
     ]);
+    const markdown = markdownBuffer.toString('utf8');
     const parsedMarkdown = parseOpiqRegressionMarkdown(markdown, {
       sourceId,
       mdPath: source.md_path,
@@ -174,6 +264,9 @@ export async function loadCurriculumMapRepository({
       qa: JSON.parse(qaText),
       archiveIndex,
       archiveRecords,
+      archiveIsRegularFile: archiveStat.isFile(),
+      archiveSha256: sha256(archiveBuffer),
+      markdownSha256: sha256(markdownBuffer),
     };
   }
 
@@ -408,6 +501,205 @@ function countBy(records, field) {
   return counts;
 }
 
+function validateCourseArtifactContract(diagnostics, artifact) {
+  const sourceId = artifact.data.canonical_route?.source_id;
+  const contract = courseRouteContracts.get(sourceId);
+  if (!contract) {
+    diagnostics.push(makeDiagnostic(
+      'error', artifact.file, '/canonical_route/source_id',
+      `course artifacts are not registered for route ${sourceId ?? '<missing>'}`,
+    ));
+    return null;
+  }
+  const type = artifact.data.artifact_type;
+  if (type === 'thematic_unit') {
+    if (!contract.thematicUnitPrefix || !artifact.file.startsWith(contract.thematicUnitPrefix)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/', `thematic units are not registered at this path for ${sourceId}`));
+    }
+  } else {
+    const expectedPath = contract.artifactPaths[type];
+    if (artifact.file !== expectedPath) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/', `expected ${type} at ${expectedPath ?? '<no registered path>'}`));
+    }
+  }
+  return contract;
+}
+
+function compareContractField(diagnostics, file, field, actual, expected) {
+  if (actual !== expected) diagnostics.push(makeDiagnostic('error', file, field, `expected ${expected}, found ${actual}`));
+}
+
+function validateGrade6ScienceRouteEvidence(diagnostics, artifacts, routeData, contract) {
+  if (!routeData) {
+    diagnostics.push(makeDiagnostic('error', 'curriculum-maps/grade-6-science', '/', 'registered Grade 6 route evidence was not loaded'));
+    return;
+  }
+  const source = routeData.source;
+  for (const [field, expected] of Object.entries(contract.route)) {
+    compareContractField(diagnostics, 'source-manifest.json', `/${field}`, source[field], expected);
+  }
+  if (!routeData.archiveIsRegularFile) {
+    diagnostics.push(makeDiagnostic('error', source.source_archive, '/', 'source archive must be a regular file'));
+  }
+  compareContractField(
+    diagnostics, source.qa_path, '/checksums/source_archive_sha256',
+    routeData.qa.checksums?.source_archive_sha256, contract.checksums.source_archive_sha256,
+  );
+  compareContractField(
+    diagnostics, source.qa_path, '/checksums/output_file_sha256',
+    routeData.qa.checksums?.output_file_sha256, contract.checksums.output_file_sha256,
+  );
+  compareContractField(
+    diagnostics, source.source_archive, '/sha256', routeData.archiveSha256,
+    routeData.qa.checksums?.source_archive_sha256,
+  );
+  compareContractField(
+    diagnostics, source.md_path, '/sha256', routeData.markdownSha256,
+    routeData.qa.checksums?.output_file_sha256,
+  );
+  const qaComparisons = [
+    ['source_id', routeData.qa.source_id, 'grade-6-science'],
+    ['source_archive', routeData.qa.source_archive, source.source_archive],
+    ['output_file', routeData.qa.output_file, source.md_path],
+    ['source_records', routeData.qa.source_records, contract.sourceAudit.source_records],
+    ['page_records_included', routeData.qa.page_records_included, contract.sourceAudit.canonical_records],
+    ['cover_detail_records_excluded', routeData.qa.cover_detail_records_excluded, contract.sourceAudit.cover_detail_records_excluded],
+    ['normalized_grade', routeData.qa.normalized_grade, contract.route.grade],
+    ['normalized_subject/en', routeData.qa.normalized_subject?.en, contract.route.subject],
+    ['normalized_subject/et', routeData.qa.normalized_subject?.et, contract.route.subject_et],
+  ];
+  for (const [field, actual, expected] of qaComparisons) {
+    compareContractField(diagnostics, source.qa_path, `/${field}`, actual, expected);
+  }
+  for (const [language, expected] of Object.entries(contract.languageCounts)) {
+    compareContractField(diagnostics, source.qa_path, `/languages/${language}`, routeData.qa.languages?.[language], expected);
+  }
+  compareContractField(diagnostics, source.qa_path, '/languages', Object.keys(routeData.qa.languages ?? {}).length, 2);
+  compareContractField(diagnostics, source.qa_path, '/grades/6', routeData.qa.grades?.['6'], contract.sourceAudit.canonical_records);
+  compareContractField(diagnostics, source.qa_path, '/grades', Object.keys(routeData.qa.grades ?? {}).length, 1);
+
+  const expectedBooks = new Map(contract.books.map((book) => [book.book_id, book]));
+  const archiveBooks = new Map((routeData.archiveIndex.books ?? []).map((book) => [book.id, book]));
+  const archiveBookIds = routeData.archiveRecords.map((record) => record.book_id);
+  const canonicalBookIds = routeData.records.map((record) => record.book_id);
+  for (const bookId of new Set([...archiveBookIds, ...canonicalBookIds])) {
+    if (!expectedBooks.has(bookId)) diagnostics.push(makeDiagnostic('error', source.source_archive, '/books', `foreign or unknown book ID ${bookId}`));
+  }
+  for (const [index, record] of routeData.archiveRecords.entries()) {
+    const expectedBook = expectedBooks.get(record.book_id);
+    if (!expectedBook) continue;
+    const expectedArchiveGrade = expectedBook.language === 'ru' ? 5 : 6;
+    const comparisons = [
+      ['grade', record.grade, expectedArchiveGrade],
+      ['subject_en', record.subject_en, contract.route.subject],
+      ['subject_et', record.subject_et, contract.route.subject_et],
+      ['language', record.language, expectedBook.language],
+      ['publisher', record.publisher, expectedBook.publisher],
+    ];
+    for (const [field, actual, expected] of comparisons) {
+      if (actual !== expected) diagnostics.push(makeDiagnostic('error', source.source_archive, `/opiq_lookup.jsonl/${index}/${field}`, `expected ${expected}, found ${actual}`));
+    }
+  }
+  compareContractField(diagnostics, source.source_archive, '/recordCount', routeData.archiveIndex.recordCount, contract.sourceAudit.source_records);
+  compareContractField(diagnostics, source.source_archive, '/books', archiveBooks.size, contract.sourceAudit.source_books);
+  compareContractField(diagnostics, source.md_path, '/records', routeData.records.length, contract.sourceAudit.canonical_records);
+
+  const archiveUrls = routeData.archiveRecords.map((record) => record.url);
+  const canonicalUrls = routeData.records.map((record) => record.url);
+  addDuplicateDiagnostics(diagnostics, archiveUrls, { file: source.source_archive, field: '/opiq_lookup.jsonl', label: 'source URL' });
+  addDuplicateDiagnostics(diagnostics, canonicalUrls, { file: source.md_path, field: '/', label: 'canonical URL' });
+  const coverRecords = routeData.archiveRecords.filter((record) => /^https:\/\/www\.opiq\.ee\/Kit\/Details\//u.test(record.url));
+  const pageRecords = routeData.archiveRecords.filter((record) => !/^https:\/\/www\.opiq\.ee\/Kit\/Details\//u.test(record.url));
+  compareContractField(diagnostics, source.source_archive, '/cover_records', coverRecords.length, contract.sourceAudit.cover_detail_records_excluded);
+  compareContractField(diagnostics, source.source_archive, '/page_records', pageRecords.length, contract.sourceAudit.canonical_records);
+  const canonicalByUrl = new Map(routeData.records.map((record) => [record.url, record]));
+  const sourcePageByUrl = new Map(pageRecords.map((record) => [record.url, record]));
+  for (const url of new Set([...canonicalByUrl.keys(), ...sourcePageByUrl.keys()])) {
+    const canonical = canonicalByUrl.get(url);
+    const archiveRecord = sourcePageByUrl.get(url);
+    if (!canonical || !archiveRecord) {
+      diagnostics.push(makeDiagnostic('error', source.md_path, '/', `archive and canonical URL sets disagree for ${url}`));
+      continue;
+    }
+    const comparisons = [
+      ['book_id', canonical.book_id, archiveRecord.book_id],
+      ['title', normalizeText(canonical.title), normalizeText(archiveRecord.title)],
+      ['language', canonical.language, archiveRecord.language],
+      ['grade', canonical.class, contract.route.grade],
+      ['subject', canonical.subject.en, contract.route.subject],
+      ['subject_et', canonical.subject.et, contract.route.subject_et],
+    ];
+    for (const [field, actual, expected] of comparisons) {
+      if (actual !== expected) diagnostics.push(makeDiagnostic('error', source.md_path, url, `${field}: expected ${expected}, found ${actual}`));
+    }
+  }
+
+  const canonicalCounts = countBy(routeData.records, 'book_id');
+  const sourceCounts = countBy(routeData.archiveRecords, 'book_id');
+  const canonicalLanguageCounts = countBy(routeData.records, 'language');
+  for (const [language, expected] of Object.entries(contract.languageCounts)) {
+    compareContractField(diagnostics, source.md_path, `/languages/${language}`, canonicalLanguageCounts.get(language) ?? 0, expected);
+  }
+  compareContractField(diagnostics, source.qa_path, '/books', Object.keys(routeData.qa.books ?? {}).length, contract.books.length);
+  for (const expected of contract.books) {
+    compareContractField(diagnostics, source.qa_path, `/books/${expected.book_id}`, routeData.qa.books?.[expected.book_id], expected.canonical_record_count);
+    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/source_records`, sourceCounts.get(expected.book_id) ?? 0, expected.source_record_count);
+    compareContractField(diagnostics, source.md_path, `/books/${expected.book_id}/canonical_records`, canonicalCounts.get(expected.book_id) ?? 0, expected.canonical_record_count);
+    const archiveBook = archiveBooks.get(expected.book_id);
+    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/language`, archiveBook?.language, expected.language);
+    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/publisher`, archiveBook?.publisher, expected.publisher);
+    const covers = coverRecords.filter((record) => record.book_id === expected.book_id);
+    compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/cover_records`, covers.length, 1);
+    if (covers[0]) {
+      compareContractField(diagnostics, source.source_archive, `/books/${expected.book_id}/kit_url`, covers[0].url, expected.kit_url);
+      compareContractField(
+        diagnostics, source.source_archive, `/books/${expected.book_id}/title`,
+        normalizeText(covers[0].title).replace(/\s+– Opiq$/u, ''), normalizeText(expected.title),
+      );
+    }
+  }
+
+  for (const artifact of artifacts) {
+    if (artifact.text !== serializeCurriculumYaml(artifact.data)) {
+      diagnostics.push(makeDiagnostic('error', artifact.file, '/', 'Grade 6 inventory YAML must use deterministic serialization'));
+    }
+    if (artifact.data.artifact_type === 'book_inventory') {
+      for (const [field, expected] of Object.entries(contract.sourceAudit)) {
+        compareContractField(diagnostics, artifact.file, `/source_audit/${field}`, artifact.data.source_audit?.[field], expected);
+      }
+      const books = artifact.data.books ?? [];
+      compareContractField(diagnostics, artifact.file, '/books', books.length, contract.books.length);
+      const booksById = new Map(books.map((book) => [book.book_id, book]));
+      for (const expected of contract.books) {
+        const book = booksById.get(expected.book_id);
+        if (!book) continue;
+        for (const [field, expectedValue] of Object.entries(expected)) {
+          compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/${field}`, book[field], expectedValue);
+        }
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/programme_type`, book.programme_type, 'unknown');
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/programme_type_evidence/status`, book.programme_type_evidence?.status, 'ambiguous');
+        compareContractField(
+          diagnostics, artifact.file, `/books/${expected.book_id}/programme_type_evidence/source`,
+          book.programme_type_evidence?.source,
+          `${contract.route.source_archive}#opiq_lookup.jsonl (captured ${expected.kit_url})`,
+        );
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/programme_type_evidence/verified_on`, book.programme_type_evidence?.verified_on, '2026-08-01');
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/page_evidence`, book.page_evidence, 'page_records');
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/publisher_sequence/grade`, book.publisher_sequence?.grade, 6);
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/publisher_sequence/grade_allocation_basis`, book.publisher_sequence?.grade_allocation_basis, 'publisher_sequence');
+        compareContractField(diagnostics, artifact.file, `/books/${expected.book_id}/eligible_for_ordinary_course`, book.eligible_for_ordinary_course, false);
+      }
+    }
+    if (artifact.data.artifact_type === 'topic_inventory') {
+      compareContractField(diagnostics, artifact.file, '/map_id', artifact.data.map_id, 'grade-6-science-topic-inventory');
+      compareContractField(diagnostics, artifact.file, '/scope', artifact.data.scope, 'deduplicated_inventory_not_final_annual_sequence');
+      compareContractField(diagnostics, artifact.file, '/coverage_status', artifact.data.coverage_status, 'partial');
+      compareContractField(diagnostics, artifact.file, '/grade_allocation_basis', artifact.data.grade_allocation_basis, 'curated_course_sequence');
+      compareContractField(diagnostics, artifact.file, '/unavailable_page_evidence_book_ids', artifact.data.unavailable_page_evidence_book_ids?.length, 0);
+    }
+  }
+}
+
 function validateBookInventory(diagnostics, artifact, routeData) {
   if (!routeData) return;
   const inventory = artifact.data;
@@ -514,7 +806,7 @@ export function validatePageReferences(
   routeData,
   bookInventory,
   references = collectPageReferences(artifact),
-  { allowSimplifiedSelection = false } = {},
+  { allowSimplifiedSelection = false, allowAmbiguousProgrammeSelection = false } = {},
 ) {
   if (!routeData || !bookInventory) return;
   const booksById = new Map((bookInventory.books ?? []).map((book) => [book.book_id, book]));
@@ -551,7 +843,11 @@ export function validatePageReferences(
       if (book.page_evidence === 'cover_only') {
         diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/book_id`, `cover-only book ${book.book_id} cannot be used as page evidence`));
       }
-      if (ref.selected && book.programme_type_evidence?.status !== 'verified') {
+      if (
+        ref.selected
+        && book.programme_type_evidence?.status !== 'verified'
+        && !allowAmbiguousProgrammeSelection
+      ) {
         diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/programme_type`, `selected material requires verified programme-type evidence for ${book.book_id}`));
       }
     }
@@ -564,7 +860,7 @@ export function validatePageReferences(
     if (
       ref.selected
       && (
-        record.programme_type === 'unknown'
+        (record.programme_type === 'unknown' && !allowAmbiguousProgrammeSelection)
         || (record.programme_type === 'simplified_curriculum' && !allowSimplifiedSelection)
       )
     ) {
@@ -599,6 +895,11 @@ function validateTopicInventory(diagnostics, artifact, bookInventory) {
     }
     const rejectedIds = new Set((topic.rejected_records ?? []).map((record) => record.record_id));
     const declaredRejected = new Set(topic.deduplication?.rejected_record_ids ?? []);
+    for (const record of topic.selected_records ?? []) {
+      if (declaredRejected.has(record.record_id)) {
+        diagnostics.push(makeDiagnostic('error', artifact.file, `${field}/selected_records`, `selected record cannot also be rejected: ${record.record_id}`));
+      }
+    }
     if (
       rejectedIds.size !== declaredRejected.size
       || [...rejectedIds].some((id) => !declaredRejected.has(id))
@@ -792,13 +1093,20 @@ export function validateCurriculumMapRepository(context) {
   const courseArtifacts = [...bookArtifacts, ...topicArtifacts, ...unitArtifacts];
   const courseSourceIds = new Set(courseArtifacts.map((artifact) => artifact.data.canonical_route?.source_id).filter(Boolean));
   const artifactsForSource = (artifacts, sourceId) => artifacts.filter((artifact) => artifact.data.canonical_route?.source_id === sourceId);
+  const contractsByArtifact = new Map(courseArtifacts.map((artifact) => [artifact, validateCourseArtifactContract(diagnostics, artifact)]));
   for (const sourceId of courseSourceIds) {
     const sourceBooks = artifactsForSource(bookArtifacts, sourceId);
     const sourceTopics = artifactsForSource(topicArtifacts, sourceId);
     const sourceUnits = artifactsForSource(unitArtifacts, sourceId);
     if (sourceBooks.length !== 1) diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `source ${sourceId} requires exactly one book_inventory, found ${sourceBooks.length}`));
     if (sourceTopics.length !== 1) diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `source ${sourceId} requires exactly one topic_inventory, found ${sourceTopics.length}`));
-    if (sourceUnits.length < 1) diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `source ${sourceId} requires at least one thematic_unit`));
+    const contract = courseRouteContracts.get(sourceId);
+    if (contract?.requireThematicUnit && sourceUnits.length < 1) {
+      diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `source ${sourceId} requires at least one thematic_unit`));
+    }
+    if (!contract?.thematicUnitPrefix && sourceUnits.length > 0) {
+      diagnostics.push(makeDiagnostic('error', 'curriculum-maps', '/', `source ${sourceId} does not yet permit thematic_unit artifacts`));
+    }
   }
 
   const bookBySource = new Map(bookArtifacts.map((artifact) => [artifact.data.canonical_route?.source_id, artifact]));
@@ -809,13 +1117,27 @@ export function validateCurriculumMapRepository(context) {
     if (artifact.data.artifact_type === 'book_inventory') {
       validateBookInventory(diagnostics, artifact, routeData);
     } else {
-      validatePageReferences(diagnostics, artifact, routeData, bookArtifact?.data);
+      const contract = contractsByArtifact.get(artifact);
+      validatePageReferences(diagnostics, artifact, routeData, bookArtifact?.data, undefined, {
+        allowAmbiguousProgrammeSelection: (
+          artifact.data.artifact_type === 'topic_inventory'
+          && contract?.allowAmbiguousTopicSelection === true
+        ),
+      });
     }
     if (artifact.data.artifact_type === 'topic_inventory') validateTopicInventory(diagnostics, artifact, bookArtifact?.data);
     if (artifact.data.artifact_type === 'thematic_unit') {
       validateThematicUnit(diagnostics, artifact, officialById.get(artifact.data.official_curriculum?.curriculum_map_id));
     }
   }
+
+  const grade6Artifacts = courseArtifacts.filter((artifact) => artifact.data.canonical_route?.source_id === 'grade-6-science');
+  validateGrade6ScienceRouteEvidence(
+    diagnostics,
+    grade6Artifacts,
+    context.routes['grade-6-science'],
+    courseRouteContracts.get('grade-6-science'),
+  );
 
   const errors = diagnostics.filter((diagnostic) => diagnostic.severity === 'error').length;
   const warnings = diagnostics.filter((diagnostic) => diagnostic.severity === 'warning').length;

@@ -1,0 +1,1756 @@
+schema_version: "1.0"
+artifact_type: topic_inventory
+map_id: grade-6-science-topic-inventory
+grade: 6
+subject: science
+subject_et: loodusõpetus
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-6-science
+  md_path: project-files/outputs/opiq_6klass_loodusopetus.md
+  source_archive: project-files/inputs/final-zips/opiq_6klass_elutingimused_soos_v2.zip
+  qa_path: project-files/outputs/opiq_6klass_loodusopetus_qa.json
+scope: deduplicated_inventory_not_final_annual_sequence
+coverage_status: partial
+grade_allocation_basis: curated_course_sequence
+unavailable_page_evidence_book_ids: []
+topics:
+  - topic_id: landforms-and-earth-materials
+    title_ru: Горные породы и формы рельефа
+    title_et: Kivimid ja pinnavormid
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: landforms-ru-core
+        canonical_url: https://www.opiq.ee/kit/18/chapter/799
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Земная кора состоит из горных пород
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/799
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian explanation of rocks and the structure of the Earth crust.
+      - record_id: landforms-et-map
+        canonical_url: https://www.opiq.ee/kit/8/chapter/296
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_est
+        title: Pinnamood ja pinnavormid kaardil
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/8/chapter/296
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds Estonian relief terminology and an explicit map-reading role.
+      - record_id: landforms-ru-estonia
+        canonical_url: https://www.opiq.ee/kit/18/chapter/801
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Крупнейшие формы рельефа Эстонии
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/801
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Connects the concept to major Estonian landforms and map practice in Russian.
+      - record_id: landforms-ru-review
+        canonical_url: https://www.opiq.ee/kit/18/chapter/804
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Повторение. Рельеф и формы рельефа
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/804
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies a distinct Russian revision and self-check role.
+    alternative_records:
+      - record_id: landforms-et-glacial
+        canonical_url: https://www.opiq.ee/kit/8/chapter/298
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_est
+        title: Mandrijää kujundas pinnamoe
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - bilingual_visual
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/8/chapter/298
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains glacial shaping as a useful Estonian extension rather than a second core explanation.
+    rejected_records:
+      - record_id: landforms-et-review-duplicate
+        canonical_url: https://www.opiq.ee/kit/8/chapter/300
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_est
+        title: Kordamine. Pinnamood ja pinnavormid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/8/chapter/300
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Represents the Estonian review page for the same publisher sequence.
+        rejection_reason: Rejected from the role set because the selected Russian review already fills revision and assessment while supporting the instruction language.
+    source_recommendations:
+      russian_explanation:
+        - landforms-ru-core
+        - landforms-ru-estonia
+      estonian_terminology_or_visuals:
+        - landforms-et-map
+        - landforms-et-glacial
+      practice:
+        - landforms-ru-estonia
+        - landforms-ru-review
+      practical_or_assessment:
+        - landforms-et-map
+        - landforms-ru-estonia
+        - landforms-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - landforms-et-review-duplicate
+    known_gaps:
+      - The route offers map practice but no separately identified field investigation for landforms.
+  - topic_id: soil-formation-and-properties
+    title_ru: Образование, состав и свойства почвы
+    title_et: Mulla teke, koostis ja omadused
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: soil-ru-core
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15287
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Состав почвы
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15287
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian core explanation of soil composition.
+      - record_id: soil-et-formation
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32151
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Muldade teke ja areng
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32151
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies current Estonian terminology and formation evidence.
+      - record_id: soil-et-pit
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32155
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Mullakaeve
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - experiment
+          - fieldwork
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32155
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Directly supports mullakaeve observation and interpretation needs from the supplementary teacher plan.
+      - record_id: soil-et-water
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32156
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Vee liikumine mullas
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - experiment
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32156
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct investigation of water movement through soil.
+      - record_id: soil-ru-review
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15295
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: В заключение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15295
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides Russian revision and checking after the practical evidence.
+    alternative_records:
+      - record_id: soil-ru-pit
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15292
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Почвенный разрез
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15292
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Offers Russian support for interpreting a soil profile when language scaffolding is needed.
+    rejected_records:
+      - record_id: soil-et-composition-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4721
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Mulla koostis
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4721
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Preserves the older Estonian counterpart as audited duplicate evidence.
+        rejection_reason: Rejected because current kit 580 supplies the same Estonian composition role without adding a distinct instructional function.
+    source_recommendations:
+      russian_explanation:
+        - soil-ru-core
+      estonian_terminology_or_visuals:
+        - soil-et-formation
+      practice:
+        - soil-ru-core
+        - soil-et-pit
+        - soil-et-water
+        - soil-ru-review
+        - soil-ru-pit
+      practical_or_assessment:
+        - soil-et-pit
+        - soil-et-water
+        - soil-ru-review
+        - soil-ru-pit
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - soil-et-composition-legacy
+    known_gaps:
+      - The pages support soil pits and water movement, but a separately labelled soil-air experiment is not confirmed by title-level inventory evidence.
+  - topic_id: garden-and-field-ecosystems
+    title_ru: Сад и поле как экосистемы
+    title_et: Aed ja põld elukeskkonnana
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: garden-field-ru-core
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15306
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Сад и поле как среда обитания
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15306
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian umbrella explanation for garden and field habitats.
+      - record_id: garden-et-community
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32160
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Aia elukooslus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32160
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds current Estonian terminology for a garden community.
+      - record_id: field-et-community
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32163
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Põllu elukooslus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32163
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct field-community and comparison role.
+      - record_id: garden-protection-ru
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15301
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Биологическая и химическая защита
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - data_interpretation
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15301
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supports comparison of biological and chemical plant protection in Russian.
+      - record_id: garden-field-ru-review
+        canonical_url: https://www.opiq.ee/kit/18/chapter/821
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Повторение. Сад и поле
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/821
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies an explicit Russian review for the combined garden-and-field group.
+    alternative_records:
+      - record_id: garden-et-organic-farming
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32165
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Mahepõllundus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32165
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains organic farming as a distinct extension for sustainable practice.
+    rejected_records:
+      - record_id: garden-field-et-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4729
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Aed ja põld elukeskkonnana
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4729
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian umbrella page for deduplication.
+        rejection_reason: Rejected because current Estonian kit 580 and direct Russian kit 269 already divide the core and terminology roles.
+    source_recommendations:
+      russian_explanation:
+        - garden-field-ru-core
+      estonian_terminology_or_visuals:
+        - garden-et-community
+        - field-et-community
+        - garden-et-organic-farming
+      practice:
+        - garden-field-ru-core
+        - field-et-community
+        - garden-protection-ru
+        - garden-field-ru-review
+        - garden-et-organic-farming
+      practical_or_assessment:
+        - field-et-community
+        - garden-protection-ru
+        - garden-field-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - garden-field-et-legacy
+    known_gaps:
+      - No page title explicitly confirms the teacher-plan requirement to construct a plan of a garden or field.
+  - topic_id: settlement-ecosystem
+    title_ru: Поселение и город как среда обитания
+    title_et: Asula ja linn elukeskkonnana
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: settlement-ru-map
+        canonical_url: https://www.opiq.ee/kit/18/chapter/822
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Изображение поселений на карте
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/822
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides Russian map evidence for representing settlements.
+      - record_id: settlement-ru-conditions
+        canonical_url: https://www.opiq.ee/kit/18/chapter/825
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Условия жизни в городе
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/825
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies the primary Russian explanation of urban living conditions.
+      - record_id: settlement-et-city-system
+        canonical_url: https://www.opiq.ee/kit/572/chapter/33395
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Kuidas linn toimib?
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/33395
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a current Estonian systems view of how a city functions.
+      - record_id: settlement-et-green-space
+        canonical_url: https://www.opiq.ee/kit/572/chapter/33401
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Linna rohealad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - fieldwork
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/33401
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supports observation of urban green space as a distinct fieldwork role.
+      - record_id: settlement-ru-review
+        canonical_url: https://www.opiq.ee/kit/18/chapter/829
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Повторение. Поселения
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/829
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds an explicit Russian review and check role.
+    alternative_records:
+      - record_id: settlement-et-future-city
+        canonical_url: https://www.opiq.ee/kit/572/chapter/33402
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Tulevikulinn
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/33402
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Keeps future-city design as a useful but optional extension.
+    rejected_records:
+      - record_id: settlement-et-conditions-legacy
+        canonical_url: https://www.opiq.ee/kit/8/chapter/321
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_est
+        title: Elutingimused linnas
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/8/chapter/321
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian living-conditions page.
+        rejection_reason: Rejected because the selected Russian core and current Estonian city-system page already cover the role with stronger language complementarity.
+    source_recommendations:
+      russian_explanation:
+        - settlement-ru-map
+        - settlement-ru-conditions
+      estonian_terminology_or_visuals:
+        - settlement-et-city-system
+        - settlement-et-green-space
+        - settlement-et-future-city
+      practice:
+        - settlement-ru-map
+        - settlement-ru-conditions
+        - settlement-et-green-space
+        - settlement-ru-review
+        - settlement-et-future-city
+      practical_or_assessment:
+        - settlement-ru-map
+        - settlement-et-green-space
+        - settlement-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - settlement-et-conditions-legacy
+    known_gaps:
+      - The route supports map and green-space observation, but it does not label a complete settlement field-study protocol.
+  - topic_id: forest-ecosystem
+    title_ru: Лесная экосистема
+    title_et: Mets elukeskkonnana
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: forest-ru-core
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15317
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Лес как среда обитания
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15317
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian core page for forest as a habitat.
+      - record_id: forest-et-community
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32171
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Mets kui elukooslus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32171
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds current Estonian ecosystem terminology and visuals.
+      - record_id: forest-et-use
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32178
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Metsade tähtsus ja kasutamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32178
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Separates economic and ecological forest-use evidence from the core explanation.
+      - record_id: forest-et-protection
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32179
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Metsade kaitse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32179
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct forest-protection decision role.
+      - record_id: forest-ru-review
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15318
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: В заключение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15318
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides Russian revision and checking for the forest group.
+    alternative_records:
+      - record_id: forest-ru-conditions-avita
+        canonical_url: https://www.opiq.ee/kit/18/chapter/830
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Условия жизни в лесу
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/830
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains an alternative Russian publisher perspective on forest conditions.
+    rejected_records:
+      - record_id: forest-et-community-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4742
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Mets kui elukooslus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4742
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian counterpart for deduplication.
+        rejection_reason: Rejected because current kit 580 provides the same Estonian community role without a distinct function.
+    source_recommendations:
+      russian_explanation:
+        - forest-ru-core
+        - forest-ru-conditions-avita
+      estonian_terminology_or_visuals:
+        - forest-et-community
+        - forest-et-use
+      practice:
+        - forest-ru-core
+        - forest-et-use
+        - forest-et-protection
+        - forest-ru-review
+      practical_or_assessment:
+        - forest-et-use
+        - forest-et-protection
+        - forest-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - forest-et-community-legacy
+    known_gaps:
+      - No canonical title explicitly identifies a complete metsavaatlus protocol, so fieldwork coverage remains partial.
+  - topic_id: bog-ecosystem
+    title_ru: Болото как экосистема
+    title_et: Soo elukeskkonnana
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_avita_rus
+    selected_records:
+      - record_id: bog-ru-core
+        canonical_url: https://www.opiq.ee/kit/18/chapter/840
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Условия жизни в болоте
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/840
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian explanation of bog living conditions.
+      - record_id: bog-et-current
+        canonical_url: https://www.opiq.ee/kit/572/chapter/31885
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Elutingimused soos
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/31885
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies the current Estonian core and terminology evidence protected by the representative route regression.
+      - record_id: bog-et-development
+        canonical_url: https://www.opiq.ee/kit/572/chapter/31887
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Soo areng
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/31887
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct sequence and data-interpretation role for bog development.
+      - record_id: bog-et-restoration
+        canonical_url: https://www.opiq.ee/kit/572/chapter/31891
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Soode taastamine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/31891
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds restoration and protection decisions rather than another ecosystem explanation.
+      - record_id: bog-ru-review
+        canonical_url: https://www.opiq.ee/kit/18/chapter/847
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Повторение. Болото
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/847
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides an explicit Russian review for the bog group.
+    alternative_records:
+      - record_id: bog-et-protected-areas
+        canonical_url: https://www.opiq.ee/kit/572/chapter/31892
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Sood ja soo­kaitsealad Eestis
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - map_skill
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/31892
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains protected-area evidence as an optional geographic extension.
+    rejected_records:
+      - record_id: bog-et-core-legacy
+        canonical_url: https://www.opiq.ee/kit/8/chapter/336
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_est
+        title: Elutingimused soos
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/8/chapter/336
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian conditions page.
+        rejection_reason: Rejected because kit 572 provides the current Estonian core while the Russian page provides the instruction-language explanation.
+    source_recommendations:
+      russian_explanation:
+        - bog-ru-core
+      estonian_terminology_or_visuals:
+        - bog-et-current
+        - bog-et-development
+        - bog-et-protected-areas
+      practice:
+        - bog-ru-core
+        - bog-et-development
+        - bog-et-restoration
+        - bog-ru-review
+      practical_or_assessment:
+        - bog-et-development
+        - bog-et-restoration
+        - bog-ru-review
+        - bog-et-protected-areas
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - bog-et-core-legacy
+    known_gaps:
+      - The representative known-topic regression protects route identity only and does not establish complete bog coverage or official Grade 6 allocation.
+  - topic_id: air-properties-and-weather
+    title_ru: Свойства воздуха и погода
+    title_et: Õhu omadused ja ilm
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: air-ru-properties
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15324
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Свойства воздуха
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - experiment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15324
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides direct Russian evidence for air properties and investigations.
+      - record_id: air-et-properties
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32184
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Õhu omadused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32184
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds current Estonian terminology and a complementary experiment role.
+      - record_id: air-ru-humidity
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15329
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Сухой и влажный воздух
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15329
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies direct Russian evidence for dry and humid air.
+      - record_id: air-et-precipitation-measurement
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32190
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Sademed ja sademete mõõtmine
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - fieldwork
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32190
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Directly supports precipitation measurement and weather observation.
+      - record_id: air-ru-weather-research
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15338
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Погода как объект исследования
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - fieldwork
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15338
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds Russian scaffolding for weather as an investigation object.
+      - record_id: air-et-review
+        canonical_url: https://www.opiq.ee/kit/580/chapter/32193
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Kokkuvõte
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/32193
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides a current Estonian summary and checking role.
+    alternative_records:
+      - record_id: air-ru-forecast
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15334
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Прогноз погоды
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15334
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains weather forecasting as an optional application.
+    rejected_records:
+      - record_id: air-et-properties-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4758
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Õhu omadused
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - experiment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4758
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian air-properties page.
+        rejection_reason: Rejected because current kit 580 fills the same terminology and experiment role.
+    source_recommendations:
+      russian_explanation:
+        - air-ru-properties
+        - air-ru-humidity
+        - air-ru-forecast
+      estonian_terminology_or_visuals:
+        - air-et-properties
+      practice:
+        - air-ru-properties
+        - air-ru-humidity
+        - air-et-precipitation-measurement
+        - air-ru-weather-research
+        - air-et-review
+        - air-ru-forecast
+      practical_or_assessment:
+        - air-ru-properties
+        - air-et-properties
+        - air-ru-humidity
+        - air-et-precipitation-measurement
+        - air-ru-weather-research
+        - air-et-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: verified
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - air-et-properties-legacy
+    known_gaps:
+      - Humidity and precipitation are present, but the inventory does not claim every teacher-plan measurement procedure is fully specified.
+  - topic_id: baltic-sea-ecosystem
+    title_ru: Балтийское море как экосистема
+    title_et: Läänemeri elukeskkonnana
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: baltic-ru-conditions
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15339
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Вода Балтийского моря. Условия жизни в Балтийском море
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15339
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian core explanation of Baltic Sea living conditions.
+      - record_id: baltic-et-map
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33052
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Läänemere asend ja ümbritsevad riigid
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33052
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds current Estonian terminology and map evidence for location and surrounding countries.
+      - record_id: baltic-et-biota
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33055
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Vetikad Läänemere elustikus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - bilingual_visual
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33055
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct biota and visual role through Baltic algae.
+      - record_id: baltic-ru-community-protection
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15347
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Биотическое сообщество Балтийского моря. Защита моря
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15347
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Combines direct Russian community evidence with a protection decision role.
+      - record_id: baltic-et-review
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33060
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Kokkuvõte
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33060
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides current Estonian revision and checking.
+    alternative_records:
+      - record_id: baltic-ru-coast
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15342
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Побережье Балтийского моря
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - map_skill
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15342
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains coastal-form evidence as a useful optional extension.
+    rejected_records:
+      - record_id: baltic-et-conditions-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4773
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Läänemere vesi. Elutingimused Läänemeres
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4773
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian living-conditions page.
+        rejection_reason: Rejected because the Russian core and current Estonian map page already divide explanation and terminology roles.
+    source_recommendations:
+      russian_explanation:
+        - baltic-ru-conditions
+        - baltic-ru-community-protection
+        - baltic-ru-coast
+      estonian_terminology_or_visuals:
+        - baltic-et-map
+        - baltic-et-biota
+      practice:
+        - baltic-ru-conditions
+        - baltic-et-biota
+        - baltic-ru-community-protection
+        - baltic-et-review
+      practical_or_assessment:
+        - baltic-et-map
+        - baltic-ru-community-protection
+        - baltic-et-review
+        - baltic-ru-coast
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - baltic-et-conditions-legacy
+    known_gaps:
+      - Biota and protection are represented, but no canonical title proves a complete field investigation of the Baltic coast.
+  - topic_id: estonian-habitats
+    title_ru: Сравнение сред обитания Эстонии
+    title_et: Eesti elukeskkondade võrdlus
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: habitats-ru-core
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15353
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Разные среды обитания в Эстонии
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15353
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian umbrella for comparing Estonian habitats.
+      - record_id: habitats-et-core
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4783
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Elukeskkonnad Eestis
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4783
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supplies the exact Estonian umbrella page retained only in the older Koolibri edition.
+      - record_id: habitats-ru-food-relations
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15351
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Пищевые отношения в экосистеме
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15351
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds Russian ecosystem-comparison evidence through food relations.
+      - record_id: habitats-et-meadow
+        canonical_url: https://www.opiq.ee/kit/572/chapter/33294
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Niit kui Eesti kõige liigi­rikkam kooslus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - bilingual_visual
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/33294
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct current Estonian meadow case rather than repeating the umbrella.
+      - record_id: habitats-et-nature-diary
+        canonical_url: https://www.opiq.ee/kit/572/chapter/33393
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Looduspäevik
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - fieldwork
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/33393
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides a route-specific observation and recording role for future habitat comparisons.
+      - record_id: habitats-ru-review
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15354
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: В заключение
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15354
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides an explicit Russian review for the comparison group.
+    alternative_records:
+      - record_id: habitats-et-biodiversity
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4784
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Eesti looduse elurikkus
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4784
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains Estonian biodiversity evidence for deeper comparison.
+    rejected_records:
+      - record_id: habitats-et-food-relations-duplicate
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4785
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Toitumissuhted ja ainete ringkäik ökosüsteemis
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4785
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the Estonian publisher counterpart to the selected Russian food-relations page.
+        rejection_reason: Rejected from the required role set because the direct Russian page already provides the comparison explanation; the Estonian umbrella remains selected for terminology.
+    source_recommendations:
+      russian_explanation:
+        - habitats-ru-core
+        - habitats-ru-food-relations
+      estonian_terminology_or_visuals:
+        - habitats-et-core
+        - habitats-et-meadow
+        - habitats-et-biodiversity
+      practice:
+        - habitats-ru-core
+        - habitats-ru-food-relations
+        - habitats-et-nature-diary
+        - habitats-ru-review
+      practical_or_assessment:
+        - habitats-ru-food-relations
+        - habitats-et-nature-diary
+        - habitats-ru-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - habitats-et-food-relations-duplicate
+    known_gaps:
+      - The selected records support comparison cases but do not constitute a final annual comparison sequence across every Estonian habitat.
+  - topic_id: estonian-natural-resources
+    title_ru: Природные ресурсы Эстонии
+    title_et: Eesti loodusvarad
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: resources-ru-core
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15355
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Природные ресурсы Эстонии, их использование и защита
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15355
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian core on use and protection of Estonian natural resources.
+      - record_id: resources-et-renewable
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33062
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Taastuvad ja taastumatud loodusvarad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33062
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds current Estonian renewable and non-renewable resource terminology.
+      - record_id: resources-et-minerals
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33064
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Eesti maavarad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - map_skill
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33064
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct Estonian minerals and spatial-evidence role.
+      - record_id: resources-ru-impact
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15359
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Проблемы окружающей среды, связанные с использованием шахт и карьеров
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - practice_ru
+          - data_interpretation
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15359
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supports analysis of mining and quarry environmental problems in Russian.
+      - record_id: resources-et-review
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33067
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Kokkuvõte
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33067
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides current Estonian revision and checking.
+    alternative_records:
+      - record_id: resources-ru-avita
+        canonical_url: https://www.opiq.ee/kit/18/chapter/850
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Природные ресурсы Эстонии, их использование и охрана
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/850
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains an alternative Russian publisher treatment of use and protection.
+    rejected_records:
+      - record_id: resources-et-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4789
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Eesti loodusvarad, nende kasutamine ja kaitse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4789
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian use-and-protection page.
+        rejection_reason: Rejected because current kit 580 provides the same Estonian terminology role and Russian kit 269 provides the core explanation.
+    source_recommendations:
+      russian_explanation:
+        - resources-ru-core
+        - resources-ru-avita
+      estonian_terminology_or_visuals:
+        - resources-et-renewable
+        - resources-et-minerals
+      practice:
+        - resources-ru-core
+        - resources-ru-impact
+        - resources-et-review
+        - resources-ru-avita
+      practical_or_assessment:
+        - resources-et-renewable
+        - resources-et-minerals
+        - resources-ru-impact
+        - resources-et-review
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - resources-et-legacy
+    known_gaps:
+      - Resource-use cases are present, but the inventory makes no official completeness claim for all Estonian resources or impacts.
+  - topic_id: nature-and-environmental-protection
+    title_ru: Охрана природы и окружающей среды в Эстонии
+    title_et: Loodus- ja keskkonnakaitse Eestis
+    coverage_status: partial
+    grade_allocation_basis: curated_course_sequence
+    books_covering:
+      - 5k_loodusõpetus_avita_2025_est
+      - 5k_loodusõpetus_avita_est
+      - 5k_loodusõpetus_koolibri_2025_est
+      - 5k_loodusõpetus_koolibri_est
+      - 5k_loodusõpetus_avita_rus
+      - 5k_loodusõpetus_koolibri_rus
+    selected_records:
+      - record_id: protection-ru-core
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15368
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Охрана природы и окружающей среды в Эстонии
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15368
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides the direct Russian umbrella explanation of nature and environmental protection.
+      - record_id: protection-et-pollution
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33071
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Keskkonna saastumine ja keskkonnakaitse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33071
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds current Estonian pollution and protection terminology.
+      - record_id: protection-et-protected-areas
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33072
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Looduskaitse Eestis. Kaitsealad
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - map_skill
+          - practice_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33072
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds a distinct protected-area and map role.
+      - record_id: protection-ru-human-impact
+        canonical_url: https://www.opiq.ee/kit/269/chapter/15366
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_rus
+        title: Изменение природной среды в результате человеческой деятельности
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - practice_ru
+          - data_interpretation
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/269/chapter/15366
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Supports analysis of a concrete human-impact case in Russian.
+      - record_id: protection-et-everyone
+        canonical_url: https://www.opiq.ee/kit/572/chapter/33301
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_2025_est
+        title: Igaühe looduskaitse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - practice_et
+          - oral_answer_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/572/chapter/33301
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Adds an individual-action and oral Estonian support role.
+      - record_id: protection-et-review
+        canonical_url: https://www.opiq.ee/kit/580/chapter/33076
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_2025_est
+        title: Kokkuvõte
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - practice_et
+          - revision
+          - assessment
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/580/chapter/33076
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Provides current Estonian revision and checking.
+    alternative_records:
+      - record_id: protection-ru-national-parks
+        canonical_url: https://www.opiq.ee/kit/18/chapter/855
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_avita_rus
+        title: Национальные парки Эстонии
+        language: ru
+        programme_type: unknown
+        instructional_roles:
+          - core_explanation_ru
+          - map_skill
+          - optional_extension
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/18/chapter/855
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Retains national parks as an optional Russian case study.
+    rejected_records:
+      - record_id: protection-et-pollution-legacy
+        canonical_url: https://www.opiq.ee/kit/98/chapter/4795
+        canonical_source_id: grade-6-science
+        book_id: 5k_loodusõpetus_koolibri_est
+        title: Keskkonna saastumine ja keskkonnakaitse
+        language: et
+        programme_type: unknown
+        instructional_roles:
+          - core_source_et
+          - terminology_et
+        provenance:
+          category: opiq_textbook
+          source_reference: project-files/outputs/opiq_6klass_loodusopetus.md / https://www.opiq.ee/kit/98/chapter/4795
+          notes: Canonical exact-route Grade 6 page; committed evidence does not verify programme type.
+        selection_rationale: Records the older Estonian pollution page.
+        rejection_reason: Rejected because current kit 580 fills the same terminology and evidence role.
+    source_recommendations:
+      russian_explanation:
+        - protection-ru-core
+        - protection-ru-human-impact
+        - protection-ru-national-parks
+      estonian_terminology_or_visuals:
+        - protection-et-pollution
+        - protection-et-protected-areas
+        - protection-et-everyone
+      practice:
+        - protection-ru-core
+        - protection-et-protected-areas
+        - protection-ru-human-impact
+        - protection-et-everyone
+        - protection-et-review
+      practical_or_assessment:
+        - protection-et-pollution
+        - protection-et-protected-areas
+        - protection-ru-human-impact
+        - protection-et-review
+        - protection-ru-national-parks
+    availability:
+      russian: verified
+      estonian: verified
+      practical: partial
+      revision: verified
+      assessment: partial
+    deduplication:
+      decision: select_by_role
+      rationale: Selected records divide Russian explanation, Estonian terminology or visuals, and distinct practical, revision, or assessment roles; overlapping editions remain alternatives or explicit rejections.
+      rejected_record_ids:
+        - protection-et-pollution-legacy
+    known_gaps:
+      - Protected areas and human impact are represented, but no single page proves a complete local case-study or fieldwork protocol.
+known_gaps:
+  - This evidence registry is not a final annual sequence and does not map the 101 teacher-work-plan rows.
+  - Programme type remains ambiguous for all six books, so this registry does not authorize ordinary default-course use.
+  - The supplementary teacher plan informs terminology and role checks only; it is not canonical Opiq evidence or proof of official completeness.
+  - No live catalogue completeness check or official exact-grade curriculum allocation is claimed.

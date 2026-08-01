@@ -21,6 +21,23 @@ function artifact(repository, type) {
   return found.data;
 }
 
+function routeArtifact(repository, type, sourceId = 'grade-6-science') {
+  const found = repository.artifacts.find((candidate) => (
+    candidate.data.artifact_type === type
+    && candidate.data.canonical_route?.source_id === sourceId
+  ));
+  assert.ok(found, `missing ${sourceId} ${type} fixture`);
+  return found;
+}
+
+function grade6Topic(repository, topicId = 'soil-formation-and-properties') {
+  const topic = routeArtifact(repository, 'topic_inventory').data.topics.find(
+    (candidate) => candidate.topic_id === topicId,
+  );
+  assert.ok(topic, `missing Grade 6 topic ${topicId}`);
+  return topic;
+}
+
 function errors(repository) {
   return validateCurriculumMapRepository(repository).diagnostics.filter((diagnostic) => diagnostic.severity === 'error');
 }
@@ -176,4 +193,232 @@ test('cover-only book cannot be used as page evidence', () => {
   record.title = 'Природо­ведение. 5 класс – Opiq';
   record.language = 'ru';
   assertFailsWith(repository, /cover-only book .* cannot be used as page evidence/u);
+});
+
+test('Grade 6 route evidence inventory passes with exact accounting', () => {
+  const repository = cloneRepository();
+  const books = routeArtifact(repository, 'book_inventory').data;
+  const topics = routeArtifact(repository, 'topic_inventory').data;
+  assert.deepEqual(books.source_audit, {
+    source_records: 442,
+    canonical_records: 436,
+    cover_detail_records_excluded: 6,
+    source_books: 6,
+    books_with_page_records: 6,
+    notes: books.source_audit.notes,
+  });
+  assert.equal(books.books.reduce((sum, book) => sum + book.canonical_record_count, 0), 436);
+  assert.equal(topics.topics.length, 11);
+  assert.equal(topics.scope, 'deduplicated_inventory_not_final_annual_sequence');
+  assert.deepEqual(errors(repository), []);
+});
+
+test('Grade 6 course artifacts are fixed to registered route-scoped paths', () => {
+  for (const [field, value, pattern] of [
+    ['source_id', 'grade-5-science', /expected topic_inventory at curriculum-maps\/grade-5-science/u],
+    ['source_id', 'grade-7-science', /course artifacts are not registered for route grade-7-science/u],
+    ['md_path', 'project-files/outputs/opiq_5klass_loodusopetus.md', /canonical_route\/md_path.*expected project-files\/outputs\/opiq_6klass/u],
+    ['source_archive', 'project-files/inputs/final-zips/wrong.zip', /canonical_route\/source_archive.*expected project-files\/inputs\/final-zips\/opiq_6klass/u],
+    ['qa_path', 'project-files/outputs/wrong-qa.json', /canonical_route\/qa_path.*expected project-files\/outputs\/opiq_6klass/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'topic_inventory').data.canonical_route[field] = value;
+    assertFailsWith(repository, pattern);
+  }
+});
+
+test('Grade 6 manifest record counts and coverage status fail closed', () => {
+  for (const count of [435, 437]) {
+    const repository = cloneRepository();
+    repository.routes['grade-6-science'].source.record_count = count;
+    assertFailsWith(repository, new RegExp(`record_count expected 436, found ${count}`, 'u'));
+  }
+  const repository = cloneRepository();
+  repository.routes['grade-6-science'].source.coverage_status = 'verified';
+  assertFailsWith(repository, /coverage_status expected available_not_curriculum_verified, found verified/u);
+});
+
+test('Grade 6 QA checksum metadata and regular-file evidence are enforced', () => {
+  const checksumRepository = cloneRepository();
+  checksumRepository.routes['grade-6-science'].qa.checksums.source_archive_sha256 = '0'.repeat(64);
+  assertFailsWith(checksumRepository, /source_archive_sha256/u);
+
+  const fileRepository = cloneRepository();
+  fileRepository.routes['grade-6-science'].archiveIsRegularFile = false;
+  assertFailsWith(fileRepository, /source archive must be a regular file/u);
+});
+
+test('Grade 6 book set rejects missing, duplicate, and unknown IDs', () => {
+  const missing = cloneRepository();
+  routeArtifact(missing, 'book_inventory').data.books.pop();
+  assertFailsWith(missing, /archive book .* is missing from the audit/u);
+
+  const duplicate = cloneRepository();
+  const duplicateBooks = routeArtifact(duplicate, 'book_inventory').data.books;
+  duplicateBooks[1].book_id = duplicateBooks[0].book_id;
+  assertFailsWith(duplicate, /duplicate book ID/u);
+
+  const unknown = cloneRepository();
+  routeArtifact(unknown, 'book_inventory').data.books[0].book_id = 'unknown-grade-6-book';
+  assertFailsWith(unknown, /audited book unknown-grade-6-book is absent/u);
+});
+
+test('Grade 6 exact kit ID, language, and per-book counts are enforced', () => {
+  const mutations = [
+    ['kit_id', 999, /kit metadata does not match source URLs/u],
+    ['kit_url', 'https://www.opiq.ee/Kit/Details/8', /kit metadata does not match source URLs/u],
+    ['language', 'ru', /expected archive language et/u],
+    ['canonical_record_count', 55, /expected 56 canonical records/u],
+    ['source_record_count', 56, /expected 57 source records/u],
+  ];
+  for (const [field, value, pattern] of mutations) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory').data.books[0][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+});
+
+test('Grade 6 programme-type evidence is exact and remains ambiguous', () => {
+  const sourceRepository = cloneRepository();
+  routeArtifact(sourceRepository, 'book_inventory').data.books[0].programme_type_evidence.source = 'captured elsewhere';
+  assertFailsWith(sourceRepository, /programme_type_evidence\/source expected project-files\/inputs\/final-zips/u);
+
+  const statusRepository = cloneRepository();
+  routeArtifact(statusRepository, 'book_inventory').data.books[0].programme_type_evidence.status = 'verified';
+  assertFailsWith(statusRepository, /programme_type_evidence\/status expected ambiguous/u);
+});
+
+test('Grade 6 book totals, language totals, and source audit totals are enforced', () => {
+  const sumRepository = cloneRepository();
+  routeArtifact(sumRepository, 'book_inventory').data.books[5].canonical_record_count = 85;
+  assertFailsWith(sumRepository, /expected 86 canonical records/u);
+
+  const languageRepository = cloneRepository();
+  languageRepository.routes['grade-6-science'].qa.languages.et = 282;
+  assertFailsWith(languageRepository, /languages\/et expected 283/u);
+
+  const booksRepository = cloneRepository();
+  routeArtifact(booksRepository, 'book_inventory').data.source_audit.books_with_page_records = 5;
+  assertFailsWith(booksRepository, /books_with_page_records expected 6/u);
+
+  const coversRepository = cloneRepository();
+  routeArtifact(coversRepository, 'book_inventory').data.source_audit.cover_detail_records_excluded = 5;
+  assertFailsWith(coversRepository, /cover_detail_records_excluded expected 6/u);
+});
+
+test('Grade 6 archive-to-canonical URL and book ownership are enforced', () => {
+  const urlRepository = cloneRepository();
+  urlRepository.routes['grade-6-science'].archiveRecords[1].url = urlRepository.routes['grade-6-science'].archiveRecords[2].url;
+  assertFailsWith(urlRepository, /duplicate source URL/u);
+
+  const ownershipRepository = cloneRepository();
+  ownershipRepository.routes['grade-6-science'].records[0].book_id = '5k_loodusõpetus_avita_est';
+  assertFailsWith(ownershipRepository, /book_id: expected 5k_loodusõpetus_avita_2025_est, found 5k_loodusõpetus_avita_est/u);
+});
+
+test('Grade 6 unknown and foreign-route topic URLs fail', () => {
+  const unknown = cloneRepository();
+  grade6Topic(unknown).selected_records[0].canonical_url = 'https://www.opiq.ee/kit/269/chapter/999999';
+  assertFailsWith(unknown, /URL must occur exactly once/u);
+
+  const foreign = cloneRepository();
+  grade6Topic(foreign).selected_records[0].canonical_url = 'https://www.opiq.ee/kit/17/chapter/755';
+  assertFailsWith(foreign, /URL must occur exactly once/u);
+});
+
+test('Grade 6 topic record IDs and canonical URLs are globally unique', () => {
+  const ids = cloneRepository();
+  const idTopics = routeArtifact(ids, 'topic_inventory').data.topics;
+  idTopics[1].selected_records[0].record_id = idTopics[0].selected_records[0].record_id;
+  assertFailsWith(ids, /duplicate topic record ID/u);
+
+  const urls = cloneRepository();
+  const topic = grade6Topic(urls);
+  topic.alternative_records[0].canonical_url = topic.selected_records[0].canonical_url;
+  assertFailsWith(urls, /duplicate topic canonical URL/u);
+});
+
+test('Grade 6 topic record metadata must equal canonical evidence', () => {
+  for (const [field, value, pattern] of [
+    ['title', 'Wrong title', /title expected/u],
+    ['book_id', '5k_loodusõpetus_avita_rus', /book_id expected/u],
+    ['language', 'et', /language expected/u],
+    ['programme_type', 'ordinary', /programme_type expected unknown/u],
+  ]) {
+    const repository = cloneRepository();
+    grade6Topic(repository).selected_records[0][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+});
+
+test('Grade 6 source recommendations resolve only selected or alternative records', () => {
+  const repository = cloneRepository();
+  grade6Topic(repository).source_recommendations.practice.push('unknown-record');
+  assertFailsWith(repository, /unknown selected or alternative record ID unknown-record/u);
+});
+
+test('Grade 6 rejected records cannot be selected and require a rejection reason', () => {
+  const selectedRepository = cloneRepository();
+  const selectedTopic = grade6Topic(selectedRepository);
+  selectedTopic.deduplication.rejected_record_ids.push(selectedTopic.selected_records[0].record_id);
+  assertFailsWith(selectedRepository, /selected record cannot also be rejected/u);
+
+  const reasonRepository = cloneRepository();
+  delete grade6Topic(reasonRepository).rejected_records[0].rejection_reason;
+  assertFailsWith(reasonRepository, /missing required field rejection_reason|requires an explicit reason/u);
+});
+
+test('Grade 6 selected simplified material remains forbidden', () => {
+  const repository = cloneRepository();
+  grade6Topic(repository).selected_records[0].programme_type = 'simplified_curriculum';
+  assertFailsWith(repository, /cannot silently use simplified or unknown programme material/u);
+});
+
+test('Grade 6 topic schema rejects unknown roles, empty selections, and unknown fields', () => {
+  const roleRepository = cloneRepository();
+  grade6Topic(roleRepository).selected_records[0].instructional_roles = ['invented_role'];
+  assertFailsWith(roleRepository, /instructional_roles/u);
+
+  const emptyRepository = cloneRepository();
+  grade6Topic(emptyRepository).selected_records = [];
+  assertFailsWith(emptyRepository, /selected_records/u);
+
+  const fieldRepository = cloneRepository();
+  grade6Topic(fieldRepository).unsupported_claim = true;
+  assertFailsWith(fieldRepository, /unknown field unsupported_claim/u);
+});
+
+test('Grade 6 duplicate topic IDs fail', () => {
+  const repository = cloneRepository();
+  const topics = routeArtifact(repository, 'topic_inventory').data.topics;
+  topics[1].topic_id = topics[0].topic_id;
+  assertFailsWith(repository, /duplicate topic ID/u);
+});
+
+test('Grade 6 deterministic YAML serialization is enforced', () => {
+  const repository = cloneRepository();
+  routeArtifact(repository, 'topic_inventory').text += '\n';
+  assertFailsWith(repository, /must use deterministic serialization/u);
+});
+
+test('Grade 6 inventory cannot claim official or live-catalogue completeness', () => {
+  for (const field of ['official_curriculum_complete', 'live_catalogue_complete']) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'topic_inventory').data[field] = true;
+    assertFailsWith(repository, new RegExp(`unknown field ${field}`, 'u'));
+  }
+});
+
+test('Grade 6 teacher plan and publisher sequence cannot be relabelled canonical or official', () => {
+  const planRepository = cloneRepository();
+  routeArtifact(planRepository, 'topic_inventory').data.teacher_plan_is_canonical = true;
+  assertFailsWith(planRepository, /unknown field teacher_plan_is_canonical/u);
+
+  const publisherRepository = cloneRepository();
+  routeArtifact(publisherRepository, 'book_inventory').data.books[0].publisher_sequence.official_allocation = true;
+  assertFailsWith(publisherRepository, /unknown field official_allocation/u);
+
+  const allocationRepository = cloneRepository();
+  grade6Topic(allocationRepository).grade_allocation_basis = 'official_exact_grade';
+  assertFailsWith(allocationRepository, /grade_allocation_basis/u);
 });
