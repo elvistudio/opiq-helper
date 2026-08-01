@@ -135,6 +135,11 @@ test('teacher work-plan curriculum-map dependencies select the focused map job',
     'project-files/outputs/opiq_5klass_loodusopetus_qa.json',
     'curriculum-maps/grade-5-science/book-inventory.yaml',
     'curriculum-maps/grade-5-science/topic-inventory.yaml',
+    'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+    'project-files/outputs/opiq_6klass_loodusopetus.md',
+    'project-files/outputs/opiq_6klass_loodusopetus_qa.json',
+    'curriculum-maps/grade-6-science/book-inventory.yaml',
+    'curriculum-maps/grade-6-science/topic-inventory.yaml',
     'source-manifest.json',
   ]) {
     assert.equal(classifyChangedPaths([repositoryPath]).run_teacher_work_plan_maps, true);

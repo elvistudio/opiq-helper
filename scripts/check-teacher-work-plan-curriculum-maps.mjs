@@ -16,12 +16,13 @@ try {
     console.error(`Teacher work-plan curriculum map check failed: ${result.summary.errors} error(s).`);
     process.exitCode = 1;
   } else {
+    const grade5 = result.summary.per_artifact['grade-5-science'];
+    const grade6 = result.summary.per_artifact['grade-6-science'];
     console.log(
-      `Teacher work-plan curriculum map check passed: ${result.summary.artifacts} artifact, `
-      + `${result.summary.total_source_lesson_ranges} source ranges classified `
-      + `(${result.summary.matched_count} matched, ${result.summary.partial_count} partial, `
-      + `${result.summary.missing_count} missing, ${result.summary.ambiguous_count} ambiguous, `
-      + `${result.summary.outside_route_count} outside route).`,
+      `Teacher work-plan curriculum map check passed: ${result.summary.artifacts} artifacts; `
+      + `Grade 5 classified ${grade5.total_source_lesson_ranges} source ranges; `
+      + `Grade 6 classified ${grade6.total_source_lesson_ranges} source ranges; `
+      + `${result.summary.total_source_lesson_ranges} total classified ranges.`,
     );
   }
 } catch (error) {

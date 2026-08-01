@@ -123,19 +123,23 @@ test('Grade 6 extraction summary matches the visually verified source', () => {
   });
 });
 
-test('Grade 6 extraction remains byte-identical to origin/main', () => {
-  const expectedSha = '71cd69b85f20a50b0e847bb2bde9c2b8fd0c4744831d77991bb33bcbf663c033';
-  assert.equal(
-    crypto.createHash('sha256').update(grade6Baseline.artifactText).digest('hex'),
-    expectedSha,
-  );
+test('Grade 6 extraction changes only mapping_status from deferred to partial', () => {
+  assert.equal(grade6Baseline.artifact.route_context.mapping_status, 'partial');
+  assert.equal(grade6Baseline.artifact.completeness.canonical_opiq_mapping_complete, false);
   const fromMain = spawnSync(
     'git',
     ['show', 'origin/main:evaluations/teacher-work-plans/grade-6-science-extraction.json'],
     { cwd: repositoryRoot, encoding: null },
   );
   assert.equal(fromMain.status, 0, String(fromMain.stderr));
-  assert.equal(crypto.createHash('sha256').update(fromMain.stdout).digest('hex'), expectedSha);
+  assert.equal(
+    crypto.createHash('sha256').update(fromMain.stdout).digest('hex'),
+    '71cd69b85f20a50b0e847bb2bde9c2b8fd0c4744831d77991bb33bcbf663c033',
+  );
+  const fromMainArtifact = JSON.parse(fromMain.stdout.toString('utf8'));
+  const currentWithDeferredStatus = structuredClone(grade6Baseline.artifact);
+  currentWithDeferredStatus.route_context.mapping_status = 'deferred';
+  assert.deepEqual(currentWithDeferredStatus, fromMainArtifact);
 });
 
 test('Grade 7 geography extraction matches the visually verified source', () => {
@@ -434,11 +438,11 @@ test('Grade 6 lesson 105 is explicit, unresolved, and not assigned to a block', 
   );
 });
 
-test('Grade 6 route context is exact and canonical mapping stays deferred', () => {
+test('Grade 6 route context is exact and canonical mapping stays incomplete', () => {
   assert.deepEqual(grade6Baseline.artifact.route_context, {
     source_id: 'grade-6-science',
     md_path: 'project-files/outputs/opiq_6klass_loodusopetus.md',
-    mapping_status: 'deferred',
+    mapping_status: 'partial',
   });
   assert.equal(grade6Baseline.artifact.source.canonical, false);
   assert.equal(grade6Baseline.artifact.completeness.official_curriculum_complete, false);
@@ -1002,7 +1006,7 @@ test('unregistered production extraction files are rejected', () => {
   );
 });
 
-test('scope guard allows the Grade 5 mapping-phase support files', () => {
+test('scope guard allows the registered Grade 5 and Grade 6 mapping-phase support files', () => {
   assert.deepEqual(validateTeacherWorkPlanChangedPaths([
     'evaluations/teacher-work-plans/grade-5-science-extraction.json',
     'schemas/teacher-work-plan-extraction.schema.json',
@@ -1018,6 +1022,11 @@ test('scope guard allows the Grade 5 mapping-phase support files', () => {
     'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml',
     'curriculum-maps/grade-5-science/topic-inventory.yaml',
     'docs/audits/grade-5-science-teacher-work-plan-crosswalk.md',
+    'evaluations/teacher-work-plans/grade-6-science-extraction.json',
+    'curriculum-maps/grade-6-science/teacher-work-plan-crosswalk.yaml',
+    'curriculum-maps/grade-6-science/topic-inventory.yaml',
+    'docs/audits/grade-6-science-teacher-work-plan-crosswalk.md',
+    'docs/audits/grade-6-science-teacher-work-plan-extraction.md',
     '.github/workflows/validate-source-manifest.yml',
   ]), []);
 });
@@ -1053,10 +1062,9 @@ test('scope guard activates only for extraction content', () => {
   }
 });
 
-test('scope guard rejects protected paths and all three unmapped artifacts', () => {
+test('scope guard rejects protected paths and both unmapped Grade 7 artifacts', () => {
   const diagnostics = validateTeacherWorkPlanChangedPaths([
     'source-manifest.json',
-    'evaluations/teacher-work-plans/grade-6-science-extraction.json',
     'evaluations/teacher-work-plans/grade-7-geography-extraction.json',
     'evaluations/teacher-work-plans/grade-7-science-extraction.json',
     'docs/audits/grade-7-geography-teacher-work-plan-extraction.md',
@@ -1067,7 +1075,7 @@ test('scope guard rejects protected paths and all three unmapped artifacts', () 
     'lesson-plans/grade-7-geography/lesson-01.yaml',
     'teacher-packs/grade-7-geography/materials.yaml',
   ]);
-  assert.equal(diagnostics.length, 11);
+  assert.equal(diagnostics.length, 10);
 });
 
 test('changed-path collector reports repository changes without duplicates', async () => {

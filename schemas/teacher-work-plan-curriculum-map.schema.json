@@ -119,8 +119,18 @@
       "properties": {
         "book_inventory": { "$ref": "#/$defs/repositoryPath" },
         "topic_inventory": { "$ref": "#/$defs/repositoryPath" },
-        "official_curriculum_map": { "$ref": "#/$defs/repositoryPath" },
-        "annual_architecture": { "$ref": "#/$defs/repositoryPath" }
+        "official_curriculum_map": {
+          "anyOf": [
+            { "$ref": "#/$defs/repositoryPath" },
+            { "type": "null" }
+          ]
+        },
+        "annual_architecture": {
+          "anyOf": [
+            { "$ref": "#/$defs/repositoryPath" },
+            { "type": "null" }
+          ]
+        }
       }
     },
     "mappingScope": {
@@ -211,6 +221,12 @@
         "programme_type": {
           "enum": ["ordinary", "supplementary", "teacher_support", "simplified_curriculum", "unknown"]
         },
+        "programme_type_evidence_status": {
+          "enum": ["verified", "partial", "ambiguous"]
+        },
+        "default_course_eligibility": {
+          "enum": ["eligible", "ineligible", "unverified"]
+        },
         "instructional_roles": {
           "type": "array",
           "minItems": 1,
@@ -300,7 +316,15 @@
       ],
       "properties": {
         "mapping_id": { "$ref": "#/$defs/slug" },
-        "source_block_id": { "$ref": "#/$defs/slug" },
+        "source_record_kind": {
+          "enum": ["lesson_range", "unassigned_annual_slot"]
+        },
+        "source_block_id": {
+          "anyOf": [
+            { "$ref": "#/$defs/slug" },
+            { "type": "null" }
+          ]
+        },
         "lesson_start": { "type": "integer", "minimum": 1 },
         "lesson_end": { "type": "integer", "minimum": 1 },
         "source_pages": {
@@ -383,7 +407,10 @@
         "mappings_with_estonian_opiq_evidence": { "type": "integer", "minimum": 0 },
         "mappings_requiring_bridge": { "type": "integer", "minimum": 0 },
         "represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
-        "not_represented_topic_inventory_count": { "type": "integer", "minimum": 0 }
+        "not_represented_topic_inventory_count": { "type": "integer", "minimum": 0 },
+        "ordinary_programme_verified_match_count": { "type": "integer", "minimum": 0 },
+        "unknown_programme_match_count": { "type": "integer", "minimum": 0 },
+        "unassigned_annual_slot_count": { "type": "integer", "minimum": 0 }
       }
     },
     "completeness": {
@@ -403,7 +430,9 @@
         "canonical_opiq_mapping_complete": { "const": false },
         "official_curriculum_complete": { "const": false },
         "exact_grade_official_allocation_claimed": { "const": false },
-        "live_opiq_catalogue_complete": { "const": false }
+        "live_opiq_catalogue_complete": { "const": false },
+        "programme_type_verification_complete": { "const": false },
+        "default_course_selection_complete": { "const": false }
       }
     }
   }

@@ -71,7 +71,7 @@ export const EXTRACTION_CONTRACTS = Object.freeze({
     route: Object.freeze({
       source_id: 'grade-6-science',
       md_path: 'project-files/outputs/opiq_6klass_loodusopetus.md',
-      mapping_status: 'deferred',
+      mapping_status: 'partial',
     }),
     pageCount: 31,
     lessonStart: 1,
@@ -1230,8 +1230,7 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
     if (repositoryPath === 'source-manifest.json') {
       diagnostics.push(makeDiagnostic(repositoryPath, 'source-manifest.json must remain unchanged'));
     } else if (
-      repositoryPath === GRADE_6_PATH
-      || repositoryPath === GRADE_7_GEOGRAPHY_PATH
+      repositoryPath === GRADE_7_GEOGRAPHY_PATH
       || repositoryPath === GRADE_7_SCIENCE_PATH
     ) {
       diagnostics.push(makeDiagnostic(
@@ -1242,8 +1241,10 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
       repositoryPath.startsWith('curriculum-maps/')
       && repositoryPath !== 'curriculum-maps/grade-5-science/teacher-work-plan-crosswalk.yaml'
       && repositoryPath !== 'curriculum-maps/grade-5-science/topic-inventory.yaml'
+      && repositoryPath !== 'curriculum-maps/grade-6-science/teacher-work-plan-crosswalk.yaml'
+      && repositoryPath !== 'curriculum-maps/grade-6-science/topic-inventory.yaml'
     ) {
-      diagnostics.push(makeDiagnostic(repositoryPath, 'only the registered Grade 5 teacher work-plan crosswalk and its exact-route topic inventory dependency are in mapping scope'));
+      diagnostics.push(makeDiagnostic(repositoryPath, 'only registered Grade 5/6 teacher work-plan crosswalks and their exact-route topic inventory dependencies are in mapping scope'));
     } else if (repositoryPath.startsWith('project-files/inputs/originals/')) {
       diagnostics.push(makeDiagnostic(repositoryPath, 'committed original sources must remain unchanged'));
     } else if (repositoryPath.startsWith('project-files/outputs/')) {
@@ -1257,10 +1258,10 @@ export function validateTeacherWorkPlanChangedPaths(changedPaths) {
     } else {
       const gradeMatch = repositoryPath.match(/(?:^|\/)grade-(\d+)(?=$|[-/])/u);
       const grade = gradeMatch ? Number.parseInt(gradeMatch[1], 10) : null;
-      if (grade !== null && grade !== 5) {
+      if (grade !== null && ![5, 6].includes(grade)) {
         diagnostics.push(makeDiagnostic(
           repositoryPath,
-          'only Grade 5 mapping-phase artifacts are in scope',
+          'only Grade 5/6 mapping-phase artifacts are in scope',
         ));
       }
     }
