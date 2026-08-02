@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { before, test } from 'node:test';
 import {
   loadCurriculumMapRepository,
+  parseStrictCurriculumYaml,
   validateCurriculumMapRepository,
 } from './lib/curriculum-maps.mjs';
 
@@ -35,6 +36,14 @@ function grade6Topic(repository, topicId = 'soil-formation-and-properties') {
     (candidate) => candidate.topic_id === topicId,
   );
   assert.ok(topic, `missing Grade 6 topic ${topicId}`);
+  return topic;
+}
+
+function grade7GeographyTopic(repository, topicId = 'geography-introduction-and-research-methods') {
+  const topic = routeArtifact(repository, 'topic_inventory', 'grade-7-geography').data.topics.find(
+    (candidate) => candidate.topic_id === topicId,
+  );
+  assert.ok(topic, `missing Grade 7 geography topic ${topicId}`);
   return topic;
 }
 
@@ -421,4 +430,292 @@ test('Grade 6 teacher plan and publisher sequence cannot be relabelled canonical
   const allocationRepository = cloneRepository();
   grade6Topic(allocationRepository).grade_allocation_basis = 'official_exact_grade';
   assertFailsWith(allocationRepository, /grade_allocation_basis/u);
+});
+
+const grade7GeographyTopicIds = [
+  'geography-introduction-and-research-methods',
+  'earth-shape-size-continents-and-oceans',
+  'map-types-atlases-legends-and-generalization',
+  'scale-distance-directions-and-orientation',
+  'geographic-coordinates',
+  'digital-maps-gis-and-satellite-imagery',
+  'time-zones-and-date-line',
+  'earth-interior-and-plate-tectonics',
+  'earthquakes-volcanoes-and-tsunamis',
+  'rocks-sediments-and-rock-cycle',
+  'relief-landforms-and-elevation-mapping',
+  'mountains-plains-and-ocean-floor-relief',
+  'landform-change-weathering-erosion-and-human-impact',
+  'countries-peoples-and-cultural-diversity',
+  'population-distribution-change-migration-and-urbanization',
+];
+
+test('Grade 7 geography route evidence inventory passes exact source, language, book, and topic accounting', () => {
+  const repository = cloneRepository();
+  const route = repository.routes['grade-7-geography'];
+  const books = routeArtifact(repository, 'book_inventory', 'grade-7-geography').data;
+  const topics = routeArtifact(repository, 'topic_inventory', 'grade-7-geography').data;
+  assert.deepEqual(books.source_audit, {
+    source_records: 186,
+    canonical_records: 178,
+    cover_detail_records_excluded: 7,
+    administrative_records_excluded: 1,
+    source_books: 5,
+    books_with_page_records: 5,
+    notes: books.source_audit.notes,
+  });
+  assert.equal(186, 178 + 7 + 1);
+  assert.equal(route.records.length, 178);
+  assert.deepEqual(route.qa.languages, { et: 102, ru: 76 });
+  assert.equal(102 + 76, 178);
+  assert.deepEqual(route.qa.checksums, {
+    source_archive_sha256: '21d7d516cae1bf756827c6feb1a64a71b0ca85f0deabb6aac6a4732c363acd03',
+    output_file_sha256: 'f25b994c32493388ef1f9179e798e0173e9326f13669db9d5a4aa45d3d0d868d',
+  });
+  assert.deepEqual(books.books.map((book) => ({
+    book_id: book.book_id,
+    kit_id: book.kit_id,
+    title: book.title,
+    publisher: book.publisher,
+    language: book.language,
+    source_record_count: book.source_record_count,
+    canonical_record_count: book.canonical_record_count,
+  })), [
+    { book_id: '7k__geograafia_avita_est', kit_id: 543, title: 'Geograafia 7. klassile', publisher: 'Avita', language: 'et', source_record_count: 29, canonical_record_count: 28 },
+    { book_id: '7k__geograafia_koolibri_est', kit_id: 96, title: 'Geograafia 7. klassile', publisher: 'unknown', language: 'et', source_record_count: 38, canonical_record_count: 36 },
+    { book_id: '7k__geograafia_loodus_avita_est', kit_id: 2, title: 'Loodusgeograafia 7. klassile', publisher: 'Avita', language: 'et', source_record_count: 39, canonical_record_count: 38 },
+    { book_id: '7k__geograafia_koolibri_rus', kit_id: 301, title: 'География 7 класс', publisher: 'Koolibri', language: 'ru', source_record_count: 39, canonical_record_count: 37 },
+    { book_id: '7k__geograafia_avita_rus', kit_id: 19, title: 'География для 7 класса', publisher: 'Avita', language: 'ru', source_record_count: 41, canonical_record_count: 39 },
+  ]);
+  assert.equal(books.books.reduce((sum, book) => sum + book.canonical_record_count, 0), 178);
+  assert.deepEqual(topics.topics.map((topic) => topic.topic_id), grade7GeographyTopicIds);
+  assert.equal(topics.scope, 'deduplicated_inventory_not_final_annual_sequence');
+  assert.deepEqual(errors(repository), []);
+});
+
+test('Grade 7 geography topic records are globally unique and equal exact canonical metadata', () => {
+  const repository = cloneRepository();
+  const inventory = routeArtifact(repository, 'topic_inventory', 'grade-7-geography').data;
+  const route = repository.routes['grade-7-geography'];
+  const canonicalByUrl = new Map(route.records.map((record) => [record.url, record]));
+  const records = inventory.topics.flatMap((topic) => [
+    ...topic.selected_records,
+    ...topic.alternative_records,
+    ...topic.rejected_records,
+  ]);
+  assert.deepEqual({
+    selected: inventory.topics.reduce((sum, topic) => sum + topic.selected_records.length, 0),
+    alternative: inventory.topics.reduce((sum, topic) => sum + topic.alternative_records.length, 0),
+    rejected: inventory.topics.reduce((sum, topic) => sum + topic.rejected_records.length, 0),
+  }, { selected: 64, alternative: 15, rejected: 15 });
+  assert.equal(new Set(records.map((record) => record.record_id)).size, records.length);
+  assert.equal(new Set(records.map((record) => record.canonical_url)).size, records.length);
+  for (const record of records) {
+    const canonical = canonicalByUrl.get(record.canonical_url);
+    assert.ok(canonical, record.canonical_url);
+    assert.equal(record.canonical_source_id, 'grade-7-geography');
+    assert.equal(record.book_id, canonical.book_id);
+    assert.equal(record.title, canonical.title);
+    assert.equal(record.language, canonical.language);
+    assert.equal(record.programme_type, 'unknown');
+    assert.equal(canonical.class, 7);
+    assert.equal(canonical.subject.en, 'geography');
+    assert.equal(canonical.subject.et, 'geograafia');
+  }
+  assert.ok(inventory.topics.every((topic) => topic.selected_records.length > 0));
+  assert.deepEqual(errors(repository), []);
+});
+
+test('Grade 7 geography inventory registry requires exactly its two route-scoped artifacts', () => {
+  for (const type of ['book_inventory', 'topic_inventory']) {
+    const repository = cloneRepository();
+    repository.artifacts = repository.artifacts.filter((artifact) => !(
+      artifact.data.artifact_type === type
+      && artifact.data.canonical_route?.source_id === 'grade-7-geography'
+    ));
+    assertFailsWith(repository, new RegExp(`grade-7-geography requires exactly one ${type}|registered grade-7-geography route evidence was not loaded`, 'u'));
+  }
+
+  const extra = cloneRepository();
+  const duplicate = structuredClone(routeArtifact(extra, 'topic_inventory', 'grade-7-geography'));
+  duplicate.file = 'curriculum-maps/grade-7-geography/extra-topic-inventory.yaml';
+  duplicate.data.map_id = 'grade-7-geography-extra-topic-inventory';
+  extra.artifacts.push(duplicate);
+  assertFailsWith(extra, /requires exactly one topic_inventory, found 2|expected topic_inventory at curriculum-maps\/grade-7-geography/u);
+});
+
+test('Grade 7 geography route metadata, checksums, and status fail closed', () => {
+  for (const [field, value, pattern] of [
+    ['source_id', 'grade-7-science', /course artifacts are not registered for route grade-7-science|expected topic_inventory/u],
+    ['md_path', 'project-files/outputs/opiq_7klass_loodusopetus.md', /canonical_route\/md_path.*expected project-files\/outputs\/opiq_7klass_geograafia/u],
+    ['source_archive', 'project-files/inputs/final-zips/wrong.zip', /canonical_route\/source_archive.*expected project-files\/inputs\/final-zips\/opiq_7klass/u],
+    ['qa_path', 'project-files/outputs/wrong-qa.json', /canonical_route\/qa_path.*expected project-files\/outputs\/opiq_7klass_geograafia_qa/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'topic_inventory', 'grade-7-geography').data.canonical_route[field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  const countRepository = cloneRepository();
+  countRepository.routes['grade-7-geography'].source.record_count = 177;
+  assertFailsWith(countRepository, /record_count expected 178, found 177/u);
+
+  const statusRepository = cloneRepository();
+  statusRepository.routes['grade-7-geography'].source.coverage_status = 'verified';
+  assertFailsWith(statusRepository, /coverage_status expected available_not_curriculum_verified, found verified/u);
+
+  for (const field of ['source_archive_sha256', 'output_file_sha256']) {
+    const repository = cloneRepository();
+    repository.routes['grade-7-geography'].qa.checksums[field] = '0'.repeat(64);
+    assertFailsWith(repository, new RegExp(field, 'u'));
+  }
+});
+
+test('Grade 7 geography source accounting rejects every requested count mutation', () => {
+  for (const [field, value, pattern] of [
+    ['source_records', 185, /source_records.*expected 186/u],
+    ['administrative_records_excluded', 0, /administrative_records_excluded.*expected 1/u],
+    ['canonical_records', 177, /canonical_records.*expected 178/u],
+    ['cover_detail_records_excluded', 6, /cover_detail_records_excluded.*expected 7/u],
+    ['source_books', 4, /source_books.*expected 5/u],
+    ['books_with_page_records', 4, /books_with_page_records.*expected 5/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory', 'grade-7-geography').data.source_audit[field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  for (const [language, value] of [['et', 101], ['ru', 75]]) {
+    const repository = cloneRepository();
+    repository.routes['grade-7-geography'].qa.languages[language] = value;
+    assertFailsWith(repository, new RegExp(`languages/${language} expected`, 'u'));
+  }
+});
+
+test('Grade 7 geography book set and exact metadata reject missing, invented, and altered books', () => {
+  const missing = cloneRepository();
+  routeArtifact(missing, 'book_inventory', 'grade-7-geography').data.books.pop();
+  assertFailsWith(missing, /archive book .* is missing from the audit|expected 5, found 4/u);
+
+  const invented = cloneRepository();
+  const inventedBooks = routeArtifact(invented, 'book_inventory', 'grade-7-geography').data.books;
+  const sixth = structuredClone(inventedBooks[0]);
+  sixth.book_id = 'invented-grade-7-geography-book';
+  sixth.kit_id = 999;
+  sixth.kit_url = 'https://www.opiq.ee/Kit/Details/999';
+  inventedBooks.push(sixth);
+  assertFailsWith(invented, /audited book invented-grade-7-geography-book is absent|expected 5, found 6/u);
+
+  for (const [index, field, value, pattern] of [
+    [0, 'kit_id', 999, /kit metadata does not match source URLs|expected 543/u],
+    [0, 'title', 'Wrong title', /title.*expected Geograafia 7\. klassile/u],
+    [1, 'publisher', 'Koolibri', /publisher.*expected unknown/u],
+    [0, 'language', 'ru', /expected archive language et|language.*expected et/u],
+    [0, 'canonical_record_count', 27, /expected 28 canonical records|canonical_record_count.*expected 28/u],
+    [0, 'source_record_count', 28, /expected 29 source records|source_record_count.*expected 29/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory', 'grade-7-geography').data.books[index][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+});
+
+test('Grade 7 geography programme ambiguity and default eligibility cannot be promoted', () => {
+  for (const [field, value, pattern] of [
+    ['programme_type', 'ordinary', /programme_type.*expected unknown/u],
+    ['eligible_for_ordinary_course', true, /eligible_for_ordinary_course.*expected false/u],
+  ]) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'book_inventory', 'grade-7-geography').data.books[0][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+  const evidence = cloneRepository();
+  routeArtifact(evidence, 'book_inventory', 'grade-7-geography').data.books[0].programme_type_evidence.status = 'verified';
+  assertFailsWith(evidence, /programme_type_evidence\/status.*expected ambiguous/u);
+
+  const topicPromotion = cloneRepository();
+  grade7GeographyTopic(topicPromotion).selected_records[0].programme_type = 'ordinary';
+  assertFailsWith(topicPromotion, /programme_type expected unknown/u);
+});
+
+test('Grade 7 geography topic evidence rejects foreign, unknown, duplicate, and altered records', () => {
+  for (const [url, pattern] of [
+    ['https://www.opiq.ee/kit/546/chapter/30107', /URL must occur exactly once/u],
+    ['https://www.opiq.ee/kit/572/chapter/31885', /URL must occur exactly once/u],
+    ['https://www.opiq.ee/kit/301/chapter/999999', /URL must occur exactly once/u],
+  ]) {
+    const repository = cloneRepository();
+    grade7GeographyTopic(repository).selected_records[0].canonical_url = url;
+    assertFailsWith(repository, pattern);
+  }
+  for (const [field, value, pattern] of [
+    ['title', 'Wrong title', /title expected/u],
+    ['language', 'et', /language expected/u],
+    ['book_id', '7k__geograafia_avita_rus', /book_id expected/u],
+  ]) {
+    const repository = cloneRepository();
+    grade7GeographyTopic(repository).selected_records[0][field] = value;
+    assertFailsWith(repository, pattern);
+  }
+
+  const duplicateUrl = cloneRepository();
+  const firstTopic = grade7GeographyTopic(duplicateUrl);
+  const secondTopic = grade7GeographyTopic(duplicateUrl, grade7GeographyTopicIds[1]);
+  secondTopic.alternative_records[0].canonical_url = firstTopic.selected_records[0].canonical_url;
+  assertFailsWith(duplicateUrl, /duplicate topic inventory canonical URL/u);
+
+  const duplicateId = cloneRepository();
+  grade7GeographyTopic(duplicateId, grade7GeographyTopicIds[1]).selected_records[0].record_id = grade7GeographyTopic(duplicateId).selected_records[0].record_id;
+  assertFailsWith(duplicateId, /duplicate topic record ID/u);
+
+  const rejectedSelected = cloneRepository();
+  const rejectedTopic = grade7GeographyTopic(rejectedSelected);
+  rejectedTopic.selected_records[0] = structuredClone(rejectedTopic.rejected_records[0]);
+  assertFailsWith(rejectedSelected, /duplicate topic canonical URL|duplicate topic record ID/u);
+});
+
+test('Grade 7 geography stable topic registry rejects missing, duplicate, and unknown IDs', () => {
+  const missing = cloneRepository();
+  routeArtifact(missing, 'topic_inventory', 'grade-7-geography').data.topics.pop();
+  assertFailsWith(missing, /expected stable topic IDs in order|expected 15, found 14/u);
+
+  const duplicate = cloneRepository();
+  const duplicateTopics = routeArtifact(duplicate, 'topic_inventory', 'grade-7-geography').data.topics;
+  duplicateTopics[1].topic_id = duplicateTopics[0].topic_id;
+  assertFailsWith(duplicate, /duplicate topic ID|expected stable topic IDs/u);
+
+  const unknown = cloneRepository();
+  routeArtifact(unknown, 'topic_inventory', 'grade-7-geography').data.topics[0].topic_id = 'unknown-geography-topic';
+  assertFailsWith(unknown, /expected stable topic IDs/u);
+});
+
+test('Grade 7 geography rejects thematic units, completeness claims, and serialization drift', () => {
+  const thematic = cloneRepository();
+  const unit = structuredClone(thematic.artifacts.find((artifact) => artifact.data.artifact_type === 'thematic_unit'));
+  unit.file = 'curriculum-maps/grade-7-geography/unexpected-unit.yaml';
+  unit.data.grade = 7;
+  unit.data.subject = 'geography';
+  unit.data.subject_et = 'geograafia';
+  unit.data.canonical_route = structuredClone(routeArtifact(thematic, 'topic_inventory', 'grade-7-geography').data.canonical_route);
+  thematic.artifacts.push(unit);
+  assertFailsWith(thematic, /thematic units are not registered at this path for grade-7-geography|does not yet permit thematic_unit/u);
+
+  for (const field of ['official_curriculum_complete', 'live_catalogue_complete']) {
+    const repository = cloneRepository();
+    routeArtifact(repository, 'topic_inventory', 'grade-7-geography').data[field] = true;
+    assertFailsWith(repository, new RegExp(`unknown field ${field}`, 'u'));
+  }
+
+  const serialization = cloneRepository();
+  routeArtifact(serialization, 'topic_inventory', 'grade-7-geography').text += '\n';
+  assertFailsWith(serialization, /Grade 7 geography inventory YAML must use deterministic serialization/u);
+});
+
+test('course YAML rejects duplicate keys and aliases', () => {
+  assert.throws(
+    () => parseStrictCurriculumYaml('schema_version: "1.0"\nschema_version: "1.0"\n'),
+    /invalid YAML/u,
+  );
+  assert.throws(
+    () => parseStrictCurriculumYaml('schema_version: &version "1.0"\ncopy: *version\n'),
+    /[Aa]lias|Excessive/u,
+  );
 });

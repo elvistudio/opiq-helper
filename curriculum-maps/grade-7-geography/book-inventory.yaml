@@ -1,0 +1,215 @@
+schema_version: "1.0"
+artifact_type: book_inventory
+map_id: grade-7-geography-book-inventory
+grade: 7
+subject: geography
+subject_et: geograafia
+instruction_language: ru
+subject_support_language: et
+canonical_route:
+  source_id: grade-7-geography
+  md_path: project-files/outputs/opiq_7klass_geograafia.md
+  source_archive: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+  qa_path: project-files/outputs/opiq_7klass_geograafia_qa.json
+source_audit:
+  source_records: 186
+  canonical_records: 178
+  cover_detail_records_excluded: 7
+  administrative_records_excluded: 1
+  source_books: 5
+  books_with_page_records: 5
+  notes: "All 186 archive records were reconciled: seven captured Kit Details records (five unique kit URLs, with duplicate detail captures for kits 96 and 301) and one administrative Impressum record are excluded; all 178 remaining URLs match the canonical Markdown exactly."
+simplified_material_policy:
+  default_course_use: forbidden
+  explicit_opt_in_required: true
+  notes: Simplified-curriculum material is never a default source and requires explicit opt-in; this policy does not assert that any audited book is simplified.
+books:
+  - book_id: 7k__geograafia_avita_est
+    kit_id: 543
+    kit_url: https://www.opiq.ee/Kit/Details/543
+    title: Geograafia 7. klassile
+    publisher: Avita
+    language: et
+    source_record_count: 29
+    canonical_record_count: 28
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/543)
+      verified_on: 2026-08-02
+      notes: The committed archive, canonical records, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 7
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 7 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - map_skill
+      - digital_map
+      - data_interpretation
+      - revision
+      - assessment
+      - oral_answer_et
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-7-geography / kit 543 / project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 7 geography route; programme eligibility remains unresolved.
+  - book_id: 7k__geograafia_koolibri_est
+    kit_id: 96
+    kit_url: https://www.opiq.ee/Kit/Details/96
+    title: Geograafia 7. klassile
+    publisher: unknown
+    language: et
+    source_record_count: 38
+    canonical_record_count: 36
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/96)
+      verified_on: 2026-08-02
+      notes: The committed archive, canonical records, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 7
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 7 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - map_skill
+      - digital_map
+      - data_interpretation
+      - revision
+      - assessment
+      - oral_answer_et
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+      - The committed archive and canonical Markdown leave the publisher empty, so the inventory records publisher as unknown rather than inferring it from the book ID.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-7-geography / kit 96 / project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 7 geography route; programme eligibility remains unresolved.
+  - book_id: 7k__geograafia_loodus_avita_est
+    kit_id: 2
+    kit_url: https://www.opiq.ee/Kit/Details/2
+    title: Loodusgeograafia 7. klassile
+    publisher: Avita
+    language: et
+    source_record_count: 39
+    canonical_record_count: 38
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/2)
+      verified_on: 2026-08-02
+      notes: The committed archive, canonical records, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 7
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 7 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_source_et
+      - terminology_et
+      - bilingual_visual
+      - practice_et
+      - map_skill
+      - digital_map
+      - data_interpretation
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-7-geography / kit 2 / project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 7 geography route; programme eligibility remains unresolved.
+  - book_id: 7k__geograafia_koolibri_rus
+    kit_id: 301
+    kit_url: https://www.opiq.ee/Kit/Details/301
+    title: География 7 класс
+    publisher: Koolibri
+    language: ru
+    source_record_count: 39
+    canonical_record_count: 37
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/301)
+      verified_on: 2026-08-02
+      notes: The committed archive, canonical records, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 7
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 7 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_explanation_ru
+      - practice_ru
+      - bilingual_visual
+      - map_skill
+      - digital_map
+      - data_interpretation
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-7-geography / kit 301 / project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 7 geography route; programme eligibility remains unresolved.
+  - book_id: 7k__geograafia_avita_rus
+    kit_id: 19
+    kit_url: https://www.opiq.ee/Kit/Details/19
+    title: География для 7 класса
+    publisher: Avita
+    language: ru
+    source_record_count: 41
+    canonical_record_count: 39
+    page_evidence: page_records
+    programme_type: unknown
+    programme_type_evidence:
+      status: ambiguous
+      source: project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip#opiq_lookup.jsonl (captured https://www.opiq.ee/Kit/Details/19)
+      verified_on: 2026-08-02
+      notes: The committed archive, canonical records, and captured Kit Details record contain no explicit ordinary- or simplified-programme declaration; no live catalogue check was made.
+    publisher_sequence:
+      grade: 7
+      grade_allocation_basis: publisher_sequence
+      notes: The captured kit title labels this as Grade 7 publisher material; that label is not an official exact-grade curriculum allocation.
+    likely_roles:
+      - core_explanation_ru
+      - practice_ru
+      - bilingual_visual
+      - map_skill
+      - digital_map
+      - data_interpretation
+      - revision
+      - assessment
+      - optional_extension
+    eligible_for_ordinary_course: false
+    source_limitations:
+      - The committed evidence does not state whether this kit belongs to the ordinary or simplified programme.
+    provenance:
+      category: opiq_textbook
+      source_reference: grade-7-geography / kit 19 / project-files/inputs/final-zips/opiq_7klass_sissejuhatus_geograafiasse_v2.zip
+      notes: Committed Opiq textbook evidence from the exact Grade 7 geography route; programme eligibility remains unresolved.
+known_gaps:
+  - Programme type cannot be verified for any of the five books from committed evidence, so ordinary-course eligibility remains false.
+  - The publisher is unknown for 7k__geograafia_koolibri_est because the archive and canonical Markdown leave the publisher field empty.
+  - The archive records publisher sequence and route evidence, not official-curriculum completeness or official exact-grade allocation.
+  - No live Opiq catalogue completeness check was performed.

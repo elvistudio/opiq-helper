@@ -502,11 +502,19 @@ test('existing route-linked curriculum validation remains green', async () => {
       ['official_curriculum_map', 'book_inventory', 'topic_inventory', 'thematic_unit']
         .includes(artifact.data.artifact_type)
     )).length,
-    7,
+    9,
   );
   assert.equal(
     curriculumRepository.artifacts.filter((artifact) => (
       artifact.data.canonical_route?.source_id === 'grade-6-science'
+      && ['book_inventory', 'topic_inventory']
+        .includes(artifact.data.artifact_type)
+    )).length,
+    2,
+  );
+  assert.equal(
+    curriculumRepository.artifacts.filter((artifact) => (
+      artifact.data.canonical_route?.source_id === 'grade-7-geography'
       && ['book_inventory', 'topic_inventory']
         .includes(artifact.data.artifact_type)
     )).length,
